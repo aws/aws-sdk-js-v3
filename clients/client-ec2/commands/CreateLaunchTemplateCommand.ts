@@ -1,5 +1,6 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { CreateLaunchTemplateRequest, CreateLaunchTemplateResult } from "../models/models_0";
+import { CreateLaunchTemplateRequest } from "../models/models_0";
+import { CreateLaunchTemplateResult } from "../models/models_1";
 import {
   deserializeAws_ec2CreateLaunchTemplateCommand,
   serializeAws_ec2CreateLaunchTemplateCommand,

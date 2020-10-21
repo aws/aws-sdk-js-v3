@@ -235,15 +235,6 @@ export const serializeAws_restJson1DescribeIdentityUsageCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/identitypools/{IdentityPoolId}/identities/{IdentityId}";
-  if (input.IdentityPoolId !== undefined) {
-    const labelValue: string = input.IdentityPoolId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: IdentityPoolId.");
-    }
-    resolvedPath = resolvedPath.replace("{IdentityPoolId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: IdentityPoolId.");
-  }
   if (input.IdentityId !== undefined) {
     const labelValue: string = input.IdentityId;
     if (labelValue.length <= 0) {
@@ -252,6 +243,15 @@ export const serializeAws_restJson1DescribeIdentityUsageCommand = async (
     resolvedPath = resolvedPath.replace("{IdentityId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: IdentityId.");
+  }
+  if (input.IdentityPoolId !== undefined) {
+    const labelValue: string = input.IdentityPoolId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: IdentityPoolId.");
+    }
+    resolvedPath = resolvedPath.replace("{IdentityPoolId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: IdentityPoolId.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -434,15 +434,6 @@ export const serializeAws_restJson1ListRecordsCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/identitypools/{IdentityPoolId}/identities/{IdentityId}/datasets/{DatasetName}/records";
-  if (input.IdentityPoolId !== undefined) {
-    const labelValue: string = input.IdentityPoolId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: IdentityPoolId.");
-    }
-    resolvedPath = resolvedPath.replace("{IdentityPoolId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: IdentityPoolId.");
-  }
   if (input.IdentityId !== undefined) {
     const labelValue: string = input.IdentityId;
     if (labelValue.length <= 0) {
@@ -451,6 +442,15 @@ export const serializeAws_restJson1ListRecordsCommand = async (
     resolvedPath = resolvedPath.replace("{IdentityId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: IdentityId.");
+  }
+  if (input.IdentityPoolId !== undefined) {
+    const labelValue: string = input.IdentityPoolId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: IdentityPoolId.");
+    }
+    resolvedPath = resolvedPath.replace("{IdentityPoolId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: IdentityPoolId.");
   }
   if (input.DatasetName !== undefined) {
     const labelValue: string = input.DatasetName;
@@ -462,9 +462,9 @@ export const serializeAws_restJson1ListRecordsCommand = async (
     throw new Error("No value provided for input HTTP label: DatasetName.");
   }
   const query: any = {
-    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
-    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
     ...(input.LastSyncCount !== undefined && { lastSyncCount: input.LastSyncCount.toString() }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.SyncSessionToken !== undefined && { syncSessionToken: input.SyncSessionToken }),
   };
   let body: any;

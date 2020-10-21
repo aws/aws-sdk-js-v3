@@ -274,8 +274,8 @@ export const serializeAws_restJson1ListGroupsCommand = async (
   };
   let resolvedPath = "/groups-list";
   const query: any = {
-    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
     ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
   };
   let body: any;
   body = JSON.stringify({

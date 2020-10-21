@@ -176,7 +176,7 @@ export class DataSync extends DataSyncClient {
    *       agent in the AWS Region where your target locations (in Amazon S3 or Amazon EFS) reside. Your
    *       tasks are created in this AWS Region.</p>
    *          <p>You can activate the agent in a VPC (virtual private cloud) or provide the agent access to
-   *       a VPC endpoint so you can run tasks without going over the public Internet.</p>
+   *       a VPC endpoint so you can run tasks without going over the public internet.</p>
    *          <p>You can use an agent for more than one location. If a task uses multiple agents, all of
    *       them need to have status AVAILABLE for the task to run. If you use multiple agents for a
    *       source location, the status of all the agents must be AVAILABLE for the task to run. </p>
@@ -307,7 +307,8 @@ export class DataSync extends DataSyncClient {
   }
 
   /**
-   * <p>Creates an endpoint for a self-managed object storage bucket.</p>
+   * <p>Creates an endpoint for a self-managed object storage bucket. For more information
+   *       about self-managed object storage locations, see <a>create-object-location</a>.</p>
    */
   public createLocationObjectStorage(
     args: CreateLocationObjectStorageCommandInput,
@@ -340,15 +341,11 @@ export class DataSync extends DataSyncClient {
 
   /**
    * <p>Creates an endpoint for an Amazon S3 bucket.</p>
-   *          <p>For AWS DataSync to access a destination S3 bucket, it needs an AWS Identity and Access
-   *       Management (IAM) role that has the required permissions. You can set up the required
-   *       permissions by creating an IAM policy that grants the required permissions and attaching the
-   *       policy to the role. An example of such a policy is shown in the examples section.</p>
    *
    *
-   *          <p>For more information, see https://docs.aws.amazon.com/datasync/latest/userguide/working-with-locations.html#create-s3-location in the
-   *         <i>AWS DataSync User Guide.</i>
-   *          </p>
+   *          <p>For more information, see
+   *       https://docs.aws.amazon.com/datasync/latest/userguide/create-locations-cli.html#create-location-s3-cli
+   *       in the <i>AWS DataSync User Guide</i>.</p>
    */
   public createLocationS3(
     args: CreateLocationS3CommandInput,
@@ -424,7 +421,7 @@ export class DataSync extends DataSyncClient {
    *       transitions to the UNAVAILABLE status. If the status of the task remains in the CREATING
    *       status for more than a few minutes, it means that your agent might be having trouble mounting
    *       the source NFS file system. Check the task's ErrorCode and ErrorDetail. Mount issues are often
-   *       caused by either a misconfigured firewall or a mistyped NFS server host name.</p>
+   *       caused by either a misconfigured firewall or a mistyped NFS server hostname.</p>
    */
   public createTask(args: CreateTaskCommandInput, options?: __HttpHandlerOptions): Promise<CreateTaskCommandOutput>;
   public createTask(args: CreateTaskCommandInput, cb: (err: any, data?: CreateTaskCommandOutput) => void): void;
@@ -667,7 +664,8 @@ export class DataSync extends DataSyncClient {
   }
 
   /**
-   * <p>Returns metadata about a self-managed object storage server location.</p>
+   * <p>Returns metadata about a self-managed object storage server location. For more information
+   *       about self-managed object storage locations, see <a>create-object-location</a>.</p>
    */
   public describeLocationObjectStorage(
     args: DescribeLocationObjectStorageCommandInput,

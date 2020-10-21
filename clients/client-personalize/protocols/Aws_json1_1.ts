@@ -83,10 +83,12 @@ import {
   AutoMLConfig,
   AutoMLResult,
   BatchInferenceJob,
+  BatchInferenceJobConfig,
   BatchInferenceJobInput,
   BatchInferenceJobOutput,
   BatchInferenceJobSummary,
   Campaign,
+  CampaignConfig,
   CampaignSummary,
   CampaignUpdateSummary,
   CategoricalHyperParameterRange,
@@ -1559,6 +1561,14 @@ const deserializeAws_json1_1CreateSolutionVersionCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "LimitExceededException":
+    case "com.amazonaws.personalize#LimitExceededException":
+      response = {
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "ResourceInUseException":
     case "com.amazonaws.personalize#ResourceInUseException":
       response = {
@@ -1895,6 +1905,14 @@ const deserializeAws_json1_1DeleteFilterCommandError = async (
     case "com.amazonaws.personalize#InvalidInputException":
       response = {
         ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceInUseException":
+    case "com.amazonaws.personalize#ResourceInUseException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -3799,6 +3817,14 @@ const serializeAws_json1_1AutoMLConfig = (input: AutoMLConfig, context: __SerdeC
   };
 };
 
+const serializeAws_json1_1BatchInferenceJobConfig = (input: BatchInferenceJobConfig, context: __SerdeContext): any => {
+  return {
+    ...(input.itemExplorationConfig !== undefined && {
+      itemExplorationConfig: serializeAws_json1_1HyperParameters(input.itemExplorationConfig, context),
+    }),
+  };
+};
+
 const serializeAws_json1_1BatchInferenceJobInput = (input: BatchInferenceJobInput, context: __SerdeContext): any => {
   return {
     ...(input.s3DataSource !== undefined && {
@@ -3811,6 +3837,14 @@ const serializeAws_json1_1BatchInferenceJobOutput = (input: BatchInferenceJobOut
   return {
     ...(input.s3DataDestination !== undefined && {
       s3DataDestination: serializeAws_json1_1S3DataConfig(input.s3DataDestination, context),
+    }),
+  };
+};
+
+const serializeAws_json1_1CampaignConfig = (input: CampaignConfig, context: __SerdeContext): any => {
+  return {
+    ...(input.itemExplorationConfig !== undefined && {
+      itemExplorationConfig: serializeAws_json1_1HyperParameters(input.itemExplorationConfig, context),
     }),
   };
 };
@@ -3859,6 +3893,9 @@ const serializeAws_json1_1CreateBatchInferenceJobRequest = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.batchInferenceJobConfig !== undefined && {
+      batchInferenceJobConfig: serializeAws_json1_1BatchInferenceJobConfig(input.batchInferenceJobConfig, context),
+    }),
     ...(input.filterArn !== undefined && { filterArn: input.filterArn }),
     ...(input.jobInput !== undefined && {
       jobInput: serializeAws_json1_1BatchInferenceJobInput(input.jobInput, context),
@@ -3875,6 +3912,9 @@ const serializeAws_json1_1CreateBatchInferenceJobRequest = (
 
 const serializeAws_json1_1CreateCampaignRequest = (input: CreateCampaignRequest, context: __SerdeContext): any => {
   return {
+    ...(input.campaignConfig !== undefined && {
+      campaignConfig: serializeAws_json1_1CampaignConfig(input.campaignConfig, context),
+    }),
     ...(input.minProvisionedTPS !== undefined && { minProvisionedTPS: input.minProvisionedTPS }),
     ...(input.name !== undefined && { name: input.name }),
     ...(input.solutionVersionArn !== undefined && { solutionVersionArn: input.solutionVersionArn }),
@@ -4350,6 +4390,9 @@ const serializeAws_json1_1SolutionConfig = (input: SolutionConfig, context: __Se
 const serializeAws_json1_1UpdateCampaignRequest = (input: UpdateCampaignRequest, context: __SerdeContext): any => {
   return {
     ...(input.campaignArn !== undefined && { campaignArn: input.campaignArn }),
+    ...(input.campaignConfig !== undefined && {
+      campaignConfig: serializeAws_json1_1CampaignConfig(input.campaignConfig, context),
+    }),
     ...(input.minProvisionedTPS !== undefined && { minProvisionedTPS: input.minProvisionedTPS }),
     ...(input.solutionVersionArn !== undefined && { solutionVersionArn: input.solutionVersionArn }),
   };
@@ -4425,6 +4468,10 @@ const deserializeAws_json1_1BatchInferenceJob = (output: any, context: __SerdeCo
       output.batchInferenceJobArn !== undefined && output.batchInferenceJobArn !== null
         ? output.batchInferenceJobArn
         : undefined,
+    batchInferenceJobConfig:
+      output.batchInferenceJobConfig !== undefined && output.batchInferenceJobConfig !== null
+        ? deserializeAws_json1_1BatchInferenceJobConfig(output.batchInferenceJobConfig, context)
+        : undefined,
     creationDateTime:
       output.creationDateTime !== undefined && output.creationDateTime !== null
         ? new Date(Math.round(output.creationDateTime * 1000))
@@ -4452,6 +4499,18 @@ const deserializeAws_json1_1BatchInferenceJob = (output: any, context: __SerdeCo
         ? output.solutionVersionArn
         : undefined,
     status: output.status !== undefined && output.status !== null ? output.status : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1BatchInferenceJobConfig = (
+  output: any,
+  context: __SerdeContext
+): BatchInferenceJobConfig => {
+  return {
+    itemExplorationConfig:
+      output.itemExplorationConfig !== undefined && output.itemExplorationConfig !== null
+        ? deserializeAws_json1_1HyperParameters(output.itemExplorationConfig, context)
+        : undefined,
   } as any;
 };
 
@@ -4511,6 +4570,10 @@ const deserializeAws_json1_1BatchInferenceJobSummary = (
 const deserializeAws_json1_1Campaign = (output: any, context: __SerdeContext): Campaign => {
   return {
     campaignArn: output.campaignArn !== undefined && output.campaignArn !== null ? output.campaignArn : undefined,
+    campaignConfig:
+      output.campaignConfig !== undefined && output.campaignConfig !== null
+        ? deserializeAws_json1_1CampaignConfig(output.campaignConfig, context)
+        : undefined,
     creationDateTime:
       output.creationDateTime !== undefined && output.creationDateTime !== null
         ? new Date(Math.round(output.creationDateTime * 1000))
@@ -4538,6 +4601,15 @@ const deserializeAws_json1_1Campaign = (output: any, context: __SerdeContext): C
   } as any;
 };
 
+const deserializeAws_json1_1CampaignConfig = (output: any, context: __SerdeContext): CampaignConfig => {
+  return {
+    itemExplorationConfig:
+      output.itemExplorationConfig !== undefined && output.itemExplorationConfig !== null
+        ? deserializeAws_json1_1HyperParameters(output.itemExplorationConfig, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1Campaigns = (output: any, context: __SerdeContext): CampaignSummary[] => {
   return (output || []).map((entry: any) => deserializeAws_json1_1CampaignSummary(entry, context));
 };
@@ -4562,6 +4634,10 @@ const deserializeAws_json1_1CampaignSummary = (output: any, context: __SerdeCont
 
 const deserializeAws_json1_1CampaignUpdateSummary = (output: any, context: __SerdeContext): CampaignUpdateSummary => {
   return {
+    campaignConfig:
+      output.campaignConfig !== undefined && output.campaignConfig !== null
+        ? deserializeAws_json1_1CampaignConfig(output.campaignConfig, context)
+        : undefined,
     creationDateTime:
       output.creationDateTime !== undefined && output.creationDateTime !== null
         ? new Date(Math.round(output.creationDateTime * 1000))

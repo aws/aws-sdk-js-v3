@@ -22,6 +22,16 @@ import {
   DescribeFlowCommandOutput,
 } from "./commands/DescribeFlowCommand";
 import {
+  DescribeOfferingCommand,
+  DescribeOfferingCommandInput,
+  DescribeOfferingCommandOutput,
+} from "./commands/DescribeOfferingCommand";
+import {
+  DescribeReservationCommand,
+  DescribeReservationCommandInput,
+  DescribeReservationCommandOutput,
+} from "./commands/DescribeReservationCommand";
+import {
   GrantFlowEntitlementsCommand,
   GrantFlowEntitlementsCommandInput,
   GrantFlowEntitlementsCommandOutput,
@@ -33,10 +43,25 @@ import {
 } from "./commands/ListEntitlementsCommand";
 import { ListFlowsCommand, ListFlowsCommandInput, ListFlowsCommandOutput } from "./commands/ListFlowsCommand";
 import {
+  ListOfferingsCommand,
+  ListOfferingsCommandInput,
+  ListOfferingsCommandOutput,
+} from "./commands/ListOfferingsCommand";
+import {
+  ListReservationsCommand,
+  ListReservationsCommandInput,
+  ListReservationsCommandOutput,
+} from "./commands/ListReservationsCommand";
+import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import {
+  PurchaseOfferingCommand,
+  PurchaseOfferingCommandInput,
+  PurchaseOfferingCommandOutput,
+} from "./commands/PurchaseOfferingCommand";
 import {
   RemoveFlowOutputCommand,
   RemoveFlowOutputCommandInput,
@@ -265,6 +290,70 @@ export class MediaConnect extends MediaConnectClient {
   }
 
   /**
+   * Displays the details of an offering. The response includes the offering description, duration, outbound bandwidth, price, and Amazon Resource Name (ARN).
+   */
+  public describeOffering(
+    args: DescribeOfferingCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeOfferingCommandOutput>;
+  public describeOffering(
+    args: DescribeOfferingCommandInput,
+    cb: (err: any, data?: DescribeOfferingCommandOutput) => void
+  ): void;
+  public describeOffering(
+    args: DescribeOfferingCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeOfferingCommandOutput) => void
+  ): void;
+  public describeOffering(
+    args: DescribeOfferingCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeOfferingCommandOutput) => void),
+    cb?: (err: any, data?: DescribeOfferingCommandOutput) => void
+  ): Promise<DescribeOfferingCommandOutput> | void {
+    const command = new DescribeOfferingCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * Displays the details of a reservation. The response includes the reservation name, state, start date and time, and the details of the offering that make up the rest of the reservation (such as price, duration, and outbound bandwidth).
+   */
+  public describeReservation(
+    args: DescribeReservationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeReservationCommandOutput>;
+  public describeReservation(
+    args: DescribeReservationCommandInput,
+    cb: (err: any, data?: DescribeReservationCommandOutput) => void
+  ): void;
+  public describeReservation(
+    args: DescribeReservationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeReservationCommandOutput) => void
+  ): void;
+  public describeReservation(
+    args: DescribeReservationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeReservationCommandOutput) => void),
+    cb?: (err: any, data?: DescribeReservationCommandOutput) => void
+  ): Promise<DescribeReservationCommandOutput> | void {
+    const command = new DescribeReservationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * Grants entitlements to an existing flow.
    */
   public grantFlowEntitlements(
@@ -355,6 +444,70 @@ export class MediaConnect extends MediaConnectClient {
   }
 
   /**
+   * Displays a list of all offerings that are available to this account in the current AWS Region. If you have an active reservation (which means you've purchased an offering that has already started and hasn't expired yet), your account isn't eligible for other offerings.
+   */
+  public listOfferings(
+    args: ListOfferingsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListOfferingsCommandOutput>;
+  public listOfferings(
+    args: ListOfferingsCommandInput,
+    cb: (err: any, data?: ListOfferingsCommandOutput) => void
+  ): void;
+  public listOfferings(
+    args: ListOfferingsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListOfferingsCommandOutput) => void
+  ): void;
+  public listOfferings(
+    args: ListOfferingsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListOfferingsCommandOutput) => void),
+    cb?: (err: any, data?: ListOfferingsCommandOutput) => void
+  ): Promise<ListOfferingsCommandOutput> | void {
+    const command = new ListOfferingsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * Displays a list of all reservations that have been purchased by this account in the current AWS Region. This list includes all reservations in all states (such as active and expired).
+   */
+  public listReservations(
+    args: ListReservationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListReservationsCommandOutput>;
+  public listReservations(
+    args: ListReservationsCommandInput,
+    cb: (err: any, data?: ListReservationsCommandOutput) => void
+  ): void;
+  public listReservations(
+    args: ListReservationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListReservationsCommandOutput) => void
+  ): void;
+  public listReservations(
+    args: ListReservationsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListReservationsCommandOutput) => void),
+    cb?: (err: any, data?: ListReservationsCommandOutput) => void
+  ): Promise<ListReservationsCommandOutput> | void {
+    const command = new ListReservationsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * List all tags on an AWS Elemental MediaConnect resource
    */
   public listTagsForResource(
@@ -376,6 +529,38 @@ export class MediaConnect extends MediaConnectClient {
     cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): Promise<ListTagsForResourceCommandOutput> | void {
     const command = new ListTagsForResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * Submits a request to purchase an offering. If you already have an active reservation, you can't purchase another offering.
+   */
+  public purchaseOffering(
+    args: PurchaseOfferingCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PurchaseOfferingCommandOutput>;
+  public purchaseOffering(
+    args: PurchaseOfferingCommandInput,
+    cb: (err: any, data?: PurchaseOfferingCommandOutput) => void
+  ): void;
+  public purchaseOffering(
+    args: PurchaseOfferingCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PurchaseOfferingCommandOutput) => void
+  ): void;
+  public purchaseOffering(
+    args: PurchaseOfferingCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PurchaseOfferingCommandOutput) => void),
+    cb?: (err: any, data?: PurchaseOfferingCommandOutput) => void
+  ): Promise<PurchaseOfferingCommandOutput> | void {
+    const command = new PurchaseOfferingCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

@@ -6,14 +6,14 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
  */
 export interface Term {
   /**
-   * <p>The target text of the term being translated by the custom terminology.</p>
-   */
-  TargetText?: string;
-
-  /**
    * <p>The source text of the term being translated by the custom terminology.</p>
    */
   SourceText?: string;
+
+  /**
+   * <p>The target text of the term being translated by the custom terminology.</p>
+   */
+  TargetText?: string;
 }
 
 export namespace Term {
@@ -30,17 +30,17 @@ export namespace Term {
  */
 export interface AppliedTerminology {
   /**
-   * <p>The name of the custom terminology applied to the input text by Amazon Translate for the translated
-   *       text response.</p>
-   */
-  Name?: string;
-
-  /**
    * <p>The specific terms of the custom terminology applied to the input text by Amazon Translate for the
    *       translated text response. A maximum of 250 terms will be returned, and the specific terms
    *       applied will be the first 250 terms in the source text. </p>
    */
   Terms?: Term[];
+
+  /**
+   * <p>The name of the custom terminology applied to the input text by Amazon Translate for the translated
+   *       text response.</p>
+   */
+  Name?: string;
 }
 
 export namespace AppliedTerminology {
@@ -73,6 +73,22 @@ export interface InternalServerException extends __SmithyException, $MetadataBea
 
 export namespace InternalServerException {
   export const filterSensitiveLog = (obj: InternalServerException): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The value of the parameter is invalid. Review the value of the parameter you are using to
+ *       correct it, and then retry your operation.</p>
+ */
+export interface InvalidParameterValueException extends __SmithyException, $MetadataBearer {
+  name: "InvalidParameterValueException";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace InvalidParameterValueException {
+  export const filterSensitiveLog = (obj: InvalidParameterValueException): any => ({
     ...obj,
   });
 }
@@ -129,17 +145,50 @@ export namespace DescribeTextTranslationJobRequest {
  */
 export interface InputDataConfig {
   /**
+   * <p>Describes the format of the data that you submit to Amazon Translate as input. You can
+   *       specify one of the following multipurpose internet mail extension (MIME) types:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>text/html</code>: The input data consists of one or more HTML files. Amazon
+   *           Translate translates only the text that resides in the <code>html</code> element in each
+   *           file.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>text/plain</code>: The input data consists of one or more unformatted text
+   *           files. Amazon Translate translates every character in this type of input.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>application/vnd.openxmlformats-officedocument.wordprocessingml.document</code>:
+   *           The input data consists of one or more Word documents (.docx).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>application/vnd.openxmlformats-officedocument.presentationml.presentation</code>:
+   *           The input data consists of one or more PowerPoint Presentation files (.pptx).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>application/vnd.openxmlformats-officedocument.spreadsheetml.sheet</code>: The
+   *           input data consists of one or more Excel Workbook files (.xlsx).</p>
+   *             </li>
+   *          </ul>
+   *          <important>
+   *             <p>If you structure your input data as HTML, ensure that you set this parameter to
+   *           <code>text/html</code>. By doing so, you cut costs by limiting the translation to the
+   *         contents of the <code>html</code> element in each file. Otherwise, if you set this parameter
+   *         to <code>text/plain</code>, your costs will cover the translation of every character.</p>
+   *          </important>
+   */
+  ContentType: string | undefined;
+
+  /**
    * <p>The URI of the AWS S3 folder that contains the input file. The folder must be in the
    *       same Region as the API endpoint you are calling.</p>
    */
   S3Uri: string | undefined;
-
-  /**
-   * <p>The multipurpose internet mail extension (MIME) type of the input files. Valid values are
-   *         <code>text/plain</code> for plaintext files and <code>text/html</code> for HTML
-   *       files.</p>
-   */
-  ContentType: string | undefined;
 }
 
 export namespace InputDataConfig {
@@ -154,14 +203,14 @@ export namespace InputDataConfig {
  */
 export interface JobDetails {
   /**
-   * <p>The number of documents used as input in a translation job.</p>
-   */
-  InputDocumentsCount?: number;
-
-  /**
    * <p>The number of documents that could not be processed during a translation job.</p>
    */
   DocumentsWithErrorsCount?: number;
+
+  /**
+   * <p>The number of documents used as input in a translation job.</p>
+   */
+  InputDocumentsCount?: number;
 
   /**
    * <p>The number of documents successfully processed during a translation job.</p>
@@ -207,6 +256,16 @@ export namespace OutputDataConfig {
  */
 export interface TextTranslationJobProperties {
   /**
+   * <p>The status of the translation job.</p>
+   */
+  JobStatus?: JobStatus | string;
+
+  /**
+   * <p>The ID of the translation job.</p>
+   */
+  JobId?: string;
+
+  /**
    * <p>The user-defined name of the translation job.</p>
    */
   JobName?: string;
@@ -219,10 +278,16 @@ export interface TextTranslationJobProperties {
   TerminologyNames?: string[];
 
   /**
-   * <p>The language code of the language of the target text. The language must be a language
+   * <p>The Amazon Resource Name (ARN) of an AWS Identity Access and Management (IAM) role
+   *       that granted Amazon Translate read access to the job's input data.</p>
+   */
+  DataAccessRoleArn?: string;
+
+  /**
+   * <p>The language code of the language of the source text. The language must be a language
    *       supported by Amazon Translate.</p>
    */
-  TargetLanguageCodes?: string[];
+  SourceLanguageCode?: string;
 
   /**
    * <p>An explanation of any errors that may have occured during the translation job.</p>
@@ -230,9 +295,26 @@ export interface TextTranslationJobProperties {
   Message?: string;
 
   /**
-   * <p>The status of the translation job.</p>
+   * <p>The output configuration properties that were specified when the job was requested.</p>
    */
-  JobStatus?: JobStatus | string;
+  OutputDataConfig?: OutputDataConfig;
+
+  /**
+   * <p>The number of documents successfully and unsuccessfully processed during the translation
+   *       job.</p>
+   */
+  JobDetails?: JobDetails;
+
+  /**
+   * <p>The language code of the language of the target text. The language must be a language
+   *       supported by Amazon Translate.</p>
+   */
+  TargetLanguageCodes?: string[];
+
+  /**
+   * <p>The input configuration properties that were specified when the job was requested.</p>
+   */
+  InputDataConfig?: InputDataConfig;
 
   /**
    * <p>The time at which the translation job ended.</p>
@@ -243,39 +325,6 @@ export interface TextTranslationJobProperties {
    * <p>The time at which the translation job was submitted.</p>
    */
   SubmittedTime?: Date;
-
-  /**
-   * <p>The output configuration properties that were specified when the job was requested.</p>
-   */
-  OutputDataConfig?: OutputDataConfig;
-
-  /**
-   * <p>The input configuration properties that were specified when the job was requested.</p>
-   */
-  InputDataConfig?: InputDataConfig;
-
-  /**
-   * <p>The number of documents successfully and unsuccessfully processed during the translation
-   *       job.</p>
-   */
-  JobDetails?: JobDetails;
-
-  /**
-   * <p>The language code of the language of the source text. The language must be a language
-   *       supported by Amazon Translate.</p>
-   */
-  SourceLanguageCode?: string;
-
-  /**
-   * <p>The ID of the translation job.</p>
-   */
-  JobId?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of an AWS Identity Access and Management (IAM) role
-   *       that granted Amazon Translate read access to the job's input data.</p>
-   */
-  DataAccessRoleArn?: string;
 }
 
 export namespace TextTranslationJobProperties {
@@ -305,14 +354,14 @@ export enum TerminologyDataFormat {
 
 export interface GetTerminologyRequest {
   /**
-   * <p>The data format of the custom terminology being retrieved, either CSV or TMX.</p>
-   */
-  TerminologyDataFormat: TerminologyDataFormat | string | undefined;
-
-  /**
    * <p>The name of the custom terminology being retrieved.</p>
    */
   Name: string | undefined;
+
+  /**
+   * <p>The data format of the custom terminology being retrieved, either CSV or TMX.</p>
+   */
+  TerminologyDataFormat: TerminologyDataFormat | string | undefined;
 }
 
 export namespace GetTerminologyRequest {
@@ -373,30 +422,19 @@ export namespace EncryptionKey {
  */
 export interface TerminologyProperties {
   /**
-   * <p>The size of the file used when importing a custom terminology.</p>
-   */
-  SizeBytes?: number;
-
-  /**
-   * <p>The description of the custom terminology properties.</p>
-   */
-  Description?: string;
-
-  /**
    * <p>The name of the custom terminology.</p>
    */
   Name?: string;
 
   /**
-   * <p>The language code for the source text of the translation request for which the custom
-   *       terminology is being used.</p>
+   * <p>The encryption key for the custom terminology.</p>
    */
-  SourceLanguageCode?: string;
+  EncryptionKey?: EncryptionKey;
 
   /**
-   * <p> The Amazon Resource Name (ARN) of the custom terminology. </p>
+   * <p>The size of the file used when importing a custom terminology.</p>
    */
-  Arn?: string;
+  SizeBytes?: number;
 
   /**
    * <p>The language codes for the target languages available with the custom terminology file.
@@ -405,9 +443,20 @@ export interface TerminologyProperties {
   TargetLanguageCodes?: string[];
 
   /**
-   * <p>The encryption key for the custom terminology.</p>
+   * <p> The Amazon Resource Name (ARN) of the custom terminology. </p>
    */
-  EncryptionKey?: EncryptionKey;
+  Arn?: string;
+
+  /**
+   * <p>The language code for the source text of the translation request for which the custom
+   *       terminology is being used.</p>
+   */
+  SourceLanguageCode?: string;
+
+  /**
+   * <p>The time at which the custom terminology was created, based on the timestamp.</p>
+   */
+  CreatedAt?: Date;
 
   /**
    * <p>The number of terms included in the custom terminology.</p>
@@ -415,9 +464,9 @@ export interface TerminologyProperties {
   TermCount?: number;
 
   /**
-   * <p>The time at which the custom terminology was created, based on the timestamp.</p>
+   * <p>The description of the custom terminology properties.</p>
    */
-  CreatedAt?: Date;
+  Description?: string;
 
   /**
    * <p>The time at which the custom terminology was last update, based on the timestamp.</p>
@@ -446,22 +495,6 @@ export interface GetTerminologyResponse {
 
 export namespace GetTerminologyResponse {
   export const filterSensitiveLog = (obj: GetTerminologyResponse): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The value of the parameter is invalid. Review the value of the parameter you are using to
- *       correct it, and then retry your operation.</p>
- */
-export interface InvalidParameterValueException extends __SmithyException, $MetadataBearer {
-  name: "InvalidParameterValueException";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace InvalidParameterValueException {
-  export const filterSensitiveLog = (obj: InvalidParameterValueException): any => ({
     ...obj,
   });
 }
@@ -496,11 +529,6 @@ export namespace TerminologyData {
 
 export interface ImportTerminologyRequest {
   /**
-   * <p>The terminology data for the custom terminology being imported.</p>
-   */
-  TerminologyData: TerminologyData | undefined;
-
-  /**
    * <p>The description of the custom terminology being imported.</p>
    */
   Description?: string;
@@ -509,6 +537,11 @@ export interface ImportTerminologyRequest {
    * <p>The name of the custom terminology being imported.</p>
    */
   Name: string | undefined;
+
+  /**
+   * <p>The terminology data for the custom terminology being imported.</p>
+   */
+  TerminologyData: TerminologyData | undefined;
 
   /**
    * <p>The encryption key for the custom terminology being imported.</p>
@@ -561,15 +594,15 @@ export namespace LimitExceededException {
 
 export interface ListTerminologiesRequest {
   /**
-   * <p>The maximum number of custom terminologies returned per list request.</p>
-   */
-  MaxResults?: number;
-
-  /**
    * <p>If the result of the request to ListTerminologies was truncated, include the NextToken to
    *       fetch the next group of custom terminologies. </p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The maximum number of custom terminologies returned per list request.</p>
+   */
+  MaxResults?: number;
 }
 
 export namespace ListTerminologiesRequest {
@@ -580,15 +613,15 @@ export namespace ListTerminologiesRequest {
 
 export interface ListTerminologiesResponse {
   /**
-   * <p>The properties list of the custom terminologies returned on the list request.</p>
-   */
-  TerminologyPropertiesList?: TerminologyProperties[];
-
-  /**
    * <p> If the response to the ListTerminologies was truncated, the NextToken fetches the next
    *       group of custom terminologies.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The properties list of the custom terminologies returned on the list request.</p>
+   */
+  TerminologyPropertiesList?: TerminologyProperties[];
 }
 
 export namespace ListTerminologiesResponse {
@@ -634,18 +667,6 @@ export namespace InvalidRequestException {
  */
 export interface TextTranslationJobFilter {
   /**
-   * <p>Filters the list of jobs by name.</p>
-   */
-  JobName?: string;
-
-  /**
-   * <p>Filters the list of jobs based on the time that the job was submitted for processing and
-   *       returns only the jobs submitted after the specified time. Jobs are returned in descending
-   *       order, newest to oldest.</p>
-   */
-  SubmittedAfterTime?: Date;
-
-  /**
    * <p>Filters the list of jobs based on the time that the job was submitted for processing and
    *       returns only the jobs submitted before the specified time. Jobs are returned in ascending
    *       order, oldest to newest.</p>
@@ -653,9 +674,21 @@ export interface TextTranslationJobFilter {
   SubmittedBeforeTime?: Date;
 
   /**
+   * <p>Filters the list of jobs by name.</p>
+   */
+  JobName?: string;
+
+  /**
    * <p>Filters the list of jobs based by job status.</p>
    */
   JobStatus?: JobStatus | string;
+
+  /**
+   * <p>Filters the list of jobs based on the time that the job was submitted for processing and
+   *       returns only the jobs submitted after the specified time. Jobs are returned in descending
+   *       order, newest to oldest.</p>
+   */
+  SubmittedAfterTime?: Date;
 }
 
 export namespace TextTranslationJobFilter {
@@ -671,15 +704,15 @@ export interface ListTextTranslationJobsRequest {
   NextToken?: string;
 
   /**
-   * <p>The maximum number of results to return in each page. The default value is 100.</p>
-   */
-  MaxResults?: number;
-
-  /**
    * <p>The parameters that specify which batch translation jobs to retrieve. Filters include job
    *       name, job status, and submission time. You can only set one filter at a time.</p>
    */
   Filter?: TextTranslationJobFilter;
+
+  /**
+   * <p>The maximum number of results to return in each page. The default value is 100.</p>
+   */
+  MaxResults?: number;
 }
 
 export namespace ListTextTranslationJobsRequest {
@@ -709,12 +742,9 @@ export namespace ListTextTranslationJobsResponse {
 
 export interface StartTextTranslationJobRequest {
   /**
-   * <p>The client token of the EC2 instance calling the request. This token is auto-generated
-   *       when using the Amazon Translate SDK. Otherwise, use the <a href="docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstances.html">DescribeInstances</a> EC2 operation to retreive an instance's client token. For more
-   *       information, see <a href="docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html#client-tokens">Client
-   *         Tokens</a> in the EC2 User Guide.</p>
+   * <p>The name of the batch translation job to be performed.</p>
    */
-  ClientToken?: string;
+  JobName?: string;
 
   /**
    * <p>The Amazon Resource Name (ARN) of an AWS Identity Access and Management (IAM) role
@@ -723,28 +753,27 @@ export interface StartTextTranslationJobRequest {
   DataAccessRoleArn: string | undefined;
 
   /**
-   * <p>Specifies the format and S3 location of the input documents for the translation
-   *       job.</p>
-   */
-  InputDataConfig: InputDataConfig | undefined;
-
-  /**
    * <p>Specifies the S3 folder to which your job output will be saved.
    *       </p>
    */
   OutputDataConfig: OutputDataConfig | undefined;
 
   /**
-   * <p>The name of the batch translation job to be performed.</p>
+   * <p>Specifies the format and S3 location of the input documents for the translation
+   *       job.</p>
    */
-  JobName?: string;
+  InputDataConfig: InputDataConfig | undefined;
 
   /**
-   * <p>The language code of the input language. For a list of language codes, see <a>what-is-languages</a>.</p>
-   *          <p>Amazon Translate does not automatically detect a source language during batch translation
-   *       jobs.</p>
+   * <p>A unique identifier for the request. This token is auto-generated when using the Amazon Translate
+   *       SDK.</p>
    */
-  SourceLanguageCode: string | undefined;
+  ClientToken?: string;
+
+  /**
+   * <p>The language code of the output language.</p>
+   */
+  TargetLanguageCodes: string[] | undefined;
 
   /**
    * <p>The name of the terminology to use in the batch translation job. For a list of available
@@ -753,9 +782,11 @@ export interface StartTextTranslationJobRequest {
   TerminologyNames?: string[];
 
   /**
-   * <p>The language code of the output language.</p>
+   * <p>The language code of the input language. For a list of language codes, see <a>what-is-languages</a>.</p>
+   *          <p>Amazon Translate does not automatically detect a source language during batch translation
+   *       jobs.</p>
    */
-  TargetLanguageCodes: string[] | undefined;
+  SourceLanguageCode: string | undefined;
 }
 
 export namespace StartTextTranslationJobRequest {
@@ -790,7 +821,7 @@ export interface StartTextTranslationJobResponse {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>COMPLETED_WITH_ERRORS</code> - The job was completed with errors. The errors can
+   *                   <code>COMPLETED_WITH_ERROR</code> - The job was completed with errors. The errors can
    *           be analyzed in the job's output.</p>
    *             </li>
    *             <li>
@@ -824,12 +855,12 @@ export namespace StartTextTranslationJobResponse {
 export interface UnsupportedLanguagePairException extends __SmithyException, $MetadataBearer {
   name: "UnsupportedLanguagePairException";
   $fault: "client";
+  Message?: string;
   /**
    * <p>The language code for the language of the input text. </p>
    */
   SourceLanguageCode?: string;
 
-  Message?: string;
   /**
    * <p>The language code for the language of the translated text. </p>
    */
@@ -883,12 +914,11 @@ export namespace StopTextTranslationJobResponse {
 export interface DetectedLanguageLowConfidenceException extends __SmithyException, $MetadataBearer {
   name: "DetectedLanguageLowConfidenceException";
   $fault: "client";
+  Message?: string;
   /**
    * <p>The language code of the auto-detected language from Amazon Comprehend.</p>
    */
   DetectedLanguageCode?: string;
-
-  Message?: string;
 }
 
 export namespace DetectedLanguageLowConfidenceException {
@@ -931,20 +961,17 @@ export namespace TextSizeLimitExceededException {
 
 export interface TranslateTextRequest {
   /**
-   * <p>The language code for the language of the source text. The language must be a language
-   *       supported by Amazon Translate. For a list of language codes, see <a>what-is-languages</a>.</p>
-   *          <p>To have Amazon Translate determine the source language of your text, you can specify
-   *         <code>auto</code> in the <code>SourceLanguageCode</code> field. If you specify
-   *         <code>auto</code>, Amazon Translate will call <a href="https://docs.aws.amazon.com/comprehend/latest/dg/comprehend-general.html">Amazon
-   *         Comprehend</a> to determine the source language.</p>
-   */
-  SourceLanguageCode: string | undefined;
-
-  /**
    * <p>The text to translate. The text string can be a maximum of 5,000 bytes long. Depending on
    *       your character set, this may be fewer than 5,000 characters.</p>
    */
   Text: string | undefined;
+
+  /**
+   * <p>The name of the terminology list file to be used in the TranslateText request. You can use
+   *       1 terminology list at most in a <code>TranslateText</code> request. Terminology lists can
+   *       contain a maximum of 256 terms.</p>
+   */
+  TerminologyNames?: string[];
 
   /**
    * <p>The language code requested for the language of the target text. The language must be a
@@ -953,11 +980,14 @@ export interface TranslateTextRequest {
   TargetLanguageCode: string | undefined;
 
   /**
-   * <p>The name of the terminology list file to be used in the TranslateText request. You can use
-   *       1 terminology list at most in a <code>TranslateText</code> request. Terminology lists can
-   *       contain a maximum of 256 terms.</p>
+   * <p>The language code for the language of the source text. The language must be a language
+   *       supported by Amazon Translate. For a list of language codes, see <a>what-is-languages</a>.</p>
+   *          <p>To have Amazon Translate determine the source language of your text, you can specify
+   *         <code>auto</code> in the <code>SourceLanguageCode</code> field. If you specify
+   *         <code>auto</code>, Amazon Translate will call <a href="https://docs.aws.amazon.com/comprehend/latest/dg/comprehend-general.html">Amazon
+   *         Comprehend</a> to determine the source language.</p>
    */
-  TerminologyNames?: string[];
+  SourceLanguageCode: string | undefined;
 }
 
 export namespace TranslateTextRequest {
@@ -968,14 +998,14 @@ export namespace TranslateTextRequest {
 
 export interface TranslateTextResponse {
   /**
-   * <p>The language code for the language of the source text.</p>
-   */
-  SourceLanguageCode: string | undefined;
-
-  /**
    * <p>The language code for the language of the target text. </p>
    */
   TargetLanguageCode: string | undefined;
+
+  /**
+   * <p>The language code for the language of the source text.</p>
+   */
+  SourceLanguageCode: string | undefined;
 
   /**
    * <p>The translated text.</p>

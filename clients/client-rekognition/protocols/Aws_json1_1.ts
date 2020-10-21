@@ -37,6 +37,10 @@ import {
   DetectModerationLabelsCommandInput,
   DetectModerationLabelsCommandOutput,
 } from "../commands/DetectModerationLabelsCommand";
+import {
+  DetectProtectiveEquipmentCommandInput,
+  DetectProtectiveEquipmentCommandOutput,
+} from "../commands/DetectProtectiveEquipmentCommand";
 import { DetectTextCommandInput, DetectTextCommandOutput } from "../commands/DetectTextCommand";
 import { GetCelebrityInfoCommandInput, GetCelebrityInfoCommandOutput } from "../commands/GetCelebrityInfoCommand";
 import {
@@ -123,6 +127,7 @@ import {
   ComparedSourceImageFace,
   ContentClassifier,
   ContentModerationDetection,
+  CoversBodyPart,
   CreateCollectionRequest,
   CreateCollectionResponse,
   CreateProjectRequest,
@@ -158,11 +163,14 @@ import {
   DetectLabelsResponse,
   DetectModerationLabelsRequest,
   DetectModerationLabelsResponse,
+  DetectProtectiveEquipmentRequest,
+  DetectProtectiveEquipmentResponse,
   DetectTextFilters,
   DetectTextRequest,
   DetectTextResponse,
   DetectionFilter,
   Emotion,
+  EquipmentDetection,
   EvaluationResult,
   EyeOpen,
   Eyeglasses,
@@ -234,6 +242,11 @@ import {
   Pose,
   ProjectDescription,
   ProjectVersionDescription,
+  ProtectiveEquipmentBodyPart,
+  ProtectiveEquipmentPerson,
+  ProtectiveEquipmentSummarizationAttributes,
+  ProtectiveEquipmentSummary,
+  ProtectiveEquipmentType,
   ProvisionedThroughputExceededException,
   Reason,
   RecognizeCelebritiesRequest,
@@ -251,6 +264,7 @@ import {
   SegmentDetection,
   SegmentType,
   SegmentTypeInfo,
+  ServiceQuotaExceededException,
   ShotSegment,
   Smile,
   StartCelebrityRecognitionRequest,
@@ -296,6 +310,7 @@ import {
   TrainingData,
   TrainingDataResult,
   UnindexedFace,
+  ValidationData,
   Video,
   VideoMetadata,
   VideoTooLargeException,
@@ -541,6 +556,19 @@ export const serializeAws_json1_1DetectModerationLabelsCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DetectModerationLabelsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DetectProtectiveEquipmentCommand = async (
+  input: DetectProtectiveEquipmentCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "RekognitionService.DetectProtectiveEquipment",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DetectProtectiveEquipmentRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -2807,6 +2835,117 @@ const deserializeAws_json1_1DetectModerationLabelsCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1DetectProtectiveEquipmentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DetectProtectiveEquipmentCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DetectProtectiveEquipmentCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DetectProtectiveEquipmentResponse(data, context);
+  const response: DetectProtectiveEquipmentCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DetectProtectiveEquipmentCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DetectProtectiveEquipmentCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.rekognition#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ImageTooLargeException":
+    case "com.amazonaws.rekognition#ImageTooLargeException":
+      response = {
+        ...(await deserializeAws_json1_1ImageTooLargeExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerError":
+    case "com.amazonaws.rekognition#InternalServerError":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidImageFormatException":
+    case "com.amazonaws.rekognition#InvalidImageFormatException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidImageFormatExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterException":
+    case "com.amazonaws.rekognition#InvalidParameterException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidS3ObjectException":
+    case "com.amazonaws.rekognition#InvalidS3ObjectException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidS3ObjectExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ProvisionedThroughputExceededException":
+    case "com.amazonaws.rekognition#ProvisionedThroughputExceededException":
+      response = {
+        ...(await deserializeAws_json1_1ProvisionedThroughputExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.rekognition#ThrottlingException":
+      response = {
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1DetectTextCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -3927,6 +4066,14 @@ const deserializeAws_json1_1IndexFacesCommandError = async (
     case "com.amazonaws.rekognition#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.rekognition#ServiceQuotaExceededException":
+      response = {
+        ...(await deserializeAws_json1_1ServiceQuotaExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -6187,6 +6334,21 @@ const deserializeAws_json1_1ResourceNotReadyExceptionResponse = async (
   return contents;
 };
 
+const deserializeAws_json1_1ServiceQuotaExceededExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ServiceQuotaExceededException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1ServiceQuotaExceededException(body, context);
+  const contents: ServiceQuotaExceededException = {
+    name: "ServiceQuotaExceededException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
 const deserializeAws_json1_1ThrottlingExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -6428,6 +6590,21 @@ const serializeAws_json1_1DetectModerationLabelsRequest = (
   };
 };
 
+const serializeAws_json1_1DetectProtectiveEquipmentRequest = (
+  input: DetectProtectiveEquipmentRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Image !== undefined && { Image: serializeAws_json1_1Image(input.Image, context) }),
+    ...(input.SummarizationAttributes !== undefined && {
+      SummarizationAttributes: serializeAws_json1_1ProtectiveEquipmentSummarizationAttributes(
+        input.SummarizationAttributes,
+        context
+      ),
+    }),
+  };
+};
+
 const serializeAws_json1_1DetectTextFilters = (input: DetectTextFilters, context: __SerdeContext): any => {
   return {
     ...(input.RegionsOfInterest !== undefined && {
@@ -6640,6 +6817,25 @@ const serializeAws_json1_1OutputConfig = (input: OutputConfig, context: __SerdeC
     ...(input.S3Bucket !== undefined && { S3Bucket: input.S3Bucket }),
     ...(input.S3KeyPrefix !== undefined && { S3KeyPrefix: input.S3KeyPrefix }),
   };
+};
+
+const serializeAws_json1_1ProtectiveEquipmentSummarizationAttributes = (
+  input: ProtectiveEquipmentSummarizationAttributes,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.MinConfidence !== undefined && { MinConfidence: input.MinConfidence }),
+    ...(input.RequiredEquipmentTypes !== undefined && {
+      RequiredEquipmentTypes: serializeAws_json1_1ProtectiveEquipmentTypes(input.RequiredEquipmentTypes, context),
+    }),
+  };
+};
+
+const serializeAws_json1_1ProtectiveEquipmentTypes = (
+  input: (ProtectiveEquipmentType | string)[],
+  context: __SerdeContext
+): any => {
+  return input.map((entry) => entry);
 };
 
 const serializeAws_json1_1RecognizeCelebritiesRequest = (
@@ -7000,6 +7196,10 @@ const deserializeAws_json1_1Beard = (output: any, context: __SerdeContext): Bear
   } as any;
 };
 
+const deserializeAws_json1_1BodyParts = (output: any, context: __SerdeContext): ProtectiveEquipmentBodyPart[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1ProtectiveEquipmentBodyPart(entry, context));
+};
+
 const deserializeAws_json1_1BoundingBox = (output: any, context: __SerdeContext): BoundingBox => {
   return {
     Height: output.Height !== undefined && output.Height !== null ? output.Height : undefined,
@@ -7162,6 +7362,13 @@ const deserializeAws_json1_1ContentModerationDetections = (
   context: __SerdeContext
 ): ContentModerationDetection[] => {
   return (output || []).map((entry: any) => deserializeAws_json1_1ContentModerationDetection(entry, context));
+};
+
+const deserializeAws_json1_1CoversBodyPart = (output: any, context: __SerdeContext): CoversBodyPart => {
+  return {
+    Confidence: output.Confidence !== undefined && output.Confidence !== null ? output.Confidence : undefined,
+    Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
+  } as any;
 };
 
 const deserializeAws_json1_1CreateCollectionResponse = (
@@ -7404,6 +7611,26 @@ const deserializeAws_json1_1DetectModerationLabelsResponse = (
   } as any;
 };
 
+const deserializeAws_json1_1DetectProtectiveEquipmentResponse = (
+  output: any,
+  context: __SerdeContext
+): DetectProtectiveEquipmentResponse => {
+  return {
+    Persons:
+      output.Persons !== undefined && output.Persons !== null
+        ? deserializeAws_json1_1ProtectiveEquipmentPersons(output.Persons, context)
+        : undefined,
+    ProtectiveEquipmentModelVersion:
+      output.ProtectiveEquipmentModelVersion !== undefined && output.ProtectiveEquipmentModelVersion !== null
+        ? output.ProtectiveEquipmentModelVersion
+        : undefined,
+    Summary:
+      output.Summary !== undefined && output.Summary !== null
+        ? deserializeAws_json1_1ProtectiveEquipmentSummary(output.Summary, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1DetectTextResponse = (output: any, context: __SerdeContext): DetectTextResponse => {
   return {
     TextDetections:
@@ -7424,6 +7651,25 @@ const deserializeAws_json1_1Emotion = (output: any, context: __SerdeContext): Em
 
 const deserializeAws_json1_1Emotions = (output: any, context: __SerdeContext): Emotion[] => {
   return (output || []).map((entry: any) => deserializeAws_json1_1Emotion(entry, context));
+};
+
+const deserializeAws_json1_1EquipmentDetection = (output: any, context: __SerdeContext): EquipmentDetection => {
+  return {
+    BoundingBox:
+      output.BoundingBox !== undefined && output.BoundingBox !== null
+        ? deserializeAws_json1_1BoundingBox(output.BoundingBox, context)
+        : undefined,
+    Confidence: output.Confidence !== undefined && output.Confidence !== null ? output.Confidence : undefined,
+    CoversBodyPart:
+      output.CoversBodyPart !== undefined && output.CoversBodyPart !== null
+        ? deserializeAws_json1_1CoversBodyPart(output.CoversBodyPart, context)
+        : undefined,
+    Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1EquipmentDetections = (output: any, context: __SerdeContext): EquipmentDetection[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1EquipmentDetection(entry, context));
 };
 
 const deserializeAws_json1_1EvaluationResult = (output: any, context: __SerdeContext): EvaluationResult => {
@@ -8200,6 +8446,10 @@ const deserializeAws_json1_1ProjectVersionDescription = (
       output.EvaluationResult !== undefined && output.EvaluationResult !== null
         ? deserializeAws_json1_1EvaluationResult(output.EvaluationResult, context)
         : undefined,
+    ManifestSummary:
+      output.ManifestSummary !== undefined && output.ManifestSummary !== null
+        ? deserializeAws_json1_1GroundTruthManifest(output.ManifestSummary, context)
+        : undefined,
     MinInferenceUnits:
       output.MinInferenceUnits !== undefined && output.MinInferenceUnits !== null
         ? output.MinInferenceUnits
@@ -8235,6 +8485,69 @@ const deserializeAws_json1_1ProjectVersionDescriptions = (
   context: __SerdeContext
 ): ProjectVersionDescription[] => {
   return (output || []).map((entry: any) => deserializeAws_json1_1ProjectVersionDescription(entry, context));
+};
+
+const deserializeAws_json1_1ProtectiveEquipmentBodyPart = (
+  output: any,
+  context: __SerdeContext
+): ProtectiveEquipmentBodyPart => {
+  return {
+    Confidence: output.Confidence !== undefined && output.Confidence !== null ? output.Confidence : undefined,
+    EquipmentDetections:
+      output.EquipmentDetections !== undefined && output.EquipmentDetections !== null
+        ? deserializeAws_json1_1EquipmentDetections(output.EquipmentDetections, context)
+        : undefined,
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ProtectiveEquipmentPerson = (
+  output: any,
+  context: __SerdeContext
+): ProtectiveEquipmentPerson => {
+  return {
+    BodyParts:
+      output.BodyParts !== undefined && output.BodyParts !== null
+        ? deserializeAws_json1_1BodyParts(output.BodyParts, context)
+        : undefined,
+    BoundingBox:
+      output.BoundingBox !== undefined && output.BoundingBox !== null
+        ? deserializeAws_json1_1BoundingBox(output.BoundingBox, context)
+        : undefined,
+    Confidence: output.Confidence !== undefined && output.Confidence !== null ? output.Confidence : undefined,
+    Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ProtectiveEquipmentPersonIds = (output: any, context: __SerdeContext): number[] => {
+  return (output || []).map((entry: any) => entry);
+};
+
+const deserializeAws_json1_1ProtectiveEquipmentPersons = (
+  output: any,
+  context: __SerdeContext
+): ProtectiveEquipmentPerson[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1ProtectiveEquipmentPerson(entry, context));
+};
+
+const deserializeAws_json1_1ProtectiveEquipmentSummary = (
+  output: any,
+  context: __SerdeContext
+): ProtectiveEquipmentSummary => {
+  return {
+    PersonsIndeterminate:
+      output.PersonsIndeterminate !== undefined && output.PersonsIndeterminate !== null
+        ? deserializeAws_json1_1ProtectiveEquipmentPersonIds(output.PersonsIndeterminate, context)
+        : undefined,
+    PersonsWithRequiredEquipment:
+      output.PersonsWithRequiredEquipment !== undefined && output.PersonsWithRequiredEquipment !== null
+        ? deserializeAws_json1_1ProtectiveEquipmentPersonIds(output.PersonsWithRequiredEquipment, context)
+        : undefined,
+    PersonsWithoutRequiredEquipment:
+      output.PersonsWithoutRequiredEquipment !== undefined && output.PersonsWithoutRequiredEquipment !== null
+        ? deserializeAws_json1_1ProtectiveEquipmentPersonIds(output.PersonsWithoutRequiredEquipment, context)
+        : undefined,
+  } as any;
 };
 
 const deserializeAws_json1_1ProvisionedThroughputExceededException = (
@@ -8401,6 +8714,17 @@ const deserializeAws_json1_1SegmentTypeInfo = (output: any, context: __SerdeCont
 
 const deserializeAws_json1_1SegmentTypesInfo = (output: any, context: __SerdeContext): SegmentTypeInfo[] => {
   return (output || []).map((entry: any) => deserializeAws_json1_1SegmentTypeInfo(entry, context));
+};
+
+const deserializeAws_json1_1ServiceQuotaExceededException = (
+  output: any,
+  context: __SerdeContext
+): ServiceQuotaExceededException => {
+  return {
+    Code: output.Code !== undefined && output.Code !== null ? output.Code : undefined,
+    Logref: output.Logref !== undefined && output.Logref !== null ? output.Logref : undefined,
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+  } as any;
 };
 
 const deserializeAws_json1_1ShotSegment = (output: any, context: __SerdeContext): ShotSegment => {
@@ -8605,6 +8929,10 @@ const deserializeAws_json1_1TestingDataResult = (output: any, context: __SerdeCo
       output.Output !== undefined && output.Output !== null
         ? deserializeAws_json1_1TestingData(output.Output, context)
         : undefined,
+    Validation:
+      output.Validation !== undefined && output.Validation !== null
+        ? deserializeAws_json1_1ValidationData(output.Validation, context)
+        : undefined,
   } as any;
 };
 
@@ -8667,6 +8995,10 @@ const deserializeAws_json1_1TrainingDataResult = (output: any, context: __SerdeC
       output.Output !== undefined && output.Output !== null
         ? deserializeAws_json1_1TrainingData(output.Output, context)
         : undefined,
+    Validation:
+      output.Validation !== undefined && output.Validation !== null
+        ? deserializeAws_json1_1ValidationData(output.Validation, context)
+        : undefined,
   } as any;
 };
 
@@ -8689,6 +9021,15 @@ const deserializeAws_json1_1UnindexedFaces = (output: any, context: __SerdeConte
 
 const deserializeAws_json1_1Urls = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
+};
+
+const deserializeAws_json1_1ValidationData = (output: any, context: __SerdeContext): ValidationData => {
+  return {
+    Assets:
+      output.Assets !== undefined && output.Assets !== null
+        ? deserializeAws_json1_1Assets(output.Assets, context)
+        : undefined,
+  } as any;
 };
 
 const deserializeAws_json1_1VideoMetadata = (output: any, context: __SerdeContext): VideoMetadata => {

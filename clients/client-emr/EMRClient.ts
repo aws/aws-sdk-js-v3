@@ -14,6 +14,10 @@ import {
 import { DescribeClusterCommandInput, DescribeClusterCommandOutput } from "./commands/DescribeClusterCommand";
 import { DescribeJobFlowsCommandInput, DescribeJobFlowsCommandOutput } from "./commands/DescribeJobFlowsCommand";
 import {
+  DescribeNotebookExecutionCommandInput,
+  DescribeNotebookExecutionCommandOutput,
+} from "./commands/DescribeNotebookExecutionCommand";
+import {
   DescribeSecurityConfigurationCommandInput,
   DescribeSecurityConfigurationCommandOutput,
 } from "./commands/DescribeSecurityConfigurationCommand";
@@ -34,6 +38,10 @@ import { ListClustersCommandInput, ListClustersCommandOutput } from "./commands/
 import { ListInstanceFleetsCommandInput, ListInstanceFleetsCommandOutput } from "./commands/ListInstanceFleetsCommand";
 import { ListInstanceGroupsCommandInput, ListInstanceGroupsCommandOutput } from "./commands/ListInstanceGroupsCommand";
 import { ListInstancesCommandInput, ListInstancesCommandOutput } from "./commands/ListInstancesCommand";
+import {
+  ListNotebookExecutionsCommandInput,
+  ListNotebookExecutionsCommandOutput,
+} from "./commands/ListNotebookExecutionsCommand";
 import {
   ListSecurityConfigurationsCommandInput,
   ListSecurityConfigurationsCommandOutput,
@@ -78,6 +86,14 @@ import {
   SetVisibleToAllUsersCommandInput,
   SetVisibleToAllUsersCommandOutput,
 } from "./commands/SetVisibleToAllUsersCommand";
+import {
+  StartNotebookExecutionCommandInput,
+  StartNotebookExecutionCommandOutput,
+} from "./commands/StartNotebookExecutionCommand";
+import {
+  StopNotebookExecutionCommandInput,
+  StopNotebookExecutionCommandOutput,
+} from "./commands/StopNotebookExecutionCommand";
 import { TerminateJobFlowsCommandInput, TerminateJobFlowsCommandOutput } from "./commands/TerminateJobFlowsCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
@@ -138,6 +154,7 @@ export type ServiceInputTypes =
   | DeleteSecurityConfigurationCommandInput
   | DescribeClusterCommandInput
   | DescribeJobFlowsCommandInput
+  | DescribeNotebookExecutionCommandInput
   | DescribeSecurityConfigurationCommandInput
   | DescribeStepCommandInput
   | GetBlockPublicAccessConfigurationCommandInput
@@ -147,6 +164,7 @@ export type ServiceInputTypes =
   | ListInstanceFleetsCommandInput
   | ListInstanceGroupsCommandInput
   | ListInstancesCommandInput
+  | ListNotebookExecutionsCommandInput
   | ListSecurityConfigurationsCommandInput
   | ListStepsCommandInput
   | ModifyClusterCommandInput
@@ -161,6 +179,8 @@ export type ServiceInputTypes =
   | RunJobFlowCommandInput
   | SetTerminationProtectionCommandInput
   | SetVisibleToAllUsersCommandInput
+  | StartNotebookExecutionCommandInput
+  | StopNotebookExecutionCommandInput
   | TerminateJobFlowsCommandInput;
 
 export type ServiceOutputTypes =
@@ -173,6 +193,7 @@ export type ServiceOutputTypes =
   | DeleteSecurityConfigurationCommandOutput
   | DescribeClusterCommandOutput
   | DescribeJobFlowsCommandOutput
+  | DescribeNotebookExecutionCommandOutput
   | DescribeSecurityConfigurationCommandOutput
   | DescribeStepCommandOutput
   | GetBlockPublicAccessConfigurationCommandOutput
@@ -182,6 +203,7 @@ export type ServiceOutputTypes =
   | ListInstanceFleetsCommandOutput
   | ListInstanceGroupsCommandOutput
   | ListInstancesCommandOutput
+  | ListNotebookExecutionsCommandOutput
   | ListSecurityConfigurationsCommandOutput
   | ListStepsCommandOutput
   | ModifyClusterCommandOutput
@@ -196,6 +218,8 @@ export type ServiceOutputTypes =
   | RunJobFlowCommandOutput
   | SetTerminationProtectionCommandOutput
   | SetVisibleToAllUsersCommandOutput
+  | StartNotebookExecutionCommandOutput
+  | StopNotebookExecutionCommandOutput
   | TerminateJobFlowsCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

@@ -1,5 +1,7 @@
 import { PutEventsCommandInput, PutEventsCommandOutput } from "../commands/PutEventsCommand";
-import { Event, InvalidInputException } from "../models/models_0";
+import { PutItemsCommandInput, PutItemsCommandOutput } from "../commands/PutItemsCommand";
+import { PutUsersCommandInput, PutUsersCommandOutput } from "../commands/PutUsersCommand";
+import { Event, InvalidInputException, Item, ResourceNotFoundException, User } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { LazyJsonString as __LazyJsonString, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import {
@@ -23,6 +25,56 @@ export const serializeAws_restJson1PutEventsCommand = async (
     ...(input.sessionId !== undefined && { sessionId: input.sessionId }),
     ...(input.trackingId !== undefined && { trackingId: input.trackingId }),
     ...(input.userId !== undefined && { userId: input.userId }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1PutItemsCommand = async (
+  input: PutItemsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+  };
+  let resolvedPath = "/items";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.datasetArn !== undefined && { datasetArn: input.datasetArn }),
+    ...(input.items !== undefined && { items: serializeAws_restJson1ItemList(input.items, context) }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1PutUsersCommand = async (
+  input: PutUsersCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+  };
+  let resolvedPath = "/users";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.datasetArn !== undefined && { datasetArn: input.datasetArn }),
+    ...(input.users !== undefined && { users: serializeAws_restJson1UserList(input.users, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -87,6 +139,124 @@ const deserializeAws_restJson1PutEventsCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1PutItemsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutItemsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1PutItemsCommandError(output, context);
+  }
+  const contents: PutItemsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1PutItemsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutItemsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidInputException":
+    case "com.amazonaws.personalizeevents#InvalidInputException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidInputExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.personalizeevents#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1PutUsersCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutUsersCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1PutUsersCommandError(output, context);
+  }
+  const contents: PutUsersCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1PutUsersCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutUsersCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidInputException":
+    case "com.amazonaws.personalizeevents#InvalidInputException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidInputExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.personalizeevents#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 const deserializeAws_restJson1InvalidInputExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -104,17 +274,64 @@ const deserializeAws_restJson1InvalidInputExceptionResponse = async (
   return contents;
 };
 
+const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ResourceNotFoundException> => {
+  const contents: ResourceNotFoundException = {
+    name: "ResourceNotFoundException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    message: undefined,
+  };
+  const data: any = parsedOutput.body;
+  if (data.message !== undefined && data.message !== null) {
+    contents.message = data.message;
+  }
+  return contents;
+};
+
 const serializeAws_restJson1Event = (input: Event, context: __SerdeContext): any => {
   return {
     ...(input.eventId !== undefined && { eventId: input.eventId }),
     ...(input.eventType !== undefined && { eventType: input.eventType }),
+    ...(input.eventValue !== undefined && { eventValue: input.eventValue }),
+    ...(input.impression !== undefined && { impression: serializeAws_restJson1Impression(input.impression, context) }),
+    ...(input.itemId !== undefined && { itemId: input.itemId }),
     ...(input.properties !== undefined && { properties: __LazyJsonString.fromObject(input.properties) }),
+    ...(input.recommendationId !== undefined && { recommendationId: input.recommendationId }),
     ...(input.sentAt !== undefined && { sentAt: Math.round(input.sentAt.getTime() / 1000) }),
   };
 };
 
 const serializeAws_restJson1EventList = (input: Event[], context: __SerdeContext): any => {
   return input.map((entry) => serializeAws_restJson1Event(entry, context));
+};
+
+const serializeAws_restJson1Impression = (input: string[], context: __SerdeContext): any => {
+  return input.map((entry) => entry);
+};
+
+const serializeAws_restJson1Item = (input: Item, context: __SerdeContext): any => {
+  return {
+    ...(input.itemId !== undefined && { itemId: input.itemId }),
+    ...(input.properties !== undefined && { properties: __LazyJsonString.fromObject(input.properties) }),
+  };
+};
+
+const serializeAws_restJson1ItemList = (input: Item[], context: __SerdeContext): any => {
+  return input.map((entry) => serializeAws_restJson1Item(entry, context));
+};
+
+const serializeAws_restJson1User = (input: User, context: __SerdeContext): any => {
+  return {
+    ...(input.properties !== undefined && { properties: __LazyJsonString.fromObject(input.properties) }),
+    ...(input.userId !== undefined && { userId: input.userId }),
+  };
+};
+
+const serializeAws_restJson1UserList = (input: User[], context: __SerdeContext): any => {
+  return input.map((entry) => serializeAws_restJson1User(entry, context));
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

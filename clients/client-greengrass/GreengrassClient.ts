@@ -191,6 +191,10 @@ import {
   GetSubscriptionDefinitionVersionCommandOutput,
 } from "./commands/GetSubscriptionDefinitionVersionCommand";
 import {
+  GetThingRuntimeConfigurationCommandInput,
+  GetThingRuntimeConfigurationCommandOutput,
+} from "./commands/GetThingRuntimeConfigurationCommand";
+import {
   ListBulkDeploymentDetailedReportsCommandInput,
   ListBulkDeploymentDetailedReportsCommandOutput,
 } from "./commands/ListBulkDeploymentDetailedReportsCommand";
@@ -310,6 +314,10 @@ import {
   UpdateSubscriptionDefinitionCommandInput,
   UpdateSubscriptionDefinitionCommandOutput,
 } from "./commands/UpdateSubscriptionDefinitionCommand";
+import {
+  UpdateThingRuntimeConfigurationCommandInput,
+  UpdateThingRuntimeConfigurationCommandOutput,
+} from "./commands/UpdateThingRuntimeConfigurationCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -414,6 +422,7 @@ export type ServiceInputTypes =
   | GetServiceRoleForAccountCommandInput
   | GetSubscriptionDefinitionCommandInput
   | GetSubscriptionDefinitionVersionCommandInput
+  | GetThingRuntimeConfigurationCommandInput
   | ListBulkDeploymentDetailedReportsCommandInput
   | ListBulkDeploymentsCommandInput
   | ListConnectorDefinitionVersionsCommandInput
@@ -449,7 +458,8 @@ export type ServiceInputTypes =
   | UpdateGroupCommandInput
   | UpdateLoggerDefinitionCommandInput
   | UpdateResourceDefinitionCommandInput
-  | UpdateSubscriptionDefinitionCommandInput;
+  | UpdateSubscriptionDefinitionCommandInput
+  | UpdateThingRuntimeConfigurationCommandInput;
 
 export type ServiceOutputTypes =
   | AssociateRoleToGroupCommandOutput
@@ -506,6 +516,7 @@ export type ServiceOutputTypes =
   | GetServiceRoleForAccountCommandOutput
   | GetSubscriptionDefinitionCommandOutput
   | GetSubscriptionDefinitionVersionCommandOutput
+  | GetThingRuntimeConfigurationCommandOutput
   | ListBulkDeploymentDetailedReportsCommandOutput
   | ListBulkDeploymentsCommandOutput
   | ListConnectorDefinitionVersionsCommandOutput
@@ -541,7 +552,8 @@ export type ServiceOutputTypes =
   | UpdateGroupCommandOutput
   | UpdateLoggerDefinitionCommandOutput
   | UpdateResourceDefinitionCommandOutput
-  | UpdateSubscriptionDefinitionCommandOutput;
+  | UpdateSubscriptionDefinitionCommandOutput
+  | UpdateThingRuntimeConfigurationCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**

@@ -305,6 +305,7 @@ export type S3ControlClientResolvedConfig = __SmithyResolvedConfiguration<__Http
 /**
  * <p>
  *          AWS S3 Control provides access to Amazon S3 control plane operations.
+ *
  *       </p>
  */
 export class S3ControlClient extends __Client<

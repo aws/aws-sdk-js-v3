@@ -156,16 +156,6 @@ export namespace GetObjectRequest {
 
 export interface GetObjectResponse {
   /**
-   * <p>The content type of the object.</p>
-   */
-  ContentType?: string;
-
-  /**
-   * <p>The length of the object in bytes.</p>
-   */
-  ContentLength?: number;
-
-  /**
    * <p>An optional <code>CacheControl</code> header that allows the caller to control the
    *          object's cache behavior. Headers can be passed in as specified in the HTTP spec at <a href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9">https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9</a>.</p>
    *          <p>Headers with a custom user-defined value are also accepted.</p>
@@ -173,9 +163,24 @@ export interface GetObjectResponse {
   CacheControl?: string;
 
   /**
+   * <p>The length of the object in bytes.</p>
+   */
+  ContentLength?: number;
+
+  /**
+   * <p>The content type of the object.</p>
+   */
+  ContentType?: string;
+
+  /**
    * <p>The range of bytes to retrieve.</p>
    */
   ContentRange?: string;
+
+  /**
+   * <p>The date and time that the object was last modified.</p>
+   */
+  LastModified?: Date;
 
   /**
    * <p>The ETag that represents a unique instance of the object.</p>
@@ -183,9 +188,10 @@ export interface GetObjectResponse {
   ETag?: string;
 
   /**
-   * <p>The date and time that the object was last modified.</p>
+   * <p>The HTML status code of the request. Status codes ranging from 200 to 299 indicate
+   *          success. All other status codes indicate the type of error that occurred.</p>
    */
-  LastModified?: Date;
+  StatusCode: number | undefined;
 
   /**
    * <p>The bytes of the object. </p>
@@ -224,6 +230,11 @@ export enum ItemType {
  */
 export interface Item {
   /**
+   * <p>The ETag that represents a unique instance of the item.</p>
+   */
+  ETag?: string;
+
+  /**
    * <p>The name of the item.</p>
    */
   Name?: string;
@@ -237,11 +248,6 @@ export interface Item {
    * <p>The length of the item in bytes.</p>
    */
   ContentLength?: number;
-
-  /**
-   * <p>The ETag that represents a unique instance of the item.</p>
-   */
-  ETag?: string;
 
   /**
    * <p>The content type of the item.</p>
@@ -324,25 +330,6 @@ export enum StorageClass {
 
 export interface PutObjectRequest {
   /**
-   * <p>Indicates the storage class of a <code>Put</code> request. Defaults to
-   *          high-performance temporal storage class, and objects are persisted into durable storage
-   *          shortly after being received.</p>
-   */
-  StorageClass?: StorageClass | string;
-
-  /**
-   * <p>An optional <code>CacheControl</code> header that allows the caller to control the
-   *          object's cache behavior. Headers can be passed in as specified in the HTTP at <a href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9">https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9</a>.</p>
-   *          <p>Headers with a custom user-defined value are also accepted.</p>
-   */
-  CacheControl?: string;
-
-  /**
-   * <p>The content type of the object.</p>
-   */
-  ContentType?: string;
-
-  /**
    * <p>The path (including the file name) where the object is stored in the container.
    *          Format: <folder name>/<folder name>/<file name></p>
    *          <p>For example, to upload the file <code>mlaw.avi</code> to the folder path
@@ -365,6 +352,25 @@ export interface PutObjectRequest {
   Path: string | undefined;
 
   /**
+   * <p>Indicates the storage class of a <code>Put</code> request. Defaults to
+   *          high-performance temporal storage class, and objects are persisted into durable storage
+   *          shortly after being received.</p>
+   */
+  StorageClass?: StorageClass | string;
+
+  /**
+   * <p>The content type of the object.</p>
+   */
+  ContentType?: string;
+
+  /**
+   * <p>An optional <code>CacheControl</code> header that allows the caller to control the
+   *          object's cache behavior. Headers can be passed in as specified in the HTTP at <a href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9">https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9</a>.</p>
+   *          <p>Headers with a custom user-defined value are also accepted.</p>
+   */
+  CacheControl?: string;
+
+  /**
    * <p>The bytes to be stored. </p>
    */
   Body: Readable | ReadableStream | Blob | undefined;
@@ -378,9 +384,10 @@ export namespace PutObjectRequest {
 
 export interface PutObjectResponse {
   /**
-   * <p>Unique identifier of the object in the container.</p>
+   * <p>The storage class where the object was persisted. The class should be
+   *          “Temporal”.</p>
    */
-  ETag?: string;
+  StorageClass?: StorageClass | string;
 
   /**
    * <p>The SHA256 digest of the object that is persisted.</p>
@@ -388,10 +395,9 @@ export interface PutObjectResponse {
   ContentSHA256?: string;
 
   /**
-   * <p>The storage class where the object was persisted. The class should be
-   *          “Temporal”.</p>
+   * <p>Unique identifier of the object in the container.</p>
    */
-  StorageClass?: StorageClass | string;
+  ETag?: string;
 }
 
 export namespace PutObjectResponse {

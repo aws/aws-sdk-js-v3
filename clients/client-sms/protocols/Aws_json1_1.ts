@@ -13,6 +13,10 @@ import {
   DeleteAppReplicationConfigurationCommandOutput,
 } from "../commands/DeleteAppReplicationConfigurationCommand";
 import {
+  DeleteAppValidationConfigurationCommandInput,
+  DeleteAppValidationConfigurationCommandOutput,
+} from "../commands/DeleteAppValidationConfigurationCommand";
+import {
   DeleteReplicationJobCommandInput,
   DeleteReplicationJobCommandOutput,
 } from "../commands/DeleteReplicationJobCommand";
@@ -35,16 +39,29 @@ import {
   GetAppReplicationConfigurationCommandInput,
   GetAppReplicationConfigurationCommandOutput,
 } from "../commands/GetAppReplicationConfigurationCommand";
+import {
+  GetAppValidationConfigurationCommandInput,
+  GetAppValidationConfigurationCommandOutput,
+} from "../commands/GetAppValidationConfigurationCommand";
+import {
+  GetAppValidationOutputCommandInput,
+  GetAppValidationOutputCommandOutput,
+} from "../commands/GetAppValidationOutputCommand";
 import { GetConnectorsCommandInput, GetConnectorsCommandOutput } from "../commands/GetConnectorsCommand";
 import { GetReplicationJobsCommandInput, GetReplicationJobsCommandOutput } from "../commands/GetReplicationJobsCommand";
 import { GetReplicationRunsCommandInput, GetReplicationRunsCommandOutput } from "../commands/GetReplicationRunsCommand";
 import { GetServersCommandInput, GetServersCommandOutput } from "../commands/GetServersCommand";
+import { ImportAppCatalogCommandInput, ImportAppCatalogCommandOutput } from "../commands/ImportAppCatalogCommand";
 import {
   ImportServerCatalogCommandInput,
   ImportServerCatalogCommandOutput,
 } from "../commands/ImportServerCatalogCommand";
 import { LaunchAppCommandInput, LaunchAppCommandOutput } from "../commands/LaunchAppCommand";
 import { ListAppsCommandInput, ListAppsCommandOutput } from "../commands/ListAppsCommand";
+import {
+  NotifyAppValidationOutputCommandInput,
+  NotifyAppValidationOutputCommandOutput,
+} from "../commands/NotifyAppValidationOutputCommand";
 import {
   PutAppLaunchConfigurationCommandInput,
   PutAppLaunchConfigurationCommandOutput,
@@ -54,9 +71,17 @@ import {
   PutAppReplicationConfigurationCommandOutput,
 } from "../commands/PutAppReplicationConfigurationCommand";
 import {
+  PutAppValidationConfigurationCommandInput,
+  PutAppValidationConfigurationCommandOutput,
+} from "../commands/PutAppValidationConfigurationCommand";
+import {
   StartAppReplicationCommandInput,
   StartAppReplicationCommandOutput,
 } from "../commands/StartAppReplicationCommand";
+import {
+  StartOnDemandAppReplicationCommandInput,
+  StartOnDemandAppReplicationCommandOutput,
+} from "../commands/StartOnDemandAppReplicationCommand";
 import {
   StartOnDemandReplicationRunCommandInput,
   StartOnDemandReplicationRunCommandOutput,
@@ -70,6 +95,8 @@ import {
 } from "../commands/UpdateReplicationJobCommand";
 import {
   AppSummary,
+  AppValidationConfiguration,
+  AppValidationOutput,
   Connector,
   ConnectorCapability,
   CreateAppRequest,
@@ -82,12 +109,15 @@ import {
   DeleteAppReplicationConfigurationResponse,
   DeleteAppRequest,
   DeleteAppResponse,
+  DeleteAppValidationConfigurationRequest,
+  DeleteAppValidationConfigurationResponse,
   DeleteReplicationJobRequest,
   DeleteReplicationJobResponse,
   DeleteServerCatalogRequest,
   DeleteServerCatalogResponse,
   DisassociateConnectorRequest,
   DisassociateConnectorResponse,
+  DryRunOperationException,
   GenerateChangeSetRequest,
   GenerateChangeSetResponse,
   GenerateTemplateRequest,
@@ -98,6 +128,10 @@ import {
   GetAppReplicationConfigurationResponse,
   GetAppRequest,
   GetAppResponse,
+  GetAppValidationConfigurationRequest,
+  GetAppValidationConfigurationResponse,
+  GetAppValidationOutputRequest,
+  GetAppValidationOutputResponse,
   GetConnectorsRequest,
   GetConnectorsResponse,
   GetReplicationJobsRequest,
@@ -106,6 +140,8 @@ import {
   GetReplicationRunsResponse,
   GetServersRequest,
   GetServersResponse,
+  ImportAppCatalogRequest,
+  ImportAppCatalogResponse,
   ImportServerCatalogRequest,
   ImportServerCatalogResponse,
   InternalError,
@@ -117,11 +153,16 @@ import {
   ListAppsResponse,
   MissingRequiredParameterException,
   NoConnectorsAvailableException,
+  NotificationContext,
+  NotifyAppValidationOutputRequest,
+  NotifyAppValidationOutputResponse,
   OperationNotPermittedException,
   PutAppLaunchConfigurationRequest,
   PutAppLaunchConfigurationResponse,
   PutAppReplicationConfigurationRequest,
   PutAppReplicationConfigurationResponse,
+  PutAppValidationConfigurationRequest,
+  PutAppValidationConfigurationResponse,
   ReplicationJob,
   ReplicationJobAlreadyExistsException,
   ReplicationJobNotFoundException,
@@ -129,16 +170,24 @@ import {
   ReplicationRunLimitExceededException,
   ReplicationRunStageDetails,
   S3Location,
+  SSMOutput,
+  SSMValidationParameters,
   Server,
   ServerCannotBeReplicatedException,
   ServerGroup,
   ServerGroupLaunchConfiguration,
   ServerGroupReplicationConfiguration,
+  ServerGroupValidationConfiguration,
   ServerLaunchConfiguration,
   ServerReplicationConfiguration,
   ServerReplicationParameters,
+  ServerValidationConfiguration,
+  ServerValidationOutput,
+  Source,
   StartAppReplicationRequest,
   StartAppReplicationResponse,
+  StartOnDemandAppReplicationRequest,
+  StartOnDemandAppReplicationResponse,
   StartOnDemandReplicationRunRequest,
   StartOnDemandReplicationRunResponse,
   StopAppReplicationRequest,
@@ -153,6 +202,8 @@ import {
   UpdateReplicationJobRequest,
   UpdateReplicationJobResponse,
   UserData,
+  UserDataValidationParameters,
+  ValidationOutput,
   VmServer,
   VmServerAddress,
 } from "../models/models_0";
@@ -228,6 +279,19 @@ export const serializeAws_json1_1DeleteAppReplicationConfigurationCommand = asyn
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteAppReplicationConfigurationRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DeleteAppValidationConfigurationCommand = async (
+  input: DeleteAppValidationConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSServerMigrationService_V2016_10_24.DeleteAppValidationConfiguration",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DeleteAppValidationConfigurationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -335,6 +399,32 @@ export const serializeAws_json1_1GetAppReplicationConfigurationCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1GetAppValidationConfigurationCommand = async (
+  input: GetAppValidationConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSServerMigrationService_V2016_10_24.GetAppValidationConfiguration",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1GetAppValidationConfigurationRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1GetAppValidationOutputCommand = async (
+  input: GetAppValidationOutputCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSServerMigrationService_V2016_10_24.GetAppValidationOutput",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1GetAppValidationOutputRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1GetConnectorsCommand = async (
   input: GetConnectorsCommandInput,
   context: __SerdeContext
@@ -387,6 +477,19 @@ export const serializeAws_json1_1GetServersCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1ImportAppCatalogCommand = async (
+  input: ImportAppCatalogCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSServerMigrationService_V2016_10_24.ImportAppCatalog",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ImportAppCatalogRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1ImportServerCatalogCommand = async (
   input: ImportServerCatalogCommandInput,
   context: __SerdeContext
@@ -426,6 +529,19 @@ export const serializeAws_json1_1ListAppsCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1NotifyAppValidationOutputCommand = async (
+  input: NotifyAppValidationOutputCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSServerMigrationService_V2016_10_24.NotifyAppValidationOutput",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1NotifyAppValidationOutputRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1PutAppLaunchConfigurationCommand = async (
   input: PutAppLaunchConfigurationCommandInput,
   context: __SerdeContext
@@ -452,6 +568,19 @@ export const serializeAws_json1_1PutAppReplicationConfigurationCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1PutAppValidationConfigurationCommand = async (
+  input: PutAppValidationConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSServerMigrationService_V2016_10_24.PutAppValidationConfiguration",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1PutAppValidationConfigurationRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1StartAppReplicationCommand = async (
   input: StartAppReplicationCommandInput,
   context: __SerdeContext
@@ -462,6 +591,19 @@ export const serializeAws_json1_1StartAppReplicationCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1StartAppReplicationRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1StartOnDemandAppReplicationCommand = async (
+  input: StartOnDemandAppReplicationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSServerMigrationService_V2016_10_24.StartOnDemandAppReplication",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1StartOnDemandAppReplicationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -931,6 +1073,93 @@ const deserializeAws_json1_1DeleteAppReplicationConfigurationCommandError = asyn
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteAppReplicationConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InternalError":
+    case "com.amazonaws.sms#InternalError":
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterException":
+    case "com.amazonaws.sms#InvalidParameterException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "MissingRequiredParameterException":
+    case "com.amazonaws.sms#MissingRequiredParameterException":
+      response = {
+        ...(await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "OperationNotPermittedException":
+    case "com.amazonaws.sms#OperationNotPermittedException":
+      response = {
+        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnauthorizedOperationException":
+    case "com.amazonaws.sms#UnauthorizedOperationException":
+      response = {
+        ...(await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1DeleteAppValidationConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteAppValidationConfigurationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DeleteAppValidationConfigurationCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DeleteAppValidationConfigurationResponse(data, context);
+  const response: DeleteAppValidationConfigurationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DeleteAppValidationConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteAppValidationConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -1677,6 +1906,180 @@ const deserializeAws_json1_1GetAppReplicationConfigurationCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1GetAppValidationConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetAppValidationConfigurationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1GetAppValidationConfigurationCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1GetAppValidationConfigurationResponse(data, context);
+  const response: GetAppValidationConfigurationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1GetAppValidationConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetAppValidationConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InternalError":
+    case "com.amazonaws.sms#InternalError":
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterException":
+    case "com.amazonaws.sms#InvalidParameterException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "MissingRequiredParameterException":
+    case "com.amazonaws.sms#MissingRequiredParameterException":
+      response = {
+        ...(await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "OperationNotPermittedException":
+    case "com.amazonaws.sms#OperationNotPermittedException":
+      response = {
+        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnauthorizedOperationException":
+    case "com.amazonaws.sms#UnauthorizedOperationException":
+      response = {
+        ...(await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1GetAppValidationOutputCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetAppValidationOutputCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1GetAppValidationOutputCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1GetAppValidationOutputResponse(data, context);
+  const response: GetAppValidationOutputCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1GetAppValidationOutputCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetAppValidationOutputCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InternalError":
+    case "com.amazonaws.sms#InternalError":
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterException":
+    case "com.amazonaws.sms#InvalidParameterException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "MissingRequiredParameterException":
+    case "com.amazonaws.sms#MissingRequiredParameterException":
+      response = {
+        ...(await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "OperationNotPermittedException":
+    case "com.amazonaws.sms#OperationNotPermittedException":
+      response = {
+        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnauthorizedOperationException":
+    case "com.amazonaws.sms#UnauthorizedOperationException":
+      response = {
+        ...(await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1GetConnectorsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -1904,6 +2307,117 @@ const deserializeAws_json1_1GetServersCommandError = async (
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
+    case "InternalError":
+    case "com.amazonaws.sms#InternalError":
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterException":
+    case "com.amazonaws.sms#InvalidParameterException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "MissingRequiredParameterException":
+    case "com.amazonaws.sms#MissingRequiredParameterException":
+      response = {
+        ...(await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnauthorizedOperationException":
+    case "com.amazonaws.sms#UnauthorizedOperationException":
+      response = {
+        ...(await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1ImportAppCatalogCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ImportAppCatalogCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ImportAppCatalogCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ImportAppCatalogResponse(data, context);
+  const response: ImportAppCatalogCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ImportAppCatalogCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ImportAppCatalogCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InternalError":
+    case "com.amazonaws.sms#InternalError":
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterException":
+    case "com.amazonaws.sms#InvalidParameterException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "MissingRequiredParameterException":
+    case "com.amazonaws.sms#MissingRequiredParameterException":
+      response = {
+        ...(await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "OperationNotPermittedException":
+    case "com.amazonaws.sms#OperationNotPermittedException":
+      response = {
+        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "UnauthorizedOperationException":
     case "com.amazonaws.sms#UnauthorizedOperationException":
       response = {
@@ -2190,6 +2704,93 @@ const deserializeAws_json1_1ListAppsCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1NotifyAppValidationOutputCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<NotifyAppValidationOutputCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1NotifyAppValidationOutputCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1NotifyAppValidationOutputResponse(data, context);
+  const response: NotifyAppValidationOutputCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1NotifyAppValidationOutputCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<NotifyAppValidationOutputCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InternalError":
+    case "com.amazonaws.sms#InternalError":
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterException":
+    case "com.amazonaws.sms#InvalidParameterException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "MissingRequiredParameterException":
+    case "com.amazonaws.sms#MissingRequiredParameterException":
+      response = {
+        ...(await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "OperationNotPermittedException":
+    case "com.amazonaws.sms#OperationNotPermittedException":
+      response = {
+        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnauthorizedOperationException":
+    case "com.amazonaws.sms#UnauthorizedOperationException":
+      response = {
+        ...(await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1PutAppLaunchConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -2364,6 +2965,93 @@ const deserializeAws_json1_1PutAppReplicationConfigurationCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1PutAppValidationConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutAppValidationConfigurationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1PutAppValidationConfigurationCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1PutAppValidationConfigurationResponse(data, context);
+  const response: PutAppValidationConfigurationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1PutAppValidationConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutAppValidationConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InternalError":
+    case "com.amazonaws.sms#InternalError":
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterException":
+    case "com.amazonaws.sms#InvalidParameterException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "MissingRequiredParameterException":
+    case "com.amazonaws.sms#MissingRequiredParameterException":
+      response = {
+        ...(await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "OperationNotPermittedException":
+    case "com.amazonaws.sms#OperationNotPermittedException":
+      response = {
+        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnauthorizedOperationException":
+    case "com.amazonaws.sms#UnauthorizedOperationException":
+      response = {
+        ...(await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1StartAppReplicationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -2385,6 +3073,93 @@ const deserializeAws_json1_1StartAppReplicationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartAppReplicationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InternalError":
+    case "com.amazonaws.sms#InternalError":
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterException":
+    case "com.amazonaws.sms#InvalidParameterException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "MissingRequiredParameterException":
+    case "com.amazonaws.sms#MissingRequiredParameterException":
+      response = {
+        ...(await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "OperationNotPermittedException":
+    case "com.amazonaws.sms#OperationNotPermittedException":
+      response = {
+        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnauthorizedOperationException":
+    case "com.amazonaws.sms#UnauthorizedOperationException":
+      response = {
+        ...(await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1StartOnDemandAppReplicationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartOnDemandAppReplicationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1StartOnDemandAppReplicationCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1StartOnDemandAppReplicationResponse(data, context);
+  const response: StartOnDemandAppReplicationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1StartOnDemandAppReplicationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartOnDemandAppReplicationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -2481,6 +3256,14 @@ const deserializeAws_json1_1StartOnDemandReplicationRunCommandError = async (
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
+    case "DryRunOperationException":
+    case "com.amazonaws.sms#DryRunOperationException":
+      response = {
+        ...(await deserializeAws_json1_1DryRunOperationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "InvalidParameterException":
     case "com.amazonaws.sms#InvalidParameterException":
       response = {
@@ -2910,6 +3693,21 @@ const deserializeAws_json1_1UpdateReplicationJobCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+const deserializeAws_json1_1DryRunOperationExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<DryRunOperationException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1DryRunOperationException(body, context);
+  const contents: DryRunOperationException = {
+    name: "DryRunOperationException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
 const deserializeAws_json1_1InternalErrorResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -3079,6 +3877,27 @@ const serializeAws_json1_1AppIds = (input: string[], context: __SerdeContext): a
   return input.map((entry) => entry);
 };
 
+const serializeAws_json1_1AppValidationConfiguration = (
+  input: AppValidationConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.appValidationStrategy !== undefined && { appValidationStrategy: input.appValidationStrategy }),
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.ssmValidationParameters !== undefined && {
+      ssmValidationParameters: serializeAws_json1_1SSMValidationParameters(input.ssmValidationParameters, context),
+    }),
+    ...(input.validationId !== undefined && { validationId: input.validationId }),
+  };
+};
+
+const serializeAws_json1_1AppValidationConfigurations = (
+  input: AppValidationConfiguration[],
+  context: __SerdeContext
+): any => {
+  return input.map((entry) => serializeAws_json1_1AppValidationConfiguration(entry, context));
+};
+
 const serializeAws_json1_1CreateAppRequest = (input: CreateAppRequest, context: __SerdeContext): any => {
   return {
     ...(input.clientToken !== undefined && { clientToken: input.clientToken }),
@@ -3135,6 +3954,15 @@ const serializeAws_json1_1DeleteAppRequest = (input: DeleteAppRequest, context: 
     ...(input.appId !== undefined && { appId: input.appId }),
     ...(input.forceStopAppReplication !== undefined && { forceStopAppReplication: input.forceStopAppReplication }),
     ...(input.forceTerminateApp !== undefined && { forceTerminateApp: input.forceTerminateApp }),
+  };
+};
+
+const serializeAws_json1_1DeleteAppValidationConfigurationRequest = (
+  input: DeleteAppValidationConfigurationRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.appId !== undefined && { appId: input.appId }),
   };
 };
 
@@ -3204,6 +4032,24 @@ const serializeAws_json1_1GetAppRequest = (input: GetAppRequest, context: __Serd
   };
 };
 
+const serializeAws_json1_1GetAppValidationConfigurationRequest = (
+  input: GetAppValidationConfigurationRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.appId !== undefined && { appId: input.appId }),
+  };
+};
+
+const serializeAws_json1_1GetAppValidationOutputRequest = (
+  input: GetAppValidationOutputRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.appId !== undefined && { appId: input.appId }),
+  };
+};
+
 const serializeAws_json1_1GetConnectorsRequest = (input: GetConnectorsRequest, context: __SerdeContext): any => {
   return {
     ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
@@ -3243,6 +4089,12 @@ const serializeAws_json1_1GetServersRequest = (input: GetServersRequest, context
   };
 };
 
+const serializeAws_json1_1ImportAppCatalogRequest = (input: ImportAppCatalogRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.roleName !== undefined && { roleName: input.roleName }),
+  };
+};
+
 const serializeAws_json1_1ImportServerCatalogRequest = (
   input: ImportServerCatalogRequest,
   context: __SerdeContext
@@ -3264,12 +4116,33 @@ const serializeAws_json1_1ListAppsRequest = (input: ListAppsRequest, context: __
   };
 };
 
+const serializeAws_json1_1NotificationContext = (input: NotificationContext, context: __SerdeContext): any => {
+  return {
+    ...(input.status !== undefined && { status: input.status }),
+    ...(input.statusMessage !== undefined && { statusMessage: input.statusMessage }),
+    ...(input.validationId !== undefined && { validationId: input.validationId }),
+  };
+};
+
+const serializeAws_json1_1NotifyAppValidationOutputRequest = (
+  input: NotifyAppValidationOutputRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.appId !== undefined && { appId: input.appId }),
+    ...(input.notificationContext !== undefined && {
+      notificationContext: serializeAws_json1_1NotificationContext(input.notificationContext, context),
+    }),
+  };
+};
+
 const serializeAws_json1_1PutAppLaunchConfigurationRequest = (
   input: PutAppLaunchConfigurationRequest,
   context: __SerdeContext
 ): any => {
   return {
     ...(input.appId !== undefined && { appId: input.appId }),
+    ...(input.autoLaunch !== undefined && { autoLaunch: input.autoLaunch }),
     ...(input.roleName !== undefined && { roleName: input.roleName }),
     ...(input.serverGroupLaunchConfigurations !== undefined && {
       serverGroupLaunchConfigurations: serializeAws_json1_1ServerGroupLaunchConfigurations(
@@ -3289,6 +4162,27 @@ const serializeAws_json1_1PutAppReplicationConfigurationRequest = (
     ...(input.serverGroupReplicationConfigurations !== undefined && {
       serverGroupReplicationConfigurations: serializeAws_json1_1ServerGroupReplicationConfigurations(
         input.serverGroupReplicationConfigurations,
+        context
+      ),
+    }),
+  };
+};
+
+const serializeAws_json1_1PutAppValidationConfigurationRequest = (
+  input: PutAppValidationConfigurationRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.appId !== undefined && { appId: input.appId }),
+    ...(input.appValidationConfigurations !== undefined && {
+      appValidationConfigurations: serializeAws_json1_1AppValidationConfigurations(
+        input.appValidationConfigurations,
+        context
+      ),
+    }),
+    ...(input.serverGroupValidationConfigurations !== undefined && {
+      serverGroupValidationConfigurations: serializeAws_json1_1ServerGroupValidationConfigurations(
+        input.serverGroupValidationConfigurations,
         context
       ),
     }),
@@ -3369,13 +4263,40 @@ const serializeAws_json1_1ServerGroups = (input: ServerGroup[], context: __Serde
   return input.map((entry) => serializeAws_json1_1ServerGroup(entry, context));
 };
 
+const serializeAws_json1_1ServerGroupValidationConfiguration = (
+  input: ServerGroupValidationConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.serverGroupId !== undefined && { serverGroupId: input.serverGroupId }),
+    ...(input.serverValidationConfigurations !== undefined && {
+      serverValidationConfigurations: serializeAws_json1_1ServerValidationConfigurations(
+        input.serverValidationConfigurations,
+        context
+      ),
+    }),
+  };
+};
+
+const serializeAws_json1_1ServerGroupValidationConfigurations = (
+  input: ServerGroupValidationConfiguration[],
+  context: __SerdeContext
+): any => {
+  return input.map((entry) => serializeAws_json1_1ServerGroupValidationConfiguration(entry, context));
+};
+
 const serializeAws_json1_1ServerLaunchConfiguration = (
   input: ServerLaunchConfiguration,
   context: __SerdeContext
 ): any => {
   return {
     ...(input.associatePublicIpAddress !== undefined && { associatePublicIpAddress: input.associatePublicIpAddress }),
+    ...(input.configureScript !== undefined && {
+      configureScript: serializeAws_json1_1S3Location(input.configureScript, context),
+    }),
+    ...(input.configureScriptType !== undefined && { configureScriptType: input.configureScriptType }),
     ...(input.ec2KeyName !== undefined && { ec2KeyName: input.ec2KeyName }),
+    ...(input.iamInstanceProfileName !== undefined && { iamInstanceProfileName: input.iamInstanceProfileName }),
     ...(input.instanceType !== undefined && { instanceType: input.instanceType }),
     ...(input.logicalId !== undefined && { logicalId: input.logicalId }),
     ...(input.securityGroup !== undefined && { securityGroup: input.securityGroup }),
@@ -3434,12 +4355,64 @@ const serializeAws_json1_1ServerReplicationParameters = (
   };
 };
 
+const serializeAws_json1_1ServerValidationConfiguration = (
+  input: ServerValidationConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.server !== undefined && { server: serializeAws_json1_1Server(input.server, context) }),
+    ...(input.serverValidationStrategy !== undefined && { serverValidationStrategy: input.serverValidationStrategy }),
+    ...(input.userDataValidationParameters !== undefined && {
+      userDataValidationParameters: serializeAws_json1_1UserDataValidationParameters(
+        input.userDataValidationParameters,
+        context
+      ),
+    }),
+    ...(input.validationId !== undefined && { validationId: input.validationId }),
+  };
+};
+
+const serializeAws_json1_1ServerValidationConfigurations = (
+  input: ServerValidationConfiguration[],
+  context: __SerdeContext
+): any => {
+  return input.map((entry) => serializeAws_json1_1ServerValidationConfiguration(entry, context));
+};
+
+const serializeAws_json1_1Source = (input: Source, context: __SerdeContext): any => {
+  return {
+    ...(input.s3Location !== undefined && { s3Location: serializeAws_json1_1S3Location(input.s3Location, context) }),
+  };
+};
+
+const serializeAws_json1_1SSMValidationParameters = (input: SSMValidationParameters, context: __SerdeContext): any => {
+  return {
+    ...(input.command !== undefined && { command: input.command }),
+    ...(input.executionTimeoutSeconds !== undefined && { executionTimeoutSeconds: input.executionTimeoutSeconds }),
+    ...(input.instanceId !== undefined && { instanceId: input.instanceId }),
+    ...(input.outputS3BucketName !== undefined && { outputS3BucketName: input.outputS3BucketName }),
+    ...(input.scriptType !== undefined && { scriptType: input.scriptType }),
+    ...(input.source !== undefined && { source: serializeAws_json1_1Source(input.source, context) }),
+  };
+};
+
 const serializeAws_json1_1StartAppReplicationRequest = (
   input: StartAppReplicationRequest,
   context: __SerdeContext
 ): any => {
   return {
     ...(input.appId !== undefined && { appId: input.appId }),
+  };
+};
+
+const serializeAws_json1_1StartOnDemandAppReplicationRequest = (
+  input: StartOnDemandAppReplicationRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.appId !== undefined && { appId: input.appId }),
+    ...(input.description !== undefined && { description: input.description }),
   };
 };
 
@@ -3517,6 +4490,16 @@ const serializeAws_json1_1UserData = (input: UserData, context: __SerdeContext):
   };
 };
 
+const serializeAws_json1_1UserDataValidationParameters = (
+  input: UserDataValidationParameters,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.scriptType !== undefined && { scriptType: input.scriptType }),
+    ...(input.source !== undefined && { source: serializeAws_json1_1Source(input.source, context) }),
+  };
+};
+
 const serializeAws_json1_1VmServer = (input: VmServer, context: __SerdeContext): any => {
   return {
     ...(input.vmManagerName !== undefined && { vmManagerName: input.vmManagerName }),
@@ -3552,6 +4535,8 @@ const deserializeAws_json1_1AppSummary = (output: any, context: __SerdeContext):
         ? new Date(Math.round(output.creationTime * 1000))
         : undefined,
     description: output.description !== undefined && output.description !== null ? output.description : undefined,
+    importedAppId:
+      output.importedAppId !== undefined && output.importedAppId !== null ? output.importedAppId : undefined,
     lastModified:
       output.lastModified !== undefined && output.lastModified !== null
         ? new Date(Math.round(output.lastModified * 1000))
@@ -3559,6 +4544,10 @@ const deserializeAws_json1_1AppSummary = (output: any, context: __SerdeContext):
     latestReplicationTime:
       output.latestReplicationTime !== undefined && output.latestReplicationTime !== null
         ? new Date(Math.round(output.latestReplicationTime * 1000))
+        : undefined,
+    launchConfigurationStatus:
+      output.launchConfigurationStatus !== undefined && output.launchConfigurationStatus !== null
+        ? output.launchConfigurationStatus
         : undefined,
     launchDetails:
       output.launchDetails !== undefined && output.launchDetails !== null
@@ -3570,6 +4559,10 @@ const deserializeAws_json1_1AppSummary = (output: any, context: __SerdeContext):
         ? output.launchStatusMessage
         : undefined,
     name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    replicationConfigurationStatus:
+      output.replicationConfigurationStatus !== undefined && output.replicationConfigurationStatus !== null
+        ? output.replicationConfigurationStatus
+        : undefined,
     replicationStatus:
       output.replicationStatus !== undefined && output.replicationStatus !== null
         ? output.replicationStatus
@@ -3587,6 +4580,40 @@ const deserializeAws_json1_1AppSummary = (output: any, context: __SerdeContext):
         ? output.totalServerGroups
         : undefined,
     totalServers: output.totalServers !== undefined && output.totalServers !== null ? output.totalServers : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1AppValidationConfiguration = (
+  output: any,
+  context: __SerdeContext
+): AppValidationConfiguration => {
+  return {
+    appValidationStrategy:
+      output.appValidationStrategy !== undefined && output.appValidationStrategy !== null
+        ? output.appValidationStrategy
+        : undefined,
+    name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    ssmValidationParameters:
+      output.ssmValidationParameters !== undefined && output.ssmValidationParameters !== null
+        ? deserializeAws_json1_1SSMValidationParameters(output.ssmValidationParameters, context)
+        : undefined,
+    validationId: output.validationId !== undefined && output.validationId !== null ? output.validationId : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1AppValidationConfigurations = (
+  output: any,
+  context: __SerdeContext
+): AppValidationConfiguration[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1AppValidationConfiguration(entry, context));
+};
+
+const deserializeAws_json1_1AppValidationOutput = (output: any, context: __SerdeContext): AppValidationOutput => {
+  return {
+    ssmOutput:
+      output.ssmOutput !== undefined && output.ssmOutput !== null
+        ? deserializeAws_json1_1SSMOutput(output.ssmOutput, context)
+        : undefined,
   } as any;
 };
 
@@ -3667,6 +4694,13 @@ const deserializeAws_json1_1DeleteAppResponse = (output: any, context: __SerdeCo
   return {} as any;
 };
 
+const deserializeAws_json1_1DeleteAppValidationConfigurationResponse = (
+  output: any,
+  context: __SerdeContext
+): DeleteAppValidationConfigurationResponse => {
+  return {} as any;
+};
+
 const deserializeAws_json1_1DeleteReplicationJobResponse = (
   output: any,
   context: __SerdeContext
@@ -3686,6 +4720,15 @@ const deserializeAws_json1_1DisassociateConnectorResponse = (
   context: __SerdeContext
 ): DisassociateConnectorResponse => {
   return {} as any;
+};
+
+const deserializeAws_json1_1DryRunOperationException = (
+  output: any,
+  context: __SerdeContext
+): DryRunOperationException => {
+  return {
+    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+  } as any;
 };
 
 const deserializeAws_json1_1GenerateChangeSetResponse = (
@@ -3718,6 +4761,7 @@ const deserializeAws_json1_1GetAppLaunchConfigurationResponse = (
 ): GetAppLaunchConfigurationResponse => {
   return {
     appId: output.appId !== undefined && output.appId !== null ? output.appId : undefined,
+    autoLaunch: output.autoLaunch !== undefined && output.autoLaunch !== null ? output.autoLaunch : undefined,
     roleName: output.roleName !== undefined && output.roleName !== null ? output.roleName : undefined,
     serverGroupLaunchConfigurations:
       output.serverGroupLaunchConfigurations !== undefined && output.serverGroupLaunchConfigurations !== null
@@ -3753,6 +4797,34 @@ const deserializeAws_json1_1GetAppResponse = (output: any, context: __SerdeConte
         : undefined,
     tags:
       output.tags !== undefined && output.tags !== null ? deserializeAws_json1_1Tags(output.tags, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1GetAppValidationConfigurationResponse = (
+  output: any,
+  context: __SerdeContext
+): GetAppValidationConfigurationResponse => {
+  return {
+    appValidationConfigurations:
+      output.appValidationConfigurations !== undefined && output.appValidationConfigurations !== null
+        ? deserializeAws_json1_1AppValidationConfigurations(output.appValidationConfigurations, context)
+        : undefined,
+    serverGroupValidationConfigurations:
+      output.serverGroupValidationConfigurations !== undefined && output.serverGroupValidationConfigurations !== null
+        ? deserializeAws_json1_1ServerGroupValidationConfigurations(output.serverGroupValidationConfigurations, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1GetAppValidationOutputResponse = (
+  output: any,
+  context: __SerdeContext
+): GetAppValidationOutputResponse => {
+  return {
+    validationOutputList:
+      output.validationOutputList !== undefined && output.validationOutputList !== null
+        ? deserializeAws_json1_1ValidationOutputList(output.validationOutputList, context)
+        : undefined,
   } as any;
 };
 
@@ -3812,6 +4884,13 @@ const deserializeAws_json1_1GetServersResponse = (output: any, context: __SerdeC
         ? deserializeAws_json1_1ServerList(output.serverList, context)
         : undefined,
   } as any;
+};
+
+const deserializeAws_json1_1ImportAppCatalogResponse = (
+  output: any,
+  context: __SerdeContext
+): ImportAppCatalogResponse => {
+  return {} as any;
 };
 
 const deserializeAws_json1_1ImportServerCatalogResponse = (
@@ -3877,6 +4956,13 @@ const deserializeAws_json1_1NoConnectorsAvailableException = (
   } as any;
 };
 
+const deserializeAws_json1_1NotifyAppValidationOutputResponse = (
+  output: any,
+  context: __SerdeContext
+): NotifyAppValidationOutputResponse => {
+  return {} as any;
+};
+
 const deserializeAws_json1_1OperationNotPermittedException = (
   output: any,
   context: __SerdeContext
@@ -3897,6 +4983,13 @@ const deserializeAws_json1_1PutAppReplicationConfigurationResponse = (
   output: any,
   context: __SerdeContext
 ): PutAppReplicationConfigurationResponse => {
+  return {} as any;
+};
+
+const deserializeAws_json1_1PutAppValidationConfigurationResponse = (
+  output: any,
+  context: __SerdeContext
+): PutAppValidationConfigurationResponse => {
   return {} as any;
 };
 
@@ -4105,6 +5198,27 @@ const deserializeAws_json1_1ServerGroups = (output: any, context: __SerdeContext
   return (output || []).map((entry: any) => deserializeAws_json1_1ServerGroup(entry, context));
 };
 
+const deserializeAws_json1_1ServerGroupValidationConfiguration = (
+  output: any,
+  context: __SerdeContext
+): ServerGroupValidationConfiguration => {
+  return {
+    serverGroupId:
+      output.serverGroupId !== undefined && output.serverGroupId !== null ? output.serverGroupId : undefined,
+    serverValidationConfigurations:
+      output.serverValidationConfigurations !== undefined && output.serverValidationConfigurations !== null
+        ? deserializeAws_json1_1ServerValidationConfigurations(output.serverValidationConfigurations, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ServerGroupValidationConfigurations = (
+  output: any,
+  context: __SerdeContext
+): ServerGroupValidationConfiguration[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1ServerGroupValidationConfiguration(entry, context));
+};
+
 const deserializeAws_json1_1ServerLaunchConfiguration = (
   output: any,
   context: __SerdeContext
@@ -4114,7 +5228,19 @@ const deserializeAws_json1_1ServerLaunchConfiguration = (
       output.associatePublicIpAddress !== undefined && output.associatePublicIpAddress !== null
         ? output.associatePublicIpAddress
         : undefined,
+    configureScript:
+      output.configureScript !== undefined && output.configureScript !== null
+        ? deserializeAws_json1_1S3Location(output.configureScript, context)
+        : undefined,
+    configureScriptType:
+      output.configureScriptType !== undefined && output.configureScriptType !== null
+        ? output.configureScriptType
+        : undefined,
     ec2KeyName: output.ec2KeyName !== undefined && output.ec2KeyName !== null ? output.ec2KeyName : undefined,
+    iamInstanceProfileName:
+      output.iamInstanceProfileName !== undefined && output.iamInstanceProfileName !== null
+        ? output.iamInstanceProfileName
+        : undefined,
     instanceType: output.instanceType !== undefined && output.instanceType !== null ? output.instanceType : undefined,
     logicalId: output.logicalId !== undefined && output.logicalId !== null ? output.logicalId : undefined,
     securityGroup:
@@ -4187,10 +5313,96 @@ const deserializeAws_json1_1ServerReplicationParameters = (
   } as any;
 };
 
+const deserializeAws_json1_1ServerValidationConfiguration = (
+  output: any,
+  context: __SerdeContext
+): ServerValidationConfiguration => {
+  return {
+    name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    server:
+      output.server !== undefined && output.server !== null
+        ? deserializeAws_json1_1Server(output.server, context)
+        : undefined,
+    serverValidationStrategy:
+      output.serverValidationStrategy !== undefined && output.serverValidationStrategy !== null
+        ? output.serverValidationStrategy
+        : undefined,
+    userDataValidationParameters:
+      output.userDataValidationParameters !== undefined && output.userDataValidationParameters !== null
+        ? deserializeAws_json1_1UserDataValidationParameters(output.userDataValidationParameters, context)
+        : undefined,
+    validationId: output.validationId !== undefined && output.validationId !== null ? output.validationId : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ServerValidationConfigurations = (
+  output: any,
+  context: __SerdeContext
+): ServerValidationConfiguration[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1ServerValidationConfiguration(entry, context));
+};
+
+const deserializeAws_json1_1ServerValidationOutput = (output: any, context: __SerdeContext): ServerValidationOutput => {
+  return {
+    server:
+      output.server !== undefined && output.server !== null
+        ? deserializeAws_json1_1Server(output.server, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1Source = (output: any, context: __SerdeContext): Source => {
+  return {
+    s3Location:
+      output.s3Location !== undefined && output.s3Location !== null
+        ? deserializeAws_json1_1S3Location(output.s3Location, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1SSMOutput = (output: any, context: __SerdeContext): SSMOutput => {
+  return {
+    s3Location:
+      output.s3Location !== undefined && output.s3Location !== null
+        ? deserializeAws_json1_1S3Location(output.s3Location, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1SSMValidationParameters = (
+  output: any,
+  context: __SerdeContext
+): SSMValidationParameters => {
+  return {
+    command: output.command !== undefined && output.command !== null ? output.command : undefined,
+    executionTimeoutSeconds:
+      output.executionTimeoutSeconds !== undefined && output.executionTimeoutSeconds !== null
+        ? output.executionTimeoutSeconds
+        : undefined,
+    instanceId: output.instanceId !== undefined && output.instanceId !== null ? output.instanceId : undefined,
+    outputS3BucketName:
+      output.outputS3BucketName !== undefined && output.outputS3BucketName !== null
+        ? output.outputS3BucketName
+        : undefined,
+    scriptType: output.scriptType !== undefined && output.scriptType !== null ? output.scriptType : undefined,
+    source:
+      output.source !== undefined && output.source !== null
+        ? deserializeAws_json1_1Source(output.source, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1StartAppReplicationResponse = (
   output: any,
   context: __SerdeContext
 ): StartAppReplicationResponse => {
+  return {} as any;
+};
+
+const deserializeAws_json1_1StartOnDemandAppReplicationResponse = (
+  output: any,
+  context: __SerdeContext
+): StartOnDemandAppReplicationResponse => {
   return {} as any;
 };
 
@@ -4271,6 +5483,45 @@ const deserializeAws_json1_1UserData = (output: any, context: __SerdeContext): U
         ? deserializeAws_json1_1S3Location(output.s3Location, context)
         : undefined,
   } as any;
+};
+
+const deserializeAws_json1_1UserDataValidationParameters = (
+  output: any,
+  context: __SerdeContext
+): UserDataValidationParameters => {
+  return {
+    scriptType: output.scriptType !== undefined && output.scriptType !== null ? output.scriptType : undefined,
+    source:
+      output.source !== undefined && output.source !== null
+        ? deserializeAws_json1_1Source(output.source, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ValidationOutput = (output: any, context: __SerdeContext): ValidationOutput => {
+  return {
+    appValidationOutput:
+      output.appValidationOutput !== undefined && output.appValidationOutput !== null
+        ? deserializeAws_json1_1AppValidationOutput(output.appValidationOutput, context)
+        : undefined,
+    latestValidationTime:
+      output.latestValidationTime !== undefined && output.latestValidationTime !== null
+        ? new Date(Math.round(output.latestValidationTime * 1000))
+        : undefined,
+    name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    serverValidationOutput:
+      output.serverValidationOutput !== undefined && output.serverValidationOutput !== null
+        ? deserializeAws_json1_1ServerValidationOutput(output.serverValidationOutput, context)
+        : undefined,
+    status: output.status !== undefined && output.status !== null ? output.status : undefined,
+    statusMessage:
+      output.statusMessage !== undefined && output.statusMessage !== null ? output.statusMessage : undefined,
+    validationId: output.validationId !== undefined && output.validationId !== null ? output.validationId : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ValidationOutputList = (output: any, context: __SerdeContext): ValidationOutput[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1ValidationOutput(entry, context));
 };
 
 const deserializeAws_json1_1VmServer = (output: any, context: __SerdeContext): VmServer => {

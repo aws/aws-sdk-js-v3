@@ -18,10 +18,18 @@ import {
 } from "./commands/CreateFieldLevelEncryptionProfileCommand";
 import { CreateInvalidationCommandInput, CreateInvalidationCommandOutput } from "./commands/CreateInvalidationCommand";
 import {
+  CreateMonitoringSubscriptionCommandInput,
+  CreateMonitoringSubscriptionCommandOutput,
+} from "./commands/CreateMonitoringSubscriptionCommand";
+import {
   CreateOriginRequestPolicyCommandInput,
   CreateOriginRequestPolicyCommandOutput,
 } from "./commands/CreateOriginRequestPolicyCommand";
 import { CreatePublicKeyCommandInput, CreatePublicKeyCommandOutput } from "./commands/CreatePublicKeyCommand";
+import {
+  CreateRealtimeLogConfigCommandInput,
+  CreateRealtimeLogConfigCommandOutput,
+} from "./commands/CreateRealtimeLogConfigCommand";
 import {
   CreateStreamingDistributionCommandInput,
   CreateStreamingDistributionCommandOutput,
@@ -45,10 +53,18 @@ import {
   DeleteFieldLevelEncryptionProfileCommandOutput,
 } from "./commands/DeleteFieldLevelEncryptionProfileCommand";
 import {
+  DeleteMonitoringSubscriptionCommandInput,
+  DeleteMonitoringSubscriptionCommandOutput,
+} from "./commands/DeleteMonitoringSubscriptionCommand";
+import {
   DeleteOriginRequestPolicyCommandInput,
   DeleteOriginRequestPolicyCommandOutput,
 } from "./commands/DeleteOriginRequestPolicyCommand";
 import { DeletePublicKeyCommandInput, DeletePublicKeyCommandOutput } from "./commands/DeletePublicKeyCommand";
+import {
+  DeleteRealtimeLogConfigCommandInput,
+  DeleteRealtimeLogConfigCommandOutput,
+} from "./commands/DeleteRealtimeLogConfigCommand";
 import {
   DeleteStreamingDistributionCommandInput,
   DeleteStreamingDistributionCommandOutput,
@@ -89,6 +105,10 @@ import {
 } from "./commands/GetFieldLevelEncryptionProfileConfigCommand";
 import { GetInvalidationCommandInput, GetInvalidationCommandOutput } from "./commands/GetInvalidationCommand";
 import {
+  GetMonitoringSubscriptionCommandInput,
+  GetMonitoringSubscriptionCommandOutput,
+} from "./commands/GetMonitoringSubscriptionCommand";
+import {
   GetOriginRequestPolicyCommandInput,
   GetOriginRequestPolicyCommandOutput,
 } from "./commands/GetOriginRequestPolicyCommand";
@@ -98,6 +118,10 @@ import {
 } from "./commands/GetOriginRequestPolicyConfigCommand";
 import { GetPublicKeyCommandInput, GetPublicKeyCommandOutput } from "./commands/GetPublicKeyCommand";
 import { GetPublicKeyConfigCommandInput, GetPublicKeyConfigCommandOutput } from "./commands/GetPublicKeyConfigCommand";
+import {
+  GetRealtimeLogConfigCommandInput,
+  GetRealtimeLogConfigCommandOutput,
+} from "./commands/GetRealtimeLogConfigCommand";
 import {
   GetStreamingDistributionCommandInput,
   GetStreamingDistributionCommandOutput,
@@ -120,6 +144,10 @@ import {
   ListDistributionsByOriginRequestPolicyIdCommandOutput,
 } from "./commands/ListDistributionsByOriginRequestPolicyIdCommand";
 import {
+  ListDistributionsByRealtimeLogConfigCommandInput,
+  ListDistributionsByRealtimeLogConfigCommandOutput,
+} from "./commands/ListDistributionsByRealtimeLogConfigCommand";
+import {
   ListDistributionsByWebACLIdCommandInput,
   ListDistributionsByWebACLIdCommandOutput,
 } from "./commands/ListDistributionsByWebACLIdCommand";
@@ -138,6 +166,10 @@ import {
   ListOriginRequestPoliciesCommandOutput,
 } from "./commands/ListOriginRequestPoliciesCommand";
 import { ListPublicKeysCommandInput, ListPublicKeysCommandOutput } from "./commands/ListPublicKeysCommand";
+import {
+  ListRealtimeLogConfigsCommandInput,
+  ListRealtimeLogConfigsCommandOutput,
+} from "./commands/ListRealtimeLogConfigsCommand";
 import {
   ListStreamingDistributionsCommandInput,
   ListStreamingDistributionsCommandOutput,
@@ -167,6 +199,10 @@ import {
   UpdateOriginRequestPolicyCommandOutput,
 } from "./commands/UpdateOriginRequestPolicyCommand";
 import { UpdatePublicKeyCommandInput, UpdatePublicKeyCommandOutput } from "./commands/UpdatePublicKeyCommand";
+import {
+  UpdateRealtimeLogConfigCommandInput,
+  UpdateRealtimeLogConfigCommandOutput,
+} from "./commands/UpdateRealtimeLogConfigCommand";
 import {
   UpdateStreamingDistributionCommandInput,
   UpdateStreamingDistributionCommandOutput,
@@ -228,8 +264,10 @@ export type ServiceInputTypes =
   | CreateFieldLevelEncryptionConfigCommandInput
   | CreateFieldLevelEncryptionProfileCommandInput
   | CreateInvalidationCommandInput
+  | CreateMonitoringSubscriptionCommandInput
   | CreateOriginRequestPolicyCommandInput
   | CreatePublicKeyCommandInput
+  | CreateRealtimeLogConfigCommandInput
   | CreateStreamingDistributionCommandInput
   | CreateStreamingDistributionWithTagsCommandInput
   | DeleteCachePolicyCommandInput
@@ -237,8 +275,10 @@ export type ServiceInputTypes =
   | DeleteDistributionCommandInput
   | DeleteFieldLevelEncryptionConfigCommandInput
   | DeleteFieldLevelEncryptionProfileCommandInput
+  | DeleteMonitoringSubscriptionCommandInput
   | DeleteOriginRequestPolicyCommandInput
   | DeletePublicKeyCommandInput
+  | DeleteRealtimeLogConfigCommandInput
   | DeleteStreamingDistributionCommandInput
   | GetCachePolicyCommandInput
   | GetCachePolicyConfigCommandInput
@@ -251,16 +291,19 @@ export type ServiceInputTypes =
   | GetFieldLevelEncryptionProfileCommandInput
   | GetFieldLevelEncryptionProfileConfigCommandInput
   | GetInvalidationCommandInput
+  | GetMonitoringSubscriptionCommandInput
   | GetOriginRequestPolicyCommandInput
   | GetOriginRequestPolicyConfigCommandInput
   | GetPublicKeyCommandInput
   | GetPublicKeyConfigCommandInput
+  | GetRealtimeLogConfigCommandInput
   | GetStreamingDistributionCommandInput
   | GetStreamingDistributionConfigCommandInput
   | ListCachePoliciesCommandInput
   | ListCloudFrontOriginAccessIdentitiesCommandInput
   | ListDistributionsByCachePolicyIdCommandInput
   | ListDistributionsByOriginRequestPolicyIdCommandInput
+  | ListDistributionsByRealtimeLogConfigCommandInput
   | ListDistributionsByWebACLIdCommandInput
   | ListDistributionsCommandInput
   | ListFieldLevelEncryptionConfigsCommandInput
@@ -268,6 +311,7 @@ export type ServiceInputTypes =
   | ListInvalidationsCommandInput
   | ListOriginRequestPoliciesCommandInput
   | ListPublicKeysCommandInput
+  | ListRealtimeLogConfigsCommandInput
   | ListStreamingDistributionsCommandInput
   | ListTagsForResourceCommandInput
   | TagResourceCommandInput
@@ -279,6 +323,7 @@ export type ServiceInputTypes =
   | UpdateFieldLevelEncryptionProfileCommandInput
   | UpdateOriginRequestPolicyCommandInput
   | UpdatePublicKeyCommandInput
+  | UpdateRealtimeLogConfigCommandInput
   | UpdateStreamingDistributionCommandInput;
 
 export type ServiceOutputTypes =
@@ -289,8 +334,10 @@ export type ServiceOutputTypes =
   | CreateFieldLevelEncryptionConfigCommandOutput
   | CreateFieldLevelEncryptionProfileCommandOutput
   | CreateInvalidationCommandOutput
+  | CreateMonitoringSubscriptionCommandOutput
   | CreateOriginRequestPolicyCommandOutput
   | CreatePublicKeyCommandOutput
+  | CreateRealtimeLogConfigCommandOutput
   | CreateStreamingDistributionCommandOutput
   | CreateStreamingDistributionWithTagsCommandOutput
   | DeleteCachePolicyCommandOutput
@@ -298,8 +345,10 @@ export type ServiceOutputTypes =
   | DeleteDistributionCommandOutput
   | DeleteFieldLevelEncryptionConfigCommandOutput
   | DeleteFieldLevelEncryptionProfileCommandOutput
+  | DeleteMonitoringSubscriptionCommandOutput
   | DeleteOriginRequestPolicyCommandOutput
   | DeletePublicKeyCommandOutput
+  | DeleteRealtimeLogConfigCommandOutput
   | DeleteStreamingDistributionCommandOutput
   | GetCachePolicyCommandOutput
   | GetCachePolicyConfigCommandOutput
@@ -312,16 +361,19 @@ export type ServiceOutputTypes =
   | GetFieldLevelEncryptionProfileCommandOutput
   | GetFieldLevelEncryptionProfileConfigCommandOutput
   | GetInvalidationCommandOutput
+  | GetMonitoringSubscriptionCommandOutput
   | GetOriginRequestPolicyCommandOutput
   | GetOriginRequestPolicyConfigCommandOutput
   | GetPublicKeyCommandOutput
   | GetPublicKeyConfigCommandOutput
+  | GetRealtimeLogConfigCommandOutput
   | GetStreamingDistributionCommandOutput
   | GetStreamingDistributionConfigCommandOutput
   | ListCachePoliciesCommandOutput
   | ListCloudFrontOriginAccessIdentitiesCommandOutput
   | ListDistributionsByCachePolicyIdCommandOutput
   | ListDistributionsByOriginRequestPolicyIdCommandOutput
+  | ListDistributionsByRealtimeLogConfigCommandOutput
   | ListDistributionsByWebACLIdCommandOutput
   | ListDistributionsCommandOutput
   | ListFieldLevelEncryptionConfigsCommandOutput
@@ -329,6 +381,7 @@ export type ServiceOutputTypes =
   | ListInvalidationsCommandOutput
   | ListOriginRequestPoliciesCommandOutput
   | ListPublicKeysCommandOutput
+  | ListRealtimeLogConfigsCommandOutput
   | ListStreamingDistributionsCommandOutput
   | ListTagsForResourceCommandOutput
   | TagResourceCommandOutput
@@ -340,6 +393,7 @@ export type ServiceOutputTypes =
   | UpdateFieldLevelEncryptionProfileCommandOutput
   | UpdateOriginRequestPolicyCommandOutput
   | UpdatePublicKeyCommandOutput
+  | UpdateRealtimeLogConfigCommandOutput
   | UpdateStreamingDistributionCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

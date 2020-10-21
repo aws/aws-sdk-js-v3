@@ -2,6 +2,7 @@ import {
   AssociateRepositoryCommandInput,
   AssociateRepositoryCommandOutput,
 } from "./commands/AssociateRepositoryCommand";
+import { CreateCodeReviewCommandInput, CreateCodeReviewCommandOutput } from "./commands/CreateCodeReviewCommand";
 import { DescribeCodeReviewCommandInput, DescribeCodeReviewCommandOutput } from "./commands/DescribeCodeReviewCommand";
 import {
   DescribeRecommendationFeedbackCommandInput,
@@ -83,6 +84,7 @@ import {
 
 export type ServiceInputTypes =
   | AssociateRepositoryCommandInput
+  | CreateCodeReviewCommandInput
   | DescribeCodeReviewCommandInput
   | DescribeRecommendationFeedbackCommandInput
   | DescribeRepositoryAssociationCommandInput
@@ -95,6 +97,7 @@ export type ServiceInputTypes =
 
 export type ServiceOutputTypes =
   | AssociateRepositoryCommandOutput
+  | CreateCodeReviewCommandOutput
   | DescribeCodeReviewCommandOutput
   | DescribeRecommendationFeedbackCommandOutput
   | DescribeRepositoryAssociationCommandOutput

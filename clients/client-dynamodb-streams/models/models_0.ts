@@ -11,15 +11,15 @@ export interface DescribeStreamInput {
   StreamArn: string | undefined;
 
   /**
-   * <p>The maximum number of shard objects to return. The upper limit is 100.</p>
-   */
-  Limit?: number;
-
-  /**
    * <p>The shard ID of the first item that this operation will evaluate. Use the value that was
    *       returned for <code>LastEvaluatedShardId</code> in the previous operation. </p>
    */
   ExclusiveStartShardId?: string;
+
+  /**
+   * <p>The maximum number of shard objects to return. The upper limit is 100.</p>
+   */
+  Limit?: number;
 }
 
 export namespace DescribeStreamInput {
@@ -31,23 +31,41 @@ export namespace DescribeStreamInput {
 export type KeyType = "HASH" | "RANGE";
 
 /**
- * <p>Represents <i>a single element</i> of a key schema. A key schema specifies the attributes
- *       that make up the primary key of a table, or the key attributes of an index.</p>
- *          <p>A <code>KeySchemaElement</code> represents exactly one attribute of the primary key. For example, a
- *       simple primary key (partition key)  would be represented by one <code>KeySchemaElement</code>. A composite primary key (partition key and sort key) would require one <code>KeySchemaElement</code> for the partition key, and another
- *       <code>KeySchemaElement</code> for the sort key.</p>
- *          <note>
- *             <p>The partition key of an item is also known as its <i>hash attribute</i>.  The
- *         term "hash attribute" derives from DynamoDB's usage of an internal hash function to
- *         evenly distribute data items across partitions, based on their partition key values.</p>
- *             <p>The sort key of an item is also known as its <i>range attribute</i>.
- *         The term "range attribute" derives from the way DynamoDB stores items with the same
- *         partition key physically close together, in sorted order by the sort key value.</p>
- *          </note>
+ * <p>Represents <i>a single element</i> of a key schema. A key schema specifies
+ *             the attributes that make up the primary key of a table, or the key attributes of an
+ *             index.</p>
+ *          <p>A <code>KeySchemaElement</code> represents exactly one attribute of the primary key. For
+ *             example, a simple primary key would be represented by one <code>KeySchemaElement</code>
+ *             (for the partition key). A composite primary key would require one
+ *                 <code>KeySchemaElement</code> for the partition key, and another
+ *                 <code>KeySchemaElement</code> for the sort key.</p>
+ *          <p>A <code>KeySchemaElement</code> must be a scalar, top-level attribute (not a nested
+ *             attribute). The data type must be one of String, Number, or Binary. The attribute cannot
+ *             be nested within a List or a Map.</p>
  */
 export interface KeySchemaElement {
   /**
-   * <p>The attribute data, consisting of the data type and the attribute value itself.</p>
+   * <p>The role that this key attribute will assume:</p>
+   *          <ul>
+   *             <li>
+   *               <p>
+   *                   <code>HASH</code> - partition key</p>
+   *             </li>
+   *             <li>
+   *               <p>
+   *                   <code>RANGE</code> - sort key</p>
+   *             </li>
+   *          </ul>
+   *          <note>
+   *             <p>The partition key of an item is also known as its <i>hash
+   *                     attribute</i>. The term "hash attribute" derives from DynamoDB's usage of
+   *                 an internal hash function to evenly distribute data items across partitions, based
+   *                 on their partition key values.</p>
+   *             <p>The sort key of an item is also known as its <i>range
+   *                 attribute</i>. The term "range attribute" derives from the way DynamoDB
+   *                 stores items with the same partition key physically close together, in sorted order
+   *                 by the sort key value.</p>
+   *          </note>
    */
   KeyType: KeyType | string | undefined;
 
@@ -68,12 +86,12 @@ export namespace KeySchemaElement {
  */
 export interface SequenceNumberRange {
   /**
-   * <p>The last sequence number.</p>
+   * <p>The last sequence number for the stream records contained within a shard. String contains numeric characters only.</p>
    */
   EndingSequenceNumber?: string;
 
   /**
-   * <p>The first sequence number.</p>
+   * <p>The first sequence number for the stream records contained within a shard. String contains numeric characters only.</p>
    */
   StartingSequenceNumber?: string;
 }
@@ -89,14 +107,14 @@ export namespace SequenceNumberRange {
  */
 export interface Shard {
   /**
-   * <p>The shard ID of the current shard's parent.</p>
-   */
-  ParentShardId?: string;
-
-  /**
    * <p>The system-generated identifier for this shard.</p>
    */
   ShardId?: string;
+
+  /**
+   * <p>The shard ID of the current shard's parent.</p>
+   */
+  ParentShardId?: string;
 
   /**
    * <p>The range of possible sequence numbers for the shard.</p>
@@ -119,19 +137,27 @@ export type StreamViewType = "KEYS_ONLY" | "NEW_AND_OLD_IMAGES" | "NEW_IMAGE" | 
  */
 export interface StreamDescription {
   /**
-   * <p>The shard ID of the item where the operation stopped, inclusive of the previous result set. Use this value to start a new operation, excluding this value in the new request.</p>
-   *          <p>If <code>LastEvaluatedShardId</code> is empty, then the "last page" of results has been
-   *       processed and there is currently no more data to be retrieved.</p>
-   *          <p>If <code>LastEvaluatedShardId</code> is not empty, it does not necessarily mean that there is
-   *       more data in the result set. The only way to know when you have reached the end of the result
-   *       set is when <code>LastEvaluatedShardId</code> is empty.</p>
+   * <p>Indicates the current status of the stream:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ENABLING</code> - Streams is currently being enabled on the DynamoDB table.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ENABLED</code> - the stream is enabled.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DISABLING</code> - Streams is currently being disabled on the DynamoDB table.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DISABLED</code> - the stream is disabled.</p>
+   *             </li>
+   *          </ul>
    */
-  LastEvaluatedShardId?: string;
-
-  /**
-   * <p>The key attribute(s) of the stream's DynamoDB table.</p>
-   */
-  KeySchema?: KeySchemaElement[];
+  StreamStatus?: StreamStatus | string;
 
   /**
    * <p>Indicates the format of the records within this stream:</p>
@@ -157,14 +183,24 @@ export interface StreamDescription {
   StreamViewType?: StreamViewType | string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) for the stream.</p>
+   * <p>The date and time when the request to create this stream was issued.</p>
    */
-  StreamArn?: string;
+  CreationRequestDateTime?: Date;
 
   /**
    * <p>The shards that comprise the stream.</p>
    */
   Shards?: Shard[];
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the stream.</p>
+   */
+  StreamArn?: string;
+
+  /**
+   * <p>The key attribute(s) of the stream's DynamoDB table.</p>
+   */
+  KeySchema?: KeySchemaElement[];
 
   /**
    * <p>A timestamp, in ISO 8601 format, for this stream.</p>
@@ -187,37 +223,19 @@ export interface StreamDescription {
   StreamLabel?: string;
 
   /**
-   * <p>The date and time when the request to create this stream was issued.</p>
-   */
-  CreationRequestDateTime?: Date;
-
-  /**
-   * <p>Indicates the current status of the stream:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>ENABLING</code> - Streams is currently being enabled on the DynamoDB table.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ENABLED</code> - the stream is enabled.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DISABLING</code> - Streams is currently being disabled on the DynamoDB table.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DISABLED</code> - the stream is disabled.</p>
-   *             </li>
-   *          </ul>
-   */
-  StreamStatus?: StreamStatus | string;
-
-  /**
    * <p>The DynamoDB table with which the stream is associated.</p>
    */
   TableName?: string;
+
+  /**
+   * <p>The shard ID of the item where the operation stopped, inclusive of the previous result set. Use this value to start a new operation, excluding this value in the new request.</p>
+   *          <p>If <code>LastEvaluatedShardId</code> is empty, then the "last page" of results has been
+   *       processed and there is currently no more data to be retrieved.</p>
+   *          <p>If <code>LastEvaluatedShardId</code> is not empty, it does not necessarily mean that there is
+   *       more data in the result set. The only way to know when you have reached the end of the result
+   *       set is when <code>LastEvaluatedShardId</code> is empty.</p>
+   */
+  LastEvaluatedShardId?: string;
 }
 
 export namespace StreamDescription {
@@ -261,7 +279,9 @@ export namespace InternalServerError {
 }
 
 /**
- * <p>The operation tried to access a nonexistent stream.</p>
+ * <p>The operation tried to access a nonexistent table or index. The resource
+ *             might not be specified correctly, or its status might not be
+ *             <code>ACTIVE</code>.</p>
  */
 export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
   name: "ResourceNotFoundException";
@@ -326,15 +346,15 @@ export type OperationType = "INSERT" | "MODIFY" | "REMOVE";
  */
 export interface Identity {
   /**
-   * <p>The type of the identity. For Time To Live, the type is "Service".</p>
-   */
-  Type?: string;
-
-  /**
    * <p>A unique identifier for the entity that made the call. For Time To Live, the
    *       principalId is "dynamodb.amazonaws.com".</p>
    */
   PrincipalId?: string;
+
+  /**
+   * <p>The type of the identity. For Time To Live, the type is "Service".</p>
+   */
+  Type?: string;
 }
 
 export namespace Identity {
@@ -344,11 +364,18 @@ export namespace Identity {
 }
 
 /**
- * <p>Your request rate is too high. The AWS SDKs for DynamoDB automatically retry requests that
- *       receive this exception. Your request is eventually successful, unless your retry queue is too
- *       large to finish. Reduce the frequency of requests and use exponential backoff. For more
- *       information, go to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ErrorHandling.html#APIRetries">Error Retries and Exponential
- *         Backoff</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
+ * <p>There is no limit to the number of daily on-demand backups that can be
+ *             taken.</p>
+ *          <p>Up to 50 simultaneous table operations are allowed per account. These operations
+ *             include <code>CreateTable</code>, <code>UpdateTable</code>,
+ *                 <code>DeleteTable</code>,<code>UpdateTimeToLive</code>,
+ *                 <code>RestoreTableFromBackup</code>, and
+ *             <code>RestoreTableToPointInTime</code>.</p>
+ *          <p>The only exception is when you are creating a table with one or more secondary
+ *             indexes. You can have up to 25 such requests running at a time; however, if the table or
+ *             index specifications are complex, DynamoDB might temporarily reduce the number of
+ *             concurrent operations.</p>
+ *          <p>There is a soft account quota of 256 tables.</p>
  */
 export interface LimitExceededException extends __SmithyException, $MetadataBearer {
   name: "LimitExceededException";
@@ -401,9 +428,9 @@ export type ShardIteratorType = "AFTER_SEQUENCE_NUMBER" | "AT_SEQUENCE_NUMBER" |
  */
 export interface GetShardIteratorInput {
   /**
-   * <p>The Amazon Resource Name (ARN) for the stream.</p>
+   * <p>The identifier of the shard. The iterator will be returned for this shard ID.</p>
    */
-  StreamArn: string | undefined;
+  ShardId: string | undefined;
 
   /**
    * <p>The sequence number of a stream record in the shard from which to start reading.</p>
@@ -411,9 +438,9 @@ export interface GetShardIteratorInput {
   SequenceNumber?: string;
 
   /**
-   * <p>The identifier of the shard. The iterator will be returned for this shard ID.</p>
+   * <p>The Amazon Resource Name (ARN) for the stream.</p>
    */
-  ShardId: string | undefined;
+  StreamArn: string | undefined;
 
   /**
    * <p>Determines how the shard iterator is used to start reading stream records from the shard:</p>
@@ -520,14 +547,14 @@ export interface _Stream {
   StreamLabel?: string;
 
   /**
-   * <p>The DynamoDB table with which the stream is associated.</p>
-   */
-  TableName?: string;
-
-  /**
    * <p>The Amazon Resource Name (ARN) for the stream.</p>
    */
   StreamArn?: string;
+
+  /**
+   * <p>The DynamoDB table with which the stream is associated.</p>
+   */
+  TableName?: string;
 }
 
 export namespace _Stream {
@@ -563,59 +590,93 @@ export namespace ListStreamsOutput {
 }
 
 /**
- * <p>Represents the data for an attribute. You can set one, and only one, of the elements.</p>
- *          <p>Each attribute in an item is a name-value pair. An attribute can be single-valued or multi-valued set. For example, a book item can have title and authors attributes. Each book has one title but can have many authors. The multi-valued attribute is a set; duplicate values are not allowed.</p>
+ * <p>Represents the data for an attribute.</p>
+ *          <p>Each attribute value is described as a name-value pair.  The name is the data type, and the value is the data itself.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes">Data Types</a> in the
+ *                              <i>Amazon DynamoDB Developer Guide</i>.</p>
  */
 export interface AttributeValue {
   /**
-   * <p>A Boolean data type.</p>
+   * <p>An attribute of type String Set.  For example:</p>
+   *          <p>
+   *             <code>"SS": ["Giraffe", "Hippo" ,"Zebra"]</code>
+   *          </p>
    */
-  BOOL?: boolean;
+  SS?: string[];
 
   /**
-   * <p>A Map data type.</p>
-   */
-  M?: { [key: string]: AttributeValue };
-
-  /**
-   * <p>A List data type.</p>
-   */
-  L?: AttributeValue[];
-
-  /**
-   * <p>A String data type.</p>
-   */
-  S?: string;
-
-  /**
-   * <p>A Binary data type.</p>
-   */
-  B?: Uint8Array;
-
-  /**
-   * <p>A Number Set data type.</p>
-   */
-  NS?: string[];
-
-  /**
-   * <p>A Null data type.</p>
-   */
-  NULL?: boolean;
-
-  /**
-   * <p>A Number data type.</p>
-   */
-  N?: string;
-
-  /**
-   * <p>A Binary Set data type.</p>
+   * <p>An attribute of type Binary Set.  For example:</p>
+   *          <p>
+   *             <code>"BS": ["U3Vubnk=", "UmFpbnk=", "U25vd3k="]</code>
+   *          </p>
    */
   BS?: Uint8Array[];
 
   /**
-   * <p>A String Set data type.</p>
+   * <p>An attribute of type Number. For example:</p>
+   *          <p>
+   *             <code>"N": "123.45"</code>
+   *          </p>
+   *          <p>Numbers are sent across the network to DynamoDB as strings, to maximize compatibility across languages and libraries. However, DynamoDB treats them as number type attributes for mathematical operations.</p>
    */
-  SS?: string[];
+  N?: string;
+
+  /**
+   * <p>An attribute of type List.  For example:</p>
+   *          <p>
+   *             <code>"L": [ {"S": "Cookies"} , {"S": "Coffee"}, {"N", "3.14159"}]</code>
+   *          </p>
+   */
+  L?: AttributeValue[];
+
+  /**
+   * <p>An attribute of type Boolean.  For example:</p>
+   *          <p>
+   *             <code>"BOOL": true</code>
+   *          </p>
+   */
+  BOOL?: boolean;
+
+  /**
+   * <p>An attribute of type Map.  For example:</p>
+   *          <p>
+   *             <code>"M": {"Name": {"S": "Joe"}, "Age": {"N": "35"}}</code>
+   *          </p>
+   */
+  M?: { [key: string]: AttributeValue };
+
+  /**
+   * <p>An attribute of type Null.  For example:</p>
+   *          <p>
+   *             <code>"NULL": true</code>
+   *          </p>
+   */
+  NULL?: boolean;
+
+  /**
+   * <p>An attribute of type Number Set.  For example:</p>
+   *          <p>
+   *             <code>"NS": ["42.2", "-19", "7.5", "3.14"]</code>
+   *          </p>
+   *          <p>Numbers are sent across the network to DynamoDB as strings, to maximize compatibility across languages and libraries. However, DynamoDB treats them as number type attributes for mathematical operations.</p>
+   */
+  NS?: string[];
+
+  /**
+   * <p>An attribute of type Binary.  For example:</p>
+   *          <p>
+   *             <code>"B": "dGhpcyB0ZXh0IGlzIGJhc2U2NC1lbmNvZGVk"</code>
+   *          </p>
+   */
+  B?: Uint8Array;
+
+  /**
+   * <p>An attribute of type  String. For example:</p>
+   *          <p>
+   *             <code>"S": "Hello"</code>
+   *          </p>
+   */
+  S?: string;
 }
 
 export namespace AttributeValue {
@@ -632,6 +693,31 @@ export interface StreamRecord {
    * <p>The sequence number of the stream record.</p>
    */
   SequenceNumber?: string;
+
+  /**
+   * <p>The item in the DynamoDB table as it appeared before it was modified.</p>
+   */
+  OldImage?: { [key: string]: AttributeValue };
+
+  /**
+   * <p>The approximate date and time when the stream record was created, in <a href="http://www.epochconverter.com/">UNIX epoch time</a> format.</p>
+   */
+  ApproximateCreationDateTime?: Date;
+
+  /**
+   * <p>The size of the stream record, in bytes.</p>
+   */
+  SizeBytes?: number;
+
+  /**
+   * <p>The primary key attribute(s) for the DynamoDB item that was modified.</p>
+   */
+  Keys?: { [key: string]: AttributeValue };
+
+  /**
+   * <p>The item in the DynamoDB table as it appeared after it was modified.</p>
+   */
+  NewImage?: { [key: string]: AttributeValue };
 
   /**
    * <p>The type of data from the modified DynamoDB item that was captured in this stream record:</p>
@@ -655,31 +741,6 @@ export interface StreamRecord {
    *          </ul>
    */
   StreamViewType?: StreamViewType | string;
-
-  /**
-   * <p>The item in the DynamoDB table as it appeared before it was modified.</p>
-   */
-  OldImage?: { [key: string]: AttributeValue };
-
-  /**
-   * <p>The approximate date and time when the stream record was created, in <a href="http://www.epochconverter.com/">UNIX epoch time</a> format.</p>
-   */
-  ApproximateCreationDateTime?: Date;
-
-  /**
-   * <p>The primary key attribute(s) for the DynamoDB item that was modified.</p>
-   */
-  Keys?: { [key: string]: AttributeValue };
-
-  /**
-   * <p>The size of the stream record, in bytes.</p>
-   */
-  SizeBytes?: number;
-
-  /**
-   * <p>The item in the DynamoDB table as it appeared after it was modified.</p>
-   */
-  NewImage?: { [key: string]: AttributeValue };
 }
 
 export namespace StreamRecord {
@@ -693,14 +754,9 @@ export namespace StreamRecord {
  */
 export interface _Record {
   /**
-   * <p>The main body of the stream record, containing all of the DynamoDB-specific fields.</p>
+   * <p>A globally unique identifier for the event that was recorded in this stream record.</p>
    */
-  dynamodb?: StreamRecord;
-
-  /**
-   * <p>The region in which the <code>GetRecords</code> request was received.</p>
-   */
-  awsRegion?: string;
+  eventID?: string;
 
   /**
    * <p>The type of data modification that was performed on the DynamoDB table:</p>
@@ -727,6 +783,24 @@ export interface _Record {
   eventSource?: string;
 
   /**
+   * <p>The version number of the stream record format.  This number is updated whenever the structure of <code>Record</code> is modified.</p>
+   *          <p>Client applications must not assume that <code>eventVersion</code> will remain at a particular
+   *       value, as this number is subject to change at any time. In general, <code>eventVersion</code> will
+   *       only increase as the low-level DynamoDB Streams API evolves.</p>
+   */
+  eventVersion?: string;
+
+  /**
+   * <p>The region in which the <code>GetRecords</code> request was received.</p>
+   */
+  awsRegion?: string;
+
+  /**
+   * <p>The main body of the stream record, containing all of the DynamoDB-specific fields.</p>
+   */
+  dynamodb?: StreamRecord;
+
+  /**
    * <p>Items that are deleted by the Time to Live process after expiration have the following fields: </p>
    *          <ul>
    *             <li>
@@ -740,19 +814,6 @@ export interface _Record {
    *          </ul>
    */
   userIdentity?: Identity;
-
-  /**
-   * <p>The version number of the stream record format.  This number is updated whenever the structure of <code>Record</code> is modified.</p>
-   *          <p>Client applications must not assume that <code>eventVersion</code> will remain at a particular
-   *       value, as this number is subject to change at any time. In general, <code>eventVersion</code> will
-   *       only increase as the low-level DynamoDB Streams API evolves.</p>
-   */
-  eventVersion?: string;
-
-  /**
-   * <p>A globally unique identifier for the event that was recorded in this stream record.</p>
-   */
-  eventID?: string;
 }
 
 export namespace _Record {
@@ -766,16 +827,16 @@ export namespace _Record {
  */
 export interface GetRecordsOutput {
   /**
+   * <p>The stream records from the shard, which were retrieved using the shard iterator.</p>
+   */
+  Records?: _Record[];
+
+  /**
    * <p>The next position in the shard from which to start sequentially reading stream records. If
    *       set to <code>null</code>, the shard has been closed and the requested iterator will not return
    *       any more data.</p>
    */
   NextShardIterator?: string;
-
-  /**
-   * <p>The stream records from the shard, which were retrieved using the shard iterator.</p>
-   */
-  Records?: _Record[];
 }
 
 export namespace GetRecordsOutput {

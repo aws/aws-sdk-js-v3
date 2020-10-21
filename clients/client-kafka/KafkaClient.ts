@@ -1,9 +1,21 @@
+import {
+  BatchAssociateScramSecretCommandInput,
+  BatchAssociateScramSecretCommandOutput,
+} from "./commands/BatchAssociateScramSecretCommand";
+import {
+  BatchDisassociateScramSecretCommandInput,
+  BatchDisassociateScramSecretCommandOutput,
+} from "./commands/BatchDisassociateScramSecretCommand";
 import { CreateClusterCommandInput, CreateClusterCommandOutput } from "./commands/CreateClusterCommand";
 import {
   CreateConfigurationCommandInput,
   CreateConfigurationCommandOutput,
 } from "./commands/CreateConfigurationCommand";
 import { DeleteClusterCommandInput, DeleteClusterCommandOutput } from "./commands/DeleteClusterCommand";
+import {
+  DeleteConfigurationCommandInput,
+  DeleteConfigurationCommandOutput,
+} from "./commands/DeleteConfigurationCommand";
 import { DescribeClusterCommandInput, DescribeClusterCommandOutput } from "./commands/DescribeClusterCommand";
 import {
   DescribeClusterOperationCommandInput,
@@ -37,6 +49,7 @@ import {
 import { ListConfigurationsCommandInput, ListConfigurationsCommandOutput } from "./commands/ListConfigurationsCommand";
 import { ListKafkaVersionsCommandInput, ListKafkaVersionsCommandOutput } from "./commands/ListKafkaVersionsCommand";
 import { ListNodesCommandInput, ListNodesCommandOutput } from "./commands/ListNodesCommand";
+import { ListScramSecretsCommandInput, ListScramSecretsCommandOutput } from "./commands/ListScramSecretsCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -57,6 +70,10 @@ import {
   UpdateClusterKafkaVersionCommandInput,
   UpdateClusterKafkaVersionCommandOutput,
 } from "./commands/UpdateClusterKafkaVersionCommand";
+import {
+  UpdateConfigurationCommandInput,
+  UpdateConfigurationCommandOutput,
+} from "./commands/UpdateConfigurationCommand";
 import { UpdateMonitoringCommandInput, UpdateMonitoringCommandOutput } from "./commands/UpdateMonitoringCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
@@ -108,9 +125,12 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
+  | BatchAssociateScramSecretCommandInput
+  | BatchDisassociateScramSecretCommandInput
   | CreateClusterCommandInput
   | CreateConfigurationCommandInput
   | DeleteClusterCommandInput
+  | DeleteConfigurationCommandInput
   | DescribeClusterCommandInput
   | DescribeClusterOperationCommandInput
   | DescribeConfigurationCommandInput
@@ -123,6 +143,7 @@ export type ServiceInputTypes =
   | ListConfigurationsCommandInput
   | ListKafkaVersionsCommandInput
   | ListNodesCommandInput
+  | ListScramSecretsCommandInput
   | ListTagsForResourceCommandInput
   | RebootBrokerCommandInput
   | TagResourceCommandInput
@@ -131,12 +152,16 @@ export type ServiceInputTypes =
   | UpdateBrokerStorageCommandInput
   | UpdateClusterConfigurationCommandInput
   | UpdateClusterKafkaVersionCommandInput
+  | UpdateConfigurationCommandInput
   | UpdateMonitoringCommandInput;
 
 export type ServiceOutputTypes =
+  | BatchAssociateScramSecretCommandOutput
+  | BatchDisassociateScramSecretCommandOutput
   | CreateClusterCommandOutput
   | CreateConfigurationCommandOutput
   | DeleteClusterCommandOutput
+  | DeleteConfigurationCommandOutput
   | DescribeClusterCommandOutput
   | DescribeClusterOperationCommandOutput
   | DescribeConfigurationCommandOutput
@@ -149,6 +174,7 @@ export type ServiceOutputTypes =
   | ListConfigurationsCommandOutput
   | ListKafkaVersionsCommandOutput
   | ListNodesCommandOutput
+  | ListScramSecretsCommandOutput
   | ListTagsForResourceCommandOutput
   | RebootBrokerCommandOutput
   | TagResourceCommandOutput
@@ -157,6 +183,7 @@ export type ServiceOutputTypes =
   | UpdateBrokerStorageCommandOutput
   | UpdateClusterConfigurationCommandOutput
   | UpdateClusterKafkaVersionCommandOutput
+  | UpdateConfigurationCommandOutput
   | UpdateMonitoringCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

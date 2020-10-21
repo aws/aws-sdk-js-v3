@@ -1,5 +1,9 @@
 import { CreateSavingsPlanCommandInput, CreateSavingsPlanCommandOutput } from "./commands/CreateSavingsPlanCommand";
 import {
+  DeleteQueuedSavingsPlanCommandInput,
+  DeleteQueuedSavingsPlanCommandOutput,
+} from "./commands/DeleteQueuedSavingsPlanCommand";
+import {
   DescribeSavingsPlanRatesCommandInput,
   DescribeSavingsPlanRatesCommandOutput,
 } from "./commands/DescribeSavingsPlanRatesCommand";
@@ -72,6 +76,7 @@ import {
 
 export type ServiceInputTypes =
   | CreateSavingsPlanCommandInput
+  | DeleteQueuedSavingsPlanCommandInput
   | DescribeSavingsPlanRatesCommandInput
   | DescribeSavingsPlansCommandInput
   | DescribeSavingsPlansOfferingRatesCommandInput
@@ -82,6 +87,7 @@ export type ServiceInputTypes =
 
 export type ServiceOutputTypes =
   | CreateSavingsPlanCommandOutput
+  | DeleteQueuedSavingsPlanCommandOutput
   | DescribeSavingsPlanRatesCommandOutput
   | DescribeSavingsPlansCommandOutput
   | DescribeSavingsPlansOfferingRatesCommandOutput

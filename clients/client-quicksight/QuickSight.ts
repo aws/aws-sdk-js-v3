@@ -10,6 +10,11 @@ import {
   CreateAccountCustomizationCommandOutput,
 } from "./commands/CreateAccountCustomizationCommand";
 import {
+  CreateAnalysisCommand,
+  CreateAnalysisCommandInput,
+  CreateAnalysisCommandOutput,
+} from "./commands/CreateAnalysisCommand";
+import {
   CreateDashboardCommand,
   CreateDashboardCommandInput,
   CreateDashboardCommandOutput,
@@ -66,6 +71,11 @@ import {
   DeleteAccountCustomizationCommandInput,
   DeleteAccountCustomizationCommandOutput,
 } from "./commands/DeleteAccountCustomizationCommand";
+import {
+  DeleteAnalysisCommand,
+  DeleteAnalysisCommandInput,
+  DeleteAnalysisCommandOutput,
+} from "./commands/DeleteAnalysisCommand";
 import {
   DeleteDashboardCommand,
   DeleteDashboardCommandInput,
@@ -129,6 +139,16 @@ import {
   DescribeAccountSettingsCommandInput,
   DescribeAccountSettingsCommandOutput,
 } from "./commands/DescribeAccountSettingsCommand";
+import {
+  DescribeAnalysisCommand,
+  DescribeAnalysisCommandInput,
+  DescribeAnalysisCommandOutput,
+} from "./commands/DescribeAnalysisCommand";
+import {
+  DescribeAnalysisPermissionsCommand,
+  DescribeAnalysisPermissionsCommandInput,
+  DescribeAnalysisPermissionsCommandOutput,
+} from "./commands/DescribeAnalysisPermissionsCommand";
 import {
   DescribeDashboardCommand,
   DescribeDashboardCommandInput,
@@ -225,6 +245,11 @@ import {
   GetSessionEmbedUrlCommandOutput,
 } from "./commands/GetSessionEmbedUrlCommand";
 import {
+  ListAnalysesCommand,
+  ListAnalysesCommandInput,
+  ListAnalysesCommandOutput,
+} from "./commands/ListAnalysesCommand";
+import {
   ListDashboardVersionsCommand,
   ListDashboardVersionsCommandInput,
   ListDashboardVersionsCommandOutput,
@@ -313,6 +338,16 @@ import {
   RegisterUserCommandOutput,
 } from "./commands/RegisterUserCommand";
 import {
+  RestoreAnalysisCommand,
+  RestoreAnalysisCommandInput,
+  RestoreAnalysisCommandOutput,
+} from "./commands/RestoreAnalysisCommand";
+import {
+  SearchAnalysesCommand,
+  SearchAnalysesCommandInput,
+  SearchAnalysesCommandOutput,
+} from "./commands/SearchAnalysesCommand";
+import {
   SearchDashboardsCommand,
   SearchDashboardsCommandInput,
   SearchDashboardsCommandOutput,
@@ -333,6 +368,16 @@ import {
   UpdateAccountSettingsCommandInput,
   UpdateAccountSettingsCommandOutput,
 } from "./commands/UpdateAccountSettingsCommand";
+import {
+  UpdateAnalysisCommand,
+  UpdateAnalysisCommandInput,
+  UpdateAnalysisCommandOutput,
+} from "./commands/UpdateAnalysisCommand";
+import {
+  UpdateAnalysisPermissionsCommand,
+  UpdateAnalysisPermissionsCommandInput,
+  UpdateAnalysisPermissionsCommandOutput,
+} from "./commands/UpdateAnalysisPermissionsCommand";
 import {
   UpdateDashboardCommand,
   UpdateDashboardCommandInput,
@@ -405,10 +450,10 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
  * <fullname>Amazon QuickSight API Reference</fullname>
- * 		       <p>Amazon QuickSight is a fully managed, serverless business intelligence service for the AWS
- * 			Cloud that makes it easy to extend data and insights to every user in your organization.
- * 			This API reference contains documentation for a programming interface that you can use
- * 			to manage Amazon QuickSight. </p>
+ *         <p>Amazon QuickSight is a fully managed, serverless business intelligence service for the
+ *             AWS Cloud that makes it easy to extend data and insights to every user in your
+ *             organization. This API reference contains documentation for a programming interface that
+ *             you can use to manage Amazon QuickSight. </p>
  */
 export class QuickSight extends QuickSightClient {
   /**
@@ -444,7 +489,28 @@ export class QuickSight extends QuickSightClient {
   }
 
   /**
-   * <p>Creates a customization for the Amazon QuickSight subscription associated with your AWS account.</p>
+   * <p>Creates Amazon QuickSight customizations the current AWS Region. Currently, you can
+   *             add a custom default theme by using the <code>CreateAccountCustomization</code> or
+   *                 <code>UpdateAccountCustomization</code> API operation. To further customize
+   *             QuickSight by removing QuickSight sample assets and videos for all new users, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/customizing-quicksight.html">Customizing QuickSight</a> in the <i>Amazon QuickSight User
+   *                 Guide.</i>
+   *          </p>
+   *         <p>You can create customizations for your AWS account or, if you specify a namespace, for
+   *             a QuickSight namespace instead. Customizations that apply to a namespace always override
+   *             customizations that apply to an AWS account. To find out which customizations apply, use
+   *             the <code>DescribeAccountCustomization</code> API operation.</p>
+   *         <p>Before you use the <code>CreateAccountCustomization</code> API operation to add a theme
+   *             as the namespace default, make sure that you first share the theme with the namespace.
+   *             If you don't share it with the namespace, the theme isn't visible to your users
+   *             even if you make it the default theme.
+   *             To check if the theme is shared, view the current permissions by using the
+   *             <code>
+   *                <a>DescribeThemePermissions</a>
+   *             </code> API operation.
+   *             To share the theme, grant permissions by using the
+   *             <code>
+   *                <a>UpdateThemePermissions</a>
+   *             </code> API operation. </p>
    */
   public createAccountCustomization(
     args: CreateAccountCustomizationCommandInput,
@@ -476,14 +542,45 @@ export class QuickSight extends QuickSightClient {
   }
 
   /**
-   * <p>Creates a dashboard from a template. To first create a template, see the
-   * 			<a>CreateTemplate</a> API operation.</p>
-   * 		       <p>A dashboard is an entity in QuickSight that identifies QuickSight reports, created from
-   * 			analyses. You can share QuickSight dashboards. With the right permissions, you can
-   * 			create scheduled email reports from them. The <code>CreateDashboard</code>,
-   * 				<code>DescribeDashboard</code>, and <code>ListDashboardsByUser</code> API operations
-   * 			act on the dashboard entity. If you have the correct permissions, you can create a
-   * 			dashboard from a template that exists in a different AWS account.</p>
+   * <p>Creates an analysis in Amazon QuickSight.</p>
+   */
+  public createAnalysis(
+    args: CreateAnalysisCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateAnalysisCommandOutput>;
+  public createAnalysis(
+    args: CreateAnalysisCommandInput,
+    cb: (err: any, data?: CreateAnalysisCommandOutput) => void
+  ): void;
+  public createAnalysis(
+    args: CreateAnalysisCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateAnalysisCommandOutput) => void
+  ): void;
+  public createAnalysis(
+    args: CreateAnalysisCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateAnalysisCommandOutput) => void),
+    cb?: (err: any, data?: CreateAnalysisCommandOutput) => void
+  ): Promise<CreateAnalysisCommandOutput> | void {
+    const command = new CreateAnalysisCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates a dashboard from a template. To first create a template, see the <code>
+   *                <a>CreateTemplate</a>
+   *             </code> API operation.</p>
+   *         <p>A dashboard is an entity in QuickSight that identifies QuickSight reports, created
+   *             from analyses. You can share QuickSight dashboards. With the right permissions, you can
+   *             create scheduled email reports from them. If you have the correct permissions, you can
+   *             create a dashboard from a template that exists in a different AWS account.</p>
    */
   public createDashboard(
     args: CreateDashboardCommandInput,
@@ -882,7 +979,8 @@ export class QuickSight extends QuickSightClient {
   }
 
   /**
-   * <p>Deletes customizations for the QuickSight subscription on your AWS account.</p>
+   * <p>Deletes all Amazon QuickSight customizations in this AWS Region for the specified AWS
+   *             account and QuickSight namespace.</p>
    */
   public deleteAccountCustomization(
     args: DeleteAccountCustomizationCommandInput,
@@ -903,6 +1001,49 @@ export class QuickSight extends QuickSightClient {
     cb?: (err: any, data?: DeleteAccountCustomizationCommandOutput) => void
   ): Promise<DeleteAccountCustomizationCommandOutput> | void {
     const command = new DeleteAccountCustomizationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes an analysis from Amazon QuickSight. You can optionally include a recovery window during
+   *             which you can restore the analysis. If you don't specify a recovery window value, the
+   *             operation defaults to 30 days. QuickSight attaches a <code>DeletionTime</code> stamp to
+   *             the response that specifies the end of the recovery window. At the end of the recovery
+   *             window, QuickSight deletes the analysis permanently.</p>
+   *         <p>At any time before recovery window ends, you can use the <code>RestoreAnalysis</code>
+   *             API operation to remove the <code>DeletionTime</code> stamp and cancel the deletion of
+   *             the analysis. The analysis remains visible in the API until it's deleted, so you can
+   *             describe it but you can't make a template from it.</p>
+   *         <p>An analysis that's scheduled for deletion isn't accessible in the QuickSight console.
+   *             To access it in the console, restore it. Deleting an analysis doesn't delete the
+   *             dashboards that you publish from it.</p>
+   */
+  public deleteAnalysis(
+    args: DeleteAnalysisCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteAnalysisCommandOutput>;
+  public deleteAnalysis(
+    args: DeleteAnalysisCommandInput,
+    cb: (err: any, data?: DeleteAnalysisCommandOutput) => void
+  ): void;
+  public deleteAnalysis(
+    args: DeleteAnalysisCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteAnalysisCommandOutput) => void
+  ): void;
+  public deleteAnalysis(
+    args: DeleteAnalysisCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteAnalysisCommandOutput) => void),
+    cb?: (err: any, data?: DeleteAnalysisCommandOutput) => void
+  ): Promise<DeleteAnalysisCommandOutput> | void {
+    const command = new DeleteAnalysisCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -978,7 +1119,7 @@ export class QuickSight extends QuickSightClient {
   }
 
   /**
-   * <p>Deletes the data source permanently. This action breaks
+   * <p>Deletes the data source permanently. This operation breaks
    * 			all the datasets that reference the deleted data source.</p>
    */
   public deleteDataSource(
@@ -1103,7 +1244,7 @@ export class QuickSight extends QuickSightClient {
   /**
    * <p>Deletes a namespace and the users and groups that are associated with the namespace.
    *         This is an asynchronous process. Assets including dashboards, analyses, datasets and data sources are not
-   *         deleted. To delete these assets, you use the APIs for the relevant asset. </p>
+   *         deleted. To delete these assets, you use the API operations for the relevant asset. </p>
    */
   public deleteNamespace(
     args: DeleteNamespaceCommandInput,
@@ -1320,7 +1461,63 @@ export class QuickSight extends QuickSightClient {
   }
 
   /**
-   * <p>Describes the customizations associated with your AWS account.</p>
+   * <p>Describes the customizations associated with the provided AWS account and Amazon
+   *             QuickSight namespace in an AWS Region. The QuickSight console evaluates which
+   *             customizations to apply by running this API operation with the <code>Resolved</code> flag
+   *             included. </p>
+   *         <p>To determine what customizations display when you run this command, it can help to
+   *             visualize the relationship of the entities involved. </p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>AWS Account</code> - The AWS account exists at the top of the hierarchy.
+   *                     It has the potential to use all of the AWS Regions and AWS Services. When you
+   *                     subscribe to QuickSight, you choose one AWS Region to use as your home Region.
+   *                     That's where your free SPICE capacity is located. You can use QuickSight in any
+   *                     supported AWS Region. </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>AWS Region</code> - In each AWS Region where you sign in to QuickSight
+   *                     at least once, QuickSight acts as a separate instance of the same service. If
+   *                     you have a user directory, it resides in us-east-1, which is the US East (N.
+   *                     Virginia). Generally speaking, these users have access to QuickSight in any AWS
+   *                     Region, unless they are constrained to a namespace. </p>
+   *                 <p>To run the command in a different AWS Region, you change your Region settings.
+   *                     If you're using the AWS CLI, you can use one of the following options:</p>
+   *                 <ul>
+   *                   <li>
+   *                         <p>Use <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-options.html">command line options</a>. </p>
+   *                     </li>
+   *                   <li>
+   *                         <p>Use <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-profiles.html">named profiles</a>. </p>
+   *                     </li>
+   *                   <li>
+   *                         <p>Run <code>aws configure</code> to change your default AWS Region. Use
+   *                             Enter to key the same settings for your keys. For more information, see
+   *                             <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html">Configuring the AWS CLI</a>.</p>
+   *                     </li>
+   *                </ul>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>Namespace</code> - A QuickSight namespace is a partition that contains
+   *                     users and assets (data sources, datasets, dashboards, and so on). To access
+   *                     assets that are in a specific namespace, users and groups must also be part of
+   *                     the same namespace. People who share a namespace are completely isolated from
+   *                     users and assets in other namespaces, even if they are in the same AWS account
+   *                     and AWS Region.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>Applied customizations</code> -  Within an AWS Region, a set of
+   *                     QuickSight customizations can apply to an AWS account or to a namespace.
+   *                     Settings that you apply to a namespace override settings that you apply to an
+   *                     AWS account. All settings are isolated to a single AWS Region. To apply them in
+   *                     other AWS Regions, run the <code>CreateAccountCustomization</code> command in
+   *                     each AWS Region where you want to apply the same customizations. </p>
+   *             </li>
+   *          </ul>
    */
   public describeAccountCustomization(
     args: DescribeAccountCustomizationCommandInput,
@@ -1352,8 +1549,8 @@ export class QuickSight extends QuickSightClient {
   }
 
   /**
-   * <p>Describes the settings that were used when your QuickSight subscription was first created
-   *           in this AWS Account.</p>
+   * <p>Describes the settings that were used when your QuickSight subscription was first
+   *             created in this AWS account.</p>
    */
   public describeAccountSettings(
     args: DescribeAccountSettingsCommandInput,
@@ -1374,6 +1571,70 @@ export class QuickSight extends QuickSightClient {
     cb?: (err: any, data?: DescribeAccountSettingsCommandOutput) => void
   ): Promise<DescribeAccountSettingsCommandOutput> | void {
     const command = new DescribeAccountSettingsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Provides a summary of the metadata for an analysis.</p>
+   */
+  public describeAnalysis(
+    args: DescribeAnalysisCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeAnalysisCommandOutput>;
+  public describeAnalysis(
+    args: DescribeAnalysisCommandInput,
+    cb: (err: any, data?: DescribeAnalysisCommandOutput) => void
+  ): void;
+  public describeAnalysis(
+    args: DescribeAnalysisCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeAnalysisCommandOutput) => void
+  ): void;
+  public describeAnalysis(
+    args: DescribeAnalysisCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeAnalysisCommandOutput) => void),
+    cb?: (err: any, data?: DescribeAnalysisCommandOutput) => void
+  ): Promise<DescribeAnalysisCommandOutput> | void {
+    const command = new DescribeAnalysisCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Provides the read and write permissions for an analysis.</p>
+   */
+  public describeAnalysisPermissions(
+    args: DescribeAnalysisPermissionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeAnalysisPermissionsCommandOutput>;
+  public describeAnalysisPermissions(
+    args: DescribeAnalysisPermissionsCommandInput,
+    cb: (err: any, data?: DescribeAnalysisPermissionsCommandOutput) => void
+  ): void;
+  public describeAnalysisPermissions(
+    args: DescribeAnalysisPermissionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeAnalysisPermissionsCommandOutput) => void
+  ): void;
+  public describeAnalysisPermissions(
+    args: DescribeAnalysisPermissionsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeAnalysisPermissionsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeAnalysisPermissionsCommandOutput) => void
+  ): Promise<DescribeAnalysisPermissionsCommandOutput> | void {
+    const command = new DescribeAnalysisPermissionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1927,28 +2188,29 @@ export class QuickSight extends QuickSightClient {
   }
 
   /**
-   * <p>Generates a URL and authorization code that you can embed in your web server code. Before
-   * 			you use this command, make sure that you have configured the dashboards and permissions. </p>
-   * 		       <p>Currently, you can use <code>GetDashboardEmbedURL</code> only from the server, not from the
-   * 			user's browser. The following rules apply to the combination of URL and
-   * 			authorization code:</p>
-   * 		       <ul>
+   * <p>Generates a session URL and authorization code that you can use to embed an Amazon
+   *             QuickSight read-only dashboard in your web server code. Before you use this command,
+   *             make sure that you have configured the dashboards and permissions. </p>
+   *         <p>Currently, you can use <code>GetDashboardEmbedURL</code> only from the server, not
+   *             from the user's browser. The following rules apply to the combination of URL and
+   *             authorization code:</p>
+   *         <ul>
    *             <li>
-   * 				           <p>They must be used together.</p>
-   * 			         </li>
+   *                 <p>They must be used together.</p>
+   *             </li>
    *             <li>
-   * 				           <p>They can be used one time only.</p>
-   * 			         </li>
+   *                 <p>They can be used one time only.</p>
+   *             </li>
    *             <li>
-   * 				           <p>They are valid for 5 minutes after you run this command.</p>
-   * 			         </li>
+   *                 <p>They are valid for 5 minutes after you run this command.</p>
+   *             </li>
    *             <li>
-   * 				           <p>The resulting user session is valid for 10 hours.</p>
-   * 			         </li>
+   *                 <p>The resulting user session is valid for 10 hours.</p>
+   *             </li>
    *          </ul>
-   * 		       <p> For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/embedding-dashboards.html">Embedding Amazon QuickSight Dashboards</a> in the <i>Amazon QuickSight User
-   * 			Guide</i> or <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/qs-dev-embedded-dashboards.html">Embedding Amazon QuickSight Dashboards</a> in the <i>Amazon QuickSight API
-   * 			Reference</i>.</p>
+   *         <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/embedding-dashboards.html">Embedding Amazon QuickSight</a> in the <i>Amazon QuickSight User
+   *             Guide</i>
+   *          .</p>
    */
   public getDashboardEmbedUrl(
     args: GetDashboardEmbedUrlCommandInput,
@@ -1980,7 +2242,31 @@ export class QuickSight extends QuickSightClient {
   }
 
   /**
-   * <p>Generates a session URL and authorization code that you can embed in your web server code. </p>
+   * <p>Generates a session URL and authorization code that you can use to embed the Amazon
+   *             QuickSight console in your web server code. Use <code>GetSessionEmbedUrl</code> where
+   *             you want to provide an authoring portal that allows users to create data sources,
+   *             datasets, analyses, and dashboards. The users who access an embedded QuickSight console
+   *             need belong to the author or admin security cohort. If you want to restrict permissions
+   *             to some of these features, add a custom permissions profile to the user with the
+   *             <code>
+   *                <a>UpdateUser</a>
+   *             </code> API operation. Use <code>
+   *                <a>RegisterUser</a>
+   *             </code> API operation to add a new user with a custom permission profile attached. For more
+   *             information, see the following sections in the <i>Amazon QuickSight User
+   *             Guide</i>:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <a href="https://docs.aws.amazon.com/quicksight/latest/user/embedding-the-quicksight-console.html">Embedding the Amazon QuickSight Console</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <a href="https://docs.aws.amazon.com/quicksight/latest/user/customizing-permissions-to-the-quicksight-console.html">Customizing Access to the Amazon QuickSight Console</a>
+   *                </p>
+   *             </li>
+   *          </ul>
    */
   public getSessionEmbedUrl(
     args: GetSessionEmbedUrlCommandInput,
@@ -2001,6 +2287,35 @@ export class QuickSight extends QuickSightClient {
     cb?: (err: any, data?: GetSessionEmbedUrlCommandOutput) => void
   ): Promise<GetSessionEmbedUrlCommandOutput> | void {
     const command = new GetSessionEmbedUrlCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Lists Amazon QuickSight analyses that exist in the specified AWS account.</p>
+   */
+  public listAnalyses(
+    args: ListAnalysesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAnalysesCommandOutput>;
+  public listAnalyses(args: ListAnalysesCommandInput, cb: (err: any, data?: ListAnalysesCommandOutput) => void): void;
+  public listAnalyses(
+    args: ListAnalysesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAnalysesCommandOutput) => void
+  ): void;
+  public listAnalyses(
+    args: ListAnalysesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListAnalysesCommandOutput) => void),
+    cb?: (err: any, data?: ListAnalysesCommandOutput) => void
+  ): Promise<ListAnalysesCommandOutput> | void {
+    const command = new ListAnalysesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -2632,7 +2947,71 @@ export class QuickSight extends QuickSightClient {
   }
 
   /**
-   * <p>Searchs for dashboards that belong to a user. </p>
+   * <p>Restores an analysis.</p>
+   */
+  public restoreAnalysis(
+    args: RestoreAnalysisCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RestoreAnalysisCommandOutput>;
+  public restoreAnalysis(
+    args: RestoreAnalysisCommandInput,
+    cb: (err: any, data?: RestoreAnalysisCommandOutput) => void
+  ): void;
+  public restoreAnalysis(
+    args: RestoreAnalysisCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RestoreAnalysisCommandOutput) => void
+  ): void;
+  public restoreAnalysis(
+    args: RestoreAnalysisCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RestoreAnalysisCommandOutput) => void),
+    cb?: (err: any, data?: RestoreAnalysisCommandOutput) => void
+  ): Promise<RestoreAnalysisCommandOutput> | void {
+    const command = new RestoreAnalysisCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Searches for analyses that belong to the user specified in the filter.</p>
+   */
+  public searchAnalyses(
+    args: SearchAnalysesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SearchAnalysesCommandOutput>;
+  public searchAnalyses(
+    args: SearchAnalysesCommandInput,
+    cb: (err: any, data?: SearchAnalysesCommandOutput) => void
+  ): void;
+  public searchAnalyses(
+    args: SearchAnalysesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SearchAnalysesCommandOutput) => void
+  ): void;
+  public searchAnalyses(
+    args: SearchAnalysesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SearchAnalysesCommandOutput) => void),
+    cb?: (err: any, data?: SearchAnalysesCommandOutput) => void
+  ): Promise<SearchAnalysesCommandOutput> | void {
+    const command = new SearchAnalysesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Searches for dashboards that belong to a user. </p>
    */
   public searchDashboards(
     args: SearchDashboardsCommandInput,
@@ -2743,7 +3122,12 @@ export class QuickSight extends QuickSightClient {
   }
 
   /**
-   * <p>Updates customizations associated with the QuickSight subscription on your AWS account.</p>
+   * <p>Updates Amazon QuickSight customizations the current AWS Region. Currently, the only
+   *             customization you can use is a theme.</p>
+   *         <p>You can use customizations for your AWS account or, if you specify a namespace, for a
+   *             QuickSight namespace instead. Customizations that apply to a namespace override
+   *             customizations that apply to an AWS account. To find out which customizations apply, use
+   *             the <code>DescribeAccountCustomization</code> API operation. </p>
    */
   public updateAccountCustomization(
     args: UpdateAccountCustomizationCommandInput,
@@ -2775,7 +3159,7 @@ export class QuickSight extends QuickSightClient {
   }
 
   /**
-   * <p>Updates the settings for the Amazon QuickSight subscription in your AWS Account.</p>
+   * <p>Updates the Amazon QuickSight settings in your AWS account.</p>
    */
   public updateAccountSettings(
     args: UpdateAccountSettingsCommandInput,
@@ -2796,6 +3180,70 @@ export class QuickSight extends QuickSightClient {
     cb?: (err: any, data?: UpdateAccountSettingsCommandOutput) => void
   ): Promise<UpdateAccountSettingsCommandOutput> | void {
     const command = new UpdateAccountSettingsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates an analysis in Amazon QuickSight</p>
+   */
+  public updateAnalysis(
+    args: UpdateAnalysisCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateAnalysisCommandOutput>;
+  public updateAnalysis(
+    args: UpdateAnalysisCommandInput,
+    cb: (err: any, data?: UpdateAnalysisCommandOutput) => void
+  ): void;
+  public updateAnalysis(
+    args: UpdateAnalysisCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateAnalysisCommandOutput) => void
+  ): void;
+  public updateAnalysis(
+    args: UpdateAnalysisCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateAnalysisCommandOutput) => void),
+    cb?: (err: any, data?: UpdateAnalysisCommandOutput) => void
+  ): Promise<UpdateAnalysisCommandOutput> | void {
+    const command = new UpdateAnalysisCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates the read and write permissions for an analysis.</p>
+   */
+  public updateAnalysisPermissions(
+    args: UpdateAnalysisPermissionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateAnalysisPermissionsCommandOutput>;
+  public updateAnalysisPermissions(
+    args: UpdateAnalysisPermissionsCommandInput,
+    cb: (err: any, data?: UpdateAnalysisPermissionsCommandOutput) => void
+  ): void;
+  public updateAnalysisPermissions(
+    args: UpdateAnalysisPermissionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateAnalysisPermissionsCommandOutput) => void
+  ): void;
+  public updateAnalysisPermissions(
+    args: UpdateAnalysisPermissionsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateAnalysisPermissionsCommandOutput) => void),
+    cb?: (err: any, data?: UpdateAnalysisPermissionsCommandOutput) => void
+  ): Promise<UpdateAnalysisPermissionsCommandOutput> | void {
+    const command = new UpdateAnalysisPermissionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

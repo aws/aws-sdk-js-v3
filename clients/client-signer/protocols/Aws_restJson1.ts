@@ -192,10 +192,10 @@ export const serializeAws_restJson1ListSigningJobsCommand = async (
   };
   let resolvedPath = "/signing-jobs";
   const query: any = {
-    ...(input.platformId !== undefined && { platformId: input.platformId }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
     ...(input.requestedBy !== undefined && { requestedBy: input.requestedBy }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.platformId !== undefined && { platformId: input.platformId }),
     ...(input.status !== undefined && { status: input.status }),
   };
   let body: any;
@@ -222,10 +222,10 @@ export const serializeAws_restJson1ListSigningPlatformsCommand = async (
   let resolvedPath = "/signing-platforms";
   const query: any = {
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
-    ...(input.partner !== undefined && { partner: input.partner }),
     ...(input.target !== undefined && { target: input.target }),
     ...(input.category !== undefined && { category: input.category }),
+    ...(input.partner !== undefined && { partner: input.partner }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -250,9 +250,9 @@ export const serializeAws_restJson1ListSigningProfilesCommand = async (
   };
   let resolvedPath = "/signing-profiles";
   const query: any = {
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.includeCanceled !== undefined && { includeCanceled: input.includeCanceled.toString() }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();

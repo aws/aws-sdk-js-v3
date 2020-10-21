@@ -1,3 +1,4 @@
+import { ConfigureLogsCommandInput, ConfigureLogsCommandOutput } from "./commands/ConfigureLogsCommand";
 import { CreateChannelCommandInput, CreateChannelCommandOutput } from "./commands/CreateChannelCommand";
 import { CreateHarvestJobCommandInput, CreateHarvestJobCommandOutput } from "./commands/CreateHarvestJobCommand";
 import {
@@ -90,6 +91,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
+  | ConfigureLogsCommandInput
   | CreateChannelCommandInput
   | CreateHarvestJobCommandInput
   | CreateOriginEndpointCommandInput
@@ -110,6 +112,7 @@ export type ServiceInputTypes =
   | UpdateOriginEndpointCommandInput;
 
 export type ServiceOutputTypes =
+  | ConfigureLogsCommandOutput
   | CreateChannelCommandOutput
   | CreateHarvestJobCommandOutput
   | CreateOriginEndpointCommandOutput

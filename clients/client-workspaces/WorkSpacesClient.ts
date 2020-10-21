@@ -1,9 +1,21 @@
+import {
+  AssociateConnectionAliasCommandInput,
+  AssociateConnectionAliasCommandOutput,
+} from "./commands/AssociateConnectionAliasCommand";
 import { AssociateIpGroupsCommandInput, AssociateIpGroupsCommandOutput } from "./commands/AssociateIpGroupsCommand";
 import { AuthorizeIpRulesCommandInput, AuthorizeIpRulesCommandOutput } from "./commands/AuthorizeIpRulesCommand";
 import { CopyWorkspaceImageCommandInput, CopyWorkspaceImageCommandOutput } from "./commands/CopyWorkspaceImageCommand";
+import {
+  CreateConnectionAliasCommandInput,
+  CreateConnectionAliasCommandOutput,
+} from "./commands/CreateConnectionAliasCommand";
 import { CreateIpGroupCommandInput, CreateIpGroupCommandOutput } from "./commands/CreateIpGroupCommand";
 import { CreateTagsCommandInput, CreateTagsCommandOutput } from "./commands/CreateTagsCommand";
 import { CreateWorkspacesCommandInput, CreateWorkspacesCommandOutput } from "./commands/CreateWorkspacesCommand";
+import {
+  DeleteConnectionAliasCommandInput,
+  DeleteConnectionAliasCommandOutput,
+} from "./commands/DeleteConnectionAliasCommand";
 import { DeleteIpGroupCommandInput, DeleteIpGroupCommandOutput } from "./commands/DeleteIpGroupCommand";
 import { DeleteTagsCommandInput, DeleteTagsCommandOutput } from "./commands/DeleteTagsCommand";
 import {
@@ -23,6 +35,14 @@ import {
   DescribeClientPropertiesCommandInput,
   DescribeClientPropertiesCommandOutput,
 } from "./commands/DescribeClientPropertiesCommand";
+import {
+  DescribeConnectionAliasPermissionsCommandInput,
+  DescribeConnectionAliasPermissionsCommandOutput,
+} from "./commands/DescribeConnectionAliasPermissionsCommand";
+import {
+  DescribeConnectionAliasesCommandInput,
+  DescribeConnectionAliasesCommandOutput,
+} from "./commands/DescribeConnectionAliasesCommand";
 import { DescribeIpGroupsCommandInput, DescribeIpGroupsCommandOutput } from "./commands/DescribeIpGroupsCommand";
 import { DescribeTagsCommandInput, DescribeTagsCommandOutput } from "./commands/DescribeTagsCommand";
 import {
@@ -50,6 +70,10 @@ import {
   DescribeWorkspacesConnectionStatusCommandInput,
   DescribeWorkspacesConnectionStatusCommandOutput,
 } from "./commands/DescribeWorkspacesConnectionStatusCommand";
+import {
+  DisassociateConnectionAliasCommandInput,
+  DisassociateConnectionAliasCommandOutput,
+} from "./commands/DisassociateConnectionAliasCommand";
 import {
   DisassociateIpGroupsCommandInput,
   DisassociateIpGroupsCommandOutput,
@@ -102,6 +126,10 @@ import {
   TerminateWorkspacesCommandInput,
   TerminateWorkspacesCommandOutput,
 } from "./commands/TerminateWorkspacesCommand";
+import {
+  UpdateConnectionAliasPermissionCommandInput,
+  UpdateConnectionAliasPermissionCommandOutput,
+} from "./commands/UpdateConnectionAliasPermissionCommand";
 import {
   UpdateRulesOfIpGroupCommandInput,
   UpdateRulesOfIpGroupCommandOutput,
@@ -160,12 +188,15 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
+  | AssociateConnectionAliasCommandInput
   | AssociateIpGroupsCommandInput
   | AuthorizeIpRulesCommandInput
   | CopyWorkspaceImageCommandInput
+  | CreateConnectionAliasCommandInput
   | CreateIpGroupCommandInput
   | CreateTagsCommandInput
   | CreateWorkspacesCommandInput
+  | DeleteConnectionAliasCommandInput
   | DeleteIpGroupCommandInput
   | DeleteTagsCommandInput
   | DeleteWorkspaceImageCommandInput
@@ -173,6 +204,8 @@ export type ServiceInputTypes =
   | DescribeAccountCommandInput
   | DescribeAccountModificationsCommandInput
   | DescribeClientPropertiesCommandInput
+  | DescribeConnectionAliasPermissionsCommandInput
+  | DescribeConnectionAliasesCommandInput
   | DescribeIpGroupsCommandInput
   | DescribeTagsCommandInput
   | DescribeWorkspaceBundlesCommandInput
@@ -182,6 +215,7 @@ export type ServiceInputTypes =
   | DescribeWorkspaceSnapshotsCommandInput
   | DescribeWorkspacesCommandInput
   | DescribeWorkspacesConnectionStatusCommandInput
+  | DisassociateConnectionAliasCommandInput
   | DisassociateIpGroupsCommandInput
   | ImportWorkspaceImageCommandInput
   | ListAvailableManagementCidrRangesCommandInput
@@ -201,16 +235,20 @@ export type ServiceInputTypes =
   | StartWorkspacesCommandInput
   | StopWorkspacesCommandInput
   | TerminateWorkspacesCommandInput
+  | UpdateConnectionAliasPermissionCommandInput
   | UpdateRulesOfIpGroupCommandInput
   | UpdateWorkspaceImagePermissionCommandInput;
 
 export type ServiceOutputTypes =
+  | AssociateConnectionAliasCommandOutput
   | AssociateIpGroupsCommandOutput
   | AuthorizeIpRulesCommandOutput
   | CopyWorkspaceImageCommandOutput
+  | CreateConnectionAliasCommandOutput
   | CreateIpGroupCommandOutput
   | CreateTagsCommandOutput
   | CreateWorkspacesCommandOutput
+  | DeleteConnectionAliasCommandOutput
   | DeleteIpGroupCommandOutput
   | DeleteTagsCommandOutput
   | DeleteWorkspaceImageCommandOutput
@@ -218,6 +256,8 @@ export type ServiceOutputTypes =
   | DescribeAccountCommandOutput
   | DescribeAccountModificationsCommandOutput
   | DescribeClientPropertiesCommandOutput
+  | DescribeConnectionAliasPermissionsCommandOutput
+  | DescribeConnectionAliasesCommandOutput
   | DescribeIpGroupsCommandOutput
   | DescribeTagsCommandOutput
   | DescribeWorkspaceBundlesCommandOutput
@@ -227,6 +267,7 @@ export type ServiceOutputTypes =
   | DescribeWorkspaceSnapshotsCommandOutput
   | DescribeWorkspacesCommandOutput
   | DescribeWorkspacesConnectionStatusCommandOutput
+  | DisassociateConnectionAliasCommandOutput
   | DisassociateIpGroupsCommandOutput
   | ImportWorkspaceImageCommandOutput
   | ListAvailableManagementCidrRangesCommandOutput
@@ -246,6 +287,7 @@ export type ServiceOutputTypes =
   | StartWorkspacesCommandOutput
   | StopWorkspacesCommandOutput
   | TerminateWorkspacesCommandOutput
+  | UpdateConnectionAliasPermissionCommandOutput
   | UpdateRulesOfIpGroupCommandOutput
   | UpdateWorkspaceImagePermissionCommandOutput;
 

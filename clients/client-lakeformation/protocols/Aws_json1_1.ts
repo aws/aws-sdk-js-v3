@@ -45,6 +45,7 @@ import {
   DeregisterResourceResponse,
   DescribeResourceRequest,
   DescribeResourceResponse,
+  DetailsMap,
   EntityNotFoundException,
   ErrorDetail,
   FilterCondition,
@@ -1780,6 +1781,15 @@ const deserializeAws_json1_1DescribeResourceResponse = (
   } as any;
 };
 
+const deserializeAws_json1_1DetailsMap = (output: any, context: __SerdeContext): DetailsMap => {
+  return {
+    ResourceShare:
+      output.ResourceShare !== undefined && output.ResourceShare !== null
+        ? deserializeAws_json1_1ResourceShareList(output.ResourceShare, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1EntityNotFoundException = (
   output: any,
   context: __SerdeContext
@@ -1904,6 +1914,10 @@ const deserializeAws_json1_1PrincipalResourcePermissions = (
   context: __SerdeContext
 ): PrincipalResourcePermissions => {
   return {
+    AdditionalDetails:
+      output.AdditionalDetails !== undefined && output.AdditionalDetails !== null
+        ? deserializeAws_json1_1DetailsMap(output.AdditionalDetails, context)
+        : undefined,
     Permissions:
       output.Permissions !== undefined && output.Permissions !== null
         ? deserializeAws_json1_1PermissionList(output.Permissions, context)
@@ -1982,6 +1996,10 @@ const deserializeAws_json1_1ResourceInfo = (output: any, context: __SerdeContext
 
 const deserializeAws_json1_1ResourceInfoList = (output: any, context: __SerdeContext): ResourceInfo[] => {
   return (output || []).map((entry: any) => deserializeAws_json1_1ResourceInfo(entry, context));
+};
+
+const deserializeAws_json1_1ResourceShareList = (output: any, context: __SerdeContext): string[] => {
+  return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_json1_1RevokePermissionsResponse = (

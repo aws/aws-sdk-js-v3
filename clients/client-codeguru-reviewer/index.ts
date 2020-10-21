@@ -1,6 +1,7 @@
 export * from "./CodeGuruReviewerClient";
 export * from "./CodeGuruReviewer";
 export * from "./commands/AssociateRepositoryCommand";
+export * from "./commands/CreateCodeReviewCommand";
 export * from "./commands/DescribeCodeReviewCommand";
 export * from "./commands/DescribeRecommendationFeedbackCommand";
 export * from "./commands/DescribeRepositoryAssociationCommand";

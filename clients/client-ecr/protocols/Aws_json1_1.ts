@@ -4119,7 +4119,15 @@ const deserializeAws_json1_1ImageAlreadyExistsException = (
 
 const deserializeAws_json1_1ImageDetail = (output: any, context: __SerdeContext): ImageDetail => {
   return {
+    artifactMediaType:
+      output.artifactMediaType !== undefined && output.artifactMediaType !== null
+        ? output.artifactMediaType
+        : undefined,
     imageDigest: output.imageDigest !== undefined && output.imageDigest !== null ? output.imageDigest : undefined,
+    imageManifestMediaType:
+      output.imageManifestMediaType !== undefined && output.imageManifestMediaType !== null
+        ? output.imageManifestMediaType
+        : undefined,
     imagePushedAt:
       output.imagePushedAt !== undefined && output.imagePushedAt !== null
         ? new Date(Math.round(output.imagePushedAt * 1000))

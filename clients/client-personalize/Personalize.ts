@@ -338,8 +338,7 @@ export class Personalize extends PersonalizeClient {
   }
 
   /**
-   * <p>Creates an empty dataset and adds it to the specified dataset group. Use
-   *       <a>CreateDatasetImportJob</a> to import your training data to a dataset.</p>
+   * <p>Creates an empty dataset and adds it to the specified dataset group. Use <a>CreateDatasetImportJob</a> to import your training data to a dataset.</p>
    *          <p>There are three types of datasets:</p>
    *          <ul>
    *             <li>
@@ -353,7 +352,7 @@ export class Personalize extends PersonalizeClient {
    *             </li>
    *          </ul>
    *          <p>Each dataset type has an associated schema with required field types. Only the
-   *       <code>Interactions</code> dataset is required in order to train a model (also referred to as
+   *         <code>Interactions</code> dataset is required in order to train a model (also referred to as
    *       creating a solution).</p>
    *          <p>A dataset can be in one of the following states:</p>
    *          <ul>
@@ -421,9 +420,9 @@ export class Personalize extends PersonalizeClient {
   }
 
   /**
-   * <p>Creates an empty dataset group. A dataset group contains related datasets that supply
-   *       data for training a model. A dataset group can contain at most three datasets,
-   *       one for each type of dataset:</p>
+   * <p>Creates an empty dataset group. A dataset group contains related datasets that supply data
+   *       for training a model. A dataset group can contain at most three datasets, one for each type of
+   *       dataset:</p>
    *          <ul>
    *             <li>
    *                <p>Interactions</p>
@@ -436,8 +435,8 @@ export class Personalize extends PersonalizeClient {
    *             </li>
    *          </ul>
    *          <p>To train a model (create a solution), a dataset group that contains an
-   *       <code>Interactions</code> dataset is required. Call <a>CreateDataset</a>
-   *       to add a dataset to the group.</p>
+   *         <code>Interactions</code> dataset is required. Call <a>CreateDataset</a> to add a
+   *       dataset to the group.</p>
    *          <p>A dataset group can be in one of the following states:</p>
    *          <ul>
    *             <li>
@@ -447,16 +446,16 @@ export class Personalize extends PersonalizeClient {
    *                <p>DELETE PENDING</p>
    *             </li>
    *          </ul>
-   *          <p>To get the status of the dataset group, call <a>DescribeDatasetGroup</a>.
-   *       If the status shows as CREATE FAILED, the response includes a
-   *       <code>failureReason</code> key, which describes why the creation failed.</p>
+   *          <p>To get the status of the dataset group, call <a>DescribeDatasetGroup</a>. If
+   *       the status shows as CREATE FAILED, the response includes a <code>failureReason</code> key,
+   *       which describes why the creation failed.</p>
    *          <note>
-   *             <p>You must wait until the <code>status</code> of the dataset
-   *         group is <code>ACTIVE</code> before adding a dataset to the group.</p>
+   *             <p>You must wait until the <code>status</code> of the dataset group is <code>ACTIVE</code>
+   *         before adding a dataset to the group.</p>
    *          </note>
-   *          <p>You can specify an AWS Key Management Service (KMS) key to encrypt the datasets in the group.
-   *       If you specify a KMS key, you must also include an AWS Identity and Access Management (IAM) role
-   *       that has permission to access the key.</p>
+   *          <p>You can specify an AWS Key Management Service (KMS) key to encrypt the datasets in the group. If you
+   *       specify a KMS key, you must also include an AWS Identity and Access Management (IAM) role that has permission to
+   *       access the key.</p>
    *          <p class="title">
    *             <b>APIs that require a dataset group ARN in the request</b>
    *          </p>
@@ -528,9 +527,10 @@ export class Personalize extends PersonalizeClient {
   }
 
   /**
-   * <p>Creates a job that imports training data from your data source (an Amazon S3 bucket)
-   *       to an Amazon Personalize dataset. To allow Amazon Personalize to import the training data,
-   *       you must specify an AWS Identity and Access Management (IAM) role that has permission to read from the data source.</p>
+   * <p>Creates a job that imports training data from your data source (an Amazon S3 bucket) to an
+   *       Amazon Personalize dataset. To allow Amazon Personalize to import the training data, you must specify an
+   *       AWS Identity and Access Management (IAM) role that has permission to read from the data source, as Amazon Personalize makes a
+   *       copy of your data and processes it in an internal AWS system.</p>
    *          <important>
    *             <p>The dataset import job replaces any previous data in the dataset.</p>
    *          </important>
@@ -544,13 +544,12 @@ export class Personalize extends PersonalizeClient {
    *             </li>
    *          </ul>
    *          <p>To get the status of the import job, call <a>DescribeDatasetImportJob</a>,
-   *       providing the Amazon Resource Name (ARN) of the dataset import job.
-   *       The dataset import is complete when the status shows as ACTIVE.
-   *       If the status shows as CREATE FAILED, the response includes a
-   *       <code>failureReason</code> key, which describes why the job failed.</p>
+   *       providing the Amazon Resource Name (ARN) of the dataset import job. The dataset import is
+   *       complete when the status shows as ACTIVE. If the status shows as CREATE FAILED, the response
+   *       includes a <code>failureReason</code> key, which describes why the job failed.</p>
    *          <note>
-   *             <p>Importing takes time. You must wait until the status
-   *         shows as ACTIVE before training a model using the dataset.</p>
+   *             <p>Importing takes time. You must wait until the status shows as ACTIVE before training a
+   *         model using the dataset.</p>
    *          </note>
    *
    *          <p class="title">
@@ -678,8 +677,8 @@ export class Personalize extends PersonalizeClient {
   }
 
   /**
-   * <p>Creates a recommendation filter. For more information, see Using Filters with Amazon
-   *             Personalize.</p>
+   * <p>Creates a recommendation filter. For more information, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/filters.html">Using
+   *             Filters with Amazon Personalize</a>.</p>
    */
   public createFilter(
     args: CreateFilterCommandInput,
@@ -984,9 +983,8 @@ export class Personalize extends PersonalizeClient {
 
   /**
    * <p>Deletes a dataset. You can't delete a dataset if an associated
-   *       <code>DatasetImportJob</code> or <code>SolutionVersion</code> is in the
-   *       CREATE PENDING or IN PROGRESS state. For more information on datasets, see
-   *       <a>CreateDataset</a>.</p>
+   *         <code>DatasetImportJob</code> or <code>SolutionVersion</code> is in the CREATE PENDING or IN
+   *       PROGRESS state. For more information on datasets, see <a>CreateDataset</a>.</p>
    */
   public deleteDataset(
     args: DeleteDatasetCommandInput,
@@ -1018,8 +1016,8 @@ export class Personalize extends PersonalizeClient {
   }
 
   /**
-   * <p>Deletes a dataset group. Before you delete a dataset group, you must delete
-   *       the following:</p>
+   * <p>Deletes a dataset group. Before you delete a dataset group, you must delete the
+   *       following:</p>
    *          <ul>
    *             <li>
    *                <p>All associated event trackers.</p>
@@ -1304,8 +1302,7 @@ export class Personalize extends PersonalizeClient {
   }
 
   /**
-   * <p>Describes the given dataset. For more information on datasets, see
-   *       <a>CreateDataset</a>.</p>
+   * <p>Describes the given dataset. For more information on datasets, see <a>CreateDataset</a>.</p>
    */
   public describeDataset(
     args: DescribeDatasetCommandInput,
@@ -1337,8 +1334,7 @@ export class Personalize extends PersonalizeClient {
   }
 
   /**
-   * <p>Describes the given dataset group. For more information on dataset groups, see
-   *       <a>CreateDatasetGroup</a>.</p>
+   * <p>Describes the given dataset group. For more information on dataset groups, see <a>CreateDatasetGroup</a>.</p>
    */
   public describeDatasetGroup(
     args: DescribeDatasetGroupCommandInput,
@@ -1751,7 +1747,7 @@ export class Personalize extends PersonalizeClient {
   /**
    * <p>Returns a list of dataset groups. The response provides the properties for each dataset
    *       group, including the Amazon Resource Name (ARN). For more information on dataset groups, see
-   *       <a>CreateDatasetGroup</a>.</p>
+   *         <a>CreateDatasetGroup</a>.</p>
    */
   public listDatasetGroups(
     args: ListDatasetGroupsCommandInput,
@@ -1783,11 +1779,11 @@ export class Personalize extends PersonalizeClient {
   }
 
   /**
-   * <p>Returns a list of dataset import jobs that use the given dataset.
-   *       When a dataset is not specified, all the dataset import jobs associated with the account are listed.
-   *       The response provides the properties for each dataset import job, including the Amazon Resource Name (ARN).
-   *       For more information on dataset import jobs, see <a>CreateDatasetImportJob</a>.
-   *       For more information on datasets, see <a>CreateDataset</a>.</p>
+   * <p>Returns a list of dataset import jobs that use the given dataset. When a dataset is not
+   *       specified, all the dataset import jobs associated with the account are listed. The response
+   *       provides the properties for each dataset import job, including the Amazon Resource Name (ARN).
+   *       For more information on dataset import jobs, see <a>CreateDatasetImportJob</a>. For
+   *       more information on datasets, see <a>CreateDataset</a>.</p>
    */
   public listDatasetImportJobs(
     args: ListDatasetImportJobsCommandInput,
@@ -1819,10 +1815,9 @@ export class Personalize extends PersonalizeClient {
   }
 
   /**
-   * <p>Returns the list of datasets contained in the given dataset group. The response
-   *       provides the properties for each dataset, including
-   *       the Amazon Resource Name (ARN). For more information on datasets,
-   *       see <a>CreateDataset</a>.</p>
+   * <p>Returns the list of datasets contained in the given dataset group. The response provides
+   *       the properties for each dataset, including the Amazon Resource Name (ARN). For more
+   *       information on datasets, see <a>CreateDataset</a>.</p>
    */
   public listDatasets(
     args: ListDatasetsCommandInput,

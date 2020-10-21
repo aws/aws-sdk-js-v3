@@ -1,3 +1,4 @@
+import { BatchDeleteWorldsCommandInput, BatchDeleteWorldsCommandOutput } from "../commands/BatchDeleteWorldsCommand";
 import {
   BatchDescribeSimulationJobCommandInput,
   BatchDescribeSimulationJobCommandOutput,
@@ -14,6 +15,14 @@ import {
   CancelSimulationJobCommandInput,
   CancelSimulationJobCommandOutput,
 } from "../commands/CancelSimulationJobCommand";
+import {
+  CancelWorldExportJobCommandInput,
+  CancelWorldExportJobCommandOutput,
+} from "../commands/CancelWorldExportJobCommand";
+import {
+  CancelWorldGenerationJobCommandInput,
+  CancelWorldGenerationJobCommandOutput,
+} from "../commands/CancelWorldGenerationJobCommand";
 import {
   CreateDeploymentJobCommandInput,
   CreateDeploymentJobCommandOutput,
@@ -40,6 +49,18 @@ import {
   CreateSimulationJobCommandInput,
   CreateSimulationJobCommandOutput,
 } from "../commands/CreateSimulationJobCommand";
+import {
+  CreateWorldExportJobCommandInput,
+  CreateWorldExportJobCommandOutput,
+} from "../commands/CreateWorldExportJobCommand";
+import {
+  CreateWorldGenerationJobCommandInput,
+  CreateWorldGenerationJobCommandOutput,
+} from "../commands/CreateWorldGenerationJobCommand";
+import {
+  CreateWorldTemplateCommandInput,
+  CreateWorldTemplateCommandOutput,
+} from "../commands/CreateWorldTemplateCommand";
 import { DeleteFleetCommandInput, DeleteFleetCommandOutput } from "../commands/DeleteFleetCommand";
 import {
   DeleteRobotApplicationCommandInput,
@@ -50,6 +71,10 @@ import {
   DeleteSimulationApplicationCommandInput,
   DeleteSimulationApplicationCommandOutput,
 } from "../commands/DeleteSimulationApplicationCommand";
+import {
+  DeleteWorldTemplateCommandInput,
+  DeleteWorldTemplateCommandOutput,
+} from "../commands/DeleteWorldTemplateCommand";
 import { DeregisterRobotCommandInput, DeregisterRobotCommandOutput } from "../commands/DeregisterRobotCommand";
 import {
   DescribeDeploymentJobCommandInput,
@@ -73,6 +98,23 @@ import {
   DescribeSimulationJobCommandInput,
   DescribeSimulationJobCommandOutput,
 } from "../commands/DescribeSimulationJobCommand";
+import { DescribeWorldCommandInput, DescribeWorldCommandOutput } from "../commands/DescribeWorldCommand";
+import {
+  DescribeWorldExportJobCommandInput,
+  DescribeWorldExportJobCommandOutput,
+} from "../commands/DescribeWorldExportJobCommand";
+import {
+  DescribeWorldGenerationJobCommandInput,
+  DescribeWorldGenerationJobCommandOutput,
+} from "../commands/DescribeWorldGenerationJobCommand";
+import {
+  DescribeWorldTemplateCommandInput,
+  DescribeWorldTemplateCommandOutput,
+} from "../commands/DescribeWorldTemplateCommand";
+import {
+  GetWorldTemplateBodyCommandInput,
+  GetWorldTemplateBodyCommandOutput,
+} from "../commands/GetWorldTemplateBodyCommand";
 import { ListDeploymentJobsCommandInput, ListDeploymentJobsCommandOutput } from "../commands/ListDeploymentJobsCommand";
 import { ListFleetsCommandInput, ListFleetsCommandOutput } from "../commands/ListFleetsCommand";
 import {
@@ -93,6 +135,16 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
+import {
+  ListWorldExportJobsCommandInput,
+  ListWorldExportJobsCommandOutput,
+} from "../commands/ListWorldExportJobsCommand";
+import {
+  ListWorldGenerationJobsCommandInput,
+  ListWorldGenerationJobsCommandOutput,
+} from "../commands/ListWorldGenerationJobsCommand";
+import { ListWorldTemplatesCommandInput, ListWorldTemplatesCommandOutput } from "../commands/ListWorldTemplatesCommand";
+import { ListWorldsCommandInput, ListWorldsCommandOutput } from "../commands/ListWorldsCommand";
 import { RegisterRobotCommandInput, RegisterRobotCommandOutput } from "../commands/RegisterRobotCommand";
 import {
   RestartSimulationJobCommandInput,
@@ -114,6 +166,10 @@ import {
   UpdateSimulationApplicationCommandOutput,
 } from "../commands/UpdateSimulationApplicationCommand";
 import {
+  UpdateWorldTemplateCommandInput,
+  UpdateWorldTemplateCommandOutput,
+} from "../commands/UpdateWorldTemplateCommand";
+import {
   BatchPolicy,
   Compute,
   ComputeResponse,
@@ -125,7 +181,9 @@ import {
   DeploymentJob,
   DeploymentLaunchConfig,
   FailedCreateSimulationJobRequest,
+  FailureSummary,
   Filter,
+  FinishedWorldsSummary,
   Fleet,
   IdempotentParameterMismatchException,
   InternalServerException,
@@ -158,9 +216,17 @@ import {
   SimulationSoftwareSuite,
   Source,
   SourceConfig,
+  TemplateLocation,
+  TemplateSummary,
   ThrottlingException,
   VPCConfig,
   VPCConfigResponse,
+  WorldConfig,
+  WorldCount,
+  WorldExportJobSummary,
+  WorldFailure,
+  WorldGenerationJobSummary,
+  WorldSummary,
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
@@ -174,6 +240,30 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 import { v4 as generateIdempotencyToken } from "uuid";
+
+export const serializeAws_restJson1BatchDeleteWorldsCommand = async (
+  input: BatchDeleteWorldsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+  };
+  let resolvedPath = "/batchDeleteWorlds";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.worlds !== undefined && { worlds: serializeAws_restJson1Arns(input.worlds, context) }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
 
 export const serializeAws_restJson1BatchDescribeSimulationJobCommand = async (
   input: BatchDescribeSimulationJobCommandInput,
@@ -258,6 +348,54 @@ export const serializeAws_restJson1CancelSimulationJobBatchCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.batch !== undefined && { batch: input.batch }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1CancelWorldExportJobCommand = async (
+  input: CancelWorldExportJobCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+  };
+  let resolvedPath = "/cancelWorldExportJob";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.job !== undefined && { job: input.job }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1CancelWorldGenerationJobCommand = async (
+  input: CancelWorldGenerationJobCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+  };
+  let resolvedPath = "/cancelWorldGenerationJob";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.job !== undefined && { job: input.job }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -517,6 +655,93 @@ export const serializeAws_restJson1CreateSimulationJobCommand = async (
   });
 };
 
+export const serializeAws_restJson1CreateWorldExportJobCommand = async (
+  input: CreateWorldExportJobCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+  };
+  let resolvedPath = "/createWorldExportJob";
+  let body: any;
+  body = JSON.stringify({
+    clientRequestToken: input.clientRequestToken ?? generateIdempotencyToken(),
+    ...(input.iamRole !== undefined && { iamRole: input.iamRole }),
+    ...(input.outputLocation !== undefined && {
+      outputLocation: serializeAws_restJson1OutputLocation(input.outputLocation, context),
+    }),
+    ...(input.tags !== undefined && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
+    ...(input.worlds !== undefined && { worlds: serializeAws_restJson1Arns(input.worlds, context) }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1CreateWorldGenerationJobCommand = async (
+  input: CreateWorldGenerationJobCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+  };
+  let resolvedPath = "/createWorldGenerationJob";
+  let body: any;
+  body = JSON.stringify({
+    clientRequestToken: input.clientRequestToken ?? generateIdempotencyToken(),
+    ...(input.tags !== undefined && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
+    ...(input.template !== undefined && { template: input.template }),
+    ...(input.worldCount !== undefined && { worldCount: serializeAws_restJson1WorldCount(input.worldCount, context) }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1CreateWorldTemplateCommand = async (
+  input: CreateWorldTemplateCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+  };
+  let resolvedPath = "/createWorldTemplate";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.clientRequestToken !== undefined && { clientRequestToken: input.clientRequestToken }),
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.tags !== undefined && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
+    ...(input.templateBody !== undefined && { templateBody: input.templateBody }),
+    ...(input.templateLocation !== undefined && {
+      templateLocation: serializeAws_restJson1TemplateLocation(input.templateLocation, context),
+    }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1DeleteFleetCommand = async (
   input: DeleteFleetCommandInput,
   context: __SerdeContext
@@ -602,6 +827,30 @@ export const serializeAws_restJson1DeleteSimulationApplicationCommand = async (
   body = JSON.stringify({
     ...(input.application !== undefined && { application: input.application }),
     ...(input.applicationVersion !== undefined && { applicationVersion: input.applicationVersion }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1DeleteWorldTemplateCommand = async (
+  input: DeleteWorldTemplateCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+  };
+  let resolvedPath = "/deleteWorldTemplate";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.template !== undefined && { template: input.template }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -797,6 +1046,127 @@ export const serializeAws_restJson1DescribeSimulationJobBatchCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.batch !== undefined && { batch: input.batch }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1DescribeWorldCommand = async (
+  input: DescribeWorldCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+  };
+  let resolvedPath = "/describeWorld";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.world !== undefined && { world: input.world }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1DescribeWorldExportJobCommand = async (
+  input: DescribeWorldExportJobCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+  };
+  let resolvedPath = "/describeWorldExportJob";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.job !== undefined && { job: input.job }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1DescribeWorldGenerationJobCommand = async (
+  input: DescribeWorldGenerationJobCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+  };
+  let resolvedPath = "/describeWorldGenerationJob";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.job !== undefined && { job: input.job }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1DescribeWorldTemplateCommand = async (
+  input: DescribeWorldTemplateCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+  };
+  let resolvedPath = "/describeWorldTemplate";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.template !== undefined && { template: input.template }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1GetWorldTemplateBodyCommand = async (
+  input: GetWorldTemplateBodyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+  };
+  let resolvedPath = "/getWorldTemplateBody";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.generationJob !== undefined && { generationJob: input.generationJob }),
+    ...(input.template !== undefined && { template: input.template }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1018,6 +1388,109 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
     hostname,
     port,
     method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1ListWorldExportJobsCommand = async (
+  input: ListWorldExportJobsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+  };
+  let resolvedPath = "/listWorldExportJobs";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.filters !== undefined && { filters: serializeAws_restJson1Filters(input.filters, context) }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1ListWorldGenerationJobsCommand = async (
+  input: ListWorldGenerationJobsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+  };
+  let resolvedPath = "/listWorldGenerationJobs";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.filters !== undefined && { filters: serializeAws_restJson1Filters(input.filters, context) }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1ListWorldsCommand = async (
+  input: ListWorldsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+  };
+  let resolvedPath = "/listWorlds";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.filters !== undefined && { filters: serializeAws_restJson1Filters(input.filters, context) }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1ListWorldTemplatesCommand = async (
+  input: ListWorldTemplatesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+  };
+  let resolvedPath = "/listWorldTemplates";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
     headers,
     path: resolvedPath,
     body,
@@ -1261,6 +1734,106 @@ export const serializeAws_restJson1UpdateSimulationApplicationCommand = async (
     path: resolvedPath,
     body,
   });
+};
+
+export const serializeAws_restJson1UpdateWorldTemplateCommand = async (
+  input: UpdateWorldTemplateCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+  };
+  let resolvedPath = "/updateWorldTemplate";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.template !== undefined && { template: input.template }),
+    ...(input.templateBody !== undefined && { templateBody: input.templateBody }),
+    ...(input.templateLocation !== undefined && {
+      templateLocation: serializeAws_restJson1TemplateLocation(input.templateLocation, context),
+    }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const deserializeAws_restJson1BatchDeleteWorldsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchDeleteWorldsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1BatchDeleteWorldsCommandError(output, context);
+  }
+  const contents: BatchDeleteWorldsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    unprocessedWorlds: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.unprocessedWorlds !== undefined && data.unprocessedWorlds !== null) {
+    contents.unprocessedWorlds = deserializeAws_restJson1Arns(data.unprocessedWorlds, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1BatchDeleteWorldsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchDeleteWorldsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.robomaker#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterException":
+    case "com.amazonaws.robomaker#InvalidParameterException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.robomaker#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1BatchDescribeSimulationJobCommand = async (
@@ -1514,6 +2087,156 @@ const deserializeAws_restJson1CancelSimulationJobBatchCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CancelSimulationJobBatchCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.robomaker#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterException":
+    case "com.amazonaws.robomaker#InvalidParameterException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.robomaker#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.robomaker#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1CancelWorldExportJobCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CancelWorldExportJobCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1CancelWorldExportJobCommandError(output, context);
+  }
+  const contents: CancelWorldExportJobCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1CancelWorldExportJobCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CancelWorldExportJobCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.robomaker#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterException":
+    case "com.amazonaws.robomaker#InvalidParameterException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.robomaker#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.robomaker#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1CancelWorldGenerationJobCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CancelWorldGenerationJobCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1CancelWorldGenerationJobCommandError(output, context);
+  }
+  const contents: CancelWorldGenerationJobCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1CancelWorldGenerationJobCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CancelWorldGenerationJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -2571,6 +3294,371 @@ const deserializeAws_restJson1CreateSimulationJobCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1CreateWorldExportJobCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateWorldExportJobCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1CreateWorldExportJobCommandError(output, context);
+  }
+  const contents: CreateWorldExportJobCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    arn: undefined,
+    clientRequestToken: undefined,
+    createdAt: undefined,
+    failureCode: undefined,
+    iamRole: undefined,
+    outputLocation: undefined,
+    status: undefined,
+    tags: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.arn !== undefined && data.arn !== null) {
+    contents.arn = data.arn;
+  }
+  if (data.clientRequestToken !== undefined && data.clientRequestToken !== null) {
+    contents.clientRequestToken = data.clientRequestToken;
+  }
+  if (data.createdAt !== undefined && data.createdAt !== null) {
+    contents.createdAt = new Date(Math.round(data.createdAt * 1000));
+  }
+  if (data.failureCode !== undefined && data.failureCode !== null) {
+    contents.failureCode = data.failureCode;
+  }
+  if (data.iamRole !== undefined && data.iamRole !== null) {
+    contents.iamRole = data.iamRole;
+  }
+  if (data.outputLocation !== undefined && data.outputLocation !== null) {
+    contents.outputLocation = deserializeAws_restJson1OutputLocation(data.outputLocation, context);
+  }
+  if (data.status !== undefined && data.status !== null) {
+    contents.status = data.status;
+  }
+  if (data.tags !== undefined && data.tags !== null) {
+    contents.tags = deserializeAws_restJson1TagMap(data.tags, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1CreateWorldExportJobCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateWorldExportJobCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "IdempotentParameterMismatchException":
+    case "com.amazonaws.robomaker#IdempotentParameterMismatchException":
+      response = {
+        ...(await deserializeAws_restJson1IdempotentParameterMismatchExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.robomaker#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterException":
+    case "com.amazonaws.robomaker#InvalidParameterException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.robomaker#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceUnavailableException":
+    case "com.amazonaws.robomaker#ServiceUnavailableException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.robomaker#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1CreateWorldGenerationJobCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateWorldGenerationJobCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1CreateWorldGenerationJobCommandError(output, context);
+  }
+  const contents: CreateWorldGenerationJobCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    arn: undefined,
+    clientRequestToken: undefined,
+    createdAt: undefined,
+    failureCode: undefined,
+    status: undefined,
+    tags: undefined,
+    template: undefined,
+    worldCount: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.arn !== undefined && data.arn !== null) {
+    contents.arn = data.arn;
+  }
+  if (data.clientRequestToken !== undefined && data.clientRequestToken !== null) {
+    contents.clientRequestToken = data.clientRequestToken;
+  }
+  if (data.createdAt !== undefined && data.createdAt !== null) {
+    contents.createdAt = new Date(Math.round(data.createdAt * 1000));
+  }
+  if (data.failureCode !== undefined && data.failureCode !== null) {
+    contents.failureCode = data.failureCode;
+  }
+  if (data.status !== undefined && data.status !== null) {
+    contents.status = data.status;
+  }
+  if (data.tags !== undefined && data.tags !== null) {
+    contents.tags = deserializeAws_restJson1TagMap(data.tags, context);
+  }
+  if (data.template !== undefined && data.template !== null) {
+    contents.template = data.template;
+  }
+  if (data.worldCount !== undefined && data.worldCount !== null) {
+    contents.worldCount = deserializeAws_restJson1WorldCount(data.worldCount, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1CreateWorldGenerationJobCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateWorldGenerationJobCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "IdempotentParameterMismatchException":
+    case "com.amazonaws.robomaker#IdempotentParameterMismatchException":
+      response = {
+        ...(await deserializeAws_restJson1IdempotentParameterMismatchExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.robomaker#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterException":
+    case "com.amazonaws.robomaker#InvalidParameterException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "LimitExceededException":
+    case "com.amazonaws.robomaker#LimitExceededException":
+      response = {
+        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.robomaker#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceUnavailableException":
+    case "com.amazonaws.robomaker#ServiceUnavailableException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.robomaker#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1CreateWorldTemplateCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateWorldTemplateCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1CreateWorldTemplateCommandError(output, context);
+  }
+  const contents: CreateWorldTemplateCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    arn: undefined,
+    clientRequestToken: undefined,
+    createdAt: undefined,
+    name: undefined,
+    tags: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.arn !== undefined && data.arn !== null) {
+    contents.arn = data.arn;
+  }
+  if (data.clientRequestToken !== undefined && data.clientRequestToken !== null) {
+    contents.clientRequestToken = data.clientRequestToken;
+  }
+  if (data.createdAt !== undefined && data.createdAt !== null) {
+    contents.createdAt = new Date(Math.round(data.createdAt * 1000));
+  }
+  if (data.name !== undefined && data.name !== null) {
+    contents.name = data.name;
+  }
+  if (data.tags !== undefined && data.tags !== null) {
+    contents.tags = deserializeAws_restJson1TagMap(data.tags, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1CreateWorldTemplateCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateWorldTemplateCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.robomaker#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterException":
+    case "com.amazonaws.robomaker#InvalidParameterException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "LimitExceededException":
+    case "com.amazonaws.robomaker#LimitExceededException":
+      response = {
+        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceAlreadyExistsException":
+    case "com.amazonaws.robomaker#ResourceAlreadyExistsException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceAlreadyExistsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.robomaker#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.robomaker#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1DeleteFleetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -2810,6 +3898,81 @@ const deserializeAws_restJson1DeleteSimulationApplicationCommandError = async (
     case "com.amazonaws.robomaker#InvalidParameterException":
       response = {
         ...(await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.robomaker#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1DeleteWorldTemplateCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteWorldTemplateCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DeleteWorldTemplateCommandError(output, context);
+  }
+  const contents: DeleteWorldTemplateCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DeleteWorldTemplateCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteWorldTemplateCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.robomaker#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterException":
+    case "com.amazonaws.robomaker#InvalidParameterException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.robomaker#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -3767,6 +4930,509 @@ const deserializeAws_restJson1DescribeSimulationJobBatchCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1DescribeWorldCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeWorldCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DescribeWorldCommandError(output, context);
+  }
+  const contents: DescribeWorldCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    arn: undefined,
+    createdAt: undefined,
+    generationJob: undefined,
+    tags: undefined,
+    template: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.arn !== undefined && data.arn !== null) {
+    contents.arn = data.arn;
+  }
+  if (data.createdAt !== undefined && data.createdAt !== null) {
+    contents.createdAt = new Date(Math.round(data.createdAt * 1000));
+  }
+  if (data.generationJob !== undefined && data.generationJob !== null) {
+    contents.generationJob = data.generationJob;
+  }
+  if (data.tags !== undefined && data.tags !== null) {
+    contents.tags = deserializeAws_restJson1TagMap(data.tags, context);
+  }
+  if (data.template !== undefined && data.template !== null) {
+    contents.template = data.template;
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DescribeWorldCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeWorldCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.robomaker#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterException":
+    case "com.amazonaws.robomaker#InvalidParameterException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.robomaker#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.robomaker#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1DescribeWorldExportJobCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeWorldExportJobCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DescribeWorldExportJobCommandError(output, context);
+  }
+  const contents: DescribeWorldExportJobCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    arn: undefined,
+    clientRequestToken: undefined,
+    createdAt: undefined,
+    failureCode: undefined,
+    failureReason: undefined,
+    iamRole: undefined,
+    outputLocation: undefined,
+    status: undefined,
+    tags: undefined,
+    worlds: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.arn !== undefined && data.arn !== null) {
+    contents.arn = data.arn;
+  }
+  if (data.clientRequestToken !== undefined && data.clientRequestToken !== null) {
+    contents.clientRequestToken = data.clientRequestToken;
+  }
+  if (data.createdAt !== undefined && data.createdAt !== null) {
+    contents.createdAt = new Date(Math.round(data.createdAt * 1000));
+  }
+  if (data.failureCode !== undefined && data.failureCode !== null) {
+    contents.failureCode = data.failureCode;
+  }
+  if (data.failureReason !== undefined && data.failureReason !== null) {
+    contents.failureReason = data.failureReason;
+  }
+  if (data.iamRole !== undefined && data.iamRole !== null) {
+    contents.iamRole = data.iamRole;
+  }
+  if (data.outputLocation !== undefined && data.outputLocation !== null) {
+    contents.outputLocation = deserializeAws_restJson1OutputLocation(data.outputLocation, context);
+  }
+  if (data.status !== undefined && data.status !== null) {
+    contents.status = data.status;
+  }
+  if (data.tags !== undefined && data.tags !== null) {
+    contents.tags = deserializeAws_restJson1TagMap(data.tags, context);
+  }
+  if (data.worlds !== undefined && data.worlds !== null) {
+    contents.worlds = deserializeAws_restJson1Arns(data.worlds, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DescribeWorldExportJobCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeWorldExportJobCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.robomaker#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterException":
+    case "com.amazonaws.robomaker#InvalidParameterException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.robomaker#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.robomaker#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1DescribeWorldGenerationJobCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeWorldGenerationJobCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DescribeWorldGenerationJobCommandError(output, context);
+  }
+  const contents: DescribeWorldGenerationJobCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    arn: undefined,
+    clientRequestToken: undefined,
+    createdAt: undefined,
+    failureCode: undefined,
+    failureReason: undefined,
+    finishedWorldsSummary: undefined,
+    status: undefined,
+    tags: undefined,
+    template: undefined,
+    worldCount: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.arn !== undefined && data.arn !== null) {
+    contents.arn = data.arn;
+  }
+  if (data.clientRequestToken !== undefined && data.clientRequestToken !== null) {
+    contents.clientRequestToken = data.clientRequestToken;
+  }
+  if (data.createdAt !== undefined && data.createdAt !== null) {
+    contents.createdAt = new Date(Math.round(data.createdAt * 1000));
+  }
+  if (data.failureCode !== undefined && data.failureCode !== null) {
+    contents.failureCode = data.failureCode;
+  }
+  if (data.failureReason !== undefined && data.failureReason !== null) {
+    contents.failureReason = data.failureReason;
+  }
+  if (data.finishedWorldsSummary !== undefined && data.finishedWorldsSummary !== null) {
+    contents.finishedWorldsSummary = deserializeAws_restJson1FinishedWorldsSummary(data.finishedWorldsSummary, context);
+  }
+  if (data.status !== undefined && data.status !== null) {
+    contents.status = data.status;
+  }
+  if (data.tags !== undefined && data.tags !== null) {
+    contents.tags = deserializeAws_restJson1TagMap(data.tags, context);
+  }
+  if (data.template !== undefined && data.template !== null) {
+    contents.template = data.template;
+  }
+  if (data.worldCount !== undefined && data.worldCount !== null) {
+    contents.worldCount = deserializeAws_restJson1WorldCount(data.worldCount, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DescribeWorldGenerationJobCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeWorldGenerationJobCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.robomaker#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterException":
+    case "com.amazonaws.robomaker#InvalidParameterException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.robomaker#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.robomaker#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1DescribeWorldTemplateCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeWorldTemplateCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DescribeWorldTemplateCommandError(output, context);
+  }
+  const contents: DescribeWorldTemplateCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    arn: undefined,
+    clientRequestToken: undefined,
+    createdAt: undefined,
+    lastUpdatedAt: undefined,
+    name: undefined,
+    tags: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.arn !== undefined && data.arn !== null) {
+    contents.arn = data.arn;
+  }
+  if (data.clientRequestToken !== undefined && data.clientRequestToken !== null) {
+    contents.clientRequestToken = data.clientRequestToken;
+  }
+  if (data.createdAt !== undefined && data.createdAt !== null) {
+    contents.createdAt = new Date(Math.round(data.createdAt * 1000));
+  }
+  if (data.lastUpdatedAt !== undefined && data.lastUpdatedAt !== null) {
+    contents.lastUpdatedAt = new Date(Math.round(data.lastUpdatedAt * 1000));
+  }
+  if (data.name !== undefined && data.name !== null) {
+    contents.name = data.name;
+  }
+  if (data.tags !== undefined && data.tags !== null) {
+    contents.tags = deserializeAws_restJson1TagMap(data.tags, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DescribeWorldTemplateCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeWorldTemplateCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.robomaker#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterException":
+    case "com.amazonaws.robomaker#InvalidParameterException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.robomaker#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.robomaker#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1GetWorldTemplateBodyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetWorldTemplateBodyCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1GetWorldTemplateBodyCommandError(output, context);
+  }
+  const contents: GetWorldTemplateBodyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    templateBody: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.templateBody !== undefined && data.templateBody !== null) {
+    contents.templateBody = data.templateBody;
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1GetWorldTemplateBodyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetWorldTemplateBodyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.robomaker#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterException":
+    case "com.amazonaws.robomaker#InvalidParameterException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.robomaker#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.robomaker#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1ListDeploymentJobsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -4370,6 +6036,312 @@ const deserializeAws_restJson1ListTagsForResourceCommandError = async (
     case "com.amazonaws.robomaker#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.robomaker#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1ListWorldExportJobsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListWorldExportJobsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListWorldExportJobsCommandError(output, context);
+  }
+  const contents: ListWorldExportJobsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    nextToken: undefined,
+    worldExportJobSummaries: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.nextToken !== undefined && data.nextToken !== null) {
+    contents.nextToken = data.nextToken;
+  }
+  if (data.worldExportJobSummaries !== undefined && data.worldExportJobSummaries !== null) {
+    contents.worldExportJobSummaries = deserializeAws_restJson1WorldExportJobSummaries(
+      data.worldExportJobSummaries,
+      context
+    );
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1ListWorldExportJobsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListWorldExportJobsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.robomaker#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterException":
+    case "com.amazonaws.robomaker#InvalidParameterException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.robomaker#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1ListWorldGenerationJobsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListWorldGenerationJobsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListWorldGenerationJobsCommandError(output, context);
+  }
+  const contents: ListWorldGenerationJobsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    nextToken: undefined,
+    worldGenerationJobSummaries: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.nextToken !== undefined && data.nextToken !== null) {
+    contents.nextToken = data.nextToken;
+  }
+  if (data.worldGenerationJobSummaries !== undefined && data.worldGenerationJobSummaries !== null) {
+    contents.worldGenerationJobSummaries = deserializeAws_restJson1WorldGenerationJobSummaries(
+      data.worldGenerationJobSummaries,
+      context
+    );
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1ListWorldGenerationJobsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListWorldGenerationJobsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.robomaker#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterException":
+    case "com.amazonaws.robomaker#InvalidParameterException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.robomaker#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1ListWorldsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListWorldsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListWorldsCommandError(output, context);
+  }
+  const contents: ListWorldsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    nextToken: undefined,
+    worldSummaries: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.nextToken !== undefined && data.nextToken !== null) {
+    contents.nextToken = data.nextToken;
+  }
+  if (data.worldSummaries !== undefined && data.worldSummaries !== null) {
+    contents.worldSummaries = deserializeAws_restJson1WorldSummaries(data.worldSummaries, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1ListWorldsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListWorldsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.robomaker#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterException":
+    case "com.amazonaws.robomaker#InvalidParameterException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.robomaker#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1ListWorldTemplatesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListWorldTemplatesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListWorldTemplatesCommandError(output, context);
+  }
+  const contents: ListWorldTemplatesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    nextToken: undefined,
+    templateSummaries: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.nextToken !== undefined && data.nextToken !== null) {
+    contents.nextToken = data.nextToken;
+  }
+  if (data.templateSummaries !== undefined && data.templateSummaries !== null) {
+    contents.templateSummaries = deserializeAws_restJson1TemplateSummaries(data.templateSummaries, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1ListWorldTemplatesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListWorldTemplatesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.robomaker#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterException":
+    case "com.amazonaws.robomaker#InvalidParameterException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -5217,6 +7189,97 @@ const deserializeAws_restJson1UpdateSimulationApplicationCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1UpdateWorldTemplateCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateWorldTemplateCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1UpdateWorldTemplateCommandError(output, context);
+  }
+  const contents: UpdateWorldTemplateCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    arn: undefined,
+    createdAt: undefined,
+    lastUpdatedAt: undefined,
+    name: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.arn !== undefined && data.arn !== null) {
+    contents.arn = data.arn;
+  }
+  if (data.createdAt !== undefined && data.createdAt !== null) {
+    contents.createdAt = new Date(Math.round(data.createdAt * 1000));
+  }
+  if (data.lastUpdatedAt !== undefined && data.lastUpdatedAt !== null) {
+    contents.lastUpdatedAt = new Date(Math.round(data.lastUpdatedAt * 1000));
+  }
+  if (data.name !== undefined && data.name !== null) {
+    contents.name = data.name;
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1UpdateWorldTemplateCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateWorldTemplateCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.robomaker#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterException":
+    case "com.amazonaws.robomaker#InvalidParameterException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.robomaker#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.robomaker#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 const deserializeAws_restJson1ConcurrentDeploymentExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -5587,6 +7650,9 @@ const serializeAws_restJson1SimulationApplicationConfig = (
     ...(input.launchConfig !== undefined && {
       launchConfig: serializeAws_restJson1LaunchConfig(input.launchConfig, context),
     }),
+    ...(input.worldConfigs !== undefined && {
+      worldConfigs: serializeAws_restJson1WorldConfigs(input.worldConfigs, context),
+    }),
   };
 };
 
@@ -5660,6 +7726,13 @@ const serializeAws_restJson1TagMap = (input: { [key: string]: string }, context:
   );
 };
 
+const serializeAws_restJson1TemplateLocation = (input: TemplateLocation, context: __SerdeContext): any => {
+  return {
+    ...(input.s3Bucket !== undefined && { s3Bucket: input.s3Bucket }),
+    ...(input.s3Key !== undefined && { s3Key: input.s3Key }),
+  };
+};
+
 const serializeAws_restJson1VPCConfig = (input: VPCConfig, context: __SerdeContext): any => {
   return {
     ...(input.assignPublicIp !== undefined && { assignPublicIp: input.assignPublicIp }),
@@ -5667,6 +7740,25 @@ const serializeAws_restJson1VPCConfig = (input: VPCConfig, context: __SerdeConte
       securityGroups: serializeAws_restJson1SecurityGroups(input.securityGroups, context),
     }),
     ...(input.subnets !== undefined && { subnets: serializeAws_restJson1Subnets(input.subnets, context) }),
+  };
+};
+
+const serializeAws_restJson1WorldConfig = (input: WorldConfig, context: __SerdeContext): any => {
+  return {
+    ...(input.world !== undefined && { world: input.world }),
+  };
+};
+
+const serializeAws_restJson1WorldConfigs = (input: WorldConfig[], context: __SerdeContext): any => {
+  return input.map((entry) => serializeAws_restJson1WorldConfig(entry, context));
+};
+
+const serializeAws_restJson1WorldCount = (input: WorldCount, context: __SerdeContext): any => {
+  return {
+    ...(input.floorplanCount !== undefined && { floorplanCount: input.floorplanCount }),
+    ...(input.interiorCountPerFloorplan !== undefined && {
+      interiorCountPerFloorplan: input.interiorCountPerFloorplan,
+    }),
   };
 };
 
@@ -5869,6 +7961,34 @@ const deserializeAws_restJson1FailedCreateSimulationJobRequests = (
   context: __SerdeContext
 ): FailedCreateSimulationJobRequest[] => {
   return (output || []).map((entry: any) => deserializeAws_restJson1FailedCreateSimulationJobRequest(entry, context));
+};
+
+const deserializeAws_restJson1FailureSummary = (output: any, context: __SerdeContext): FailureSummary => {
+  return {
+    failures:
+      output.failures !== undefined && output.failures !== null
+        ? deserializeAws_restJson1WorldFailures(output.failures, context)
+        : undefined,
+    totalFailureCount:
+      output.totalFailureCount !== undefined && output.totalFailureCount !== null
+        ? output.totalFailureCount
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1FinishedWorldsSummary = (output: any, context: __SerdeContext): FinishedWorldsSummary => {
+  return {
+    failureSummary:
+      output.failureSummary !== undefined && output.failureSummary !== null
+        ? deserializeAws_restJson1FailureSummary(output.failureSummary, context)
+        : undefined,
+    finishedCount:
+      output.finishedCount !== undefined && output.finishedCount !== null ? output.finishedCount : undefined,
+    succeededWorlds:
+      output.succeededWorlds !== undefined && output.succeededWorlds !== null
+        ? deserializeAws_restJson1Arns(output.succeededWorlds, context)
+        : undefined,
+  } as any;
 };
 
 const deserializeAws_restJson1Fleet = (output: any, context: __SerdeContext): Fleet => {
@@ -6145,6 +8265,10 @@ const deserializeAws_restJson1SimulationApplicationConfig = (
       output.launchConfig !== undefined && output.launchConfig !== null
         ? deserializeAws_restJson1LaunchConfig(output.launchConfig, context)
         : undefined,
+    worldConfigs:
+      output.worldConfigs !== undefined && output.worldConfigs !== null
+        ? deserializeAws_restJson1WorldConfigs(output.worldConfigs, context)
+        : undefined,
   } as any;
 };
 
@@ -6416,6 +8540,25 @@ const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): {
   );
 };
 
+const deserializeAws_restJson1TemplateSummaries = (output: any, context: __SerdeContext): TemplateSummary[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1TemplateSummary(entry, context));
+};
+
+const deserializeAws_restJson1TemplateSummary = (output: any, context: __SerdeContext): TemplateSummary => {
+  return {
+    arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    createdAt:
+      output.createdAt !== undefined && output.createdAt !== null
+        ? new Date(Math.round(output.createdAt * 1000))
+        : undefined,
+    lastUpdatedAt:
+      output.lastUpdatedAt !== undefined && output.lastUpdatedAt !== null
+        ? new Date(Math.round(output.lastUpdatedAt * 1000))
+        : undefined,
+    name: output.name !== undefined && output.name !== null ? output.name : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1VPCConfig = (output: any, context: __SerdeContext): VPCConfig => {
   return {
     assignPublicIp:
@@ -6444,6 +8587,113 @@ const deserializeAws_restJson1VPCConfigResponse = (output: any, context: __Serde
         ? deserializeAws_restJson1Subnets(output.subnets, context)
         : undefined,
     vpcId: output.vpcId !== undefined && output.vpcId !== null ? output.vpcId : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1WorldConfig = (output: any, context: __SerdeContext): WorldConfig => {
+  return {
+    world: output.world !== undefined && output.world !== null ? output.world : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1WorldConfigs = (output: any, context: __SerdeContext): WorldConfig[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1WorldConfig(entry, context));
+};
+
+const deserializeAws_restJson1WorldCount = (output: any, context: __SerdeContext): WorldCount => {
+  return {
+    floorplanCount:
+      output.floorplanCount !== undefined && output.floorplanCount !== null ? output.floorplanCount : undefined,
+    interiorCountPerFloorplan:
+      output.interiorCountPerFloorplan !== undefined && output.interiorCountPerFloorplan !== null
+        ? output.interiorCountPerFloorplan
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1WorldExportJobSummaries = (
+  output: any,
+  context: __SerdeContext
+): WorldExportJobSummary[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1WorldExportJobSummary(entry, context));
+};
+
+const deserializeAws_restJson1WorldExportJobSummary = (output: any, context: __SerdeContext): WorldExportJobSummary => {
+  return {
+    arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    createdAt:
+      output.createdAt !== undefined && output.createdAt !== null
+        ? new Date(Math.round(output.createdAt * 1000))
+        : undefined,
+    status: output.status !== undefined && output.status !== null ? output.status : undefined,
+    worlds:
+      output.worlds !== undefined && output.worlds !== null
+        ? deserializeAws_restJson1Arns(output.worlds, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1WorldFailure = (output: any, context: __SerdeContext): WorldFailure => {
+  return {
+    failureCode: output.failureCode !== undefined && output.failureCode !== null ? output.failureCode : undefined,
+    failureCount: output.failureCount !== undefined && output.failureCount !== null ? output.failureCount : undefined,
+    sampleFailureReason:
+      output.sampleFailureReason !== undefined && output.sampleFailureReason !== null
+        ? output.sampleFailureReason
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1WorldFailures = (output: any, context: __SerdeContext): WorldFailure[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1WorldFailure(entry, context));
+};
+
+const deserializeAws_restJson1WorldGenerationJobSummaries = (
+  output: any,
+  context: __SerdeContext
+): WorldGenerationJobSummary[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1WorldGenerationJobSummary(entry, context));
+};
+
+const deserializeAws_restJson1WorldGenerationJobSummary = (
+  output: any,
+  context: __SerdeContext
+): WorldGenerationJobSummary => {
+  return {
+    arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    createdAt:
+      output.createdAt !== undefined && output.createdAt !== null
+        ? new Date(Math.round(output.createdAt * 1000))
+        : undefined,
+    failedWorldCount:
+      output.failedWorldCount !== undefined && output.failedWorldCount !== null ? output.failedWorldCount : undefined,
+    status: output.status !== undefined && output.status !== null ? output.status : undefined,
+    succeededWorldCount:
+      output.succeededWorldCount !== undefined && output.succeededWorldCount !== null
+        ? output.succeededWorldCount
+        : undefined,
+    template: output.template !== undefined && output.template !== null ? output.template : undefined,
+    worldCount:
+      output.worldCount !== undefined && output.worldCount !== null
+        ? deserializeAws_restJson1WorldCount(output.worldCount, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1WorldSummaries = (output: any, context: __SerdeContext): WorldSummary[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1WorldSummary(entry, context));
+};
+
+const deserializeAws_restJson1WorldSummary = (output: any, context: __SerdeContext): WorldSummary => {
+  return {
+    arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    createdAt:
+      output.createdAt !== undefined && output.createdAt !== null
+        ? new Date(Math.round(output.createdAt * 1000))
+        : undefined,
+    generationJob:
+      output.generationJob !== undefined && output.generationJob !== null ? output.generationJob : undefined,
+    template: output.template !== undefined && output.template !== null ? output.template : undefined,
   } as any;
 };
 

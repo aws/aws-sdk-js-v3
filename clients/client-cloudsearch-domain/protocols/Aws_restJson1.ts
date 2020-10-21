@@ -38,20 +38,20 @@ export const serializeAws_restJson1SearchCommand = async (
   const query: any = {
     format: "sdk",
     pretty: "true",
-    ...(input.stats !== undefined && { stats: input.stats }),
-    ...(input.query !== undefined && { q: input.query }),
-    ...(input.queryParser !== undefined && { "q.parser": input.queryParser }),
-    ...(input.start !== undefined && { start: input.start.toString() }),
-    ...(input.cursor !== undefined && { cursor: input.cursor }),
-    ...(input.sort !== undefined && { sort: input.sort }),
     ...(input.expr !== undefined && { expr: input.expr }),
     ...(input.queryOptions !== undefined && { "q.options": input.queryOptions }),
-    ...(input.facet !== undefined && { facet: input.facet }),
-    ...(input.size !== undefined && { size: input.size.toString() }),
-    ...(input.highlight !== undefined && { highlight: input.highlight }),
-    ...(input.filterQuery !== undefined && { fq: input.filterQuery }),
     ...(input.return !== undefined && { return: input.return }),
     ...(input.partial !== undefined && { partial: input.partial.toString() }),
+    ...(input.filterQuery !== undefined && { fq: input.filterQuery }),
+    ...(input.sort !== undefined && { sort: input.sort }),
+    ...(input.facet !== undefined && { facet: input.facet }),
+    ...(input.size !== undefined && { size: input.size.toString() }),
+    ...(input.query !== undefined && { q: input.query }),
+    ...(input.highlight !== undefined && { highlight: input.highlight }),
+    ...(input.start !== undefined && { start: input.start.toString() }),
+    ...(input.queryParser !== undefined && { "q.parser": input.queryParser }),
+    ...(input.cursor !== undefined && { cursor: input.cursor }),
+    ...(input.stats !== undefined && { stats: input.stats }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -78,8 +78,8 @@ export const serializeAws_restJson1SuggestCommand = async (
   const query: any = {
     format: "sdk",
     pretty: "true",
-    ...(input.query !== undefined && { q: input.query }),
     ...(input.size !== undefined && { size: input.size.toString() }),
+    ...(input.query !== undefined && { q: input.query }),
     ...(input.suggester !== undefined && { suggester: input.suggester }),
   };
   let body: any;

@@ -46,15 +46,15 @@ export namespace Target {
 
 export interface CreateHomeRegionControlRequest {
   /**
+   * <p>The name of the home region of the calling account.</p>
+   */
+  HomeRegion: string | undefined;
+
+  /**
    * <p>Optional Boolean flag to indicate whether any effect should take place. It tests whether
    *       the caller has permission to make the call.</p>
    */
   DryRun?: boolean;
-
-  /**
-   * <p>The name of the home region of the calling account.</p>
-   */
-  HomeRegion: string | undefined;
 
   /**
    * <p>The account for which this command sets up a home region control. The <code>Target</code>
@@ -76,6 +76,18 @@ export namespace CreateHomeRegionControlRequest {
  */
 export interface HomeRegionControl {
   /**
+   * <p>The AWS Region that's been set as home region. For example, "us-west-2" or "eu-central-1"
+   *       are valid home regions.</p>
+   */
+  HomeRegion?: string;
+
+  /**
+   * <p>A timestamp representing the time when the customer called
+   *         <code>CreateHomeregionControl</code> and set the home region for the account.</p>
+   */
+  RequestedTime?: Date;
+
+  /**
    * <p>The target parameter specifies the identifier to which the home region is applied, which
    *       is always an <code>ACCOUNT</code>. It applies the home region to the current
    *         <code>ACCOUNT</code>.</p>
@@ -87,18 +99,6 @@ export interface HomeRegionControl {
    *       that begins with "hrc-" followed by 12 lowercase letters and numbers.</p>
    */
   ControlId?: string;
-
-  /**
-   * <p>A timestamp representing the time when the customer called
-   *         <code>CreateHomeregionControl</code> and set the home region for the account.</p>
-   */
-  RequestedTime?: Date;
-
-  /**
-   * <p>The AWS Region that's been set as home region. For example, "us-west-2" or "eu-central-1"
-   *       are valid home regions.</p>
-   */
-  HomeRegion?: string;
 }
 
 export namespace HomeRegionControl {
@@ -207,23 +207,9 @@ export namespace ThrottlingException {
 
 export interface DescribeHomeRegionControlsRequest {
   /**
-   * <p>The target parameter specifies the identifier to which the home region is applied, which
-   *       is always of type <code>ACCOUNT</code>. It applies the home region to the current
-   *         <code>ACCOUNT</code>.</p>
-   */
-  Target?: Target;
-
-  /**
    * <p>The maximum number of filtering results to display per page. </p>
    */
   MaxResults?: number;
-
-  /**
-   * <p>If a <code>NextToken</code> was returned by a previous call, more results are available.
-   *       To retrieve the next page of results, make the call again using the returned token in
-   *         <code>NextToken</code>.</p>
-   */
-  NextToken?: string;
 
   /**
    * <p>The name of the home region you'd like to view.</p>
@@ -235,6 +221,20 @@ export interface DescribeHomeRegionControlsRequest {
    *         <code>HomeRegionControl</code> object.</p>
    */
   ControlId?: string;
+
+  /**
+   * <p>If a <code>NextToken</code> was returned by a previous call, more results are available.
+   *       To retrieve the next page of results, make the call again using the returned token in
+   *         <code>NextToken</code>.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The target parameter specifies the identifier to which the home region is applied, which
+   *       is always of type <code>ACCOUNT</code>. It applies the home region to the current
+   *         <code>ACCOUNT</code>.</p>
+   */
+  Target?: Target;
 }
 
 export namespace DescribeHomeRegionControlsRequest {

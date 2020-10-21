@@ -9,13 +9,6 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
  */
 export interface UsageRecord {
   /**
-   * <p>Timestamp, in UTC, for which the usage is being reported.</p>
-   *         <p>Your application can meter usage for up to one hour in the past. Make sure the
-   *             timestamp value is not before the start of the software usage.</p>
-   */
-  Timestamp: Date | undefined;
-
-  /**
    * <p>The quantity of usage consumed by the customer for the given dimension and time.
    *             Defaults to <code>0</code> if not specified.</p>
    */
@@ -27,6 +20,13 @@ export interface UsageRecord {
    *             application.</p>
    */
   Dimension: string | undefined;
+
+  /**
+   * <p>Timestamp, in UTC, for which the usage is being reported.</p>
+   *         <p>Your application can meter usage for up to one hour in the past. Make sure the
+   *             timestamp value is not before the start of the software usage.</p>
+   */
+  Timestamp: Date | undefined;
 
   /**
    * <p>The CustomerIdentifier is obtained through the ResolveCustomer operation and
@@ -78,9 +78,9 @@ export enum UsageRecordResultStatus {
  */
 export interface UsageRecordResult {
   /**
-   * <p>The MeteringRecordId is a unique identifier for this metering event.</p>
+   * <p>The UsageRecord that was part of the BatchMeterUsage request.</p>
    */
-  MeteringRecordId?: string;
+  UsageRecord?: UsageRecord;
 
   /**
    * <p>The UsageRecordResult Status indicates the status of an individual UsageRecord
@@ -109,9 +109,9 @@ export interface UsageRecordResult {
   Status?: UsageRecordResultStatus | string;
 
   /**
-   * <p>The UsageRecord that was part of the BatchMeterUsage request.</p>
+   * <p>The MeteringRecordId is a unique identifier for this metering event.</p>
    */
-  UsageRecord?: UsageRecord;
+  MeteringRecordId?: string;
 }
 
 export namespace UsageRecordResult {
@@ -408,17 +408,17 @@ export namespace PlatformNotSupportedException {
 
 export interface RegisterUsageRequest {
   /**
+   * <p>(Optional) To scope down the registration to a specific running software instance
+   *             and guard against replay attacks.</p>
+   */
+  Nonce?: string;
+
+  /**
    * <p>Product code is used to uniquely identify a product in AWS Marketplace. The product
    *             code should be the same as the one used during the publishing of a new
    *             product.</p>
    */
   ProductCode: string | undefined;
-
-  /**
-   * <p>(Optional) To scope down the registration to a specific running software instance
-   *             and guard against replay attacks.</p>
-   */
-  Nonce?: string;
 
   /**
    * <p>Public Key Version provided by AWS Marketplace</p>
@@ -508,18 +508,18 @@ export namespace ResolveCustomerRequest {
  */
 export interface ResolveCustomerResult {
   /**
-   * <p>The product code is returned to confirm that the buyer is registering for your
-   *             product. Subsequent BatchMeterUsage calls should be made using this product
-   *             code.</p>
-   */
-  ProductCode?: string;
-
-  /**
    * <p>The CustomerIdentifier is used to identify an individual customer in your
    *             application. Calls to BatchMeterUsage require CustomerIdentifiers for each
    *             UsageRecord.</p>
    */
   CustomerIdentifier?: string;
+
+  /**
+   * <p>The product code is returned to confirm that the buyer is registering for your
+   *             product. Subsequent BatchMeterUsage calls should be made using this product
+   *             code.</p>
+   */
+  ProductCode?: string;
 }
 
 export namespace ResolveCustomerResult {

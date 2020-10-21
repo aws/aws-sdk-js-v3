@@ -5,6 +5,11 @@ import {
   CreateSavingsPlanCommandOutput,
 } from "./commands/CreateSavingsPlanCommand";
 import {
+  DeleteQueuedSavingsPlanCommand,
+  DeleteQueuedSavingsPlanCommandInput,
+  DeleteQueuedSavingsPlanCommandOutput,
+} from "./commands/DeleteQueuedSavingsPlanCommand";
+import {
   DescribeSavingsPlanRatesCommand,
   DescribeSavingsPlanRatesCommandInput,
   DescribeSavingsPlanRatesCommandOutput,
@@ -66,6 +71,38 @@ export class Savingsplans extends SavingsplansClient {
     cb?: (err: any, data?: CreateSavingsPlanCommandOutput) => void
   ): Promise<CreateSavingsPlanCommandOutput> | void {
     const command = new CreateSavingsPlanCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes the queued purchase for the specified Savings Plan.</p>
+   */
+  public deleteQueuedSavingsPlan(
+    args: DeleteQueuedSavingsPlanCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteQueuedSavingsPlanCommandOutput>;
+  public deleteQueuedSavingsPlan(
+    args: DeleteQueuedSavingsPlanCommandInput,
+    cb: (err: any, data?: DeleteQueuedSavingsPlanCommandOutput) => void
+  ): void;
+  public deleteQueuedSavingsPlan(
+    args: DeleteQueuedSavingsPlanCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteQueuedSavingsPlanCommandOutput) => void
+  ): void;
+  public deleteQueuedSavingsPlan(
+    args: DeleteQueuedSavingsPlanCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteQueuedSavingsPlanCommandOutput) => void),
+    cb?: (err: any, data?: DeleteQueuedSavingsPlanCommandOutput) => void
+  ): Promise<DeleteQueuedSavingsPlanCommandOutput> | void {
+    const command = new DeleteQueuedSavingsPlanCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

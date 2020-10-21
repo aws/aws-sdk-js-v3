@@ -47,23 +47,21 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 /**
  * <fullname>AWS Resource Groups</fullname>
  *
- *         <p>AWS Resource Groups lets you organize AWS resources such as Amazon EC2 instances,
- *             Amazon Relational Database Service databases, and Amazon S3 buckets into groups using
- *             criteria that you define as tags. A resource group is a collection of resources that
- *             match the resource types specified in a query, and share one or more tags or portions of
- *             tags. You can create a group of resources based on their roles in your cloud
- *             infrastructure, lifecycle stages, regions, application layers, or virtually any
- *             criteria. Resource groups enable you to automate management tasks, such as those in AWS
- *             Systems Manager Automation documents, on tag-related resources in AWS Systems Manager.
- *             Groups of tagged resources also let you quickly view a custom console in AWS Systems
- *             Manager that shows AWS Config compliance and other monitoring data about member
+ *         <p>AWS Resource Groups lets you organize AWS resources such as Amazon EC2 instances, Amazon Relational Database Service
+ *             databases, and Amazon S3 buckets into groups using criteria that you define as tags. A
+ *             resource group is a collection of resources that match the resource types specified in a
+ *             query, and share one or more tags or portions of tags. You can create a group of
+ *             resources based on their roles in your cloud infrastructure, lifecycle stages, regions,
+ *             application layers, or virtually any criteria. Resource Groups enable you to automate management
+ *             tasks, such as those in AWS Systems Manager Automation documents, on tag-related resources in
+ *             AWS Systems Manager. Groups of tagged resources also let you quickly view a custom console in
+ *             AWS Systems Manager that shows AWS Config compliance and other monitoring data about member
  *             resources.</p>
  *         <p>To create a resource group, build a resource query, and specify tags that identify the
  *             criteria that members of the group have in common. Tags are key-value pairs.</p>
- *         <p>For more information about Resource Groups, see the <a href="https://docs.aws.amazon.com/ARG/latest/userguide/welcome.html">AWS Resource Groups User
- *             Guide</a>.</p>
- *         <p>AWS Resource Groups uses a REST-compliant API that you can use to perform the
- *             following types of operations.</p>
+ *         <p>For more information about Resource Groups, see the <a href="https://docs.aws.amazon.com/ARG/latest/userguide/welcome.html">AWS Resource Groups User Guide</a>.</p>
+ *         <p>AWS Resource Groups uses a REST-compliant API that you can use to perform the following types of
+ *             operations.</p>
  *         <ul>
  *             <li>
  *                 <p>Create, Read, Update, and Delete (CRUD) operations on resource groups and
@@ -357,8 +355,8 @@ export class ResourceGroups extends ResourceGroupsClient {
   }
 
   /**
-   * <p>Returns a list of AWS resource identifiers that matches tne specified query. The query
-   *             uses the same format as a resource query in a CreateGroup or UpdateGroupQuery
+   * <p>Returns a list of AWS resource identifiers that matches the specified query. The
+   *             query uses the same format as a resource query in a CreateGroup or UpdateGroupQuery
    *             operation.</p>
    */
   public searchResources(

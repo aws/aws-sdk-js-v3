@@ -3,14 +3,14 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export interface DeviceDescription {
   /**
+   * <p>A Boolean value indicating whether or not the device is enabled.</p>
+   */
+  Enabled?: boolean;
+
+  /**
    * <p>The unique identifier of the device.</p>
    */
   DeviceId?: string;
-
-  /**
-   * <p>The ARN of the device.</p>
-   */
-  Arn?: string;
 
   /**
    * <p>An array of zero or more elements of DeviceAttribute objects providing
@@ -19,15 +19,9 @@ export interface DeviceDescription {
   Attributes?: { [key: string]: string };
 
   /**
-   * <p>A Boolean value indicating whether or not the device is enabled.</p>
+   * <p>The type of the device, such as "button".</p>
    */
-  Enabled?: boolean;
-
-  /**
-   * <p>A value between 0 and 1 inclusive, representing the fraction of life remaining for the
-   *  device.</p>
-   */
-  RemainingLife?: number;
+  Type?: string;
 
   /**
    * <p>The tags currently associated with the AWS IoT 1-Click device.</p>
@@ -35,9 +29,15 @@ export interface DeviceDescription {
   Tags?: { [key: string]: string };
 
   /**
-   * <p>The type of the device, such as "button".</p>
+   * <p>The ARN of the device.</p>
    */
-  Type?: string;
+  Arn?: string;
+
+  /**
+   * <p>A value between 0 and 1 inclusive, representing the fraction of life remaining for the
+   *  device.</p>
+   */
+  RemainingLife?: number;
 }
 
 export namespace DeviceDescription {
@@ -56,11 +56,6 @@ export namespace Attributes {
 
 export interface Device {
   /**
-   * <p>The device type, such as "button".</p>
-   */
-  Type?: string;
-
-  /**
    * <p>The unique identifier of the device.</p>
    */
   DeviceId?: string;
@@ -69,6 +64,11 @@ export interface Device {
    * <p>The user specified attributes associated with the device for an event.</p>
    */
   Attributes?: Attributes;
+
+  /**
+   * <p>The device type, such as "button".</p>
+   */
+  Type?: string;
 }
 
 export namespace Device {
@@ -79,14 +79,14 @@ export namespace Device {
 
 export interface DeviceEvent {
   /**
-   * <p>An object representing the device associated with the event.</p>
-   */
-  Device?: Device;
-
-  /**
    * <p>A serialized JSON object representing the device-type specific event.</p>
    */
   StdEvent?: string;
+
+  /**
+   * <p>An object representing the device associated with the event.</p>
+   */
+  Device?: Device;
 }
 
 export namespace DeviceEvent {
@@ -128,15 +128,15 @@ export namespace ClaimDevicesByClaimCodeRequest {
 
 export interface ClaimDevicesByClaimCodeResponse {
   /**
-   * <p>The claim code provided by the device manufacturer.</p>
-   */
-  ClaimCode?: string;
-
-  /**
    * <p>The total number of devices associated with the claim code that has been processed in
    *  the claim request.</p>
    */
   Total?: number;
+
+  /**
+   * <p>The claim code provided by the device manufacturer.</p>
+   */
+  ClaimCode?: string;
 }
 
 export namespace ClaimDevicesByClaimCodeResponse {
@@ -235,14 +235,14 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
   name: "ResourceNotFoundException";
   $fault: "client";
   /**
-   * <p>The requested device could not be found.</p>
-   */
-  Message?: string;
-
-  /**
    * <p>404</p>
    */
   Code?: string;
+
+  /**
+   * <p>The requested device could not be found.</p>
+   */
+  Message?: string;
 }
 
 export namespace ResourceNotFoundException {
@@ -253,11 +253,6 @@ export namespace ResourceNotFoundException {
 
 export interface FinalizeDeviceClaimRequest {
   /**
-   * <p>The unique identifier of the device.</p>
-   */
-  DeviceId: string | undefined;
-
-  /**
    * <p>A collection of key/value pairs defining the resource tags. For example, {
    *  "tags": {"key1": "value1", "key2": "value2"} }. For more information, see <a href="https://aws.amazon.com/answers/account-management/aws-tagging-strategies/">AWS
    *  Tagging Strategies</a>.</p><p>
@@ -265,6 +260,11 @@ export interface FinalizeDeviceClaimRequest {
    *  </p>
    */
   Tags?: { [key: string]: string };
+
+  /**
+   * <p>The unique identifier of the device.</p>
+   */
+  DeviceId: string | undefined;
 }
 
 export namespace FinalizeDeviceClaimRequest {
@@ -418,15 +418,15 @@ export interface RangeNotSatisfiableException extends __SmithyException, $Metada
   name: "RangeNotSatisfiableException";
   $fault: "client";
   /**
+   * <p>416</p>
+   */
+  Code?: string;
+
+  /**
    * <p>The requested number of results specified by nextToken cannot be
    *  satisfied.</p>
    */
   Message?: string;
-
-  /**
-   * <p>416</p>
-   */
-  Code?: string;
 }
 
 export namespace RangeNotSatisfiableException {
@@ -437,9 +437,16 @@ export namespace RangeNotSatisfiableException {
 
 export interface ListDeviceEventsRequest {
   /**
-   * <p>The unique identifier of the device.</p>
+   * <p>The start date for the device event query, in ISO8061 format. For example,
+   *  2018-03-28T15:45:12.880Z
+   *  </p>
    */
-  DeviceId: string | undefined;
+  FromTimeStamp: Date | undefined;
+
+  /**
+   * <p>The token to retrieve the next set of results.</p>
+   */
+  NextToken?: string;
 
   /**
    * <p>The maximum number of results to return per request. If not set, a default value of
@@ -448,11 +455,9 @@ export interface ListDeviceEventsRequest {
   MaxResults?: number;
 
   /**
-   * <p>The start date for the device event query, in ISO8061 format. For example,
-   *  2018-03-28T15:45:12.880Z
-   *  </p>
+   * <p>The unique identifier of the device.</p>
    */
-  FromTimeStamp: Date | undefined;
+  DeviceId: string | undefined;
 
   /**
    * <p>The end date for the device event query, in ISO8061 format. For example,
@@ -460,11 +465,6 @@ export interface ListDeviceEventsRequest {
    *  </p>
    */
   ToTimeStamp: Date | undefined;
-
-  /**
-   * <p>The token to retrieve the next set of results.</p>
-   */
-  NextToken?: string;
 }
 
 export namespace ListDeviceEventsRequest {
@@ -475,15 +475,15 @@ export namespace ListDeviceEventsRequest {
 
 export interface ListDeviceEventsResponse {
   /**
+   * <p>The token to retrieve the next set of results.</p>
+   */
+  NextToken?: string;
+
+  /**
    * <p>An array of zero or more elements describing the event(s) associated with the
    *  device.</p>
    */
   Events?: DeviceEvent[];
-
-  /**
-   * <p>The token to retrieve the next set of results.</p>
-   */
-  NextToken?: string;
 }
 
 export namespace ListDeviceEventsResponse {
@@ -518,14 +518,14 @@ export namespace ListDevicesRequest {
 
 export interface ListDevicesResponse {
   /**
-   * <p>The token to retrieve the next set of results.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>A list of devices.</p>
    */
   Devices?: DeviceDescription[];
+
+  /**
+   * <p>The token to retrieve the next set of results.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace ListDevicesResponse {
@@ -566,11 +566,6 @@ export namespace ListTagsForResourceResponse {
 
 export interface TagResourceRequest {
   /**
-   * <p>The ARN of the resource.</p>
-   */
-  ResourceArn: string | undefined;
-
-  /**
    * <p>A collection of key/value pairs defining the resource tags. For example, {
    *  "tags": {"key1": "value1", "key2": "value2"} }. For more information, see <a href="https://aws.amazon.com/answers/account-management/aws-tagging-strategies/">AWS
    *  Tagging Strategies</a>.</p><p>
@@ -578,6 +573,11 @@ export interface TagResourceRequest {
    *  </p>
    */
   Tags: { [key: string]: string } | undefined;
+
+  /**
+   * <p>The ARN of the resource.</p>
+   */
+  ResourceArn: string | undefined;
 }
 
 export namespace TagResourceRequest {
@@ -614,14 +614,14 @@ export namespace UnclaimDeviceResponse {
 
 export interface UntagResourceRequest {
   /**
-   * <p>The ARN of the resource.</p>
-   */
-  ResourceArn: string | undefined;
-
-  /**
    * <p>A collections of tag keys. For example, {"key1","key2"}</p>
    */
   TagKeys: string[] | undefined;
+
+  /**
+   * <p>The ARN of the resource.</p>
+   */
+  ResourceArn: string | undefined;
 }
 
 export namespace UntagResourceRequest {
@@ -632,15 +632,15 @@ export namespace UntagResourceRequest {
 
 export interface UpdateDeviceStateRequest {
   /**
+   * <p>The unique identifier of the device.</p>
+   */
+  DeviceId: string | undefined;
+
+  /**
    * <p>If true, the device is enabled. If false, the device is
    *  disabled.</p>
    */
   Enabled?: boolean;
-
-  /**
-   * <p>The unique identifier of the device.</p>
-   */
-  DeviceId: string | undefined;
 }
 
 export namespace UpdateDeviceStateRequest {

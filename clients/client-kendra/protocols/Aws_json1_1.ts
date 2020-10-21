@@ -125,6 +125,7 @@ import {
   SalesforceStandardKnowledgeArticleTypeConfiguration,
   SalesforceStandardObjectAttachmentConfiguration,
   SalesforceStandardObjectConfiguration,
+  ScoreAttributes,
   Search,
   ServerSideEncryptionConfiguration,
   ServiceNowConfiguration,
@@ -3000,6 +3001,7 @@ const serializeAws_json1_1CreateDataSourceRequest = (input: CreateDataSourceRequ
 const serializeAws_json1_1CreateFaqRequest = (input: CreateFaqRequest, context: __SerdeContext): any => {
   return {
     ...(input.Description !== undefined && { Description: input.Description }),
+    ...(input.FileFormat !== undefined && { FileFormat: input.FileFormat }),
     ...(input.IndexId !== undefined && { IndexId: input.IndexId }),
     ...(input.Name !== undefined && { Name: input.Name }),
     ...(input.RoleArn !== undefined && { RoleArn: input.RoleArn }),
@@ -4261,6 +4263,7 @@ const deserializeAws_json1_1DescribeFaqResponse = (output: any, context: __Serde
         : undefined,
     Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
     ErrorMessage: output.ErrorMessage !== undefined && output.ErrorMessage !== null ? output.ErrorMessage : undefined,
+    FileFormat: output.FileFormat !== undefined && output.FileFormat !== null ? output.FileFormat : undefined,
     Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
     IndexId: output.IndexId !== undefined && output.IndexId !== null ? output.IndexId : undefined,
     Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
@@ -4410,6 +4413,10 @@ const deserializeAws_json1_1FacetResult = (output: any, context: __SerdeContext)
       output.DocumentAttributeValueCountPairs !== undefined && output.DocumentAttributeValueCountPairs !== null
         ? deserializeAws_json1_1DocumentAttributeValueCountPairList(output.DocumentAttributeValueCountPairs, context)
         : undefined,
+    DocumentAttributeValueType:
+      output.DocumentAttributeValueType !== undefined && output.DocumentAttributeValueType !== null
+        ? output.DocumentAttributeValueType
+        : undefined,
   } as any;
 };
 
@@ -4432,6 +4439,7 @@ const deserializeAws_json1_1FaqSummary = (output: any, context: __SerdeContext):
       output.CreatedAt !== undefined && output.CreatedAt !== null
         ? new Date(Math.round(output.CreatedAt * 1000))
         : undefined,
+    FileFormat: output.FileFormat !== undefined && output.FileFormat !== null ? output.FileFormat : undefined,
     Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
     Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
     Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
@@ -4644,6 +4652,10 @@ const deserializeAws_json1_1QueryResultItem = (output: any, context: __SerdeCont
         : undefined,
     DocumentURI: output.DocumentURI !== undefined && output.DocumentURI !== null ? output.DocumentURI : undefined,
     Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
+    ScoreAttributes:
+      output.ScoreAttributes !== undefined && output.ScoreAttributes !== null
+        ? deserializeAws_json1_1ScoreAttributes(output.ScoreAttributes, context)
+        : undefined,
     Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
   } as any;
 };
@@ -4930,6 +4942,13 @@ const deserializeAws_json1_1SalesforceStandardObjectConfigurationList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1SalesforceStandardObjectConfiguration(entry, context)
   );
+};
+
+const deserializeAws_json1_1ScoreAttributes = (output: any, context: __SerdeContext): ScoreAttributes => {
+  return {
+    ScoreConfidence:
+      output.ScoreConfidence !== undefined && output.ScoreConfidence !== null ? output.ScoreConfidence : undefined,
+  } as any;
 };
 
 const deserializeAws_json1_1Search = (output: any, context: __SerdeContext): Search => {

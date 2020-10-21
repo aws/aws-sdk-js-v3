@@ -94,16 +94,57 @@ import {
   AccountDetails,
   ActionTarget,
   AvailabilityZone,
+  AwsApiGatewayAccessLogSettings,
+  AwsApiGatewayCanarySettings,
+  AwsApiGatewayEndpointConfiguration,
+  AwsApiGatewayMethodSettings,
+  AwsApiGatewayRestApiDetails,
+  AwsApiGatewayStageDetails,
+  AwsApiGatewayV2ApiDetails,
+  AwsApiGatewayV2RouteSettings,
+  AwsApiGatewayV2StageDetails,
   AwsAutoScalingAutoScalingGroupDetails,
+  AwsCertificateManagerCertificateDetails,
+  AwsCertificateManagerCertificateDomainValidationOption,
+  AwsCertificateManagerCertificateExtendedKeyUsage,
+  AwsCertificateManagerCertificateKeyUsage,
+  AwsCertificateManagerCertificateOptions,
+  AwsCertificateManagerCertificateRenewalSummary,
+  AwsCertificateManagerCertificateResourceRecord,
+  AwsCloudFrontDistributionCacheBehavior,
+  AwsCloudFrontDistributionCacheBehaviors,
+  AwsCloudFrontDistributionDefaultCacheBehavior,
   AwsCloudFrontDistributionDetails,
   AwsCloudFrontDistributionLogging,
+  AwsCloudFrontDistributionOriginGroup,
+  AwsCloudFrontDistributionOriginGroupFailover,
+  AwsCloudFrontDistributionOriginGroupFailoverStatusCodes,
+  AwsCloudFrontDistributionOriginGroups,
   AwsCloudFrontDistributionOriginItem,
+  AwsCloudFrontDistributionOriginS3OriginConfig,
   AwsCloudFrontDistributionOrigins,
+  AwsCloudTrailTrailDetails,
   AwsCodeBuildProjectDetails,
   AwsCodeBuildProjectEnvironment,
   AwsCodeBuildProjectEnvironmentRegistryCredential,
   AwsCodeBuildProjectSource,
   AwsCodeBuildProjectVpcConfig,
+  AwsCorsConfiguration,
+  AwsDynamoDbTableAttributeDefinition,
+  AwsDynamoDbTableBillingModeSummary,
+  AwsDynamoDbTableDetails,
+  AwsDynamoDbTableGlobalSecondaryIndex,
+  AwsDynamoDbTableKeySchema,
+  AwsDynamoDbTableLocalSecondaryIndex,
+  AwsDynamoDbTableProjection,
+  AwsDynamoDbTableProvisionedThroughput,
+  AwsDynamoDbTableProvisionedThroughputOverride,
+  AwsDynamoDbTableReplica,
+  AwsDynamoDbTableReplicaGlobalSecondaryIndex,
+  AwsDynamoDbTableRestoreSummary,
+  AwsDynamoDbTableSseDescription,
+  AwsDynamoDbTableStreamSpecification,
+  AwsEc2EipDetails,
   AwsEc2InstanceDetails,
   AwsEc2NetworkInterfaceAttachment,
   AwsEc2NetworkInterfaceDetails,
@@ -122,9 +163,38 @@ import {
   AwsElasticsearchDomainEncryptionAtRestOptions,
   AwsElasticsearchDomainNodeToNodeEncryptionOptions,
   AwsElasticsearchDomainVPCOptions,
+  AwsElbAppCookieStickinessPolicy,
+  AwsElbLbCookieStickinessPolicy,
+  AwsElbLoadBalancerAccessLog,
+  AwsElbLoadBalancerAttributes,
+  AwsElbLoadBalancerBackendServerDescription,
+  AwsElbLoadBalancerConnectionDraining,
+  AwsElbLoadBalancerConnectionSettings,
+  AwsElbLoadBalancerCrossZoneLoadBalancing,
+  AwsElbLoadBalancerDetails,
+  AwsElbLoadBalancerHealthCheck,
+  AwsElbLoadBalancerInstance,
+  AwsElbLoadBalancerListener,
+  AwsElbLoadBalancerListenerDescription,
+  AwsElbLoadBalancerPolicies,
+  AwsElbLoadBalancerSourceSecurityGroup,
   AwsElbv2LoadBalancerDetails,
   AwsIamAccessKeyDetails,
+  AwsIamAccessKeySessionContext,
+  AwsIamAccessKeySessionContextAttributes,
+  AwsIamAccessKeySessionContextSessionIssuer,
+  AwsIamAttachedManagedPolicy,
+  AwsIamGroupDetails,
+  AwsIamGroupPolicy,
+  AwsIamInstanceProfile,
+  AwsIamInstanceProfileRole,
+  AwsIamPermissionsBoundary,
+  AwsIamPolicyDetails,
+  AwsIamPolicyVersion,
   AwsIamRoleDetails,
+  AwsIamRolePolicy,
+  AwsIamUserDetails,
+  AwsIamUserPolicy,
   AwsKmsKeyDetails,
   AwsLambdaFunctionCode,
   AwsLambdaFunctionDeadLetterConfig,
@@ -135,15 +205,48 @@ import {
   AwsLambdaFunctionTracingConfig,
   AwsLambdaFunctionVpcConfig,
   AwsLambdaLayerVersionDetails,
+  AwsRdsDbClusterAssociatedRole,
+  AwsRdsDbClusterDetails,
+  AwsRdsDbClusterMember,
+  AwsRdsDbClusterOptionGroupMembership,
+  AwsRdsDbClusterSnapshotDetails,
+  AwsRdsDbDomainMembership,
   AwsRdsDbInstanceAssociatedRole,
   AwsRdsDbInstanceDetails,
   AwsRdsDbInstanceEndpoint,
   AwsRdsDbInstanceVpcSecurityGroup,
+  AwsRdsDbOptionGroupMembership,
+  AwsRdsDbParameterGroup,
+  AwsRdsDbPendingModifiedValues,
+  AwsRdsDbProcessorFeature,
+  AwsRdsDbSnapshotDetails,
+  AwsRdsDbStatusInfo,
+  AwsRdsDbSubnetGroup,
+  AwsRdsDbSubnetGroupSubnet,
+  AwsRdsDbSubnetGroupSubnetAvailabilityZone,
+  AwsRdsPendingCloudWatchLogsExports,
+  AwsRedshiftClusterClusterNode,
+  AwsRedshiftClusterClusterParameterGroup,
+  AwsRedshiftClusterClusterParameterStatus,
+  AwsRedshiftClusterClusterSecurityGroup,
+  AwsRedshiftClusterClusterSnapshotCopyStatus,
+  AwsRedshiftClusterDeferredMaintenanceWindow,
+  AwsRedshiftClusterDetails,
+  AwsRedshiftClusterElasticIpStatus,
+  AwsRedshiftClusterEndpoint,
+  AwsRedshiftClusterHsmStatus,
+  AwsRedshiftClusterIamRole,
+  AwsRedshiftClusterPendingModifiedValues,
+  AwsRedshiftClusterResizeInfo,
+  AwsRedshiftClusterRestoreStatus,
+  AwsRedshiftClusterVpcSecurityGroup,
   AwsS3BucketDetails,
   AwsS3BucketServerSideEncryptionByDefault,
   AwsS3BucketServerSideEncryptionConfiguration,
   AwsS3BucketServerSideEncryptionRule,
   AwsS3ObjectDetails,
+  AwsSecretsManagerSecretDetails,
+  AwsSecretsManagerSecretRotationRules,
   AwsSecurityFinding,
   AwsSecurityFindingFilters,
   AwsSecurityFindingIdentifier,
@@ -167,7 +270,6 @@ import {
   InternalException,
   InvalidAccessException,
   InvalidInputException,
-  Invitation,
   IpFilter,
   Ipv6CidrBlockAssociation,
   KeywordFilter,
@@ -175,7 +277,6 @@ import {
   LoadBalancerState,
   Malware,
   MapFilter,
-  Member,
   Network,
   NetworkHeader,
   NetworkPathComponent,
@@ -183,6 +284,7 @@ import {
   Note,
   NoteUpdate,
   NumberFilter,
+  PatchSummary,
   PortRange,
   ProcessDetails,
   Product,
@@ -213,6 +315,7 @@ import {
   Workflow,
   WorkflowUpdate,
 } from "../models/models_0";
+import { Invitation, Member } from "../models/models_1";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   SmithyException as __SmithyException,
@@ -691,8 +794,8 @@ export const serializeAws_restJson1DescribeStandardsCommand = async (
   };
   let resolvedPath = "/standards";
   const query: any = {
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1185,9 +1288,9 @@ export const serializeAws_restJson1ListMembersCommand = async (
   };
   let resolvedPath = "/members";
   const query: any = {
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults.toString() }),
     ...(input.OnlyAssociated !== undefined && { OnlyAssociated: input.OnlyAssociated.toString() }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -5207,6 +5310,189 @@ const serializeAws_restJson1AvailabilityZones = (input: AvailabilityZone[], cont
   return input.map((entry) => serializeAws_restJson1AvailabilityZone(entry, context));
 };
 
+const serializeAws_restJson1AwsApiGatewayAccessLogSettings = (
+  input: AwsApiGatewayAccessLogSettings,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.DestinationArn !== undefined && { DestinationArn: input.DestinationArn }),
+    ...(input.Format !== undefined && { Format: input.Format }),
+  };
+};
+
+const serializeAws_restJson1AwsApiGatewayCanarySettings = (
+  input: AwsApiGatewayCanarySettings,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.DeploymentId !== undefined && { DeploymentId: input.DeploymentId }),
+    ...(input.PercentTraffic !== undefined && { PercentTraffic: input.PercentTraffic }),
+    ...(input.StageVariableOverrides !== undefined && {
+      StageVariableOverrides: serializeAws_restJson1FieldMap(input.StageVariableOverrides, context),
+    }),
+    ...(input.UseStageCache !== undefined && { UseStageCache: input.UseStageCache }),
+  };
+};
+
+const serializeAws_restJson1AwsApiGatewayEndpointConfiguration = (
+  input: AwsApiGatewayEndpointConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Types !== undefined && { Types: serializeAws_restJson1NonEmptyStringList(input.Types, context) }),
+  };
+};
+
+const serializeAws_restJson1AwsApiGatewayMethodSettings = (
+  input: AwsApiGatewayMethodSettings,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.CacheDataEncrypted !== undefined && { CacheDataEncrypted: input.CacheDataEncrypted }),
+    ...(input.CacheTtlInSeconds !== undefined && { CacheTtlInSeconds: input.CacheTtlInSeconds }),
+    ...(input.CachingEnabled !== undefined && { CachingEnabled: input.CachingEnabled }),
+    ...(input.DataTraceEnabled !== undefined && { DataTraceEnabled: input.DataTraceEnabled }),
+    ...(input.HttpMethod !== undefined && { HttpMethod: input.HttpMethod }),
+    ...(input.LoggingLevel !== undefined && { LoggingLevel: input.LoggingLevel }),
+    ...(input.MetricsEnabled !== undefined && { MetricsEnabled: input.MetricsEnabled }),
+    ...(input.RequireAuthorizationForCacheControl !== undefined && {
+      RequireAuthorizationForCacheControl: input.RequireAuthorizationForCacheControl,
+    }),
+    ...(input.ResourcePath !== undefined && { ResourcePath: input.ResourcePath }),
+    ...(input.ThrottlingBurstLimit !== undefined && { ThrottlingBurstLimit: input.ThrottlingBurstLimit }),
+    ...(input.ThrottlingRateLimit !== undefined && { ThrottlingRateLimit: input.ThrottlingRateLimit }),
+    ...(input.UnauthorizedCacheControlHeaderStrategy !== undefined && {
+      UnauthorizedCacheControlHeaderStrategy: input.UnauthorizedCacheControlHeaderStrategy,
+    }),
+  };
+};
+
+const serializeAws_restJson1AwsApiGatewayMethodSettingsList = (
+  input: AwsApiGatewayMethodSettings[],
+  context: __SerdeContext
+): any => {
+  return input.map((entry) => serializeAws_restJson1AwsApiGatewayMethodSettings(entry, context));
+};
+
+const serializeAws_restJson1AwsApiGatewayRestApiDetails = (
+  input: AwsApiGatewayRestApiDetails,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ApiKeySource !== undefined && { ApiKeySource: input.ApiKeySource }),
+    ...(input.BinaryMediaTypes !== undefined && {
+      BinaryMediaTypes: serializeAws_restJson1NonEmptyStringList(input.BinaryMediaTypes, context),
+    }),
+    ...(input.CreatedDate !== undefined && { CreatedDate: input.CreatedDate }),
+    ...(input.Description !== undefined && { Description: input.Description }),
+    ...(input.EndpointConfiguration !== undefined && {
+      EndpointConfiguration: serializeAws_restJson1AwsApiGatewayEndpointConfiguration(
+        input.EndpointConfiguration,
+        context
+      ),
+    }),
+    ...(input.Id !== undefined && { Id: input.Id }),
+    ...(input.MinimumCompressionSize !== undefined && { MinimumCompressionSize: input.MinimumCompressionSize }),
+    ...(input.Name !== undefined && { Name: input.Name }),
+    ...(input.Version !== undefined && { Version: input.Version }),
+  };
+};
+
+const serializeAws_restJson1AwsApiGatewayStageDetails = (
+  input: AwsApiGatewayStageDetails,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AccessLogSettings !== undefined && {
+      AccessLogSettings: serializeAws_restJson1AwsApiGatewayAccessLogSettings(input.AccessLogSettings, context),
+    }),
+    ...(input.CacheClusterEnabled !== undefined && { CacheClusterEnabled: input.CacheClusterEnabled }),
+    ...(input.CacheClusterSize !== undefined && { CacheClusterSize: input.CacheClusterSize }),
+    ...(input.CacheClusterStatus !== undefined && { CacheClusterStatus: input.CacheClusterStatus }),
+    ...(input.CanarySettings !== undefined && {
+      CanarySettings: serializeAws_restJson1AwsApiGatewayCanarySettings(input.CanarySettings, context),
+    }),
+    ...(input.ClientCertificateId !== undefined && { ClientCertificateId: input.ClientCertificateId }),
+    ...(input.CreatedDate !== undefined && { CreatedDate: input.CreatedDate }),
+    ...(input.DeploymentId !== undefined && { DeploymentId: input.DeploymentId }),
+    ...(input.Description !== undefined && { Description: input.Description }),
+    ...(input.DocumentationVersion !== undefined && { DocumentationVersion: input.DocumentationVersion }),
+    ...(input.LastUpdatedDate !== undefined && { LastUpdatedDate: input.LastUpdatedDate }),
+    ...(input.MethodSettings !== undefined && {
+      MethodSettings: serializeAws_restJson1AwsApiGatewayMethodSettingsList(input.MethodSettings, context),
+    }),
+    ...(input.StageName !== undefined && { StageName: input.StageName }),
+    ...(input.TracingEnabled !== undefined && { TracingEnabled: input.TracingEnabled }),
+    ...(input.Variables !== undefined && { Variables: serializeAws_restJson1FieldMap(input.Variables, context) }),
+    ...(input.WebAclArn !== undefined && { WebAclArn: input.WebAclArn }),
+  };
+};
+
+const serializeAws_restJson1AwsApiGatewayV2ApiDetails = (
+  input: AwsApiGatewayV2ApiDetails,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ApiEndpoint !== undefined && { ApiEndpoint: input.ApiEndpoint }),
+    ...(input.ApiId !== undefined && { ApiId: input.ApiId }),
+    ...(input.ApiKeySelectionExpression !== undefined && {
+      ApiKeySelectionExpression: input.ApiKeySelectionExpression,
+    }),
+    ...(input.CorsConfiguration !== undefined && {
+      CorsConfiguration: serializeAws_restJson1AwsCorsConfiguration(input.CorsConfiguration, context),
+    }),
+    ...(input.CreatedDate !== undefined && { CreatedDate: input.CreatedDate }),
+    ...(input.Description !== undefined && { Description: input.Description }),
+    ...(input.Name !== undefined && { Name: input.Name }),
+    ...(input.ProtocolType !== undefined && { ProtocolType: input.ProtocolType }),
+    ...(input.RouteSelectionExpression !== undefined && { RouteSelectionExpression: input.RouteSelectionExpression }),
+    ...(input.Version !== undefined && { Version: input.Version }),
+  };
+};
+
+const serializeAws_restJson1AwsApiGatewayV2RouteSettings = (
+  input: AwsApiGatewayV2RouteSettings,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.DataTraceEnabled !== undefined && { DataTraceEnabled: input.DataTraceEnabled }),
+    ...(input.DetailedMetricsEnabled !== undefined && { DetailedMetricsEnabled: input.DetailedMetricsEnabled }),
+    ...(input.LoggingLevel !== undefined && { LoggingLevel: input.LoggingLevel }),
+    ...(input.ThrottlingBurstLimit !== undefined && { ThrottlingBurstLimit: input.ThrottlingBurstLimit }),
+    ...(input.ThrottlingRateLimit !== undefined && { ThrottlingRateLimit: input.ThrottlingRateLimit }),
+  };
+};
+
+const serializeAws_restJson1AwsApiGatewayV2StageDetails = (
+  input: AwsApiGatewayV2StageDetails,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AccessLogSettings !== undefined && {
+      AccessLogSettings: serializeAws_restJson1AwsApiGatewayAccessLogSettings(input.AccessLogSettings, context),
+    }),
+    ...(input.ApiGatewayManaged !== undefined && { ApiGatewayManaged: input.ApiGatewayManaged }),
+    ...(input.AutoDeploy !== undefined && { AutoDeploy: input.AutoDeploy }),
+    ...(input.CreatedDate !== undefined && { CreatedDate: input.CreatedDate }),
+    ...(input.DefaultRouteSettings !== undefined && {
+      DefaultRouteSettings: serializeAws_restJson1AwsApiGatewayV2RouteSettings(input.DefaultRouteSettings, context),
+    }),
+    ...(input.DeploymentId !== undefined && { DeploymentId: input.DeploymentId }),
+    ...(input.Description !== undefined && { Description: input.Description }),
+    ...(input.LastDeploymentStatusMessage !== undefined && {
+      LastDeploymentStatusMessage: input.LastDeploymentStatusMessage,
+    }),
+    ...(input.LastUpdatedDate !== undefined && { LastUpdatedDate: input.LastUpdatedDate }),
+    ...(input.RouteSettings !== undefined && {
+      RouteSettings: serializeAws_restJson1AwsApiGatewayV2RouteSettings(input.RouteSettings, context),
+    }),
+    ...(input.StageName !== undefined && { StageName: input.StageName }),
+    ...(input.StageVariables !== undefined && {
+      StageVariables: serializeAws_restJson1FieldMap(input.StageVariables, context),
+    }),
+  };
+};
+
 const serializeAws_restJson1AwsAutoScalingAutoScalingGroupDetails = (
   input: AwsAutoScalingAutoScalingGroupDetails,
   context: __SerdeContext
@@ -5222,16 +5508,219 @@ const serializeAws_restJson1AwsAutoScalingAutoScalingGroupDetails = (
   };
 };
 
+const serializeAws_restJson1AwsCertificateManagerCertificateDetails = (
+  input: AwsCertificateManagerCertificateDetails,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.CertificateAuthorityArn !== undefined && { CertificateAuthorityArn: input.CertificateAuthorityArn }),
+    ...(input.CreatedAt !== undefined && { CreatedAt: input.CreatedAt }),
+    ...(input.DomainName !== undefined && { DomainName: input.DomainName }),
+    ...(input.DomainValidationOptions !== undefined && {
+      DomainValidationOptions: serializeAws_restJson1AwsCertificateManagerCertificateDomainValidationOptions(
+        input.DomainValidationOptions,
+        context
+      ),
+    }),
+    ...(input.ExtendedKeyUsages !== undefined && {
+      ExtendedKeyUsages: serializeAws_restJson1AwsCertificateManagerCertificateExtendedKeyUsages(
+        input.ExtendedKeyUsages,
+        context
+      ),
+    }),
+    ...(input.FailureReason !== undefined && { FailureReason: input.FailureReason }),
+    ...(input.ImportedAt !== undefined && { ImportedAt: input.ImportedAt }),
+    ...(input.InUseBy !== undefined && { InUseBy: serializeAws_restJson1StringList(input.InUseBy, context) }),
+    ...(input.IssuedAt !== undefined && { IssuedAt: input.IssuedAt }),
+    ...(input.Issuer !== undefined && { Issuer: input.Issuer }),
+    ...(input.KeyAlgorithm !== undefined && { KeyAlgorithm: input.KeyAlgorithm }),
+    ...(input.KeyUsages !== undefined && {
+      KeyUsages: serializeAws_restJson1AwsCertificateManagerCertificateKeyUsages(input.KeyUsages, context),
+    }),
+    ...(input.NotAfter !== undefined && { NotAfter: input.NotAfter }),
+    ...(input.NotBefore !== undefined && { NotBefore: input.NotBefore }),
+    ...(input.Options !== undefined && {
+      Options: serializeAws_restJson1AwsCertificateManagerCertificateOptions(input.Options, context),
+    }),
+    ...(input.RenewalEligibility !== undefined && { RenewalEligibility: input.RenewalEligibility }),
+    ...(input.RenewalSummary !== undefined && {
+      RenewalSummary: serializeAws_restJson1AwsCertificateManagerCertificateRenewalSummary(
+        input.RenewalSummary,
+        context
+      ),
+    }),
+    ...(input.Serial !== undefined && { Serial: input.Serial }),
+    ...(input.SignatureAlgorithm !== undefined && { SignatureAlgorithm: input.SignatureAlgorithm }),
+    ...(input.Status !== undefined && { Status: input.Status }),
+    ...(input.Subject !== undefined && { Subject: input.Subject }),
+    ...(input.SubjectAlternativeNames !== undefined && {
+      SubjectAlternativeNames: serializeAws_restJson1StringList(input.SubjectAlternativeNames, context),
+    }),
+    ...(input.Type !== undefined && { Type: input.Type }),
+  };
+};
+
+const serializeAws_restJson1AwsCertificateManagerCertificateDomainValidationOption = (
+  input: AwsCertificateManagerCertificateDomainValidationOption,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.DomainName !== undefined && { DomainName: input.DomainName }),
+    ...(input.ResourceRecord !== undefined && {
+      ResourceRecord: serializeAws_restJson1AwsCertificateManagerCertificateResourceRecord(
+        input.ResourceRecord,
+        context
+      ),
+    }),
+    ...(input.ValidationDomain !== undefined && { ValidationDomain: input.ValidationDomain }),
+    ...(input.ValidationEmails !== undefined && {
+      ValidationEmails: serializeAws_restJson1StringList(input.ValidationEmails, context),
+    }),
+    ...(input.ValidationMethod !== undefined && { ValidationMethod: input.ValidationMethod }),
+    ...(input.ValidationStatus !== undefined && { ValidationStatus: input.ValidationStatus }),
+  };
+};
+
+const serializeAws_restJson1AwsCertificateManagerCertificateDomainValidationOptions = (
+  input: AwsCertificateManagerCertificateDomainValidationOption[],
+  context: __SerdeContext
+): any => {
+  return input.map((entry) =>
+    serializeAws_restJson1AwsCertificateManagerCertificateDomainValidationOption(entry, context)
+  );
+};
+
+const serializeAws_restJson1AwsCertificateManagerCertificateExtendedKeyUsage = (
+  input: AwsCertificateManagerCertificateExtendedKeyUsage,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Name !== undefined && { Name: input.Name }),
+    ...(input.OId !== undefined && { OId: input.OId }),
+  };
+};
+
+const serializeAws_restJson1AwsCertificateManagerCertificateExtendedKeyUsages = (
+  input: AwsCertificateManagerCertificateExtendedKeyUsage[],
+  context: __SerdeContext
+): any => {
+  return input.map((entry) => serializeAws_restJson1AwsCertificateManagerCertificateExtendedKeyUsage(entry, context));
+};
+
+const serializeAws_restJson1AwsCertificateManagerCertificateKeyUsage = (
+  input: AwsCertificateManagerCertificateKeyUsage,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Name !== undefined && { Name: input.Name }),
+  };
+};
+
+const serializeAws_restJson1AwsCertificateManagerCertificateKeyUsages = (
+  input: AwsCertificateManagerCertificateKeyUsage[],
+  context: __SerdeContext
+): any => {
+  return input.map((entry) => serializeAws_restJson1AwsCertificateManagerCertificateKeyUsage(entry, context));
+};
+
+const serializeAws_restJson1AwsCertificateManagerCertificateOptions = (
+  input: AwsCertificateManagerCertificateOptions,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.CertificateTransparencyLoggingPreference !== undefined && {
+      CertificateTransparencyLoggingPreference: input.CertificateTransparencyLoggingPreference,
+    }),
+  };
+};
+
+const serializeAws_restJson1AwsCertificateManagerCertificateRenewalSummary = (
+  input: AwsCertificateManagerCertificateRenewalSummary,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.DomainValidationOptions !== undefined && {
+      DomainValidationOptions: serializeAws_restJson1AwsCertificateManagerCertificateDomainValidationOptions(
+        input.DomainValidationOptions,
+        context
+      ),
+    }),
+    ...(input.RenewalStatus !== undefined && { RenewalStatus: input.RenewalStatus }),
+    ...(input.RenewalStatusReason !== undefined && { RenewalStatusReason: input.RenewalStatusReason }),
+    ...(input.UpdatedAt !== undefined && { UpdatedAt: input.UpdatedAt }),
+  };
+};
+
+const serializeAws_restJson1AwsCertificateManagerCertificateResourceRecord = (
+  input: AwsCertificateManagerCertificateResourceRecord,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Name !== undefined && { Name: input.Name }),
+    ...(input.Type !== undefined && { Type: input.Type }),
+    ...(input.Value !== undefined && { Value: input.Value }),
+  };
+};
+
+const serializeAws_restJson1AwsCloudFrontDistributionCacheBehavior = (
+  input: AwsCloudFrontDistributionCacheBehavior,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ViewerProtocolPolicy !== undefined && { ViewerProtocolPolicy: input.ViewerProtocolPolicy }),
+  };
+};
+
+const serializeAws_restJson1AwsCloudFrontDistributionCacheBehaviors = (
+  input: AwsCloudFrontDistributionCacheBehaviors,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Items !== undefined && {
+      Items: serializeAws_restJson1AwsCloudFrontDistributionCacheBehaviorsItemList(input.Items, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1AwsCloudFrontDistributionCacheBehaviorsItemList = (
+  input: AwsCloudFrontDistributionCacheBehavior[],
+  context: __SerdeContext
+): any => {
+  return input.map((entry) => serializeAws_restJson1AwsCloudFrontDistributionCacheBehavior(entry, context));
+};
+
+const serializeAws_restJson1AwsCloudFrontDistributionDefaultCacheBehavior = (
+  input: AwsCloudFrontDistributionDefaultCacheBehavior,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ViewerProtocolPolicy !== undefined && { ViewerProtocolPolicy: input.ViewerProtocolPolicy }),
+  };
+};
+
 const serializeAws_restJson1AwsCloudFrontDistributionDetails = (
   input: AwsCloudFrontDistributionDetails,
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.CacheBehaviors !== undefined && {
+      CacheBehaviors: serializeAws_restJson1AwsCloudFrontDistributionCacheBehaviors(input.CacheBehaviors, context),
+    }),
+    ...(input.DefaultCacheBehavior !== undefined && {
+      DefaultCacheBehavior: serializeAws_restJson1AwsCloudFrontDistributionDefaultCacheBehavior(
+        input.DefaultCacheBehavior,
+        context
+      ),
+    }),
+    ...(input.DefaultRootObject !== undefined && { DefaultRootObject: input.DefaultRootObject }),
     ...(input.DomainName !== undefined && { DomainName: input.DomainName }),
     ...(input.ETag !== undefined && { ETag: input.ETag }),
     ...(input.LastModifiedTime !== undefined && { LastModifiedTime: input.LastModifiedTime }),
     ...(input.Logging !== undefined && {
       Logging: serializeAws_restJson1AwsCloudFrontDistributionLogging(input.Logging, context),
+    }),
+    ...(input.OriginGroups !== undefined && {
+      OriginGroups: serializeAws_restJson1AwsCloudFrontDistributionOriginGroups(input.OriginGroups, context),
     }),
     ...(input.Origins !== undefined && {
       Origins: serializeAws_restJson1AwsCloudFrontDistributionOrigins(input.Origins, context),
@@ -5253,6 +5742,74 @@ const serializeAws_restJson1AwsCloudFrontDistributionLogging = (
   };
 };
 
+const serializeAws_restJson1AwsCloudFrontDistributionOriginGroup = (
+  input: AwsCloudFrontDistributionOriginGroup,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.FailoverCriteria !== undefined && {
+      FailoverCriteria: serializeAws_restJson1AwsCloudFrontDistributionOriginGroupFailover(
+        input.FailoverCriteria,
+        context
+      ),
+    }),
+  };
+};
+
+const serializeAws_restJson1AwsCloudFrontDistributionOriginGroupFailover = (
+  input: AwsCloudFrontDistributionOriginGroupFailover,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.StatusCodes !== undefined && {
+      StatusCodes: serializeAws_restJson1AwsCloudFrontDistributionOriginGroupFailoverStatusCodes(
+        input.StatusCodes,
+        context
+      ),
+    }),
+  };
+};
+
+const serializeAws_restJson1AwsCloudFrontDistributionOriginGroupFailoverStatusCodes = (
+  input: AwsCloudFrontDistributionOriginGroupFailoverStatusCodes,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Items !== undefined && {
+      Items: serializeAws_restJson1AwsCloudFrontDistributionOriginGroupFailoverStatusCodesItemList(
+        input.Items,
+        context
+      ),
+    }),
+    ...(input.Quantity !== undefined && { Quantity: input.Quantity }),
+  };
+};
+
+const serializeAws_restJson1AwsCloudFrontDistributionOriginGroupFailoverStatusCodesItemList = (
+  input: number[],
+  context: __SerdeContext
+): any => {
+  return input.map((entry) => entry);
+};
+
+const serializeAws_restJson1AwsCloudFrontDistributionOriginGroups = (
+  input: AwsCloudFrontDistributionOriginGroups,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Items !== undefined && {
+      Items: serializeAws_restJson1AwsCloudFrontDistributionOriginGroupsItemList(input.Items, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1AwsCloudFrontDistributionOriginGroupsItemList = (
+  input: AwsCloudFrontDistributionOriginGroup[],
+  context: __SerdeContext
+): any => {
+  return input.map((entry) => serializeAws_restJson1AwsCloudFrontDistributionOriginGroup(entry, context));
+};
+
 const serializeAws_restJson1AwsCloudFrontDistributionOriginItem = (
   input: AwsCloudFrontDistributionOriginItem,
   context: __SerdeContext
@@ -5261,6 +5818,12 @@ const serializeAws_restJson1AwsCloudFrontDistributionOriginItem = (
     ...(input.DomainName !== undefined && { DomainName: input.DomainName }),
     ...(input.Id !== undefined && { Id: input.Id }),
     ...(input.OriginPath !== undefined && { OriginPath: input.OriginPath }),
+    ...(input.S3OriginConfig !== undefined && {
+      S3OriginConfig: serializeAws_restJson1AwsCloudFrontDistributionOriginS3OriginConfig(
+        input.S3OriginConfig,
+        context
+      ),
+    }),
   };
 };
 
@@ -5279,6 +5842,42 @@ const serializeAws_restJson1AwsCloudFrontDistributionOrigins = (
     ...(input.Items !== undefined && {
       Items: serializeAws_restJson1AwsCloudFrontDistributionOriginItemList(input.Items, context),
     }),
+  };
+};
+
+const serializeAws_restJson1AwsCloudFrontDistributionOriginS3OriginConfig = (
+  input: AwsCloudFrontDistributionOriginS3OriginConfig,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.OriginAccessIdentity !== undefined && { OriginAccessIdentity: input.OriginAccessIdentity }),
+  };
+};
+
+const serializeAws_restJson1AwsCloudTrailTrailDetails = (
+  input: AwsCloudTrailTrailDetails,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.CloudWatchLogsLogGroupArn !== undefined && {
+      CloudWatchLogsLogGroupArn: input.CloudWatchLogsLogGroupArn,
+    }),
+    ...(input.CloudWatchLogsRoleArn !== undefined && { CloudWatchLogsRoleArn: input.CloudWatchLogsRoleArn }),
+    ...(input.HasCustomEventSelectors !== undefined && { HasCustomEventSelectors: input.HasCustomEventSelectors }),
+    ...(input.HomeRegion !== undefined && { HomeRegion: input.HomeRegion }),
+    ...(input.IncludeGlobalServiceEvents !== undefined && {
+      IncludeGlobalServiceEvents: input.IncludeGlobalServiceEvents,
+    }),
+    ...(input.IsMultiRegionTrail !== undefined && { IsMultiRegionTrail: input.IsMultiRegionTrail }),
+    ...(input.IsOrganizationTrail !== undefined && { IsOrganizationTrail: input.IsOrganizationTrail }),
+    ...(input.KmsKeyId !== undefined && { KmsKeyId: input.KmsKeyId }),
+    ...(input.LogFileValidationEnabled !== undefined && { LogFileValidationEnabled: input.LogFileValidationEnabled }),
+    ...(input.Name !== undefined && { Name: input.Name }),
+    ...(input.S3BucketName !== undefined && { S3BucketName: input.S3BucketName }),
+    ...(input.S3KeyPrefix !== undefined && { S3KeyPrefix: input.S3KeyPrefix }),
+    ...(input.SnsTopicArn !== undefined && { SnsTopicArn: input.SnsTopicArn }),
+    ...(input.SnsTopicName !== undefined && { SnsTopicName: input.SnsTopicName }),
+    ...(input.TrailArn !== undefined && { TrailArn: input.TrailArn }),
   };
 };
 
@@ -5351,6 +5950,327 @@ const serializeAws_restJson1AwsCodeBuildProjectVpcConfig = (
     }),
     ...(input.Subnets !== undefined && { Subnets: serializeAws_restJson1NonEmptyStringList(input.Subnets, context) }),
     ...(input.VpcId !== undefined && { VpcId: input.VpcId }),
+  };
+};
+
+const serializeAws_restJson1AwsCorsConfiguration = (input: AwsCorsConfiguration, context: __SerdeContext): any => {
+  return {
+    ...(input.AllowCredentials !== undefined && { AllowCredentials: input.AllowCredentials }),
+    ...(input.AllowHeaders !== undefined && {
+      AllowHeaders: serializeAws_restJson1NonEmptyStringList(input.AllowHeaders, context),
+    }),
+    ...(input.AllowMethods !== undefined && {
+      AllowMethods: serializeAws_restJson1NonEmptyStringList(input.AllowMethods, context),
+    }),
+    ...(input.AllowOrigins !== undefined && {
+      AllowOrigins: serializeAws_restJson1NonEmptyStringList(input.AllowOrigins, context),
+    }),
+    ...(input.ExposeHeaders !== undefined && {
+      ExposeHeaders: serializeAws_restJson1NonEmptyStringList(input.ExposeHeaders, context),
+    }),
+    ...(input.MaxAge !== undefined && { MaxAge: input.MaxAge }),
+  };
+};
+
+const serializeAws_restJson1AwsDynamoDbTableAttributeDefinition = (
+  input: AwsDynamoDbTableAttributeDefinition,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AttributeName !== undefined && { AttributeName: input.AttributeName }),
+    ...(input.AttributeType !== undefined && { AttributeType: input.AttributeType }),
+  };
+};
+
+const serializeAws_restJson1AwsDynamoDbTableAttributeDefinitionList = (
+  input: AwsDynamoDbTableAttributeDefinition[],
+  context: __SerdeContext
+): any => {
+  return input.map((entry) => serializeAws_restJson1AwsDynamoDbTableAttributeDefinition(entry, context));
+};
+
+const serializeAws_restJson1AwsDynamoDbTableBillingModeSummary = (
+  input: AwsDynamoDbTableBillingModeSummary,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.BillingMode !== undefined && { BillingMode: input.BillingMode }),
+    ...(input.LastUpdateToPayPerRequestDateTime !== undefined && {
+      LastUpdateToPayPerRequestDateTime: input.LastUpdateToPayPerRequestDateTime,
+    }),
+  };
+};
+
+const serializeAws_restJson1AwsDynamoDbTableDetails = (
+  input: AwsDynamoDbTableDetails,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AttributeDefinitions !== undefined && {
+      AttributeDefinitions: serializeAws_restJson1AwsDynamoDbTableAttributeDefinitionList(
+        input.AttributeDefinitions,
+        context
+      ),
+    }),
+    ...(input.BillingModeSummary !== undefined && {
+      BillingModeSummary: serializeAws_restJson1AwsDynamoDbTableBillingModeSummary(input.BillingModeSummary, context),
+    }),
+    ...(input.CreationDateTime !== undefined && { CreationDateTime: input.CreationDateTime }),
+    ...(input.GlobalSecondaryIndexes !== undefined && {
+      GlobalSecondaryIndexes: serializeAws_restJson1AwsDynamoDbTableGlobalSecondaryIndexList(
+        input.GlobalSecondaryIndexes,
+        context
+      ),
+    }),
+    ...(input.GlobalTableVersion !== undefined && { GlobalTableVersion: input.GlobalTableVersion }),
+    ...(input.ItemCount !== undefined && { ItemCount: input.ItemCount }),
+    ...(input.KeySchema !== undefined && {
+      KeySchema: serializeAws_restJson1AwsDynamoDbTableKeySchemaList(input.KeySchema, context),
+    }),
+    ...(input.LatestStreamArn !== undefined && { LatestStreamArn: input.LatestStreamArn }),
+    ...(input.LatestStreamLabel !== undefined && { LatestStreamLabel: input.LatestStreamLabel }),
+    ...(input.LocalSecondaryIndexes !== undefined && {
+      LocalSecondaryIndexes: serializeAws_restJson1AwsDynamoDbTableLocalSecondaryIndexList(
+        input.LocalSecondaryIndexes,
+        context
+      ),
+    }),
+    ...(input.ProvisionedThroughput !== undefined && {
+      ProvisionedThroughput: serializeAws_restJson1AwsDynamoDbTableProvisionedThroughput(
+        input.ProvisionedThroughput,
+        context
+      ),
+    }),
+    ...(input.Replicas !== undefined && {
+      Replicas: serializeAws_restJson1AwsDynamoDbTableReplicaList(input.Replicas, context),
+    }),
+    ...(input.RestoreSummary !== undefined && {
+      RestoreSummary: serializeAws_restJson1AwsDynamoDbTableRestoreSummary(input.RestoreSummary, context),
+    }),
+    ...(input.SseDescription !== undefined && {
+      SseDescription: serializeAws_restJson1AwsDynamoDbTableSseDescription(input.SseDescription, context),
+    }),
+    ...(input.StreamSpecification !== undefined && {
+      StreamSpecification: serializeAws_restJson1AwsDynamoDbTableStreamSpecification(
+        input.StreamSpecification,
+        context
+      ),
+    }),
+    ...(input.TableId !== undefined && { TableId: input.TableId }),
+    ...(input.TableName !== undefined && { TableName: input.TableName }),
+    ...(input.TableSizeBytes !== undefined && { TableSizeBytes: input.TableSizeBytes }),
+    ...(input.TableStatus !== undefined && { TableStatus: input.TableStatus }),
+  };
+};
+
+const serializeAws_restJson1AwsDynamoDbTableGlobalSecondaryIndex = (
+  input: AwsDynamoDbTableGlobalSecondaryIndex,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Backfilling !== undefined && { Backfilling: input.Backfilling }),
+    ...(input.IndexArn !== undefined && { IndexArn: input.IndexArn }),
+    ...(input.IndexName !== undefined && { IndexName: input.IndexName }),
+    ...(input.IndexSizeBytes !== undefined && { IndexSizeBytes: input.IndexSizeBytes }),
+    ...(input.IndexStatus !== undefined && { IndexStatus: input.IndexStatus }),
+    ...(input.ItemCount !== undefined && { ItemCount: input.ItemCount }),
+    ...(input.KeySchema !== undefined && {
+      KeySchema: serializeAws_restJson1AwsDynamoDbTableKeySchemaList(input.KeySchema, context),
+    }),
+    ...(input.Projection !== undefined && {
+      Projection: serializeAws_restJson1AwsDynamoDbTableProjection(input.Projection, context),
+    }),
+    ...(input.ProvisionedThroughput !== undefined && {
+      ProvisionedThroughput: serializeAws_restJson1AwsDynamoDbTableProvisionedThroughput(
+        input.ProvisionedThroughput,
+        context
+      ),
+    }),
+  };
+};
+
+const serializeAws_restJson1AwsDynamoDbTableGlobalSecondaryIndexList = (
+  input: AwsDynamoDbTableGlobalSecondaryIndex[],
+  context: __SerdeContext
+): any => {
+  return input.map((entry) => serializeAws_restJson1AwsDynamoDbTableGlobalSecondaryIndex(entry, context));
+};
+
+const serializeAws_restJson1AwsDynamoDbTableKeySchema = (
+  input: AwsDynamoDbTableKeySchema,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AttributeName !== undefined && { AttributeName: input.AttributeName }),
+    ...(input.KeyType !== undefined && { KeyType: input.KeyType }),
+  };
+};
+
+const serializeAws_restJson1AwsDynamoDbTableKeySchemaList = (
+  input: AwsDynamoDbTableKeySchema[],
+  context: __SerdeContext
+): any => {
+  return input.map((entry) => serializeAws_restJson1AwsDynamoDbTableKeySchema(entry, context));
+};
+
+const serializeAws_restJson1AwsDynamoDbTableLocalSecondaryIndex = (
+  input: AwsDynamoDbTableLocalSecondaryIndex,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.IndexArn !== undefined && { IndexArn: input.IndexArn }),
+    ...(input.IndexName !== undefined && { IndexName: input.IndexName }),
+    ...(input.KeySchema !== undefined && {
+      KeySchema: serializeAws_restJson1AwsDynamoDbTableKeySchemaList(input.KeySchema, context),
+    }),
+    ...(input.Projection !== undefined && {
+      Projection: serializeAws_restJson1AwsDynamoDbTableProjection(input.Projection, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1AwsDynamoDbTableLocalSecondaryIndexList = (
+  input: AwsDynamoDbTableLocalSecondaryIndex[],
+  context: __SerdeContext
+): any => {
+  return input.map((entry) => serializeAws_restJson1AwsDynamoDbTableLocalSecondaryIndex(entry, context));
+};
+
+const serializeAws_restJson1AwsDynamoDbTableProjection = (
+  input: AwsDynamoDbTableProjection,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.NonKeyAttributes !== undefined && {
+      NonKeyAttributes: serializeAws_restJson1StringList(input.NonKeyAttributes, context),
+    }),
+    ...(input.ProjectionType !== undefined && { ProjectionType: input.ProjectionType }),
+  };
+};
+
+const serializeAws_restJson1AwsDynamoDbTableProvisionedThroughput = (
+  input: AwsDynamoDbTableProvisionedThroughput,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.LastDecreaseDateTime !== undefined && { LastDecreaseDateTime: input.LastDecreaseDateTime }),
+    ...(input.LastIncreaseDateTime !== undefined && { LastIncreaseDateTime: input.LastIncreaseDateTime }),
+    ...(input.NumberOfDecreasesToday !== undefined && { NumberOfDecreasesToday: input.NumberOfDecreasesToday }),
+    ...(input.ReadCapacityUnits !== undefined && { ReadCapacityUnits: input.ReadCapacityUnits }),
+    ...(input.WriteCapacityUnits !== undefined && { WriteCapacityUnits: input.WriteCapacityUnits }),
+  };
+};
+
+const serializeAws_restJson1AwsDynamoDbTableProvisionedThroughputOverride = (
+  input: AwsDynamoDbTableProvisionedThroughputOverride,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ReadCapacityUnits !== undefined && { ReadCapacityUnits: input.ReadCapacityUnits }),
+  };
+};
+
+const serializeAws_restJson1AwsDynamoDbTableReplica = (
+  input: AwsDynamoDbTableReplica,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.GlobalSecondaryIndexes !== undefined && {
+      GlobalSecondaryIndexes: serializeAws_restJson1AwsDynamoDbTableReplicaGlobalSecondaryIndexList(
+        input.GlobalSecondaryIndexes,
+        context
+      ),
+    }),
+    ...(input.KmsMasterKeyId !== undefined && { KmsMasterKeyId: input.KmsMasterKeyId }),
+    ...(input.ProvisionedThroughputOverride !== undefined && {
+      ProvisionedThroughputOverride: serializeAws_restJson1AwsDynamoDbTableProvisionedThroughputOverride(
+        input.ProvisionedThroughputOverride,
+        context
+      ),
+    }),
+    ...(input.RegionName !== undefined && { RegionName: input.RegionName }),
+    ...(input.ReplicaStatus !== undefined && { ReplicaStatus: input.ReplicaStatus }),
+    ...(input.ReplicaStatusDescription !== undefined && { ReplicaStatusDescription: input.ReplicaStatusDescription }),
+  };
+};
+
+const serializeAws_restJson1AwsDynamoDbTableReplicaGlobalSecondaryIndex = (
+  input: AwsDynamoDbTableReplicaGlobalSecondaryIndex,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.IndexName !== undefined && { IndexName: input.IndexName }),
+    ...(input.ProvisionedThroughputOverride !== undefined && {
+      ProvisionedThroughputOverride: serializeAws_restJson1AwsDynamoDbTableProvisionedThroughputOverride(
+        input.ProvisionedThroughputOverride,
+        context
+      ),
+    }),
+  };
+};
+
+const serializeAws_restJson1AwsDynamoDbTableReplicaGlobalSecondaryIndexList = (
+  input: AwsDynamoDbTableReplicaGlobalSecondaryIndex[],
+  context: __SerdeContext
+): any => {
+  return input.map((entry) => serializeAws_restJson1AwsDynamoDbTableReplicaGlobalSecondaryIndex(entry, context));
+};
+
+const serializeAws_restJson1AwsDynamoDbTableReplicaList = (
+  input: AwsDynamoDbTableReplica[],
+  context: __SerdeContext
+): any => {
+  return input.map((entry) => serializeAws_restJson1AwsDynamoDbTableReplica(entry, context));
+};
+
+const serializeAws_restJson1AwsDynamoDbTableRestoreSummary = (
+  input: AwsDynamoDbTableRestoreSummary,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.RestoreDateTime !== undefined && { RestoreDateTime: input.RestoreDateTime }),
+    ...(input.RestoreInProgress !== undefined && { RestoreInProgress: input.RestoreInProgress }),
+    ...(input.SourceBackupArn !== undefined && { SourceBackupArn: input.SourceBackupArn }),
+    ...(input.SourceTableArn !== undefined && { SourceTableArn: input.SourceTableArn }),
+  };
+};
+
+const serializeAws_restJson1AwsDynamoDbTableSseDescription = (
+  input: AwsDynamoDbTableSseDescription,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.InaccessibleEncryptionDateTime !== undefined && {
+      InaccessibleEncryptionDateTime: input.InaccessibleEncryptionDateTime,
+    }),
+    ...(input.KmsMasterKeyArn !== undefined && { KmsMasterKeyArn: input.KmsMasterKeyArn }),
+    ...(input.SseType !== undefined && { SseType: input.SseType }),
+    ...(input.Status !== undefined && { Status: input.Status }),
+  };
+};
+
+const serializeAws_restJson1AwsDynamoDbTableStreamSpecification = (
+  input: AwsDynamoDbTableStreamSpecification,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.StreamEnabled !== undefined && { StreamEnabled: input.StreamEnabled }),
+    ...(input.StreamViewType !== undefined && { StreamViewType: input.StreamViewType }),
+  };
+};
+
+const serializeAws_restJson1AwsEc2EipDetails = (input: AwsEc2EipDetails, context: __SerdeContext): any => {
+  return {
+    ...(input.AllocationId !== undefined && { AllocationId: input.AllocationId }),
+    ...(input.AssociationId !== undefined && { AssociationId: input.AssociationId }),
+    ...(input.Domain !== undefined && { Domain: input.Domain }),
+    ...(input.InstanceId !== undefined && { InstanceId: input.InstanceId }),
+    ...(input.NetworkBorderGroup !== undefined && { NetworkBorderGroup: input.NetworkBorderGroup }),
+    ...(input.NetworkInterfaceId !== undefined && { NetworkInterfaceId: input.NetworkInterfaceId }),
+    ...(input.NetworkInterfaceOwnerId !== undefined && { NetworkInterfaceOwnerId: input.NetworkInterfaceOwnerId }),
+    ...(input.PrivateIpAddress !== undefined && { PrivateIpAddress: input.PrivateIpAddress }),
+    ...(input.PublicIp !== undefined && { PublicIp: input.PublicIp }),
+    ...(input.PublicIpv4Pool !== undefined && { PublicIpv4Pool: input.PublicIpv4Pool }),
   };
 };
 
@@ -5668,6 +6588,272 @@ const serializeAws_restJson1AwsElasticsearchDomainVPCOptions = (
   };
 };
 
+const serializeAws_restJson1AwsElbAppCookieStickinessPolicies = (
+  input: AwsElbAppCookieStickinessPolicy[],
+  context: __SerdeContext
+): any => {
+  return input.map((entry) => serializeAws_restJson1AwsElbAppCookieStickinessPolicy(entry, context));
+};
+
+const serializeAws_restJson1AwsElbAppCookieStickinessPolicy = (
+  input: AwsElbAppCookieStickinessPolicy,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.CookieName !== undefined && { CookieName: input.CookieName }),
+    ...(input.PolicyName !== undefined && { PolicyName: input.PolicyName }),
+  };
+};
+
+const serializeAws_restJson1AwsElbLbCookieStickinessPolicies = (
+  input: AwsElbLbCookieStickinessPolicy[],
+  context: __SerdeContext
+): any => {
+  return input.map((entry) => serializeAws_restJson1AwsElbLbCookieStickinessPolicy(entry, context));
+};
+
+const serializeAws_restJson1AwsElbLbCookieStickinessPolicy = (
+  input: AwsElbLbCookieStickinessPolicy,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.CookieExpirationPeriod !== undefined && { CookieExpirationPeriod: input.CookieExpirationPeriod }),
+    ...(input.PolicyName !== undefined && { PolicyName: input.PolicyName }),
+  };
+};
+
+const serializeAws_restJson1AwsElbLoadBalancerAccessLog = (
+  input: AwsElbLoadBalancerAccessLog,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.EmitInterval !== undefined && { EmitInterval: input.EmitInterval }),
+    ...(input.Enabled !== undefined && { Enabled: input.Enabled }),
+    ...(input.S3BucketName !== undefined && { S3BucketName: input.S3BucketName }),
+    ...(input.S3BucketPrefix !== undefined && { S3BucketPrefix: input.S3BucketPrefix }),
+  };
+};
+
+const serializeAws_restJson1AwsElbLoadBalancerAttributes = (
+  input: AwsElbLoadBalancerAttributes,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AccessLog !== undefined && {
+      AccessLog: serializeAws_restJson1AwsElbLoadBalancerAccessLog(input.AccessLog, context),
+    }),
+    ...(input.ConnectionDraining !== undefined && {
+      ConnectionDraining: serializeAws_restJson1AwsElbLoadBalancerConnectionDraining(input.ConnectionDraining, context),
+    }),
+    ...(input.ConnectionSettings !== undefined && {
+      ConnectionSettings: serializeAws_restJson1AwsElbLoadBalancerConnectionSettings(input.ConnectionSettings, context),
+    }),
+    ...(input.CrossZoneLoadBalancing !== undefined && {
+      CrossZoneLoadBalancing: serializeAws_restJson1AwsElbLoadBalancerCrossZoneLoadBalancing(
+        input.CrossZoneLoadBalancing,
+        context
+      ),
+    }),
+  };
+};
+
+const serializeAws_restJson1AwsElbLoadBalancerBackendServerDescription = (
+  input: AwsElbLoadBalancerBackendServerDescription,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.InstancePort !== undefined && { InstancePort: input.InstancePort }),
+    ...(input.PolicyNames !== undefined && {
+      PolicyNames: serializeAws_restJson1StringList(input.PolicyNames, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1AwsElbLoadBalancerBackendServerDescriptions = (
+  input: AwsElbLoadBalancerBackendServerDescription[],
+  context: __SerdeContext
+): any => {
+  return input.map((entry) => serializeAws_restJson1AwsElbLoadBalancerBackendServerDescription(entry, context));
+};
+
+const serializeAws_restJson1AwsElbLoadBalancerConnectionDraining = (
+  input: AwsElbLoadBalancerConnectionDraining,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Enabled !== undefined && { Enabled: input.Enabled }),
+    ...(input.Timeout !== undefined && { Timeout: input.Timeout }),
+  };
+};
+
+const serializeAws_restJson1AwsElbLoadBalancerConnectionSettings = (
+  input: AwsElbLoadBalancerConnectionSettings,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.IdleTimeout !== undefined && { IdleTimeout: input.IdleTimeout }),
+  };
+};
+
+const serializeAws_restJson1AwsElbLoadBalancerCrossZoneLoadBalancing = (
+  input: AwsElbLoadBalancerCrossZoneLoadBalancing,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Enabled !== undefined && { Enabled: input.Enabled }),
+  };
+};
+
+const serializeAws_restJson1AwsElbLoadBalancerDetails = (
+  input: AwsElbLoadBalancerDetails,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AvailabilityZones !== undefined && {
+      AvailabilityZones: serializeAws_restJson1StringList(input.AvailabilityZones, context),
+    }),
+    ...(input.BackendServerDescriptions !== undefined && {
+      BackendServerDescriptions: serializeAws_restJson1AwsElbLoadBalancerBackendServerDescriptions(
+        input.BackendServerDescriptions,
+        context
+      ),
+    }),
+    ...(input.CanonicalHostedZoneName !== undefined && { CanonicalHostedZoneName: input.CanonicalHostedZoneName }),
+    ...(input.CanonicalHostedZoneNameID !== undefined && {
+      CanonicalHostedZoneNameID: input.CanonicalHostedZoneNameID,
+    }),
+    ...(input.CreatedTime !== undefined && { CreatedTime: input.CreatedTime }),
+    ...(input.DnsName !== undefined && { DnsName: input.DnsName }),
+    ...(input.HealthCheck !== undefined && {
+      HealthCheck: serializeAws_restJson1AwsElbLoadBalancerHealthCheck(input.HealthCheck, context),
+    }),
+    ...(input.Instances !== undefined && {
+      Instances: serializeAws_restJson1AwsElbLoadBalancerInstances(input.Instances, context),
+    }),
+    ...(input.ListenerDescriptions !== undefined && {
+      ListenerDescriptions: serializeAws_restJson1AwsElbLoadBalancerListenerDescriptions(
+        input.ListenerDescriptions,
+        context
+      ),
+    }),
+    ...(input.LoadBalancerAttributes !== undefined && {
+      LoadBalancerAttributes: serializeAws_restJson1AwsElbLoadBalancerAttributes(input.LoadBalancerAttributes, context),
+    }),
+    ...(input.LoadBalancerName !== undefined && { LoadBalancerName: input.LoadBalancerName }),
+    ...(input.Policies !== undefined && {
+      Policies: serializeAws_restJson1AwsElbLoadBalancerPolicies(input.Policies, context),
+    }),
+    ...(input.Scheme !== undefined && { Scheme: input.Scheme }),
+    ...(input.SecurityGroups !== undefined && {
+      SecurityGroups: serializeAws_restJson1StringList(input.SecurityGroups, context),
+    }),
+    ...(input.SourceSecurityGroup !== undefined && {
+      SourceSecurityGroup: serializeAws_restJson1AwsElbLoadBalancerSourceSecurityGroup(
+        input.SourceSecurityGroup,
+        context
+      ),
+    }),
+    ...(input.Subnets !== undefined && { Subnets: serializeAws_restJson1StringList(input.Subnets, context) }),
+    ...(input.VpcId !== undefined && { VpcId: input.VpcId }),
+  };
+};
+
+const serializeAws_restJson1AwsElbLoadBalancerHealthCheck = (
+  input: AwsElbLoadBalancerHealthCheck,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.HealthyThreshold !== undefined && { HealthyThreshold: input.HealthyThreshold }),
+    ...(input.Interval !== undefined && { Interval: input.Interval }),
+    ...(input.Target !== undefined && { Target: input.Target }),
+    ...(input.Timeout !== undefined && { Timeout: input.Timeout }),
+    ...(input.UnhealthyThreshold !== undefined && { UnhealthyThreshold: input.UnhealthyThreshold }),
+  };
+};
+
+const serializeAws_restJson1AwsElbLoadBalancerInstance = (
+  input: AwsElbLoadBalancerInstance,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.InstanceId !== undefined && { InstanceId: input.InstanceId }),
+  };
+};
+
+const serializeAws_restJson1AwsElbLoadBalancerInstances = (
+  input: AwsElbLoadBalancerInstance[],
+  context: __SerdeContext
+): any => {
+  return input.map((entry) => serializeAws_restJson1AwsElbLoadBalancerInstance(entry, context));
+};
+
+const serializeAws_restJson1AwsElbLoadBalancerListener = (
+  input: AwsElbLoadBalancerListener,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.InstancePort !== undefined && { InstancePort: input.InstancePort }),
+    ...(input.InstanceProtocol !== undefined && { InstanceProtocol: input.InstanceProtocol }),
+    ...(input.LoadBalancerPort !== undefined && { LoadBalancerPort: input.LoadBalancerPort }),
+    ...(input.Protocol !== undefined && { Protocol: input.Protocol }),
+    ...(input.SslCertificateId !== undefined && { SslCertificateId: input.SslCertificateId }),
+  };
+};
+
+const serializeAws_restJson1AwsElbLoadBalancerListenerDescription = (
+  input: AwsElbLoadBalancerListenerDescription,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Listener !== undefined && {
+      Listener: serializeAws_restJson1AwsElbLoadBalancerListener(input.Listener, context),
+    }),
+    ...(input.PolicyNames !== undefined && {
+      PolicyNames: serializeAws_restJson1StringList(input.PolicyNames, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1AwsElbLoadBalancerListenerDescriptions = (
+  input: AwsElbLoadBalancerListenerDescription[],
+  context: __SerdeContext
+): any => {
+  return input.map((entry) => serializeAws_restJson1AwsElbLoadBalancerListenerDescription(entry, context));
+};
+
+const serializeAws_restJson1AwsElbLoadBalancerPolicies = (
+  input: AwsElbLoadBalancerPolicies,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AppCookieStickinessPolicies !== undefined && {
+      AppCookieStickinessPolicies: serializeAws_restJson1AwsElbAppCookieStickinessPolicies(
+        input.AppCookieStickinessPolicies,
+        context
+      ),
+    }),
+    ...(input.LbCookieStickinessPolicies !== undefined && {
+      LbCookieStickinessPolicies: serializeAws_restJson1AwsElbLbCookieStickinessPolicies(
+        input.LbCookieStickinessPolicies,
+        context
+      ),
+    }),
+    ...(input.OtherPolicies !== undefined && {
+      OtherPolicies: serializeAws_restJson1StringList(input.OtherPolicies, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1AwsElbLoadBalancerSourceSecurityGroup = (
+  input: AwsElbLoadBalancerSourceSecurityGroup,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.GroupName !== undefined && { GroupName: input.GroupName }),
+    ...(input.OwnerAlias !== undefined && { OwnerAlias: input.OwnerAlias }),
+  };
+};
+
 const serializeAws_restJson1AwsElbv2LoadBalancerDetails = (
   input: AwsElbv2LoadBalancerDetails,
   context: __SerdeContext
@@ -5692,30 +6878,256 @@ const serializeAws_restJson1AwsElbv2LoadBalancerDetails = (
 
 const serializeAws_restJson1AwsIamAccessKeyDetails = (input: AwsIamAccessKeyDetails, context: __SerdeContext): any => {
   return {
+    ...(input.AccessKeyId !== undefined && { AccessKeyId: input.AccessKeyId }),
+    ...(input.AccountId !== undefined && { AccountId: input.AccountId }),
     ...(input.CreatedAt !== undefined && { CreatedAt: input.CreatedAt }),
     ...(input.PrincipalId !== undefined && { PrincipalId: input.PrincipalId }),
     ...(input.PrincipalName !== undefined && { PrincipalName: input.PrincipalName }),
     ...(input.PrincipalType !== undefined && { PrincipalType: input.PrincipalType }),
+    ...(input.SessionContext !== undefined && {
+      SessionContext: serializeAws_restJson1AwsIamAccessKeySessionContext(input.SessionContext, context),
+    }),
     ...(input.Status !== undefined && { Status: input.Status }),
     ...(input.UserName !== undefined && { UserName: input.UserName }),
   };
 };
 
-const serializeAws_restJson1AwsIamRoleDetails = (input: AwsIamRoleDetails, context: __SerdeContext): any => {
+const serializeAws_restJson1AwsIamAccessKeySessionContext = (
+  input: AwsIamAccessKeySessionContext,
+  context: __SerdeContext
+): any => {
   return {
+    ...(input.Attributes !== undefined && {
+      Attributes: serializeAws_restJson1AwsIamAccessKeySessionContextAttributes(input.Attributes, context),
+    }),
+    ...(input.SessionIssuer !== undefined && {
+      SessionIssuer: serializeAws_restJson1AwsIamAccessKeySessionContextSessionIssuer(input.SessionIssuer, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1AwsIamAccessKeySessionContextAttributes = (
+  input: AwsIamAccessKeySessionContextAttributes,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.CreationDate !== undefined && { CreationDate: input.CreationDate }),
+    ...(input.MfaAuthenticated !== undefined && { MfaAuthenticated: input.MfaAuthenticated }),
+  };
+};
+
+const serializeAws_restJson1AwsIamAccessKeySessionContextSessionIssuer = (
+  input: AwsIamAccessKeySessionContextSessionIssuer,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AccountId !== undefined && { AccountId: input.AccountId }),
+    ...(input.Arn !== undefined && { Arn: input.Arn }),
+    ...(input.PrincipalId !== undefined && { PrincipalId: input.PrincipalId }),
+    ...(input.Type !== undefined && { Type: input.Type }),
+    ...(input.UserName !== undefined && { UserName: input.UserName }),
+  };
+};
+
+const serializeAws_restJson1AwsIamAttachedManagedPolicy = (
+  input: AwsIamAttachedManagedPolicy,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.PolicyArn !== undefined && { PolicyArn: input.PolicyArn }),
+    ...(input.PolicyName !== undefined && { PolicyName: input.PolicyName }),
+  };
+};
+
+const serializeAws_restJson1AwsIamAttachedManagedPolicyList = (
+  input: AwsIamAttachedManagedPolicy[],
+  context: __SerdeContext
+): any => {
+  return input.map((entry) => serializeAws_restJson1AwsIamAttachedManagedPolicy(entry, context));
+};
+
+const serializeAws_restJson1AwsIamGroupDetails = (input: AwsIamGroupDetails, context: __SerdeContext): any => {
+  return {
+    ...(input.AttachedManagedPolicies !== undefined && {
+      AttachedManagedPolicies: serializeAws_restJson1AwsIamAttachedManagedPolicyList(
+        input.AttachedManagedPolicies,
+        context
+      ),
+    }),
+    ...(input.CreateDate !== undefined && { CreateDate: input.CreateDate }),
+    ...(input.GroupId !== undefined && { GroupId: input.GroupId }),
+    ...(input.GroupName !== undefined && { GroupName: input.GroupName }),
+    ...(input.GroupPolicyList !== undefined && {
+      GroupPolicyList: serializeAws_restJson1AwsIamGroupPolicyList(input.GroupPolicyList, context),
+    }),
+    ...(input.Path !== undefined && { Path: input.Path }),
+  };
+};
+
+const serializeAws_restJson1AwsIamGroupPolicy = (input: AwsIamGroupPolicy, context: __SerdeContext): any => {
+  return {
+    ...(input.PolicyName !== undefined && { PolicyName: input.PolicyName }),
+  };
+};
+
+const serializeAws_restJson1AwsIamGroupPolicyList = (input: AwsIamGroupPolicy[], context: __SerdeContext): any => {
+  return input.map((entry) => serializeAws_restJson1AwsIamGroupPolicy(entry, context));
+};
+
+const serializeAws_restJson1AwsIamInstanceProfile = (input: AwsIamInstanceProfile, context: __SerdeContext): any => {
+  return {
+    ...(input.Arn !== undefined && { Arn: input.Arn }),
+    ...(input.CreateDate !== undefined && { CreateDate: input.CreateDate }),
+    ...(input.InstanceProfileId !== undefined && { InstanceProfileId: input.InstanceProfileId }),
+    ...(input.InstanceProfileName !== undefined && { InstanceProfileName: input.InstanceProfileName }),
+    ...(input.Path !== undefined && { Path: input.Path }),
+    ...(input.Roles !== undefined && { Roles: serializeAws_restJson1AwsIamInstanceProfileRoles(input.Roles, context) }),
+  };
+};
+
+const serializeAws_restJson1AwsIamInstanceProfileList = (
+  input: AwsIamInstanceProfile[],
+  context: __SerdeContext
+): any => {
+  return input.map((entry) => serializeAws_restJson1AwsIamInstanceProfile(entry, context));
+};
+
+const serializeAws_restJson1AwsIamInstanceProfileRole = (
+  input: AwsIamInstanceProfileRole,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Arn !== undefined && { Arn: input.Arn }),
     ...(input.AssumeRolePolicyDocument !== undefined && { AssumeRolePolicyDocument: input.AssumeRolePolicyDocument }),
     ...(input.CreateDate !== undefined && { CreateDate: input.CreateDate }),
-    ...(input.MaxSessionDuration !== undefined && { MaxSessionDuration: input.MaxSessionDuration }),
     ...(input.Path !== undefined && { Path: input.Path }),
     ...(input.RoleId !== undefined && { RoleId: input.RoleId }),
     ...(input.RoleName !== undefined && { RoleName: input.RoleName }),
   };
 };
 
+const serializeAws_restJson1AwsIamInstanceProfileRoles = (
+  input: AwsIamInstanceProfileRole[],
+  context: __SerdeContext
+): any => {
+  return input.map((entry) => serializeAws_restJson1AwsIamInstanceProfileRole(entry, context));
+};
+
+const serializeAws_restJson1AwsIamPermissionsBoundary = (
+  input: AwsIamPermissionsBoundary,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.PermissionsBoundaryArn !== undefined && { PermissionsBoundaryArn: input.PermissionsBoundaryArn }),
+    ...(input.PermissionsBoundaryType !== undefined && { PermissionsBoundaryType: input.PermissionsBoundaryType }),
+  };
+};
+
+const serializeAws_restJson1AwsIamPolicyDetails = (input: AwsIamPolicyDetails, context: __SerdeContext): any => {
+  return {
+    ...(input.AttachmentCount !== undefined && { AttachmentCount: input.AttachmentCount }),
+    ...(input.CreateDate !== undefined && { CreateDate: input.CreateDate }),
+    ...(input.DefaultVersionId !== undefined && { DefaultVersionId: input.DefaultVersionId }),
+    ...(input.Description !== undefined && { Description: input.Description }),
+    ...(input.IsAttachable !== undefined && { IsAttachable: input.IsAttachable }),
+    ...(input.Path !== undefined && { Path: input.Path }),
+    ...(input.PermissionsBoundaryUsageCount !== undefined && {
+      PermissionsBoundaryUsageCount: input.PermissionsBoundaryUsageCount,
+    }),
+    ...(input.PolicyId !== undefined && { PolicyId: input.PolicyId }),
+    ...(input.PolicyName !== undefined && { PolicyName: input.PolicyName }),
+    ...(input.PolicyVersionList !== undefined && {
+      PolicyVersionList: serializeAws_restJson1AwsIamPolicyVersionList(input.PolicyVersionList, context),
+    }),
+    ...(input.UpdateDate !== undefined && { UpdateDate: input.UpdateDate }),
+  };
+};
+
+const serializeAws_restJson1AwsIamPolicyVersion = (input: AwsIamPolicyVersion, context: __SerdeContext): any => {
+  return {
+    ...(input.CreateDate !== undefined && { CreateDate: input.CreateDate }),
+    ...(input.IsDefaultVersion !== undefined && { IsDefaultVersion: input.IsDefaultVersion }),
+    ...(input.VersionId !== undefined && { VersionId: input.VersionId }),
+  };
+};
+
+const serializeAws_restJson1AwsIamPolicyVersionList = (input: AwsIamPolicyVersion[], context: __SerdeContext): any => {
+  return input.map((entry) => serializeAws_restJson1AwsIamPolicyVersion(entry, context));
+};
+
+const serializeAws_restJson1AwsIamRoleDetails = (input: AwsIamRoleDetails, context: __SerdeContext): any => {
+  return {
+    ...(input.AssumeRolePolicyDocument !== undefined && { AssumeRolePolicyDocument: input.AssumeRolePolicyDocument }),
+    ...(input.AttachedManagedPolicies !== undefined && {
+      AttachedManagedPolicies: serializeAws_restJson1AwsIamAttachedManagedPolicyList(
+        input.AttachedManagedPolicies,
+        context
+      ),
+    }),
+    ...(input.CreateDate !== undefined && { CreateDate: input.CreateDate }),
+    ...(input.InstanceProfileList !== undefined && {
+      InstanceProfileList: serializeAws_restJson1AwsIamInstanceProfileList(input.InstanceProfileList, context),
+    }),
+    ...(input.MaxSessionDuration !== undefined && { MaxSessionDuration: input.MaxSessionDuration }),
+    ...(input.Path !== undefined && { Path: input.Path }),
+    ...(input.PermissionsBoundary !== undefined && {
+      PermissionsBoundary: serializeAws_restJson1AwsIamPermissionsBoundary(input.PermissionsBoundary, context),
+    }),
+    ...(input.RoleId !== undefined && { RoleId: input.RoleId }),
+    ...(input.RoleName !== undefined && { RoleName: input.RoleName }),
+    ...(input.RolePolicyList !== undefined && {
+      RolePolicyList: serializeAws_restJson1AwsIamRolePolicyList(input.RolePolicyList, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1AwsIamRolePolicy = (input: AwsIamRolePolicy, context: __SerdeContext): any => {
+  return {
+    ...(input.PolicyName !== undefined && { PolicyName: input.PolicyName }),
+  };
+};
+
+const serializeAws_restJson1AwsIamRolePolicyList = (input: AwsIamRolePolicy[], context: __SerdeContext): any => {
+  return input.map((entry) => serializeAws_restJson1AwsIamRolePolicy(entry, context));
+};
+
+const serializeAws_restJson1AwsIamUserDetails = (input: AwsIamUserDetails, context: __SerdeContext): any => {
+  return {
+    ...(input.AttachedManagedPolicies !== undefined && {
+      AttachedManagedPolicies: serializeAws_restJson1AwsIamAttachedManagedPolicyList(
+        input.AttachedManagedPolicies,
+        context
+      ),
+    }),
+    ...(input.CreateDate !== undefined && { CreateDate: input.CreateDate }),
+    ...(input.GroupList !== undefined && { GroupList: serializeAws_restJson1StringList(input.GroupList, context) }),
+    ...(input.Path !== undefined && { Path: input.Path }),
+    ...(input.PermissionsBoundary !== undefined && {
+      PermissionsBoundary: serializeAws_restJson1AwsIamPermissionsBoundary(input.PermissionsBoundary, context),
+    }),
+    ...(input.UserId !== undefined && { UserId: input.UserId }),
+    ...(input.UserName !== undefined && { UserName: input.UserName }),
+    ...(input.UserPolicyList !== undefined && {
+      UserPolicyList: serializeAws_restJson1AwsIamUserPolicyList(input.UserPolicyList, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1AwsIamUserPolicy = (input: AwsIamUserPolicy, context: __SerdeContext): any => {
+  return {
+    ...(input.PolicyName !== undefined && { PolicyName: input.PolicyName }),
+  };
+};
+
+const serializeAws_restJson1AwsIamUserPolicyList = (input: AwsIamUserPolicy[], context: __SerdeContext): any => {
+  return input.map((entry) => serializeAws_restJson1AwsIamUserPolicy(entry, context));
+};
+
 const serializeAws_restJson1AwsKmsKeyDetails = (input: AwsKmsKeyDetails, context: __SerdeContext): any => {
   return {
     ...(input.AWSAccountId !== undefined && { AWSAccountId: input.AWSAccountId }),
     ...(input.CreationDate !== undefined && { CreationDate: input.CreationDate }),
+    ...(input.Description !== undefined && { Description: input.Description }),
     ...(input.KeyId !== undefined && { KeyId: input.KeyId }),
     ...(input.KeyManager !== undefined && { KeyManager: input.KeyManager }),
     ...(input.KeyState !== undefined && { KeyState: input.KeyState }),
@@ -5850,6 +7262,173 @@ const serializeAws_restJson1AwsLambdaLayerVersionDetails = (
   };
 };
 
+const serializeAws_restJson1AwsRdsDbClusterAssociatedRole = (
+  input: AwsRdsDbClusterAssociatedRole,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.RoleArn !== undefined && { RoleArn: input.RoleArn }),
+    ...(input.Status !== undefined && { Status: input.Status }),
+  };
+};
+
+const serializeAws_restJson1AwsRdsDbClusterAssociatedRoles = (
+  input: AwsRdsDbClusterAssociatedRole[],
+  context: __SerdeContext
+): any => {
+  return input.map((entry) => serializeAws_restJson1AwsRdsDbClusterAssociatedRole(entry, context));
+};
+
+const serializeAws_restJson1AwsRdsDbClusterDetails = (input: AwsRdsDbClusterDetails, context: __SerdeContext): any => {
+  return {
+    ...(input.ActivityStreamStatus !== undefined && { ActivityStreamStatus: input.ActivityStreamStatus }),
+    ...(input.AllocatedStorage !== undefined && { AllocatedStorage: input.AllocatedStorage }),
+    ...(input.AssociatedRoles !== undefined && {
+      AssociatedRoles: serializeAws_restJson1AwsRdsDbClusterAssociatedRoles(input.AssociatedRoles, context),
+    }),
+    ...(input.AvailabilityZones !== undefined && {
+      AvailabilityZones: serializeAws_restJson1StringList(input.AvailabilityZones, context),
+    }),
+    ...(input.BackupRetentionPeriod !== undefined && { BackupRetentionPeriod: input.BackupRetentionPeriod }),
+    ...(input.ClusterCreateTime !== undefined && { ClusterCreateTime: input.ClusterCreateTime }),
+    ...(input.CopyTagsToSnapshot !== undefined && { CopyTagsToSnapshot: input.CopyTagsToSnapshot }),
+    ...(input.CrossAccountClone !== undefined && { CrossAccountClone: input.CrossAccountClone }),
+    ...(input.CustomEndpoints !== undefined && {
+      CustomEndpoints: serializeAws_restJson1StringList(input.CustomEndpoints, context),
+    }),
+    ...(input.DatabaseName !== undefined && { DatabaseName: input.DatabaseName }),
+    ...(input.DbClusterIdentifier !== undefined && { DbClusterIdentifier: input.DbClusterIdentifier }),
+    ...(input.DbClusterMembers !== undefined && {
+      DbClusterMembers: serializeAws_restJson1AwsRdsDbClusterMembers(input.DbClusterMembers, context),
+    }),
+    ...(input.DbClusterOptionGroupMemberships !== undefined && {
+      DbClusterOptionGroupMemberships: serializeAws_restJson1AwsRdsDbClusterOptionGroupMemberships(
+        input.DbClusterOptionGroupMemberships,
+        context
+      ),
+    }),
+    ...(input.DbClusterParameterGroup !== undefined && { DbClusterParameterGroup: input.DbClusterParameterGroup }),
+    ...(input.DbClusterResourceId !== undefined && { DbClusterResourceId: input.DbClusterResourceId }),
+    ...(input.DbSubnetGroup !== undefined && { DbSubnetGroup: input.DbSubnetGroup }),
+    ...(input.DeletionProtection !== undefined && { DeletionProtection: input.DeletionProtection }),
+    ...(input.DomainMemberships !== undefined && {
+      DomainMemberships: serializeAws_restJson1AwsRdsDbDomainMemberships(input.DomainMemberships, context),
+    }),
+    ...(input.EnabledCloudWatchLogsExports !== undefined && {
+      EnabledCloudWatchLogsExports: serializeAws_restJson1StringList(input.EnabledCloudWatchLogsExports, context),
+    }),
+    ...(input.Endpoint !== undefined && { Endpoint: input.Endpoint }),
+    ...(input.Engine !== undefined && { Engine: input.Engine }),
+    ...(input.EngineMode !== undefined && { EngineMode: input.EngineMode }),
+    ...(input.EngineVersion !== undefined && { EngineVersion: input.EngineVersion }),
+    ...(input.HostedZoneId !== undefined && { HostedZoneId: input.HostedZoneId }),
+    ...(input.HttpEndpointEnabled !== undefined && { HttpEndpointEnabled: input.HttpEndpointEnabled }),
+    ...(input.IamDatabaseAuthenticationEnabled !== undefined && {
+      IamDatabaseAuthenticationEnabled: input.IamDatabaseAuthenticationEnabled,
+    }),
+    ...(input.KmsKeyId !== undefined && { KmsKeyId: input.KmsKeyId }),
+    ...(input.MasterUsername !== undefined && { MasterUsername: input.MasterUsername }),
+    ...(input.MultiAz !== undefined && { MultiAz: input.MultiAz }),
+    ...(input.Port !== undefined && { Port: input.Port }),
+    ...(input.PreferredBackupWindow !== undefined && { PreferredBackupWindow: input.PreferredBackupWindow }),
+    ...(input.PreferredMaintenanceWindow !== undefined && {
+      PreferredMaintenanceWindow: input.PreferredMaintenanceWindow,
+    }),
+    ...(input.ReadReplicaIdentifiers !== undefined && {
+      ReadReplicaIdentifiers: serializeAws_restJson1StringList(input.ReadReplicaIdentifiers, context),
+    }),
+    ...(input.ReaderEndpoint !== undefined && { ReaderEndpoint: input.ReaderEndpoint }),
+    ...(input.Status !== undefined && { Status: input.Status }),
+    ...(input.StorageEncrypted !== undefined && { StorageEncrypted: input.StorageEncrypted }),
+    ...(input.VpcSecurityGroups !== undefined && {
+      VpcSecurityGroups: serializeAws_restJson1AwsRdsDbInstanceVpcSecurityGroups(input.VpcSecurityGroups, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1AwsRdsDbClusterMember = (input: AwsRdsDbClusterMember, context: __SerdeContext): any => {
+  return {
+    ...(input.DbClusterParameterGroupStatus !== undefined && {
+      DbClusterParameterGroupStatus: input.DbClusterParameterGroupStatus,
+    }),
+    ...(input.DbInstanceIdentifier !== undefined && { DbInstanceIdentifier: input.DbInstanceIdentifier }),
+    ...(input.IsClusterWriter !== undefined && { IsClusterWriter: input.IsClusterWriter }),
+    ...(input.PromotionTier !== undefined && { PromotionTier: input.PromotionTier }),
+  };
+};
+
+const serializeAws_restJson1AwsRdsDbClusterMembers = (input: AwsRdsDbClusterMember[], context: __SerdeContext): any => {
+  return input.map((entry) => serializeAws_restJson1AwsRdsDbClusterMember(entry, context));
+};
+
+const serializeAws_restJson1AwsRdsDbClusterOptionGroupMembership = (
+  input: AwsRdsDbClusterOptionGroupMembership,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.DbClusterOptionGroupName !== undefined && { DbClusterOptionGroupName: input.DbClusterOptionGroupName }),
+    ...(input.Status !== undefined && { Status: input.Status }),
+  };
+};
+
+const serializeAws_restJson1AwsRdsDbClusterOptionGroupMemberships = (
+  input: AwsRdsDbClusterOptionGroupMembership[],
+  context: __SerdeContext
+): any => {
+  return input.map((entry) => serializeAws_restJson1AwsRdsDbClusterOptionGroupMembership(entry, context));
+};
+
+const serializeAws_restJson1AwsRdsDbClusterSnapshotDetails = (
+  input: AwsRdsDbClusterSnapshotDetails,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AllocatedStorage !== undefined && { AllocatedStorage: input.AllocatedStorage }),
+    ...(input.AvailabilityZones !== undefined && {
+      AvailabilityZones: serializeAws_restJson1StringList(input.AvailabilityZones, context),
+    }),
+    ...(input.ClusterCreateTime !== undefined && { ClusterCreateTime: input.ClusterCreateTime }),
+    ...(input.DbClusterIdentifier !== undefined && { DbClusterIdentifier: input.DbClusterIdentifier }),
+    ...(input.DbClusterSnapshotIdentifier !== undefined && {
+      DbClusterSnapshotIdentifier: input.DbClusterSnapshotIdentifier,
+    }),
+    ...(input.Engine !== undefined && { Engine: input.Engine }),
+    ...(input.EngineVersion !== undefined && { EngineVersion: input.EngineVersion }),
+    ...(input.IamDatabaseAuthenticationEnabled !== undefined && {
+      IamDatabaseAuthenticationEnabled: input.IamDatabaseAuthenticationEnabled,
+    }),
+    ...(input.KmsKeyId !== undefined && { KmsKeyId: input.KmsKeyId }),
+    ...(input.LicenseModel !== undefined && { LicenseModel: input.LicenseModel }),
+    ...(input.MasterUsername !== undefined && { MasterUsername: input.MasterUsername }),
+    ...(input.PercentProgress !== undefined && { PercentProgress: input.PercentProgress }),
+    ...(input.Port !== undefined && { Port: input.Port }),
+    ...(input.SnapshotCreateTime !== undefined && { SnapshotCreateTime: input.SnapshotCreateTime }),
+    ...(input.SnapshotType !== undefined && { SnapshotType: input.SnapshotType }),
+    ...(input.Status !== undefined && { Status: input.Status }),
+    ...(input.StorageEncrypted !== undefined && { StorageEncrypted: input.StorageEncrypted }),
+    ...(input.VpcId !== undefined && { VpcId: input.VpcId }),
+  };
+};
+
+const serializeAws_restJson1AwsRdsDbDomainMembership = (
+  input: AwsRdsDbDomainMembership,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Domain !== undefined && { Domain: input.Domain }),
+    ...(input.Fqdn !== undefined && { Fqdn: input.Fqdn }),
+    ...(input.IamRoleName !== undefined && { IamRoleName: input.IamRoleName }),
+    ...(input.Status !== undefined && { Status: input.Status }),
+  };
+};
+
+const serializeAws_restJson1AwsRdsDbDomainMemberships = (
+  input: AwsRdsDbDomainMembership[],
+  context: __SerdeContext
+): any => {
+  return input.map((entry) => serializeAws_restJson1AwsRdsDbDomainMembership(entry, context));
+};
+
 const serializeAws_restJson1AwsRdsDbInstanceAssociatedRole = (
   input: AwsRdsDbInstanceAssociatedRole,
   context: __SerdeContext
@@ -5873,30 +7452,112 @@ const serializeAws_restJson1AwsRdsDbInstanceDetails = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.AllocatedStorage !== undefined && { AllocatedStorage: input.AllocatedStorage }),
     ...(input.AssociatedRoles !== undefined && {
       AssociatedRoles: serializeAws_restJson1AwsRdsDbInstanceAssociatedRoles(input.AssociatedRoles, context),
     }),
+    ...(input.AutoMinorVersionUpgrade !== undefined && { AutoMinorVersionUpgrade: input.AutoMinorVersionUpgrade }),
+    ...(input.AvailabilityZone !== undefined && { AvailabilityZone: input.AvailabilityZone }),
+    ...(input.BackupRetentionPeriod !== undefined && { BackupRetentionPeriod: input.BackupRetentionPeriod }),
     ...(input.CACertificateIdentifier !== undefined && { CACertificateIdentifier: input.CACertificateIdentifier }),
+    ...(input.CharacterSetName !== undefined && { CharacterSetName: input.CharacterSetName }),
+    ...(input.CopyTagsToSnapshot !== undefined && { CopyTagsToSnapshot: input.CopyTagsToSnapshot }),
     ...(input.DBClusterIdentifier !== undefined && { DBClusterIdentifier: input.DBClusterIdentifier }),
     ...(input.DBInstanceClass !== undefined && { DBInstanceClass: input.DBInstanceClass }),
     ...(input.DBInstanceIdentifier !== undefined && { DBInstanceIdentifier: input.DBInstanceIdentifier }),
     ...(input.DBName !== undefined && { DBName: input.DBName }),
     ...(input.DbInstancePort !== undefined && { DbInstancePort: input.DbInstancePort }),
+    ...(input.DbInstanceStatus !== undefined && { DbInstanceStatus: input.DbInstanceStatus }),
+    ...(input.DbParameterGroups !== undefined && {
+      DbParameterGroups: serializeAws_restJson1AwsRdsDbParameterGroups(input.DbParameterGroups, context),
+    }),
+    ...(input.DbSecurityGroups !== undefined && {
+      DbSecurityGroups: serializeAws_restJson1StringList(input.DbSecurityGroups, context),
+    }),
+    ...(input.DbSubnetGroup !== undefined && {
+      DbSubnetGroup: serializeAws_restJson1AwsRdsDbSubnetGroup(input.DbSubnetGroup, context),
+    }),
     ...(input.DbiResourceId !== undefined && { DbiResourceId: input.DbiResourceId }),
     ...(input.DeletionProtection !== undefined && { DeletionProtection: input.DeletionProtection }),
+    ...(input.DomainMemberships !== undefined && {
+      DomainMemberships: serializeAws_restJson1AwsRdsDbDomainMemberships(input.DomainMemberships, context),
+    }),
+    ...(input.EnabledCloudWatchLogsExports !== undefined && {
+      EnabledCloudWatchLogsExports: serializeAws_restJson1StringList(input.EnabledCloudWatchLogsExports, context),
+    }),
     ...(input.Endpoint !== undefined && {
       Endpoint: serializeAws_restJson1AwsRdsDbInstanceEndpoint(input.Endpoint, context),
     }),
     ...(input.Engine !== undefined && { Engine: input.Engine }),
     ...(input.EngineVersion !== undefined && { EngineVersion: input.EngineVersion }),
+    ...(input.EnhancedMonitoringResourceArn !== undefined && {
+      EnhancedMonitoringResourceArn: input.EnhancedMonitoringResourceArn,
+    }),
     ...(input.IAMDatabaseAuthenticationEnabled !== undefined && {
       IAMDatabaseAuthenticationEnabled: input.IAMDatabaseAuthenticationEnabled,
     }),
     ...(input.InstanceCreateTime !== undefined && { InstanceCreateTime: input.InstanceCreateTime }),
+    ...(input.Iops !== undefined && { Iops: input.Iops }),
     ...(input.KmsKeyId !== undefined && { KmsKeyId: input.KmsKeyId }),
+    ...(input.LatestRestorableTime !== undefined && { LatestRestorableTime: input.LatestRestorableTime }),
+    ...(input.LicenseModel !== undefined && { LicenseModel: input.LicenseModel }),
+    ...(input.ListenerEndpoint !== undefined && {
+      ListenerEndpoint: serializeAws_restJson1AwsRdsDbInstanceEndpoint(input.ListenerEndpoint, context),
+    }),
+    ...(input.MasterUsername !== undefined && { MasterUsername: input.MasterUsername }),
+    ...(input.MaxAllocatedStorage !== undefined && { MaxAllocatedStorage: input.MaxAllocatedStorage }),
+    ...(input.MonitoringInterval !== undefined && { MonitoringInterval: input.MonitoringInterval }),
+    ...(input.MonitoringRoleArn !== undefined && { MonitoringRoleArn: input.MonitoringRoleArn }),
+    ...(input.MultiAz !== undefined && { MultiAz: input.MultiAz }),
+    ...(input.OptionGroupMemberships !== undefined && {
+      OptionGroupMemberships: serializeAws_restJson1AwsRdsDbOptionGroupMemberships(
+        input.OptionGroupMemberships,
+        context
+      ),
+    }),
+    ...(input.PendingModifiedValues !== undefined && {
+      PendingModifiedValues: serializeAws_restJson1AwsRdsDbPendingModifiedValues(input.PendingModifiedValues, context),
+    }),
+    ...(input.PerformanceInsightsEnabled !== undefined && {
+      PerformanceInsightsEnabled: input.PerformanceInsightsEnabled,
+    }),
+    ...(input.PerformanceInsightsKmsKeyId !== undefined && {
+      PerformanceInsightsKmsKeyId: input.PerformanceInsightsKmsKeyId,
+    }),
+    ...(input.PerformanceInsightsRetentionPeriod !== undefined && {
+      PerformanceInsightsRetentionPeriod: input.PerformanceInsightsRetentionPeriod,
+    }),
+    ...(input.PreferredBackupWindow !== undefined && { PreferredBackupWindow: input.PreferredBackupWindow }),
+    ...(input.PreferredMaintenanceWindow !== undefined && {
+      PreferredMaintenanceWindow: input.PreferredMaintenanceWindow,
+    }),
+    ...(input.ProcessorFeatures !== undefined && {
+      ProcessorFeatures: serializeAws_restJson1AwsRdsDbProcessorFeatures(input.ProcessorFeatures, context),
+    }),
+    ...(input.PromotionTier !== undefined && { PromotionTier: input.PromotionTier }),
     ...(input.PubliclyAccessible !== undefined && { PubliclyAccessible: input.PubliclyAccessible }),
+    ...(input.ReadReplicaDBClusterIdentifiers !== undefined && {
+      ReadReplicaDBClusterIdentifiers: serializeAws_restJson1StringList(input.ReadReplicaDBClusterIdentifiers, context),
+    }),
+    ...(input.ReadReplicaDBInstanceIdentifiers !== undefined && {
+      ReadReplicaDBInstanceIdentifiers: serializeAws_restJson1StringList(
+        input.ReadReplicaDBInstanceIdentifiers,
+        context
+      ),
+    }),
+    ...(input.ReadReplicaSourceDBInstanceIdentifier !== undefined && {
+      ReadReplicaSourceDBInstanceIdentifier: input.ReadReplicaSourceDBInstanceIdentifier,
+    }),
+    ...(input.SecondaryAvailabilityZone !== undefined && {
+      SecondaryAvailabilityZone: input.SecondaryAvailabilityZone,
+    }),
+    ...(input.StatusInfos !== undefined && {
+      StatusInfos: serializeAws_restJson1AwsRdsDbStatusInfos(input.StatusInfos, context),
+    }),
     ...(input.StorageEncrypted !== undefined && { StorageEncrypted: input.StorageEncrypted }),
+    ...(input.StorageType !== undefined && { StorageType: input.StorageType }),
     ...(input.TdeCredentialArn !== undefined && { TdeCredentialArn: input.TdeCredentialArn }),
+    ...(input.Timezone !== undefined && { Timezone: input.Timezone }),
     ...(input.VpcSecurityGroups !== undefined && {
       VpcSecurityGroups: serializeAws_restJson1AwsRdsDbInstanceVpcSecurityGroups(input.VpcSecurityGroups, context),
     }),
@@ -5929,6 +7590,541 @@ const serializeAws_restJson1AwsRdsDbInstanceVpcSecurityGroups = (
   context: __SerdeContext
 ): any => {
   return input.map((entry) => serializeAws_restJson1AwsRdsDbInstanceVpcSecurityGroup(entry, context));
+};
+
+const serializeAws_restJson1AwsRdsDbOptionGroupMembership = (
+  input: AwsRdsDbOptionGroupMembership,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.OptionGroupName !== undefined && { OptionGroupName: input.OptionGroupName }),
+    ...(input.Status !== undefined && { Status: input.Status }),
+  };
+};
+
+const serializeAws_restJson1AwsRdsDbOptionGroupMemberships = (
+  input: AwsRdsDbOptionGroupMembership[],
+  context: __SerdeContext
+): any => {
+  return input.map((entry) => serializeAws_restJson1AwsRdsDbOptionGroupMembership(entry, context));
+};
+
+const serializeAws_restJson1AwsRdsDbParameterGroup = (input: AwsRdsDbParameterGroup, context: __SerdeContext): any => {
+  return {
+    ...(input.DbParameterGroupName !== undefined && { DbParameterGroupName: input.DbParameterGroupName }),
+    ...(input.ParameterApplyStatus !== undefined && { ParameterApplyStatus: input.ParameterApplyStatus }),
+  };
+};
+
+const serializeAws_restJson1AwsRdsDbParameterGroups = (
+  input: AwsRdsDbParameterGroup[],
+  context: __SerdeContext
+): any => {
+  return input.map((entry) => serializeAws_restJson1AwsRdsDbParameterGroup(entry, context));
+};
+
+const serializeAws_restJson1AwsRdsDbPendingModifiedValues = (
+  input: AwsRdsDbPendingModifiedValues,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AllocatedStorage !== undefined && { AllocatedStorage: input.AllocatedStorage }),
+    ...(input.BackupRetentionPeriod !== undefined && { BackupRetentionPeriod: input.BackupRetentionPeriod }),
+    ...(input.CaCertificateIdentifier !== undefined && { CaCertificateIdentifier: input.CaCertificateIdentifier }),
+    ...(input.DbInstanceClass !== undefined && { DbInstanceClass: input.DbInstanceClass }),
+    ...(input.DbInstanceIdentifier !== undefined && { DbInstanceIdentifier: input.DbInstanceIdentifier }),
+    ...(input.DbSubnetGroupName !== undefined && { DbSubnetGroupName: input.DbSubnetGroupName }),
+    ...(input.EngineVersion !== undefined && { EngineVersion: input.EngineVersion }),
+    ...(input.Iops !== undefined && { Iops: input.Iops }),
+    ...(input.LicenseModel !== undefined && { LicenseModel: input.LicenseModel }),
+    ...(input.MasterUserPassword !== undefined && { MasterUserPassword: input.MasterUserPassword }),
+    ...(input.MultiAZ !== undefined && { MultiAZ: input.MultiAZ }),
+    ...(input.PendingCloudWatchLogsExports !== undefined && {
+      PendingCloudWatchLogsExports: serializeAws_restJson1AwsRdsPendingCloudWatchLogsExports(
+        input.PendingCloudWatchLogsExports,
+        context
+      ),
+    }),
+    ...(input.Port !== undefined && { Port: input.Port }),
+    ...(input.ProcessorFeatures !== undefined && {
+      ProcessorFeatures: serializeAws_restJson1AwsRdsDbProcessorFeatures(input.ProcessorFeatures, context),
+    }),
+    ...(input.StorageType !== undefined && { StorageType: input.StorageType }),
+  };
+};
+
+const serializeAws_restJson1AwsRdsDbProcessorFeature = (
+  input: AwsRdsDbProcessorFeature,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Name !== undefined && { Name: input.Name }),
+    ...(input.Value !== undefined && { Value: input.Value }),
+  };
+};
+
+const serializeAws_restJson1AwsRdsDbProcessorFeatures = (
+  input: AwsRdsDbProcessorFeature[],
+  context: __SerdeContext
+): any => {
+  return input.map((entry) => serializeAws_restJson1AwsRdsDbProcessorFeature(entry, context));
+};
+
+const serializeAws_restJson1AwsRdsDbSnapshotDetails = (
+  input: AwsRdsDbSnapshotDetails,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AllocatedStorage !== undefined && { AllocatedStorage: input.AllocatedStorage }),
+    ...(input.AvailabilityZone !== undefined && { AvailabilityZone: input.AvailabilityZone }),
+    ...(input.DbInstanceIdentifier !== undefined && { DbInstanceIdentifier: input.DbInstanceIdentifier }),
+    ...(input.DbSnapshotIdentifier !== undefined && { DbSnapshotIdentifier: input.DbSnapshotIdentifier }),
+    ...(input.DbiResourceId !== undefined && { DbiResourceId: input.DbiResourceId }),
+    ...(input.Encrypted !== undefined && { Encrypted: input.Encrypted }),
+    ...(input.Engine !== undefined && { Engine: input.Engine }),
+    ...(input.EngineVersion !== undefined && { EngineVersion: input.EngineVersion }),
+    ...(input.IamDatabaseAuthenticationEnabled !== undefined && {
+      IamDatabaseAuthenticationEnabled: input.IamDatabaseAuthenticationEnabled,
+    }),
+    ...(input.InstanceCreateTime !== undefined && { InstanceCreateTime: input.InstanceCreateTime }),
+    ...(input.Iops !== undefined && { Iops: input.Iops }),
+    ...(input.KmsKeyId !== undefined && { KmsKeyId: input.KmsKeyId }),
+    ...(input.LicenseModel !== undefined && { LicenseModel: input.LicenseModel }),
+    ...(input.MasterUsername !== undefined && { MasterUsername: input.MasterUsername }),
+    ...(input.OptionGroupName !== undefined && { OptionGroupName: input.OptionGroupName }),
+    ...(input.PercentProgress !== undefined && { PercentProgress: input.PercentProgress }),
+    ...(input.Port !== undefined && { Port: input.Port }),
+    ...(input.ProcessorFeatures !== undefined && {
+      ProcessorFeatures: serializeAws_restJson1AwsRdsDbProcessorFeatures(input.ProcessorFeatures, context),
+    }),
+    ...(input.SnapshotCreateTime !== undefined && { SnapshotCreateTime: input.SnapshotCreateTime }),
+    ...(input.SnapshotType !== undefined && { SnapshotType: input.SnapshotType }),
+    ...(input.SourceDbSnapshotIdentifier !== undefined && {
+      SourceDbSnapshotIdentifier: input.SourceDbSnapshotIdentifier,
+    }),
+    ...(input.SourceRegion !== undefined && { SourceRegion: input.SourceRegion }),
+    ...(input.Status !== undefined && { Status: input.Status }),
+    ...(input.StorageType !== undefined && { StorageType: input.StorageType }),
+    ...(input.TdeCredentialArn !== undefined && { TdeCredentialArn: input.TdeCredentialArn }),
+    ...(input.Timezone !== undefined && { Timezone: input.Timezone }),
+    ...(input.VpcId !== undefined && { VpcId: input.VpcId }),
+  };
+};
+
+const serializeAws_restJson1AwsRdsDbStatusInfo = (input: AwsRdsDbStatusInfo, context: __SerdeContext): any => {
+  return {
+    ...(input.Message !== undefined && { Message: input.Message }),
+    ...(input.Normal !== undefined && { Normal: input.Normal }),
+    ...(input.Status !== undefined && { Status: input.Status }),
+    ...(input.StatusType !== undefined && { StatusType: input.StatusType }),
+  };
+};
+
+const serializeAws_restJson1AwsRdsDbStatusInfos = (input: AwsRdsDbStatusInfo[], context: __SerdeContext): any => {
+  return input.map((entry) => serializeAws_restJson1AwsRdsDbStatusInfo(entry, context));
+};
+
+const serializeAws_restJson1AwsRdsDbSubnetGroup = (input: AwsRdsDbSubnetGroup, context: __SerdeContext): any => {
+  return {
+    ...(input.DbSubnetGroupArn !== undefined && { DbSubnetGroupArn: input.DbSubnetGroupArn }),
+    ...(input.DbSubnetGroupDescription !== undefined && { DbSubnetGroupDescription: input.DbSubnetGroupDescription }),
+    ...(input.DbSubnetGroupName !== undefined && { DbSubnetGroupName: input.DbSubnetGroupName }),
+    ...(input.SubnetGroupStatus !== undefined && { SubnetGroupStatus: input.SubnetGroupStatus }),
+    ...(input.Subnets !== undefined && {
+      Subnets: serializeAws_restJson1AwsRdsDbSubnetGroupSubnets(input.Subnets, context),
+    }),
+    ...(input.VpcId !== undefined && { VpcId: input.VpcId }),
+  };
+};
+
+const serializeAws_restJson1AwsRdsDbSubnetGroupSubnet = (
+  input: AwsRdsDbSubnetGroupSubnet,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.SubnetAvailabilityZone !== undefined && {
+      SubnetAvailabilityZone: serializeAws_restJson1AwsRdsDbSubnetGroupSubnetAvailabilityZone(
+        input.SubnetAvailabilityZone,
+        context
+      ),
+    }),
+    ...(input.SubnetIdentifier !== undefined && { SubnetIdentifier: input.SubnetIdentifier }),
+    ...(input.SubnetStatus !== undefined && { SubnetStatus: input.SubnetStatus }),
+  };
+};
+
+const serializeAws_restJson1AwsRdsDbSubnetGroupSubnetAvailabilityZone = (
+  input: AwsRdsDbSubnetGroupSubnetAvailabilityZone,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Name !== undefined && { Name: input.Name }),
+  };
+};
+
+const serializeAws_restJson1AwsRdsDbSubnetGroupSubnets = (
+  input: AwsRdsDbSubnetGroupSubnet[],
+  context: __SerdeContext
+): any => {
+  return input.map((entry) => serializeAws_restJson1AwsRdsDbSubnetGroupSubnet(entry, context));
+};
+
+const serializeAws_restJson1AwsRdsPendingCloudWatchLogsExports = (
+  input: AwsRdsPendingCloudWatchLogsExports,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.LogTypesToDisable !== undefined && {
+      LogTypesToDisable: serializeAws_restJson1StringList(input.LogTypesToDisable, context),
+    }),
+    ...(input.LogTypesToEnable !== undefined && {
+      LogTypesToEnable: serializeAws_restJson1StringList(input.LogTypesToEnable, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1AwsRedshiftClusterClusterNode = (
+  input: AwsRedshiftClusterClusterNode,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.NodeRole !== undefined && { NodeRole: input.NodeRole }),
+    ...(input.PrivateIpAddress !== undefined && { PrivateIpAddress: input.PrivateIpAddress }),
+    ...(input.PublicIpAddress !== undefined && { PublicIpAddress: input.PublicIpAddress }),
+  };
+};
+
+const serializeAws_restJson1AwsRedshiftClusterClusterNodes = (
+  input: AwsRedshiftClusterClusterNode[],
+  context: __SerdeContext
+): any => {
+  return input.map((entry) => serializeAws_restJson1AwsRedshiftClusterClusterNode(entry, context));
+};
+
+const serializeAws_restJson1AwsRedshiftClusterClusterParameterGroup = (
+  input: AwsRedshiftClusterClusterParameterGroup,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ClusterParameterStatusList !== undefined && {
+      ClusterParameterStatusList: serializeAws_restJson1AwsRedshiftClusterClusterParameterStatusList(
+        input.ClusterParameterStatusList,
+        context
+      ),
+    }),
+    ...(input.ParameterApplyStatus !== undefined && { ParameterApplyStatus: input.ParameterApplyStatus }),
+    ...(input.ParameterGroupName !== undefined && { ParameterGroupName: input.ParameterGroupName }),
+  };
+};
+
+const serializeAws_restJson1AwsRedshiftClusterClusterParameterGroups = (
+  input: AwsRedshiftClusterClusterParameterGroup[],
+  context: __SerdeContext
+): any => {
+  return input.map((entry) => serializeAws_restJson1AwsRedshiftClusterClusterParameterGroup(entry, context));
+};
+
+const serializeAws_restJson1AwsRedshiftClusterClusterParameterStatus = (
+  input: AwsRedshiftClusterClusterParameterStatus,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ParameterApplyErrorDescription !== undefined && {
+      ParameterApplyErrorDescription: input.ParameterApplyErrorDescription,
+    }),
+    ...(input.ParameterApplyStatus !== undefined && { ParameterApplyStatus: input.ParameterApplyStatus }),
+    ...(input.ParameterName !== undefined && { ParameterName: input.ParameterName }),
+  };
+};
+
+const serializeAws_restJson1AwsRedshiftClusterClusterParameterStatusList = (
+  input: AwsRedshiftClusterClusterParameterStatus[],
+  context: __SerdeContext
+): any => {
+  return input.map((entry) => serializeAws_restJson1AwsRedshiftClusterClusterParameterStatus(entry, context));
+};
+
+const serializeAws_restJson1AwsRedshiftClusterClusterSecurityGroup = (
+  input: AwsRedshiftClusterClusterSecurityGroup,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ClusterSecurityGroupName !== undefined && { ClusterSecurityGroupName: input.ClusterSecurityGroupName }),
+    ...(input.Status !== undefined && { Status: input.Status }),
+  };
+};
+
+const serializeAws_restJson1AwsRedshiftClusterClusterSecurityGroups = (
+  input: AwsRedshiftClusterClusterSecurityGroup[],
+  context: __SerdeContext
+): any => {
+  return input.map((entry) => serializeAws_restJson1AwsRedshiftClusterClusterSecurityGroup(entry, context));
+};
+
+const serializeAws_restJson1AwsRedshiftClusterClusterSnapshotCopyStatus = (
+  input: AwsRedshiftClusterClusterSnapshotCopyStatus,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.DestinationRegion !== undefined && { DestinationRegion: input.DestinationRegion }),
+    ...(input.ManualSnapshotRetentionPeriod !== undefined && {
+      ManualSnapshotRetentionPeriod: input.ManualSnapshotRetentionPeriod,
+    }),
+    ...(input.RetentionPeriod !== undefined && { RetentionPeriod: input.RetentionPeriod }),
+    ...(input.SnapshotCopyGrantName !== undefined && { SnapshotCopyGrantName: input.SnapshotCopyGrantName }),
+  };
+};
+
+const serializeAws_restJson1AwsRedshiftClusterDeferredMaintenanceWindow = (
+  input: AwsRedshiftClusterDeferredMaintenanceWindow,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.DeferMaintenanceEndTime !== undefined && { DeferMaintenanceEndTime: input.DeferMaintenanceEndTime }),
+    ...(input.DeferMaintenanceIdentifier !== undefined && {
+      DeferMaintenanceIdentifier: input.DeferMaintenanceIdentifier,
+    }),
+    ...(input.DeferMaintenanceStartTime !== undefined && {
+      DeferMaintenanceStartTime: input.DeferMaintenanceStartTime,
+    }),
+  };
+};
+
+const serializeAws_restJson1AwsRedshiftClusterDeferredMaintenanceWindows = (
+  input: AwsRedshiftClusterDeferredMaintenanceWindow[],
+  context: __SerdeContext
+): any => {
+  return input.map((entry) => serializeAws_restJson1AwsRedshiftClusterDeferredMaintenanceWindow(entry, context));
+};
+
+const serializeAws_restJson1AwsRedshiftClusterDetails = (
+  input: AwsRedshiftClusterDetails,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AllowVersionUpgrade !== undefined && { AllowVersionUpgrade: input.AllowVersionUpgrade }),
+    ...(input.AutomatedSnapshotRetentionPeriod !== undefined && {
+      AutomatedSnapshotRetentionPeriod: input.AutomatedSnapshotRetentionPeriod,
+    }),
+    ...(input.AvailabilityZone !== undefined && { AvailabilityZone: input.AvailabilityZone }),
+    ...(input.ClusterAvailabilityStatus !== undefined && {
+      ClusterAvailabilityStatus: input.ClusterAvailabilityStatus,
+    }),
+    ...(input.ClusterCreateTime !== undefined && { ClusterCreateTime: input.ClusterCreateTime }),
+    ...(input.ClusterIdentifier !== undefined && { ClusterIdentifier: input.ClusterIdentifier }),
+    ...(input.ClusterNodes !== undefined && {
+      ClusterNodes: serializeAws_restJson1AwsRedshiftClusterClusterNodes(input.ClusterNodes, context),
+    }),
+    ...(input.ClusterParameterGroups !== undefined && {
+      ClusterParameterGroups: serializeAws_restJson1AwsRedshiftClusterClusterParameterGroups(
+        input.ClusterParameterGroups,
+        context
+      ),
+    }),
+    ...(input.ClusterPublicKey !== undefined && { ClusterPublicKey: input.ClusterPublicKey }),
+    ...(input.ClusterRevisionNumber !== undefined && { ClusterRevisionNumber: input.ClusterRevisionNumber }),
+    ...(input.ClusterSecurityGroups !== undefined && {
+      ClusterSecurityGroups: serializeAws_restJson1AwsRedshiftClusterClusterSecurityGroups(
+        input.ClusterSecurityGroups,
+        context
+      ),
+    }),
+    ...(input.ClusterSnapshotCopyStatus !== undefined && {
+      ClusterSnapshotCopyStatus: serializeAws_restJson1AwsRedshiftClusterClusterSnapshotCopyStatus(
+        input.ClusterSnapshotCopyStatus,
+        context
+      ),
+    }),
+    ...(input.ClusterStatus !== undefined && { ClusterStatus: input.ClusterStatus }),
+    ...(input.ClusterSubnetGroupName !== undefined && { ClusterSubnetGroupName: input.ClusterSubnetGroupName }),
+    ...(input.ClusterVersion !== undefined && { ClusterVersion: input.ClusterVersion }),
+    ...(input.DBName !== undefined && { DBName: input.DBName }),
+    ...(input.DeferredMaintenanceWindows !== undefined && {
+      DeferredMaintenanceWindows: serializeAws_restJson1AwsRedshiftClusterDeferredMaintenanceWindows(
+        input.DeferredMaintenanceWindows,
+        context
+      ),
+    }),
+    ...(input.ElasticIpStatus !== undefined && {
+      ElasticIpStatus: serializeAws_restJson1AwsRedshiftClusterElasticIpStatus(input.ElasticIpStatus, context),
+    }),
+    ...(input.ElasticResizeNumberOfNodeOptions !== undefined && {
+      ElasticResizeNumberOfNodeOptions: input.ElasticResizeNumberOfNodeOptions,
+    }),
+    ...(input.Encrypted !== undefined && { Encrypted: input.Encrypted }),
+    ...(input.Endpoint !== undefined && {
+      Endpoint: serializeAws_restJson1AwsRedshiftClusterEndpoint(input.Endpoint, context),
+    }),
+    ...(input.EnhancedVpcRouting !== undefined && { EnhancedVpcRouting: input.EnhancedVpcRouting }),
+    ...(input.ExpectedNextSnapshotScheduleTime !== undefined && {
+      ExpectedNextSnapshotScheduleTime: input.ExpectedNextSnapshotScheduleTime,
+    }),
+    ...(input.ExpectedNextSnapshotScheduleTimeStatus !== undefined && {
+      ExpectedNextSnapshotScheduleTimeStatus: input.ExpectedNextSnapshotScheduleTimeStatus,
+    }),
+    ...(input.HsmStatus !== undefined && {
+      HsmStatus: serializeAws_restJson1AwsRedshiftClusterHsmStatus(input.HsmStatus, context),
+    }),
+    ...(input.IamRoles !== undefined && {
+      IamRoles: serializeAws_restJson1AwsRedshiftClusterIamRoles(input.IamRoles, context),
+    }),
+    ...(input.KmsKeyId !== undefined && { KmsKeyId: input.KmsKeyId }),
+    ...(input.MaintenanceTrackName !== undefined && { MaintenanceTrackName: input.MaintenanceTrackName }),
+    ...(input.ManualSnapshotRetentionPeriod !== undefined && {
+      ManualSnapshotRetentionPeriod: input.ManualSnapshotRetentionPeriod,
+    }),
+    ...(input.MasterUsername !== undefined && { MasterUsername: input.MasterUsername }),
+    ...(input.NextMaintenanceWindowStartTime !== undefined && {
+      NextMaintenanceWindowStartTime: input.NextMaintenanceWindowStartTime,
+    }),
+    ...(input.NodeType !== undefined && { NodeType: input.NodeType }),
+    ...(input.NumberOfNodes !== undefined && { NumberOfNodes: input.NumberOfNodes }),
+    ...(input.PendingActions !== undefined && {
+      PendingActions: serializeAws_restJson1StringList(input.PendingActions, context),
+    }),
+    ...(input.PendingModifiedValues !== undefined && {
+      PendingModifiedValues: serializeAws_restJson1AwsRedshiftClusterPendingModifiedValues(
+        input.PendingModifiedValues,
+        context
+      ),
+    }),
+    ...(input.PreferredMaintenanceWindow !== undefined && {
+      PreferredMaintenanceWindow: input.PreferredMaintenanceWindow,
+    }),
+    ...(input.PubliclyAccessible !== undefined && { PubliclyAccessible: input.PubliclyAccessible }),
+    ...(input.ResizeInfo !== undefined && {
+      ResizeInfo: serializeAws_restJson1AwsRedshiftClusterResizeInfo(input.ResizeInfo, context),
+    }),
+    ...(input.RestoreStatus !== undefined && {
+      RestoreStatus: serializeAws_restJson1AwsRedshiftClusterRestoreStatus(input.RestoreStatus, context),
+    }),
+    ...(input.SnapshotScheduleIdentifier !== undefined && {
+      SnapshotScheduleIdentifier: input.SnapshotScheduleIdentifier,
+    }),
+    ...(input.SnapshotScheduleState !== undefined && { SnapshotScheduleState: input.SnapshotScheduleState }),
+    ...(input.VpcId !== undefined && { VpcId: input.VpcId }),
+    ...(input.VpcSecurityGroups !== undefined && {
+      VpcSecurityGroups: serializeAws_restJson1AwsRedshiftClusterVpcSecurityGroups(input.VpcSecurityGroups, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1AwsRedshiftClusterElasticIpStatus = (
+  input: AwsRedshiftClusterElasticIpStatus,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ElasticIp !== undefined && { ElasticIp: input.ElasticIp }),
+    ...(input.Status !== undefined && { Status: input.Status }),
+  };
+};
+
+const serializeAws_restJson1AwsRedshiftClusterEndpoint = (
+  input: AwsRedshiftClusterEndpoint,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Address !== undefined && { Address: input.Address }),
+    ...(input.Port !== undefined && { Port: input.Port }),
+  };
+};
+
+const serializeAws_restJson1AwsRedshiftClusterHsmStatus = (
+  input: AwsRedshiftClusterHsmStatus,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.HsmClientCertificateIdentifier !== undefined && {
+      HsmClientCertificateIdentifier: input.HsmClientCertificateIdentifier,
+    }),
+    ...(input.HsmConfigurationIdentifier !== undefined && {
+      HsmConfigurationIdentifier: input.HsmConfigurationIdentifier,
+    }),
+    ...(input.Status !== undefined && { Status: input.Status }),
+  };
+};
+
+const serializeAws_restJson1AwsRedshiftClusterIamRole = (
+  input: AwsRedshiftClusterIamRole,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ApplyStatus !== undefined && { ApplyStatus: input.ApplyStatus }),
+    ...(input.IamRoleArn !== undefined && { IamRoleArn: input.IamRoleArn }),
+  };
+};
+
+const serializeAws_restJson1AwsRedshiftClusterIamRoles = (
+  input: AwsRedshiftClusterIamRole[],
+  context: __SerdeContext
+): any => {
+  return input.map((entry) => serializeAws_restJson1AwsRedshiftClusterIamRole(entry, context));
+};
+
+const serializeAws_restJson1AwsRedshiftClusterPendingModifiedValues = (
+  input: AwsRedshiftClusterPendingModifiedValues,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AutomatedSnapshotRetentionPeriod !== undefined && {
+      AutomatedSnapshotRetentionPeriod: input.AutomatedSnapshotRetentionPeriod,
+    }),
+    ...(input.ClusterIdentifier !== undefined && { ClusterIdentifier: input.ClusterIdentifier }),
+    ...(input.ClusterType !== undefined && { ClusterType: input.ClusterType }),
+    ...(input.ClusterVersion !== undefined && { ClusterVersion: input.ClusterVersion }),
+    ...(input.EncryptionType !== undefined && { EncryptionType: input.EncryptionType }),
+    ...(input.EnhancedVpcRouting !== undefined && { EnhancedVpcRouting: input.EnhancedVpcRouting }),
+    ...(input.MaintenanceTrackName !== undefined && { MaintenanceTrackName: input.MaintenanceTrackName }),
+    ...(input.MasterUserPassword !== undefined && { MasterUserPassword: input.MasterUserPassword }),
+    ...(input.NodeType !== undefined && { NodeType: input.NodeType }),
+    ...(input.NumberOfNodes !== undefined && { NumberOfNodes: input.NumberOfNodes }),
+    ...(input.PubliclyAccessible !== undefined && { PubliclyAccessible: input.PubliclyAccessible }),
+  };
+};
+
+const serializeAws_restJson1AwsRedshiftClusterResizeInfo = (
+  input: AwsRedshiftClusterResizeInfo,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AllowCancelResize !== undefined && { AllowCancelResize: input.AllowCancelResize }),
+    ...(input.ResizeType !== undefined && { ResizeType: input.ResizeType }),
+  };
+};
+
+const serializeAws_restJson1AwsRedshiftClusterRestoreStatus = (
+  input: AwsRedshiftClusterRestoreStatus,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.CurrentRestoreRateInMegaBytesPerSecond !== undefined && {
+      CurrentRestoreRateInMegaBytesPerSecond: input.CurrentRestoreRateInMegaBytesPerSecond,
+    }),
+    ...(input.ElapsedTimeInSeconds !== undefined && { ElapsedTimeInSeconds: input.ElapsedTimeInSeconds }),
+    ...(input.EstimatedTimeToCompletionInSeconds !== undefined && {
+      EstimatedTimeToCompletionInSeconds: input.EstimatedTimeToCompletionInSeconds,
+    }),
+    ...(input.ProgressInMegaBytes !== undefined && { ProgressInMegaBytes: input.ProgressInMegaBytes }),
+    ...(input.SnapshotSizeInMegaBytes !== undefined && { SnapshotSizeInMegaBytes: input.SnapshotSizeInMegaBytes }),
+    ...(input.Status !== undefined && { Status: input.Status }),
+  };
+};
+
+const serializeAws_restJson1AwsRedshiftClusterVpcSecurityGroup = (
+  input: AwsRedshiftClusterVpcSecurityGroup,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Status !== undefined && { Status: input.Status }),
+    ...(input.VpcSecurityGroupId !== undefined && { VpcSecurityGroupId: input.VpcSecurityGroupId }),
+  };
+};
+
+const serializeAws_restJson1AwsRedshiftClusterVpcSecurityGroups = (
+  input: AwsRedshiftClusterVpcSecurityGroup[],
+  context: __SerdeContext
+): any => {
+  return input.map((entry) => serializeAws_restJson1AwsRedshiftClusterVpcSecurityGroup(entry, context));
 };
 
 const serializeAws_restJson1AwsS3BucketDetails = (input: AwsS3BucketDetails, context: __SerdeContext): any => {
@@ -5998,6 +8194,35 @@ const serializeAws_restJson1AwsS3ObjectDetails = (input: AwsS3ObjectDetails, con
   };
 };
 
+const serializeAws_restJson1AwsSecretsManagerSecretDetails = (
+  input: AwsSecretsManagerSecretDetails,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Deleted !== undefined && { Deleted: input.Deleted }),
+    ...(input.Description !== undefined && { Description: input.Description }),
+    ...(input.KmsKeyId !== undefined && { KmsKeyId: input.KmsKeyId }),
+    ...(input.Name !== undefined && { Name: input.Name }),
+    ...(input.RotationEnabled !== undefined && { RotationEnabled: input.RotationEnabled }),
+    ...(input.RotationLambdaArn !== undefined && { RotationLambdaArn: input.RotationLambdaArn }),
+    ...(input.RotationOccurredWithinFrequency !== undefined && {
+      RotationOccurredWithinFrequency: input.RotationOccurredWithinFrequency,
+    }),
+    ...(input.RotationRules !== undefined && {
+      RotationRules: serializeAws_restJson1AwsSecretsManagerSecretRotationRules(input.RotationRules, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1AwsSecretsManagerSecretRotationRules = (
+  input: AwsSecretsManagerSecretRotationRules,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AutomaticallyAfterDays !== undefined && { AutomaticallyAfterDays: input.AutomaticallyAfterDays }),
+  };
+};
+
 const serializeAws_restJson1AwsSecurityFinding = (input: AwsSecurityFinding, context: __SerdeContext): any => {
   return {
     ...(input.AwsAccountId !== undefined && { AwsAccountId: input.AwsAccountId }),
@@ -6016,6 +8241,9 @@ const serializeAws_restJson1AwsSecurityFinding = (input: AwsSecurityFinding, con
       NetworkPath: serializeAws_restJson1NetworkPathList(input.NetworkPath, context),
     }),
     ...(input.Note !== undefined && { Note: serializeAws_restJson1Note(input.Note, context) }),
+    ...(input.PatchSummary !== undefined && {
+      PatchSummary: serializeAws_restJson1PatchSummary(input.PatchSummary, context),
+    }),
     ...(input.Process !== undefined && { Process: serializeAws_restJson1ProcessDetails(input.Process, context) }),
     ...(input.ProductArn !== undefined && { ProductArn: input.ProductArn }),
     ...(input.ProductFields !== undefined && {
@@ -6654,6 +8882,22 @@ const serializeAws_restJson1NumberFilterList = (input: NumberFilter[], context: 
   return input.map((entry) => serializeAws_restJson1NumberFilter(entry, context));
 };
 
+const serializeAws_restJson1PatchSummary = (input: PatchSummary, context: __SerdeContext): any => {
+  return {
+    ...(input.FailedCount !== undefined && { FailedCount: input.FailedCount }),
+    ...(input.Id !== undefined && { Id: input.Id }),
+    ...(input.InstalledCount !== undefined && { InstalledCount: input.InstalledCount }),
+    ...(input.InstalledOtherCount !== undefined && { InstalledOtherCount: input.InstalledOtherCount }),
+    ...(input.InstalledPendingReboot !== undefined && { InstalledPendingReboot: input.InstalledPendingReboot }),
+    ...(input.InstalledRejectedCount !== undefined && { InstalledRejectedCount: input.InstalledRejectedCount }),
+    ...(input.MissingCount !== undefined && { MissingCount: input.MissingCount }),
+    ...(input.Operation !== undefined && { Operation: input.Operation }),
+    ...(input.OperationEndTime !== undefined && { OperationEndTime: input.OperationEndTime }),
+    ...(input.OperationStartTime !== undefined && { OperationStartTime: input.OperationStartTime }),
+    ...(input.RebootOption !== undefined && { RebootOption: input.RebootOption }),
+  };
+};
+
 const serializeAws_restJson1PortRange = (input: PortRange, context: __SerdeContext): any => {
   return {
     ...(input.Begin !== undefined && { Begin: input.Begin }),
@@ -6712,6 +8956,7 @@ const serializeAws_restJson1Resource = (input: Resource, context: __SerdeContext
     ...(input.Id !== undefined && { Id: input.Id }),
     ...(input.Partition !== undefined && { Partition: input.Partition }),
     ...(input.Region !== undefined && { Region: input.Region }),
+    ...(input.ResourceRole !== undefined && { ResourceRole: input.ResourceRole }),
     ...(input.Tags !== undefined && { Tags: serializeAws_restJson1FieldMap(input.Tags, context) }),
     ...(input.Type !== undefined && { Type: input.Type }),
   };
@@ -6719,9 +8964,27 @@ const serializeAws_restJson1Resource = (input: Resource, context: __SerdeContext
 
 const serializeAws_restJson1ResourceDetails = (input: ResourceDetails, context: __SerdeContext): any => {
   return {
+    ...(input.AwsApiGatewayRestApi !== undefined && {
+      AwsApiGatewayRestApi: serializeAws_restJson1AwsApiGatewayRestApiDetails(input.AwsApiGatewayRestApi, context),
+    }),
+    ...(input.AwsApiGatewayStage !== undefined && {
+      AwsApiGatewayStage: serializeAws_restJson1AwsApiGatewayStageDetails(input.AwsApiGatewayStage, context),
+    }),
+    ...(input.AwsApiGatewayV2Api !== undefined && {
+      AwsApiGatewayV2Api: serializeAws_restJson1AwsApiGatewayV2ApiDetails(input.AwsApiGatewayV2Api, context),
+    }),
+    ...(input.AwsApiGatewayV2Stage !== undefined && {
+      AwsApiGatewayV2Stage: serializeAws_restJson1AwsApiGatewayV2StageDetails(input.AwsApiGatewayV2Stage, context),
+    }),
     ...(input.AwsAutoScalingAutoScalingGroup !== undefined && {
       AwsAutoScalingAutoScalingGroup: serializeAws_restJson1AwsAutoScalingAutoScalingGroupDetails(
         input.AwsAutoScalingAutoScalingGroup,
+        context
+      ),
+    }),
+    ...(input.AwsCertificateManagerCertificate !== undefined && {
+      AwsCertificateManagerCertificate: serializeAws_restJson1AwsCertificateManagerCertificateDetails(
+        input.AwsCertificateManagerCertificate,
         context
       ),
     }),
@@ -6731,8 +8994,17 @@ const serializeAws_restJson1ResourceDetails = (input: ResourceDetails, context: 
         context
       ),
     }),
+    ...(input.AwsCloudTrailTrail !== undefined && {
+      AwsCloudTrailTrail: serializeAws_restJson1AwsCloudTrailTrailDetails(input.AwsCloudTrailTrail, context),
+    }),
     ...(input.AwsCodeBuildProject !== undefined && {
       AwsCodeBuildProject: serializeAws_restJson1AwsCodeBuildProjectDetails(input.AwsCodeBuildProject, context),
+    }),
+    ...(input.AwsDynamoDbTable !== undefined && {
+      AwsDynamoDbTable: serializeAws_restJson1AwsDynamoDbTableDetails(input.AwsDynamoDbTable, context),
+    }),
+    ...(input.AwsEc2Eip !== undefined && {
+      AwsEc2Eip: serializeAws_restJson1AwsEc2EipDetails(input.AwsEc2Eip, context),
     }),
     ...(input.AwsEc2Instance !== undefined && {
       AwsEc2Instance: serializeAws_restJson1AwsEc2InstanceDetails(input.AwsEc2Instance, context),
@@ -6758,14 +9030,26 @@ const serializeAws_restJson1ResourceDetails = (input: ResourceDetails, context: 
         context
       ),
     }),
+    ...(input.AwsElbLoadBalancer !== undefined && {
+      AwsElbLoadBalancer: serializeAws_restJson1AwsElbLoadBalancerDetails(input.AwsElbLoadBalancer, context),
+    }),
     ...(input.AwsElbv2LoadBalancer !== undefined && {
       AwsElbv2LoadBalancer: serializeAws_restJson1AwsElbv2LoadBalancerDetails(input.AwsElbv2LoadBalancer, context),
     }),
     ...(input.AwsIamAccessKey !== undefined && {
       AwsIamAccessKey: serializeAws_restJson1AwsIamAccessKeyDetails(input.AwsIamAccessKey, context),
     }),
+    ...(input.AwsIamGroup !== undefined && {
+      AwsIamGroup: serializeAws_restJson1AwsIamGroupDetails(input.AwsIamGroup, context),
+    }),
+    ...(input.AwsIamPolicy !== undefined && {
+      AwsIamPolicy: serializeAws_restJson1AwsIamPolicyDetails(input.AwsIamPolicy, context),
+    }),
     ...(input.AwsIamRole !== undefined && {
       AwsIamRole: serializeAws_restJson1AwsIamRoleDetails(input.AwsIamRole, context),
+    }),
+    ...(input.AwsIamUser !== undefined && {
+      AwsIamUser: serializeAws_restJson1AwsIamUserDetails(input.AwsIamUser, context),
     }),
     ...(input.AwsKmsKey !== undefined && {
       AwsKmsKey: serializeAws_restJson1AwsKmsKeyDetails(input.AwsKmsKey, context),
@@ -6776,14 +9060,35 @@ const serializeAws_restJson1ResourceDetails = (input: ResourceDetails, context: 
     ...(input.AwsLambdaLayerVersion !== undefined && {
       AwsLambdaLayerVersion: serializeAws_restJson1AwsLambdaLayerVersionDetails(input.AwsLambdaLayerVersion, context),
     }),
+    ...(input.AwsRdsDbCluster !== undefined && {
+      AwsRdsDbCluster: serializeAws_restJson1AwsRdsDbClusterDetails(input.AwsRdsDbCluster, context),
+    }),
+    ...(input.AwsRdsDbClusterSnapshot !== undefined && {
+      AwsRdsDbClusterSnapshot: serializeAws_restJson1AwsRdsDbClusterSnapshotDetails(
+        input.AwsRdsDbClusterSnapshot,
+        context
+      ),
+    }),
     ...(input.AwsRdsDbInstance !== undefined && {
       AwsRdsDbInstance: serializeAws_restJson1AwsRdsDbInstanceDetails(input.AwsRdsDbInstance, context),
+    }),
+    ...(input.AwsRdsDbSnapshot !== undefined && {
+      AwsRdsDbSnapshot: serializeAws_restJson1AwsRdsDbSnapshotDetails(input.AwsRdsDbSnapshot, context),
+    }),
+    ...(input.AwsRedshiftCluster !== undefined && {
+      AwsRedshiftCluster: serializeAws_restJson1AwsRedshiftClusterDetails(input.AwsRedshiftCluster, context),
     }),
     ...(input.AwsS3Bucket !== undefined && {
       AwsS3Bucket: serializeAws_restJson1AwsS3BucketDetails(input.AwsS3Bucket, context),
     }),
     ...(input.AwsS3Object !== undefined && {
       AwsS3Object: serializeAws_restJson1AwsS3ObjectDetails(input.AwsS3Object, context),
+    }),
+    ...(input.AwsSecretsManagerSecret !== undefined && {
+      AwsSecretsManagerSecret: serializeAws_restJson1AwsSecretsManagerSecretDetails(
+        input.AwsSecretsManagerSecret,
+        context
+      ),
     }),
     ...(input.AwsSnsTopic !== undefined && {
       AwsSnsTopic: serializeAws_restJson1AwsSnsTopicDetails(input.AwsSnsTopic, context),
@@ -7034,6 +9339,261 @@ const deserializeAws_restJson1AvailabilityZones = (output: any, context: __Serde
   return (output || []).map((entry: any) => deserializeAws_restJson1AvailabilityZone(entry, context));
 };
 
+const deserializeAws_restJson1AwsApiGatewayAccessLogSettings = (
+  output: any,
+  context: __SerdeContext
+): AwsApiGatewayAccessLogSettings => {
+  return {
+    DestinationArn:
+      output.DestinationArn !== undefined && output.DestinationArn !== null ? output.DestinationArn : undefined,
+    Format: output.Format !== undefined && output.Format !== null ? output.Format : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AwsApiGatewayCanarySettings = (
+  output: any,
+  context: __SerdeContext
+): AwsApiGatewayCanarySettings => {
+  return {
+    DeploymentId: output.DeploymentId !== undefined && output.DeploymentId !== null ? output.DeploymentId : undefined,
+    PercentTraffic:
+      output.PercentTraffic !== undefined && output.PercentTraffic !== null ? output.PercentTraffic : undefined,
+    StageVariableOverrides:
+      output.StageVariableOverrides !== undefined && output.StageVariableOverrides !== null
+        ? deserializeAws_restJson1FieldMap(output.StageVariableOverrides, context)
+        : undefined,
+    UseStageCache:
+      output.UseStageCache !== undefined && output.UseStageCache !== null ? output.UseStageCache : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AwsApiGatewayEndpointConfiguration = (
+  output: any,
+  context: __SerdeContext
+): AwsApiGatewayEndpointConfiguration => {
+  return {
+    Types:
+      output.Types !== undefined && output.Types !== null
+        ? deserializeAws_restJson1NonEmptyStringList(output.Types, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AwsApiGatewayMethodSettings = (
+  output: any,
+  context: __SerdeContext
+): AwsApiGatewayMethodSettings => {
+  return {
+    CacheDataEncrypted:
+      output.CacheDataEncrypted !== undefined && output.CacheDataEncrypted !== null
+        ? output.CacheDataEncrypted
+        : undefined,
+    CacheTtlInSeconds:
+      output.CacheTtlInSeconds !== undefined && output.CacheTtlInSeconds !== null
+        ? output.CacheTtlInSeconds
+        : undefined,
+    CachingEnabled:
+      output.CachingEnabled !== undefined && output.CachingEnabled !== null ? output.CachingEnabled : undefined,
+    DataTraceEnabled:
+      output.DataTraceEnabled !== undefined && output.DataTraceEnabled !== null ? output.DataTraceEnabled : undefined,
+    HttpMethod: output.HttpMethod !== undefined && output.HttpMethod !== null ? output.HttpMethod : undefined,
+    LoggingLevel: output.LoggingLevel !== undefined && output.LoggingLevel !== null ? output.LoggingLevel : undefined,
+    MetricsEnabled:
+      output.MetricsEnabled !== undefined && output.MetricsEnabled !== null ? output.MetricsEnabled : undefined,
+    RequireAuthorizationForCacheControl:
+      output.RequireAuthorizationForCacheControl !== undefined && output.RequireAuthorizationForCacheControl !== null
+        ? output.RequireAuthorizationForCacheControl
+        : undefined,
+    ResourcePath: output.ResourcePath !== undefined && output.ResourcePath !== null ? output.ResourcePath : undefined,
+    ThrottlingBurstLimit:
+      output.ThrottlingBurstLimit !== undefined && output.ThrottlingBurstLimit !== null
+        ? output.ThrottlingBurstLimit
+        : undefined,
+    ThrottlingRateLimit:
+      output.ThrottlingRateLimit !== undefined && output.ThrottlingRateLimit !== null
+        ? output.ThrottlingRateLimit
+        : undefined,
+    UnauthorizedCacheControlHeaderStrategy:
+      output.UnauthorizedCacheControlHeaderStrategy !== undefined &&
+      output.UnauthorizedCacheControlHeaderStrategy !== null
+        ? output.UnauthorizedCacheControlHeaderStrategy
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AwsApiGatewayMethodSettingsList = (
+  output: any,
+  context: __SerdeContext
+): AwsApiGatewayMethodSettings[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1AwsApiGatewayMethodSettings(entry, context));
+};
+
+const deserializeAws_restJson1AwsApiGatewayRestApiDetails = (
+  output: any,
+  context: __SerdeContext
+): AwsApiGatewayRestApiDetails => {
+  return {
+    ApiKeySource: output.ApiKeySource !== undefined && output.ApiKeySource !== null ? output.ApiKeySource : undefined,
+    BinaryMediaTypes:
+      output.BinaryMediaTypes !== undefined && output.BinaryMediaTypes !== null
+        ? deserializeAws_restJson1NonEmptyStringList(output.BinaryMediaTypes, context)
+        : undefined,
+    CreatedDate: output.CreatedDate !== undefined && output.CreatedDate !== null ? output.CreatedDate : undefined,
+    Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
+    EndpointConfiguration:
+      output.EndpointConfiguration !== undefined && output.EndpointConfiguration !== null
+        ? deserializeAws_restJson1AwsApiGatewayEndpointConfiguration(output.EndpointConfiguration, context)
+        : undefined,
+    Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
+    MinimumCompressionSize:
+      output.MinimumCompressionSize !== undefined && output.MinimumCompressionSize !== null
+        ? output.MinimumCompressionSize
+        : undefined,
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+    Version: output.Version !== undefined && output.Version !== null ? output.Version : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AwsApiGatewayStageDetails = (
+  output: any,
+  context: __SerdeContext
+): AwsApiGatewayStageDetails => {
+  return {
+    AccessLogSettings:
+      output.AccessLogSettings !== undefined && output.AccessLogSettings !== null
+        ? deserializeAws_restJson1AwsApiGatewayAccessLogSettings(output.AccessLogSettings, context)
+        : undefined,
+    CacheClusterEnabled:
+      output.CacheClusterEnabled !== undefined && output.CacheClusterEnabled !== null
+        ? output.CacheClusterEnabled
+        : undefined,
+    CacheClusterSize:
+      output.CacheClusterSize !== undefined && output.CacheClusterSize !== null ? output.CacheClusterSize : undefined,
+    CacheClusterStatus:
+      output.CacheClusterStatus !== undefined && output.CacheClusterStatus !== null
+        ? output.CacheClusterStatus
+        : undefined,
+    CanarySettings:
+      output.CanarySettings !== undefined && output.CanarySettings !== null
+        ? deserializeAws_restJson1AwsApiGatewayCanarySettings(output.CanarySettings, context)
+        : undefined,
+    ClientCertificateId:
+      output.ClientCertificateId !== undefined && output.ClientCertificateId !== null
+        ? output.ClientCertificateId
+        : undefined,
+    CreatedDate: output.CreatedDate !== undefined && output.CreatedDate !== null ? output.CreatedDate : undefined,
+    DeploymentId: output.DeploymentId !== undefined && output.DeploymentId !== null ? output.DeploymentId : undefined,
+    Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
+    DocumentationVersion:
+      output.DocumentationVersion !== undefined && output.DocumentationVersion !== null
+        ? output.DocumentationVersion
+        : undefined,
+    LastUpdatedDate:
+      output.LastUpdatedDate !== undefined && output.LastUpdatedDate !== null ? output.LastUpdatedDate : undefined,
+    MethodSettings:
+      output.MethodSettings !== undefined && output.MethodSettings !== null
+        ? deserializeAws_restJson1AwsApiGatewayMethodSettingsList(output.MethodSettings, context)
+        : undefined,
+    StageName: output.StageName !== undefined && output.StageName !== null ? output.StageName : undefined,
+    TracingEnabled:
+      output.TracingEnabled !== undefined && output.TracingEnabled !== null ? output.TracingEnabled : undefined,
+    Variables:
+      output.Variables !== undefined && output.Variables !== null
+        ? deserializeAws_restJson1FieldMap(output.Variables, context)
+        : undefined,
+    WebAclArn: output.WebAclArn !== undefined && output.WebAclArn !== null ? output.WebAclArn : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AwsApiGatewayV2ApiDetails = (
+  output: any,
+  context: __SerdeContext
+): AwsApiGatewayV2ApiDetails => {
+  return {
+    ApiEndpoint: output.ApiEndpoint !== undefined && output.ApiEndpoint !== null ? output.ApiEndpoint : undefined,
+    ApiId: output.ApiId !== undefined && output.ApiId !== null ? output.ApiId : undefined,
+    ApiKeySelectionExpression:
+      output.ApiKeySelectionExpression !== undefined && output.ApiKeySelectionExpression !== null
+        ? output.ApiKeySelectionExpression
+        : undefined,
+    CorsConfiguration:
+      output.CorsConfiguration !== undefined && output.CorsConfiguration !== null
+        ? deserializeAws_restJson1AwsCorsConfiguration(output.CorsConfiguration, context)
+        : undefined,
+    CreatedDate: output.CreatedDate !== undefined && output.CreatedDate !== null ? output.CreatedDate : undefined,
+    Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+    ProtocolType: output.ProtocolType !== undefined && output.ProtocolType !== null ? output.ProtocolType : undefined,
+    RouteSelectionExpression:
+      output.RouteSelectionExpression !== undefined && output.RouteSelectionExpression !== null
+        ? output.RouteSelectionExpression
+        : undefined,
+    Version: output.Version !== undefined && output.Version !== null ? output.Version : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AwsApiGatewayV2RouteSettings = (
+  output: any,
+  context: __SerdeContext
+): AwsApiGatewayV2RouteSettings => {
+  return {
+    DataTraceEnabled:
+      output.DataTraceEnabled !== undefined && output.DataTraceEnabled !== null ? output.DataTraceEnabled : undefined,
+    DetailedMetricsEnabled:
+      output.DetailedMetricsEnabled !== undefined && output.DetailedMetricsEnabled !== null
+        ? output.DetailedMetricsEnabled
+        : undefined,
+    LoggingLevel: output.LoggingLevel !== undefined && output.LoggingLevel !== null ? output.LoggingLevel : undefined,
+    ThrottlingBurstLimit:
+      output.ThrottlingBurstLimit !== undefined && output.ThrottlingBurstLimit !== null
+        ? output.ThrottlingBurstLimit
+        : undefined,
+    ThrottlingRateLimit:
+      output.ThrottlingRateLimit !== undefined && output.ThrottlingRateLimit !== null
+        ? output.ThrottlingRateLimit
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AwsApiGatewayV2StageDetails = (
+  output: any,
+  context: __SerdeContext
+): AwsApiGatewayV2StageDetails => {
+  return {
+    AccessLogSettings:
+      output.AccessLogSettings !== undefined && output.AccessLogSettings !== null
+        ? deserializeAws_restJson1AwsApiGatewayAccessLogSettings(output.AccessLogSettings, context)
+        : undefined,
+    ApiGatewayManaged:
+      output.ApiGatewayManaged !== undefined && output.ApiGatewayManaged !== null
+        ? output.ApiGatewayManaged
+        : undefined,
+    AutoDeploy: output.AutoDeploy !== undefined && output.AutoDeploy !== null ? output.AutoDeploy : undefined,
+    CreatedDate: output.CreatedDate !== undefined && output.CreatedDate !== null ? output.CreatedDate : undefined,
+    DefaultRouteSettings:
+      output.DefaultRouteSettings !== undefined && output.DefaultRouteSettings !== null
+        ? deserializeAws_restJson1AwsApiGatewayV2RouteSettings(output.DefaultRouteSettings, context)
+        : undefined,
+    DeploymentId: output.DeploymentId !== undefined && output.DeploymentId !== null ? output.DeploymentId : undefined,
+    Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
+    LastDeploymentStatusMessage:
+      output.LastDeploymentStatusMessage !== undefined && output.LastDeploymentStatusMessage !== null
+        ? output.LastDeploymentStatusMessage
+        : undefined,
+    LastUpdatedDate:
+      output.LastUpdatedDate !== undefined && output.LastUpdatedDate !== null ? output.LastUpdatedDate : undefined,
+    RouteSettings:
+      output.RouteSettings !== undefined && output.RouteSettings !== null
+        ? deserializeAws_restJson1AwsApiGatewayV2RouteSettings(output.RouteSettings, context)
+        : undefined,
+    StageName: output.StageName !== undefined && output.StageName !== null ? output.StageName : undefined,
+    StageVariables:
+      output.StageVariables !== undefined && output.StageVariables !== null
+        ? deserializeAws_restJson1FieldMap(output.StageVariables, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1AwsAutoScalingAutoScalingGroupDetails = (
   output: any,
   context: __SerdeContext
@@ -7057,11 +9617,248 @@ const deserializeAws_restJson1AwsAutoScalingAutoScalingGroupDetails = (
   } as any;
 };
 
+const deserializeAws_restJson1AwsCertificateManagerCertificateDetails = (
+  output: any,
+  context: __SerdeContext
+): AwsCertificateManagerCertificateDetails => {
+  return {
+    CertificateAuthorityArn:
+      output.CertificateAuthorityArn !== undefined && output.CertificateAuthorityArn !== null
+        ? output.CertificateAuthorityArn
+        : undefined,
+    CreatedAt: output.CreatedAt !== undefined && output.CreatedAt !== null ? output.CreatedAt : undefined,
+    DomainName: output.DomainName !== undefined && output.DomainName !== null ? output.DomainName : undefined,
+    DomainValidationOptions:
+      output.DomainValidationOptions !== undefined && output.DomainValidationOptions !== null
+        ? deserializeAws_restJson1AwsCertificateManagerCertificateDomainValidationOptions(
+            output.DomainValidationOptions,
+            context
+          )
+        : undefined,
+    ExtendedKeyUsages:
+      output.ExtendedKeyUsages !== undefined && output.ExtendedKeyUsages !== null
+        ? deserializeAws_restJson1AwsCertificateManagerCertificateExtendedKeyUsages(output.ExtendedKeyUsages, context)
+        : undefined,
+    FailureReason:
+      output.FailureReason !== undefined && output.FailureReason !== null ? output.FailureReason : undefined,
+    ImportedAt: output.ImportedAt !== undefined && output.ImportedAt !== null ? output.ImportedAt : undefined,
+    InUseBy:
+      output.InUseBy !== undefined && output.InUseBy !== null
+        ? deserializeAws_restJson1StringList(output.InUseBy, context)
+        : undefined,
+    IssuedAt: output.IssuedAt !== undefined && output.IssuedAt !== null ? output.IssuedAt : undefined,
+    Issuer: output.Issuer !== undefined && output.Issuer !== null ? output.Issuer : undefined,
+    KeyAlgorithm: output.KeyAlgorithm !== undefined && output.KeyAlgorithm !== null ? output.KeyAlgorithm : undefined,
+    KeyUsages:
+      output.KeyUsages !== undefined && output.KeyUsages !== null
+        ? deserializeAws_restJson1AwsCertificateManagerCertificateKeyUsages(output.KeyUsages, context)
+        : undefined,
+    NotAfter: output.NotAfter !== undefined && output.NotAfter !== null ? output.NotAfter : undefined,
+    NotBefore: output.NotBefore !== undefined && output.NotBefore !== null ? output.NotBefore : undefined,
+    Options:
+      output.Options !== undefined && output.Options !== null
+        ? deserializeAws_restJson1AwsCertificateManagerCertificateOptions(output.Options, context)
+        : undefined,
+    RenewalEligibility:
+      output.RenewalEligibility !== undefined && output.RenewalEligibility !== null
+        ? output.RenewalEligibility
+        : undefined,
+    RenewalSummary:
+      output.RenewalSummary !== undefined && output.RenewalSummary !== null
+        ? deserializeAws_restJson1AwsCertificateManagerCertificateRenewalSummary(output.RenewalSummary, context)
+        : undefined,
+    Serial: output.Serial !== undefined && output.Serial !== null ? output.Serial : undefined,
+    SignatureAlgorithm:
+      output.SignatureAlgorithm !== undefined && output.SignatureAlgorithm !== null
+        ? output.SignatureAlgorithm
+        : undefined,
+    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
+    Subject: output.Subject !== undefined && output.Subject !== null ? output.Subject : undefined,
+    SubjectAlternativeNames:
+      output.SubjectAlternativeNames !== undefined && output.SubjectAlternativeNames !== null
+        ? deserializeAws_restJson1StringList(output.SubjectAlternativeNames, context)
+        : undefined,
+    Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AwsCertificateManagerCertificateDomainValidationOption = (
+  output: any,
+  context: __SerdeContext
+): AwsCertificateManagerCertificateDomainValidationOption => {
+  return {
+    DomainName: output.DomainName !== undefined && output.DomainName !== null ? output.DomainName : undefined,
+    ResourceRecord:
+      output.ResourceRecord !== undefined && output.ResourceRecord !== null
+        ? deserializeAws_restJson1AwsCertificateManagerCertificateResourceRecord(output.ResourceRecord, context)
+        : undefined,
+    ValidationDomain:
+      output.ValidationDomain !== undefined && output.ValidationDomain !== null ? output.ValidationDomain : undefined,
+    ValidationEmails:
+      output.ValidationEmails !== undefined && output.ValidationEmails !== null
+        ? deserializeAws_restJson1StringList(output.ValidationEmails, context)
+        : undefined,
+    ValidationMethod:
+      output.ValidationMethod !== undefined && output.ValidationMethod !== null ? output.ValidationMethod : undefined,
+    ValidationStatus:
+      output.ValidationStatus !== undefined && output.ValidationStatus !== null ? output.ValidationStatus : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AwsCertificateManagerCertificateDomainValidationOptions = (
+  output: any,
+  context: __SerdeContext
+): AwsCertificateManagerCertificateDomainValidationOption[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_restJson1AwsCertificateManagerCertificateDomainValidationOption(entry, context)
+  );
+};
+
+const deserializeAws_restJson1AwsCertificateManagerCertificateExtendedKeyUsage = (
+  output: any,
+  context: __SerdeContext
+): AwsCertificateManagerCertificateExtendedKeyUsage => {
+  return {
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+    OId: output.OId !== undefined && output.OId !== null ? output.OId : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AwsCertificateManagerCertificateExtendedKeyUsages = (
+  output: any,
+  context: __SerdeContext
+): AwsCertificateManagerCertificateExtendedKeyUsage[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_restJson1AwsCertificateManagerCertificateExtendedKeyUsage(entry, context)
+  );
+};
+
+const deserializeAws_restJson1AwsCertificateManagerCertificateKeyUsage = (
+  output: any,
+  context: __SerdeContext
+): AwsCertificateManagerCertificateKeyUsage => {
+  return {
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AwsCertificateManagerCertificateKeyUsages = (
+  output: any,
+  context: __SerdeContext
+): AwsCertificateManagerCertificateKeyUsage[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_restJson1AwsCertificateManagerCertificateKeyUsage(entry, context)
+  );
+};
+
+const deserializeAws_restJson1AwsCertificateManagerCertificateOptions = (
+  output: any,
+  context: __SerdeContext
+): AwsCertificateManagerCertificateOptions => {
+  return {
+    CertificateTransparencyLoggingPreference:
+      output.CertificateTransparencyLoggingPreference !== undefined &&
+      output.CertificateTransparencyLoggingPreference !== null
+        ? output.CertificateTransparencyLoggingPreference
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AwsCertificateManagerCertificateRenewalSummary = (
+  output: any,
+  context: __SerdeContext
+): AwsCertificateManagerCertificateRenewalSummary => {
+  return {
+    DomainValidationOptions:
+      output.DomainValidationOptions !== undefined && output.DomainValidationOptions !== null
+        ? deserializeAws_restJson1AwsCertificateManagerCertificateDomainValidationOptions(
+            output.DomainValidationOptions,
+            context
+          )
+        : undefined,
+    RenewalStatus:
+      output.RenewalStatus !== undefined && output.RenewalStatus !== null ? output.RenewalStatus : undefined,
+    RenewalStatusReason:
+      output.RenewalStatusReason !== undefined && output.RenewalStatusReason !== null
+        ? output.RenewalStatusReason
+        : undefined,
+    UpdatedAt: output.UpdatedAt !== undefined && output.UpdatedAt !== null ? output.UpdatedAt : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AwsCertificateManagerCertificateResourceRecord = (
+  output: any,
+  context: __SerdeContext
+): AwsCertificateManagerCertificateResourceRecord => {
+  return {
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+    Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
+    Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AwsCloudFrontDistributionCacheBehavior = (
+  output: any,
+  context: __SerdeContext
+): AwsCloudFrontDistributionCacheBehavior => {
+  return {
+    ViewerProtocolPolicy:
+      output.ViewerProtocolPolicy !== undefined && output.ViewerProtocolPolicy !== null
+        ? output.ViewerProtocolPolicy
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AwsCloudFrontDistributionCacheBehaviors = (
+  output: any,
+  context: __SerdeContext
+): AwsCloudFrontDistributionCacheBehaviors => {
+  return {
+    Items:
+      output.Items !== undefined && output.Items !== null
+        ? deserializeAws_restJson1AwsCloudFrontDistributionCacheBehaviorsItemList(output.Items, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AwsCloudFrontDistributionCacheBehaviorsItemList = (
+  output: any,
+  context: __SerdeContext
+): AwsCloudFrontDistributionCacheBehavior[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_restJson1AwsCloudFrontDistributionCacheBehavior(entry, context)
+  );
+};
+
+const deserializeAws_restJson1AwsCloudFrontDistributionDefaultCacheBehavior = (
+  output: any,
+  context: __SerdeContext
+): AwsCloudFrontDistributionDefaultCacheBehavior => {
+  return {
+    ViewerProtocolPolicy:
+      output.ViewerProtocolPolicy !== undefined && output.ViewerProtocolPolicy !== null
+        ? output.ViewerProtocolPolicy
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1AwsCloudFrontDistributionDetails = (
   output: any,
   context: __SerdeContext
 ): AwsCloudFrontDistributionDetails => {
   return {
+    CacheBehaviors:
+      output.CacheBehaviors !== undefined && output.CacheBehaviors !== null
+        ? deserializeAws_restJson1AwsCloudFrontDistributionCacheBehaviors(output.CacheBehaviors, context)
+        : undefined,
+    DefaultCacheBehavior:
+      output.DefaultCacheBehavior !== undefined && output.DefaultCacheBehavior !== null
+        ? deserializeAws_restJson1AwsCloudFrontDistributionDefaultCacheBehavior(output.DefaultCacheBehavior, context)
+        : undefined,
+    DefaultRootObject:
+      output.DefaultRootObject !== undefined && output.DefaultRootObject !== null
+        ? output.DefaultRootObject
+        : undefined,
     DomainName: output.DomainName !== undefined && output.DomainName !== null ? output.DomainName : undefined,
     ETag: output.ETag !== undefined && output.ETag !== null ? output.ETag : undefined,
     LastModifiedTime:
@@ -7069,6 +9866,10 @@ const deserializeAws_restJson1AwsCloudFrontDistributionDetails = (
     Logging:
       output.Logging !== undefined && output.Logging !== null
         ? deserializeAws_restJson1AwsCloudFrontDistributionLogging(output.Logging, context)
+        : undefined,
+    OriginGroups:
+      output.OriginGroups !== undefined && output.OriginGroups !== null
+        ? deserializeAws_restJson1AwsCloudFrontDistributionOriginGroups(output.OriginGroups, context)
         : undefined,
     Origins:
       output.Origins !== undefined && output.Origins !== null
@@ -7092,6 +9893,71 @@ const deserializeAws_restJson1AwsCloudFrontDistributionLogging = (
   } as any;
 };
 
+const deserializeAws_restJson1AwsCloudFrontDistributionOriginGroup = (
+  output: any,
+  context: __SerdeContext
+): AwsCloudFrontDistributionOriginGroup => {
+  return {
+    FailoverCriteria:
+      output.FailoverCriteria !== undefined && output.FailoverCriteria !== null
+        ? deserializeAws_restJson1AwsCloudFrontDistributionOriginGroupFailover(output.FailoverCriteria, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AwsCloudFrontDistributionOriginGroupFailover = (
+  output: any,
+  context: __SerdeContext
+): AwsCloudFrontDistributionOriginGroupFailover => {
+  return {
+    StatusCodes:
+      output.StatusCodes !== undefined && output.StatusCodes !== null
+        ? deserializeAws_restJson1AwsCloudFrontDistributionOriginGroupFailoverStatusCodes(output.StatusCodes, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AwsCloudFrontDistributionOriginGroupFailoverStatusCodes = (
+  output: any,
+  context: __SerdeContext
+): AwsCloudFrontDistributionOriginGroupFailoverStatusCodes => {
+  return {
+    Items:
+      output.Items !== undefined && output.Items !== null
+        ? deserializeAws_restJson1AwsCloudFrontDistributionOriginGroupFailoverStatusCodesItemList(output.Items, context)
+        : undefined,
+    Quantity: output.Quantity !== undefined && output.Quantity !== null ? output.Quantity : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AwsCloudFrontDistributionOriginGroupFailoverStatusCodesItemList = (
+  output: any,
+  context: __SerdeContext
+): number[] => {
+  return (output || []).map((entry: any) => entry);
+};
+
+const deserializeAws_restJson1AwsCloudFrontDistributionOriginGroups = (
+  output: any,
+  context: __SerdeContext
+): AwsCloudFrontDistributionOriginGroups => {
+  return {
+    Items:
+      output.Items !== undefined && output.Items !== null
+        ? deserializeAws_restJson1AwsCloudFrontDistributionOriginGroupsItemList(output.Items, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AwsCloudFrontDistributionOriginGroupsItemList = (
+  output: any,
+  context: __SerdeContext
+): AwsCloudFrontDistributionOriginGroup[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_restJson1AwsCloudFrontDistributionOriginGroup(entry, context)
+  );
+};
+
 const deserializeAws_restJson1AwsCloudFrontDistributionOriginItem = (
   output: any,
   context: __SerdeContext
@@ -7100,6 +9966,10 @@ const deserializeAws_restJson1AwsCloudFrontDistributionOriginItem = (
     DomainName: output.DomainName !== undefined && output.DomainName !== null ? output.DomainName : undefined,
     Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
     OriginPath: output.OriginPath !== undefined && output.OriginPath !== null ? output.OriginPath : undefined,
+    S3OriginConfig:
+      output.S3OriginConfig !== undefined && output.S3OriginConfig !== null
+        ? deserializeAws_restJson1AwsCloudFrontDistributionOriginS3OriginConfig(output.S3OriginConfig, context)
+        : undefined,
   } as any;
 };
 
@@ -7121,6 +9991,62 @@ const deserializeAws_restJson1AwsCloudFrontDistributionOrigins = (
       output.Items !== undefined && output.Items !== null
         ? deserializeAws_restJson1AwsCloudFrontDistributionOriginItemList(output.Items, context)
         : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AwsCloudFrontDistributionOriginS3OriginConfig = (
+  output: any,
+  context: __SerdeContext
+): AwsCloudFrontDistributionOriginS3OriginConfig => {
+  return {
+    OriginAccessIdentity:
+      output.OriginAccessIdentity !== undefined && output.OriginAccessIdentity !== null
+        ? output.OriginAccessIdentity
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AwsCloudTrailTrailDetails = (
+  output: any,
+  context: __SerdeContext
+): AwsCloudTrailTrailDetails => {
+  return {
+    CloudWatchLogsLogGroupArn:
+      output.CloudWatchLogsLogGroupArn !== undefined && output.CloudWatchLogsLogGroupArn !== null
+        ? output.CloudWatchLogsLogGroupArn
+        : undefined,
+    CloudWatchLogsRoleArn:
+      output.CloudWatchLogsRoleArn !== undefined && output.CloudWatchLogsRoleArn !== null
+        ? output.CloudWatchLogsRoleArn
+        : undefined,
+    HasCustomEventSelectors:
+      output.HasCustomEventSelectors !== undefined && output.HasCustomEventSelectors !== null
+        ? output.HasCustomEventSelectors
+        : undefined,
+    HomeRegion: output.HomeRegion !== undefined && output.HomeRegion !== null ? output.HomeRegion : undefined,
+    IncludeGlobalServiceEvents:
+      output.IncludeGlobalServiceEvents !== undefined && output.IncludeGlobalServiceEvents !== null
+        ? output.IncludeGlobalServiceEvents
+        : undefined,
+    IsMultiRegionTrail:
+      output.IsMultiRegionTrail !== undefined && output.IsMultiRegionTrail !== null
+        ? output.IsMultiRegionTrail
+        : undefined,
+    IsOrganizationTrail:
+      output.IsOrganizationTrail !== undefined && output.IsOrganizationTrail !== null
+        ? output.IsOrganizationTrail
+        : undefined,
+    KmsKeyId: output.KmsKeyId !== undefined && output.KmsKeyId !== null ? output.KmsKeyId : undefined,
+    LogFileValidationEnabled:
+      output.LogFileValidationEnabled !== undefined && output.LogFileValidationEnabled !== null
+        ? output.LogFileValidationEnabled
+        : undefined,
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+    S3BucketName: output.S3BucketName !== undefined && output.S3BucketName !== null ? output.S3BucketName : undefined,
+    S3KeyPrefix: output.S3KeyPrefix !== undefined && output.S3KeyPrefix !== null ? output.S3KeyPrefix : undefined,
+    SnsTopicArn: output.SnsTopicArn !== undefined && output.SnsTopicArn !== null ? output.SnsTopicArn : undefined,
+    SnsTopicName: output.SnsTopicName !== undefined && output.SnsTopicName !== null ? output.SnsTopicName : undefined,
+    TrailArn: output.TrailArn !== undefined && output.TrailArn !== null ? output.TrailArn : undefined,
   } as any;
 };
 
@@ -7206,6 +10132,401 @@ const deserializeAws_restJson1AwsCodeBuildProjectVpcConfig = (
         ? deserializeAws_restJson1NonEmptyStringList(output.Subnets, context)
         : undefined,
     VpcId: output.VpcId !== undefined && output.VpcId !== null ? output.VpcId : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AwsCorsConfiguration = (output: any, context: __SerdeContext): AwsCorsConfiguration => {
+  return {
+    AllowCredentials:
+      output.AllowCredentials !== undefined && output.AllowCredentials !== null ? output.AllowCredentials : undefined,
+    AllowHeaders:
+      output.AllowHeaders !== undefined && output.AllowHeaders !== null
+        ? deserializeAws_restJson1NonEmptyStringList(output.AllowHeaders, context)
+        : undefined,
+    AllowMethods:
+      output.AllowMethods !== undefined && output.AllowMethods !== null
+        ? deserializeAws_restJson1NonEmptyStringList(output.AllowMethods, context)
+        : undefined,
+    AllowOrigins:
+      output.AllowOrigins !== undefined && output.AllowOrigins !== null
+        ? deserializeAws_restJson1NonEmptyStringList(output.AllowOrigins, context)
+        : undefined,
+    ExposeHeaders:
+      output.ExposeHeaders !== undefined && output.ExposeHeaders !== null
+        ? deserializeAws_restJson1NonEmptyStringList(output.ExposeHeaders, context)
+        : undefined,
+    MaxAge: output.MaxAge !== undefined && output.MaxAge !== null ? output.MaxAge : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AwsDynamoDbTableAttributeDefinition = (
+  output: any,
+  context: __SerdeContext
+): AwsDynamoDbTableAttributeDefinition => {
+  return {
+    AttributeName:
+      output.AttributeName !== undefined && output.AttributeName !== null ? output.AttributeName : undefined,
+    AttributeType:
+      output.AttributeType !== undefined && output.AttributeType !== null ? output.AttributeType : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AwsDynamoDbTableAttributeDefinitionList = (
+  output: any,
+  context: __SerdeContext
+): AwsDynamoDbTableAttributeDefinition[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_restJson1AwsDynamoDbTableAttributeDefinition(entry, context)
+  );
+};
+
+const deserializeAws_restJson1AwsDynamoDbTableBillingModeSummary = (
+  output: any,
+  context: __SerdeContext
+): AwsDynamoDbTableBillingModeSummary => {
+  return {
+    BillingMode: output.BillingMode !== undefined && output.BillingMode !== null ? output.BillingMode : undefined,
+    LastUpdateToPayPerRequestDateTime:
+      output.LastUpdateToPayPerRequestDateTime !== undefined && output.LastUpdateToPayPerRequestDateTime !== null
+        ? output.LastUpdateToPayPerRequestDateTime
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AwsDynamoDbTableDetails = (
+  output: any,
+  context: __SerdeContext
+): AwsDynamoDbTableDetails => {
+  return {
+    AttributeDefinitions:
+      output.AttributeDefinitions !== undefined && output.AttributeDefinitions !== null
+        ? deserializeAws_restJson1AwsDynamoDbTableAttributeDefinitionList(output.AttributeDefinitions, context)
+        : undefined,
+    BillingModeSummary:
+      output.BillingModeSummary !== undefined && output.BillingModeSummary !== null
+        ? deserializeAws_restJson1AwsDynamoDbTableBillingModeSummary(output.BillingModeSummary, context)
+        : undefined,
+    CreationDateTime:
+      output.CreationDateTime !== undefined && output.CreationDateTime !== null ? output.CreationDateTime : undefined,
+    GlobalSecondaryIndexes:
+      output.GlobalSecondaryIndexes !== undefined && output.GlobalSecondaryIndexes !== null
+        ? deserializeAws_restJson1AwsDynamoDbTableGlobalSecondaryIndexList(output.GlobalSecondaryIndexes, context)
+        : undefined,
+    GlobalTableVersion:
+      output.GlobalTableVersion !== undefined && output.GlobalTableVersion !== null
+        ? output.GlobalTableVersion
+        : undefined,
+    ItemCount: output.ItemCount !== undefined && output.ItemCount !== null ? output.ItemCount : undefined,
+    KeySchema:
+      output.KeySchema !== undefined && output.KeySchema !== null
+        ? deserializeAws_restJson1AwsDynamoDbTableKeySchemaList(output.KeySchema, context)
+        : undefined,
+    LatestStreamArn:
+      output.LatestStreamArn !== undefined && output.LatestStreamArn !== null ? output.LatestStreamArn : undefined,
+    LatestStreamLabel:
+      output.LatestStreamLabel !== undefined && output.LatestStreamLabel !== null
+        ? output.LatestStreamLabel
+        : undefined,
+    LocalSecondaryIndexes:
+      output.LocalSecondaryIndexes !== undefined && output.LocalSecondaryIndexes !== null
+        ? deserializeAws_restJson1AwsDynamoDbTableLocalSecondaryIndexList(output.LocalSecondaryIndexes, context)
+        : undefined,
+    ProvisionedThroughput:
+      output.ProvisionedThroughput !== undefined && output.ProvisionedThroughput !== null
+        ? deserializeAws_restJson1AwsDynamoDbTableProvisionedThroughput(output.ProvisionedThroughput, context)
+        : undefined,
+    Replicas:
+      output.Replicas !== undefined && output.Replicas !== null
+        ? deserializeAws_restJson1AwsDynamoDbTableReplicaList(output.Replicas, context)
+        : undefined,
+    RestoreSummary:
+      output.RestoreSummary !== undefined && output.RestoreSummary !== null
+        ? deserializeAws_restJson1AwsDynamoDbTableRestoreSummary(output.RestoreSummary, context)
+        : undefined,
+    SseDescription:
+      output.SseDescription !== undefined && output.SseDescription !== null
+        ? deserializeAws_restJson1AwsDynamoDbTableSseDescription(output.SseDescription, context)
+        : undefined,
+    StreamSpecification:
+      output.StreamSpecification !== undefined && output.StreamSpecification !== null
+        ? deserializeAws_restJson1AwsDynamoDbTableStreamSpecification(output.StreamSpecification, context)
+        : undefined,
+    TableId: output.TableId !== undefined && output.TableId !== null ? output.TableId : undefined,
+    TableName: output.TableName !== undefined && output.TableName !== null ? output.TableName : undefined,
+    TableSizeBytes:
+      output.TableSizeBytes !== undefined && output.TableSizeBytes !== null ? output.TableSizeBytes : undefined,
+    TableStatus: output.TableStatus !== undefined && output.TableStatus !== null ? output.TableStatus : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AwsDynamoDbTableGlobalSecondaryIndex = (
+  output: any,
+  context: __SerdeContext
+): AwsDynamoDbTableGlobalSecondaryIndex => {
+  return {
+    Backfilling: output.Backfilling !== undefined && output.Backfilling !== null ? output.Backfilling : undefined,
+    IndexArn: output.IndexArn !== undefined && output.IndexArn !== null ? output.IndexArn : undefined,
+    IndexName: output.IndexName !== undefined && output.IndexName !== null ? output.IndexName : undefined,
+    IndexSizeBytes:
+      output.IndexSizeBytes !== undefined && output.IndexSizeBytes !== null ? output.IndexSizeBytes : undefined,
+    IndexStatus: output.IndexStatus !== undefined && output.IndexStatus !== null ? output.IndexStatus : undefined,
+    ItemCount: output.ItemCount !== undefined && output.ItemCount !== null ? output.ItemCount : undefined,
+    KeySchema:
+      output.KeySchema !== undefined && output.KeySchema !== null
+        ? deserializeAws_restJson1AwsDynamoDbTableKeySchemaList(output.KeySchema, context)
+        : undefined,
+    Projection:
+      output.Projection !== undefined && output.Projection !== null
+        ? deserializeAws_restJson1AwsDynamoDbTableProjection(output.Projection, context)
+        : undefined,
+    ProvisionedThroughput:
+      output.ProvisionedThroughput !== undefined && output.ProvisionedThroughput !== null
+        ? deserializeAws_restJson1AwsDynamoDbTableProvisionedThroughput(output.ProvisionedThroughput, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AwsDynamoDbTableGlobalSecondaryIndexList = (
+  output: any,
+  context: __SerdeContext
+): AwsDynamoDbTableGlobalSecondaryIndex[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_restJson1AwsDynamoDbTableGlobalSecondaryIndex(entry, context)
+  );
+};
+
+const deserializeAws_restJson1AwsDynamoDbTableKeySchema = (
+  output: any,
+  context: __SerdeContext
+): AwsDynamoDbTableKeySchema => {
+  return {
+    AttributeName:
+      output.AttributeName !== undefined && output.AttributeName !== null ? output.AttributeName : undefined,
+    KeyType: output.KeyType !== undefined && output.KeyType !== null ? output.KeyType : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AwsDynamoDbTableKeySchemaList = (
+  output: any,
+  context: __SerdeContext
+): AwsDynamoDbTableKeySchema[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1AwsDynamoDbTableKeySchema(entry, context));
+};
+
+const deserializeAws_restJson1AwsDynamoDbTableLocalSecondaryIndex = (
+  output: any,
+  context: __SerdeContext
+): AwsDynamoDbTableLocalSecondaryIndex => {
+  return {
+    IndexArn: output.IndexArn !== undefined && output.IndexArn !== null ? output.IndexArn : undefined,
+    IndexName: output.IndexName !== undefined && output.IndexName !== null ? output.IndexName : undefined,
+    KeySchema:
+      output.KeySchema !== undefined && output.KeySchema !== null
+        ? deserializeAws_restJson1AwsDynamoDbTableKeySchemaList(output.KeySchema, context)
+        : undefined,
+    Projection:
+      output.Projection !== undefined && output.Projection !== null
+        ? deserializeAws_restJson1AwsDynamoDbTableProjection(output.Projection, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AwsDynamoDbTableLocalSecondaryIndexList = (
+  output: any,
+  context: __SerdeContext
+): AwsDynamoDbTableLocalSecondaryIndex[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_restJson1AwsDynamoDbTableLocalSecondaryIndex(entry, context)
+  );
+};
+
+const deserializeAws_restJson1AwsDynamoDbTableProjection = (
+  output: any,
+  context: __SerdeContext
+): AwsDynamoDbTableProjection => {
+  return {
+    NonKeyAttributes:
+      output.NonKeyAttributes !== undefined && output.NonKeyAttributes !== null
+        ? deserializeAws_restJson1StringList(output.NonKeyAttributes, context)
+        : undefined,
+    ProjectionType:
+      output.ProjectionType !== undefined && output.ProjectionType !== null ? output.ProjectionType : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AwsDynamoDbTableProvisionedThroughput = (
+  output: any,
+  context: __SerdeContext
+): AwsDynamoDbTableProvisionedThroughput => {
+  return {
+    LastDecreaseDateTime:
+      output.LastDecreaseDateTime !== undefined && output.LastDecreaseDateTime !== null
+        ? output.LastDecreaseDateTime
+        : undefined,
+    LastIncreaseDateTime:
+      output.LastIncreaseDateTime !== undefined && output.LastIncreaseDateTime !== null
+        ? output.LastIncreaseDateTime
+        : undefined,
+    NumberOfDecreasesToday:
+      output.NumberOfDecreasesToday !== undefined && output.NumberOfDecreasesToday !== null
+        ? output.NumberOfDecreasesToday
+        : undefined,
+    ReadCapacityUnits:
+      output.ReadCapacityUnits !== undefined && output.ReadCapacityUnits !== null
+        ? output.ReadCapacityUnits
+        : undefined,
+    WriteCapacityUnits:
+      output.WriteCapacityUnits !== undefined && output.WriteCapacityUnits !== null
+        ? output.WriteCapacityUnits
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AwsDynamoDbTableProvisionedThroughputOverride = (
+  output: any,
+  context: __SerdeContext
+): AwsDynamoDbTableProvisionedThroughputOverride => {
+  return {
+    ReadCapacityUnits:
+      output.ReadCapacityUnits !== undefined && output.ReadCapacityUnits !== null
+        ? output.ReadCapacityUnits
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AwsDynamoDbTableReplica = (
+  output: any,
+  context: __SerdeContext
+): AwsDynamoDbTableReplica => {
+  return {
+    GlobalSecondaryIndexes:
+      output.GlobalSecondaryIndexes !== undefined && output.GlobalSecondaryIndexes !== null
+        ? deserializeAws_restJson1AwsDynamoDbTableReplicaGlobalSecondaryIndexList(
+            output.GlobalSecondaryIndexes,
+            context
+          )
+        : undefined,
+    KmsMasterKeyId:
+      output.KmsMasterKeyId !== undefined && output.KmsMasterKeyId !== null ? output.KmsMasterKeyId : undefined,
+    ProvisionedThroughputOverride:
+      output.ProvisionedThroughputOverride !== undefined && output.ProvisionedThroughputOverride !== null
+        ? deserializeAws_restJson1AwsDynamoDbTableProvisionedThroughputOverride(
+            output.ProvisionedThroughputOverride,
+            context
+          )
+        : undefined,
+    RegionName: output.RegionName !== undefined && output.RegionName !== null ? output.RegionName : undefined,
+    ReplicaStatus:
+      output.ReplicaStatus !== undefined && output.ReplicaStatus !== null ? output.ReplicaStatus : undefined,
+    ReplicaStatusDescription:
+      output.ReplicaStatusDescription !== undefined && output.ReplicaStatusDescription !== null
+        ? output.ReplicaStatusDescription
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AwsDynamoDbTableReplicaGlobalSecondaryIndex = (
+  output: any,
+  context: __SerdeContext
+): AwsDynamoDbTableReplicaGlobalSecondaryIndex => {
+  return {
+    IndexName: output.IndexName !== undefined && output.IndexName !== null ? output.IndexName : undefined,
+    ProvisionedThroughputOverride:
+      output.ProvisionedThroughputOverride !== undefined && output.ProvisionedThroughputOverride !== null
+        ? deserializeAws_restJson1AwsDynamoDbTableProvisionedThroughputOverride(
+            output.ProvisionedThroughputOverride,
+            context
+          )
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AwsDynamoDbTableReplicaGlobalSecondaryIndexList = (
+  output: any,
+  context: __SerdeContext
+): AwsDynamoDbTableReplicaGlobalSecondaryIndex[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_restJson1AwsDynamoDbTableReplicaGlobalSecondaryIndex(entry, context)
+  );
+};
+
+const deserializeAws_restJson1AwsDynamoDbTableReplicaList = (
+  output: any,
+  context: __SerdeContext
+): AwsDynamoDbTableReplica[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1AwsDynamoDbTableReplica(entry, context));
+};
+
+const deserializeAws_restJson1AwsDynamoDbTableRestoreSummary = (
+  output: any,
+  context: __SerdeContext
+): AwsDynamoDbTableRestoreSummary => {
+  return {
+    RestoreDateTime:
+      output.RestoreDateTime !== undefined && output.RestoreDateTime !== null ? output.RestoreDateTime : undefined,
+    RestoreInProgress:
+      output.RestoreInProgress !== undefined && output.RestoreInProgress !== null
+        ? output.RestoreInProgress
+        : undefined,
+    SourceBackupArn:
+      output.SourceBackupArn !== undefined && output.SourceBackupArn !== null ? output.SourceBackupArn : undefined,
+    SourceTableArn:
+      output.SourceTableArn !== undefined && output.SourceTableArn !== null ? output.SourceTableArn : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AwsDynamoDbTableSseDescription = (
+  output: any,
+  context: __SerdeContext
+): AwsDynamoDbTableSseDescription => {
+  return {
+    InaccessibleEncryptionDateTime:
+      output.InaccessibleEncryptionDateTime !== undefined && output.InaccessibleEncryptionDateTime !== null
+        ? output.InaccessibleEncryptionDateTime
+        : undefined,
+    KmsMasterKeyArn:
+      output.KmsMasterKeyArn !== undefined && output.KmsMasterKeyArn !== null ? output.KmsMasterKeyArn : undefined,
+    SseType: output.SseType !== undefined && output.SseType !== null ? output.SseType : undefined,
+    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AwsDynamoDbTableStreamSpecification = (
+  output: any,
+  context: __SerdeContext
+): AwsDynamoDbTableStreamSpecification => {
+  return {
+    StreamEnabled:
+      output.StreamEnabled !== undefined && output.StreamEnabled !== null ? output.StreamEnabled : undefined,
+    StreamViewType:
+      output.StreamViewType !== undefined && output.StreamViewType !== null ? output.StreamViewType : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AwsEc2EipDetails = (output: any, context: __SerdeContext): AwsEc2EipDetails => {
+  return {
+    AllocationId: output.AllocationId !== undefined && output.AllocationId !== null ? output.AllocationId : undefined,
+    AssociationId:
+      output.AssociationId !== undefined && output.AssociationId !== null ? output.AssociationId : undefined,
+    Domain: output.Domain !== undefined && output.Domain !== null ? output.Domain : undefined,
+    InstanceId: output.InstanceId !== undefined && output.InstanceId !== null ? output.InstanceId : undefined,
+    NetworkBorderGroup:
+      output.NetworkBorderGroup !== undefined && output.NetworkBorderGroup !== null
+        ? output.NetworkBorderGroup
+        : undefined,
+    NetworkInterfaceId:
+      output.NetworkInterfaceId !== undefined && output.NetworkInterfaceId !== null
+        ? output.NetworkInterfaceId
+        : undefined,
+    NetworkInterfaceOwnerId:
+      output.NetworkInterfaceOwnerId !== undefined && output.NetworkInterfaceOwnerId !== null
+        ? output.NetworkInterfaceOwnerId
+        : undefined,
+    PrivateIpAddress:
+      output.PrivateIpAddress !== undefined && output.PrivateIpAddress !== null ? output.PrivateIpAddress : undefined,
+    PublicIp: output.PublicIp !== undefined && output.PublicIp !== null ? output.PublicIp : undefined,
+    PublicIpv4Pool:
+      output.PublicIpv4Pool !== undefined && output.PublicIpv4Pool !== null ? output.PublicIpv4Pool : undefined,
   } as any;
 };
 
@@ -7565,6 +10886,296 @@ const deserializeAws_restJson1AwsElasticsearchDomainVPCOptions = (
   } as any;
 };
 
+const deserializeAws_restJson1AwsElbAppCookieStickinessPolicies = (
+  output: any,
+  context: __SerdeContext
+): AwsElbAppCookieStickinessPolicy[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1AwsElbAppCookieStickinessPolicy(entry, context));
+};
+
+const deserializeAws_restJson1AwsElbAppCookieStickinessPolicy = (
+  output: any,
+  context: __SerdeContext
+): AwsElbAppCookieStickinessPolicy => {
+  return {
+    CookieName: output.CookieName !== undefined && output.CookieName !== null ? output.CookieName : undefined,
+    PolicyName: output.PolicyName !== undefined && output.PolicyName !== null ? output.PolicyName : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AwsElbLbCookieStickinessPolicies = (
+  output: any,
+  context: __SerdeContext
+): AwsElbLbCookieStickinessPolicy[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1AwsElbLbCookieStickinessPolicy(entry, context));
+};
+
+const deserializeAws_restJson1AwsElbLbCookieStickinessPolicy = (
+  output: any,
+  context: __SerdeContext
+): AwsElbLbCookieStickinessPolicy => {
+  return {
+    CookieExpirationPeriod:
+      output.CookieExpirationPeriod !== undefined && output.CookieExpirationPeriod !== null
+        ? output.CookieExpirationPeriod
+        : undefined,
+    PolicyName: output.PolicyName !== undefined && output.PolicyName !== null ? output.PolicyName : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AwsElbLoadBalancerAccessLog = (
+  output: any,
+  context: __SerdeContext
+): AwsElbLoadBalancerAccessLog => {
+  return {
+    EmitInterval: output.EmitInterval !== undefined && output.EmitInterval !== null ? output.EmitInterval : undefined,
+    Enabled: output.Enabled !== undefined && output.Enabled !== null ? output.Enabled : undefined,
+    S3BucketName: output.S3BucketName !== undefined && output.S3BucketName !== null ? output.S3BucketName : undefined,
+    S3BucketPrefix:
+      output.S3BucketPrefix !== undefined && output.S3BucketPrefix !== null ? output.S3BucketPrefix : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AwsElbLoadBalancerAttributes = (
+  output: any,
+  context: __SerdeContext
+): AwsElbLoadBalancerAttributes => {
+  return {
+    AccessLog:
+      output.AccessLog !== undefined && output.AccessLog !== null
+        ? deserializeAws_restJson1AwsElbLoadBalancerAccessLog(output.AccessLog, context)
+        : undefined,
+    ConnectionDraining:
+      output.ConnectionDraining !== undefined && output.ConnectionDraining !== null
+        ? deserializeAws_restJson1AwsElbLoadBalancerConnectionDraining(output.ConnectionDraining, context)
+        : undefined,
+    ConnectionSettings:
+      output.ConnectionSettings !== undefined && output.ConnectionSettings !== null
+        ? deserializeAws_restJson1AwsElbLoadBalancerConnectionSettings(output.ConnectionSettings, context)
+        : undefined,
+    CrossZoneLoadBalancing:
+      output.CrossZoneLoadBalancing !== undefined && output.CrossZoneLoadBalancing !== null
+        ? deserializeAws_restJson1AwsElbLoadBalancerCrossZoneLoadBalancing(output.CrossZoneLoadBalancing, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AwsElbLoadBalancerBackendServerDescription = (
+  output: any,
+  context: __SerdeContext
+): AwsElbLoadBalancerBackendServerDescription => {
+  return {
+    InstancePort: output.InstancePort !== undefined && output.InstancePort !== null ? output.InstancePort : undefined,
+    PolicyNames:
+      output.PolicyNames !== undefined && output.PolicyNames !== null
+        ? deserializeAws_restJson1StringList(output.PolicyNames, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AwsElbLoadBalancerBackendServerDescriptions = (
+  output: any,
+  context: __SerdeContext
+): AwsElbLoadBalancerBackendServerDescription[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_restJson1AwsElbLoadBalancerBackendServerDescription(entry, context)
+  );
+};
+
+const deserializeAws_restJson1AwsElbLoadBalancerConnectionDraining = (
+  output: any,
+  context: __SerdeContext
+): AwsElbLoadBalancerConnectionDraining => {
+  return {
+    Enabled: output.Enabled !== undefined && output.Enabled !== null ? output.Enabled : undefined,
+    Timeout: output.Timeout !== undefined && output.Timeout !== null ? output.Timeout : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AwsElbLoadBalancerConnectionSettings = (
+  output: any,
+  context: __SerdeContext
+): AwsElbLoadBalancerConnectionSettings => {
+  return {
+    IdleTimeout: output.IdleTimeout !== undefined && output.IdleTimeout !== null ? output.IdleTimeout : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AwsElbLoadBalancerCrossZoneLoadBalancing = (
+  output: any,
+  context: __SerdeContext
+): AwsElbLoadBalancerCrossZoneLoadBalancing => {
+  return {
+    Enabled: output.Enabled !== undefined && output.Enabled !== null ? output.Enabled : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AwsElbLoadBalancerDetails = (
+  output: any,
+  context: __SerdeContext
+): AwsElbLoadBalancerDetails => {
+  return {
+    AvailabilityZones:
+      output.AvailabilityZones !== undefined && output.AvailabilityZones !== null
+        ? deserializeAws_restJson1StringList(output.AvailabilityZones, context)
+        : undefined,
+    BackendServerDescriptions:
+      output.BackendServerDescriptions !== undefined && output.BackendServerDescriptions !== null
+        ? deserializeAws_restJson1AwsElbLoadBalancerBackendServerDescriptions(output.BackendServerDescriptions, context)
+        : undefined,
+    CanonicalHostedZoneName:
+      output.CanonicalHostedZoneName !== undefined && output.CanonicalHostedZoneName !== null
+        ? output.CanonicalHostedZoneName
+        : undefined,
+    CanonicalHostedZoneNameID:
+      output.CanonicalHostedZoneNameID !== undefined && output.CanonicalHostedZoneNameID !== null
+        ? output.CanonicalHostedZoneNameID
+        : undefined,
+    CreatedTime: output.CreatedTime !== undefined && output.CreatedTime !== null ? output.CreatedTime : undefined,
+    DnsName: output.DnsName !== undefined && output.DnsName !== null ? output.DnsName : undefined,
+    HealthCheck:
+      output.HealthCheck !== undefined && output.HealthCheck !== null
+        ? deserializeAws_restJson1AwsElbLoadBalancerHealthCheck(output.HealthCheck, context)
+        : undefined,
+    Instances:
+      output.Instances !== undefined && output.Instances !== null
+        ? deserializeAws_restJson1AwsElbLoadBalancerInstances(output.Instances, context)
+        : undefined,
+    ListenerDescriptions:
+      output.ListenerDescriptions !== undefined && output.ListenerDescriptions !== null
+        ? deserializeAws_restJson1AwsElbLoadBalancerListenerDescriptions(output.ListenerDescriptions, context)
+        : undefined,
+    LoadBalancerAttributes:
+      output.LoadBalancerAttributes !== undefined && output.LoadBalancerAttributes !== null
+        ? deserializeAws_restJson1AwsElbLoadBalancerAttributes(output.LoadBalancerAttributes, context)
+        : undefined,
+    LoadBalancerName:
+      output.LoadBalancerName !== undefined && output.LoadBalancerName !== null ? output.LoadBalancerName : undefined,
+    Policies:
+      output.Policies !== undefined && output.Policies !== null
+        ? deserializeAws_restJson1AwsElbLoadBalancerPolicies(output.Policies, context)
+        : undefined,
+    Scheme: output.Scheme !== undefined && output.Scheme !== null ? output.Scheme : undefined,
+    SecurityGroups:
+      output.SecurityGroups !== undefined && output.SecurityGroups !== null
+        ? deserializeAws_restJson1StringList(output.SecurityGroups, context)
+        : undefined,
+    SourceSecurityGroup:
+      output.SourceSecurityGroup !== undefined && output.SourceSecurityGroup !== null
+        ? deserializeAws_restJson1AwsElbLoadBalancerSourceSecurityGroup(output.SourceSecurityGroup, context)
+        : undefined,
+    Subnets:
+      output.Subnets !== undefined && output.Subnets !== null
+        ? deserializeAws_restJson1StringList(output.Subnets, context)
+        : undefined,
+    VpcId: output.VpcId !== undefined && output.VpcId !== null ? output.VpcId : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AwsElbLoadBalancerHealthCheck = (
+  output: any,
+  context: __SerdeContext
+): AwsElbLoadBalancerHealthCheck => {
+  return {
+    HealthyThreshold:
+      output.HealthyThreshold !== undefined && output.HealthyThreshold !== null ? output.HealthyThreshold : undefined,
+    Interval: output.Interval !== undefined && output.Interval !== null ? output.Interval : undefined,
+    Target: output.Target !== undefined && output.Target !== null ? output.Target : undefined,
+    Timeout: output.Timeout !== undefined && output.Timeout !== null ? output.Timeout : undefined,
+    UnhealthyThreshold:
+      output.UnhealthyThreshold !== undefined && output.UnhealthyThreshold !== null
+        ? output.UnhealthyThreshold
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AwsElbLoadBalancerInstance = (
+  output: any,
+  context: __SerdeContext
+): AwsElbLoadBalancerInstance => {
+  return {
+    InstanceId: output.InstanceId !== undefined && output.InstanceId !== null ? output.InstanceId : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AwsElbLoadBalancerInstances = (
+  output: any,
+  context: __SerdeContext
+): AwsElbLoadBalancerInstance[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1AwsElbLoadBalancerInstance(entry, context));
+};
+
+const deserializeAws_restJson1AwsElbLoadBalancerListener = (
+  output: any,
+  context: __SerdeContext
+): AwsElbLoadBalancerListener => {
+  return {
+    InstancePort: output.InstancePort !== undefined && output.InstancePort !== null ? output.InstancePort : undefined,
+    InstanceProtocol:
+      output.InstanceProtocol !== undefined && output.InstanceProtocol !== null ? output.InstanceProtocol : undefined,
+    LoadBalancerPort:
+      output.LoadBalancerPort !== undefined && output.LoadBalancerPort !== null ? output.LoadBalancerPort : undefined,
+    Protocol: output.Protocol !== undefined && output.Protocol !== null ? output.Protocol : undefined,
+    SslCertificateId:
+      output.SslCertificateId !== undefined && output.SslCertificateId !== null ? output.SslCertificateId : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AwsElbLoadBalancerListenerDescription = (
+  output: any,
+  context: __SerdeContext
+): AwsElbLoadBalancerListenerDescription => {
+  return {
+    Listener:
+      output.Listener !== undefined && output.Listener !== null
+        ? deserializeAws_restJson1AwsElbLoadBalancerListener(output.Listener, context)
+        : undefined,
+    PolicyNames:
+      output.PolicyNames !== undefined && output.PolicyNames !== null
+        ? deserializeAws_restJson1StringList(output.PolicyNames, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AwsElbLoadBalancerListenerDescriptions = (
+  output: any,
+  context: __SerdeContext
+): AwsElbLoadBalancerListenerDescription[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_restJson1AwsElbLoadBalancerListenerDescription(entry, context)
+  );
+};
+
+const deserializeAws_restJson1AwsElbLoadBalancerPolicies = (
+  output: any,
+  context: __SerdeContext
+): AwsElbLoadBalancerPolicies => {
+  return {
+    AppCookieStickinessPolicies:
+      output.AppCookieStickinessPolicies !== undefined && output.AppCookieStickinessPolicies !== null
+        ? deserializeAws_restJson1AwsElbAppCookieStickinessPolicies(output.AppCookieStickinessPolicies, context)
+        : undefined,
+    LbCookieStickinessPolicies:
+      output.LbCookieStickinessPolicies !== undefined && output.LbCookieStickinessPolicies !== null
+        ? deserializeAws_restJson1AwsElbLbCookieStickinessPolicies(output.LbCookieStickinessPolicies, context)
+        : undefined,
+    OtherPolicies:
+      output.OtherPolicies !== undefined && output.OtherPolicies !== null
+        ? deserializeAws_restJson1StringList(output.OtherPolicies, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AwsElbLoadBalancerSourceSecurityGroup = (
+  output: any,
+  context: __SerdeContext
+): AwsElbLoadBalancerSourceSecurityGroup => {
+  return {
+    GroupName: output.GroupName !== undefined && output.GroupName !== null ? output.GroupName : undefined,
+    OwnerAlias: output.OwnerAlias !== undefined && output.OwnerAlias !== null ? output.OwnerAlias : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1AwsElbv2LoadBalancerDetails = (
   output: any,
   context: __SerdeContext
@@ -7601,15 +11212,212 @@ const deserializeAws_restJson1AwsIamAccessKeyDetails = (
   context: __SerdeContext
 ): AwsIamAccessKeyDetails => {
   return {
+    AccessKeyId: output.AccessKeyId !== undefined && output.AccessKeyId !== null ? output.AccessKeyId : undefined,
+    AccountId: output.AccountId !== undefined && output.AccountId !== null ? output.AccountId : undefined,
     CreatedAt: output.CreatedAt !== undefined && output.CreatedAt !== null ? output.CreatedAt : undefined,
     PrincipalId: output.PrincipalId !== undefined && output.PrincipalId !== null ? output.PrincipalId : undefined,
     PrincipalName:
       output.PrincipalName !== undefined && output.PrincipalName !== null ? output.PrincipalName : undefined,
     PrincipalType:
       output.PrincipalType !== undefined && output.PrincipalType !== null ? output.PrincipalType : undefined,
+    SessionContext:
+      output.SessionContext !== undefined && output.SessionContext !== null
+        ? deserializeAws_restJson1AwsIamAccessKeySessionContext(output.SessionContext, context)
+        : undefined,
     Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
     UserName: output.UserName !== undefined && output.UserName !== null ? output.UserName : undefined,
   } as any;
+};
+
+const deserializeAws_restJson1AwsIamAccessKeySessionContext = (
+  output: any,
+  context: __SerdeContext
+): AwsIamAccessKeySessionContext => {
+  return {
+    Attributes:
+      output.Attributes !== undefined && output.Attributes !== null
+        ? deserializeAws_restJson1AwsIamAccessKeySessionContextAttributes(output.Attributes, context)
+        : undefined,
+    SessionIssuer:
+      output.SessionIssuer !== undefined && output.SessionIssuer !== null
+        ? deserializeAws_restJson1AwsIamAccessKeySessionContextSessionIssuer(output.SessionIssuer, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AwsIamAccessKeySessionContextAttributes = (
+  output: any,
+  context: __SerdeContext
+): AwsIamAccessKeySessionContextAttributes => {
+  return {
+    CreationDate: output.CreationDate !== undefined && output.CreationDate !== null ? output.CreationDate : undefined,
+    MfaAuthenticated:
+      output.MfaAuthenticated !== undefined && output.MfaAuthenticated !== null ? output.MfaAuthenticated : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AwsIamAccessKeySessionContextSessionIssuer = (
+  output: any,
+  context: __SerdeContext
+): AwsIamAccessKeySessionContextSessionIssuer => {
+  return {
+    AccountId: output.AccountId !== undefined && output.AccountId !== null ? output.AccountId : undefined,
+    Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
+    PrincipalId: output.PrincipalId !== undefined && output.PrincipalId !== null ? output.PrincipalId : undefined,
+    Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
+    UserName: output.UserName !== undefined && output.UserName !== null ? output.UserName : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AwsIamAttachedManagedPolicy = (
+  output: any,
+  context: __SerdeContext
+): AwsIamAttachedManagedPolicy => {
+  return {
+    PolicyArn: output.PolicyArn !== undefined && output.PolicyArn !== null ? output.PolicyArn : undefined,
+    PolicyName: output.PolicyName !== undefined && output.PolicyName !== null ? output.PolicyName : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AwsIamAttachedManagedPolicyList = (
+  output: any,
+  context: __SerdeContext
+): AwsIamAttachedManagedPolicy[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1AwsIamAttachedManagedPolicy(entry, context));
+};
+
+const deserializeAws_restJson1AwsIamGroupDetails = (output: any, context: __SerdeContext): AwsIamGroupDetails => {
+  return {
+    AttachedManagedPolicies:
+      output.AttachedManagedPolicies !== undefined && output.AttachedManagedPolicies !== null
+        ? deserializeAws_restJson1AwsIamAttachedManagedPolicyList(output.AttachedManagedPolicies, context)
+        : undefined,
+    CreateDate: output.CreateDate !== undefined && output.CreateDate !== null ? output.CreateDate : undefined,
+    GroupId: output.GroupId !== undefined && output.GroupId !== null ? output.GroupId : undefined,
+    GroupName: output.GroupName !== undefined && output.GroupName !== null ? output.GroupName : undefined,
+    GroupPolicyList:
+      output.GroupPolicyList !== undefined && output.GroupPolicyList !== null
+        ? deserializeAws_restJson1AwsIamGroupPolicyList(output.GroupPolicyList, context)
+        : undefined,
+    Path: output.Path !== undefined && output.Path !== null ? output.Path : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AwsIamGroupPolicy = (output: any, context: __SerdeContext): AwsIamGroupPolicy => {
+  return {
+    PolicyName: output.PolicyName !== undefined && output.PolicyName !== null ? output.PolicyName : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AwsIamGroupPolicyList = (output: any, context: __SerdeContext): AwsIamGroupPolicy[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1AwsIamGroupPolicy(entry, context));
+};
+
+const deserializeAws_restJson1AwsIamInstanceProfile = (output: any, context: __SerdeContext): AwsIamInstanceProfile => {
+  return {
+    Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
+    CreateDate: output.CreateDate !== undefined && output.CreateDate !== null ? output.CreateDate : undefined,
+    InstanceProfileId:
+      output.InstanceProfileId !== undefined && output.InstanceProfileId !== null
+        ? output.InstanceProfileId
+        : undefined,
+    InstanceProfileName:
+      output.InstanceProfileName !== undefined && output.InstanceProfileName !== null
+        ? output.InstanceProfileName
+        : undefined,
+    Path: output.Path !== undefined && output.Path !== null ? output.Path : undefined,
+    Roles:
+      output.Roles !== undefined && output.Roles !== null
+        ? deserializeAws_restJson1AwsIamInstanceProfileRoles(output.Roles, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AwsIamInstanceProfileList = (
+  output: any,
+  context: __SerdeContext
+): AwsIamInstanceProfile[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1AwsIamInstanceProfile(entry, context));
+};
+
+const deserializeAws_restJson1AwsIamInstanceProfileRole = (
+  output: any,
+  context: __SerdeContext
+): AwsIamInstanceProfileRole => {
+  return {
+    Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
+    AssumeRolePolicyDocument:
+      output.AssumeRolePolicyDocument !== undefined && output.AssumeRolePolicyDocument !== null
+        ? output.AssumeRolePolicyDocument
+        : undefined,
+    CreateDate: output.CreateDate !== undefined && output.CreateDate !== null ? output.CreateDate : undefined,
+    Path: output.Path !== undefined && output.Path !== null ? output.Path : undefined,
+    RoleId: output.RoleId !== undefined && output.RoleId !== null ? output.RoleId : undefined,
+    RoleName: output.RoleName !== undefined && output.RoleName !== null ? output.RoleName : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AwsIamInstanceProfileRoles = (
+  output: any,
+  context: __SerdeContext
+): AwsIamInstanceProfileRole[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1AwsIamInstanceProfileRole(entry, context));
+};
+
+const deserializeAws_restJson1AwsIamPermissionsBoundary = (
+  output: any,
+  context: __SerdeContext
+): AwsIamPermissionsBoundary => {
+  return {
+    PermissionsBoundaryArn:
+      output.PermissionsBoundaryArn !== undefined && output.PermissionsBoundaryArn !== null
+        ? output.PermissionsBoundaryArn
+        : undefined,
+    PermissionsBoundaryType:
+      output.PermissionsBoundaryType !== undefined && output.PermissionsBoundaryType !== null
+        ? output.PermissionsBoundaryType
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AwsIamPolicyDetails = (output: any, context: __SerdeContext): AwsIamPolicyDetails => {
+  return {
+    AttachmentCount:
+      output.AttachmentCount !== undefined && output.AttachmentCount !== null ? output.AttachmentCount : undefined,
+    CreateDate: output.CreateDate !== undefined && output.CreateDate !== null ? output.CreateDate : undefined,
+    DefaultVersionId:
+      output.DefaultVersionId !== undefined && output.DefaultVersionId !== null ? output.DefaultVersionId : undefined,
+    Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
+    IsAttachable: output.IsAttachable !== undefined && output.IsAttachable !== null ? output.IsAttachable : undefined,
+    Path: output.Path !== undefined && output.Path !== null ? output.Path : undefined,
+    PermissionsBoundaryUsageCount:
+      output.PermissionsBoundaryUsageCount !== undefined && output.PermissionsBoundaryUsageCount !== null
+        ? output.PermissionsBoundaryUsageCount
+        : undefined,
+    PolicyId: output.PolicyId !== undefined && output.PolicyId !== null ? output.PolicyId : undefined,
+    PolicyName: output.PolicyName !== undefined && output.PolicyName !== null ? output.PolicyName : undefined,
+    PolicyVersionList:
+      output.PolicyVersionList !== undefined && output.PolicyVersionList !== null
+        ? deserializeAws_restJson1AwsIamPolicyVersionList(output.PolicyVersionList, context)
+        : undefined,
+    UpdateDate: output.UpdateDate !== undefined && output.UpdateDate !== null ? output.UpdateDate : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AwsIamPolicyVersion = (output: any, context: __SerdeContext): AwsIamPolicyVersion => {
+  return {
+    CreateDate: output.CreateDate !== undefined && output.CreateDate !== null ? output.CreateDate : undefined,
+    IsDefaultVersion:
+      output.IsDefaultVersion !== undefined && output.IsDefaultVersion !== null ? output.IsDefaultVersion : undefined,
+    VersionId: output.VersionId !== undefined && output.VersionId !== null ? output.VersionId : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AwsIamPolicyVersionList = (
+  output: any,
+  context: __SerdeContext
+): AwsIamPolicyVersion[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1AwsIamPolicyVersion(entry, context));
 };
 
 const deserializeAws_restJson1AwsIamRoleDetails = (output: any, context: __SerdeContext): AwsIamRoleDetails => {
@@ -7618,21 +11426,83 @@ const deserializeAws_restJson1AwsIamRoleDetails = (output: any, context: __Serde
       output.AssumeRolePolicyDocument !== undefined && output.AssumeRolePolicyDocument !== null
         ? output.AssumeRolePolicyDocument
         : undefined,
+    AttachedManagedPolicies:
+      output.AttachedManagedPolicies !== undefined && output.AttachedManagedPolicies !== null
+        ? deserializeAws_restJson1AwsIamAttachedManagedPolicyList(output.AttachedManagedPolicies, context)
+        : undefined,
     CreateDate: output.CreateDate !== undefined && output.CreateDate !== null ? output.CreateDate : undefined,
+    InstanceProfileList:
+      output.InstanceProfileList !== undefined && output.InstanceProfileList !== null
+        ? deserializeAws_restJson1AwsIamInstanceProfileList(output.InstanceProfileList, context)
+        : undefined,
     MaxSessionDuration:
       output.MaxSessionDuration !== undefined && output.MaxSessionDuration !== null
         ? output.MaxSessionDuration
         : undefined,
     Path: output.Path !== undefined && output.Path !== null ? output.Path : undefined,
+    PermissionsBoundary:
+      output.PermissionsBoundary !== undefined && output.PermissionsBoundary !== null
+        ? deserializeAws_restJson1AwsIamPermissionsBoundary(output.PermissionsBoundary, context)
+        : undefined,
     RoleId: output.RoleId !== undefined && output.RoleId !== null ? output.RoleId : undefined,
     RoleName: output.RoleName !== undefined && output.RoleName !== null ? output.RoleName : undefined,
+    RolePolicyList:
+      output.RolePolicyList !== undefined && output.RolePolicyList !== null
+        ? deserializeAws_restJson1AwsIamRolePolicyList(output.RolePolicyList, context)
+        : undefined,
   } as any;
+};
+
+const deserializeAws_restJson1AwsIamRolePolicy = (output: any, context: __SerdeContext): AwsIamRolePolicy => {
+  return {
+    PolicyName: output.PolicyName !== undefined && output.PolicyName !== null ? output.PolicyName : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AwsIamRolePolicyList = (output: any, context: __SerdeContext): AwsIamRolePolicy[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1AwsIamRolePolicy(entry, context));
+};
+
+const deserializeAws_restJson1AwsIamUserDetails = (output: any, context: __SerdeContext): AwsIamUserDetails => {
+  return {
+    AttachedManagedPolicies:
+      output.AttachedManagedPolicies !== undefined && output.AttachedManagedPolicies !== null
+        ? deserializeAws_restJson1AwsIamAttachedManagedPolicyList(output.AttachedManagedPolicies, context)
+        : undefined,
+    CreateDate: output.CreateDate !== undefined && output.CreateDate !== null ? output.CreateDate : undefined,
+    GroupList:
+      output.GroupList !== undefined && output.GroupList !== null
+        ? deserializeAws_restJson1StringList(output.GroupList, context)
+        : undefined,
+    Path: output.Path !== undefined && output.Path !== null ? output.Path : undefined,
+    PermissionsBoundary:
+      output.PermissionsBoundary !== undefined && output.PermissionsBoundary !== null
+        ? deserializeAws_restJson1AwsIamPermissionsBoundary(output.PermissionsBoundary, context)
+        : undefined,
+    UserId: output.UserId !== undefined && output.UserId !== null ? output.UserId : undefined,
+    UserName: output.UserName !== undefined && output.UserName !== null ? output.UserName : undefined,
+    UserPolicyList:
+      output.UserPolicyList !== undefined && output.UserPolicyList !== null
+        ? deserializeAws_restJson1AwsIamUserPolicyList(output.UserPolicyList, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AwsIamUserPolicy = (output: any, context: __SerdeContext): AwsIamUserPolicy => {
+  return {
+    PolicyName: output.PolicyName !== undefined && output.PolicyName !== null ? output.PolicyName : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AwsIamUserPolicyList = (output: any, context: __SerdeContext): AwsIamUserPolicy[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1AwsIamUserPolicy(entry, context));
 };
 
 const deserializeAws_restJson1AwsKmsKeyDetails = (output: any, context: __SerdeContext): AwsKmsKeyDetails => {
   return {
     AWSAccountId: output.AWSAccountId !== undefined && output.AWSAccountId !== null ? output.AWSAccountId : undefined,
     CreationDate: output.CreationDate !== undefined && output.CreationDate !== null ? output.CreationDate : undefined,
+    Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
     KeyId: output.KeyId !== undefined && output.KeyId !== null ? output.KeyId : undefined,
     KeyManager: output.KeyManager !== undefined && output.KeyManager !== null ? output.KeyManager : undefined,
     KeyState: output.KeyState !== undefined && output.KeyState !== null ? output.KeyState : undefined,
@@ -7786,6 +11656,254 @@ const deserializeAws_restJson1AwsLambdaLayerVersionDetails = (
   } as any;
 };
 
+const deserializeAws_restJson1AwsRdsDbClusterAssociatedRole = (
+  output: any,
+  context: __SerdeContext
+): AwsRdsDbClusterAssociatedRole => {
+  return {
+    RoleArn: output.RoleArn !== undefined && output.RoleArn !== null ? output.RoleArn : undefined,
+    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AwsRdsDbClusterAssociatedRoles = (
+  output: any,
+  context: __SerdeContext
+): AwsRdsDbClusterAssociatedRole[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1AwsRdsDbClusterAssociatedRole(entry, context));
+};
+
+const deserializeAws_restJson1AwsRdsDbClusterDetails = (
+  output: any,
+  context: __SerdeContext
+): AwsRdsDbClusterDetails => {
+  return {
+    ActivityStreamStatus:
+      output.ActivityStreamStatus !== undefined && output.ActivityStreamStatus !== null
+        ? output.ActivityStreamStatus
+        : undefined,
+    AllocatedStorage:
+      output.AllocatedStorage !== undefined && output.AllocatedStorage !== null ? output.AllocatedStorage : undefined,
+    AssociatedRoles:
+      output.AssociatedRoles !== undefined && output.AssociatedRoles !== null
+        ? deserializeAws_restJson1AwsRdsDbClusterAssociatedRoles(output.AssociatedRoles, context)
+        : undefined,
+    AvailabilityZones:
+      output.AvailabilityZones !== undefined && output.AvailabilityZones !== null
+        ? deserializeAws_restJson1StringList(output.AvailabilityZones, context)
+        : undefined,
+    BackupRetentionPeriod:
+      output.BackupRetentionPeriod !== undefined && output.BackupRetentionPeriod !== null
+        ? output.BackupRetentionPeriod
+        : undefined,
+    ClusterCreateTime:
+      output.ClusterCreateTime !== undefined && output.ClusterCreateTime !== null
+        ? output.ClusterCreateTime
+        : undefined,
+    CopyTagsToSnapshot:
+      output.CopyTagsToSnapshot !== undefined && output.CopyTagsToSnapshot !== null
+        ? output.CopyTagsToSnapshot
+        : undefined,
+    CrossAccountClone:
+      output.CrossAccountClone !== undefined && output.CrossAccountClone !== null
+        ? output.CrossAccountClone
+        : undefined,
+    CustomEndpoints:
+      output.CustomEndpoints !== undefined && output.CustomEndpoints !== null
+        ? deserializeAws_restJson1StringList(output.CustomEndpoints, context)
+        : undefined,
+    DatabaseName: output.DatabaseName !== undefined && output.DatabaseName !== null ? output.DatabaseName : undefined,
+    DbClusterIdentifier:
+      output.DbClusterIdentifier !== undefined && output.DbClusterIdentifier !== null
+        ? output.DbClusterIdentifier
+        : undefined,
+    DbClusterMembers:
+      output.DbClusterMembers !== undefined && output.DbClusterMembers !== null
+        ? deserializeAws_restJson1AwsRdsDbClusterMembers(output.DbClusterMembers, context)
+        : undefined,
+    DbClusterOptionGroupMemberships:
+      output.DbClusterOptionGroupMemberships !== undefined && output.DbClusterOptionGroupMemberships !== null
+        ? deserializeAws_restJson1AwsRdsDbClusterOptionGroupMemberships(output.DbClusterOptionGroupMemberships, context)
+        : undefined,
+    DbClusterParameterGroup:
+      output.DbClusterParameterGroup !== undefined && output.DbClusterParameterGroup !== null
+        ? output.DbClusterParameterGroup
+        : undefined,
+    DbClusterResourceId:
+      output.DbClusterResourceId !== undefined && output.DbClusterResourceId !== null
+        ? output.DbClusterResourceId
+        : undefined,
+    DbSubnetGroup:
+      output.DbSubnetGroup !== undefined && output.DbSubnetGroup !== null ? output.DbSubnetGroup : undefined,
+    DeletionProtection:
+      output.DeletionProtection !== undefined && output.DeletionProtection !== null
+        ? output.DeletionProtection
+        : undefined,
+    DomainMemberships:
+      output.DomainMemberships !== undefined && output.DomainMemberships !== null
+        ? deserializeAws_restJson1AwsRdsDbDomainMemberships(output.DomainMemberships, context)
+        : undefined,
+    EnabledCloudWatchLogsExports:
+      output.EnabledCloudWatchLogsExports !== undefined && output.EnabledCloudWatchLogsExports !== null
+        ? deserializeAws_restJson1StringList(output.EnabledCloudWatchLogsExports, context)
+        : undefined,
+    Endpoint: output.Endpoint !== undefined && output.Endpoint !== null ? output.Endpoint : undefined,
+    Engine: output.Engine !== undefined && output.Engine !== null ? output.Engine : undefined,
+    EngineMode: output.EngineMode !== undefined && output.EngineMode !== null ? output.EngineMode : undefined,
+    EngineVersion:
+      output.EngineVersion !== undefined && output.EngineVersion !== null ? output.EngineVersion : undefined,
+    HostedZoneId: output.HostedZoneId !== undefined && output.HostedZoneId !== null ? output.HostedZoneId : undefined,
+    HttpEndpointEnabled:
+      output.HttpEndpointEnabled !== undefined && output.HttpEndpointEnabled !== null
+        ? output.HttpEndpointEnabled
+        : undefined,
+    IamDatabaseAuthenticationEnabled:
+      output.IamDatabaseAuthenticationEnabled !== undefined && output.IamDatabaseAuthenticationEnabled !== null
+        ? output.IamDatabaseAuthenticationEnabled
+        : undefined,
+    KmsKeyId: output.KmsKeyId !== undefined && output.KmsKeyId !== null ? output.KmsKeyId : undefined,
+    MasterUsername:
+      output.MasterUsername !== undefined && output.MasterUsername !== null ? output.MasterUsername : undefined,
+    MultiAz: output.MultiAz !== undefined && output.MultiAz !== null ? output.MultiAz : undefined,
+    Port: output.Port !== undefined && output.Port !== null ? output.Port : undefined,
+    PreferredBackupWindow:
+      output.PreferredBackupWindow !== undefined && output.PreferredBackupWindow !== null
+        ? output.PreferredBackupWindow
+        : undefined,
+    PreferredMaintenanceWindow:
+      output.PreferredMaintenanceWindow !== undefined && output.PreferredMaintenanceWindow !== null
+        ? output.PreferredMaintenanceWindow
+        : undefined,
+    ReadReplicaIdentifiers:
+      output.ReadReplicaIdentifiers !== undefined && output.ReadReplicaIdentifiers !== null
+        ? deserializeAws_restJson1StringList(output.ReadReplicaIdentifiers, context)
+        : undefined,
+    ReaderEndpoint:
+      output.ReaderEndpoint !== undefined && output.ReaderEndpoint !== null ? output.ReaderEndpoint : undefined,
+    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
+    StorageEncrypted:
+      output.StorageEncrypted !== undefined && output.StorageEncrypted !== null ? output.StorageEncrypted : undefined,
+    VpcSecurityGroups:
+      output.VpcSecurityGroups !== undefined && output.VpcSecurityGroups !== null
+        ? deserializeAws_restJson1AwsRdsDbInstanceVpcSecurityGroups(output.VpcSecurityGroups, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AwsRdsDbClusterMember = (output: any, context: __SerdeContext): AwsRdsDbClusterMember => {
+  return {
+    DbClusterParameterGroupStatus:
+      output.DbClusterParameterGroupStatus !== undefined && output.DbClusterParameterGroupStatus !== null
+        ? output.DbClusterParameterGroupStatus
+        : undefined,
+    DbInstanceIdentifier:
+      output.DbInstanceIdentifier !== undefined && output.DbInstanceIdentifier !== null
+        ? output.DbInstanceIdentifier
+        : undefined,
+    IsClusterWriter:
+      output.IsClusterWriter !== undefined && output.IsClusterWriter !== null ? output.IsClusterWriter : undefined,
+    PromotionTier:
+      output.PromotionTier !== undefined && output.PromotionTier !== null ? output.PromotionTier : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AwsRdsDbClusterMembers = (
+  output: any,
+  context: __SerdeContext
+): AwsRdsDbClusterMember[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1AwsRdsDbClusterMember(entry, context));
+};
+
+const deserializeAws_restJson1AwsRdsDbClusterOptionGroupMembership = (
+  output: any,
+  context: __SerdeContext
+): AwsRdsDbClusterOptionGroupMembership => {
+  return {
+    DbClusterOptionGroupName:
+      output.DbClusterOptionGroupName !== undefined && output.DbClusterOptionGroupName !== null
+        ? output.DbClusterOptionGroupName
+        : undefined,
+    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AwsRdsDbClusterOptionGroupMemberships = (
+  output: any,
+  context: __SerdeContext
+): AwsRdsDbClusterOptionGroupMembership[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_restJson1AwsRdsDbClusterOptionGroupMembership(entry, context)
+  );
+};
+
+const deserializeAws_restJson1AwsRdsDbClusterSnapshotDetails = (
+  output: any,
+  context: __SerdeContext
+): AwsRdsDbClusterSnapshotDetails => {
+  return {
+    AllocatedStorage:
+      output.AllocatedStorage !== undefined && output.AllocatedStorage !== null ? output.AllocatedStorage : undefined,
+    AvailabilityZones:
+      output.AvailabilityZones !== undefined && output.AvailabilityZones !== null
+        ? deserializeAws_restJson1StringList(output.AvailabilityZones, context)
+        : undefined,
+    ClusterCreateTime:
+      output.ClusterCreateTime !== undefined && output.ClusterCreateTime !== null
+        ? output.ClusterCreateTime
+        : undefined,
+    DbClusterIdentifier:
+      output.DbClusterIdentifier !== undefined && output.DbClusterIdentifier !== null
+        ? output.DbClusterIdentifier
+        : undefined,
+    DbClusterSnapshotIdentifier:
+      output.DbClusterSnapshotIdentifier !== undefined && output.DbClusterSnapshotIdentifier !== null
+        ? output.DbClusterSnapshotIdentifier
+        : undefined,
+    Engine: output.Engine !== undefined && output.Engine !== null ? output.Engine : undefined,
+    EngineVersion:
+      output.EngineVersion !== undefined && output.EngineVersion !== null ? output.EngineVersion : undefined,
+    IamDatabaseAuthenticationEnabled:
+      output.IamDatabaseAuthenticationEnabled !== undefined && output.IamDatabaseAuthenticationEnabled !== null
+        ? output.IamDatabaseAuthenticationEnabled
+        : undefined,
+    KmsKeyId: output.KmsKeyId !== undefined && output.KmsKeyId !== null ? output.KmsKeyId : undefined,
+    LicenseModel: output.LicenseModel !== undefined && output.LicenseModel !== null ? output.LicenseModel : undefined,
+    MasterUsername:
+      output.MasterUsername !== undefined && output.MasterUsername !== null ? output.MasterUsername : undefined,
+    PercentProgress:
+      output.PercentProgress !== undefined && output.PercentProgress !== null ? output.PercentProgress : undefined,
+    Port: output.Port !== undefined && output.Port !== null ? output.Port : undefined,
+    SnapshotCreateTime:
+      output.SnapshotCreateTime !== undefined && output.SnapshotCreateTime !== null
+        ? output.SnapshotCreateTime
+        : undefined,
+    SnapshotType: output.SnapshotType !== undefined && output.SnapshotType !== null ? output.SnapshotType : undefined,
+    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
+    StorageEncrypted:
+      output.StorageEncrypted !== undefined && output.StorageEncrypted !== null ? output.StorageEncrypted : undefined,
+    VpcId: output.VpcId !== undefined && output.VpcId !== null ? output.VpcId : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AwsRdsDbDomainMembership = (
+  output: any,
+  context: __SerdeContext
+): AwsRdsDbDomainMembership => {
+  return {
+    Domain: output.Domain !== undefined && output.Domain !== null ? output.Domain : undefined,
+    Fqdn: output.Fqdn !== undefined && output.Fqdn !== null ? output.Fqdn : undefined,
+    IamRoleName: output.IamRoleName !== undefined && output.IamRoleName !== null ? output.IamRoleName : undefined,
+    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AwsRdsDbDomainMemberships = (
+  output: any,
+  context: __SerdeContext
+): AwsRdsDbDomainMembership[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1AwsRdsDbDomainMembership(entry, context));
+};
+
 const deserializeAws_restJson1AwsRdsDbInstanceAssociatedRole = (
   output: any,
   context: __SerdeContext
@@ -7809,13 +11927,31 @@ const deserializeAws_restJson1AwsRdsDbInstanceDetails = (
   context: __SerdeContext
 ): AwsRdsDbInstanceDetails => {
   return {
+    AllocatedStorage:
+      output.AllocatedStorage !== undefined && output.AllocatedStorage !== null ? output.AllocatedStorage : undefined,
     AssociatedRoles:
       output.AssociatedRoles !== undefined && output.AssociatedRoles !== null
         ? deserializeAws_restJson1AwsRdsDbInstanceAssociatedRoles(output.AssociatedRoles, context)
         : undefined,
+    AutoMinorVersionUpgrade:
+      output.AutoMinorVersionUpgrade !== undefined && output.AutoMinorVersionUpgrade !== null
+        ? output.AutoMinorVersionUpgrade
+        : undefined,
+    AvailabilityZone:
+      output.AvailabilityZone !== undefined && output.AvailabilityZone !== null ? output.AvailabilityZone : undefined,
+    BackupRetentionPeriod:
+      output.BackupRetentionPeriod !== undefined && output.BackupRetentionPeriod !== null
+        ? output.BackupRetentionPeriod
+        : undefined,
     CACertificateIdentifier:
       output.CACertificateIdentifier !== undefined && output.CACertificateIdentifier !== null
         ? output.CACertificateIdentifier
+        : undefined,
+    CharacterSetName:
+      output.CharacterSetName !== undefined && output.CharacterSetName !== null ? output.CharacterSetName : undefined,
+    CopyTagsToSnapshot:
+      output.CopyTagsToSnapshot !== undefined && output.CopyTagsToSnapshot !== null
+        ? output.CopyTagsToSnapshot
         : undefined,
     DBClusterIdentifier:
       output.DBClusterIdentifier !== undefined && output.DBClusterIdentifier !== null
@@ -7830,11 +11966,33 @@ const deserializeAws_restJson1AwsRdsDbInstanceDetails = (
     DBName: output.DBName !== undefined && output.DBName !== null ? output.DBName : undefined,
     DbInstancePort:
       output.DbInstancePort !== undefined && output.DbInstancePort !== null ? output.DbInstancePort : undefined,
+    DbInstanceStatus:
+      output.DbInstanceStatus !== undefined && output.DbInstanceStatus !== null ? output.DbInstanceStatus : undefined,
+    DbParameterGroups:
+      output.DbParameterGroups !== undefined && output.DbParameterGroups !== null
+        ? deserializeAws_restJson1AwsRdsDbParameterGroups(output.DbParameterGroups, context)
+        : undefined,
+    DbSecurityGroups:
+      output.DbSecurityGroups !== undefined && output.DbSecurityGroups !== null
+        ? deserializeAws_restJson1StringList(output.DbSecurityGroups, context)
+        : undefined,
+    DbSubnetGroup:
+      output.DbSubnetGroup !== undefined && output.DbSubnetGroup !== null
+        ? deserializeAws_restJson1AwsRdsDbSubnetGroup(output.DbSubnetGroup, context)
+        : undefined,
     DbiResourceId:
       output.DbiResourceId !== undefined && output.DbiResourceId !== null ? output.DbiResourceId : undefined,
     DeletionProtection:
       output.DeletionProtection !== undefined && output.DeletionProtection !== null
         ? output.DeletionProtection
+        : undefined,
+    DomainMemberships:
+      output.DomainMemberships !== undefined && output.DomainMemberships !== null
+        ? deserializeAws_restJson1AwsRdsDbDomainMemberships(output.DomainMemberships, context)
+        : undefined,
+    EnabledCloudWatchLogsExports:
+      output.EnabledCloudWatchLogsExports !== undefined && output.EnabledCloudWatchLogsExports !== null
+        ? deserializeAws_restJson1StringList(output.EnabledCloudWatchLogsExports, context)
         : undefined,
     Endpoint:
       output.Endpoint !== undefined && output.Endpoint !== null
@@ -7843,6 +12001,10 @@ const deserializeAws_restJson1AwsRdsDbInstanceDetails = (
     Engine: output.Engine !== undefined && output.Engine !== null ? output.Engine : undefined,
     EngineVersion:
       output.EngineVersion !== undefined && output.EngineVersion !== null ? output.EngineVersion : undefined,
+    EnhancedMonitoringResourceArn:
+      output.EnhancedMonitoringResourceArn !== undefined && output.EnhancedMonitoringResourceArn !== null
+        ? output.EnhancedMonitoringResourceArn
+        : undefined,
     IAMDatabaseAuthenticationEnabled:
       output.IAMDatabaseAuthenticationEnabled !== undefined && output.IAMDatabaseAuthenticationEnabled !== null
         ? output.IAMDatabaseAuthenticationEnabled
@@ -7851,15 +12013,97 @@ const deserializeAws_restJson1AwsRdsDbInstanceDetails = (
       output.InstanceCreateTime !== undefined && output.InstanceCreateTime !== null
         ? output.InstanceCreateTime
         : undefined,
+    Iops: output.Iops !== undefined && output.Iops !== null ? output.Iops : undefined,
     KmsKeyId: output.KmsKeyId !== undefined && output.KmsKeyId !== null ? output.KmsKeyId : undefined,
+    LatestRestorableTime:
+      output.LatestRestorableTime !== undefined && output.LatestRestorableTime !== null
+        ? output.LatestRestorableTime
+        : undefined,
+    LicenseModel: output.LicenseModel !== undefined && output.LicenseModel !== null ? output.LicenseModel : undefined,
+    ListenerEndpoint:
+      output.ListenerEndpoint !== undefined && output.ListenerEndpoint !== null
+        ? deserializeAws_restJson1AwsRdsDbInstanceEndpoint(output.ListenerEndpoint, context)
+        : undefined,
+    MasterUsername:
+      output.MasterUsername !== undefined && output.MasterUsername !== null ? output.MasterUsername : undefined,
+    MaxAllocatedStorage:
+      output.MaxAllocatedStorage !== undefined && output.MaxAllocatedStorage !== null
+        ? output.MaxAllocatedStorage
+        : undefined,
+    MonitoringInterval:
+      output.MonitoringInterval !== undefined && output.MonitoringInterval !== null
+        ? output.MonitoringInterval
+        : undefined,
+    MonitoringRoleArn:
+      output.MonitoringRoleArn !== undefined && output.MonitoringRoleArn !== null
+        ? output.MonitoringRoleArn
+        : undefined,
+    MultiAz: output.MultiAz !== undefined && output.MultiAz !== null ? output.MultiAz : undefined,
+    OptionGroupMemberships:
+      output.OptionGroupMemberships !== undefined && output.OptionGroupMemberships !== null
+        ? deserializeAws_restJson1AwsRdsDbOptionGroupMemberships(output.OptionGroupMemberships, context)
+        : undefined,
+    PendingModifiedValues:
+      output.PendingModifiedValues !== undefined && output.PendingModifiedValues !== null
+        ? deserializeAws_restJson1AwsRdsDbPendingModifiedValues(output.PendingModifiedValues, context)
+        : undefined,
+    PerformanceInsightsEnabled:
+      output.PerformanceInsightsEnabled !== undefined && output.PerformanceInsightsEnabled !== null
+        ? output.PerformanceInsightsEnabled
+        : undefined,
+    PerformanceInsightsKmsKeyId:
+      output.PerformanceInsightsKmsKeyId !== undefined && output.PerformanceInsightsKmsKeyId !== null
+        ? output.PerformanceInsightsKmsKeyId
+        : undefined,
+    PerformanceInsightsRetentionPeriod:
+      output.PerformanceInsightsRetentionPeriod !== undefined && output.PerformanceInsightsRetentionPeriod !== null
+        ? output.PerformanceInsightsRetentionPeriod
+        : undefined,
+    PreferredBackupWindow:
+      output.PreferredBackupWindow !== undefined && output.PreferredBackupWindow !== null
+        ? output.PreferredBackupWindow
+        : undefined,
+    PreferredMaintenanceWindow:
+      output.PreferredMaintenanceWindow !== undefined && output.PreferredMaintenanceWindow !== null
+        ? output.PreferredMaintenanceWindow
+        : undefined,
+    ProcessorFeatures:
+      output.ProcessorFeatures !== undefined && output.ProcessorFeatures !== null
+        ? deserializeAws_restJson1AwsRdsDbProcessorFeatures(output.ProcessorFeatures, context)
+        : undefined,
+    PromotionTier:
+      output.PromotionTier !== undefined && output.PromotionTier !== null ? output.PromotionTier : undefined,
     PubliclyAccessible:
       output.PubliclyAccessible !== undefined && output.PubliclyAccessible !== null
         ? output.PubliclyAccessible
         : undefined,
+    ReadReplicaDBClusterIdentifiers:
+      output.ReadReplicaDBClusterIdentifiers !== undefined && output.ReadReplicaDBClusterIdentifiers !== null
+        ? deserializeAws_restJson1StringList(output.ReadReplicaDBClusterIdentifiers, context)
+        : undefined,
+    ReadReplicaDBInstanceIdentifiers:
+      output.ReadReplicaDBInstanceIdentifiers !== undefined && output.ReadReplicaDBInstanceIdentifiers !== null
+        ? deserializeAws_restJson1StringList(output.ReadReplicaDBInstanceIdentifiers, context)
+        : undefined,
+    ReadReplicaSourceDBInstanceIdentifier:
+      output.ReadReplicaSourceDBInstanceIdentifier !== undefined &&
+      output.ReadReplicaSourceDBInstanceIdentifier !== null
+        ? output.ReadReplicaSourceDBInstanceIdentifier
+        : undefined,
+    SecondaryAvailabilityZone:
+      output.SecondaryAvailabilityZone !== undefined && output.SecondaryAvailabilityZone !== null
+        ? output.SecondaryAvailabilityZone
+        : undefined,
+    StatusInfos:
+      output.StatusInfos !== undefined && output.StatusInfos !== null
+        ? deserializeAws_restJson1AwsRdsDbStatusInfos(output.StatusInfos, context)
+        : undefined,
     StorageEncrypted:
       output.StorageEncrypted !== undefined && output.StorageEncrypted !== null ? output.StorageEncrypted : undefined,
+    StorageType: output.StorageType !== undefined && output.StorageType !== null ? output.StorageType : undefined,
     TdeCredentialArn:
       output.TdeCredentialArn !== undefined && output.TdeCredentialArn !== null ? output.TdeCredentialArn : undefined,
+    Timezone: output.Timezone !== undefined && output.Timezone !== null ? output.Timezone : undefined,
     VpcSecurityGroups:
       output.VpcSecurityGroups !== undefined && output.VpcSecurityGroups !== null
         ? deserializeAws_restJson1AwsRdsDbInstanceVpcSecurityGroups(output.VpcSecurityGroups, context)
@@ -7896,6 +12140,725 @@ const deserializeAws_restJson1AwsRdsDbInstanceVpcSecurityGroups = (
   context: __SerdeContext
 ): AwsRdsDbInstanceVpcSecurityGroup[] => {
   return (output || []).map((entry: any) => deserializeAws_restJson1AwsRdsDbInstanceVpcSecurityGroup(entry, context));
+};
+
+const deserializeAws_restJson1AwsRdsDbOptionGroupMembership = (
+  output: any,
+  context: __SerdeContext
+): AwsRdsDbOptionGroupMembership => {
+  return {
+    OptionGroupName:
+      output.OptionGroupName !== undefined && output.OptionGroupName !== null ? output.OptionGroupName : undefined,
+    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AwsRdsDbOptionGroupMemberships = (
+  output: any,
+  context: __SerdeContext
+): AwsRdsDbOptionGroupMembership[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1AwsRdsDbOptionGroupMembership(entry, context));
+};
+
+const deserializeAws_restJson1AwsRdsDbParameterGroup = (
+  output: any,
+  context: __SerdeContext
+): AwsRdsDbParameterGroup => {
+  return {
+    DbParameterGroupName:
+      output.DbParameterGroupName !== undefined && output.DbParameterGroupName !== null
+        ? output.DbParameterGroupName
+        : undefined,
+    ParameterApplyStatus:
+      output.ParameterApplyStatus !== undefined && output.ParameterApplyStatus !== null
+        ? output.ParameterApplyStatus
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AwsRdsDbParameterGroups = (
+  output: any,
+  context: __SerdeContext
+): AwsRdsDbParameterGroup[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1AwsRdsDbParameterGroup(entry, context));
+};
+
+const deserializeAws_restJson1AwsRdsDbPendingModifiedValues = (
+  output: any,
+  context: __SerdeContext
+): AwsRdsDbPendingModifiedValues => {
+  return {
+    AllocatedStorage:
+      output.AllocatedStorage !== undefined && output.AllocatedStorage !== null ? output.AllocatedStorage : undefined,
+    BackupRetentionPeriod:
+      output.BackupRetentionPeriod !== undefined && output.BackupRetentionPeriod !== null
+        ? output.BackupRetentionPeriod
+        : undefined,
+    CaCertificateIdentifier:
+      output.CaCertificateIdentifier !== undefined && output.CaCertificateIdentifier !== null
+        ? output.CaCertificateIdentifier
+        : undefined,
+    DbInstanceClass:
+      output.DbInstanceClass !== undefined && output.DbInstanceClass !== null ? output.DbInstanceClass : undefined,
+    DbInstanceIdentifier:
+      output.DbInstanceIdentifier !== undefined && output.DbInstanceIdentifier !== null
+        ? output.DbInstanceIdentifier
+        : undefined,
+    DbSubnetGroupName:
+      output.DbSubnetGroupName !== undefined && output.DbSubnetGroupName !== null
+        ? output.DbSubnetGroupName
+        : undefined,
+    EngineVersion:
+      output.EngineVersion !== undefined && output.EngineVersion !== null ? output.EngineVersion : undefined,
+    Iops: output.Iops !== undefined && output.Iops !== null ? output.Iops : undefined,
+    LicenseModel: output.LicenseModel !== undefined && output.LicenseModel !== null ? output.LicenseModel : undefined,
+    MasterUserPassword:
+      output.MasterUserPassword !== undefined && output.MasterUserPassword !== null
+        ? output.MasterUserPassword
+        : undefined,
+    MultiAZ: output.MultiAZ !== undefined && output.MultiAZ !== null ? output.MultiAZ : undefined,
+    PendingCloudWatchLogsExports:
+      output.PendingCloudWatchLogsExports !== undefined && output.PendingCloudWatchLogsExports !== null
+        ? deserializeAws_restJson1AwsRdsPendingCloudWatchLogsExports(output.PendingCloudWatchLogsExports, context)
+        : undefined,
+    Port: output.Port !== undefined && output.Port !== null ? output.Port : undefined,
+    ProcessorFeatures:
+      output.ProcessorFeatures !== undefined && output.ProcessorFeatures !== null
+        ? deserializeAws_restJson1AwsRdsDbProcessorFeatures(output.ProcessorFeatures, context)
+        : undefined,
+    StorageType: output.StorageType !== undefined && output.StorageType !== null ? output.StorageType : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AwsRdsDbProcessorFeature = (
+  output: any,
+  context: __SerdeContext
+): AwsRdsDbProcessorFeature => {
+  return {
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+    Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AwsRdsDbProcessorFeatures = (
+  output: any,
+  context: __SerdeContext
+): AwsRdsDbProcessorFeature[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1AwsRdsDbProcessorFeature(entry, context));
+};
+
+const deserializeAws_restJson1AwsRdsDbSnapshotDetails = (
+  output: any,
+  context: __SerdeContext
+): AwsRdsDbSnapshotDetails => {
+  return {
+    AllocatedStorage:
+      output.AllocatedStorage !== undefined && output.AllocatedStorage !== null ? output.AllocatedStorage : undefined,
+    AvailabilityZone:
+      output.AvailabilityZone !== undefined && output.AvailabilityZone !== null ? output.AvailabilityZone : undefined,
+    DbInstanceIdentifier:
+      output.DbInstanceIdentifier !== undefined && output.DbInstanceIdentifier !== null
+        ? output.DbInstanceIdentifier
+        : undefined,
+    DbSnapshotIdentifier:
+      output.DbSnapshotIdentifier !== undefined && output.DbSnapshotIdentifier !== null
+        ? output.DbSnapshotIdentifier
+        : undefined,
+    DbiResourceId:
+      output.DbiResourceId !== undefined && output.DbiResourceId !== null ? output.DbiResourceId : undefined,
+    Encrypted: output.Encrypted !== undefined && output.Encrypted !== null ? output.Encrypted : undefined,
+    Engine: output.Engine !== undefined && output.Engine !== null ? output.Engine : undefined,
+    EngineVersion:
+      output.EngineVersion !== undefined && output.EngineVersion !== null ? output.EngineVersion : undefined,
+    IamDatabaseAuthenticationEnabled:
+      output.IamDatabaseAuthenticationEnabled !== undefined && output.IamDatabaseAuthenticationEnabled !== null
+        ? output.IamDatabaseAuthenticationEnabled
+        : undefined,
+    InstanceCreateTime:
+      output.InstanceCreateTime !== undefined && output.InstanceCreateTime !== null
+        ? output.InstanceCreateTime
+        : undefined,
+    Iops: output.Iops !== undefined && output.Iops !== null ? output.Iops : undefined,
+    KmsKeyId: output.KmsKeyId !== undefined && output.KmsKeyId !== null ? output.KmsKeyId : undefined,
+    LicenseModel: output.LicenseModel !== undefined && output.LicenseModel !== null ? output.LicenseModel : undefined,
+    MasterUsername:
+      output.MasterUsername !== undefined && output.MasterUsername !== null ? output.MasterUsername : undefined,
+    OptionGroupName:
+      output.OptionGroupName !== undefined && output.OptionGroupName !== null ? output.OptionGroupName : undefined,
+    PercentProgress:
+      output.PercentProgress !== undefined && output.PercentProgress !== null ? output.PercentProgress : undefined,
+    Port: output.Port !== undefined && output.Port !== null ? output.Port : undefined,
+    ProcessorFeatures:
+      output.ProcessorFeatures !== undefined && output.ProcessorFeatures !== null
+        ? deserializeAws_restJson1AwsRdsDbProcessorFeatures(output.ProcessorFeatures, context)
+        : undefined,
+    SnapshotCreateTime:
+      output.SnapshotCreateTime !== undefined && output.SnapshotCreateTime !== null
+        ? output.SnapshotCreateTime
+        : undefined,
+    SnapshotType: output.SnapshotType !== undefined && output.SnapshotType !== null ? output.SnapshotType : undefined,
+    SourceDbSnapshotIdentifier:
+      output.SourceDbSnapshotIdentifier !== undefined && output.SourceDbSnapshotIdentifier !== null
+        ? output.SourceDbSnapshotIdentifier
+        : undefined,
+    SourceRegion: output.SourceRegion !== undefined && output.SourceRegion !== null ? output.SourceRegion : undefined,
+    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
+    StorageType: output.StorageType !== undefined && output.StorageType !== null ? output.StorageType : undefined,
+    TdeCredentialArn:
+      output.TdeCredentialArn !== undefined && output.TdeCredentialArn !== null ? output.TdeCredentialArn : undefined,
+    Timezone: output.Timezone !== undefined && output.Timezone !== null ? output.Timezone : undefined,
+    VpcId: output.VpcId !== undefined && output.VpcId !== null ? output.VpcId : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AwsRdsDbStatusInfo = (output: any, context: __SerdeContext): AwsRdsDbStatusInfo => {
+  return {
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+    Normal: output.Normal !== undefined && output.Normal !== null ? output.Normal : undefined,
+    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
+    StatusType: output.StatusType !== undefined && output.StatusType !== null ? output.StatusType : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AwsRdsDbStatusInfos = (output: any, context: __SerdeContext): AwsRdsDbStatusInfo[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1AwsRdsDbStatusInfo(entry, context));
+};
+
+const deserializeAws_restJson1AwsRdsDbSubnetGroup = (output: any, context: __SerdeContext): AwsRdsDbSubnetGroup => {
+  return {
+    DbSubnetGroupArn:
+      output.DbSubnetGroupArn !== undefined && output.DbSubnetGroupArn !== null ? output.DbSubnetGroupArn : undefined,
+    DbSubnetGroupDescription:
+      output.DbSubnetGroupDescription !== undefined && output.DbSubnetGroupDescription !== null
+        ? output.DbSubnetGroupDescription
+        : undefined,
+    DbSubnetGroupName:
+      output.DbSubnetGroupName !== undefined && output.DbSubnetGroupName !== null
+        ? output.DbSubnetGroupName
+        : undefined,
+    SubnetGroupStatus:
+      output.SubnetGroupStatus !== undefined && output.SubnetGroupStatus !== null
+        ? output.SubnetGroupStatus
+        : undefined,
+    Subnets:
+      output.Subnets !== undefined && output.Subnets !== null
+        ? deserializeAws_restJson1AwsRdsDbSubnetGroupSubnets(output.Subnets, context)
+        : undefined,
+    VpcId: output.VpcId !== undefined && output.VpcId !== null ? output.VpcId : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AwsRdsDbSubnetGroupSubnet = (
+  output: any,
+  context: __SerdeContext
+): AwsRdsDbSubnetGroupSubnet => {
+  return {
+    SubnetAvailabilityZone:
+      output.SubnetAvailabilityZone !== undefined && output.SubnetAvailabilityZone !== null
+        ? deserializeAws_restJson1AwsRdsDbSubnetGroupSubnetAvailabilityZone(output.SubnetAvailabilityZone, context)
+        : undefined,
+    SubnetIdentifier:
+      output.SubnetIdentifier !== undefined && output.SubnetIdentifier !== null ? output.SubnetIdentifier : undefined,
+    SubnetStatus: output.SubnetStatus !== undefined && output.SubnetStatus !== null ? output.SubnetStatus : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AwsRdsDbSubnetGroupSubnetAvailabilityZone = (
+  output: any,
+  context: __SerdeContext
+): AwsRdsDbSubnetGroupSubnetAvailabilityZone => {
+  return {
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AwsRdsDbSubnetGroupSubnets = (
+  output: any,
+  context: __SerdeContext
+): AwsRdsDbSubnetGroupSubnet[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1AwsRdsDbSubnetGroupSubnet(entry, context));
+};
+
+const deserializeAws_restJson1AwsRdsPendingCloudWatchLogsExports = (
+  output: any,
+  context: __SerdeContext
+): AwsRdsPendingCloudWatchLogsExports => {
+  return {
+    LogTypesToDisable:
+      output.LogTypesToDisable !== undefined && output.LogTypesToDisable !== null
+        ? deserializeAws_restJson1StringList(output.LogTypesToDisable, context)
+        : undefined,
+    LogTypesToEnable:
+      output.LogTypesToEnable !== undefined && output.LogTypesToEnable !== null
+        ? deserializeAws_restJson1StringList(output.LogTypesToEnable, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AwsRedshiftClusterClusterNode = (
+  output: any,
+  context: __SerdeContext
+): AwsRedshiftClusterClusterNode => {
+  return {
+    NodeRole: output.NodeRole !== undefined && output.NodeRole !== null ? output.NodeRole : undefined,
+    PrivateIpAddress:
+      output.PrivateIpAddress !== undefined && output.PrivateIpAddress !== null ? output.PrivateIpAddress : undefined,
+    PublicIpAddress:
+      output.PublicIpAddress !== undefined && output.PublicIpAddress !== null ? output.PublicIpAddress : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AwsRedshiftClusterClusterNodes = (
+  output: any,
+  context: __SerdeContext
+): AwsRedshiftClusterClusterNode[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1AwsRedshiftClusterClusterNode(entry, context));
+};
+
+const deserializeAws_restJson1AwsRedshiftClusterClusterParameterGroup = (
+  output: any,
+  context: __SerdeContext
+): AwsRedshiftClusterClusterParameterGroup => {
+  return {
+    ClusterParameterStatusList:
+      output.ClusterParameterStatusList !== undefined && output.ClusterParameterStatusList !== null
+        ? deserializeAws_restJson1AwsRedshiftClusterClusterParameterStatusList(
+            output.ClusterParameterStatusList,
+            context
+          )
+        : undefined,
+    ParameterApplyStatus:
+      output.ParameterApplyStatus !== undefined && output.ParameterApplyStatus !== null
+        ? output.ParameterApplyStatus
+        : undefined,
+    ParameterGroupName:
+      output.ParameterGroupName !== undefined && output.ParameterGroupName !== null
+        ? output.ParameterGroupName
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AwsRedshiftClusterClusterParameterGroups = (
+  output: any,
+  context: __SerdeContext
+): AwsRedshiftClusterClusterParameterGroup[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_restJson1AwsRedshiftClusterClusterParameterGroup(entry, context)
+  );
+};
+
+const deserializeAws_restJson1AwsRedshiftClusterClusterParameterStatus = (
+  output: any,
+  context: __SerdeContext
+): AwsRedshiftClusterClusterParameterStatus => {
+  return {
+    ParameterApplyErrorDescription:
+      output.ParameterApplyErrorDescription !== undefined && output.ParameterApplyErrorDescription !== null
+        ? output.ParameterApplyErrorDescription
+        : undefined,
+    ParameterApplyStatus:
+      output.ParameterApplyStatus !== undefined && output.ParameterApplyStatus !== null
+        ? output.ParameterApplyStatus
+        : undefined,
+    ParameterName:
+      output.ParameterName !== undefined && output.ParameterName !== null ? output.ParameterName : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AwsRedshiftClusterClusterParameterStatusList = (
+  output: any,
+  context: __SerdeContext
+): AwsRedshiftClusterClusterParameterStatus[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_restJson1AwsRedshiftClusterClusterParameterStatus(entry, context)
+  );
+};
+
+const deserializeAws_restJson1AwsRedshiftClusterClusterSecurityGroup = (
+  output: any,
+  context: __SerdeContext
+): AwsRedshiftClusterClusterSecurityGroup => {
+  return {
+    ClusterSecurityGroupName:
+      output.ClusterSecurityGroupName !== undefined && output.ClusterSecurityGroupName !== null
+        ? output.ClusterSecurityGroupName
+        : undefined,
+    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AwsRedshiftClusterClusterSecurityGroups = (
+  output: any,
+  context: __SerdeContext
+): AwsRedshiftClusterClusterSecurityGroup[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_restJson1AwsRedshiftClusterClusterSecurityGroup(entry, context)
+  );
+};
+
+const deserializeAws_restJson1AwsRedshiftClusterClusterSnapshotCopyStatus = (
+  output: any,
+  context: __SerdeContext
+): AwsRedshiftClusterClusterSnapshotCopyStatus => {
+  return {
+    DestinationRegion:
+      output.DestinationRegion !== undefined && output.DestinationRegion !== null
+        ? output.DestinationRegion
+        : undefined,
+    ManualSnapshotRetentionPeriod:
+      output.ManualSnapshotRetentionPeriod !== undefined && output.ManualSnapshotRetentionPeriod !== null
+        ? output.ManualSnapshotRetentionPeriod
+        : undefined,
+    RetentionPeriod:
+      output.RetentionPeriod !== undefined && output.RetentionPeriod !== null ? output.RetentionPeriod : undefined,
+    SnapshotCopyGrantName:
+      output.SnapshotCopyGrantName !== undefined && output.SnapshotCopyGrantName !== null
+        ? output.SnapshotCopyGrantName
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AwsRedshiftClusterDeferredMaintenanceWindow = (
+  output: any,
+  context: __SerdeContext
+): AwsRedshiftClusterDeferredMaintenanceWindow => {
+  return {
+    DeferMaintenanceEndTime:
+      output.DeferMaintenanceEndTime !== undefined && output.DeferMaintenanceEndTime !== null
+        ? output.DeferMaintenanceEndTime
+        : undefined,
+    DeferMaintenanceIdentifier:
+      output.DeferMaintenanceIdentifier !== undefined && output.DeferMaintenanceIdentifier !== null
+        ? output.DeferMaintenanceIdentifier
+        : undefined,
+    DeferMaintenanceStartTime:
+      output.DeferMaintenanceStartTime !== undefined && output.DeferMaintenanceStartTime !== null
+        ? output.DeferMaintenanceStartTime
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AwsRedshiftClusterDeferredMaintenanceWindows = (
+  output: any,
+  context: __SerdeContext
+): AwsRedshiftClusterDeferredMaintenanceWindow[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_restJson1AwsRedshiftClusterDeferredMaintenanceWindow(entry, context)
+  );
+};
+
+const deserializeAws_restJson1AwsRedshiftClusterDetails = (
+  output: any,
+  context: __SerdeContext
+): AwsRedshiftClusterDetails => {
+  return {
+    AllowVersionUpgrade:
+      output.AllowVersionUpgrade !== undefined && output.AllowVersionUpgrade !== null
+        ? output.AllowVersionUpgrade
+        : undefined,
+    AutomatedSnapshotRetentionPeriod:
+      output.AutomatedSnapshotRetentionPeriod !== undefined && output.AutomatedSnapshotRetentionPeriod !== null
+        ? output.AutomatedSnapshotRetentionPeriod
+        : undefined,
+    AvailabilityZone:
+      output.AvailabilityZone !== undefined && output.AvailabilityZone !== null ? output.AvailabilityZone : undefined,
+    ClusterAvailabilityStatus:
+      output.ClusterAvailabilityStatus !== undefined && output.ClusterAvailabilityStatus !== null
+        ? output.ClusterAvailabilityStatus
+        : undefined,
+    ClusterCreateTime:
+      output.ClusterCreateTime !== undefined && output.ClusterCreateTime !== null
+        ? output.ClusterCreateTime
+        : undefined,
+    ClusterIdentifier:
+      output.ClusterIdentifier !== undefined && output.ClusterIdentifier !== null
+        ? output.ClusterIdentifier
+        : undefined,
+    ClusterNodes:
+      output.ClusterNodes !== undefined && output.ClusterNodes !== null
+        ? deserializeAws_restJson1AwsRedshiftClusterClusterNodes(output.ClusterNodes, context)
+        : undefined,
+    ClusterParameterGroups:
+      output.ClusterParameterGroups !== undefined && output.ClusterParameterGroups !== null
+        ? deserializeAws_restJson1AwsRedshiftClusterClusterParameterGroups(output.ClusterParameterGroups, context)
+        : undefined,
+    ClusterPublicKey:
+      output.ClusterPublicKey !== undefined && output.ClusterPublicKey !== null ? output.ClusterPublicKey : undefined,
+    ClusterRevisionNumber:
+      output.ClusterRevisionNumber !== undefined && output.ClusterRevisionNumber !== null
+        ? output.ClusterRevisionNumber
+        : undefined,
+    ClusterSecurityGroups:
+      output.ClusterSecurityGroups !== undefined && output.ClusterSecurityGroups !== null
+        ? deserializeAws_restJson1AwsRedshiftClusterClusterSecurityGroups(output.ClusterSecurityGroups, context)
+        : undefined,
+    ClusterSnapshotCopyStatus:
+      output.ClusterSnapshotCopyStatus !== undefined && output.ClusterSnapshotCopyStatus !== null
+        ? deserializeAws_restJson1AwsRedshiftClusterClusterSnapshotCopyStatus(output.ClusterSnapshotCopyStatus, context)
+        : undefined,
+    ClusterStatus:
+      output.ClusterStatus !== undefined && output.ClusterStatus !== null ? output.ClusterStatus : undefined,
+    ClusterSubnetGroupName:
+      output.ClusterSubnetGroupName !== undefined && output.ClusterSubnetGroupName !== null
+        ? output.ClusterSubnetGroupName
+        : undefined,
+    ClusterVersion:
+      output.ClusterVersion !== undefined && output.ClusterVersion !== null ? output.ClusterVersion : undefined,
+    DBName: output.DBName !== undefined && output.DBName !== null ? output.DBName : undefined,
+    DeferredMaintenanceWindows:
+      output.DeferredMaintenanceWindows !== undefined && output.DeferredMaintenanceWindows !== null
+        ? deserializeAws_restJson1AwsRedshiftClusterDeferredMaintenanceWindows(
+            output.DeferredMaintenanceWindows,
+            context
+          )
+        : undefined,
+    ElasticIpStatus:
+      output.ElasticIpStatus !== undefined && output.ElasticIpStatus !== null
+        ? deserializeAws_restJson1AwsRedshiftClusterElasticIpStatus(output.ElasticIpStatus, context)
+        : undefined,
+    ElasticResizeNumberOfNodeOptions:
+      output.ElasticResizeNumberOfNodeOptions !== undefined && output.ElasticResizeNumberOfNodeOptions !== null
+        ? output.ElasticResizeNumberOfNodeOptions
+        : undefined,
+    Encrypted: output.Encrypted !== undefined && output.Encrypted !== null ? output.Encrypted : undefined,
+    Endpoint:
+      output.Endpoint !== undefined && output.Endpoint !== null
+        ? deserializeAws_restJson1AwsRedshiftClusterEndpoint(output.Endpoint, context)
+        : undefined,
+    EnhancedVpcRouting:
+      output.EnhancedVpcRouting !== undefined && output.EnhancedVpcRouting !== null
+        ? output.EnhancedVpcRouting
+        : undefined,
+    ExpectedNextSnapshotScheduleTime:
+      output.ExpectedNextSnapshotScheduleTime !== undefined && output.ExpectedNextSnapshotScheduleTime !== null
+        ? output.ExpectedNextSnapshotScheduleTime
+        : undefined,
+    ExpectedNextSnapshotScheduleTimeStatus:
+      output.ExpectedNextSnapshotScheduleTimeStatus !== undefined &&
+      output.ExpectedNextSnapshotScheduleTimeStatus !== null
+        ? output.ExpectedNextSnapshotScheduleTimeStatus
+        : undefined,
+    HsmStatus:
+      output.HsmStatus !== undefined && output.HsmStatus !== null
+        ? deserializeAws_restJson1AwsRedshiftClusterHsmStatus(output.HsmStatus, context)
+        : undefined,
+    IamRoles:
+      output.IamRoles !== undefined && output.IamRoles !== null
+        ? deserializeAws_restJson1AwsRedshiftClusterIamRoles(output.IamRoles, context)
+        : undefined,
+    KmsKeyId: output.KmsKeyId !== undefined && output.KmsKeyId !== null ? output.KmsKeyId : undefined,
+    MaintenanceTrackName:
+      output.MaintenanceTrackName !== undefined && output.MaintenanceTrackName !== null
+        ? output.MaintenanceTrackName
+        : undefined,
+    ManualSnapshotRetentionPeriod:
+      output.ManualSnapshotRetentionPeriod !== undefined && output.ManualSnapshotRetentionPeriod !== null
+        ? output.ManualSnapshotRetentionPeriod
+        : undefined,
+    MasterUsername:
+      output.MasterUsername !== undefined && output.MasterUsername !== null ? output.MasterUsername : undefined,
+    NextMaintenanceWindowStartTime:
+      output.NextMaintenanceWindowStartTime !== undefined && output.NextMaintenanceWindowStartTime !== null
+        ? output.NextMaintenanceWindowStartTime
+        : undefined,
+    NodeType: output.NodeType !== undefined && output.NodeType !== null ? output.NodeType : undefined,
+    NumberOfNodes:
+      output.NumberOfNodes !== undefined && output.NumberOfNodes !== null ? output.NumberOfNodes : undefined,
+    PendingActions:
+      output.PendingActions !== undefined && output.PendingActions !== null
+        ? deserializeAws_restJson1StringList(output.PendingActions, context)
+        : undefined,
+    PendingModifiedValues:
+      output.PendingModifiedValues !== undefined && output.PendingModifiedValues !== null
+        ? deserializeAws_restJson1AwsRedshiftClusterPendingModifiedValues(output.PendingModifiedValues, context)
+        : undefined,
+    PreferredMaintenanceWindow:
+      output.PreferredMaintenanceWindow !== undefined && output.PreferredMaintenanceWindow !== null
+        ? output.PreferredMaintenanceWindow
+        : undefined,
+    PubliclyAccessible:
+      output.PubliclyAccessible !== undefined && output.PubliclyAccessible !== null
+        ? output.PubliclyAccessible
+        : undefined,
+    ResizeInfo:
+      output.ResizeInfo !== undefined && output.ResizeInfo !== null
+        ? deserializeAws_restJson1AwsRedshiftClusterResizeInfo(output.ResizeInfo, context)
+        : undefined,
+    RestoreStatus:
+      output.RestoreStatus !== undefined && output.RestoreStatus !== null
+        ? deserializeAws_restJson1AwsRedshiftClusterRestoreStatus(output.RestoreStatus, context)
+        : undefined,
+    SnapshotScheduleIdentifier:
+      output.SnapshotScheduleIdentifier !== undefined && output.SnapshotScheduleIdentifier !== null
+        ? output.SnapshotScheduleIdentifier
+        : undefined,
+    SnapshotScheduleState:
+      output.SnapshotScheduleState !== undefined && output.SnapshotScheduleState !== null
+        ? output.SnapshotScheduleState
+        : undefined,
+    VpcId: output.VpcId !== undefined && output.VpcId !== null ? output.VpcId : undefined,
+    VpcSecurityGroups:
+      output.VpcSecurityGroups !== undefined && output.VpcSecurityGroups !== null
+        ? deserializeAws_restJson1AwsRedshiftClusterVpcSecurityGroups(output.VpcSecurityGroups, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AwsRedshiftClusterElasticIpStatus = (
+  output: any,
+  context: __SerdeContext
+): AwsRedshiftClusterElasticIpStatus => {
+  return {
+    ElasticIp: output.ElasticIp !== undefined && output.ElasticIp !== null ? output.ElasticIp : undefined,
+    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AwsRedshiftClusterEndpoint = (
+  output: any,
+  context: __SerdeContext
+): AwsRedshiftClusterEndpoint => {
+  return {
+    Address: output.Address !== undefined && output.Address !== null ? output.Address : undefined,
+    Port: output.Port !== undefined && output.Port !== null ? output.Port : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AwsRedshiftClusterHsmStatus = (
+  output: any,
+  context: __SerdeContext
+): AwsRedshiftClusterHsmStatus => {
+  return {
+    HsmClientCertificateIdentifier:
+      output.HsmClientCertificateIdentifier !== undefined && output.HsmClientCertificateIdentifier !== null
+        ? output.HsmClientCertificateIdentifier
+        : undefined,
+    HsmConfigurationIdentifier:
+      output.HsmConfigurationIdentifier !== undefined && output.HsmConfigurationIdentifier !== null
+        ? output.HsmConfigurationIdentifier
+        : undefined,
+    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AwsRedshiftClusterIamRole = (
+  output: any,
+  context: __SerdeContext
+): AwsRedshiftClusterIamRole => {
+  return {
+    ApplyStatus: output.ApplyStatus !== undefined && output.ApplyStatus !== null ? output.ApplyStatus : undefined,
+    IamRoleArn: output.IamRoleArn !== undefined && output.IamRoleArn !== null ? output.IamRoleArn : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AwsRedshiftClusterIamRoles = (
+  output: any,
+  context: __SerdeContext
+): AwsRedshiftClusterIamRole[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1AwsRedshiftClusterIamRole(entry, context));
+};
+
+const deserializeAws_restJson1AwsRedshiftClusterPendingModifiedValues = (
+  output: any,
+  context: __SerdeContext
+): AwsRedshiftClusterPendingModifiedValues => {
+  return {
+    AutomatedSnapshotRetentionPeriod:
+      output.AutomatedSnapshotRetentionPeriod !== undefined && output.AutomatedSnapshotRetentionPeriod !== null
+        ? output.AutomatedSnapshotRetentionPeriod
+        : undefined,
+    ClusterIdentifier:
+      output.ClusterIdentifier !== undefined && output.ClusterIdentifier !== null
+        ? output.ClusterIdentifier
+        : undefined,
+    ClusterType: output.ClusterType !== undefined && output.ClusterType !== null ? output.ClusterType : undefined,
+    ClusterVersion:
+      output.ClusterVersion !== undefined && output.ClusterVersion !== null ? output.ClusterVersion : undefined,
+    EncryptionType:
+      output.EncryptionType !== undefined && output.EncryptionType !== null ? output.EncryptionType : undefined,
+    EnhancedVpcRouting:
+      output.EnhancedVpcRouting !== undefined && output.EnhancedVpcRouting !== null
+        ? output.EnhancedVpcRouting
+        : undefined,
+    MaintenanceTrackName:
+      output.MaintenanceTrackName !== undefined && output.MaintenanceTrackName !== null
+        ? output.MaintenanceTrackName
+        : undefined,
+    MasterUserPassword:
+      output.MasterUserPassword !== undefined && output.MasterUserPassword !== null
+        ? output.MasterUserPassword
+        : undefined,
+    NodeType: output.NodeType !== undefined && output.NodeType !== null ? output.NodeType : undefined,
+    NumberOfNodes:
+      output.NumberOfNodes !== undefined && output.NumberOfNodes !== null ? output.NumberOfNodes : undefined,
+    PubliclyAccessible:
+      output.PubliclyAccessible !== undefined && output.PubliclyAccessible !== null
+        ? output.PubliclyAccessible
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AwsRedshiftClusterResizeInfo = (
+  output: any,
+  context: __SerdeContext
+): AwsRedshiftClusterResizeInfo => {
+  return {
+    AllowCancelResize:
+      output.AllowCancelResize !== undefined && output.AllowCancelResize !== null
+        ? output.AllowCancelResize
+        : undefined,
+    ResizeType: output.ResizeType !== undefined && output.ResizeType !== null ? output.ResizeType : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AwsRedshiftClusterRestoreStatus = (
+  output: any,
+  context: __SerdeContext
+): AwsRedshiftClusterRestoreStatus => {
+  return {
+    CurrentRestoreRateInMegaBytesPerSecond:
+      output.CurrentRestoreRateInMegaBytesPerSecond !== undefined &&
+      output.CurrentRestoreRateInMegaBytesPerSecond !== null
+        ? output.CurrentRestoreRateInMegaBytesPerSecond
+        : undefined,
+    ElapsedTimeInSeconds:
+      output.ElapsedTimeInSeconds !== undefined && output.ElapsedTimeInSeconds !== null
+        ? output.ElapsedTimeInSeconds
+        : undefined,
+    EstimatedTimeToCompletionInSeconds:
+      output.EstimatedTimeToCompletionInSeconds !== undefined && output.EstimatedTimeToCompletionInSeconds !== null
+        ? output.EstimatedTimeToCompletionInSeconds
+        : undefined,
+    ProgressInMegaBytes:
+      output.ProgressInMegaBytes !== undefined && output.ProgressInMegaBytes !== null
+        ? output.ProgressInMegaBytes
+        : undefined,
+    SnapshotSizeInMegaBytes:
+      output.SnapshotSizeInMegaBytes !== undefined && output.SnapshotSizeInMegaBytes !== null
+        ? output.SnapshotSizeInMegaBytes
+        : undefined,
+    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AwsRedshiftClusterVpcSecurityGroup = (
+  output: any,
+  context: __SerdeContext
+): AwsRedshiftClusterVpcSecurityGroup => {
+  return {
+    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
+    VpcSecurityGroupId:
+      output.VpcSecurityGroupId !== undefined && output.VpcSecurityGroupId !== null
+        ? output.VpcSecurityGroupId
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AwsRedshiftClusterVpcSecurityGroups = (
+  output: any,
+  context: __SerdeContext
+): AwsRedshiftClusterVpcSecurityGroup[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1AwsRedshiftClusterVpcSecurityGroup(entry, context));
 };
 
 const deserializeAws_restJson1AwsS3BucketDetails = (output: any, context: __SerdeContext): AwsS3BucketDetails => {
@@ -7974,6 +12937,44 @@ const deserializeAws_restJson1AwsS3ObjectDetails = (output: any, context: __Serd
   } as any;
 };
 
+const deserializeAws_restJson1AwsSecretsManagerSecretDetails = (
+  output: any,
+  context: __SerdeContext
+): AwsSecretsManagerSecretDetails => {
+  return {
+    Deleted: output.Deleted !== undefined && output.Deleted !== null ? output.Deleted : undefined,
+    Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
+    KmsKeyId: output.KmsKeyId !== undefined && output.KmsKeyId !== null ? output.KmsKeyId : undefined,
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+    RotationEnabled:
+      output.RotationEnabled !== undefined && output.RotationEnabled !== null ? output.RotationEnabled : undefined,
+    RotationLambdaArn:
+      output.RotationLambdaArn !== undefined && output.RotationLambdaArn !== null
+        ? output.RotationLambdaArn
+        : undefined,
+    RotationOccurredWithinFrequency:
+      output.RotationOccurredWithinFrequency !== undefined && output.RotationOccurredWithinFrequency !== null
+        ? output.RotationOccurredWithinFrequency
+        : undefined,
+    RotationRules:
+      output.RotationRules !== undefined && output.RotationRules !== null
+        ? deserializeAws_restJson1AwsSecretsManagerSecretRotationRules(output.RotationRules, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AwsSecretsManagerSecretRotationRules = (
+  output: any,
+  context: __SerdeContext
+): AwsSecretsManagerSecretRotationRules => {
+  return {
+    AutomaticallyAfterDays:
+      output.AutomaticallyAfterDays !== undefined && output.AutomaticallyAfterDays !== null
+        ? output.AutomaticallyAfterDays
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1AwsSecurityFinding = (output: any, context: __SerdeContext): AwsSecurityFinding => {
   return {
     AwsAccountId: output.AwsAccountId !== undefined && output.AwsAccountId !== null ? output.AwsAccountId : undefined,
@@ -8006,6 +13007,10 @@ const deserializeAws_restJson1AwsSecurityFinding = (output: any, context: __Serd
     Note:
       output.Note !== undefined && output.Note !== null
         ? deserializeAws_restJson1Note(output.Note, context)
+        : undefined,
+    PatchSummary:
+      output.PatchSummary !== undefined && output.PatchSummary !== null
+        ? deserializeAws_restJson1PatchSummary(output.PatchSummary, context)
         : undefined,
     Process:
       output.Process !== undefined && output.Process !== null
@@ -8893,6 +13898,36 @@ const deserializeAws_restJson1NumberFilterList = (output: any, context: __SerdeC
   return (output || []).map((entry: any) => deserializeAws_restJson1NumberFilter(entry, context));
 };
 
+const deserializeAws_restJson1PatchSummary = (output: any, context: __SerdeContext): PatchSummary => {
+  return {
+    FailedCount: output.FailedCount !== undefined && output.FailedCount !== null ? output.FailedCount : undefined,
+    Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
+    InstalledCount:
+      output.InstalledCount !== undefined && output.InstalledCount !== null ? output.InstalledCount : undefined,
+    InstalledOtherCount:
+      output.InstalledOtherCount !== undefined && output.InstalledOtherCount !== null
+        ? output.InstalledOtherCount
+        : undefined,
+    InstalledPendingReboot:
+      output.InstalledPendingReboot !== undefined && output.InstalledPendingReboot !== null
+        ? output.InstalledPendingReboot
+        : undefined,
+    InstalledRejectedCount:
+      output.InstalledRejectedCount !== undefined && output.InstalledRejectedCount !== null
+        ? output.InstalledRejectedCount
+        : undefined,
+    MissingCount: output.MissingCount !== undefined && output.MissingCount !== null ? output.MissingCount : undefined,
+    Operation: output.Operation !== undefined && output.Operation !== null ? output.Operation : undefined,
+    OperationEndTime:
+      output.OperationEndTime !== undefined && output.OperationEndTime !== null ? output.OperationEndTime : undefined,
+    OperationStartTime:
+      output.OperationStartTime !== undefined && output.OperationStartTime !== null
+        ? output.OperationStartTime
+        : undefined,
+    RebootOption: output.RebootOption !== undefined && output.RebootOption !== null ? output.RebootOption : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1PortRange = (output: any, context: __SerdeContext): PortRange => {
   return {
     Begin: output.Begin !== undefined && output.Begin !== null ? output.Begin : undefined,
@@ -8988,6 +14023,7 @@ const deserializeAws_restJson1Resource = (output: any, context: __SerdeContext):
     Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
     Partition: output.Partition !== undefined && output.Partition !== null ? output.Partition : undefined,
     Region: output.Region !== undefined && output.Region !== null ? output.Region : undefined,
+    ResourceRole: output.ResourceRole !== undefined && output.ResourceRole !== null ? output.ResourceRole : undefined,
     Tags:
       output.Tags !== undefined && output.Tags !== null
         ? deserializeAws_restJson1FieldMap(output.Tags, context)
@@ -8998,17 +14034,52 @@ const deserializeAws_restJson1Resource = (output: any, context: __SerdeContext):
 
 const deserializeAws_restJson1ResourceDetails = (output: any, context: __SerdeContext): ResourceDetails => {
   return {
+    AwsApiGatewayRestApi:
+      output.AwsApiGatewayRestApi !== undefined && output.AwsApiGatewayRestApi !== null
+        ? deserializeAws_restJson1AwsApiGatewayRestApiDetails(output.AwsApiGatewayRestApi, context)
+        : undefined,
+    AwsApiGatewayStage:
+      output.AwsApiGatewayStage !== undefined && output.AwsApiGatewayStage !== null
+        ? deserializeAws_restJson1AwsApiGatewayStageDetails(output.AwsApiGatewayStage, context)
+        : undefined,
+    AwsApiGatewayV2Api:
+      output.AwsApiGatewayV2Api !== undefined && output.AwsApiGatewayV2Api !== null
+        ? deserializeAws_restJson1AwsApiGatewayV2ApiDetails(output.AwsApiGatewayV2Api, context)
+        : undefined,
+    AwsApiGatewayV2Stage:
+      output.AwsApiGatewayV2Stage !== undefined && output.AwsApiGatewayV2Stage !== null
+        ? deserializeAws_restJson1AwsApiGatewayV2StageDetails(output.AwsApiGatewayV2Stage, context)
+        : undefined,
     AwsAutoScalingAutoScalingGroup:
       output.AwsAutoScalingAutoScalingGroup !== undefined && output.AwsAutoScalingAutoScalingGroup !== null
         ? deserializeAws_restJson1AwsAutoScalingAutoScalingGroupDetails(output.AwsAutoScalingAutoScalingGroup, context)
+        : undefined,
+    AwsCertificateManagerCertificate:
+      output.AwsCertificateManagerCertificate !== undefined && output.AwsCertificateManagerCertificate !== null
+        ? deserializeAws_restJson1AwsCertificateManagerCertificateDetails(
+            output.AwsCertificateManagerCertificate,
+            context
+          )
         : undefined,
     AwsCloudFrontDistribution:
       output.AwsCloudFrontDistribution !== undefined && output.AwsCloudFrontDistribution !== null
         ? deserializeAws_restJson1AwsCloudFrontDistributionDetails(output.AwsCloudFrontDistribution, context)
         : undefined,
+    AwsCloudTrailTrail:
+      output.AwsCloudTrailTrail !== undefined && output.AwsCloudTrailTrail !== null
+        ? deserializeAws_restJson1AwsCloudTrailTrailDetails(output.AwsCloudTrailTrail, context)
+        : undefined,
     AwsCodeBuildProject:
       output.AwsCodeBuildProject !== undefined && output.AwsCodeBuildProject !== null
         ? deserializeAws_restJson1AwsCodeBuildProjectDetails(output.AwsCodeBuildProject, context)
+        : undefined,
+    AwsDynamoDbTable:
+      output.AwsDynamoDbTable !== undefined && output.AwsDynamoDbTable !== null
+        ? deserializeAws_restJson1AwsDynamoDbTableDetails(output.AwsDynamoDbTable, context)
+        : undefined,
+    AwsEc2Eip:
+      output.AwsEc2Eip !== undefined && output.AwsEc2Eip !== null
+        ? deserializeAws_restJson1AwsEc2EipDetails(output.AwsEc2Eip, context)
         : undefined,
     AwsEc2Instance:
       output.AwsEc2Instance !== undefined && output.AwsEc2Instance !== null
@@ -9034,6 +14105,10 @@ const deserializeAws_restJson1ResourceDetails = (output: any, context: __SerdeCo
       output.AwsElasticsearchDomain !== undefined && output.AwsElasticsearchDomain !== null
         ? deserializeAws_restJson1AwsElasticsearchDomainDetails(output.AwsElasticsearchDomain, context)
         : undefined,
+    AwsElbLoadBalancer:
+      output.AwsElbLoadBalancer !== undefined && output.AwsElbLoadBalancer !== null
+        ? deserializeAws_restJson1AwsElbLoadBalancerDetails(output.AwsElbLoadBalancer, context)
+        : undefined,
     AwsElbv2LoadBalancer:
       output.AwsElbv2LoadBalancer !== undefined && output.AwsElbv2LoadBalancer !== null
         ? deserializeAws_restJson1AwsElbv2LoadBalancerDetails(output.AwsElbv2LoadBalancer, context)
@@ -9042,9 +14117,21 @@ const deserializeAws_restJson1ResourceDetails = (output: any, context: __SerdeCo
       output.AwsIamAccessKey !== undefined && output.AwsIamAccessKey !== null
         ? deserializeAws_restJson1AwsIamAccessKeyDetails(output.AwsIamAccessKey, context)
         : undefined,
+    AwsIamGroup:
+      output.AwsIamGroup !== undefined && output.AwsIamGroup !== null
+        ? deserializeAws_restJson1AwsIamGroupDetails(output.AwsIamGroup, context)
+        : undefined,
+    AwsIamPolicy:
+      output.AwsIamPolicy !== undefined && output.AwsIamPolicy !== null
+        ? deserializeAws_restJson1AwsIamPolicyDetails(output.AwsIamPolicy, context)
+        : undefined,
     AwsIamRole:
       output.AwsIamRole !== undefined && output.AwsIamRole !== null
         ? deserializeAws_restJson1AwsIamRoleDetails(output.AwsIamRole, context)
+        : undefined,
+    AwsIamUser:
+      output.AwsIamUser !== undefined && output.AwsIamUser !== null
+        ? deserializeAws_restJson1AwsIamUserDetails(output.AwsIamUser, context)
         : undefined,
     AwsKmsKey:
       output.AwsKmsKey !== undefined && output.AwsKmsKey !== null
@@ -9058,9 +14145,25 @@ const deserializeAws_restJson1ResourceDetails = (output: any, context: __SerdeCo
       output.AwsLambdaLayerVersion !== undefined && output.AwsLambdaLayerVersion !== null
         ? deserializeAws_restJson1AwsLambdaLayerVersionDetails(output.AwsLambdaLayerVersion, context)
         : undefined,
+    AwsRdsDbCluster:
+      output.AwsRdsDbCluster !== undefined && output.AwsRdsDbCluster !== null
+        ? deserializeAws_restJson1AwsRdsDbClusterDetails(output.AwsRdsDbCluster, context)
+        : undefined,
+    AwsRdsDbClusterSnapshot:
+      output.AwsRdsDbClusterSnapshot !== undefined && output.AwsRdsDbClusterSnapshot !== null
+        ? deserializeAws_restJson1AwsRdsDbClusterSnapshotDetails(output.AwsRdsDbClusterSnapshot, context)
+        : undefined,
     AwsRdsDbInstance:
       output.AwsRdsDbInstance !== undefined && output.AwsRdsDbInstance !== null
         ? deserializeAws_restJson1AwsRdsDbInstanceDetails(output.AwsRdsDbInstance, context)
+        : undefined,
+    AwsRdsDbSnapshot:
+      output.AwsRdsDbSnapshot !== undefined && output.AwsRdsDbSnapshot !== null
+        ? deserializeAws_restJson1AwsRdsDbSnapshotDetails(output.AwsRdsDbSnapshot, context)
+        : undefined,
+    AwsRedshiftCluster:
+      output.AwsRedshiftCluster !== undefined && output.AwsRedshiftCluster !== null
+        ? deserializeAws_restJson1AwsRedshiftClusterDetails(output.AwsRedshiftCluster, context)
         : undefined,
     AwsS3Bucket:
       output.AwsS3Bucket !== undefined && output.AwsS3Bucket !== null
@@ -9069,6 +14172,10 @@ const deserializeAws_restJson1ResourceDetails = (output: any, context: __SerdeCo
     AwsS3Object:
       output.AwsS3Object !== undefined && output.AwsS3Object !== null
         ? deserializeAws_restJson1AwsS3ObjectDetails(output.AwsS3Object, context)
+        : undefined,
+    AwsSecretsManagerSecret:
+      output.AwsSecretsManagerSecret !== undefined && output.AwsSecretsManagerSecret !== null
+        ? deserializeAws_restJson1AwsSecretsManagerSecretDetails(output.AwsSecretsManagerSecret, context)
         : undefined,
     AwsSnsTopic:
       output.AwsSnsTopic !== undefined && output.AwsSnsTopic !== null

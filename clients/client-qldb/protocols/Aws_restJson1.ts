@@ -76,15 +76,6 @@ export const serializeAws_restJson1CancelJournalKinesisStreamCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/ledgers/{LedgerName}/journal-kinesis-streams/{StreamId}";
-  if (input.StreamId !== undefined) {
-    const labelValue: string = input.StreamId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: StreamId.");
-    }
-    resolvedPath = resolvedPath.replace("{StreamId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: StreamId.");
-  }
   if (input.LedgerName !== undefined) {
     const labelValue: string = input.LedgerName;
     if (labelValue.length <= 0) {
@@ -93,6 +84,15 @@ export const serializeAws_restJson1CancelJournalKinesisStreamCommand = async (
     resolvedPath = resolvedPath.replace("{LedgerName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: LedgerName.");
+  }
+  if (input.StreamId !== undefined) {
+    const labelValue: string = input.StreamId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: StreamId.");
+    }
+    resolvedPath = resolvedPath.replace("{StreamId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: StreamId.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -172,15 +172,6 @@ export const serializeAws_restJson1DescribeJournalKinesisStreamCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/ledgers/{LedgerName}/journal-kinesis-streams/{StreamId}";
-  if (input.StreamId !== undefined) {
-    const labelValue: string = input.StreamId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: StreamId.");
-    }
-    resolvedPath = resolvedPath.replace("{StreamId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: StreamId.");
-  }
   if (input.LedgerName !== undefined) {
     const labelValue: string = input.LedgerName;
     if (labelValue.length <= 0) {
@@ -189,6 +180,15 @@ export const serializeAws_restJson1DescribeJournalKinesisStreamCommand = async (
     resolvedPath = resolvedPath.replace("{LedgerName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: LedgerName.");
+  }
+  if (input.StreamId !== undefined) {
+    const labelValue: string = input.StreamId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: StreamId.");
+    }
+    resolvedPath = resolvedPath.replace("{StreamId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: StreamId.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -439,8 +439,8 @@ export const serializeAws_restJson1ListJournalKinesisStreamsForLedgerCommand = a
     throw new Error("No value provided for input HTTP label: LedgerName.");
   }
   const query: any = {
-    ...(input.MaxResults !== undefined && { max_results: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { next_token: input.NextToken }),
+    ...(input.MaxResults !== undefined && { max_results: input.MaxResults.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -500,8 +500,8 @@ export const serializeAws_restJson1ListJournalS3ExportsForLedgerCommand = async 
     throw new Error("No value provided for input HTTP label: Name.");
   }
   const query: any = {
-    ...(input.MaxResults !== undefined && { max_results: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { next_token: input.NextToken }),
+    ...(input.MaxResults !== undefined && { max_results: input.MaxResults.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();

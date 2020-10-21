@@ -223,6 +223,14 @@ const deserializeAws_json1_1DeleteTerminologyCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "InvalidParameterValueException":
+    case "com.amazonaws.translate#InvalidParameterValueException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "ResourceNotFoundException":
     case "com.amazonaws.translate#ResourceNotFoundException":
       response = {

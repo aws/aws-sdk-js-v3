@@ -1,5 +1,6 @@
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { DescribeAuditTaskRequest, DescribeAuditTaskResponse } from "../models/models_0";
+import { DescribeAuditTaskRequest } from "../models/models_0";
+import { DescribeAuditTaskResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1DescribeAuditTaskCommand,
   serializeAws_restJson1DescribeAuditTaskCommand,

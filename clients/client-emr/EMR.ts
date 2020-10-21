@@ -37,6 +37,11 @@ import {
   DescribeJobFlowsCommandOutput,
 } from "./commands/DescribeJobFlowsCommand";
 import {
+  DescribeNotebookExecutionCommand,
+  DescribeNotebookExecutionCommandInput,
+  DescribeNotebookExecutionCommandOutput,
+} from "./commands/DescribeNotebookExecutionCommand";
+import {
   DescribeSecurityConfigurationCommand,
   DescribeSecurityConfigurationCommandInput,
   DescribeSecurityConfigurationCommandOutput,
@@ -81,6 +86,11 @@ import {
   ListInstancesCommandInput,
   ListInstancesCommandOutput,
 } from "./commands/ListInstancesCommand";
+import {
+  ListNotebookExecutionsCommand,
+  ListNotebookExecutionsCommandInput,
+  ListNotebookExecutionsCommandOutput,
+} from "./commands/ListNotebookExecutionsCommand";
 import {
   ListSecurityConfigurationsCommand,
   ListSecurityConfigurationsCommandInput,
@@ -139,6 +149,16 @@ import {
   SetVisibleToAllUsersCommandInput,
   SetVisibleToAllUsersCommandOutput,
 } from "./commands/SetVisibleToAllUsersCommand";
+import {
+  StartNotebookExecutionCommand,
+  StartNotebookExecutionCommandInput,
+  StartNotebookExecutionCommandOutput,
+} from "./commands/StartNotebookExecutionCommand";
+import {
+  StopNotebookExecutionCommand,
+  StopNotebookExecutionCommandInput,
+  StopNotebookExecutionCommandOutput,
+} from "./commands/StopNotebookExecutionCommand";
 import {
   TerminateJobFlowsCommand,
   TerminateJobFlowsCommandInput,
@@ -452,6 +472,38 @@ export class EMR extends EMRClient {
   }
 
   /**
+   * <p>Provides details of a notebook execution.</p>
+   */
+  public describeNotebookExecution(
+    args: DescribeNotebookExecutionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeNotebookExecutionCommandOutput>;
+  public describeNotebookExecution(
+    args: DescribeNotebookExecutionCommandInput,
+    cb: (err: any, data?: DescribeNotebookExecutionCommandOutput) => void
+  ): void;
+  public describeNotebookExecution(
+    args: DescribeNotebookExecutionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeNotebookExecutionCommandOutput) => void
+  ): void;
+  public describeNotebookExecution(
+    args: DescribeNotebookExecutionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeNotebookExecutionCommandOutput) => void),
+    cb?: (err: any, data?: DescribeNotebookExecutionCommandOutput) => void
+  ): Promise<DescribeNotebookExecutionCommandOutput> | void {
+    const command = new DescribeNotebookExecutionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Provides the details of a security configuration by returning the configuration JSON.</p>
    */
   public describeSecurityConfiguration(
@@ -728,6 +780,38 @@ export class EMR extends EMRClient {
     cb?: (err: any, data?: ListInstancesCommandOutput) => void
   ): Promise<ListInstancesCommandOutput> | void {
     const command = new ListInstancesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Provides summaries of all notebook executions. You can filter the list based on multiple criteria such as status, time range, and editor id. Returns a maximum of 50 notebook executions and a marker to track the paging of a longer notebook execution list across multiple <code>ListNotebookExecution</code> calls.</p>
+   */
+  public listNotebookExecutions(
+    args: ListNotebookExecutionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListNotebookExecutionsCommandOutput>;
+  public listNotebookExecutions(
+    args: ListNotebookExecutionsCommandInput,
+    cb: (err: any, data?: ListNotebookExecutionsCommandOutput) => void
+  ): void;
+  public listNotebookExecutions(
+    args: ListNotebookExecutionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListNotebookExecutionsCommandOutput) => void
+  ): void;
+  public listNotebookExecutions(
+    args: ListNotebookExecutionsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListNotebookExecutionsCommandOutput) => void),
+    cb?: (err: any, data?: ListNotebookExecutionsCommandOutput) => void
+  ): Promise<ListNotebookExecutionsCommandOutput> | void {
+    const command = new ListNotebookExecutionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1195,6 +1279,70 @@ export class EMR extends EMRClient {
     cb?: (err: any, data?: SetVisibleToAllUsersCommandOutput) => void
   ): Promise<SetVisibleToAllUsersCommandOutput> | void {
     const command = new SetVisibleToAllUsersCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Starts a notebook execution.</p>
+   */
+  public startNotebookExecution(
+    args: StartNotebookExecutionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartNotebookExecutionCommandOutput>;
+  public startNotebookExecution(
+    args: StartNotebookExecutionCommandInput,
+    cb: (err: any, data?: StartNotebookExecutionCommandOutput) => void
+  ): void;
+  public startNotebookExecution(
+    args: StartNotebookExecutionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartNotebookExecutionCommandOutput) => void
+  ): void;
+  public startNotebookExecution(
+    args: StartNotebookExecutionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartNotebookExecutionCommandOutput) => void),
+    cb?: (err: any, data?: StartNotebookExecutionCommandOutput) => void
+  ): Promise<StartNotebookExecutionCommandOutput> | void {
+    const command = new StartNotebookExecutionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Stops a notebook execution.</p>
+   */
+  public stopNotebookExecution(
+    args: StopNotebookExecutionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StopNotebookExecutionCommandOutput>;
+  public stopNotebookExecution(
+    args: StopNotebookExecutionCommandInput,
+    cb: (err: any, data?: StopNotebookExecutionCommandOutput) => void
+  ): void;
+  public stopNotebookExecution(
+    args: StopNotebookExecutionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StopNotebookExecutionCommandOutput) => void
+  ): void;
+  public stopNotebookExecution(
+    args: StopNotebookExecutionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopNotebookExecutionCommandOutput) => void),
+    cb?: (err: any, data?: StopNotebookExecutionCommandOutput) => void
+  ): Promise<StopNotebookExecutionCommandOutput> | void {
+    const command = new StopNotebookExecutionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

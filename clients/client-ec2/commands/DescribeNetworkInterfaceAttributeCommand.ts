@@ -1,5 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DescribeNetworkInterfaceAttributeRequest, DescribeNetworkInterfaceAttributeResult } from "../models/models_2";
+import { DescribeNetworkInterfaceAttributeRequest, DescribeNetworkInterfaceAttributeResult } from "../models/models_3";
 import {
   deserializeAws_ec2DescribeNetworkInterfaceAttributeCommand,
   serializeAws_ec2DescribeNetworkInterfaceAttributeCommand,

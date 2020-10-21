@@ -66,26 +66,6 @@ export enum StartSelectorType {
  */
 export interface StartSelector {
   /**
-   * <p>Continuation token that Kinesis Video Streams returned in the previous
-   *         <code>GetMedia</code> response. The <code>GetMedia</code> API then starts with the chunk
-   *       identified by the continuation token.</p>
-   */
-  ContinuationToken?: string;
-
-  /**
-   * <p>A timestamp value. This value is required if you choose the PRODUCER_TIMESTAMP or the
-   *       SERVER_TIMESTAMP as the <code>startSelectorType</code>. The <code>GetMedia</code> API then
-   *       starts with the chunk containing the fragment that has the specified timestamp.</p>
-   */
-  StartTimestamp?: Date;
-
-  /**
-   * <p>Specifies the fragment number from where you want the <code>GetMedia</code> API to
-   *       start returning the fragments. </p>
-   */
-  AfterFragmentNumber?: string;
-
-  /**
    * <p>Identifies the fragment on the Kinesis video stream where you want to start getting the
    *       data from.</p>
    *          <ul>
@@ -115,6 +95,26 @@ export interface StartSelector {
    *          </note>
    */
   StartSelectorType: StartSelectorType | string | undefined;
+
+  /**
+   * <p>Continuation token that Kinesis Video Streams returned in the previous
+   *         <code>GetMedia</code> response. The <code>GetMedia</code> API then starts with the chunk
+   *       identified by the continuation token.</p>
+   */
+  ContinuationToken?: string;
+
+  /**
+   * <p>A timestamp value. This value is required if you choose the PRODUCER_TIMESTAMP or the
+   *       SERVER_TIMESTAMP as the <code>startSelectorType</code>. The <code>GetMedia</code> API then
+   *       starts with the chunk containing the fragment that has the specified timestamp.</p>
+   */
+  StartTimestamp?: Date;
+
+  /**
+   * <p>Specifies the fragment number from where you want the <code>GetMedia</code> API to
+   *       start returning the fragments. </p>
+   */
+  AfterFragmentNumber?: string;
 }
 
 export namespace StartSelector {
@@ -125,10 +125,9 @@ export namespace StartSelector {
 
 export interface GetMediaInput {
   /**
-   * <p>The ARN of the stream from where you want to get the media content. If you don't
-   *       specify the <code>streamARN</code>, you must specify the <code>streamName</code>.</p>
+   * <p>Identifies the starting chunk to get from the specified stream. </p>
    */
-  StreamARN?: string;
+  StartSelector: StartSelector | undefined;
 
   /**
    * <p>The Kinesis video stream name from where you want to get the media content. If you
@@ -138,9 +137,10 @@ export interface GetMediaInput {
   StreamName?: string;
 
   /**
-   * <p>Identifies the starting chunk to get from the specified stream. </p>
+   * <p>The ARN of the stream from where you want to get the media content. If you don't
+   *       specify the <code>streamARN</code>, you must specify the <code>streamName</code>.</p>
    */
-  StartSelector: StartSelector | undefined;
+  StreamARN?: string;
 }
 
 export namespace GetMediaInput {
@@ -150,11 +150,6 @@ export namespace GetMediaInput {
 }
 
 export interface GetMediaOutput {
-  /**
-   * <p>The content type of the requested media.</p>
-   */
-  ContentType?: string;
-
   /**
    * <p> The payload Kinesis Video Streams returns is a sequence of chunks from the specified
    *       stream. For information about the chunks, see . The
@@ -226,6 +221,11 @@ export interface GetMediaOutput {
    *          </ul>
    */
   Payload?: Readable | ReadableStream | Blob;
+
+  /**
+   * <p>The content type of the requested media.</p>
+   */
+  ContentType?: string;
 }
 
 export namespace GetMediaOutput {

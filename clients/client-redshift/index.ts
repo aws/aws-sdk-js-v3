@@ -51,6 +51,7 @@ export * from "./commands/DescribeClusterTracksCommand";
 export * from "./commands/DescribeClusterVersionsCommand";
 export * from "./pagination/DescribeClusterVersionsPaginator";
 export * from "./commands/DescribeDefaultClusterParametersCommand";
+export * from "./pagination/DescribeDefaultClusterParametersPaginator";
 export * from "./commands/DescribeEventCategoriesCommand";
 export * from "./commands/DescribeEventsCommand";
 export * from "./pagination/DescribeEventsPaginator";

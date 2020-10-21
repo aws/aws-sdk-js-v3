@@ -25,11 +25,17 @@ import { DescribeJobQueuesCommandInput, DescribeJobQueuesCommandOutput } from ".
 import { DescribeJobsCommandInput, DescribeJobsCommandOutput } from "./commands/DescribeJobsCommand";
 import { ListJobsCommandInput, ListJobsCommandOutput } from "./commands/ListJobsCommand";
 import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "./commands/ListTagsForResourceCommand";
+import {
   RegisterJobDefinitionCommandInput,
   RegisterJobDefinitionCommandOutput,
 } from "./commands/RegisterJobDefinitionCommand";
 import { SubmitJobCommandInput, SubmitJobCommandOutput } from "./commands/SubmitJobCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { TerminateJobCommandInput, TerminateJobCommandOutput } from "./commands/TerminateJobCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import {
   UpdateComputeEnvironmentCommandInput,
   UpdateComputeEnvironmentCommandOutput,
@@ -96,9 +102,12 @@ export type ServiceInputTypes =
   | DescribeJobQueuesCommandInput
   | DescribeJobsCommandInput
   | ListJobsCommandInput
+  | ListTagsForResourceCommandInput
   | RegisterJobDefinitionCommandInput
   | SubmitJobCommandInput
+  | TagResourceCommandInput
   | TerminateJobCommandInput
+  | UntagResourceCommandInput
   | UpdateComputeEnvironmentCommandInput
   | UpdateJobQueueCommandInput;
 
@@ -114,9 +123,12 @@ export type ServiceOutputTypes =
   | DescribeJobQueuesCommandOutput
   | DescribeJobsCommandOutput
   | ListJobsCommandOutput
+  | ListTagsForResourceCommandOutput
   | RegisterJobDefinitionCommandOutput
   | SubmitJobCommandOutput
+  | TagResourceCommandOutput
   | TerminateJobCommandOutput
+  | UntagResourceCommandOutput
   | UpdateComputeEnvironmentCommandOutput
   | UpdateJobQueueCommandOutput;
 
@@ -234,16 +246,17 @@ export type BatchClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHand
 
 /**
  * <p>AWS Batch enables you to run batch computing workloads on the AWS Cloud. Batch computing is a common way for
- *    developers, scientists, and engineers to access large amounts of compute resources, and AWS Batch removes the
- *    undifferentiated heavy lifting of configuring and managing the required infrastructure. AWS Batch will be familiar to
- *    users of traditional batch computing software. This service can efficiently provision resources in response to jobs
- *    submitted in order to eliminate capacity constraints, reduce compute costs, and deliver results quickly.</p>
+ *       developers, scientists, and engineers to access large amounts of compute resources, and AWS Batch removes the
+ *       undifferentiated heavy lifting of configuring and managing the required infrastructure. AWS Batch will be familiar
+ *       to users of traditional batch computing software. This service can efficiently provision resources in response to
+ *       jobs submitted in order to eliminate capacity constraints, reduce compute costs, and deliver results
+ *       quickly.</p>
  *          <p>As a fully managed service, AWS Batch enables developers, scientists, and engineers to run batch computing
- *    workloads of any scale. AWS Batch automatically provisions compute resources and optimizes the workload distribution
- *    based on the quantity and scale of the workloads. With AWS Batch, there is no need to install or manage batch computing
- *    software, which allows you to focus on analyzing results and solving problems. AWS Batch reduces operational
- *    complexities, saves time, and reduces costs, which makes it easy for developers, scientists, and engineers to run
- *    their batch jobs in the AWS Cloud.</p>
+ *       workloads of any scale. AWS Batch automatically provisions compute resources and optimizes the workload distribution
+ *       based on the quantity and scale of the workloads. With AWS Batch, there is no need to install or manage batch
+ *       computing software, which allows you to focus on analyzing results and solving problems. AWS Batch reduces
+ *       operational complexities, saves time, and reduces costs, which makes it easy for developers, scientists, and
+ *       engineers to run their batch jobs in the AWS Cloud.</p>
  */
 export class BatchClient extends __Client<
   __HttpHandlerOptions,

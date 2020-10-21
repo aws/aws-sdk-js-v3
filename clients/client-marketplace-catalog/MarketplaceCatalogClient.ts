@@ -183,7 +183,7 @@ export type MarketplaceCatalogClientResolvedConfig = __SmithyResolvedConfigurati
 
 /**
  * <p>Catalog API actions allow you to manage your entities through list, describe, and update
- *             capabilities. An entity can be a product or an offer on AWS Marketplace.</p>
+ *             capabilities. An entity can be a product or an offer on AWS Marketplace. </p>
  *
  *         <p>You can automate your entity update process by integrating the AWS Marketplace Catalog
  *             API with your AWS Marketplace product build or deployment pipelines. You can also create

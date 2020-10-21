@@ -1,9 +1,22 @@
 import { MediaLiveClient } from "./MediaLiveClient";
 import {
+  AcceptInputDeviceTransferCommand,
+  AcceptInputDeviceTransferCommandInput,
+  AcceptInputDeviceTransferCommandOutput,
+} from "./commands/AcceptInputDeviceTransferCommand";
+import { BatchDeleteCommand, BatchDeleteCommandInput, BatchDeleteCommandOutput } from "./commands/BatchDeleteCommand";
+import { BatchStartCommand, BatchStartCommandInput, BatchStartCommandOutput } from "./commands/BatchStartCommand";
+import { BatchStopCommand, BatchStopCommandInput, BatchStopCommandOutput } from "./commands/BatchStopCommand";
+import {
   BatchUpdateScheduleCommand,
   BatchUpdateScheduleCommandInput,
   BatchUpdateScheduleCommandOutput,
 } from "./commands/BatchUpdateScheduleCommand";
+import {
+  CancelInputDeviceTransferCommand,
+  CancelInputDeviceTransferCommandInput,
+  CancelInputDeviceTransferCommandOutput,
+} from "./commands/CancelInputDeviceTransferCommand";
 import {
   CreateChannelCommand,
   CreateChannelCommandInput,
@@ -114,6 +127,11 @@ import {
   ListChannelsCommandOutput,
 } from "./commands/ListChannelsCommand";
 import {
+  ListInputDeviceTransfersCommand,
+  ListInputDeviceTransfersCommandInput,
+  ListInputDeviceTransfersCommandOutput,
+} from "./commands/ListInputDeviceTransfersCommand";
+import {
   ListInputDevicesCommand,
   ListInputDevicesCommandInput,
   ListInputDevicesCommandOutput,
@@ -155,6 +173,11 @@ import {
   PurchaseOfferingCommandOutput,
 } from "./commands/PurchaseOfferingCommand";
 import {
+  RejectInputDeviceTransferCommand,
+  RejectInputDeviceTransferCommandInput,
+  RejectInputDeviceTransferCommandOutput,
+} from "./commands/RejectInputDeviceTransferCommand";
+import {
   StartChannelCommand,
   StartChannelCommandInput,
   StartChannelCommandOutput,
@@ -170,6 +193,11 @@ import {
   StopMultiplexCommandInput,
   StopMultiplexCommandOutput,
 } from "./commands/StopMultiplexCommand";
+import {
+  TransferInputDeviceCommand,
+  TransferInputDeviceCommandInput,
+  TransferInputDeviceCommandOutput,
+} from "./commands/TransferInputDeviceCommand";
 import {
   UpdateChannelClassCommand,
   UpdateChannelClassCommandInput,
@@ -213,6 +241,116 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  */
 export class MediaLive extends MediaLiveClient {
   /**
+   * Accept an incoming input device transfer. The ownership of the device will transfer to your AWS account.
+   */
+  public acceptInputDeviceTransfer(
+    args: AcceptInputDeviceTransferCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AcceptInputDeviceTransferCommandOutput>;
+  public acceptInputDeviceTransfer(
+    args: AcceptInputDeviceTransferCommandInput,
+    cb: (err: any, data?: AcceptInputDeviceTransferCommandOutput) => void
+  ): void;
+  public acceptInputDeviceTransfer(
+    args: AcceptInputDeviceTransferCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AcceptInputDeviceTransferCommandOutput) => void
+  ): void;
+  public acceptInputDeviceTransfer(
+    args: AcceptInputDeviceTransferCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AcceptInputDeviceTransferCommandOutput) => void),
+    cb?: (err: any, data?: AcceptInputDeviceTransferCommandOutput) => void
+  ): Promise<AcceptInputDeviceTransferCommandOutput> | void {
+    const command = new AcceptInputDeviceTransferCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * Starts delete of resources.
+   */
+  public batchDelete(args: BatchDeleteCommandInput, options?: __HttpHandlerOptions): Promise<BatchDeleteCommandOutput>;
+  public batchDelete(args: BatchDeleteCommandInput, cb: (err: any, data?: BatchDeleteCommandOutput) => void): void;
+  public batchDelete(
+    args: BatchDeleteCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchDeleteCommandOutput) => void
+  ): void;
+  public batchDelete(
+    args: BatchDeleteCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchDeleteCommandOutput) => void),
+    cb?: (err: any, data?: BatchDeleteCommandOutput) => void
+  ): Promise<BatchDeleteCommandOutput> | void {
+    const command = new BatchDeleteCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * Starts existing resources
+   */
+  public batchStart(args: BatchStartCommandInput, options?: __HttpHandlerOptions): Promise<BatchStartCommandOutput>;
+  public batchStart(args: BatchStartCommandInput, cb: (err: any, data?: BatchStartCommandOutput) => void): void;
+  public batchStart(
+    args: BatchStartCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchStartCommandOutput) => void
+  ): void;
+  public batchStart(
+    args: BatchStartCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchStartCommandOutput) => void),
+    cb?: (err: any, data?: BatchStartCommandOutput) => void
+  ): Promise<BatchStartCommandOutput> | void {
+    const command = new BatchStartCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * Stops running resources
+   */
+  public batchStop(args: BatchStopCommandInput, options?: __HttpHandlerOptions): Promise<BatchStopCommandOutput>;
+  public batchStop(args: BatchStopCommandInput, cb: (err: any, data?: BatchStopCommandOutput) => void): void;
+  public batchStop(
+    args: BatchStopCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchStopCommandOutput) => void
+  ): void;
+  public batchStop(
+    args: BatchStopCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchStopCommandOutput) => void),
+    cb?: (err: any, data?: BatchStopCommandOutput) => void
+  ): Promise<BatchStopCommandOutput> | void {
+    const command = new BatchStopCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * Update a channel schedule
    */
   public batchUpdateSchedule(
@@ -234,6 +372,38 @@ export class MediaLive extends MediaLiveClient {
     cb?: (err: any, data?: BatchUpdateScheduleCommandOutput) => void
   ): Promise<BatchUpdateScheduleCommandOutput> | void {
     const command = new BatchUpdateScheduleCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * Cancel an input device transfer that you have requested.
+   */
+  public cancelInputDeviceTransfer(
+    args: CancelInputDeviceTransferCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CancelInputDeviceTransferCommandOutput>;
+  public cancelInputDeviceTransfer(
+    args: CancelInputDeviceTransferCommandInput,
+    cb: (err: any, data?: CancelInputDeviceTransferCommandOutput) => void
+  ): void;
+  public cancelInputDeviceTransfer(
+    args: CancelInputDeviceTransferCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CancelInputDeviceTransferCommandOutput) => void
+  ): void;
+  public cancelInputDeviceTransfer(
+    args: CancelInputDeviceTransferCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CancelInputDeviceTransferCommandOutput) => void),
+    cb?: (err: any, data?: CancelInputDeviceTransferCommandOutput) => void
+  ): Promise<CancelInputDeviceTransferCommandOutput> | void {
+    const command = new CancelInputDeviceTransferCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1050,6 +1220,38 @@ export class MediaLive extends MediaLiveClient {
   }
 
   /**
+   * List input devices that are currently being transferred. List input devices that you are transferring from your AWS account or input devices that another AWS account is transferring to you.
+   */
+  public listInputDeviceTransfers(
+    args: ListInputDeviceTransfersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListInputDeviceTransfersCommandOutput>;
+  public listInputDeviceTransfers(
+    args: ListInputDeviceTransfersCommandInput,
+    cb: (err: any, data?: ListInputDeviceTransfersCommandOutput) => void
+  ): void;
+  public listInputDeviceTransfers(
+    args: ListInputDeviceTransfersCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListInputDeviceTransfersCommandOutput) => void
+  ): void;
+  public listInputDeviceTransfers(
+    args: ListInputDeviceTransfersCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListInputDeviceTransfersCommandOutput) => void),
+    cb?: (err: any, data?: ListInputDeviceTransfersCommandOutput) => void
+  ): Promise<ListInputDeviceTransfersCommandOutput> | void {
+    const command = new ListInputDeviceTransfersCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * Produces list of inputs that have been created
    */
   public listInputs(args: ListInputsCommandInput, options?: __HttpHandlerOptions): Promise<ListInputsCommandOutput>;
@@ -1300,6 +1502,38 @@ export class MediaLive extends MediaLiveClient {
   }
 
   /**
+   * Reject the transfer of the specified input device to your AWS account.
+   */
+  public rejectInputDeviceTransfer(
+    args: RejectInputDeviceTransferCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RejectInputDeviceTransferCommandOutput>;
+  public rejectInputDeviceTransfer(
+    args: RejectInputDeviceTransferCommandInput,
+    cb: (err: any, data?: RejectInputDeviceTransferCommandOutput) => void
+  ): void;
+  public rejectInputDeviceTransfer(
+    args: RejectInputDeviceTransferCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RejectInputDeviceTransferCommandOutput) => void
+  ): void;
+  public rejectInputDeviceTransfer(
+    args: RejectInputDeviceTransferCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RejectInputDeviceTransferCommandOutput) => void),
+    cb?: (err: any, data?: RejectInputDeviceTransferCommandOutput) => void
+  ): Promise<RejectInputDeviceTransferCommandOutput> | void {
+    const command = new RejectInputDeviceTransferCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * Starts an existing channel
    */
   public startChannel(
@@ -1408,6 +1642,38 @@ export class MediaLive extends MediaLiveClient {
     cb?: (err: any, data?: StopMultiplexCommandOutput) => void
   ): Promise<StopMultiplexCommandOutput> | void {
     const command = new StopMultiplexCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * Start an input device transfer to another AWS account. After you make the request, the other account must accept or reject the transfer.
+   */
+  public transferInputDevice(
+    args: TransferInputDeviceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TransferInputDeviceCommandOutput>;
+  public transferInputDevice(
+    args: TransferInputDeviceCommandInput,
+    cb: (err: any, data?: TransferInputDeviceCommandOutput) => void
+  ): void;
+  public transferInputDevice(
+    args: TransferInputDeviceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: TransferInputDeviceCommandOutput) => void
+  ): void;
+  public transferInputDevice(
+    args: TransferInputDeviceCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TransferInputDeviceCommandOutput) => void),
+    cb?: (err: any, data?: TransferInputDeviceCommandOutput) => void
+  ): Promise<TransferInputDeviceCommandOutput> | void {
+    const command = new TransferInputDeviceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

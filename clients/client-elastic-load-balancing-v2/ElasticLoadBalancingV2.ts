@@ -220,7 +220,8 @@ export class ElasticLoadBalancingV2 extends ElasticLoadBalancingV2Client {
 
   /**
    * <p>Adds the specified tags to the specified Elastic Load Balancing resource. You can tag
-   *       your Application Load Balancers, Network Load Balancers, and your target groups.</p>
+   *       your Application Load Balancers, Network Load Balancers, target groups, listeners, and
+   *       rules.</p>
    *          <p>Each tag consists of a key and an optional value. If a resource already has a tag with
    *       the same key, <code>AddTags</code> updates its value.</p>
    *          <p>To list the current tags for your resources, use <a>DescribeTags</a>. To
@@ -344,7 +345,8 @@ export class ElasticLoadBalancingV2 extends ElasticLoadBalancingV2Client {
   /**
    * <p>Creates a rule for the specified listener. The listener must be associated with an
    *       Application Load Balancer.</p>
-   *          <p>Rules are evaluated in priority order, from the lowest value to the highest value.
+   *          <p>Each rule consists of a priority, one or more actions, and one or more conditions.
+   *       Rules are evaluated in priority order, from the lowest value to the highest value.
    *       When the conditions for a rule are met, its actions are performed. If the conditions for no rules are met,
    *       the actions for the default rule are performed. For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#listener-rules">Listener Rules</a> in the <i>Application Load Balancers Guide</i>.</p>
    *          <p>To view your current rules, use <a>DescribeRules</a>. To update a rule, use
@@ -492,6 +494,7 @@ export class ElasticLoadBalancingV2 extends ElasticLoadBalancingV2Client {
 
   /**
    * <p>Deletes the specified rule.</p>
+   *          <p>You can't delete the default rule.</p>
    */
   public deleteRule(args: DeleteRuleCommandInput, options?: __HttpHandlerOptions): Promise<DeleteRuleCommandOutput>;
   public deleteRule(args: DeleteRuleCommandInput, cb: (err: any, data?: DeleteRuleCommandOutput) => void): void;
@@ -830,8 +833,8 @@ export class ElasticLoadBalancingV2 extends ElasticLoadBalancingV2Client {
   }
 
   /**
-   * <p>Describes the tags for the specified resources. You can describe the tags for one or
-   *       more Application Load Balancers, Network Load Balancers, and target groups.</p>
+   * <p>Describes the tags for the specified Elastic Load Balancing resources. You can describe the tags for
+   *       one or more Application Load Balancers, Network Load Balancers, target groups, listeners, or rules.</p>
    */
   public describeTags(
     args: DescribeTagsCommandInput,
@@ -1215,8 +1218,8 @@ export class ElasticLoadBalancingV2 extends ElasticLoadBalancingV2Client {
   }
 
   /**
-   * <p>Removes the specified tags from the specified Elastic Load Balancing
-   *       resource.</p>
+   * <p>Removes the specified tags from the specified Elastic Load Balancing resources. You can remove the tags
+   *       for one or more Application Load Balancers, Network Load Balancers, target groups, listeners, or rules.</p>
    *          <p>To list the current tags for your resources, use <a>DescribeTags</a>.</p>
    */
   public removeTags(args: RemoveTagsCommandInput, options?: __HttpHandlerOptions): Promise<RemoveTagsCommandOutput>;

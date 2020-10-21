@@ -1,3 +1,4 @@
+import { BatchDeleteWorldsCommandInput, BatchDeleteWorldsCommandOutput } from "./commands/BatchDeleteWorldsCommand";
 import {
   BatchDescribeSimulationJobCommandInput,
   BatchDescribeSimulationJobCommandOutput,
@@ -14,6 +15,14 @@ import {
   CancelSimulationJobCommandInput,
   CancelSimulationJobCommandOutput,
 } from "./commands/CancelSimulationJobCommand";
+import {
+  CancelWorldExportJobCommandInput,
+  CancelWorldExportJobCommandOutput,
+} from "./commands/CancelWorldExportJobCommand";
+import {
+  CancelWorldGenerationJobCommandInput,
+  CancelWorldGenerationJobCommandOutput,
+} from "./commands/CancelWorldGenerationJobCommand";
 import {
   CreateDeploymentJobCommandInput,
   CreateDeploymentJobCommandOutput,
@@ -40,6 +49,18 @@ import {
   CreateSimulationJobCommandInput,
   CreateSimulationJobCommandOutput,
 } from "./commands/CreateSimulationJobCommand";
+import {
+  CreateWorldExportJobCommandInput,
+  CreateWorldExportJobCommandOutput,
+} from "./commands/CreateWorldExportJobCommand";
+import {
+  CreateWorldGenerationJobCommandInput,
+  CreateWorldGenerationJobCommandOutput,
+} from "./commands/CreateWorldGenerationJobCommand";
+import {
+  CreateWorldTemplateCommandInput,
+  CreateWorldTemplateCommandOutput,
+} from "./commands/CreateWorldTemplateCommand";
 import { DeleteFleetCommandInput, DeleteFleetCommandOutput } from "./commands/DeleteFleetCommand";
 import {
   DeleteRobotApplicationCommandInput,
@@ -50,6 +71,10 @@ import {
   DeleteSimulationApplicationCommandInput,
   DeleteSimulationApplicationCommandOutput,
 } from "./commands/DeleteSimulationApplicationCommand";
+import {
+  DeleteWorldTemplateCommandInput,
+  DeleteWorldTemplateCommandOutput,
+} from "./commands/DeleteWorldTemplateCommand";
 import { DeregisterRobotCommandInput, DeregisterRobotCommandOutput } from "./commands/DeregisterRobotCommand";
 import {
   DescribeDeploymentJobCommandInput,
@@ -73,6 +98,23 @@ import {
   DescribeSimulationJobCommandInput,
   DescribeSimulationJobCommandOutput,
 } from "./commands/DescribeSimulationJobCommand";
+import { DescribeWorldCommandInput, DescribeWorldCommandOutput } from "./commands/DescribeWorldCommand";
+import {
+  DescribeWorldExportJobCommandInput,
+  DescribeWorldExportJobCommandOutput,
+} from "./commands/DescribeWorldExportJobCommand";
+import {
+  DescribeWorldGenerationJobCommandInput,
+  DescribeWorldGenerationJobCommandOutput,
+} from "./commands/DescribeWorldGenerationJobCommand";
+import {
+  DescribeWorldTemplateCommandInput,
+  DescribeWorldTemplateCommandOutput,
+} from "./commands/DescribeWorldTemplateCommand";
+import {
+  GetWorldTemplateBodyCommandInput,
+  GetWorldTemplateBodyCommandOutput,
+} from "./commands/GetWorldTemplateBodyCommand";
 import { ListDeploymentJobsCommandInput, ListDeploymentJobsCommandOutput } from "./commands/ListDeploymentJobsCommand";
 import { ListFleetsCommandInput, ListFleetsCommandOutput } from "./commands/ListFleetsCommand";
 import {
@@ -93,6 +135,16 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import {
+  ListWorldExportJobsCommandInput,
+  ListWorldExportJobsCommandOutput,
+} from "./commands/ListWorldExportJobsCommand";
+import {
+  ListWorldGenerationJobsCommandInput,
+  ListWorldGenerationJobsCommandOutput,
+} from "./commands/ListWorldGenerationJobsCommand";
+import { ListWorldTemplatesCommandInput, ListWorldTemplatesCommandOutput } from "./commands/ListWorldTemplatesCommand";
+import { ListWorldsCommandInput, ListWorldsCommandOutput } from "./commands/ListWorldsCommand";
 import { RegisterRobotCommandInput, RegisterRobotCommandOutput } from "./commands/RegisterRobotCommand";
 import {
   RestartSimulationJobCommandInput,
@@ -113,6 +165,10 @@ import {
   UpdateSimulationApplicationCommandInput,
   UpdateSimulationApplicationCommandOutput,
 } from "./commands/UpdateSimulationApplicationCommand";
+import {
+  UpdateWorldTemplateCommandInput,
+  UpdateWorldTemplateCommandOutput,
+} from "./commands/UpdateWorldTemplateCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -163,10 +219,13 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
+  | BatchDeleteWorldsCommandInput
   | BatchDescribeSimulationJobCommandInput
   | CancelDeploymentJobCommandInput
   | CancelSimulationJobBatchCommandInput
   | CancelSimulationJobCommandInput
+  | CancelWorldExportJobCommandInput
+  | CancelWorldGenerationJobCommandInput
   | CreateDeploymentJobCommandInput
   | CreateFleetCommandInput
   | CreateRobotApplicationCommandInput
@@ -175,10 +234,14 @@ export type ServiceInputTypes =
   | CreateSimulationApplicationCommandInput
   | CreateSimulationApplicationVersionCommandInput
   | CreateSimulationJobCommandInput
+  | CreateWorldExportJobCommandInput
+  | CreateWorldGenerationJobCommandInput
+  | CreateWorldTemplateCommandInput
   | DeleteFleetCommandInput
   | DeleteRobotApplicationCommandInput
   | DeleteRobotCommandInput
   | DeleteSimulationApplicationCommandInput
+  | DeleteWorldTemplateCommandInput
   | DeregisterRobotCommandInput
   | DescribeDeploymentJobCommandInput
   | DescribeFleetCommandInput
@@ -187,6 +250,11 @@ export type ServiceInputTypes =
   | DescribeSimulationApplicationCommandInput
   | DescribeSimulationJobBatchCommandInput
   | DescribeSimulationJobCommandInput
+  | DescribeWorldCommandInput
+  | DescribeWorldExportJobCommandInput
+  | DescribeWorldGenerationJobCommandInput
+  | DescribeWorldTemplateCommandInput
+  | GetWorldTemplateBodyCommandInput
   | ListDeploymentJobsCommandInput
   | ListFleetsCommandInput
   | ListRobotApplicationsCommandInput
@@ -195,6 +263,10 @@ export type ServiceInputTypes =
   | ListSimulationJobBatchesCommandInput
   | ListSimulationJobsCommandInput
   | ListTagsForResourceCommandInput
+  | ListWorldExportJobsCommandInput
+  | ListWorldGenerationJobsCommandInput
+  | ListWorldTemplatesCommandInput
+  | ListWorldsCommandInput
   | RegisterRobotCommandInput
   | RestartSimulationJobCommandInput
   | StartSimulationJobBatchCommandInput
@@ -202,13 +274,17 @@ export type ServiceInputTypes =
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateRobotApplicationCommandInput
-  | UpdateSimulationApplicationCommandInput;
+  | UpdateSimulationApplicationCommandInput
+  | UpdateWorldTemplateCommandInput;
 
 export type ServiceOutputTypes =
+  | BatchDeleteWorldsCommandOutput
   | BatchDescribeSimulationJobCommandOutput
   | CancelDeploymentJobCommandOutput
   | CancelSimulationJobBatchCommandOutput
   | CancelSimulationJobCommandOutput
+  | CancelWorldExportJobCommandOutput
+  | CancelWorldGenerationJobCommandOutput
   | CreateDeploymentJobCommandOutput
   | CreateFleetCommandOutput
   | CreateRobotApplicationCommandOutput
@@ -217,10 +293,14 @@ export type ServiceOutputTypes =
   | CreateSimulationApplicationCommandOutput
   | CreateSimulationApplicationVersionCommandOutput
   | CreateSimulationJobCommandOutput
+  | CreateWorldExportJobCommandOutput
+  | CreateWorldGenerationJobCommandOutput
+  | CreateWorldTemplateCommandOutput
   | DeleteFleetCommandOutput
   | DeleteRobotApplicationCommandOutput
   | DeleteRobotCommandOutput
   | DeleteSimulationApplicationCommandOutput
+  | DeleteWorldTemplateCommandOutput
   | DeregisterRobotCommandOutput
   | DescribeDeploymentJobCommandOutput
   | DescribeFleetCommandOutput
@@ -229,6 +309,11 @@ export type ServiceOutputTypes =
   | DescribeSimulationApplicationCommandOutput
   | DescribeSimulationJobBatchCommandOutput
   | DescribeSimulationJobCommandOutput
+  | DescribeWorldCommandOutput
+  | DescribeWorldExportJobCommandOutput
+  | DescribeWorldGenerationJobCommandOutput
+  | DescribeWorldTemplateCommandOutput
+  | GetWorldTemplateBodyCommandOutput
   | ListDeploymentJobsCommandOutput
   | ListFleetsCommandOutput
   | ListRobotApplicationsCommandOutput
@@ -237,6 +322,10 @@ export type ServiceOutputTypes =
   | ListSimulationJobBatchesCommandOutput
   | ListSimulationJobsCommandOutput
   | ListTagsForResourceCommandOutput
+  | ListWorldExportJobsCommandOutput
+  | ListWorldGenerationJobsCommandOutput
+  | ListWorldTemplatesCommandOutput
+  | ListWorldsCommandOutput
   | RegisterRobotCommandOutput
   | RestartSimulationJobCommandOutput
   | StartSimulationJobBatchCommandOutput
@@ -244,7 +333,8 @@ export type ServiceOutputTypes =
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateRobotApplicationCommandOutput
-  | UpdateSimulationApplicationCommandOutput;
+  | UpdateSimulationApplicationCommandOutput
+  | UpdateWorldTemplateCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**

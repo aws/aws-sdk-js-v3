@@ -1157,9 +1157,8 @@ export class SSM extends SSMClient {
   }
 
   /**
-   * <p>Delete a custom inventory type, or the data associated with a custom Inventory type.
-   *    Deleting a custom inventory type is also referred to as deleting a custom inventory
-   *    schema.</p>
+   * <p>Delete a custom inventory type or the data associated with a custom Inventory type. Deleting
+   *    a custom inventory type is also referred to as deleting a custom inventory schema.</p>
    */
   public deleteInventory(
     args: DeleteInventoryCommandInput,
@@ -2500,10 +2499,6 @@ export class SSM extends SSMClient {
    *          <p>The following section lists the properties that can be used in filters for each major
    *    operating system type:</p>
    *          <dl>
-   *             <dt>WINDOWS</dt>
-   *             <dd>
-   *                <p>Valid properties: PRODUCT, PRODUCT_FAMILY, CLASSIFICATION, MSRC_SEVERITY</p>
-   *             </dd>
    *             <dt>AMAZON_LINUX</dt>
    *             <dd>
    *                <p>Valid properties: PRODUCT, CLASSIFICATION, SEVERITY</p>
@@ -2512,9 +2507,17 @@ export class SSM extends SSMClient {
    *             <dd>
    *                <p>Valid properties: PRODUCT, CLASSIFICATION, SEVERITY</p>
    *             </dd>
-   *             <dt>UBUNTU </dt>
+   *             <dt>CENTOS</dt>
+   *             <dd>
+   *                <p>Valid properties: PRODUCT, CLASSIFICATION, SEVERITY</p>
+   *             </dd>
+   *             <dt>DEBIAN</dt>
    *             <dd>
    *                <p>Valid properties: PRODUCT, PRIORITY</p>
+   *             </dd>
+   *             <dt>ORACLE_LINUX</dt>
+   *             <dd>
+   *                <p>Valid properties: PRODUCT, CLASSIFICATION, SEVERITY</p>
    *             </dd>
    *             <dt>REDHAT_ENTERPRISE_LINUX</dt>
    *             <dd>
@@ -2524,9 +2527,13 @@ export class SSM extends SSMClient {
    *             <dd>
    *                <p>Valid properties: PRODUCT, CLASSIFICATION, SEVERITY</p>
    *             </dd>
-   *             <dt>CENTOS</dt>
+   *             <dt>UBUNTU</dt>
    *             <dd>
-   *                <p>Valid properties: PRODUCT, CLASSIFICATION, SEVERITY</p>
+   *                <p>Valid properties: PRODUCT, PRIORITY</p>
+   *             </dd>
+   *             <dt>WINDOWS</dt>
+   *             <dd>
+   *                <p>Valid properties: PRODUCT, PRODUCT_FAMILY, CLASSIFICATION, MSRC_SEVERITY</p>
    *             </dd>
    *          </dl>
    */
@@ -2629,8 +2636,11 @@ export class SSM extends SSMClient {
    *    specify a time, <code>GetCalendarState</code> returns the state of the calendar at a specific
    *    time, and returns the next time that the Change Calendar state will transition. If you do not
    *    specify a time, <code>GetCalendarState</code> assumes the current time. Change Calendar entries
-   *    have two possible states: <code>OPEN</code> or <code>CLOSED</code>. For more information about
-   *    Systems Manager Change Calendar, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-change-calendar.html">AWS Systems Manager Change
+   *    have two possible states: <code>OPEN</code> or <code>CLOSED</code>.</p>
+   *          <p>If you specify more than one calendar in a request, the command returns the status of
+   *     <code>OPEN</code> only if all calendars in the request are open. If one or more calendars in the
+   *    request are closed, the status returned is <code>CLOSED</code>.</p>
+   *          <p>For more information about Systems Manager Change Calendar, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-change-calendar.html">AWS Systems Manager Change
    *     Calendar</a> in the <i>AWS Systems Manager User Guide</i>.</p>
    */
   public getCalendarState(
@@ -3145,7 +3155,7 @@ export class SSM extends SSMClient {
   }
 
   /**
-   * <p>Query a list of all parameters used by the AWS account.</p>
+   * <p>Retrieves the history of all changes to a parameter.</p>
    */
   public getParameterHistory(
     args: GetParameterHistoryCommandInput,
@@ -4742,9 +4752,20 @@ export class SSM extends SSMClient {
    *                <p>MaxErrors</p>
    *             </li>
    *          </ul>
-   *          <p>If a parameter is null, then the corresponding field is not modified. Also, if you set
-   *    Replace to true, then all fields required by the <a>RegisterTaskWithMaintenanceWindow</a> action are required for this request. Optional
-   *    fields that aren't specified are set to null.</p>
+   *          <p>If the value for a parameter in <code>UpdateMaintenanceWindowTask</code> is null, then the
+   *    corresponding field is not modified. If you set <code>Replace</code> to true, then all fields
+   *    required by the <a>RegisterTaskWithMaintenanceWindow</a> action are required for this
+   *    request. Optional fields that aren't specified are set to null.</p>
+   *          <important>
+   *             <p>When you update a maintenance window task that has options specified in
+   *      <code>TaskInvocationParameters</code>, you must provide again all the
+   *      <code>TaskInvocationParameters</code> values that you want to retain. The values you do not
+   *     specify again are removed. For example, suppose that when you registered a Run Command task, you
+   *     specified <code>TaskInvocationParameters</code> values for <code>Comment</code>,
+   *      <code>NotificationConfig</code>, and <code>OutputS3BucketName</code>. If you update the
+   *     maintenance window task and specify only a different <code>OutputS3BucketName</code> value, the
+   *     values for <code>Comment</code> and <code>NotificationConfig</code> are removed.</p>
+   *          </important>
    */
   public updateMaintenanceWindowTask(
     args: UpdateMaintenanceWindowTaskCommandInput,

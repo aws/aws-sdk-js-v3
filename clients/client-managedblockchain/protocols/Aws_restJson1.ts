@@ -280,6 +280,15 @@ export const serializeAws_restJson1DeleteNodeCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/networks/{NetworkId}/members/{MemberId}/nodes/{NodeId}";
+  if (input.MemberId !== undefined) {
+    const labelValue: string = input.MemberId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: MemberId.");
+    }
+    resolvedPath = resolvedPath.replace("{MemberId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: MemberId.");
+  }
   if (input.NetworkId !== undefined) {
     const labelValue: string = input.NetworkId;
     if (labelValue.length <= 0) {
@@ -297,15 +306,6 @@ export const serializeAws_restJson1DeleteNodeCommand = async (
     resolvedPath = resolvedPath.replace("{NodeId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: NodeId.");
-  }
-  if (input.MemberId !== undefined) {
-    const labelValue: string = input.MemberId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: MemberId.");
-    }
-    resolvedPath = resolvedPath.replace("{MemberId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: MemberId.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -328,15 +328,6 @@ export const serializeAws_restJson1GetMemberCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/networks/{NetworkId}/members/{MemberId}";
-  if (input.MemberId !== undefined) {
-    const labelValue: string = input.MemberId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: MemberId.");
-    }
-    resolvedPath = resolvedPath.replace("{MemberId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: MemberId.");
-  }
   if (input.NetworkId !== undefined) {
     const labelValue: string = input.NetworkId;
     if (labelValue.length <= 0) {
@@ -345,6 +336,15 @@ export const serializeAws_restJson1GetMemberCommand = async (
     resolvedPath = resolvedPath.replace("{NetworkId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: NetworkId.");
+  }
+  if (input.MemberId !== undefined) {
+    const labelValue: string = input.MemberId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: MemberId.");
+    }
+    resolvedPath = resolvedPath.replace("{MemberId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: MemberId.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -397,6 +397,15 @@ export const serializeAws_restJson1GetNodeCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/networks/{NetworkId}/members/{MemberId}/nodes/{NodeId}";
+  if (input.NetworkId !== undefined) {
+    const labelValue: string = input.NetworkId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: NetworkId.");
+    }
+    resolvedPath = resolvedPath.replace("{NetworkId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: NetworkId.");
+  }
   if (input.NodeId !== undefined) {
     const labelValue: string = input.NodeId;
     if (labelValue.length <= 0) {
@@ -414,15 +423,6 @@ export const serializeAws_restJson1GetNodeCommand = async (
     resolvedPath = resolvedPath.replace("{MemberId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: MemberId.");
-  }
-  if (input.NetworkId !== undefined) {
-    const labelValue: string = input.NetworkId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: NetworkId.");
-    }
-    resolvedPath = resolvedPath.replace("{NetworkId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: NetworkId.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -445,15 +445,6 @@ export const serializeAws_restJson1GetProposalCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/networks/{NetworkId}/proposals/{ProposalId}";
-  if (input.ProposalId !== undefined) {
-    const labelValue: string = input.ProposalId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: ProposalId.");
-    }
-    resolvedPath = resolvedPath.replace("{ProposalId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: ProposalId.");
-  }
   if (input.NetworkId !== undefined) {
     const labelValue: string = input.NetworkId;
     if (labelValue.length <= 0) {
@@ -462,6 +453,15 @@ export const serializeAws_restJson1GetProposalCommand = async (
     resolvedPath = resolvedPath.replace("{NetworkId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: NetworkId.");
+  }
+  if (input.ProposalId !== undefined) {
+    const labelValue: string = input.ProposalId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: ProposalId.");
+    }
+    resolvedPath = resolvedPath.replace("{ProposalId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: ProposalId.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -552,8 +552,8 @@ export const serializeAws_restJson1ListNetworksCommand = async (
     ...(input.Status !== undefined && { status: input.Status }),
     ...(input.Framework !== undefined && { framework: input.Framework }),
     ...(input.Name !== undefined && { name: input.Name }),
-    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -676,8 +676,8 @@ export const serializeAws_restJson1ListProposalVotesCommand = async (
     throw new Error("No value provided for input HTTP label: ProposalId.");
   }
   const query: any = {
-    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
     ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -731,15 +731,6 @@ export const serializeAws_restJson1UpdateMemberCommand = async (
     "Content-Type": "application/json",
   };
   let resolvedPath = "/networks/{NetworkId}/members/{MemberId}";
-  if (input.NetworkId !== undefined) {
-    const labelValue: string = input.NetworkId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: NetworkId.");
-    }
-    resolvedPath = resolvedPath.replace("{NetworkId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: NetworkId.");
-  }
   if (input.MemberId !== undefined) {
     const labelValue: string = input.MemberId;
     if (labelValue.length <= 0) {
@@ -748,6 +739,15 @@ export const serializeAws_restJson1UpdateMemberCommand = async (
     resolvedPath = resolvedPath.replace("{MemberId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: MemberId.");
+  }
+  if (input.NetworkId !== undefined) {
+    const labelValue: string = input.NetworkId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: NetworkId.");
+    }
+    resolvedPath = resolvedPath.replace("{NetworkId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: NetworkId.");
   }
   let body: any;
   body = JSON.stringify({
@@ -2948,6 +2948,7 @@ const serializeAws_restJson1NodeConfiguration = (input: NodeConfiguration, conte
         context
       ),
     }),
+    ...(input.StateDB !== undefined && { StateDB: input.StateDB }),
   };
 };
 
@@ -3237,6 +3238,7 @@ const deserializeAws_restJson1Node = (output: any, context: __SerdeContext): Nod
         : undefined,
     MemberId: output.MemberId !== undefined && output.MemberId !== null ? output.MemberId : undefined,
     NetworkId: output.NetworkId !== undefined && output.NetworkId !== null ? output.NetworkId : undefined,
+    StateDB: output.StateDB !== undefined && output.StateDB !== null ? output.StateDB : undefined,
     Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
   } as any;
 };

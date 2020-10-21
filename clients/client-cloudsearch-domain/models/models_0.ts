@@ -27,97 +27,6 @@ export type QueryParser = "dismax" | "lucene" | "simple" | "structured";
  */
 export interface SearchRequest {
   /**
-   * <p>Specifies one or more fields for which to get statistics information. Each specified field must be facet-enabled in the domain configuration. The fields are specified in JSON using the form:</p>
-   *       <code>{"FIELD-A":{},"FIELD-B":{}}</code>
-   *       <p>There are currently no options supported for statistics.</p>
-   */
-  stats?: string;
-
-  /**
-   * <p>Specifies the search criteria for the request. How you specify the search
-   *          criteria depends on the query parser used for the request and the parser options
-   *          specified in the <code>queryOptions</code> parameter. By default,
-   *          the <code>simple</code> query parser is used to process requests. To use
-   *          the <code>structured</code>, <code>lucene</code>, or <code>dismax</code> query parser,
-   *          you must also specify the <code>queryParser</code> parameter.</p>
-   *             <p>For more information about specifying search criteria, see <a href="http://docs.aws.amazon.com/cloudsearch/latest/developerguide/searching.html">Searching Your Data</a> in the <i>Amazon CloudSearch Developer Guide</i>.</p>
-   */
-  query: string | undefined;
-
-  /**
-   * <p>Specifies which
-   *          query parser to use to process the request. If <code>queryParser</code> is not specified, Amazon CloudSearch
-   *          uses the <code>simple</code> query parser.</p>
-   *       <p>Amazon CloudSearch supports four query parsers:</p>
-   *       <ul>
-   *          <li>
-   *             <code>simple</code>: perform simple searches of <code>text</code> and
-   *                <code>text-array</code> fields. By default, the
-   *                <code>simple</code> query parser searches all
-   *                <code>text</code> and <code>text-array</code> fields. You
-   *                can specify which fields to search by with the
-   *                <code>queryOptions</code> parameter. If you prefix a search
-   *                term with a plus sign (+) documents must contain the term to be considered a match.
-   *                (This is the default, unless you configure the default operator with the <code>queryOptions</code> parameter.)
-   *                You can use the <code>-</code> (NOT), <code>|</code>
-   *                (OR), and <code>*</code> (wildcard) operators to exclude
-   *                particular terms, find results that match any of the specified
-   *                terms, or search for a prefix. To search for a phrase rather
-   *                than individual terms, enclose the phrase in double quotes. For
-   *                more information, see <a href="http://docs.aws.amazon.com/cloudsearch/latest/developerguide/searching-text.html">Searching for Text</a> in the <i>Amazon CloudSearch Developer Guide</i>.
-   *          </li>
-   *          <li>
-   *             <code>structured</code>: perform advanced searches by combining
-   *                multiple expressions to define the search criteria. You can also search
-   *                within particular fields, search for values and ranges of values, and use
-   *                advanced options such as term boosting, <code>matchall</code>, and <code>near</code>.
-   *                For more information, see <a href="http://docs.aws.amazon.com/cloudsearch/latest/developerguide/searching-compound-queries.html">Constructing Compound Queries</a> in the <i>Amazon CloudSearch Developer Guide</i>.
-   *          </li>
-   *          <li>
-   *             <code>lucene</code>: search using the Apache Lucene query parser syntax.
-   *                For more information, see <a href="http://lucene.apache.org/core/4_6_0/queryparser/org/apache/lucene/queryparser/classic/package-summary.html#package_description">Apache Lucene Query Parser Syntax</a>.
-   *          </li>
-   *          <li>
-   *             <code>dismax</code>: search using the simplified subset of the Apache Lucene query parser syntax
-   *                defined by the DisMax query parser.
-   *                For more information, see <a href="http://wiki.apache.org/solr/DisMaxQParserPlugin#Query_Syntax">DisMax Query Parser Syntax</a>.
-   *          </li>
-   *
-   *       </ul>
-   */
-  queryParser?: QueryParser | string;
-
-  /**
-   * <p>Specifies the offset of the first search hit you want to return. Note that the result set is zero-based; the first result is at index 0. You can specify either the <code>start</code> or <code>cursor</code> parameter in a request, they are mutually exclusive.</p>
-   *       <p>For more information, see <a href="http://docs.aws.amazon.com/cloudsearch/latest/developerguide/paginating-results.html">Paginating Results</a> in the <i>Amazon CloudSearch Developer Guide</i>.</p>
-   */
-  start?: number;
-
-  /**
-   * <p>Retrieves a cursor value you can use to page through large result sets.
-   *          Use the <code>size</code> parameter to control the number of hits to include in each response. You can specify either the <code>cursor</code> or
-   *          <code>start</code> parameter in a request; they are mutually exclusive. To get the first cursor, set the cursor value to <code>initial</code>. In subsequent requests, specify the cursor value returned in the hits section of the response.</p>
-   *       <p>For more
-   *          information, see <a href="http://docs.aws.amazon.com/cloudsearch/latest/developerguide/paginating-results.html">Paginating Results</a> in the <i>Amazon CloudSearch Developer Guide</i>.</p>
-   */
-  cursor?: string;
-
-  /**
-   * <p>Specifies the fields or custom expressions to use to sort the search
-   *          results. Multiple fields or expressions are specified as a comma-separated list.
-   *          You must specify the sort direction (<code>asc</code> or
-   *          <code>desc</code>) for each field; for example, <code>year
-   *             desc,title asc</code>. To use a field to sort results, the field must be sort-enabled in
-   *          the domain configuration. Array type fields cannot be used for sorting.
-   *          If no <code>sort</code> parameter is specified, results are sorted by
-   *          their default relevance scores in descending order: <code>_score
-   *             desc</code>. You can also sort by document ID
-   *          (<code>_id asc</code>) and version (<code>_version desc</code>).</p>
-   *       <p>For more information, see <a href="http://docs.aws.amazon.com/cloudsearch/latest/developerguide/sorting-results.html">Sorting Results</a> in the <i>Amazon CloudSearch Developer Guide</i>.</p>
-   */
-  sort?: string;
-
-  /**
    * <p>Defines one or more numeric expressions that can be used to sort results or specify search criteria. You can also specify expressions as return fields.</p>
    *       <p>You specify the expressions in JSON using the form <code>{"EXPRESSIONNAME":"EXPRESSION"}</code>. You can define and use multiple expressions in a search request. For example:</p>
    *       <p><code>
@@ -188,6 +97,43 @@ export interface SearchRequest {
   queryOptions?: string;
 
   /**
+   * <p>Specifies the field and expression values to include in the response. Multiple fields or expressions are specified as a comma-separated list. By default, a search response includes all
+   *          return enabled fields (<code>_all_fields</code>).
+   *          To  return only the document IDs for the matching documents,
+   *          specify <code>_no_fields</code>.
+   *          To retrieve the relevance score calculated for each document,
+   *          specify <code>_score</code>.</p>
+   */
+  return?: string;
+
+  /**
+   * <p>Enables partial results to be returned if one or more index partitions are unavailable. When your search index is partitioned across multiple search instances, by default Amazon CloudSearch only returns results if every partition can be queried. This means that the failure of a single search instance can result in 5xx (internal server) errors. When you enable partial results, Amazon CloudSearch returns whatever results are available and includes the percentage of documents searched in the search results (percent-searched). This enables you to more gracefully degrade your users' search experience. For example, rather than displaying no results, you could display the partial results and a message indicating that the results might be incomplete due to a temporary system outage.</p>
+   */
+  partial?: boolean;
+
+  /**
+   * <p>Specifies a structured query that filters the results of a search without affecting how the results are scored and sorted. You use <code>filterQuery</code> in conjunction with the <code>query</code> parameter to filter the documents that match the constraints specified in the <code>query</code> parameter. Specifying a filter controls only which matching documents are included in the results, it has no effect on how they are scored and sorted. The <code>filterQuery</code> parameter supports the full structured query syntax.</p>
+   *       <p>For more information about using filters, see <a href="http://docs.aws.amazon.com/cloudsearch/latest/developerguide/filtering-results.html">Filtering Matching Documents</a>
+   *          in the <i>Amazon CloudSearch Developer Guide</i>.</p>
+   */
+  filterQuery?: string;
+
+  /**
+   * <p>Specifies the fields or custom expressions to use to sort the search
+   *          results. Multiple fields or expressions are specified as a comma-separated list.
+   *          You must specify the sort direction (<code>asc</code> or
+   *          <code>desc</code>) for each field; for example, <code>year
+   *             desc,title asc</code>. To use a field to sort results, the field must be sort-enabled in
+   *          the domain configuration. Array type fields cannot be used for sorting.
+   *          If no <code>sort</code> parameter is specified, results are sorted by
+   *          their default relevance scores in descending order: <code>_score
+   *             desc</code>. You can also sort by document ID
+   *          (<code>_id asc</code>) and version (<code>_version desc</code>).</p>
+   *       <p>For more information, see <a href="http://docs.aws.amazon.com/cloudsearch/latest/developerguide/sorting-results.html">Sorting Results</a> in the <i>Amazon CloudSearch Developer Guide</i>.</p>
+   */
+  sort?: string;
+
+  /**
    * <p>Specifies one or more fields for which to get facet information, and options that control how the facet information is returned. Each specified field must be facet-enabled in the domain configuration. The fields and options are specified in JSON using the form <code>{"FIELD":{"OPTION":VALUE,"OPTION:"STRING"},"FIELD":{"OPTION":VALUE,"OPTION":"STRING"}}</code>.</p>
    *          <p>You can specify the following faceting options:</p>
    *       <ul>
@@ -246,6 +192,17 @@ export interface SearchRequest {
   size?: number;
 
   /**
+   * <p>Specifies the search criteria for the request. How you specify the search
+   *          criteria depends on the query parser used for the request and the parser options
+   *          specified in the <code>queryOptions</code> parameter. By default,
+   *          the <code>simple</code> query parser is used to process requests. To use
+   *          the <code>structured</code>, <code>lucene</code>, or <code>dismax</code> query parser,
+   *          you must also specify the <code>queryParser</code> parameter.</p>
+   *             <p>For more information about specifying search criteria, see <a href="http://docs.aws.amazon.com/cloudsearch/latest/developerguide/searching.html">Searching Your Data</a> in the <i>Amazon CloudSearch Developer Guide</i>.</p>
+   */
+  query: string | undefined;
+
+  /**
    * <p>Retrieves highlights for matches in the specified <code>text</code> or
    *          <code>text-array</code> fields. Each specified field must be highlight enabled in the domain configuration. The fields and options are specified in JSON using the form <code>{"FIELD":{"OPTION":VALUE,"OPTION:"STRING"},"FIELD":{"OPTION":VALUE,"OPTION":"STRING"}}</code>.</p>
    *       <p>You can specify the following highlight options:</p>
@@ -285,26 +242,69 @@ export interface SearchRequest {
   highlight?: string;
 
   /**
-   * <p>Specifies a structured query that filters the results of a search without affecting how the results are scored and sorted. You use <code>filterQuery</code> in conjunction with the <code>query</code> parameter to filter the documents that match the constraints specified in the <code>query</code> parameter. Specifying a filter controls only which matching documents are included in the results, it has no effect on how they are scored and sorted. The <code>filterQuery</code> parameter supports the full structured query syntax.</p>
-   *       <p>For more information about using filters, see <a href="http://docs.aws.amazon.com/cloudsearch/latest/developerguide/filtering-results.html">Filtering Matching Documents</a>
-   *          in the <i>Amazon CloudSearch Developer Guide</i>.</p>
+   * <p>Specifies the offset of the first search hit you want to return. Note that the result set is zero-based; the first result is at index 0. You can specify either the <code>start</code> or <code>cursor</code> parameter in a request, they are mutually exclusive.</p>
+   *       <p>For more information, see <a href="http://docs.aws.amazon.com/cloudsearch/latest/developerguide/paginating-results.html">Paginating Results</a> in the <i>Amazon CloudSearch Developer Guide</i>.</p>
    */
-  filterQuery?: string;
+  start?: number;
 
   /**
-   * <p>Specifies the field and expression values to include in the response. Multiple fields or expressions are specified as a comma-separated list. By default, a search response includes all
-   *          return enabled fields (<code>_all_fields</code>).
-   *          To  return only the document IDs for the matching documents,
-   *          specify <code>_no_fields</code>.
-   *          To retrieve the relevance score calculated for each document,
-   *          specify <code>_score</code>.</p>
+   * <p>Specifies which
+   *          query parser to use to process the request. If <code>queryParser</code> is not specified, Amazon CloudSearch
+   *          uses the <code>simple</code> query parser.</p>
+   *       <p>Amazon CloudSearch supports four query parsers:</p>
+   *       <ul>
+   *          <li>
+   *             <code>simple</code>: perform simple searches of <code>text</code> and
+   *                <code>text-array</code> fields. By default, the
+   *                <code>simple</code> query parser searches all
+   *                <code>text</code> and <code>text-array</code> fields. You
+   *                can specify which fields to search by with the
+   *                <code>queryOptions</code> parameter. If you prefix a search
+   *                term with a plus sign (+) documents must contain the term to be considered a match.
+   *                (This is the default, unless you configure the default operator with the <code>queryOptions</code> parameter.)
+   *                You can use the <code>-</code> (NOT), <code>|</code>
+   *                (OR), and <code>*</code> (wildcard) operators to exclude
+   *                particular terms, find results that match any of the specified
+   *                terms, or search for a prefix. To search for a phrase rather
+   *                than individual terms, enclose the phrase in double quotes. For
+   *                more information, see <a href="http://docs.aws.amazon.com/cloudsearch/latest/developerguide/searching-text.html">Searching for Text</a> in the <i>Amazon CloudSearch Developer Guide</i>.
+   *          </li>
+   *          <li>
+   *             <code>structured</code>: perform advanced searches by combining
+   *                multiple expressions to define the search criteria. You can also search
+   *                within particular fields, search for values and ranges of values, and use
+   *                advanced options such as term boosting, <code>matchall</code>, and <code>near</code>.
+   *                For more information, see <a href="http://docs.aws.amazon.com/cloudsearch/latest/developerguide/searching-compound-queries.html">Constructing Compound Queries</a> in the <i>Amazon CloudSearch Developer Guide</i>.
+   *          </li>
+   *          <li>
+   *             <code>lucene</code>: search using the Apache Lucene query parser syntax.
+   *                For more information, see <a href="http://lucene.apache.org/core/4_6_0/queryparser/org/apache/lucene/queryparser/classic/package-summary.html#package_description">Apache Lucene Query Parser Syntax</a>.
+   *          </li>
+   *          <li>
+   *             <code>dismax</code>: search using the simplified subset of the Apache Lucene query parser syntax
+   *                defined by the DisMax query parser.
+   *                For more information, see <a href="http://wiki.apache.org/solr/DisMaxQParserPlugin#Query_Syntax">DisMax Query Parser Syntax</a>.
+   *          </li>
+   *
+   *       </ul>
    */
-  return?: string;
+  queryParser?: QueryParser | string;
 
   /**
-   * <p>Enables partial results to be returned if one or more index partitions are unavailable. When your search index is partitioned across multiple search instances, by default Amazon CloudSearch only returns results if every partition can be queried. This means that the failure of a single search instance can result in 5xx (internal server) errors. When you enable partial results, Amazon CloudSearch returns whatever results are available and includes the percentage of documents searched in the search results (percent-searched). This enables you to more gracefully degrade your users' search experience. For example, rather than displaying no results, you could display the partial results and a message indicating that the results might be incomplete due to a temporary system outage.</p>
+   * <p>Retrieves a cursor value you can use to page through large result sets.
+   *          Use the <code>size</code> parameter to control the number of hits to include in each response. You can specify either the <code>cursor</code> or
+   *          <code>start</code> parameter in a request; they are mutually exclusive. To get the first cursor, set the cursor value to <code>initial</code>. In subsequent requests, specify the cursor value returned in the hits section of the response.</p>
+   *       <p>For more
+   *          information, see <a href="http://docs.aws.amazon.com/cloudsearch/latest/developerguide/paginating-results.html">Paginating Results</a> in the <i>Amazon CloudSearch Developer Guide</i>.</p>
    */
-  partial?: boolean;
+  cursor?: string;
+
+  /**
+   * <p>Specifies one or more fields for which to get statistics information. Each specified field must be facet-enabled in the domain configuration. The fields are specified in JSON using the form:</p>
+   *       <code>{"FIELD-A":{},"FIELD-B":{}}</code>
+   *       <p>There are currently no options supported for statistics.</p>
+   */
+  stats?: string;
 }
 
 export namespace SearchRequest {
@@ -423,9 +423,20 @@ export interface FieldStats {
   max?: string;
 
   /**
-   * <p>The standard deviation of the values in the specified field in the result set.</p>
+   * <p>The minimum value found in the specified field in the result set.</p>
+   *        <p>If the field is numeric (<code>int</code>, <code>int-array</code>, <code>double</code>, or <code>double-array</code>), <code>min</code> is the string representation of a double-precision 64-bit floating point value. If the field is <code>date</code> or <code>date-array</code>, <code>min</code> is the string representation of a date with the format specified in <a href="http://tools.ietf.org/html/rfc3339">IETF RFC3339</a>: yyyy-mm-ddTHH:mm:ss.SSSZ.</p>
    */
-  stddev?: number;
+  min?: string;
+
+  /**
+   * <p>The sum of all field values in the result set squared.</p>
+   */
+  sumOfSquares?: number;
+
+  /**
+   * <p>The number of documents that contain a value in the specified field in the result set.</p>
+   */
+  count?: number;
 
   /**
    * <p>The average of the values found in the specified field in the result set.</p>
@@ -434,19 +445,9 @@ export interface FieldStats {
   mean?: string;
 
   /**
-   * <p>The sum of all field values in the result set squared.</p>
-   */
-  sumOfSquares?: number;
-
-  /**
    * <p>The sum of the field values across the documents in the result set. <code>null</code> for date fields.</p>
    */
   sum?: number;
-
-  /**
-   * <p>The number of documents that contain a value in the specified field in the result set.</p>
-   */
-  count?: number;
 
   /**
    * <p>The number of documents that do not contain a value in the specified field in the result set.</p>
@@ -454,10 +455,9 @@ export interface FieldStats {
   missing?: number;
 
   /**
-   * <p>The minimum value found in the specified field in the result set.</p>
-   *        <p>If the field is numeric (<code>int</code>, <code>int-array</code>, <code>double</code>, or <code>double-array</code>), <code>min</code> is the string representation of a double-precision 64-bit floating point value. If the field is <code>date</code> or <code>date-array</code>, <code>min</code> is the string representation of a date with the format specified in <a href="http://tools.ietf.org/html/rfc3339">IETF RFC3339</a>: yyyy-mm-ddTHH:mm:ss.SSSZ.</p>
+   * <p>The standard deviation of the values in the specified field in the result set.</p>
    */
-  min?: string;
+  stddev?: number;
 }
 
 export namespace FieldStats {
@@ -523,14 +523,14 @@ export namespace SearchResponse {
  */
 export interface SuggestRequest {
   /**
-   * <p>Specifies the string for which you want to get suggestions.</p>
-   */
-  query: string | undefined;
-
-  /**
    * <p>Specifies the maximum number of suggestions to return.</p>
    */
   size?: number;
+
+  /**
+   * <p>Specifies the string for which you want to get suggestions.</p>
+   */
+  query: string | undefined;
 
   /**
    * <p>Specifies the name of the suggester to use to find suggested matches.</p>
@@ -575,14 +575,14 @@ export interface SuggestionMatch {
   id?: string;
 
   /**
-   * <p>The relevance score of a suggested match.</p>
-   */
-  score?: number;
-
-  /**
    * <p>The string that matches the query string specified in the <code>SuggestRequest</code>.</p>
    */
   suggestion?: string;
+
+  /**
+   * <p>The relevance score of a suggested match.</p>
+   */
+  score?: number;
 }
 
 export namespace SuggestionMatch {

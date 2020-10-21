@@ -673,15 +673,6 @@ export const serializeAws_restJson1DescribeElasticsearchInstanceTypeLimitsComman
     "Content-Type": "",
   };
   let resolvedPath = "/2015-01-01/es/instanceTypeLimits/{ElasticsearchVersion}/{InstanceType}";
-  if (input.InstanceType !== undefined) {
-    const labelValue: string = input.InstanceType;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: InstanceType.");
-    }
-    resolvedPath = resolvedPath.replace("{InstanceType}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: InstanceType.");
-  }
   if (input.ElasticsearchVersion !== undefined) {
     const labelValue: string = input.ElasticsearchVersion;
     if (labelValue.length <= 0) {
@@ -690,6 +681,15 @@ export const serializeAws_restJson1DescribeElasticsearchInstanceTypeLimitsComman
     resolvedPath = resolvedPath.replace("{ElasticsearchVersion}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ElasticsearchVersion.");
+  }
+  if (input.InstanceType !== undefined) {
+    const labelValue: string = input.InstanceType;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: InstanceType.");
+    }
+    resolvedPath = resolvedPath.replace("{InstanceType}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: InstanceType.");
   }
   const query: any = {
     ...(input.DomainName !== undefined && { domainName: input.DomainName }),
@@ -826,11 +826,11 @@ export const serializeAws_restJson1DescribeReservedElasticsearchInstancesCommand
   };
   let resolvedPath = "/2015-01-01/es/reservedInstances";
   const query: any = {
-    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
     ...(input.ReservedElasticsearchInstanceId !== undefined && {
       reservationId: input.ReservedElasticsearchInstanceId,
     }),
     ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -854,15 +854,6 @@ export const serializeAws_restJson1DissociatePackageCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/2015-01-01/packages/dissociate/{PackageID}/{DomainName}";
-  if (input.PackageID !== undefined) {
-    const labelValue: string = input.PackageID;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: PackageID.");
-    }
-    resolvedPath = resolvedPath.replace("{PackageID}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: PackageID.");
-  }
   if (input.DomainName !== undefined) {
     const labelValue: string = input.DomainName;
     if (labelValue.length <= 0) {
@@ -871,6 +862,15 @@ export const serializeAws_restJson1DissociatePackageCommand = async (
     resolvedPath = resolvedPath.replace("{DomainName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: DomainName.");
+  }
+  if (input.PackageID !== undefined) {
+    const labelValue: string = input.PackageID;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: PackageID.");
+    }
+    resolvedPath = resolvedPath.replace("{PackageID}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: PackageID.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -928,8 +928,8 @@ export const serializeAws_restJson1GetUpgradeHistoryCommand = async (
     throw new Error("No value provided for input HTTP label: DomainName.");
   }
   const query: any = {
-    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1050,9 +1050,9 @@ export const serializeAws_restJson1ListElasticsearchInstanceTypesCommand = async
     throw new Error("No value provided for input HTTP label: ElasticsearchVersion.");
   }
   const query: any = {
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
     ...(input.DomainName !== undefined && { domainName: input.DomainName }),
-    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();

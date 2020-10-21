@@ -65,14 +65,14 @@ export namespace GetConnectionRequest {
 
 export interface Identity {
   /**
-   * <p>The source IP address of the TCP connection making the request to API Gateway.</p>
-   */
-  SourceIp: string | undefined;
-
-  /**
    * <p>The User Agent of the API caller.</p>
    */
   UserAgent: string | undefined;
+
+  /**
+   * <p>The source IP address of the TCP connection making the request to API Gateway.</p>
+   */
+  SourceIp: string | undefined;
 }
 
 export namespace Identity {
@@ -84,14 +84,14 @@ export namespace Identity {
 export interface GetConnectionResponse {
   Identity?: Identity;
   /**
-   * <p>The time in ISO 8601 format for when the connection was established.</p>
-   */
-  ConnectedAt?: Date;
-
-  /**
    * <p>The time in ISO 8601 format for when the connection was last active.</p>
    */
   LastActiveAt?: Date;
+
+  /**
+   * <p>The time in ISO 8601 format for when the connection was established.</p>
+   */
+  ConnectedAt?: Date;
 }
 
 export namespace GetConnectionResponse {

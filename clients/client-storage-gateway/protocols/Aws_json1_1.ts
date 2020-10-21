@@ -22,6 +22,7 @@ import {
   CreateStorediSCSIVolumeCommandInput,
   CreateStorediSCSIVolumeCommandOutput,
 } from "../commands/CreateStorediSCSIVolumeCommand";
+import { CreateTapePoolCommandInput, CreateTapePoolCommandOutput } from "../commands/CreateTapePoolCommand";
 import {
   CreateTapeWithBarcodeCommandInput,
   CreateTapeWithBarcodeCommandOutput,
@@ -47,6 +48,7 @@ import {
 } from "../commands/DeleteSnapshotScheduleCommand";
 import { DeleteTapeArchiveCommandInput, DeleteTapeArchiveCommandOutput } from "../commands/DeleteTapeArchiveCommand";
 import { DeleteTapeCommandInput, DeleteTapeCommandOutput } from "../commands/DeleteTapeCommand";
+import { DeleteTapePoolCommandInput, DeleteTapePoolCommandOutput } from "../commands/DeleteTapePoolCommand";
 import { DeleteVolumeCommandInput, DeleteVolumeCommandOutput } from "../commands/DeleteVolumeCommand";
 import {
   DescribeAvailabilityMonitorTestCommandInput,
@@ -125,6 +127,7 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
+import { ListTapePoolsCommandInput, ListTapePoolsCommandOutput } from "../commands/ListTapePoolsCommand";
 import { ListTapesCommandInput, ListTapesCommandOutput } from "../commands/ListTapesCommand";
 import {
   ListVolumeInitiatorsCommandInput,
@@ -238,6 +241,8 @@ import {
   CreateSnapshotOutput,
   CreateStorediSCSIVolumeInput,
   CreateStorediSCSIVolumeOutput,
+  CreateTapePoolInput,
+  CreateTapePoolOutput,
   CreateTapeWithBarcodeInput,
   CreateTapeWithBarcodeOutput,
   CreateTapesInput,
@@ -258,6 +263,8 @@ import {
   DeleteTapeArchiveOutput,
   DeleteTapeInput,
   DeleteTapeOutput,
+  DeleteTapePoolInput,
+  DeleteTapePoolOutput,
   DeleteVolumeInput,
   DeleteVolumeOutput,
   DescribeAvailabilityMonitorTestInput,
@@ -318,6 +325,8 @@ import {
   ListLocalDisksOutput,
   ListTagsForResourceInput,
   ListTagsForResourceOutput,
+  ListTapePoolsInput,
+  ListTapePoolsOutput,
   ListTapesInput,
   ListTapesOutput,
   ListVolumeInitiatorsInput,
@@ -331,6 +340,7 @@ import {
   NetworkInterface,
   NotifyWhenUploadedInput,
   NotifyWhenUploadedOutput,
+  PoolInfo,
   RefreshCacheInput,
   RefreshCacheOutput,
   RemoveTagsFromResourceInput,
@@ -592,6 +602,19 @@ export const serializeAws_json1_1CreateStorediSCSIVolumeCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1CreateTapePoolCommand = async (
+  input: CreateTapePoolCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "StorageGateway_20130630.CreateTapePool",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1CreateTapePoolInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1CreateTapesCommand = async (
   input: CreateTapesCommandInput,
   context: __SerdeContext
@@ -719,6 +742,19 @@ export const serializeAws_json1_1DeleteTapeArchiveCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteTapeArchiveInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DeleteTapePoolCommand = async (
+  input: DeleteTapePoolCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "StorageGateway_20130630.DeleteTapePool",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DeleteTapePoolInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1070,6 +1106,19 @@ export const serializeAws_json1_1ListTagsForResourceCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListTagsForResourceInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1ListTapePoolsCommand = async (
+  input: ListTapePoolsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "StorageGateway_20130630.ListTapePools",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ListTapePoolsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -2372,6 +2421,69 @@ const deserializeAws_json1_1CreateStorediSCSIVolumeCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1CreateTapePoolCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateTapePoolCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1CreateTapePoolCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1CreateTapePoolOutput(data, context);
+  const response: CreateTapePoolCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1CreateTapePoolCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateTapePoolCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InternalServerError":
+    case "com.amazonaws.storagegateway#InternalServerError":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidGatewayRequestException":
+    case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1CreateTapesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -2960,6 +3072,69 @@ const deserializeAws_json1_1DeleteTapeArchiveCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteTapeArchiveCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InternalServerError":
+    case "com.amazonaws.storagegateway#InternalServerError":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidGatewayRequestException":
+    case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1DeleteTapePoolCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteTapePoolCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DeleteTapePoolCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DeleteTapePoolOutput(data, context);
+  const response: DeleteTapePoolCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DeleteTapePoolCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteTapePoolCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -4661,6 +4836,69 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InternalServerError":
+    case "com.amazonaws.storagegateway#InternalServerError":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidGatewayRequestException":
+    case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1ListTapePoolsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTapePoolsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ListTapePoolsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListTapePoolsOutput(data, context);
+  const response: ListTapePoolsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListTapePoolsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTapePoolsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -6429,6 +6667,9 @@ const serializeAws_json1_1AddWorkingStorageInput = (input: AddWorkingStorageInpu
 
 const serializeAws_json1_1AssignTapePoolInput = (input: AssignTapePoolInput, context: __SerdeContext): any => {
   return {
+    ...(input.BypassGovernanceRetention !== undefined && {
+      BypassGovernanceRetention: input.BypassGovernanceRetention,
+    }),
     ...(input.PoolId !== undefined && { PoolId: input.PoolId }),
     ...(input.TapeARN !== undefined && { TapeARN: input.TapeARN }),
   };
@@ -6453,6 +6694,7 @@ const serializeAws_json1_1AutomaticTapeCreationRule = (
     ...(input.PoolId !== undefined && { PoolId: input.PoolId }),
     ...(input.TapeBarcodePrefix !== undefined && { TapeBarcodePrefix: input.TapeBarcodePrefix }),
     ...(input.TapeSizeInBytes !== undefined && { TapeSizeInBytes: input.TapeSizeInBytes }),
+    ...(input.Worm !== undefined && { Worm: input.Worm }),
   };
 };
 
@@ -6601,6 +6843,16 @@ const serializeAws_json1_1CreateStorediSCSIVolumeInput = (
   };
 };
 
+const serializeAws_json1_1CreateTapePoolInput = (input: CreateTapePoolInput, context: __SerdeContext): any => {
+  return {
+    ...(input.PoolName !== undefined && { PoolName: input.PoolName }),
+    ...(input.RetentionLockTimeInDays !== undefined && { RetentionLockTimeInDays: input.RetentionLockTimeInDays }),
+    ...(input.RetentionLockType !== undefined && { RetentionLockType: input.RetentionLockType }),
+    ...(input.StorageClass !== undefined && { StorageClass: input.StorageClass }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
+  };
+};
+
 const serializeAws_json1_1CreateTapesInput = (input: CreateTapesInput, context: __SerdeContext): any => {
   return {
     ...(input.ClientToken !== undefined && { ClientToken: input.ClientToken }),
@@ -6612,6 +6864,7 @@ const serializeAws_json1_1CreateTapesInput = (input: CreateTapesInput, context: 
     ...(input.Tags !== undefined && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
     ...(input.TapeBarcodePrefix !== undefined && { TapeBarcodePrefix: input.TapeBarcodePrefix }),
     ...(input.TapeSizeInBytes !== undefined && { TapeSizeInBytes: input.TapeSizeInBytes }),
+    ...(input.Worm !== undefined && { Worm: input.Worm }),
   };
 };
 
@@ -6627,6 +6880,7 @@ const serializeAws_json1_1CreateTapeWithBarcodeInput = (
     ...(input.Tags !== undefined && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
     ...(input.TapeBarcode !== undefined && { TapeBarcode: input.TapeBarcode }),
     ...(input.TapeSizeInBytes !== undefined && { TapeSizeInBytes: input.TapeSizeInBytes }),
+    ...(input.Worm !== undefined && { Worm: input.Worm }),
   };
 };
 
@@ -6683,14 +6937,26 @@ const serializeAws_json1_1DeleteSnapshotScheduleInput = (
 
 const serializeAws_json1_1DeleteTapeArchiveInput = (input: DeleteTapeArchiveInput, context: __SerdeContext): any => {
   return {
+    ...(input.BypassGovernanceRetention !== undefined && {
+      BypassGovernanceRetention: input.BypassGovernanceRetention,
+    }),
     ...(input.TapeARN !== undefined && { TapeARN: input.TapeARN }),
   };
 };
 
 const serializeAws_json1_1DeleteTapeInput = (input: DeleteTapeInput, context: __SerdeContext): any => {
   return {
+    ...(input.BypassGovernanceRetention !== undefined && {
+      BypassGovernanceRetention: input.BypassGovernanceRetention,
+    }),
     ...(input.GatewayARN !== undefined && { GatewayARN: input.GatewayARN }),
     ...(input.TapeARN !== undefined && { TapeARN: input.TapeARN }),
+  };
+};
+
+const serializeAws_json1_1DeleteTapePoolInput = (input: DeleteTapePoolInput, context: __SerdeContext): any => {
+  return {
+    ...(input.PoolARN !== undefined && { PoolARN: input.PoolARN }),
   };
 };
 
@@ -6961,6 +7227,14 @@ const serializeAws_json1_1ListTagsForResourceInput = (
   };
 };
 
+const serializeAws_json1_1ListTapePoolsInput = (input: ListTapePoolsInput, context: __SerdeContext): any => {
+  return {
+    ...(input.Limit !== undefined && { Limit: input.Limit }),
+    ...(input.Marker !== undefined && { Marker: input.Marker }),
+    ...(input.PoolARNs !== undefined && { PoolARNs: serializeAws_json1_1PoolARNs(input.PoolARNs, context) }),
+  };
+};
+
 const serializeAws_json1_1ListTapesInput = (input: ListTapesInput, context: __SerdeContext): any => {
   return {
     ...(input.Limit !== undefined && { Limit: input.Limit }),
@@ -7008,6 +7282,10 @@ const serializeAws_json1_1NotifyWhenUploadedInput = (input: NotifyWhenUploadedIn
   return {
     ...(input.FileShareARN !== undefined && { FileShareARN: input.FileShareARN }),
   };
+};
+
+const serializeAws_json1_1PoolARNs = (input: string[], context: __SerdeContext): any => {
+  return input.map((entry) => entry);
 };
 
 const serializeAws_json1_1RefreshCacheInput = (input: RefreshCacheInput, context: __SerdeContext): any => {
@@ -7371,6 +7649,7 @@ const deserializeAws_json1_1AutomaticTapeCreationRule = (
         : undefined,
     TapeSizeInBytes:
       output.TapeSizeInBytes !== undefined && output.TapeSizeInBytes !== null ? output.TapeSizeInBytes : undefined,
+    Worm: output.Worm !== undefined && output.Worm !== null ? output.Worm : undefined,
   } as any;
 };
 
@@ -7524,6 +7803,12 @@ const deserializeAws_json1_1CreateStorediSCSIVolumeOutput = (
   } as any;
 };
 
+const deserializeAws_json1_1CreateTapePoolOutput = (output: any, context: __SerdeContext): CreateTapePoolOutput => {
+  return {
+    PoolARN: output.PoolARN !== undefined && output.PoolARN !== null ? output.PoolARN : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1CreateTapesOutput = (output: any, context: __SerdeContext): CreateTapesOutput => {
   return {
     TapeARNs:
@@ -7604,6 +7889,12 @@ const deserializeAws_json1_1DeleteTapeArchiveOutput = (
 const deserializeAws_json1_1DeleteTapeOutput = (output: any, context: __SerdeContext): DeleteTapeOutput => {
   return {
     TapeARN: output.TapeARN !== undefined && output.TapeARN !== null ? output.TapeARN : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1DeleteTapePoolOutput = (output: any, context: __SerdeContext): DeleteTapePoolOutput => {
+  return {
+    PoolARN: output.PoolARN !== undefined && output.PoolARN !== null ? output.PoolARN : undefined,
   } as any;
 };
 
@@ -7707,6 +7998,8 @@ const deserializeAws_json1_1DescribeGatewayInformationOutput = (
       output.CloudWatchLogGroupARN !== undefined && output.CloudWatchLogGroupARN !== null
         ? output.CloudWatchLogGroupARN
         : undefined,
+    DeprecationDate:
+      output.DeprecationDate !== undefined && output.DeprecationDate !== null ? output.DeprecationDate : undefined,
     Ec2InstanceId:
       output.Ec2InstanceId !== undefined && output.Ec2InstanceId !== null ? output.Ec2InstanceId : undefined,
     Ec2InstanceRegion:
@@ -7734,6 +8027,10 @@ const deserializeAws_json1_1DescribeGatewayInformationOutput = (
     NextUpdateAvailabilityDate:
       output.NextUpdateAvailabilityDate !== undefined && output.NextUpdateAvailabilityDate !== null
         ? output.NextUpdateAvailabilityDate
+        : undefined,
+    SoftwareUpdatesEndDate:
+      output.SoftwareUpdatesEndDate !== undefined && output.SoftwareUpdatesEndDate !== null
+        ? output.SoftwareUpdatesEndDate
         : undefined,
     Tags:
       output.Tags !== undefined && output.Tags !== null ? deserializeAws_json1_1Tags(output.Tags, context) : undefined,
@@ -8139,6 +8436,16 @@ const deserializeAws_json1_1ListTagsForResourceOutput = (
   } as any;
 };
 
+const deserializeAws_json1_1ListTapePoolsOutput = (output: any, context: __SerdeContext): ListTapePoolsOutput => {
+  return {
+    Marker: output.Marker !== undefined && output.Marker !== null ? output.Marker : undefined,
+    PoolInfos:
+      output.PoolInfos !== undefined && output.PoolInfos !== null
+        ? deserializeAws_json1_1PoolInfos(output.PoolInfos, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1ListTapesOutput = (output: any, context: __SerdeContext): ListTapesOutput => {
   return {
     Marker: output.Marker !== undefined && output.Marker !== null ? output.Marker : undefined,
@@ -8260,6 +8567,27 @@ const deserializeAws_json1_1NotifyWhenUploadedOutput = (
     NotificationId:
       output.NotificationId !== undefined && output.NotificationId !== null ? output.NotificationId : undefined,
   } as any;
+};
+
+const deserializeAws_json1_1PoolInfo = (output: any, context: __SerdeContext): PoolInfo => {
+  return {
+    PoolARN: output.PoolARN !== undefined && output.PoolARN !== null ? output.PoolARN : undefined,
+    PoolName: output.PoolName !== undefined && output.PoolName !== null ? output.PoolName : undefined,
+    PoolStatus: output.PoolStatus !== undefined && output.PoolStatus !== null ? output.PoolStatus : undefined,
+    RetentionLockTimeInDays:
+      output.RetentionLockTimeInDays !== undefined && output.RetentionLockTimeInDays !== null
+        ? output.RetentionLockTimeInDays
+        : undefined,
+    RetentionLockType:
+      output.RetentionLockType !== undefined && output.RetentionLockType !== null
+        ? output.RetentionLockType
+        : undefined,
+    StorageClass: output.StorageClass !== undefined && output.StorageClass !== null ? output.StorageClass : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1PoolInfos = (output: any, context: __SerdeContext): PoolInfo[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1PoolInfo(entry, context));
 };
 
 const deserializeAws_json1_1RefreshCacheOutput = (output: any, context: __SerdeContext): RefreshCacheOutput => {
@@ -8484,8 +8812,16 @@ const deserializeAws_json1_1Tags = (output: any, context: __SerdeContext): Tag[]
 const deserializeAws_json1_1Tape = (output: any, context: __SerdeContext): Tape => {
   return {
     KMSKey: output.KMSKey !== undefined && output.KMSKey !== null ? output.KMSKey : undefined,
+    PoolEntryDate:
+      output.PoolEntryDate !== undefined && output.PoolEntryDate !== null
+        ? new Date(Math.round(output.PoolEntryDate * 1000))
+        : undefined,
     PoolId: output.PoolId !== undefined && output.PoolId !== null ? output.PoolId : undefined,
     Progress: output.Progress !== undefined && output.Progress !== null ? output.Progress : undefined,
+    RetentionStartDate:
+      output.RetentionStartDate !== undefined && output.RetentionStartDate !== null
+        ? new Date(Math.round(output.RetentionStartDate * 1000))
+        : undefined,
     TapeARN: output.TapeARN !== undefined && output.TapeARN !== null ? output.TapeARN : undefined,
     TapeBarcode: output.TapeBarcode !== undefined && output.TapeBarcode !== null ? output.TapeBarcode : undefined,
     TapeCreatedDate:
@@ -8498,6 +8834,7 @@ const deserializeAws_json1_1Tape = (output: any, context: __SerdeContext): Tape 
     TapeUsedInBytes:
       output.TapeUsedInBytes !== undefined && output.TapeUsedInBytes !== null ? output.TapeUsedInBytes : undefined,
     VTLDevice: output.VTLDevice !== undefined && output.VTLDevice !== null ? output.VTLDevice : undefined,
+    Worm: output.Worm !== undefined && output.Worm !== null ? output.Worm : undefined,
   } as any;
 };
 
@@ -8508,7 +8845,15 @@ const deserializeAws_json1_1TapeArchive = (output: any, context: __SerdeContext)
         ? new Date(Math.round(output.CompletionTime * 1000))
         : undefined,
     KMSKey: output.KMSKey !== undefined && output.KMSKey !== null ? output.KMSKey : undefined,
+    PoolEntryDate:
+      output.PoolEntryDate !== undefined && output.PoolEntryDate !== null
+        ? new Date(Math.round(output.PoolEntryDate * 1000))
+        : undefined,
     PoolId: output.PoolId !== undefined && output.PoolId !== null ? output.PoolId : undefined,
+    RetentionStartDate:
+      output.RetentionStartDate !== undefined && output.RetentionStartDate !== null
+        ? new Date(Math.round(output.RetentionStartDate * 1000))
+        : undefined,
     RetrievedTo: output.RetrievedTo !== undefined && output.RetrievedTo !== null ? output.RetrievedTo : undefined,
     TapeARN: output.TapeARN !== undefined && output.TapeARN !== null ? output.TapeARN : undefined,
     TapeBarcode: output.TapeBarcode !== undefined && output.TapeBarcode !== null ? output.TapeBarcode : undefined,
@@ -8521,6 +8866,7 @@ const deserializeAws_json1_1TapeArchive = (output: any, context: __SerdeContext)
     TapeStatus: output.TapeStatus !== undefined && output.TapeStatus !== null ? output.TapeStatus : undefined,
     TapeUsedInBytes:
       output.TapeUsedInBytes !== undefined && output.TapeUsedInBytes !== null ? output.TapeUsedInBytes : undefined,
+    Worm: output.Worm !== undefined && output.Worm !== null ? output.Worm : undefined,
   } as any;
 };
 
@@ -8535,7 +8881,15 @@ const deserializeAws_json1_1TapeARNs = (output: any, context: __SerdeContext): s
 const deserializeAws_json1_1TapeInfo = (output: any, context: __SerdeContext): TapeInfo => {
   return {
     GatewayARN: output.GatewayARN !== undefined && output.GatewayARN !== null ? output.GatewayARN : undefined,
+    PoolEntryDate:
+      output.PoolEntryDate !== undefined && output.PoolEntryDate !== null
+        ? new Date(Math.round(output.PoolEntryDate * 1000))
+        : undefined,
     PoolId: output.PoolId !== undefined && output.PoolId !== null ? output.PoolId : undefined,
+    RetentionStartDate:
+      output.RetentionStartDate !== undefined && output.RetentionStartDate !== null
+        ? new Date(Math.round(output.RetentionStartDate * 1000))
+        : undefined,
     TapeARN: output.TapeARN !== undefined && output.TapeARN !== null ? output.TapeARN : undefined,
     TapeBarcode: output.TapeBarcode !== undefined && output.TapeBarcode !== null ? output.TapeBarcode : undefined,
     TapeSizeInBytes:

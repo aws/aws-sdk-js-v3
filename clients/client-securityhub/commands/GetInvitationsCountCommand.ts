@@ -1,5 +1,5 @@
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
-import { GetInvitationsCountRequest, GetInvitationsCountResponse } from "../models/models_0";
+import { GetInvitationsCountRequest, GetInvitationsCountResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1GetInvitationsCountCommand,
   serializeAws_restJson1GetInvitationsCountCommand,

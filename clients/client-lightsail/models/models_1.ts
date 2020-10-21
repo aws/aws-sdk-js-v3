@@ -30,14 +30,14 @@ import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
  */
 export interface PendingModifiedRelationalDatabaseValues {
   /**
-   * <p>The database engine version.</p>
-   */
-  engineVersion?: string;
-
-  /**
    * <p>A Boolean value indicating whether automated backup retention is enabled.</p>
    */
   backupRetentionEnabled?: boolean;
+
+  /**
+   * <p>The database engine version.</p>
+   */
+  engineVersion?: string;
 
   /**
    * <p>The password for the master user of the database.</p>
@@ -56,61 +56,6 @@ export namespace PendingModifiedRelationalDatabaseValues {
  */
 export interface RelationalDatabase {
   /**
-   * <p>The database software (for example, <code>MySQL</code>).</p>
-   */
-  engine?: string;
-
-  /**
-   * <p>A Boolean value indicating whether automated backup retention is enabled for the
-   *       database.</p>
-   */
-  backupRetentionEnabled?: boolean;
-
-  /**
-   * <p>The tag keys and optional values for the resource. For more information about tags in
-   *       Lightsail, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-tags">Lightsail
-   *         Dev Guide</a>.</p>
-   */
-  tags?: Tag[];
-
-  /**
-   * <p>The database engine version (for example, <code>5.7.23</code>).</p>
-   */
-  engineVersion?: string;
-
-  /**
-   * <p>The daily time range during which automated backups are created for the database (for
-   *       example, <code>16:00-16:30</code>).</p>
-   */
-  preferredBackupWindow?: string;
-
-  /**
-   * <p>The master user name of the database.</p>
-   */
-  masterUsername?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the database.</p>
-   */
-  arn?: string;
-
-  /**
-   * <p>The timestamp when the database was created. Formatted in Unix time.</p>
-   */
-  createdAt?: Date;
-
-  /**
-   * <p>Describes the pending maintenance actions for the database.</p>
-   */
-  pendingMaintenanceActions?: PendingMaintenanceAction[];
-
-  /**
-   * <p>The name of the master database created when the Lightsail database resource is
-   *       created.</p>
-   */
-  masterDatabaseName?: string;
-
-  /**
    * <p>Describes the secondary Availability Zone of a high availability database.</p>
    *          <p>The secondary database is used for failover support of a high availability
    *       database.</p>
@@ -118,46 +63,25 @@ export interface RelationalDatabase {
   secondaryAvailabilityZone?: string;
 
   /**
-   * <p>The certificate associated with the database.</p>
+   * <p>Describes pending database value modifications.</p>
    */
-  caCertificateIdentifier?: string;
+  pendingModifiedValues?: PendingModifiedRelationalDatabaseValues;
 
   /**
-   * <p>Describes the hardware of the database.</p>
+   * <p>The timestamp when the database was created. Formatted in Unix time.</p>
    */
-  hardware?: RelationalDatabaseHardware;
+  createdAt?: Date;
 
   /**
-   * <p>A Boolean value indicating whether the database is publicly accessible.</p>
+   * <p>The Amazon Resource Name (ARN) of the database.</p>
    */
-  publiclyAccessible?: boolean;
+  arn?: string;
 
   /**
    * <p>The latest point in time to which the database can be restored. Formatted in Unix
    *       time.</p>
    */
   latestRestorableTime?: Date;
-
-  /**
-   * <p>The status of parameter updates for the database.</p>
-   */
-  parameterApplyStatus?: string;
-
-  /**
-   * <p>Describes the current state of the database.</p>
-   */
-  state?: string;
-
-  /**
-   * <p>The blueprint ID for the database. A blueprint describes the major engine version of a
-   *       database.</p>
-   */
-  relationalDatabaseBlueprintId?: string;
-
-  /**
-   * <p>Describes pending database value modifications.</p>
-   */
-  pendingModifiedValues?: PendingModifiedRelationalDatabaseValues;
 
   /**
    * <p>The weekly time range during which system maintenance can occur on the database.</p>
@@ -167,15 +91,54 @@ export interface RelationalDatabase {
   preferredMaintenanceWindow?: string;
 
   /**
-   * <p>The master endpoint for the database.</p>
+   * <p>The unique name of the database resource in Lightsail.</p>
    */
-  masterEndpoint?: RelationalDatabaseEndpoint;
+  name?: string;
 
   /**
-   * <p>The bundle ID for the database. A bundle describes the performance specifications for your
+   * <p>Describes the current state of the database.</p>
+   */
+  state?: string;
+
+  /**
+   * <p>The Lightsail resource type for the database (for example,
+   *         <code>RelationalDatabase</code>).</p>
+   */
+  resourceType?: ResourceType | string;
+
+  /**
+   * <p>The tag keys and optional values for the resource. For more information about tags in
+   *       Lightsail, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-tags">Lightsail
+   *         Dev Guide</a>.</p>
+   */
+  tags?: Tag[];
+
+  /**
+   * <p>The Region name and Availability Zone where the database is located.</p>
+   */
+  location?: ResourceLocation;
+
+  /**
+   * <p>The blueprint ID for the database. A blueprint describes the major engine version of a
    *       database.</p>
    */
-  relationalDatabaseBundleId?: string;
+  relationalDatabaseBlueprintId?: string;
+
+  /**
+   * <p>The master user name of the database.</p>
+   */
+  masterUsername?: string;
+
+  /**
+   * <p>The database engine version (for example, <code>5.7.23</code>).</p>
+   */
+  engineVersion?: string;
+
+  /**
+   * <p>The name of the master database created when the Lightsail database resource is
+   *       created.</p>
+   */
+  masterDatabaseName?: string;
 
   /**
    * <p>The support code for the database. Include this code in your email to support when you
@@ -185,20 +148,57 @@ export interface RelationalDatabase {
   supportCode?: string;
 
   /**
-   * <p>The Lightsail resource type for the database (for example,
-   *         <code>RelationalDatabase</code>).</p>
+   * <p>The database software (for example, <code>MySQL</code>).</p>
    */
-  resourceType?: ResourceType | string;
+  engine?: string;
 
   /**
-   * <p>The Region name and Availability Zone where the database is located.</p>
+   * <p>A Boolean value indicating whether the database is publicly accessible.</p>
    */
-  location?: ResourceLocation;
+  publiclyAccessible?: boolean;
 
   /**
-   * <p>The unique name of the database resource in Lightsail.</p>
+   * <p>A Boolean value indicating whether automated backup retention is enabled for the
+   *       database.</p>
    */
-  name?: string;
+  backupRetentionEnabled?: boolean;
+
+  /**
+   * <p>Describes the hardware of the database.</p>
+   */
+  hardware?: RelationalDatabaseHardware;
+
+  /**
+   * <p>Describes the pending maintenance actions for the database.</p>
+   */
+  pendingMaintenanceActions?: PendingMaintenanceAction[];
+
+  /**
+   * <p>The certificate associated with the database.</p>
+   */
+  caCertificateIdentifier?: string;
+
+  /**
+   * <p>The status of parameter updates for the database.</p>
+   */
+  parameterApplyStatus?: string;
+
+  /**
+   * <p>The master endpoint for the database.</p>
+   */
+  masterEndpoint?: RelationalDatabaseEndpoint;
+
+  /**
+   * <p>The daily time range during which automated backups are created for the database (for
+   *       example, <code>16:00-16:30</code>).</p>
+   */
+  preferredBackupWindow?: string;
+
+  /**
+   * <p>The bundle ID for the database. A bundle describes the performance specifications for your
+   *       database.</p>
+   */
+  relationalDatabaseBundleId?: string;
 }
 
 export namespace RelationalDatabase {
@@ -246,6 +246,16 @@ export enum RelationalDatabaseEngine {
  */
 export interface RelationalDatabaseBlueprint {
   /**
+   * <p>The description of the database engine for the database blueprint.</p>
+   */
+  engineDescription?: string;
+
+  /**
+   * <p>The ID for the database blueprint.</p>
+   */
+  blueprintId?: string;
+
+  /**
    * <p>The database engine version for the database blueprint (for example,
    *       <code>5.7.23</code>).</p>
    */
@@ -266,16 +276,6 @@ export interface RelationalDatabaseBlueprint {
    * <p>The database software of the database blueprint (for example, <code>MySQL</code>).</p>
    */
   engine?: RelationalDatabaseEngine | string;
-
-  /**
-   * <p>The ID for the database blueprint.</p>
-   */
-  blueprintId?: string;
-
-  /**
-   * <p>The description of the database engine for the database blueprint.</p>
-   */
-  engineDescription?: string;
 }
 
 export namespace RelationalDatabaseBlueprint {
@@ -286,11 +286,6 @@ export namespace RelationalDatabaseBlueprint {
 
 export interface GetRelationalDatabaseBlueprintsResult {
   /**
-   * <p>An object describing the result of your get relational database blueprints request.</p>
-   */
-  blueprints?: RelationalDatabaseBlueprint[];
-
-  /**
    * <p>The token to advance to the next page of resutls from your request.</p>
    *          <p>A next page token is not returned if there are no more results to display.</p>
    *          <p>To get the next page of results, perform another
@@ -298,6 +293,11 @@ export interface GetRelationalDatabaseBlueprintsResult {
    *       the <code>pageToken</code> parameter.</p>
    */
   nextPageToken?: string;
+
+  /**
+   * <p>An object describing the result of your get relational database blueprints request.</p>
+   */
+  blueprints?: RelationalDatabaseBlueprint[];
 }
 
 export namespace GetRelationalDatabaseBlueprintsResult {
@@ -328,41 +328,6 @@ export namespace GetRelationalDatabaseBundlesRequest {
  */
 export interface RelationalDatabaseBundle {
   /**
-   * <p>The ID for the database bundle.</p>
-   */
-  bundleId?: string;
-
-  /**
-   * <p>The name for the database bundle.</p>
-   */
-  name?: string;
-
-  /**
-   * <p>A Boolean value indicating whether the database bundle is active.</p>
-   */
-  isActive?: boolean;
-
-  /**
-   * <p>The size of the disk for the database bundle.</p>
-   */
-  diskSizeInGb?: number;
-
-  /**
-   * <p>The data transfer rate per month in GB for the database bundle.</p>
-   */
-  transferPerMonthInGb?: number;
-
-  /**
-   * <p>A Boolean value indicating whether the database bundle is encrypted.</p>
-   */
-  isEncrypted?: boolean;
-
-  /**
-   * <p>The cost of the database bundle in US currency.</p>
-   */
-  price?: number;
-
-  /**
    * <p>The amount of RAM in GB (for example, <code>2.0</code>) for the database bundle.</p>
    */
   ramSizeInGb?: number;
@@ -371,6 +336,41 @@ export interface RelationalDatabaseBundle {
    * <p>The number of virtual CPUs (vCPUs) for the database bundle.</p>
    */
   cpuCount?: number;
+
+  /**
+   * <p>The data transfer rate per month in GB for the database bundle.</p>
+   */
+  transferPerMonthInGb?: number;
+
+  /**
+   * <p>The size of the disk for the database bundle.</p>
+   */
+  diskSizeInGb?: number;
+
+  /**
+   * <p>A Boolean value indicating whether the database bundle is encrypted.</p>
+   */
+  isEncrypted?: boolean;
+
+  /**
+   * <p>The name for the database bundle.</p>
+   */
+  name?: string;
+
+  /**
+   * <p>The ID for the database bundle.</p>
+   */
+  bundleId?: string;
+
+  /**
+   * <p>The cost of the database bundle in US currency.</p>
+   */
+  price?: number;
+
+  /**
+   * <p>A Boolean value indicating whether the database bundle is active.</p>
+   */
+  isActive?: boolean;
 }
 
 export namespace RelationalDatabaseBundle {
@@ -381,17 +381,17 @@ export namespace RelationalDatabaseBundle {
 
 export interface GetRelationalDatabaseBundlesResult {
   /**
+   * <p>An object describing the result of your get relational database bundles request.</p>
+   */
+  bundles?: RelationalDatabaseBundle[];
+
+  /**
    * <p>The token to advance to the next page of resutls from your request.</p>
    *          <p>A next page token is not returned if there are no more results to display.</p>
    *          <p>To get the next page of results, perform another <code>GetRelationalDatabaseBundles</code>
    *       request and specify the next page token using the <code>pageToken</code> parameter.</p>
    */
   nextPageToken?: string;
-
-  /**
-   * <p>An object describing the result of your get relational database bundles request.</p>
-   */
-  bundles?: RelationalDatabaseBundle[];
 }
 
 export namespace GetRelationalDatabaseBundlesResult {
@@ -402,14 +402,6 @@ export namespace GetRelationalDatabaseBundlesResult {
 
 export interface GetRelationalDatabaseEventsRequest {
   /**
-   * <p>The token to advance to the next page of results from your request.</p>
-   *          <p>To get a page token, perform an initial <code>GetRelationalDatabaseEvents</code> request.
-   *       If your results are paginated, the response will return a next page token that you can specify
-   *       as the page token in a subsequent request.</p>
-   */
-  pageToken?: string;
-
-  /**
    * <p>The number of minutes in the past from which to retrieve events. For example, to get all
    *       events from the past 2 hours, enter 120.</p>
    *          <p>Default: <code>60</code>
@@ -417,6 +409,14 @@ export interface GetRelationalDatabaseEventsRequest {
    *          <p>The minimum is 1 and the maximum is 14 days (20160 minutes).</p>
    */
   durationInMinutes?: number;
+
+  /**
+   * <p>The token to advance to the next page of results from your request.</p>
+   *          <p>To get a page token, perform an initial <code>GetRelationalDatabaseEvents</code> request.
+   *       If your results are paginated, the response will return a next page token that you can specify
+   *       as the page token in a subsequent request.</p>
+   */
+  pageToken?: string;
 
   /**
    * <p>The name of the database from which to get events.</p>
@@ -435,16 +435,6 @@ export namespace GetRelationalDatabaseEventsRequest {
  */
 export interface RelationalDatabaseEvent {
   /**
-   * <p>The timestamp when the database event was created.</p>
-   */
-  createdAt?: Date;
-
-  /**
-   * <p>The database that the database event relates to.</p>
-   */
-  resource?: string;
-
-  /**
    * <p>The category that the database event belongs to.</p>
    */
   eventCategories?: string[];
@@ -453,6 +443,16 @@ export interface RelationalDatabaseEvent {
    * <p>The message of the database event.</p>
    */
   message?: string;
+
+  /**
+   * <p>The timestamp when the database event was created.</p>
+   */
+  createdAt?: Date;
+
+  /**
+   * <p>The database that the database event relates to.</p>
+   */
+  resource?: string;
 }
 
 export namespace RelationalDatabaseEvent {
@@ -463,17 +463,17 @@ export namespace RelationalDatabaseEvent {
 
 export interface GetRelationalDatabaseEventsResult {
   /**
-   * <p>An object describing the result of your get relational database events request.</p>
-   */
-  relationalDatabaseEvents?: RelationalDatabaseEvent[];
-
-  /**
    * <p>The token to advance to the next page of resutls from your request.</p>
    *          <p>A next page token is not returned if there are no more results to display.</p>
    *          <p>To get the next page of results, perform another <code>GetRelationalDatabaseEvents</code>
    *       request and specify the next page token using the <code>pageToken</code> parameter.</p>
    */
   nextPageToken?: string;
+
+  /**
+   * <p>An object describing the result of your get relational database events request.</p>
+   */
+  relationalDatabaseEvents?: RelationalDatabaseEvent[];
 }
 
 export namespace GetRelationalDatabaseEventsResult {
@@ -483,6 +483,25 @@ export namespace GetRelationalDatabaseEventsResult {
 }
 
 export interface GetRelationalDatabaseLogEventsRequest {
+  /**
+   * <p>Parameter to specify if the log should start from head or tail. If <code>true</code> is
+   *       specified, the log event starts from the head of the log. If <code>false</code> is specified,
+   *       the log event starts from the tail of the log.</p>
+   *          <note>
+   *             <p>For PostgreSQL, the default value of <code>false</code> is the only option
+   *         available.</p>
+   *          </note>
+   */
+  startFromHead?: boolean;
+
+  /**
+   * <p>The token to advance to the next or previous page of results from your request.</p>
+   *          <p>To get a page token, perform an initial <code>GetRelationalDatabaseLogEvents</code>
+   *       request. If your results are paginated, the response will return a next forward token and/or
+   *       next backward token that you can specify as the page token in a subsequent request.</p>
+   */
+  pageToken?: string;
+
   /**
    * <p>The end of the time interval from which to get log events.</p>
    *          <p>Constraints:</p>
@@ -499,6 +518,13 @@ export interface GetRelationalDatabaseLogEventsRequest {
    *          </ul>
    */
   endTime?: Date;
+
+  /**
+   * <p>The name of the log stream.</p>
+   *          <p>Use the <code>get relational database log streams</code> operation to get a list of
+   *       available log streams.</p>
+   */
+  logStreamName: string | undefined;
 
   /**
    * <p>The name of your database for which to get log events.</p>
@@ -520,32 +546,6 @@ export interface GetRelationalDatabaseLogEventsRequest {
    *          </ul>
    */
   startTime?: Date;
-
-  /**
-   * <p>The token to advance to the next or previous page of results from your request.</p>
-   *          <p>To get a page token, perform an initial <code>GetRelationalDatabaseLogEvents</code>
-   *       request. If your results are paginated, the response will return a next forward token and/or
-   *       next backward token that you can specify as the page token in a subsequent request.</p>
-   */
-  pageToken?: string;
-
-  /**
-   * <p>Parameter to specify if the log should start from head or tail. If <code>true</code> is
-   *       specified, the log event starts from the head of the log. If <code>false</code> is specified,
-   *       the log event starts from the tail of the log.</p>
-   *          <note>
-   *             <p>For PostgreSQL, the default value of <code>false</code> is the only option
-   *         available.</p>
-   *          </note>
-   */
-  startFromHead?: boolean;
-
-  /**
-   * <p>The name of the log stream.</p>
-   *          <p>Use the <code>get relational database log streams</code> operation to get a list of
-   *       available log streams.</p>
-   */
-  logStreamName: string | undefined;
 }
 
 export namespace GetRelationalDatabaseLogEventsRequest {
@@ -559,14 +559,14 @@ export namespace GetRelationalDatabaseLogEventsRequest {
  */
 export interface LogEvent {
   /**
-   * <p>The timestamp when the database log event was created.</p>
-   */
-  createdAt?: Date;
-
-  /**
    * <p>The message of the database log event.</p>
    */
   message?: string;
+
+  /**
+   * <p>The timestamp when the database log event was created.</p>
+   */
+  createdAt?: Date;
 }
 
 export namespace LogEvent {
@@ -577,6 +577,12 @@ export namespace LogEvent {
 
 export interface GetRelationalDatabaseLogEventsResult {
   /**
+   * <p>A token used for advancing to the next page of results from your get relational database
+   *       log events request.</p>
+   */
+  nextForwardToken?: string;
+
+  /**
    * <p>An object describing the result of your get relational database log events request.</p>
    */
   resourceLogEvents?: LogEvent[];
@@ -586,12 +592,6 @@ export interface GetRelationalDatabaseLogEventsResult {
    *       database log events request.</p>
    */
   nextBackwardToken?: string;
-
-  /**
-   * <p>A token used for advancing to the next page of results from your get relational database
-   *       log events request.</p>
-   */
-  nextForwardToken?: string;
 }
 
 export namespace GetRelationalDatabaseLogEventsResult {
@@ -635,6 +635,11 @@ export enum RelationalDatabasePasswordVersion {
 
 export interface GetRelationalDatabaseMasterUserPasswordRequest {
   /**
+   * <p>The name of your database for which to get the master user password.</p>
+   */
+  relationalDatabaseName: string | undefined;
+
+  /**
    * <p>The password version to return.</p>
    *          <p>Specifying <code>CURRENT</code> or <code>PREVIOUS</code> returns the current or previous
    *       passwords respectively. Specifying <code>PENDING</code> returns the newest version of the
@@ -645,11 +650,6 @@ export interface GetRelationalDatabaseMasterUserPasswordRequest {
    *          </p>
    */
   passwordVersion?: RelationalDatabasePasswordVersion | string;
-
-  /**
-   * <p>The name of your database for which to get the master user password.</p>
-   */
-  relationalDatabaseName: string | undefined;
 }
 
 export namespace GetRelationalDatabaseMasterUserPasswordRequest {
@@ -660,14 +660,14 @@ export namespace GetRelationalDatabaseMasterUserPasswordRequest {
 
 export interface GetRelationalDatabaseMasterUserPasswordResult {
   /**
-   * <p>The timestamp when the specified version of the master user password was created.</p>
-   */
-  createdAt?: Date;
-
-  /**
    * <p>The master user password for the <code>password version</code> specified.</p>
    */
   masterUserPassword?: string;
+
+  /**
+   * <p>The timestamp when the specified version of the master user password was created.</p>
+   */
+  createdAt?: Date;
 }
 
 export namespace GetRelationalDatabaseMasterUserPasswordResult {
@@ -687,6 +687,59 @@ export enum RelationalDatabaseMetricName {
 }
 
 export interface GetRelationalDatabaseMetricDataRequest {
+  /**
+   * <p>The granularity, in seconds, of the returned data points.</p>
+   *          <p>All relational database metric data is available in 1-minute (60 seconds)
+   *       granularity.</p>
+   */
+  period: number | undefined;
+
+  /**
+   * <p>The start of the time interval from which to get metric data.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Specified in Coordinated Universal Time (UTC).</p>
+   *             </li>
+   *             <li>
+   *                <p>Specified in the Unix time format.</p>
+   *                <p>For example, if you wish to use a start time of October 1, 2018, at 8 PM UTC, then you
+   *           input <code>1538424000</code> as the start time.</p>
+   *
+   *             </li>
+   *          </ul>
+   */
+  startTime: Date | undefined;
+
+  /**
+   * <p>The unit for the metric data request. Valid units depend on the metric data being
+   *       requested. For the valid units with each available metric, see the <code>metricName</code>
+   *       parameter.</p>
+   */
+  unit: MetricUnit | string | undefined;
+
+  /**
+   * <p>The name of your database from which to get metric data.</p>
+   */
+  relationalDatabaseName: string | undefined;
+
+  /**
+   * <p>The end of the time interval from which to get metric data.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Specified in Coordinated Universal Time (UTC).</p>
+   *             </li>
+   *             <li>
+   *                <p>Specified in the Unix time format.</p>
+   *                <p>For example, if you wish to use an end time of October 1, 2018, at 8 PM UTC, then you
+   *           input <code>1538424000</code> as the end time.</p>
+   *
+   *             </li>
+   *          </ul>
+   */
+  endTime: Date | undefined;
+
   /**
    * <p>The metric for which you want to return information.</p>
    *          <p>Valid relational database metric names are listed below, along with the most useful
@@ -769,47 +822,6 @@ export interface GetRelationalDatabaseMetricDataRequest {
   metricName: RelationalDatabaseMetricName | string | undefined;
 
   /**
-   * <p>The end of the time interval from which to get metric data.</p>
-   *          <p>Constraints:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Specified in Coordinated Universal Time (UTC).</p>
-   *             </li>
-   *             <li>
-   *                <p>Specified in the Unix time format.</p>
-   *                <p>For example, if you wish to use an end time of October 1, 2018, at 8 PM UTC, then you
-   *           input <code>1538424000</code> as the end time.</p>
-   *
-   *             </li>
-   *          </ul>
-   */
-  endTime: Date | undefined;
-
-  /**
-   * <p>The unit for the metric data request. Valid units depend on the metric data being
-   *       requested. For the valid units with each available metric, see the <code>metricName</code>
-   *       parameter.</p>
-   */
-  unit: MetricUnit | string | undefined;
-
-  /**
-   * <p>The start of the time interval from which to get metric data.</p>
-   *          <p>Constraints:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Specified in Coordinated Universal Time (UTC).</p>
-   *             </li>
-   *             <li>
-   *                <p>Specified in the Unix time format.</p>
-   *                <p>For example, if you wish to use a start time of October 1, 2018, at 8 PM UTC, then you
-   *           input <code>1538424000</code> as the start time.</p>
-   *
-   *             </li>
-   *          </ul>
-   */
-  startTime: Date | undefined;
-
-  /**
    * <p>The statistic for the metric.</p>
    *          <p>The following statistics are available:</p>
    *          <ul>
@@ -843,18 +855,6 @@ export interface GetRelationalDatabaseMetricDataRequest {
    *          </ul>
    */
   statistics: (MetricStatistic | string)[] | undefined;
-
-  /**
-   * <p>The name of your database from which to get metric data.</p>
-   */
-  relationalDatabaseName: string | undefined;
-
-  /**
-   * <p>The granularity, in seconds, of the returned data points.</p>
-   *          <p>All relational database metric data is available in 1-minute (60 seconds)
-   *       granularity.</p>
-   */
-  period: number | undefined;
 }
 
 export namespace GetRelationalDatabaseMetricDataRequest {
@@ -865,14 +865,14 @@ export namespace GetRelationalDatabaseMetricDataRequest {
 
 export interface GetRelationalDatabaseMetricDataResult {
   /**
-   * <p>An array of objects that describe the metric data returned.</p>
-   */
-  metricData?: MetricDatapoint[];
-
-  /**
    * <p>The name of the metric returned.</p>
    */
   metricName?: RelationalDatabaseMetricName | string;
+
+  /**
+   * <p>An array of objects that describe the metric data returned.</p>
+   */
+  metricData?: MetricDatapoint[];
 }
 
 export namespace GetRelationalDatabaseMetricDataResult {
@@ -883,17 +883,17 @@ export namespace GetRelationalDatabaseMetricDataResult {
 
 export interface GetRelationalDatabaseParametersRequest {
   /**
+   * <p>The name of your database for which to get parameters.</p>
+   */
+  relationalDatabaseName: string | undefined;
+
+  /**
    * <p>The token to advance to the next page of results from your request.</p>
    *          <p>To get a page token, perform an initial <code>GetRelationalDatabaseParameters</code>
    *       request. If your results are paginated, the response will return a next page token that you
    *       can specify as the page token in a subsequent request.</p>
    */
   pageToken?: string;
-
-  /**
-   * <p>The name of your database for which to get parameters.</p>
-   */
-  relationalDatabaseName: string | undefined;
 }
 
 export namespace GetRelationalDatabaseParametersRequest {
@@ -907,27 +907,6 @@ export namespace GetRelationalDatabaseParametersRequest {
  */
 export interface RelationalDatabaseParameter {
   /**
-   * <p>Specifies the name of the parameter.</p>
-   */
-  parameterName?: string;
-
-  /**
-   * <p>Provides a description of the parameter.</p>
-   */
-  description?: string;
-
-  /**
-   * <p>Specifies the valid data type for the parameter.</p>
-   */
-  dataType?: string;
-
-  /**
-   * <p>Indicates when parameter updates are applied.</p>
-   *          <p>Can be <code>immediate</code> or <code>pending-reboot</code>.</p>
-   */
-  applyMethod?: string;
-
-  /**
    * <p>Specifies the valid range of values for the parameter.</p>
    */
   allowedValues?: string;
@@ -938,14 +917,35 @@ export interface RelationalDatabaseParameter {
   isModifiable?: boolean;
 
   /**
+   * <p>Specifies the value of the parameter.</p>
+   */
+  parameterValue?: string;
+
+  /**
+   * <p>Indicates when parameter updates are applied.</p>
+   *          <p>Can be <code>immediate</code> or <code>pending-reboot</code>.</p>
+   */
+  applyMethod?: string;
+
+  /**
    * <p>Specifies the engine-specific parameter type.</p>
    */
   applyType?: string;
 
   /**
-   * <p>Specifies the value of the parameter.</p>
+   * <p>Provides a description of the parameter.</p>
    */
-  parameterValue?: string;
+  description?: string;
+
+  /**
+   * <p>Specifies the name of the parameter.</p>
+   */
+  parameterName?: string;
+
+  /**
+   * <p>Specifies the valid data type for the parameter.</p>
+   */
+  dataType?: string;
 }
 
 export namespace RelationalDatabaseParameter {
@@ -1031,54 +1031,9 @@ export namespace GetRelationalDatabaseSnapshotRequest {
  */
 export interface RelationalDatabaseSnapshot {
   /**
-   * <p>The size of the disk in GB (for example, <code>32</code>) for the database
-   *       snapshot.</p>
-   */
-  sizeInGb?: number;
-
-  /**
-   * <p>The Region name and Availability Zone where the database snapshot is located.</p>
-   */
-  location?: ResourceLocation;
-
-  /**
-   * <p>The bundle ID of the database from which the database snapshot was created.</p>
-   */
-  fromRelationalDatabaseBundleId?: string;
-
-  /**
-   * <p>The database engine version for the database snapshot (for example,
-   *       <code>5.7.23</code>).</p>
-   */
-  engineVersion?: string;
-
-  /**
    * <p>The timestamp when the database snapshot was created.</p>
    */
   createdAt?: Date;
-
-  /**
-   * <p>The tag keys and optional values for the resource. For more information about tags in
-   *       Lightsail, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-tags">Lightsail
-   *         Dev Guide</a>.</p>
-   */
-  tags?: Tag[];
-
-  /**
-   * <p>The blueprint ID of the database from which the database snapshot was created. A blueprint
-   *       describes the major engine version of a database.</p>
-   */
-  fromRelationalDatabaseBlueprintId?: string;
-
-  /**
-   * <p>The name of the source database from which the database snapshot was created.</p>
-   */
-  fromRelationalDatabaseName?: string;
-
-  /**
-   * <p>The name of the database snapshot.</p>
-   */
-  name?: string;
 
   /**
    * <p>The Lightsail resource type.</p>
@@ -1086,21 +1041,9 @@ export interface RelationalDatabaseSnapshot {
   resourceType?: ResourceType | string;
 
   /**
-   * <p>The support code for the database snapshot. Include this code in your email to support
-   *       when you have questions about a database snapshot in Lightsail. This code enables our
-   *       support team to look up your Lightsail information more easily.</p>
+   * <p>The name of the database snapshot.</p>
    */
-  supportCode?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the database snapshot.</p>
-   */
-  arn?: string;
-
-  /**
-   * <p>The state of the database snapshot.</p>
-   */
-  state?: string;
+  name?: string;
 
   /**
    * <p>The software of the database snapshot (for example, <code>MySQL</code>)</p>
@@ -1112,6 +1055,63 @@ export interface RelationalDatabaseSnapshot {
    *       created.</p>
    */
   fromRelationalDatabaseArn?: string;
+
+  /**
+   * <p>The support code for the database snapshot. Include this code in your email to support
+   *       when you have questions about a database snapshot in Lightsail. This code enables our
+   *       support team to look up your Lightsail information more easily.</p>
+   */
+  supportCode?: string;
+
+  /**
+   * <p>The state of the database snapshot.</p>
+   */
+  state?: string;
+
+  /**
+   * <p>The size of the disk in GB (for example, <code>32</code>) for the database
+   *       snapshot.</p>
+   */
+  sizeInGb?: number;
+
+  /**
+   * <p>The bundle ID of the database from which the database snapshot was created.</p>
+   */
+  fromRelationalDatabaseBundleId?: string;
+
+  /**
+   * <p>The name of the source database from which the database snapshot was created.</p>
+   */
+  fromRelationalDatabaseName?: string;
+
+  /**
+   * <p>The database engine version for the database snapshot (for example,
+   *       <code>5.7.23</code>).</p>
+   */
+  engineVersion?: string;
+
+  /**
+   * <p>The tag keys and optional values for the resource. For more information about tags in
+   *       Lightsail, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-tags">Lightsail
+   *         Dev Guide</a>.</p>
+   */
+  tags?: Tag[];
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the database snapshot.</p>
+   */
+  arn?: string;
+
+  /**
+   * <p>The Region name and Availability Zone where the database snapshot is located.</p>
+   */
+  location?: ResourceLocation;
+
+  /**
+   * <p>The blueprint ID of the database from which the database snapshot was created. A blueprint
+   *       describes the major engine version of a database.</p>
+   */
+  fromRelationalDatabaseBlueprintId?: string;
 }
 
 export namespace RelationalDatabaseSnapshot {
@@ -1189,9 +1189,25 @@ export namespace GetStaticIpRequest {
  */
 export interface StaticIp {
   /**
-   * <p>The name of the static IP (e.g., <code>StaticIP-Ohio-EXAMPLE</code>).</p>
+   * <p>The resource type (usually <code>StaticIp</code>).</p>
    */
-  name?: string;
+  resourceType?: ResourceType | string;
+
+  /**
+   * <p>The timestamp when the static IP was created (e.g., <code>1479735304.222</code>).</p>
+   */
+  createdAt?: Date;
+
+  /**
+   * <p>The region and Availability Zone where the static IP was created.</p>
+   */
+  location?: ResourceLocation;
+
+  /**
+   * <p>The instance where the static IP is attached (e.g.,
+   *       <code>Amazon_Linux-1GB-Ohio-1</code>).</p>
+   */
+  attachedTo?: string;
 
   /**
    * <p>The static IP address.</p>
@@ -1204,20 +1220,9 @@ export interface StaticIp {
   isAttached?: boolean;
 
   /**
-   * <p>The instance where the static IP is attached (e.g.,
-   *       <code>Amazon_Linux-1GB-Ohio-1</code>).</p>
+   * <p>The name of the static IP (e.g., <code>StaticIP-Ohio-EXAMPLE</code>).</p>
    */
-  attachedTo?: string;
-
-  /**
-   * <p>The region and Availability Zone where the static IP was created.</p>
-   */
-  location?: ResourceLocation;
-
-  /**
-   * <p>The timestamp when the static IP was created (e.g., <code>1479735304.222</code>).</p>
-   */
-  createdAt?: Date;
+  name?: string;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the static IP (e.g.,
@@ -1231,11 +1236,6 @@ export interface StaticIp {
    *       your Lightsail information more easily.</p>
    */
   supportCode?: string;
-
-  /**
-   * <p>The resource type (usually <code>StaticIp</code>).</p>
-   */
-  resourceType?: ResourceType | string;
 }
 
 export namespace StaticIp {
@@ -1275,18 +1275,18 @@ export namespace GetStaticIpsRequest {
 
 export interface GetStaticIpsResult {
   /**
-   * <p>An array of key-value pairs containing information about your get static IPs
-   *       request.</p>
-   */
-  staticIps?: StaticIp[];
-
-  /**
    * <p>The token to advance to the next page of resutls from your request.</p>
    *          <p>A next page token is not returned if there are no more results to display.</p>
    *          <p>To get the next page of results, perform another <code>GetStaticIps</code> request and
    *       specify the next page token using the <code>pageToken</code> parameter.</p>
    */
   nextPageToken?: string;
+
+  /**
+   * <p>An array of key-value pairs containing information about your get static IPs
+   *       request.</p>
+   */
+  staticIps?: StaticIp[];
 }
 
 export namespace GetStaticIpsResult {
@@ -1297,14 +1297,14 @@ export namespace GetStaticIpsResult {
 
 export interface ImportKeyPairRequest {
   /**
-   * <p>A base64-encoded public key of the <code>ssh-rsa</code> type.</p>
-   */
-  publicKeyBase64: string | undefined;
-
-  /**
    * <p>The name of the key pair for which you want to import the public key.</p>
    */
   keyPairName: string | undefined;
+
+  /**
+   * <p>A base64-encoded public key of the <code>ssh-rsa</code> type.</p>
+   */
+  publicKeyBase64: string | undefined;
 }
 
 export namespace ImportKeyPairRequest {
@@ -1405,11 +1405,46 @@ export namespace PeerVpcResult {
 
 export interface PutAlarmRequest {
   /**
-   * <p>The name of the Lightsail resource that will be monitored.</p>
-   *          <p>Instances, load balancers, and relational databases are the only Lightsail resources
-   *       that can currently be monitored by alarms.</p>
+   * <p>The number of data points that must be not within the specified threshold to trigger the
+   *       alarm. If you are setting an "M out of N" alarm, this value (<code>datapointsToAlarm</code>)
+   *       is the M.</p>
    */
-  monitoredResourceName: string | undefined;
+  datapointsToAlarm?: number;
+
+  /**
+   * <p>Sets how this alarm will handle missing data points.</p>
+   *          <p>An alarm can treat missing data in the following ways:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>breaching</code> - Assume the missing data is not within the threshold. Missing
+   *           data counts towards the number of times the metric is not within the threshold.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>notBreaching</code> - Assume the missing data is within the threshold. Missing
+   *           data does not count towards the number of times the metric is not within the
+   *           threshold.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ignore</code> - Ignore the missing data. Maintains the current alarm
+   *           state.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>missing</code> - Missing data is treated as missing.</p>
+   *             </li>
+   *          </ul>
+   *          <p>If <code>treatMissingData</code> is not specified, the default behavior of
+   *         <code>missing</code> is used.</p>
+   */
+  treatMissingData?: TreatMissingData | string;
+
+  /**
+   * <p>The value against which the specified statistic is compared.</p>
+   */
+  threshold: number | undefined;
 
   /**
    * <p>The alarm states that trigger a notification.</p>
@@ -1452,15 +1487,11 @@ export interface PutAlarmRequest {
   notificationTriggers?: (AlarmState | string)[];
 
   /**
-   * <p>The value against which the specified statistic is compared.</p>
+   * <p>The name of the Lightsail resource that will be monitored.</p>
+   *          <p>Instances, load balancers, and relational databases are the only Lightsail resources
+   *       that can currently be monitored by alarms.</p>
    */
-  threshold: number | undefined;
-
-  /**
-   * <p>Indicates whether the alarm is enabled.</p>
-   *          <p>Notifications are enabled by default if you don't specify this parameter.</p>
-   */
-  notificationEnabled?: boolean;
+  monitoredResourceName: string | undefined;
 
   /**
    * <p>The number of most recent periods over which data is compared to the specified threshold.
@@ -1475,6 +1506,18 @@ export interface PutAlarmRequest {
    *       period of 288 (24 hours).</p>
    */
   evaluationPeriods: number | undefined;
+
+  /**
+   * <p>The arithmetic operation to use when comparing the specified statistic to the threshold.
+   *       The specified statistic value is used as the first operand.</p>
+   */
+  comparisonOperator: ComparisonOperator | string | undefined;
+
+  /**
+   * <p>Indicates whether the alarm is enabled.</p>
+   *          <p>Notifications are enabled by default if you don't specify this parameter.</p>
+   */
+  notificationEnabled?: boolean;
 
   /**
    * <p>The name for the alarm. Specify the name of an existing alarm to update, and overwrite the
@@ -1529,49 +1572,6 @@ export interface PutAlarmRequest {
    *          <p>For more information about these metrics, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-resource-health-metrics#available-metrics">Metrics available in Lightsail</a>.</p>
    */
   metricName: MetricName | string | undefined;
-
-  /**
-   * <p>The arithmetic operation to use when comparing the specified statistic to the threshold.
-   *       The specified statistic value is used as the first operand.</p>
-   */
-  comparisonOperator: ComparisonOperator | string | undefined;
-
-  /**
-   * <p>The number of data points that must be not within the specified threshold to trigger the
-   *       alarm. If you are setting an "M out of N" alarm, this value (<code>datapointsToAlarm</code>)
-   *       is the M.</p>
-   */
-  datapointsToAlarm?: number;
-
-  /**
-   * <p>Sets how this alarm will handle missing data points.</p>
-   *          <p>An alarm can treat missing data in the following ways:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>breaching</code> - Assume the missing data is not within the threshold. Missing
-   *           data counts towards the number of times the metric is not within the threshold.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>notBreaching</code> - Assume the missing data is within the threshold. Missing
-   *           data does not count towards the number of times the metric is not within the
-   *           threshold.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ignore</code> - Ignore the missing data. Maintains the current alarm
-   *           state.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>missing</code> - Missing data is treated as missing.</p>
-   *             </li>
-   *          </ul>
-   *          <p>If <code>treatMissingData</code> is not specified, the default behavior of
-   *         <code>missing</code> is used.</p>
-   */
-  treatMissingData?: TreatMissingData | string;
 }
 
 export namespace PutAlarmRequest {
@@ -1725,10 +1725,9 @@ export namespace ResetDistributionCacheRequest {
 
 export interface ResetDistributionCacheResult {
   /**
-   * <p>The timestamp of the reset cache request (e.g., <code>1479734909.17</code>) in Unix time
-   *       format.</p>
+   * <p>The status of the reset cache request.</p>
    */
-  createTime?: Date;
+  status?: string;
 
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
@@ -1737,9 +1736,10 @@ export interface ResetDistributionCacheResult {
   operation?: Operation;
 
   /**
-   * <p>The status of the reset cache request.</p>
+   * <p>The timestamp of the reset cache request (e.g., <code>1479734909.17</code>) in Unix time
+   *       format.</p>
    */
-  status?: string;
+  createTime?: Date;
 }
 
 export namespace ResetDistributionCacheResult {
@@ -1902,11 +1902,6 @@ export namespace StopRelationalDatabaseResult {
 
 export interface TagResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource to which you want to add a tag.</p>
-   */
-  resourceArn?: string;
-
-  /**
    * <p>The name of the resource to which you are adding tags.</p>
    */
   resourceName: string | undefined;
@@ -1915,6 +1910,11 @@ export interface TagResourceRequest {
    * <p>The tag key and optional value.</p>
    */
   tags: Tag[] | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource to which you want to add a tag.</p>
+   */
+  resourceArn?: string;
 }
 
 export namespace TagResourceRequest {
@@ -1939,6 +1939,11 @@ export namespace TagResourceResult {
 
 export interface TestAlarmRequest {
   /**
+   * <p>The name of the alarm to test.</p>
+   */
+  alarmName: string | undefined;
+
+  /**
    * <p>The alarm state to test.</p>
    *          <p>An alarm has the following possible states that can be tested:</p>
    *          <ul>
@@ -1959,11 +1964,6 @@ export interface TestAlarmRequest {
    *          </ul>
    */
   state: AlarmState | string | undefined;
-
-  /**
-   * <p>The name of the alarm to test.</p>
-   */
-  alarmName: string | undefined;
 }
 
 export namespace TestAlarmRequest {
@@ -2010,14 +2010,14 @@ export namespace UnpeerVpcResult {
 
 export interface UntagResourceRequest {
   /**
-   * <p>The name of the resource from which you are removing a tag.</p>
-   */
-  resourceName: string | undefined;
-
-  /**
    * <p>The tag keys to delete from the specified resource.</p>
    */
   tagKeys: string[] | undefined;
+
+  /**
+   * <p>The name of the resource from which you are removing a tag.</p>
+   */
+  resourceName: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the resource from which you want to remove a tag.</p>
@@ -2047,31 +2047,6 @@ export namespace UntagResourceResult {
 
 export interface UpdateDistributionRequest {
   /**
-   * <p>An object that describes the default cache behavior for the distribution.</p>
-   */
-  defaultCacheBehavior?: CacheBehavior;
-
-  /**
-   * <p>An object that describes the cache behavior settings for the distribution.</p>
-   *          <note>
-   *             <p>The <code>cacheBehaviorSettings</code> specified in your
-   *           <code>UpdateDistributionRequest</code> will replace your distribution's existing
-   *         settings.</p>
-   *          </note>
-   */
-  cacheBehaviorSettings?: CacheSettings;
-
-  /**
-   * <p>An array of objects that describe the per-path cache behavior for the distribution.</p>
-   */
-  cacheBehaviors?: CacheBehaviorPerPath[];
-
-  /**
-   * <p>Indicates whether to enable the distribution.</p>
-   */
-  isEnabled?: boolean;
-
-  /**
    * <p>An object that describes the origin resource for the distribution, such as a Lightsail
    *       instance or load balancer.</p>
    *
@@ -2086,6 +2061,31 @@ export interface UpdateDistributionRequest {
    *       can specify.</p>
    */
   distributionName: string | undefined;
+
+  /**
+   * <p>Indicates whether to enable the distribution.</p>
+   */
+  isEnabled?: boolean;
+
+  /**
+   * <p>An array of objects that describe the per-path cache behavior for the distribution.</p>
+   */
+  cacheBehaviors?: CacheBehaviorPerPath[];
+
+  /**
+   * <p>An object that describes the default cache behavior for the distribution.</p>
+   */
+  defaultCacheBehavior?: CacheBehavior;
+
+  /**
+   * <p>An object that describes the cache behavior settings for the distribution.</p>
+   *          <note>
+   *             <p>The <code>cacheBehaviorSettings</code> specified in your
+   *           <code>UpdateDistributionRequest</code> will replace your distribution's existing
+   *         settings.</p>
+   *          </note>
+   */
+  cacheBehaviorSettings?: CacheSettings;
 }
 
 export namespace UpdateDistributionRequest {
@@ -2110,19 +2110,19 @@ export namespace UpdateDistributionResult {
 
 export interface UpdateDistributionBundleRequest {
   /**
-   * <p>The bundle ID of the new bundle to apply to your distribution.</p>
-   *          <p>Use the <code>GetDistributionBundles</code> action to get a list of distribution bundle
-   *       IDs that you can specify.</p>
-   */
-  bundleId?: string;
-
-  /**
    * <p>The name of the distribution for which to update the bundle.</p>
    *
    *          <p>Use the <code>GetDistributions</code> action to get a list of distribution names that you
    *       can specify.</p>
    */
   distributionName?: string;
+
+  /**
+   * <p>The bundle ID of the new bundle to apply to your distribution.</p>
+   *          <p>Use the <code>GetDistributionBundles</code> action to get a list of distribution bundle
+   *       IDs that you can specify.</p>
+   */
+  bundleId?: string;
 }
 
 export namespace UpdateDistributionBundleRequest {
@@ -2146,14 +2146,14 @@ export namespace UpdateDistributionBundleResult {
 
 export interface UpdateDomainEntryRequest {
   /**
-   * <p>An array of key-value pairs containing information about the domain entry.</p>
-   */
-  domainEntry: DomainEntry | undefined;
-
-  /**
    * <p>The name of the domain recordset to update.</p>
    */
   domainName: string | undefined;
+
+  /**
+   * <p>An array of key-value pairs containing information about the domain entry.</p>
+   */
+  domainEntry: DomainEntry | undefined;
 }
 
 export namespace UpdateDomainEntryRequest {
@@ -2216,6 +2216,40 @@ export namespace UpdateLoadBalancerAttributeResult {
 
 export interface UpdateRelationalDatabaseRequest {
   /**
+   * <p>The weekly time range during which system maintenance can occur on your database.</p>
+   *          <p>The default is a 30-minute window selected at random from an 8-hour block of time for each
+   *       AWS Region, occurring on a random day of the week.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Must be in the <code>ddd:hh24:mi-ddd:hh24:mi</code> format.</p>
+   *             </li>
+   *             <li>
+   *                <p>Valid days: Mon, Tue, Wed, Thu, Fri, Sat, Sun.</p>
+   *             </li>
+   *             <li>
+   *                <p>Must be at least 30 minutes.</p>
+   *             </li>
+   *             <li>
+   *                <p>Specified in Coordinated Universal Time (UTC).</p>
+   *             </li>
+   *             <li>
+   *                <p>Example: <code>Tue:17:00-Tue:17:30</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  preferredMaintenanceWindow?: string;
+
+  /**
+   * <p>When <code>true</code>, applies changes immediately. When <code>false</code>, applies
+   *       changes during the preferred maintenance window. Some changes may cause an outage.</p>
+   *          <p>Default: <code>false</code>
+   *          </p>
+   */
+  applyImmediately?: boolean;
+
+  /**
    * <p>The daily time range during which automated backups are created for your database if
    *       automated backups are enabled.</p>
    *          <p>Constraints:</p>
@@ -2244,17 +2278,12 @@ export interface UpdateRelationalDatabaseRequest {
   relationalDatabaseName: string | undefined;
 
   /**
-   * <p>Indicates the certificate that needs to be associated with the database.</p>
+   * <p>Specifies the accessibility options for your database. A value of <code>true</code>
+   *       specifies a database that is available to resources outside of your Lightsail account. A
+   *       value of <code>false</code> specifies a database that is available only to your Lightsail
+   *       resources in the same region as your database.</p>
    */
-  caCertificateIdentifier?: string;
-
-  /**
-   * <p>When <code>true</code>, the master user password is changed to a new strong password
-   *       generated by Lightsail.</p>
-   *          <p>Use the <code>get relational database master user password</code> operation to get the new
-   *       password.</p>
-   */
-  rotateMasterUserPassword?: boolean;
+  publiclyAccessible?: boolean;
 
   /**
    * <p>When <code>true</code>, enables automated backup retention for your database.</p>
@@ -2264,45 +2293,12 @@ export interface UpdateRelationalDatabaseRequest {
   enableBackupRetention?: boolean;
 
   /**
-   * <p>When <code>true</code>, applies changes immediately. When <code>false</code>, applies
-   *       changes during the preferred maintenance window. Some changes may cause an outage.</p>
-   *          <p>Default: <code>false</code>
-   *          </p>
+   * <p>When <code>true</code>, the master user password is changed to a new strong password
+   *       generated by Lightsail.</p>
+   *          <p>Use the <code>get relational database master user password</code> operation to get the new
+   *       password.</p>
    */
-  applyImmediately?: boolean;
-
-  /**
-   * <p>The weekly time range during which system maintenance can occur on your database.</p>
-   *          <p>The default is a 30-minute window selected at random from an 8-hour block of time for each
-   *       AWS Region, occurring on a random day of the week.</p>
-   *          <p>Constraints:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Must be in the <code>ddd:hh24:mi-ddd:hh24:mi</code> format.</p>
-   *             </li>
-   *             <li>
-   *                <p>Valid days: Mon, Tue, Wed, Thu, Fri, Sat, Sun.</p>
-   *             </li>
-   *             <li>
-   *                <p>Must be at least 30 minutes.</p>
-   *             </li>
-   *             <li>
-   *                <p>Specified in Coordinated Universal Time (UTC).</p>
-   *             </li>
-   *             <li>
-   *                <p>Example: <code>Tue:17:00-Tue:17:30</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   */
-  preferredMaintenanceWindow?: string;
-
-  /**
-   * <p>The password for the master user of your database. The password can include any printable
-   *       ASCII character except "/", """, or "@".</p>
-   *          <p>Constraints: Must contain 8 to 41 characters.</p>
-   */
-  masterUserPassword?: string;
+  rotateMasterUserPassword?: boolean;
 
   /**
    * <p>When <code>true</code>, disables automated backup retention for your database.</p>
@@ -2315,12 +2311,16 @@ export interface UpdateRelationalDatabaseRequest {
   disableBackupRetention?: boolean;
 
   /**
-   * <p>Specifies the accessibility options for your database. A value of <code>true</code>
-   *       specifies a database that is available to resources outside of your Lightsail account. A
-   *       value of <code>false</code> specifies a database that is available only to your Lightsail
-   *       resources in the same region as your database.</p>
+   * <p>Indicates the certificate that needs to be associated with the database.</p>
    */
-  publiclyAccessible?: boolean;
+  caCertificateIdentifier?: string;
+
+  /**
+   * <p>The password for the master user of your database. The password can include any printable
+   *       ASCII character except "/", """, or "@".</p>
+   *          <p>Constraints: Must contain 8 to 41 characters.</p>
+   */
+  masterUserPassword?: string;
 }
 
 export namespace UpdateRelationalDatabaseRequest {

@@ -3,11 +3,24 @@ import { BatchGetStreamKeyCommandInput, BatchGetStreamKeyCommandOutput } from ".
 import { CreateChannelCommandInput, CreateChannelCommandOutput } from "./commands/CreateChannelCommand";
 import { CreateStreamKeyCommandInput, CreateStreamKeyCommandOutput } from "./commands/CreateStreamKeyCommand";
 import { DeleteChannelCommandInput, DeleteChannelCommandOutput } from "./commands/DeleteChannelCommand";
+import {
+  DeletePlaybackKeyPairCommandInput,
+  DeletePlaybackKeyPairCommandOutput,
+} from "./commands/DeletePlaybackKeyPairCommand";
 import { DeleteStreamKeyCommandInput, DeleteStreamKeyCommandOutput } from "./commands/DeleteStreamKeyCommand";
 import { GetChannelCommandInput, GetChannelCommandOutput } from "./commands/GetChannelCommand";
+import { GetPlaybackKeyPairCommandInput, GetPlaybackKeyPairCommandOutput } from "./commands/GetPlaybackKeyPairCommand";
 import { GetStreamCommandInput, GetStreamCommandOutput } from "./commands/GetStreamCommand";
 import { GetStreamKeyCommandInput, GetStreamKeyCommandOutput } from "./commands/GetStreamKeyCommand";
+import {
+  ImportPlaybackKeyPairCommandInput,
+  ImportPlaybackKeyPairCommandOutput,
+} from "./commands/ImportPlaybackKeyPairCommand";
 import { ListChannelsCommandInput, ListChannelsCommandOutput } from "./commands/ListChannelsCommand";
+import {
+  ListPlaybackKeyPairsCommandInput,
+  ListPlaybackKeyPairsCommandOutput,
+} from "./commands/ListPlaybackKeyPairsCommand";
 import { ListStreamKeysCommandInput, ListStreamKeysCommandOutput } from "./commands/ListStreamKeysCommand";
 import { ListStreamsCommandInput, ListStreamsCommandOutput } from "./commands/ListStreamsCommand";
 import {
@@ -74,11 +87,15 @@ export type ServiceInputTypes =
   | CreateChannelCommandInput
   | CreateStreamKeyCommandInput
   | DeleteChannelCommandInput
+  | DeletePlaybackKeyPairCommandInput
   | DeleteStreamKeyCommandInput
   | GetChannelCommandInput
+  | GetPlaybackKeyPairCommandInput
   | GetStreamCommandInput
   | GetStreamKeyCommandInput
+  | ImportPlaybackKeyPairCommandInput
   | ListChannelsCommandInput
+  | ListPlaybackKeyPairsCommandInput
   | ListStreamKeysCommandInput
   | ListStreamsCommandInput
   | ListTagsForResourceCommandInput
@@ -94,11 +111,15 @@ export type ServiceOutputTypes =
   | CreateChannelCommandOutput
   | CreateStreamKeyCommandOutput
   | DeleteChannelCommandOutput
+  | DeletePlaybackKeyPairCommandOutput
   | DeleteStreamKeyCommandOutput
   | GetChannelCommandOutput
+  | GetPlaybackKeyPairCommandOutput
   | GetStreamCommandOutput
   | GetStreamKeyCommandOutput
+  | ImportPlaybackKeyPairCommandOutput
   | ListChannelsCommandOutput
+  | ListPlaybackKeyPairsCommandOutput
   | ListStreamKeysCommandOutput
   | ListStreamsCommandOutput
   | ListTagsForResourceCommandOutput
@@ -313,16 +334,22 @@ export type IvsClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandle
  *          <ul>
  *             <li>
  *                <p>Channel — Stores configuration data related to your live stream. You first create a
- *           channel and then use the channel’s stream key to start your live stream. See the <a>Channel</a> endpoints for more information. </p>
+ *           channel and then use the channel’s stream key to start your live stream. See the Channel endpoints for more information. </p>
  *             </li>
  *             <li>
  *                <p>Stream key — An identifier assigned by Amazon IVS when you create a channel, which is
- *           then used to authorize streaming. See the <a>StreamKey</a> endpoints for more
+ *           then used to authorize streaming. See the StreamKey endpoints for more
  *           information. <i>
  *                      <b>Treat the stream key like a secret, since it
  *               allows anyone to stream to the channel.</b>
  *                   </i>
  *                </p>
+ *             </li>
+ *             <li>
+ *                <p>Playback key pair — Video playback may be restricted using playback-authorization tokens,
+ *           which use public-key encryption.
+ *           A playback key pair is the public-private pair of keys used to sign and validate the playback-authorization token.
+ *           See the PlaybackKeyPair endpoints for more information.</p>
  *             </li>
  *          </ul>
  *
@@ -344,14 +371,11 @@ export type IvsClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandle
  *         Access Tags</a>). </p>
  *
  *          <p>The Amazon IVS API has these tag-related endpoints: <a>TagResource</a>, <a>UntagResource</a>, and <a>ListTagsForResource</a>. The following
- *       resources support tagging: Channels and Stream Keys.</p>
+ *       resources support tagging: Channels, Stream Keys, and Playback Key Pairs.</p>
  *
  *          <p>
- *             <b>API Endpoints</b>
+ *             <b>Channel Endpoints</b>
  *          </p>
- *
- *          <p>
- *             <a>Channel</a>:</p>
  *          <ul>
  *             <li>
  *                <p>
@@ -387,7 +411,8 @@ export type IvsClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandle
  *          </ul>
  *
  *          <p>
- *             <a>StreamKey</a>:</p>
+ *             <b>StreamKey Endpoints</b>
+ *          </p>
  *          <ul>
  *             <li>
  *                <p>
@@ -418,7 +443,8 @@ export type IvsClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandle
  *
  *
  *          <p>
- *             <a>Stream</a>:</p>
+ *             <b>Stream Endpoints</b>
+ *          </p>
  *          <ul>
  *             <li>
  *                <p>
@@ -443,11 +469,41 @@ export type IvsClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandle
  *             </li>
  *          </ul>
  *
- *
+ *          <p>
+ *             <b>PlaybackKeyPair Endpoints</b>
+ *          </p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a>ImportPlaybackKeyPair</a> — Imports the public portion of a new
+ *           key pair and returns its <code>arn</code> and <code>fingerprint</code>. The
+ *           <code>privateKey</code> can then be used to generate viewer authorization
+ *           tokens, to grant viewers access to authorized channels.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>GetPlaybackKeyPair</a> — Gets a specified playback
+ *           authorization key pair and returns the <code>arn</code> and
+ *           <code>fingerprint</code>. The <code>privateKey</code> held by the caller can
+ *           be used to generate viewer authorization tokens, to grant viewers access to
+ *           authorized channels.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>ListPlaybackKeyPairs</a> — Gets summary information about
+ *           playback key pairs.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>DeletePlaybackKeyPair</a> — Deletes a specified authorization
+ *           key pair. This invalidates future viewer tokens generated using the key pair’s
+ *           <code>privateKey</code>.</p>
+ *             </li>
+ *          </ul>
  *
  *          <p>
- *             <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html"> AWS
- *       Tags</a>:</p>
+ *             <b>AWS Tags Endpoints</b>
+ *          </p>
  *          <ul>
  *             <li>
  *                <p>

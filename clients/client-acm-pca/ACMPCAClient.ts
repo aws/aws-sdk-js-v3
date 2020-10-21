@@ -12,6 +12,7 @@ import {
   DeleteCertificateAuthorityCommandOutput,
 } from "./commands/DeleteCertificateAuthorityCommand";
 import { DeletePermissionCommandInput, DeletePermissionCommandOutput } from "./commands/DeletePermissionCommand";
+import { DeletePolicyCommandInput, DeletePolicyCommandOutput } from "./commands/DeletePolicyCommand";
 import {
   DescribeCertificateAuthorityAuditReportCommandInput,
   DescribeCertificateAuthorityAuditReportCommandOutput,
@@ -29,6 +30,7 @@ import {
   GetCertificateAuthorityCsrCommandOutput,
 } from "./commands/GetCertificateAuthorityCsrCommand";
 import { GetCertificateCommandInput, GetCertificateCommandOutput } from "./commands/GetCertificateCommand";
+import { GetPolicyCommandInput, GetPolicyCommandOutput } from "./commands/GetPolicyCommand";
 import {
   ImportCertificateAuthorityCertificateCommandInput,
   ImportCertificateAuthorityCertificateCommandOutput,
@@ -40,6 +42,7 @@ import {
 } from "./commands/ListCertificateAuthoritiesCommand";
 import { ListPermissionsCommandInput, ListPermissionsCommandOutput } from "./commands/ListPermissionsCommand";
 import { ListTagsCommandInput, ListTagsCommandOutput } from "./commands/ListTagsCommand";
+import { PutPolicyCommandInput, PutPolicyCommandOutput } from "./commands/PutPolicyCommand";
 import {
   RestoreCertificateAuthorityCommandInput,
   RestoreCertificateAuthorityCommandOutput,
@@ -112,16 +115,19 @@ export type ServiceInputTypes =
   | CreatePermissionCommandInput
   | DeleteCertificateAuthorityCommandInput
   | DeletePermissionCommandInput
+  | DeletePolicyCommandInput
   | DescribeCertificateAuthorityAuditReportCommandInput
   | DescribeCertificateAuthorityCommandInput
   | GetCertificateAuthorityCertificateCommandInput
   | GetCertificateAuthorityCsrCommandInput
   | GetCertificateCommandInput
+  | GetPolicyCommandInput
   | ImportCertificateAuthorityCertificateCommandInput
   | IssueCertificateCommandInput
   | ListCertificateAuthoritiesCommandInput
   | ListPermissionsCommandInput
   | ListTagsCommandInput
+  | PutPolicyCommandInput
   | RestoreCertificateAuthorityCommandInput
   | RevokeCertificateCommandInput
   | TagCertificateAuthorityCommandInput
@@ -134,16 +140,19 @@ export type ServiceOutputTypes =
   | CreatePermissionCommandOutput
   | DeleteCertificateAuthorityCommandOutput
   | DeletePermissionCommandOutput
+  | DeletePolicyCommandOutput
   | DescribeCertificateAuthorityAuditReportCommandOutput
   | DescribeCertificateAuthorityCommandOutput
   | GetCertificateAuthorityCertificateCommandOutput
   | GetCertificateAuthorityCsrCommandOutput
   | GetCertificateCommandOutput
+  | GetPolicyCommandOutput
   | ImportCertificateAuthorityCertificateCommandOutput
   | IssueCertificateCommandOutput
   | ListCertificateAuthoritiesCommandOutput
   | ListPermissionsCommandOutput
   | ListTagsCommandOutput
+  | PutPolicyCommandOutput
   | RestoreCertificateAuthorityCommandOutput
   | RevokeCertificateCommandOutput
   | TagCertificateAuthorityCommandOutput
@@ -263,7 +272,10 @@ export type ACMPCAClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHan
   HostHeaderResolvedConfig;
 
 /**
- * <p>This is the <i>ACM Private CA API Reference</i>. It provides descriptions,
+ * <note>
+ * 			         <p></p>
+ * 		       </note>
+ * 		       <p>This is the <i>ACM Private CA API Reference</i>. It provides descriptions,
  * 			syntax, and usage examples for each of the actions and data types involved in creating
  * 			and managing private certificate authorities (CA) for your organization.</p>
  * 		       <p>The documentation for each action shows the Query API request parameters and the XML
@@ -272,8 +284,8 @@ export type ACMPCAClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHan
  * 			information, see <a href="https://aws.amazon.com/tools/#SDKs">AWS
  * 			SDKs</a>.</p>
  * 		       <note>
- * 			         <p>Each ACM Private CA API action has a throttling limit which determines the number of times
- * 				the action can be called per second. For more information, see <a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaLimits.html#PcaLimits-api">API Rate Limits in ACM Private CA</a>
+ * 			         <p>Each ACM Private CA API action has a quota that determines the number of times the action
+ * 				can be called per second. For more information, see <a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaLimits.html#PcaLimits-api">API Rate Quotas in ACM Private CA</a>
  * 				in the ACM Private CA user guide.</p>
  * 		       </note>
  */

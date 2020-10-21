@@ -43,6 +43,7 @@ import {
   ActivitySucceededEventDetails,
   ActivityTimedOutEventDetails,
   ActivityWorkerLimitExceeded,
+  CloudWatchEventsExecutionDataDetails,
   CloudWatchLogsLogGroup,
   CreateActivityInput,
   CreateActivityOutput,
@@ -74,6 +75,7 @@ import {
   GetExecutionHistoryInput,
   GetExecutionHistoryOutput,
   HistoryEvent,
+  HistoryEventExecutionDataDetails,
   InvalidArn,
   InvalidDefinition,
   InvalidExecutionInput,
@@ -81,6 +83,7 @@ import {
   InvalidName,
   InvalidOutput,
   InvalidToken,
+  InvalidTracingConfiguration,
   LambdaFunctionFailedEventDetails,
   LambdaFunctionScheduleFailedEventDetails,
   LambdaFunctionScheduledEventDetails,
@@ -133,6 +136,7 @@ import {
   TaskTimedOut,
   TaskTimedOutEventDetails,
   TooManyTags,
+  TracingConfiguration,
   UntagResourceInput,
   UntagResourceOutput,
   UpdateStateMachineInput,
@@ -563,6 +567,14 @@ const deserializeAws_json1_0CreateStateMachineCommandError = async (
     case "com.amazonaws.sfn#InvalidName":
       response = {
         ...(await deserializeAws_json1_0InvalidNameResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidTracingConfiguration":
+    case "com.amazonaws.sfn#InvalidTracingConfiguration":
+      response = {
+        ...(await deserializeAws_json1_0InvalidTracingConfigurationResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -1955,6 +1967,14 @@ const deserializeAws_json1_0UpdateStateMachineCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "InvalidTracingConfiguration":
+    case "com.amazonaws.sfn#InvalidTracingConfiguration":
+      response = {
+        ...(await deserializeAws_json1_0InvalidTracingConfigurationResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "MissingRequiredParameter":
     case "com.amazonaws.sfn#MissingRequiredParameter":
       response = {
@@ -2191,6 +2211,21 @@ const deserializeAws_json1_0InvalidTokenResponse = async (
   return contents;
 };
 
+const deserializeAws_json1_0InvalidTracingConfigurationResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<InvalidTracingConfiguration> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_0InvalidTracingConfiguration(body, context);
+  const contents: InvalidTracingConfiguration = {
+    name: "InvalidTracingConfiguration",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
 const deserializeAws_json1_0MissingRequiredParameterResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -2363,6 +2398,9 @@ const serializeAws_json1_0CreateStateMachineInput = (input: CreateStateMachineIn
     ...(input.name !== undefined && { name: input.name }),
     ...(input.roleArn !== undefined && { roleArn: input.roleArn }),
     ...(input.tags !== undefined && { tags: serializeAws_json1_0TagList(input.tags, context) }),
+    ...(input.tracingConfiguration !== undefined && {
+      tracingConfiguration: serializeAws_json1_0TracingConfiguration(input.tracingConfiguration, context),
+    }),
     ...(input.type !== undefined && { type: input.type }),
   };
 };
@@ -2422,6 +2460,7 @@ const serializeAws_json1_0GetExecutionHistoryInput = (
 ): any => {
   return {
     ...(input.executionArn !== undefined && { executionArn: input.executionArn }),
+    ...(input.includeExecutionData !== undefined && { includeExecutionData: input.includeExecutionData }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
     ...(input.reverseOrder !== undefined && { reverseOrder: input.reverseOrder }),
@@ -2508,6 +2547,7 @@ const serializeAws_json1_0StartExecutionInput = (input: StartExecutionInput, con
     ...(input.input !== undefined && { input: input.input }),
     ...(input.name !== undefined && { name: input.name }),
     ...(input.stateMachineArn !== undefined && { stateMachineArn: input.stateMachineArn }),
+    ...(input.traceHeader !== undefined && { traceHeader: input.traceHeader }),
   };
 };
 
@@ -2541,6 +2581,12 @@ const serializeAws_json1_0TagResourceInput = (input: TagResourceInput, context: 
   };
 };
 
+const serializeAws_json1_0TracingConfiguration = (input: TracingConfiguration, context: __SerdeContext): any => {
+  return {
+    ...(input.enabled !== undefined && { enabled: input.enabled }),
+  };
+};
+
 const serializeAws_json1_0UntagResourceInput = (input: UntagResourceInput, context: __SerdeContext): any => {
   return {
     ...(input.resourceArn !== undefined && { resourceArn: input.resourceArn }),
@@ -2556,6 +2602,9 @@ const serializeAws_json1_0UpdateStateMachineInput = (input: UpdateStateMachineIn
     }),
     ...(input.roleArn !== undefined && { roleArn: input.roleArn }),
     ...(input.stateMachineArn !== undefined && { stateMachineArn: input.stateMachineArn }),
+    ...(input.tracingConfiguration !== undefined && {
+      tracingConfiguration: serializeAws_json1_0TracingConfiguration(input.tracingConfiguration, context),
+    }),
   };
 };
 
@@ -2606,6 +2655,10 @@ const deserializeAws_json1_0ActivityScheduledEventDetails = (
         ? output.heartbeatInSeconds
         : undefined,
     input: output.input !== undefined && output.input !== null ? output.input : undefined,
+    inputDetails:
+      output.inputDetails !== undefined && output.inputDetails !== null
+        ? deserializeAws_json1_0HistoryEventExecutionDataDetails(output.inputDetails, context)
+        : undefined,
     resource: output.resource !== undefined && output.resource !== null ? output.resource : undefined,
     timeoutInSeconds:
       output.timeoutInSeconds !== undefined && output.timeoutInSeconds !== null ? output.timeoutInSeconds : undefined,
@@ -2637,6 +2690,10 @@ const deserializeAws_json1_0ActivitySucceededEventDetails = (
 ): ActivitySucceededEventDetails => {
   return {
     output: output.output !== undefined && output.output !== null ? output.output : undefined,
+    outputDetails:
+      output.outputDetails !== undefined && output.outputDetails !== null
+        ? deserializeAws_json1_0HistoryEventExecutionDataDetails(output.outputDetails, context)
+        : undefined,
   } as any;
 };
 
@@ -2656,6 +2713,15 @@ const deserializeAws_json1_0ActivityWorkerLimitExceeded = (
 ): ActivityWorkerLimitExceeded => {
   return {
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_0CloudWatchEventsExecutionDataDetails = (
+  output: any,
+  context: __SerdeContext
+): CloudWatchEventsExecutionDataDetails => {
+  return {
+    included: output.included !== undefined && output.included !== null ? output.included : undefined,
   } as any;
 };
 
@@ -2718,8 +2784,16 @@ const deserializeAws_json1_0DescribeExecutionOutput = (
   return {
     executionArn: output.executionArn !== undefined && output.executionArn !== null ? output.executionArn : undefined,
     input: output.input !== undefined && output.input !== null ? output.input : undefined,
+    inputDetails:
+      output.inputDetails !== undefined && output.inputDetails !== null
+        ? deserializeAws_json1_0CloudWatchEventsExecutionDataDetails(output.inputDetails, context)
+        : undefined,
     name: output.name !== undefined && output.name !== null ? output.name : undefined,
     output: output.output !== undefined && output.output !== null ? output.output : undefined,
+    outputDetails:
+      output.outputDetails !== undefined && output.outputDetails !== null
+        ? deserializeAws_json1_0CloudWatchEventsExecutionDataDetails(output.outputDetails, context)
+        : undefined,
     startDate:
       output.startDate !== undefined && output.startDate !== null
         ? new Date(Math.round(output.startDate * 1000))
@@ -2731,6 +2805,7 @@ const deserializeAws_json1_0DescribeExecutionOutput = (
       output.stopDate !== undefined && output.stopDate !== null
         ? new Date(Math.round(output.stopDate * 1000))
         : undefined,
+    traceHeader: output.traceHeader !== undefined && output.traceHeader !== null ? output.traceHeader : undefined,
   } as any;
 };
 
@@ -2748,6 +2823,10 @@ const deserializeAws_json1_0DescribeStateMachineForExecutionOutput = (
     roleArn: output.roleArn !== undefined && output.roleArn !== null ? output.roleArn : undefined,
     stateMachineArn:
       output.stateMachineArn !== undefined && output.stateMachineArn !== null ? output.stateMachineArn : undefined,
+    tracingConfiguration:
+      output.tracingConfiguration !== undefined && output.tracingConfiguration !== null
+        ? deserializeAws_json1_0TracingConfiguration(output.tracingConfiguration, context)
+        : undefined,
     updateDate:
       output.updateDate !== undefined && output.updateDate !== null
         ? new Date(Math.round(output.updateDate * 1000))
@@ -2774,6 +2853,10 @@ const deserializeAws_json1_0DescribeStateMachineOutput = (
     stateMachineArn:
       output.stateMachineArn !== undefined && output.stateMachineArn !== null ? output.stateMachineArn : undefined,
     status: output.status !== undefined && output.status !== null ? output.status : undefined,
+    tracingConfiguration:
+      output.tracingConfiguration !== undefined && output.tracingConfiguration !== null
+        ? deserializeAws_json1_0TracingConfiguration(output.tracingConfiguration, context)
+        : undefined,
     type: output.type !== undefined && output.type !== null ? output.type : undefined,
   } as any;
 };
@@ -2844,6 +2927,10 @@ const deserializeAws_json1_0ExecutionStartedEventDetails = (
 ): ExecutionStartedEventDetails => {
   return {
     input: output.input !== undefined && output.input !== null ? output.input : undefined,
+    inputDetails:
+      output.inputDetails !== undefined && output.inputDetails !== null
+        ? deserializeAws_json1_0HistoryEventExecutionDataDetails(output.inputDetails, context)
+        : undefined,
     roleArn: output.roleArn !== undefined && output.roleArn !== null ? output.roleArn : undefined,
   } as any;
 };
@@ -2854,6 +2941,10 @@ const deserializeAws_json1_0ExecutionSucceededEventDetails = (
 ): ExecutionSucceededEventDetails => {
   return {
     output: output.output !== undefined && output.output !== null ? output.output : undefined,
+    outputDetails:
+      output.outputDetails !== undefined && output.outputDetails !== null
+        ? deserializeAws_json1_0HistoryEventExecutionDataDetails(output.outputDetails, context)
+        : undefined,
   } as any;
 };
 
@@ -3036,6 +3127,15 @@ const deserializeAws_json1_0HistoryEvent = (output: any, context: __SerdeContext
   } as any;
 };
 
+const deserializeAws_json1_0HistoryEventExecutionDataDetails = (
+  output: any,
+  context: __SerdeContext
+): HistoryEventExecutionDataDetails => {
+  return {
+    truncated: output.truncated !== undefined && output.truncated !== null ? output.truncated : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_0HistoryEventList = (output: any, context: __SerdeContext): HistoryEvent[] => {
   return (output || []).map((entry: any) => deserializeAws_json1_0HistoryEvent(entry, context));
 };
@@ -3085,6 +3185,15 @@ const deserializeAws_json1_0InvalidToken = (output: any, context: __SerdeContext
   } as any;
 };
 
+const deserializeAws_json1_0InvalidTracingConfiguration = (
+  output: any,
+  context: __SerdeContext
+): InvalidTracingConfiguration => {
+  return {
+    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_0LambdaFunctionFailedEventDetails = (
   output: any,
   context: __SerdeContext
@@ -3101,6 +3210,10 @@ const deserializeAws_json1_0LambdaFunctionScheduledEventDetails = (
 ): LambdaFunctionScheduledEventDetails => {
   return {
     input: output.input !== undefined && output.input !== null ? output.input : undefined,
+    inputDetails:
+      output.inputDetails !== undefined && output.inputDetails !== null
+        ? deserializeAws_json1_0HistoryEventExecutionDataDetails(output.inputDetails, context)
+        : undefined,
     resource: output.resource !== undefined && output.resource !== null ? output.resource : undefined,
     timeoutInSeconds:
       output.timeoutInSeconds !== undefined && output.timeoutInSeconds !== null ? output.timeoutInSeconds : undefined,
@@ -3133,6 +3246,10 @@ const deserializeAws_json1_0LambdaFunctionSucceededEventDetails = (
 ): LambdaFunctionSucceededEventDetails => {
   return {
     output: output.output !== undefined && output.output !== null ? output.output : undefined,
+    outputDetails:
+      output.outputDetails !== undefined && output.outputDetails !== null
+        ? deserializeAws_json1_0HistoryEventExecutionDataDetails(output.outputDetails, context)
+        : undefined,
   } as any;
 };
 
@@ -3284,6 +3401,10 @@ const deserializeAws_json1_0StateEnteredEventDetails = (
 ): StateEnteredEventDetails => {
   return {
     input: output.input !== undefined && output.input !== null ? output.input : undefined,
+    inputDetails:
+      output.inputDetails !== undefined && output.inputDetails !== null
+        ? deserializeAws_json1_0HistoryEventExecutionDataDetails(output.inputDetails, context)
+        : undefined,
     name: output.name !== undefined && output.name !== null ? output.name : undefined,
   } as any;
 };
@@ -3295,6 +3416,10 @@ const deserializeAws_json1_0StateExitedEventDetails = (
   return {
     name: output.name !== undefined && output.name !== null ? output.name : undefined,
     output: output.output !== undefined && output.output !== null ? output.output : undefined,
+    outputDetails:
+      output.outputDetails !== undefined && output.outputDetails !== null
+        ? deserializeAws_json1_0HistoryEventExecutionDataDetails(output.outputDetails, context)
+        : undefined,
   } as any;
 };
 
@@ -3401,6 +3526,10 @@ const deserializeAws_json1_0TaskScheduledEventDetails = (
   context: __SerdeContext
 ): TaskScheduledEventDetails => {
   return {
+    heartbeatInSeconds:
+      output.heartbeatInSeconds !== undefined && output.heartbeatInSeconds !== null
+        ? output.heartbeatInSeconds
+        : undefined,
     parameters: output.parameters !== undefined && output.parameters !== null ? output.parameters : undefined,
     region: output.region !== undefined && output.region !== null ? output.region : undefined,
     resource: output.resource !== undefined && output.resource !== null ? output.resource : undefined,
@@ -3450,6 +3579,10 @@ const deserializeAws_json1_0TaskSubmittedEventDetails = (
 ): TaskSubmittedEventDetails => {
   return {
     output: output.output !== undefined && output.output !== null ? output.output : undefined,
+    outputDetails:
+      output.outputDetails !== undefined && output.outputDetails !== null
+        ? deserializeAws_json1_0HistoryEventExecutionDataDetails(output.outputDetails, context)
+        : undefined,
     resource: output.resource !== undefined && output.resource !== null ? output.resource : undefined,
     resourceType: output.resourceType !== undefined && output.resourceType !== null ? output.resourceType : undefined,
   } as any;
@@ -3461,6 +3594,10 @@ const deserializeAws_json1_0TaskSucceededEventDetails = (
 ): TaskSucceededEventDetails => {
   return {
     output: output.output !== undefined && output.output !== null ? output.output : undefined,
+    outputDetails:
+      output.outputDetails !== undefined && output.outputDetails !== null
+        ? deserializeAws_json1_0HistoryEventExecutionDataDetails(output.outputDetails, context)
+        : undefined,
     resource: output.resource !== undefined && output.resource !== null ? output.resource : undefined,
     resourceType: output.resourceType !== undefined && output.resourceType !== null ? output.resourceType : undefined,
   } as any;
@@ -3488,6 +3625,12 @@ const deserializeAws_json1_0TooManyTags = (output: any, context: __SerdeContext)
   return {
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
     resourceName: output.resourceName !== undefined && output.resourceName !== null ? output.resourceName : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_0TracingConfiguration = (output: any, context: __SerdeContext): TracingConfiguration => {
+  return {
+    enabled: output.enabled !== undefined && output.enabled !== null ? output.enabled : undefined,
   } as any;
 };
 

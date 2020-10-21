@@ -1,6 +1,31 @@
 import { ConnectClient } from "./ConnectClient";
+import {
+  AssociateRoutingProfileQueuesCommand,
+  AssociateRoutingProfileQueuesCommandInput,
+  AssociateRoutingProfileQueuesCommandOutput,
+} from "./commands/AssociateRoutingProfileQueuesCommand";
+import {
+  CreateContactFlowCommand,
+  CreateContactFlowCommandInput,
+  CreateContactFlowCommandOutput,
+} from "./commands/CreateContactFlowCommand";
+import {
+  CreateRoutingProfileCommand,
+  CreateRoutingProfileCommandInput,
+  CreateRoutingProfileCommandOutput,
+} from "./commands/CreateRoutingProfileCommand";
 import { CreateUserCommand, CreateUserCommandInput, CreateUserCommandOutput } from "./commands/CreateUserCommand";
 import { DeleteUserCommand, DeleteUserCommandInput, DeleteUserCommandOutput } from "./commands/DeleteUserCommand";
+import {
+  DescribeContactFlowCommand,
+  DescribeContactFlowCommandInput,
+  DescribeContactFlowCommandOutput,
+} from "./commands/DescribeContactFlowCommand";
+import {
+  DescribeRoutingProfileCommand,
+  DescribeRoutingProfileCommandInput,
+  DescribeRoutingProfileCommandOutput,
+} from "./commands/DescribeRoutingProfileCommand";
 import {
   DescribeUserCommand,
   DescribeUserCommandInput,
@@ -16,6 +41,11 @@ import {
   DescribeUserHierarchyStructureCommandInput,
   DescribeUserHierarchyStructureCommandOutput,
 } from "./commands/DescribeUserHierarchyStructureCommand";
+import {
+  DisassociateRoutingProfileQueuesCommand,
+  DisassociateRoutingProfileQueuesCommandInput,
+  DisassociateRoutingProfileQueuesCommandOutput,
+} from "./commands/DisassociateRoutingProfileQueuesCommand";
 import {
   GetContactAttributesCommand,
   GetContactAttributesCommandInput,
@@ -51,7 +81,13 @@ import {
   ListPhoneNumbersCommandInput,
   ListPhoneNumbersCommandOutput,
 } from "./commands/ListPhoneNumbersCommand";
+import { ListPromptsCommand, ListPromptsCommandInput, ListPromptsCommandOutput } from "./commands/ListPromptsCommand";
 import { ListQueuesCommand, ListQueuesCommandInput, ListQueuesCommandOutput } from "./commands/ListQueuesCommand";
+import {
+  ListRoutingProfileQueuesCommand,
+  ListRoutingProfileQueuesCommandInput,
+  ListRoutingProfileQueuesCommandOutput,
+} from "./commands/ListRoutingProfileQueuesCommand";
 import {
   ListRoutingProfilesCommand,
   ListRoutingProfilesCommandInput,
@@ -116,6 +152,36 @@ import {
   UpdateContactAttributesCommandOutput,
 } from "./commands/UpdateContactAttributesCommand";
 import {
+  UpdateContactFlowContentCommand,
+  UpdateContactFlowContentCommandInput,
+  UpdateContactFlowContentCommandOutput,
+} from "./commands/UpdateContactFlowContentCommand";
+import {
+  UpdateContactFlowNameCommand,
+  UpdateContactFlowNameCommandInput,
+  UpdateContactFlowNameCommandOutput,
+} from "./commands/UpdateContactFlowNameCommand";
+import {
+  UpdateRoutingProfileConcurrencyCommand,
+  UpdateRoutingProfileConcurrencyCommandInput,
+  UpdateRoutingProfileConcurrencyCommandOutput,
+} from "./commands/UpdateRoutingProfileConcurrencyCommand";
+import {
+  UpdateRoutingProfileDefaultOutboundQueueCommand,
+  UpdateRoutingProfileDefaultOutboundQueueCommandInput,
+  UpdateRoutingProfileDefaultOutboundQueueCommandOutput,
+} from "./commands/UpdateRoutingProfileDefaultOutboundQueueCommand";
+import {
+  UpdateRoutingProfileNameCommand,
+  UpdateRoutingProfileNameCommandInput,
+  UpdateRoutingProfileNameCommandOutput,
+} from "./commands/UpdateRoutingProfileNameCommand";
+import {
+  UpdateRoutingProfileQueuesCommand,
+  UpdateRoutingProfileQueuesCommandInput,
+  UpdateRoutingProfileQueuesCommandOutput,
+} from "./commands/UpdateRoutingProfileQueuesCommand";
+import {
   UpdateUserHierarchyCommand,
   UpdateUserHierarchyCommandInput,
   UpdateUserHierarchyCommandOutput,
@@ -150,11 +216,118 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  *    the right agents.</p>
  *          <p>There are limits to the number of Amazon Connect resources that you can create and limits to the
  *    number of requests that you can make per second. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html">Amazon Connect
- *     Service Limits</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
+ *     Service Quotas</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
+ *          <p>To connect programmatically to an AWS service, you use an endpoint. For a list of Amazon Connect
+ *    endpoints, see <a href="https://docs.aws.amazon.com/general/latest/gr/connect_region.html">Amazon Connect
+ *     Endpoints</a>.</p>
+ *          <note>
+ *             <p>Working with contact flows? Check out the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/flow-language.html">Amazon Connect
+ *    Flow language</a>.</p>
+ *          </note>
  */
 export class Connect extends ConnectClient {
   /**
+   * <p>Associates a set of queues with a routing profile.</p>
+   */
+  public associateRoutingProfileQueues(
+    args: AssociateRoutingProfileQueuesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AssociateRoutingProfileQueuesCommandOutput>;
+  public associateRoutingProfileQueues(
+    args: AssociateRoutingProfileQueuesCommandInput,
+    cb: (err: any, data?: AssociateRoutingProfileQueuesCommandOutput) => void
+  ): void;
+  public associateRoutingProfileQueues(
+    args: AssociateRoutingProfileQueuesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AssociateRoutingProfileQueuesCommandOutput) => void
+  ): void;
+  public associateRoutingProfileQueues(
+    args: AssociateRoutingProfileQueuesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssociateRoutingProfileQueuesCommandOutput) => void),
+    cb?: (err: any, data?: AssociateRoutingProfileQueuesCommandOutput) => void
+  ): Promise<AssociateRoutingProfileQueuesCommandOutput> | void {
+    const command = new AssociateRoutingProfileQueuesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates a contact flow for the specified Amazon Connect instance.</p>
+   *          <p>You can also create and update contact flows using the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/flow-language.html">Amazon Connect
+   *    Flow language</a>.</p>
+   */
+  public createContactFlow(
+    args: CreateContactFlowCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateContactFlowCommandOutput>;
+  public createContactFlow(
+    args: CreateContactFlowCommandInput,
+    cb: (err: any, data?: CreateContactFlowCommandOutput) => void
+  ): void;
+  public createContactFlow(
+    args: CreateContactFlowCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateContactFlowCommandOutput) => void
+  ): void;
+  public createContactFlow(
+    args: CreateContactFlowCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateContactFlowCommandOutput) => void),
+    cb?: (err: any, data?: CreateContactFlowCommandOutput) => void
+  ): Promise<CreateContactFlowCommandOutput> | void {
+    const command = new CreateContactFlowCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates a new routing profile.</p>
+   */
+  public createRoutingProfile(
+    args: CreateRoutingProfileCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateRoutingProfileCommandOutput>;
+  public createRoutingProfile(
+    args: CreateRoutingProfileCommandInput,
+    cb: (err: any, data?: CreateRoutingProfileCommandOutput) => void
+  ): void;
+  public createRoutingProfile(
+    args: CreateRoutingProfileCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateRoutingProfileCommandOutput) => void
+  ): void;
+  public createRoutingProfile(
+    args: CreateRoutingProfileCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateRoutingProfileCommandOutput) => void),
+    cb?: (err: any, data?: CreateRoutingProfileCommandOutput) => void
+  ): Promise<CreateRoutingProfileCommandOutput> | void {
+    const command = new CreateRoutingProfileCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Creates a user account for the specified Amazon Connect instance.</p>
+   *          <p>For information about how to create user accounts using the Amazon Connect console, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/user-management.html">Add Users</a> in
+   *    the <i>Amazon Connect Administrator Guide</i>.</p>
    */
   public createUser(args: CreateUserCommandInput, options?: __HttpHandlerOptions): Promise<CreateUserCommandOutput>;
   public createUser(args: CreateUserCommandInput, cb: (err: any, data?: CreateUserCommandOutput) => void): void;
@@ -181,6 +354,10 @@ export class Connect extends ConnectClient {
 
   /**
    * <p>Deletes a user account from the specified Amazon Connect instance.</p>
+   *          <p>For information about what happens to a user's data when their account is deleted, see
+   *     <a href="https://docs.aws.amazon.com/connect/latest/adminguide/delete-users.html">Delete Users from
+   *     Your Amazon Connect Instance</a> in the <i>Amazon Connect Administrator
+   *    Guide</i>.</p>
    */
   public deleteUser(args: DeleteUserCommandInput, options?: __HttpHandlerOptions): Promise<DeleteUserCommandOutput>;
   public deleteUser(args: DeleteUserCommandInput, cb: (err: any, data?: DeleteUserCommandOutput) => void): void;
@@ -195,6 +372,72 @@ export class Connect extends ConnectClient {
     cb?: (err: any, data?: DeleteUserCommandOutput) => void
   ): Promise<DeleteUserCommandOutput> | void {
     const command = new DeleteUserCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Describes the specified contact flow.</p>
+   *          <p>You can also create and update contact flows using the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/flow-language.html">Amazon Connect
+   *    Flow language</a>.</p>
+   */
+  public describeContactFlow(
+    args: DescribeContactFlowCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeContactFlowCommandOutput>;
+  public describeContactFlow(
+    args: DescribeContactFlowCommandInput,
+    cb: (err: any, data?: DescribeContactFlowCommandOutput) => void
+  ): void;
+  public describeContactFlow(
+    args: DescribeContactFlowCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeContactFlowCommandOutput) => void
+  ): void;
+  public describeContactFlow(
+    args: DescribeContactFlowCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeContactFlowCommandOutput) => void),
+    cb?: (err: any, data?: DescribeContactFlowCommandOutput) => void
+  ): Promise<DescribeContactFlowCommandOutput> | void {
+    const command = new DescribeContactFlowCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Describes the specified routing profile.</p>
+   */
+  public describeRoutingProfile(
+    args: DescribeRoutingProfileCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeRoutingProfileCommandOutput>;
+  public describeRoutingProfile(
+    args: DescribeRoutingProfileCommandInput,
+    cb: (err: any, data?: DescribeRoutingProfileCommandOutput) => void
+  ): void;
+  public describeRoutingProfile(
+    args: DescribeRoutingProfileCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeRoutingProfileCommandOutput) => void
+  ): void;
+  public describeRoutingProfile(
+    args: DescribeRoutingProfileCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeRoutingProfileCommandOutput) => void),
+    cb?: (err: any, data?: DescribeRoutingProfileCommandOutput) => void
+  ): Promise<DescribeRoutingProfileCommandOutput> | void {
+    const command = new DescribeRoutingProfileCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -301,6 +544,38 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * <p>Disassociates a set of queues from a routing profile.</p>
+   */
+  public disassociateRoutingProfileQueues(
+    args: DisassociateRoutingProfileQueuesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisassociateRoutingProfileQueuesCommandOutput>;
+  public disassociateRoutingProfileQueues(
+    args: DisassociateRoutingProfileQueuesCommandInput,
+    cb: (err: any, data?: DisassociateRoutingProfileQueuesCommandOutput) => void
+  ): void;
+  public disassociateRoutingProfileQueues(
+    args: DisassociateRoutingProfileQueuesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisassociateRoutingProfileQueuesCommandOutput) => void
+  ): void;
+  public disassociateRoutingProfileQueues(
+    args: DisassociateRoutingProfileQueuesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisassociateRoutingProfileQueuesCommandOutput) => void),
+    cb?: (err: any, data?: DisassociateRoutingProfileQueuesCommandOutput) => void
+  ): Promise<DisassociateRoutingProfileQueuesCommandOutput> | void {
+    const command = new DisassociateRoutingProfileQueuesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Retrieves the contact attributes for the specified contact.</p>
    */
   public getContactAttributes(
@@ -334,8 +609,8 @@ export class Connect extends ConnectClient {
 
   /**
    * <p>Gets the real-time metric data from the specified Amazon Connect instance.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-reports.html">Real-time Metrics Reports</a>
-   *    in the <i>Amazon Connect Administrator Guide</i>.</p>
+   *          <p>For a description of each metric, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-definitions.html">Real-time Metrics
+   *     Definitions</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
    */
   public getCurrentMetricData(
     args: GetCurrentMetricDataCommandInput,
@@ -400,8 +675,8 @@ export class Connect extends ConnectClient {
 
   /**
    * <p>Gets historical metric data from the specified Amazon Connect instance.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics.html">Historical Metrics Reports</a> in
-   *    the <i>Amazon Connect Administrator Guide</i>.</p>
+   *          <p>For a description of each historical metric, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html">Historical Metrics
+   *     Definitions</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
    */
   public getMetricData(
     args: GetMetricDataCommandInput,
@@ -434,6 +709,10 @@ export class Connect extends ConnectClient {
 
   /**
    * <p>Provides information about the contact flows for the specified Amazon Connect instance.</p>
+   *          <p>You can also create and update contact flows using the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/flow-language.html">Amazon Connect
+   *    Flow language</a>.</p>
+   *          <p>For more information about contact flows, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/concepts-contact-flows.html">Contact Flows</a> in the
+   *     <i>Amazon Connect Administrator Guide</i>.</p>
    */
   public listContactFlows(
     args: ListContactFlowsCommandInput,
@@ -466,6 +745,8 @@ export class Connect extends ConnectClient {
 
   /**
    * <p>Provides information about the hours of operation for the specified Amazon Connect instance.</p>
+   *          <p>For more information about hours of operation, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/set-hours-operation.html">Set the Hours of Operation for a
+   *     Queue</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
    */
   public listHoursOfOperations(
     args: ListHoursOfOperationsCommandInput,
@@ -497,7 +778,9 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   * <p>Provides information about the phone numbers for the specified Amazon Connect instance.</p>
+   * <p>Provides information about the phone numbers for the specified Amazon Connect instance. </p>
+   *          <p>For more information about phone numbers, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/contact-center-phone-number.html">Set Up Phone Numbers for Your
+   *     Contact Center</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
    */
   public listPhoneNumbers(
     args: ListPhoneNumbersCommandInput,
@@ -529,7 +812,36 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * <p>Provides information about the prompts for the specified Amazon Connect
+   *    instance.</p>
+   */
+  public listPrompts(args: ListPromptsCommandInput, options?: __HttpHandlerOptions): Promise<ListPromptsCommandOutput>;
+  public listPrompts(args: ListPromptsCommandInput, cb: (err: any, data?: ListPromptsCommandOutput) => void): void;
+  public listPrompts(
+    args: ListPromptsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListPromptsCommandOutput) => void
+  ): void;
+  public listPrompts(
+    args: ListPromptsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListPromptsCommandOutput) => void),
+    cb?: (err: any, data?: ListPromptsCommandOutput) => void
+  ): Promise<ListPromptsCommandOutput> | void {
+    const command = new ListPromptsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Provides information about the queues for the specified Amazon Connect instance.</p>
+   *          <p>For more information about queues, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/concepts-queues-standard-and-agent.html">Queues: Standard and
+   *     Agent</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
    */
   public listQueues(args: ListQueuesCommandInput, options?: __HttpHandlerOptions): Promise<ListQueuesCommandOutput>;
   public listQueues(args: ListQueuesCommandInput, cb: (err: any, data?: ListQueuesCommandOutput) => void): void;
@@ -555,8 +867,42 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * <p>List the queues associated with a routing profile.</p>
+   */
+  public listRoutingProfileQueues(
+    args: ListRoutingProfileQueuesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListRoutingProfileQueuesCommandOutput>;
+  public listRoutingProfileQueues(
+    args: ListRoutingProfileQueuesCommandInput,
+    cb: (err: any, data?: ListRoutingProfileQueuesCommandOutput) => void
+  ): void;
+  public listRoutingProfileQueues(
+    args: ListRoutingProfileQueuesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListRoutingProfileQueuesCommandOutput) => void
+  ): void;
+  public listRoutingProfileQueues(
+    args: ListRoutingProfileQueuesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListRoutingProfileQueuesCommandOutput) => void),
+    cb?: (err: any, data?: ListRoutingProfileQueuesCommandOutput) => void
+  ): Promise<ListRoutingProfileQueuesCommandOutput> | void {
+    const command = new ListRoutingProfileQueuesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Provides summary information about the routing profiles for the specified Amazon Connect
    *    instance.</p>
+   *          <p>For more information about routing profiles, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/concepts-routing.html">Routing Profiles</a> and <a href="https://docs.aws.amazon.com/connect/latest/adminguide/routing-profiles.html">Create a Routing
+   *     Profile</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
    */
   public listRoutingProfiles(
     args: ListRoutingProfilesCommandInput,
@@ -590,6 +936,8 @@ export class Connect extends ConnectClient {
   /**
    * <p>Provides summary information about the security profiles for the specified Amazon Connect
    *    instance.</p>
+   *          <p>For more information about security profiles, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/connect-security-profiles.html">Security Profiles</a> in the
+   *     <i>Amazon Connect Administrator Guide</i>.</p>
    */
   public listSecurityProfiles(
     args: ListSecurityProfilesCommandInput,
@@ -622,6 +970,8 @@ export class Connect extends ConnectClient {
 
   /**
    * <p>Lists the tags for the specified resource.</p>
+   *          <p>For sample policies that use tags, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/security_iam_id-based-policy-examples.html">Amazon Connect Identity-Based
+   *     Policy Examples</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
    */
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -655,6 +1005,8 @@ export class Connect extends ConnectClient {
   /**
    * <p>Provides summary information about the hierarchy groups for the specified Amazon Connect
    *    instance.</p>
+   *          <p>For more information about agent hierarchies, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/agent-hierarchy.html">Set Up Agent Hierarchies</a> in the
+   *     <i>Amazon Connect Administrator Guide</i>.</p>
    */
   public listUserHierarchyGroups(
     args: ListUserHierarchyGroupsCommandInput,
@@ -753,6 +1105,22 @@ export class Connect extends ConnectClient {
    *          <p>When a new chat contact is successfully created, clients need to subscribe to the
    *    participant’s connection for the created chat within 5 minutes. This is achieved by invoking
    *     <a href="https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_CreateParticipantConnection.html">CreateParticipantConnection</a> with WEBSOCKET and CONNECTION_CREDENTIALS. </p>
+   *
+   *          <p>A 429 error occurs in two situations:</p>
+   *          <ul>
+   *             <li>
+   *                <p>API rate limit is exceeded. API TPS throttling returns a <code>TooManyRequests</code>
+   *      exception from the API Gateway.</p>
+   *             </li>
+   *             <li>
+   *                <p>The <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html">quota for concurrent active
+   *       chats</a> is exceeded. Active chat throttling returns a
+   *       <code>LimitExceededException</code>.</p>
+   *             </li>
+   *          </ul>
+   *
+   *          <p>For more information about how chat works, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/chat.html">Chat</a> in the <i>Amazon Connect Administrator
+   *     Guide</i>.</p>
    */
   public startChatContact(
     args: StartChatContactCommandInput,
@@ -790,7 +1158,7 @@ export class Connect extends ConnectClient {
    *    started and you want to suspend and resume it, such as when collecting sensitive information (for
    *    example, a credit card number), use SuspendContactRecording and ResumeContactRecording.</p>
    *          <p>You can use this API to override the recording behavior configured in the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/set-recording-behavior.html">Set recording
-   *     behavior</a> block.</p>
+   *    behavior</a> block.</p>
    *          <p>Only voice recordings are supported at this time.</p>
    */
   public startContactRecording(
@@ -832,6 +1200,11 @@ export class Connect extends ConnectClient {
    *
    *          <p>There is a 60 second dialing timeout for this operation. If the call is not connected after
    *    60 seconds, it fails.</p>
+   *          <note>
+   *             <p>UK numbers with a 447 prefix are not allowed by default. Before you can dial these UK
+   *     mobile numbers, you must submit a service quota increase request. For more information, see
+   *     <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html">Amazon Connect Service Quotas</a> in the <i>Amazon Connect Administrator Guide</i>. </p>
+   *          </note>
    */
   public startOutboundVoiceContact(
     args: StartOutboundVoiceContactCommandInput,
@@ -965,7 +1338,9 @@ export class Connect extends ConnectClient {
 
   /**
    * <p>Adds the specified tags to the specified resource.</p>
-   *          <p>The supported resource type is users.</p>
+   *          <p>The supported resource types are users, routing profiles, and contact flows.</p>
+   *          <p>For sample policies that use tags, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/security_iam_id-based-policy-examples.html">Amazon Connect Identity-Based
+   *     Policy Examples</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
   public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
@@ -1031,6 +1406,7 @@ export class Connect extends ConnectClient {
    *    and save the data with the contact in Amazon Connect. You could also flag calls for additional analysis,
    *    such as legal review or identifying abusive callers.</p>
    *          <p>Contact attributes are available in Amazon Connect for 24 months, and are then deleted.</p>
+   *          <p>This operation is also available in the Amazon Connect Flow language. See <a href="https://docs.aws.amazon.com/connect/latest/adminguide/contact-actions-updatecontactattributes.html">UpdateContactAttributes</a>.</p>
    *
    *          <p>
    *             <b>Important:</b> You cannot use the operation to update
@@ -1059,6 +1435,202 @@ export class Connect extends ConnectClient {
     cb?: (err: any, data?: UpdateContactAttributesCommandOutput) => void
   ): Promise<UpdateContactAttributesCommandOutput> | void {
     const command = new UpdateContactAttributesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates the specified contact flow.</p>
+   *          <p>You can also create and update contact flows using the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/flow-language.html">Amazon Connect
+   *    Flow language</a>.</p>
+   */
+  public updateContactFlowContent(
+    args: UpdateContactFlowContentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateContactFlowContentCommandOutput>;
+  public updateContactFlowContent(
+    args: UpdateContactFlowContentCommandInput,
+    cb: (err: any, data?: UpdateContactFlowContentCommandOutput) => void
+  ): void;
+  public updateContactFlowContent(
+    args: UpdateContactFlowContentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateContactFlowContentCommandOutput) => void
+  ): void;
+  public updateContactFlowContent(
+    args: UpdateContactFlowContentCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateContactFlowContentCommandOutput) => void),
+    cb?: (err: any, data?: UpdateContactFlowContentCommandOutput) => void
+  ): Promise<UpdateContactFlowContentCommandOutput> | void {
+    const command = new UpdateContactFlowContentCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>The name of the contact flow.</p>
+   */
+  public updateContactFlowName(
+    args: UpdateContactFlowNameCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateContactFlowNameCommandOutput>;
+  public updateContactFlowName(
+    args: UpdateContactFlowNameCommandInput,
+    cb: (err: any, data?: UpdateContactFlowNameCommandOutput) => void
+  ): void;
+  public updateContactFlowName(
+    args: UpdateContactFlowNameCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateContactFlowNameCommandOutput) => void
+  ): void;
+  public updateContactFlowName(
+    args: UpdateContactFlowNameCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateContactFlowNameCommandOutput) => void),
+    cb?: (err: any, data?: UpdateContactFlowNameCommandOutput) => void
+  ): Promise<UpdateContactFlowNameCommandOutput> | void {
+    const command = new UpdateContactFlowNameCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates the channels that agents can handle in the Contact Control Panel (CCP) for a routing profile.</p>
+   */
+  public updateRoutingProfileConcurrency(
+    args: UpdateRoutingProfileConcurrencyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateRoutingProfileConcurrencyCommandOutput>;
+  public updateRoutingProfileConcurrency(
+    args: UpdateRoutingProfileConcurrencyCommandInput,
+    cb: (err: any, data?: UpdateRoutingProfileConcurrencyCommandOutput) => void
+  ): void;
+  public updateRoutingProfileConcurrency(
+    args: UpdateRoutingProfileConcurrencyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateRoutingProfileConcurrencyCommandOutput) => void
+  ): void;
+  public updateRoutingProfileConcurrency(
+    args: UpdateRoutingProfileConcurrencyCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateRoutingProfileConcurrencyCommandOutput) => void),
+    cb?: (err: any, data?: UpdateRoutingProfileConcurrencyCommandOutput) => void
+  ): Promise<UpdateRoutingProfileConcurrencyCommandOutput> | void {
+    const command = new UpdateRoutingProfileConcurrencyCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates the default outbound queue of a routing profile.</p>
+   */
+  public updateRoutingProfileDefaultOutboundQueue(
+    args: UpdateRoutingProfileDefaultOutboundQueueCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateRoutingProfileDefaultOutboundQueueCommandOutput>;
+  public updateRoutingProfileDefaultOutboundQueue(
+    args: UpdateRoutingProfileDefaultOutboundQueueCommandInput,
+    cb: (err: any, data?: UpdateRoutingProfileDefaultOutboundQueueCommandOutput) => void
+  ): void;
+  public updateRoutingProfileDefaultOutboundQueue(
+    args: UpdateRoutingProfileDefaultOutboundQueueCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateRoutingProfileDefaultOutboundQueueCommandOutput) => void
+  ): void;
+  public updateRoutingProfileDefaultOutboundQueue(
+    args: UpdateRoutingProfileDefaultOutboundQueueCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpdateRoutingProfileDefaultOutboundQueueCommandOutput) => void),
+    cb?: (err: any, data?: UpdateRoutingProfileDefaultOutboundQueueCommandOutput) => void
+  ): Promise<UpdateRoutingProfileDefaultOutboundQueueCommandOutput> | void {
+    const command = new UpdateRoutingProfileDefaultOutboundQueueCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates the name and description of a routing profile. The request accepts the following data in JSON format. At least <code>Name</code> or <code>Description</code> must be provided.</p>
+   */
+  public updateRoutingProfileName(
+    args: UpdateRoutingProfileNameCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateRoutingProfileNameCommandOutput>;
+  public updateRoutingProfileName(
+    args: UpdateRoutingProfileNameCommandInput,
+    cb: (err: any, data?: UpdateRoutingProfileNameCommandOutput) => void
+  ): void;
+  public updateRoutingProfileName(
+    args: UpdateRoutingProfileNameCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateRoutingProfileNameCommandOutput) => void
+  ): void;
+  public updateRoutingProfileName(
+    args: UpdateRoutingProfileNameCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateRoutingProfileNameCommandOutput) => void),
+    cb?: (err: any, data?: UpdateRoutingProfileNameCommandOutput) => void
+  ): Promise<UpdateRoutingProfileNameCommandOutput> | void {
+    const command = new UpdateRoutingProfileNameCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates the properties associated with a set of queues for a routing profile.</p>
+   */
+  public updateRoutingProfileQueues(
+    args: UpdateRoutingProfileQueuesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateRoutingProfileQueuesCommandOutput>;
+  public updateRoutingProfileQueues(
+    args: UpdateRoutingProfileQueuesCommandInput,
+    cb: (err: any, data?: UpdateRoutingProfileQueuesCommandOutput) => void
+  ): void;
+  public updateRoutingProfileQueues(
+    args: UpdateRoutingProfileQueuesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateRoutingProfileQueuesCommandOutput) => void
+  ): void;
+  public updateRoutingProfileQueues(
+    args: UpdateRoutingProfileQueuesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateRoutingProfileQueuesCommandOutput) => void),
+    cb?: (err: any, data?: UpdateRoutingProfileQueuesCommandOutput) => void
+  ): Promise<UpdateRoutingProfileQueuesCommandOutput> | void {
+    const command = new UpdateRoutingProfileQueuesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1103,6 +1675,15 @@ export class Connect extends ConnectClient {
 
   /**
    * <p>Updates the identity information for the specified user.</p>
+   *          <important>
+   *             <p>Someone with the ability to invoke <code>UpdateUserIndentityInfo</code> can change the
+   *     login credentials of other users by changing their email address. This poses a security risk to
+   *     your organization. They can change the email address of a user to the attacker's email address,
+   *     and then reset the password through email. We strongly recommend limiting who has the ability to
+   *     invoke <code>UpdateUserIndentityInfo</code>. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-best-practices.html">Best
+   *      Practices for Security Profiles</a> in the <i>Amazon Connect Administrator
+   *     Guide</i>.</p>
+   *          </important>
    */
   public updateUserIdentityInfo(
     args: UpdateUserIdentityInfoCommandInput,

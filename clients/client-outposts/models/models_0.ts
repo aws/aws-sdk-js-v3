@@ -18,9 +18,10 @@ export namespace AccessDeniedException {
 
 export interface CreateOutpostInput {
   /**
-   * <p>The name of the Outpost.</p>
+   * <p>The ID of the Availability Zone.</p>
+   *          <p>You must specify <code>AvailabilityZone</code> or <code>AvailabilityZoneId</code>.</p>
    */
-  Name?: string;
+  AvailabilityZoneId?: string;
 
   /**
    * <p>The Availability Zone.</p>
@@ -29,20 +30,19 @@ export interface CreateOutpostInput {
   AvailabilityZone?: string;
 
   /**
-   * <p>The ID of the Availability Zone.</p>
-   *          <p>You must specify <code>AvailabilityZone</code> or <code>AvailabilityZoneId</code>.</p>
+   * <p>The name of the Outpost.</p>
    */
-  AvailabilityZoneId?: string;
-
-  /**
-   * <p>The ID of the site.</p>
-   */
-  SiteId: string | undefined;
+  Name?: string;
 
   /**
    * <p>The Outpost description.</p>
    */
   Description?: string;
+
+  /**
+   * <p>The ID of the site.</p>
+   */
+  SiteId: string | undefined;
 }
 
 export namespace CreateOutpostInput {
@@ -56,10 +56,9 @@ export namespace CreateOutpostInput {
  */
 export interface Outpost {
   /**
-   * <p>The ID of the Availability Zone.</p>
-   *          <p>You must specify <code>AvailabilityZone</code> or <code>AvailabilityZoneId</code>.</p>
+   * <p>The Amazon Resource Name (ARN) of the Outpost.</p>
    */
-  AvailabilityZoneId?: string;
+  OutpostArn?: string;
 
   /**
    * <p>The Availability Zone.</p>
@@ -68,14 +67,15 @@ export interface Outpost {
   AvailabilityZone?: string;
 
   /**
+   * <p>The ID of the Availability Zone.</p>
+   *          <p>You must specify <code>AvailabilityZone</code> or <code>AvailabilityZoneId</code>.</p>
+   */
+  AvailabilityZoneId?: string;
+
+  /**
    * <p>The life cycle status.</p>
    */
   LifeCycleStatus?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the Outpost.</p>
-   */
-  OutpostArn?: string;
 
   /**
    * <p>The name of the Outpost.</p>
@@ -88,9 +88,9 @@ export interface Outpost {
   SiteId?: string;
 
   /**
-   * <p>The ID of the Outpost.</p>
+   * <p>The Outpost description.</p>
    */
-  OutpostId?: string;
+  Description?: string;
 
   /**
    * <p>The AWS account ID of the Outpost owner.</p>
@@ -98,9 +98,9 @@ export interface Outpost {
   OwnerId?: string;
 
   /**
-   * <p>The Outpost description.</p>
+   * <p>The ID of the Outpost.</p>
    */
-  Description?: string;
+  OutpostId?: string;
 }
 
 export namespace Outpost {
@@ -252,14 +252,14 @@ export namespace GetOutpostOutput {
 
 export interface GetOutpostInstanceTypesInput {
   /**
-   * <p>The pagination token.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>The ID of the Outpost.</p>
    */
   OutpostId: string | undefined;
+
+  /**
+   * <p>The pagination token.</p>
+   */
+  NextToken?: string;
 
   /**
    * <p>The maximum page size.</p>
@@ -291,14 +291,9 @@ export namespace InstanceTypeItem {
 
 export interface GetOutpostInstanceTypesOutput {
   /**
-   * <p>The Amazon Resource Name (ARN) of the Outpost.</p>
+   * <p>The pagination token.</p>
    */
-  OutpostArn?: string;
-
-  /**
-   * <p>The ID of the Outpost.</p>
-   */
-  OutpostId?: string;
+  NextToken?: string;
 
   /**
    * <p>Information about the instance types.</p>
@@ -306,9 +301,14 @@ export interface GetOutpostInstanceTypesOutput {
   InstanceTypes?: InstanceTypeItem[];
 
   /**
-   * <p>The pagination token.</p>
+   * <p>The ID of the Outpost.</p>
    */
-  NextToken?: string;
+  OutpostId?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Outpost.</p>
+   */
+  OutpostArn?: string;
 }
 
 export namespace GetOutpostInstanceTypesOutput {
@@ -319,14 +319,14 @@ export namespace GetOutpostInstanceTypesOutput {
 
 export interface ListOutpostsInput {
   /**
-   * <p>The pagination token.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>The maximum page size.</p>
    */
   MaxResults?: number;
+
+  /**
+   * <p>The pagination token.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace ListOutpostsInput {
@@ -376,14 +376,14 @@ export namespace ListSitesInput {
  */
 export interface Site {
   /**
-   * <p>The ID of the AWS account.</p>
-   */
-  AccountId?: string;
-
-  /**
    * <p>The name of the site.</p>
    */
   Name?: string;
+
+  /**
+   * <p>The description of the site.</p>
+   */
+  Description?: string;
 
   /**
    * <p>The ID of the site.</p>
@@ -391,9 +391,9 @@ export interface Site {
   SiteId?: string;
 
   /**
-   * <p>The description of the site.</p>
+   * <p>The ID of the AWS account.</p>
    */
-  Description?: string;
+  AccountId?: string;
 }
 
 export namespace Site {
@@ -404,14 +404,14 @@ export namespace Site {
 
 export interface ListSitesOutput {
   /**
-   * <p>Information about the sites.</p>
-   */
-  Sites?: Site[];
-
-  /**
    * <p>The pagination token.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>Information about the sites.</p>
+   */
+  Sites?: Site[];
 }
 
 export namespace ListSitesOutput {

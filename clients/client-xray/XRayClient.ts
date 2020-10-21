@@ -23,6 +23,10 @@ import {
 import { GetTraceGraphCommandInput, GetTraceGraphCommandOutput } from "./commands/GetTraceGraphCommand";
 import { GetTraceSummariesCommandInput, GetTraceSummariesCommandOutput } from "./commands/GetTraceSummariesCommand";
 import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "./commands/ListTagsForResourceCommand";
+import {
   PutEncryptionConfigCommandInput,
   PutEncryptionConfigCommandOutput,
 } from "./commands/PutEncryptionConfigCommand";
@@ -31,6 +35,8 @@ import {
   PutTelemetryRecordsCommandOutput,
 } from "./commands/PutTelemetryRecordsCommand";
 import { PutTraceSegmentsCommandInput, PutTraceSegmentsCommandOutput } from "./commands/PutTraceSegmentsCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateGroupCommandInput, UpdateGroupCommandOutput } from "./commands/UpdateGroupCommand";
 import { UpdateSamplingRuleCommandInput, UpdateSamplingRuleCommandOutput } from "./commands/UpdateSamplingRuleCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
@@ -98,9 +104,12 @@ export type ServiceInputTypes =
   | GetTimeSeriesServiceStatisticsCommandInput
   | GetTraceGraphCommandInput
   | GetTraceSummariesCommandInput
+  | ListTagsForResourceCommandInput
   | PutEncryptionConfigCommandInput
   | PutTelemetryRecordsCommandInput
   | PutTraceSegmentsCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput
   | UpdateGroupCommandInput
   | UpdateSamplingRuleCommandInput;
 
@@ -120,9 +129,12 @@ export type ServiceOutputTypes =
   | GetTimeSeriesServiceStatisticsCommandOutput
   | GetTraceGraphCommandOutput
   | GetTraceSummariesCommandOutput
+  | ListTagsForResourceCommandOutput
   | PutEncryptionConfigCommandOutput
   | PutTelemetryRecordsCommandOutput
   | PutTraceSegmentsCommandOutput
+  | TagResourceCommandOutput
+  | UntagResourceCommandOutput
   | UpdateGroupCommandOutput
   | UpdateSamplingRuleCommandOutput;
 

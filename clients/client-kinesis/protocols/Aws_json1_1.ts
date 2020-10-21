@@ -64,6 +64,7 @@ import { SubscribeToShardCommandInput, SubscribeToShardCommandOutput } from "../
 import { UpdateShardCountCommandInput, UpdateShardCountCommandOutput } from "../commands/UpdateShardCountCommand";
 import {
   AddTagsToStreamInput,
+  ChildShard,
   Consumer,
   ConsumerDescription,
   CreateStreamInput,
@@ -123,6 +124,7 @@ import {
   ResourceNotFoundException,
   SequenceNumberRange,
   Shard,
+  ShardFilter,
   SplitShardInput,
   StartStreamEncryptionInput,
   StartingPosition,
@@ -3080,6 +3082,9 @@ const serializeAws_json1_1ListShardsInput = (input: ListShardsInput, context: __
     ...(input.ExclusiveStartShardId !== undefined && { ExclusiveStartShardId: input.ExclusiveStartShardId }),
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.ShardFilter !== undefined && {
+      ShardFilter: serializeAws_json1_1ShardFilter(input.ShardFilter, context),
+    }),
     ...(input.StreamCreationTimestamp !== undefined && {
       StreamCreationTimestamp: Math.round(input.StreamCreationTimestamp.getTime() / 1000),
     }),
@@ -3184,6 +3189,14 @@ const serializeAws_json1_1RemoveTagsFromStreamInput = (
   };
 };
 
+const serializeAws_json1_1ShardFilter = (input: ShardFilter, context: __SerdeContext): any => {
+  return {
+    ...(input.ShardId !== undefined && { ShardId: input.ShardId }),
+    ...(input.Timestamp !== undefined && { Timestamp: Math.round(input.Timestamp.getTime() / 1000) }),
+    ...(input.Type !== undefined && { Type: input.Type }),
+  };
+};
+
 const serializeAws_json1_1SplitShardInput = (input: SplitShardInput, context: __SerdeContext): any => {
   return {
     ...(input.NewStartingHashKey !== undefined && { NewStartingHashKey: input.NewStartingHashKey }),
@@ -3252,6 +3265,24 @@ const serializeAws_json1_1UpdateShardCountInput = (input: UpdateShardCountInput,
     ...(input.StreamName !== undefined && { StreamName: input.StreamName }),
     ...(input.TargetShardCount !== undefined && { TargetShardCount: input.TargetShardCount }),
   };
+};
+
+const deserializeAws_json1_1ChildShard = (output: any, context: __SerdeContext): ChildShard => {
+  return {
+    HashKeyRange:
+      output.HashKeyRange !== undefined && output.HashKeyRange !== null
+        ? deserializeAws_json1_1HashKeyRange(output.HashKeyRange, context)
+        : undefined,
+    ParentShards:
+      output.ParentShards !== undefined && output.ParentShards !== null
+        ? deserializeAws_json1_1ShardIdList(output.ParentShards, context)
+        : undefined,
+    ShardId: output.ShardId !== undefined && output.ShardId !== null ? output.ShardId : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ChildShardList = (output: any, context: __SerdeContext): ChildShard[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1ChildShard(entry, context));
 };
 
 const deserializeAws_json1_1Consumer = (output: any, context: __SerdeContext): Consumer => {
@@ -3376,6 +3407,10 @@ const deserializeAws_json1_1ExpiredNextTokenException = (
 
 const deserializeAws_json1_1GetRecordsOutput = (output: any, context: __SerdeContext): GetRecordsOutput => {
   return {
+    ChildShards:
+      output.ChildShards !== undefined && output.ChildShards !== null
+        ? deserializeAws_json1_1ChildShardList(output.ChildShards, context)
+        : undefined,
     MillisBehindLatest:
       output.MillisBehindLatest !== undefined && output.MillisBehindLatest !== null
         ? output.MillisBehindLatest
@@ -3654,6 +3689,10 @@ const deserializeAws_json1_1Shard = (output: any, context: __SerdeContext): Shar
   } as any;
 };
 
+const deserializeAws_json1_1ShardIdList = (output: any, context: __SerdeContext): string[] => {
+  return (output || []).map((entry: any) => entry);
+};
+
 const deserializeAws_json1_1ShardList = (output: any, context: __SerdeContext): Shard[] => {
   return (output || []).map((entry: any) => deserializeAws_json1_1Shard(entry, context));
 };
@@ -3723,6 +3762,10 @@ const deserializeAws_json1_1StreamNameList = (output: any, context: __SerdeConte
 
 const deserializeAws_json1_1SubscribeToShardEvent = (output: any, context: __SerdeContext): SubscribeToShardEvent => {
   return {
+    ChildShards:
+      output.ChildShards !== undefined && output.ChildShards !== null
+        ? deserializeAws_json1_1ChildShardList(output.ChildShards, context)
+        : undefined,
     ContinuationSequenceNumber:
       output.ContinuationSequenceNumber !== undefined && output.ContinuationSequenceNumber !== null
         ? output.ContinuationSequenceNumber

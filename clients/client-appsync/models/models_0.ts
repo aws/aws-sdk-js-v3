@@ -28,14 +28,15 @@ export enum AuthenticationType {
  */
 export interface OpenIDConnectConfig {
   /**
+   * <p>The issuer for the OpenID Connect configuration. The issuer returned by discovery must
+   *          exactly match the value of <code>iss</code> in the ID token.</p>
+   */
+  issuer: string | undefined;
+
+  /**
    * <p>The number of milliseconds a token is valid after being authenticated.</p>
    */
   authTTL?: number;
-
-  /**
-   * <p>The number of milliseconds a token is valid after being issued to a user.</p>
-   */
-  iatTTL?: number;
 
   /**
    * <p>The client identifier of the Relying party at the OpenID identity provider. This
@@ -46,10 +47,9 @@ export interface OpenIDConnectConfig {
   clientId?: string;
 
   /**
-   * <p>The issuer for the OpenID Connect configuration. The issuer returned by discovery must
-   *          exactly match the value of <code>iss</code> in the ID token.</p>
+   * <p>The number of milliseconds a token is valid after being issued to a user.</p>
    */
-  issuer: string | undefined;
+  iatTTL?: number;
 }
 
 export namespace OpenIDConnectConfig {
@@ -63,6 +63,11 @@ export namespace OpenIDConnectConfig {
  */
 export interface CognitoUserPoolConfig {
   /**
+   * <p>The user pool ID.</p>
+   */
+  userPoolId: string | undefined;
+
+  /**
    * <p>A regular expression for validating the incoming Amazon Cognito user pool app client
    *          ID.</p>
    */
@@ -72,11 +77,6 @@ export interface CognitoUserPoolConfig {
    * <p>The AWS Region in which the user pool was created.</p>
    */
   awsRegion: string | undefined;
-
-  /**
-   * <p>The user pool ID.</p>
-   */
-  userPoolId: string | undefined;
 }
 
 export namespace CognitoUserPoolConfig {
@@ -95,14 +95,14 @@ export interface AdditionalAuthenticationProvider {
   userPoolConfig?: CognitoUserPoolConfig;
 
   /**
-   * <p>The OpenID Connect configuration.</p>
-   */
-  openIDConnectConfig?: OpenIDConnectConfig;
-
-  /**
    * <p>The authentication type: API key, AWS IAM, OIDC, or Amazon Cognito user pools.</p>
    */
   authenticationType?: AuthenticationType | string;
+
+  /**
+   * <p>The OpenID Connect configuration.</p>
+   */
+  openIDConnectConfig?: OpenIDConnectConfig;
 }
 
 export namespace AdditionalAuthenticationProvider {
@@ -147,23 +147,6 @@ export enum ApiCacheType {
  */
 export interface ApiCache {
   /**
-   * <p>Caching behavior.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <b>FULL_REQUEST_CACHING</b>: All requests are fully
-   *                cached.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>PER_RESOLVER_CACHING</b>: Individual resovlers
-   *                that you specify are cached.</p>
-   *             </li>
-   *          </ul>
-   */
-  apiCachingBehavior?: ApiCachingBehavior | string;
-
-  /**
    * <p>The cache instance status.</p>
    *          <ul>
    *             <li>
@@ -196,7 +179,55 @@ export interface ApiCache {
   status?: ApiCacheStatus | string;
 
   /**
-   * <p>The cache instance type.</p>
+   * <p>At rest encryption flag for cache. This setting cannot be updated after creation.</p>
+   */
+  atRestEncryptionEnabled?: boolean;
+
+  /**
+   * <p>The cache instance type. Valid values are </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>SMALL</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>MEDIUM</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>LARGE</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>XLARGE</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>LARGE_2X</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>LARGE_4X</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>LARGE_8X</code> (not available in all regions)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>LARGE_12X</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *          <p>Historically, instance types were identified by an EC2-style value. As of July 2020, this is deprecated, and the generic identifiers above should be used.</p>
+   *          <p>The following legacy instance types are avaible, but their use is discouraged:</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -204,8 +235,7 @@ export interface ApiCache {
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>T2_MEDIUM</b>: A t2.medium instance
-   *                type.</p>
+   *                   <b>T2_MEDIUM</b>: A t2.medium instance type.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -213,33 +243,23 @@ export interface ApiCache {
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>R4_XLARGE</b>: A r4.xlarge instance
-   *                type.</p>
+   *                   <b>R4_XLARGE</b>: A r4.xlarge instance type.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>R4_2XLARGE</b>: A r4.2xlarge instance
-   *                type.</p>
+   *                   <b>R4_2XLARGE</b>: A r4.2xlarge instance type.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>R4_4XLARGE</b>: A r4.4xlarge instance
-   *                type.</p>
+   *                   <b>R4_4XLARGE</b>: A r4.4xlarge instance type.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>R4_8XLARGE</b>: A r4.8xlarge instance
-   *                type.</p>
+   *                   <b>R4_8XLARGE</b>: A r4.8xlarge instance type.</p>
    *             </li>
    *          </ul>
    */
   type?: ApiCacheType | string;
-
-  /**
-   * <p>TTL in seconds for cache entries.</p>
-   *          <p>Valid values are between 1 and 3600 seconds.</p>
-   */
-  ttl?: number;
 
   /**
    * <p>Transit encryption flag when connecting to cache. This setting cannot be updated after
@@ -248,9 +268,27 @@ export interface ApiCache {
   transitEncryptionEnabled?: boolean;
 
   /**
-   * <p>At rest encryption flag for cache. This setting cannot be updated after creation.</p>
+   * <p>Caching behavior.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <b>FULL_REQUEST_CACHING</b>: All requests are fully
+   *                cached.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>PER_RESOLVER_CACHING</b>: Individual resovlers
+   *                that you specify are cached.</p>
+   *             </li>
+   *          </ul>
    */
-  atRestEncryptionEnabled?: boolean;
+  apiCachingBehavior?: ApiCachingBehavior | string;
+
+  /**
+   * <p>TTL in seconds for cache entries.</p>
+   *          <p>Valid values are between 1 and 3600 seconds.</p>
+   */
+  ttl?: number;
 }
 
 export namespace ApiCache {
@@ -299,25 +337,33 @@ export namespace ApiCache {
  *          <ul>
  *             <li>
  *                <p>
- *                   <code>ListApiKeys</code> returns the expiration time in seconds.</p>
+ *                   <code>ListApiKeys</code> returns the expiration time and deletion time
+ *                in seconds.</p>
  *             </li>
  *             <li>
  *                <p>
- *                   <code>CreateApiKey</code> returns the expiration time in seconds and accepts a
- *                user-provided expiration time in seconds.</p>
+ *                   <code>CreateApiKey</code> returns the expiration time and deletion time
+ *                in seconds and accepts a user-provided expiration time in seconds.</p>
  *             </li>
  *             <li>
  *                <p>
- *                   <code>UpdateApiKey</code> returns the expiration time in seconds and accepts a
- *                user-provided expiration time in seconds. Key expiration can only be updated while
- *                the key has not expired.</p>
+ *                   <code>UpdateApiKey</code> returns the expiration time and and deletion time
+ *                in seconds and accepts a user-provided expiration time in seconds. Expired API keys
+ *                are kept for 60 days after the expiration time. Key expiration time can be updated
+ *                while the key is not deleted. </p>
  *             </li>
  *             <li>
  *                <p>
  *                   <code>DeleteApiKey</code> deletes the item from the table.</p>
  *             </li>
  *             <li>
- *                <p>Expiration is stored in Amazon DynamoDB as seconds.</p>
+ *                <p>Expiration is stored in Amazon DynamoDB as seconds. After the expiration
+ *                time, using the key to authenticate will fail. But the key can be reinstated before
+ *                deletion.</p>
+ *             </li>
+ *             <li>
+ *                <p>Deletion is stored in Amazon DynamoDB as seconds. The key will be deleted
+ *                after deletion time. </p>
  *             </li>
  *          </ul>
  */
@@ -328,15 +374,21 @@ export interface ApiKey {
   id?: string;
 
   /**
-   * <p>The time after which the API key expires. The date is represented as seconds since the
+   * <p>The time after which the API key is deleted. The date is represented as seconds since the
    *          epoch, rounded down to the nearest hour.</p>
    */
-  expires?: number;
+  deletes?: number;
 
   /**
    * <p>A description of the purpose of the API key.</p>
    */
   description?: string;
+
+  /**
+   * <p>The time after which the API key expires. The date is represented as seconds since the
+   *          epoch, rounded down to the nearest hour.</p>
+   */
+  expires?: number;
 }
 
 export namespace ApiKey {
@@ -400,14 +452,14 @@ export enum AuthorizationType {
  */
 export interface AwsIamConfig {
   /**
-   * <p>The signing region for AWS IAM authorization.</p>
-   */
-  signingRegion?: string;
-
-  /**
    * <p>The signing service name for AWS IAM authorization.</p>
    */
   signingServiceName?: string;
+
+  /**
+   * <p>The signing region for AWS IAM authorization.</p>
+   */
+  signingRegion?: string;
 }
 
 export namespace AwsIamConfig {
@@ -481,6 +533,23 @@ export namespace ConcurrentModificationException {
  */
 export interface CreateApiCacheRequest {
   /**
+   * <p>Transit encryption flag when connecting to cache. This setting cannot be updated after
+   *          creation.</p>
+   */
+  transitEncryptionEnabled?: boolean;
+
+  /**
+   * <p>The GraphQL API Id.</p>
+   */
+  apiId: string | undefined;
+
+  /**
+   * <p>TTL in seconds for cache entries.</p>
+   *          <p>Valid values are between 1 and 3600 seconds.</p>
+   */
+  ttl: number | undefined;
+
+  /**
    * <p>Caching behavior.</p>
    *          <ul>
    *             <li>
@@ -498,7 +567,50 @@ export interface CreateApiCacheRequest {
   apiCachingBehavior: ApiCachingBehavior | string | undefined;
 
   /**
-   * <p>The cache instance type.</p>
+   * <p>The cache instance type. Valid values are </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>SMALL</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>MEDIUM</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>LARGE</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>XLARGE</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>LARGE_2X</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>LARGE_4X</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>LARGE_8X</code> (not available in all regions)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>LARGE_12X</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *          <p>Historically, instance types were identified by an EC2-style value. As of July 2020, this is deprecated, and the generic identifiers above should be used.</p>
+   *          <p>The following legacy instance types are avaible, but their use is discouraged:</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -506,8 +618,7 @@ export interface CreateApiCacheRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>T2_MEDIUM</b>: A t2.medium instance
-   *                type.</p>
+   *                   <b>T2_MEDIUM</b>: A t2.medium instance type.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -515,23 +626,19 @@ export interface CreateApiCacheRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>R4_XLARGE</b>: A r4.xlarge instance
-   *                type.</p>
+   *                   <b>R4_XLARGE</b>: A r4.xlarge instance type.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>R4_2XLARGE</b>: A r4.2xlarge instance
-   *                type.</p>
+   *                   <b>R4_2XLARGE</b>: A r4.2xlarge instance type.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>R4_4XLARGE</b>: A r4.4xlarge instance
-   *                type.</p>
+   *                   <b>R4_4XLARGE</b>: A r4.4xlarge instance type.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>R4_8XLARGE</b>: A r4.8xlarge instance
-   *                type.</p>
+   *                   <b>R4_8XLARGE</b>: A r4.8xlarge instance type.</p>
    *             </li>
    *          </ul>
    */
@@ -541,23 +648,6 @@ export interface CreateApiCacheRequest {
    * <p>At rest encryption flag for cache. This setting cannot be updated after creation.</p>
    */
   atRestEncryptionEnabled?: boolean;
-
-  /**
-   * <p>The GraphQL API Id.</p>
-   */
-  apiId: string | undefined;
-
-  /**
-   * <p>Transit encryption flag when connecting to cache. This setting cannot be updated after
-   *          creation.</p>
-   */
-  transitEncryptionEnabled?: boolean;
-
-  /**
-   * <p>TTL in seconds for cache entries.</p>
-   *          <p>Valid values are between 1 and 3600 seconds.</p>
-   */
-  ttl: number | undefined;
 }
 
 export namespace CreateApiCacheRequest {
@@ -630,6 +720,11 @@ export namespace UnauthorizedException {
 
 export interface CreateApiKeyRequest {
   /**
+   * <p>The ID for your GraphQL API.</p>
+   */
+  apiId: string | undefined;
+
+  /**
    * <p>The time from creation time after which the API key expires. The date is represented as
    *          seconds since the epoch, rounded down to the nearest hour. The default value for this
    *          parameter is 7 days from creation time. For more information, see .</p>
@@ -640,11 +735,6 @@ export interface CreateApiKeyRequest {
    * <p>A description of the purpose of the API key.</p>
    */
   description?: string;
-
-  /**
-   * <p>The ID for your GraphQL API.</p>
-   */
-  apiId: string | undefined;
 }
 
 export namespace CreateApiKeyRequest {
@@ -686,14 +776,14 @@ export namespace LimitExceededException {
  */
 export interface DeltaSyncConfig {
   /**
-   * <p>The Delta Sync table name.</p>
-   */
-  deltaSyncTableName?: string;
-
-  /**
    * <p>The number of minutes an Item is stored in the datasource.</p>
    */
   baseTableTTL?: number;
+
+  /**
+   * <p>The Delta Sync table name.</p>
+   */
+  deltaSyncTableName?: string;
 
   /**
    * <p>The number of minutes a Delta Sync log entry is stored in the Delta Sync table.</p>
@@ -712,14 +802,9 @@ export namespace DeltaSyncConfig {
  */
 export interface DynamodbDataSourceConfig {
   /**
-   * <p>The AWS Region.</p>
+   * <p>The <code>DeltaSyncConfig</code> for a versioned datasource.</p>
    */
-  awsRegion: string | undefined;
-
-  /**
-   * <p>Set to TRUE to use Amazon Cognito credentials with this data source.</p>
-   */
-  useCallerCredentials?: boolean;
+  deltaSyncConfig?: DeltaSyncConfig;
 
   /**
    * <p>Set to TRUE to use Conflict Detection and Resolution with this data source.</p>
@@ -727,14 +812,19 @@ export interface DynamodbDataSourceConfig {
   versioned?: boolean;
 
   /**
-   * <p>The <code>DeltaSyncConfig</code> for a versioned datasource.</p>
-   */
-  deltaSyncConfig?: DeltaSyncConfig;
-
-  /**
    * <p>The table name.</p>
    */
   tableName: string | undefined;
+
+  /**
+   * <p>Set to TRUE to use Amazon Cognito credentials with this data source.</p>
+   */
+  useCallerCredentials?: boolean;
+
+  /**
+   * <p>The AWS Region.</p>
+   */
+  awsRegion: string | undefined;
 }
 
 export namespace DynamodbDataSourceConfig {
@@ -748,14 +838,14 @@ export namespace DynamodbDataSourceConfig {
  */
 export interface ElasticsearchDataSourceConfig {
   /**
-   * <p>The endpoint.</p>
-   */
-  endpoint: string | undefined;
-
-  /**
    * <p>The AWS Region.</p>
    */
   awsRegion: string | undefined;
+
+  /**
+   * <p>The endpoint.</p>
+   */
+  endpoint: string | undefined;
 }
 
 export namespace ElasticsearchDataSourceConfig {
@@ -769,17 +859,17 @@ export namespace ElasticsearchDataSourceConfig {
  */
 export interface HttpDataSourceConfig {
   /**
+   * <p>The authorization config in case the HTTP endpoint requires authorization.</p>
+   */
+  authorizationConfig?: AuthorizationConfig;
+
+  /**
    * <p>The HTTP URL endpoint. You can either specify the domain name or IP, and port
    *          combination, and the URL scheme must be HTTP or HTTPS. If the port is not specified, AWS
    *          AppSync uses the default port 80 for the HTTP endpoint and port 443 for HTTPS
    *          endpoints.</p>
    */
   endpoint?: string;
-
-  /**
-   * <p>The authorization config in case the HTTP endpoint requires authorization.</p>
-   */
-  authorizationConfig?: AuthorizationConfig;
 }
 
 export namespace HttpDataSourceConfig {
@@ -809,9 +899,9 @@ export namespace LambdaDataSourceConfig {
  */
 export interface RdsHttpEndpointConfig {
   /**
-   * <p>Logical database name.</p>
+   * <p>Logical schema name.</p>
    */
-  databaseName?: string;
+  schema?: string;
 
   /**
    * <p>AWS Region for RDS HTTP endpoint.</p>
@@ -819,19 +909,19 @@ export interface RdsHttpEndpointConfig {
   awsRegion?: string;
 
   /**
-   * <p>Amazon RDS cluster ARN.</p>
-   */
-  dbClusterIdentifier?: string;
-
-  /**
-   * <p>Logical schema name.</p>
-   */
-  schema?: string;
-
-  /**
    * <p>AWS secret store ARN for database credentials.</p>
    */
   awsSecretStoreArn?: string;
+
+  /**
+   * <p>Logical database name.</p>
+   */
+  databaseName?: string;
+
+  /**
+   * <p>Amazon RDS cluster ARN.</p>
+   */
+  dbClusterIdentifier?: string;
 }
 
 export namespace RdsHttpEndpointConfig {
@@ -849,11 +939,6 @@ export enum RelationalDatabaseSourceType {
  */
 export interface RelationalDatabaseDataSourceConfig {
   /**
-   * <p>Amazon RDS HTTP endpoint settings.</p>
-   */
-  rdsHttpEndpointConfig?: RdsHttpEndpointConfig;
-
-  /**
    * <p>Source type for the relational database.</p>
    *          <ul>
    *             <li>
@@ -864,6 +949,11 @@ export interface RelationalDatabaseDataSourceConfig {
    *          </ul>
    */
   relationalDatabaseSourceType?: RelationalDatabaseSourceType | string;
+
+  /**
+   * <p>Amazon RDS HTTP endpoint settings.</p>
+   */
+  rdsHttpEndpointConfig?: RdsHttpEndpointConfig;
 }
 
 export namespace RelationalDatabaseDataSourceConfig {
@@ -883,9 +973,19 @@ export enum DataSourceType {
 
 export interface CreateDataSourceRequest {
   /**
-   * <p>The type of the <code>DataSource</code>.</p>
+   * <p>Amazon DynamoDB settings.</p>
    */
-  type: DataSourceType | string | undefined;
+  dynamodbConfig?: DynamodbDataSourceConfig;
+
+  /**
+   * <p>Amazon Elasticsearch Service settings.</p>
+   */
+  elasticsearchConfig?: ElasticsearchDataSourceConfig;
+
+  /**
+   * <p>HTTP endpoint settings.</p>
+   */
+  httpConfig?: HttpDataSourceConfig;
 
   /**
    * <p>Relational database settings.</p>
@@ -893,9 +993,9 @@ export interface CreateDataSourceRequest {
   relationalDatabaseConfig?: RelationalDatabaseDataSourceConfig;
 
   /**
-   * <p>AWS Lambda settings.</p>
+   * <p>A user-supplied name for the <code>DataSource</code>.</p>
    */
-  lambdaConfig?: LambdaDataSourceConfig;
+  name: string | undefined;
 
   /**
    * <p>A description of the <code>DataSource</code>.</p>
@@ -903,9 +1003,9 @@ export interface CreateDataSourceRequest {
   description?: string;
 
   /**
-   * <p>Amazon DynamoDB settings.</p>
+   * <p>The type of the <code>DataSource</code>.</p>
    */
-  dynamodbConfig?: DynamodbDataSourceConfig;
+  type: DataSourceType | string | undefined;
 
   /**
    * <p>The AWS IAM service role ARN for the data source. The system assumes this role when
@@ -914,24 +1014,14 @@ export interface CreateDataSourceRequest {
   serviceRoleArn?: string;
 
   /**
-   * <p>HTTP endpoint settings.</p>
+   * <p>AWS Lambda settings.</p>
    */
-  httpConfig?: HttpDataSourceConfig;
+  lambdaConfig?: LambdaDataSourceConfig;
 
   /**
    * <p>The API ID for the GraphQL API for the <code>DataSource</code>.</p>
    */
   apiId: string | undefined;
-
-  /**
-   * <p>A user-supplied name for the <code>DataSource</code>.</p>
-   */
-  name: string | undefined;
-
-  /**
-   * <p>Amazon Elasticsearch Service settings.</p>
-   */
-  elasticsearchConfig?: ElasticsearchDataSourceConfig;
 }
 
 export namespace CreateDataSourceRequest {
@@ -944,6 +1034,47 @@ export namespace CreateDataSourceRequest {
  * <p>Describes a data source.</p>
  */
 export interface DataSource {
+  /**
+   * <p>Amazon DynamoDB settings.</p>
+   */
+  dynamodbConfig?: DynamodbDataSourceConfig;
+
+  /**
+   * <p>The data source ARN.</p>
+   */
+  dataSourceArn?: string;
+
+  /**
+   * <p>Amazon Elasticsearch Service settings.</p>
+   */
+  elasticsearchConfig?: ElasticsearchDataSourceConfig;
+
+  /**
+   * <p>HTTP endpoint settings.</p>
+   */
+  httpConfig?: HttpDataSourceConfig;
+
+  /**
+   * <p>The description of the data source.</p>
+   */
+  description?: string;
+
+  /**
+   * <p>The name of the data source.</p>
+   */
+  name?: string;
+
+  /**
+   * <p>The AWS IAM service role ARN for the data source. The system assumes this role when
+   *          accessing the data source.</p>
+   */
+  serviceRoleArn?: string;
+
+  /**
+   * <p>Relational database settings.</p>
+   */
+  relationalDatabaseConfig?: RelationalDatabaseDataSourceConfig;
+
   /**
    * <p>The type of the data source.</p>
    *          <ul>
@@ -984,50 +1115,9 @@ export interface DataSource {
   type?: DataSourceType | string;
 
   /**
-   * <p>Relational database settings.</p>
-   */
-  relationalDatabaseConfig?: RelationalDatabaseDataSourceConfig;
-
-  /**
-   * <p>Amazon Elasticsearch Service settings.</p>
-   */
-  elasticsearchConfig?: ElasticsearchDataSourceConfig;
-
-  /**
    * <p>AWS Lambda settings.</p>
    */
   lambdaConfig?: LambdaDataSourceConfig;
-
-  /**
-   * <p>The AWS IAM service role ARN for the data source. The system assumes this role when
-   *          accessing the data source.</p>
-   */
-  serviceRoleArn?: string;
-
-  /**
-   * <p>The description of the data source.</p>
-   */
-  description?: string;
-
-  /**
-   * <p>Amazon DynamoDB settings.</p>
-   */
-  dynamodbConfig?: DynamodbDataSourceConfig;
-
-  /**
-   * <p>HTTP endpoint settings.</p>
-   */
-  httpConfig?: HttpDataSourceConfig;
-
-  /**
-   * <p>The data source ARN.</p>
-   */
-  dataSourceArn?: string;
-
-  /**
-   * <p>The name of the data source.</p>
-   */
-  name?: string;
 }
 
 export namespace DataSource {
@@ -1051,21 +1141,21 @@ export namespace CreateDataSourceResponse {
 
 export interface CreateFunctionRequest {
   /**
-   * <p>The <code>Function</code> response mapping template. </p>
-   */
-  responseMappingTemplate?: string;
-
-  /**
-   * <p>The <code>version</code> of the request mapping template. Currently the supported value
-   *          is 2018-05-29. </p>
-   */
-  functionVersion: string | undefined;
-
-  /**
    * <p>The <code>Function</code>
    *             <code>DataSource</code> name.</p>
    */
   dataSourceName: string | undefined;
+
+  /**
+   * <p>The <code>Function</code> request mapping template. Functions support only the
+   *          2018-05-29 version of the request mapping template.</p>
+   */
+  requestMappingTemplate?: string;
+
+  /**
+   * <p>The <code>Function</code> response mapping template. </p>
+   */
+  responseMappingTemplate?: string;
 
   /**
    * <p>The <code>Function</code> name. The function name does not have to be unique.</p>
@@ -1083,10 +1173,10 @@ export interface CreateFunctionRequest {
   apiId: string | undefined;
 
   /**
-   * <p>The <code>Function</code> request mapping template. Functions support only the
-   *          2018-05-29 version of the request mapping template.</p>
+   * <p>The <code>version</code> of the request mapping template. Currently the supported value
+   *          is 2018-05-29. </p>
    */
-  requestMappingTemplate: string | undefined;
+  functionVersion: string | undefined;
 }
 
 export namespace CreateFunctionRequest {
@@ -1101,20 +1191,14 @@ export namespace CreateFunctionRequest {
  */
 export interface FunctionConfiguration {
   /**
-   * <p>A unique ID representing the <code>Function</code> object.</p>
+   * <p>The ARN of the <code>Function</code> object.</p>
    */
-  functionId?: string;
+  functionArn?: string;
 
   /**
-   * <p>The version of the request mapping template. Currently only the 2018-05-29 version of
-   *          the template is supported.</p>
+   * <p>The <code>Function</code> description.</p>
    */
-  functionVersion?: string;
-
-  /**
-   * <p>The <code>Function</code> response mapping template.</p>
-   */
-  responseMappingTemplate?: string;
+  description?: string;
 
   /**
    * <p>The name of the <code>Function</code> object.</p>
@@ -1127,9 +1211,9 @@ export interface FunctionConfiguration {
   dataSourceName?: string;
 
   /**
-   * <p>The ARN of the <code>Function</code> object.</p>
+   * <p>A unique ID representing the <code>Function</code> object.</p>
    */
-  functionArn?: string;
+  functionId?: string;
 
   /**
    * <p>The <code>Function</code> request mapping template. Functions support only the
@@ -1138,9 +1222,15 @@ export interface FunctionConfiguration {
   requestMappingTemplate?: string;
 
   /**
-   * <p>The <code>Function</code> description.</p>
+   * <p>The <code>Function</code> response mapping template.</p>
    */
-  description?: string;
+  responseMappingTemplate?: string;
+
+  /**
+   * <p>The version of the request mapping template. Currently only the 2018-05-29 version of
+   *          the template is supported.</p>
+   */
+  functionVersion?: string;
 }
 
 export namespace FunctionConfiguration {
@@ -1172,6 +1262,12 @@ export enum FieldLogLevel {
  * <p>The CloudWatch Logs configuration.</p>
  */
 export interface LogConfig {
+  /**
+   * <p>The service role that AWS AppSync will assume to publish to Amazon CloudWatch logs in
+   *          your account. </p>
+   */
+  cloudWatchLogsRoleArn: string | undefined;
+
   /**
    * <p>The field logging level. Values can be NONE, ERROR, or ALL. </p>
    *          <ul>
@@ -1220,12 +1316,6 @@ export interface LogConfig {
    *          evaluated mapping templates, regardless of logging level.</p>
    */
   excludeVerboseContent?: boolean;
-
-  /**
-   * <p>The service role that AWS AppSync will assume to publish to Amazon CloudWatch logs in
-   *          your account. </p>
-   */
-  cloudWatchLogsRoleArn: string | undefined;
 }
 
 export namespace LogConfig {
@@ -1244,17 +1334,6 @@ export enum DefaultAction {
  */
 export interface UserPoolConfig {
   /**
-   * <p>A regular expression for validating the incoming Amazon Cognito user pool app client
-   *          ID.</p>
-   */
-  appIdClientRegex?: string;
-
-  /**
-   * <p>The AWS Region in which the user pool was created.</p>
-   */
-  awsRegion: string | undefined;
-
-  /**
    * <p>The action that you want your GraphQL API to take when a request that uses Amazon
    *          Cognito user pool authentication doesn't match the Amazon Cognito user pool
    *          configuration.</p>
@@ -1265,6 +1344,17 @@ export interface UserPoolConfig {
    * <p>The user pool ID.</p>
    */
   userPoolId: string | undefined;
+
+  /**
+   * <p>A regular expression for validating the incoming Amazon Cognito user pool app client
+   *          ID.</p>
+   */
+  appIdClientRegex?: string;
+
+  /**
+   * <p>The AWS Region in which the user pool was created.</p>
+   */
+  awsRegion: string | undefined;
 }
 
 export namespace UserPoolConfig {
@@ -1275,19 +1365,30 @@ export namespace UserPoolConfig {
 
 export interface CreateGraphqlApiRequest {
   /**
+   * <p>The Amazon CloudWatch Logs configuration.</p>
+   */
+  logConfig?: LogConfig;
+
+  /**
+   * <p>A list of additional authentication providers for the <code>GraphqlApi</code>
+   *          API.</p>
+   */
+  additionalAuthenticationProviders?: AdditionalAuthenticationProvider[];
+
+  /**
    * <p>A <code>TagMap</code> object.</p>
    */
   tags?: { [key: string]: string };
 
   /**
+   * <p>The OpenID Connect configuration.</p>
+   */
+  openIDConnectConfig?: OpenIDConnectConfig;
+
+  /**
    * <p>A user-supplied name for the <code>GraphqlApi</code>.</p>
    */
   name: string | undefined;
-
-  /**
-   * <p>The Amazon CloudWatch Logs configuration.</p>
-   */
-  logConfig?: LogConfig;
 
   /**
    * <p>The authentication type: API key, AWS IAM, OIDC, or Amazon Cognito user pools.</p>
@@ -1304,17 +1405,6 @@ export interface CreateGraphqlApiRequest {
    * <p>The Amazon Cognito user pool configuration.</p>
    */
   userPoolConfig?: UserPoolConfig;
-
-  /**
-   * <p>The OpenID Connect configuration.</p>
-   */
-  openIDConnectConfig?: OpenIDConnectConfig;
-
-  /**
-   * <p>A list of additional authentication providers for the <code>GraphqlApi</code>
-   *          API.</p>
-   */
-  additionalAuthenticationProviders?: AdditionalAuthenticationProvider[];
 }
 
 export namespace CreateGraphqlApiRequest {
@@ -1328,35 +1418,9 @@ export namespace CreateGraphqlApiRequest {
  */
 export interface GraphqlApi {
   /**
-   * <p>The tags.</p>
-   */
-  tags?: { [key: string]: string };
-
-  /**
-   * <p>A flag representing whether X-Ray tracing is enabled for this
-   *          <code>GraphqlApi</code>.</p>
-   */
-  xrayEnabled?: boolean;
-
-  /**
    * <p>The Amazon CloudWatch Logs configuration.</p>
    */
   logConfig?: LogConfig;
-
-  /**
-   * <p>The authentication type.</p>
-   */
-  authenticationType?: AuthenticationType | string;
-
-  /**
-   * <p>The API name.</p>
-   */
-  name?: string;
-
-  /**
-   * <p>The ARN.</p>
-   */
-  arn?: string;
 
   /**
    * <p>The URIs.</p>
@@ -1369,9 +1433,26 @@ export interface GraphqlApi {
   userPoolConfig?: UserPoolConfig;
 
   /**
+   * <p>A list of additional authentication providers for the <code>GraphqlApi</code>
+   *          API.</p>
+   */
+  additionalAuthenticationProviders?: AdditionalAuthenticationProvider[];
+
+  /**
+   * <p>The ARN.</p>
+   */
+  arn?: string;
+
+  /**
    * <p>The API ID.</p>
    */
   apiId?: string;
+
+  /**
+   * <p>The ARN of the AWS WAF ACL associated with this
+   *          <code>GraphqlApi</code> if one exists.</p>
+   */
+  wafWebAclArn?: string;
 
   /**
    * <p>The OpenID Connect configuration.</p>
@@ -1379,10 +1460,25 @@ export interface GraphqlApi {
   openIDConnectConfig?: OpenIDConnectConfig;
 
   /**
-   * <p>A list of additional authentication providers for the <code>GraphqlApi</code>
-   *          API.</p>
+   * <p>The API name.</p>
    */
-  additionalAuthenticationProviders?: AdditionalAuthenticationProvider[];
+  name?: string;
+
+  /**
+   * <p>The tags.</p>
+   */
+  tags?: { [key: string]: string };
+
+  /**
+   * <p>A flag representing whether X-Ray tracing is enabled for this
+   *          <code>GraphqlApi</code>.</p>
+   */
+  xrayEnabled?: boolean;
+
+  /**
+   * <p>The authentication type.</p>
+   */
+  authenticationType?: AuthenticationType | string;
 }
 
 export namespace GraphqlApi {
@@ -1508,12 +1604,6 @@ export interface SyncConfig {
   conflictHandler?: ConflictHandlerType | string;
 
   /**
-   * <p>The <code>LambdaConflictHandlerConfig</code> when configuring LAMBDA as the Conflict
-   *          Handler.</p>
-   */
-  lambdaConflictHandlerConfig?: LambdaConflictHandlerConfig;
-
-  /**
    * <p>The Conflict Detection strategy to use.</p>
    *          <ul>
    *             <li>
@@ -1529,6 +1619,12 @@ export interface SyncConfig {
    *          </ul>
    */
   conflictDetection?: ConflictDetectionType | string;
+
+  /**
+   * <p>The <code>LambdaConflictHandlerConfig</code> when configuring LAMBDA as the Conflict
+   *          Handler.</p>
+   */
+  lambdaConflictHandlerConfig?: LambdaConflictHandlerConfig;
 }
 
 export namespace SyncConfig {
@@ -1539,24 +1635,9 @@ export namespace SyncConfig {
 
 export interface CreateResolverRequest {
   /**
-   * <p>The ID for the GraphQL API for which the resolver is being created.</p>
+   * <p>The name of the <code>Type</code>.</p>
    */
-  apiId: string | undefined;
-
-  /**
-   * <p>The name of the data source for which the resolver is being created.</p>
-   */
-  dataSourceName?: string;
-
-  /**
-   * <p>The name of the field to attach the resolver to.</p>
-   */
-  fieldName: string | undefined;
-
-  /**
-   * <p>The mapping template to be used for responses from the data source.</p>
-   */
-  responseMappingTemplate?: string;
+  typeName: string | undefined;
 
   /**
    * <p>The caching configuration for the resolver.</p>
@@ -1564,12 +1645,19 @@ export interface CreateResolverRequest {
   cachingConfig?: CachingConfig;
 
   /**
+   * <p>The ID for the GraphQL API for which the resolver is being created.</p>
+   */
+  apiId: string | undefined;
+
+  /**
    * <p>The mapping template to be used for requests.</p>
    *          <p>A resolver uses a request mapping template to convert a GraphQL expression into a format
    *          that a data source can understand. Mapping templates are written in Apache Velocity
    *          Template Language (VTL).</p>
+   *          <p>VTL request mapping templates are optional when using a Lambda data source. For all
+   *          other data sources, VTL request and response mapping templates are required.</p>
    */
-  requestMappingTemplate: string | undefined;
+  requestMappingTemplate?: string;
 
   /**
    * <p>The <code>SyncConfig</code> for a resolver attached to a versioned datasource.</p>
@@ -1577,9 +1665,19 @@ export interface CreateResolverRequest {
   syncConfig?: SyncConfig;
 
   /**
-   * <p>The name of the <code>Type</code>.</p>
+   * <p>The name of the field to attach the resolver to.</p>
    */
-  typeName: string | undefined;
+  fieldName: string | undefined;
+
+  /**
+   * <p>The name of the data source for which the resolver is being created.</p>
+   */
+  dataSourceName?: string;
+
+  /**
+   * <p>The mapping template to be used for responses from the data source.</p>
+   */
+  responseMappingTemplate?: string;
 
   /**
    * <p>The resolver type.</p>
@@ -1618,41 +1716,6 @@ export namespace CreateResolverRequest {
  */
 export interface Resolver {
   /**
-   * <p>The <code>SyncConfig</code> for a resolver attached to a versioned datasource.</p>
-   */
-  syncConfig?: SyncConfig;
-
-  /**
-   * <p>The resolver type name.</p>
-   */
-  typeName?: string;
-
-  /**
-   * <p>The caching configuration for the resolver.</p>
-   */
-  cachingConfig?: CachingConfig;
-
-  /**
-   * <p>The resolver data source name.</p>
-   */
-  dataSourceName?: string;
-
-  /**
-   * <p>The response mapping template.</p>
-   */
-  responseMappingTemplate?: string;
-
-  /**
-   * <p>The request mapping template.</p>
-   */
-  requestMappingTemplate?: string;
-
-  /**
-   * <p>The resolver field name.</p>
-   */
-  fieldName?: string;
-
-  /**
    * <p>The resolver ARN.</p>
    */
   resolverArn?: string;
@@ -1661,6 +1724,16 @@ export interface Resolver {
    * <p>The <code>PipelineConfig</code>.</p>
    */
   pipelineConfig?: PipelineConfig;
+
+  /**
+   * <p>The request mapping template.</p>
+   */
+  requestMappingTemplate?: string;
+
+  /**
+   * <p>The resolver data source name.</p>
+   */
+  dataSourceName?: string;
 
   /**
    * <p>The resolver type.</p>
@@ -1681,6 +1754,31 @@ export interface Resolver {
    *          </ul>
    */
   kind?: ResolverKind | string;
+
+  /**
+   * <p>The <code>SyncConfig</code> for a resolver attached to a versioned datasource.</p>
+   */
+  syncConfig?: SyncConfig;
+
+  /**
+   * <p>The resolver type name.</p>
+   */
+  typeName?: string;
+
+  /**
+   * <p>The response mapping template.</p>
+   */
+  responseMappingTemplate?: string;
+
+  /**
+   * <p>The caching configuration for the resolver.</p>
+   */
+  cachingConfig?: CachingConfig;
+
+  /**
+   * <p>The resolver field name.</p>
+   */
+  fieldName?: string;
 }
 
 export namespace Resolver {
@@ -1737,16 +1835,6 @@ export namespace CreateTypeRequest {
  */
 export interface Type {
   /**
-   * <p>The type definition.</p>
-   */
-  definition?: string;
-
-  /**
-   * <p>The type description.</p>
-   */
-  description?: string;
-
-  /**
    * <p>The type format: SDL or JSON.</p>
    */
   format?: TypeDefinitionFormat | string;
@@ -1757,9 +1845,19 @@ export interface Type {
   name?: string;
 
   /**
+   * <p>The type definition.</p>
+   */
+  definition?: string;
+
+  /**
    * <p>The type ARN.</p>
    */
   arn?: string;
+
+  /**
+   * <p>The type description.</p>
+   */
+  description?: string;
 }
 
 export namespace Type {
@@ -1810,14 +1908,14 @@ export namespace DeleteApiCacheResponse {
 
 export interface DeleteApiKeyRequest {
   /**
-   * <p>The API ID.</p>
-   */
-  apiId: string | undefined;
-
-  /**
    * <p>The ID for the API key.</p>
    */
   id: string | undefined;
+
+  /**
+   * <p>The API ID.</p>
+   */
+  apiId: string | undefined;
 }
 
 export namespace DeleteApiKeyRequest {
@@ -1862,14 +1960,14 @@ export namespace DeleteDataSourceResponse {
 
 export interface DeleteFunctionRequest {
   /**
-   * <p>The GraphQL API ID.</p>
-   */
-  apiId: string | undefined;
-
-  /**
    * <p>The <code>Function</code> ID.</p>
    */
   functionId: string | undefined;
+
+  /**
+   * <p>The GraphQL API ID.</p>
+   */
+  apiId: string | undefined;
 }
 
 export namespace DeleteFunctionRequest {
@@ -2025,14 +2123,14 @@ export namespace GetApiCacheResponse {
 
 export interface GetDataSourceRequest {
   /**
-   * <p>The API ID.</p>
-   */
-  apiId: string | undefined;
-
-  /**
    * <p>The name of the data source.</p>
    */
   name: string | undefined;
+
+  /**
+   * <p>The API ID.</p>
+   */
+  apiId: string | undefined;
 }
 
 export namespace GetDataSourceRequest {
@@ -2056,14 +2154,14 @@ export namespace GetDataSourceResponse {
 
 export interface GetFunctionRequest {
   /**
-   * <p>The <code>Function</code> ID.</p>
-   */
-  functionId: string | undefined;
-
-  /**
    * <p>The GraphQL API ID.</p>
    */
   apiId: string | undefined;
+
+  /**
+   * <p>The <code>Function</code> ID.</p>
+   */
+  functionId: string | undefined;
 }
 
 export namespace GetFunctionRequest {
@@ -2118,11 +2216,6 @@ export enum OutputType {
 
 export interface GetIntrospectionSchemaRequest {
   /**
-   * <p>A flag that specifies whether the schema introspection should contain directives.</p>
-   */
-  includeDirectives?: boolean;
-
-  /**
    * <p>The API ID.</p>
    */
   apiId: string | undefined;
@@ -2131,6 +2224,11 @@ export interface GetIntrospectionSchemaRequest {
    * <p>The schema format: SDL or JSON.</p>
    */
   format: OutputType | string | undefined;
+
+  /**
+   * <p>A flag that specifies whether the schema introspection should contain directives.</p>
+   */
+  includeDirectives?: boolean;
 }
 
 export namespace GetIntrospectionSchemaRequest {
@@ -2171,11 +2269,6 @@ export namespace GraphQLSchemaException {
 
 export interface GetResolverRequest {
   /**
-   * <p>The resolver type name.</p>
-   */
-  typeName: string | undefined;
-
-  /**
    * <p>The resolver field name.</p>
    */
   fieldName: string | undefined;
@@ -2184,6 +2277,11 @@ export interface GetResolverRequest {
    * <p>The API ID.</p>
    */
   apiId: string | undefined;
+
+  /**
+   * <p>The resolver type name.</p>
+   */
+  typeName: string | undefined;
 }
 
 export namespace GetResolverRequest {
@@ -2229,15 +2327,15 @@ export enum SchemaStatus {
 
 export interface GetSchemaCreationStatusResponse {
   /**
-   * <p>Detailed information about the status of the schema creation operation.</p>
-   */
-  details?: string;
-
-  /**
    * <p>The current state of the schema (PROCESSING, FAILED, SUCCESS, or NOT_APPLICABLE). When
    *          the schema is in the ACTIVE state, you can add data.</p>
    */
   status?: SchemaStatus | string;
+
+  /**
+   * <p>Detailed information about the status of the schema creation operation.</p>
+   */
+  details?: string;
 }
 
 export namespace GetSchemaCreationStatusResponse {
@@ -2248,6 +2346,11 @@ export namespace GetSchemaCreationStatusResponse {
 
 export interface GetTypeRequest {
   /**
+   * <p>The type format: SDL or JSON.</p>
+   */
+  format: TypeDefinitionFormat | string | undefined;
+
+  /**
    * <p>The type name.</p>
    */
   typeName: string | undefined;
@@ -2256,11 +2359,6 @@ export interface GetTypeRequest {
    * <p>The API ID.</p>
    */
   apiId: string | undefined;
-
-  /**
-   * <p>The type format: SDL or JSON.</p>
-   */
-  format: TypeDefinitionFormat | string | undefined;
 }
 
 export namespace GetTypeRequest {
@@ -2284,6 +2382,12 @@ export namespace GetTypeResponse {
 
 export interface ListApiKeysRequest {
   /**
+   * <p>An identifier that was returned from the previous call to this operation, which can be
+   *          used to return the next set of items in the list.</p>
+   */
+  nextToken?: string;
+
+  /**
    * <p>The API ID.</p>
    */
   apiId: string | undefined;
@@ -2292,12 +2396,6 @@ export interface ListApiKeysRequest {
    * <p>The maximum number of results you want the request to return.</p>
    */
   maxResults?: number;
-
-  /**
-   * <p>An identifier that was returned from the previous call to this operation, which can be
-   *          used to return the next set of items in the list.</p>
-   */
-  nextToken?: string;
 }
 
 export namespace ListApiKeysRequest {
@@ -2327,6 +2425,11 @@ export namespace ListApiKeysResponse {
 
 export interface ListDataSourcesRequest {
   /**
+   * <p>The maximum number of results you want the request to return.</p>
+   */
+  maxResults?: number;
+
+  /**
    * <p>An identifier that was returned from the previous call to this operation, which can be
    *          used to return the next set of items in the list. </p>
    */
@@ -2336,11 +2439,6 @@ export interface ListDataSourcesRequest {
    * <p>The API ID.</p>
    */
   apiId: string | undefined;
-
-  /**
-   * <p>The maximum number of results you want the request to return.</p>
-   */
-  maxResults?: number;
 }
 
 export namespace ListDataSourcesRequest {
@@ -2370,10 +2468,9 @@ export namespace ListDataSourcesResponse {
 
 export interface ListFunctionsRequest {
   /**
-   * <p>An identifier that was returned from the previous call to this operation, which can be
-   *          used to return the next set of items in the list.</p>
+   * <p>The maximum number of results you want the request to return.</p>
    */
-  nextToken?: string;
+  maxResults?: number;
 
   /**
    * <p>The GraphQL API ID.</p>
@@ -2381,9 +2478,10 @@ export interface ListFunctionsRequest {
   apiId: string | undefined;
 
   /**
-   * <p>The maximum number of results you want the request to return.</p>
+   * <p>An identifier that was returned from the previous call to this operation, which can be
+   *          used to return the next set of items in the list.</p>
    */
-  maxResults?: number;
+  nextToken?: string;
 }
 
 export namespace ListFunctionsRequest {
@@ -2394,15 +2492,15 @@ export namespace ListFunctionsRequest {
 
 export interface ListFunctionsResponse {
   /**
-   * <p>A list of <code>Function</code> objects.</p>
-   */
-  functions?: FunctionConfiguration[];
-
-  /**
    * <p>An identifier that was returned from the previous call to this operation, which can be
    *          used to return the next set of items in the list.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>A list of <code>Function</code> objects.</p>
+   */
+  functions?: FunctionConfiguration[];
 }
 
 export namespace ListFunctionsResponse {
@@ -2451,10 +2549,9 @@ export namespace ListGraphqlApisResponse {
 
 export interface ListResolversRequest {
   /**
-   * <p>An identifier that was returned from the previous call to this operation, which can be
-   *          used to return the next set of items in the list. </p>
+   * <p>The maximum number of results you want the request to return.</p>
    */
-  nextToken?: string;
+  maxResults?: number;
 
   /**
    * <p>The type name.</p>
@@ -2467,9 +2564,10 @@ export interface ListResolversRequest {
   apiId: string | undefined;
 
   /**
-   * <p>The maximum number of results you want the request to return.</p>
+   * <p>An identifier that was returned from the previous call to this operation, which can be
+   *          used to return the next set of items in the list. </p>
    */
-  maxResults?: number;
+  nextToken?: string;
 }
 
 export namespace ListResolversRequest {
@@ -2480,15 +2578,15 @@ export namespace ListResolversRequest {
 
 export interface ListResolversResponse {
   /**
-   * <p>The <code>Resolver</code> objects.</p>
-   */
-  resolvers?: Resolver[];
-
-  /**
    * <p>An identifier to be passed in the next request to this operation to return the next set
    *          of items in the list.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>The <code>Resolver</code> objects.</p>
+   */
+  resolvers?: Resolver[];
 }
 
 export namespace ListResolversResponse {
@@ -2499,9 +2597,9 @@ export namespace ListResolversResponse {
 
 export interface ListResolversByFunctionRequest {
   /**
-   * <p>The Function ID.</p>
+   * <p>The maximum number of results you want the request to return.</p>
    */
-  functionId: string | undefined;
+  maxResults?: number;
 
   /**
    * <p>The API ID.</p>
@@ -2509,15 +2607,15 @@ export interface ListResolversByFunctionRequest {
   apiId: string | undefined;
 
   /**
+   * <p>The Function ID.</p>
+   */
+  functionId: string | undefined;
+
+  /**
    * <p>An identifier that was returned from the previous call to this operation, which you can
    *          use to return the next set of items in the list.</p>
    */
   nextToken?: string;
-
-  /**
-   * <p>The maximum number of results you want the request to return.</p>
-   */
-  maxResults?: number;
 }
 
 export namespace ListResolversByFunctionRequest {
@@ -2572,11 +2670,6 @@ export namespace ListTagsForResourceResponse {
 
 export interface ListTypesRequest {
   /**
-   * <p>The maximum number of results you want the request to return.</p>
-   */
-  maxResults?: number;
-
-  /**
    * <p>The API ID.</p>
    */
   apiId: string | undefined;
@@ -2585,6 +2678,11 @@ export interface ListTypesRequest {
    * <p>The type format: SDL or JSON.</p>
    */
   format: TypeDefinitionFormat | string | undefined;
+
+  /**
+   * <p>The maximum number of results you want the request to return.</p>
+   */
+  maxResults?: number;
 
   /**
    * <p>An identifier that was returned from the previous call to this operation, which can be
@@ -2620,14 +2718,14 @@ export namespace ListTypesResponse {
 
 export interface StartSchemaCreationRequest {
   /**
-   * <p>The schema definition, in GraphQL schema language format.</p>
-   */
-  definition: Uint8Array | undefined;
-
-  /**
    * <p>The API ID.</p>
    */
   apiId: string | undefined;
+
+  /**
+   * <p>The schema definition, in GraphQL schema language format.</p>
+   */
+  definition: Uint8Array | undefined;
 }
 
 export namespace StartSchemaCreationRequest {
@@ -2652,14 +2750,14 @@ export namespace StartSchemaCreationResponse {
 
 export interface TagResourceRequest {
   /**
-   * <p>The <code>GraphqlApi</code> ARN.</p>
-   */
-  resourceArn: string | undefined;
-
-  /**
    * <p>A <code>TagMap</code> object.</p>
    */
   tags: { [key: string]: string } | undefined;
+
+  /**
+   * <p>The <code>GraphqlApi</code> ARN.</p>
+   */
+  resourceArn: string | undefined;
 }
 
 export namespace TagResourceRequest {
@@ -2678,14 +2776,14 @@ export namespace TagResourceResponse {
 
 export interface UntagResourceRequest {
   /**
-   * <p>A list of <code>TagKey</code> objects.</p>
-   */
-  tagKeys: string[] | undefined;
-
-  /**
    * <p>The <code>GraphqlApi</code> ARN.</p>
    */
   resourceArn: string | undefined;
+
+  /**
+   * <p>A list of <code>TagKey</code> objects.</p>
+   */
+  tagKeys: string[] | undefined;
 }
 
 export namespace UntagResourceRequest {
@@ -2707,51 +2805,6 @@ export namespace UntagResourceResponse {
  */
 export interface UpdateApiCacheRequest {
   /**
-   * <p>The GraphQL API Id.</p>
-   */
-  apiId: string | undefined;
-
-  /**
-   * <p>The cache instance type.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <b>T2_SMALL</b>: A t2.small instance type.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>T2_MEDIUM</b>: A t2.medium instance
-   *                type.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>R4_LARGE</b>: A r4.large instance type.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>R4_XLARGE</b>: A r4.xlarge instance
-   *                type.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>R4_2XLARGE</b>: A r4.2xlarge instance
-   *                type.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>R4_4XLARGE</b>: A r4.4xlarge instance
-   *                type.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>R4_8XLARGE</b>: A r4.8xlarge instance
-   *                type.</p>
-   *             </li>
-   *          </ul>
-   */
-  type: ApiCacheType | string | undefined;
-
-  /**
    * <p>Caching behavior.</p>
    *          <ul>
    *             <li>
@@ -2767,6 +2820,89 @@ export interface UpdateApiCacheRequest {
    *          </ul>
    */
   apiCachingBehavior: ApiCachingBehavior | string | undefined;
+
+  /**
+   * <p>The GraphQL API Id.</p>
+   */
+  apiId: string | undefined;
+
+  /**
+   * <p>The cache instance type. Valid values are </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>SMALL</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>MEDIUM</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>LARGE</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>XLARGE</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>LARGE_2X</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>LARGE_4X</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>LARGE_8X</code> (not available in all regions)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>LARGE_12X</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *          <p>Historically, instance types were identified by an EC2-style value. As of July 2020, this is deprecated, and the generic identifiers above should be used.</p>
+   *          <p>The following legacy instance types are avaible, but their use is discouraged:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <b>T2_SMALL</b>: A t2.small instance type.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>T2_MEDIUM</b>: A t2.medium instance type.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>R4_LARGE</b>: A r4.large instance type.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>R4_XLARGE</b>: A r4.xlarge instance type.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>R4_2XLARGE</b>: A r4.2xlarge instance type.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>R4_4XLARGE</b>: A r4.4xlarge instance type.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>R4_8XLARGE</b>: A r4.8xlarge instance type.</p>
+   *             </li>
+   *          </ul>
+   */
+  type: ApiCacheType | string | undefined;
 
   /**
    * <p>TTL in seconds for cache entries.</p>
@@ -2799,15 +2935,15 @@ export namespace UpdateApiCacheResponse {
 
 export interface UpdateApiKeyRequest {
   /**
+   * <p>The API key ID.</p>
+   */
+  id: string | undefined;
+
+  /**
    * <p>The time from update time after which the API key expires. The date is represented as
    *          seconds since the epoch. For more information, see .</p>
    */
   expires?: number;
-
-  /**
-   * <p>The ID for the GraphQL API.</p>
-   */
-  apiId: string | undefined;
 
   /**
    * <p>A description of the purpose of the API key.</p>
@@ -2815,9 +2951,9 @@ export interface UpdateApiKeyRequest {
   description?: string;
 
   /**
-   * <p>The API key ID.</p>
+   * <p>The ID for the GraphQL API.</p>
    */
-  id: string | undefined;
+  apiId: string | undefined;
 }
 
 export namespace UpdateApiKeyRequest {
@@ -2841,14 +2977,34 @@ export namespace UpdateApiKeyResponse {
 
 export interface UpdateDataSourceRequest {
   /**
+   * <p>The API ID.</p>
+   */
+  apiId: string | undefined;
+
+  /**
+   * <p>The new HTTP endpoint configuration.</p>
+   */
+  httpConfig?: HttpDataSourceConfig;
+
+  /**
    * <p>The new Amazon DynamoDB configuration.</p>
    */
   dynamodbConfig?: DynamodbDataSourceConfig;
 
   /**
-   * <p>The API ID.</p>
+   * <p>The new Elasticsearch Service configuration.</p>
    */
-  apiId: string | undefined;
+  elasticsearchConfig?: ElasticsearchDataSourceConfig;
+
+  /**
+   * <p>The new service role ARN for the data source.</p>
+   */
+  serviceRoleArn?: string;
+
+  /**
+   * <p>The new AWS Lambda configuration.</p>
+   */
+  lambdaConfig?: LambdaDataSourceConfig;
 
   /**
    * <p>The new relational database configuration.</p>
@@ -2861,16 +3017,6 @@ export interface UpdateDataSourceRequest {
   type: DataSourceType | string | undefined;
 
   /**
-   * <p>The new AWS Lambda configuration.</p>
-   */
-  lambdaConfig?: LambdaDataSourceConfig;
-
-  /**
-   * <p>The new service role ARN for the data source.</p>
-   */
-  serviceRoleArn?: string;
-
-  /**
    * <p>The new description for the data source.</p>
    */
   description?: string;
@@ -2879,16 +3025,6 @@ export interface UpdateDataSourceRequest {
    * <p>The new name for the data source.</p>
    */
   name: string | undefined;
-
-  /**
-   * <p>The new HTTP endpoint configuration.</p>
-   */
-  httpConfig?: HttpDataSourceConfig;
-
-  /**
-   * <p>The new Elasticsearch Service configuration.</p>
-   */
-  elasticsearchConfig?: ElasticsearchDataSourceConfig;
 }
 
 export namespace UpdateDataSourceRequest {
@@ -2912,25 +3048,10 @@ export namespace UpdateDataSourceResponse {
 
 export interface UpdateFunctionRequest {
   /**
-   * <p>The GraphQL API ID.</p>
-   */
-  apiId: string | undefined;
-
-  /**
-   * <p>The <code>Function</code> description.</p>
-   */
-  description?: string;
-
-  /**
    * <p>The <code>Function</code> request mapping template. Functions support only the
    *          2018-05-29 version of the request mapping template.</p>
    */
-  requestMappingTemplate: string | undefined;
-
-  /**
-   * <p>The <code>Function</code> name.</p>
-   */
-  name: string | undefined;
+  requestMappingTemplate?: string;
 
   /**
    * <p>The <code>Function</code>
@@ -2944,15 +3065,30 @@ export interface UpdateFunctionRequest {
   functionId: string | undefined;
 
   /**
-   * <p>The <code>Function</code> request mapping template. </p>
+   * <p>The <code>Function</code> description.</p>
    */
-  responseMappingTemplate?: string;
+  description?: string;
 
   /**
    * <p>The <code>version</code> of the request mapping template. Currently the supported value
    *          is 2018-05-29. </p>
    */
   functionVersion: string | undefined;
+
+  /**
+   * <p>The GraphQL API ID.</p>
+   */
+  apiId: string | undefined;
+
+  /**
+   * <p>The <code>Function</code> name.</p>
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The <code>Function</code> request mapping template. </p>
+   */
+  responseMappingTemplate?: string;
 }
 
 export namespace UpdateFunctionRequest {
@@ -2976,15 +3112,24 @@ export namespace UpdateFunctionResponse {
 
 export interface UpdateGraphqlApiRequest {
   /**
+   * <p>The API ID.</p>
+   */
+  apiId: string | undefined;
+
+  /**
+   * <p>The new authentication type for the <code>GraphqlApi</code> object.</p>
+   */
+  authenticationType?: AuthenticationType | string;
+
+  /**
    * <p>The Amazon CloudWatch Logs configuration for the <code>GraphqlApi</code> object.</p>
    */
   logConfig?: LogConfig;
 
   /**
-   * <p>A list of additional authentication providers for the <code>GraphqlApi</code>
-   *          API.</p>
+   * <p>The new name for the <code>GraphqlApi</code> object.</p>
    */
-  additionalAuthenticationProviders?: AdditionalAuthenticationProvider[];
+  name: string | undefined;
 
   /**
    * <p>A flag indicating whether to enable X-Ray tracing for the
@@ -2993,15 +3138,10 @@ export interface UpdateGraphqlApiRequest {
   xrayEnabled?: boolean;
 
   /**
-   * <p>The new Amazon Cognito user pool configuration for the <code>GraphqlApi</code>
-   *          object.</p>
+   * <p>A list of additional authentication providers for the <code>GraphqlApi</code>
+   *          API.</p>
    */
-  userPoolConfig?: UserPoolConfig;
-
-  /**
-   * <p>The new authentication type for the <code>GraphqlApi</code> object.</p>
-   */
-  authenticationType?: AuthenticationType | string;
+  additionalAuthenticationProviders?: AdditionalAuthenticationProvider[];
 
   /**
    * <p>The OpenID Connect configuration for the <code>GraphqlApi</code> object.</p>
@@ -3009,14 +3149,10 @@ export interface UpdateGraphqlApiRequest {
   openIDConnectConfig?: OpenIDConnectConfig;
 
   /**
-   * <p>The new name for the <code>GraphqlApi</code> object.</p>
+   * <p>The new Amazon Cognito user pool configuration for the <code>GraphqlApi</code>
+   *          object.</p>
    */
-  name: string | undefined;
-
-  /**
-   * <p>The API ID.</p>
-   */
-  apiId: string | undefined;
+  userPoolConfig?: UserPoolConfig;
 }
 
 export namespace UpdateGraphqlApiRequest {
@@ -3040,9 +3176,14 @@ export namespace UpdateGraphqlApiResponse {
 
 export interface UpdateResolverRequest {
   /**
-   * <p>The new request mapping template.</p>
+   * <p>The new field name.</p>
    */
-  requestMappingTemplate: string | undefined;
+  fieldName: string | undefined;
+
+  /**
+   * <p>The <code>PipelineConfig</code>.</p>
+   */
+  pipelineConfig?: PipelineConfig;
 
   /**
    * <p>The resolver type.</p>
@@ -3065,14 +3206,14 @@ export interface UpdateResolverRequest {
   kind?: ResolverKind | string;
 
   /**
-   * <p>The new data source name.</p>
+   * <p>The new response mapping template.</p>
    */
-  dataSourceName?: string;
+  responseMappingTemplate?: string;
 
   /**
-   * <p>The <code>PipelineConfig</code>.</p>
+   * <p>The caching configuration for the resolver.</p>
    */
-  pipelineConfig?: PipelineConfig;
+  cachingConfig?: CachingConfig;
 
   /**
    * <p>The <code>SyncConfig</code> for a resolver attached to a versioned datasource.</p>
@@ -3085,24 +3226,24 @@ export interface UpdateResolverRequest {
   typeName: string | undefined;
 
   /**
+   * <p>The new data source name.</p>
+   */
+  dataSourceName?: string;
+
+  /**
    * <p>The API ID.</p>
    */
   apiId: string | undefined;
 
   /**
-   * <p>The new response mapping template.</p>
+   * <p>The new request mapping template.</p>
+   *          <p>A resolver uses a request mapping template to convert a GraphQL expression into a format
+   *          that a data source can understand. Mapping templates are written in Apache Velocity
+   *          Template Language (VTL).</p>
+   *          <p>VTL request mapping templates are optional when using a Lambda data source. For all
+   *          other data sources, VTL request and response mapping templates are required.</p>
    */
-  responseMappingTemplate?: string;
-
-  /**
-   * <p>The caching configuration for the resolver.</p>
-   */
-  cachingConfig?: CachingConfig;
-
-  /**
-   * <p>The new field name.</p>
-   */
-  fieldName: string | undefined;
+  requestMappingTemplate?: string;
 }
 
 export namespace UpdateResolverRequest {
@@ -3131,6 +3272,11 @@ export interface UpdateTypeRequest {
   format: TypeDefinitionFormat | string | undefined;
 
   /**
+   * <p>The new definition.</p>
+   */
+  definition?: string;
+
+  /**
    * <p>The new type name.</p>
    */
   typeName: string | undefined;
@@ -3139,11 +3285,6 @@ export interface UpdateTypeRequest {
    * <p>The API ID.</p>
    */
   apiId: string | undefined;
-
-  /**
-   * <p>The new definition.</p>
-   */
-  definition?: string;
 }
 
 export namespace UpdateTypeRequest {

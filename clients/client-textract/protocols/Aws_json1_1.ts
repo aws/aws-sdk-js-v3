@@ -48,6 +48,7 @@ import {
   InvalidS3ObjectException,
   LimitExceededException,
   NotificationChannel,
+  OutputConfig,
   Point,
   ProvisionedThroughputExceededException,
   Relationship,
@@ -456,6 +457,14 @@ const deserializeAws_json1_1GetDocumentAnalysisCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "InvalidS3ObjectException":
+    case "com.amazonaws.textract#InvalidS3ObjectException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidS3ObjectExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "ProvisionedThroughputExceededException":
     case "com.amazonaws.textract#ProvisionedThroughputExceededException":
       response = {
@@ -547,6 +556,14 @@ const deserializeAws_json1_1GetDocumentTextDetectionCommandError = async (
     case "com.amazonaws.textract#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidS3ObjectException":
+    case "com.amazonaws.textract#InvalidS3ObjectException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidS3ObjectExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -1141,6 +1158,13 @@ const serializeAws_json1_1NotificationChannel = (input: NotificationChannel, con
   };
 };
 
+const serializeAws_json1_1OutputConfig = (input: OutputConfig, context: __SerdeContext): any => {
+  return {
+    ...(input.S3Bucket !== undefined && { S3Bucket: input.S3Bucket }),
+    ...(input.S3Prefix !== undefined && { S3Prefix: input.S3Prefix }),
+  };
+};
+
 const serializeAws_json1_1S3Object = (input: S3Object, context: __SerdeContext): any => {
   return {
     ...(input.Bucket !== undefined && { Bucket: input.Bucket }),
@@ -1165,6 +1189,9 @@ const serializeAws_json1_1StartDocumentAnalysisRequest = (
     ...(input.NotificationChannel !== undefined && {
       NotificationChannel: serializeAws_json1_1NotificationChannel(input.NotificationChannel, context),
     }),
+    ...(input.OutputConfig !== undefined && {
+      OutputConfig: serializeAws_json1_1OutputConfig(input.OutputConfig, context),
+    }),
   };
 };
 
@@ -1180,6 +1207,9 @@ const serializeAws_json1_1StartDocumentTextDetectionRequest = (
     ...(input.JobTag !== undefined && { JobTag: input.JobTag }),
     ...(input.NotificationChannel !== undefined && {
       NotificationChannel: serializeAws_json1_1NotificationChannel(input.NotificationChannel, context),
+    }),
+    ...(input.OutputConfig !== undefined && {
+      OutputConfig: serializeAws_json1_1OutputConfig(input.OutputConfig, context),
     }),
   };
 };

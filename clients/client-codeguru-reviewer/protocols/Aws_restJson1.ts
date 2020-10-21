@@ -2,6 +2,7 @@ import {
   AssociateRepositoryCommandInput,
   AssociateRepositoryCommandOutput,
 } from "../commands/AssociateRepositoryCommand";
+import { CreateCodeReviewCommandInput, CreateCodeReviewCommandOutput } from "../commands/CreateCodeReviewCommand";
 import { DescribeCodeReviewCommandInput, DescribeCodeReviewCommandOutput } from "../commands/DescribeCodeReviewCommand";
 import {
   DescribeRecommendationFeedbackCommandInput,
@@ -37,6 +38,7 @@ import {
   CodeCommitRepository,
   CodeReview,
   CodeReviewSummary,
+  CodeReviewType,
   CommitDiffSourceCodeType,
   ConflictException,
   InternalServerException,
@@ -48,8 +50,10 @@ import {
   RecommendationFeedbackSummary,
   RecommendationSummary,
   Repository,
+  RepositoryAnalysis,
   RepositoryAssociation,
   RepositoryAssociationSummary,
+  RepositoryHeadSourceCodeType,
   ResourceNotFoundException,
   SourceCodeType,
   ThirdPartySourceRepository,
@@ -81,6 +85,33 @@ export const serializeAws_restJson1AssociateRepositoryCommand = async (
   body = JSON.stringify({
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
     ...(input.Repository !== undefined && { Repository: serializeAws_restJson1Repository(input.Repository, context) }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1CreateCodeReviewCommand = async (
+  input: CreateCodeReviewCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+  };
+  let resolvedPath = "/codereviews";
+  let body: any;
+  body = JSON.stringify({
+    ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
+    ...(input.Name !== undefined && { Name: input.Name }),
+    ...(input.RepositoryAssociationArn !== undefined && { RepositoryAssociationArn: input.RepositoryAssociationArn }),
+    ...(input.Type !== undefined && { Type: serializeAws_restJson1CodeReviewType(input.Type, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -142,8 +173,8 @@ export const serializeAws_restJson1DescribeRecommendationFeedbackCommand = async
     throw new Error("No value provided for input HTTP label: CodeReviewArn.");
   }
   const query: any = {
-    ...(input.RecommendationId !== undefined && { RecommendationId: input.RecommendationId }),
     ...(input.UserId !== undefined && { UserId: input.UserId }),
+    ...(input.RecommendationId !== undefined && { RecommendationId: input.RecommendationId }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -228,14 +259,14 @@ export const serializeAws_restJson1ListCodeReviewsCommand = async (
   };
   let resolvedPath = "/codereviews";
   const query: any = {
+    ...(input.ProviderTypes !== undefined && { ProviderTypes: (input.ProviderTypes || []).map((_entry) => _entry) }),
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults.toString() }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.States !== undefined && { States: (input.States || []).map((_entry) => _entry) }),
     ...(input.RepositoryNames !== undefined && {
       RepositoryNames: (input.RepositoryNames || []).map((_entry) => _entry),
     }),
     ...(input.Type !== undefined && { Type: input.Type }),
-    ...(input.States !== undefined && { States: (input.States || []).map((_entry) => _entry) }),
-    ...(input.ProviderTypes !== undefined && { ProviderTypes: (input.ProviderTypes || []).map((_entry) => _entry) }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -270,11 +301,11 @@ export const serializeAws_restJson1ListRecommendationFeedbackCommand = async (
   }
   const query: any = {
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults.toString() }),
-    ...(input.UserIds !== undefined && { UserIds: (input.UserIds || []).map((_entry) => _entry) }),
     ...(input.RecommendationIds !== undefined && {
       RecommendationIds: (input.RecommendationIds || []).map((_entry) => _entry),
     }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.UserIds !== undefined && { UserIds: (input.UserIds || []).map((_entry) => _entry) }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -334,12 +365,12 @@ export const serializeAws_restJson1ListRepositoryAssociationsCommand = async (
   };
   let resolvedPath = "/associations";
   const query: any = {
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.Owners !== undefined && { Owner: (input.Owners || []).map((_entry) => _entry) }),
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults.toString() }),
+    ...(input.Names !== undefined && { Name: (input.Names || []).map((_entry) => _entry) }),
     ...(input.ProviderTypes !== undefined && { ProviderType: (input.ProviderTypes || []).map((_entry) => _entry) }),
     ...(input.States !== undefined && { State: (input.States || []).map((_entry) => _entry) }),
-    ...(input.Owners !== undefined && { Owner: (input.Owners || []).map((_entry) => _entry) }),
-    ...(input.Names !== undefined && { Name: (input.Names || []).map((_entry) => _entry) }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -431,6 +462,101 @@ const deserializeAws_restJson1AssociateRepositoryCommandError = async (
     case "com.amazonaws.codegurureviewer#InternalServerException":
       response = {
         ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.codegurureviewer#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.codegurureviewer#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1CreateCodeReviewCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateCodeReviewCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1CreateCodeReviewCommandError(output, context);
+  }
+  const contents: CreateCodeReviewCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    CodeReview: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.CodeReview !== undefined && data.CodeReview !== null) {
+    contents.CodeReview = deserializeAws_restJson1CodeReview(data.CodeReview, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1CreateCodeReviewCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateCodeReviewCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.codegurureviewer#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConflictException":
+    case "com.amazonaws.codegurureviewer#ConflictException":
+      response = {
+        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.codegurureviewer#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.codegurureviewer#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -1384,6 +1510,14 @@ const serializeAws_restJson1CodeCommitRepository = (input: CodeCommitRepository,
   };
 };
 
+const serializeAws_restJson1CodeReviewType = (input: CodeReviewType, context: __SerdeContext): any => {
+  return {
+    ...(input.RepositoryAnalysis !== undefined && {
+      RepositoryAnalysis: serializeAws_restJson1RepositoryAnalysis(input.RepositoryAnalysis, context),
+    }),
+  };
+};
+
 const serializeAws_restJson1Reactions = (input: (Reaction | string)[], context: __SerdeContext): any => {
   return input.map((entry) => entry);
 };
@@ -1399,6 +1533,23 @@ const serializeAws_restJson1Repository = (input: Repository, context: __SerdeCon
     ...(input.GitHubEnterpriseServer !== undefined && {
       GitHubEnterpriseServer: serializeAws_restJson1ThirdPartySourceRepository(input.GitHubEnterpriseServer, context),
     }),
+  };
+};
+
+const serializeAws_restJson1RepositoryAnalysis = (input: RepositoryAnalysis, context: __SerdeContext): any => {
+  return {
+    ...(input.RepositoryHead !== undefined && {
+      RepositoryHead: serializeAws_restJson1RepositoryHeadSourceCodeType(input.RepositoryHead, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1RepositoryHeadSourceCodeType = (
+  input: RepositoryHeadSourceCodeType,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.BranchName !== undefined && { BranchName: input.BranchName }),
   };
 };
 
@@ -1635,11 +1786,24 @@ const deserializeAws_restJson1RepositoryAssociationSummary = (
   } as any;
 };
 
+const deserializeAws_restJson1RepositoryHeadSourceCodeType = (
+  output: any,
+  context: __SerdeContext
+): RepositoryHeadSourceCodeType => {
+  return {
+    BranchName: output.BranchName !== undefined && output.BranchName !== null ? output.BranchName : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1SourceCodeType = (output: any, context: __SerdeContext): SourceCodeType => {
   return {
     CommitDiff:
       output.CommitDiff !== undefined && output.CommitDiff !== null
         ? deserializeAws_restJson1CommitDiffSourceCodeType(output.CommitDiff, context)
+        : undefined,
+    RepositoryHead:
+      output.RepositoryHead !== undefined && output.RepositoryHead !== null
+        ? deserializeAws_restJson1RepositoryHeadSourceCodeType(output.RepositoryHead, context)
         : undefined,
   } as any;
 };

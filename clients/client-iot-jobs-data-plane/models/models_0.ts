@@ -26,15 +26,15 @@ export interface DescribeJobExecutionRequest {
   jobId: string | undefined;
 
   /**
+   * <p>The thing name associated with the device the job execution is running on.</p>
+   */
+  thingName: string | undefined;
+
+  /**
    * <p>Optional. A number that identifies a particular job execution on a particular device. If not specified,
    *          the latest job execution is returned.</p>
    */
   executionNumber?: number;
-
-  /**
-   * <p>The thing name associated with the device the job execution is running on.</p>
-   */
-  thingName: string | undefined;
 
   /**
    * <p>Optional. When set to true, the response contains the job document. The default is false.</p>
@@ -70,9 +70,30 @@ export interface JobExecution {
   versionNumber?: number;
 
   /**
+   * <p>The content of the job document.</p>
+   */
+  jobDocument?: string;
+
+  /**
    * <p>The unique identifier you assigned to this job when it was created.</p>
    */
   jobId?: string;
+
+  /**
+   * <p>The time, in milliseconds since the epoch, when the job execution was enqueued.</p>
+   */
+  queuedAt?: number;
+
+  /**
+   * <p>The estimated number of seconds that remain before the job execution status will be
+   *            changed to <code>TIMED_OUT</code>.</p>
+   */
+  approximateSecondsBeforeTimedOut?: number;
+
+  /**
+   * <p>The time, in milliseconds since the epoch, when the job execution was started.</p>
+   */
+  startedAt?: number;
 
   /**
    * <p>The status of the job execution. Can be one of: "QUEUED", "IN_PROGRESS", "FAILED", "SUCCESS", "CANCELED",
@@ -81,30 +102,9 @@ export interface JobExecution {
   status?: JobExecutionStatus | string;
 
   /**
-   * <p>The content of the job document.</p>
+   * <p>The time, in milliseconds since the epoch, when the job execution was last updated. </p>
    */
-  jobDocument?: string;
-
-  /**
-   * <p>The time, in milliseconds since the epoch, when the job execution was enqueued.</p>
-   */
-  queuedAt?: number;
-
-  /**
-   * <p>A collection of name/value pairs that describe the status of the job execution.</p>
-   */
-  statusDetails?: { [key: string]: string };
-
-  /**
-   * <p>The time, in milliseconds since the epoch, when the job execution was started.</p>
-   */
-  startedAt?: number;
-
-  /**
-   * <p>The estimated number of seconds that remain before the job execution status will be
-   *            changed to <code>TIMED_OUT</code>.</p>
-   */
-  approximateSecondsBeforeTimedOut?: number;
+  lastUpdatedAt?: number;
 
   /**
    * <p>The name of the thing that is executing the job.</p>
@@ -118,9 +118,9 @@ export interface JobExecution {
   executionNumber?: number;
 
   /**
-   * <p>The time, in milliseconds since the epoch, when the job execution was last updated. </p>
+   * <p>A collection of name/value pairs that describe the status of the job execution.</p>
    */
-  lastUpdatedAt?: number;
+  statusDetails?: { [key: string]: string };
 }
 
 export namespace JobExecution {
@@ -252,14 +252,19 @@ export namespace GetPendingJobExecutionsRequest {
  */
 export interface JobExecutionSummary {
   /**
+   * <p>The time, in milliseconds since the epoch, when the job execution was enqueued.</p>
+   */
+  queuedAt?: number;
+
+  /**
    * <p>The unique identifier you assigned to this job when it was created.</p>
    */
   jobId?: string;
 
   /**
-   * <p>The time, in milliseconds since the epoch, when the job execution was enqueued.</p>
+   * <p>The time, in milliseconds since the epoch, when the job execution started.</p>
    */
-  queuedAt?: number;
+  startedAt?: number;
 
   /**
    * <p>The version of the job execution. Job execution versions are incremented each time AWS IoT Jobs receives
@@ -268,19 +273,14 @@ export interface JobExecutionSummary {
   versionNumber?: number;
 
   /**
-   * <p>The time, in milliseconds since the epoch, when the job execution started.</p>
+   * <p>The time, in milliseconds since the epoch, when the job execution was last updated.</p>
    */
-  startedAt?: number;
+  lastUpdatedAt?: number;
 
   /**
    * <p>A number that identifies a particular job execution on a particular device.</p>
    */
   executionNumber?: number;
-
-  /**
-   * <p>The time, in milliseconds since the epoch, when the job execution was last updated.</p>
-   */
-  lastUpdatedAt?: number;
 }
 
 export namespace JobExecutionSummary {
@@ -291,14 +291,14 @@ export namespace JobExecutionSummary {
 
 export interface GetPendingJobExecutionsResponse {
   /**
-   * <p>A list of JobExecutionSummary objects with status IN_PROGRESS.</p>
-   */
-  inProgressJobs?: JobExecutionSummary[];
-
-  /**
    * <p>A list of JobExecutionSummary objects with status QUEUED.</p>
    */
   queuedJobs?: JobExecutionSummary[];
+
+  /**
+   * <p>A list of JobExecutionSummary objects with status IN_PROGRESS.</p>
+   */
+  inProgressJobs?: JobExecutionSummary[];
 }
 
 export namespace GetPendingJobExecutionsResponse {
@@ -369,21 +369,9 @@ export namespace StartNextPendingJobExecutionResponse {
 
 export interface UpdateJobExecutionRequest {
   /**
-   * <p>The unique identifier assigned to this job when it was created.</p>
+   * <p>Optional. When set to true, the response contains the job document. The default is false.</p>
    */
-  jobId: string | undefined;
-
-  /**
-   * <p>The new status for the job execution (IN_PROGRESS, FAILED, SUCCESS, or REJECTED). This must be specified
-   *          on every update.</p>
-   */
-  status: JobExecutionStatus | string | undefined;
-
-  /**
-   * <p> Optional. A collection of name/value pairs that describe the status of the job execution. If not
-   *          specified, the statusDetails are unchanged.</p>
-   */
-  statusDetails?: { [key: string]: string };
+  includeJobDocument?: boolean;
 
   /**
    * <p>Optional. The expected current version of the job execution. Each time you update the job execution, its
@@ -395,15 +383,25 @@ export interface UpdateJobExecutionRequest {
   expectedVersion?: number;
 
   /**
-   * <p>Optional. When included and set to true, the response contains the JobExecutionState data. The default is
-   *          false.</p>
+   * <p>The unique identifier assigned to this job when it was created.</p>
    */
-  includeJobExecutionState?: boolean;
+  jobId: string | undefined;
 
   /**
-   * <p>Optional. When set to true, the response contains the job document. The default is false.</p>
+   * <p>The new status for the job execution (IN_PROGRESS, FAILED, SUCCESS, or REJECTED). This must be specified
+   *          on every update.</p>
    */
-  includeJobDocument?: boolean;
+  status: JobExecutionStatus | string | undefined;
+
+  /**
+   * <p>Optional. A number that identifies a particular job execution on a particular device.</p>
+   */
+  executionNumber?: number;
+
+  /**
+   * <p>The name of the thing associated with the device.</p>
+   */
+  thingName: string | undefined;
 
   /**
    * <p>Specifies the amount of time this device has to finish execution of this job. If the job
@@ -417,14 +415,16 @@ export interface UpdateJobExecutionRequest {
   stepTimeoutInMinutes?: number;
 
   /**
-   * <p>Optional. A number that identifies a particular job execution on a particular device.</p>
+   * <p>Optional. When included and set to true, the response contains the JobExecutionState data. The default is
+   *          false.</p>
    */
-  executionNumber?: number;
+  includeJobExecutionState?: boolean;
 
   /**
-   * <p>The name of the thing associated with the device.</p>
+   * <p> Optional. A collection of name/value pairs that describe the status of the job execution. If not
+   *          specified, the statusDetails are unchanged.</p>
    */
-  thingName: string | undefined;
+  statusDetails?: { [key: string]: string };
 }
 
 export namespace UpdateJobExecutionRequest {
@@ -438,9 +438,10 @@ export namespace UpdateJobExecutionRequest {
  */
 export interface JobExecutionState {
   /**
-   * <p>A collection of name/value pairs that describe the status of the job execution.</p>
+   * <p>The version of the job execution. Job execution versions are incremented each time they are updated by a
+   *          device.</p>
    */
-  statusDetails?: { [key: string]: string };
+  versionNumber?: number;
 
   /**
    * <p>The status of the job execution. Can be one of: "QUEUED", "IN_PROGRESS", "FAILED", "SUCCESS", "CANCELED",
@@ -449,10 +450,9 @@ export interface JobExecutionState {
   status?: JobExecutionStatus | string;
 
   /**
-   * <p>The version of the job execution. Job execution versions are incremented each time they are updated by a
-   *          device.</p>
+   * <p>A collection of name/value pairs that describe the status of the job execution.</p>
    */
-  versionNumber?: number;
+  statusDetails?: { [key: string]: string };
 }
 
 export namespace JobExecutionState {
@@ -463,14 +463,14 @@ export namespace JobExecutionState {
 
 export interface UpdateJobExecutionResponse {
   /**
-   * <p>A JobExecutionState object.</p>
-   */
-  executionState?: JobExecutionState;
-
-  /**
    * <p>The contents of the Job Documents.</p>
    */
   jobDocument?: string;
+
+  /**
+   * <p>A JobExecutionState object.</p>
+   */
+  executionState?: JobExecutionState;
 }
 
 export namespace UpdateJobExecutionResponse {

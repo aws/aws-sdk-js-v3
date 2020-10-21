@@ -10,14 +10,14 @@ export enum AccessEndpointType {
  */
 export interface AccessEndpoint {
   /**
-   * <p>The type of interface endpoint.</p>
-   */
-  EndpointType: AccessEndpointType | string | undefined;
-
-  /**
    * <p>The identifier (ID) of the VPC in which the interface endpoint is used.</p>
    */
   VpceId?: string;
+
+  /**
+   * <p>The type of interface endpoint.</p>
+   */
+  EndpointType: AccessEndpointType | string | undefined;
 }
 
 export namespace AccessEndpoint {
@@ -39,9 +39,14 @@ export enum Action {
  */
 export interface Application {
   /**
-   * <p>The arguments that are passed to the application at launch.</p>
+   * <p>The name of the application.</p>
    */
-  LaunchParameters?: string;
+  Name?: string;
+
+  /**
+   * <p>Additional attributes that describe the application.</p>
+   */
+  Metadata?: { [key: string]: string };
 
   /**
    * <p>The application name to display.</p>
@@ -49,19 +54,9 @@ export interface Application {
   DisplayName?: string;
 
   /**
-   * <p>The name of the application.</p>
+   * <p>The arguments that are passed to the application at launch.</p>
    */
-  Name?: string;
-
-  /**
-   * <p>The path to the application executable in the instance.</p>
-   */
-  LaunchPath?: string;
-
-  /**
-   * <p>Additional attributes that describe the application.</p>
-   */
-  Metadata?: { [key: string]: string };
+  LaunchParameters?: string;
 
   /**
    * <p>If there is a problem, the application can be disabled after image creation.</p>
@@ -72,6 +67,11 @@ export interface Application {
    * <p>The URL for the application icon. This URL might be time-limited.</p>
    */
   IconURL?: string;
+
+  /**
+   * <p>The path to the application executable in the instance.</p>
+   */
+  LaunchPath?: string;
 }
 
 export namespace Application {
@@ -106,15 +106,15 @@ export namespace ApplicationSettings {
  */
 export interface ApplicationSettingsResponse {
   /**
-   * <p>The path prefix for the S3 bucket where users’ persistent application settings are stored.</p>
-   */
-  SettingsGroup?: string;
-
-  /**
    * <p>The S3 bucket where users’ persistent application settings are stored. When persistent application settings are enabled for the first time for an account in an AWS Region, an S3 bucket is created. The bucket is unique to the AWS account and the Region.
    *         </p>
    */
   S3BucketName?: string;
+
+  /**
+   * <p>The path prefix for the S3 bucket where users’ persistent application settings are stored.</p>
+   */
+  SettingsGroup?: string;
 
   /**
    * <p>Specifies whether persistent application settings are enabled for users during their streaming sessions.</p>
@@ -273,9 +273,9 @@ export enum AuthenticationType {
  */
 export interface UserStackAssociation {
   /**
-   * <p>The name of the stack that is associated with the user.</p>
+   * <p>Specifies whether a welcome email is sent to a user after the user is created in the user pool.</p>
    */
-  StackName: string | undefined;
+  SendEmailNotification?: boolean;
 
   /**
    * <p>The authentication type for the user.</p>
@@ -283,9 +283,9 @@ export interface UserStackAssociation {
   AuthenticationType: AuthenticationType | string | undefined;
 
   /**
-   * <p>Specifies whether a welcome email is sent to a user after the user is created in the user pool.</p>
+   * <p>The name of the stack that is associated with the user.</p>
    */
-  SendEmailNotification?: boolean;
+  StackName: string | undefined;
 
   /**
    * <p>The email address of the user who is associated with the stack.</p>
@@ -321,6 +321,7 @@ export namespace BatchAssociateUserStackRequest {
 }
 
 export enum UserStackAssociationErrorCode {
+  DIRECTORY_NOT_FOUND = "DIRECTORY_NOT_FOUND",
   INTERNAL_ERROR = "INTERNAL_ERROR",
   STACK_NOT_FOUND = "STACK_NOT_FOUND",
   USER_NAME_NOT_FOUND = "USER_NAME_NOT_FOUND",
@@ -331,14 +332,14 @@ export enum UserStackAssociationErrorCode {
  */
 export interface UserStackAssociationError {
   /**
-   * <p>Information about the user and associated stack.</p>
-   */
-  UserStackAssociation?: UserStackAssociation;
-
-  /**
    * <p>The error code for the error that is returned when a user can’t be associated with or disassociated from a stack.</p>
    */
   ErrorCode?: UserStackAssociationErrorCode | string;
+
+  /**
+   * <p>Information about the user and associated stack.</p>
+   */
+  UserStackAssociation?: UserStackAssociation;
 
   /**
    * <p>The error message for the error that is returned when a user can’t be associated with or disassociated from a stack.</p>
@@ -366,6 +367,24 @@ export namespace BatchAssociateUserStackResult {
   export const filterSensitiveLog = (obj: BatchAssociateUserStackResult): any => ({
     ...obj,
     ...(obj.errors && { errors: obj.errors.map((item) => UserStackAssociationError.filterSensitiveLog(item)) }),
+  });
+}
+
+/**
+ * <p>Indicates an incorrect combination of parameters, or a missing parameter.</p>
+ */
+export interface InvalidParameterCombinationException extends __SmithyException, $MetadataBearer {
+  name: "InvalidParameterCombinationException";
+  $fault: "client";
+  /**
+   * <p>The error message in the exception.</p>
+   */
+  Message?: string;
+}
+
+export namespace InvalidParameterCombinationException {
+  export const filterSensitiveLog = (obj: InvalidParameterCombinationException): any => ({
+    ...obj,
   });
 }
 
@@ -420,9 +439,9 @@ export namespace ComputeCapacity {
  */
 export interface ComputeCapacityStatus {
   /**
-   * <p>The number of instances in use for streaming.</p>
+   * <p>The desired number of streaming instances.</p>
    */
-  InUse?: number;
+  Desired: number | undefined;
 
   /**
    * <p>The number of currently available instances that can be used to stream
@@ -431,9 +450,9 @@ export interface ComputeCapacityStatus {
   Available?: number;
 
   /**
-   * <p>The desired number of streaming instances.</p>
+   * <p>The number of instances in use for streaming.</p>
    */
-  Desired: number | undefined;
+  InUse?: number;
 
   /**
    * <p>The total number of simultaneous streaming instances that are running.</p>
@@ -449,14 +468,9 @@ export namespace ComputeCapacityStatus {
 
 export interface CopyImageRequest {
   /**
-   * <p>The name of the image to copy.</p>
+   * <p>The destination region to which the image will be copied. This parameter is required, even if you are copying an image within the same region.</p>
    */
-  SourceImageName: string | undefined;
-
-  /**
-   * <p>The description that the image will have when it is copied to the destination.</p>
-   */
-  DestinationImageDescription?: string;
+  DestinationRegion: string | undefined;
 
   /**
    * <p>The name that the image will have when it is copied to the destination.</p>
@@ -464,9 +478,14 @@ export interface CopyImageRequest {
   DestinationImageName: string | undefined;
 
   /**
-   * <p>The destination region to which the image will be copied. This parameter is required, even if you are copying an image within the same region.</p>
+   * <p>The description that the image will have when it is copied to the destination.</p>
    */
-  DestinationRegion: string | undefined;
+  DestinationImageDescription?: string;
+
+  /**
+   * <p>The name of the image to copy.</p>
+   */
+  SourceImageName: string | undefined;
 }
 
 export namespace CopyImageRequest {
@@ -551,6 +570,11 @@ export namespace ServiceAccountCredentials {
 
 export interface CreateDirectoryConfigRequest {
   /**
+   * <p>The credentials for the service account used by the fleet or image builder to connect to the directory.</p>
+   */
+  ServiceAccountCredentials?: ServiceAccountCredentials;
+
+  /**
    * <p>The fully qualified name of the directory (for example, corp.example.com).</p>
    */
   DirectoryName: string | undefined;
@@ -559,11 +583,6 @@ export interface CreateDirectoryConfigRequest {
    * <p>The distinguished names of the organizational units for computer accounts.</p>
    */
   OrganizationalUnitDistinguishedNames: string[] | undefined;
-
-  /**
-   * <p>The credentials for the service account used by the fleet or image builder to connect to the directory.</p>
-   */
-  ServiceAccountCredentials: ServiceAccountCredentials | undefined;
 }
 
 export namespace CreateDirectoryConfigRequest {
@@ -580,11 +599,6 @@ export namespace CreateDirectoryConfigRequest {
  */
 export interface DirectoryConfig {
   /**
-   * <p>The credentials for the service account used by the fleet or image builder to connect to the directory.</p>
-   */
-  ServiceAccountCredentials?: ServiceAccountCredentials;
-
-  /**
    * <p>The fully qualified name of the directory (for example, corp.example.com).</p>
    */
   DirectoryName: string | undefined;
@@ -593,6 +607,11 @@ export interface DirectoryConfig {
    * <p>The time the directory configuration was created.</p>
    */
   CreatedTime?: Date;
+
+  /**
+   * <p>The credentials for the service account used by the fleet or image builder to connect to the directory.</p>
+   */
+  ServiceAccountCredentials?: ServiceAccountCredentials;
 
   /**
    * <p>The distinguished names of the organizational units for computer accounts.</p>
@@ -624,18 +643,36 @@ export namespace CreateDirectoryConfigResult {
 }
 
 /**
+ * <p>The specified role is invalid.</p>
+ */
+export interface InvalidRoleException extends __SmithyException, $MetadataBearer {
+  name: "InvalidRoleException";
+  $fault: "client";
+  /**
+   * <p>The error message in the exception.</p>
+   */
+  Message?: string;
+}
+
+export namespace InvalidRoleException {
+  export const filterSensitiveLog = (obj: InvalidRoleException): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>Describes the configuration information required to join fleets and image builders to Microsoft Active Directory domains.</p>
  */
 export interface DomainJoinInfo {
   /**
-   * <p>The fully qualified name of the directory (for example, corp.example.com).</p>
-   */
-  DirectoryName?: string;
-
-  /**
    * <p>The distinguished name of the organizational unit for computer accounts.</p>
    */
   OrganizationalUnitDistinguishedName?: string;
+
+  /**
+   * <p>The fully qualified name of the directory (for example, corp.example.com).</p>
+   */
+  DirectoryName?: string;
 }
 
 export namespace DomainJoinInfo {
@@ -649,19 +686,24 @@ export enum FleetType {
   ON_DEMAND = "ON_DEMAND",
 }
 
+export enum StreamView {
+  APP = "APP",
+  DESKTOP = "DESKTOP",
+}
+
 /**
  * <p>Describes VPC configuration information for fleets and image builders.</p>
  */
 export interface VpcConfig {
   /**
-   * <p>The identifiers of the security groups for the fleet or image builder.</p>
-   */
-  SecurityGroupIds?: string[];
-
-  /**
    * <p>The identifiers of the subnets to which a network interface is attached from the fleet instance or image builder instance. Fleet instances use one or more subnets. Image builder instances use one subnet.</p>
    */
   SubnetIds?: string[];
+
+  /**
+   * <p>The identifiers of the security groups for the fleet or image builder.</p>
+   */
+  SecurityGroupIds?: string[];
 }
 
 export namespace VpcConfig {
@@ -672,69 +714,28 @@ export namespace VpcConfig {
 
 export interface CreateFleetRequest {
   /**
-   * <p>Enables or disables default internet access for the fleet.</p>
-   */
-  EnableDefaultInternetAccess?: boolean;
-
-  /**
-   * <p>The description to display.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The desired capacity for the fleet.</p>
-   */
-  ComputeCapacity: ComputeCapacity | undefined;
-
-  /**
-   * <p>The VPC configuration for the fleet.</p>
-   */
-  VpcConfig?: VpcConfig;
-
-  /**
-   * <p>The fleet type.</p>
-   *         <dl>
-   *             <dt>ALWAYS_ON</dt>
-   *             <dd>
-   *                     <p>Provides users with instant-on access to their apps.
-   *                         You are charged for all running instances in your fleet, even if no users are streaming apps.</p>
-   *                 </dd>
-   *             <dt>ON_DEMAND</dt>
-   *             <dd>
-   *                     <p>Provide users with access to applications after they connect, which takes one to two minutes.
-   *                         You are charged for instance streaming when users are connected and a
-   *                         small hourly fee for instances that are not streaming apps.</p>
-   *                 </dd>
-   *          </dl>
-   */
-  FleetType?: FleetType | string;
-
-  /**
-   * <p>The amount of time that a streaming session remains active after users disconnect. If users try to reconnect to the streaming session after a disconnection or network interruption within this time interval, they are connected to their previous session. Otherwise, they are connected to a new session with a new streaming instance. </p>
-   *         <p>Specify a value between 60 and 360000.</p>
-   */
-  DisconnectTimeoutInSeconds?: number;
-
-  /**
    * <p>A unique name for the fleet.</p>
    */
   Name: string | undefined;
 
   /**
-   * <p>The name of the directory and organizational unit (OU) to use to join the fleet to a Microsoft Active Directory domain. </p>
+   * <p>The Amazon Resource Name (ARN) of the IAM role to apply to the fleet. To assume a role, a fleet instance calls the AWS Security Token Service (STS) <code>AssumeRole</code> API operation and passes the ARN of the role to use. The operation creates a new session with temporary credentials. AppStream 2.0 retrieves the temporary credentials and creates the <b>appstream_machine_role</b> credential profile on the instance.</p>
+   *
+   *         <p>For more information, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances.html">Using an IAM Role to Grant Permissions to Applications and Scripts Running on AppStream 2.0 Streaming Instances</a> in the <i>Amazon AppStream 2.0 Administration Guide</i>.</p>
    */
-  DomainJoinInfo?: DomainJoinInfo;
+  IamRoleArn?: string;
 
   /**
-   * <p>The name of the image used to create the fleet.</p>
+   * <p>The AppStream 2.0 view that is displayed to your users when they stream from the fleet. When <code>APP</code> is specified, only the windows of applications opened by users display. When <code>DESKTOP</code> is specified, the standard desktop that is provided by the operating system displays.</p>
+   *
+   *         <p>The default value is <code>APP</code>.</p>
    */
-  ImageName?: string;
+  StreamView?: StreamView | string;
 
   /**
-   * <p>The maximum amount of time that a streaming session can remain active, in seconds. If users are still connected to a streaming instance five minutes before this limit is reached, they are prompted to save any open documents before being disconnected. After this time elapses, the instance is terminated and replaced by a new instance.</p>
-   *         <p>Specify a value between 600 and 360000.</p>
+   * <p>Enables or disables default internet access for the fleet.</p>
    */
-  MaxUserDurationInSeconds?: number;
+  EnableDefaultInternetAccess?: boolean;
 
   /**
    * <p>The amount of time that users can be idle (inactive) before they are disconnected
@@ -755,16 +756,58 @@ export interface CreateFleetRequest {
   IdleDisconnectTimeoutInSeconds?: number;
 
   /**
+   * <p>The name of the directory and organizational unit (OU) to use to join the fleet to a Microsoft Active Directory domain. </p>
+   */
+  DomainJoinInfo?: DomainJoinInfo;
+
+  /**
    * <p>The fleet name to display.</p>
    */
   DisplayName?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role to apply to the fleet. To assume a role, a fleet instance calls the AWS Security Token Service (STS) <code>AssumeRole</code> API operation and passes the ARN of the role to use. The operation creates a new session with temporary credentials. AppStream 2.0 retrieves the temporary credentials and creates the <b>AppStream_Machine_Role</b> credential profile on the instance.</p>
-   *
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances.html">Using an IAM Role to Grant Permissions to Applications and Scripts Running on AppStream 2.0 Streaming Instances</a> in the <i>Amazon AppStream 2.0 Administration Guide</i>.</p>
+   * <p>The amount of time that a streaming session remains active after users disconnect. If users try to reconnect to the streaming session after a disconnection or network interruption within this time interval, they are connected to their previous session. Otherwise, they are connected to a new session with a new streaming instance. </p>
+   *         <p>Specify a value between 60 and 360000.</p>
    */
-  IamRoleArn?: string;
+  DisconnectTimeoutInSeconds?: number;
+
+  /**
+   * <p>The fleet type.</p>
+   *         <dl>
+   *             <dt>ALWAYS_ON</dt>
+   *             <dd>
+   *                     <p>Provides users with instant-on access to their apps.
+   *                         You are charged for all running instances in your fleet, even if no users are streaming apps.</p>
+   *                 </dd>
+   *             <dt>ON_DEMAND</dt>
+   *             <dd>
+   *                     <p>Provide users with access to applications after they connect, which takes one to two minutes.
+   *                         You are charged for instance streaming when users are connected and a
+   *                         small hourly fee for instances that are not streaming apps.</p>
+   *                 </dd>
+   *          </dl>
+   */
+  FleetType?: FleetType | string;
+
+  /**
+   * <p>The desired capacity for the fleet.</p>
+   */
+  ComputeCapacity: ComputeCapacity | undefined;
+
+  /**
+   * <p>The name of the image used to create the fleet.</p>
+   */
+  ImageName?: string;
+
+  /**
+   * <p>The VPC configuration for the fleet.</p>
+   */
+  VpcConfig?: VpcConfig;
+
+  /**
+   * <p>The description to display.</p>
+   */
+  Description?: string;
 
   /**
    * <p>The instance type to use when launching fleet instances. The following instance types are available:</p>
@@ -806,6 +849,24 @@ export interface CreateFleetRequest {
    *                <p>stream.memory.8xlarge</p>
    *             </li>
    *             <li>
+   *                <p>stream.memory.z1d.large</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.memory.z1d.xlarge</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.memory.z1d.2xlarge</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.memory.z1d.3xlarge</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.memory.z1d.6xlarge</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.memory.z1d.12xlarge</p>
+   *             </li>
+   *             <li>
    *                <p>stream.graphics-design.large</p>
    *             </li>
    *             <li>
@@ -821,6 +882,24 @@ export interface CreateFleetRequest {
    *                <p>stream.graphics-desktop.2xlarge</p>
    *             </li>
    *             <li>
+   *                <p>stream.graphics.g4dn.xlarge</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.graphics.g4dn.2xlarge</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.graphics.g4dn.4xlarge</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.graphics.g4dn.8xlarge</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.graphics.g4dn.12xlarge</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.graphics.g4dn.16xlarge</p>
+   *             </li>
+   *             <li>
    *                <p>stream.graphics-pro.4xlarge</p>
    *             </li>
    *             <li>
@@ -834,11 +913,6 @@ export interface CreateFleetRequest {
   InstanceType: string | undefined;
 
   /**
-   * <p>The ARN of the public, private, or shared image to use.</p>
-   */
-  ImageArn?: string;
-
-  /**
    * <p>The tags to associate with the fleet. A tag is a key-value pair, and the value is optional. For example, Environment=Test. If you do not specify a value, Environment=. </p>
    *
    *         <p>If you do not specify a value, the value is set to an empty string.</p>
@@ -849,6 +923,17 @@ export interface CreateFleetRequest {
    *         <p>For more information, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html">Tagging Your Resources</a> in the <i>Amazon AppStream 2.0 Administration Guide</i>.</p>
    */
   Tags?: { [key: string]: string };
+
+  /**
+   * <p>The maximum amount of time that a streaming session can remain active, in seconds. If users are still connected to a streaming instance five minutes before this limit is reached, they are prompted to save any open documents before being disconnected. After this time elapses, the instance is terminated and replaced by a new instance.</p>
+   *         <p>Specify a value between 600 and 360000.</p>
+   */
+  MaxUserDurationInSeconds?: number;
+
+  /**
+   * <p>The ARN of the public, private, or shared image to use.</p>
+   */
+  ImageArn?: string;
 }
 
 export namespace CreateFleetRequest {
@@ -893,14 +978,14 @@ export enum FleetErrorCode {
  */
 export interface FleetError {
   /**
-   * <p>The error message.</p>
-   */
-  ErrorMessage?: string;
-
-  /**
    * <p>The error code.</p>
    */
   ErrorCode?: FleetErrorCode | string;
+
+  /**
+   * <p>The error message.</p>
+   */
+  ErrorMessage?: string;
 }
 
 export namespace FleetError {
@@ -921,115 +1006,14 @@ export enum FleetState {
  */
 export interface Fleet {
   /**
-   * <p>The amount of time that a streaming session remains active after users disconnect. If they try to reconnect to the streaming session after a disconnection or network interruption within this time interval, they are connected to their previous session. Otherwise, they are connected to a new session with a new streaming instance.</p>
-   *         <p>Specify a value between 60 and 360000.</p>
-   */
-  DisconnectTimeoutInSeconds?: number;
-
-  /**
-   * <p>The maximum amount of time that a streaming session can remain active, in seconds. If users are still connected to a streaming instance five minutes before this limit is reached, they are prompted to save any open documents before being disconnected. After this time elapses, the instance is terminated and replaced by a new instance. </p>
-   *         <p>Specify a value between 600 and 360000.</p>
-   */
-  MaxUserDurationInSeconds?: number;
-
-  /**
-   * <p>The fleet errors.</p>
-   */
-  FleetErrors?: FleetError[];
-
-  /**
-   * <p>The fleet name to display.</p>
-   */
-  DisplayName?: string;
-
-  /**
-   * <p>The VPC configuration for the fleet.</p>
-   */
-  VpcConfig?: VpcConfig;
-
-  /**
    * <p>The description to display.</p>
    */
   Description?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) for the fleet.</p>
+   * <p>The VPC configuration for the fleet.</p>
    */
-  Arn: string | undefined;
-
-  /**
-   * <p>The name of the image used to create the fleet.</p>
-   */
-  ImageName?: string;
-
-  /**
-   * <p>The fleet type.</p>
-   *         <dl>
-   *             <dt>ALWAYS_ON</dt>
-   *             <dd>
-   *                     <p>Provides users with instant-on access to their apps.
-   *                         You are charged for all running instances in your fleet, even if no users are streaming apps.</p>
-   *                 </dd>
-   *             <dt>ON_DEMAND</dt>
-   *             <dd>
-   *                     <p>Provide users with access to applications after they connect, which takes one to two minutes.
-   *                         You are charged for instance streaming when users are connected and a
-   *                         small hourly fee for instances that are not streaming apps.</p>
-   *                 </dd>
-   *          </dl>
-   */
-  FleetType?: FleetType | string;
-
-  /**
-   * <p>The current state for the fleet.</p>
-   */
-  State: FleetState | string | undefined;
-
-  /**
-   * <p>The ARN of the IAM role that is applied to the fleet. To assume a role, the fleet instance calls the AWS Security Token Service (STS) <code>AssumeRole</code> API operation and passes the ARN of the role to use. The operation creates a new session with temporary credentials. AppStream 2.0 retrieves the temporary credentials and creates the <b>AppStream_Machine_Role</b> credential profile on the instance.</p>
-   *
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances.html">Using an IAM Role to Grant Permissions to Applications and Scripts Running on AppStream 2.0 Streaming Instances</a> in the <i>Amazon AppStream 2.0 Administration Guide</i>.</p>
-   */
-  IamRoleArn?: string;
-
-  /**
-   * <p>The capacity status for the fleet.</p>
-   */
-  ComputeCapacityStatus: ComputeCapacityStatus | undefined;
-
-  /**
-   * <p>The ARN for the public, private, or shared image.</p>
-   */
-  ImageArn?: string;
-
-  /**
-   * <p>The name of the fleet.</p>
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>The name of the directory and organizational unit (OU) to use to join the fleet to a Microsoft Active Directory domain. </p>
-   */
-  DomainJoinInfo?: DomainJoinInfo;
-
-  /**
-   * <p>The amount of time that users can be idle (inactive) before they are disconnected
-   *             from their streaming session and the <code>DisconnectTimeoutInSeconds</code> time
-   *             interval begins. Users are notified before they are disconnected due to inactivity. If
-   *             users try to reconnect to the streaming session before the time interval specified in
-   *             <code>DisconnectTimeoutInSeconds</code> elapses, they are connected to their
-   *             previous session. Users are considered idle when they stop providing keyboard or mouse
-   *             input during their streaming session. File uploads and downloads, audio in, audio out,
-   *             and pixels changing do not qualify as user activity. If users continue to be idle after
-   *             the time interval in <code>IdleDisconnectTimeoutInSeconds</code> elapses, they are
-   *             disconnected.</p>
-   *         <p>To prevent users from being disconnected due to inactivity, specify a value of 0. Otherwise, specify a value between 60 and 3600. The default value is 0.</p>
-   *
-   *         <note>
-   *             <p>If you enable this feature, we recommend that you specify a value that corresponds exactly to a whole number of minutes (for example, 60, 120, and 180). If you don't do this, the value is rounded to the nearest minute. For example, if you specify a value of 70, users are disconnected after 1 minute of inactivity. If you specify a value that is at the midpoint between two different minutes, the value is rounded up. For example, if you specify a value of 90, users are disconnected after 2 minutes of inactivity. </p>
-   *          </note>
-   */
-  IdleDisconnectTimeoutInSeconds?: number;
+  VpcConfig?: VpcConfig;
 
   /**
    * <p>The time the fleet was created.</p>
@@ -1076,6 +1060,24 @@ export interface Fleet {
    *                <p>stream.memory.8xlarge</p>
    *             </li>
    *             <li>
+   *                <p>stream.memory.z1d.large</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.memory.z1d.xlarge</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.memory.z1d.2xlarge</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.memory.z1d.3xlarge</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.memory.z1d.6xlarge</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.memory.z1d.12xlarge</p>
+   *             </li>
+   *             <li>
    *                <p>stream.graphics-design.large</p>
    *             </li>
    *             <li>
@@ -1091,6 +1093,24 @@ export interface Fleet {
    *                <p>stream.graphics-desktop.2xlarge</p>
    *             </li>
    *             <li>
+   *                <p>stream.graphics.g4dn.xlarge</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.graphics.g4dn.2xlarge</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.graphics.g4dn.4xlarge</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.graphics.g4dn.8xlarge</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.graphics.g4dn.12xlarge</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.graphics.g4dn.16xlarge</p>
+   *             </li>
+   *             <li>
    *                <p>stream.graphics-pro.4xlarge</p>
    *             </li>
    *             <li>
@@ -1104,9 +1124,117 @@ export interface Fleet {
   InstanceType: string | undefined;
 
   /**
+   * <p>The Amazon Resource Name (ARN) for the fleet.</p>
+   */
+  Arn: string | undefined;
+
+  /**
+   * <p>The amount of time that a streaming session remains active after users disconnect. If they try to reconnect to the streaming session after a disconnection or network interruption within this time interval, they are connected to their previous session. Otherwise, they are connected to a new session with a new streaming instance.</p>
+   *         <p>Specify a value between 60 and 360000.</p>
+   */
+  DisconnectTimeoutInSeconds?: number;
+
+  /**
+   * <p>The current state for the fleet.</p>
+   */
+  State: FleetState | string | undefined;
+
+  /**
+   * <p>The fleet type.</p>
+   *         <dl>
+   *             <dt>ALWAYS_ON</dt>
+   *             <dd>
+   *                     <p>Provides users with instant-on access to their apps.
+   *                         You are charged for all running instances in your fleet, even if no users are streaming apps.</p>
+   *                 </dd>
+   *             <dt>ON_DEMAND</dt>
+   *             <dd>
+   *                     <p>Provide users with access to applications after they connect, which takes one to two minutes.
+   *                         You are charged for instance streaming when users are connected and a
+   *                         small hourly fee for instances that are not streaming apps.</p>
+   *                 </dd>
+   *          </dl>
+   */
+  FleetType?: FleetType | string;
+
+  /**
+   * <p>The capacity status for the fleet.</p>
+   */
+  ComputeCapacityStatus: ComputeCapacityStatus | undefined;
+
+  /**
+   * <p>The fleet errors.</p>
+   */
+  FleetErrors?: FleetError[];
+
+  /**
+   * <p>The ARN of the IAM role that is applied to the fleet. To assume a role, the fleet instance calls the AWS Security Token Service (STS) <code>AssumeRole</code> API operation and passes the ARN of the role to use. The operation creates a new session with temporary credentials. AppStream 2.0 retrieves the temporary credentials and creates the <b>appstream_machine_role</b> credential profile on the instance.</p>
+   *
+   *         <p>For more information, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances.html">Using an IAM Role to Grant Permissions to Applications and Scripts Running on AppStream 2.0 Streaming Instances</a> in the <i>Amazon AppStream 2.0 Administration Guide</i>.</p>
+   */
+  IamRoleArn?: string;
+
+  /**
+   * <p>The AppStream 2.0 view that is displayed to your users when they stream from the fleet. When <code>APP</code> is specified, only the windows of applications opened by users display. When <code>DESKTOP</code> is specified, the standard desktop that is provided by the operating system displays.</p>
+   *
+   *         <p>The default value is <code>APP</code>.</p>
+   */
+  StreamView?: StreamView | string;
+
+  /**
+   * <p>The maximum amount of time that a streaming session can remain active, in seconds. If users are still connected to a streaming instance five minutes before this limit is reached, they are prompted to save any open documents before being disconnected. After this time elapses, the instance is terminated and replaced by a new instance. </p>
+   *         <p>Specify a value between 600 and 360000.</p>
+   */
+  MaxUserDurationInSeconds?: number;
+
+  /**
+   * <p>The name of the directory and organizational unit (OU) to use to join the fleet to a Microsoft Active Directory domain. </p>
+   */
+  DomainJoinInfo?: DomainJoinInfo;
+
+  /**
+   * <p>The name of the fleet.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The name of the image used to create the fleet.</p>
+   */
+  ImageName?: string;
+
+  /**
+   * <p>The ARN for the public, private, or shared image.</p>
+   */
+  ImageArn?: string;
+
+  /**
+   * <p>The fleet name to display.</p>
+   */
+  DisplayName?: string;
+
+  /**
    * <p>Indicates whether default internet access is enabled for the fleet.</p>
    */
   EnableDefaultInternetAccess?: boolean;
+
+  /**
+   * <p>The amount of time that users can be idle (inactive) before they are disconnected
+   *             from their streaming session and the <code>DisconnectTimeoutInSeconds</code> time
+   *             interval begins. Users are notified before they are disconnected due to inactivity. If
+   *             users try to reconnect to the streaming session before the time interval specified in
+   *             <code>DisconnectTimeoutInSeconds</code> elapses, they are connected to their
+   *             previous session. Users are considered idle when they stop providing keyboard or mouse
+   *             input during their streaming session. File uploads and downloads, audio in, audio out,
+   *             and pixels changing do not qualify as user activity. If users continue to be idle after
+   *             the time interval in <code>IdleDisconnectTimeoutInSeconds</code> elapses, they are
+   *             disconnected.</p>
+   *         <p>To prevent users from being disconnected due to inactivity, specify a value of 0. Otherwise, specify a value between 60 and 3600. The default value is 0.</p>
+   *
+   *         <note>
+   *             <p>If you enable this feature, we recommend that you specify a value that corresponds exactly to a whole number of minutes (for example, 60, 120, and 180). If you don't do this, the value is rounded to the nearest minute. For example, if you specify a value of 70, users are disconnected after 1 minute of inactivity. If you specify a value that is at the midpoint between two different minutes, the value is rounded up. For example, if you specify a value of 90, users are disconnected after 2 minutes of inactivity. </p>
+   *          </note>
+   */
+  IdleDisconnectTimeoutInSeconds?: number;
 }
 
 export namespace Fleet {
@@ -1129,10 +1257,10 @@ export namespace CreateFleetResult {
 }
 
 /**
- * <p>Indicates an incorrect combination of parameters, or a missing parameter.</p>
+ * <p>AppStream 2.0 can’t process the request right now because the Describe calls from your AWS account are being throttled by Amazon EC2. Try again later.</p>
  */
-export interface InvalidParameterCombinationException extends __SmithyException, $MetadataBearer {
-  name: "InvalidParameterCombinationException";
+export interface RequestLimitExceededException extends __SmithyException, $MetadataBearer {
+  name: "RequestLimitExceededException";
   $fault: "client";
   /**
    * <p>The error message in the exception.</p>
@@ -1140,35 +1268,46 @@ export interface InvalidParameterCombinationException extends __SmithyException,
   Message?: string;
 }
 
-export namespace InvalidParameterCombinationException {
-  export const filterSensitiveLog = (obj: InvalidParameterCombinationException): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The specified role is invalid.</p>
- */
-export interface InvalidRoleException extends __SmithyException, $MetadataBearer {
-  name: "InvalidRoleException";
-  $fault: "client";
-  /**
-   * <p>The error message in the exception.</p>
-   */
-  Message?: string;
-}
-
-export namespace InvalidRoleException {
-  export const filterSensitiveLog = (obj: InvalidRoleException): any => ({
+export namespace RequestLimitExceededException {
+  export const filterSensitiveLog = (obj: RequestLimitExceededException): any => ({
     ...obj,
   });
 }
 
 export interface CreateImageBuilderRequest {
   /**
-   * <p>Enables or disables default internet access for the image builder.</p>
+   * <p>The ARN of the public, private, or shared image to use.</p>
    */
-  EnableDefaultInternetAccess?: boolean;
+  ImageArn?: string;
+
+  /**
+   * <p>The list of interface VPC endpoint (interface endpoint) objects. Administrators can connect to the image builder only through the specified endpoints.</p>
+   */
+  AccessEndpoints?: AccessEndpoint[];
+
+  /**
+   * <p>The tags to associate with the image builder. A tag is a key-value pair, and the value is optional. For example, Environment=Test. If you do not specify a value, Environment=. </p>
+   *
+   *         <p>Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following special characters: </p>
+   *         <p>_ . : / = + \ - @</p>
+   *
+   *         <p>If you do not specify a value, the value is set to an empty string.</p>
+   *
+   *         <p>For more information about tags, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html">Tagging Your Resources</a> in the <i>Amazon AppStream 2.0 Administration Guide</i>.</p>
+   */
+  Tags?: { [key: string]: string };
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role to apply to the image builder. To assume a role, the image builder calls the AWS Security Token Service (STS) <code>AssumeRole</code> API operation and passes the ARN of the role to use. The operation creates a new session with temporary credentials. AppStream 2.0 retrieves the temporary credentials and creates the <b>appstream_machine_role</b> credential profile on the instance.</p>
+   *
+   *         <p>For more information, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances.html">Using an IAM Role to Grant Permissions to Applications and Scripts Running on AppStream 2.0 Streaming Instances</a> in the <i>Amazon AppStream 2.0 Administration Guide</i>.</p>
+   */
+  IamRoleArn?: string;
+
+  /**
+   * <p>The name of the image used to create the image builder.</p>
+   */
+  ImageName?: string;
 
   /**
    * <p>The instance type to use when launching the image builder. The following instance types are available:</p>
@@ -1210,6 +1349,24 @@ export interface CreateImageBuilderRequest {
    *                <p>stream.memory.8xlarge</p>
    *             </li>
    *             <li>
+   *                <p>stream.memory.z1d.large</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.memory.z1d.xlarge</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.memory.z1d.2xlarge</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.memory.z1d.3xlarge</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.memory.z1d.6xlarge</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.memory.z1d.12xlarge</p>
+   *             </li>
+   *             <li>
    *                <p>stream.graphics-design.large</p>
    *             </li>
    *             <li>
@@ -1225,6 +1382,24 @@ export interface CreateImageBuilderRequest {
    *                <p>stream.graphics-desktop.2xlarge</p>
    *             </li>
    *             <li>
+   *                <p>stream.graphics.g4dn.xlarge</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.graphics.g4dn.2xlarge</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.graphics.g4dn.4xlarge</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.graphics.g4dn.8xlarge</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.graphics.g4dn.12xlarge</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.graphics.g4dn.16xlarge</p>
+   *             </li>
+   *             <li>
    *                <p>stream.graphics-pro.4xlarge</p>
    *             </li>
    *             <li>
@@ -1238,53 +1413,24 @@ export interface CreateImageBuilderRequest {
   InstanceType: string | undefined;
 
   /**
-   * <p>The VPC configuration for the image builder. You can specify only one subnet.</p>
-   */
-  VpcConfig?: VpcConfig;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role to apply to the image builder. To assume a role, the image builder calls the AWS Security Token Service (STS) <code>AssumeRole</code> API operation and passes the ARN of the role to use. The operation creates a new session with temporary credentials. AppStream 2.0 retrieves the temporary credentials and creates the <b>AppStream_Machine_Role</b> credential profile on the instance.</p>
-   *
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances.html">Using an IAM Role to Grant Permissions to Applications and Scripts Running on AppStream 2.0 Streaming Instances</a> in the <i>Amazon AppStream 2.0 Administration Guide</i>.</p>
-   */
-  IamRoleArn?: string;
-
-  /**
    * <p>The description to display.</p>
    */
   Description?: string;
 
   /**
+   * <p>The VPC configuration for the image builder. You can specify only one subnet.</p>
+   */
+  VpcConfig?: VpcConfig;
+
+  /**
+   * <p>Enables or disables default internet access for the image builder.</p>
+   */
+  EnableDefaultInternetAccess?: boolean;
+
+  /**
    * <p>The image builder name to display.</p>
    */
   DisplayName?: string;
-
-  /**
-   * <p>The tags to associate with the image builder. A tag is a key-value pair, and the value is optional. For example, Environment=Test. If you do not specify a value, Environment=. </p>
-   *
-   *         <p>Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following special characters: </p>
-   *         <p>_ . : / = + \ - @</p>
-   *
-   *         <p>If you do not specify a value, the value is set to an empty string.</p>
-   *
-   *         <p>For more information about tags, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html">Tagging Your Resources</a> in the <i>Amazon AppStream 2.0 Administration Guide</i>.</p>
-   */
-  Tags?: { [key: string]: string };
-
-  /**
-   * <p>The name of the image used to create the image builder.</p>
-   */
-  ImageName?: string;
-
-  /**
-   * <p>The list of interface VPC endpoint (interface endpoint) objects. Administrators can connect to the image builder only through the specified endpoints.</p>
-   */
-  AccessEndpoints?: AccessEndpoint[];
-
-  /**
-   * <p>The ARN of the public, private, or shared image to use.</p>
-   */
-  ImageArn?: string;
 
   /**
    * <p>The version of the AppStream 2.0 agent to use for this image builder. To use the latest version of the AppStream 2.0 agent, specify [LATEST]. </p>
@@ -1313,9 +1459,9 @@ export namespace CreateImageBuilderRequest {
  */
 export interface ResourceError {
   /**
-   * <p>The time the error occurred.</p>
+   * <p>The error code.</p>
    */
-  ErrorTimestamp?: Date;
+  ErrorCode?: FleetErrorCode | string;
 
   /**
    * <p>The error message.</p>
@@ -1323,9 +1469,9 @@ export interface ResourceError {
   ErrorMessage?: string;
 
   /**
-   * <p>The error code.</p>
+   * <p>The time the error occurred.</p>
    */
-  ErrorCode?: FleetErrorCode | string;
+  ErrorTimestamp?: Date;
 }
 
 export namespace ResourceError {
@@ -1379,14 +1525,14 @@ export enum ImageBuilderStateChangeReasonCode {
  */
 export interface ImageBuilderStateChangeReason {
   /**
-   * <p>The state change reason code.</p>
-   */
-  Code?: ImageBuilderStateChangeReasonCode | string;
-
-  /**
    * <p>The state change reason message.</p>
    */
   Message?: string;
+
+  /**
+   * <p>The state change reason code.</p>
+   */
+  Code?: ImageBuilderStateChangeReasonCode | string;
 }
 
 export namespace ImageBuilderStateChangeReason {
@@ -1400,24 +1546,29 @@ export namespace ImageBuilderStateChangeReason {
  */
 export interface ImageBuilder {
   /**
-   * <p>The ARN for the image builder.</p>
+   * <p>The name of the image builder.</p>
    */
-  Arn?: string;
+  Name: string | undefined;
 
   /**
-   * <p>The VPC configuration of the image builder.</p>
+   * <p>The ARN of the image from which this builder was created.</p>
    */
-  VpcConfig?: VpcConfig;
+  ImageArn?: string;
 
   /**
-   * <p>The image builder errors.</p>
+   * <p>The operating system platform of the image builder.</p>
    */
-  ImageBuilderErrors?: ResourceError[];
+  Platform?: PlatformType | string;
 
   /**
-   * <p>Enables or disables default internet access for the image builder.</p>
+   * <p>The time stamp when the image builder was created.</p>
    */
-  EnableDefaultInternetAccess?: boolean;
+  CreatedTime?: Date;
+
+  /**
+   * <p>The list of virtual private cloud (VPC) interface endpoint objects. Administrators can connect to the image builder only through the specified endpoints.</p>
+   */
+  AccessEndpoints?: AccessEndpoint[];
 
   /**
    * <p>The image builder name to display.</p>
@@ -1464,6 +1615,24 @@ export interface ImageBuilder {
    *                <p>stream.memory.8xlarge</p>
    *             </li>
    *             <li>
+   *                <p>stream.memory.z1d.large</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.memory.z1d.xlarge</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.memory.z1d.2xlarge</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.memory.z1d.3xlarge</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.memory.z1d.6xlarge</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.memory.z1d.12xlarge</p>
+   *             </li>
+   *             <li>
    *                <p>stream.graphics-design.large</p>
    *             </li>
    *             <li>
@@ -1479,6 +1648,24 @@ export interface ImageBuilder {
    *                <p>stream.graphics-desktop.2xlarge</p>
    *             </li>
    *             <li>
+   *                <p>stream.graphics.g4dn.xlarge</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.graphics.g4dn.2xlarge</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.graphics.g4dn.4xlarge</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.graphics.g4dn.8xlarge</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.graphics.g4dn.12xlarge</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.graphics.g4dn.16xlarge</p>
+   *             </li>
+   *             <li>
    *                <p>stream.graphics-pro.4xlarge</p>
    *             </li>
    *             <li>
@@ -1492,29 +1679,16 @@ export interface ImageBuilder {
   InstanceType?: string;
 
   /**
-   * <p>The name of the directory and organizational unit (OU) to use to join the image builder to a Microsoft Active Directory domain. </p>
+   * <p>The VPC configuration of the image builder.</p>
    */
-  DomainJoinInfo?: DomainJoinInfo;
+  VpcConfig?: VpcConfig;
 
   /**
-   * <p>The name of the image builder.</p>
+   * <p>The ARN of the IAM role that is applied to the image builder. To assume a role, the image builder calls the AWS Security Token Service (STS) <code>AssumeRole</code> API operation and passes the ARN of the role to use. The operation creates a new session with temporary credentials. AppStream 2.0 retrieves the temporary credentials and creates the <b>appstream_machine_role</b> credential profile on the instance.</p>
+   *
+   *         <p>For more information, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances.html">Using an IAM Role to Grant Permissions to Applications and Scripts Running on AppStream 2.0 Streaming Instances</a> in the <i>Amazon AppStream 2.0 Administration Guide</i>.</p>
    */
-  Name: string | undefined;
-
-  /**
-   * <p>The operating system platform of the image builder.</p>
-   */
-  Platform?: PlatformType | string;
-
-  /**
-   * <p>The time stamp when the image builder was created.</p>
-   */
-  CreatedTime?: Date;
-
-  /**
-   * <p>Describes the network details of the fleet or image builder instance.</p>
-   */
-  NetworkAccessConfiguration?: NetworkAccessConfiguration;
+  IamRoleArn?: string;
 
   /**
    * <p>The reason why the last state change occurred.</p>
@@ -1522,24 +1696,19 @@ export interface ImageBuilder {
   StateChangeReason?: ImageBuilderStateChangeReason;
 
   /**
+   * <p>The name of the directory and organizational unit (OU) to use to join the image builder to a Microsoft Active Directory domain. </p>
+   */
+  DomainJoinInfo?: DomainJoinInfo;
+
+  /**
+   * <p>Enables or disables default internet access for the image builder.</p>
+   */
+  EnableDefaultInternetAccess?: boolean;
+
+  /**
    * <p>The version of the AppStream 2.0 agent that is currently being used by the image builder. </p>
    */
   AppstreamAgentVersion?: string;
-
-  /**
-   * <p>The ARN of the image from which this builder was created.</p>
-   */
-  ImageArn?: string;
-
-  /**
-   * <p>The list of virtual private cloud (VPC) interface endpoint objects. Administrators can connect to the image builder only through the specified endpoints.</p>
-   */
-  AccessEndpoints?: AccessEndpoint[];
-
-  /**
-   * <p>The state of the image builder.</p>
-   */
-  State?: ImageBuilderState | string;
 
   /**
    * <p>The description to display.</p>
@@ -1547,11 +1716,24 @@ export interface ImageBuilder {
   Description?: string;
 
   /**
-   * <p>The ARN of the IAM role that is applied to the image builder. To assume a role, the image builder calls the AWS Security Token Service (STS) <code>AssumeRole</code> API operation and passes the ARN of the role to use. The operation creates a new session with temporary credentials. AppStream 2.0 retrieves the temporary credentials and creates the <b>AppStream_Machine_Role</b> credential profile on the instance.</p>
-   *
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances.html">Using an IAM Role to Grant Permissions to Applications and Scripts Running on AppStream 2.0 Streaming Instances</a> in the <i>Amazon AppStream 2.0 Administration Guide</i>.</p>
+   * <p>The ARN for the image builder.</p>
    */
-  IamRoleArn?: string;
+  Arn?: string;
+
+  /**
+   * <p>The state of the image builder.</p>
+   */
+  State?: ImageBuilderState | string;
+
+  /**
+   * <p>The image builder errors.</p>
+   */
+  ImageBuilderErrors?: ResourceError[];
+
+  /**
+   * <p>Describes the network details of the fleet or image builder instance.</p>
+   */
+  NetworkAccessConfiguration?: NetworkAccessConfiguration;
 }
 
 export namespace ImageBuilder {
@@ -1575,15 +1757,15 @@ export namespace CreateImageBuilderResult {
 
 export interface CreateImageBuilderStreamingURLRequest {
   /**
-   * <p>The name of the image builder.</p>
-   */
-  Name: string | undefined;
-
-  /**
    * <p>The time that the streaming URL will be valid, in seconds.
    *             Specify a value between 1 and 604800 seconds. The default is 3600 seconds.</p>
    */
   Validity?: number;
+
+  /**
+   * <p>The name of the image builder.</p>
+   */
+  Name: string | undefined;
 }
 
 export namespace CreateImageBuilderStreamingURLRequest {
@@ -1621,6 +1803,11 @@ export enum StorageConnectorType {
  */
 export interface StorageConnector {
   /**
+   * <p>The type of storage connector.</p>
+   */
+  ConnectorType: StorageConnectorType | string | undefined;
+
+  /**
    * <p>The names of the domains for the account.</p>
    */
   Domains?: string[];
@@ -1629,11 +1816,6 @@ export interface StorageConnector {
    * <p>The ARN of the storage connector.</p>
    */
   ResourceIdentifier?: string;
-
-  /**
-   * <p>The type of storage connector.</p>
-   */
-  ConnectorType: StorageConnectorType | string | undefined;
 }
 
 export namespace StorageConnector {
@@ -1670,41 +1852,6 @@ export namespace UserSetting {
 
 export interface CreateStackRequest {
   /**
-   * <p>The URL that users are redirected to after their streaming session ends.</p>
-   */
-  RedirectURL?: string;
-
-  /**
-   * <p>The actions that are enabled or disabled for users during their streaming sessions. By default, these actions are enabled. </p>
-   */
-  UserSettings?: UserSetting[];
-
-  /**
-   * <p>The stack name to display.</p>
-   */
-  DisplayName?: string;
-
-  /**
-   * <p>The list of interface VPC endpoint (interface endpoint) objects. Users of the stack can connect to AppStream 2.0 only through the specified endpoints.</p>
-   */
-  AccessEndpoints?: AccessEndpoint[];
-
-  /**
-   * <p>The domains where AppStream 2.0 streaming sessions can be embedded in an iframe. You must approve the domains that you want to host embedded AppStream 2.0 streaming sessions.</p>
-   */
-  EmbedHostDomains?: string[];
-
-  /**
-   * <p>The name of the stack.</p>
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>The URL that users are redirected to after they click the Send Feedback link. If no URL is specified, no Send Feedback link is displayed.</p>
-   */
-  FeedbackURL?: string;
-
-  /**
    * <p>The storage connectors to enable.</p>
    */
   StorageConnectors?: StorageConnector[];
@@ -1725,6 +1872,41 @@ export interface CreateStackRequest {
    *         <p>For more information about tags, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html">Tagging Your Resources</a> in the <i>Amazon AppStream 2.0 Administration Guide</i>.</p>
    */
   Tags?: { [key: string]: string };
+
+  /**
+   * <p>The stack name to display.</p>
+   */
+  DisplayName?: string;
+
+  /**
+   * <p>The name of the stack.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The list of interface VPC endpoint (interface endpoint) objects. Users of the stack can connect to AppStream 2.0 only through the specified endpoints.</p>
+   */
+  AccessEndpoints?: AccessEndpoint[];
+
+  /**
+   * <p>The URL that users are redirected to after their streaming session ends.</p>
+   */
+  RedirectURL?: string;
+
+  /**
+   * <p>The URL that users are redirected to after they click the Send Feedback link. If no URL is specified, no Send Feedback link is displayed.</p>
+   */
+  FeedbackURL?: string;
+
+  /**
+   * <p>The actions that are enabled or disabled for users during their streaming sessions. By default, these actions are enabled. </p>
+   */
+  UserSettings?: UserSetting[];
+
+  /**
+   * <p>The domains where AppStream 2.0 streaming sessions can be embedded in an iframe. You must approve the domains that you want to host embedded AppStream 2.0 streaming sessions. </p>
+   */
+  EmbedHostDomains?: string[];
 
   /**
    * <p>The description to display.</p>
@@ -1748,14 +1930,14 @@ export enum StackErrorCode {
  */
 export interface StackError {
   /**
-   * <p>The error message.</p>
-   */
-  ErrorMessage?: string;
-
-  /**
    * <p>The error code.</p>
    */
   ErrorCode?: StackErrorCode | string;
+
+  /**
+   * <p>The error message.</p>
+   */
+  ErrorMessage?: string;
 }
 
 export namespace StackError {
@@ -1769,24 +1951,9 @@ export namespace StackError {
  */
 export interface Stack {
   /**
-   * <p>The storage connectors to enable.</p>
-   */
-  StorageConnectors?: StorageConnector[];
-
-  /**
-   * <p>The time the stack was created.</p>
-   */
-  CreatedTime?: Date;
-
-  /**
    * <p>The name of the stack.</p>
    */
   Name: string | undefined;
-
-  /**
-   * <p>The ARN of the stack.</p>
-   */
-  Arn?: string;
 
   /**
    * <p>The URL that users are redirected to after they click the Send Feedback link. If no URL is specified, no Send Feedback link is displayed.</p>
@@ -1794,9 +1961,9 @@ export interface Stack {
   FeedbackURL?: string;
 
   /**
-   * <p>The description to display.</p>
+   * <p>The domains where AppStream 2.0 streaming sessions can be embedded in an iframe. You must approve the domains that you want to host embedded AppStream 2.0 streaming sessions.</p>
    */
-  Description?: string;
+  EmbedHostDomains?: string[];
 
   /**
    * <p>The actions that are enabled or disabled for users during their streaming sessions. By default these actions are enabled.</p>
@@ -1814,14 +1981,9 @@ export interface Stack {
   ApplicationSettings?: ApplicationSettingsResponse;
 
   /**
-   * <p>The domains where AppStream 2.0 streaming sessions can be embedded in an iframe. You must approve the domains that you want to host embedded AppStream 2.0 streaming sessions.</p>
+   * <p>The stack name to display.</p>
    */
-  EmbedHostDomains?: string[];
-
-  /**
-   * <p>The URL that users are redirected to after their streaming session ends.</p>
-   */
-  RedirectURL?: string;
+  DisplayName?: string;
 
   /**
    * <p>The list of virtual private cloud (VPC) interface endpoint objects. Users of the stack can connect to AppStream 2.0 only through the specified endpoints. </p>
@@ -1829,9 +1991,29 @@ export interface Stack {
   AccessEndpoints?: AccessEndpoint[];
 
   /**
-   * <p>The stack name to display.</p>
+   * <p>The time the stack was created.</p>
    */
-  DisplayName?: string;
+  CreatedTime?: Date;
+
+  /**
+   * <p>The description to display.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The ARN of the stack.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>The URL that users are redirected to after their streaming session ends.</p>
+   */
+  RedirectURL?: string;
+
+  /**
+   * <p>The storage connectors to enable.</p>
+   */
+  StorageConnectors?: StorageConnector[];
 }
 
 export namespace Stack {
@@ -1855,25 +2037,9 @@ export namespace CreateStackResult {
 
 export interface CreateStreamingURLRequest {
   /**
-   * <p>The name of the fleet.</p>
+   * <p>The name of the stack.</p>
    */
-  FleetName: string | undefined;
-
-  /**
-   * <p>The time that the streaming URL will be valid, in seconds.
-   *             Specify a value between 1 and 604800 seconds. The default is 60 seconds.</p>
-   */
-  Validity?: number;
-
-  /**
-   * <p>The session context. For more information, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/managing-stacks-fleets.html#managing-stacks-fleets-parameters">Session Context</a> in the <i>Amazon AppStream 2.0 Administration Guide</i>.</p>
-   */
-  SessionContext?: string;
-
-  /**
-   * <p>The identifier of the user.</p>
-   */
-  UserId: string | undefined;
+  StackName: string | undefined;
 
   /**
    * <p>The name of the application to launch after the session starts. This is the name that you specified
@@ -1882,9 +2048,25 @@ export interface CreateStreamingURLRequest {
   ApplicationId?: string;
 
   /**
-   * <p>The name of the stack.</p>
+   * <p>The session context. For more information, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/managing-stacks-fleets.html#managing-stacks-fleets-parameters">Session Context</a> in the <i>Amazon AppStream 2.0 Administration Guide</i>.</p>
    */
-  StackName: string | undefined;
+  SessionContext?: string;
+
+  /**
+   * <p>The time that the streaming URL will be valid, in seconds.
+   *             Specify a value between 1 and 604800 seconds. The default is 60 seconds.</p>
+   */
+  Validity?: number;
+
+  /**
+   * <p>The identifier of the user.</p>
+   */
+  UserId: string | undefined;
+
+  /**
+   * <p>The name of the fleet.</p>
+   */
+  FleetName: string | undefined;
 }
 
 export namespace CreateStreamingURLRequest {
@@ -1895,14 +2077,14 @@ export namespace CreateStreamingURLRequest {
 
 export interface CreateStreamingURLResult {
   /**
-   * <p>The URL to start the AppStream 2.0 streaming session.</p>
-   */
-  StreamingURL?: string;
-
-  /**
    * <p>The elapsed time, in seconds after the Unix epoch, when this URL expires.</p>
    */
   Expires?: Date;
+
+  /**
+   * <p>The URL to start the AppStream 2.0 streaming session.</p>
+   */
+  StreamingURL?: string;
 }
 
 export namespace CreateStreamingURLResult {
@@ -1925,11 +2107,6 @@ export enum UsageReportSchedule {
 
 export interface CreateUsageReportSubscriptionResult {
   /**
-   * <p>The schedule for generating usage reports.</p>
-   */
-  Schedule?: UsageReportSchedule | string;
-
-  /**
    * <p>The Amazon S3 bucket where generated reports are stored.</p>
    *
    *             <p>If you enabled on-instance session scripts and Amazon S3 logging for your session script
@@ -1939,6 +2116,11 @@ export interface CreateUsageReportSubscriptionResult {
    *             when you enable usage reports, AppStream 2.0 creates a new S3 bucket.</p>
    */
   S3BucketName?: string;
+
+  /**
+   * <p>The schedule for generating usage reports.</p>
+   */
+  Schedule?: UsageReportSchedule | string;
 }
 
 export namespace CreateUsageReportSubscriptionResult {
@@ -1954,9 +2136,14 @@ export enum MessageAction {
 
 export interface CreateUserRequest {
   /**
-   * <p>The first name, or given name, of the user.</p>
+   * <p>The last name, or surname, of the user.</p>
    */
-  FirstName?: string;
+  LastName?: string;
+
+  /**
+   * <p>The authentication type for the user. You must specify USERPOOL. </p>
+   */
+  AuthenticationType: AuthenticationType | string | undefined;
 
   /**
    * <p>The email address of the user.</p>
@@ -1968,16 +2155,6 @@ export interface CreateUserRequest {
   UserName: string | undefined;
 
   /**
-   * <p>The authentication type for the user. You must specify USERPOOL. </p>
-   */
-  AuthenticationType: AuthenticationType | string | undefined;
-
-  /**
-   * <p>The last name, or surname, of the user.</p>
-   */
-  LastName?: string;
-
-  /**
    * <p>The action to take for the welcome email that is sent to a user after the user is created in the user pool. If you specify SUPPRESS, no email is sent. If you specify RESEND, do not specify the first name or last name of the user. If the value is null, the email is sent. </p>
    *
    *         <note>
@@ -1985,14 +2162,19 @@ export interface CreateUserRequest {
    *          </note>
    */
   MessageAction?: MessageAction | string;
+
+  /**
+   * <p>The first name, or given name, of the user.</p>
+   */
+  FirstName?: string;
 }
 
 export namespace CreateUserRequest {
   export const filterSensitiveLog = (obj: CreateUserRequest): any => ({
     ...obj,
-    ...(obj.FirstName && { FirstName: SENSITIVE_STRING }),
-    ...(obj.UserName && { UserName: SENSITIVE_STRING }),
     ...(obj.LastName && { LastName: SENSITIVE_STRING }),
+    ...(obj.UserName && { UserName: SENSITIVE_STRING }),
+    ...(obj.FirstName && { FirstName: SENSITIVE_STRING }),
   });
 }
 
@@ -2144,19 +2326,29 @@ export enum VisibilityType {
  */
 export interface Image {
   /**
-   * <p>The permissions to provide to the destination AWS account for the specified image.</p>
+   * <p>The version of the AppStream 2.0 agent to use for instances that are launched from this image. </p>
    */
-  ImagePermissions?: ImagePermissions;
+  AppstreamAgentVersion?: string;
 
   /**
-   * <p>Indicates whether the image is public or private.</p>
+   * <p>The operating system platform of the image.</p>
    */
-  Visibility?: VisibilityType | string;
+  Platform?: PlatformType | string;
+
+  /**
+   * <p>The ARN of the image.</p>
+   */
+  Arn?: string;
 
   /**
    * <p>The reason why the last state change occurred.</p>
    */
   StateChangeReason?: ImageStateChangeReason;
+
+  /**
+   * <p>The permissions to provide to the destination AWS account for the specified image.</p>
+   */
+  ImagePermissions?: ImagePermissions;
 
   /**
    * <p>The image name to display.</p>
@@ -2169,39 +2361,20 @@ export interface Image {
   BaseImageArn?: string;
 
   /**
-   * <p>The time the image was created.</p>
+   * <p>The name of the image.</p>
    */
-  CreatedTime?: Date;
+  Name: string | undefined;
 
   /**
-   * <p>The description to display.</p>
+   * <p>The release date of the public base image.
+   *             For private images, this date is the release date of the base image from which the image was created.</p>
    */
-  Description?: string;
-
-  /**
-   * <p>The operating system platform of the image.</p>
-   */
-  Platform?: PlatformType | string;
+  PublicBaseImageReleasedDate?: Date;
 
   /**
    * <p>The applications associated with the image.</p>
    */
   Applications?: Application[];
-
-  /**
-   * <p>The ARN of the image.</p>
-   */
-  Arn?: string;
-
-  /**
-   * <p>The version of the AppStream 2.0 agent to use for instances that are launched from this image. </p>
-   */
-  AppstreamAgentVersion?: string;
-
-  /**
-   * <p>The name of the image.</p>
-   */
-  Name: string | undefined;
 
   /**
    * <p>The name of the image builder that was used to create the private image. If the image is shared, this value is null.</p>
@@ -2215,15 +2388,24 @@ export interface Image {
   State?: ImageState | string;
 
   /**
+   * <p>Indicates whether the image is public or private.</p>
+   */
+  Visibility?: VisibilityType | string;
+
+  /**
+   * <p>The time the image was created.</p>
+   */
+  CreatedTime?: Date;
+
+  /**
+   * <p>The description to display.</p>
+   */
+  Description?: string;
+
+  /**
    * <p>Indicates whether an image builder can be launched from this image.</p>
    */
   ImageBuilderSupported?: boolean;
-
-  /**
-   * <p>The release date of the public base image.
-   *             For private images, this date is the release date of the base image from which the image was created.</p>
-   */
-  PublicBaseImageReleasedDate?: Date;
 }
 
 export namespace Image {
@@ -2273,14 +2455,14 @@ export namespace DeleteImageBuilderResult {
 
 export interface DeleteImagePermissionsRequest {
   /**
-   * <p>The 12-digit identifier of the AWS account for which to delete image permissions.</p>
-   */
-  SharedAccountId: string | undefined;
-
-  /**
    * <p>The name of the private image.</p>
    */
   Name: string | undefined;
+
+  /**
+   * <p>The 12-digit identifier of the AWS account for which to delete image permissions.</p>
+   */
+  SharedAccountId: string | undefined;
 }
 
 export namespace DeleteImagePermissionsRequest {
@@ -2372,14 +2554,14 @@ export interface DescribeDirectoryConfigsRequest {
   DirectoryNames?: string[];
 
   /**
-   * <p>The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>The maximum size of each page of results.</p>
    */
   MaxResults?: number;
+
+  /**
+   * <p>The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace DescribeDirectoryConfigsRequest {
@@ -2411,14 +2593,14 @@ export namespace DescribeDirectoryConfigsResult {
 
 export interface DescribeFleetsRequest {
   /**
-   * <p>The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>The names of the fleets to describe.</p>
    */
   Names?: string[];
+
+  /**
+   * <p>The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace DescribeFleetsRequest {
@@ -2429,14 +2611,14 @@ export namespace DescribeFleetsRequest {
 
 export interface DescribeFleetsResult {
   /**
-   * <p>Information about the fleets.</p>
-   */
-  Fleets?: Fleet[];
-
-  /**
    * <p>The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>Information about the fleets.</p>
+   */
+  Fleets?: Fleet[];
 }
 
 export namespace DescribeFleetsResult {
@@ -2488,6 +2670,11 @@ export namespace DescribeImageBuildersResult {
 
 export interface DescribeImagePermissionsRequest {
   /**
+   * <p>The maximum size of each page of results.</p>
+   */
+  MaxResults?: number;
+
+  /**
    * <p>The name of the private image for which to describe permissions. The image must be one that you own. </p>
    */
   Name: string | undefined;
@@ -2496,11 +2683,6 @@ export interface DescribeImagePermissionsRequest {
    * <p>The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>The maximum size of each page of results.</p>
-   */
-  MaxResults?: number;
 
   /**
    * <p>The 12-digit identifier of one or more AWS accounts with which the image is shared.</p>
@@ -2537,6 +2719,11 @@ export namespace SharedImagePermissions {
 
 export interface DescribeImagePermissionsResult {
   /**
+   * <p>The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.</p>
+   */
+  NextToken?: string;
+
+  /**
    * <p>The permissions for a private image that you own. </p>
    */
   SharedImagePermissionsList?: SharedImagePermissions[];
@@ -2545,11 +2732,6 @@ export interface DescribeImagePermissionsResult {
    * <p>The name of the private image.</p>
    */
   Name?: string;
-
-  /**
-   * <p>The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.</p>
-   */
-  NextToken?: string;
 }
 
 export namespace DescribeImagePermissionsResult {
@@ -2560,9 +2742,9 @@ export namespace DescribeImagePermissionsResult {
 
 export interface DescribeImagesRequest {
   /**
-   * <p>The ARNs of the public, private, and shared images to describe.</p>
+   * <p>The names of the public or private images to describe.</p>
    */
-  Arns?: string[];
+  Names?: string[];
 
   /**
    * <p>The type of image (public, private, or shared) to describe. </p>
@@ -2570,9 +2752,9 @@ export interface DescribeImagesRequest {
   Type?: VisibilityType | string;
 
   /**
-   * <p>The names of the public or private images to describe.</p>
+   * <p>The ARNs of the public, private, and shared images to describe.</p>
    */
-  Names?: string[];
+  Arns?: string[];
 
   /**
    * <p>The maximum size of each page of results.</p>
@@ -2593,14 +2775,14 @@ export namespace DescribeImagesRequest {
 
 export interface DescribeImagesResult {
   /**
-   * <p>Information about the images.</p>
-   */
-  Images?: Image[];
-
-  /**
    * <p>The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>Information about the images.</p>
+   */
+  Images?: Image[];
 }
 
 export namespace DescribeImagesResult {
@@ -2611,6 +2793,11 @@ export namespace DescribeImagesResult {
 
 export interface DescribeSessionsRequest {
   /**
+   * <p>The user identifier (ID). If you specify a user ID, you must also specify the authentication type.</p>
+   */
+  UserId?: string;
+
+  /**
    * <p>The authentication method. Specify <code>API</code> for a user
    *             authenticated using a streaming URL or <code>SAML</code> for a SAML federated user.
    *             The default is to authenticate users using a streaming URL.</p>
@@ -2618,19 +2805,14 @@ export interface DescribeSessionsRequest {
   AuthenticationType?: AuthenticationType | string;
 
   /**
-   * <p>The name of the fleet. This value is case-sensitive.</p>
-   */
-  FleetName: string | undefined;
-
-  /**
    * <p>The name of the stack. This value is case-sensitive.</p>
    */
   StackName: string | undefined;
 
   /**
-   * <p>The user identifier.</p>
+   * <p>The name of the fleet. This value is case-sensitive.</p>
    */
-  UserId?: string;
+  FleetName: string | undefined;
 
   /**
    * <p>The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.</p>
@@ -2665,40 +2847,9 @@ export enum SessionState {
  */
 export interface Session {
   /**
-   * <p>The current state of the streaming session.</p>
-   */
-  State: SessionState | string | undefined;
-
-  /**
-   * <p>The time when a streaming instance is dedicated for the user.</p>
-   */
-  StartTime?: Date;
-
-  /**
-   * <p>The time when the streaming session is set to expire. This time is based on the <code>MaxUserDurationinSeconds</code> value, which determines the maximum length of time that a streaming session can run. A streaming session might end earlier than the time specified in <code>SessionMaxExpirationTime</code>, when the <code>DisconnectTimeOutInSeconds</code> elapses or the user chooses to end his or her session. If the <code>DisconnectTimeOutInSeconds</code> elapses, or the user chooses to end his or her session, the streaming instance is terminated and the streaming session ends.</p>
-   */
-  MaxExpirationTime?: Date;
-
-  /**
    * <p>The network details for the streaming session.</p>
    */
   NetworkAccessConfiguration?: NetworkAccessConfiguration;
-
-  /**
-   * <p>The identifier of the streaming session.</p>
-   */
-  Id: string | undefined;
-
-  /**
-   * <p>Specifies whether a user is connected to the streaming session.</p>
-   */
-  ConnectionState?: SessionConnectionState | string;
-
-  /**
-   * <p>The authentication method. The user is authenticated using a streaming URL
-   *             (<code>API</code>) or SAML 2.0 federation (<code>SAML</code>).</p>
-   */
-  AuthenticationType?: AuthenticationType | string;
 
   /**
    * <p>The identifier of the user for whom the session was created.</p>
@@ -2706,14 +2857,45 @@ export interface Session {
   UserId: string | undefined;
 
   /**
-   * <p>The name of the stack for the streaming session.</p>
+   * <p>The identifier of the streaming session.</p>
    */
-  StackName: string | undefined;
+  Id: string | undefined;
+
+  /**
+   * <p>The current state of the streaming session.</p>
+   */
+  State: SessionState | string | undefined;
+
+  /**
+   * <p>The time when the streaming session is set to expire. This time is based on the <code>MaxUserDurationinSeconds</code> value, which determines the maximum length of time that a streaming session can run. A streaming session might end earlier than the time specified in <code>SessionMaxExpirationTime</code>, when the <code>DisconnectTimeOutInSeconds</code> elapses or the user chooses to end his or her session. If the <code>DisconnectTimeOutInSeconds</code> elapses, or the user chooses to end his or her session, the streaming instance is terminated and the streaming session ends.</p>
+   */
+  MaxExpirationTime?: Date;
+
+  /**
+   * <p>Specifies whether a user is connected to the streaming session.</p>
+   */
+  ConnectionState?: SessionConnectionState | string;
+
+  /**
+   * <p>The time when a streaming instance is dedicated for the user.</p>
+   */
+  StartTime?: Date;
 
   /**
    * <p>The name of the fleet for the streaming session.</p>
    */
   FleetName: string | undefined;
+
+  /**
+   * <p>The name of the stack for the streaming session.</p>
+   */
+  StackName: string | undefined;
+
+  /**
+   * <p>The authentication method. The user is authenticated using a streaming URL
+   *             (<code>API</code>) or SAML 2.0 federation (<code>SAML</code>).</p>
+   */
+  AuthenticationType?: AuthenticationType | string;
 }
 
 export namespace Session {
@@ -2742,14 +2924,14 @@ export namespace DescribeSessionsResult {
 
 export interface DescribeStacksRequest {
   /**
-   * <p>The names of the stacks to describe.</p>
-   */
-  Names?: string[];
-
-  /**
    * <p>The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The names of the stacks to describe.</p>
+   */
+  Names?: string[];
 }
 
 export namespace DescribeStacksRequest {
@@ -2778,14 +2960,14 @@ export namespace DescribeStacksResult {
 
 export interface DescribeUsageReportSubscriptionsRequest {
   /**
-   * <p>The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>The maximum size of each page of results.</p>
    */
   MaxResults?: number;
+
+  /**
+   * <p>The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace DescribeUsageReportSubscriptionsRequest {
@@ -2826,11 +3008,6 @@ export namespace LastReportGenerationExecutionError {
  */
 export interface UsageReportSubscription {
   /**
-   * <p>The time when the last usage report was generated.</p>
-   */
-  LastGeneratedReportDate?: Date;
-
-  /**
    * <p>The schedule for generating usage reports.</p>
    */
   Schedule?: UsageReportSchedule | string;
@@ -2839,6 +3016,11 @@ export interface UsageReportSubscription {
    * <p>The errors that were returned if usage reports couldn't be generated.</p>
    */
   SubscriptionErrors?: LastReportGenerationExecutionError[];
+
+  /**
+   * <p>The time when the last usage report was generated.</p>
+   */
+  LastGeneratedReportDate?: Date;
 
   /**
    * <p>The Amazon S3 bucket where generated reports are stored.</p>
@@ -2878,6 +3060,11 @@ export namespace DescribeUsageReportSubscriptionsResult {
 
 export interface DescribeUsersRequest {
   /**
+   * <p>The authentication type for the users in the user pool to describe. You must specify USERPOOL.</p>
+   */
+  AuthenticationType: AuthenticationType | string | undefined;
+
+  /**
    * <p>The maximum size of each page of results.</p>
    */
   MaxResults?: number;
@@ -2886,11 +3073,6 @@ export interface DescribeUsersRequest {
    * <p>The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>The authentication type for the users in the user pool to describe. You must specify USERPOOL.</p>
-   */
-  AuthenticationType: AuthenticationType | string | undefined;
 }
 
 export namespace DescribeUsersRequest {
@@ -2904,14 +3086,9 @@ export namespace DescribeUsersRequest {
  */
 export interface User {
   /**
-   * <p>Specifies whether the user in the user pool is enabled.</p>
+   * <p>The date and time the user was created in the user pool.</p>
    */
-  Enabled?: boolean;
-
-  /**
-   * <p>The authentication type for the user.</p>
-   */
-  AuthenticationType: AuthenticationType | string | undefined;
+  CreatedTime?: Date;
 
   /**
    * <p>The email address of the user.</p>
@@ -2945,9 +3122,9 @@ export interface User {
   Status?: string;
 
   /**
-   * <p>The first name, or given name, of the user.</p>
+   * <p>The authentication type for the user.</p>
    */
-  FirstName?: string;
+  AuthenticationType: AuthenticationType | string | undefined;
 
   /**
    * <p>The ARN of the user.</p>
@@ -2955,35 +3132,40 @@ export interface User {
   Arn?: string;
 
   /**
-   * <p>The date and time the user was created in the user pool.</p>
-   */
-  CreatedTime?: Date;
-
-  /**
    * <p>The last name, or surname, of the user.</p>
    */
   LastName?: string;
+
+  /**
+   * <p>The first name, or given name, of the user.</p>
+   */
+  FirstName?: string;
+
+  /**
+   * <p>Specifies whether the user in the user pool is enabled.</p>
+   */
+  Enabled?: boolean;
 }
 
 export namespace User {
   export const filterSensitiveLog = (obj: User): any => ({
     ...obj,
     ...(obj.UserName && { UserName: SENSITIVE_STRING }),
-    ...(obj.FirstName && { FirstName: SENSITIVE_STRING }),
     ...(obj.LastName && { LastName: SENSITIVE_STRING }),
+    ...(obj.FirstName && { FirstName: SENSITIVE_STRING }),
   });
 }
 
 export interface DescribeUsersResult {
   /**
-   * <p>Information about users in the user pool.</p>
-   */
-  Users?: User[];
-
-  /**
    * <p>The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>Information about users in the user pool.</p>
+   */
+  Users?: User[];
 }
 
 export namespace DescribeUsersResult {
@@ -2995,9 +3177,24 @@ export namespace DescribeUsersResult {
 
 export interface DescribeUserStackAssociationsRequest {
   /**
+   * <p>The maximum size of each page of results.</p>
+   */
+  MaxResults?: number;
+
+  /**
    * <p>The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The authentication type for the user who is associated with the stack. You must specify USERPOOL.</p>
+   */
+  AuthenticationType?: AuthenticationType | string;
+
+  /**
+   * <p>The name of the stack that is associated with the user.</p>
+   */
+  StackName?: string;
 
   /**
    * <p>The email address of the user who is associated with the stack.</p>
@@ -3007,21 +3204,6 @@ export interface DescribeUserStackAssociationsRequest {
    *          </note>
    */
   UserName?: string;
-
-  /**
-   * <p>The maximum size of each page of results.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The name of the stack that is associated with the user.</p>
-   */
-  StackName?: string;
-
-  /**
-   * <p>The authentication type for the user who is associated with the stack. You must specify USERPOOL.</p>
-   */
-  AuthenticationType?: AuthenticationType | string;
 }
 
 export namespace DescribeUserStackAssociationsRequest {
@@ -3054,11 +3236,6 @@ export namespace DescribeUserStackAssociationsResult {
 
 export interface DisableUserRequest {
   /**
-   * <p>The authentication type for the user. You must specify USERPOOL.</p>
-   */
-  AuthenticationType: AuthenticationType | string | undefined;
-
-  /**
    * <p>The email address of the user.</p>
    *
    *         <note>
@@ -3066,6 +3243,11 @@ export interface DisableUserRequest {
    *          </note>
    */
   UserName: string | undefined;
+
+  /**
+   * <p>The authentication type for the user. You must specify USERPOOL.</p>
+   */
+  AuthenticationType: AuthenticationType | string | undefined;
 }
 
 export namespace DisableUserRequest {
@@ -3085,14 +3267,14 @@ export namespace DisableUserResult {
 
 export interface DisassociateFleetRequest {
   /**
-   * <p>The name of the fleet.</p>
-   */
-  FleetName: string | undefined;
-
-  /**
    * <p>The name of the stack.</p>
    */
   StackName: string | undefined;
+
+  /**
+   * <p>The name of the fleet.</p>
+   */
+  FleetName: string | undefined;
 }
 
 export namespace DisassociateFleetRequest {
@@ -3398,14 +3580,14 @@ export namespace TagResourceResponse {
 
 export interface UntagResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource.</p>
-   */
-  ResourceArn: string | undefined;
-
-  /**
    * <p>The tag keys for the tags to disassociate.</p>
    */
   TagKeys: string[] | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource.</p>
+   */
+  ResourceArn: string | undefined;
 }
 
 export namespace UntagResourceRequest {
@@ -3424,14 +3606,14 @@ export namespace UntagResourceResponse {
 
 export interface UpdateDirectoryConfigRequest {
   /**
-   * <p>The distinguished names of the organizational units for computer accounts.</p>
-   */
-  OrganizationalUnitDistinguishedNames?: string[];
-
-  /**
    * <p>The credentials for the service account used by the fleet or image builder to connect to the directory.</p>
    */
   ServiceAccountCredentials?: ServiceAccountCredentials;
+
+  /**
+   * <p>The distinguished names of the organizational units for computer accounts.</p>
+   */
+  OrganizationalUnitDistinguishedNames?: string[];
 
   /**
    * <p>The name of the Directory Config object.</p>
@@ -3464,75 +3646,6 @@ export namespace UpdateDirectoryConfigResult {
 
 export interface UpdateFleetRequest {
   /**
-   * <p>The ARN of the public, private, or shared image to use.</p>
-   */
-  ImageArn?: string;
-
-  /**
-   * <p>Enables or disables default internet access for the fleet.</p>
-   */
-  EnableDefaultInternetAccess?: boolean;
-
-  /**
-   * <p>The VPC configuration for the fleet.</p>
-   */
-  VpcConfig?: VpcConfig;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role to apply to the fleet. To assume a role, a fleet instance calls the AWS Security Token Service (STS) <code>AssumeRole</code> API operation and passes the ARN of the role to use. The operation creates a new session with temporary credentials. AppStream 2.0 retrieves the temporary credentials and creates the <b>AppStream_Machine_Role</b> credential profile on the instance.</p>
-   *
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances.html">Using an IAM Role to Grant Permissions to Applications and Scripts Running on AppStream 2.0 Streaming Instances</a> in the <i>Amazon AppStream 2.0 Administration Guide</i>.</p>
-   */
-  IamRoleArn?: string;
-
-  /**
-   * <p>The fleet attributes to delete.</p>
-   */
-  AttributesToDelete?: (FleetAttribute | string)[];
-
-  /**
-   * <p>The description to display.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The name of the directory and organizational unit (OU) to use to join the fleet to a Microsoft Active Directory domain. </p>
-   */
-  DomainJoinInfo?: DomainJoinInfo;
-
-  /**
-   * <p>A unique name for the fleet.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>The maximum amount of time that a streaming session can remain active, in seconds. If users are still connected to a streaming instance five minutes before this limit is reached, they are prompted to save any open documents before being disconnected. After this time elapses, the instance is terminated and replaced by a new instance.</p>
-   *         <p>Specify a value between 600 and 360000.</p>
-   */
-  MaxUserDurationInSeconds?: number;
-
-  /**
-   * <p>The amount of time that a streaming session remains active after users disconnect. If users try to reconnect to the streaming session after a disconnection or network interruption within this time interval, they are connected to their previous session. Otherwise, they are connected to a new session with a new streaming instance. </p>
-   *         <p>Specify a value between 60 and 360000.</p>
-   */
-  DisconnectTimeoutInSeconds?: number;
-
-  /**
-   * <p>Deletes the VPC association for the specified fleet.</p>
-   */
-  DeleteVpcConfig?: boolean;
-
-  /**
-   * <p>The name of the image used to create the fleet.</p>
-   */
-  ImageName?: string;
-
-  /**
-   * <p>The desired capacity for the fleet.</p>
-   */
-  ComputeCapacity?: ComputeCapacity;
-
-  /**
    * <p>The amount of time that users can be idle (inactive) before they are disconnected
    *             from their streaming session and the <code>DisconnectTimeoutInSeconds</code> time
    *             interval begins. Users are notified before they are disconnected due to inactivity. If
@@ -3550,6 +3663,39 @@ export interface UpdateFleetRequest {
    *          </note>
    */
   IdleDisconnectTimeoutInSeconds?: number;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role to apply to the fleet. To assume a role, a fleet instance calls the AWS Security Token Service (STS) <code>AssumeRole</code> API operation and passes the ARN of the role to use. The operation creates a new session with temporary credentials. AppStream 2.0 retrieves the temporary credentials and creates the <b>appstream_machine_role</b> credential profile on the instance.</p>
+   *
+   *         <p>For more information, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances.html">Using an IAM Role to Grant Permissions to Applications and Scripts Running on AppStream 2.0 Streaming Instances</a> in the <i>Amazon AppStream 2.0 Administration Guide</i>.</p>
+   */
+  IamRoleArn?: string;
+
+  /**
+   * <p>Deletes the VPC association for the specified fleet.</p>
+   */
+  DeleteVpcConfig?: boolean;
+
+  /**
+   * <p>The amount of time that a streaming session remains active after users disconnect. If users try to reconnect to the streaming session after a disconnection or network interruption within this time interval, they are connected to their previous session. Otherwise, they are connected to a new session with a new streaming instance. </p>
+   *         <p>Specify a value between 60 and 360000.</p>
+   */
+  DisconnectTimeoutInSeconds?: number;
+
+  /**
+   * <p>A unique name for the fleet.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The name of the directory and organizational unit (OU) to use to join the fleet to a Microsoft Active Directory domain. </p>
+   */
+  DomainJoinInfo?: DomainJoinInfo;
+
+  /**
+   * <p>The desired capacity for the fleet.</p>
+   */
+  ComputeCapacity?: ComputeCapacity;
 
   /**
    * <p>The instance type to use when launching fleet instances. The following instance types are available:</p>
@@ -3591,6 +3737,24 @@ export interface UpdateFleetRequest {
    *                <p>stream.memory.8xlarge</p>
    *             </li>
    *             <li>
+   *                <p>stream.memory.z1d.large</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.memory.z1d.xlarge</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.memory.z1d.2xlarge</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.memory.z1d.3xlarge</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.memory.z1d.6xlarge</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.memory.z1d.12xlarge</p>
+   *             </li>
+   *             <li>
    *                <p>stream.graphics-design.large</p>
    *             </li>
    *             <li>
@@ -3606,6 +3770,24 @@ export interface UpdateFleetRequest {
    *                <p>stream.graphics-desktop.2xlarge</p>
    *             </li>
    *             <li>
+   *                <p>stream.graphics.g4dn.xlarge</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.graphics.g4dn.2xlarge</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.graphics.g4dn.4xlarge</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.graphics.g4dn.8xlarge</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.graphics.g4dn.12xlarge</p>
+   *             </li>
+   *             <li>
+   *                <p>stream.graphics.g4dn.16xlarge</p>
+   *             </li>
+   *             <li>
    *                <p>stream.graphics-pro.4xlarge</p>
    *             </li>
    *             <li>
@@ -3619,9 +3801,52 @@ export interface UpdateFleetRequest {
   InstanceType?: string;
 
   /**
+   * <p>The description to display.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>Enables or disables default internet access for the fleet.</p>
+   */
+  EnableDefaultInternetAccess?: boolean;
+
+  /**
+   * <p>The VPC configuration for the fleet.</p>
+   */
+  VpcConfig?: VpcConfig;
+
+  /**
+   * <p>The fleet attributes to delete.</p>
+   */
+  AttributesToDelete?: (FleetAttribute | string)[];
+
+  /**
+   * <p>The maximum amount of time that a streaming session can remain active, in seconds. If users are still connected to a streaming instance five minutes before this limit is reached, they are prompted to save any open documents before being disconnected. After this time elapses, the instance is terminated and replaced by a new instance.</p>
+   *         <p>Specify a value between 600 and 360000.</p>
+   */
+  MaxUserDurationInSeconds?: number;
+
+  /**
+   * <p>The name of the image used to create the fleet.</p>
+   */
+  ImageName?: string;
+
+  /**
    * <p>The fleet name to display.</p>
    */
   DisplayName?: string;
+
+  /**
+   * <p>The ARN of the public, private, or shared image to use.</p>
+   */
+  ImageArn?: string;
+
+  /**
+   * <p>The AppStream 2.0 view that is displayed to your users when they stream from the fleet. When <code>APP</code> is specified, only the windows of applications opened by users display. When <code>DESKTOP</code> is specified, the standard desktop that is provided by the operating system displays.</p>
+   *
+   *         <p>The default value is <code>APP</code>.</p>
+   */
+  StreamView?: StreamView | string;
 }
 
 export namespace UpdateFleetRequest {
@@ -3690,34 +3915,9 @@ export enum StackAttribute {
 
 export interface UpdateStackRequest {
   /**
-   * <p>The actions that are enabled or disabled for users during their streaming sessions. By default, these actions are enabled.</p>
-   */
-  UserSettings?: UserSetting[];
-
-  /**
-   * <p>The persistent application settings for users of a stack. When these settings are enabled, changes that users make to applications and Windows settings are automatically saved after each session and applied to the next session.</p>
-   */
-  ApplicationSettings?: ApplicationSettings;
-
-  /**
    * <p>The list of interface VPC endpoint (interface endpoint) objects. Users of the stack can connect to AppStream 2.0 only through the specified endpoints.</p>
    */
   AccessEndpoints?: AccessEndpoint[];
-
-  /**
-   * <p>The domains where AppStream 2.0 streaming sessions can be embedded in an iframe. You must approve the domains that you want to host embedded AppStream 2.0 streaming sessions.</p>
-   */
-  EmbedHostDomains?: string[];
-
-  /**
-   * <p>The stack attributes to delete.</p>
-   */
-  AttributesToDelete?: (StackAttribute | string)[];
-
-  /**
-   * <p>The description to display.</p>
-   */
-  Description?: string;
 
   /**
    * <p>The stack name to display.</p>
@@ -3725,9 +3925,14 @@ export interface UpdateStackRequest {
   DisplayName?: string;
 
   /**
-   * <p>The storage connectors to enable.</p>
+   * <p>The persistent application settings for users of a stack. When these settings are enabled, changes that users make to applications and Windows settings are automatically saved after each session and applied to the next session.</p>
    */
-  StorageConnectors?: StorageConnector[];
+  ApplicationSettings?: ApplicationSettings;
+
+  /**
+   * <p>The description to display.</p>
+   */
+  Description?: string;
 
   /**
    * <p>The URL that users are redirected to after they choose the Send Feedback link. If no URL is specified, no Send Feedback link is displayed.</p>
@@ -3735,9 +3940,9 @@ export interface UpdateStackRequest {
   FeedbackURL?: string;
 
   /**
-   * <p>Deletes the storage connectors currently enabled for the stack.</p>
+   * <p>The stack attributes to delete.</p>
    */
-  DeleteStorageConnectors?: boolean;
+  AttributesToDelete?: (StackAttribute | string)[];
 
   /**
    * <p>The name of the stack.</p>
@@ -3745,9 +3950,29 @@ export interface UpdateStackRequest {
   Name: string | undefined;
 
   /**
+   * <p>The domains where AppStream 2.0 streaming sessions can be embedded in an iframe. You must approve the domains that you want to host embedded AppStream 2.0 streaming sessions. </p>
+   */
+  EmbedHostDomains?: string[];
+
+  /**
+   * <p>The storage connectors to enable.</p>
+   */
+  StorageConnectors?: StorageConnector[];
+
+  /**
+   * <p>The actions that are enabled or disabled for users during their streaming sessions. By default, these actions are enabled.</p>
+   */
+  UserSettings?: UserSetting[];
+
+  /**
    * <p>The URL that users are redirected to after their streaming session ends.</p>
    */
   RedirectURL?: string;
+
+  /**
+   * <p>Deletes the storage connectors currently enabled for the stack.</p>
+   */
+  DeleteStorageConnectors?: boolean;
 }
 
 export namespace UpdateStackRequest {

@@ -133,16 +133,6 @@ export namespace VariableValue {
 export interface GetScreenDataRequest {
   /**
    * <p>
-   *             Variables are optional and are needed only if the screen requires them to render correctly. Variables are
-   *             specified as a map where the key is the name of the variable as defined on the screen. The value is an
-   *             object which currently has only one property, rawValue, which holds the value of the variable to be passed
-   *             to the screen.
-   *         </p>
-   */
-  variables?: { [key: string]: VariableValue };
-
-  /**
-   * <p>
    *             This parameter is optional. If a nextToken is not specified, the API returns the first page of data.
    *         </p>
    *         <p>
@@ -151,6 +141,16 @@ export interface GetScreenDataRequest {
    *         </p>
    */
   nextToken?: string;
+
+  /**
+   * <p>
+   *             Variables are optional and are needed only if the screen requires them to render correctly. Variables are
+   *             specified as a map where the key is the name of the variable as defined on the screen. The value is an
+   *             object which currently has only one property, rawValue, which holds the value of the variable to be passed
+   *             to the screen.
+   *         </p>
+   */
+  variables?: { [key: string]: VariableValue };
 
   /**
    * <p>The ID of the app that contains the screem.</p>
@@ -216,6 +216,14 @@ export namespace ResultRow {
 export interface ResultSet {
   /**
    * <p>
+   *             List of rows returned by the request. Each row has a row Id and a list of data cells in that row. The data
+   *             cells will be present in the same order as they are defined in the header.
+   *         </p>
+   */
+  rows: ResultRow[] | undefined;
+
+  /**
+   * <p>
    *             List of headers for all the data cells in the block. The header identifies the name and default format of
    *             the data cell. Data cells appear in the same order in all rows as defined in the header. The names and
    *             formats are not repeated in the rows. If a particular row does not have a value for a data cell, a blank
@@ -230,14 +238,6 @@ export interface ResultSet {
    *         </p>
    */
   headers: ColumnMetadata[] | undefined;
-
-  /**
-   * <p>
-   *             List of rows returned by the request. Each row has a row Id and a list of data cells in that row. The data
-   *             cells will be present in the same order as they are defined in the header.
-   *         </p>
-   */
-  rows: ResultRow[] | undefined;
 }
 
 export namespace ResultSet {
@@ -273,15 +273,6 @@ export interface GetScreenDataResult {
 export namespace GetScreenDataResult {
   export const filterSensitiveLog = (obj: GetScreenDataResult): any => ({
     ...obj,
-    ...(obj.results && {
-      results: Object.entries(obj.results).reduce(
-        (acc: any, [key, value]: [string, ResultSet]) => ({
-          ...acc,
-          [key]: ResultSet.filterSensitiveLog(value),
-        }),
-        {}
-      ),
-    }),
   });
 }
 
@@ -379,14 +370,16 @@ export namespace ValidationException {
 
 export interface InvokeScreenAutomationRequest {
   /**
-   * <p>The ID of the automation action to be performed.</p>
+   * <p>The ID of the workbook that contains the screen automation.</p>
    */
-  screenAutomationId: string | undefined;
+  workbookId: string | undefined;
 
   /**
-   * <p>The ID of the app that contains the screen automation.</p>
+   * <p>
+   *             The row ID for the automation if the automation is defined inside a block with source or list.
+   *         </p>
    */
-  appId: string | undefined;
+  rowId?: string;
 
   /**
    * <p>
@@ -404,9 +397,19 @@ export interface InvokeScreenAutomationRequest {
   clientRequestToken?: string;
 
   /**
-   * <p>The ID of the workbook that contains the screen automation.</p>
+   * <p>The ID of the screen that contains the screen automation.</p>
    */
-  workbookId: string | undefined;
+  screenId: string | undefined;
+
+  /**
+   * <p>The ID of the app that contains the screen automation.</p>
+   */
+  appId: string | undefined;
+
+  /**
+   * <p>The ID of the automation action to be performed.</p>
+   */
+  screenAutomationId: string | undefined;
 
   /**
    * <p>
@@ -417,18 +420,6 @@ export interface InvokeScreenAutomationRequest {
    *         </p>
    */
   variables?: { [key: string]: VariableValue };
-
-  /**
-   * <p>
-   *             The row ID for the automation if the automation is defined inside a block with source or list.
-   *         </p>
-   */
-  rowId?: string;
-
-  /**
-   * <p>The ID of the screen that contains the screen automation.</p>
-   */
-  screenId: string | undefined;
 }
 
 export namespace InvokeScreenAutomationRequest {

@@ -5169,6 +5169,7 @@ const serializeAws_json1_1CreateEndpointMessage = (input: CreateEndpointMessage,
     ...(input.RedshiftSettings !== undefined && {
       RedshiftSettings: serializeAws_json1_1RedshiftSettings(input.RedshiftSettings, context),
     }),
+    ...(input.ResourceIdentifier !== undefined && { ResourceIdentifier: input.ResourceIdentifier }),
     ...(input.S3Settings !== undefined && { S3Settings: serializeAws_json1_1S3Settings(input.S3Settings, context) }),
     ...(input.ServerName !== undefined && { ServerName: input.ServerName }),
     ...(input.ServiceAccessRoleArn !== undefined && { ServiceAccessRoleArn: input.ServiceAccessRoleArn }),
@@ -5221,6 +5222,7 @@ const serializeAws_json1_1CreateReplicationInstanceMessage = (
     ...(input.ReplicationSubnetGroupIdentifier !== undefined && {
       ReplicationSubnetGroupIdentifier: input.ReplicationSubnetGroupIdentifier,
     }),
+    ...(input.ResourceIdentifier !== undefined && { ResourceIdentifier: input.ResourceIdentifier }),
     ...(input.Tags !== undefined && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
     ...(input.VpcSecurityGroupIds !== undefined && {
       VpcSecurityGroupIds: serializeAws_json1_1VpcSecurityGroupIdList(input.VpcSecurityGroupIds, context),
@@ -5260,6 +5262,7 @@ const serializeAws_json1_1CreateReplicationTaskMessage = (
       ReplicationTaskIdentifier: input.ReplicationTaskIdentifier,
     }),
     ...(input.ReplicationTaskSettings !== undefined && { ReplicationTaskSettings: input.ReplicationTaskSettings }),
+    ...(input.ResourceIdentifier !== undefined && { ResourceIdentifier: input.ResourceIdentifier }),
     ...(input.SourceEndpointArn !== undefined && { SourceEndpointArn: input.SourceEndpointArn }),
     ...(input.TableMappings !== undefined && { TableMappings: input.TableMappings }),
     ...(input.Tags !== undefined && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
@@ -5619,10 +5622,13 @@ const serializeAws_json1_1FilterValueList = (input: string[], context: __SerdeCo
 
 const serializeAws_json1_1IBMDb2Settings = (input: IBMDb2Settings, context: __SerdeContext): any => {
   return {
+    ...(input.CurrentLsn !== undefined && { CurrentLsn: input.CurrentLsn }),
     ...(input.DatabaseName !== undefined && { DatabaseName: input.DatabaseName }),
+    ...(input.MaxKBytesPerRead !== undefined && { MaxKBytesPerRead: input.MaxKBytesPerRead }),
     ...(input.Password !== undefined && { Password: input.Password }),
     ...(input.Port !== undefined && { Port: input.Port }),
     ...(input.ServerName !== undefined && { ServerName: input.ServerName }),
+    ...(input.SetDataCaptureChanges !== undefined && { SetDataCaptureChanges: input.SetDataCaptureChanges }),
     ...(input.Username !== undefined && { Username: input.Username }),
   };
 };
@@ -5647,6 +5653,7 @@ const serializeAws_json1_1KafkaSettings = (input: KafkaSettings, context: __Serd
   return {
     ...(input.Broker !== undefined && { Broker: input.Broker }),
     ...(input.IncludeControlDetails !== undefined && { IncludeControlDetails: input.IncludeControlDetails }),
+    ...(input.IncludeNullAndEmpty !== undefined && { IncludeNullAndEmpty: input.IncludeNullAndEmpty }),
     ...(input.IncludePartitionValue !== undefined && { IncludePartitionValue: input.IncludePartitionValue }),
     ...(input.IncludeTableAlterOperations !== undefined && {
       IncludeTableAlterOperations: input.IncludeTableAlterOperations,
@@ -5655,6 +5662,7 @@ const serializeAws_json1_1KafkaSettings = (input: KafkaSettings, context: __Serd
       IncludeTransactionDetails: input.IncludeTransactionDetails,
     }),
     ...(input.MessageFormat !== undefined && { MessageFormat: input.MessageFormat }),
+    ...(input.MessageMaxBytes !== undefined && { MessageMaxBytes: input.MessageMaxBytes }),
     ...(input.PartitionIncludeSchemaTable !== undefined && {
       PartitionIncludeSchemaTable: input.PartitionIncludeSchemaTable,
     }),
@@ -5669,6 +5677,7 @@ const serializeAws_json1_1KeyList = (input: string[], context: __SerdeContext): 
 const serializeAws_json1_1KinesisSettings = (input: KinesisSettings, context: __SerdeContext): any => {
   return {
     ...(input.IncludeControlDetails !== undefined && { IncludeControlDetails: input.IncludeControlDetails }),
+    ...(input.IncludeNullAndEmpty !== undefined && { IncludeNullAndEmpty: input.IncludeNullAndEmpty }),
     ...(input.IncludePartitionValue !== undefined && { IncludePartitionValue: input.IncludePartitionValue }),
     ...(input.IncludeTableAlterOperations !== undefined && {
       IncludeTableAlterOperations: input.IncludeTableAlterOperations,
@@ -5699,10 +5708,15 @@ const serializeAws_json1_1MicrosoftSQLServerSettings = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.BcpPacketSize !== undefined && { BcpPacketSize: input.BcpPacketSize }),
+    ...(input.ControlTablesFileGroup !== undefined && { ControlTablesFileGroup: input.ControlTablesFileGroup }),
     ...(input.DatabaseName !== undefined && { DatabaseName: input.DatabaseName }),
     ...(input.Password !== undefined && { Password: input.Password }),
     ...(input.Port !== undefined && { Port: input.Port }),
+    ...(input.ReadBackupOnly !== undefined && { ReadBackupOnly: input.ReadBackupOnly }),
+    ...(input.SafeguardPolicy !== undefined && { SafeguardPolicy: input.SafeguardPolicy }),
     ...(input.ServerName !== undefined && { ServerName: input.ServerName }),
+    ...(input.UseBcpFullLoad !== undefined && { UseBcpFullLoad: input.UseBcpFullLoad }),
     ...(input.Username !== undefined && { Username: input.Username }),
   };
 };
@@ -5869,10 +5883,16 @@ const serializeAws_json1_1MongoDbSettings = (input: MongoDbSettings, context: __
 
 const serializeAws_json1_1MySQLSettings = (input: MySQLSettings, context: __SerdeContext): any => {
   return {
+    ...(input.AfterConnectScript !== undefined && { AfterConnectScript: input.AfterConnectScript }),
     ...(input.DatabaseName !== undefined && { DatabaseName: input.DatabaseName }),
+    ...(input.EventsPollInterval !== undefined && { EventsPollInterval: input.EventsPollInterval }),
+    ...(input.MaxFileSize !== undefined && { MaxFileSize: input.MaxFileSize }),
+    ...(input.ParallelLoadThreads !== undefined && { ParallelLoadThreads: input.ParallelLoadThreads }),
     ...(input.Password !== undefined && { Password: input.Password }),
     ...(input.Port !== undefined && { Port: input.Port }),
     ...(input.ServerName !== undefined && { ServerName: input.ServerName }),
+    ...(input.ServerTimezone !== undefined && { ServerTimezone: input.ServerTimezone }),
+    ...(input.TargetDbType !== undefined && { TargetDbType: input.TargetDbType }),
     ...(input.Username !== undefined && { Username: input.Username }),
   };
 };
@@ -5891,25 +5911,58 @@ const serializeAws_json1_1NeptuneSettings = (input: NeptuneSettings, context: __
 
 const serializeAws_json1_1OracleSettings = (input: OracleSettings, context: __SerdeContext): any => {
   return {
+    ...(input.AccessAlternateDirectly !== undefined && { AccessAlternateDirectly: input.AccessAlternateDirectly }),
+    ...(input.AddSupplementalLogging !== undefined && { AddSupplementalLogging: input.AddSupplementalLogging }),
+    ...(input.AdditionalArchivedLogDestId !== undefined && {
+      AdditionalArchivedLogDestId: input.AdditionalArchivedLogDestId,
+    }),
+    ...(input.AllowSelectNestedTables !== undefined && { AllowSelectNestedTables: input.AllowSelectNestedTables }),
+    ...(input.ArchivedLogDestId !== undefined && { ArchivedLogDestId: input.ArchivedLogDestId }),
+    ...(input.ArchivedLogsOnly !== undefined && { ArchivedLogsOnly: input.ArchivedLogsOnly }),
     ...(input.AsmPassword !== undefined && { AsmPassword: input.AsmPassword }),
     ...(input.AsmServer !== undefined && { AsmServer: input.AsmServer }),
     ...(input.AsmUser !== undefined && { AsmUser: input.AsmUser }),
+    ...(input.CharLengthSemantics !== undefined && { CharLengthSemantics: input.CharLengthSemantics }),
     ...(input.DatabaseName !== undefined && { DatabaseName: input.DatabaseName }),
+    ...(input.DirectPathNoLog !== undefined && { DirectPathNoLog: input.DirectPathNoLog }),
+    ...(input.DirectPathParallelLoad !== undefined && { DirectPathParallelLoad: input.DirectPathParallelLoad }),
+    ...(input.EnableHomogenousTablespace !== undefined && {
+      EnableHomogenousTablespace: input.EnableHomogenousTablespace,
+    }),
+    ...(input.FailTasksOnLobTruncation !== undefined && { FailTasksOnLobTruncation: input.FailTasksOnLobTruncation }),
+    ...(input.NumberDatatypeScale !== undefined && { NumberDatatypeScale: input.NumberDatatypeScale }),
+    ...(input.OraclePathPrefix !== undefined && { OraclePathPrefix: input.OraclePathPrefix }),
+    ...(input.ParallelAsmReadThreads !== undefined && { ParallelAsmReadThreads: input.ParallelAsmReadThreads }),
     ...(input.Password !== undefined && { Password: input.Password }),
     ...(input.Port !== undefined && { Port: input.Port }),
+    ...(input.ReadAheadBlocks !== undefined && { ReadAheadBlocks: input.ReadAheadBlocks }),
+    ...(input.ReadTableSpaceName !== undefined && { ReadTableSpaceName: input.ReadTableSpaceName }),
+    ...(input.ReplacePathPrefix !== undefined && { ReplacePathPrefix: input.ReplacePathPrefix }),
+    ...(input.RetryInterval !== undefined && { RetryInterval: input.RetryInterval }),
     ...(input.SecurityDbEncryption !== undefined && { SecurityDbEncryption: input.SecurityDbEncryption }),
     ...(input.SecurityDbEncryptionName !== undefined && { SecurityDbEncryptionName: input.SecurityDbEncryptionName }),
     ...(input.ServerName !== undefined && { ServerName: input.ServerName }),
+    ...(input.UseAlternateFolderForOnline !== undefined && {
+      UseAlternateFolderForOnline: input.UseAlternateFolderForOnline,
+    }),
+    ...(input.UsePathPrefix !== undefined && { UsePathPrefix: input.UsePathPrefix }),
     ...(input.Username !== undefined && { Username: input.Username }),
   };
 };
 
 const serializeAws_json1_1PostgreSQLSettings = (input: PostgreSQLSettings, context: __SerdeContext): any => {
   return {
+    ...(input.AfterConnectScript !== undefined && { AfterConnectScript: input.AfterConnectScript }),
+    ...(input.CaptureDdls !== undefined && { CaptureDdls: input.CaptureDdls }),
     ...(input.DatabaseName !== undefined && { DatabaseName: input.DatabaseName }),
+    ...(input.DdlArtifactsSchema !== undefined && { DdlArtifactsSchema: input.DdlArtifactsSchema }),
+    ...(input.ExecuteTimeout !== undefined && { ExecuteTimeout: input.ExecuteTimeout }),
+    ...(input.FailTasksOnLobTruncation !== undefined && { FailTasksOnLobTruncation: input.FailTasksOnLobTruncation }),
+    ...(input.MaxFileSize !== undefined && { MaxFileSize: input.MaxFileSize }),
     ...(input.Password !== undefined && { Password: input.Password }),
     ...(input.Port !== undefined && { Port: input.Port }),
     ...(input.ServerName !== undefined && { ServerName: input.ServerName }),
+    ...(input.SlotName !== undefined && { SlotName: input.SlotName }),
     ...(input.Username !== undefined && { Username: input.Username }),
   };
 };
@@ -5930,11 +5983,14 @@ const serializeAws_json1_1RedshiftSettings = (input: RedshiftSettings, context: 
     ...(input.AfterConnectScript !== undefined && { AfterConnectScript: input.AfterConnectScript }),
     ...(input.BucketFolder !== undefined && { BucketFolder: input.BucketFolder }),
     ...(input.BucketName !== undefined && { BucketName: input.BucketName }),
+    ...(input.CaseSensitiveNames !== undefined && { CaseSensitiveNames: input.CaseSensitiveNames }),
+    ...(input.CompUpdate !== undefined && { CompUpdate: input.CompUpdate }),
     ...(input.ConnectionTimeout !== undefined && { ConnectionTimeout: input.ConnectionTimeout }),
     ...(input.DatabaseName !== undefined && { DatabaseName: input.DatabaseName }),
     ...(input.DateFormat !== undefined && { DateFormat: input.DateFormat }),
     ...(input.EmptyAsNull !== undefined && { EmptyAsNull: input.EmptyAsNull }),
     ...(input.EncryptionMode !== undefined && { EncryptionMode: input.EncryptionMode }),
+    ...(input.ExplicitIds !== undefined && { ExplicitIds: input.ExplicitIds }),
     ...(input.FileTransferUploadStreams !== undefined && {
       FileTransferUploadStreams: input.FileTransferUploadStreams,
     }),
@@ -5996,6 +6052,9 @@ const serializeAws_json1_1S3Settings = (input: S3Settings, context: __SerdeConte
     ...(input.CsvRowDelimiter !== undefined && { CsvRowDelimiter: input.CsvRowDelimiter }),
     ...(input.DataFormat !== undefined && { DataFormat: input.DataFormat }),
     ...(input.DataPageSize !== undefined && { DataPageSize: input.DataPageSize }),
+    ...(input.DatePartitionDelimiter !== undefined && { DatePartitionDelimiter: input.DatePartitionDelimiter }),
+    ...(input.DatePartitionEnabled !== undefined && { DatePartitionEnabled: input.DatePartitionEnabled }),
+    ...(input.DatePartitionSequence !== undefined && { DatePartitionSequence: input.DatePartitionSequence }),
     ...(input.DictPageSizeLimit !== undefined && { DictPageSizeLimit: input.DictPageSizeLimit }),
     ...(input.EnableStatistics !== undefined && { EnableStatistics: input.EnableStatistics }),
     ...(input.EncodingType !== undefined && { EncodingType: input.EncodingType }),
@@ -6877,10 +6936,17 @@ const deserializeAws_json1_1EventSubscriptionsList = (output: any, context: __Se
 
 const deserializeAws_json1_1IBMDb2Settings = (output: any, context: __SerdeContext): IBMDb2Settings => {
   return {
+    CurrentLsn: output.CurrentLsn !== undefined && output.CurrentLsn !== null ? output.CurrentLsn : undefined,
     DatabaseName: output.DatabaseName !== undefined && output.DatabaseName !== null ? output.DatabaseName : undefined,
+    MaxKBytesPerRead:
+      output.MaxKBytesPerRead !== undefined && output.MaxKBytesPerRead !== null ? output.MaxKBytesPerRead : undefined,
     Password: output.Password !== undefined && output.Password !== null ? output.Password : undefined,
     Port: output.Port !== undefined && output.Port !== null ? output.Port : undefined,
     ServerName: output.ServerName !== undefined && output.ServerName !== null ? output.ServerName : undefined,
+    SetDataCaptureChanges:
+      output.SetDataCaptureChanges !== undefined && output.SetDataCaptureChanges !== null
+        ? output.SetDataCaptureChanges
+        : undefined,
     Username: output.Username !== undefined && output.Username !== null ? output.Username : undefined,
   } as any;
 };
@@ -6941,6 +7007,10 @@ const deserializeAws_json1_1KafkaSettings = (output: any, context: __SerdeContex
       output.IncludeControlDetails !== undefined && output.IncludeControlDetails !== null
         ? output.IncludeControlDetails
         : undefined,
+    IncludeNullAndEmpty:
+      output.IncludeNullAndEmpty !== undefined && output.IncludeNullAndEmpty !== null
+        ? output.IncludeNullAndEmpty
+        : undefined,
     IncludePartitionValue:
       output.IncludePartitionValue !== undefined && output.IncludePartitionValue !== null
         ? output.IncludePartitionValue
@@ -6955,6 +7025,8 @@ const deserializeAws_json1_1KafkaSettings = (output: any, context: __SerdeContex
         : undefined,
     MessageFormat:
       output.MessageFormat !== undefined && output.MessageFormat !== null ? output.MessageFormat : undefined,
+    MessageMaxBytes:
+      output.MessageMaxBytes !== undefined && output.MessageMaxBytes !== null ? output.MessageMaxBytes : undefined,
     PartitionIncludeSchemaTable:
       output.PartitionIncludeSchemaTable !== undefined && output.PartitionIncludeSchemaTable !== null
         ? output.PartitionIncludeSchemaTable
@@ -6968,6 +7040,10 @@ const deserializeAws_json1_1KinesisSettings = (output: any, context: __SerdeCont
     IncludeControlDetails:
       output.IncludeControlDetails !== undefined && output.IncludeControlDetails !== null
         ? output.IncludeControlDetails
+        : undefined,
+    IncludeNullAndEmpty:
+      output.IncludeNullAndEmpty !== undefined && output.IncludeNullAndEmpty !== null
+        ? output.IncludeNullAndEmpty
         : undefined,
     IncludePartitionValue:
       output.IncludePartitionValue !== undefined && output.IncludePartitionValue !== null
@@ -7057,10 +7133,22 @@ const deserializeAws_json1_1MicrosoftSQLServerSettings = (
   context: __SerdeContext
 ): MicrosoftSQLServerSettings => {
   return {
+    BcpPacketSize:
+      output.BcpPacketSize !== undefined && output.BcpPacketSize !== null ? output.BcpPacketSize : undefined,
+    ControlTablesFileGroup:
+      output.ControlTablesFileGroup !== undefined && output.ControlTablesFileGroup !== null
+        ? output.ControlTablesFileGroup
+        : undefined,
     DatabaseName: output.DatabaseName !== undefined && output.DatabaseName !== null ? output.DatabaseName : undefined,
     Password: output.Password !== undefined && output.Password !== null ? output.Password : undefined,
     Port: output.Port !== undefined && output.Port !== null ? output.Port : undefined,
+    ReadBackupOnly:
+      output.ReadBackupOnly !== undefined && output.ReadBackupOnly !== null ? output.ReadBackupOnly : undefined,
+    SafeguardPolicy:
+      output.SafeguardPolicy !== undefined && output.SafeguardPolicy !== null ? output.SafeguardPolicy : undefined,
     ServerName: output.ServerName !== undefined && output.ServerName !== null ? output.ServerName : undefined,
+    UseBcpFullLoad:
+      output.UseBcpFullLoad !== undefined && output.UseBcpFullLoad !== null ? output.UseBcpFullLoad : undefined,
     Username: output.Username !== undefined && output.Username !== null ? output.Username : undefined,
   } as any;
 };
@@ -7145,10 +7233,26 @@ const deserializeAws_json1_1MongoDbSettings = (output: any, context: __SerdeCont
 
 const deserializeAws_json1_1MySQLSettings = (output: any, context: __SerdeContext): MySQLSettings => {
   return {
+    AfterConnectScript:
+      output.AfterConnectScript !== undefined && output.AfterConnectScript !== null
+        ? output.AfterConnectScript
+        : undefined,
     DatabaseName: output.DatabaseName !== undefined && output.DatabaseName !== null ? output.DatabaseName : undefined,
+    EventsPollInterval:
+      output.EventsPollInterval !== undefined && output.EventsPollInterval !== null
+        ? output.EventsPollInterval
+        : undefined,
+    MaxFileSize: output.MaxFileSize !== undefined && output.MaxFileSize !== null ? output.MaxFileSize : undefined,
+    ParallelLoadThreads:
+      output.ParallelLoadThreads !== undefined && output.ParallelLoadThreads !== null
+        ? output.ParallelLoadThreads
+        : undefined,
     Password: output.Password !== undefined && output.Password !== null ? output.Password : undefined,
     Port: output.Port !== undefined && output.Port !== null ? output.Port : undefined,
     ServerName: output.ServerName !== undefined && output.ServerName !== null ? output.ServerName : undefined,
+    ServerTimezone:
+      output.ServerTimezone !== undefined && output.ServerTimezone !== null ? output.ServerTimezone : undefined,
+    TargetDbType: output.TargetDbType !== undefined && output.TargetDbType !== null ? output.TargetDbType : undefined,
     Username: output.Username !== undefined && output.Username !== null ? output.Username : undefined,
   } as any;
 };
@@ -7176,12 +7280,74 @@ const deserializeAws_json1_1NeptuneSettings = (output: any, context: __SerdeCont
 
 const deserializeAws_json1_1OracleSettings = (output: any, context: __SerdeContext): OracleSettings => {
   return {
+    AccessAlternateDirectly:
+      output.AccessAlternateDirectly !== undefined && output.AccessAlternateDirectly !== null
+        ? output.AccessAlternateDirectly
+        : undefined,
+    AddSupplementalLogging:
+      output.AddSupplementalLogging !== undefined && output.AddSupplementalLogging !== null
+        ? output.AddSupplementalLogging
+        : undefined,
+    AdditionalArchivedLogDestId:
+      output.AdditionalArchivedLogDestId !== undefined && output.AdditionalArchivedLogDestId !== null
+        ? output.AdditionalArchivedLogDestId
+        : undefined,
+    AllowSelectNestedTables:
+      output.AllowSelectNestedTables !== undefined && output.AllowSelectNestedTables !== null
+        ? output.AllowSelectNestedTables
+        : undefined,
+    ArchivedLogDestId:
+      output.ArchivedLogDestId !== undefined && output.ArchivedLogDestId !== null
+        ? output.ArchivedLogDestId
+        : undefined,
+    ArchivedLogsOnly:
+      output.ArchivedLogsOnly !== undefined && output.ArchivedLogsOnly !== null ? output.ArchivedLogsOnly : undefined,
     AsmPassword: output.AsmPassword !== undefined && output.AsmPassword !== null ? output.AsmPassword : undefined,
     AsmServer: output.AsmServer !== undefined && output.AsmServer !== null ? output.AsmServer : undefined,
     AsmUser: output.AsmUser !== undefined && output.AsmUser !== null ? output.AsmUser : undefined,
+    CharLengthSemantics:
+      output.CharLengthSemantics !== undefined && output.CharLengthSemantics !== null
+        ? output.CharLengthSemantics
+        : undefined,
     DatabaseName: output.DatabaseName !== undefined && output.DatabaseName !== null ? output.DatabaseName : undefined,
+    DirectPathNoLog:
+      output.DirectPathNoLog !== undefined && output.DirectPathNoLog !== null ? output.DirectPathNoLog : undefined,
+    DirectPathParallelLoad:
+      output.DirectPathParallelLoad !== undefined && output.DirectPathParallelLoad !== null
+        ? output.DirectPathParallelLoad
+        : undefined,
+    EnableHomogenousTablespace:
+      output.EnableHomogenousTablespace !== undefined && output.EnableHomogenousTablespace !== null
+        ? output.EnableHomogenousTablespace
+        : undefined,
+    FailTasksOnLobTruncation:
+      output.FailTasksOnLobTruncation !== undefined && output.FailTasksOnLobTruncation !== null
+        ? output.FailTasksOnLobTruncation
+        : undefined,
+    NumberDatatypeScale:
+      output.NumberDatatypeScale !== undefined && output.NumberDatatypeScale !== null
+        ? output.NumberDatatypeScale
+        : undefined,
+    OraclePathPrefix:
+      output.OraclePathPrefix !== undefined && output.OraclePathPrefix !== null ? output.OraclePathPrefix : undefined,
+    ParallelAsmReadThreads:
+      output.ParallelAsmReadThreads !== undefined && output.ParallelAsmReadThreads !== null
+        ? output.ParallelAsmReadThreads
+        : undefined,
     Password: output.Password !== undefined && output.Password !== null ? output.Password : undefined,
     Port: output.Port !== undefined && output.Port !== null ? output.Port : undefined,
+    ReadAheadBlocks:
+      output.ReadAheadBlocks !== undefined && output.ReadAheadBlocks !== null ? output.ReadAheadBlocks : undefined,
+    ReadTableSpaceName:
+      output.ReadTableSpaceName !== undefined && output.ReadTableSpaceName !== null
+        ? output.ReadTableSpaceName
+        : undefined,
+    ReplacePathPrefix:
+      output.ReplacePathPrefix !== undefined && output.ReplacePathPrefix !== null
+        ? output.ReplacePathPrefix
+        : undefined,
+    RetryInterval:
+      output.RetryInterval !== undefined && output.RetryInterval !== null ? output.RetryInterval : undefined,
     SecurityDbEncryption:
       output.SecurityDbEncryption !== undefined && output.SecurityDbEncryption !== null
         ? output.SecurityDbEncryption
@@ -7191,6 +7357,12 @@ const deserializeAws_json1_1OracleSettings = (output: any, context: __SerdeConte
         ? output.SecurityDbEncryptionName
         : undefined,
     ServerName: output.ServerName !== undefined && output.ServerName !== null ? output.ServerName : undefined,
+    UseAlternateFolderForOnline:
+      output.UseAlternateFolderForOnline !== undefined && output.UseAlternateFolderForOnline !== null
+        ? output.UseAlternateFolderForOnline
+        : undefined,
+    UsePathPrefix:
+      output.UsePathPrefix !== undefined && output.UsePathPrefix !== null ? output.UsePathPrefix : undefined,
     Username: output.Username !== undefined && output.Username !== null ? output.Username : undefined,
   } as any;
 };
@@ -7278,10 +7450,27 @@ const deserializeAws_json1_1PendingMaintenanceActions = (
 
 const deserializeAws_json1_1PostgreSQLSettings = (output: any, context: __SerdeContext): PostgreSQLSettings => {
   return {
+    AfterConnectScript:
+      output.AfterConnectScript !== undefined && output.AfterConnectScript !== null
+        ? output.AfterConnectScript
+        : undefined,
+    CaptureDdls: output.CaptureDdls !== undefined && output.CaptureDdls !== null ? output.CaptureDdls : undefined,
     DatabaseName: output.DatabaseName !== undefined && output.DatabaseName !== null ? output.DatabaseName : undefined,
+    DdlArtifactsSchema:
+      output.DdlArtifactsSchema !== undefined && output.DdlArtifactsSchema !== null
+        ? output.DdlArtifactsSchema
+        : undefined,
+    ExecuteTimeout:
+      output.ExecuteTimeout !== undefined && output.ExecuteTimeout !== null ? output.ExecuteTimeout : undefined,
+    FailTasksOnLobTruncation:
+      output.FailTasksOnLobTruncation !== undefined && output.FailTasksOnLobTruncation !== null
+        ? output.FailTasksOnLobTruncation
+        : undefined,
+    MaxFileSize: output.MaxFileSize !== undefined && output.MaxFileSize !== null ? output.MaxFileSize : undefined,
     Password: output.Password !== undefined && output.Password !== null ? output.Password : undefined,
     Port: output.Port !== undefined && output.Port !== null ? output.Port : undefined,
     ServerName: output.ServerName !== undefined && output.ServerName !== null ? output.ServerName : undefined,
+    SlotName: output.SlotName !== undefined && output.SlotName !== null ? output.SlotName : undefined,
     Username: output.Username !== undefined && output.Username !== null ? output.Username : undefined,
   } as any;
 };
@@ -7308,6 +7497,11 @@ const deserializeAws_json1_1RedshiftSettings = (output: any, context: __SerdeCon
         : undefined,
     BucketFolder: output.BucketFolder !== undefined && output.BucketFolder !== null ? output.BucketFolder : undefined,
     BucketName: output.BucketName !== undefined && output.BucketName !== null ? output.BucketName : undefined,
+    CaseSensitiveNames:
+      output.CaseSensitiveNames !== undefined && output.CaseSensitiveNames !== null
+        ? output.CaseSensitiveNames
+        : undefined,
+    CompUpdate: output.CompUpdate !== undefined && output.CompUpdate !== null ? output.CompUpdate : undefined,
     ConnectionTimeout:
       output.ConnectionTimeout !== undefined && output.ConnectionTimeout !== null
         ? output.ConnectionTimeout
@@ -7317,6 +7511,7 @@ const deserializeAws_json1_1RedshiftSettings = (output: any, context: __SerdeCon
     EmptyAsNull: output.EmptyAsNull !== undefined && output.EmptyAsNull !== null ? output.EmptyAsNull : undefined,
     EncryptionMode:
       output.EncryptionMode !== undefined && output.EncryptionMode !== null ? output.EncryptionMode : undefined,
+    ExplicitIds: output.ExplicitIds !== undefined && output.ExplicitIds !== null ? output.ExplicitIds : undefined,
     FileTransferUploadStreams:
       output.FileTransferUploadStreams !== undefined && output.FileTransferUploadStreams !== null
         ? output.FileTransferUploadStreams
@@ -7907,6 +8102,18 @@ const deserializeAws_json1_1S3Settings = (output: any, context: __SerdeContext):
       output.CsvRowDelimiter !== undefined && output.CsvRowDelimiter !== null ? output.CsvRowDelimiter : undefined,
     DataFormat: output.DataFormat !== undefined && output.DataFormat !== null ? output.DataFormat : undefined,
     DataPageSize: output.DataPageSize !== undefined && output.DataPageSize !== null ? output.DataPageSize : undefined,
+    DatePartitionDelimiter:
+      output.DatePartitionDelimiter !== undefined && output.DatePartitionDelimiter !== null
+        ? output.DatePartitionDelimiter
+        : undefined,
+    DatePartitionEnabled:
+      output.DatePartitionEnabled !== undefined && output.DatePartitionEnabled !== null
+        ? output.DatePartitionEnabled
+        : undefined,
+    DatePartitionSequence:
+      output.DatePartitionSequence !== undefined && output.DatePartitionSequence !== null
+        ? output.DatePartitionSequence
+        : undefined,
     DictPageSizeLimit:
       output.DictPageSizeLimit !== undefined && output.DictPageSizeLimit !== null
         ? output.DictPageSizeLimit

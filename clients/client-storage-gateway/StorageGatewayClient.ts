@@ -22,6 +22,7 @@ import {
   CreateStorediSCSIVolumeCommandInput,
   CreateStorediSCSIVolumeCommandOutput,
 } from "./commands/CreateStorediSCSIVolumeCommand";
+import { CreateTapePoolCommandInput, CreateTapePoolCommandOutput } from "./commands/CreateTapePoolCommand";
 import {
   CreateTapeWithBarcodeCommandInput,
   CreateTapeWithBarcodeCommandOutput,
@@ -47,6 +48,7 @@ import {
 } from "./commands/DeleteSnapshotScheduleCommand";
 import { DeleteTapeArchiveCommandInput, DeleteTapeArchiveCommandOutput } from "./commands/DeleteTapeArchiveCommand";
 import { DeleteTapeCommandInput, DeleteTapeCommandOutput } from "./commands/DeleteTapeCommand";
+import { DeleteTapePoolCommandInput, DeleteTapePoolCommandOutput } from "./commands/DeleteTapePoolCommand";
 import { DeleteVolumeCommandInput, DeleteVolumeCommandOutput } from "./commands/DeleteVolumeCommand";
 import {
   DescribeAvailabilityMonitorTestCommandInput,
@@ -125,6 +127,7 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import { ListTapePoolsCommandInput, ListTapePoolsCommandOutput } from "./commands/ListTapePoolsCommand";
 import { ListTapesCommandInput, ListTapesCommandOutput } from "./commands/ListTapesCommand";
 import {
   ListVolumeInitiatorsCommandInput,
@@ -267,6 +270,7 @@ export type ServiceInputTypes =
   | CreateSnapshotCommandInput
   | CreateSnapshotFromVolumeRecoveryPointCommandInput
   | CreateStorediSCSIVolumeCommandInput
+  | CreateTapePoolCommandInput
   | CreateTapeWithBarcodeCommandInput
   | CreateTapesCommandInput
   | DeleteAutomaticTapeCreationPolicyCommandInput
@@ -277,6 +281,7 @@ export type ServiceInputTypes =
   | DeleteSnapshotScheduleCommandInput
   | DeleteTapeArchiveCommandInput
   | DeleteTapeCommandInput
+  | DeleteTapePoolCommandInput
   | DeleteVolumeCommandInput
   | DescribeAvailabilityMonitorTestCommandInput
   | DescribeBandwidthRateLimitCommandInput
@@ -304,6 +309,7 @@ export type ServiceInputTypes =
   | ListGatewaysCommandInput
   | ListLocalDisksCommandInput
   | ListTagsForResourceCommandInput
+  | ListTapePoolsCommandInput
   | ListTapesCommandInput
   | ListVolumeInitiatorsCommandInput
   | ListVolumeRecoveryPointsCommandInput
@@ -347,6 +353,7 @@ export type ServiceOutputTypes =
   | CreateSnapshotCommandOutput
   | CreateSnapshotFromVolumeRecoveryPointCommandOutput
   | CreateStorediSCSIVolumeCommandOutput
+  | CreateTapePoolCommandOutput
   | CreateTapeWithBarcodeCommandOutput
   | CreateTapesCommandOutput
   | DeleteAutomaticTapeCreationPolicyCommandOutput
@@ -357,6 +364,7 @@ export type ServiceOutputTypes =
   | DeleteSnapshotScheduleCommandOutput
   | DeleteTapeArchiveCommandOutput
   | DeleteTapeCommandOutput
+  | DeleteTapePoolCommandOutput
   | DeleteVolumeCommandOutput
   | DescribeAvailabilityMonitorTestCommandOutput
   | DescribeBandwidthRateLimitCommandOutput
@@ -384,6 +392,7 @@ export type ServiceOutputTypes =
   | ListGatewaysCommandOutput
   | ListLocalDisksCommandOutput
   | ListTagsForResourceCommandOutput
+  | ListTapePoolsCommandOutput
   | ListTapesCommandOutput
   | ListVolumeInitiatorsCommandOutput
   | ListVolumeRecoveryPointsCommandOutput
@@ -561,7 +570,7 @@ export type StorageGatewayClientResolvedConfig = __SmithyResolvedConfiguration<_
  *             <li>
  *                <p>
  *                   <a href="https://docs.aws.amazon.com/general/latest/gr/sg.html">AWS Storage Gateway
- *                   endpoints and quotas:</a> Provides a list of each AWS Region and the endpoints
+ *                   endpoints and quotas</a>: Provides a list of each AWS Region and the endpoints
  *                available for use with AWS Storage Gateway.</p>
  *             </li>
  *          </ul>

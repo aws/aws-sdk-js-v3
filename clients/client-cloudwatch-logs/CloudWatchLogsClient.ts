@@ -327,7 +327,7 @@ export type CloudWatchLogsClientResolvedConfig = __SmithyResolvedConfiguration<_
 
 /**
  * <p>You can use Amazon CloudWatch Logs to monitor, store, and access your log files from
- *       Amazon EC2 instances, AWS CloudTrail, or other sources. You can then retrieve the associated
+ *       EC2 instances, AWS CloudTrail, or other sources. You can then retrieve the associated
  *       log data from CloudWatch Logs using the CloudWatch console, CloudWatch Logs commands in the
  *       AWS CLI, CloudWatch Logs API, or CloudWatch Logs SDK.</p>
  *          <p>You can use CloudWatch Logs to:</p>
@@ -338,7 +338,7 @@ export type CloudWatchLogsClientResolvedConfig = __SmithyResolvedConfiguration<_
  *           can use CloudWatch Logs to monitor applications and systems using log data. For example,
  *           CloudWatch Logs can track the number of errors that occur in your application logs and
  *           send you a notification whenever the rate of errors exceeds a threshold that you specify.
- *           CloudWatch Logs uses your log data for monitoring; so, no code changes are required. For
+ *           CloudWatch Logs uses your log data for monitoring so no code changes are required. For
  *           example, you can monitor application logs for specific literal terms (such as
  *           "NullReferenceException") or count the number of occurrences of a literal term at a
  *           particular position in log data (such as "404" status codes in an Apache access log). When
@@ -349,7 +349,7 @@ export type CloudWatchLogsClientResolvedConfig = __SmithyResolvedConfiguration<_
  *                <p>
  *                   <b>Monitor AWS CloudTrail logged events</b>: You can
  *           create alarms in CloudWatch and receive notifications of particular API activity as
- *           captured by CloudTrail and use the notification to perform troubleshooting.</p>
+ *           captured by CloudTrail. You can use the notification to perform troubleshooting.</p>
  *             </li>
  *             <li>
  *                <p>

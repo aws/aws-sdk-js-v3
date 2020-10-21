@@ -1,5 +1,22 @@
+import {
+  AssociateRoutingProfileQueuesCommandInput,
+  AssociateRoutingProfileQueuesCommandOutput,
+} from "../commands/AssociateRoutingProfileQueuesCommand";
+import { CreateContactFlowCommandInput, CreateContactFlowCommandOutput } from "../commands/CreateContactFlowCommand";
+import {
+  CreateRoutingProfileCommandInput,
+  CreateRoutingProfileCommandOutput,
+} from "../commands/CreateRoutingProfileCommand";
 import { CreateUserCommandInput, CreateUserCommandOutput } from "../commands/CreateUserCommand";
 import { DeleteUserCommandInput, DeleteUserCommandOutput } from "../commands/DeleteUserCommand";
+import {
+  DescribeContactFlowCommandInput,
+  DescribeContactFlowCommandOutput,
+} from "../commands/DescribeContactFlowCommand";
+import {
+  DescribeRoutingProfileCommandInput,
+  DescribeRoutingProfileCommandOutput,
+} from "../commands/DescribeRoutingProfileCommand";
 import { DescribeUserCommandInput, DescribeUserCommandOutput } from "../commands/DescribeUserCommand";
 import {
   DescribeUserHierarchyGroupCommandInput,
@@ -9,6 +26,10 @@ import {
   DescribeUserHierarchyStructureCommandInput,
   DescribeUserHierarchyStructureCommandOutput,
 } from "../commands/DescribeUserHierarchyStructureCommand";
+import {
+  DisassociateRoutingProfileQueuesCommandInput,
+  DisassociateRoutingProfileQueuesCommandOutput,
+} from "../commands/DisassociateRoutingProfileQueuesCommand";
 import {
   GetContactAttributesCommandInput,
   GetContactAttributesCommandOutput,
@@ -25,7 +46,12 @@ import {
   ListHoursOfOperationsCommandOutput,
 } from "../commands/ListHoursOfOperationsCommand";
 import { ListPhoneNumbersCommandInput, ListPhoneNumbersCommandOutput } from "../commands/ListPhoneNumbersCommand";
+import { ListPromptsCommandInput, ListPromptsCommandOutput } from "../commands/ListPromptsCommand";
 import { ListQueuesCommandInput, ListQueuesCommandOutput } from "../commands/ListQueuesCommand";
+import {
+  ListRoutingProfileQueuesCommandInput,
+  ListRoutingProfileQueuesCommandOutput,
+} from "../commands/ListRoutingProfileQueuesCommand";
 import {
   ListRoutingProfilesCommandInput,
   ListRoutingProfilesCommandOutput,
@@ -72,6 +98,30 @@ import {
   UpdateContactAttributesCommandOutput,
 } from "../commands/UpdateContactAttributesCommand";
 import {
+  UpdateContactFlowContentCommandInput,
+  UpdateContactFlowContentCommandOutput,
+} from "../commands/UpdateContactFlowContentCommand";
+import {
+  UpdateContactFlowNameCommandInput,
+  UpdateContactFlowNameCommandOutput,
+} from "../commands/UpdateContactFlowNameCommand";
+import {
+  UpdateRoutingProfileConcurrencyCommandInput,
+  UpdateRoutingProfileConcurrencyCommandOutput,
+} from "../commands/UpdateRoutingProfileConcurrencyCommand";
+import {
+  UpdateRoutingProfileDefaultOutboundQueueCommandInput,
+  UpdateRoutingProfileDefaultOutboundQueueCommandOutput,
+} from "../commands/UpdateRoutingProfileDefaultOutboundQueueCommand";
+import {
+  UpdateRoutingProfileNameCommandInput,
+  UpdateRoutingProfileNameCommandOutput,
+} from "../commands/UpdateRoutingProfileNameCommand";
+import {
+  UpdateRoutingProfileQueuesCommandInput,
+  UpdateRoutingProfileQueuesCommandOutput,
+} from "../commands/UpdateRoutingProfileQueuesCommand";
+import {
   UpdateUserHierarchyCommandInput,
   UpdateUserHierarchyCommandOutput,
 } from "../commands/UpdateUserHierarchyCommand";
@@ -94,6 +144,8 @@ import {
 import {
   Channel,
   ChatMessage,
+  ContactFlow,
+  ContactFlowNotPublishedException,
   ContactFlowSummary,
   ContactNotFoundException,
   Credentials,
@@ -115,15 +167,23 @@ import {
   HistoricalMetricResult,
   HoursOfOperationSummary,
   InternalServiceException,
+  InvalidContactFlowException,
   InvalidParameterException,
   InvalidRequestException,
   LimitExceededException,
+  MediaConcurrency,
   OutboundContactNotPermittedException,
   ParticipantDetails,
   PhoneNumberSummary,
+  ProblemDetail,
+  PromptSummary,
   QueueReference,
   QueueSummary,
   ResourceNotFoundException,
+  RoutingProfile,
+  RoutingProfileQueueConfig,
+  RoutingProfileQueueConfigSummary,
+  RoutingProfileQueueReference,
   RoutingProfileSummary,
   SecurityProfileSummary,
   Threshold,
@@ -147,6 +207,129 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 import { v4 as generateIdempotencyToken } from "uuid";
+
+export const serializeAws_restJson1AssociateRoutingProfileQueuesCommand = async (
+  input: AssociateRoutingProfileQueuesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+  };
+  let resolvedPath = "/routing-profiles/{InstanceId}/{RoutingProfileId}/associate-queues";
+  if (input.InstanceId !== undefined) {
+    const labelValue: string = input.InstanceId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: InstanceId.");
+    }
+    resolvedPath = resolvedPath.replace("{InstanceId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: InstanceId.");
+  }
+  if (input.RoutingProfileId !== undefined) {
+    const labelValue: string = input.RoutingProfileId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: RoutingProfileId.");
+    }
+    resolvedPath = resolvedPath.replace("{RoutingProfileId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: RoutingProfileId.");
+  }
+  let body: any;
+  body = JSON.stringify({
+    ...(input.QueueConfigs !== undefined && {
+      QueueConfigs: serializeAws_restJson1RoutingProfileQueueConfigList(input.QueueConfigs, context),
+    }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1CreateContactFlowCommand = async (
+  input: CreateContactFlowCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+  };
+  let resolvedPath = "/contact-flows/{InstanceId}";
+  if (input.InstanceId !== undefined) {
+    const labelValue: string = input.InstanceId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: InstanceId.");
+    }
+    resolvedPath = resolvedPath.replace("{InstanceId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: InstanceId.");
+  }
+  let body: any;
+  body = JSON.stringify({
+    ...(input.Content !== undefined && { Content: input.Content }),
+    ...(input.Description !== undefined && { Description: input.Description }),
+    ...(input.Name !== undefined && { Name: input.Name }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
+    ...(input.Type !== undefined && { Type: input.Type }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1CreateRoutingProfileCommand = async (
+  input: CreateRoutingProfileCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+  };
+  let resolvedPath = "/routing-profiles/{InstanceId}";
+  if (input.InstanceId !== undefined) {
+    const labelValue: string = input.InstanceId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: InstanceId.");
+    }
+    resolvedPath = resolvedPath.replace("{InstanceId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: InstanceId.");
+  }
+  let body: any;
+  body = JSON.stringify({
+    ...(input.DefaultOutboundQueueId !== undefined && { DefaultOutboundQueueId: input.DefaultOutboundQueueId }),
+    ...(input.Description !== undefined && { Description: input.Description }),
+    ...(input.MediaConcurrencies !== undefined && {
+      MediaConcurrencies: serializeAws_restJson1MediaConcurrencies(input.MediaConcurrencies, context),
+    }),
+    ...(input.Name !== undefined && { Name: input.Name }),
+    ...(input.QueueConfigs !== undefined && {
+      QueueConfigs: serializeAws_restJson1RoutingProfileQueueConfigList(input.QueueConfigs, context),
+    }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
 
 export const serializeAws_restJson1CreateUserCommand = async (
   input: CreateUserCommandInput,
@@ -203,15 +386,6 @@ export const serializeAws_restJson1DeleteUserCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/users/{InstanceId}/{UserId}";
-  if (input.InstanceId !== undefined) {
-    const labelValue: string = input.InstanceId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: InstanceId.");
-    }
-    resolvedPath = resolvedPath.replace("{InstanceId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: InstanceId.");
-  }
   if (input.UserId !== undefined) {
     const labelValue: string = input.UserId;
     if (labelValue.length <= 0) {
@@ -220,6 +394,15 @@ export const serializeAws_restJson1DeleteUserCommand = async (
     resolvedPath = resolvedPath.replace("{UserId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: UserId.");
+  }
+  if (input.InstanceId !== undefined) {
+    const labelValue: string = input.InstanceId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: InstanceId.");
+    }
+    resolvedPath = resolvedPath.replace("{InstanceId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: InstanceId.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -234,14 +417,23 @@ export const serializeAws_restJson1DeleteUserCommand = async (
   });
 };
 
-export const serializeAws_restJson1DescribeUserCommand = async (
-  input: DescribeUserCommandInput,
+export const serializeAws_restJson1DescribeContactFlowCommand = async (
+  input: DescribeContactFlowCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "",
   };
-  let resolvedPath = "/users/{InstanceId}/{UserId}";
+  let resolvedPath = "/contact-flows/{InstanceId}/{ContactFlowId}";
+  if (input.ContactFlowId !== undefined) {
+    const labelValue: string = input.ContactFlowId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: ContactFlowId.");
+    }
+    resolvedPath = resolvedPath.replace("{ContactFlowId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: ContactFlowId.");
+  }
   if (input.InstanceId !== undefined) {
     const labelValue: string = input.InstanceId;
     if (labelValue.length <= 0) {
@@ -251,6 +443,66 @@ export const serializeAws_restJson1DescribeUserCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: InstanceId.");
   }
+  let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1DescribeRoutingProfileCommand = async (
+  input: DescribeRoutingProfileCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "",
+  };
+  let resolvedPath = "/routing-profiles/{InstanceId}/{RoutingProfileId}";
+  if (input.InstanceId !== undefined) {
+    const labelValue: string = input.InstanceId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: InstanceId.");
+    }
+    resolvedPath = resolvedPath.replace("{InstanceId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: InstanceId.");
+  }
+  if (input.RoutingProfileId !== undefined) {
+    const labelValue: string = input.RoutingProfileId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: RoutingProfileId.");
+    }
+    resolvedPath = resolvedPath.replace("{RoutingProfileId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: RoutingProfileId.");
+  }
+  let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1DescribeUserCommand = async (
+  input: DescribeUserCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "",
+  };
+  let resolvedPath = "/users/{InstanceId}/{UserId}";
   if (input.UserId !== undefined) {
     const labelValue: string = input.UserId;
     if (labelValue.length <= 0) {
@@ -259,6 +511,15 @@ export const serializeAws_restJson1DescribeUserCommand = async (
     resolvedPath = resolvedPath.replace("{UserId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: UserId.");
+  }
+  if (input.InstanceId !== undefined) {
+    const labelValue: string = input.InstanceId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: InstanceId.");
+    }
+    resolvedPath = resolvedPath.replace("{InstanceId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: InstanceId.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -342,23 +603,14 @@ export const serializeAws_restJson1DescribeUserHierarchyStructureCommand = async
   });
 };
 
-export const serializeAws_restJson1GetContactAttributesCommand = async (
-  input: GetContactAttributesCommandInput,
+export const serializeAws_restJson1DisassociateRoutingProfileQueuesCommand = async (
+  input: DisassociateRoutingProfileQueuesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "",
+    "Content-Type": "application/json",
   };
-  let resolvedPath = "/contact/attributes/{InstanceId}/{InitialContactId}";
-  if (input.InitialContactId !== undefined) {
-    const labelValue: string = input.InitialContactId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: InitialContactId.");
-    }
-    resolvedPath = resolvedPath.replace("{InitialContactId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: InitialContactId.");
-  }
+  let resolvedPath = "/routing-profiles/{InstanceId}/{RoutingProfileId}/disassociate-queues";
   if (input.InstanceId !== undefined) {
     const labelValue: string = input.InstanceId;
     if (labelValue.length <= 0) {
@@ -367,6 +619,59 @@ export const serializeAws_restJson1GetContactAttributesCommand = async (
     resolvedPath = resolvedPath.replace("{InstanceId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: InstanceId.");
+  }
+  if (input.RoutingProfileId !== undefined) {
+    const labelValue: string = input.RoutingProfileId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: RoutingProfileId.");
+    }
+    resolvedPath = resolvedPath.replace("{RoutingProfileId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: RoutingProfileId.");
+  }
+  let body: any;
+  body = JSON.stringify({
+    ...(input.QueueReferences !== undefined && {
+      QueueReferences: serializeAws_restJson1RoutingProfileQueueReferenceList(input.QueueReferences, context),
+    }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1GetContactAttributesCommand = async (
+  input: GetContactAttributesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "",
+  };
+  let resolvedPath = "/contact/attributes/{InstanceId}/{InitialContactId}";
+  if (input.InstanceId !== undefined) {
+    const labelValue: string = input.InstanceId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: InstanceId.");
+    }
+    resolvedPath = resolvedPath.replace("{InstanceId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: InstanceId.");
+  }
+  if (input.InitialContactId !== undefined) {
+    const labelValue: string = input.InitialContactId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: InitialContactId.");
+    }
+    resolvedPath = resolvedPath.replace("{InitialContactId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: InitialContactId.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -509,11 +814,11 @@ export const serializeAws_restJson1ListContactFlowsCommand = async (
     throw new Error("No value provided for input HTTP label: InstanceId.");
   }
   const query: any = {
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.ContactFlowTypes !== undefined && {
       contactFlowTypes: (input.ContactFlowTypes || []).map((_entry) => _entry),
     }),
-    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
-    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -582,13 +887,48 @@ export const serializeAws_restJson1ListPhoneNumbersCommand = async (
     throw new Error("No value provided for input HTTP label: InstanceId.");
   }
   const query: any = {
-    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
     ...(input.PhoneNumberTypes !== undefined && {
       phoneNumberTypes: (input.PhoneNumberTypes || []).map((_entry) => _entry),
     }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.PhoneNumberCountryCodes !== undefined && {
       phoneNumberCountryCodes: (input.PhoneNumberCountryCodes || []).map((_entry) => _entry),
     }),
+  };
+  let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1ListPromptsCommand = async (
+  input: ListPromptsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "",
+  };
+  let resolvedPath = "/prompts-summary/{InstanceId}";
+  if (input.InstanceId !== undefined) {
+    const labelValue: string = input.InstanceId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: InstanceId.");
+    }
+    resolvedPath = resolvedPath.replace("{InstanceId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: InstanceId.");
+  }
+  const query: any = {
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
     ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
   };
   let body: any;
@@ -626,6 +966,50 @@ export const serializeAws_restJson1ListQueuesCommand = async (
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
     ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.QueueTypes !== undefined && { queueTypes: (input.QueueTypes || []).map((_entry) => _entry) }),
+  };
+  let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1ListRoutingProfileQueuesCommand = async (
+  input: ListRoutingProfileQueuesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "",
+  };
+  let resolvedPath = "/routing-profiles/{InstanceId}/{RoutingProfileId}/queues";
+  if (input.RoutingProfileId !== undefined) {
+    const labelValue: string = input.RoutingProfileId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: RoutingProfileId.");
+    }
+    resolvedPath = resolvedPath.replace("{RoutingProfileId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: RoutingProfileId.");
+  }
+  if (input.InstanceId !== undefined) {
+    const labelValue: string = input.InstanceId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: InstanceId.");
+    }
+    resolvedPath = resolvedPath.replace("{InstanceId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: InstanceId.");
+  }
+  const query: any = {
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -694,8 +1078,8 @@ export const serializeAws_restJson1ListSecurityProfilesCommand = async (
     throw new Error("No value provided for input HTTP label: InstanceId.");
   }
   const query: any = {
-    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -794,8 +1178,8 @@ export const serializeAws_restJson1ListUsersCommand = async (
     throw new Error("No value provided for input HTTP label: InstanceId.");
   }
   const query: any = {
-    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1102,22 +1486,22 @@ export const serializeAws_restJson1UpdateContactAttributesCommand = async (
   });
 };
 
-export const serializeAws_restJson1UpdateUserHierarchyCommand = async (
-  input: UpdateUserHierarchyCommandInput,
+export const serializeAws_restJson1UpdateContactFlowContentCommand = async (
+  input: UpdateContactFlowContentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "application/json",
   };
-  let resolvedPath = "/users/{InstanceId}/{UserId}/hierarchy";
-  if (input.UserId !== undefined) {
-    const labelValue: string = input.UserId;
+  let resolvedPath = "/contact-flows/{InstanceId}/{ContactFlowId}/content";
+  if (input.ContactFlowId !== undefined) {
+    const labelValue: string = input.ContactFlowId;
     if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: UserId.");
+      throw new Error("Empty value provided for input HTTP label: ContactFlowId.");
     }
-    resolvedPath = resolvedPath.replace("{UserId}", __extendedEncodeURIComponent(labelValue));
+    resolvedPath = resolvedPath.replace("{ContactFlowId}", __extendedEncodeURIComponent(labelValue));
   } else {
-    throw new Error("No value provided for input HTTP label: UserId.");
+    throw new Error("No value provided for input HTTP label: ContactFlowId.");
   }
   if (input.InstanceId !== undefined) {
     const labelValue: string = input.InstanceId;
@@ -1127,6 +1511,264 @@ export const serializeAws_restJson1UpdateUserHierarchyCommand = async (
     resolvedPath = resolvedPath.replace("{InstanceId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: InstanceId.");
+  }
+  let body: any;
+  body = JSON.stringify({
+    ...(input.Content !== undefined && { Content: input.Content }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1UpdateContactFlowNameCommand = async (
+  input: UpdateContactFlowNameCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+  };
+  let resolvedPath = "/contact-flows/{InstanceId}/{ContactFlowId}/name";
+  if (input.InstanceId !== undefined) {
+    const labelValue: string = input.InstanceId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: InstanceId.");
+    }
+    resolvedPath = resolvedPath.replace("{InstanceId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: InstanceId.");
+  }
+  if (input.ContactFlowId !== undefined) {
+    const labelValue: string = input.ContactFlowId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: ContactFlowId.");
+    }
+    resolvedPath = resolvedPath.replace("{ContactFlowId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: ContactFlowId.");
+  }
+  let body: any;
+  body = JSON.stringify({
+    ...(input.Description !== undefined && { Description: input.Description }),
+    ...(input.Name !== undefined && { Name: input.Name }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1UpdateRoutingProfileConcurrencyCommand = async (
+  input: UpdateRoutingProfileConcurrencyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+  };
+  let resolvedPath = "/routing-profiles/{InstanceId}/{RoutingProfileId}/concurrency";
+  if (input.InstanceId !== undefined) {
+    const labelValue: string = input.InstanceId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: InstanceId.");
+    }
+    resolvedPath = resolvedPath.replace("{InstanceId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: InstanceId.");
+  }
+  if (input.RoutingProfileId !== undefined) {
+    const labelValue: string = input.RoutingProfileId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: RoutingProfileId.");
+    }
+    resolvedPath = resolvedPath.replace("{RoutingProfileId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: RoutingProfileId.");
+  }
+  let body: any;
+  body = JSON.stringify({
+    ...(input.MediaConcurrencies !== undefined && {
+      MediaConcurrencies: serializeAws_restJson1MediaConcurrencies(input.MediaConcurrencies, context),
+    }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1UpdateRoutingProfileDefaultOutboundQueueCommand = async (
+  input: UpdateRoutingProfileDefaultOutboundQueueCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+  };
+  let resolvedPath = "/routing-profiles/{InstanceId}/{RoutingProfileId}/default-outbound-queue";
+  if (input.InstanceId !== undefined) {
+    const labelValue: string = input.InstanceId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: InstanceId.");
+    }
+    resolvedPath = resolvedPath.replace("{InstanceId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: InstanceId.");
+  }
+  if (input.RoutingProfileId !== undefined) {
+    const labelValue: string = input.RoutingProfileId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: RoutingProfileId.");
+    }
+    resolvedPath = resolvedPath.replace("{RoutingProfileId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: RoutingProfileId.");
+  }
+  let body: any;
+  body = JSON.stringify({
+    ...(input.DefaultOutboundQueueId !== undefined && { DefaultOutboundQueueId: input.DefaultOutboundQueueId }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1UpdateRoutingProfileNameCommand = async (
+  input: UpdateRoutingProfileNameCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+  };
+  let resolvedPath = "/routing-profiles/{InstanceId}/{RoutingProfileId}/name";
+  if (input.InstanceId !== undefined) {
+    const labelValue: string = input.InstanceId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: InstanceId.");
+    }
+    resolvedPath = resolvedPath.replace("{InstanceId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: InstanceId.");
+  }
+  if (input.RoutingProfileId !== undefined) {
+    const labelValue: string = input.RoutingProfileId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: RoutingProfileId.");
+    }
+    resolvedPath = resolvedPath.replace("{RoutingProfileId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: RoutingProfileId.");
+  }
+  let body: any;
+  body = JSON.stringify({
+    ...(input.Description !== undefined && { Description: input.Description }),
+    ...(input.Name !== undefined && { Name: input.Name }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1UpdateRoutingProfileQueuesCommand = async (
+  input: UpdateRoutingProfileQueuesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+  };
+  let resolvedPath = "/routing-profiles/{InstanceId}/{RoutingProfileId}/queues";
+  if (input.InstanceId !== undefined) {
+    const labelValue: string = input.InstanceId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: InstanceId.");
+    }
+    resolvedPath = resolvedPath.replace("{InstanceId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: InstanceId.");
+  }
+  if (input.RoutingProfileId !== undefined) {
+    const labelValue: string = input.RoutingProfileId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: RoutingProfileId.");
+    }
+    resolvedPath = resolvedPath.replace("{RoutingProfileId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: RoutingProfileId.");
+  }
+  let body: any;
+  body = JSON.stringify({
+    ...(input.QueueConfigs !== undefined && {
+      QueueConfigs: serializeAws_restJson1RoutingProfileQueueConfigList(input.QueueConfigs, context),
+    }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1UpdateUserHierarchyCommand = async (
+  input: UpdateUserHierarchyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+  };
+  let resolvedPath = "/users/{InstanceId}/{UserId}/hierarchy";
+  if (input.InstanceId !== undefined) {
+    const labelValue: string = input.InstanceId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: InstanceId.");
+    }
+    resolvedPath = resolvedPath.replace("{InstanceId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: InstanceId.");
+  }
+  if (input.UserId !== undefined) {
+    const labelValue: string = input.UserId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: UserId.");
+    }
+    resolvedPath = resolvedPath.replace("{UserId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: UserId.");
   }
   let body: any;
   body = JSON.stringify({
@@ -1282,15 +1924,6 @@ export const serializeAws_restJson1UpdateUserSecurityProfilesCommand = async (
     "Content-Type": "application/json",
   };
   let resolvedPath = "/users/{InstanceId}/{UserId}/security-profiles";
-  if (input.UserId !== undefined) {
-    const labelValue: string = input.UserId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: UserId.");
-    }
-    resolvedPath = resolvedPath.replace("{UserId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: UserId.");
-  }
   if (input.InstanceId !== undefined) {
     const labelValue: string = input.InstanceId;
     if (labelValue.length <= 0) {
@@ -1299,6 +1932,15 @@ export const serializeAws_restJson1UpdateUserSecurityProfilesCommand = async (
     resolvedPath = resolvedPath.replace("{InstanceId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: InstanceId.");
+  }
+  if (input.UserId !== undefined) {
+    const labelValue: string = input.UserId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: UserId.");
+    }
+    resolvedPath = resolvedPath.replace("{UserId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: UserId.");
   }
   let body: any;
   body = JSON.stringify({
@@ -1316,6 +1958,311 @@ export const serializeAws_restJson1UpdateUserSecurityProfilesCommand = async (
     path: resolvedPath,
     body,
   });
+};
+
+export const deserializeAws_restJson1AssociateRoutingProfileQueuesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AssociateRoutingProfileQueuesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1AssociateRoutingProfileQueuesCommandError(output, context);
+  }
+  const contents: AssociateRoutingProfileQueuesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1AssociateRoutingProfileQueuesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AssociateRoutingProfileQueuesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterException":
+    case "com.amazonaws.connect#InvalidParameterException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.connect#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.connect#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.connect#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1CreateContactFlowCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateContactFlowCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1CreateContactFlowCommandError(output, context);
+  }
+  const contents: CreateContactFlowCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ContactFlowArn: undefined,
+    ContactFlowId: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.ContactFlowArn !== undefined && data.ContactFlowArn !== null) {
+    contents.ContactFlowArn = data.ContactFlowArn;
+  }
+  if (data.ContactFlowId !== undefined && data.ContactFlowId !== null) {
+    contents.ContactFlowId = data.ContactFlowId;
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1CreateContactFlowCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateContactFlowCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "DuplicateResourceException":
+    case "com.amazonaws.connect#DuplicateResourceException":
+      response = {
+        ...(await deserializeAws_restJson1DuplicateResourceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidContactFlowException":
+    case "com.amazonaws.connect#InvalidContactFlowException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidContactFlowExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterException":
+    case "com.amazonaws.connect#InvalidParameterException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.connect#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "LimitExceededException":
+    case "com.amazonaws.connect#LimitExceededException":
+      response = {
+        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.connect#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.connect#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1CreateRoutingProfileCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateRoutingProfileCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1CreateRoutingProfileCommandError(output, context);
+  }
+  const contents: CreateRoutingProfileCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    RoutingProfileArn: undefined,
+    RoutingProfileId: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.RoutingProfileArn !== undefined && data.RoutingProfileArn !== null) {
+    contents.RoutingProfileArn = data.RoutingProfileArn;
+  }
+  if (data.RoutingProfileId !== undefined && data.RoutingProfileId !== null) {
+    contents.RoutingProfileId = data.RoutingProfileId;
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1CreateRoutingProfileCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateRoutingProfileCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "DuplicateResourceException":
+    case "com.amazonaws.connect#DuplicateResourceException":
+      response = {
+        ...(await deserializeAws_restJson1DuplicateResourceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterException":
+    case "com.amazonaws.connect#InvalidParameterException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.connect#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "LimitExceededException":
+    case "com.amazonaws.connect#LimitExceededException":
+      response = {
+        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.connect#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.connect#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1CreateUserCommand = async (
@@ -1443,6 +2390,188 @@ const deserializeAws_restJson1DeleteUserCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteUserCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterException":
+    case "com.amazonaws.connect#InvalidParameterException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.connect#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.connect#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.connect#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1DescribeContactFlowCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeContactFlowCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DescribeContactFlowCommandError(output, context);
+  }
+  const contents: DescribeContactFlowCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ContactFlow: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.ContactFlow !== undefined && data.ContactFlow !== null) {
+    contents.ContactFlow = deserializeAws_restJson1ContactFlow(data.ContactFlow, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DescribeContactFlowCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeContactFlowCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ContactFlowNotPublishedException":
+    case "com.amazonaws.connect#ContactFlowNotPublishedException":
+      response = {
+        ...(await deserializeAws_restJson1ContactFlowNotPublishedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterException":
+    case "com.amazonaws.connect#InvalidParameterException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.connect#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.connect#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.connect#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1DescribeRoutingProfileCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeRoutingProfileCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DescribeRoutingProfileCommandError(output, context);
+  }
+  const contents: DescribeRoutingProfileCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    RoutingProfile: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.RoutingProfile !== undefined && data.RoutingProfile !== null) {
+    contents.RoutingProfile = deserializeAws_restJson1RoutingProfile(data.RoutingProfile, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DescribeRoutingProfileCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeRoutingProfileCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -1704,6 +2833,89 @@ const deserializeAws_restJson1DescribeUserHierarchyStructureCommandError = async
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeUserHierarchyStructureCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterException":
+    case "com.amazonaws.connect#InvalidParameterException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.connect#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.connect#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.connect#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1DisassociateRoutingProfileQueuesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisassociateRoutingProfileQueuesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DisassociateRoutingProfileQueuesCommandError(output, context);
+  }
+  const contents: DisassociateRoutingProfileQueuesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DisassociateRoutingProfileQueuesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisassociateRoutingProfileQueuesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -2403,6 +3615,97 @@ const deserializeAws_restJson1ListPhoneNumbersCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1ListPromptsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListPromptsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListPromptsCommandError(output, context);
+  }
+  const contents: ListPromptsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    NextToken: undefined,
+    PromptSummaryList: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.NextToken !== undefined && data.NextToken !== null) {
+    contents.NextToken = data.NextToken;
+  }
+  if (data.PromptSummaryList !== undefined && data.PromptSummaryList !== null) {
+    contents.PromptSummaryList = deserializeAws_restJson1PromptSummaryList(data.PromptSummaryList, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1ListPromptsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListPromptsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterException":
+    case "com.amazonaws.connect#InvalidParameterException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.connect#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.connect#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.connect#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1ListQueuesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -2429,6 +3732,100 @@ const deserializeAws_restJson1ListQueuesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListQueuesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterException":
+    case "com.amazonaws.connect#InvalidParameterException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.connect#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.connect#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.connect#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1ListRoutingProfileQueuesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListRoutingProfileQueuesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListRoutingProfileQueuesCommandError(output, context);
+  }
+  const contents: ListRoutingProfileQueuesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    NextToken: undefined,
+    RoutingProfileQueueConfigSummaryList: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.NextToken !== undefined && data.NextToken !== null) {
+    contents.NextToken = data.NextToken;
+  }
+  if (data.RoutingProfileQueueConfigSummaryList !== undefined && data.RoutingProfileQueueConfigSummaryList !== null) {
+    contents.RoutingProfileQueueConfigSummaryList = deserializeAws_restJson1RoutingProfileQueueConfigSummaryList(
+      data.RoutingProfileQueueConfigSummaryList,
+      context
+    );
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1ListRoutingProfileQueuesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListRoutingProfileQueuesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -3752,6 +5149,528 @@ const deserializeAws_restJson1UpdateContactAttributesCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1UpdateContactFlowContentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateContactFlowContentCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1UpdateContactFlowContentCommandError(output, context);
+  }
+  const contents: UpdateContactFlowContentCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1UpdateContactFlowContentCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateContactFlowContentCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidContactFlowException":
+    case "com.amazonaws.connect#InvalidContactFlowException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidContactFlowExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterException":
+    case "com.amazonaws.connect#InvalidParameterException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.connect#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.connect#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.connect#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1UpdateContactFlowNameCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateContactFlowNameCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1UpdateContactFlowNameCommandError(output, context);
+  }
+  const contents: UpdateContactFlowNameCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1UpdateContactFlowNameCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateContactFlowNameCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "DuplicateResourceException":
+    case "com.amazonaws.connect#DuplicateResourceException":
+      response = {
+        ...(await deserializeAws_restJson1DuplicateResourceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterException":
+    case "com.amazonaws.connect#InvalidParameterException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.connect#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.connect#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.connect#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1UpdateRoutingProfileConcurrencyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateRoutingProfileConcurrencyCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1UpdateRoutingProfileConcurrencyCommandError(output, context);
+  }
+  const contents: UpdateRoutingProfileConcurrencyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1UpdateRoutingProfileConcurrencyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateRoutingProfileConcurrencyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterException":
+    case "com.amazonaws.connect#InvalidParameterException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.connect#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.connect#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.connect#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1UpdateRoutingProfileDefaultOutboundQueueCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateRoutingProfileDefaultOutboundQueueCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1UpdateRoutingProfileDefaultOutboundQueueCommandError(output, context);
+  }
+  const contents: UpdateRoutingProfileDefaultOutboundQueueCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1UpdateRoutingProfileDefaultOutboundQueueCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateRoutingProfileDefaultOutboundQueueCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterException":
+    case "com.amazonaws.connect#InvalidParameterException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.connect#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.connect#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.connect#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1UpdateRoutingProfileNameCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateRoutingProfileNameCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1UpdateRoutingProfileNameCommandError(output, context);
+  }
+  const contents: UpdateRoutingProfileNameCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1UpdateRoutingProfileNameCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateRoutingProfileNameCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "DuplicateResourceException":
+    case "com.amazonaws.connect#DuplicateResourceException":
+      response = {
+        ...(await deserializeAws_restJson1DuplicateResourceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterException":
+    case "com.amazonaws.connect#InvalidParameterException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.connect#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.connect#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.connect#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1UpdateRoutingProfileQueuesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateRoutingProfileQueuesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1UpdateRoutingProfileQueuesCommandError(output, context);
+  }
+  const contents: UpdateRoutingProfileQueuesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1UpdateRoutingProfileQueuesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateRoutingProfileQueuesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterException":
+    case "com.amazonaws.connect#InvalidParameterException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.connect#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.connect#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.connect#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1UpdateUserHierarchyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -4167,6 +6086,23 @@ const deserializeAws_restJson1UpdateUserSecurityProfilesCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+const deserializeAws_restJson1ContactFlowNotPublishedExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ContactFlowNotPublishedException> => {
+  const contents: ContactFlowNotPublishedException = {
+    name: "ContactFlowNotPublishedException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    Message: undefined,
+  };
+  const data: any = parsedOutput.body;
+  if (data.Message !== undefined && data.Message !== null) {
+    contents.Message = data.Message;
+  }
+  return contents;
+};
+
 const deserializeAws_restJson1ContactNotFoundExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -4231,6 +6167,23 @@ const deserializeAws_restJson1InternalServiceExceptionResponse = async (
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = data.Message;
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1InvalidContactFlowExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<InvalidContactFlowException> => {
+  const contents: InvalidContactFlowException = {
+    name: "InvalidContactFlowException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    problems: undefined,
+  };
+  const data: any = parsedOutput.body;
+  if (data.problems !== undefined && data.problems !== null) {
+    contents.problems = deserializeAws_restJson1Problems(data.problems, context);
   }
   return contents;
 };
@@ -4410,6 +6363,17 @@ const serializeAws_restJson1HistoricalMetrics = (input: HistoricalMetric[], cont
   return input.map((entry) => serializeAws_restJson1HistoricalMetric(entry, context));
 };
 
+const serializeAws_restJson1MediaConcurrencies = (input: MediaConcurrency[], context: __SerdeContext): any => {
+  return input.map((entry) => serializeAws_restJson1MediaConcurrency(entry, context));
+};
+
+const serializeAws_restJson1MediaConcurrency = (input: MediaConcurrency, context: __SerdeContext): any => {
+  return {
+    ...(input.Channel !== undefined && { Channel: input.Channel }),
+    ...(input.Concurrency !== undefined && { Concurrency: input.Concurrency }),
+  };
+};
+
 const serializeAws_restJson1ParticipantDetails = (input: ParticipantDetails, context: __SerdeContext): any => {
   return {
     ...(input.DisplayName !== undefined && { DisplayName: input.DisplayName }),
@@ -4418,6 +6382,43 @@ const serializeAws_restJson1ParticipantDetails = (input: ParticipantDetails, con
 
 const serializeAws_restJson1Queues = (input: string[], context: __SerdeContext): any => {
   return input.map((entry) => entry);
+};
+
+const serializeAws_restJson1RoutingProfileQueueConfig = (
+  input: RoutingProfileQueueConfig,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Delay !== undefined && { Delay: input.Delay }),
+    ...(input.Priority !== undefined && { Priority: input.Priority }),
+    ...(input.QueueReference !== undefined && {
+      QueueReference: serializeAws_restJson1RoutingProfileQueueReference(input.QueueReference, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1RoutingProfileQueueConfigList = (
+  input: RoutingProfileQueueConfig[],
+  context: __SerdeContext
+): any => {
+  return input.map((entry) => serializeAws_restJson1RoutingProfileQueueConfig(entry, context));
+};
+
+const serializeAws_restJson1RoutingProfileQueueReference = (
+  input: RoutingProfileQueueReference,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Channel !== undefined && { Channel: input.Channel }),
+    ...(input.QueueId !== undefined && { QueueId: input.QueueId }),
+  };
+};
+
+const serializeAws_restJson1RoutingProfileQueueReferenceList = (
+  input: RoutingProfileQueueReference[],
+  context: __SerdeContext
+): any => {
+  return input.map((entry) => serializeAws_restJson1RoutingProfileQueueReference(entry, context));
 };
 
 const serializeAws_restJson1SecurityProfileIds = (input: string[], context: __SerdeContext): any => {
@@ -4477,6 +6478,21 @@ const deserializeAws_restJson1Attributes = (output: any, context: __SerdeContext
     }),
     {}
   );
+};
+
+const deserializeAws_restJson1ContactFlow = (output: any, context: __SerdeContext): ContactFlow => {
+  return {
+    Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
+    Content: output.Content !== undefined && output.Content !== null ? output.Content : undefined,
+    Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
+    Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+    Tags:
+      output.Tags !== undefined && output.Tags !== null
+        ? deserializeAws_restJson1TagMap(output.Tags, context)
+        : undefined,
+    Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
+  } as any;
 };
 
 const deserializeAws_restJson1ContactFlowSummary = (output: any, context: __SerdeContext): ContactFlowSummary => {
@@ -4715,6 +6731,17 @@ const deserializeAws_restJson1HoursOfOperationSummaryList = (
   return (output || []).map((entry: any) => deserializeAws_restJson1HoursOfOperationSummary(entry, context));
 };
 
+const deserializeAws_restJson1MediaConcurrencies = (output: any, context: __SerdeContext): MediaConcurrency[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1MediaConcurrency(entry, context));
+};
+
+const deserializeAws_restJson1MediaConcurrency = (output: any, context: __SerdeContext): MediaConcurrency => {
+  return {
+    Channel: output.Channel !== undefined && output.Channel !== null ? output.Channel : undefined,
+    Concurrency: output.Concurrency !== undefined && output.Concurrency !== null ? output.Concurrency : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1PhoneNumberSummary = (output: any, context: __SerdeContext): PhoneNumberSummary => {
   return {
     Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
@@ -4731,6 +6758,28 @@ const deserializeAws_restJson1PhoneNumberSummary = (output: any, context: __Serd
 
 const deserializeAws_restJson1PhoneNumberSummaryList = (output: any, context: __SerdeContext): PhoneNumberSummary[] => {
   return (output || []).map((entry: any) => deserializeAws_restJson1PhoneNumberSummary(entry, context));
+};
+
+const deserializeAws_restJson1ProblemDetail = (output: any, context: __SerdeContext): ProblemDetail => {
+  return {
+    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1Problems = (output: any, context: __SerdeContext): ProblemDetail[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1ProblemDetail(entry, context));
+};
+
+const deserializeAws_restJson1PromptSummary = (output: any, context: __SerdeContext): PromptSummary => {
+  return {
+    Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
+    Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1PromptSummaryList = (output: any, context: __SerdeContext): PromptSummary[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1PromptSummary(entry, context));
 };
 
 const deserializeAws_restJson1QueueReference = (output: any, context: __SerdeContext): QueueReference => {
@@ -4751,6 +6800,53 @@ const deserializeAws_restJson1QueueSummary = (output: any, context: __SerdeConte
 
 const deserializeAws_restJson1QueueSummaryList = (output: any, context: __SerdeContext): QueueSummary[] => {
   return (output || []).map((entry: any) => deserializeAws_restJson1QueueSummary(entry, context));
+};
+
+const deserializeAws_restJson1RoutingProfile = (output: any, context: __SerdeContext): RoutingProfile => {
+  return {
+    DefaultOutboundQueueId:
+      output.DefaultOutboundQueueId !== undefined && output.DefaultOutboundQueueId !== null
+        ? output.DefaultOutboundQueueId
+        : undefined,
+    Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
+    InstanceId: output.InstanceId !== undefined && output.InstanceId !== null ? output.InstanceId : undefined,
+    MediaConcurrencies:
+      output.MediaConcurrencies !== undefined && output.MediaConcurrencies !== null
+        ? deserializeAws_restJson1MediaConcurrencies(output.MediaConcurrencies, context)
+        : undefined,
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+    RoutingProfileArn:
+      output.RoutingProfileArn !== undefined && output.RoutingProfileArn !== null
+        ? output.RoutingProfileArn
+        : undefined,
+    RoutingProfileId:
+      output.RoutingProfileId !== undefined && output.RoutingProfileId !== null ? output.RoutingProfileId : undefined,
+    Tags:
+      output.Tags !== undefined && output.Tags !== null
+        ? deserializeAws_restJson1TagMap(output.Tags, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1RoutingProfileQueueConfigSummary = (
+  output: any,
+  context: __SerdeContext
+): RoutingProfileQueueConfigSummary => {
+  return {
+    Channel: output.Channel !== undefined && output.Channel !== null ? output.Channel : undefined,
+    Delay: output.Delay !== undefined && output.Delay !== null ? output.Delay : undefined,
+    Priority: output.Priority !== undefined && output.Priority !== null ? output.Priority : undefined,
+    QueueArn: output.QueueArn !== undefined && output.QueueArn !== null ? output.QueueArn : undefined,
+    QueueId: output.QueueId !== undefined && output.QueueId !== null ? output.QueueId : undefined,
+    QueueName: output.QueueName !== undefined && output.QueueName !== null ? output.QueueName : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1RoutingProfileQueueConfigSummaryList = (
+  output: any,
+  context: __SerdeContext
+): RoutingProfileQueueConfigSummary[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1RoutingProfileQueueConfigSummary(entry, context));
 };
 
 const deserializeAws_restJson1RoutingProfileSummary = (output: any, context: __SerdeContext): RoutingProfileSummary => {

@@ -78,76 +78,9 @@ export namespace Payload {
  */
 export interface DynamoDBAction {
   /**
-   * <p>The value of the range key (also called the sort key).</p>
+   * <p>The name of the range key (also called the sort key).</p>
    */
-  rangeKeyValue?: string;
-
-  /**
-   * <p>The name of the DynamoDB column that receives the action payload.</p>
-   *          <p>If you don't specify this parameter, the name of the DynamoDB column is
-   *       <code>payload</code>.</p>
-   */
-  payloadField?: string;
-
-  /**
-   * <p>The name of the DynamoDB table.</p>
-   */
-  tableName: string | undefined;
-
-  /**
-   * <p>The value of the hash key (also called the partition key).</p>
-   */
-  hashKeyValue: string | undefined;
-
-  /**
-   * <p>Information needed to configure the payload.</p>
-   *          <p>By default, AWS IoT Events generates a standard payload in JSON for any action. This action payload
-   *       contains all attribute-value pairs that have the information about the detector model instance
-   *       and the event triggered the action. To configure the action payload, you can use
-   *         <code>contentExpression</code>.</p>
-   */
-  payload?: Payload;
-
-  /**
-   * <p>The data type for the hash key (also called the partition key). You can specify the
-   *       following values:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>STRING</code> - The hash key is a string.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>NUMBER</code> - The hash key is a number.</p>
-   *             </li>
-   *          </ul>
-   *          <p>If you don't specify <code>hashKeyType</code>, the default value is
-   *       <code>STRING</code>.</p>
-   */
-  hashKeyType?: string;
-
-  /**
-   * <p>The name of the hash key (also called the partition key).</p>
-   */
-  hashKeyField: string | undefined;
-
-  /**
-   * <p>The data type for the range key (also called the sort key), You can specify the following
-   *       values:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>STRING</code> - The range key is a string.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>NUMBER</code> - The range key is number.</p>
-   *             </li>
-   *          </ul>
-   *          <p>If you don't specify <code>rangeKeyField</code>, the default value is
-   *       <code>STRING</code>.</p>
-   */
-  rangeKeyType?: string;
+  rangeKeyField?: string;
 
   /**
    * <p>The type of operation to perform. You can specify the following values: </p>
@@ -177,9 +110,76 @@ export interface DynamoDBAction {
   operation?: string;
 
   /**
-   * <p>The name of the range key (also called the sort key).</p>
+   * <p>The name of the DynamoDB column that receives the action payload.</p>
+   *          <p>If you don't specify this parameter, the name of the DynamoDB column is
+   *       <code>payload</code>.</p>
    */
-  rangeKeyField?: string;
+  payloadField?: string;
+
+  /**
+   * <p>The name of the hash key (also called the partition key).</p>
+   */
+  hashKeyField: string | undefined;
+
+  /**
+   * <p>The data type for the range key (also called the sort key), You can specify the following
+   *       values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>STRING</code> - The range key is a string.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NUMBER</code> - The range key is number.</p>
+   *             </li>
+   *          </ul>
+   *          <p>If you don't specify <code>rangeKeyField</code>, the default value is
+   *       <code>STRING</code>.</p>
+   */
+  rangeKeyType?: string;
+
+  /**
+   * <p>The data type for the hash key (also called the partition key). You can specify the
+   *       following values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>STRING</code> - The hash key is a string.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NUMBER</code> - The hash key is a number.</p>
+   *             </li>
+   *          </ul>
+   *          <p>If you don't specify <code>hashKeyType</code>, the default value is
+   *       <code>STRING</code>.</p>
+   */
+  hashKeyType?: string;
+
+  /**
+   * <p>The name of the DynamoDB table.</p>
+   */
+  tableName: string | undefined;
+
+  /**
+   * <p>The value of the range key (also called the sort key).</p>
+   */
+  rangeKeyValue?: string;
+
+  /**
+   * <p>Information needed to configure the payload.</p>
+   *          <p>By default, AWS IoT Events generates a standard payload in JSON for any action. This action payload
+   *       contains all attribute-value pairs that have the information about the detector model instance
+   *       and the event triggered the action. To configure the action payload, you can use
+   *         <code>contentExpression</code>.</p>
+   */
+  payload?: Payload;
+
+  /**
+   * <p>The value of the hash key (also called the partition key).</p>
+   */
+  hashKeyValue: string | undefined;
 }
 
 export namespace DynamoDBAction {
@@ -232,17 +232,17 @@ export interface FirehoseAction {
   deliveryStreamName: string | undefined;
 
   /**
-   * <p>You can configure the action payload when you send a message to an Amazon Kinesis Data Firehose delivery
-   *       stream.</p>
-   */
-  payload?: Payload;
-
-  /**
    * <p>A character separator that is used to separate records written to the Kinesis Data
    *       Firehose delivery stream. Valid values are: '\n' (newline), '\t' (tab), '\r\n' (Windows
    *       newline), ',' (comma).</p>
    */
   separator?: string;
+
+  /**
+   * <p>You can configure the action payload when you send a message to an Amazon Kinesis Data Firehose delivery
+   *       stream.</p>
+   */
+  payload?: Payload;
 }
 
 export namespace FirehoseAction {
@@ -257,14 +257,14 @@ export namespace FirehoseAction {
  */
 export interface IotEventsAction {
   /**
-   * <p>You can configure the action payload when you send a message to an AWS IoT Events input.</p>
-   */
-  payload?: Payload;
-
-  /**
    * <p>The name of the AWS IoT Events input where the data is sent.</p>
    */
   inputName: string | undefined;
+
+  /**
+   * <p>You can configure the action payload when you send a message to an AWS IoT Events input.</p>
+   */
+  payload?: Payload;
 }
 
 export namespace IotEventsAction {
@@ -332,19 +332,6 @@ export namespace AssetPropertyTimestamp {
  */
 export interface AssetPropertyVariant {
   /**
-   * <p>The asset property value is a Boolean value that must be <code>TRUE</code> or
-   *         <code>FALSE</code>. You can also specify an expression. If you use an expression, the
-   *       evaluated result should be a Boolean value.</p>
-   */
-  booleanValue?: string;
-
-  /**
-   * <p>The asset property value is a double. You can also specify an expression. If you use an
-   *       expression, the evaluated result should be a double.</p>
-   */
-  doubleValue?: string;
-
-  /**
    * <p>The asset property value is a string. You can also specify an expression. If you use an
    *       expression, the evaluated result should be a string.</p>
    */
@@ -355,6 +342,19 @@ export interface AssetPropertyVariant {
    *       expression, the evaluated result should be an integer.</p>
    */
   integerValue?: string;
+
+  /**
+   * <p>The asset property value is a double. You can also specify an expression. If you use an
+   *       expression, the evaluated result should be a double.</p>
+   */
+  doubleValue?: string;
+
+  /**
+   * <p>The asset property value is a Boolean value that must be <code>TRUE</code> or
+   *         <code>FALSE</code>. You can also specify an expression. If you use an expression, the
+   *       evaluated result should be a Boolean value.</p>
+   */
+  booleanValue?: string;
 }
 
 export namespace AssetPropertyVariant {
@@ -383,9 +383,10 @@ export namespace AssetPropertyVariant {
  */
 export interface AssetPropertyValue {
   /**
-   * <p>The value to send to an asset property.</p>
+   * <p>The quality of the asset property value. The value must be <code>GOOD</code>,
+   *         <code>BAD</code>, or <code>UNCERTAIN</code>. You can also specify an expression.</p>
    */
-  value: AssetPropertyVariant | undefined;
+  quality?: string;
 
   /**
    * <p>The timestamp associated with the asset property value. The default is the current event
@@ -394,10 +395,9 @@ export interface AssetPropertyValue {
   timestamp?: AssetPropertyTimestamp;
 
   /**
-   * <p>The quality of the asset property value. The value must be <code>GOOD</code>,
-   *         <code>BAD</code>, or <code>UNCERTAIN</code>. You can also specify an expression.</p>
+   * <p>The value to send to an asset property.</p>
    */
-  quality?: string;
+  value: AssetPropertyVariant | undefined;
 }
 
 export namespace AssetPropertyValue {
@@ -434,11 +434,9 @@ export interface IotSiteWiseAction {
   propertyId?: string;
 
   /**
-   * <p>A unique identifier for this entry. You can use the entry ID to track which data entry
-   *       causes an error in case of failure. The default is a new unique identifier. You can also
-   *       specify an expression.</p>
+   * <p>The alias of the asset property. You can also specify an expression.</p>
    */
-  entryId?: string;
+  propertyAlias?: string;
 
   /**
    * <p>The value to send to the asset property. This value contains timestamp, quality, and value
@@ -447,9 +445,11 @@ export interface IotSiteWiseAction {
   propertyValue: AssetPropertyValue | undefined;
 
   /**
-   * <p>The alias of the asset property. You can also specify an expression.</p>
+   * <p>A unique identifier for this entry. You can use the entry ID to track which data entry
+   *       causes an error in case of failure. The default is a new unique identifier. You can also
+   *       specify an expression.</p>
    */
-  propertyAlias?: string;
+  entryId?: string;
 
   /**
    * <p>The ID of the asset that has the specified property. You can specify an expression.</p>
@@ -532,12 +532,6 @@ export namespace ResetTimerAction {
  */
 export interface SetTimerAction {
   /**
-   * <p>The number of seconds until the timer expires. The minimum value is 60 seconds to ensure
-   *       accuracy. The maximum value is 31622400 seconds. </p>
-   */
-  seconds?: number;
-
-  /**
    * <p>The name of the timer.</p>
    */
   timerName: string | undefined;
@@ -550,6 +544,12 @@ export interface SetTimerAction {
    *       The evaluated result of the duration is rounded down to the nearest whole number. </p>
    */
   durationExpression?: string;
+
+  /**
+   * <p>The number of seconds until the timer expires. The minimum value is 60 seconds to ensure
+   *       accuracy. The maximum value is 31622400 seconds. </p>
+   */
+  seconds?: number;
 }
 
 export namespace SetTimerAction {
@@ -584,15 +584,15 @@ export namespace SetVariableAction {
  */
 export interface SNSTopicPublishAction {
   /**
+   * <p>The ARN of the Amazon SNS target where the message is sent.</p>
+   */
+  targetArn: string | undefined;
+
+  /**
    * <p>You can configure the action payload when you send a message as an Amazon SNS push
    *       notification.</p>
    */
   payload?: Payload;
-
-  /**
-   * <p>The ARN of the Amazon SNS target where the message is sent.</p>
-   */
-  targetArn: string | undefined;
 }
 
 export namespace SNSTopicPublishAction {
@@ -607,10 +607,9 @@ export namespace SNSTopicPublishAction {
  */
 export interface SqsAction {
   /**
-   * <p>You can configure the action payload when you send a message to an Amazon SQS
-   *       queue.</p>
+   * <p>The URL of the SQS queue where the data is written.</p>
    */
-  payload?: Payload;
+  queueUrl: string | undefined;
 
   /**
    * <p>Set this to TRUE if you want the data to be base-64 encoded before it is written to the
@@ -619,9 +618,10 @@ export interface SqsAction {
   useBase64?: boolean;
 
   /**
-   * <p>The URL of the SQS queue where the data is written.</p>
+   * <p>You can configure the action payload when you send a message to an Amazon SQS
+   *       queue.</p>
    */
-  queueUrl: string | undefined;
+  payload?: Payload;
 }
 
 export namespace SqsAction {
@@ -635,35 +635,14 @@ export namespace SqsAction {
  */
 export interface Action {
   /**
-   * <p>Sends information about the detector model instance and the event that triggered the
-   *       action to an Amazon Kinesis Data Firehose delivery stream.</p>
-   */
-  firehose?: FirehoseAction;
-
-  /**
-   * <p>Publishes an MQTT message with the given topic to the AWS IoT message broker.</p>
-   */
-  iotTopicPublish?: IotTopicPublishAction;
-
-  /**
-   * <p>Writes to the DynamoDB table that you created. The default action payload contains all
-   *       attribute-value pairs that have the information about the detector model instance and the
-   *       event that triggered the action. You can also customize the <a href="https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html">payload</a>. A separate column of
-   *       the DynamoDB table receives one attribute-value pair in the payload that you specify. For more
-   *       information, see <a href="https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-event-actions.html">Actions</a> in
-   *         <i>AWS IoT Events Developer Guide</i>.</p>
-   */
-  dynamoDBv2?: DynamoDBv2Action;
-
-  /**
    * <p>Information needed to set the timer.</p>
    */
   setTimer?: SetTimerAction;
 
   /**
-   * <p>Information needed to clear the timer.</p>
+   * <p>Information needed to reset the timer.</p>
    */
-  clearTimer?: ClearTimerAction;
+  resetTimer?: ResetTimerAction;
 
   /**
    * <p>Writes to the DynamoDB table that you created. The default action payload contains all
@@ -676,14 +655,14 @@ export interface Action {
   dynamoDB?: DynamoDBAction;
 
   /**
-   * <p>Information needed to reset the timer.</p>
+   * <p>Writes to the DynamoDB table that you created. The default action payload contains all
+   *       attribute-value pairs that have the information about the detector model instance and the
+   *       event that triggered the action. You can also customize the <a href="https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html">payload</a>. A separate column of
+   *       the DynamoDB table receives one attribute-value pair in the payload that you specify. For more
+   *       information, see <a href="https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-event-actions.html">Actions</a> in
+   *         <i>AWS IoT Events Developer Guide</i>.</p>
    */
-  resetTimer?: ResetTimerAction;
-
-  /**
-   * <p>Sends an Amazon SNS message.</p>
-   */
-  sns?: SNSTopicPublishAction;
+  dynamoDBv2?: DynamoDBv2Action;
 
   /**
    * <p>Sets a variable to a specified value.</p>
@@ -691,16 +670,9 @@ export interface Action {
   setVariable?: SetVariableAction;
 
   /**
-   * <p>Sends information about the detector model instance and the event that triggered the
-   *       action to an Amazon SQS queue.</p>
+   * <p>Information needed to clear the timer.</p>
    */
-  sqs?: SqsAction;
-
-  /**
-   * <p>Calls a Lambda function, passing in information about the detector model instance and the
-   *       event that triggered the action.</p>
-   */
-  lambda?: LambdaAction;
+  clearTimer?: ClearTimerAction;
 
   /**
    * <p>Sends AWS IoT Events input, which passes information about the detector model instance and the
@@ -710,9 +682,37 @@ export interface Action {
 
   /**
    * <p>Sends information about the detector model instance and the event that triggered the
+   *       action to an Amazon SQS queue.</p>
+   */
+  sqs?: SqsAction;
+
+  /**
+   * <p>Publishes an MQTT message with the given topic to the AWS IoT message broker.</p>
+   */
+  iotTopicPublish?: IotTopicPublishAction;
+
+  /**
+   * <p>Sends information about the detector model instance and the event that triggered the
    *       action to an asset property in AWS IoT SiteWise .</p>
    */
   iotSiteWise?: IotSiteWiseAction;
+
+  /**
+   * <p>Sends information about the detector model instance and the event that triggered the
+   *       action to an Amazon Kinesis Data Firehose delivery stream.</p>
+   */
+  firehose?: FirehoseAction;
+
+  /**
+   * <p>Sends an Amazon SNS message.</p>
+   */
+  sns?: SNSTopicPublishAction;
+
+  /**
+   * <p>Calls a Lambda function, passing in information about the detector model instance and the
+   *       event that triggered the action.</p>
+   */
+  lambda?: LambdaAction;
 }
 
 export namespace Action {
@@ -752,9 +752,11 @@ export namespace Attribute {
  */
 export interface Event {
   /**
-   * <p>The name of the event.</p>
+   * <p>Optional. The Boolean expression that, when TRUE, causes the <code>actions</code> to be
+   *       performed. If not present, the actions are performed (=TRUE). If the expression result is not
+   *       a Boolean value, the actions are not performed (=FALSE).</p>
    */
-  eventName: string | undefined;
+  condition?: string;
 
   /**
    * <p>The actions to be performed.</p>
@@ -762,11 +764,9 @@ export interface Event {
   actions?: Action[];
 
   /**
-   * <p>Optional. The Boolean expression that, when TRUE, causes the <code>actions</code> to be
-   *       performed. If not present, the actions are performed (=TRUE). If the expression result is not
-   *       a Boolean value, the actions are not performed (=FALSE).</p>
+   * <p>The name of the event.</p>
    */
-  condition?: string;
+  eventName: string | undefined;
 }
 
 export namespace Event {
@@ -817,10 +817,9 @@ export namespace OnExitLifecycle {
  */
 export interface TransitionEvent {
   /**
-   * <p>Required. A Boolean expression that when TRUE causes the actions to be performed and the
-   *         <code>nextState</code> to be entered.</p>
+   * <p>The next state to enter.</p>
    */
-  condition: string | undefined;
+  nextState: string | undefined;
 
   /**
    * <p>The name of the transition event.</p>
@@ -833,9 +832,10 @@ export interface TransitionEvent {
   actions?: Action[];
 
   /**
-   * <p>The next state to enter.</p>
+   * <p>Required. A Boolean expression that when TRUE causes the actions to be performed and the
+   *         <code>nextState</code> to be entered.</p>
    */
-  nextState: string | undefined;
+  condition: string | undefined;
 }
 
 export namespace TransitionEvent {
@@ -871,6 +871,11 @@ export namespace OnInputLifecycle {
  */
 export interface State {
   /**
+   * <p>The name of the state.</p>
+   */
+  stateName: string | undefined;
+
+  /**
    * <p>When entering this state, perform these <code>actions</code> if the <code>condition</code>
    *       is TRUE.</p>
    */
@@ -881,11 +886,6 @@ export interface State {
    *         <code>actions</code>.</p>
    */
   onInput?: OnInputLifecycle;
-
-  /**
-   * <p>The name of the state.</p>
-   */
-  stateName: string | undefined;
 
   /**
    * <p>When exiting this state, perform these <code>actions</code> if the specified
@@ -931,14 +931,14 @@ export enum EvaluationMethod {
  */
 export interface Tag {
   /**
-   * <p>The tag's value.</p>
-   */
-  value: string | undefined;
-
-  /**
    * <p>The tag's key.</p>
    */
   key: string | undefined;
+
+  /**
+   * <p>The tag's value.</p>
+   */
+  value: string | undefined;
 }
 
 export namespace Tag {
@@ -949,10 +949,19 @@ export namespace Tag {
 
 export interface CreateDetectorModelRequest {
   /**
-   * <p>Information about the order in which events are evaluated and how actions are executed.
-   *     </p>
+   * <p>The ARN of the role that grants permission to AWS IoT Events to perform its operations.</p>
    */
-  evaluationMethod?: EvaluationMethod | string;
+  roleArn: string | undefined;
+
+  /**
+   * <p>A brief description of the detector model.</p>
+   */
+  detectorModelDescription?: string;
+
+  /**
+   * <p>Metadata that can be used to manage the detector model.</p>
+   */
+  tags?: Tag[];
 
   /**
    * <p>The input attribute key used to identify a device or system to create a detector (an
@@ -964,29 +973,20 @@ export interface CreateDetectorModelRequest {
   key?: string;
 
   /**
-   * <p>A brief description of the detector model.</p>
-   */
-  detectorModelDescription?: string;
-
-  /**
    * <p>Information that defines how the detectors operate.</p>
    */
   detectorModelDefinition: DetectorModelDefinition | undefined;
 
   /**
-   * <p>Metadata that can be used to manage the detector model.</p>
-   */
-  tags?: Tag[];
-
-  /**
-   * <p>The ARN of the role that grants permission to AWS IoT Events to perform its operations.</p>
-   */
-  roleArn: string | undefined;
-
-  /**
    * <p>The name of the detector model.</p>
    */
   detectorModelName: string | undefined;
+
+  /**
+   * <p>Information about the order in which events are evaluated and how actions are executed.
+   *     </p>
+   */
+  evaluationMethod?: EvaluationMethod | string;
 }
 
 export namespace CreateDetectorModelRequest {
@@ -1010,6 +1010,11 @@ export enum DetectorModelVersionStatus {
  */
 export interface DetectorModelConfiguration {
   /**
+   * <p>The ARN of the role that grants permission to AWS IoT Events to perform its operations.</p>
+   */
+  roleArn?: string;
+
+  /**
    * <p>The time the detector model was created.</p>
    */
   creationTime?: Date;
@@ -1019,26 +1024,6 @@ export interface DetectorModelConfiguration {
    *     </p>
    */
   evaluationMethod?: EvaluationMethod | string;
-
-  /**
-   * <p>The ARN of the role that grants permission to AWS IoT Events to perform its operations.</p>
-   */
-  roleArn?: string;
-
-  /**
-   * <p>The version of the detector model.</p>
-   */
-  detectorModelVersion?: string;
-
-  /**
-   * <p>The ARN of the detector model.</p>
-   */
-  detectorModelArn?: string;
-
-  /**
-   * <p>The name of the detector model.</p>
-   */
-  detectorModelName?: string;
 
   /**
    * <p>The value used to identify a detector instance. When a device or system sends input, a new
@@ -1052,6 +1037,26 @@ export interface DetectorModelConfiguration {
   key?: string;
 
   /**
+   * <p>The time the detector model was last updated.</p>
+   */
+  lastUpdateTime?: Date;
+
+  /**
+   * <p>The version of the detector model.</p>
+   */
+  detectorModelVersion?: string;
+
+  /**
+   * <p>The name of the detector model.</p>
+   */
+  detectorModelName?: string;
+
+  /**
+   * <p>The ARN of the detector model.</p>
+   */
+  detectorModelArn?: string;
+
+  /**
    * <p>A brief description of the detector model.</p>
    */
   detectorModelDescription?: string;
@@ -1060,11 +1065,6 @@ export interface DetectorModelConfiguration {
    * <p>The status of the detector model.</p>
    */
   status?: DetectorModelVersionStatus | string;
-
-  /**
-   * <p>The time the detector model was last updated.</p>
-   */
-  lastUpdateTime?: Date;
 }
 
 export namespace DetectorModelConfiguration {
@@ -1152,14 +1152,14 @@ export interface ResourceAlreadyExistsException extends __SmithyException, $Meta
   resourceArn?: string;
 
   /**
-   * <p>The ID of the resource.</p>
-   */
-  resourceId?: string;
-
-  /**
    * <p>The message for the exception.</p>
    */
   message?: string;
+
+  /**
+   * <p>The ID of the resource.</p>
+   */
+  resourceId?: string;
 }
 
 export namespace ResourceAlreadyExistsException {
@@ -1244,16 +1244,6 @@ export namespace InputDefinition {
 
 export interface CreateInputRequest {
   /**
-   * <p>A brief description of the input.</p>
-   */
-  inputDescription?: string;
-
-  /**
-   * <p>The name you want to give to the input.</p>
-   */
-  inputName: string | undefined;
-
-  /**
    * <p>Metadata that can be used to manage the input.</p>
    */
   tags?: Tag[];
@@ -1262,6 +1252,16 @@ export interface CreateInputRequest {
    * <p>The definition of the input.</p>
    */
   inputDefinition: InputDefinition | undefined;
+
+  /**
+   * <p>The name you want to give to the input.</p>
+   */
+  inputName: string | undefined;
+
+  /**
+   * <p>A brief description of the input.</p>
+   */
+  inputDescription?: string;
 }
 
 export namespace CreateInputRequest {
@@ -1282,19 +1282,9 @@ export enum InputStatus {
  */
 export interface InputConfiguration {
   /**
-   * <p>The ARN of the input.</p>
-   */
-  inputArn: string | undefined;
-
-  /**
    * <p>The name of the input.</p>
    */
   inputName: string | undefined;
-
-  /**
-   * <p>The status of the input.</p>
-   */
-  status: InputStatus | string | undefined;
 
   /**
    * <p>The last time the input was updated.</p>
@@ -1302,14 +1292,24 @@ export interface InputConfiguration {
   lastUpdateTime: Date | undefined;
 
   /**
-   * <p>A brief description of the input.</p>
+   * <p>The status of the input.</p>
    */
-  inputDescription?: string;
+  status: InputStatus | string | undefined;
 
   /**
    * <p>The time the input was created.</p>
    */
   creationTime: Date | undefined;
+
+  /**
+   * <p>The ARN of the input.</p>
+   */
+  inputArn: string | undefined;
+
+  /**
+   * <p>A brief description of the input.</p>
+   */
+  inputDescription?: string;
 }
 
 export namespace InputConfiguration {
@@ -1461,14 +1461,14 @@ export namespace DescribeInputRequest {
  */
 export interface Input {
   /**
-   * <p>Information about the configuration of an input.</p>
-   */
-  inputConfiguration?: InputConfiguration;
-
-  /**
    * <p>The definition of the input.</p>
    */
   inputDefinition?: InputDefinition;
+
+  /**
+   * <p>Information about the configuration of an input.</p>
+   */
+  inputConfiguration?: InputConfiguration;
 }
 
 export namespace Input {
@@ -1542,15 +1542,15 @@ export interface LoggingOptions {
   level: LoggingLevel | string | undefined;
 
   /**
+   * <p>If TRUE, logging is enabled for AWS IoT Events.</p>
+   */
+  enabled: boolean | undefined;
+
+  /**
    * <p>Information that identifies those detector models and their detectors (instances) for
    *       which the logging level is given.</p>
    */
   detectorDebugOptions?: DetectorDebugOption[];
-
-  /**
-   * <p>If TRUE, logging is enabled for AWS IoT Events.</p>
-   */
-  enabled: boolean | undefined;
 }
 
 export namespace LoggingOptions {
@@ -1595,14 +1595,14 @@ export namespace UnsupportedOperationException {
  */
 export interface DetectorModelSummary {
   /**
-   * <p>The time the detector model was created.</p>
-   */
-  creationTime?: Date;
-
-  /**
    * <p>A brief description of the detector model.</p>
    */
   detectorModelDescription?: string;
+
+  /**
+   * <p>The time the detector model was created.</p>
+   */
+  creationTime?: Date;
 
   /**
    * <p>The name of the detector model.</p>
@@ -1621,19 +1621,19 @@ export namespace DetectorModelSummary {
  */
 export interface DetectorModelVersionSummary {
   /**
-   * <p>The last time the detector model version was updated.</p>
+   * <p>The ARN of the detector model version.</p>
    */
-  lastUpdateTime?: Date;
+  detectorModelArn?: string;
+
+  /**
+   * <p>The time the detector model version was created.</p>
+   */
+  creationTime?: Date;
 
   /**
    * <p>The status of the detector model version.</p>
    */
   status?: DetectorModelVersionStatus | string;
-
-  /**
-   * <p>The ARN of the detector model version.</p>
-   */
-  detectorModelArn?: string;
 
   /**
    * <p>The name of the detector model.</p>
@@ -1646,15 +1646,15 @@ export interface DetectorModelVersionSummary {
   detectorModelVersion?: string;
 
   /**
+   * <p>The last time the detector model version was updated.</p>
+   */
+  lastUpdateTime?: Date;
+
+  /**
    * <p>Information about the order in which events are evaluated and how actions are executed.
    *     </p>
    */
   evaluationMethod?: EvaluationMethod | string;
-
-  /**
-   * <p>The time the detector model version was created.</p>
-   */
-  creationTime?: Date;
 
   /**
    * <p>The ARN of the role that grants the detector model permission to perform its tasks.</p>
@@ -1673,14 +1673,14 @@ export namespace DetectorModelVersionSummary {
  */
 export interface InputSummary {
   /**
+   * <p>The last time the input was updated.</p>
+   */
+  lastUpdateTime?: Date;
+
+  /**
    * <p>The ARN of the input.</p>
    */
   inputArn?: string;
-
-  /**
-   * <p>The time the input was created.</p>
-   */
-  creationTime?: Date;
 
   /**
    * <p>The name of the input.</p>
@@ -1693,9 +1693,9 @@ export interface InputSummary {
   status?: InputStatus | string;
 
   /**
-   * <p>The last time the input was updated.</p>
+   * <p>The time the input was created.</p>
    */
-  lastUpdateTime?: Date;
+  creationTime?: Date;
 
   /**
    * <p>A brief description of the input.</p>
@@ -1711,14 +1711,14 @@ export namespace InputSummary {
 
 export interface ListDetectorModelsRequest {
   /**
-   * <p>The token for the next set of results.</p>
-   */
-  nextToken?: string;
-
-  /**
    * <p>The maximum number of results to return at one time.</p>
    */
   maxResults?: number;
+
+  /**
+   * <p>The token for the next set of results.</p>
+   */
+  nextToken?: string;
 }
 
 export namespace ListDetectorModelsRequest {
@@ -1748,14 +1748,14 @@ export namespace ListDetectorModelsResponse {
 
 export interface ListDetectorModelVersionsRequest {
   /**
-   * <p>The name of the detector model whose versions are returned.</p>
-   */
-  detectorModelName: string | undefined;
-
-  /**
    * <p>The token for the next set of results.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>The name of the detector model whose versions are returned.</p>
+   */
+  detectorModelName: string | undefined;
 
   /**
    * <p>The maximum number of results to return at one time.</p>
@@ -1892,14 +1892,14 @@ export namespace TagResourceResponse {
 
 export interface UntagResourceRequest {
   /**
-   * <p>A list of the keys of the tags to be removed from the resource.</p>
-   */
-  tagKeys: string[] | undefined;
-
-  /**
    * <p>The ARN of the resource.</p>
    */
   resourceArn: string | undefined;
+
+  /**
+   * <p>A list of the keys of the tags to be removed from the resource.</p>
+   */
+  tagKeys: string[] | undefined;
 }
 
 export namespace UntagResourceRequest {
@@ -1918,9 +1918,9 @@ export namespace UntagResourceResponse {
 
 export interface UpdateDetectorModelRequest {
   /**
-   * <p>A brief description of the detector model.</p>
+   * <p>The name of the detector model that is updated.</p>
    */
-  detectorModelDescription?: string;
+  detectorModelName: string | undefined;
 
   /**
    * <p>Information that defines how a detector operates.</p>
@@ -1928,9 +1928,9 @@ export interface UpdateDetectorModelRequest {
   detectorModelDefinition: DetectorModelDefinition | undefined;
 
   /**
-   * <p>The name of the detector model that is updated.</p>
+   * <p>A brief description of the detector model.</p>
    */
-  detectorModelName: string | undefined;
+  detectorModelDescription?: string;
 
   /**
    * <p>Information about the order in which events are evaluated and how actions are executed.

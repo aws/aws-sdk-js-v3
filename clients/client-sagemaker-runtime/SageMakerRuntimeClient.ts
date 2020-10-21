@@ -165,9 +165,7 @@ export type SageMakerRuntimeClientResolvedConfig = __SmithyResolvedConfiguration
   HostHeaderResolvedConfig;
 
 /**
- * <p>
- *             Amazon SageMaker runtime API.
- *         </p>
+ * <p> The Amazon SageMaker runtime API. </p>
  */
 export class SageMakerRuntimeClient extends __Client<
   __HttpHandlerOptions,

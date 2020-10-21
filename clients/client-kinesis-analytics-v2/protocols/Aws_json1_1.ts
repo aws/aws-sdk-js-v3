@@ -1077,6 +1077,14 @@ const deserializeAws_json1_1AddApplicationVpcConfigurationCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "InvalidApplicationConfigurationException":
+    case "com.amazonaws.kinesisanalyticsv2#InvalidApplicationConfigurationException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidApplicationConfigurationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "InvalidArgumentException":
     case "com.amazonaws.kinesisanalyticsv2#InvalidArgumentException":
       response = {
@@ -1251,6 +1259,14 @@ const deserializeAws_json1_1CreateApplicationSnapshotCommandError = async (
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
+    case "InvalidApplicationConfigurationException":
+    case "com.amazonaws.kinesisanalyticsv2#InvalidApplicationConfigurationException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidApplicationConfigurationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "InvalidArgumentException":
     case "com.amazonaws.kinesisanalyticsv2#InvalidArgumentException":
       response = {
@@ -1892,6 +1908,14 @@ const deserializeAws_json1_1DeleteApplicationVpcConfigurationCommandError = asyn
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "InvalidApplicationConfigurationException":
+    case "com.amazonaws.kinesisanalyticsv2#InvalidApplicationConfigurationException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidApplicationConfigurationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "InvalidArgumentException":
     case "com.amazonaws.kinesisanalyticsv2#InvalidArgumentException":
       response = {
@@ -2468,6 +2492,14 @@ const deserializeAws_json1_1StopApplicationCommandError = async (
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
+    case "ConcurrentModificationException":
+    case "com.amazonaws.kinesisanalyticsv2#ConcurrentModificationException":
+      response = {
+        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "InvalidApplicationConfigurationException":
     case "com.amazonaws.kinesisanalyticsv2#InvalidApplicationConfigurationException":
       response = {
@@ -4124,6 +4156,7 @@ const serializeAws_json1_1StartApplicationRequest = (input: StartApplicationRequ
 const serializeAws_json1_1StopApplicationRequest = (input: StopApplicationRequest, context: __SerdeContext): any => {
   return {
     ...(input.ApplicationName !== undefined && { ApplicationName: input.ApplicationName }),
+    ...(input.Force !== undefined && { Force: input.Force }),
   };
 };
 
@@ -4780,6 +4813,15 @@ const deserializeAws_json1_1FlinkApplicationConfigurationDescription = (
   } as any;
 };
 
+const deserializeAws_json1_1FlinkRunConfiguration = (output: any, context: __SerdeContext): FlinkRunConfiguration => {
+  return {
+    AllowNonRestoredState:
+      output.AllowNonRestoredState !== undefined && output.AllowNonRestoredState !== null
+        ? output.AllowNonRestoredState
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1InAppStreamNames = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
 };
@@ -5197,6 +5239,10 @@ const deserializeAws_json1_1RunConfigurationDescription = (
             output.ApplicationRestoreConfigurationDescription,
             context
           )
+        : undefined,
+    FlinkRunConfigurationDescription:
+      output.FlinkRunConfigurationDescription !== undefined && output.FlinkRunConfigurationDescription !== null
+        ? deserializeAws_json1_1FlinkRunConfiguration(output.FlinkRunConfigurationDescription, context)
         : undefined,
   } as any;
 };

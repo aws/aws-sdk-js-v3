@@ -6,15 +6,18 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
  */
 export interface AddPermissionRequest {
   /**
+   * <p>The action the client wants to allow for the specified principal. Valid values: the name of any action or <code>*</code>.</p>
+   *          <p>For more information about these actions, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-overview-of-managing-access.html">Overview of Managing Access Permissions to Your Amazon Simple Queue Service Resource</a>
+   *           in the <i>Amazon Simple Queue Service Developer Guide</i>.</p>
+   *          <p>Specifying <code>SendMessage</code>, <code>DeleteMessage</code>, or <code>ChangeMessageVisibility</code> for <code>ActionName.n</code> also grants permissions for the corresponding batch versions of those actions: <code>SendMessageBatch</code>,
+   *         <code>DeleteMessageBatch</code>, and <code>ChangeMessageVisibilityBatch</code>.</p>
+   */
+  Actions: string[] | undefined;
+
+  /**
    * <p>The unique identification of the permission you're setting (for example, <code>AliceSendMessage</code>). Maximum 80 characters. Allowed characters include alphanumeric characters, hyphens (<code>-</code>), and underscores (<code>_</code>).</p>
    */
   Label: string | undefined;
-
-  /**
-   * <p>The AWS account number of the <a href="https://docs.aws.amazon.com/general/latest/gr/glos-chap.html#P">principal</a> who is given permission. The principal must have an AWS account, but does not need to be signed up for Amazon SQS. For information about locating the AWS
-   *           account identification, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-making-api-requests.html#sqs-api-request-authentication">Your AWS Identifiers</a> in the <i>Amazon Simple Queue Service Developer Guide</i>.</p>
-   */
-  AWSAccountIds: string[] | undefined;
 
   /**
    * <p>The URL of the Amazon SQS queue to which permissions are added.</p>
@@ -23,13 +26,10 @@ export interface AddPermissionRequest {
   QueueUrl: string | undefined;
 
   /**
-   * <p>The action the client wants to allow for the specified principal. Valid values: the name of any action or <code>*</code>.</p>
-   *          <p>For more information about these actions, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-overview-of-managing-access.html">Overview of Managing Access Permissions to Your Amazon Simple Queue Service Resource</a>
-   *           in the <i>Amazon Simple Queue Service Developer Guide</i>.</p>
-   *          <p>Specifying <code>SendMessage</code>, <code>DeleteMessage</code>, or <code>ChangeMessageVisibility</code> for <code>ActionName.n</code> also grants permissions for the corresponding batch versions of those actions: <code>SendMessageBatch</code>,
-   *         <code>DeleteMessageBatch</code>, and <code>ChangeMessageVisibilityBatch</code>.</p>
+   * <p>The AWS account number of the <a href="https://docs.aws.amazon.com/general/latest/gr/glos-chap.html#P">principal</a> who is given permission. The principal must have an AWS account, but does not need to be signed up for Amazon SQS. For information about locating the AWS
+   *           account identification, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-making-api-requests.html#sqs-api-request-authentication">Your AWS Identifiers</a> in the <i>Amazon Simple Queue Service Developer Guide</i>.</p>
    */
-  Actions: string[] | undefined;
+  AWSAccountIds: string[] | undefined;
 }
 
 export namespace AddPermissionRequest {
@@ -57,22 +57,22 @@ export namespace OverLimit {
 
 export interface ChangeMessageVisibilityRequest {
   /**
+   * <p>The URL of the Amazon SQS queue whose message's visibility is changed.</p>
+   *          <p>Queue URLs and names are case-sensitive.</p>
+   */
+  QueueUrl: string | undefined;
+
+  /**
+   * <p>The new value for the message's visibility timeout (in seconds). Values range: <code>0</code> to <code>43200</code>. Maximum: 12 hours.</p>
+   */
+  VisibilityTimeout: number | undefined;
+
+  /**
    * <p>The receipt handle associated with the message whose visibility timeout is changed. This parameter is returned by the <code>
    *                <a>ReceiveMessage</a>
    *             </code> action.</p>
    */
   ReceiptHandle: string | undefined;
-
-  /**
-   * <p>The new value for the message's visibility timeout (in seconds). Values values: <code>0</code> to <code>43200</code>. Maximum: 12 hours.</p>
-   */
-  VisibilityTimeout: number | undefined;
-
-  /**
-   * <p>The URL of the Amazon SQS queue whose message's visibility is changed.</p>
-   *          <p>Queue URLs and names are case-sensitive.</p>
-   */
-  QueueUrl: string | undefined;
 }
 
 export namespace ChangeMessageVisibilityRequest {
@@ -142,11 +142,6 @@ export namespace BatchEntryIdsNotDistinct {
  */
 export interface ChangeMessageVisibilityBatchRequestEntry {
   /**
-   * <p>A receipt handle.</p>
-   */
-  ReceiptHandle: string | undefined;
-
-  /**
    * <p>The new value (in seconds) for the message's visibility timeout.</p>
    */
   VisibilityTimeout?: number;
@@ -159,6 +154,11 @@ export interface ChangeMessageVisibilityBatchRequestEntry {
    *          </note>
    */
   Id: string | undefined;
+
+  /**
+   * <p>A receipt handle.</p>
+   */
+  ReceiptHandle: string | undefined;
 }
 
 export namespace ChangeMessageVisibilityBatchRequestEntry {
@@ -172,15 +172,15 @@ export namespace ChangeMessageVisibilityBatchRequestEntry {
  */
 export interface ChangeMessageVisibilityBatchRequest {
   /**
-   * <p>A list of receipt handles of the messages for which the visibility timeout must be changed.</p>
-   */
-  Entries: ChangeMessageVisibilityBatchRequestEntry[] | undefined;
-
-  /**
    * <p>The URL of the Amazon SQS queue whose messages' visibility is changed.</p>
    *          <p>Queue URLs and names are case-sensitive.</p>
    */
   QueueUrl: string | undefined;
+
+  /**
+   * <p>A list of receipt handles of the messages for which the visibility timeout must be changed.</p>
+   */
+  Entries: ChangeMessageVisibilityBatchRequestEntry[] | undefined;
 }
 
 export namespace ChangeMessageVisibilityBatchRequest {
@@ -195,24 +195,24 @@ export namespace ChangeMessageVisibilityBatchRequest {
  */
 export interface BatchResultErrorEntry {
   /**
-   * <p>Specifies whether the error happened due to the caller of the batch API action.</p>
-   */
-  SenderFault: boolean | undefined;
-
-  /**
    * <p>An error code representing why the action failed on this entry.</p>
    */
   Code: string | undefined;
 
   /**
-   * <p>A message explaining why the action failed on this entry.</p>
-   */
-  Message?: string;
-
-  /**
    * <p>The <code>Id</code> of an entry in a batch request.</p>
    */
   Id: string | undefined;
+
+  /**
+   * <p>Specifies whether the error happened due to the caller of the batch API action.</p>
+   */
+  SenderFault: boolean | undefined;
+
+  /**
+   * <p>A message explaining why the action failed on this entry.</p>
+   */
+  Message?: string;
 }
 
 export namespace BatchResultErrorEntry {
@@ -603,6 +603,11 @@ export namespace InvalidIdFormat {
  */
 export interface DeleteMessageBatchRequestEntry {
   /**
+   * <p>A receipt handle.</p>
+   */
+  ReceiptHandle: string | undefined;
+
+  /**
    * <p>An identifier for this particular receipt handle. This is used to communicate the result.</p>
    *          <note>
    *             <p>The <code>Id</code>s of a batch request need to be unique within a request.</p>
@@ -610,11 +615,6 @@ export interface DeleteMessageBatchRequestEntry {
    *          </note>
    */
   Id: string | undefined;
-
-  /**
-   * <p>A receipt handle.</p>
-   */
-  ReceiptHandle: string | undefined;
 }
 
 export namespace DeleteMessageBatchRequestEntry {
@@ -628,15 +628,15 @@ export namespace DeleteMessageBatchRequestEntry {
  */
 export interface DeleteMessageBatchRequest {
   /**
-   * <p>A list of receipt handles for the messages to be deleted.</p>
-   */
-  Entries: DeleteMessageBatchRequestEntry[] | undefined;
-
-  /**
    * <p>The URL of the Amazon SQS queue from which messages are deleted.</p>
    *          <p>Queue URLs and names are case-sensitive.</p>
    */
   QueueUrl: string | undefined;
+
+  /**
+   * <p>A list of receipt handles for the messages to be deleted.</p>
+   */
+  Entries: DeleteMessageBatchRequestEntry[] | undefined;
 }
 
 export namespace DeleteMessageBatchRequest {
@@ -673,17 +673,17 @@ export namespace DeleteMessageBatchResultEntry {
 export interface DeleteMessageBatchResult {
   /**
    * <p>A list of <code>
-   *                <a>BatchResultErrorEntry</a>
-   *             </code> items.</p>
-   */
-  Failed: BatchResultErrorEntry[] | undefined;
-
-  /**
-   * <p>A list of <code>
    *                <a>DeleteMessageBatchResultEntry</a>
    *             </code> items.</p>
    */
   Successful: DeleteMessageBatchResultEntry[] | undefined;
+
+  /**
+   * <p>A list of <code>
+   *                <a>BatchResultErrorEntry</a>
+   *             </code> items.</p>
+   */
+  Failed: BatchResultErrorEntry[] | undefined;
 }
 
 export namespace DeleteMessageBatchResult {
@@ -955,14 +955,15 @@ export interface ListDeadLetterSourceQueuesRequest {
   QueueUrl: string | undefined;
 
   /**
-   * <p>Maximum number of results to include in the response.</p>
-   */
-  MaxResults?: number;
-
-  /**
    * <p>Pagination token to request the next set of results.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>Maximum number of results to include in the response. Value range is 1 to 1000.
+   *           You must set <code>MaxResults</code> to receive a value for <code>NextToken</code> in the response.</p>
+   */
+  MaxResults?: number;
 }
 
 export namespace ListDeadLetterSourceQueuesRequest {
@@ -976,14 +977,15 @@ export namespace ListDeadLetterSourceQueuesRequest {
  */
 export interface ListDeadLetterSourceQueuesResult {
   /**
-   * <p>Pagination token to include in the next request.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>A list of source queue URLs that have the <code>RedrivePolicy</code> queue attribute configured with a dead-letter queue.</p>
    */
   queueUrls: string[] | undefined;
+
+  /**
+   * <p>Pagination token to include in the next request. Token value is <code>null</code> if there are no additional
+   *           results to request, or if you did not set <code>MaxResults</code> in the request.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace ListDeadLetterSourceQueuesResult {
@@ -997,12 +999,8 @@ export namespace ListDeadLetterSourceQueuesResult {
  */
 export interface ListQueuesRequest {
   /**
-   * <p>Pagination token to request the next set of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>Maximum number of results to include in the response.</p>
+   * <p>Maximum number of results to include in the response. Value range is 1 to 1000.
+   *           You must set <code>MaxResults</code> to receive a value for <code>NextToken</code> in the response.</p>
    */
   MaxResults?: number;
 
@@ -1011,6 +1009,11 @@ export interface ListQueuesRequest {
    *          <p>Queue URLs and names are case-sensitive.</p>
    */
   QueueNamePrefix?: string;
+
+  /**
+   * <p>Pagination token to request the next set of results.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace ListQueuesRequest {
@@ -1024,7 +1027,8 @@ export namespace ListQueuesRequest {
  */
 export interface ListQueuesResult {
   /**
-   * <p>Pagination token to include in the next request.</p>
+   * <p>Pagination token to include in the next request. Token value is <code>null</code> if there are no additional
+   *         results to request, or if you did not set <code>MaxResults</code> in the request.</p>
    */
   NextToken?: string;
 
@@ -1102,29 +1106,69 @@ export namespace PurgeQueueRequest {
  */
 export interface ReceiveMessageRequest {
   /**
-   * <p>The name of the message attribute, where <i>N</i> is the index.</p>
+   * <p>The duration (in seconds) that the received messages are hidden from subsequent retrieve requests after being retrieved by a <code>ReceiveMessage</code> request.</p>
+   */
+  VisibilityTimeout?: number;
+
+  /**
+   * <p>This parameter applies only to FIFO (first-in-first-out) queues.</p>
+   *          <p>The token used for deduplication of <code>ReceiveMessage</code> calls. If a networking issue occurs after a <code>ReceiveMessage</code> action, and instead of a response you receive a generic error,
+   *           it is possible to retry the same action with an identical <code>ReceiveRequestAttemptId</code> to retrieve the same set of messages, even if their visibility timeout has not yet expired.</p>
    *          <ul>
    *             <li>
-   *                <p>The name can contain alphanumeric characters and the underscore (<code>_</code>), hyphen (<code>-</code>), and period (<code>.</code>).</p>
+   *                <p>You can use <code>ReceiveRequestAttemptId</code> only for 5 minutes after a <code>ReceiveMessage</code> action.</p>
    *             </li>
    *             <li>
-   *                <p>The name is case-sensitive and must be unique among all attribute names for the message.</p>
+   *                <p>When you set <code>FifoQueue</code>, a caller of the <code>ReceiveMessage</code> action can provide a <code>ReceiveRequestAttemptId</code> explicitly.</p>
    *             </li>
    *             <li>
-   *                <p>The name must not start with AWS-reserved prefixes such as <code>AWS.</code> or <code>Amazon.</code> (or any casing variants).</p>
+   *                <p>If a caller of the <code>ReceiveMessage</code> action doesn't provide a <code>ReceiveRequestAttemptId</code>, Amazon SQS generates a <code>ReceiveRequestAttemptId</code>.</p>
    *             </li>
    *             <li>
-   *                <p>The name must not start or end with a period (<code>.</code>), and it should not have periods in succession (<code>..</code>).</p>
+   *                <p>It is possible to retry the <code>ReceiveMessage</code> action with the same <code>ReceiveRequestAttemptId</code> if none of the messages have been modified (deleted or had their visibility changes).</p>
    *             </li>
    *             <li>
-   *                <p>The name can be up to 256 characters long.</p>
+   *                <p>During a visibility timeout, subsequent calls with the same <code>ReceiveRequestAttemptId</code> return the same messages and receipt handles. If a retry occurs within the deduplication interval,
+   *               it resets the visibility timeout. For more information, see
+   *               <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-visibility-timeout.html">Visibility Timeout</a>
+   *               in the <i>Amazon Simple Queue Service Developer Guide</i>.</p>
+   *               <important>
+   *                   <p>If a caller of the <code>ReceiveMessage</code> action still processes
+   *                         messages when the visibility timeout expires and messages become visible,
+   *                         another worker consuming from the same queue can receive the same messages
+   *                         and therefore process duplicates. Also, if a consumer whose message
+   *                         processing time is longer than the visibility timeout tries to delete the
+   *                         processed messages, the action fails with an error.</p>
+   *                   <p>To mitigate this effect, ensure that your application observes a safe threshold before the visibility timeout expires and extend the visibility timeout as necessary.</p>
+   *               </important>
+   *             </li>
+   *             <li>
+   *                <p>While messages with a particular <code>MessageGroupId</code> are invisible, no more messages belonging to the same <code>MessageGroupId</code> are returned until the visibility timeout expires. You can still receive
+   *               messages with another <code>MessageGroupId</code> as long as it is also visible.</p>
+   *             </li>
+   *             <li>
+   *                <p>If a caller of <code>ReceiveMessage</code> can't track the <code>ReceiveRequestAttemptId</code>, no retries work until the original visibility timeout expires. As a result, delays might occur but
+   *               the messages in the queue remain in a strict order.</p>
    *             </li>
    *          </ul>
-   *
-   *          <p>When using <code>ReceiveMessage</code>, you can send a list of attribute names to receive, or you can return all of the attributes by specifying <code>All</code> or <code>.*</code> in your request.
-   *           You can also use all message attributes starting with a prefix, for example <code>bar.*</code>.</p>
+   *          <p>The maximum length of <code>ReceiveRequestAttemptId</code> is 128 characters. <code>ReceiveRequestAttemptId</code> can contain alphanumeric characters (<code>a-z</code>, <code>A-Z</code>, <code>0-9</code>) and
+   *           punctuation (<code>!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~</code>).</p>
+   *          <p>For best practices of using <code>ReceiveRequestAttemptId</code>, see
+   *           <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/using-receiverequestattemptid-request-parameter.html">Using the ReceiveRequestAttemptId Request Parameter</a>
+   *           in the <i>Amazon Simple Queue Service Developer Guide</i>.</p>
    */
-  MessageAttributeNames?: string[];
+  ReceiveRequestAttemptId?: string;
+
+  /**
+   * <p>The maximum number of messages to return. Amazon SQS never returns more messages than this value (however, fewer messages might be returned). Valid values: 1 to 10. Default: 1.</p>
+   */
+  MaxNumberOfMessages?: number;
+
+  /**
+   * <p>The URL of the Amazon SQS queue from which messages are received.</p>
+   *          <p>Queue URLs and names are case-sensitive.</p>
+   */
+  QueueUrl: string | undefined;
 
   /**
    * <p>The duration (in seconds) for which the call waits for a message to arrive in the queue before returning. If a message is available, the call returns sooner than <code>WaitTimeSeconds</code>.
@@ -1136,12 +1180,6 @@ export interface ReceiveMessageRequest {
    *          </important>
    */
   WaitTimeSeconds?: number;
-
-  /**
-   * <p>The URL of the Amazon SQS queue from which messages are received.</p>
-   *          <p>Queue URLs and names are case-sensitive.</p>
-   */
-  QueueUrl: string | undefined;
 
   /**
    * <p>A list of attributes that need to be returned along with each message. These attributes
@@ -1206,63 +1244,29 @@ export interface ReceiveMessageRequest {
   AttributeNames?: (QueueAttributeName | string)[];
 
   /**
-   * <p>The maximum number of messages to return. Amazon SQS never returns more messages than this value (however, fewer messages might be returned). Valid values: 1 to 10. Default: 1.</p>
-   */
-  MaxNumberOfMessages?: number;
-
-  /**
-   * <p>The duration (in seconds) that the received messages are hidden from subsequent retrieve requests after being retrieved by a <code>ReceiveMessage</code> request.</p>
-   */
-  VisibilityTimeout?: number;
-
-  /**
-   * <p>This parameter applies only to FIFO (first-in-first-out) queues.</p>
-   *          <p>The token used for deduplication of <code>ReceiveMessage</code> calls. If a networking issue occurs after a <code>ReceiveMessage</code> action, and instead of a response you receive a generic error,
-   *           it is possible to retry the same action with an identical <code>ReceiveRequestAttemptId</code> to retrieve the same set of messages, even if their visibility timeout has not yet expired.</p>
+   * <p>The name of the message attribute, where <i>N</i> is the index.</p>
    *          <ul>
    *             <li>
-   *                <p>You can use <code>ReceiveRequestAttemptId</code> only for 5 minutes after a <code>ReceiveMessage</code> action.</p>
+   *                <p>The name can contain alphanumeric characters and the underscore (<code>_</code>), hyphen (<code>-</code>), and period (<code>.</code>).</p>
    *             </li>
    *             <li>
-   *                <p>When you set <code>FifoQueue</code>, a caller of the <code>ReceiveMessage</code> action can provide a <code>ReceiveRequestAttemptId</code> explicitly.</p>
+   *                <p>The name is case-sensitive and must be unique among all attribute names for the message.</p>
    *             </li>
    *             <li>
-   *                <p>If a caller of the <code>ReceiveMessage</code> action doesn't provide a <code>ReceiveRequestAttemptId</code>, Amazon SQS generates a <code>ReceiveRequestAttemptId</code>.</p>
+   *                <p>The name must not start with AWS-reserved prefixes such as <code>AWS.</code> or <code>Amazon.</code> (or any casing variants).</p>
    *             </li>
    *             <li>
-   *                <p>It is possible to retry the <code>ReceiveMessage</code> action with the same <code>ReceiveRequestAttemptId</code> if none of the messages have been modified (deleted or had their visibility changes).</p>
+   *                <p>The name must not start or end with a period (<code>.</code>), and it should not have periods in succession (<code>..</code>).</p>
    *             </li>
    *             <li>
-   *                <p>During a visibility timeout, subsequent calls with the same <code>ReceiveRequestAttemptId</code> return the same messages and receipt handles. If a retry occurs within the deduplication interval,
-   *               it resets the visibility timeout. For more information, see
-   *               <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-visibility-timeout.html">Visibility Timeout</a>
-   *               in the <i>Amazon Simple Queue Service Developer Guide</i>.</p>
-   *               <important>
-   *                   <p>If a caller of the <code>ReceiveMessage</code> action still processes
-   *                         messages when the visibility timeout expires and messages become visible,
-   *                         another worker consuming from the same queue can receive the same messages
-   *                         and therefore process duplicates. Also, if a consumer whose message
-   *                         processing time is longer than the visibility timeout tries to delete the
-   *                         processed messages, the action fails with an error.</p>
-   *                   <p>To mitigate this effect, ensure that your application observes a safe threshold before the visibility timeout expires and extend the visibility timeout as necessary.</p>
-   *               </important>
-   *             </li>
-   *             <li>
-   *                <p>While messages with a particular <code>MessageGroupId</code> are invisible, no more messages belonging to the same <code>MessageGroupId</code> are returned until the visibility timeout expires. You can still receive
-   *               messages with another <code>MessageGroupId</code> as long as it is also visible.</p>
-   *             </li>
-   *             <li>
-   *                <p>If a caller of <code>ReceiveMessage</code> can't track the <code>ReceiveRequestAttemptId</code>, no retries work until the original visibility timeout expires. As a result, delays might occur but
-   *               the messages in the queue remain in a strict order.</p>
+   *                <p>The name can be up to 256 characters long.</p>
    *             </li>
    *          </ul>
-   *          <p>The maximum length of <code>ReceiveRequestAttemptId</code> is 128 characters. <code>ReceiveRequestAttemptId</code> can contain alphanumeric characters (<code>a-z</code>, <code>A-Z</code>, <code>0-9</code>) and
-   *           punctuation (<code>!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~</code>).</p>
-   *          <p>For best practices of using <code>ReceiveRequestAttemptId</code>, see
-   *           <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/using-receiverequestattemptid-request-parameter.html">Using the ReceiveRequestAttemptId Request Parameter</a>
-   *           in the <i>Amazon Simple Queue Service Developer Guide</i>.</p>
+   *
+   *          <p>When using <code>ReceiveMessage</code>, you can send a list of attribute names to receive, or you can return all of the attributes by specifying <code>All</code> or <code>.*</code> in your request.
+   *           You can also use all message attributes starting with a prefix, for example <code>bar.*</code>.</p>
    */
-  ReceiveRequestAttemptId?: string;
+  MessageAttributeNames?: string[];
 }
 
 export namespace ReceiveMessageRequest {
@@ -1290,16 +1294,6 @@ export type MessageSystemAttributeName =
  */
 export interface MessageAttributeValue {
   /**
-   * <p>Strings are Unicode with UTF-8 binary encoding. For a list of code values, see <a href="http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters">ASCII Printable Characters</a>.</p>
-   */
-  StringValue?: string;
-
-  /**
-   * <p>Binary type attributes can store any binary data, such as compressed data, encrypted data, or images.</p>
-   */
-  BinaryValue?: Uint8Array;
-
-  /**
    * <p>Not implemented. Reserved for future use.</p>
    */
   BinaryListValues?: Uint8Array[];
@@ -1311,9 +1305,19 @@ export interface MessageAttributeValue {
 
   /**
    * <p>Amazon SQS supports the following logical data types: <code>String</code>, <code>Number</code>, and <code>Binary</code>. For the <code>Number</code> data type, you must use <code>StringValue</code>.</p>
-   *          <p>You can also append custom labels. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-message-attributes.html">Amazon SQS Message Attributes</a> in the <i>Amazon Simple Queue Service Developer Guide</i>.</p>
+   *          <p>You can also append custom labels. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-message-metadata.html#sqs-message-attributes">Amazon SQS Message Attributes</a> in the <i>Amazon Simple Queue Service Developer Guide</i>.</p>
    */
   DataType: string | undefined;
+
+  /**
+   * <p>Binary type attributes can store any binary data, such as compressed data, encrypted data, or images.</p>
+   */
+  BinaryValue?: Uint8Array;
+
+  /**
+   * <p>Strings are Unicode with UTF-8 binary encoding. For a list of code values, see <a href="http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters">ASCII Printable Characters</a>.</p>
+   */
+  StringValue?: string;
 }
 
 export namespace MessageAttributeValue {
@@ -1327,9 +1331,9 @@ export namespace MessageAttributeValue {
  */
 export interface Message {
   /**
-   * <p>Each message attribute consists of a <code>Name</code>, <code>Type</code>, and <code>Value</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-message-attributes.html">Amazon SQS Message Attributes</a> in the <i>Amazon Simple Queue Service Developer Guide</i>.</p>
+   * <p>An MD5 digest of the non-URL-encoded message body string.</p>
    */
-  MessageAttributes?: { [key: string]: MessageAttributeValue };
+  MD5OfBody?: string;
 
   /**
    * <p>An MD5 digest of the non-URL-encoded message attribute string. You can use this attribute to verify that Amazon SQS received the message correctly. Amazon SQS URL-decodes the message before creating the MD5 digest. For information about MD5, see <a href="https://www.ietf.org/rfc/rfc1321.txt">RFC1321</a>.</p>
@@ -1395,14 +1399,14 @@ export interface Message {
   MessageId?: string;
 
   /**
-   * <p>An MD5 digest of the non-URL-encoded message body string.</p>
-   */
-  MD5OfBody?: string;
-
-  /**
    * <p>The message's contents (not URL-encoded).</p>
    */
   Body?: string;
+
+  /**
+   * <p>Each message attribute consists of a <code>Name</code>, <code>Type</code>, and <code>Value</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-message-metadata.html#sqs-message-attributes">Amazon SQS Message Attributes</a> in the <i>Amazon Simple Queue Service Developer Guide</i>.</p>
+   */
+  MessageAttributes?: { [key: string]: MessageAttributeValue };
 }
 
 export namespace Message {
@@ -1432,17 +1436,17 @@ export namespace ReceiveMessageResult {
  */
 export interface RemovePermissionRequest {
   /**
-   * <p>The URL of the Amazon SQS queue from which permissions are removed.</p>
-   *          <p>Queue URLs and names are case-sensitive.</p>
-   */
-  QueueUrl: string | undefined;
-
-  /**
    * <p>The identification of the permission to remove. This is the label added using the <code>
    *                <a>AddPermission</a>
    *             </code> action.</p>
    */
   Label: string | undefined;
+
+  /**
+   * <p>The URL of the Amazon SQS queue from which permissions are removed.</p>
+   *          <p>Queue URLs and names are case-sensitive.</p>
+   */
+  QueueUrl: string | undefined;
 }
 
 export namespace RemovePermissionRequest {
@@ -1476,6 +1480,17 @@ export type MessageSystemAttributeNameForSends = "AWSTraceHeader";
  */
 export interface MessageSystemAttributeValue {
   /**
+   * <p>Amazon SQS supports the following logical data types: <code>String</code>, <code>Number</code>, and <code>Binary</code>. For the <code>Number</code> data type, you must use <code>StringValue</code>.</p>
+   *          <p>You can also append custom labels. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-message-metadata.html#sqs-message-attributes">Amazon SQS Message Attributes</a> in the <i>Amazon Simple Queue Service Developer Guide</i>.</p>
+   */
+  DataType: string | undefined;
+
+  /**
+   * <p>Strings are Unicode with UTF-8 binary encoding. For a list of code values, see <a href="http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters">ASCII Printable Characters</a>.</p>
+   */
+  StringValue?: string;
+
+  /**
    * <p>Not implemented. Reserved for future use.</p>
    */
   BinaryListValues?: Uint8Array[];
@@ -1486,20 +1501,9 @@ export interface MessageSystemAttributeValue {
   StringListValues?: string[];
 
   /**
-   * <p>Amazon SQS supports the following logical data types: <code>String</code>, <code>Number</code>, and <code>Binary</code>. For the <code>Number</code> data type, you must use <code>StringValue</code>.</p>
-   *          <p>You can also append custom labels. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-message-attributes.html">Amazon SQS Message Attributes</a> in the <i>Amazon Simple Queue Service Developer Guide</i>.</p>
-   */
-  DataType: string | undefined;
-
-  /**
    * <p>Binary type attributes can store any binary data, such as compressed data, encrypted data, or images.</p>
    */
   BinaryValue?: Uint8Array;
-
-  /**
-   * <p>Strings are Unicode with UTF-8 binary encoding. For a list of code values, see <a href="http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters">ASCII Printable Characters</a>.</p>
-   */
-  StringValue?: string;
 }
 
 export namespace MessageSystemAttributeValue {
@@ -1513,39 +1517,55 @@ export namespace MessageSystemAttributeValue {
  */
 export interface SendMessageRequest {
   /**
-   * <p>Each message attribute consists of a <code>Name</code>, <code>Type</code>, and <code>Value</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-message-attributes.html">Amazon SQS Message Attributes</a> in the <i>Amazon Simple Queue Service Developer Guide</i>.</p>
-   */
-  MessageAttributes?: { [key: string]: MessageAttributeValue };
-
-  /**
-   * <p>This parameter applies only to FIFO (first-in-first-out) queues.</p>
-   *          <p>The tag that specifies that a message belongs to a specific message group. Messages
-   *             that belong to the same message group are processed in a FIFO manner (however,
-   *             messages in different message groups might be processed out of order). To interleave
-   *             multiple ordered streams within a single queue, use <code>MessageGroupId</code> values
-   *             (for example, session data for multiple users). In this scenario, multiple consumers can
-   *             process the queue, but the session data of each user is processed in a FIFO
-   *             fashion.</p>
-   *          <ul>
-   *             <li>
-   *                <p>You must associate a non-empty <code>MessageGroupId</code> with a message. If you don't provide a <code>MessageGroupId</code>, the action fails.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ReceiveMessage</code> might return messages with multiple <code>MessageGroupId</code> values. For each <code>MessageGroupId</code>, the messages are sorted by time sent. The caller can't
-   *               specify a <code>MessageGroupId</code>.</p>
-   *             </li>
-   *          </ul>
-   *          <p>The length of <code>MessageGroupId</code> is 128 characters. Valid values: alphanumeric characters and punctuation <code>(!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~)</code>.</p>
-   *          <p>For best practices of using <code>MessageGroupId</code>, see
-   *           <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/using-messagegroupid-property.html">Using the MessageGroupId Property</a>
-   *           in the <i>Amazon Simple Queue Service Developer Guide</i>.</p>
+   * <p>The message system attribute to send. Each message system attribute consists of a <code>Name</code>, <code>Type</code>, and <code>Value</code>.</p>
    *          <important>
-   *             <p>
-   *                <code>MessageGroupId</code> is required for FIFO queues. You can't use it for Standard queues.</p>
+   *             <ul>
+   *                <li>
+   *                   <p>Currently, the only supported message system attribute is <code>AWSTraceHeader</code>.
+   *                     Its type must be <code>String</code> and its value must be a correctly formatted
+   *                     AWS X-Ray trace header string.</p>
+   *               </li>
+   *                <li>
+   *                   <p>The size of a message system attribute doesn't count towards the total size of a message.</p>
+   *               </li>
+   *             </ul>
    *          </important>
    */
-  MessageGroupId?: string;
+  MessageSystemAttributes?: { [key: string]: MessageSystemAttributeValue };
+
+  /**
+   * <p>The URL of the Amazon SQS queue to which a message is sent.</p>
+   *          <p>Queue URLs and names are case-sensitive.</p>
+   */
+  QueueUrl: string | undefined;
+
+  /**
+   * <p>
+   *           The length of time, in seconds, for which to delay a specific message. Valid values: 0 to 900. Maximum: 15 minutes. Messages with a positive <code>DelaySeconds</code> value become available for processing after the delay period is finished.
+   *           If you don't specify a value, the default value for the queue applies.
+   *     </p>
+   *          <note>
+   *             <p>When you set <code>FifoQueue</code>, you can't set <code>DelaySeconds</code> per message. You can set this parameter only on a queue level.</p>
+   *          </note>
+   */
+  DelaySeconds?: number;
+
+  /**
+   * <p>The message to send. The minimum size is one character. The maximum size is 256 KB.</p>
+   *          <important>
+   *            <p>A message can include only XML, JSON, and unformatted text. The following Unicode characters are allowed:</p>
+   *            <p>
+   *                <code>#x9</code> | <code>#xA</code> | <code>#xD</code> | <code>#x20</code> to <code>#xD7FF</code> | <code>#xE000</code> to <code>#xFFFD</code> | <code>#x10000</code> to <code>#x10FFFF</code>
+   *             </p>
+   * 	           <p>Any characters not included in this list will be rejected. For more information, see the <a href="http://www.w3.org/TR/REC-xml/#charsets">W3C specification for characters</a>.</p>
+   *          </important>
+   */
+  MessageBody: string | undefined;
+
+  /**
+   * <p>Each message attribute consists of a <code>Name</code>, <code>Type</code>, and <code>Value</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-message-metadata.html#sqs-message-attributes">Amazon SQS Message Attributes</a> in the <i>Amazon Simple Queue Service Developer Guide</i>.</p>
+   */
+  MessageAttributes?: { [key: string]: MessageAttributeValue };
 
   /**
    * <p>This parameter applies only to FIFO (first-in-first-out) queues.</p>
@@ -1599,50 +1619,34 @@ export interface SendMessageRequest {
   MessageDeduplicationId?: string;
 
   /**
-   * <p>
-   *           The length of time, in seconds, for which to delay a specific message. Valid values: 0 to 900. Maximum: 15 minutes. Messages with a positive <code>DelaySeconds</code> value become available for processing after the delay period is finished.
-   *           If you don't specify a value, the default value for the queue applies.
-   *     </p>
-   *          <note>
-   *             <p>When you set <code>FifoQueue</code>, you can't set <code>DelaySeconds</code> per message. You can set this parameter only on a queue level.</p>
-   *          </note>
-   */
-  DelaySeconds?: number;
-
-  /**
-   * <p>The URL of the Amazon SQS queue to which a message is sent.</p>
-   *          <p>Queue URLs and names are case-sensitive.</p>
-   */
-  QueueUrl: string | undefined;
-
-  /**
-   * <p>The message system attribute to send. Each message system attribute consists of a <code>Name</code>, <code>Type</code>, and <code>Value</code>.</p>
+   * <p>This parameter applies only to FIFO (first-in-first-out) queues.</p>
+   *          <p>The tag that specifies that a message belongs to a specific message group. Messages
+   *             that belong to the same message group are processed in a FIFO manner (however,
+   *             messages in different message groups might be processed out of order). To interleave
+   *             multiple ordered streams within a single queue, use <code>MessageGroupId</code> values
+   *             (for example, session data for multiple users). In this scenario, multiple consumers can
+   *             process the queue, but the session data of each user is processed in a FIFO
+   *             fashion.</p>
+   *          <ul>
+   *             <li>
+   *                <p>You must associate a non-empty <code>MessageGroupId</code> with a message. If you don't provide a <code>MessageGroupId</code>, the action fails.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ReceiveMessage</code> might return messages with multiple <code>MessageGroupId</code> values. For each <code>MessageGroupId</code>, the messages are sorted by time sent. The caller can't
+   *               specify a <code>MessageGroupId</code>.</p>
+   *             </li>
+   *          </ul>
+   *          <p>The length of <code>MessageGroupId</code> is 128 characters. Valid values: alphanumeric characters and punctuation <code>(!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~)</code>.</p>
+   *          <p>For best practices of using <code>MessageGroupId</code>, see
+   *           <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/using-messagegroupid-property.html">Using the MessageGroupId Property</a>
+   *           in the <i>Amazon Simple Queue Service Developer Guide</i>.</p>
    *          <important>
-   *             <ul>
-   *                <li>
-   *                   <p>Currently, the only supported message system attribute is <code>AWSTraceHeader</code>.
-   *                     Its type must be <code>String</code> and its value must be a correctly formatted
-   *                     AWS X-Ray trace header string.</p>
-   *               </li>
-   *                <li>
-   *                   <p>The size of a message system attribute doesn't count towards the total size of a message.</p>
-   *               </li>
-   *             </ul>
+   *             <p>
+   *                <code>MessageGroupId</code> is required for FIFO queues. You can't use it for Standard queues.</p>
    *          </important>
    */
-  MessageSystemAttributes?: { [key: string]: MessageSystemAttributeValue };
-
-  /**
-   * <p>The message to send. The maximum string size is 256 KB.</p>
-   *          <important>
-   *            <p>A message can include only XML, JSON, and unformatted text. The following Unicode characters are allowed:</p>
-   *            <p>
-   *                <code>#x9</code> | <code>#xA</code> | <code>#xD</code> | <code>#x20</code> to <code>#xD7FF</code> | <code>#xE000</code> to <code>#xFFFD</code> | <code>#x10000</code> to <code>#x10FFFF</code>
-   *             </p>
-   * 	           <p>Any characters not included in this list will be rejected. For more information, see the <a href="http://www.w3.org/TR/REC-xml/#charsets">W3C specification for characters</a>.</p>
-   *          </important>
-   */
-  MessageBody: string | undefined;
+  MessageGroupId?: string;
 }
 
 export namespace SendMessageRequest {
@@ -1656,23 +1660,6 @@ export namespace SendMessageRequest {
  */
 export interface SendMessageResult {
   /**
-   * <p>An MD5 digest of the non-URL-encoded message system attribute string. You can use this attribute to verify that Amazon SQS received the message correctly. Amazon SQS URL-decodes the message before creating the MD5 digest.</p>
-   */
-  MD5OfMessageSystemAttributes?: string;
-
-  /**
-   * <p>This parameter applies only to FIFO (first-in-first-out) queues.</p>
-   *          <p>The large, non-consecutive number that Amazon SQS assigns to each message.</p>
-   *          <p>The length of <code>SequenceNumber</code> is 128 bits. <code>SequenceNumber</code> continues to increase for a particular <code>MessageGroupId</code>.</p>
-   */
-  SequenceNumber?: string;
-
-  /**
-   * <p>An MD5 digest of the non-URL-encoded message attribute string. You can use this attribute to verify that Amazon SQS received the message correctly. Amazon SQS URL-decodes the message before creating the MD5 digest. For information about MD5, see <a href="https://www.ietf.org/rfc/rfc1321.txt">RFC1321</a>.</p>
-   */
-  MD5OfMessageAttributes?: string;
-
-  /**
    * <p>An MD5 digest of the non-URL-encoded message attribute string. You can use this attribute to verify that Amazon SQS received the message correctly. Amazon SQS URL-decodes the message before creating the MD5 digest. For information about MD5, see <a href="https://www.ietf.org/rfc/rfc1321.txt">RFC1321</a>.</p>
    */
   MD5OfMessageBody?: string;
@@ -1683,6 +1670,23 @@ export interface SendMessageResult {
    *     </p>
    */
   MessageId?: string;
+
+  /**
+   * <p>An MD5 digest of the non-URL-encoded message attribute string. You can use this attribute to verify that Amazon SQS received the message correctly. Amazon SQS URL-decodes the message before creating the MD5 digest. For information about MD5, see <a href="https://www.ietf.org/rfc/rfc1321.txt">RFC1321</a>.</p>
+   */
+  MD5OfMessageAttributes?: string;
+
+  /**
+   * <p>An MD5 digest of the non-URL-encoded message system attribute string. You can use this attribute to verify that Amazon SQS received the message correctly. Amazon SQS URL-decodes the message before creating the MD5 digest.</p>
+   */
+  MD5OfMessageSystemAttributes?: string;
+
+  /**
+   * <p>This parameter applies only to FIFO (first-in-first-out) queues.</p>
+   *          <p>The large, non-consecutive number that Amazon SQS assigns to each message.</p>
+   *          <p>The length of <code>SequenceNumber</code> is 128 bits. <code>SequenceNumber</code> continues to increase for a particular <code>MessageGroupId</code>.</p>
+   */
+  SequenceNumber?: string;
 }
 
 export namespace SendMessageResult {
@@ -1724,9 +1728,13 @@ export namespace BatchRequestTooLong {
  */
 export interface SendMessageBatchRequestEntry {
   /**
-   * <p>The body of the message.</p>
+   * <p>An identifier for a message in this batch used to communicate the result.</p>
+   *          <note>
+   *             <p>The <code>Id</code>s of a batch request need to be unique within a request.</p>
+   *             <p>This identifier can have up to 80 characters. The following characters are accepted: alphanumeric characters, hyphens(-), and underscores (_).</p>
+   *          </note>
    */
-  MessageBody: string | undefined;
+  Id: string | undefined;
 
   /**
    * <p>This parameter applies only to FIFO (first-in-first-out) queues.</p>
@@ -1781,18 +1789,14 @@ export interface SendMessageBatchRequestEntry {
   MessageDeduplicationId?: string;
 
   /**
-   * <p>Each message attribute consists of a <code>Name</code>, <code>Type</code>, and <code>Value</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-message-attributes.html">Amazon SQS Message Attributes</a> in the <i>Amazon Simple Queue Service Developer Guide</i>.</p>
-   */
-  MessageAttributes?: { [key: string]: MessageAttributeValue };
-
-  /**
-   * <p>An identifier for a message in this batch used to communicate the result.</p>
+   * <p>The length of time, in seconds, for which a specific message is delayed. Valid values: 0 to 900. Maximum: 15 minutes. Messages with a positive <code>DelaySeconds</code> value become available for processing after the delay period is finished.
+   *           If you don't specify a value, the default value for the queue is applied.
+   *       </p>
    *          <note>
-   *             <p>The <code>Id</code>s of a batch request need to be unique within a request.</p>
-   *             <p>This identifier can have up to 80 characters. The following characters are accepted: alphanumeric characters, hyphens(-), and underscores (_).</p>
+   *             <p>When you set <code>FifoQueue</code>, you can't set <code>DelaySeconds</code> per message. You can set this parameter only on a queue level.</p>
    *          </note>
    */
-  Id: string | undefined;
+  DelaySeconds?: number;
 
   /**
    * <p>This parameter applies only to FIFO (first-in-first-out) queues.</p>
@@ -1842,14 +1846,14 @@ export interface SendMessageBatchRequestEntry {
   MessageSystemAttributes?: { [key: string]: MessageSystemAttributeValue };
 
   /**
-   * <p>The length of time, in seconds, for which a specific message is delayed. Valid values: 0 to 900. Maximum: 15 minutes. Messages with a positive <code>DelaySeconds</code> value become available for processing after the delay period is finished.
-   *           If you don't specify a value, the default value for the queue is applied.
-   *       </p>
-   *          <note>
-   *             <p>When you set <code>FifoQueue</code>, you can't set <code>DelaySeconds</code> per message. You can set this parameter only on a queue level.</p>
-   *          </note>
+   * <p>The body of the message.</p>
    */
-  DelaySeconds?: number;
+  MessageBody: string | undefined;
+
+  /**
+   * <p>Each message attribute consists of a <code>Name</code>, <code>Type</code>, and <code>Value</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-message-metadata.html#sqs-message-attributes">Amazon SQS Message Attributes</a> in the <i>Amazon Simple Queue Service Developer Guide</i>.</p>
+   */
+  MessageAttributes?: { [key: string]: MessageAttributeValue };
 }
 
 export namespace SendMessageBatchRequestEntry {
@@ -1889,9 +1893,14 @@ export namespace SendMessageBatchRequest {
  */
 export interface SendMessageBatchResultEntry {
   /**
-   * <p>An identifier for the message in this batch.</p>
+   * <p>An identifier for the message.</p>
    */
-  Id: string | undefined;
+  MessageId: string | undefined;
+
+  /**
+   * <p>An MD5 digest of the non-URL-encoded message attribute string. You can use this attribute to verify that Amazon SQS received the message correctly. Amazon SQS URL-decodes the message before creating the MD5 digest. For information about MD5, see <a href="https://www.ietf.org/rfc/rfc1321.txt">RFC1321</a>.</p>
+   */
+  MD5OfMessageAttributes?: string;
 
   /**
    * <p>An MD5 digest of the non-URL-encoded message system attribute string. You can use this attribute to verify that Amazon SQS received the message correctly. Amazon SQS URL-decodes the message before creating the MD5 digest. For information about MD5, see <a href="https://www.ietf.org/rfc/rfc1321.txt">RFC1321</a>.</p>
@@ -1901,12 +1910,12 @@ export interface SendMessageBatchResultEntry {
   /**
    * <p>An MD5 digest of the non-URL-encoded message attribute string. You can use this attribute to verify that Amazon SQS received the message correctly. Amazon SQS URL-decodes the message before creating the MD5 digest. For information about MD5, see <a href="https://www.ietf.org/rfc/rfc1321.txt">RFC1321</a>.</p>
    */
-  MD5OfMessageAttributes?: string;
+  MD5OfMessageBody: string | undefined;
 
   /**
-   * <p>An MD5 digest of the non-URL-encoded message attribute string. You can use this attribute to verify that Amazon SQS received the message correctly. Amazon SQS URL-decodes the message before creating the MD5 digest. For information about MD5, see <a href="https://www.ietf.org/rfc/rfc1321.txt">RFC1321</a>.</p>
+   * <p>An identifier for the message in this batch.</p>
    */
-  MD5OfMessageBody: string | undefined;
+  Id: string | undefined;
 
   /**
    * <p>This parameter applies only to FIFO (first-in-first-out) queues.</p>
@@ -1914,11 +1923,6 @@ export interface SendMessageBatchResultEntry {
    *          <p>The length of <code>SequenceNumber</code> is 128 bits. As <code>SequenceNumber</code> continues to increase for a particular <code>MessageGroupId</code>.</p>
    */
   SequenceNumber?: string;
-
-  /**
-   * <p>An identifier for the message.</p>
-   */
-  MessageId: string | undefined;
 }
 
 export namespace SendMessageBatchResultEntry {
@@ -2116,14 +2120,14 @@ export namespace TagQueueRequest {
 
 export interface UntagQueueRequest {
   /**
-   * <p>The URL of the queue.</p>
-   */
-  QueueUrl: string | undefined;
-
-  /**
    * <p>The list of tags to be removed from the specified queue.</p>
    */
   TagKeys: string[] | undefined;
+
+  /**
+   * <p>The URL of the queue.</p>
+   */
+  QueueUrl: string | undefined;
 }
 
 export namespace UntagQueueRequest {

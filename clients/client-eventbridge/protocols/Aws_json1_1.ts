@@ -72,6 +72,7 @@ import {
   CreatePartnerEventSourceRequest,
   CreatePartnerEventSourceResponse,
   DeactivateEventSourceRequest,
+  DeadLetterConfig,
   DeleteEventBusRequest,
   DeletePartnerEventSourceRequest,
   DeleteRuleRequest,
@@ -131,12 +132,14 @@ import {
   PutTargetsRequest,
   PutTargetsResponse,
   PutTargetsResultEntry,
+  RedshiftDataParameters,
   RemovePermissionRequest,
   RemoveTargetsRequest,
   RemoveTargetsResponse,
   RemoveTargetsResultEntry,
   ResourceAlreadyExistsException,
   ResourceNotFoundException,
+  RetryPolicy,
   Rule,
   RunCommandParameters,
   RunCommandTarget,
@@ -3022,6 +3025,12 @@ const serializeAws_json1_1DeactivateEventSourceRequest = (
   };
 };
 
+const serializeAws_json1_1DeadLetterConfig = (input: DeadLetterConfig, context: __SerdeContext): any => {
+  return {
+    ...(input.Arn !== undefined && { Arn: input.Arn }),
+  };
+};
+
 const serializeAws_json1_1DeleteEventBusRequest = (input: DeleteEventBusRequest, context: __SerdeContext): any => {
   return {
     ...(input.Name !== undefined && { Name: input.Name }),
@@ -3341,6 +3350,17 @@ const serializeAws_json1_1QueryStringParametersMap = (
   );
 };
 
+const serializeAws_json1_1RedshiftDataParameters = (input: RedshiftDataParameters, context: __SerdeContext): any => {
+  return {
+    ...(input.Database !== undefined && { Database: input.Database }),
+    ...(input.DbUser !== undefined && { DbUser: input.DbUser }),
+    ...(input.SecretManagerArn !== undefined && { SecretManagerArn: input.SecretManagerArn }),
+    ...(input.Sql !== undefined && { Sql: input.Sql }),
+    ...(input.StatementName !== undefined && { StatementName: input.StatementName }),
+    ...(input.WithEvent !== undefined && { WithEvent: input.WithEvent }),
+  };
+};
+
 const serializeAws_json1_1RemovePermissionRequest = (input: RemovePermissionRequest, context: __SerdeContext): any => {
   return {
     ...(input.EventBusName !== undefined && { EventBusName: input.EventBusName }),
@@ -3354,6 +3374,13 @@ const serializeAws_json1_1RemoveTargetsRequest = (input: RemoveTargetsRequest, c
     ...(input.Force !== undefined && { Force: input.Force }),
     ...(input.Ids !== undefined && { Ids: serializeAws_json1_1TargetIdList(input.Ids, context) }),
     ...(input.Rule !== undefined && { Rule: input.Rule }),
+  };
+};
+
+const serializeAws_json1_1RetryPolicy = (input: RetryPolicy, context: __SerdeContext): any => {
+  return {
+    ...(input.MaximumEventAgeInSeconds !== undefined && { MaximumEventAgeInSeconds: input.MaximumEventAgeInSeconds }),
+    ...(input.MaximumRetryAttempts !== undefined && { MaximumRetryAttempts: input.MaximumRetryAttempts }),
   };
 };
 
@@ -3418,6 +3445,9 @@ const serializeAws_json1_1Target = (input: Target, context: __SerdeContext): any
     ...(input.BatchParameters !== undefined && {
       BatchParameters: serializeAws_json1_1BatchParameters(input.BatchParameters, context),
     }),
+    ...(input.DeadLetterConfig !== undefined && {
+      DeadLetterConfig: serializeAws_json1_1DeadLetterConfig(input.DeadLetterConfig, context),
+    }),
     ...(input.EcsParameters !== undefined && {
       EcsParameters: serializeAws_json1_1EcsParameters(input.EcsParameters, context),
     }),
@@ -3432,6 +3462,12 @@ const serializeAws_json1_1Target = (input: Target, context: __SerdeContext): any
     }),
     ...(input.KinesisParameters !== undefined && {
       KinesisParameters: serializeAws_json1_1KinesisParameters(input.KinesisParameters, context),
+    }),
+    ...(input.RedshiftDataParameters !== undefined && {
+      RedshiftDataParameters: serializeAws_json1_1RedshiftDataParameters(input.RedshiftDataParameters, context),
+    }),
+    ...(input.RetryPolicy !== undefined && {
+      RetryPolicy: serializeAws_json1_1RetryPolicy(input.RetryPolicy, context),
     }),
     ...(input.RoleArn !== undefined && { RoleArn: input.RoleArn }),
     ...(input.RunCommandParameters !== undefined && {
@@ -3540,6 +3576,12 @@ const deserializeAws_json1_1CreatePartnerEventSourceResponse = (
   return {
     EventSourceArn:
       output.EventSourceArn !== undefined && output.EventSourceArn !== null ? output.EventSourceArn : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1DeadLetterConfig = (output: any, context: __SerdeContext): DeadLetterConfig => {
+  return {
+    Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
   } as any;
 };
 
@@ -3997,6 +4039,19 @@ const deserializeAws_json1_1QueryStringParametersMap = (
   );
 };
 
+const deserializeAws_json1_1RedshiftDataParameters = (output: any, context: __SerdeContext): RedshiftDataParameters => {
+  return {
+    Database: output.Database !== undefined && output.Database !== null ? output.Database : undefined,
+    DbUser: output.DbUser !== undefined && output.DbUser !== null ? output.DbUser : undefined,
+    SecretManagerArn:
+      output.SecretManagerArn !== undefined && output.SecretManagerArn !== null ? output.SecretManagerArn : undefined,
+    Sql: output.Sql !== undefined && output.Sql !== null ? output.Sql : undefined,
+    StatementName:
+      output.StatementName !== undefined && output.StatementName !== null ? output.StatementName : undefined,
+    WithEvent: output.WithEvent !== undefined && output.WithEvent !== null ? output.WithEvent : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1RemoveTargetsResponse = (output: any, context: __SerdeContext): RemoveTargetsResponse => {
   return {
     FailedEntries:
@@ -4041,6 +4096,19 @@ const deserializeAws_json1_1ResourceNotFoundException = (
 ): ResourceNotFoundException => {
   return {
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1RetryPolicy = (output: any, context: __SerdeContext): RetryPolicy => {
+  return {
+    MaximumEventAgeInSeconds:
+      output.MaximumEventAgeInSeconds !== undefined && output.MaximumEventAgeInSeconds !== null
+        ? output.MaximumEventAgeInSeconds
+        : undefined,
+    MaximumRetryAttempts:
+      output.MaximumRetryAttempts !== undefined && output.MaximumRetryAttempts !== null
+        ? output.MaximumRetryAttempts
+        : undefined,
   } as any;
 };
 
@@ -4129,6 +4197,10 @@ const deserializeAws_json1_1Target = (output: any, context: __SerdeContext): Tar
       output.BatchParameters !== undefined && output.BatchParameters !== null
         ? deserializeAws_json1_1BatchParameters(output.BatchParameters, context)
         : undefined,
+    DeadLetterConfig:
+      output.DeadLetterConfig !== undefined && output.DeadLetterConfig !== null
+        ? deserializeAws_json1_1DeadLetterConfig(output.DeadLetterConfig, context)
+        : undefined,
     EcsParameters:
       output.EcsParameters !== undefined && output.EcsParameters !== null
         ? deserializeAws_json1_1EcsParameters(output.EcsParameters, context)
@@ -4147,6 +4219,14 @@ const deserializeAws_json1_1Target = (output: any, context: __SerdeContext): Tar
     KinesisParameters:
       output.KinesisParameters !== undefined && output.KinesisParameters !== null
         ? deserializeAws_json1_1KinesisParameters(output.KinesisParameters, context)
+        : undefined,
+    RedshiftDataParameters:
+      output.RedshiftDataParameters !== undefined && output.RedshiftDataParameters !== null
+        ? deserializeAws_json1_1RedshiftDataParameters(output.RedshiftDataParameters, context)
+        : undefined,
+    RetryPolicy:
+      output.RetryPolicy !== undefined && output.RetryPolicy !== null
+        ? deserializeAws_json1_1RetryPolicy(output.RetryPolicy, context)
         : undefined,
     RoleArn: output.RoleArn !== undefined && output.RoleArn !== null ? output.RoleArn : undefined,
     RunCommandParameters:

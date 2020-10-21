@@ -781,11 +781,12 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   * <p>Creates an AutoPilot job.</p>
-   *          <p>After you run an AutoPilot job, you can find the best performing model by calling , and then deploy that model by following the steps
-   *          described in <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/ex1-deploy-model.html">Step 6.1: Deploy the Model to Amazon SageMaker Hosting Services</a>.</p>
-   *          <p>For information about how to use AutoPilot, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-automate-model-development.html">Use AutoPilot to Automate
-   *          Model Development</a>.</p>
+   * <p>Creates an Autopilot job.</p>
+   *          <p>Find the best performing model after you run an Autopilot job by calling . Deploy that model by following the steps described in
+   *             <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/ex1-deploy-model.html">Step 6.1:
+   *             Deploy the Model to Amazon SageMaker Hosting Services</a>.</p>
+   *          <p>For information about how to use Autopilot, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-automate-model-development.html"> Automate Model
+   *             Development with Amazon SageMaker Autopilot</a>.</p>
    */
   public createAutoMLJob(
     args: CreateAutoMLJobCommandInput,
@@ -918,20 +919,78 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   * <p>Creates a <code>Domain</code> used by SageMaker Studio. A domain consists of an associated
-   *      directory, a list of authorized users, and a variety of security, application, policy, and
-   *      Amazon Virtual Private Cloud (VPC) configurations. An AWS account is limited to one domain per region. Users
-   *      within a domain can share notebook files and other artifacts with each other.</p>
-   *          <p>When a domain is created, an Amazon Elastic File System (EFS) volume is also created for use by all of the users
-   *      within the domain. Each user receives a private home directory within the EFS for notebooks,
-   *      Git repositories, and data files.</p>
-   *          <p>All traffic between the domain and the EFS volume is communicated through the specified
-   *      subnet IDs. All other traffic goes over the Internet through an Amazon SageMaker system VPC. The EFS
-   *      traffic uses the NFS/TCP protocol over port 2049.</p>
-   *          <important>
-   *             <p>NFS traffic over TCP on port 2049 needs to be allowed in both inbound and outbound rules
-   *       in order to launch a SageMaker Studio app successfully.</p>
-   *          </important>
+   * <p>Creates a <code>Domain</code> used by Amazon SageMaker Studio. A domain consists of an associated
+   *     Amazon Elastic File System (EFS) volume, a list of authorized users, and a variety of security, application,
+   *     policy, and Amazon Virtual Private Cloud (VPC) configurations. An AWS account is limited to one domain per region.
+   *     Users within a domain can share notebook files and other artifacts with each other.</p>
+   *          <p>When a domain is created, an EFS volume is created for use by all of the users within the
+   *     domain. Each user receives a private home directory within the EFS volume for notebooks,
+   *     Git repositories, and data files.</p>
+   *
+   *          <p>
+   *             <b>VPC configuration</b>
+   *          </p>
+   *          <p>All SageMaker Studio traffic between the domain and the EFS volume is through the specified
+   *     VPC and subnets. For other Studio traffic, you can specify the <code>AppNetworkAccessType</code>
+   *     parameter. <code>AppNetworkAccessType</code> corresponds to the network access type that you
+   *     choose when you onboard to Studio. The following options are available:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>PublicInternetOnly</code> - Non-EFS traffic goes through a VPC managed by
+   *         Amazon SageMaker, which allows internet access. This is the default value.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>VpcOnly</code> - All Studio traffic is through the specified VPC and subnets.
+   *         Internet access is disabled by default. To allow internet access, you must specify a
+   *         NAT gateway.</p>
+   *                <p>When internet access is disabled, you won't be able to train or host models unless
+   *         your VPC has an interface endpoint (PrivateLink) or a NAT gateway and your security groups
+   *         allow outbound connections.</p>
+   *             </li>
+   *          </ul>
+   *
+   *          <p>
+   *             <b>
+   *                <code>VpcOnly</code> network access type</b>
+   *          </p>
+   *          <p>When you choose <code>VpcOnly</code>, you must specify the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Security group inbound and outbound rules to allow NFS traffic over TCP on port 2049
+   *         between the domain and the EFS volume</p>
+   *
+   *             </li>
+   *             <li>
+   *                <p>Security group inbound and outbound rules to allow traffic between the JupyterServer
+   *         app and the KernelGateway apps</p>
+   *             </li>
+   *             <li>
+   *                <p>Interface endpoints to access the SageMaker API and SageMaker runtime</p>
+   *             </li>
+   *          </ul>
+   *          <p>For more information, see:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html">Security
+   *           groups for your VPC</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Scenario2.html">VPC with public
+   *           and private subnets (NAT)</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/interface-vpc-endpoint.html">Connect
+   *           to SageMaker through a VPC interface endpoint</a>
+   *                </p>
+   *             </li>
+   *          </ul>
    */
   public createDomain(
     args: CreateDomainCommandInput,
@@ -1550,6 +1609,11 @@ export class SageMaker extends SageMakerClient {
    *        the Apps and files associated with the Domain's Amazon Elastic File System (EFS) volume.
    *        This operation can only be called when the authentication mode equals IAM.
    *    </p>
+   *          <note>
+   *             <p>The URL that you get from a call to <code>CreatePresignedDomainUrl</code> is valid
+   *             only for 5 minutes. If you try to use the URL after the 5-minute limit expires, you
+   *             are directed to the AWS console sign-in page.</p>
+   *          </note>
    */
   public createPresignedDomainUrl(
     args: CreatePresignedDomainUrlCommandInput,
@@ -1948,11 +2012,11 @@ export class SageMaker extends SageMakerClient {
   /**
    * <p>Use this operation to create a workforce. This operation will return an error
    *       if a workforce already exists in the AWS Region that you specify. You can only
-   *       create one workforce in each AWS Region.</p>
+   *       create one workforce in each AWS Region per AWS account.</p>
    *
-   *          <p>If you want to create a new workforce in an AWS Region where the
+   *          <p>If you want to create a new workforce in an AWS Region where
    *       a workforce already exists, use the  API
-   *       operation to delete the existing workforce and then use this operation
+   *       operation to delete the existing workforce and then use <code>CreateWorkforce</code>
    *       to create a new workforce.</p>
    *
    *          <p>To create a private workforce using Amazon Cognito, you must specify a Cognito user pool
@@ -1963,9 +2027,9 @@ export class SageMaker extends SageMakerClient {
    *       Create a Private Workforce (Amazon Cognito)</a>.</p>
    *
    *          <p>To create a private workforce using your own OIDC Identity Provider (IdP), specify your IdP
-   *       configuration in <code>OidcConfig</code>. You must create a OIDC IdP workforce using
-   *       this API operation. For more information, see
-   *       <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-workforce-create-private-oidc.html">
+   *       configuration in <code>OidcConfig</code>. Your OIDC IdP must support <i>groups</i>
+   *       because groups are used by Ground Truth and Amazon A2I to create work teams.
+   *       For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-workforce-create-private-oidc.html">
    *       Create a Private Workforce (OIDC IdP)</a>.</p>
    */
   public createWorkforce(
@@ -2630,10 +2694,17 @@ export class SageMaker extends SageMakerClient {
   /**
    * <p>Use this operation to delete a workforce.</p>
    *
-   *          <p>If you want to create a new workforce in an AWS Region where the
+   *          <p>If you want to create a new workforce in an AWS Region where
    *       a workforce already exists, use this operation to delete the
    *       existing workforce and then use
    *       to create a new workforce.</p>
+   *          <important>
+   *             <p>If a private workforce contains one or more work teams, you must use
+   *             the
+   *             operation to delete all work teams before you delete the workforce.
+   *             If you try to delete a workforce that contains one or more work teams,
+   *             you will recieve a <code>ResourceInUse</code> error.</p>
+   *         </important>
    */
   public deleteWorkforce(
     args: DeleteWorkforceCommandInput,
@@ -4645,7 +4716,7 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   * <p>Gets a list of work teams that you have defined in a region. The list may be empty if
+   * <p>Gets a list of private work teams that you have defined in a region. The list may be empty if
    *             no work team satisfies the filter specified in the <code>NameContains</code>
    *             parameter.</p>
    */
@@ -5498,17 +5569,27 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   * <p>Restricts access to tasks assigned to workers in the specified workforce to those
-   *             within specific ranges of IP addresses. You specify allowed IP addresses by creating a
-   *             list of up to ten <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html">CIDRs</a>.</p>
-   *         <p>By default, a workforce isn't restricted to specific IP addresses. If you specify a
+   * <p>Use this operation to update your workforce. You can use this operation to
+   *         require that workers use specific IP addresses to work on tasks
+   *         and to update your OpenID Connect (OIDC) Identity Provider (IdP) workforce configuration.</p>
+   *
+   *         <p> Use <code>SourceIpConfig</code> to restrict worker access to tasks to a specific range of IP addresses.
+   *         You specify allowed IP addresses by creating a list of up to ten <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html">CIDRs</a>.
+   *         By default, a workforce isn't restricted to specific IP addresses. If you specify a
    *             range of IP addresses, workers who attempt to access tasks using any IP address outside
-   *             the specified range are denied access and get a <code>Not Found</code> error message on
-   *             the worker portal. After restricting access with this operation, you can see the allowed
-   *             IP values for a private workforce with the
+   *             the specified range are denied and get a <code>Not Found</code> error message on
+   *             the worker portal.</p>
+   *         <p>Use <code>OidcConfig</code> to update the configuration of a workforce created using
+   *             your own OIDC IdP. </p>
+   *         <important>
+   *             <p>You can only update your OIDC IdP configuration when there are no work teams
+   *                 associated with your workforce. You can delete work teams using the  operation.</p>
+   *         </important>
+   *         <p>After restricting access to a range of IP addresses or updating your OIDC IdP configuration with this operation, you
+   *         can view details about your update workforce using the
    *             operation.</p>
    *         <important>
-   *             <p>This operation applies only to private workforces.</p>
+   *             <p>This operation only applies to private workforces.</p>
    *         </important>
    */
   public updateWorkforce(

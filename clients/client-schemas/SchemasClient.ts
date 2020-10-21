@@ -19,6 +19,7 @@ import {
 import { DescribeDiscovererCommandInput, DescribeDiscovererCommandOutput } from "./commands/DescribeDiscovererCommand";
 import { DescribeRegistryCommandInput, DescribeRegistryCommandOutput } from "./commands/DescribeRegistryCommand";
 import { DescribeSchemaCommandInput, DescribeSchemaCommandOutput } from "./commands/DescribeSchemaCommand";
+import { ExportSchemaCommandInput, ExportSchemaCommandOutput } from "./commands/ExportSchemaCommand";
 import {
   GetCodeBindingSourceCommandInput,
   GetCodeBindingSourceCommandOutput,
@@ -108,6 +109,7 @@ export type ServiceInputTypes =
   | DescribeDiscovererCommandInput
   | DescribeRegistryCommandInput
   | DescribeSchemaCommandInput
+  | ExportSchemaCommandInput
   | GetCodeBindingSourceCommandInput
   | GetDiscoveredSchemaCommandInput
   | GetResourcePolicyCommandInput
@@ -140,6 +142,7 @@ export type ServiceOutputTypes =
   | DescribeDiscovererCommandOutput
   | DescribeRegistryCommandOutput
   | DescribeSchemaCommandOutput
+  | ExportSchemaCommandOutput
   | GetCodeBindingSourceCommandOutput
   | GetDiscoveredSchemaCommandOutput
   | GetResourcePolicyCommandOutput

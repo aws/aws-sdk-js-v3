@@ -241,10 +241,10 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  */
 export class Backup extends BackupClient {
   /**
-   * <p>Backup plans are documents that contain information that AWS Backup uses to schedule
-   *          tasks that create recovery points of resources.</p>
-   *          <p>If you call <code>CreateBackupPlan</code> with a plan that already exists, an
-   *             <code>AlreadyExistsException</code> is returned.</p>
+   * <p>Creates a backup plan using a backup plan name and backup rules. A backup plan is a
+   *          document that contains information that AWS Backup uses to schedule tasks that create
+   *          recovery points for resources.</p>
+   *          <p>If you call <code>CreateBackupPlan</code> with a plan that already exists, an <code>AlreadyExistsException</code> is returned.</p>
    */
   public createBackupPlan(
     args: CreateBackupPlanCommandInput,
@@ -294,7 +294,7 @@ export class Backup extends BackupClient {
    *                   <code>ConditionValue:"finance"</code>
    *                </p>
    *                <p>
-   *                   <code>ConditionType:"STRINGEQUALS"</code>
+   *                   <code>ConditionType:"StringEquals"</code>
    *                </p>
    *             </li>
    *             <li>
@@ -305,17 +305,17 @@ export class Backup extends BackupClient {
    *                   <code>ConditionValue:"critical"</code>
    *                </p>
    *                <p>
-   *                   <code>ConditionType:"STRINGEQUALS"</code>
+   *                   <code>ConditionType:"StringEquals"</code>
    *                </p>
    *             </li>
    *          </ul>
    *          <p>Using these patterns would back up all Amazon Elastic Block Store (Amazon EBS) volumes
    *          that are tagged as <code>"department=finance"</code>, <code>"importance=critical"</code>,
-   *          in addition to an EBS volume with the specified volume Id.</p>
+   *          in addition to an EBS volume with the specified volume ID.</p>
    *          <p>Resources and conditions are additive in that all resources that match the pattern are
    *          selected. This shouldn't be confused with a logical AND, where all conditions must match.
-   *          The matching patterns are logically 'put together using the OR
-   *          operator. In other words, all patterns that match are selected for backup.</p>
+   *          The matching patterns are logically put together using the OR operator.
+   *          In other words, all patterns that match are selected for backup.</p>
    */
   public createBackupSelection(
     args: CreateBackupSelectionCommandInput,
@@ -581,7 +581,7 @@ export class Backup extends BackupClient {
   }
 
   /**
-   * <p>Returns metadata associated with creating a backup of a resource.</p>
+   * <p>Returns backup job details for the specified <code>BackupJobId</code>.</p>
    */
   public describeBackupJob(
     args: DescribeBackupJobCommandInput,
@@ -744,9 +744,9 @@ export class Backup extends BackupClient {
 
   /**
    * <p>Returns the current service opt-in settings for the Region. If the service has a value
-   *          set to <code>true</code>, AWS Backup attempts to protect that service's resources in this
+   *          set to <code>true</code>, AWS Backup tries to protect that service's resources in this
    *          Region, when included in an on-demand backup or scheduled backup plan. If the value is set
-   *          to <code>false</code> for a service, AWS Backup does not attempt to protect that service's
+   *          to <code>false</code> for a service, AWS Backup does not try to protect that service's
    *          resources in this Region.</p>
    */
   public describeRegionSettings(
@@ -843,7 +843,9 @@ export class Backup extends BackupClient {
   }
 
   /**
-   * <p>Returns the body of a backup plan in JSON format, in addition to plan metadata.</p>
+   * <p>Returns <code>BackupPlan</code> details for the specified <code>BackupPlanId</code>.
+   *          Returns the body of a
+   *          backup plan in JSON format, in addition to plan metadata.</p>
    */
   public getBackupPlan(
     args: GetBackupPlanCommandInput,
@@ -1101,7 +1103,7 @@ export class Backup extends BackupClient {
   }
 
   /**
-   * <p>Returns metadata about your backup jobs.</p>
+   * <p>Returns a list of existing backup jobs for an authenticated account.</p>
    */
   public listBackupJobs(
     args: ListBackupJobsCommandInput,
@@ -1133,9 +1135,10 @@ export class Backup extends BackupClient {
   }
 
   /**
-   * <p>Returns metadata of your saved backup plans, including Amazon Resource Names (ARNs),
-   *          plan IDs, creation and deletion dates, version IDs, plan names, and creator request
-   *          IDs.</p>
+   * <p>Returns a list of existing backup plans for an authenticated account. The list is
+   *          populated only if the advanced option is set for the backup plan. The list contains
+   *          information such as Amazon Resource Names (ARNs), plan IDs, creation and deletion dates,
+   *          version IDs, plan names, and creator request IDs.</p>
    */
   public listBackupPlans(
     args: ListBackupPlansCommandInput,
@@ -1557,7 +1560,7 @@ export class Backup extends BackupClient {
   }
 
   /**
-   * <p>Starts a job to create a one-time backup of the specified resource.</p>
+   * <p>Starts an on-demand backup job for the specified resource.</p>
    */
   public startBackupJob(
     args: StartBackupJobCommandInput,
@@ -1745,7 +1748,7 @@ export class Backup extends BackupClient {
   }
 
   /**
-   * <p>Replaces the body of a saved backup plan identified by its <code>backupPlanId</code>
+   * <p>Updates an existing backup plan identified by its <code>backupPlanId</code>
    *          with the input document in JSON format. The new version is uniquely identified by a
    *             <code>VersionId</code>.</p>
    */
@@ -1819,9 +1822,9 @@ export class Backup extends BackupClient {
 
   /**
    * <p>Updates the current service opt-in settings for the Region. If the service has a value
-   *          set to <code>true</code>, AWS Backup attempts to protect that service's resources in this
+   *          set to <code>true</code>, AWS Backup tries to protect that service's resources in this
    *          Region, when included in an on-demand backup or scheduled backup plan. If the value is set
-   *          to <code>false</code> for a service, AWS Backup does not attempt to protect that service's
+   *          to <code>false</code> for a service, AWS Backup does not try to protect that service's
    *          resources in this Region.</p>
    */
   public updateRegionSettings(

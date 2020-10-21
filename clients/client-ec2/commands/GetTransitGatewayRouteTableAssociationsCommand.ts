@@ -2,7 +2,7 @@ import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 import {
   GetTransitGatewayRouteTableAssociationsRequest,
   GetTransitGatewayRouteTableAssociationsResult,
-} from "../models/models_3";
+} from "../models/models_4";
 import {
   deserializeAws_ec2GetTransitGatewayRouteTableAssociationsCommand,
   serializeAws_ec2GetTransitGatewayRouteTableAssociationsCommand,

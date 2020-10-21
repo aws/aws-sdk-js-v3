@@ -7,16 +7,24 @@ import {
 import { CreateFlowCommandInput, CreateFlowCommandOutput } from "../commands/CreateFlowCommand";
 import { DeleteFlowCommandInput, DeleteFlowCommandOutput } from "../commands/DeleteFlowCommand";
 import { DescribeFlowCommandInput, DescribeFlowCommandOutput } from "../commands/DescribeFlowCommand";
+import { DescribeOfferingCommandInput, DescribeOfferingCommandOutput } from "../commands/DescribeOfferingCommand";
+import {
+  DescribeReservationCommandInput,
+  DescribeReservationCommandOutput,
+} from "../commands/DescribeReservationCommand";
 import {
   GrantFlowEntitlementsCommandInput,
   GrantFlowEntitlementsCommandOutput,
 } from "../commands/GrantFlowEntitlementsCommand";
 import { ListEntitlementsCommandInput, ListEntitlementsCommandOutput } from "../commands/ListEntitlementsCommand";
 import { ListFlowsCommandInput, ListFlowsCommandOutput } from "../commands/ListFlowsCommand";
+import { ListOfferingsCommandInput, ListOfferingsCommandOutput } from "../commands/ListOfferingsCommand";
+import { ListReservationsCommandInput, ListReservationsCommandOutput } from "../commands/ListReservationsCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
+import { PurchaseOfferingCommandInput, PurchaseOfferingCommandOutput } from "../commands/PurchaseOfferingCommand";
 import { RemoveFlowOutputCommandInput, RemoveFlowOutputCommandOutput } from "../commands/RemoveFlowOutputCommand";
 import { RemoveFlowSourceCommandInput, RemoveFlowSourceCommandOutput } from "../commands/RemoveFlowSourceCommand";
 import {
@@ -55,7 +63,10 @@ import {
   ListedFlow,
   Messages,
   NotFoundException,
+  Offering,
   Output,
+  Reservation,
+  ResourceSpecification,
   ServiceUnavailableException,
   SetSourceRequest,
   Source,
@@ -285,6 +296,66 @@ export const serializeAws_restJson1DescribeFlowCommand = async (
   });
 };
 
+export const serializeAws_restJson1DescribeOfferingCommand = async (
+  input: DescribeOfferingCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "",
+  };
+  let resolvedPath = "/v1/offerings/{OfferingArn}";
+  if (input.OfferingArn !== undefined) {
+    const labelValue: string = input.OfferingArn;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: OfferingArn.");
+    }
+    resolvedPath = resolvedPath.replace("{OfferingArn}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: OfferingArn.");
+  }
+  let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1DescribeReservationCommand = async (
+  input: DescribeReservationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "",
+  };
+  let resolvedPath = "/v1/reservations/{ReservationArn}";
+  if (input.ReservationArn !== undefined) {
+    const labelValue: string = input.ReservationArn;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: ReservationArn.");
+    }
+    resolvedPath = resolvedPath.replace("{ReservationArn}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: ReservationArn.");
+  }
+  let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1GrantFlowEntitlementsCommand = async (
   input: GrantFlowEntitlementsCommandInput,
   context: __SerdeContext
@@ -355,8 +426,60 @@ export const serializeAws_restJson1ListFlowsCommand = async (
   };
   let resolvedPath = "/v1/flows";
   const query: any = {
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
+  };
+  let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1ListOfferingsCommand = async (
+  input: ListOfferingsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "",
+  };
+  let resolvedPath = "/v1/offerings";
+  const query: any = {
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
     ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
+  };
+  let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1ListReservationsCommand = async (
+  input: ListReservationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "",
+  };
+  let resolvedPath = "/v1/reservations";
+  const query: any = {
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -396,6 +519,40 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
     hostname,
     port,
     method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1PurchaseOfferingCommand = async (
+  input: PurchaseOfferingCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+  };
+  let resolvedPath = "/v1/offerings/{OfferingArn}";
+  if (input.OfferingArn !== undefined) {
+    const labelValue: string = input.OfferingArn;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: OfferingArn.");
+    }
+    resolvedPath = resolvedPath.replace("{OfferingArn}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: OfferingArn.");
+  }
+  let body: any;
+  body = JSON.stringify({
+    ...(input.ReservationName !== undefined && { reservationName: input.ReservationName }),
+    ...(input.Start !== undefined && { start: input.Start }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
     headers,
     path: resolvedPath,
     body,
@@ -527,15 +684,6 @@ export const serializeAws_restJson1RevokeFlowEntitlementCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/v1/flows/{FlowArn}/entitlements/{EntitlementArn}";
-  if (input.EntitlementArn !== undefined) {
-    const labelValue: string = input.EntitlementArn;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: EntitlementArn.");
-    }
-    resolvedPath = resolvedPath.replace("{EntitlementArn}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: EntitlementArn.");
-  }
   if (input.FlowArn !== undefined) {
     const labelValue: string = input.FlowArn;
     if (labelValue.length <= 0) {
@@ -544,6 +692,15 @@ export const serializeAws_restJson1RevokeFlowEntitlementCommand = async (
     resolvedPath = resolvedPath.replace("{FlowArn}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: FlowArn.");
+  }
+  if (input.EntitlementArn !== undefined) {
+    const labelValue: string = input.EntitlementArn;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: EntitlementArn.");
+    }
+    resolvedPath = resolvedPath.replace("{EntitlementArn}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: EntitlementArn.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -728,15 +885,6 @@ export const serializeAws_restJson1UpdateFlowEntitlementCommand = async (
     "Content-Type": "application/json",
   };
   let resolvedPath = "/v1/flows/{FlowArn}/entitlements/{EntitlementArn}";
-  if (input.FlowArn !== undefined) {
-    const labelValue: string = input.FlowArn;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: FlowArn.");
-    }
-    resolvedPath = resolvedPath.replace("{FlowArn}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: FlowArn.");
-  }
   if (input.EntitlementArn !== undefined) {
     const labelValue: string = input.EntitlementArn;
     if (labelValue.length <= 0) {
@@ -745,6 +893,15 @@ export const serializeAws_restJson1UpdateFlowEntitlementCommand = async (
     resolvedPath = resolvedPath.replace("{EntitlementArn}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: EntitlementArn.");
+  }
+  if (input.FlowArn !== undefined) {
+    const labelValue: string = input.FlowArn;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: FlowArn.");
+    }
+    resolvedPath = resolvedPath.replace("{FlowArn}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: FlowArn.");
   }
   let body: any;
   body = JSON.stringify({
@@ -1478,6 +1635,180 @@ const deserializeAws_restJson1DescribeFlowCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1DescribeOfferingCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeOfferingCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DescribeOfferingCommandError(output, context);
+  }
+  const contents: DescribeOfferingCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    Offering: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.offering !== undefined && data.offering !== null) {
+    contents.Offering = deserializeAws_restJson1Offering(data.offering, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DescribeOfferingCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeOfferingCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.mediaconnect#BadRequestException":
+      response = {
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerErrorException":
+    case "com.amazonaws.mediaconnect#InternalServerErrorException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.mediaconnect#NotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceUnavailableException":
+    case "com.amazonaws.mediaconnect#ServiceUnavailableException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "TooManyRequestsException":
+    case "com.amazonaws.mediaconnect#TooManyRequestsException":
+      response = {
+        ...(await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1DescribeReservationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeReservationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DescribeReservationCommandError(output, context);
+  }
+  const contents: DescribeReservationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    Reservation: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.reservation !== undefined && data.reservation !== null) {
+    contents.Reservation = deserializeAws_restJson1Reservation(data.reservation, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DescribeReservationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeReservationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.mediaconnect#BadRequestException":
+      response = {
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerErrorException":
+    case "com.amazonaws.mediaconnect#InternalServerErrorException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.mediaconnect#NotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceUnavailableException":
+    case "com.amazonaws.mediaconnect#ServiceUnavailableException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "TooManyRequestsException":
+    case "com.amazonaws.mediaconnect#TooManyRequestsException":
+      response = {
+        ...(await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1GrantFlowEntitlementsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -1751,6 +2082,172 @@ const deserializeAws_restJson1ListFlowsCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1ListOfferingsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListOfferingsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListOfferingsCommandError(output, context);
+  }
+  const contents: ListOfferingsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    NextToken: undefined,
+    Offerings: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.nextToken !== undefined && data.nextToken !== null) {
+    contents.NextToken = data.nextToken;
+  }
+  if (data.offerings !== undefined && data.offerings !== null) {
+    contents.Offerings = deserializeAws_restJson1__listOfOffering(data.offerings, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1ListOfferingsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListOfferingsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.mediaconnect#BadRequestException":
+      response = {
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerErrorException":
+    case "com.amazonaws.mediaconnect#InternalServerErrorException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceUnavailableException":
+    case "com.amazonaws.mediaconnect#ServiceUnavailableException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "TooManyRequestsException":
+    case "com.amazonaws.mediaconnect#TooManyRequestsException":
+      response = {
+        ...(await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1ListReservationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListReservationsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListReservationsCommandError(output, context);
+  }
+  const contents: ListReservationsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    NextToken: undefined,
+    Reservations: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.nextToken !== undefined && data.nextToken !== null) {
+    contents.NextToken = data.nextToken;
+  }
+  if (data.reservations !== undefined && data.reservations !== null) {
+    contents.Reservations = deserializeAws_restJson1__listOfReservation(data.reservations, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1ListReservationsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListReservationsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.mediaconnect#BadRequestException":
+      response = {
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerErrorException":
+    case "com.amazonaws.mediaconnect#InternalServerErrorException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceUnavailableException":
+    case "com.amazonaws.mediaconnect#ServiceUnavailableException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "TooManyRequestsException":
+    case "com.amazonaws.mediaconnect#TooManyRequestsException":
+      response = {
+        ...(await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -1801,6 +2298,101 @@ const deserializeAws_restJson1ListTagsForResourceCommandError = async (
     case "com.amazonaws.mediaconnect#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1PurchaseOfferingCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PurchaseOfferingCommandOutput> => {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
+    return deserializeAws_restJson1PurchaseOfferingCommandError(output, context);
+  }
+  const contents: PurchaseOfferingCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    Reservation: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.reservation !== undefined && data.reservation !== null) {
+    contents.Reservation = deserializeAws_restJson1Reservation(data.reservation, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1PurchaseOfferingCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PurchaseOfferingCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.mediaconnect#BadRequestException":
+      response = {
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ForbiddenException":
+    case "com.amazonaws.mediaconnect#ForbiddenException":
+      response = {
+        ...(await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerErrorException":
+    case "com.amazonaws.mediaconnect#InternalServerErrorException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.mediaconnect#NotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceUnavailableException":
+    case "com.amazonaws.mediaconnect#ServiceUnavailableException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "TooManyRequestsException":
+    case "com.amazonaws.mediaconnect#TooManyRequestsException":
+      response = {
+        ...(await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -3275,8 +3867,16 @@ const deserializeAws_restJson1__listOfListedFlow = (output: any, context: __Serd
   return (output || []).map((entry: any) => deserializeAws_restJson1ListedFlow(entry, context));
 };
 
+const deserializeAws_restJson1__listOfOffering = (output: any, context: __SerdeContext): Offering[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1Offering(entry, context));
+};
+
 const deserializeAws_restJson1__listOfOutput = (output: any, context: __SerdeContext): Output[] => {
   return (output || []).map((entry: any) => deserializeAws_restJson1Output(entry, context));
+};
+
+const deserializeAws_restJson1__listOfReservation = (output: any, context: __SerdeContext): Reservation[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1Reservation(entry, context));
 };
 
 const deserializeAws_restJson1__listOfSource = (output: any, context: __SerdeContext): Source[] => {
@@ -3417,6 +4017,26 @@ const deserializeAws_restJson1Messages = (output: any, context: __SerdeContext):
   } as any;
 };
 
+const deserializeAws_restJson1Offering = (output: any, context: __SerdeContext): Offering => {
+  return {
+    CurrencyCode: output.currencyCode !== undefined && output.currencyCode !== null ? output.currencyCode : undefined,
+    Duration: output.duration !== undefined && output.duration !== null ? output.duration : undefined,
+    DurationUnits:
+      output.durationUnits !== undefined && output.durationUnits !== null ? output.durationUnits : undefined,
+    OfferingArn: output.offeringArn !== undefined && output.offeringArn !== null ? output.offeringArn : undefined,
+    OfferingDescription:
+      output.offeringDescription !== undefined && output.offeringDescription !== null
+        ? output.offeringDescription
+        : undefined,
+    PricePerUnit: output.pricePerUnit !== undefined && output.pricePerUnit !== null ? output.pricePerUnit : undefined,
+    PriceUnits: output.priceUnits !== undefined && output.priceUnits !== null ? output.priceUnits : undefined,
+    ResourceSpecification:
+      output.resourceSpecification !== undefined && output.resourceSpecification !== null
+        ? deserializeAws_restJson1ResourceSpecification(output.resourceSpecification, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1Output = (output: any, context: __SerdeContext): Output => {
   return {
     DataTransferSubscriberFeePercent:
@@ -3446,6 +4066,42 @@ const deserializeAws_restJson1Output = (output: any, context: __SerdeContext): O
       output.vpcInterfaceAttachment !== undefined && output.vpcInterfaceAttachment !== null
         ? deserializeAws_restJson1VpcInterfaceAttachment(output.vpcInterfaceAttachment, context)
         : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1Reservation = (output: any, context: __SerdeContext): Reservation => {
+  return {
+    CurrencyCode: output.currencyCode !== undefined && output.currencyCode !== null ? output.currencyCode : undefined,
+    Duration: output.duration !== undefined && output.duration !== null ? output.duration : undefined,
+    DurationUnits:
+      output.durationUnits !== undefined && output.durationUnits !== null ? output.durationUnits : undefined,
+    End: output.end !== undefined && output.end !== null ? output.end : undefined,
+    OfferingArn: output.offeringArn !== undefined && output.offeringArn !== null ? output.offeringArn : undefined,
+    OfferingDescription:
+      output.offeringDescription !== undefined && output.offeringDescription !== null
+        ? output.offeringDescription
+        : undefined,
+    PricePerUnit: output.pricePerUnit !== undefined && output.pricePerUnit !== null ? output.pricePerUnit : undefined,
+    PriceUnits: output.priceUnits !== undefined && output.priceUnits !== null ? output.priceUnits : undefined,
+    ReservationArn:
+      output.reservationArn !== undefined && output.reservationArn !== null ? output.reservationArn : undefined,
+    ReservationName:
+      output.reservationName !== undefined && output.reservationName !== null ? output.reservationName : undefined,
+    ReservationState:
+      output.reservationState !== undefined && output.reservationState !== null ? output.reservationState : undefined,
+    ResourceSpecification:
+      output.resourceSpecification !== undefined && output.resourceSpecification !== null
+        ? deserializeAws_restJson1ResourceSpecification(output.resourceSpecification, context)
+        : undefined,
+    Start: output.start !== undefined && output.start !== null ? output.start : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1ResourceSpecification = (output: any, context: __SerdeContext): ResourceSpecification => {
+  return {
+    ReservedBitrate:
+      output.reservedBitrate !== undefined && output.reservedBitrate !== null ? output.reservedBitrate : undefined,
+    ResourceType: output.resourceType !== undefined && output.resourceType !== null ? output.resourceType : undefined,
   } as any;
 };
 

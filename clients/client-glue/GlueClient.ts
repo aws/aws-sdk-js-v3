@@ -25,6 +25,10 @@ import { BatchGetPartitionCommandInput, BatchGetPartitionCommandOutput } from ".
 import { BatchGetTriggersCommandInput, BatchGetTriggersCommandOutput } from "./commands/BatchGetTriggersCommand";
 import { BatchGetWorkflowsCommandInput, BatchGetWorkflowsCommandOutput } from "./commands/BatchGetWorkflowsCommand";
 import { BatchStopJobRunCommandInput, BatchStopJobRunCommandOutput } from "./commands/BatchStopJobRunCommand";
+import {
+  BatchUpdatePartitionCommandInput,
+  BatchUpdatePartitionCommandOutput,
+} from "./commands/BatchUpdatePartitionCommand";
 import { CancelMLTaskRunCommandInput, CancelMLTaskRunCommandOutput } from "./commands/CancelMLTaskRunCommand";
 import { CreateClassifierCommandInput, CreateClassifierCommandOutput } from "./commands/CreateClassifierCommand";
 import { CreateConnectionCommandInput, CreateConnectionCommandOutput } from "./commands/CreateConnectionCommand";
@@ -117,6 +121,10 @@ import { GetMLTransformCommandInput, GetMLTransformCommandOutput } from "./comma
 import { GetMLTransformsCommandInput, GetMLTransformsCommandOutput } from "./commands/GetMLTransformsCommand";
 import { GetMappingCommandInput, GetMappingCommandOutput } from "./commands/GetMappingCommand";
 import { GetPartitionCommandInput, GetPartitionCommandOutput } from "./commands/GetPartitionCommand";
+import {
+  GetPartitionIndexesCommandInput,
+  GetPartitionIndexesCommandOutput,
+} from "./commands/GetPartitionIndexesCommand";
 import { GetPartitionsCommandInput, GetPartitionsCommandOutput } from "./commands/GetPartitionsCommand";
 import { GetPlanCommandInput, GetPlanCommandOutput } from "./commands/GetPlanCommand";
 import {
@@ -298,6 +306,7 @@ export type ServiceInputTypes =
   | BatchGetTriggersCommandInput
   | BatchGetWorkflowsCommandInput
   | BatchStopJobRunCommandInput
+  | BatchUpdatePartitionCommandInput
   | CancelMLTaskRunCommandInput
   | CreateClassifierCommandInput
   | CreateConnectionCommandInput
@@ -357,6 +366,7 @@ export type ServiceInputTypes =
   | GetMLTransformsCommandInput
   | GetMappingCommandInput
   | GetPartitionCommandInput
+  | GetPartitionIndexesCommandInput
   | GetPartitionsCommandInput
   | GetPlanCommandInput
   | GetResourcePoliciesCommandInput
@@ -433,6 +443,7 @@ export type ServiceOutputTypes =
   | BatchGetTriggersCommandOutput
   | BatchGetWorkflowsCommandOutput
   | BatchStopJobRunCommandOutput
+  | BatchUpdatePartitionCommandOutput
   | CancelMLTaskRunCommandOutput
   | CreateClassifierCommandOutput
   | CreateConnectionCommandOutput
@@ -492,6 +503,7 @@ export type ServiceOutputTypes =
   | GetMLTransformsCommandOutput
   | GetMappingCommandOutput
   | GetPartitionCommandOutput
+  | GetPartitionIndexesCommandOutput
   | GetPartitionsCommandOutput
   | GetPlanCommandOutput
   | GetResourcePoliciesCommandOutput

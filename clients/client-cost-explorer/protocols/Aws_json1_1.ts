@@ -1,7 +1,23 @@
 import {
+  CreateAnomalyMonitorCommandInput,
+  CreateAnomalyMonitorCommandOutput,
+} from "../commands/CreateAnomalyMonitorCommand";
+import {
+  CreateAnomalySubscriptionCommandInput,
+  CreateAnomalySubscriptionCommandOutput,
+} from "../commands/CreateAnomalySubscriptionCommand";
+import {
   CreateCostCategoryDefinitionCommandInput,
   CreateCostCategoryDefinitionCommandOutput,
 } from "../commands/CreateCostCategoryDefinitionCommand";
+import {
+  DeleteAnomalyMonitorCommandInput,
+  DeleteAnomalyMonitorCommandOutput,
+} from "../commands/DeleteAnomalyMonitorCommand";
+import {
+  DeleteAnomalySubscriptionCommandInput,
+  DeleteAnomalySubscriptionCommandOutput,
+} from "../commands/DeleteAnomalySubscriptionCommand";
 import {
   DeleteCostCategoryDefinitionCommandInput,
   DeleteCostCategoryDefinitionCommandOutput,
@@ -10,6 +26,12 @@ import {
   DescribeCostCategoryDefinitionCommandInput,
   DescribeCostCategoryDefinitionCommandOutput,
 } from "../commands/DescribeCostCategoryDefinitionCommand";
+import { GetAnomaliesCommandInput, GetAnomaliesCommandOutput } from "../commands/GetAnomaliesCommand";
+import { GetAnomalyMonitorsCommandInput, GetAnomalyMonitorsCommandOutput } from "../commands/GetAnomalyMonitorsCommand";
+import {
+  GetAnomalySubscriptionsCommandInput,
+  GetAnomalySubscriptionsCommandOutput,
+} from "../commands/GetAnomalySubscriptionsCommand";
 import { GetCostAndUsageCommandInput, GetCostAndUsageCommandOutput } from "../commands/GetCostAndUsageCommand";
 import {
   GetCostAndUsageWithResourcesCommandInput,
@@ -56,12 +78,30 @@ import {
   ListCostCategoryDefinitionsCommandOutput,
 } from "../commands/ListCostCategoryDefinitionsCommand";
 import {
+  ProvideAnomalyFeedbackCommandInput,
+  ProvideAnomalyFeedbackCommandOutput,
+} from "../commands/ProvideAnomalyFeedbackCommand";
+import {
+  UpdateAnomalyMonitorCommandInput,
+  UpdateAnomalyMonitorCommandOutput,
+} from "../commands/UpdateAnomalyMonitorCommand";
+import {
+  UpdateAnomalySubscriptionCommandInput,
+  UpdateAnomalySubscriptionCommandOutput,
+} from "../commands/UpdateAnomalySubscriptionCommand";
+import {
   UpdateCostCategoryDefinitionCommandInput,
   UpdateCostCategoryDefinitionCommandOutput,
 } from "../commands/UpdateCostCategoryDefinitionCommand";
 import {
+  Anomaly,
+  AnomalyDateInterval,
+  AnomalyMonitor,
+  AnomalyScore,
+  AnomalySubscription,
   BillExpirationException,
   CostCategory,
+  CostCategoryProcessingStatus,
   CostCategoryReference,
   CostCategoryRule,
   CostCategoryValues,
@@ -70,17 +110,26 @@ import {
   CoverageCost,
   CoverageHours,
   CoverageNormalizedUnits,
+  CreateAnomalyMonitorRequest,
+  CreateAnomalyMonitorResponse,
+  CreateAnomalySubscriptionRequest,
+  CreateAnomalySubscriptionResponse,
   CreateCostCategoryDefinitionRequest,
   CreateCostCategoryDefinitionResponse,
   CurrentInstance,
   DataUnavailableException,
   DateInterval,
+  DeleteAnomalyMonitorRequest,
+  DeleteAnomalyMonitorResponse,
+  DeleteAnomalySubscriptionRequest,
+  DeleteAnomalySubscriptionResponse,
   DeleteCostCategoryDefinitionRequest,
   DeleteCostCategoryDefinitionResponse,
   DescribeCostCategoryDefinitionRequest,
   DescribeCostCategoryDefinitionResponse,
   DimensionValues,
   DimensionValuesWithAttributes,
+  EBSResourceUtilization,
   EC2InstanceDetails,
   EC2ResourceDetails,
   EC2ResourceUtilization,
@@ -89,6 +138,12 @@ import {
   ElastiCacheInstanceDetails,
   Expression,
   ForecastResult,
+  GetAnomaliesRequest,
+  GetAnomaliesResponse,
+  GetAnomalyMonitorsRequest,
+  GetAnomalyMonitorsResponse,
+  GetAnomalySubscriptionsRequest,
+  GetAnomalySubscriptionsResponse,
   GetCostAndUsageRequest,
   GetCostAndUsageResponse,
   GetCostAndUsageWithResourcesRequest,
@@ -119,6 +174,7 @@ import {
   GetUsageForecastResponse,
   Group,
   GroupDefinition,
+  Impact,
   InstanceDetails,
   InvalidNextTokenException,
   LimitExceededException,
@@ -127,6 +183,8 @@ import {
   MatchOption,
   MetricValue,
   ModifyRecommendationDetail,
+  ProvideAnomalyFeedbackRequest,
+  ProvideAnomalyFeedbackResponse,
   RDSInstanceDetails,
   RedshiftInstanceDetails,
   RequestChangedException,
@@ -145,6 +203,7 @@ import {
   RightsizingRecommendationConfiguration,
   RightsizingRecommendationMetadata,
   RightsizingRecommendationSummary,
+  RootCause,
   SavingsPlansAmortizedCommitment,
   SavingsPlansCoverage,
   SavingsPlansCoverageData,
@@ -160,10 +219,18 @@ import {
   SavingsPlansUtilizationDetail,
   ServiceQuotaExceededException,
   ServiceSpecification,
+  Subscriber,
   TagValues,
   TargetInstance,
   TerminateRecommendationDetail,
+  TotalImpactFilter,
+  UnknownMonitorException,
+  UnknownSubscriptionException,
   UnresolvableUsageUnitException,
+  UpdateAnomalyMonitorRequest,
+  UpdateAnomalyMonitorResponse,
+  UpdateAnomalySubscriptionRequest,
+  UpdateAnomalySubscriptionResponse,
   UpdateCostCategoryDefinitionRequest,
   UpdateCostCategoryDefinitionResponse,
   UtilizationByTime,
@@ -178,6 +245,32 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+export const serializeAws_json1_1CreateAnomalyMonitorCommand = async (
+  input: CreateAnomalyMonitorCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSInsightsIndexService.CreateAnomalyMonitor",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1CreateAnomalyMonitorRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1CreateAnomalySubscriptionCommand = async (
+  input: CreateAnomalySubscriptionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSInsightsIndexService.CreateAnomalySubscription",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1CreateAnomalySubscriptionRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1CreateCostCategoryDefinitionCommand = async (
   input: CreateCostCategoryDefinitionCommandInput,
   context: __SerdeContext
@@ -188,6 +281,32 @@ export const serializeAws_json1_1CreateCostCategoryDefinitionCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateCostCategoryDefinitionRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DeleteAnomalyMonitorCommand = async (
+  input: DeleteAnomalyMonitorCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSInsightsIndexService.DeleteAnomalyMonitor",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DeleteAnomalyMonitorRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DeleteAnomalySubscriptionCommand = async (
+  input: DeleteAnomalySubscriptionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSInsightsIndexService.DeleteAnomalySubscription",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DeleteAnomalySubscriptionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -214,6 +333,45 @@ export const serializeAws_json1_1DescribeCostCategoryDefinitionCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeCostCategoryDefinitionRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1GetAnomaliesCommand = async (
+  input: GetAnomaliesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSInsightsIndexService.GetAnomalies",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1GetAnomaliesRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1GetAnomalyMonitorsCommand = async (
+  input: GetAnomalyMonitorsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSInsightsIndexService.GetAnomalyMonitors",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1GetAnomalyMonitorsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1GetAnomalySubscriptionsCommand = async (
+  input: GetAnomalySubscriptionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSInsightsIndexService.GetAnomalySubscriptions",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1GetAnomalySubscriptionsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -412,6 +570,45 @@ export const serializeAws_json1_1ListCostCategoryDefinitionsCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1ProvideAnomalyFeedbackCommand = async (
+  input: ProvideAnomalyFeedbackCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSInsightsIndexService.ProvideAnomalyFeedback",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ProvideAnomalyFeedbackRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1UpdateAnomalyMonitorCommand = async (
+  input: UpdateAnomalyMonitorCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSInsightsIndexService.UpdateAnomalyMonitor",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1UpdateAnomalyMonitorRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1UpdateAnomalySubscriptionCommand = async (
+  input: UpdateAnomalySubscriptionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSInsightsIndexService.UpdateAnomalySubscription",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1UpdateAnomalySubscriptionRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1UpdateCostCategoryDefinitionCommand = async (
   input: UpdateCostCategoryDefinitionCommandInput,
   context: __SerdeContext
@@ -423,6 +620,124 @@ export const serializeAws_json1_1UpdateCostCategoryDefinitionCommand = async (
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateCostCategoryDefinitionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const deserializeAws_json1_1CreateAnomalyMonitorCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateAnomalyMonitorCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1CreateAnomalyMonitorCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1CreateAnomalyMonitorResponse(data, context);
+  const response: CreateAnomalyMonitorCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1CreateAnomalyMonitorCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateAnomalyMonitorCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "LimitExceededException":
+    case "com.amazonaws.costexplorer#LimitExceededException":
+      response = {
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1CreateAnomalySubscriptionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateAnomalySubscriptionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1CreateAnomalySubscriptionCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1CreateAnomalySubscriptionResponse(data, context);
+  const response: CreateAnomalySubscriptionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1CreateAnomalySubscriptionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateAnomalySubscriptionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "LimitExceededException":
+    case "com.amazonaws.costexplorer#LimitExceededException":
+      response = {
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnknownMonitorException":
+    case "com.amazonaws.costexplorer#UnknownMonitorException":
+      response = {
+        ...(await deserializeAws_json1_1UnknownMonitorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1CreateCostCategoryDefinitionCommand = async (
@@ -467,6 +782,132 @@ const deserializeAws_json1_1CreateCostCategoryDefinitionCommandError = async (
     case "com.amazonaws.costexplorer#ServiceQuotaExceededException":
       response = {
         ...(await deserializeAws_json1_1ServiceQuotaExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1DeleteAnomalyMonitorCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteAnomalyMonitorCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DeleteAnomalyMonitorCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DeleteAnomalyMonitorResponse(data, context);
+  const response: DeleteAnomalyMonitorCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DeleteAnomalyMonitorCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteAnomalyMonitorCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "LimitExceededException":
+    case "com.amazonaws.costexplorer#LimitExceededException":
+      response = {
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnknownMonitorException":
+    case "com.amazonaws.costexplorer#UnknownMonitorException":
+      response = {
+        ...(await deserializeAws_json1_1UnknownMonitorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1DeleteAnomalySubscriptionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteAnomalySubscriptionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DeleteAnomalySubscriptionCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DeleteAnomalySubscriptionResponse(data, context);
+  const response: DeleteAnomalySubscriptionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DeleteAnomalySubscriptionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteAnomalySubscriptionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "LimitExceededException":
+    case "com.amazonaws.costexplorer#LimitExceededException":
+      response = {
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnknownSubscriptionException":
+    case "com.amazonaws.costexplorer#UnknownSubscriptionException":
+      response = {
+        ...(await deserializeAws_json1_1UnknownSubscriptionExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -593,6 +1034,211 @@ const deserializeAws_json1_1DescribeCostCategoryDefinitionCommandError = async (
     case "com.amazonaws.costexplorer#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1GetAnomaliesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetAnomaliesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1GetAnomaliesCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1GetAnomaliesResponse(data, context);
+  const response: GetAnomaliesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1GetAnomaliesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetAnomaliesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InvalidNextTokenException":
+    case "com.amazonaws.costexplorer#InvalidNextTokenException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "LimitExceededException":
+    case "com.amazonaws.costexplorer#LimitExceededException":
+      response = {
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1GetAnomalyMonitorsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetAnomalyMonitorsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1GetAnomalyMonitorsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1GetAnomalyMonitorsResponse(data, context);
+  const response: GetAnomalyMonitorsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1GetAnomalyMonitorsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetAnomalyMonitorsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InvalidNextTokenException":
+    case "com.amazonaws.costexplorer#InvalidNextTokenException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "LimitExceededException":
+    case "com.amazonaws.costexplorer#LimitExceededException":
+      response = {
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnknownMonitorException":
+    case "com.amazonaws.costexplorer#UnknownMonitorException":
+      response = {
+        ...(await deserializeAws_json1_1UnknownMonitorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1GetAnomalySubscriptionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetAnomalySubscriptionsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1GetAnomalySubscriptionsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1GetAnomalySubscriptionsResponse(data, context);
+  const response: GetAnomalySubscriptionsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1GetAnomalySubscriptionsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetAnomalySubscriptionsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InvalidNextTokenException":
+    case "com.amazonaws.costexplorer#InvalidNextTokenException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "LimitExceededException":
+    case "com.amazonaws.costexplorer#LimitExceededException":
+      response = {
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnknownSubscriptionException":
+    case "com.amazonaws.costexplorer#UnknownSubscriptionException":
+      response = {
+        ...(await deserializeAws_json1_1UnknownSubscriptionExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -1695,6 +2341,195 @@ const deserializeAws_json1_1ListCostCategoryDefinitionsCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1ProvideAnomalyFeedbackCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ProvideAnomalyFeedbackCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ProvideAnomalyFeedbackCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ProvideAnomalyFeedbackResponse(data, context);
+  const response: ProvideAnomalyFeedbackCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ProvideAnomalyFeedbackCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ProvideAnomalyFeedbackCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "LimitExceededException":
+    case "com.amazonaws.costexplorer#LimitExceededException":
+      response = {
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1UpdateAnomalyMonitorCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateAnomalyMonitorCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1UpdateAnomalyMonitorCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1UpdateAnomalyMonitorResponse(data, context);
+  const response: UpdateAnomalyMonitorCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1UpdateAnomalyMonitorCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateAnomalyMonitorCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "LimitExceededException":
+    case "com.amazonaws.costexplorer#LimitExceededException":
+      response = {
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnknownMonitorException":
+    case "com.amazonaws.costexplorer#UnknownMonitorException":
+      response = {
+        ...(await deserializeAws_json1_1UnknownMonitorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1UpdateAnomalySubscriptionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateAnomalySubscriptionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1UpdateAnomalySubscriptionCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1UpdateAnomalySubscriptionResponse(data, context);
+  const response: UpdateAnomalySubscriptionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1UpdateAnomalySubscriptionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateAnomalySubscriptionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "LimitExceededException":
+    case "com.amazonaws.costexplorer#LimitExceededException":
+      response = {
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnknownMonitorException":
+    case "com.amazonaws.costexplorer#UnknownMonitorException":
+      response = {
+        ...(await deserializeAws_json1_1UnknownMonitorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnknownSubscriptionException":
+    case "com.amazonaws.costexplorer#UnknownSubscriptionException":
+      response = {
+        ...(await deserializeAws_json1_1UnknownSubscriptionExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1UpdateCostCategoryDefinitionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -1871,6 +2706,36 @@ const deserializeAws_json1_1ServiceQuotaExceededExceptionResponse = async (
   return contents;
 };
 
+const deserializeAws_json1_1UnknownMonitorExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<UnknownMonitorException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1UnknownMonitorException(body, context);
+  const contents: UnknownMonitorException = {
+    name: "UnknownMonitorException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
+const deserializeAws_json1_1UnknownSubscriptionExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<UnknownSubscriptionException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1UnknownSubscriptionException(body, context);
+  const contents: UnknownSubscriptionException = {
+    name: "UnknownSubscriptionException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
 const deserializeAws_json1_1UnresolvableUsageUnitExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -1884,6 +2749,45 @@ const deserializeAws_json1_1UnresolvableUsageUnitExceptionResponse = async (
     ...deserialized,
   };
   return contents;
+};
+
+const serializeAws_json1_1AnomalyDateInterval = (input: AnomalyDateInterval, context: __SerdeContext): any => {
+  return {
+    ...(input.EndDate !== undefined && { EndDate: input.EndDate }),
+    ...(input.StartDate !== undefined && { StartDate: input.StartDate }),
+  };
+};
+
+const serializeAws_json1_1AnomalyMonitor = (input: AnomalyMonitor, context: __SerdeContext): any => {
+  return {
+    ...(input.CreationDate !== undefined && { CreationDate: input.CreationDate }),
+    ...(input.DimensionalValueCount !== undefined && { DimensionalValueCount: input.DimensionalValueCount }),
+    ...(input.LastEvaluatedDate !== undefined && { LastEvaluatedDate: input.LastEvaluatedDate }),
+    ...(input.LastUpdatedDate !== undefined && { LastUpdatedDate: input.LastUpdatedDate }),
+    ...(input.MonitorArn !== undefined && { MonitorArn: input.MonitorArn }),
+    ...(input.MonitorDimension !== undefined && { MonitorDimension: input.MonitorDimension }),
+    ...(input.MonitorName !== undefined && { MonitorName: input.MonitorName }),
+    ...(input.MonitorSpecification !== undefined && {
+      MonitorSpecification: serializeAws_json1_1Expression(input.MonitorSpecification, context),
+    }),
+    ...(input.MonitorType !== undefined && { MonitorType: input.MonitorType }),
+  };
+};
+
+const serializeAws_json1_1AnomalySubscription = (input: AnomalySubscription, context: __SerdeContext): any => {
+  return {
+    ...(input.AccountId !== undefined && { AccountId: input.AccountId }),
+    ...(input.Frequency !== undefined && { Frequency: input.Frequency }),
+    ...(input.MonitorArnList !== undefined && {
+      MonitorArnList: serializeAws_json1_1Values(input.MonitorArnList, context),
+    }),
+    ...(input.Subscribers !== undefined && {
+      Subscribers: serializeAws_json1_1Subscribers(input.Subscribers, context),
+    }),
+    ...(input.SubscriptionArn !== undefined && { SubscriptionArn: input.SubscriptionArn }),
+    ...(input.SubscriptionName !== undefined && { SubscriptionName: input.SubscriptionName }),
+    ...(input.Threshold !== undefined && { Threshold: input.Threshold }),
+  };
 };
 
 const serializeAws_json1_1CostCategoryRule = (input: CostCategoryRule, context: __SerdeContext): any => {
@@ -1900,7 +2804,32 @@ const serializeAws_json1_1CostCategoryRulesList = (input: CostCategoryRule[], co
 const serializeAws_json1_1CostCategoryValues = (input: CostCategoryValues, context: __SerdeContext): any => {
   return {
     ...(input.Key !== undefined && { Key: input.Key }),
+    ...(input.MatchOptions !== undefined && {
+      MatchOptions: serializeAws_json1_1MatchOptions(input.MatchOptions, context),
+    }),
     ...(input.Values !== undefined && { Values: serializeAws_json1_1Values(input.Values, context) }),
+  };
+};
+
+const serializeAws_json1_1CreateAnomalyMonitorRequest = (
+  input: CreateAnomalyMonitorRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AnomalyMonitor !== undefined && {
+      AnomalyMonitor: serializeAws_json1_1AnomalyMonitor(input.AnomalyMonitor, context),
+    }),
+  };
+};
+
+const serializeAws_json1_1CreateAnomalySubscriptionRequest = (
+  input: CreateAnomalySubscriptionRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AnomalySubscription !== undefined && {
+      AnomalySubscription: serializeAws_json1_1AnomalySubscription(input.AnomalySubscription, context),
+    }),
   };
 };
 
@@ -1919,6 +2848,24 @@ const serializeAws_json1_1DateInterval = (input: DateInterval, context: __SerdeC
   return {
     ...(input.End !== undefined && { End: input.End }),
     ...(input.Start !== undefined && { Start: input.Start }),
+  };
+};
+
+const serializeAws_json1_1DeleteAnomalyMonitorRequest = (
+  input: DeleteAnomalyMonitorRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.MonitorArn !== undefined && { MonitorArn: input.MonitorArn }),
+  };
+};
+
+const serializeAws_json1_1DeleteAnomalySubscriptionRequest = (
+  input: DeleteAnomalySubscriptionRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.SubscriptionArn !== undefined && { SubscriptionArn: input.SubscriptionArn }),
   };
 };
 
@@ -1974,6 +2921,48 @@ const serializeAws_json1_1Expression = (input: Expression, context: __SerdeConte
 
 const serializeAws_json1_1Expressions = (input: Expression[], context: __SerdeContext): any => {
   return input.map((entry) => serializeAws_json1_1Expression(entry, context));
+};
+
+const serializeAws_json1_1GetAnomaliesRequest = (input: GetAnomaliesRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.DateInterval !== undefined && {
+      DateInterval: serializeAws_json1_1AnomalyDateInterval(input.DateInterval, context),
+    }),
+    ...(input.Feedback !== undefined && { Feedback: input.Feedback }),
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.MonitorArn !== undefined && { MonitorArn: input.MonitorArn }),
+    ...(input.NextPageToken !== undefined && { NextPageToken: input.NextPageToken }),
+    ...(input.TotalImpact !== undefined && {
+      TotalImpact: serializeAws_json1_1TotalImpactFilter(input.TotalImpact, context),
+    }),
+  };
+};
+
+const serializeAws_json1_1GetAnomalyMonitorsRequest = (
+  input: GetAnomalyMonitorsRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.MonitorArnList !== undefined && {
+      MonitorArnList: serializeAws_json1_1Values(input.MonitorArnList, context),
+    }),
+    ...(input.NextPageToken !== undefined && { NextPageToken: input.NextPageToken }),
+  };
+};
+
+const serializeAws_json1_1GetAnomalySubscriptionsRequest = (
+  input: GetAnomalySubscriptionsRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.MonitorArn !== undefined && { MonitorArn: input.MonitorArn }),
+    ...(input.NextPageToken !== undefined && { NextPageToken: input.NextPageToken }),
+    ...(input.SubscriptionArnList !== undefined && {
+      SubscriptionArnList: serializeAws_json1_1Values(input.SubscriptionArnList, context),
+    }),
+  };
 };
 
 const serializeAws_json1_1GetCostAndUsageRequest = (input: GetCostAndUsageRequest, context: __SerdeContext): any => {
@@ -2188,6 +3177,16 @@ const serializeAws_json1_1MetricNames = (input: string[], context: __SerdeContex
   return input.map((entry) => entry);
 };
 
+const serializeAws_json1_1ProvideAnomalyFeedbackRequest = (
+  input: ProvideAnomalyFeedbackRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AnomalyId !== undefined && { AnomalyId: input.AnomalyId }),
+    ...(input.Feedback !== undefined && { Feedback: input.Feedback }),
+  };
+};
+
 const serializeAws_json1_1RightsizingRecommendationConfiguration = (
   input: RightsizingRecommendationConfiguration,
   context: __SerdeContext
@@ -2206,6 +3205,18 @@ const serializeAws_json1_1ServiceSpecification = (input: ServiceSpecification, c
   };
 };
 
+const serializeAws_json1_1Subscriber = (input: Subscriber, context: __SerdeContext): any => {
+  return {
+    ...(input.Address !== undefined && { Address: input.Address }),
+    ...(input.Status !== undefined && { Status: input.Status }),
+    ...(input.Type !== undefined && { Type: input.Type }),
+  };
+};
+
+const serializeAws_json1_1Subscribers = (input: Subscriber[], context: __SerdeContext): any => {
+  return input.map((entry) => serializeAws_json1_1Subscriber(entry, context));
+};
+
 const serializeAws_json1_1TagValues = (input: TagValues, context: __SerdeContext): any => {
   return {
     ...(input.Key !== undefined && { Key: input.Key }),
@@ -2213,6 +3224,42 @@ const serializeAws_json1_1TagValues = (input: TagValues, context: __SerdeContext
       MatchOptions: serializeAws_json1_1MatchOptions(input.MatchOptions, context),
     }),
     ...(input.Values !== undefined && { Values: serializeAws_json1_1Values(input.Values, context) }),
+  };
+};
+
+const serializeAws_json1_1TotalImpactFilter = (input: TotalImpactFilter, context: __SerdeContext): any => {
+  return {
+    ...(input.EndValue !== undefined && { EndValue: input.EndValue }),
+    ...(input.NumericOperator !== undefined && { NumericOperator: input.NumericOperator }),
+    ...(input.StartValue !== undefined && { StartValue: input.StartValue }),
+  };
+};
+
+const serializeAws_json1_1UpdateAnomalyMonitorRequest = (
+  input: UpdateAnomalyMonitorRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.MonitorArn !== undefined && { MonitorArn: input.MonitorArn }),
+    ...(input.MonitorName !== undefined && { MonitorName: input.MonitorName }),
+  };
+};
+
+const serializeAws_json1_1UpdateAnomalySubscriptionRequest = (
+  input: UpdateAnomalySubscriptionRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Frequency !== undefined && { Frequency: input.Frequency }),
+    ...(input.MonitorArnList !== undefined && {
+      MonitorArnList: serializeAws_json1_1Values(input.MonitorArnList, context),
+    }),
+    ...(input.Subscribers !== undefined && {
+      Subscribers: serializeAws_json1_1Subscribers(input.Subscribers, context),
+    }),
+    ...(input.SubscriptionArn !== undefined && { SubscriptionArn: input.SubscriptionArn }),
+    ...(input.SubscriptionName !== undefined && { SubscriptionName: input.SubscriptionName }),
+    ...(input.Threshold !== undefined && { Threshold: input.Threshold }),
   };
 };
 
@@ -2229,6 +3276,96 @@ const serializeAws_json1_1UpdateCostCategoryDefinitionRequest = (
 
 const serializeAws_json1_1Values = (input: string[], context: __SerdeContext): any => {
   return input.map((entry) => entry);
+};
+
+const deserializeAws_json1_1Anomalies = (output: any, context: __SerdeContext): Anomaly[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1Anomaly(entry, context));
+};
+
+const deserializeAws_json1_1Anomaly = (output: any, context: __SerdeContext): Anomaly => {
+  return {
+    AnomalyEndDate:
+      output.AnomalyEndDate !== undefined && output.AnomalyEndDate !== null ? output.AnomalyEndDate : undefined,
+    AnomalyId: output.AnomalyId !== undefined && output.AnomalyId !== null ? output.AnomalyId : undefined,
+    AnomalyScore:
+      output.AnomalyScore !== undefined && output.AnomalyScore !== null
+        ? deserializeAws_json1_1AnomalyScore(output.AnomalyScore, context)
+        : undefined,
+    AnomalyStartDate:
+      output.AnomalyStartDate !== undefined && output.AnomalyStartDate !== null ? output.AnomalyStartDate : undefined,
+    DimensionValue:
+      output.DimensionValue !== undefined && output.DimensionValue !== null ? output.DimensionValue : undefined,
+    Feedback: output.Feedback !== undefined && output.Feedback !== null ? output.Feedback : undefined,
+    Impact:
+      output.Impact !== undefined && output.Impact !== null
+        ? deserializeAws_json1_1Impact(output.Impact, context)
+        : undefined,
+    MonitorArn: output.MonitorArn !== undefined && output.MonitorArn !== null ? output.MonitorArn : undefined,
+    RootCauses:
+      output.RootCauses !== undefined && output.RootCauses !== null
+        ? deserializeAws_json1_1RootCauses(output.RootCauses, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1AnomalyMonitor = (output: any, context: __SerdeContext): AnomalyMonitor => {
+  return {
+    CreationDate: output.CreationDate !== undefined && output.CreationDate !== null ? output.CreationDate : undefined,
+    DimensionalValueCount:
+      output.DimensionalValueCount !== undefined && output.DimensionalValueCount !== null
+        ? output.DimensionalValueCount
+        : undefined,
+    LastEvaluatedDate:
+      output.LastEvaluatedDate !== undefined && output.LastEvaluatedDate !== null
+        ? output.LastEvaluatedDate
+        : undefined,
+    LastUpdatedDate:
+      output.LastUpdatedDate !== undefined && output.LastUpdatedDate !== null ? output.LastUpdatedDate : undefined,
+    MonitorArn: output.MonitorArn !== undefined && output.MonitorArn !== null ? output.MonitorArn : undefined,
+    MonitorDimension:
+      output.MonitorDimension !== undefined && output.MonitorDimension !== null ? output.MonitorDimension : undefined,
+    MonitorName: output.MonitorName !== undefined && output.MonitorName !== null ? output.MonitorName : undefined,
+    MonitorSpecification:
+      output.MonitorSpecification !== undefined && output.MonitorSpecification !== null
+        ? deserializeAws_json1_1Expression(output.MonitorSpecification, context)
+        : undefined,
+    MonitorType: output.MonitorType !== undefined && output.MonitorType !== null ? output.MonitorType : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1AnomalyMonitors = (output: any, context: __SerdeContext): AnomalyMonitor[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1AnomalyMonitor(entry, context));
+};
+
+const deserializeAws_json1_1AnomalyScore = (output: any, context: __SerdeContext): AnomalyScore => {
+  return {
+    CurrentScore: output.CurrentScore !== undefined && output.CurrentScore !== null ? output.CurrentScore : undefined,
+    MaxScore: output.MaxScore !== undefined && output.MaxScore !== null ? output.MaxScore : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1AnomalySubscription = (output: any, context: __SerdeContext): AnomalySubscription => {
+  return {
+    AccountId: output.AccountId !== undefined && output.AccountId !== null ? output.AccountId : undefined,
+    Frequency: output.Frequency !== undefined && output.Frequency !== null ? output.Frequency : undefined,
+    MonitorArnList:
+      output.MonitorArnList !== undefined && output.MonitorArnList !== null
+        ? deserializeAws_json1_1Values(output.MonitorArnList, context)
+        : undefined,
+    Subscribers:
+      output.Subscribers !== undefined && output.Subscribers !== null
+        ? deserializeAws_json1_1Subscribers(output.Subscribers, context)
+        : undefined,
+    SubscriptionArn:
+      output.SubscriptionArn !== undefined && output.SubscriptionArn !== null ? output.SubscriptionArn : undefined,
+    SubscriptionName:
+      output.SubscriptionName !== undefined && output.SubscriptionName !== null ? output.SubscriptionName : undefined,
+    Threshold: output.Threshold !== undefined && output.Threshold !== null ? output.Threshold : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1AnomalySubscriptions = (output: any, context: __SerdeContext): AnomalySubscription[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1AnomalySubscription(entry, context));
 };
 
 const deserializeAws_json1_1Attributes = (output: any, context: __SerdeContext): { [key: string]: string } => {
@@ -2258,12 +3395,33 @@ const deserializeAws_json1_1CostCategory = (output: any, context: __SerdeContext
     EffectiveStart:
       output.EffectiveStart !== undefined && output.EffectiveStart !== null ? output.EffectiveStart : undefined,
     Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+    ProcessingStatus:
+      output.ProcessingStatus !== undefined && output.ProcessingStatus !== null
+        ? deserializeAws_json1_1CostCategoryProcessingStatusList(output.ProcessingStatus, context)
+        : undefined,
     RuleVersion: output.RuleVersion !== undefined && output.RuleVersion !== null ? output.RuleVersion : undefined,
     Rules:
       output.Rules !== undefined && output.Rules !== null
         ? deserializeAws_json1_1CostCategoryRulesList(output.Rules, context)
         : undefined,
   } as any;
+};
+
+const deserializeAws_json1_1CostCategoryProcessingStatus = (
+  output: any,
+  context: __SerdeContext
+): CostCategoryProcessingStatus => {
+  return {
+    Component: output.Component !== undefined && output.Component !== null ? output.Component : undefined,
+    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1CostCategoryProcessingStatusList = (
+  output: any,
+  context: __SerdeContext
+): CostCategoryProcessingStatus[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1CostCategoryProcessingStatus(entry, context));
 };
 
 const deserializeAws_json1_1CostCategoryReference = (output: any, context: __SerdeContext): CostCategoryReference => {
@@ -2276,6 +3434,14 @@ const deserializeAws_json1_1CostCategoryReference = (output: any, context: __Ser
     Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
     NumberOfRules:
       output.NumberOfRules !== undefined && output.NumberOfRules !== null ? output.NumberOfRules : undefined,
+    ProcessingStatus:
+      output.ProcessingStatus !== undefined && output.ProcessingStatus !== null
+        ? deserializeAws_json1_1CostCategoryProcessingStatusList(output.ProcessingStatus, context)
+        : undefined,
+    Values:
+      output.Values !== undefined && output.Values !== null
+        ? deserializeAws_json1_1CostCategoryValuesList(output.Values, context)
+        : undefined,
   } as any;
 };
 
@@ -2303,11 +3469,19 @@ const deserializeAws_json1_1CostCategoryRulesList = (output: any, context: __Ser
 const deserializeAws_json1_1CostCategoryValues = (output: any, context: __SerdeContext): CostCategoryValues => {
   return {
     Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
+    MatchOptions:
+      output.MatchOptions !== undefined && output.MatchOptions !== null
+        ? deserializeAws_json1_1MatchOptions(output.MatchOptions, context)
+        : undefined,
     Values:
       output.Values !== undefined && output.Values !== null
         ? deserializeAws_json1_1Values(output.Values, context)
         : undefined,
   } as any;
+};
+
+const deserializeAws_json1_1CostCategoryValuesList = (output: any, context: __SerdeContext): string[] => {
+  return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_json1_1Coverage = (output: any, context: __SerdeContext): Coverage => {
@@ -2395,6 +3569,25 @@ const deserializeAws_json1_1CoveragesByTime = (output: any, context: __SerdeCont
   return (output || []).map((entry: any) => deserializeAws_json1_1CoverageByTime(entry, context));
 };
 
+const deserializeAws_json1_1CreateAnomalyMonitorResponse = (
+  output: any,
+  context: __SerdeContext
+): CreateAnomalyMonitorResponse => {
+  return {
+    MonitorArn: output.MonitorArn !== undefined && output.MonitorArn !== null ? output.MonitorArn : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1CreateAnomalySubscriptionResponse = (
+  output: any,
+  context: __SerdeContext
+): CreateAnomalySubscriptionResponse => {
+  return {
+    SubscriptionArn:
+      output.SubscriptionArn !== undefined && output.SubscriptionArn !== null ? output.SubscriptionArn : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1CreateCostCategoryDefinitionResponse = (
   output: any,
   context: __SerdeContext
@@ -2462,6 +3655,20 @@ const deserializeAws_json1_1DateInterval = (output: any, context: __SerdeContext
   } as any;
 };
 
+const deserializeAws_json1_1DeleteAnomalyMonitorResponse = (
+  output: any,
+  context: __SerdeContext
+): DeleteAnomalyMonitorResponse => {
+  return {} as any;
+};
+
+const deserializeAws_json1_1DeleteAnomalySubscriptionResponse = (
+  output: any,
+  context: __SerdeContext
+): DeleteAnomalySubscriptionResponse => {
+  return {} as any;
+};
+
 const deserializeAws_json1_1DeleteCostCategoryDefinitionResponse = (
   output: any,
   context: __SerdeContext
@@ -2519,6 +3726,27 @@ const deserializeAws_json1_1DimensionValuesWithAttributesList = (
   return (output || []).map((entry: any) => deserializeAws_json1_1DimensionValuesWithAttributes(entry, context));
 };
 
+const deserializeAws_json1_1EBSResourceUtilization = (output: any, context: __SerdeContext): EBSResourceUtilization => {
+  return {
+    EbsReadBytesPerSecond:
+      output.EbsReadBytesPerSecond !== undefined && output.EbsReadBytesPerSecond !== null
+        ? output.EbsReadBytesPerSecond
+        : undefined,
+    EbsReadOpsPerSecond:
+      output.EbsReadOpsPerSecond !== undefined && output.EbsReadOpsPerSecond !== null
+        ? output.EbsReadOpsPerSecond
+        : undefined,
+    EbsWriteBytesPerSecond:
+      output.EbsWriteBytesPerSecond !== undefined && output.EbsWriteBytesPerSecond !== null
+        ? output.EbsWriteBytesPerSecond
+        : undefined,
+    EbsWriteOpsPerSecond:
+      output.EbsWriteOpsPerSecond !== undefined && output.EbsWriteOpsPerSecond !== null
+        ? output.EbsWriteOpsPerSecond
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1EC2InstanceDetails = (output: any, context: __SerdeContext): EC2InstanceDetails => {
   return {
     AvailabilityZone:
@@ -2559,6 +3787,10 @@ const deserializeAws_json1_1EC2ResourceDetails = (output: any, context: __SerdeC
 
 const deserializeAws_json1_1EC2ResourceUtilization = (output: any, context: __SerdeContext): EC2ResourceUtilization => {
   return {
+    EBSResourceUtilization:
+      output.EBSResourceUtilization !== undefined && output.EBSResourceUtilization !== null
+        ? deserializeAws_json1_1EBSResourceUtilization(output.EBSResourceUtilization, context)
+        : undefined,
     MaxCpuUtilizationPercentage:
       output.MaxCpuUtilizationPercentage !== undefined && output.MaxCpuUtilizationPercentage !== null
         ? output.MaxCpuUtilizationPercentage
@@ -2668,6 +3900,45 @@ const deserializeAws_json1_1ForecastResult = (output: any, context: __SerdeConte
 
 const deserializeAws_json1_1ForecastResultsByTime = (output: any, context: __SerdeContext): ForecastResult[] => {
   return (output || []).map((entry: any) => deserializeAws_json1_1ForecastResult(entry, context));
+};
+
+const deserializeAws_json1_1GetAnomaliesResponse = (output: any, context: __SerdeContext): GetAnomaliesResponse => {
+  return {
+    Anomalies:
+      output.Anomalies !== undefined && output.Anomalies !== null
+        ? deserializeAws_json1_1Anomalies(output.Anomalies, context)
+        : undefined,
+    NextPageToken:
+      output.NextPageToken !== undefined && output.NextPageToken !== null ? output.NextPageToken : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1GetAnomalyMonitorsResponse = (
+  output: any,
+  context: __SerdeContext
+): GetAnomalyMonitorsResponse => {
+  return {
+    AnomalyMonitors:
+      output.AnomalyMonitors !== undefined && output.AnomalyMonitors !== null
+        ? deserializeAws_json1_1AnomalyMonitors(output.AnomalyMonitors, context)
+        : undefined,
+    NextPageToken:
+      output.NextPageToken !== undefined && output.NextPageToken !== null ? output.NextPageToken : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1GetAnomalySubscriptionsResponse = (
+  output: any,
+  context: __SerdeContext
+): GetAnomalySubscriptionsResponse => {
+  return {
+    AnomalySubscriptions:
+      output.AnomalySubscriptions !== undefined && output.AnomalySubscriptions !== null
+        ? deserializeAws_json1_1AnomalySubscriptions(output.AnomalySubscriptions, context)
+        : undefined,
+    NextPageToken:
+      output.NextPageToken !== undefined && output.NextPageToken !== null ? output.NextPageToken : undefined,
+  } as any;
 };
 
 const deserializeAws_json1_1GetCostAndUsageResponse = (
@@ -2941,6 +4212,13 @@ const deserializeAws_json1_1Groups = (output: any, context: __SerdeContext): Gro
   return (output || []).map((entry: any) => deserializeAws_json1_1Group(entry, context));
 };
 
+const deserializeAws_json1_1Impact = (output: any, context: __SerdeContext): Impact => {
+  return {
+    MaxImpact: output.MaxImpact !== undefined && output.MaxImpact !== null ? output.MaxImpact : undefined,
+    TotalImpact: output.TotalImpact !== undefined && output.TotalImpact !== null ? output.TotalImpact : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1InstanceDetails = (output: any, context: __SerdeContext): InstanceDetails => {
   return {
     EC2InstanceDetails:
@@ -3028,6 +4306,15 @@ const deserializeAws_json1_1ModifyRecommendationDetail = (
       output.TargetInstances !== undefined && output.TargetInstances !== null
         ? deserializeAws_json1_1TargetInstancesList(output.TargetInstances, context)
         : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ProvideAnomalyFeedbackResponse = (
+  output: any,
+  context: __SerdeContext
+): ProvideAnomalyFeedbackResponse => {
+  return {
+    AnomalyId: output.AnomalyId !== undefined && output.AnomalyId !== null ? output.AnomalyId : undefined,
   } as any;
 };
 
@@ -3460,6 +4747,20 @@ const deserializeAws_json1_1RightsizingRecommendationSummary = (
   } as any;
 };
 
+const deserializeAws_json1_1RootCause = (output: any, context: __SerdeContext): RootCause => {
+  return {
+    LinkedAccount:
+      output.LinkedAccount !== undefined && output.LinkedAccount !== null ? output.LinkedAccount : undefined,
+    Region: output.Region !== undefined && output.Region !== null ? output.Region : undefined,
+    Service: output.Service !== undefined && output.Service !== null ? output.Service : undefined,
+    UsageType: output.UsageType !== undefined && output.UsageType !== null ? output.UsageType : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1RootCauses = (output: any, context: __SerdeContext): RootCause[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1RootCause(entry, context));
+};
+
 const deserializeAws_json1_1SavingsPlansAmortizedCommitment = (
   output: any,
   context: __SerdeContext
@@ -3821,6 +5122,18 @@ const deserializeAws_json1_1ServiceSpecification = (output: any, context: __Serd
   } as any;
 };
 
+const deserializeAws_json1_1Subscriber = (output: any, context: __SerdeContext): Subscriber => {
+  return {
+    Address: output.Address !== undefined && output.Address !== null ? output.Address : undefined,
+    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
+    Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1Subscribers = (output: any, context: __SerdeContext): Subscriber[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1Subscriber(entry, context));
+};
+
 const deserializeAws_json1_1TagList = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
 };
@@ -3886,12 +5199,49 @@ const deserializeAws_json1_1TerminateRecommendationDetail = (
   } as any;
 };
 
+const deserializeAws_json1_1UnknownMonitorException = (
+  output: any,
+  context: __SerdeContext
+): UnknownMonitorException => {
+  return {
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1UnknownSubscriptionException = (
+  output: any,
+  context: __SerdeContext
+): UnknownSubscriptionException => {
+  return {
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1UnresolvableUsageUnitException = (
   output: any,
   context: __SerdeContext
 ): UnresolvableUsageUnitException => {
   return {
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1UpdateAnomalyMonitorResponse = (
+  output: any,
+  context: __SerdeContext
+): UpdateAnomalyMonitorResponse => {
+  return {
+    MonitorArn: output.MonitorArn !== undefined && output.MonitorArn !== null ? output.MonitorArn : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1UpdateAnomalySubscriptionResponse = (
+  output: any,
+  context: __SerdeContext
+): UpdateAnomalySubscriptionResponse => {
+  return {
+    SubscriptionArn:
+      output.SubscriptionArn !== undefined && output.SubscriptionArn !== null ? output.SubscriptionArn : undefined,
   } as any;
 };
 

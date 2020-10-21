@@ -26,38 +26,50 @@ export namespace InvalidInputException {
  */
 export interface Event {
   /**
-   * <p>The type of event. This property corresponds to the <code>EVENT_TYPE</code>
-   *       field of the Interactions schema.</p>
+   * <p>The event value that corresponds to the <code>EVENT_VALUE</code> field of the Interactions schema.</p>
+   */
+  eventValue?: number;
+
+  /**
+   * <p>The type of event, such as click or download. This property corresponds to the <code>EVENT_TYPE</code>
+   *       field of your Interactions schema and depends on the types of events you are tracking.</p>
    */
   eventType: string | undefined;
 
   /**
-   * <p>A string map of event-specific data that you might choose to record. For example, if a
-   *       user rates a movie on your site, you might send the movie ID and rating, and the number of
-   *       movie ratings made by the user.</p>
-   *          <p>Each item in the map consists of a key-value pair. For example,</p>
-   *          <p>
-   *             <code>{"itemId": "movie1"}</code>
-   *          </p>
-   *          <p>
-   *             <code>{"itemId": "movie2", "eventValue": "4.5"}</code>
-   *          </p>
-   *          <p>
-   *             <code>{"itemId": "movie3", "eventValue": "3", "numberOfRatings": "12"}</code>
-   *          </p>
-   *          <p>The keys use camel case names that match the fields in the Interactions
-   *       schema. The <code>itemId</code> and <code>eventValue</code> keys correspond to the
-   *       <code>ITEM_ID</code> and <code>EVENT_VALUE</code> fields.
-   *       In the above example, the <code>eventType</code> might be 'MovieRating' with
-   *       <code>eventValue</code> being the rating. The <code>numberOfRatings</code> would match the
-   *       'NUMBER_OF_RATINGS' field defined in the Interactions schema.</p>
+   * <p>The ID of the recommendation.</p>
    */
-  properties: __LazyJsonString | string | undefined;
+  recommendationId?: string;
 
   /**
-   * <p>The timestamp on the client side when the event occurred.</p>
+   * <p>The item ID key that corresponds to the <code>ITEM_ID</code> field of the Interactions schema.</p>
+   */
+  itemId?: string;
+
+  /**
+   * <p>A string map of event-specific data that you might choose to record. For example, if a
+   *       user rates a movie on your site, other than movie ID (<code>itemId</code>) and rating (<code>eventValue</code>)
+   *       , you might also send the number of movie ratings made by the user.</p>
+   *          <p>Each item in the map consists of a key-value pair. For example,</p>
+   *
+   *          <p>
+   *             <code>{"numberOfRatings": "12"}</code>
+   *          </p>
+   *          <p>The keys use camel case names that match the fields in the Interactions
+   *       schema. In the above example, the <code>numberOfRatings</code> would match the
+   *       'NUMBER_OF_RATINGS' field defined in the Interactions schema.</p>
+   */
+  properties?: __LazyJsonString | string;
+
+  /**
+   * <p>The timestamp (in Unix time) on the client side when the event occurred.</p>
    */
   sentAt: Date | undefined;
+
+  /**
+   * <p>A list of item IDs that represents the sequence of items you have shown the user. For example, <code>["itemId1", "itemId2", "itemId3"]</code>.</p>
+   */
+  impression?: string[];
 
   /**
    * <p>An ID associated with the event. If an event ID is not provided, Amazon Personalize generates
@@ -76,14 +88,20 @@ export namespace Event {
 
 export interface PutEventsRequest {
   /**
+   * <p>The user associated with the event.</p>
+   */
+  userId?: string;
+
+  /**
    * <p>A list of event data from the session.</p>
    */
   eventList: Event[] | undefined;
 
   /**
-   * <p>The user associated with the event.</p>
+   * <p>The session ID associated with the user's visit. Your application generates the sessionId when a user first visits your website or uses your application.
+   *       Amazon Personalize uses the sessionId to associate events with the user before they log in. For more information see <a>event-record-api</a>.</p>
    */
-  userId?: string;
+  sessionId: string | undefined;
 
   /**
    * <p>The tracking ID for the event.
@@ -91,15 +109,119 @@ export interface PutEventsRequest {
    *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateEventTracker.html">CreateEventTracker</a> API.</p>
    */
   trackingId: string | undefined;
-
-  /**
-   * <p>The session ID associated with the user's visit.</p>
-   */
-  sessionId: string | undefined;
 }
 
 export namespace PutEventsRequest {
   export const filterSensitiveLog = (obj: PutEventsRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Represents item metadata added to an Items dataset using the
+ *       <code>PutItems</code> API.</p>
+ */
+export interface Item {
+  /**
+   * <p>The ID associated with the item.</p>
+   */
+  itemId: string | undefined;
+
+  /**
+   * <p>A string map of item-specific metadata. Each element in the map consists of a key-value pair. For example,
+   *     </p>
+   *          <p>
+   *             <code>{"numberOfRatings": "12"}</code>
+   *          </p>
+   *          <p>The keys use camel case names that match the fields in the Items
+   *       schema. In the above example, the <code>numberOfRatings</code> would match the
+   *       'NUMBER_OF_RATINGS' field defined in the Items schema.</p>
+   */
+  properties?: __LazyJsonString | string;
+}
+
+export namespace Item {
+  export const filterSensitiveLog = (obj: Item): any => ({
+    ...obj,
+  });
+}
+
+export interface PutItemsRequest {
+  /**
+   * <p>The Amazon Resource Number (ARN) of the Items dataset you are adding the item or items to.</p>
+   */
+  datasetArn: string | undefined;
+
+  /**
+   * <p>A list of item data.</p>
+   */
+  items: Item[] | undefined;
+}
+
+export namespace PutItemsRequest {
+  export const filterSensitiveLog = (obj: PutItemsRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Could not find the specified resource.</p>
+ */
+export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
+  name: "ResourceNotFoundException";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace ResourceNotFoundException {
+  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Represents user metadata added to a Users dataset using the
+ *       <code>PutUsers</code> API.</p>
+ */
+export interface User {
+  /**
+   * <p>A string map of user-specific metadata. Each element in the map consists of a key-value pair. For example,
+   *     </p>
+   *          <p>
+   *             <code>{"numberOfVideosWatched": "45"}</code>
+   *          </p>
+   *          <p>The keys use camel case names that match the fields in the Users
+   *       schema. In the above example, the <code>numberOfVideosWatched</code> would match the
+   *       'NUMBER_OF_VIDEOS_WATCHED' field defined in the Users schema.</p>
+   */
+  properties?: __LazyJsonString | string;
+
+  /**
+   * <p>The ID associated with the user.</p>
+   */
+  userId: string | undefined;
+}
+
+export namespace User {
+  export const filterSensitiveLog = (obj: User): any => ({
+    ...obj,
+  });
+}
+
+export interface PutUsersRequest {
+  /**
+   * <p>The Amazon Resource Number (ARN) of the Users dataset you are adding the user or users to.</p>
+   */
+  datasetArn: string | undefined;
+
+  /**
+   * <p>A list of user data.</p>
+   */
+  users: User[] | undefined;
+}
+
+export namespace PutUsersRequest {
+  export const filterSensitiveLog = (obj: PutUsersRequest): any => ({
     ...obj,
   });
 }

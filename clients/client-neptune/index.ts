@@ -38,6 +38,7 @@ export * from "./commands/DescribeDBSubnetGroupsCommand";
 export * from "./pagination/DescribeDBSubnetGroupsPaginator";
 export * from "./commands/DescribeEngineDefaultClusterParametersCommand";
 export * from "./commands/DescribeEngineDefaultParametersCommand";
+export * from "./pagination/DescribeEngineDefaultParametersPaginator";
 export * from "./commands/DescribeEventCategoriesCommand";
 export * from "./commands/DescribeEventsCommand";
 export * from "./pagination/DescribeEventsPaginator";

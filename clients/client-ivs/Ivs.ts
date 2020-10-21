@@ -25,11 +25,21 @@ import {
   DeleteChannelCommandOutput,
 } from "./commands/DeleteChannelCommand";
 import {
+  DeletePlaybackKeyPairCommand,
+  DeletePlaybackKeyPairCommandInput,
+  DeletePlaybackKeyPairCommandOutput,
+} from "./commands/DeletePlaybackKeyPairCommand";
+import {
   DeleteStreamKeyCommand,
   DeleteStreamKeyCommandInput,
   DeleteStreamKeyCommandOutput,
 } from "./commands/DeleteStreamKeyCommand";
 import { GetChannelCommand, GetChannelCommandInput, GetChannelCommandOutput } from "./commands/GetChannelCommand";
+import {
+  GetPlaybackKeyPairCommand,
+  GetPlaybackKeyPairCommandInput,
+  GetPlaybackKeyPairCommandOutput,
+} from "./commands/GetPlaybackKeyPairCommand";
 import { GetStreamCommand, GetStreamCommandInput, GetStreamCommandOutput } from "./commands/GetStreamCommand";
 import {
   GetStreamKeyCommand,
@@ -37,10 +47,20 @@ import {
   GetStreamKeyCommandOutput,
 } from "./commands/GetStreamKeyCommand";
 import {
+  ImportPlaybackKeyPairCommand,
+  ImportPlaybackKeyPairCommandInput,
+  ImportPlaybackKeyPairCommandOutput,
+} from "./commands/ImportPlaybackKeyPairCommand";
+import {
   ListChannelsCommand,
   ListChannelsCommandInput,
   ListChannelsCommandOutput,
 } from "./commands/ListChannelsCommand";
+import {
+  ListPlaybackKeyPairsCommand,
+  ListPlaybackKeyPairsCommandInput,
+  ListPlaybackKeyPairsCommandOutput,
+} from "./commands/ListPlaybackKeyPairsCommand";
 import {
   ListStreamKeysCommand,
   ListStreamKeysCommandInput,
@@ -160,16 +180,22 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  *          <ul>
  *             <li>
  *                <p>Channel — Stores configuration data related to your live stream. You first create a
- *           channel and then use the channel’s stream key to start your live stream. See the <a>Channel</a> endpoints for more information. </p>
+ *           channel and then use the channel’s stream key to start your live stream. See the Channel endpoints for more information. </p>
  *             </li>
  *             <li>
  *                <p>Stream key — An identifier assigned by Amazon IVS when you create a channel, which is
- *           then used to authorize streaming. See the <a>StreamKey</a> endpoints for more
+ *           then used to authorize streaming. See the StreamKey endpoints for more
  *           information. <i>
  *                      <b>Treat the stream key like a secret, since it
  *               allows anyone to stream to the channel.</b>
  *                   </i>
  *                </p>
+ *             </li>
+ *             <li>
+ *                <p>Playback key pair — Video playback may be restricted using playback-authorization tokens,
+ *           which use public-key encryption.
+ *           A playback key pair is the public-private pair of keys used to sign and validate the playback-authorization token.
+ *           See the PlaybackKeyPair endpoints for more information.</p>
  *             </li>
  *          </ul>
  *
@@ -191,14 +217,11 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  *         Access Tags</a>). </p>
  *
  *          <p>The Amazon IVS API has these tag-related endpoints: <a>TagResource</a>, <a>UntagResource</a>, and <a>ListTagsForResource</a>. The following
- *       resources support tagging: Channels and Stream Keys.</p>
+ *       resources support tagging: Channels, Stream Keys, and Playback Key Pairs.</p>
  *
  *          <p>
- *             <b>API Endpoints</b>
+ *             <b>Channel Endpoints</b>
  *          </p>
- *
- *          <p>
- *             <a>Channel</a>:</p>
  *          <ul>
  *             <li>
  *                <p>
@@ -234,7 +257,8 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  *          </ul>
  *
  *          <p>
- *             <a>StreamKey</a>:</p>
+ *             <b>StreamKey Endpoints</b>
+ *          </p>
  *          <ul>
  *             <li>
  *                <p>
@@ -265,7 +289,8 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  *
  *
  *          <p>
- *             <a>Stream</a>:</p>
+ *             <b>Stream Endpoints</b>
+ *          </p>
  *          <ul>
  *             <li>
  *                <p>
@@ -290,11 +315,41 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  *             </li>
  *          </ul>
  *
- *
+ *          <p>
+ *             <b>PlaybackKeyPair Endpoints</b>
+ *          </p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a>ImportPlaybackKeyPair</a> — Imports the public portion of a new
+ *           key pair and returns its <code>arn</code> and <code>fingerprint</code>. The
+ *           <code>privateKey</code> can then be used to generate viewer authorization
+ *           tokens, to grant viewers access to authorized channels.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>GetPlaybackKeyPair</a> — Gets a specified playback
+ *           authorization key pair and returns the <code>arn</code> and
+ *           <code>fingerprint</code>. The <code>privateKey</code> held by the caller can
+ *           be used to generate viewer authorization tokens, to grant viewers access to
+ *           authorized channels.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>ListPlaybackKeyPairs</a> — Gets summary information about
+ *           playback key pairs.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>DeletePlaybackKeyPair</a> — Deletes a specified authorization
+ *           key pair. This invalidates future viewer tokens generated using the key pair’s
+ *           <code>privateKey</code>.</p>
+ *             </li>
+ *          </ul>
  *
  *          <p>
- *             <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html"> AWS
- *       Tags</a>:</p>
+ *             <b>AWS Tags Endpoints</b>
+ *          </p>
  *          <ul>
  *             <li>
  *                <p>
@@ -475,6 +530,39 @@ export class Ivs extends IvsClient {
   }
 
   /**
+   * <p>Deletes a specified authorization key pair. This invalidates future viewer tokens
+   *       generated using the key pair’s <code>privateKey</code>.</p>
+   */
+  public deletePlaybackKeyPair(
+    args: DeletePlaybackKeyPairCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeletePlaybackKeyPairCommandOutput>;
+  public deletePlaybackKeyPair(
+    args: DeletePlaybackKeyPairCommandInput,
+    cb: (err: any, data?: DeletePlaybackKeyPairCommandOutput) => void
+  ): void;
+  public deletePlaybackKeyPair(
+    args: DeletePlaybackKeyPairCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeletePlaybackKeyPairCommandOutput) => void
+  ): void;
+  public deletePlaybackKeyPair(
+    args: DeletePlaybackKeyPairCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeletePlaybackKeyPairCommandOutput) => void),
+    cb?: (err: any, data?: DeletePlaybackKeyPairCommandOutput) => void
+  ): Promise<DeletePlaybackKeyPairCommandOutput> | void {
+    const command = new DeletePlaybackKeyPairCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Deletes the stream key for the specified ARN, so it can no longer be used to
    *       stream.</p>
    */
@@ -523,6 +611,40 @@ export class Ivs extends IvsClient {
     cb?: (err: any, data?: GetChannelCommandOutput) => void
   ): Promise<GetChannelCommandOutput> | void {
     const command = new GetChannelCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Gets a specified playback authorization key pair and returns the <code>arn</code> and
+   *         <code>fingerprint</code>. The <code>privateKey</code> held by the caller can be used to
+   *       generate viewer authorization tokens, to grant viewers access to authorized channels.</p>
+   */
+  public getPlaybackKeyPair(
+    args: GetPlaybackKeyPairCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetPlaybackKeyPairCommandOutput>;
+  public getPlaybackKeyPair(
+    args: GetPlaybackKeyPairCommandInput,
+    cb: (err: any, data?: GetPlaybackKeyPairCommandOutput) => void
+  ): void;
+  public getPlaybackKeyPair(
+    args: GetPlaybackKeyPairCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetPlaybackKeyPairCommandOutput) => void
+  ): void;
+  public getPlaybackKeyPair(
+    args: GetPlaybackKeyPairCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetPlaybackKeyPairCommandOutput) => void),
+    cb?: (err: any, data?: GetPlaybackKeyPairCommandOutput) => void
+  ): Promise<GetPlaybackKeyPairCommandOutput> | void {
+    const command = new GetPlaybackKeyPairCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -589,6 +711,40 @@ export class Ivs extends IvsClient {
   }
 
   /**
+   * <p>Imports the public portion of a new key pair and returns its <code>arn</code> and
+   *         <code>fingerprint</code>. The <code>privateKey</code> can then be used to generate viewer
+   *       authorization tokens, to grant viewers access to authorized channels.</p>
+   */
+  public importPlaybackKeyPair(
+    args: ImportPlaybackKeyPairCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ImportPlaybackKeyPairCommandOutput>;
+  public importPlaybackKeyPair(
+    args: ImportPlaybackKeyPairCommandInput,
+    cb: (err: any, data?: ImportPlaybackKeyPairCommandOutput) => void
+  ): void;
+  public importPlaybackKeyPair(
+    args: ImportPlaybackKeyPairCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ImportPlaybackKeyPairCommandOutput) => void
+  ): void;
+  public importPlaybackKeyPair(
+    args: ImportPlaybackKeyPairCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ImportPlaybackKeyPairCommandOutput) => void),
+    cb?: (err: any, data?: ImportPlaybackKeyPairCommandOutput) => void
+  ): Promise<ImportPlaybackKeyPairCommandOutput> | void {
+    const command = new ImportPlaybackKeyPairCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Gets summary information about all channels in your account, in the AWS region where the
    *       API request is processed. This list can be filtered to match a specified string.</p>
    */
@@ -608,6 +764,38 @@ export class Ivs extends IvsClient {
     cb?: (err: any, data?: ListChannelsCommandOutput) => void
   ): Promise<ListChannelsCommandOutput> | void {
     const command = new ListChannelsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Gets summary information about playback key pairs.</p>
+   */
+  public listPlaybackKeyPairs(
+    args: ListPlaybackKeyPairsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListPlaybackKeyPairsCommandOutput>;
+  public listPlaybackKeyPairs(
+    args: ListPlaybackKeyPairsCommandInput,
+    cb: (err: any, data?: ListPlaybackKeyPairsCommandOutput) => void
+  ): void;
+  public listPlaybackKeyPairs(
+    args: ListPlaybackKeyPairsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListPlaybackKeyPairsCommandOutput) => void
+  ): void;
+  public listPlaybackKeyPairs(
+    args: ListPlaybackKeyPairsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListPlaybackKeyPairsCommandOutput) => void),
+    cb?: (err: any, data?: ListPlaybackKeyPairsCommandOutput) => void
+  ): Promise<ListPlaybackKeyPairsCommandOutput> | void {
+    const command = new ListPlaybackKeyPairsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

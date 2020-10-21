@@ -184,10 +184,11 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  *                Developer Guide</a>. </p>
  *          </note>
  *          <p>AWS WAF is a web application firewall that lets you monitor the HTTP and HTTPS requests
- *          that are forwarded to Amazon CloudFront, an Amazon API Gateway API, or an Application Load
- *          Balancer. AWS WAF also lets you control access to your content. Based on conditions that
+ *          that are forwarded to Amazon CloudFront, an Amazon API Gateway REST API, an Application Load
+ *          Balancer, or an AWS AppSync GraphQL API. AWS WAF also lets you control access to your content. Based on conditions that
  *          you specify, such as the IP addresses that requests originate from or the values of query
- *          strings, API Gateway, CloudFront, or the Application Load Balancer responds to requests
+ *           strings, the API Gateway REST API, CloudFront distribution, the Application Load Balancer,
+ *           or the AWS AppSync GraphQL API responds to requests
  *          either with the requested content or with an HTTP 403 status code (Forbidden). You also can
  *          configure CloudFront to return a custom error page when a request is blocked.</p>
  *          <p>This API guide is for developers who need detailed information about AWS WAF API
@@ -197,7 +198,7 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  *          <ul>
  *             <li>
  *                <p>For regional applications, you can use any of the endpoints in the list.
- *                A regional application can be an Application Load Balancer (ALB) or an API Gateway stage. </p>
+ *                A regional application can be an Application Load Balancer (ALB), an API Gateway REST API, or an AppSync GraphQL API. </p>
  *             </li>
  *             <li>
  *                <p>For AWS CloudFront applications, you must use the API endpoint listed for
@@ -232,7 +233,7 @@ export class WAFV2 extends WAFV2Client {
    * <note>
    *             <p>This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November, 2019. For information, including how to migrate your AWS WAF resources from the prior release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>.  </p>
    *          </note>
-   *          <p>Associates a Web ACL with a regional application resource, to protect the resource. A regional application can be an Application Load Balancer (ALB) or an API Gateway stage.  </p>
+   *          <p>Associates a Web ACL with a regional application resource, to protect the resource. A regional application can be an Application Load Balancer (ALB), an API Gateway REST API, or an AppSync GraphQL API.  </p>
    *          <p>For AWS CloudFront, don't use this call. Instead, use your CloudFront distribution configuration. To associate a Web ACL, in the CloudFront call <code>UpdateDistribution</code>, set the web ACL ID to the Amazon Resource Name (ARN) of the Web ACL. For information, see <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_UpdateDistribution.html">UpdateDistribution</a>.</p>
    */
   public associateWebACL(
@@ -415,7 +416,7 @@ export class WAFV2 extends WAFV2Client {
    *             <p>This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November, 2019. For information, including how to migrate your AWS WAF resources from the prior release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>.  </p>
    *          </note>
    *          <p>Creates a <a>WebACL</a> per the specifications provided.</p>
-   *          <p> A Web ACL defines a collection of rules to use to inspect and control web requests. Each rule has an action defined (allow, block, or count) for requests that match the statement of the rule. In the Web ACL, you assign a default action to take (allow, block) for any request that does not match any of the rules. The rules in a Web ACL can be a combination of the types <a>Rule</a>, <a>RuleGroup</a>, and managed rule group. You can associate a Web ACL with one or more AWS resources to protect. The resources can be Amazon CloudFront, an Amazon API Gateway API, or an Application Load Balancer.  </p>
+   *          <p> A Web ACL defines a collection of rules to use to inspect and control web requests. Each rule has an action defined (allow, block, or count) for requests that match the statement of the rule. In the Web ACL, you assign a default action to take (allow, block) for any request that does not match any of the rules. The rules in a Web ACL can be a combination of the types <a>Rule</a>, <a>RuleGroup</a>, and managed rule group. You can associate a Web ACL with one or more AWS resources to protect. The resources can be Amazon CloudFront, an Amazon API Gateway REST API, an Application Load Balancer, or an AWS AppSync GraphQL API.  </p>
    */
   public createWebACL(
     args: CreateWebACLCommandInput,
@@ -716,7 +717,7 @@ export class WAFV2 extends WAFV2Client {
    * <note>
    *             <p>This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November, 2019. For information, including how to migrate your AWS WAF resources from the prior release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>.  </p>
    *          </note>
-   *          <p>Disassociates a Web ACL from a regional application resource. A regional application can be an Application Load Balancer (ALB) or an API Gateway stage.  </p>
+   *          <p>Disassociates a Web ACL from a regional application resource. A regional application can be an Application Load Balancer (ALB), an API Gateway REST API, or an AppSync GraphQL API.  </p>
    *          <p>For AWS CloudFront, don't use this call. Instead, use your CloudFront distribution configuration. To disassociate a Web ACL, provide an empty web ACL ID in the CloudFront call <code>UpdateDistribution</code>. For information, see <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_UpdateDistribution.html">UpdateDistribution</a>.</p>
    */
   public disassociateWebACL(
@@ -1589,7 +1590,7 @@ export class WAFV2 extends WAFV2Client {
    *             <p>This is the latest version of <b>AWS WAF</b>, named AWS WAFV2, released in November, 2019. For information, including how to migrate your AWS WAF resources from the prior release, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>.  </p>
    *          </note>
    *          <p>Updates the specified <a>WebACL</a>.</p>
-   *          <p> A Web ACL defines a collection of rules to use to inspect and control web requests. Each rule has an action defined (allow, block, or count) for requests that match the statement of the rule. In the Web ACL, you assign a default action to take (allow, block) for any request that does not match any of the rules. The rules in a Web ACL can be a combination of the types <a>Rule</a>, <a>RuleGroup</a>, and managed rule group. You can associate a Web ACL with one or more AWS resources to protect. The resources can be Amazon CloudFront, an Amazon API Gateway API, or an Application Load Balancer.  </p>
+   *          <p> A Web ACL defines a collection of rules to use to inspect and control web requests. Each rule has an action defined (allow, block, or count) for requests that match the statement of the rule. In the Web ACL, you assign a default action to take (allow, block) for any request that does not match any of the rules. The rules in a Web ACL can be a combination of the types <a>Rule</a>, <a>RuleGroup</a>, and managed rule group. You can associate a Web ACL with one or more AWS resources to protect. The resources can be Amazon CloudFront, an Amazon API Gateway REST API, an Application Load Balancer, or an AWS AppSync GraphQL API.  </p>
    */
   public updateWebACL(
     args: UpdateWebACLCommandInput,

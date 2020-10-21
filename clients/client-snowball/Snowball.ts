@@ -17,6 +17,11 @@ import {
 } from "./commands/CreateClusterCommand";
 import { CreateJobCommand, CreateJobCommandInput, CreateJobCommandOutput } from "./commands/CreateJobCommand";
 import {
+  CreateReturnShippingLabelCommand,
+  CreateReturnShippingLabelCommandInput,
+  CreateReturnShippingLabelCommandOutput,
+} from "./commands/CreateReturnShippingLabelCommand";
+import {
   DescribeAddressCommand,
   DescribeAddressCommandInput,
   DescribeAddressCommandOutput,
@@ -32,6 +37,11 @@ import {
   DescribeClusterCommandOutput,
 } from "./commands/DescribeClusterCommand";
 import { DescribeJobCommand, DescribeJobCommandInput, DescribeJobCommandOutput } from "./commands/DescribeJobCommand";
+import {
+  DescribeReturnShippingLabelCommand,
+  DescribeReturnShippingLabelCommandInput,
+  DescribeReturnShippingLabelCommandOutput,
+} from "./commands/DescribeReturnShippingLabelCommand";
 import {
   GetJobManifestCommand,
   GetJobManifestCommandInput,
@@ -74,15 +84,20 @@ import {
   UpdateClusterCommandOutput,
 } from "./commands/UpdateClusterCommand";
 import { UpdateJobCommand, UpdateJobCommandInput, UpdateJobCommandOutput } from "./commands/UpdateJobCommand";
+import {
+  UpdateJobShipmentStateCommand,
+  UpdateJobShipmentStateCommandInput,
+  UpdateJobShipmentStateCommandOutput,
+} from "./commands/UpdateJobShipmentStateCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- * <p>AWS Snowball is a petabyte-scale data transport solution that uses secure devices to
+ * <p>AWS Snow Family is a petabyte-scale data transport solution that uses secure devices to
  *       transfer large amounts of data between your on-premises data centers and Amazon Simple Storage
- *       Service (Amazon S3). The Snowball commands described here provide access to the same
- *       functionality that is available in the AWS Snowball Management Console, which enables you to
- *       create and manage jobs for Snowball. To transfer data locally with a Snowball device, you'll
- *       need to use the Snowball client or the Amazon S3 API adapter for Snowball. For more
+ *       Service (Amazon S3). The Snow commands described here provide access to the same
+ *       functionality that is available in the AWS Snow Family Management Console, which enables you to
+ *       create and manage jobs for a Snow device. To transfer data locally with a Snow device, you'll
+ *       need to use the Snowball Edge client or the Amazon S3 API Interface for Snowball or AWS OpsHub for Snow Family. For more
  *       information, see the <a href="https://docs.aws.amazon.com/AWSImportExport/latest/ug/api-reference.html">User Guide</a>.</p>
  */
 export class Snowball extends SnowballClient {
@@ -150,7 +165,7 @@ export class Snowball extends SnowballClient {
   }
 
   /**
-   * <p>Creates an address for a Snowball to be shipped to. In most regions,
+   * <p>Creates an address for a Snow device to be shipped to. In most regions,
    *       addresses are validated at the time of creation. The address you provide must be located
    *       within the serviceable area of your region. If the address is invalid or unsupported, then an
    *       exception is thrown.</p>
@@ -220,7 +235,7 @@ export class Snowball extends SnowballClient {
   /**
    * <p>Creates a job to import or export data between Amazon S3 and your on-premises data
    *       center. Your AWS account must have the right trust policies and permissions in place to create
-   *       a job for Snowball. If you're creating a job for a node in a cluster, you only need to provide
+   *       a job for a Snow device. If you're creating a job for a node in a cluster, you only need to provide
    *       the <code>clusterId</code> value; the other job attributes are inherited from the cluster.
    *     </p>
    */
@@ -237,6 +252,38 @@ export class Snowball extends SnowballClient {
     cb?: (err: any, data?: CreateJobCommandOutput) => void
   ): Promise<CreateJobCommandOutput> | void {
     const command = new CreateJobCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates a shipping label that will be used to return the Snow device to AWS.</p>
+   */
+  public createReturnShippingLabel(
+    args: CreateReturnShippingLabelCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateReturnShippingLabelCommandOutput>;
+  public createReturnShippingLabel(
+    args: CreateReturnShippingLabelCommandInput,
+    cb: (err: any, data?: CreateReturnShippingLabelCommandOutput) => void
+  ): void;
+  public createReturnShippingLabel(
+    args: CreateReturnShippingLabelCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateReturnShippingLabelCommandOutput) => void
+  ): void;
+  public createReturnShippingLabel(
+    args: CreateReturnShippingLabelCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateReturnShippingLabelCommandOutput) => void),
+    cb?: (err: any, data?: CreateReturnShippingLabelCommandOutput) => void
+  ): Promise<CreateReturnShippingLabelCommandOutput> | void {
+    const command = new CreateReturnShippingLabelCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -375,6 +422,38 @@ export class Snowball extends SnowballClient {
   }
 
   /**
+   * <p>Information on the shipping label of a Snow device that is being returned to AWS.</p>
+   */
+  public describeReturnShippingLabel(
+    args: DescribeReturnShippingLabelCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeReturnShippingLabelCommandOutput>;
+  public describeReturnShippingLabel(
+    args: DescribeReturnShippingLabelCommandInput,
+    cb: (err: any, data?: DescribeReturnShippingLabelCommandOutput) => void
+  ): void;
+  public describeReturnShippingLabel(
+    args: DescribeReturnShippingLabelCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeReturnShippingLabelCommandOutput) => void
+  ): void;
+  public describeReturnShippingLabel(
+    args: DescribeReturnShippingLabelCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeReturnShippingLabelCommandOutput) => void),
+    cb?: (err: any, data?: DescribeReturnShippingLabelCommandOutput) => void
+  ): Promise<DescribeReturnShippingLabelCommandOutput> | void {
+    const command = new DescribeReturnShippingLabelCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Returns a link to an Amazon S3 presigned URL for the manifest file associated with the
    *       specified <code>JobId</code> value. You can access the manifest file for up to 60 minutes
    *       after this request has been made. To access the manifest file after 60 minutes have passed,
@@ -382,13 +461,13 @@ export class Snowball extends SnowballClient {
    *
    *          <p>The manifest is an encrypted file that you can download after your job enters the
    *         <code>WithCustomer</code> status. The manifest is decrypted by using the
-   *         <code>UnlockCode</code> code value, when you pass both values to the Snowball through the
+   *       <code>UnlockCode</code> code value, when you pass both values to the Snow device through the
    *       Snowball client when the client is started for the first time.</p>
    *
    *
    *          <p>As a best practice, we recommend that you don't save a copy of an
    *         <code>UnlockCode</code> value in the same location as the manifest file for that job. Saving
-   *       these separately helps prevent unauthorized parties from gaining access to the Snowball
+   *       these separately helps prevent unauthorized parties from gaining access to the Snow device
    *       associated with that job.</p>
    *
    *
@@ -431,12 +510,12 @@ export class Snowball extends SnowballClient {
    *
    *          <p>The <code>UnlockCode</code> value is a 29-character code with 25 alphanumeric
    *       characters and 4 hyphens. This code is used to decrypt the manifest file when it is passed
-   *       along with the manifest to the Snowball through the Snowball client when the client is started
+   *       along with the manifest to the Snow device through the Snowball client when the client is started
    *       for the first time.</p>
    *
    *          <p>As a best practice, we recommend that you don't save a copy of the
    *         <code>UnlockCode</code> in the same location as the manifest file for that job. Saving these
-   *       separately helps prevent unauthorized parties from gaining access to the Snowball associated
+   *       separately helps prevent unauthorized parties from gaining access to the Snow device associated
    *       with that job.</p>
    */
   public getJobUnlockCode(
@@ -469,10 +548,10 @@ export class Snowball extends SnowballClient {
   }
 
   /**
-   * <p>Returns information about the Snowball service limit for your account, and also the
-   *       number of Snowballs your account has in use.</p>
+   * <p>Returns information about the Snow Family service limit for your account, and also the
+   *       number of Snow devices your account has in use.</p>
    *
-   *          <p>The default service limit for the number of Snowballs that you can have at one time is
+   *          <p>The default service limit for the number of Snow devices that you can have at one time is
    *       1. If you want to increase your service limit, contact AWS Support.</p>
    */
   public getSnowballUsage(
@@ -604,7 +683,7 @@ export class Snowball extends SnowballClient {
 
   /**
    * <p>This action returns a list of the different Amazon EC2 Amazon Machine Images (AMIs)
-   *       that are owned by your AWS account that would be supported for use on a Snowball Edge device.
+   *       that are owned by your AWS account that would be supported for use on a Snow device.
    *       Currently, supported AMIs are based on the CentOS 7 (x86_64) - with Updates HVM, Ubuntu Server
    *       14.04 LTS (HVM), and Ubuntu 16.04 LTS - Xenial (HVM) images, available on the AWS
    *       Marketplace.</p>
@@ -721,6 +800,38 @@ export class Snowball extends SnowballClient {
     cb?: (err: any, data?: UpdateJobCommandOutput) => void
   ): Promise<UpdateJobCommandOutput> | void {
     const command = new UpdateJobCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates the state when a the shipment states changes to a different state.</p>
+   */
+  public updateJobShipmentState(
+    args: UpdateJobShipmentStateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateJobShipmentStateCommandOutput>;
+  public updateJobShipmentState(
+    args: UpdateJobShipmentStateCommandInput,
+    cb: (err: any, data?: UpdateJobShipmentStateCommandOutput) => void
+  ): void;
+  public updateJobShipmentState(
+    args: UpdateJobShipmentStateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateJobShipmentStateCommandOutput) => void
+  ): void;
+  public updateJobShipmentState(
+    args: UpdateJobShipmentStateCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateJobShipmentStateCommandOutput) => void),
+    cb?: (err: any, data?: UpdateJobShipmentStateCommandOutput) => void
+  ): Promise<UpdateJobShipmentStateCommandOutput> | void {
+    const command = new UpdateJobShipmentStateCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
