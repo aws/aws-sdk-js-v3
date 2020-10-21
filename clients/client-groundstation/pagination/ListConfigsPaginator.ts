@@ -29,7 +29,7 @@ export async function* listConfigsPaginate(
   let hasNext = true;
   let page: ListConfigsCommandOutput;
   while (hasNext) {
-    input["nextToken"] = token;
+    input.nextToken = token;
     input["maxResults"] = config.pageSize;
     if (config.client instanceof GroundStation) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -39,7 +39,7 @@ export async function* listConfigsPaginate(
       throw new Error("Invalid client, expected GroundStation | GroundStationClient");
     }
     yield page;
-    token = page["nextToken"];
+    token = page.nextToken;
     hasNext = !!token;
   }
   // @ts-ignore

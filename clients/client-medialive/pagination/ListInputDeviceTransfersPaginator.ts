@@ -33,7 +33,7 @@ export async function* listInputDeviceTransfersPaginate(
   let hasNext = true;
   let page: ListInputDeviceTransfersCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof MediaLive) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* listInputDeviceTransfersPaginate(
       throw new Error("Invalid client, expected MediaLive | MediaLiveClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

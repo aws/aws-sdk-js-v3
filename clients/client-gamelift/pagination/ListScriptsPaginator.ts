@@ -29,7 +29,7 @@ export async function* listScriptsPaginate(
   let hasNext = true;
   let page: ListScriptsCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["Limit"] = config.pageSize;
     if (config.client instanceof GameLift) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -39,7 +39,7 @@ export async function* listScriptsPaginate(
       throw new Error("Invalid client, expected GameLift | GameLiftClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

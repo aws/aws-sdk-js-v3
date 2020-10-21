@@ -29,7 +29,7 @@ export async function* listTablesPaginate(
   let hasNext = true;
   let page: ListTablesCommandOutput;
   while (hasNext) {
-    input["ExclusiveStartTableName"] = token;
+    input.ExclusiveStartTableName = token;
     input["Limit"] = config.pageSize;
     if (config.client instanceof DynamoDB) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -39,7 +39,7 @@ export async function* listTablesPaginate(
       throw new Error("Invalid client, expected DynamoDB | DynamoDBClient");
     }
     yield page;
-    token = page["LastEvaluatedTableName"];
+    token = page.LastEvaluatedTableName;
     hasNext = !!token;
   }
   // @ts-ignore

@@ -33,7 +33,7 @@ export async function* listApplicationsPaginate(
   let hasNext = true;
   let page: ListApplicationsCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxItems"] = config.pageSize;
     if (config.client instanceof ServerlessApplicationRepository) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -45,7 +45,7 @@ export async function* listApplicationsPaginate(
       );
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

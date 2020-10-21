@@ -29,7 +29,7 @@ export async function* listUsersPaginate(
   let hasNext = true;
   let page: ListUsersCommandOutput;
   while (hasNext) {
-    input["PaginationToken"] = token;
+    input.PaginationToken = token;
     input["Limit"] = config.pageSize;
     if (config.client instanceof CognitoIdentityProvider) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -39,7 +39,7 @@ export async function* listUsersPaginate(
       throw new Error("Invalid client, expected CognitoIdentityProvider | CognitoIdentityProviderClient");
     }
     yield page;
-    token = page["PaginationToken"];
+    token = page.PaginationToken;
     hasNext = !!token;
   }
   // @ts-ignore

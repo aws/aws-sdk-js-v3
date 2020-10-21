@@ -33,7 +33,7 @@ export async function* describeServicesPaginate(
   let hasNext = true;
   let page: DescribeServicesCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof Pricing) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* describeServicesPaginate(
       throw new Error("Invalid client, expected Pricing | PricingClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

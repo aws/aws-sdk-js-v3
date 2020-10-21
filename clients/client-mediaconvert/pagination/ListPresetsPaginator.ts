@@ -29,7 +29,7 @@ export async function* listPresetsPaginate(
   let hasNext = true;
   let page: ListPresetsCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof MediaConvert) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -39,7 +39,7 @@ export async function* listPresetsPaginate(
       throw new Error("Invalid client, expected MediaConvert | MediaConvertClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

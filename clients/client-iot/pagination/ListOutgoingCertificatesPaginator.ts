@@ -33,7 +33,7 @@ export async function* listOutgoingCertificatesPaginate(
   let hasNext = true;
   let page: ListOutgoingCertificatesCommandOutput;
   while (hasNext) {
-    input["marker"] = token;
+    input.marker = token;
     input["pageSize"] = config.pageSize;
     if (config.client instanceof IoT) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* listOutgoingCertificatesPaginate(
       throw new Error("Invalid client, expected IoT | IoTClient");
     }
     yield page;
-    token = page["nextMarker"];
+    token = page.nextMarker;
     hasNext = !!token;
   }
   // @ts-ignore

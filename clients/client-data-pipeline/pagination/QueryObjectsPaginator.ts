@@ -33,7 +33,7 @@ export async function* queryObjectsPaginate(
   let hasNext = true;
   let page: QueryObjectsCommandOutput;
   while (hasNext) {
-    input["marker"] = token;
+    input.marker = token;
     input["limit"] = config.pageSize;
     if (config.client instanceof DataPipeline) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* queryObjectsPaginate(
       throw new Error("Invalid client, expected DataPipeline | DataPipelineClient");
     }
     yield page;
-    token = page["marker"];
+    token = page.marker;
     hasNext = !!token;
   }
   // @ts-ignore

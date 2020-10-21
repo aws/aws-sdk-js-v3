@@ -33,7 +33,7 @@ export async function* listAnalyzedResourcesPaginate(
   let hasNext = true;
   let page: ListAnalyzedResourcesCommandOutput;
   while (hasNext) {
-    input["nextToken"] = token;
+    input.nextToken = token;
     input["maxResults"] = config.pageSize;
     if (config.client instanceof AccessAnalyzer) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* listAnalyzedResourcesPaginate(
       throw new Error("Invalid client, expected AccessAnalyzer | AccessAnalyzerClient");
     }
     yield page;
-    token = page["nextToken"];
+    token = page.nextToken;
     hasNext = !!token;
   }
   // @ts-ignore

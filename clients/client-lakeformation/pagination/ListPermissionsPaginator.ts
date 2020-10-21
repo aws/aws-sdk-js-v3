@@ -33,7 +33,7 @@ export async function* listPermissionsPaginate(
   let hasNext = true;
   let page: ListPermissionsCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof LakeFormation) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* listPermissionsPaginate(
       throw new Error("Invalid client, expected LakeFormation | LakeFormationClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

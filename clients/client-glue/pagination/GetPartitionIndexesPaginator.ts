@@ -33,7 +33,7 @@ export async function* getPartitionIndexesPaginate(
   let hasNext = true;
   let page: GetPartitionIndexesCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     if (config.client instanceof Glue) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
     } else if (config.client instanceof GlueClient) {
@@ -42,7 +42,7 @@ export async function* getPartitionIndexesPaginate(
       throw new Error("Invalid client, expected Glue | GlueClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

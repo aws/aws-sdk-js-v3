@@ -33,7 +33,7 @@ export async function* listRecommendationFeedbackPaginate(
   let hasNext = true;
   let page: ListRecommendationFeedbackCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof CodeGuruReviewer) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* listRecommendationFeedbackPaginate(
       throw new Error("Invalid client, expected CodeGuruReviewer | CodeGuruReviewerClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

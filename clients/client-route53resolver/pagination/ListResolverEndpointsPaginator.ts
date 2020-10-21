@@ -33,7 +33,7 @@ export async function* listResolverEndpointsPaginate(
   let hasNext = true;
   let page: ListResolverEndpointsCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof Route53Resolver) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* listResolverEndpointsPaginate(
       throw new Error("Invalid client, expected Route53Resolver | Route53ResolverClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

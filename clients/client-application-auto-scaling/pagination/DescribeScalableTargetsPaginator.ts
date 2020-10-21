@@ -33,7 +33,7 @@ export async function* describeScalableTargetsPaginate(
   let hasNext = true;
   let page: DescribeScalableTargetsCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof ApplicationAutoScaling) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* describeScalableTargetsPaginate(
       throw new Error("Invalid client, expected ApplicationAutoScaling | ApplicationAutoScalingClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

@@ -33,7 +33,7 @@ export async function* listThingsInThingGroupPaginate(
   let hasNext = true;
   let page: ListThingsInThingGroupCommandOutput;
   while (hasNext) {
-    input["nextToken"] = token;
+    input.nextToken = token;
     input["maxResults"] = config.pageSize;
     if (config.client instanceof IoT) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* listThingsInThingGroupPaginate(
       throw new Error("Invalid client, expected IoT | IoTClient");
     }
     yield page;
-    token = page["nextToken"];
+    token = page.nextToken;
     hasNext = !!token;
   }
   // @ts-ignore

@@ -33,7 +33,7 @@ export async function* listImportJobsPaginate(
   let hasNext = true;
   let page: ListImportJobsCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["PageSize"] = config.pageSize;
     if (config.client instanceof SESv2) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* listImportJobsPaginate(
       throw new Error("Invalid client, expected SESv2 | SESv2Client");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

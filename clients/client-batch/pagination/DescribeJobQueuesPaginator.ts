@@ -33,7 +33,7 @@ export async function* describeJobQueuesPaginate(
   let hasNext = true;
   let page: DescribeJobQueuesCommandOutput;
   while (hasNext) {
-    input["nextToken"] = token;
+    input.nextToken = token;
     input["maxResults"] = config.pageSize;
     if (config.client instanceof Batch) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* describeJobQueuesPaginate(
       throw new Error("Invalid client, expected Batch | BatchClient");
     }
     yield page;
-    token = page["nextToken"];
+    token = page.nextToken;
     hasNext = !!token;
   }
   // @ts-ignore

@@ -33,7 +33,7 @@ export async function* listAccountsPaginate(
   let hasNext = true;
   let page: ListAccountsCommandOutput;
   while (hasNext) {
-    input["nextToken"] = token;
+    input.nextToken = token;
     input["maxResults"] = config.pageSize;
     if (config.client instanceof SSO) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* listAccountsPaginate(
       throw new Error("Invalid client, expected SSO | SSOClient");
     }
     yield page;
-    token = page["nextToken"];
+    token = page.nextToken;
     hasNext = !!token;
   }
   // @ts-ignore

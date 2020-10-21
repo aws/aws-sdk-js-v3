@@ -33,7 +33,7 @@ export async function* listPublicKeysPaginate(
   let hasNext = true;
   let page: ListPublicKeysCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     if (config.client instanceof CloudTrail) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
     } else if (config.client instanceof CloudTrailClient) {
@@ -42,7 +42,7 @@ export async function* listPublicKeysPaginate(
       throw new Error("Invalid client, expected CloudTrail | CloudTrailClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

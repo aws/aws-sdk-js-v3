@@ -33,7 +33,7 @@ export async function* listSigningProfilesPaginate(
   let hasNext = true;
   let page: ListSigningProfilesCommandOutput;
   while (hasNext) {
-    input["nextToken"] = token;
+    input.nextToken = token;
     input["maxResults"] = config.pageSize;
     if (config.client instanceof Signer) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* listSigningProfilesPaginate(
       throw new Error("Invalid client, expected Signer | SignerClient");
     }
     yield page;
-    token = page["nextToken"];
+    token = page.nextToken;
     hasNext = !!token;
   }
   // @ts-ignore

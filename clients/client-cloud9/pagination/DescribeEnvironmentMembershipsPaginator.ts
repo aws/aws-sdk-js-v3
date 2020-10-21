@@ -33,7 +33,7 @@ export async function* describeEnvironmentMembershipsPaginate(
   let hasNext = true;
   let page: DescribeEnvironmentMembershipsCommandOutput;
   while (hasNext) {
-    input["nextToken"] = token;
+    input.nextToken = token;
     input["maxResults"] = config.pageSize;
     if (config.client instanceof Cloud9) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* describeEnvironmentMembershipsPaginate(
       throw new Error("Invalid client, expected Cloud9 | Cloud9Client");
     }
     yield page;
-    token = page["nextToken"];
+    token = page.nextToken;
     hasNext = !!token;
   }
   // @ts-ignore

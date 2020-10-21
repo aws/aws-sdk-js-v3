@@ -33,7 +33,7 @@ export async function* listProfileTimesPaginate(
   let hasNext = true;
   let page: ListProfileTimesCommandOutput;
   while (hasNext) {
-    input["nextToken"] = token;
+    input.nextToken = token;
     input["maxResults"] = config.pageSize;
     if (config.client instanceof CodeGuruProfiler) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* listProfileTimesPaginate(
       throw new Error("Invalid client, expected CodeGuruProfiler | CodeGuruProfilerClient");
     }
     yield page;
-    token = page["nextToken"];
+    token = page.nextToken;
     hasNext = !!token;
   }
   // @ts-ignore

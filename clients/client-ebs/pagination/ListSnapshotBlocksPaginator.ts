@@ -33,7 +33,7 @@ export async function* listSnapshotBlocksPaginate(
   let hasNext = true;
   let page: ListSnapshotBlocksCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof EBS) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* listSnapshotBlocksPaginate(
       throw new Error("Invalid client, expected EBS | EBSClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

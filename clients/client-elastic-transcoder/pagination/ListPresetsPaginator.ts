@@ -29,7 +29,7 @@ export async function* listPresetsPaginate(
   let hasNext = true;
   let page: ListPresetsCommandOutput;
   while (hasNext) {
-    input["PageToken"] = token;
+    input.PageToken = token;
     if (config.client instanceof ElasticTranscoder) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
     } else if (config.client instanceof ElasticTranscoderClient) {
@@ -38,7 +38,7 @@ export async function* listPresetsPaginate(
       throw new Error("Invalid client, expected ElasticTranscoder | ElasticTranscoderClient");
     }
     yield page;
-    token = page["NextPageToken"];
+    token = page.NextPageToken;
     hasNext = !!token;
   }
   // @ts-ignore

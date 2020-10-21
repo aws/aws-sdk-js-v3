@@ -33,7 +33,7 @@ export async function* describeProductsPaginate(
   let hasNext = true;
   let page: DescribeProductsCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof SecurityHub) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* describeProductsPaginate(
       throw new Error("Invalid client, expected SecurityHub | SecurityHubClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

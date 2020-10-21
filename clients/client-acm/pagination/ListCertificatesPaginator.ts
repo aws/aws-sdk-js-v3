@@ -33,7 +33,7 @@ export async function* listCertificatesPaginate(
   let hasNext = true;
   let page: ListCertificatesCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxItems"] = config.pageSize;
     if (config.client instanceof ACM) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* listCertificatesPaginate(
       throw new Error("Invalid client, expected ACM | ACMClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

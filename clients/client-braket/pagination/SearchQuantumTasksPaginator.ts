@@ -33,7 +33,7 @@ export async function* searchQuantumTasksPaginate(
   let hasNext = true;
   let page: SearchQuantumTasksCommandOutput;
   while (hasNext) {
-    input["nextToken"] = token;
+    input.nextToken = token;
     input["maxResults"] = config.pageSize;
     if (config.client instanceof Braket) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* searchQuantumTasksPaginate(
       throw new Error("Invalid client, expected Braket | BraketClient");
     }
     yield page;
-    token = page["nextToken"];
+    token = page.nextToken;
     hasNext = !!token;
   }
   // @ts-ignore

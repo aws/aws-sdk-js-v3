@@ -33,7 +33,7 @@ export async function* listTableMetadataPaginate(
   let hasNext = true;
   let page: ListTableMetadataCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof Athena) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* listTableMetadataPaginate(
       throw new Error("Invalid client, expected Athena | AthenaClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

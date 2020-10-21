@@ -33,7 +33,7 @@ export async function* listRoomMembershipsPaginate(
   let hasNext = true;
   let page: ListRoomMembershipsCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof Chime) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* listRoomMembershipsPaginate(
       throw new Error("Invalid client, expected Chime | ChimeClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

@@ -29,7 +29,7 @@ export async function* listTablesPaginate(
   let hasNext = true;
   let page: ListTablesCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof TimestreamWrite) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -39,7 +39,7 @@ export async function* listTablesPaginate(
       throw new Error("Invalid client, expected TimestreamWrite | TimestreamWriteClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

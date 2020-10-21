@@ -33,7 +33,7 @@ export async function* describeAffectedAccountsForOrganizationPaginate(
   let hasNext = true;
   let page: DescribeAffectedAccountsForOrganizationCommandOutput;
   while (hasNext) {
-    input["nextToken"] = token;
+    input.nextToken = token;
     input["maxResults"] = config.pageSize;
     if (config.client instanceof Health) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* describeAffectedAccountsForOrganizationPaginate(
       throw new Error("Invalid client, expected Health | HealthClient");
     }
     yield page;
-    token = page["nextToken"];
+    token = page.nextToken;
     hasNext = !!token;
   }
   // @ts-ignore

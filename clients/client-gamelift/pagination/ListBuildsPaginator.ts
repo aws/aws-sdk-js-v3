@@ -29,7 +29,7 @@ export async function* listBuildsPaginate(
   let hasNext = true;
   let page: ListBuildsCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["Limit"] = config.pageSize;
     if (config.client instanceof GameLift) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -39,7 +39,7 @@ export async function* listBuildsPaginate(
       throw new Error("Invalid client, expected GameLift | GameLiftClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

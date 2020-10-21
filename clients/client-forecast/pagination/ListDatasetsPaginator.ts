@@ -33,7 +33,7 @@ export async function* listDatasetsPaginate(
   let hasNext = true;
   let page: ListDatasetsCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof Forecast) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* listDatasetsPaginate(
       throw new Error("Invalid client, expected Forecast | ForecastClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

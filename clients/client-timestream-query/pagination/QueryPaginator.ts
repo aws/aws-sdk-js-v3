@@ -29,7 +29,7 @@ export async function* queryPaginate(
   let hasNext = true;
   let page: QueryCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxRows"] = config.pageSize;
     if (config.client instanceof TimestreamQuery) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -39,7 +39,7 @@ export async function* queryPaginate(
       throw new Error("Invalid client, expected TimestreamQuery | TimestreamQueryClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

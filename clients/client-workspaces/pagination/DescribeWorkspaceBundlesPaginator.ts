@@ -33,7 +33,7 @@ export async function* describeWorkspaceBundlesPaginate(
   let hasNext = true;
   let page: DescribeWorkspaceBundlesCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     if (config.client instanceof WorkSpaces) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
     } else if (config.client instanceof WorkSpacesClient) {
@@ -42,7 +42,7 @@ export async function* describeWorkspaceBundlesPaginate(
       throw new Error("Invalid client, expected WorkSpaces | WorkSpacesClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

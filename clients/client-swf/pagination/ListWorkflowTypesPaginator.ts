@@ -33,7 +33,7 @@ export async function* listWorkflowTypesPaginate(
   let hasNext = true;
   let page: ListWorkflowTypesCommandOutput;
   while (hasNext) {
-    input["nextPageToken"] = token;
+    input.nextPageToken = token;
     input["maximumPageSize"] = config.pageSize;
     if (config.client instanceof SWF) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* listWorkflowTypesPaginate(
       throw new Error("Invalid client, expected SWF | SWFClient");
     }
     yield page;
-    token = page["nextPageToken"];
+    token = page.nextPageToken;
     hasNext = !!token;
   }
   // @ts-ignore

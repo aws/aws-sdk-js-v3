@@ -33,7 +33,7 @@ export async function* describeClientVpnAuthorizationRulesPaginate(
   let hasNext = true;
   let page: DescribeClientVpnAuthorizationRulesCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof EC2) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* describeClientVpnAuthorizationRulesPaginate(
       throw new Error("Invalid client, expected EC2 | EC2Client");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

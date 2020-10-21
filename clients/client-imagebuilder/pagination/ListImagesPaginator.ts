@@ -29,7 +29,7 @@ export async function* listImagesPaginate(
   let hasNext = true;
   let page: ListImagesCommandOutput;
   while (hasNext) {
-    input["nextToken"] = token;
+    input.nextToken = token;
     input["maxResults"] = config.pageSize;
     if (config.client instanceof Imagebuilder) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -39,7 +39,7 @@ export async function* listImagesPaginate(
       throw new Error("Invalid client, expected Imagebuilder | ImagebuilderClient");
     }
     yield page;
-    token = page["nextToken"];
+    token = page.nextToken;
     hasNext = !!token;
   }
   // @ts-ignore

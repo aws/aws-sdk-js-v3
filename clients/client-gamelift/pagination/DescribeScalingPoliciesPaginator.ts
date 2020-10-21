@@ -33,7 +33,7 @@ export async function* describeScalingPoliciesPaginate(
   let hasNext = true;
   let page: DescribeScalingPoliciesCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["Limit"] = config.pageSize;
     if (config.client instanceof GameLift) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* describeScalingPoliciesPaginate(
       throw new Error("Invalid client, expected GameLift | GameLiftClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

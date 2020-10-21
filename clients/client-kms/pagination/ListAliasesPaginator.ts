@@ -29,7 +29,7 @@ export async function* listAliasesPaginate(
   let hasNext = true;
   let page: ListAliasesCommandOutput;
   while (hasNext) {
-    input["Marker"] = token;
+    input.Marker = token;
     input["Limit"] = config.pageSize;
     if (config.client instanceof KMS) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -39,7 +39,7 @@ export async function* listAliasesPaginate(
       throw new Error("Invalid client, expected KMS | KMSClient");
     }
     yield page;
-    token = page["NextMarker"];
+    token = page.NextMarker;
     hasNext = !!token;
   }
   // @ts-ignore

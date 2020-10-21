@@ -33,7 +33,7 @@ export async function* listRegionalBucketsPaginate(
   let hasNext = true;
   let page: ListRegionalBucketsCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof S3Control) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* listRegionalBucketsPaginate(
       throw new Error("Invalid client, expected S3Control | S3ControlClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

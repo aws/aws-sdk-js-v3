@@ -33,7 +33,7 @@ export async function* describeEnvironmentManagedActionHistoryPaginate(
   let hasNext = true;
   let page: DescribeEnvironmentManagedActionHistoryCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxItems"] = config.pageSize;
     if (config.client instanceof ElasticBeanstalk) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* describeEnvironmentManagedActionHistoryPaginate(
       throw new Error("Invalid client, expected ElasticBeanstalk | ElasticBeanstalkClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

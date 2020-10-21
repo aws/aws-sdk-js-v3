@@ -33,7 +33,7 @@ export async function* listPipelinesPaginate(
   let hasNext = true;
   let page: ListPipelinesCommandOutput;
   while (hasNext) {
-    input["marker"] = token;
+    input.marker = token;
     if (config.client instanceof DataPipeline) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
     } else if (config.client instanceof DataPipelineClient) {
@@ -42,7 +42,7 @@ export async function* listPipelinesPaginate(
       throw new Error("Invalid client, expected DataPipeline | DataPipelineClient");
     }
     yield page;
-    token = page["marker"];
+    token = page.marker;
     hasNext = !!token;
   }
   // @ts-ignore

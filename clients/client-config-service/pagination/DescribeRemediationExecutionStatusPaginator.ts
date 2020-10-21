@@ -33,7 +33,7 @@ export async function* describeRemediationExecutionStatusPaginate(
   let hasNext = true;
   let page: DescribeRemediationExecutionStatusCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["Limit"] = config.pageSize;
     if (config.client instanceof ConfigService) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* describeRemediationExecutionStatusPaginate(
       throw new Error("Invalid client, expected ConfigService | ConfigServiceClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

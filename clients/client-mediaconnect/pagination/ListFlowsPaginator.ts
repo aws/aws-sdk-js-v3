@@ -29,7 +29,7 @@ export async function* listFlowsPaginate(
   let hasNext = true;
   let page: ListFlowsCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof MediaConnect) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -39,7 +39,7 @@ export async function* listFlowsPaginate(
       throw new Error("Invalid client, expected MediaConnect | MediaConnectClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

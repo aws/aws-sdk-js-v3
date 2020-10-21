@@ -33,7 +33,7 @@ export async function* listDatasetImportJobsPaginate(
   let hasNext = true;
   let page: ListDatasetImportJobsCommandOutput;
   while (hasNext) {
-    input["nextToken"] = token;
+    input.nextToken = token;
     input["maxResults"] = config.pageSize;
     if (config.client instanceof Personalize) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* listDatasetImportJobsPaginate(
       throw new Error("Invalid client, expected Personalize | PersonalizeClient");
     }
     yield page;
-    token = page["nextToken"];
+    token = page.nextToken;
     hasNext = !!token;
   }
   // @ts-ignore

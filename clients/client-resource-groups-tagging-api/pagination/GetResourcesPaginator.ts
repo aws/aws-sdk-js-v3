@@ -33,7 +33,7 @@ export async function* getResourcesPaginate(
   let hasNext = true;
   let page: GetResourcesCommandOutput;
   while (hasNext) {
-    input["PaginationToken"] = token;
+    input.PaginationToken = token;
     input["ResourcesPerPage"] = config.pageSize;
     if (config.client instanceof ResourceGroupsTaggingAPI) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* getResourcesPaginate(
       throw new Error("Invalid client, expected ResourceGroupsTaggingAPI | ResourceGroupsTaggingAPIClient");
     }
     yield page;
-    token = page["PaginationToken"];
+    token = page.PaginationToken;
     hasNext = !!token;
   }
   // @ts-ignore

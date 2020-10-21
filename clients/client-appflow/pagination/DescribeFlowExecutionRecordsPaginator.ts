@@ -33,7 +33,7 @@ export async function* describeFlowExecutionRecordsPaginate(
   let hasNext = true;
   let page: DescribeFlowExecutionRecordsCommandOutput;
   while (hasNext) {
-    input["nextToken"] = token;
+    input.nextToken = token;
     input["maxResults"] = config.pageSize;
     if (config.client instanceof Appflow) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* describeFlowExecutionRecordsPaginate(
       throw new Error("Invalid client, expected Appflow | AppflowClient");
     }
     yield page;
-    token = page["nextToken"];
+    token = page.nextToken;
     hasNext = !!token;
   }
   // @ts-ignore

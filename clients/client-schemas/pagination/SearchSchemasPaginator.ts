@@ -33,7 +33,7 @@ export async function* searchSchemasPaginate(
   let hasNext = true;
   let page: SearchSchemasCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["Limit"] = config.pageSize;
     if (config.client instanceof Schemas) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* searchSchemasPaginate(
       throw new Error("Invalid client, expected Schemas | SchemasClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

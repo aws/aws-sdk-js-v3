@@ -33,7 +33,7 @@ export async function* listProvisionedConcurrencyConfigsPaginate(
   let hasNext = true;
   let page: ListProvisionedConcurrencyConfigsCommandOutput;
   while (hasNext) {
-    input["Marker"] = token;
+    input.Marker = token;
     input["MaxItems"] = config.pageSize;
     if (config.client instanceof Lambda) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* listProvisionedConcurrencyConfigsPaginate(
       throw new Error("Invalid client, expected Lambda | LambdaClient");
     }
     yield page;
-    token = page["NextMarker"];
+    token = page.NextMarker;
     hasNext = !!token;
   }
   // @ts-ignore

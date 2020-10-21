@@ -33,7 +33,7 @@ export async function* describeTablePaginate(
   let hasNext = true;
   let page: DescribeTableCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof RedshiftData) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* describeTablePaginate(
       throw new Error("Invalid client, expected RedshiftData | RedshiftDataClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

@@ -33,7 +33,7 @@ export async function* listImageBuildVersionsPaginate(
   let hasNext = true;
   let page: ListImageBuildVersionsCommandOutput;
   while (hasNext) {
-    input["nextToken"] = token;
+    input.nextToken = token;
     input["maxResults"] = config.pageSize;
     if (config.client instanceof Imagebuilder) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* listImageBuildVersionsPaginate(
       throw new Error("Invalid client, expected Imagebuilder | ImagebuilderClient");
     }
     yield page;
-    token = page["nextToken"];
+    token = page.nextToken;
     hasNext = !!token;
   }
   // @ts-ignore

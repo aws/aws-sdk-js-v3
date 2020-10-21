@@ -33,7 +33,7 @@ export async function* describeDefaultClusterParametersPaginate(
   let hasNext = true;
   let page: DescribeDefaultClusterParametersCommandOutput;
   while (hasNext) {
-    input["Marker"] = token;
+    input.Marker = token;
     input["MaxRecords"] = config.pageSize;
     if (config.client instanceof Redshift) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* describeDefaultClusterParametersPaginate(
       throw new Error("Invalid client, expected Redshift | RedshiftClient");
     }
     yield page;
-    token = page["DefaultClusterParameters"]["Marker"];
+    token = page.DefaultClusterParameters?.Marker;
     hasNext = !!token;
   }
   // @ts-ignore

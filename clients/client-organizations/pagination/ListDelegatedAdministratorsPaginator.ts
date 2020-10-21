@@ -33,7 +33,7 @@ export async function* listDelegatedAdministratorsPaginate(
   let hasNext = true;
   let page: ListDelegatedAdministratorsCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof Organizations) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* listDelegatedAdministratorsPaginate(
       throw new Error("Invalid client, expected Organizations | OrganizationsClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

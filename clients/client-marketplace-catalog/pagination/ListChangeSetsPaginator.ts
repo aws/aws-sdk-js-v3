@@ -33,7 +33,7 @@ export async function* listChangeSetsPaginate(
   let hasNext = true;
   let page: ListChangeSetsCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof MarketplaceCatalog) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* listChangeSetsPaginate(
       throw new Error("Invalid client, expected MarketplaceCatalog | MarketplaceCatalogClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

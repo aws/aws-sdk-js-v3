@@ -33,7 +33,7 @@ export async function* listNetworksPaginate(
   let hasNext = true;
   let page: ListNetworksCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof ManagedBlockchain) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* listNetworksPaginate(
       throw new Error("Invalid client, expected ManagedBlockchain | ManagedBlockchainClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

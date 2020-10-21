@@ -33,7 +33,7 @@ export async function* describeVolumeStatusPaginate(
   let hasNext = true;
   let page: DescribeVolumeStatusCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof EC2) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* describeVolumeStatusPaginate(
       throw new Error("Invalid client, expected EC2 | EC2Client");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

@@ -33,7 +33,7 @@ export async function* getSavingsPlansCoveragePaginate(
   let hasNext = true;
   let page: GetSavingsPlansCoverageCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof CostExplorer) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* getSavingsPlansCoveragePaginate(
       throw new Error("Invalid client, expected CostExplorer | CostExplorerClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

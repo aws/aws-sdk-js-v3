@@ -29,7 +29,7 @@ export async function* listIndicesPaginate(
   let hasNext = true;
   let page: ListIndicesCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof Kendra) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -39,7 +39,7 @@ export async function* listIndicesPaginate(
       throw new Error("Invalid client, expected Kendra | KendraClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

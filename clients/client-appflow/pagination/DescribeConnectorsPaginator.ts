@@ -33,7 +33,7 @@ export async function* describeConnectorsPaginate(
   let hasNext = true;
   let page: DescribeConnectorsCommandOutput;
   while (hasNext) {
-    input["nextToken"] = token;
+    input.nextToken = token;
     if (config.client instanceof Appflow) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
     } else if (config.client instanceof AppflowClient) {
@@ -42,7 +42,7 @@ export async function* describeConnectorsPaginate(
       throw new Error("Invalid client, expected Appflow | AppflowClient");
     }
     yield page;
-    token = page["nextToken"];
+    token = page.nextToken;
     hasNext = !!token;
   }
   // @ts-ignore

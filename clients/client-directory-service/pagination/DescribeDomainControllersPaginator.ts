@@ -33,7 +33,7 @@ export async function* describeDomainControllersPaginate(
   let hasNext = true;
   let page: DescribeDomainControllersCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["Limit"] = config.pageSize;
     if (config.client instanceof DirectoryService) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* describeDomainControllersPaginate(
       throw new Error("Invalid client, expected DirectoryService | DirectoryServiceClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

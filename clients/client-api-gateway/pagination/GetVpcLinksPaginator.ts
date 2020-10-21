@@ -29,7 +29,7 @@ export async function* getVpcLinksPaginate(
   let hasNext = true;
   let page: GetVpcLinksCommandOutput;
   while (hasNext) {
-    input["position"] = token;
+    input.position = token;
     input["limit"] = config.pageSize;
     if (config.client instanceof APIGateway) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -39,7 +39,7 @@ export async function* getVpcLinksPaginate(
       throw new Error("Invalid client, expected APIGateway | APIGatewayClient");
     }
     yield page;
-    token = page["position"];
+    token = page.position;
     hasNext = !!token;
   }
   // @ts-ignore

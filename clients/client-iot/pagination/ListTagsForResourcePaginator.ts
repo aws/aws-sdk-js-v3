@@ -33,7 +33,7 @@ export async function* listTagsForResourcePaginate(
   let hasNext = true;
   let page: ListTagsForResourceCommandOutput;
   while (hasNext) {
-    input["nextToken"] = token;
+    input.nextToken = token;
     if (config.client instanceof IoT) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
     } else if (config.client instanceof IoTClient) {
@@ -42,7 +42,7 @@ export async function* listTagsForResourcePaginate(
       throw new Error("Invalid client, expected IoT | IoTClient");
     }
     yield page;
-    token = page["nextToken"];
+    token = page.nextToken;
     hasNext = !!token;
   }
   // @ts-ignore

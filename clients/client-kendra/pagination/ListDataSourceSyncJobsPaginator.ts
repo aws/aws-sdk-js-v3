@@ -33,7 +33,7 @@ export async function* listDataSourceSyncJobsPaginate(
   let hasNext = true;
   let page: ListDataSourceSyncJobsCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof Kendra) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* listDataSourceSyncJobsPaginate(
       throw new Error("Invalid client, expected Kendra | KendraClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

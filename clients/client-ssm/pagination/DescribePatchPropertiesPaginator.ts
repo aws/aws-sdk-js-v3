@@ -33,7 +33,7 @@ export async function* describePatchPropertiesPaginate(
   let hasNext = true;
   let page: DescribePatchPropertiesCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof SSM) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* describePatchPropertiesPaginate(
       throw new Error("Invalid client, expected SSM | SSMClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

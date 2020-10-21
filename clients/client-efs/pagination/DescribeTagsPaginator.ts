@@ -33,7 +33,7 @@ export async function* describeTagsPaginate(
   let hasNext = true;
   let page: DescribeTagsCommandOutput;
   while (hasNext) {
-    input["Marker"] = token;
+    input.Marker = token;
     input["MaxItems"] = config.pageSize;
     if (config.client instanceof EFS) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* describeTagsPaginate(
       throw new Error("Invalid client, expected EFS | EFSClient");
     }
     yield page;
-    token = page["NextMarker"];
+    token = page.NextMarker;
     hasNext = !!token;
   }
   // @ts-ignore

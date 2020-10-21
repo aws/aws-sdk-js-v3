@@ -33,7 +33,7 @@ export async function* listDeliverabilityTestReportsPaginate(
   let hasNext = true;
   let page: ListDeliverabilityTestReportsCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["PageSize"] = config.pageSize;
     if (config.client instanceof PinpointEmail) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* listDeliverabilityTestReportsPaginate(
       throw new Error("Invalid client, expected PinpointEmail | PinpointEmailClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

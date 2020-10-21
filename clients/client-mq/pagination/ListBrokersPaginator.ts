@@ -29,7 +29,7 @@ export async function* listBrokersPaginate(
   let hasNext = true;
   let page: ListBrokersCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof Mq) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -39,7 +39,7 @@ export async function* listBrokersPaginate(
       throw new Error("Invalid client, expected Mq | MqClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

@@ -33,7 +33,7 @@ export async function* describeDBSubnetGroupsPaginate(
   let hasNext = true;
   let page: DescribeDBSubnetGroupsCommandOutput;
   while (hasNext) {
-    input["Marker"] = token;
+    input.Marker = token;
     input["MaxRecords"] = config.pageSize;
     if (config.client instanceof Neptune) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* describeDBSubnetGroupsPaginate(
       throw new Error("Invalid client, expected Neptune | NeptuneClient");
     }
     yield page;
-    token = page["Marker"];
+    token = page.Marker;
     hasNext = !!token;
   }
   // @ts-ignore

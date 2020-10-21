@@ -33,7 +33,7 @@ export async function* listHarvestJobsPaginate(
   let hasNext = true;
   let page: ListHarvestJobsCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof MediaPackage) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* listHarvestJobsPaginate(
       throw new Error("Invalid client, expected MediaPackage | MediaPackageClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

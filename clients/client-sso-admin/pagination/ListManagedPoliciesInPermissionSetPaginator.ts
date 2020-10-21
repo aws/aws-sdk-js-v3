@@ -33,7 +33,7 @@ export async function* listManagedPoliciesInPermissionSetPaginate(
   let hasNext = true;
   let page: ListManagedPoliciesInPermissionSetCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof SSOAdmin) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* listManagedPoliciesInPermissionSetPaginate(
       throw new Error("Invalid client, expected SSOAdmin | SSOAdminClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

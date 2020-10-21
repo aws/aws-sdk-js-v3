@@ -33,7 +33,7 @@ export async function* describeCommunicationsPaginate(
   let hasNext = true;
   let page: DescribeCommunicationsCommandOutput;
   while (hasNext) {
-    input["nextToken"] = token;
+    input.nextToken = token;
     input["maxResults"] = config.pageSize;
     if (config.client instanceof Support) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* describeCommunicationsPaginate(
       throw new Error("Invalid client, expected Support | SupportClient");
     }
     yield page;
-    token = page["nextToken"];
+    token = page.nextToken;
     hasNext = !!token;
   }
   // @ts-ignore

@@ -33,7 +33,7 @@ export async function* listActivitiesPaginate(
   let hasNext = true;
   let page: ListActivitiesCommandOutput;
   while (hasNext) {
-    input["nextToken"] = token;
+    input.nextToken = token;
     input["maxResults"] = config.pageSize;
     if (config.client instanceof SFN) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* listActivitiesPaginate(
       throw new Error("Invalid client, expected SFN | SFNClient");
     }
     yield page;
-    token = page["nextToken"];
+    token = page.nextToken;
     hasNext = !!token;
   }
   // @ts-ignore

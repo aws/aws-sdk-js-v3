@@ -29,7 +29,7 @@ export async function* listStreamsPaginate(
   let hasNext = true;
   let page: ListStreamsCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof KinesisVideo) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -39,7 +39,7 @@ export async function* listStreamsPaginate(
       throw new Error("Invalid client, expected KinesisVideo | KinesisVideoClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

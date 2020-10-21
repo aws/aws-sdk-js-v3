@@ -33,7 +33,7 @@ export async function* listFindingsPaginate(
   let hasNext = true;
   let page: ListFindingsCommandOutput;
   while (hasNext) {
-    input["nextToken"] = token;
+    input.nextToken = token;
     input["maxResults"] = config.pageSize;
     if (config.client instanceof Macie2) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* listFindingsPaginate(
       throw new Error("Invalid client, expected Macie2 | Macie2Client");
     }
     yield page;
-    token = page["nextToken"];
+    token = page.nextToken;
     hasNext = !!token;
   }
   // @ts-ignore

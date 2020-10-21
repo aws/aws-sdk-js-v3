@@ -33,7 +33,7 @@ export async function* listClusterOperationsPaginate(
   let hasNext = true;
   let page: ListClusterOperationsCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof Kafka) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* listClusterOperationsPaginate(
       throw new Error("Invalid client, expected Kafka | KafkaClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

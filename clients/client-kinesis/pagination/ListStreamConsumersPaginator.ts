@@ -33,7 +33,7 @@ export async function* listStreamConsumersPaginate(
   let hasNext = true;
   let page: ListStreamConsumersCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof Kinesis) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* listStreamConsumersPaginate(
       throw new Error("Invalid client, expected Kinesis | KinesisClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore
