@@ -1,4 +1,7 @@
-# @aws-lib/storage
+# @aws-sdk/lib-storage
+
+[![NPM version](https://img.shields.io/npm/v/@aws-sdk/lib-storage/rc.svg)](https://www.npmjs.com/package/@aws-sdk/abort-controller)
+[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/lib-storage.svg)](https://www.npmjs.com/package/@aws-sdk/abort-controller)
 
 ### Upload
 
