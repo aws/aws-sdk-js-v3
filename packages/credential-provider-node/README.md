@@ -1,7 +1,9 @@
-# AWS Credential Provider for Node.JS
+# @aws-sdk/credential-provider-node
 
 [![NPM version](https://img.shields.io/npm/v/@aws-sdk/credential-provider-node/beta.svg)](https://www.npmjs.com/package/@aws-sdk/credential-provider-node)
 [![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/credential-provider-node.svg)](https://www.npmjs.com/package/@aws-sdk/credential-provider-node)
+
+## AWS Credential Provider for Node.JS
 
 This module provides a factory function, `fromEnv`, that will attempt to source
 AWS credentials from a Node.JS environment. It will attempt to find credentials
