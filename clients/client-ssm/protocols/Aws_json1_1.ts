@@ -20259,6 +20259,7 @@ const deserializeAws_json1_1PatchBugzillaIdList = (output: any, context: __Serde
 
 const deserializeAws_json1_1PatchComplianceData = (output: any, context: __SerdeContext): PatchComplianceData => {
   return {
+    CVEIds: output.CVEIds !== undefined && output.CVEIds !== null ? output.CVEIds : undefined,
     Classification:
       output.Classification !== undefined && output.Classification !== null ? output.Classification : undefined,
     InstalledTime:

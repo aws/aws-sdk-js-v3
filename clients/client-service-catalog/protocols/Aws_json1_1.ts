@@ -9736,6 +9736,8 @@ const deserializeAws_json1_1ProvisionedProductDetail = (
       output.LastSuccessfulProvisioningRecordId !== undefined && output.LastSuccessfulProvisioningRecordId !== null
         ? output.LastSuccessfulProvisioningRecordId
         : undefined,
+    LaunchRoleArn:
+      output.LaunchRoleArn !== undefined && output.LaunchRoleArn !== null ? output.LaunchRoleArn : undefined,
     Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
     ProductId: output.ProductId !== undefined && output.ProductId !== null ? output.ProductId : undefined,
     ProvisioningArtifactId:
@@ -10022,6 +10024,8 @@ const deserializeAws_json1_1RecordDetail = (output: any, context: __SerdeContext
       output.CreatedTime !== undefined && output.CreatedTime !== null
         ? new Date(Math.round(output.CreatedTime * 1000))
         : undefined,
+    LaunchRoleArn:
+      output.LaunchRoleArn !== undefined && output.LaunchRoleArn !== null ? output.LaunchRoleArn : undefined,
     PathId: output.PathId !== undefined && output.PathId !== null ? output.PathId : undefined,
     ProductId: output.ProductId !== undefined && output.ProductId !== null ? output.ProductId : undefined,
     ProvisionedProductId:

@@ -268,12 +268,18 @@ export type GlobalAcceleratorClientResolvedConfig = __SmithyResolvedConfiguratio
 /**
  * <fullname>AWS Global Accelerator</fullname>
  * 		       <p>This is the <i>AWS Global Accelerator API Reference</i>. This guide is for developers who need detailed information about
- * 			AWS Global Accelerator API actions, data types, and errors. For more information about Global Accelerator features, see the <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/Welcome.html">AWS Global Accelerator Developer Guide</a>. </p>
- * 		       <p>AWS Global Accelerator is a service in which you create accelerators to improve availability and performance of your applications for
- * 			local and global users. </p>
+ * 			AWS Global Accelerator API actions, data types, and errors. For more information about Global Accelerator features, see the
+ * 			<a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/Welcome.html">AWS Global Accelerator Developer Guide</a>.</p>
+ * 		       <p>AWS Global Accelerator is a service in which you create <i>accelerators</i> to improve availability and performance
+ * 			of your applications for local and global users. Global Accelerator directs traffic to optimal endpoints over the AWS
+ * 			global network. This improves the availability and performance of your internet applications that are used by
+ * 			a global audience. Global Accelerator is a global service that supports endpoints in multiple AWS Regions, which are listed
+ * 			in the <a href="https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/">AWS
+ * 			Region Table</a>.</p>
  *
  * 		       <important>
- * 			         <p>You must specify the US West (Oregon) Region to create or update accelerators.</p>
+ * 			         <p>Global Accelerator is a global service that supports endpoints in multiple AWS Regions but you must specify the
+ * 				US West (Oregon) Region to create or update accelerators.</p>
  * 		       </important>
  *
  * 		       <p>By default, Global Accelerator provides you with static IP addresses that you associate with your accelerator. (Instead of using the

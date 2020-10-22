@@ -24,6 +24,7 @@ import {
   PartitionInput,
   Predicate,
   PrincipalType,
+  RecrawlPolicy,
   ResourceShareType,
   ResourceUri,
   SchemaChangePolicy,
@@ -33,7 +34,6 @@ import {
   TableIdentifier,
   TableInput,
   TransformParameters,
-  TransformStatusType,
   TransformType,
   Trigger,
   UserDefinedFunctionInput,
@@ -43,6 +43,129 @@ import {
 } from "./models_0";
 import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+export enum TransformStatusType {
+  DELETING = "DELETING",
+  NOT_READY = "NOT_READY",
+  READY = "READY",
+}
+
+export interface GetMLTransformResponse {
+  /**
+   * <p>The configuration parameters that are specific to the algorithm used.</p>
+   */
+  Parameters?: TransformParameters;
+
+  /**
+   * <p>The maximum number of times to retry a task for this transform after a task run fails.</p>
+   */
+  MaxRetries?: number;
+
+  /**
+   * <p>The last known status of the transform (to indicate whether it can be used or not). One of "NOT_READY", "READY", or "DELETING".</p>
+   */
+  Status?: TransformStatusType | string;
+
+  /**
+   * <p>A list of AWS Glue table definitions used by the transform.</p>
+   */
+  InputRecordTables?: GlueTable[];
+
+  /**
+   * <p>The number of AWS Glue data processing units (DPUs) that are allocated to task runs for this transform. You can allocate from 2 to 100 DPUs; the default is 10. A DPU is a relative measure of
+   *       processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory. For more
+   *       information, see the <a href="https://aws.amazon.com/glue/pricing/">AWS Glue pricing
+   *         page</a>. </p>
+   *
+   *          <p>When the <code>WorkerType</code> field is set to a value other than <code>Standard</code>, the <code>MaxCapacity</code> field is set automatically and becomes read-only.</p>
+   */
+  MaxCapacity?: number;
+
+  /**
+   * <p>The latest evaluation metrics.</p>
+   */
+  EvaluationMetrics?: EvaluationMetrics;
+
+  /**
+   * <p>The timeout for a task run for this transform in minutes. This is the maximum time that a task run for this transform can consume resources before it is terminated and enters <code>TIMEOUT</code> status. The default is 2,880 minutes (48 hours).</p>
+   */
+  Timeout?: number;
+
+  /**
+   * <p>The <code>Map<Column, Type></code> object that represents the schema that this
+   *       transform accepts. Has an upper bound of 100 columns.</p>
+   */
+  Schema?: SchemaColumn[];
+
+  /**
+   * <p>The unique name given to the transform when it was created.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The number of labels available for this transform.</p>
+   */
+  LabelCount?: number;
+
+  /**
+   * <p>The name or Amazon Resource Name (ARN) of the IAM role with the required
+   *       permissions.</p>
+   */
+  Role?: string;
+
+  /**
+   * <p>This value determines which version of AWS Glue this machine learning transform is compatible with. Glue 1.0 is recommended for most customers. If the value is not set, the Glue compatibility defaults to Glue 0.9.  For more information, see <a href="https://docs.aws.amazon.com/glue/latest/dg/release-notes.html#release-notes-versions">AWS Glue Versions</a> in the developer guide.</p>
+   */
+  GlueVersion?: string;
+
+  /**
+   * <p>The unique identifier of the transform, generated at the time that the transform was
+   *       created.</p>
+   */
+  TransformId?: string;
+
+  /**
+   * <p>The date and time when the transform was created.</p>
+   */
+  CreatedOn?: Date;
+
+  /**
+   * <p>The type of predefined worker that is allocated when this task runs. Accepts a value of Standard, G.1X, or G.2X.</p>
+   * 	        <ul>
+   *             <li>
+   *                <p>For the <code>Standard</code> worker type, each worker provides 4 vCPU, 16 GB of memory and a 50GB disk, and 2 executors per worker.</p>
+   *             </li>
+   *             <li>
+   *                <p>For the <code>G.1X</code> worker type, each worker provides 4 vCPU, 16 GB of memory and a 64GB disk, and 1 executor per worker.</p>
+   *             </li>
+   *             <li>
+   *                <p>For the <code>G.2X</code> worker type, each worker provides 8 vCPU, 32 GB of memory and a 128GB disk, and 1 executor per worker.</p>
+   *             </li>
+   *          </ul>
+   */
+  WorkerType?: WorkerType | string;
+
+  /**
+   * <p>The date and time when the transform was last modified.</p>
+   */
+  LastModifiedOn?: Date;
+
+  /**
+   * <p>The number of workers of a defined <code>workerType</code> that are allocated when this task runs.</p>
+   */
+  NumberOfWorkers?: number;
+
+  /**
+   * <p>A description of the transform.</p>
+   */
+  Description?: string;
+}
+
+export namespace GetMLTransformResponse {
+  export const filterSensitiveLog = (obj: GetMLTransformResponse): any => ({
+    ...obj,
+  });
+}
 
 /**
  * <p>The criteria used to filter the machine learning transforms.</p>
@@ -3298,6 +3421,11 @@ export interface UpdateCrawlerRequest {
    *       <code>cron(15 12 * * ? *)</code>.</p>
    */
   Schedule?: string;
+
+  /**
+   * <p>A policy that specifies whether to crawl the entire dataset again, or to crawl only folders that were added since the last crawler run.</p>
+   */
+  RecrawlPolicy?: RecrawlPolicy;
 
   /**
    * <p>The policy for the crawler's update and deletion behavior.</p>

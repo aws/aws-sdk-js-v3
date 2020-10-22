@@ -85,6 +85,52 @@ import {
 } from "./models_2";
 import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
 
+export interface DescribeMovingAddressesRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return for the request in a single page. The remaining
+   *       results of the initial request can be seen by sending another request with the returned
+   *       <code>NextToken</code> value. This value can be between 5 and 1000; if
+   *       <code>MaxResults</code> is given a value outside of this range, an error is returned.</p>
+   *          <p>Default: If no value is provided, the default is 1000.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>One or more filters.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>moving-status</code> - The status of the Elastic IP address
+   *           (<code>MovingToVpc</code> | <code>RestoringToClassic</code>).</p>
+   *             </li>
+   *          </ul>
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>One or more Elastic IP addresses.</p>
+   */
+  PublicIps?: string[];
+}
+
+export namespace DescribeMovingAddressesRequest {
+  export const filterSensitiveLog = (obj: DescribeMovingAddressesRequest): any => ({
+    ...obj,
+  });
+}
+
 export type MoveStatus = "movingToVpc" | "restoringToClassic";
 
 /**
@@ -3617,13 +3663,17 @@ export namespace SpotFleetTagSpecification {
 
 /**
  * <p>Describes the launch specification for one or more Spot Instances. If you include
- *             On-Demand capacity in your fleet request, you can't use
+ *             On-Demand capacity in your fleet request or want to specify an EFA network device, you can't use
  *                 <code>SpotFleetLaunchSpecification</code>; you must use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_LaunchTemplateConfig.html">LaunchTemplateConfig</a>.</p>
  */
 export interface SpotFleetLaunchSpecification {
   /**
    * <p>One or more network interfaces. If you specify a network interface, you must specify
    *           subnet IDs and security group IDs using the network interface.</p>
+   *          <note>
+   *             <p>
+   *                <code>SpotFleetLaunchSpecification</code> currently does not support Elastic Fabric Adapter (EFA). To specify an EFA, you must use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_LaunchTemplateConfig.html">LaunchTemplateConfig</a>.</p>
+   *          </note>
    */
   NetworkInterfaces?: InstanceNetworkInterfaceSpecification[];
 
@@ -4516,10 +4566,20 @@ export interface SpotInstanceRequest {
   CreateTime?: Date;
 
   /**
-   * <p>The end date of the request, in UTC format (for example, <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).
-   *         If this is a one-time request, it remains active until all instances launch, the request is canceled, or this date is reached.
-   * 		If the request is persistent, it remains active until it is canceled or this date is reached.
-   *         The default end date is 7 days from the current date.</p>
+   * <p>The end date of the request, in UTC format
+   *                 (<i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).</p>
+   *          <ul>
+   *             <li>
+   *                 <p>For a persistent request, the request remains active until the <code>validUntil</code> date
+   *                     and time is reached. Otherwise, the request remains active until you cancel it.
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                <p>For a one-time request, the request remains active until all instances launch,
+   *                     the request is canceled, or the <code>validUntil</code> date and time is reached. By default, the
+   *                     request is valid for 7 days from the date the request was created.</p>
+   *            </li>
+   *          </ul>
    */
   ValidUntil?: Date;
 
@@ -4652,8 +4712,12 @@ export interface DescribeSpotPriceHistoryRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>product-description</code> - The product description for the Spot price
-   *            (<code>Linux/UNIX</code> | <code>SUSE Linux</code> | <code>Windows</code> | <code>Linux/UNIX (Amazon VPC)</code> | <code>SUSE Linux (Amazon VPC)</code> | <code>Windows (Amazon VPC)</code>).</p>
+   *                     <code>product-description</code> - The product description for the Spot price
+   *                         (<code>Linux/UNIX</code> | <code>Red Hat Enterprise Linux</code> |
+   *                         <code>SUSE Linux</code> | <code>Windows</code> | <code>Linux/UNIX (Amazon
+   *                         VPC)</code> | <code>Red Hat Enterprise Linux (Amazon VPC)</code>
+   *                         | <code>SUSE Linux (Amazon VPC)</code> | <code>Windows (Amazon
+   *                     VPC)</code>).</p>
    *             </li>
    *             <li>
    *                <p>
@@ -10480,24 +10544,6 @@ export interface TransitGatewayAttachmentPropagation {
 
 export namespace TransitGatewayAttachmentPropagation {
   export const filterSensitiveLog = (obj: TransitGatewayAttachmentPropagation): any => ({
-    ...obj,
-  });
-}
-
-export interface GetTransitGatewayAttachmentPropagationsResult {
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>Information about the propagation route tables.</p>
-   */
-  TransitGatewayAttachmentPropagations?: TransitGatewayAttachmentPropagation[];
-}
-
-export namespace GetTransitGatewayAttachmentPropagationsResult {
-  export const filterSensitiveLog = (obj: GetTransitGatewayAttachmentPropagationsResult): any => ({
     ...obj,
   });
 }

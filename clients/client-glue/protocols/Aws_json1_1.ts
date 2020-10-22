@@ -446,7 +446,6 @@ import {
   GetMLTaskRunsRequest,
   GetMLTaskRunsResponse,
   GetMLTransformRequest,
-  GetMLTransformResponse,
   GetMappingRequest,
   GetMappingResponse,
   GlueEncryptionException,
@@ -484,6 +483,7 @@ import {
   Predecessor,
   Predicate,
   PrincipalPermissions,
+  RecrawlPolicy,
   ResourceNumberLimitExceededException,
   ResourceUri,
   S3Encryption,
@@ -522,6 +522,7 @@ import {
   CrawlerNotRunningException,
   CrawlerStoppingException,
   DevEndpointCustomLibraries,
+  GetMLTransformResponse,
   GetMLTransformsRequest,
   GetMLTransformsResponse,
   GetPartitionIndexesRequest,
@@ -14315,6 +14316,9 @@ const serializeAws_json1_1CreateCrawlerRequest = (input: CreateCrawlerRequest, c
     ...(input.DatabaseName !== undefined && { DatabaseName: input.DatabaseName }),
     ...(input.Description !== undefined && { Description: input.Description }),
     ...(input.Name !== undefined && { Name: input.Name }),
+    ...(input.RecrawlPolicy !== undefined && {
+      RecrawlPolicy: serializeAws_json1_1RecrawlPolicy(input.RecrawlPolicy, context),
+    }),
     ...(input.Role !== undefined && { Role: input.Role }),
     ...(input.Schedule !== undefined && { Schedule: input.Schedule }),
     ...(input.SchemaChangePolicy !== undefined && {
@@ -15697,6 +15701,12 @@ const serializeAws_json1_1PutWorkflowRunPropertiesRequest = (
   };
 };
 
+const serializeAws_json1_1RecrawlPolicy = (input: RecrawlPolicy, context: __SerdeContext): any => {
+  return {
+    ...(input.RecrawlBehavior !== undefined && { RecrawlBehavior: input.RecrawlBehavior }),
+  };
+};
+
 const serializeAws_json1_1ResetJobBookmarkRequest = (input: ResetJobBookmarkRequest, context: __SerdeContext): any => {
   return {
     ...(input.JobName !== undefined && { JobName: input.JobName }),
@@ -16180,6 +16190,9 @@ const serializeAws_json1_1UpdateCrawlerRequest = (input: UpdateCrawlerRequest, c
     ...(input.DatabaseName !== undefined && { DatabaseName: input.DatabaseName }),
     ...(input.Description !== undefined && { Description: input.Description }),
     ...(input.Name !== undefined && { Name: input.Name }),
+    ...(input.RecrawlPolicy !== undefined && {
+      RecrawlPolicy: serializeAws_json1_1RecrawlPolicy(input.RecrawlPolicy, context),
+    }),
     ...(input.Role !== undefined && { Role: input.Role }),
     ...(input.Schedule !== undefined && { Schedule: input.Schedule }),
     ...(input.SchemaChangePolicy !== undefined && {
@@ -17121,6 +17134,10 @@ const deserializeAws_json1_1Crawler = (output: any, context: __SerdeContext): Cr
         ? new Date(Math.round(output.LastUpdated * 1000))
         : undefined,
     Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+    RecrawlPolicy:
+      output.RecrawlPolicy !== undefined && output.RecrawlPolicy !== null
+        ? deserializeAws_json1_1RecrawlPolicy(output.RecrawlPolicy, context)
+        : undefined,
     Role: output.Role !== undefined && output.Role !== null ? output.Role : undefined,
     Schedule:
       output.Schedule !== undefined && output.Schedule !== null
@@ -19254,6 +19271,13 @@ const deserializeAws_json1_1PutWorkflowRunPropertiesResponse = (
   context: __SerdeContext
 ): PutWorkflowRunPropertiesResponse => {
   return {} as any;
+};
+
+const deserializeAws_json1_1RecrawlPolicy = (output: any, context: __SerdeContext): RecrawlPolicy => {
+  return {
+    RecrawlBehavior:
+      output.RecrawlBehavior !== undefined && output.RecrawlBehavior !== null ? output.RecrawlBehavior : undefined,
+  } as any;
 };
 
 const deserializeAws_json1_1ResetJobBookmarkResponse = (

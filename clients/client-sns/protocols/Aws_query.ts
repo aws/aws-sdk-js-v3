@@ -4191,8 +4191,14 @@ const serializeAws_queryPublishInput = (input: PublishInput, context: __SerdeCon
   if (input.Message !== undefined) {
     entries["Message"] = input.Message;
   }
+  if (input.MessageDeduplicationId !== undefined) {
+    entries["MessageDeduplicationId"] = input.MessageDeduplicationId;
+  }
   if (input.MessageStructure !== undefined) {
     entries["MessageStructure"] = input.MessageStructure;
+  }
+  if (input.MessageGroupId !== undefined) {
+    entries["MessageGroupId"] = input.MessageGroupId;
   }
   if (input.PhoneNumber !== undefined) {
     entries["PhoneNumber"] = input.PhoneNumber;
@@ -4991,8 +4997,12 @@ const deserializeAws_queryPlatformApplicationDisabledException = (
 
 const deserializeAws_queryPublishResponse = (output: any, context: __SerdeContext): PublishResponse => {
   let contents: any = {
+    SequenceNumber: undefined,
     MessageId: undefined,
   };
+  if (output["SequenceNumber"] !== undefined) {
+    contents.SequenceNumber = output["SequenceNumber"];
+  }
   if (output["MessageId"] !== undefined) {
     contents.MessageId = output["MessageId"];
   }

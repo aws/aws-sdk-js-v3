@@ -814,6 +814,31 @@ export namespace LastCrawlInfo {
   });
 }
 
+export enum RecrawlBehavior {
+  CRAWL_EVERYTHING = "CRAWL_EVERYTHING",
+  CRAWL_NEW_FOLDERS_ONLY = "CRAWL_NEW_FOLDERS_ONLY",
+}
+
+/**
+ * <p>When crawling an Amazon S3 data source after the first crawl is complete, specifies whether to crawl the entire dataset again or to crawl only folders that were added since the last crawler run. For more information, see <a href="https://docs.aws.amazon.com/glue/latest/dg/incremental-crawls.html">Incremental Crawls in AWS Glue</a> in the developer guide.</p>
+ */
+export interface RecrawlPolicy {
+  /**
+   * <p>Specifies whether to crawl the entire dataset again or to crawl only folders that were added since the last crawler run.</p>
+   *
+   * 	        <p>A value of <code>CRAWL_EVERYTHING</code> specifies crawling the entire dataset again.</p>
+   *
+   *          <p>A value of <code>CRAWL_NEW_FOLDERS_ONLY</code> specifies crawling only folders that were added since the last crawler run.</p>
+   */
+  RecrawlBehavior?: RecrawlBehavior | string;
+}
+
+export namespace RecrawlPolicy {
+  export const filterSensitiveLog = (obj: RecrawlPolicy): any => ({
+    ...obj,
+  });
+}
+
 export enum ScheduleState {
   NOT_SCHEDULED = "NOT_SCHEDULED",
   SCHEDULED = "SCHEDULED",
@@ -1065,6 +1090,11 @@ export interface Crawler {
    * <p>The time that the crawler was last updated.</p>
    */
   LastUpdated?: Date;
+
+  /**
+   * <p>A policy that specifies whether to crawl the entire dataset again, or to crawl only folders that were added since the last crawler run.</p>
+   */
+  RecrawlPolicy?: RecrawlPolicy;
 
   /**
    * <p>The status of the last crawl, and potentially error information if
@@ -3099,6 +3129,37 @@ export namespace CreateConnectionResponse {
 
 export interface CreateCrawlerRequest {
   /**
+   * <p>The IAM role or Amazon Resource Name (ARN) of an IAM role used by the new crawler to
+   *       access customer resources.</p>
+   */
+  Role: string | undefined;
+
+  /**
+   * <p>The tags to use with this crawler request. You may use tags to limit access to the
+   *             crawler. For more information about tags in AWS Glue, see <a href="https://docs.aws.amazon.com/glue/latest/dg/monitor-tags.html">AWS Tags in AWS Glue</a> in the developer
+   *             guide.</p>
+   */
+  Tags?: { [key: string]: string };
+
+  /**
+   * <p>Name of the new crawler.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The name of the <code>SecurityConfiguration</code> structure to be used by this
+   *       crawler.</p>
+   */
+  CrawlerSecurityConfiguration?: string;
+
+  /**
+   * <p>A <code>cron</code> expression used to specify the schedule (see <a href="https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html">Time-Based Schedules for Jobs and Crawlers</a>. For example, to run
+   *       something every day at 12:15 UTC, you would specify:
+   *       <code>cron(15 12 * * ? *)</code>.</p>
+   */
+  Schedule?: string;
+
+  /**
    * <p>The policy for the crawler's update and deletion behavior.</p>
    */
   SchemaChangePolicy?: SchemaChangePolicy;
@@ -3120,27 +3181,9 @@ export interface CreateCrawlerRequest {
   DatabaseName?: string;
 
   /**
-   * <p>The IAM role or Amazon Resource Name (ARN) of an IAM role used by the new crawler to
-   *       access customer resources.</p>
-   */
-  Role: string | undefined;
-
-  /**
-   * <p>The tags to use with this crawler request. You may use tags to limit access to the
-   *             crawler. For more information about tags in AWS Glue, see <a href="https://docs.aws.amazon.com/glue/latest/dg/monitor-tags.html">AWS Tags in AWS Glue</a> in the developer
-   *             guide.</p>
-   */
-  Tags?: { [key: string]: string };
-
-  /**
    * <p>The table prefix used for catalog tables that are created.</p>
    */
   TablePrefix?: string;
-
-  /**
-   * <p>Name of the new crawler.</p>
-   */
-  Name: string | undefined;
 
   /**
    * <p>Crawler configuration information. This versioned JSON
@@ -3150,12 +3193,6 @@ export interface CreateCrawlerRequest {
   Configuration?: string;
 
   /**
-   * <p>The name of the <code>SecurityConfiguration</code> structure to be used by this
-   *       crawler.</p>
-   */
-  CrawlerSecurityConfiguration?: string;
-
-  /**
    * <p>A list of custom classifiers that the user has registered. By default, all built-in
    *       classifiers are included in a crawl, but these custom classifiers always override the default
    *       classifiers for a given classification.</p>
@@ -3163,11 +3200,9 @@ export interface CreateCrawlerRequest {
   Classifiers?: string[];
 
   /**
-   * <p>A <code>cron</code> expression used to specify the schedule (see <a href="https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html">Time-Based Schedules for Jobs and Crawlers</a>. For example, to run
-   *       something every day at 12:15 UTC, you would specify:
-   *       <code>cron(15 12 * * ? *)</code>.</p>
+   * <p>A policy that specifies whether to crawl the entire dataset again, or to crawl only folders that were added since the last crawler run.</p>
    */
-  Schedule?: string;
+  RecrawlPolicy?: RecrawlPolicy;
 }
 
 export namespace CreateCrawlerRequest {
@@ -7735,129 +7770,6 @@ export interface SchemaColumn {
 
 export namespace SchemaColumn {
   export const filterSensitiveLog = (obj: SchemaColumn): any => ({
-    ...obj,
-  });
-}
-
-export enum TransformStatusType {
-  DELETING = "DELETING",
-  NOT_READY = "NOT_READY",
-  READY = "READY",
-}
-
-export interface GetMLTransformResponse {
-  /**
-   * <p>The configuration parameters that are specific to the algorithm used.</p>
-   */
-  Parameters?: TransformParameters;
-
-  /**
-   * <p>The maximum number of times to retry a task for this transform after a task run fails.</p>
-   */
-  MaxRetries?: number;
-
-  /**
-   * <p>The last known status of the transform (to indicate whether it can be used or not). One of "NOT_READY", "READY", or "DELETING".</p>
-   */
-  Status?: TransformStatusType | string;
-
-  /**
-   * <p>A list of AWS Glue table definitions used by the transform.</p>
-   */
-  InputRecordTables?: GlueTable[];
-
-  /**
-   * <p>The number of AWS Glue data processing units (DPUs) that are allocated to task runs for this transform. You can allocate from 2 to 100 DPUs; the default is 10. A DPU is a relative measure of
-   *       processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory. For more
-   *       information, see the <a href="https://aws.amazon.com/glue/pricing/">AWS Glue pricing
-   *         page</a>. </p>
-   *
-   *          <p>When the <code>WorkerType</code> field is set to a value other than <code>Standard</code>, the <code>MaxCapacity</code> field is set automatically and becomes read-only.</p>
-   */
-  MaxCapacity?: number;
-
-  /**
-   * <p>The latest evaluation metrics.</p>
-   */
-  EvaluationMetrics?: EvaluationMetrics;
-
-  /**
-   * <p>The timeout for a task run for this transform in minutes. This is the maximum time that a task run for this transform can consume resources before it is terminated and enters <code>TIMEOUT</code> status. The default is 2,880 minutes (48 hours).</p>
-   */
-  Timeout?: number;
-
-  /**
-   * <p>The <code>Map<Column, Type></code> object that represents the schema that this
-   *       transform accepts. Has an upper bound of 100 columns.</p>
-   */
-  Schema?: SchemaColumn[];
-
-  /**
-   * <p>The unique name given to the transform when it was created.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>The number of labels available for this transform.</p>
-   */
-  LabelCount?: number;
-
-  /**
-   * <p>The name or Amazon Resource Name (ARN) of the IAM role with the required
-   *       permissions.</p>
-   */
-  Role?: string;
-
-  /**
-   * <p>This value determines which version of AWS Glue this machine learning transform is compatible with. Glue 1.0 is recommended for most customers. If the value is not set, the Glue compatibility defaults to Glue 0.9.  For more information, see <a href="https://docs.aws.amazon.com/glue/latest/dg/release-notes.html#release-notes-versions">AWS Glue Versions</a> in the developer guide.</p>
-   */
-  GlueVersion?: string;
-
-  /**
-   * <p>The unique identifier of the transform, generated at the time that the transform was
-   *       created.</p>
-   */
-  TransformId?: string;
-
-  /**
-   * <p>The date and time when the transform was created.</p>
-   */
-  CreatedOn?: Date;
-
-  /**
-   * <p>The type of predefined worker that is allocated when this task runs. Accepts a value of Standard, G.1X, or G.2X.</p>
-   * 	        <ul>
-   *             <li>
-   *                <p>For the <code>Standard</code> worker type, each worker provides 4 vCPU, 16 GB of memory and a 50GB disk, and 2 executors per worker.</p>
-   *             </li>
-   *             <li>
-   *                <p>For the <code>G.1X</code> worker type, each worker provides 4 vCPU, 16 GB of memory and a 64GB disk, and 1 executor per worker.</p>
-   *             </li>
-   *             <li>
-   *                <p>For the <code>G.2X</code> worker type, each worker provides 8 vCPU, 32 GB of memory and a 128GB disk, and 1 executor per worker.</p>
-   *             </li>
-   *          </ul>
-   */
-  WorkerType?: WorkerType | string;
-
-  /**
-   * <p>The date and time when the transform was last modified.</p>
-   */
-  LastModifiedOn?: Date;
-
-  /**
-   * <p>The number of workers of a defined <code>workerType</code> that are allocated when this task runs.</p>
-   */
-  NumberOfWorkers?: number;
-
-  /**
-   * <p>A description of the transform.</p>
-   */
-  Description?: string;
-}
-
-export namespace GetMLTransformResponse {
-  export const filterSensitiveLog = (obj: GetMLTransformResponse): any => ({
     ...obj,
   });
 }

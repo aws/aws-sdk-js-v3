@@ -2019,7 +2019,6 @@ import {
   DescribeLocalGatewaysResult,
   DescribeManagedPrefixListsRequest,
   DescribeManagedPrefixListsResult,
-  DescribeMovingAddressesRequest,
   DirectoryServiceAuthentication,
   DiskImageDescription,
   DiskImageVolumeDescription,
@@ -2128,6 +2127,7 @@ import {
   ClientCertificateRevocationListStatus,
   CoipAddressUsage,
   CreateVolumePermission,
+  DescribeMovingAddressesRequest,
   DescribeMovingAddressesResult,
   DescribeNatGatewaysRequest,
   DescribeNatGatewaysResult,
@@ -2332,7 +2332,6 @@ import {
   GetReservedInstancesExchangeQuoteRequest,
   GetReservedInstancesExchangeQuoteResult,
   GetTransitGatewayAttachmentPropagationsRequest,
-  GetTransitGatewayAttachmentPropagationsResult,
   HistoryRecord,
   InstanceFamilyCreditSpecification,
   InstanceNetworkInterfaceSpecification,
@@ -2413,6 +2412,7 @@ import {
   DnsServersOptionsModifyStructure,
   EbsInstanceBlockDeviceSpecification,
   ElasticInferenceAccelerator,
+  GetTransitGatewayAttachmentPropagationsResult,
   GetTransitGatewayMulticastDomainAssociationsRequest,
   GetTransitGatewayMulticastDomainAssociationsResult,
   GetTransitGatewayPrefixListReferencesRequest,
@@ -54605,9 +54605,13 @@ const deserializeAws_ec2InstanceStatusSummary = (output: any, context: __SerdeCo
 
 const deserializeAws_ec2InstanceStorageInfo = (output: any, context: __SerdeContext): InstanceStorageInfo => {
   let contents: any = {
+    NvmeSupport: undefined,
     TotalSizeInGB: undefined,
     Disks: undefined,
   };
+  if (output["nvmeSupport"] !== undefined) {
+    contents.NvmeSupport = output["nvmeSupport"];
+  }
   if (output["totalSizeInGB"] !== undefined) {
     contents.TotalSizeInGB = parseInt(output["totalSizeInGB"]);
   }

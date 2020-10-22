@@ -399,6 +399,10 @@ export interface CreateTopicInput {
    *             </li>
    *             <li>
    *                 <p>
+   *                   <code>FifoTopic</code> – Set to true to create a FIFO topic.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
    *                   <code>Policy</code> – The policy that defines who can access your
    *                     topic. By default, only the topic owner can publish or subscribe to the
    *                     topic.</p>
@@ -409,10 +413,34 @@ export interface CreateTopicInput {
    *         <ul>
    *             <li>
    *                 <p>
-   *                     <code>KmsMasterKeyId</code> - The ID of an AWS-managed customer master key (CMK)
+   *                     <code>KmsMasterKeyId</code> – The ID of an AWS-managed customer master key (CMK)
    *                     for Amazon SNS or a custom CMK. For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html#sse-key-terms">Key
    *                         Terms</a>. For more examples, see <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters">KeyId</a> in the <i>AWS Key Management Service API
    *                         Reference</i>. </p>
+   *             </li>
+   *          </ul>
+   *
+   *
+   *         <p>The following attribute applies only to FIFO topics:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                     <code>ContentBasedDeduplication</code> –  Enables content-based deduplication. Amazon SNS uses a SHA-256 hash to
+   *                     generate the <code>MessageDeduplicationId</code> using the body of the message (but not the
+   *                     attributes of the message). </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     When <code>ContentBasedDeduplication</code> is in effect, messages with identical content sent
+   *                     within the deduplication interval are treated as duplicates and only one copy of the message is
+   *                     delivered.
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     If the queue has <code>ContentBasedDeduplication</code> set, your <code>MessageDeduplicationId</code>
+   *                     overrides the generated one.
+   *                 </p>
    *             </li>
    *          </ul>
    */
@@ -423,6 +451,7 @@ export interface CreateTopicInput {
    *         <p>Constraints: Topic names must be made up of only uppercase and lowercase ASCII
    *             letters, numbers, underscores, and hyphens, and must be between 1 and 256 characters
    *             long.</p>
+   *         <p>For a FIFO (first-in-first-out) topic, the name must end with the <code>.fifo</code> suffix. </p>
    */
   Name: string | undefined;
 }
@@ -1569,6 +1598,18 @@ export interface PublishInput {
   Message: string | undefined;
 
   /**
+   * <p>This parameter applies only to FIFO (first-in-first-out) topics.
+   *             The <code>MessageDeduplicationId</code> can contain up to 128 alphanumeric characters (a-z, A-Z, 0-9)
+   *             and punctuation <code>(!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~)</code>.</p>
+   *         <p>Every message must have a unique <code>MessageDeduplicationId</code>, which is a token used for deduplication of sent messages.
+   *             If a message with a particular <code>MessageDeduplicationId</code> is sent successfully, any message sent with the same <code>MessageDeduplicationId</code>
+   *             during the 5-minute deduplication interval is treated as a duplicate. </p>
+   *         <p>If the topic has <code>ContentBasedDeduplication</code> set, the system generates a <code>MessageDeduplicationId</code> based on the contents of the
+   *             message. Your <code>MessageDeduplicationId</code> overrides the generated one.</p>
+   */
+  MessageDeduplicationId?: string;
+
+  /**
    * <p>Set <code>MessageStructure</code> to <code>json</code> if you want to send a different
    *             message for each protocol. For example, using one publish action, you can send a short
    *             message to your SMS subscribers and a longer message to your email subscribers. If you
@@ -1589,6 +1630,15 @@ export interface PublishInput {
    *         </p>
    */
   MessageStructure?: string;
+
+  /**
+   * <p>This parameter applies only to FIFO (first-in-first-out) topics. The <code>MessageGroupId</code> can contain up to
+   *             128 alphanumeric characters (a-z, A-Z, 0-9) and punctuation <code>(!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~)</code>.</p>
+   *         <p>The <code>MessageGroupId</code> is a tag that specifies that a message belongs to a specific message group. Messages that belong to the
+   *             same message group are processed in a FIFO manner (however, messages in different message groups might be processed out of order).
+   *             Every message must include a <code>MessageGroupId</code>.</p>
+   */
+  MessageGroupId?: string;
 
   /**
    * <p>The phone number to which you want to deliver an SMS message. Use E.164 format.</p>
@@ -1631,6 +1681,13 @@ export namespace PublishInput {
  * <p>Response for Publish action.</p>
  */
 export interface PublishResponse {
+  /**
+   * <p>This response element applies only to FIFO (first-in-first-out) topics. </p>
+   *         <p>The sequence number is a large, non-consecutive number that Amazon SNS assigns to each message.
+   *             The length of <code>SequenceNumber</code> is 128 bits. <code>SequenceNumber</code> continues to increase for each <code>MessageGroupId</code>.</p>
+   */
+  SequenceNumber?: string;
+
   /**
    * <p>Unique identifier assigned to the published message.</p>
    *         <p>Length Constraint: Maximum 100 characters</p>
@@ -1990,10 +2047,34 @@ export interface SetTopicAttributesInput {
    *         <ul>
    *             <li>
    *                 <p>
-   *                     <code>KmsMasterKeyId</code> - The ID of an AWS-managed customer master key (CMK)
+   *                     <code>KmsMasterKeyId</code> – The ID of an AWS-managed customer master key (CMK)
    *                     for Amazon SNS or a custom CMK. For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html#sse-key-terms">Key
    *                         Terms</a>. For more examples, see <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters">KeyId</a> in the <i>AWS Key Management Service API
    *                         Reference</i>. </p>
+   *             </li>
+   *          </ul>
+   *
+   *
+   *         <p>The following attribute applies only to FIFO topics:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                     <code>ContentBasedDeduplication</code> –  Enables content-based deduplication. Amazon SNS uses a SHA-256 hash to
+   *                     generate the <code>MessageDeduplicationId</code> using the body of the message (but not the
+   *                     attributes of the message). </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     When <code>ContentBasedDeduplication</code> is in effect, messages with identical content sent
+   *                     within the deduplication interval are treated as duplicates and only one copy of the message is
+   *                     delivered.
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     If the queue has <code>ContentBasedDeduplication</code> set, your <code>MessageDeduplicationId</code>
+   *                     overrides the generated one.
+   *                 </p>
    *             </li>
    *          </ul>
    */
@@ -2142,11 +2223,15 @@ export interface SubscribeInput {
   /**
    * <p>Sets whether the response from the <code>Subscribe</code> request includes the
    *             subscription ARN, even if the subscription is not yet confirmed.</p>
-   *           <p>If you set this parameter to <code>true</code>, the response includes the ARN in all cases, even
+   *         <ul>
+   *             <li>
+   *                 <p>If you set this parameter to <code>true</code>, the response includes the ARN in all cases, even
    *           if the subscription is not yet confirmed. In addition to the ARN for confirmed subscriptions, the response
    *           also includes the <code>pending subscription</code> ARN value for subscriptions that aren't yet confirmed. A
    *           subscription becomes confirmed when the subscriber calls the <code>ConfirmSubscription</code> action with a
    *           confirmation token.</p>
+   *             </li>
+   *          </ul>
    *         <p></p>
    *         <p>The default value is <code>false</code>.</p>
    */

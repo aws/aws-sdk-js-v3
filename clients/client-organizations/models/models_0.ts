@@ -567,7 +567,7 @@ export namespace AccountNotRegisteredException {
 
 /**
  * <p>You can't invite an existing account to your organization until you verify that you
- *             own the email address associated with the master account. For more information, see
+ *             own the email address associated with the management account. For more information, see
  *                 <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_create.html#about-email-verification">Email
  *                 Address Verification</a> in the <i>AWS Organizations User Guide.</i>
  *          </p>
@@ -687,7 +687,7 @@ export enum ConstraintViolationExceptionReason {
  *         <ul>
  *             <li>
  *                 <p>ACCOUNT_CANNOT_LEAVE_ORGANIZAION: You attempted to remove the
- *                     master account from the organization. You can't remove the master account.
+ *                     management account from the organization. You can't remove the management account.
  *                     Instead, after you remove all member accounts, delete the organization
  *                     itself.</p>
  *             </li>
@@ -729,7 +729,7 @@ export enum ConstraintViolationExceptionReason {
  *             </li>
  *             <li>
  *                 <p>CANNOT_REGISTER_MASTER_AS_DELEGATED_ADMINISTRATOR: You attempted to register
- *                     the master account of the organization as a delegated administrator for an
+ *                     the management account of the organization as a delegated administrator for an
  *                     AWS service integrated with Organizations. You can designate only a member
  *                     account as a delegated administrator.</p>
  *             </li>
@@ -760,8 +760,8 @@ export enum ConstraintViolationExceptionReason {
  *             </li>
  *             <li>
  *                 <p>MASTER_ACCOUNT_ADDRESS_DOES_NOT_MATCH_MARKETPLACE: To create an account in
- *                     this organization, you first must migrate the organization's master account
- *                     to the marketplace that corresponds to the master account's address. For
+ *                     this organization, you first must migrate the organization's management account
+ *                     to the marketplace that corresponds to the management account's address. For
  *                     example, accounts with India addresses must be associated with the AISPL
  *                     marketplace. All accounts in an organization must be associated with the same
  *                     marketplace.</p>
@@ -774,11 +774,11 @@ export enum ConstraintViolationExceptionReason {
  *             <li>
  *                 <p>MASTER_ACCOUNT_MISSING_CONTACT_INFO: To complete this operation, you must
  *                     first provide a valid contact address and phone number for the
- *                     master account. Then try the operation again.</p>
+ *                     management account. Then try the operation again.</p>
  *             </li>
  *             <li>
  *                 <p>MASTER_ACCOUNT_NOT_GOVCLOUD_ENABLED: To complete this operation, the
- *                     master account must have an associated account in the AWS GovCloud
+ *                     management account must have an associated account in the AWS GovCloud
  *                     (US-West) Region. For more information, see <a href="http://docs.aws.amazon.com/govcloud-us/latest/UserGuide/govcloud-organizations.html">AWS Organizations</a> in
  *                     the
  *                     <i>AWS GovCloud User Guide.</i>
@@ -786,7 +786,7 @@ export enum ConstraintViolationExceptionReason {
  *             </li>
  *             <li>
  *                 <p>MASTER_ACCOUNT_PAYMENT_INSTRUMENT_REQUIRED: To create an organization with
- *                     this master account, you first must associate a valid payment instrument,
+ *                     this management account, you first must associate a valid payment instrument,
  *                     such as a credit card, with the account. Follow the steps at <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_remove.html#leave-without-all-info">To leave an organization when all required account information has not yet
  *                         been provided</a> in the <i>AWS Organizations User Guide.</i>
  *                </p>
@@ -1055,8 +1055,8 @@ export interface CreateAccountRequest {
   /**
    * <p>(Optional)</p>
    *         <p>The name of an IAM role that AWS Organizations automatically preconfigures in the new member
-   *             account. This role trusts the master account, allowing users in the master account
-   *             to assume the role, as permitted by the master account administrator. The role has
+   *             account. This role trusts the management account, allowing users in the management account
+   *             to assume the role, as permitted by the management account administrator. The role has
    *             administrator permissions in the new member account.</p>
    *         <p>If you don't specify this parameter, the role name defaults to
    *                 <code>OrganizationAccountAccessRole</code>.</p>
@@ -1190,7 +1190,7 @@ export interface CreateAccountStatus {
    *                     not received Business Validation.</p>
    *             </li>
    *             <li>
-   *                 <p> MISSING_PAYMENT_INSTRUMENT: You must configure the master account with a
+   *                 <p> MISSING_PAYMENT_INSTRUMENT: You must configure the management account with a
    *                     valid payment method, such as a credit card.</p>
    *             </li>
    *          </ul>
@@ -1276,8 +1276,8 @@ export interface CreateGovCloudAccountRequest {
    * <p>(Optional)</p>
    *         <p>The name of an IAM role that AWS Organizations automatically preconfigures in the new member
    *             accounts in both the AWS GovCloud (US) Region and in the commercial Region. This role
-   *             trusts the master account, allowing users in the master account to assume the
-   *             role, as permitted by the master account administrator. The role has administrator
+   *             trusts the management account, allowing users in the management account to assume the
+   *             role, as permitted by the management account administrator. The role has administrator
    *             permissions in the new member account.</p>
    *         <p>If you don't specify this parameter, the role name defaults to
    *                 <code>OrganizationAccountAccessRole</code>.</p>
@@ -1356,7 +1356,7 @@ export interface CreateOrganizationRequest {
    *             <li>
    *                 <p>
    *                   <code>CONSOLIDATED_BILLING</code>: All member accounts have their bills
-   *                     consolidated to and paid by the master account. For more information, see
+   *                     consolidated to and paid by the management account. For more information, see
    *                         <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#feature-set-cb-only">Consolidated billing</a> in the
    *                     <i>AWS Organizations User Guide.</i>
    *                </p>
@@ -1366,7 +1366,7 @@ export interface CreateOrganizationRequest {
    *             <li>
    *                 <p>
    *                   <code>ALL</code>: In addition to all the features supported by the
-   *                     consolidated billing feature set, the master account can also apply any
+   *                     consolidated billing feature set, the management account can also apply any
    *                     policy type to any member account in the organization. For more information, see
    *                         <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#feature-set-all">All
    *                         features</a> in the <i>AWS Organizations User Guide.</i>
@@ -1440,7 +1440,7 @@ export interface Organization {
   Id?: string;
 
   /**
-   * <p>The unique identifier (ID) of the master account of an organization.</p>
+   * <p>The unique identifier (ID) of the management account of an organization.</p>
    *         <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for an account ID string requires exactly 12
    *     digits.</p>
    */
@@ -1448,7 +1448,7 @@ export interface Organization {
 
   /**
    * <p>The email address that is associated with the AWS account that is designated as the
-   *             master account for the organization.</p>
+   *             management account for the organization.</p>
    */
   MasterAccountEmail?: string;
 
@@ -1464,7 +1464,7 @@ export interface Organization {
 
   /**
    * <p>The Amazon Resource Name (ARN) of the account that is designated as the
-   *             master account for the organization.</p>
+   *             management account for the organization.</p>
    *         <p>For more information about ARNs in Organizations, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_permissions.html#orgs-permissions-arns">ARN Formats Supported by
    *     Organizations</a> in the <i>AWS Organizations User Guide</i>.</p>
    */
@@ -1573,8 +1573,8 @@ export interface OrganizationalUnit {
    * <p>The unique identifier (ID) associated with this OU.</p>
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for an organizational unit ID string requires
    *     "ou-" followed by from 4 to 32 lowercase letters or digits (the ID of the root that contains the
-   *     OU). This string is followed by a second "-" dash and from 8 to 32 additional lowercase letters or
-   *     digits.</p>
+   *     OU). This string is followed by a second "-" dash and from 8 to 32 additional lowercase letters
+   *     or digits.</p>
    */
   Id?: string;
 }
@@ -1853,7 +1853,7 @@ export namespace DeclineHandshakeRequest {
 
 /**
  * <p>The organization isn't empty. To delete an organization, you must first remove all
- *             accounts except the master account, delete all OUs, and delete all policies.</p>
+ *             accounts except the management account, delete all OUs, and delete all policies.</p>
  */
 export interface OrganizationNotEmptyException extends __SmithyException, $MetadataBearer {
   name: "OrganizationNotEmptyException";
@@ -1873,8 +1873,8 @@ export interface DeleteOrganizationalUnitRequest {
    *             get the ID from the <a>ListOrganizationalUnitsForParent</a> operation.</p>
    *         <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for an organizational unit ID string requires
    *     "ou-" followed by from 4 to 32 lowercase letters or digits (the ID of the root that contains the
-   *     OU). This string is followed by a second "-" dash and from 8 to 32 additional lowercase letters or
-   *     digits.</p>
+   *     OU). This string is followed by a second "-" dash and from 8 to 32 additional lowercase letters
+   *     or digits.</p>
    */
   OrganizationalUnitId: string | undefined;
 }
@@ -2061,7 +2061,7 @@ export enum EffectivePolicyType {
 
 export interface DescribeEffectivePolicyRequest {
   /**
-   * <p>When you're signed in as the master account, specify the ID of the account that you
+   * <p>When you're signed in as the management account, specify the ID of the account that you
    *             want details about. Specifying an organization root or organizational unit (OU) as the
    *             target is not supported.</p>
    */
@@ -2144,7 +2144,7 @@ export namespace DescribeEffectivePolicyResponse {
 }
 
 /**
- * <p>If you ran this action on the master account, this policy type is not enabled. If
+ * <p>If you ran this action on the management account, this policy type is not enabled. If
  *             you ran the action on a member account, the account doesn't have an effective policy of
  *             this type. Contact the administrator of your organization about attaching a policy of
  *             this type to the account. </p>
@@ -2207,8 +2207,8 @@ export interface DescribeOrganizationalUnitRequest {
    *             operation.</p>
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for an organizational unit ID string requires
    *     "ou-" followed by from 4 to 32 lowercase letters or digits (the ID of the root that contains the
-   *     OU). This string is followed by a second "-" dash and from 8 to 32 additional lowercase letters or
-   *     digits.</p>
+   *     OU). This string is followed by a second "-" dash and from 8 to 32 additional lowercase letters
+   *     or digits.</p>
    */
   OrganizationalUnitId: string | undefined;
 }
@@ -2634,9 +2634,9 @@ export namespace InviteAccountToOrganizationRequest {
 }
 
 /**
- * <p>You can't remove a master account from an organization. If you want the
- *             master account to become a member account in another organization, you must first
- *             delete the current organization of the master account.</p>
+ * <p>You can't remove a management account from an organization. If you want the
+ *             management account to become a member account in another organization, you must first
+ *             delete the current organization of the management account.</p>
  */
 export interface MasterCannotLeaveOrganizationException extends __SmithyException, $MetadataBearer {
   name: "MasterCannotLeaveOrganizationException";
@@ -2652,22 +2652,23 @@ export namespace MasterCannotLeaveOrganizationException {
 
 export interface ListAccountsRequest {
   /**
-   * <p>The total number of results that you want included
-   *     on each page of the response. If you do not include this parameter, it defaults to a value that is specific
-   *     to the operation. If additional items exist beyond the maximum you specify, the
-   *     <code>NextToken</code> response element is present and has a value (is not null). Include that
-   *     value as the <code>NextToken</code> request parameter in the next call to the operation to get
-   *     the next part of the results. Note that Organizations might return fewer results than the maximum even
-   *     when there are more results available. You should check <code>NextToken</code> after every
-   *     operation to ensure that you receive all of the results.</p>
+   * <p>The total number of results that you want included on each page of the
+   *     response. If you do not include this parameter, it defaults to a value that is specific to the
+   *     operation. If additional items exist beyond the maximum you specify, the <code>NextToken</code>
+   *     response element is present and has a value (is not null). Include that value as the
+   *     <code>NextToken</code> request parameter in the next call to the operation to get the next part
+   *     of the results. Note that Organizations might return fewer results than the maximum even when there are
+   *     more results available. You should check <code>NextToken</code> after every operation to ensure
+   *     that you receive all of the results.</p>
    */
   MaxResults?: number;
 
   /**
-   * <p>The parameter for receiving additional results if you receive a <code>NextToken</code>
-   *     response in a previous request. A <code>NextToken</code> response indicates that more output is available. Set this parameter to the
-   *     value of the previous call's <code>NextToken</code> response to indicate where the output should
-   *     continue from.</p>
+   * <p>The parameter for receiving additional results if you receive a
+   *     <code>NextToken</code> response in a previous request. A <code>NextToken</code> response
+   *     indicates that more output is available. Set this parameter to the value of the previous
+   *     call's <code>NextToken</code> response to indicate where the output should continue
+   *     from.</p>
    */
   NextToken?: string;
 }
@@ -2685,10 +2686,10 @@ export interface ListAccountsResponse {
   Accounts?: Account[];
 
   /**
-   * <p>If present, indicates that more output is available than is included in the current response. Use this value in the <code>NextToken</code>
-   *     request parameter in a subsequent call to the operation to get the next part of the output. You
-   *     should repeat this until the <code>NextToken</code> response element comes back as
-   *     <code>null</code>.</p>
+   * <p>If present, indicates that more output is available than is
+   *     included in the current response. Use this value in the <code>NextToken</code> request parameter
+   *     in a subsequent call to the operation to get the next part of the output. You should repeat this
+   *     until the <code>NextToken</code> response element comes back as <code>null</code>.</p>
    */
   NextToken?: string;
 }
@@ -2702,22 +2703,23 @@ export namespace ListAccountsResponse {
 
 export interface ListAccountsForParentRequest {
   /**
-   * <p>The total number of results that you want included
-   *     on each page of the response. If you do not include this parameter, it defaults to a value that is specific
-   *     to the operation. If additional items exist beyond the maximum you specify, the
-   *     <code>NextToken</code> response element is present and has a value (is not null). Include that
-   *     value as the <code>NextToken</code> request parameter in the next call to the operation to get
-   *     the next part of the results. Note that Organizations might return fewer results than the maximum even
-   *     when there are more results available. You should check <code>NextToken</code> after every
-   *     operation to ensure that you receive all of the results.</p>
+   * <p>The total number of results that you want included on each page of the
+   *     response. If you do not include this parameter, it defaults to a value that is specific to the
+   *     operation. If additional items exist beyond the maximum you specify, the <code>NextToken</code>
+   *     response element is present and has a value (is not null). Include that value as the
+   *     <code>NextToken</code> request parameter in the next call to the operation to get the next part
+   *     of the results. Note that Organizations might return fewer results than the maximum even when there are
+   *     more results available. You should check <code>NextToken</code> after every operation to ensure
+   *     that you receive all of the results.</p>
    */
   MaxResults?: number;
 
   /**
-   * <p>The parameter for receiving additional results if you receive a <code>NextToken</code>
-   *     response in a previous request. A <code>NextToken</code> response indicates that more output is available. Set this parameter to the
-   *     value of the previous call's <code>NextToken</code> response to indicate where the output should
-   *     continue from.</p>
+   * <p>The parameter for receiving additional results if you receive a
+   *     <code>NextToken</code> response in a previous request. A <code>NextToken</code> response
+   *     indicates that more output is available. Set this parameter to the value of the previous
+   *     call's <code>NextToken</code> response to indicate where the output should continue
+   *     from.</p>
    */
   NextToken?: string;
 
@@ -2736,10 +2738,10 @@ export namespace ListAccountsForParentRequest {
 
 export interface ListAccountsForParentResponse {
   /**
-   * <p>If present, indicates that more output is available than is included in the current response. Use this value in the <code>NextToken</code>
-   *     request parameter in a subsequent call to the operation to get the next part of the output. You
-   *     should repeat this until the <code>NextToken</code> response element comes back as
-   *     <code>null</code>.</p>
+   * <p>If present, indicates that more output is available than is
+   *     included in the current response. Use this value in the <code>NextToken</code> request parameter
+   *     in a subsequent call to the operation to get the next part of the output. You should repeat this
+   *     until the <code>NextToken</code> response element comes back as <code>null</code>.</p>
    */
   NextToken?: string;
 
@@ -2758,22 +2760,23 @@ export namespace ListAccountsForParentResponse {
 
 export interface ListAWSServiceAccessForOrganizationRequest {
   /**
-   * <p>The total number of results that you want included
-   *     on each page of the response. If you do not include this parameter, it defaults to a value that is specific
-   *     to the operation. If additional items exist beyond the maximum you specify, the
-   *     <code>NextToken</code> response element is present and has a value (is not null). Include that
-   *     value as the <code>NextToken</code> request parameter in the next call to the operation to get
-   *     the next part of the results. Note that Organizations might return fewer results than the maximum even
-   *     when there are more results available. You should check <code>NextToken</code> after every
-   *     operation to ensure that you receive all of the results.</p>
+   * <p>The total number of results that you want included on each page of the
+   *     response. If you do not include this parameter, it defaults to a value that is specific to the
+   *     operation. If additional items exist beyond the maximum you specify, the <code>NextToken</code>
+   *     response element is present and has a value (is not null). Include that value as the
+   *     <code>NextToken</code> request parameter in the next call to the operation to get the next part
+   *     of the results. Note that Organizations might return fewer results than the maximum even when there are
+   *     more results available. You should check <code>NextToken</code> after every operation to ensure
+   *     that you receive all of the results.</p>
    */
   MaxResults?: number;
 
   /**
-   * <p>The parameter for receiving additional results if you receive a <code>NextToken</code>
-   *     response in a previous request. A <code>NextToken</code> response indicates that more output is available. Set this parameter to the
-   *     value of the previous call's <code>NextToken</code> response to indicate where the output should
-   *     continue from.</p>
+   * <p>The parameter for receiving additional results if you receive a
+   *     <code>NextToken</code> response in a previous request. A <code>NextToken</code> response
+   *     indicates that more output is available. Set this parameter to the value of the previous
+   *     call's <code>NextToken</code> response to indicate where the output should continue
+   *     from.</p>
    */
   NextToken?: string;
 }
@@ -2810,10 +2813,10 @@ export namespace EnabledServicePrincipal {
 
 export interface ListAWSServiceAccessForOrganizationResponse {
   /**
-   * <p>If present, indicates that more output is available than is included in the current response. Use this value in the <code>NextToken</code>
-   *     request parameter in a subsequent call to the operation to get the next part of the output. You
-   *     should repeat this until the <code>NextToken</code> response element comes back as
-   *     <code>null</code>.</p>
+   * <p>If present, indicates that more output is available than is
+   *     included in the current response. Use this value in the <code>NextToken</code> request parameter
+   *     in a subsequent call to the operation to get the next part of the output. You should repeat this
+   *     until the <code>NextToken</code> response element comes back as <code>null</code>.</p>
    */
   NextToken?: string;
 
@@ -2838,10 +2841,11 @@ export enum ChildType {
 
 export interface ListChildrenRequest {
   /**
-   * <p>The parameter for receiving additional results if you receive a <code>NextToken</code>
-   *     response in a previous request. A <code>NextToken</code> response indicates that more output is available. Set this parameter to the
-   *     value of the previous call's <code>NextToken</code> response to indicate where the output should
-   *     continue from.</p>
+   * <p>The parameter for receiving additional results if you receive a
+   *     <code>NextToken</code> response in a previous request. A <code>NextToken</code> response
+   *     indicates that more output is available. Set this parameter to the value of the previous
+   *     call's <code>NextToken</code> response to indicate where the output should continue
+   *     from.</p>
    */
   NextToken?: string;
 
@@ -2872,14 +2876,14 @@ export interface ListChildrenRequest {
   ChildType: ChildType | string | undefined;
 
   /**
-   * <p>The total number of results that you want included
-   *     on each page of the response. If you do not include this parameter, it defaults to a value that is specific
-   *     to the operation. If additional items exist beyond the maximum you specify, the
-   *     <code>NextToken</code> response element is present and has a value (is not null). Include that
-   *     value as the <code>NextToken</code> request parameter in the next call to the operation to get
-   *     the next part of the results. Note that Organizations might return fewer results than the maximum even
-   *     when there are more results available. You should check <code>NextToken</code> after every
-   *     operation to ensure that you receive all of the results.</p>
+   * <p>The total number of results that you want included on each page of the
+   *     response. If you do not include this parameter, it defaults to a value that is specific to the
+   *     operation. If additional items exist beyond the maximum you specify, the <code>NextToken</code>
+   *     response element is present and has a value (is not null). Include that value as the
+   *     <code>NextToken</code> request parameter in the next call to the operation to get the next part
+   *     of the results. Note that Organizations might return fewer results than the maximum even when there are
+   *     more results available. You should check <code>NextToken</code> after every operation to ensure
+   *     that you receive all of the results.</p>
    */
   MaxResults?: number;
 }
@@ -2905,9 +2909,10 @@ export interface Child {
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>Organizational unit (OU)</b> - A string that begins with "ou-" followed by from 4 to 32
-   *           lowercase letters or digits (the ID of the root that contains the OU). This string is followed by a second
-   *           "-" dash and from 8 to 32 additional lowercase letters or digits.</p>
+   *                   <b>Organizational unit (OU)</b> - A string that begins with
+   *           "ou-" followed by from 4 to 32 lowercase letters or digits (the ID of the root that
+   *           contains the OU). This string is followed by a second "-" dash and from 8 to 32 additional
+   *           lowercase letters or digits.</p>
    *             </li>
    *          </ul>
    */
@@ -2927,10 +2932,10 @@ export namespace Child {
 
 export interface ListChildrenResponse {
   /**
-   * <p>If present, indicates that more output is available than is included in the current response. Use this value in the <code>NextToken</code>
-   *     request parameter in a subsequent call to the operation to get the next part of the output. You
-   *     should repeat this until the <code>NextToken</code> response element comes back as
-   *     <code>null</code>.</p>
+   * <p>If present, indicates that more output is available than is
+   *     included in the current response. Use this value in the <code>NextToken</code> request parameter
+   *     in a subsequent call to the operation to get the next part of the output. You should repeat this
+   *     until the <code>NextToken</code> response element comes back as <code>null</code>.</p>
    */
   NextToken?: string;
 
@@ -2948,22 +2953,23 @@ export namespace ListChildrenResponse {
 
 export interface ListCreateAccountStatusRequest {
   /**
-   * <p>The total number of results that you want included
-   *     on each page of the response. If you do not include this parameter, it defaults to a value that is specific
-   *     to the operation. If additional items exist beyond the maximum you specify, the
-   *     <code>NextToken</code> response element is present and has a value (is not null). Include that
-   *     value as the <code>NextToken</code> request parameter in the next call to the operation to get
-   *     the next part of the results. Note that Organizations might return fewer results than the maximum even
-   *     when there are more results available. You should check <code>NextToken</code> after every
-   *     operation to ensure that you receive all of the results.</p>
+   * <p>The total number of results that you want included on each page of the
+   *     response. If you do not include this parameter, it defaults to a value that is specific to the
+   *     operation. If additional items exist beyond the maximum you specify, the <code>NextToken</code>
+   *     response element is present and has a value (is not null). Include that value as the
+   *     <code>NextToken</code> request parameter in the next call to the operation to get the next part
+   *     of the results. Note that Organizations might return fewer results than the maximum even when there are
+   *     more results available. You should check <code>NextToken</code> after every operation to ensure
+   *     that you receive all of the results.</p>
    */
   MaxResults?: number;
 
   /**
-   * <p>The parameter for receiving additional results if you receive a <code>NextToken</code>
-   *     response in a previous request. A <code>NextToken</code> response indicates that more output is available. Set this parameter to the
-   *     value of the previous call's <code>NextToken</code> response to indicate where the output should
-   *     continue from.</p>
+   * <p>The parameter for receiving additional results if you receive a
+   *     <code>NextToken</code> response in a previous request. A <code>NextToken</code> response
+   *     indicates that more output is available. Set this parameter to the value of the previous
+   *     call's <code>NextToken</code> response to indicate where the output should continue
+   *     from.</p>
    */
   NextToken?: string;
 
@@ -2982,10 +2988,10 @@ export namespace ListCreateAccountStatusRequest {
 
 export interface ListCreateAccountStatusResponse {
   /**
-   * <p>If present, indicates that more output is available than is included in the current response. Use this value in the <code>NextToken</code>
-   *     request parameter in a subsequent call to the operation to get the next part of the output. You
-   *     should repeat this until the <code>NextToken</code> response element comes back as
-   *     <code>null</code>.</p>
+   * <p>If present, indicates that more output is available than is
+   *     included in the current response. Use this value in the <code>NextToken</code> request parameter
+   *     in a subsequent call to the operation to get the next part of the output. You should repeat this
+   *     until the <code>NextToken</code> response element comes back as <code>null</code>.</p>
    */
   NextToken?: string;
 
@@ -3008,22 +3014,23 @@ export namespace ListCreateAccountStatusResponse {
 
 export interface ListDelegatedAdministratorsRequest {
   /**
-   * <p>The parameter for receiving additional results if you receive a <code>NextToken</code>
-   *     response in a previous request. A <code>NextToken</code> response indicates that more output is available. Set this parameter to the
-   *     value of the previous call's <code>NextToken</code> response to indicate where the output should
-   *     continue from.</p>
+   * <p>The parameter for receiving additional results if you receive a
+   *     <code>NextToken</code> response in a previous request. A <code>NextToken</code> response
+   *     indicates that more output is available. Set this parameter to the value of the previous
+   *     call's <code>NextToken</code> response to indicate where the output should continue
+   *     from.</p>
    */
   NextToken?: string;
 
   /**
-   * <p>The total number of results that you want included
-   *     on each page of the response. If you do not include this parameter, it defaults to a value that is specific
-   *     to the operation. If additional items exist beyond the maximum you specify, the
-   *     <code>NextToken</code> response element is present and has a value (is not null). Include that
-   *     value as the <code>NextToken</code> request parameter in the next call to the operation to get
-   *     the next part of the results. Note that Organizations might return fewer results than the maximum even
-   *     when there are more results available. You should check <code>NextToken</code> after every
-   *     operation to ensure that you receive all of the results.</p>
+   * <p>The total number of results that you want included on each page of the
+   *     response. If you do not include this parameter, it defaults to a value that is specific to the
+   *     operation. If additional items exist beyond the maximum you specify, the <code>NextToken</code>
+   *     response element is present and has a value (is not null). Include that value as the
+   *     <code>NextToken</code> request parameter in the next call to the operation to get the next part
+   *     of the results. Note that Organizations might return fewer results than the maximum even when there are
+   *     more results available. You should check <code>NextToken</code> after every operation to ensure
+   *     that you receive all of the results.</p>
    */
   MaxResults?: number;
 
@@ -3105,10 +3112,10 @@ export interface ListDelegatedAdministratorsResponse {
   DelegatedAdministrators?: DelegatedAdministrator[];
 
   /**
-   * <p>If present, indicates that more output is available than is included in the current response. Use this value in the <code>NextToken</code>
-   *     request parameter in a subsequent call to the operation to get the next part of the output. You
-   *     should repeat this until the <code>NextToken</code> response element comes back as
-   *     <code>null</code>.</p>
+   * <p>If present, indicates that more output is available than is
+   *     included in the current response. Use this value in the <code>NextToken</code> request parameter
+   *     in a subsequent call to the operation to get the next part of the output. You should repeat this
+   *     until the <code>NextToken</code> response element comes back as <code>null</code>.</p>
    */
   NextToken?: string;
 }
@@ -3126,10 +3133,11 @@ export namespace ListDelegatedAdministratorsResponse {
 
 export interface ListDelegatedServicesForAccountRequest {
   /**
-   * <p>The parameter for receiving additional results if you receive a <code>NextToken</code>
-   *     response in a previous request. A <code>NextToken</code> response indicates that more output is available. Set this parameter to the
-   *     value of the previous call's <code>NextToken</code> response to indicate where the output should
-   *     continue from.</p>
+   * <p>The parameter for receiving additional results if you receive a
+   *     <code>NextToken</code> response in a previous request. A <code>NextToken</code> response
+   *     indicates that more output is available. Set this parameter to the value of the previous
+   *     call's <code>NextToken</code> response to indicate where the output should continue
+   *     from.</p>
    */
   NextToken?: string;
 
@@ -3139,14 +3147,14 @@ export interface ListDelegatedServicesForAccountRequest {
   AccountId: string | undefined;
 
   /**
-   * <p>The total number of results that you want included
-   *     on each page of the response. If you do not include this parameter, it defaults to a value that is specific
-   *     to the operation. If additional items exist beyond the maximum you specify, the
-   *     <code>NextToken</code> response element is present and has a value (is not null). Include that
-   *     value as the <code>NextToken</code> request parameter in the next call to the operation to get
-   *     the next part of the results. Note that Organizations might return fewer results than the maximum even
-   *     when there are more results available. You should check <code>NextToken</code> after every
-   *     operation to ensure that you receive all of the results.</p>
+   * <p>The total number of results that you want included on each page of the
+   *     response. If you do not include this parameter, it defaults to a value that is specific to the
+   *     operation. If additional items exist beyond the maximum you specify, the <code>NextToken</code>
+   *     response element is present and has a value (is not null). Include that value as the
+   *     <code>NextToken</code> request parameter in the next call to the operation to get the next part
+   *     of the results. Note that Organizations might return fewer results than the maximum even when there are
+   *     more results available. You should check <code>NextToken</code> after every operation to ensure
+   *     that you receive all of the results.</p>
    */
   MaxResults?: number;
 }
@@ -3189,10 +3197,10 @@ export interface ListDelegatedServicesForAccountResponse {
   DelegatedServices?: DelegatedService[];
 
   /**
-   * <p>If present, indicates that more output is available than is included in the current response. Use this value in the <code>NextToken</code>
-   *     request parameter in a subsequent call to the operation to get the next part of the output. You
-   *     should repeat this until the <code>NextToken</code> response element comes back as
-   *     <code>null</code>.</p>
+   * <p>If present, indicates that more output is available than is
+   *     included in the current response. Use this value in the <code>NextToken</code> request parameter
+   *     in a subsequent call to the operation to get the next part of the output. You should repeat this
+   *     until the <code>NextToken</code> response element comes back as <code>null</code>.</p>
    */
   NextToken?: string;
 }
@@ -3234,10 +3242,11 @@ export namespace HandshakeFilter {
 
 export interface ListHandshakesForAccountRequest {
   /**
-   * <p>The parameter for receiving additional results if you receive a <code>NextToken</code>
-   *     response in a previous request. A <code>NextToken</code> response indicates that more output is available. Set this parameter to the
-   *     value of the previous call's <code>NextToken</code> response to indicate where the output should
-   *     continue from.</p>
+   * <p>The parameter for receiving additional results if you receive a
+   *     <code>NextToken</code> response in a previous request. A <code>NextToken</code> response
+   *     indicates that more output is available. Set this parameter to the value of the previous
+   *     call's <code>NextToken</code> response to indicate where the output should continue
+   *     from.</p>
    */
   NextToken?: string;
 
@@ -3253,14 +3262,14 @@ export interface ListHandshakesForAccountRequest {
   Filter?: HandshakeFilter;
 
   /**
-   * <p>The total number of results that you want included
-   *     on each page of the response. If you do not include this parameter, it defaults to a value that is specific
-   *     to the operation. If additional items exist beyond the maximum you specify, the
-   *     <code>NextToken</code> response element is present and has a value (is not null). Include that
-   *     value as the <code>NextToken</code> request parameter in the next call to the operation to get
-   *     the next part of the results. Note that Organizations might return fewer results than the maximum even
-   *     when there are more results available. You should check <code>NextToken</code> after every
-   *     operation to ensure that you receive all of the results.</p>
+   * <p>The total number of results that you want included on each page of the
+   *     response. If you do not include this parameter, it defaults to a value that is specific to the
+   *     operation. If additional items exist beyond the maximum you specify, the <code>NextToken</code>
+   *     response element is present and has a value (is not null). Include that value as the
+   *     <code>NextToken</code> request parameter in the next call to the operation to get the next part
+   *     of the results. Note that Organizations might return fewer results than the maximum even when there are
+   *     more results available. You should check <code>NextToken</code> after every operation to ensure
+   *     that you receive all of the results.</p>
    */
   MaxResults?: number;
 }
@@ -3273,22 +3282,23 @@ export namespace ListHandshakesForAccountRequest {
 
 export interface ListHandshakesForOrganizationRequest {
   /**
-   * <p>The parameter for receiving additional results if you receive a <code>NextToken</code>
-   *     response in a previous request. A <code>NextToken</code> response indicates that more output is available. Set this parameter to the
-   *     value of the previous call's <code>NextToken</code> response to indicate where the output should
-   *     continue from.</p>
+   * <p>The parameter for receiving additional results if you receive a
+   *     <code>NextToken</code> response in a previous request. A <code>NextToken</code> response
+   *     indicates that more output is available. Set this parameter to the value of the previous
+   *     call's <code>NextToken</code> response to indicate where the output should continue
+   *     from.</p>
    */
   NextToken?: string;
 
   /**
-   * <p>The total number of results that you want included
-   *     on each page of the response. If you do not include this parameter, it defaults to a value that is specific
-   *     to the operation. If additional items exist beyond the maximum you specify, the
-   *     <code>NextToken</code> response element is present and has a value (is not null). Include that
-   *     value as the <code>NextToken</code> request parameter in the next call to the operation to get
-   *     the next part of the results. Note that Organizations might return fewer results than the maximum even
-   *     when there are more results available. You should check <code>NextToken</code> after every
-   *     operation to ensure that you receive all of the results.</p>
+   * <p>The total number of results that you want included on each page of the
+   *     response. If you do not include this parameter, it defaults to a value that is specific to the
+   *     operation. If additional items exist beyond the maximum you specify, the <code>NextToken</code>
+   *     response element is present and has a value (is not null). Include that value as the
+   *     <code>NextToken</code> request parameter in the next call to the operation to get the next part
+   *     of the results. Note that Organizations might return fewer results than the maximum even when there are
+   *     more results available. You should check <code>NextToken</code> after every operation to ensure
+   *     that you receive all of the results.</p>
    */
   MaxResults?: number;
 
@@ -3332,22 +3342,23 @@ export interface ListOrganizationalUnitsForParentRequest {
   ParentId: string | undefined;
 
   /**
-   * <p>The total number of results that you want included
-   *     on each page of the response. If you do not include this parameter, it defaults to a value that is specific
-   *     to the operation. If additional items exist beyond the maximum you specify, the
-   *     <code>NextToken</code> response element is present and has a value (is not null). Include that
-   *     value as the <code>NextToken</code> request parameter in the next call to the operation to get
-   *     the next part of the results. Note that Organizations might return fewer results than the maximum even
-   *     when there are more results available. You should check <code>NextToken</code> after every
-   *     operation to ensure that you receive all of the results.</p>
+   * <p>The total number of results that you want included on each page of the
+   *     response. If you do not include this parameter, it defaults to a value that is specific to the
+   *     operation. If additional items exist beyond the maximum you specify, the <code>NextToken</code>
+   *     response element is present and has a value (is not null). Include that value as the
+   *     <code>NextToken</code> request parameter in the next call to the operation to get the next part
+   *     of the results. Note that Organizations might return fewer results than the maximum even when there are
+   *     more results available. You should check <code>NextToken</code> after every operation to ensure
+   *     that you receive all of the results.</p>
    */
   MaxResults?: number;
 
   /**
-   * <p>The parameter for receiving additional results if you receive a <code>NextToken</code>
-   *     response in a previous request. A <code>NextToken</code> response indicates that more output is available. Set this parameter to the
-   *     value of the previous call's <code>NextToken</code> response to indicate where the output should
-   *     continue from.</p>
+   * <p>The parameter for receiving additional results if you receive a
+   *     <code>NextToken</code> response in a previous request. A <code>NextToken</code> response
+   *     indicates that more output is available. Set this parameter to the value of the previous
+   *     call's <code>NextToken</code> response to indicate where the output should continue
+   *     from.</p>
    */
   NextToken?: string;
 }
@@ -3365,10 +3376,10 @@ export interface ListOrganizationalUnitsForParentResponse {
   OrganizationalUnits?: OrganizationalUnit[];
 
   /**
-   * <p>If present, indicates that more output is available than is included in the current response. Use this value in the <code>NextToken</code>
-   *     request parameter in a subsequent call to the operation to get the next part of the output. You
-   *     should repeat this until the <code>NextToken</code> response element comes back as
-   *     <code>null</code>.</p>
+   * <p>If present, indicates that more output is available than is
+   *     included in the current response. Use this value in the <code>NextToken</code> request parameter
+   *     in a subsequent call to the operation to get the next part of the output. You should repeat this
+   *     until the <code>NextToken</code> response element comes back as <code>null</code>.</p>
    */
   NextToken?: string;
 }
@@ -3408,31 +3419,33 @@ export interface ListParentsRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>Organizational unit (OU)</b> - A string that begins with "ou-" followed by from 4 to 32
-   *           lowercase letters or digits (the ID of the root that contains the OU). This string is followed by a second
-   *           "-" dash and from 8 to 32 additional lowercase letters or digits.</p>
+   *                   <b>Organizational unit (OU)</b> - A string that begins with
+   *           "ou-" followed by from 4 to 32 lowercase letters or digits (the ID of the root that
+   *           contains the OU). This string is followed by a second "-" dash and from 8 to 32 additional
+   *           lowercase letters or digits.</p>
    *             </li>
    *          </ul>
    */
   ChildId: string | undefined;
 
   /**
-   * <p>The total number of results that you want included
-   *     on each page of the response. If you do not include this parameter, it defaults to a value that is specific
-   *     to the operation. If additional items exist beyond the maximum you specify, the
-   *     <code>NextToken</code> response element is present and has a value (is not null). Include that
-   *     value as the <code>NextToken</code> request parameter in the next call to the operation to get
-   *     the next part of the results. Note that Organizations might return fewer results than the maximum even
-   *     when there are more results available. You should check <code>NextToken</code> after every
-   *     operation to ensure that you receive all of the results.</p>
+   * <p>The total number of results that you want included on each page of the
+   *     response. If you do not include this parameter, it defaults to a value that is specific to the
+   *     operation. If additional items exist beyond the maximum you specify, the <code>NextToken</code>
+   *     response element is present and has a value (is not null). Include that value as the
+   *     <code>NextToken</code> request parameter in the next call to the operation to get the next part
+   *     of the results. Note that Organizations might return fewer results than the maximum even when there are
+   *     more results available. You should check <code>NextToken</code> after every operation to ensure
+   *     that you receive all of the results.</p>
    */
   MaxResults?: number;
 
   /**
-   * <p>The parameter for receiving additional results if you receive a <code>NextToken</code>
-   *     response in a previous request. A <code>NextToken</code> response indicates that more output is available. Set this parameter to the
-   *     value of the previous call's <code>NextToken</code> response to indicate where the output should
-   *     continue from.</p>
+   * <p>The parameter for receiving additional results if you receive a
+   *     <code>NextToken</code> response in a previous request. A <code>NextToken</code> response
+   *     indicates that more output is available. Set this parameter to the value of the previous
+   *     call's <code>NextToken</code> response to indicate where the output should continue
+   *     from.</p>
    */
   NextToken?: string;
 }
@@ -3487,10 +3500,10 @@ export namespace Parent {
 
 export interface ListParentsResponse {
   /**
-   * <p>If present, indicates that more output is available than is included in the current response. Use this value in the <code>NextToken</code>
-   *     request parameter in a subsequent call to the operation to get the next part of the output. You
-   *     should repeat this until the <code>NextToken</code> response element comes back as
-   *     <code>null</code>.</p>
+   * <p>If present, indicates that more output is available than is
+   *     included in the current response. Use this value in the <code>NextToken</code> request parameter
+   *     in a subsequent call to the operation to get the next part of the output. You should repeat this
+   *     until the <code>NextToken</code> response element comes back as <code>null</code>.</p>
    */
   NextToken?: string;
 
@@ -3508,14 +3521,14 @@ export namespace ListParentsResponse {
 
 export interface ListPoliciesRequest {
   /**
-   * <p>The total number of results that you want included
-   *     on each page of the response. If you do not include this parameter, it defaults to a value that is specific
-   *     to the operation. If additional items exist beyond the maximum you specify, the
-   *     <code>NextToken</code> response element is present and has a value (is not null). Include that
-   *     value as the <code>NextToken</code> request parameter in the next call to the operation to get
-   *     the next part of the results. Note that Organizations might return fewer results than the maximum even
-   *     when there are more results available. You should check <code>NextToken</code> after every
-   *     operation to ensure that you receive all of the results.</p>
+   * <p>The total number of results that you want included on each page of the
+   *     response. If you do not include this parameter, it defaults to a value that is specific to the
+   *     operation. If additional items exist beyond the maximum you specify, the <code>NextToken</code>
+   *     response element is present and has a value (is not null). Include that value as the
+   *     <code>NextToken</code> request parameter in the next call to the operation to get the next part
+   *     of the results. Note that Organizations might return fewer results than the maximum even when there are
+   *     more results available. You should check <code>NextToken</code> after every operation to ensure
+   *     that you receive all of the results.</p>
    */
   MaxResults?: number;
 
@@ -3548,10 +3561,11 @@ export interface ListPoliciesRequest {
   Filter: PolicyType | string | undefined;
 
   /**
-   * <p>The parameter for receiving additional results if you receive a <code>NextToken</code>
-   *     response in a previous request. A <code>NextToken</code> response indicates that more output is available. Set this parameter to the
-   *     value of the previous call's <code>NextToken</code> response to indicate where the output should
-   *     continue from.</p>
+   * <p>The parameter for receiving additional results if you receive a
+   *     <code>NextToken</code> response in a previous request. A <code>NextToken</code> response
+   *     indicates that more output is available. Set this parameter to the value of the previous
+   *     call's <code>NextToken</code> response to indicate where the output should continue
+   *     from.</p>
    */
   NextToken?: string;
 }
@@ -3570,10 +3584,10 @@ export interface ListPoliciesResponse {
   Policies?: PolicySummary[];
 
   /**
-   * <p>If present, indicates that more output is available than is included in the current response. Use this value in the <code>NextToken</code>
-   *     request parameter in a subsequent call to the operation to get the next part of the output. You
-   *     should repeat this until the <code>NextToken</code> response element comes back as
-   *     <code>null</code>.</p>
+   * <p>If present, indicates that more output is available than is
+   *     included in the current response. Use this value in the <code>NextToken</code> request parameter
+   *     in a subsequent call to the operation to get the next part of the output. You should repeat this
+   *     until the <code>NextToken</code> response element comes back as <code>null</code>.</p>
    */
   NextToken?: string;
 }
@@ -3586,14 +3600,14 @@ export namespace ListPoliciesResponse {
 
 export interface ListPoliciesForTargetRequest {
   /**
-   * <p>The total number of results that you want included
-   *     on each page of the response. If you do not include this parameter, it defaults to a value that is specific
-   *     to the operation. If additional items exist beyond the maximum you specify, the
-   *     <code>NextToken</code> response element is present and has a value (is not null). Include that
-   *     value as the <code>NextToken</code> request parameter in the next call to the operation to get
-   *     the next part of the results. Note that Organizations might return fewer results than the maximum even
-   *     when there are more results available. You should check <code>NextToken</code> after every
-   *     operation to ensure that you receive all of the results.</p>
+   * <p>The total number of results that you want included on each page of the
+   *     response. If you do not include this parameter, it defaults to a value that is specific to the
+   *     operation. If additional items exist beyond the maximum you specify, the <code>NextToken</code>
+   *     response element is present and has a value (is not null). Include that value as the
+   *     <code>NextToken</code> request parameter in the next call to the operation to get the next part
+   *     of the results. Note that Organizations might return fewer results than the maximum even when there are
+   *     more results available. You should check <code>NextToken</code> after every operation to ensure
+   *     that you receive all of the results.</p>
    */
   MaxResults?: number;
 
@@ -3651,10 +3665,11 @@ export interface ListPoliciesForTargetRequest {
   TargetId: string | undefined;
 
   /**
-   * <p>The parameter for receiving additional results if you receive a <code>NextToken</code>
-   *     response in a previous request. A <code>NextToken</code> response indicates that more output is available. Set this parameter to the
-   *     value of the previous call's <code>NextToken</code> response to indicate where the output should
-   *     continue from.</p>
+   * <p>The parameter for receiving additional results if you receive a
+   *     <code>NextToken</code> response in a previous request. A <code>NextToken</code> response
+   *     indicates that more output is available. Set this parameter to the value of the previous
+   *     call's <code>NextToken</code> response to indicate where the output should continue
+   *     from.</p>
    */
   NextToken?: string;
 }
@@ -3667,10 +3682,10 @@ export namespace ListPoliciesForTargetRequest {
 
 export interface ListPoliciesForTargetResponse {
   /**
-   * <p>If present, indicates that more output is available than is included in the current response. Use this value in the <code>NextToken</code>
-   *     request parameter in a subsequent call to the operation to get the next part of the output. You
-   *     should repeat this until the <code>NextToken</code> response element comes back as
-   *     <code>null</code>.</p>
+   * <p>If present, indicates that more output is available than is
+   *     included in the current response. Use this value in the <code>NextToken</code> request parameter
+   *     in a subsequent call to the operation to get the next part of the output. You should repeat this
+   *     until the <code>NextToken</code> response element comes back as <code>null</code>.</p>
    */
   NextToken?: string;
 
@@ -3688,22 +3703,23 @@ export namespace ListPoliciesForTargetResponse {
 
 export interface ListRootsRequest {
   /**
-   * <p>The total number of results that you want included
-   *     on each page of the response. If you do not include this parameter, it defaults to a value that is specific
-   *     to the operation. If additional items exist beyond the maximum you specify, the
-   *     <code>NextToken</code> response element is present and has a value (is not null). Include that
-   *     value as the <code>NextToken</code> request parameter in the next call to the operation to get
-   *     the next part of the results. Note that Organizations might return fewer results than the maximum even
-   *     when there are more results available. You should check <code>NextToken</code> after every
-   *     operation to ensure that you receive all of the results.</p>
+   * <p>The total number of results that you want included on each page of the
+   *     response. If you do not include this parameter, it defaults to a value that is specific to the
+   *     operation. If additional items exist beyond the maximum you specify, the <code>NextToken</code>
+   *     response element is present and has a value (is not null). Include that value as the
+   *     <code>NextToken</code> request parameter in the next call to the operation to get the next part
+   *     of the results. Note that Organizations might return fewer results than the maximum even when there are
+   *     more results available. You should check <code>NextToken</code> after every operation to ensure
+   *     that you receive all of the results.</p>
    */
   MaxResults?: number;
 
   /**
-   * <p>The parameter for receiving additional results if you receive a <code>NextToken</code>
-   *     response in a previous request. A <code>NextToken</code> response indicates that more output is available. Set this parameter to the
-   *     value of the previous call's <code>NextToken</code> response to indicate where the output should
-   *     continue from.</p>
+   * <p>The parameter for receiving additional results if you receive a
+   *     <code>NextToken</code> response in a previous request. A <code>NextToken</code> response
+   *     indicates that more output is available. Set this parameter to the value of the previous
+   *     call's <code>NextToken</code> response to indicate where the output should continue
+   *     from.</p>
    */
   NextToken?: string;
 }
@@ -3716,10 +3732,10 @@ export namespace ListRootsRequest {
 
 export interface ListRootsResponse {
   /**
-   * <p>If present, indicates that more output is available than is included in the current response. Use this value in the <code>NextToken</code>
-   *     request parameter in a subsequent call to the operation to get the next part of the output. You
-   *     should repeat this until the <code>NextToken</code> response element comes back as
-   *     <code>null</code>.</p>
+   * <p>If present, indicates that more output is available than is
+   *     included in the current response. Use this value in the <code>NextToken</code> request parameter
+   *     in a subsequent call to the operation to get the next part of the output. You should repeat this
+   *     until the <code>NextToken</code> response element comes back as <code>null</code>.</p>
    */
   NextToken?: string;
 
@@ -3766,10 +3782,11 @@ export interface ListTagsForResourceRequest {
   ResourceId: string | undefined;
 
   /**
-   * <p>The parameter for receiving additional results if you receive a <code>NextToken</code>
-   *     response in a previous request. A <code>NextToken</code> response indicates that more output is available. Set this parameter to the
-   *     value of the previous call's <code>NextToken</code> response to indicate where the output should
-   *     continue from.</p>
+   * <p>The parameter for receiving additional results if you receive a
+   *     <code>NextToken</code> response in a previous request. A <code>NextToken</code> response
+   *     indicates that more output is available. Set this parameter to the value of the previous
+   *     call's <code>NextToken</code> response to indicate where the output should continue
+   *     from.</p>
    */
   NextToken?: string;
 }
@@ -3782,10 +3799,10 @@ export namespace ListTagsForResourceRequest {
 
 export interface ListTagsForResourceResponse {
   /**
-   * <p>If present, indicates that more output is available than is included in the current response. Use this value in the <code>NextToken</code>
-   *     request parameter in a subsequent call to the operation to get the next part of the output. You
-   *     should repeat this until the <code>NextToken</code> response element comes back as
-   *     <code>null</code>.</p>
+   * <p>If present, indicates that more output is available than is
+   *     included in the current response. Use this value in the <code>NextToken</code> request parameter
+   *     in a subsequent call to the operation to get the next part of the output. You should repeat this
+   *     until the <code>NextToken</code> response element comes back as <code>null</code>.</p>
    */
   NextToken?: string;
 
@@ -3803,14 +3820,14 @@ export namespace ListTagsForResourceResponse {
 
 export interface ListTargetsForPolicyRequest {
   /**
-   * <p>The total number of results that you want included
-   *     on each page of the response. If you do not include this parameter, it defaults to a value that is specific
-   *     to the operation. If additional items exist beyond the maximum you specify, the
-   *     <code>NextToken</code> response element is present and has a value (is not null). Include that
-   *     value as the <code>NextToken</code> request parameter in the next call to the operation to get
-   *     the next part of the results. Note that Organizations might return fewer results than the maximum even
-   *     when there are more results available. You should check <code>NextToken</code> after every
-   *     operation to ensure that you receive all of the results.</p>
+   * <p>The total number of results that you want included on each page of the
+   *     response. If you do not include this parameter, it defaults to a value that is specific to the
+   *     operation. If additional items exist beyond the maximum you specify, the <code>NextToken</code>
+   *     response element is present and has a value (is not null). Include that value as the
+   *     <code>NextToken</code> request parameter in the next call to the operation to get the next part
+   *     of the results. Note that Organizations might return fewer results than the maximum even when there are
+   *     more results available. You should check <code>NextToken</code> after every operation to ensure
+   *     that you receive all of the results.</p>
    */
   MaxResults?: number;
 
@@ -3822,10 +3839,11 @@ export interface ListTargetsForPolicyRequest {
   PolicyId: string | undefined;
 
   /**
-   * <p>The parameter for receiving additional results if you receive a <code>NextToken</code>
-   *     response in a previous request. A <code>NextToken</code> response indicates that more output is available. Set this parameter to the
-   *     value of the previous call's <code>NextToken</code> response to indicate where the output should
-   *     continue from.</p>
+   * <p>The parameter for receiving additional results if you receive a
+   *     <code>NextToken</code> response in a previous request. A <code>NextToken</code> response
+   *     indicates that more output is available. Set this parameter to the value of the previous
+   *     call's <code>NextToken</code> response to indicate where the output should continue
+   *     from.</p>
    */
   NextToken?: string;
 }
@@ -3905,10 +3923,10 @@ export interface ListTargetsForPolicyResponse {
   Targets?: PolicyTargetSummary[];
 
   /**
-   * <p>If present, indicates that more output is available than is included in the current response. Use this value in the <code>NextToken</code>
-   *     request parameter in a subsequent call to the operation to get the next part of the output. You
-   *     should repeat this until the <code>NextToken</code> response element comes back as
-   *     <code>null</code>.</p>
+   * <p>If present, indicates that more output is available than is
+   *     included in the current response. Use this value in the <code>NextToken</code> request parameter
+   *     in a subsequent call to the operation to get the next part of the output. You should repeat this
+   *     until the <code>NextToken</code> response element comes back as <code>null</code>.</p>
    */
   NextToken?: string;
 }
@@ -4165,8 +4183,8 @@ export interface UpdateOrganizationalUnitRequest {
    *             the <a>ListOrganizationalUnitsForParent</a> operation.</p>
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for an organizational unit ID string requires
    *     "ou-" followed by from 4 to 32 lowercase letters or digits (the ID of the root that contains the
-   *     OU). This string is followed by a second "-" dash and from 8 to 32 additional lowercase letters or
-   *     digits.</p>
+   *     OU). This string is followed by a second "-" dash and from 8 to 32 additional lowercase letters
+   *     or digits.</p>
    */
   OrganizationalUnitId: string | undefined;
 }
@@ -4265,12 +4283,12 @@ export interface HandshakeResource {
    *             <li>
    *                 <p>
    *                   <code>OWNER_EMAIL</code> - Specifies the email address associated with the
-   *                     master account. Included as information about an organization. </p>
+   *                     management account. Included as information about an organization. </p>
    *             </li>
    *             <li>
    *                 <p>
    *                   <code>OWNER_NAME</code> - Specifies the name associated with the
-   *                     master account. Included as information about an organization. </p>
+   *                     management account. Included as information about an organization. </p>
    *             </li>
    *             <li>
    *                 <p>
@@ -4305,7 +4323,7 @@ export namespace HandshakeResource {
 /**
  * <p>Contains information that must be exchanged to securely establish a relationship
  *             between two accounts (an <i>originator</i> and a
- *                 <i>recipient</i>). For example, when a master account (the
+ *                 <i>recipient</i>). For example, when a management account (the
  *             originator) invites another account (the recipient) to join its organization, the two
  *             accounts exchange information as a series of handshake requests and responses.</p>
  *         <p>
@@ -4333,23 +4351,23 @@ export interface Handshake {
    *             <li>
    *                 <p>
    *                   <b>INVITE</b>: This type of handshake represents a
-   *                     request to join an organization. It is always sent from the master account to
+   *                     request to join an organization. It is always sent from the management account to
    *                     only non-member accounts.</p>
    *             </li>
    *             <li>
    *                 <p>
    *                   <b>ENABLE_ALL_FEATURES</b>: This type of handshake
    *                     represents a request to enable all features in an organization. It is always
-   *                     sent from the master account to only <i>invited</i> member
+   *                     sent from the management account to only <i>invited</i> member
    *                     accounts. Created accounts do not receive this because those accounts were
-   *                     created by the organization's master account and approval is inferred.</p>
+   *                     created by the organization's management account and approval is inferred.</p>
    *             </li>
    *             <li>
    *                 <p>
    *                   <b>APPROVE_ALL_FEATURES</b>: This type of handshake
    *                     is sent from the Organizations service when all member accounts have approved the
    *                         <code>ENABLE_ALL_FEATURES</code> invitation. It is sent only to the
-   *                     master account and signals the master that it can finalize the process to
+   *                     management account and signals the master that it can finalize the process to
    *                     enable all features.</p>
    *             </li>
    *          </ul>
@@ -4528,10 +4546,10 @@ export interface ListHandshakesForAccountResponse {
   Handshakes?: Handshake[];
 
   /**
-   * <p>If present, indicates that more output is available than is included in the current response. Use this value in the <code>NextToken</code>
-   *     request parameter in a subsequent call to the operation to get the next part of the output. You
-   *     should repeat this until the <code>NextToken</code> response element comes back as
-   *     <code>null</code>.</p>
+   * <p>If present, indicates that more output is available than is
+   *     included in the current response. Use this value in the <code>NextToken</code> request parameter
+   *     in a subsequent call to the operation to get the next part of the output. You should repeat this
+   *     until the <code>NextToken</code> response element comes back as <code>null</code>.</p>
    */
   NextToken?: string;
 }
@@ -4544,10 +4562,10 @@ export namespace ListHandshakesForAccountResponse {
 
 export interface ListHandshakesForOrganizationResponse {
   /**
-   * <p>If present, indicates that more output is available than is included in the current response. Use this value in the <code>NextToken</code>
-   *     request parameter in a subsequent call to the operation to get the next part of the output. You
-   *     should repeat this until the <code>NextToken</code> response element comes back as
-   *     <code>null</code>.</p>
+   * <p>If present, indicates that more output is available than is
+   *     included in the current response. Use this value in the <code>NextToken</code> request parameter
+   *     in a subsequent call to the operation to get the next part of the output. You should repeat this
+   *     until the <code>NextToken</code> response element comes back as <code>null</code>.</p>
    */
   NextToken?: string;
 

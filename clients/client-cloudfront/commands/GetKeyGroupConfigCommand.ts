@@ -1,9 +1,8 @@
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import { GetRealtimeLogConfigRequest } from "../models/models_0";
-import { GetRealtimeLogConfigResult } from "../models/models_1";
+import { GetKeyGroupConfigRequest, GetKeyGroupConfigResult } from "../models/models_0";
 import {
-  deserializeAws_restXmlGetRealtimeLogConfigCommand,
-  serializeAws_restXmlGetRealtimeLogConfigCommand,
+  deserializeAws_restXmlGetKeyGroupConfigCommand,
+  serializeAws_restXmlGetKeyGroupConfigCommand,
 } from "../protocols/Aws_restXml";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
@@ -18,18 +17,18 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetRealtimeLogConfigCommandInput = GetRealtimeLogConfigRequest;
-export type GetRealtimeLogConfigCommandOutput = GetRealtimeLogConfigResult & __MetadataBearer;
+export type GetKeyGroupConfigCommandInput = GetKeyGroupConfigRequest;
+export type GetKeyGroupConfigCommandOutput = GetKeyGroupConfigResult & __MetadataBearer;
 
-export class GetRealtimeLogConfigCommand extends $Command<
-  GetRealtimeLogConfigCommandInput,
-  GetRealtimeLogConfigCommandOutput,
+export class GetKeyGroupConfigCommand extends $Command<
+  GetKeyGroupConfigCommandInput,
+  GetKeyGroupConfigCommandOutput,
   CloudFrontClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(readonly input: GetRealtimeLogConfigCommandInput) {
+  constructor(readonly input: GetKeyGroupConfigCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -39,7 +38,7 @@ export class GetRealtimeLogConfigCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudFrontClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<GetRealtimeLogConfigCommandInput, GetRealtimeLogConfigCommandOutput> {
+  ): Handler<GetKeyGroupConfigCommandInput, GetKeyGroupConfigCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
@@ -47,8 +46,8 @@ export class GetRealtimeLogConfigCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      inputFilterSensitiveLog: GetRealtimeLogConfigRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetRealtimeLogConfigResult.filterSensitiveLog,
+      inputFilterSensitiveLog: GetKeyGroupConfigRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: GetKeyGroupConfigResult.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -58,12 +57,12 @@ export class GetRealtimeLogConfigCommand extends $Command<
     );
   }
 
-  private serialize(input: GetRealtimeLogConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlGetRealtimeLogConfigCommand(input, context);
+  private serialize(input: GetKeyGroupConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restXmlGetKeyGroupConfigCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetRealtimeLogConfigCommandOutput> {
-    return deserializeAws_restXmlGetRealtimeLogConfigCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetKeyGroupConfigCommandOutput> {
+    return deserializeAws_restXmlGetKeyGroupConfigCommand(output, context);
   }
 
   // Start section: command_body_extra

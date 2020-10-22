@@ -58,6 +58,7 @@ import {
   ContainerSummary,
   Device,
   DeviceCgroupPermission,
+  EvaluateOnExit,
   Host,
   JobDefinition,
   JobDependency,
@@ -2042,6 +2043,19 @@ const serializeAws_restJson1EnvironmentVariables = (input: KeyValuePair[], conte
   return input.map((entry) => serializeAws_restJson1KeyValuePair(entry, context));
 };
 
+const serializeAws_restJson1EvaluateOnExit = (input: EvaluateOnExit, context: __SerdeContext): any => {
+  return {
+    ...(input.action !== undefined && { action: input.action }),
+    ...(input.onExitCode !== undefined && { onExitCode: input.onExitCode }),
+    ...(input.onReason !== undefined && { onReason: input.onReason }),
+    ...(input.onStatusReason !== undefined && { onStatusReason: input.onStatusReason }),
+  };
+};
+
+const serializeAws_restJson1EvaluateOnExitList = (input: EvaluateOnExit[], context: __SerdeContext): any => {
+  return input.map((entry) => serializeAws_restJson1EvaluateOnExit(entry, context));
+};
+
 const serializeAws_restJson1Host = (input: Host, context: __SerdeContext): any => {
   return {
     ...(input.sourcePath !== undefined && { sourcePath: input.sourcePath }),
@@ -2200,6 +2214,9 @@ const serializeAws_restJson1ResourceRequirements = (input: ResourceRequirement[]
 const serializeAws_restJson1RetryStrategy = (input: RetryStrategy, context: __SerdeContext): any => {
   return {
     ...(input.attempts !== undefined && { attempts: input.attempts }),
+    ...(input.evaluateOnExit !== undefined && {
+      evaluateOnExit: serializeAws_restJson1EvaluateOnExitList(input.evaluateOnExit, context),
+    }),
   };
 };
 
@@ -2601,6 +2618,20 @@ const deserializeAws_restJson1EnvironmentVariables = (output: any, context: __Se
   return (output || []).map((entry: any) => deserializeAws_restJson1KeyValuePair(entry, context));
 };
 
+const deserializeAws_restJson1EvaluateOnExit = (output: any, context: __SerdeContext): EvaluateOnExit => {
+  return {
+    action: output.action !== undefined && output.action !== null ? output.action : undefined,
+    onExitCode: output.onExitCode !== undefined && output.onExitCode !== null ? output.onExitCode : undefined,
+    onReason: output.onReason !== undefined && output.onReason !== null ? output.onReason : undefined,
+    onStatusReason:
+      output.onStatusReason !== undefined && output.onStatusReason !== null ? output.onStatusReason : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1EvaluateOnExitList = (output: any, context: __SerdeContext): EvaluateOnExit[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1EvaluateOnExit(entry, context));
+};
+
 const deserializeAws_restJson1Host = (output: any, context: __SerdeContext): Host => {
   return {
     sourcePath: output.sourcePath !== undefined && output.sourcePath !== null ? output.sourcePath : undefined,
@@ -2943,6 +2974,10 @@ const deserializeAws_restJson1ResourceRequirements = (output: any, context: __Se
 const deserializeAws_restJson1RetryStrategy = (output: any, context: __SerdeContext): RetryStrategy => {
   return {
     attempts: output.attempts !== undefined && output.attempts !== null ? output.attempts : undefined,
+    evaluateOnExit:
+      output.evaluateOnExit !== undefined && output.evaluateOnExit !== null
+        ? deserializeAws_restJson1EvaluateOnExitList(output.evaluateOnExit, context)
+        : undefined,
   } as any;
 };
 

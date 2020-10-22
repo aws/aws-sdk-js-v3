@@ -15536,7 +15536,7 @@ export class EC2 extends EC2Client {
    *             queues a request to reboot the specified instances. The operation succeeds if the
    *             instances are valid and belong to you. Requests to reboot terminated instances are
    *             ignored.</p>
-   *         <p>If an instance does not cleanly shut down within four minutes, Amazon EC2 performs a
+   *         <p>If an instance does not cleanly shut down within a few minutes, Amazon EC2 performs a
    *             hard reboot.</p>
    *         <p>For more information about troubleshooting, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-console.html">Getting console output and
    *                 rebooting instances</a> in the <i>Amazon Elastic Compute Cloud User

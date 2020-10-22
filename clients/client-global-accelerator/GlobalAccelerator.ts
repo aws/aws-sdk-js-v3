@@ -125,12 +125,18 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 /**
  * <fullname>AWS Global Accelerator</fullname>
  * 		       <p>This is the <i>AWS Global Accelerator API Reference</i>. This guide is for developers who need detailed information about
- * 			AWS Global Accelerator API actions, data types, and errors. For more information about Global Accelerator features, see the <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/Welcome.html">AWS Global Accelerator Developer Guide</a>. </p>
- * 		       <p>AWS Global Accelerator is a service in which you create accelerators to improve availability and performance of your applications for
- * 			local and global users. </p>
+ * 			AWS Global Accelerator API actions, data types, and errors. For more information about Global Accelerator features, see the
+ * 			<a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/Welcome.html">AWS Global Accelerator Developer Guide</a>.</p>
+ * 		       <p>AWS Global Accelerator is a service in which you create <i>accelerators</i> to improve availability and performance
+ * 			of your applications for local and global users. Global Accelerator directs traffic to optimal endpoints over the AWS
+ * 			global network. This improves the availability and performance of your internet applications that are used by
+ * 			a global audience. Global Accelerator is a global service that supports endpoints in multiple AWS Regions, which are listed
+ * 			in the <a href="https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/">AWS
+ * 			Region Table</a>.</p>
  *
  * 		       <important>
- * 			         <p>You must specify the US West (Oregon) Region to create or update accelerators.</p>
+ * 			         <p>Global Accelerator is a global service that supports endpoints in multiple AWS Regions but you must specify the
+ * 				US West (Oregon) Region to create or update accelerators.</p>
  * 		       </important>
  *
  * 		       <p>By default, Global Accelerator provides you with static IP addresses that you associate with your accelerator. (Instead of using the
@@ -262,12 +268,9 @@ export class GlobalAccelerator extends GlobalAcceleratorClient {
    * <p>Create an accelerator. An accelerator includes one or more listeners that process inbound connections and direct traffic
    * 			to one or more endpoint groups, each of which includes endpoints, such as Network Load Balancers. To see an AWS CLI
    * 			example of creating an accelerator, scroll down to <b>Example</b>.</p>
-   * 		       <p>If you bring your own IP address ranges to AWS Global Accelerator (BYOIP), you can assign IP addresses from your own
-   * 			pool to your accelerator as the static IP address entry points. Only one IP address from each of your IP
-   * 			address ranges can be used for each accelerator.</p>
-   *
    * 		       <important>
-   * 			         <p>You must specify the US West (Oregon) Region to create or update accelerators.</p>
+   * 			         <p>Global Accelerator is a global service that supports endpoints in multiple AWS Regions but you must specify the
+   * 				US West (Oregon) Region to create or update accelerators.</p>
    * 		       </important>
    */
   public createAccelerator(
@@ -301,7 +304,8 @@ export class GlobalAccelerator extends GlobalAcceleratorClient {
 
   /**
    * <p>Create an endpoint group for the specified listener. An endpoint group is a collection of endpoints in one AWS
-   * 			Region. To see an AWS CLI example of creating an endpoint group, scroll down to <b>Example</b>.</p>
+   * 			Region. A resource must be valid and active when you add it as an endpoint.</p>
+   * 		       <p>To see an AWS CLI example of creating an endpoint group, scroll down to <b>Example</b>.</p>
    */
   public createEndpointGroup(
     args: CreateEndpointGroupCommandInput,
@@ -924,7 +928,8 @@ export class GlobalAccelerator extends GlobalAcceleratorClient {
    * 			scroll down to <b>Example</b>.</p>
    *
    * 		       <important>
-   * 			         <p>You must specify the US West (Oregon) Region to create or update accelerators.</p>
+   * 			         <p>Global Accelerator is a global service that supports endpoints in multiple AWS Regions but you must specify the
+   * 				US West (Oregon) Region to create or update accelerators.</p>
    * 		       </important>
    */
   public updateAccelerator(
@@ -990,7 +995,8 @@ export class GlobalAccelerator extends GlobalAcceleratorClient {
   }
 
   /**
-   * <p>Update an endpoint group. To see an AWS CLI example of updating an endpoint group, scroll down to <b>Example</b>.</p>
+   * <p>Update an endpoint group. A resource must be valid and active when you add it as an endpoint.</p>
+   * 		       <p>To see an AWS CLI example of updating an endpoint group, scroll down to <b>Example</b>. </p>
    */
   public updateEndpointGroup(
     args: UpdateEndpointGroupCommandInput,

@@ -2985,6 +2985,7 @@ const serializeAws_json1_1ConnectionConfiguration = (input: ConnectionConfigurat
 
 const serializeAws_json1_1CreateDataSourceRequest = (input: CreateDataSourceRequest, context: __SerdeContext): any => {
   return {
+    ClientToken: input.ClientToken ?? generateIdempotencyToken(),
     ...(input.Configuration !== undefined && {
       Configuration: serializeAws_json1_1DataSourceConfiguration(input.Configuration, context),
     }),
@@ -3000,6 +3001,7 @@ const serializeAws_json1_1CreateDataSourceRequest = (input: CreateDataSourceRequ
 
 const serializeAws_json1_1CreateFaqRequest = (input: CreateFaqRequest, context: __SerdeContext): any => {
   return {
+    ClientToken: input.ClientToken ?? generateIdempotencyToken(),
     ...(input.Description !== undefined && { Description: input.Description }),
     ...(input.FileFormat !== undefined && { FileFormat: input.FileFormat }),
     ...(input.IndexId !== undefined && { IndexId: input.IndexId }),
@@ -3410,6 +3412,9 @@ const serializeAws_json1_1S3DataSourceConfiguration = (
     }),
     ...(input.ExclusionPatterns !== undefined && {
       ExclusionPatterns: serializeAws_json1_1DataSourceInclusionsExclusionsStrings(input.ExclusionPatterns, context),
+    }),
+    ...(input.InclusionPatterns !== undefined && {
+      InclusionPatterns: serializeAws_json1_1DataSourceInclusionsExclusionsStrings(input.InclusionPatterns, context),
     }),
     ...(input.InclusionPrefixes !== undefined && {
       InclusionPrefixes: serializeAws_json1_1DataSourceInclusionsExclusionsStrings(input.InclusionPrefixes, context),
@@ -4727,6 +4732,10 @@ const deserializeAws_json1_1S3DataSourceConfiguration = (
     ExclusionPatterns:
       output.ExclusionPatterns !== undefined && output.ExclusionPatterns !== null
         ? deserializeAws_json1_1DataSourceInclusionsExclusionsStrings(output.ExclusionPatterns, context)
+        : undefined,
+    InclusionPatterns:
+      output.InclusionPatterns !== undefined && output.InclusionPatterns !== null
+        ? deserializeAws_json1_1DataSourceInclusionsExclusionsStrings(output.InclusionPatterns, context)
         : undefined,
     InclusionPrefixes:
       output.InclusionPrefixes !== undefined && output.InclusionPrefixes !== null

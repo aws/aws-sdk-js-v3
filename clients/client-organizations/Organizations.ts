@@ -265,7 +265,7 @@ export class Organizations extends OrganizationsClient {
    *             <li>
    *                 <p>
    *                   <b>Enable all features final confirmation</b>
-   *                     handshake: only a principal from the master account.</p>
+   *                     handshake: only a principal from the management account.</p>
    *                 <p>For more information about invitations, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_invites.html">Inviting an AWS Account to Join Your Organization</a> in the
    *                         <i>AWS Organizations User Guide.</i> For more information about requests to
    *                     enable all features in the organization, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html">Enabling All Features in Your Organization</a> in
@@ -331,7 +331,7 @@ export class Organizations extends OrganizationsClient {
    *                </p>
    *             </li>
    *          </ul>
-   *          <p>This operation can be called only from the organization's master account.</p>
+   *          <p>This operation can be called only from the organization's management account.</p>
    */
   public attachPolicy(
     args: AttachPolicyCommandInput,
@@ -424,10 +424,10 @@ export class Organizations extends OrganizationsClient {
    *                 <code>organizations:TagResource</code> permission.</p>
    *         <p>AWS Organizations preconfigures the new member account with a role (named
    *                 <code>OrganizationAccountAccessRole</code> by default) that grants users in the
-   *             master account administrator permissions in the new member account. Principals in the
-   *             master account can assume the role. AWS Organizations clones the company name and address
-   *             information for the new account from the organization's master account.</p>
-   *         <p>This operation can be called only from the organization's master account.</p>
+   *             management account administrator permissions in the new member account. Principals in the
+   *             management account can assume the role. AWS Organizations clones the company name and address
+   *             information for the new account from the organization's management account.</p>
+   *         <p>This operation can be called only from the organization's management account.</p>
    *         <p>For more information about creating accounts, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_create.html">Creating
    *                 an AWS Account in Your Organization</a> in the
    *                 <i>AWS Organizations User Guide.</i>
@@ -516,10 +516,10 @@ export class Organizations extends OrganizationsClient {
    *             </li>
    *             <li>
    *                 <p>You already have an account in the AWS GovCloud (US) Region that is paired
-   *                     with a master account of an organization in the commercial Region.</p>
+   *                     with a management account of an organization in the commercial Region.</p>
    *             </li>
    *             <li>
-   *                 <p>You call this action from the master account of your organization in the
+   *                 <p>You call this action from the management account of your organization in the
    *                     commercial Region.</p>
    *             </li>
    *             <li>
@@ -549,9 +549,9 @@ export class Organizations extends OrganizationsClient {
    *             commercial account associated with the GovCloud account, rather than the GovCloud
    *             account itself. To add tags to the GovCloud account, call the <a>TagResource</a> operation in the GovCloud Region after the new GovCloud
    *             account exists.</p>
-   *         <p>You call this action from the master account of your organization in the commercial
+   *         <p>You call this action from the management account of your organization in the commercial
    *             Region to create a standalone AWS account in the AWS GovCloud (US) Region. After the
-   *             account is created, the master account of an organization in the AWS GovCloud (US)
+   *             account is created, the management account of an organization in the AWS GovCloud (US)
    *             Region can invite it to that organization. For more information on inviting standalone
    *             accounts in the AWS GovCloud (US) to join an organization, see <a href="http://docs.aws.amazon.com/govcloud-us/latest/UserGuide/govcloud-organizations.html">AWS Organizations</a> in the
    *                 <i>AWS GovCloud User Guide.</i>
@@ -582,11 +582,11 @@ export class Organizations extends OrganizationsClient {
    *             is automatically a member of the organization whose credentials made the request. Both
    *             accounts are associated with the same email address.</p>
    *         <p>A role is created in the new account in the commercial Region that allows the
-   *             master account in the organization in the commercial Region to assume it. An AWS
+   *             management account in the organization in the commercial Region to assume it. An AWS
    *             GovCloud (US) account is then created and associated with the commercial account that
    *             you just created. A role is also created in the new AWS GovCloud (US) account that can
    *             be assumed by the AWS GovCloud (US) account that is associated with the
-   *             master account of the commercial organization. For more information and to view a
+   *             management account of the commercial organization. For more information and to view a
    *             diagram that explains how account access works, see <a href="http://docs.aws.amazon.com/govcloud-us/latest/UserGuide/govcloud-organizations.html">AWS Organizations</a> in the
    *                 <i>AWS GovCloud User Guide.</i>
    *          </p>
@@ -671,9 +671,9 @@ export class Organizations extends OrganizationsClient {
 
   /**
    * <p>Creates an AWS organization. The account whose user is calling the
-   *                 <code>CreateOrganization</code> operation automatically becomes the <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#account">master account</a> of the new organization.</p>
+   *                 <code>CreateOrganization</code> operation automatically becomes the <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#account">management account</a> of the new organization.</p>
    *         <p>This operation must be called using credentials from the account that is to become the
-   *             new organization's master account. The principal must also have the relevant IAM
+   *             new organization's management account. The principal must also have the relevant IAM
    *             permissions.</p>
    *         <p>By default (or if you set the <code>FeatureSet</code> parameter to <code>ALL</code>),
    *             the new organization is created with all features enabled and service control policies
@@ -722,7 +722,7 @@ export class Organizations extends OrganizationsClient {
    *          </p>
    *         <p>If the request includes tags, then the requester must have the
    *                 <code>organizations:TagResource</code> permission.</p>
-   *         <p>This operation can be called only from the organization's master account.</p>
+   *         <p>This operation can be called only from the organization's management account.</p>
    */
   public createOrganizationalUnit(
     args: CreateOrganizationalUnitCommandInput,
@@ -760,7 +760,7 @@ export class Organizations extends OrganizationsClient {
    *                 Organization Policies</a>.</p>
    *         <p>If the request includes tags, then the requester must have the
    *                 <code>organizations:TagResource</code> permission.</p>
-   *         <p>This operation can be called only from the organization's master account.</p>
+   *         <p>This operation can be called only from the organization's management account.</p>
    */
   public createPolicy(
     args: CreatePolicyCommandInput,
@@ -828,7 +828,7 @@ export class Organizations extends OrganizationsClient {
 
   /**
    * <p>Deletes the organization. You can delete an organization only by using credentials
-   *             from the master account. The organization must be empty of member accounts.</p>
+   *             from the management account. The organization must be empty of member accounts.</p>
    */
   public deleteOrganization(
     args: DeleteOrganizationCommandInput,
@@ -862,7 +862,7 @@ export class Organizations extends OrganizationsClient {
   /**
    * <p>Deletes an organizational unit (OU) from a root or another OU. You must first remove
    *             all accounts and child OUs from the OU that you want to delete.</p>
-   *         <p>This operation can be called only from the organization's master account.</p>
+   *         <p>This operation can be called only from the organization's management account.</p>
    */
   public deleteOrganizationalUnit(
     args: DeleteOrganizationalUnitCommandInput,
@@ -897,7 +897,7 @@ export class Organizations extends OrganizationsClient {
    * <p>Deletes the specified policy from your organization. Before you perform this
    *             operation, you must first detach the policy from all organizational units (OUs), roots,
    *             and accounts.</p>
-   *         <p>This operation can be called only from the organization's master account.</p>
+   *         <p>This operation can be called only from the organization's management account.</p>
    */
   public deletePolicy(
     args: DeletePolicyCommandInput,
@@ -939,7 +939,7 @@ export class Organizations extends OrganizationsClient {
    *     Delegated Administrator</i> in the table at <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrated-services-list.html">AWS Services that you can use with
    *     AWS Organizations</a> in the <i>AWS Organizations User Guide.</i>
    *          </p>
-   *         <p>This operation can be called only from the organization's master account.</p>
+   *         <p>This operation can be called only from the organization's management account.</p>
    */
   public deregisterDelegatedAdministrator(
     args: DeregisterDelegatedAdministratorCommandInput,
@@ -973,7 +973,7 @@ export class Organizations extends OrganizationsClient {
   /**
    * <p>Retrieves AWS Organizations-related information about the specified account.</p>
    *         <p>This operation can be called only from the organization's
-   * master account or by a member account that is a delegated administrator for an AWS service.</p>
+   * management account or by a member account that is a delegated administrator for an AWS service.</p>
    */
   public describeAccount(
     args: DescribeAccountCommandInput,
@@ -1007,7 +1007,7 @@ export class Organizations extends OrganizationsClient {
   /**
    * <p>Retrieves the current status of an asynchronous request to create an account.</p>
    *         <p>This operation can be called only from the organization's
-   * master account or by a member account that is a delegated administrator for an AWS service.</p>
+   * management account or by a member account that is a delegated administrator for an AWS service.</p>
    */
   public describeCreateAccountStatus(
     args: DescribeCreateAccountStatusCommandInput,
@@ -1048,7 +1048,7 @@ export class Organizations extends OrganizationsClient {
    *         <p>For more information about policy inheritance, see <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies-inheritance.html">How Policy Inheritance
    *                 Works</a> in the <i>AWS Organizations User Guide</i>.</p>
    *         <p>This operation can be called only from the organization's
-   * master account or by a member account that is a delegated administrator for an AWS service.</p>
+   * management account or by a member account that is a delegated administrator for an AWS service.</p>
    */
   public describeEffectivePolicy(
     args: DescribeEffectivePolicyCommandInput,
@@ -1159,7 +1159,7 @@ export class Organizations extends OrganizationsClient {
   /**
    * <p>Retrieves information about an organizational unit (OU).</p>
    *         <p>This operation can be called only from the organization's
-   * master account or by a member account that is a delegated administrator for an AWS service.</p>
+   * management account or by a member account that is a delegated administrator for an AWS service.</p>
    */
   public describeOrganizationalUnit(
     args: DescribeOrganizationalUnitCommandInput,
@@ -1193,7 +1193,7 @@ export class Organizations extends OrganizationsClient {
   /**
    * <p>Retrieves information about a policy.</p>
    *         <p>This operation can be called only from the organization's
-   * master account or by a member account that is a delegated administrator for an AWS service.</p>
+   * management account or by a member account that is a delegated administrator for an AWS service.</p>
    */
   public describePolicy(
     args: DescribePolicyCommandInput,
@@ -1239,7 +1239,7 @@ export class Organizations extends OrganizationsClient {
    *                 "Deny"</code> in the second SCP to override the <code>"Effect": "Allow"</code> in
    *             the <code>FullAWSAccess</code> policy (or any other attached SCP), you're using the
    *             authorization strategy of a "<a href="https://docs.aws.amazon.com/organizations/latest/userguide/SCP_strategies.html#orgs_policies_denylist">deny list</a>".</p>
-   *         <p>This operation can be called only from the organization's master account.</p>
+   *         <p>This operation can be called only from the organization's management account.</p>
    */
   public detachPolicy(
     args: DetachPolicyCommandInput,
@@ -1292,7 +1292,7 @@ export class Organizations extends OrganizationsClient {
    *             list of services that work with Organizations, see <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html">Integrating AWS Organizations with Other
    *                 AWS Services</a> in the <i>AWS Organizations User Guide.</i>
    *          </p>
-   *         <p>This operation can be called only from the organization's master account.</p>
+   *         <p>This operation can be called only from the organization's management account.</p>
    */
   public disableAWSServiceAccess(
     args: DisableAWSServiceAccessCommandInput,
@@ -1333,7 +1333,7 @@ export class Organizations extends OrganizationsClient {
    *             a policy type for a root, it still appears enabled for the organization if <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html">all features</a> are enabled for the organization. AWS recommends that you
    *             first use <a>ListRoots</a> to see the status of policy types for a specified
    *             root, and then use this operation.</p>
-   *         <p>This operation can be called only from the organization's master account.</p>
+   *         <p>This operation can be called only from the organization's management account.</p>
    *         <p> To view the status of available policy types in the organization, use <a>DescribeOrganization</a>.</p>
    */
   public disablePolicyType(
@@ -1386,12 +1386,12 @@ export class Organizations extends OrganizationsClient {
    *         <p>After all invited member accounts accept the handshake, you finalize the feature set
    *             change by accepting the handshake that contains <code>"Action":
    *                 "ENABLE_ALL_FEATURES"</code>. This completes the change.</p>
-   *         <p>After you enable all features in your organization, the master account in the
+   *         <p>After you enable all features in your organization, the management account in the
    *             organization can apply policies on all member accounts. These policies can restrict what
-   *             users and even administrators in those accounts can do. The master account can apply
+   *             users and even administrators in those accounts can do. The management account can apply
    *             policies that prevent accounts from leaving the organization. Ensure that your account
    *             administrators are aware of this.</p>
-   *         <p>This operation can be called only from the organization's master account.</p>
+   *         <p>This operation can be called only from the organization's management account.</p>
    */
   public enableAllFeatures(
     args: EnableAllFeaturesCommandInput,
@@ -1439,7 +1439,7 @@ export class Organizations extends OrganizationsClient {
    *         <p>For more information about enabling services to integrate with AWS Organizations, see <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html">Integrating AWS Organizations with Other
    *                 AWS Services</a> in the <i>AWS Organizations User Guide.</i>
    *          </p>
-   *         <p>This operation can be called only from the organization's master account and only
+   *         <p>This operation can be called only from the organization's management account and only
    *             if the organization has <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html">enabled all
    *                 features</a>.</p>
    */
@@ -1480,7 +1480,7 @@ export class Organizations extends OrganizationsClient {
    *         <p>This is an asynchronous request that AWS performs in the background. AWS
    *             recommends that you first use <a>ListRoots</a> to see the status of policy
    *             types for a specified root, and then use this operation.</p>
-   *         <p>This operation can be called only from the organization's master account.</p>
+   *         <p>This operation can be called only from the organization's management account.</p>
    *         <p>You can enable a policy type in a root only if that policy type is available in the
    *             organization. To view the status of available policy types in the organization, use
    *                 <a>DescribeOrganization</a>.</p>
@@ -1523,7 +1523,7 @@ export class Organizations extends OrganizationsClient {
    *             <ul>
    *                <li>
    *                     <p>You can invite AWS accounts only from the same seller as the
-   *                         master account. For example, if your organization's master account was
+   *                         management account. For example, if your organization's management account was
    *                         created by Amazon Internet Services Pvt. Ltd (AISPL), an AWS seller in
    *                         India, you can invite only other AISPL accounts to your organization. You
    *                         can't combine accounts from AISPL and AWS or from any other AWS seller.
@@ -1540,7 +1540,7 @@ export class Organizations extends OrganizationsClient {
    *         </important>
    *         <p>If the request includes tags, then the requester must have the
    *                 <code>organizations:TagResource</code> permission.</p>
-   *         <p>This operation can be called only from the organization's master account.</p>
+   *         <p>This operation can be called only from the organization's management account.</p>
    */
   public inviteAccountToOrganization(
     args: InviteAccountToOrganizationCommandInput,
@@ -1574,13 +1574,13 @@ export class Organizations extends OrganizationsClient {
   /**
    * <p>Removes a member account from its parent organization. This version of the operation
    *             is performed by the account that wants to leave. To remove a member account as a user in
-   *             the master account, use <a>RemoveAccountFromOrganization</a>
+   *             the management account, use <a>RemoveAccountFromOrganization</a>
    *             instead.</p>
    *         <p>This operation can be called only from a member account in the organization.</p>
    *         <important>
    *             <ul>
    *                <li>
-   *                     <p>The master account in an organization with all features enabled can set
+   *                     <p>The management account in an organization with all features enabled can set
    *                         service control policies (SCPs) that can restrict what administrators of
    *                         member accounts can do. This includes preventing them from successfully
    *                         calling <code>LeaveOrganization</code> and leaving the organization.</p>
@@ -1667,7 +1667,7 @@ export class Organizations extends OrganizationsClient {
    * when there are no more results to display.</p>
    *          </note>
    *             <p>This operation can be called only from the organization's
-   * master account or by a member account that is a delegated administrator for an AWS service.</p>
+   * management account or by a member account that is a delegated administrator for an AWS service.</p>
    */
   public listAccounts(
     args: ListAccountsCommandInput,
@@ -1710,7 +1710,7 @@ export class Organizations extends OrganizationsClient {
    * when there are no more results to display.</p>
    *          </note>
    *             <p>This operation can be called only from the organization's
-   * master account or by a member account that is a delegated administrator for an AWS service.</p>
+   * management account or by a member account that is a delegated administrator for an AWS service.</p>
    */
   public listAccountsForParent(
     args: ListAccountsForParentCommandInput,
@@ -1750,7 +1750,7 @@ export class Organizations extends OrganizationsClient {
    *                 AWS Services</a> in the <i>AWS Organizations User Guide.</i>
    *          </p>
    *         <p>This operation can be called only from the organization's
-   * master account or by a member account that is a delegated administrator for an AWS service.</p>
+   * management account or by a member account that is a delegated administrator for an AWS service.</p>
    */
   public listAWSServiceAccessForOrganization(
     args: ListAWSServiceAccessForOrganizationCommandInput,
@@ -1794,7 +1794,7 @@ export class Organizations extends OrganizationsClient {
    * when there are no more results to display.</p>
    *          </note>
    *          <p>This operation can be called only from the organization's
-   * master account or by a member account that is a delegated administrator for an AWS service.</p>
+   * management account or by a member account that is a delegated administrator for an AWS service.</p>
    */
   public listChildren(
     args: ListChildrenCommandInput,
@@ -1834,7 +1834,7 @@ export class Organizations extends OrganizationsClient {
    * when there are no more results to display.</p>
    *          </note>
    *             <p>This operation can be called only from the organization's
-   * master account or by a member account that is a delegated administrator for an AWS service.</p>
+   * management account or by a member account that is a delegated administrator for an AWS service.</p>
    */
   public listCreateAccountStatus(
     args: ListCreateAccountStatusCommandInput,
@@ -1869,7 +1869,7 @@ export class Organizations extends OrganizationsClient {
    * <p>Lists the AWS accounts that are designated as delegated administrators in this
    *             organization.</p>
    *         <p>This operation can be called only from the organization's
-   * master account or by a member account that is a delegated administrator for an AWS service.</p>
+   * management account or by a member account that is a delegated administrator for an AWS service.</p>
    */
   public listDelegatedAdministrators(
     args: ListDelegatedAdministratorsCommandInput,
@@ -1904,7 +1904,7 @@ export class Organizations extends OrganizationsClient {
    * <p>List the AWS services for which the specified account is a delegated
    *             administrator.</p>
    *         <p>This operation can be called only from the organization's
-   * master account or by a member account that is a delegated administrator for an AWS service.</p>
+   * management account or by a member account that is a delegated administrator for an AWS service.</p>
    */
   public listDelegatedServicesForAccount(
     args: ListDelegatedServicesForAccountCommandInput,
@@ -1997,7 +1997,7 @@ export class Organizations extends OrganizationsClient {
    * when there are no more results to display.</p>
    *          </note>
    *          <p>This operation can be called only from the organization's
-   * master account or by a member account that is a delegated administrator for an AWS service.</p>
+   * management account or by a member account that is a delegated administrator for an AWS service.</p>
    */
   public listHandshakesForOrganization(
     args: ListHandshakesForOrganizationCommandInput,
@@ -2039,7 +2039,7 @@ export class Organizations extends OrganizationsClient {
    * when there are no more results to display.</p>
    *          </note>
    *          <p>This operation can be called only from the organization's
-   * master account or by a member account that is a delegated administrator for an AWS service.</p>
+   * management account or by a member account that is a delegated administrator for an AWS service.</p>
    */
   public listOrganizationalUnitsForParent(
     args: ListOrganizationalUnitsForParentCommandInput,
@@ -2083,7 +2083,7 @@ export class Organizations extends OrganizationsClient {
    * when there are no more results to display.</p>
    *          </note>
    *          <p>This operation can be called only from the organization's
-   * master account or by a member account that is a delegated administrator for an AWS service.</p>
+   * management account or by a member account that is a delegated administrator for an AWS service.</p>
    *         <note>
    *             <p>In the current release, a child can have only a single parent.</p>
    *         </note>
@@ -2122,7 +2122,7 @@ export class Organizations extends OrganizationsClient {
    * when there are no more results to display.</p>
    *          </note>
    *          <p>This operation can be called only from the organization's
-   * master account or by a member account that is a delegated administrator for an AWS service.</p>
+   * management account or by a member account that is a delegated administrator for an AWS service.</p>
    */
   public listPolicies(
     args: ListPoliciesCommandInput,
@@ -2163,7 +2163,7 @@ export class Organizations extends OrganizationsClient {
    * when there are no more results to display.</p>
    *          </note>
    *             <p>This operation can be called only from the organization's
-   * master account or by a member account that is a delegated administrator for an AWS service.</p>
+   * management account or by a member account that is a delegated administrator for an AWS service.</p>
    */
   public listPoliciesForTarget(
     args: ListPoliciesForTargetCommandInput,
@@ -2205,7 +2205,7 @@ export class Organizations extends OrganizationsClient {
    * when there are no more results to display.</p>
    *          </note>
    *          <p>This operation can be called only from the organization's
-   * master account or by a member account that is a delegated administrator for an AWS service.</p>
+   * management account or by a member account that is a delegated administrator for an AWS service.</p>
    *         <note>
    *             <p>Policy types can be enabled and disabled in roots. This is distinct from whether
    *                 they're available in the organization. When you enable all features, you make policy
@@ -2255,7 +2255,7 @@ export class Organizations extends OrganizationsClient {
    *             </li>
    *          </ul>
    *         <p>This operation can be called only from the organization's
-   * master account or by a member account that is a delegated administrator for an AWS service.</p>
+   * management account or by a member account that is a delegated administrator for an AWS service.</p>
    */
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -2298,7 +2298,7 @@ export class Organizations extends OrganizationsClient {
    * when there are no more results to display.</p>
    *          </note>
    *             <p>This operation can be called only from the organization's
-   * master account or by a member account that is a delegated administrator for an AWS service.</p>
+   * management account or by a member account that is a delegated administrator for an AWS service.</p>
    */
   public listTargetsForPolicy(
     args: ListTargetsForPolicyCommandInput,
@@ -2332,7 +2332,7 @@ export class Organizations extends OrganizationsClient {
   /**
    * <p>Moves an account from its current source parent root or organizational unit (OU) to
    *             the specified destination parent root or OU.</p>
-   *         <p>This operation can be called only from the organization's master account.</p>
+   *         <p>This operation can be called only from the organization's management account.</p>
    */
   public moveAccount(args: MoveAccountCommandInput, options?: __HttpHandlerOptions): Promise<MoveAccountCommandOutput>;
   public moveAccount(args: MoveAccountCommandInput, cb: (err: any, data?: MoveAccountCommandOutput) => void): void;
@@ -2366,7 +2366,7 @@ export class Organizations extends OrganizationsClient {
    *     Delegated Administrator</i> in the table at <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrated-services-list.html">AWS Services that you can use with
    *     AWS Organizations</a> in the <i>AWS Organizations User Guide.</i>
    *          </p>
-   *         <p>This operation can be called only from the organization's master account.</p>
+   *         <p>This operation can be called only from the organization's management account.</p>
    */
   public registerDelegatedAdministrator(
     args: RegisterDelegatedAdministratorCommandInput,
@@ -2401,9 +2401,9 @@ export class Organizations extends OrganizationsClient {
    * <p>Removes the specified account from the organization.</p>
    *         <p>The removed account becomes a standalone account that isn't a member of any
    *             organization. It's no longer subject to any policies and is responsible for its own bill
-   *             payments. The organization's master account is no longer charged for any expenses
+   *             payments. The organization's management account is no longer charged for any expenses
    *             accrued by the member account after it's removed from the organization.</p>
-   *         <p>This operation can be called only from the organization's master account. Member accounts can remove themselves with <a>LeaveOrganization</a> instead.</p>
+   *         <p>This operation can be called only from the organization's management account. Member accounts can remove themselves with <a>LeaveOrganization</a> instead.</p>
    *         <important>
    *             <ul>
    *                <li>
@@ -2476,7 +2476,7 @@ export class Organizations extends OrganizationsClient {
    *                 <p>Policy (any type)</p>
    *             </li>
    *          </ul>
-   *         <p>This operation can be called only from the organization's master account.</p>
+   *         <p>This operation can be called only from the organization's management account.</p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
   public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
@@ -2518,7 +2518,7 @@ export class Organizations extends OrganizationsClient {
    *                 <p>Policy (any type)</p>
    *             </li>
    *          </ul>
-   *         <p>This operation can be called only from the organization's master account.</p>
+   *         <p>This operation can be called only from the organization's management account.</p>
    */
   public untagResource(
     args: UntagResourceCommandInput,
@@ -2553,7 +2553,7 @@ export class Organizations extends OrganizationsClient {
    * <p>Renames the specified organizational unit (OU). The ID and ARN don't change. The child
    *             OUs and accounts remain in place, and any attached policies of the OU remain
    *             attached.</p>
-   *         <p>This operation can be called only from the organization's master account.</p>
+   *         <p>This operation can be called only from the organization's management account.</p>
    */
   public updateOrganizationalUnit(
     args: UpdateOrganizationalUnitCommandInput,
@@ -2588,7 +2588,7 @@ export class Organizations extends OrganizationsClient {
    * <p>Updates an existing policy with a new name, description, or content. If you don't
    *             supply any parameter, that value remains unchanged. You can't change a policy's
    *             type.</p>
-   *         <p>This operation can be called only from the organization's master account.</p>
+   *         <p>This operation can be called only from the organization's management account.</p>
    */
   public updatePolicy(
     args: UpdatePolicyCommandInput,
