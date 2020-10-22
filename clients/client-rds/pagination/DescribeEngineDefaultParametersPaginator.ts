@@ -43,7 +43,7 @@ export async function* describeEngineDefaultParametersPaginate(
       throw new Error("Invalid client, expected RDS | RDSClient");
     }
     yield page;
-    token = page.EngineDefaults?.Marker;
+    token = page.EngineDefaults!.Marker;
     hasNext = !!token;
   }
   // @ts-ignore
