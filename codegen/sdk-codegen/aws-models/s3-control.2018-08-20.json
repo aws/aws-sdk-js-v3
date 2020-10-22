@@ -141,7 +141,7 @@
           "name": "s3"
         },
         "aws.protocols#restXml": {},
-        "smithy.api#documentation": "<p>\n         AWS S3 Control provides access to Amazon S3 control plane operations.\n      </p>",
+        "smithy.api#documentation": "<p>\n         AWS S3 Control provides access to Amazon S3 control plane operations.\n          \n      </p>",
         "smithy.api#title": "AWS S3 Control",
         "smithy.api#xmlNamespace": {
           "uri": "http://awss3control.amazonaws.com/doc/2018-08-20/"
@@ -152,18 +152,30 @@
       "type": "structure",
       "members": {
         "DaysAfterInitiation": {
-          "target": "com.amazonaws.s3control#DaysAfterInitiation"
+          "target": "com.amazonaws.s3control#DaysAfterInitiation",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies the number of days after which Amazon S3 aborts an incomplete multipart upload to\n         the Outposts bucket.</p>"
+          }
         }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The container for abort incomplete multipart upload</p>"
       }
     },
     "com.amazonaws.s3control#AccessPoint": {
       "type": "structure",
       "members": {
-        "Name": {
-          "target": "com.amazonaws.s3control#AccessPointName",
+        "Bucket": {
+          "target": "com.amazonaws.s3control#BucketName",
           "traits": {
-            "smithy.api#documentation": "<p>The name of this access point.</p>",
+            "smithy.api#documentation": "<p>The name of the bucket associated with this access point.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "AccessPointArn": {
+          "target": "com.amazonaws.s3control#S3AccessPointArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN for the access point.</p>"
           }
         },
         "NetworkOrigin": {
@@ -173,20 +185,17 @@
             "smithy.api#required": {}
           }
         },
-        "Bucket": {
-          "target": "com.amazonaws.s3control#BucketName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the bucket associated with this access point.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "AccessPointArn": {
-          "target": "com.amazonaws.s3control#S3AccessPointArn"
-        },
         "VpcConfiguration": {
           "target": "com.amazonaws.s3control#VpcConfiguration",
           "traits": {
             "smithy.api#documentation": "<p>The virtual private cloud (VPC) configuration for this access point, if one exists.</p>"
+          }
+        },
+        "Name": {
+          "target": "com.amazonaws.s3control#AccessPointName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of this access point.</p>",
+            "smithy.api#required": {}
           }
         }
       },
@@ -241,6 +250,7 @@
       "type": "structure",
       "members": {},
       "traits": {
+        "smithy.api#documentation": "<p>The requested Outposts bucket name is not available. The bucket namespace is shared by\n         all users of the AWS Outposts in this Region. Select a different name and try\n         again.</p>",
         "smithy.api#error": "client"
       }
     },
@@ -248,6 +258,7 @@
       "type": "structure",
       "members": {},
       "traits": {
+        "smithy.api#documentation": "<p>The Outposts bucket you tried to create already exists, and you own it. </p>",
         "smithy.api#error": "client"
       }
     },
@@ -334,7 +345,7 @@
         "target": "com.amazonaws.s3control#CreateAccessPointResult"
       },
       "traits": {
-        "smithy.api#documentation": "<p>Creates an access point and associates it with the specified bucket. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/access-points.html\">Managing Data Access with Amazon S3 Access Points</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>",
+        "smithy.api#documentation": "<p>Creates an access point and associates it with the specified bucket. For more information, see \n         <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/access-points.html\">Managing Data Access with Amazon S3 Access \n            Points</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>\n         <p></p>\n         <p>\n            <b>Using this action with Amazon S3 on Outposts</b>\n         </p>\n         <p>This action: </p>\n         <ul>\n            <li>\n               <p>Requires a virtual private cloud (VPC) configuration as S3 on Outposts only supports VPC style access points.</p> \n            </li>\n            <li>\n               <p>Does not support ACL on S3 on Outposts buckets.</p>\n            </li>\n            <li>\n               <p>Does not support Public Access on S3 on Outposts buckets.</p>\n            </li>\n            <li>\n               <p>Does not support object lock for S3 on Outposts buckets.</p>\n            </li>\n         </ul>\n         <p>For more information, see \n      <a href=\"AmazonS3/latest/dev/S3onOutposts.html\">Using Amazon S3 on Outposts</a> in the <i>Amazon Simple Storage Service Developer Guide </i>.</p>\n         <p>All Amazon S3 on Outposts REST API requests for this action require an additional parameter of outpost-id to be passed with the request and an S3 on Outposts endpoint hostname prefix instead of s3-control. For an example of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts endpoint hostname prefix and the outpost-id derived using the access point ARN, see the \n         <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API__control_CreateAccessPoint.html#API_control_CreateAccessPoint_Examples\">\n            Example</a> section below.</p>\n         <p></p>\n         <p>The following actions are related to <code>CreateAccessPoint</code>:</p>\n         <ul>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetAccessPoint.html\">GetAccessPoint</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API__control_DeleteAccessPoint.html\">DeleteAccessPoint</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API__control_ListAccessPoints.html\">ListAccessPoints</a>\n               </p>\n            </li>\n         </ul>",
         "smithy.api#endpoint": {
           "hostPrefix": "{AccountId}."
         },
@@ -348,15 +359,6 @@
     "com.amazonaws.s3control#CreateAccessPointRequest": {
       "type": "structure",
       "members": {
-        "AccountId": {
-          "target": "com.amazonaws.s3control#AccountId",
-          "traits": {
-            "smithy.api#documentation": "<p>The AWS account ID for the owner of the bucket for which you want to create an access point.</p>",
-            "smithy.api#hostLabel": {},
-            "smithy.api#httpHeader": "x-amz-account-id",
-            "smithy.api#required": {}
-          }
-        },
         "Name": {
           "target": "com.amazonaws.s3control#AccessPointName",
           "traits": {
@@ -368,7 +370,7 @@
         "VpcConfiguration": {
           "target": "com.amazonaws.s3control#VpcConfiguration",
           "traits": {
-            "smithy.api#documentation": "<p>If you include this field, Amazon S3 restricts access to this access point to requests from the\n         specified virtual private cloud (VPC).</p>"
+            "smithy.api#documentation": "<p>If you include this field, Amazon S3 restricts access to this access point to requests from the\n         specified virtual private cloud (VPC).</p>\n         <note>\n            <p>This is required for creating an access point for Amazon S3 on Outposts buckets.</p>\n         </note>"
           }
         },
         "PublicAccessBlockConfiguration": {
@@ -377,7 +379,16 @@
         "Bucket": {
           "target": "com.amazonaws.s3control#BucketName",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the bucket that you want to associate this access point with.</p>",
+            "smithy.api#documentation": "<p>The name of the bucket that you want to associate this access point with.</p>\n         <p>For Amazon S3 on Outposts specify the ARN of the bucket accessed in the format <code>arn:aws:s3-outposts:<Region>:<account-id>:outpost/<outpost-id>/bucket/<my-bucket-name></code>. For example, to access the bucket <code>reports</code> through outpost <code>my-outpost</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/bucket/reports</code>. The value must be URL encoded.  </p>",
+            "smithy.api#required": {}
+          }
+        },
+        "AccountId": {
+          "target": "com.amazonaws.s3control#AccountId",
+          "traits": {
+            "smithy.api#documentation": "<p>The AWS account ID for the owner of the bucket for which you want to create an access point.</p>",
+            "smithy.api#hostLabel": {},
+            "smithy.api#httpHeader": "x-amz-account-id",
             "smithy.api#required": {}
           }
         }
@@ -387,7 +398,10 @@
       "type": "structure",
       "members": {
         "AccessPointArn": {
-          "target": "com.amazonaws.s3control#S3AccessPointArn"
+          "target": "com.amazonaws.s3control#S3AccessPointArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the access point.</p>"
+          }
         }
       }
     },
@@ -408,6 +422,7 @@
         }
       ],
       "traits": {
+        "smithy.api#documentation": "<note>\n            <p>This API operation creates an Amazon S3 on Outposts bucket. To create an S3 bucket, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html\">Create Bucket</a> in the <i>Amazon Simple Storage Service API</i>.\n      </p>\n         </note>\n         <p>Creates a new Outposts bucket. By creating the bucket, you become the bucket owner. To create an Outposts bucket, you must have S3 on Outposts. \n         For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html\">Using Amazon S3 on Outposts</a> in <i>Amazon Simple Storage Service Developer Guide</i>.</p>\n         <p>Not every string is an acceptable bucket name. For information on bucket naming restrictions, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html#bucketnamingrules\">Working with Amazon S3 Buckets</a>.</p>\n      \n         <p>S3 on Outposts buckets do not support </p>\n         <ul>\n            <li>\n               <p>ACLs. Instead, configure access point policies to manage\n            access to buckets.</p>\n            </li>\n            <li>\n               <p>Public access. </p>\n            </li>\n            <li>\n               <p>Object Lock</p>\n            </li>\n            <li>\n               <p>Bucket Location constraint</p>\n            </li>\n         </ul>\n         <p>For an example of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts endpoint hostname prefix and outpost-id in your API request, see the \n         <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API__control_CreateBucket.html#API_control_CreateBucket_Examples\">\n            Example</a> section below.</p>\n      \n         <p>The following actions are related to <code>CreateBucket</code> for Amazon S3 on Outposts:</p>\n         <ul>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html\">PutObject</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API__control_GetBucket.html\">GetBucket</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API__control_DeleteBucket.html\">DeleteBucket</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API__control_CreateAccessPoint.html\">CreateAccessPoint</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API__control_PutAccessPointPolicy.html\">PutAccessPointPolicy</a>\n               </p>\n            </li>\n         </ul>",
         "smithy.api#http": {
           "method": "PUT",
           "uri": "/v20180820/bucket/{Bucket}",
@@ -420,16 +435,51 @@
       "type": "structure",
       "members": {
         "LocationConstraint": {
-          "target": "com.amazonaws.s3control#BucketLocationConstraint"
+          "target": "com.amazonaws.s3control#BucketLocationConstraint",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies the Region where the bucket will be created. \n         If you are creating a bucket on the US East (N. Virginia) Region (us-east-1), \n         you do not need to specify the location.\n      </p>\n         <note>\n            <p>This is not supported by Amazon S3 on Outposts buckets.</p>\n         </note>"
+          }
         }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The container for the bucket configuration.</p>\n         <note>\n            <p>This is not supported by Amazon S3 on Outposts buckets.</p>\n         </note>"
       }
     },
     "com.amazonaws.s3control#CreateBucketRequest": {
       "type": "structure",
       "members": {
+        "ObjectLockEnabledForBucket": {
+          "target": "com.amazonaws.s3control#ObjectLockEnabledForBucket",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies whether you want S3 Object Lock to be enabled for the new bucket.</p>\n         <note>\n            <p>This is not supported by Amazon S3 on Outposts buckets.</p>\n         </note>",
+            "smithy.api#httpHeader": "x-amz-bucket-object-lock-enabled"
+          }
+        },
+        "GrantRead": {
+          "target": "com.amazonaws.s3control#GrantRead",
+          "traits": {
+            "smithy.api#documentation": "<p>Allows grantee to list the objects in the bucket.</p>\n         <note>\n            <p>This is not supported by Amazon S3 on Outposts buckets.</p>\n         </note>",
+            "smithy.api#httpHeader": "x-amz-grant-read"
+          }
+        },
+        "ACL": {
+          "target": "com.amazonaws.s3control#BucketCannedACL",
+          "traits": {
+            "smithy.api#documentation": "<p>The canned ACL to apply to the bucket.</p>\n         <note>\n            <p>This is not supported by Amazon S3 on Outposts buckets.</p>\n         </note>",
+            "smithy.api#httpHeader": "x-amz-acl"
+          }
+        },
+        "GrantWrite": {
+          "target": "com.amazonaws.s3control#GrantWrite",
+          "traits": {
+            "smithy.api#documentation": "<p>Allows grantee to create, overwrite, and delete any object in the bucket.</p>\n         <note>\n            <p>This is not supported by Amazon S3 on Outposts buckets.</p>\n         </note>",
+            "smithy.api#httpHeader": "x-amz-grant-write"
+          }
+        },
         "Bucket": {
           "target": "com.amazonaws.s3control#BucketName",
           "traits": {
+            "smithy.api#documentation": "<p>The name of the bucket.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -437,55 +487,36 @@
         "GrantFullControl": {
           "target": "com.amazonaws.s3control#GrantFullControl",
           "traits": {
+            "smithy.api#documentation": "<p>Allows grantee the read, write, read ACP, and write ACP permissions on the bucket.</p>\n         <note>\n            <p>This is not supported by Amazon S3 on Outposts buckets.</p>\n         </note>",
             "smithy.api#httpHeader": "x-amz-grant-full-control"
-          }
-        },
-        "GrantRead": {
-          "target": "com.amazonaws.s3control#GrantRead",
-          "traits": {
-            "smithy.api#httpHeader": "x-amz-grant-read"
-          }
-        },
-        "GrantReadACP": {
-          "target": "com.amazonaws.s3control#GrantReadACP",
-          "traits": {
-            "smithy.api#httpHeader": "x-amz-grant-read-acp"
-          }
-        },
-        "ACL": {
-          "target": "com.amazonaws.s3control#BucketCannedACL",
-          "traits": {
-            "smithy.api#httpHeader": "x-amz-acl"
-          }
-        },
-        "GrantWrite": {
-          "target": "com.amazonaws.s3control#GrantWrite",
-          "traits": {
-            "smithy.api#httpHeader": "x-amz-grant-write"
-          }
-        },
-        "GrantWriteACP": {
-          "target": "com.amazonaws.s3control#GrantWriteACP",
-          "traits": {
-            "smithy.api#httpHeader": "x-amz-grant-write-acp"
           }
         },
         "CreateBucketConfiguration": {
           "target": "com.amazonaws.s3control#CreateBucketConfiguration",
           "traits": {
+            "smithy.api#documentation": "<p>The configuration information for the bucket.</p>\n         <note>\n            <p>This is not supported by Amazon S3 on Outposts buckets.</p>\n         </note>",
             "smithy.api#httpPayload": {}
           }
         },
-        "ObjectLockEnabledForBucket": {
-          "target": "com.amazonaws.s3control#ObjectLockEnabledForBucket",
+        "GrantReadACP": {
+          "target": "com.amazonaws.s3control#GrantReadACP",
           "traits": {
-            "smithy.api#httpHeader": "x-amz-bucket-object-lock-enabled"
+            "smithy.api#documentation": "<p>Allows grantee to read the bucket ACL.</p>\n         <note>\n            <p>This is not supported by Amazon S3 on Outposts buckets.</p>\n         </note>",
+            "smithy.api#httpHeader": "x-amz-grant-read-acp"
           }
         },
         "OutpostId": {
           "target": "com.amazonaws.s3control#NonEmptyMaxLength64String",
           "traits": {
+            "smithy.api#documentation": "<p>The ID of the Outposts where the bucket is being created.</p>\n         <note>\n            <p>This is required by Amazon S3 on Outposts buckets.</p> \n         </note>",
             "smithy.api#httpHeader": "x-amz-outpost-id"
+          }
+        },
+        "GrantWriteACP": {
+          "target": "com.amazonaws.s3control#GrantWriteACP",
+          "traits": {
+            "smithy.api#documentation": "<p>Allows grantee to write the ACL for the applicable bucket.</p>\n         <note>\n            <p>This is not supported by Amazon S3 on Outposts buckets.</p>\n         </note>",
+            "smithy.api#httpHeader": "x-amz-grant-write-acp"
           }
         }
       }
@@ -493,13 +524,17 @@
     "com.amazonaws.s3control#CreateBucketResult": {
       "type": "structure",
       "members": {
-        "BucketArn": {
-          "target": "com.amazonaws.s3control#S3RegionalBucketArn"
-        },
         "Location": {
           "target": "com.amazonaws.s3control#Location",
           "traits": {
+            "smithy.api#documentation": "<p>The location of the bucket.</p>",
             "smithy.api#httpHeader": "Location"
+          }
+        },
+        "BucketArn": {
+          "target": "com.amazonaws.s3control#S3RegionalBucketArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the bucket.</p>\n         <p>For Amazon S3 on Outposts specify the ARN of the bucket accessed in the format <code>arn:aws:s3-outposts:<Region>:<account-id>:outpost/<outpost-id>/bucket/<my-bucket-name></code>. For example, to access the bucket <code>reports</code> through outpost <code>my-outpost</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/bucket/reports</code>. The value must be URL encoded.  </p>"
           }
         }
       }
@@ -527,7 +562,10 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>S3 Batch Operations performs large-scale Batch Operations on Amazon S3 objects. Batch Operations can\n         execute a single operation or action on lists of Amazon S3 objects that you specify. For more\n         information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-basics.html\">S3 Batch Operations</a> in\n         the <i>Amazon Simple Storage Service Developer Guide</i>.</p>\n         <p>This operation creates a S3 Batch Operations job.</p>\n         <p></p>\n         <p>Related actions include:</p>\n         <ul>\n            <li>\n               <p>\n                  <a>DescribeJob</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a>ListJobs</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a>UpdateJobPriority</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a>UpdateJobStatus</a>\n               </p>\n            </li>\n         </ul>",
+        "smithy.api#documentation": "<p>S3 Batch Operations performs large-scale Batch Operations on Amazon S3 objects. Batch Operations can run a\n         single operation or action on lists of Amazon S3 objects that you specify. For more information,\n         see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-basics.html\">S3 Batch Operations</a> in the\n            <i>Amazon Simple Storage Service Developer Guide</i>.</p>\n         <p>This operation creates a S3 Batch Operations job.</p>\n         <p></p>\n         <p>Related actions include:</p>\n         <ul>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DescribeJob.html\">DescribeJob</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_ListJobs.html\">ListJobs</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_UpdateJobPriority.html\">UpdateJobPriority</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_UpdateJobStatus.html\">UpdateJobStatus</a>\n               </p>\n            </li>\n         </ul>",
+        "smithy.api#endpoint": {
+          "hostPrefix": "{AccountId}."
+        },
         "smithy.api#http": {
           "method": "POST",
           "uri": "/v20180820/jobs",
@@ -538,6 +576,35 @@
     "com.amazonaws.s3control#CreateJobRequest": {
       "type": "structure",
       "members": {
+        "AccountId": {
+          "target": "com.amazonaws.s3control#AccountId",
+          "traits": {
+            "smithy.api#documentation": "<p>The AWS account ID that creates the job.</p>",
+            "smithy.api#hostLabel": {},
+            "smithy.api#httpHeader": "x-amz-account-id",
+            "smithy.api#required": {}
+          }
+        },
+        "Manifest": {
+          "target": "com.amazonaws.s3control#JobManifest",
+          "traits": {
+            "smithy.api#documentation": "<p>Configuration parameters for the manifest.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Description": {
+          "target": "com.amazonaws.s3control#NonEmptyMaxLength256String",
+          "traits": {
+            "smithy.api#documentation": "<p>A description for this job. You can use any string within the permitted length. Descriptions don't need to be unique and can be used for multiple jobs.</p>"
+          }
+        },
+        "Operation": {
+          "target": "com.amazonaws.s3control#JobOperation",
+          "traits": {
+            "smithy.api#documentation": "<p>The operation that you want this job to perform on each object listed in the manifest.\n         For more information about the available operations, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-operations.html\">Operations</a> in the\n            <i>Amazon Simple Storage Service Developer Guide</i>.</p>",
+            "smithy.api#required": {}
+          }
+        },
         "ClientRequestToken": {
           "target": "com.amazonaws.s3control#NonEmptyMaxLength64String",
           "traits": {
@@ -554,6 +621,20 @@
             "smithy.api#required": {}
           }
         },
+        "ConfirmationRequired": {
+          "target": "com.amazonaws.s3control#ConfirmationRequired",
+          "traits": {
+            "smithy.api#box": {},
+            "smithy.api#documentation": "<p>Indicates whether confirmation is required before Amazon S3 runs the job. Confirmation is only required for jobs created through the Amazon S3 console.</p>"
+          }
+        },
+        "Report": {
+          "target": "com.amazonaws.s3control#JobReport",
+          "traits": {
+            "smithy.api#documentation": "<p>Configuration parameters for the optional job-completion report.</p>",
+            "smithy.api#required": {}
+          }
+        },
         "Tags": {
           "target": "com.amazonaws.s3control#S3TagSet",
           "traits": {
@@ -563,49 +644,7 @@
         "RoleArn": {
           "target": "com.amazonaws.s3control#IAMRoleArn",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) for the AWS Identity and Access Management (IAM) role\n         that Batch Operations will use to execute this job's operation on each object in the\n         manifest.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "Description": {
-          "target": "com.amazonaws.s3control#NonEmptyMaxLength256String",
-          "traits": {
-            "smithy.api#documentation": "<p>A description for this job. You can use any string within the permitted length. Descriptions don't need to be unique and can be used for multiple jobs.</p>"
-          }
-        },
-        "ConfirmationRequired": {
-          "target": "com.amazonaws.s3control#ConfirmationRequired",
-          "traits": {
-            "smithy.api#box": {},
-            "smithy.api#documentation": "<p>Indicates whether confirmation is required before Amazon S3 runs the job. Confirmation is only required for jobs created through the Amazon S3 console.</p>"
-          }
-        },
-        "AccountId": {
-          "target": "com.amazonaws.s3control#AccountId",
-          "traits": {
-            "smithy.api#documentation": "<p></p>",
-            "smithy.api#httpHeader": "x-amz-account-id",
-            "smithy.api#required": {}
-          }
-        },
-        "Manifest": {
-          "target": "com.amazonaws.s3control#JobManifest",
-          "traits": {
-            "smithy.api#documentation": "<p>Configuration parameters for the manifest.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "Operation": {
-          "target": "com.amazonaws.s3control#JobOperation",
-          "traits": {
-            "smithy.api#documentation": "<p>The operation that you want this job to perform on each object listed in the manifest.\n         For more information about the available operations, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-operations.html\">Operations</a> in the\n            <i>Amazon Simple Storage Service Developer Guide</i>.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "Report": {
-          "target": "com.amazonaws.s3control#JobReport",
-          "traits": {
-            "smithy.api#documentation": "<p>Configuration parameters for the optional job-completion report.</p>",
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) for the AWS Identity and Access Management (IAM) role\n         that Batch Operations will use to run this job's operation on each object in the\n         manifest.</p>",
             "smithy.api#required": {}
           }
         }
@@ -640,7 +679,7 @@
         "target": "com.amazonaws.s3control#DeleteAccessPointRequest"
       },
       "traits": {
-        "smithy.api#documentation": "<p>Deletes the specified access point.</p>",
+        "smithy.api#documentation": "<p>Deletes the specified access point.</p>\n      \n         <p>All Amazon S3 on Outposts REST API requests for this action require an additional parameter of outpost-id to be passed with the request and an S3 on Outposts endpoint hostname prefix instead of s3-control. For an example of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts endpoint hostname prefix and the outpost-id derived using the access point ARN, see the  ARN, see the \n         <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API__control_DeleteAccessPoint.html#API_control_DeleteAccessPoint_Examples\">\n            Example</a> section below.</p>\n         <p>The following actions are related to <code>DeleteAccessPoint</code>:</p>\n         <ul>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_CreateAccessPoint.html\">CreateAccessPoint</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetAccessPoint.html\">GetAccessPoint</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_ListAccessPoints.html\">ListAccessPoints</a>\n               </p>\n            </li>\n         </ul>",
         "smithy.api#endpoint": {
           "hostPrefix": "{AccountId}."
         },
@@ -657,7 +696,7 @@
         "target": "com.amazonaws.s3control#DeleteAccessPointPolicyRequest"
       },
       "traits": {
-        "smithy.api#documentation": "<p>Deletes the access point policy for the specified access point.</p>",
+        "smithy.api#documentation": "<p>Deletes the access point policy for the specified access point.</p>\n         <p></p>\n         <p>All Amazon S3 on Outposts REST API requests for this action require an additional parameter of outpost-id to be passed with the request and an S3 on Outposts endpoint hostname prefix instead of s3-control. For an example of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts endpoint hostname prefix and the outpost-id derived using the access point ARN, see the  \n         <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API__control_DeleteAccessPointPolicy.html#API_control_DeleteAccessPointPolicy_Examples\">\n            Example</a> section below.</p>\n         <p>The following actions are related to <code>DeleteAccessPointPolicy</code>:</p>\n         <ul>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutAccessPointPolicy.html\">PutAccessPointPolicy</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetAccessPointPolicy.html\">GetAccessPointPolicy</a>\n               </p>\n            </li>\n         </ul>",
         "smithy.api#endpoint": {
           "hostPrefix": "{AccountId}."
         },
@@ -683,7 +722,7 @@
         "Name": {
           "target": "com.amazonaws.s3control#AccessPointName",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the access point whose policy you want to delete.</p>",
+            "smithy.api#documentation": "<p>The name of the access point whose policy you want to delete.</p>\n         <p>For Amazon S3 on Outposts specify the ARN of the access point accessed in the format <code>arn:aws:s3-outposts:<Region>:<account-id>:outpost/<outpost-id>/accesspoint/<my-accesspoint-name></code>. For example, to access the access point <code>reports-ap</code> through outpost <code>my-outpost</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/accesspoint/reports-ap</code>. The value must be URL encoded. </p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -693,20 +732,20 @@
     "com.amazonaws.s3control#DeleteAccessPointRequest": {
       "type": "structure",
       "members": {
-        "Name": {
-          "target": "com.amazonaws.s3control#AccessPointName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the access point you want to delete.</p>",
-            "smithy.api#httpLabel": {},
-            "smithy.api#required": {}
-          }
-        },
         "AccountId": {
           "target": "com.amazonaws.s3control#AccountId",
           "traits": {
             "smithy.api#documentation": "<p>The account ID for the account that owns the specified access point.</p>",
             "smithy.api#hostLabel": {},
             "smithy.api#httpHeader": "x-amz-account-id",
+            "smithy.api#required": {}
+          }
+        },
+        "Name": {
+          "target": "com.amazonaws.s3control#AccessPointName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the access point you want to delete.</p>\n         <p>For Amazon S3 on Outposts specify the ARN of the access point accessed in the format <code>arn:aws:s3-outposts:<Region>:<account-id>:outpost/<outpost-id>/accesspoint/<my-accesspoint-name></code>. For example, to access the access point <code>reports-ap</code> through outpost <code>my-outpost</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/accesspoint/reports-ap</code>. The value must be URL encoded. </p>",
+            "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
         }
@@ -718,6 +757,7 @@
         "target": "com.amazonaws.s3control#DeleteBucketRequest"
       },
       "traits": {
+        "smithy.api#documentation": "<note>\n            <p>This API operation deletes an Amazon S3 on Outposts bucket. To delete an S3 bucket, \n         see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucket.html\">DeleteBucket</a> in the <i>Amazon Simple Storage Service API</i>.\n      </p>\n         </note>\n         <p>Deletes the Amazon S3 on Outposts bucket. All objects (including all object versions and delete markers) in the\n         bucket must be deleted before the bucket itself can be deleted. \n         For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html\">Using Amazon S3 on Outposts</a> in <i>Amazon Simple Storage Service Developer Guide</i>.</p>\n         <p>All Amazon S3 on Outposts REST API requests for this action require an additional parameter of outpost-id to be passed with the request and an S3 on Outposts endpoint hostname prefix instead of s3-control. For an example of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts endpoint hostname prefix and the outpost-id derived using the access point ARN, see the \n         <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API__control_DeleteBucket.html#API_control_DeleteBucket_Examples\">\n            Example</a> section below.</p>\n         <p class=\"title\">\n            <b>Related Resources</b>\n         </p>\n         <ul>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_CreateBucket.html\">CreateBucket</a>\n               </p> \n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API__control_GetBucket.html\">GetBucket</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteObject.html\">DeleteObject</a>\n               </p> \n            </li>\n         </ul>",
         "smithy.api#endpoint": {
           "hostPrefix": "{AccountId}."
         },
@@ -734,6 +774,7 @@
         "target": "com.amazonaws.s3control#DeleteBucketLifecycleConfigurationRequest"
       },
       "traits": {
+        "smithy.api#documentation": "<note>\n            <p>This API action deletes an Amazon S3 on Outposts bucket's lifecycle configuration. To delete an \n         S3 bucket's lifecycle configuration, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketLifecycle.html\">DeleteBucketLifecycle</a> in the <i>Amazon Simple Storage Service API</i>.\n      </p>\n         </note>\n         <p>Deletes the lifecycle configuration from the specified Outposts bucket. Amazon S3 on Outposts removes all the lifecycle configuration \n         rules in the lifecycle subresource associated with the bucket. Your objects never expire, and Amazon S3 on Outposts no longer automatically \n         deletes any objects on the basis of rules contained in the deleted lifecycle configuration. \n         For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html\">Using Amazon S3 on Outposts</a> in <i>Amazon Simple Storage Service Developer Guide</i>.</p>\n         <p>To use this operation, you must have permission to perform the\n            <code>s3outposts:DeleteLifecycleConfiguration</code> action. By default, the bucket\n         owner has this permission and the Outposts bucket owner can grant this permission to\n         others.</p>\n         <p>All Amazon S3 on Outposts REST API requests for this action require an additional parameter of outpost-id to be passed with the request and an S3 on Outposts endpoint hostname prefix instead of s3-control. For an example of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts endpoint hostname prefix and the outpost-id derived using the access point ARN, see the \n         <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API__control_DeleteBucketLifecycleConfiguration.html#API_control_DeleteBucketLifecycleConfiguration_Examples\">\n            Example</a> section below.</p>\n      \n         <p>For more information about object expiration, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/intro-lifecycle-rules.html#intro-lifecycle-rules-actions\">\n         Elements to Describe Lifecycle Actions</a>.</p>\n         <p>Related actions include:</p>\n         <ul>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutBucketLifecycleConfiguration.html\">PutBucketLifecycleConfiguration</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetBucketLifecycleConfiguration.html\">GetBucketLifecycleConfiguration</a>\n               </p>\n            </li>\n         </ul>",
         "smithy.api#endpoint": {
           "hostPrefix": "{AccountId}."
         },
@@ -747,18 +788,20 @@
     "com.amazonaws.s3control#DeleteBucketLifecycleConfigurationRequest": {
       "type": "structure",
       "members": {
-        "Bucket": {
-          "target": "com.amazonaws.s3control#BucketName",
-          "traits": {
-            "smithy.api#httpLabel": {},
-            "smithy.api#required": {}
-          }
-        },
         "AccountId": {
           "target": "com.amazonaws.s3control#AccountId",
           "traits": {
+            "smithy.api#documentation": "<p>The account ID of the lifecycle configuration to delete.</p>",
             "smithy.api#hostLabel": {},
             "smithy.api#httpHeader": "x-amz-account-id",
+            "smithy.api#required": {}
+          }
+        },
+        "Bucket": {
+          "target": "com.amazonaws.s3control#BucketName",
+          "traits": {
+            "smithy.api#documentation": "<p>The bucket ARN of the bucket.</p>\n         <p>For Amazon S3 on Outposts specify the ARN of the bucket accessed in the format <code>arn:aws:s3-outposts:<Region>:<account-id>:outpost/<outpost-id>/bucket/<my-bucket-name></code>. For example, to access the bucket <code>reports</code> through outpost <code>my-outpost</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/bucket/reports</code>. The value must be URL encoded.  </p>",
+            "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
         }
@@ -770,6 +813,7 @@
         "target": "com.amazonaws.s3control#DeleteBucketPolicyRequest"
       },
       "traits": {
+        "smithy.api#documentation": "<note>\n            <p>This API operation deletes an Amazon S3 on Outposts bucket policy. To delete an \n         S3 bucket policy, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketPolicy.html\">DeleteBucketPolicy</a> in the <i>Amazon Simple Storage Service API</i>.\n      </p>\n         </note>\n         <p>This implementation of the DELETE operation uses the policy subresource to delete the\n         policy of a specified Amazon S3 on Outposts bucket. If you are using an identity other than the\n         root user of the AWS account that owns the bucket, the calling identity must have the\n            <code>s3outposts:DeleteBucketPolicy</code> permissions on the specified Outposts bucket\n         and belong to the bucket owner's account to use this operation. For more information, see\n         <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html\">Using Amazon S3 on Outposts</a> in\n            <i>Amazon Simple Storage Service Developer Guide</i>.</p>\n      \n         <p>If you don't have <code>DeleteBucketPolicy</code> permissions, Amazon S3 returns a\n         <code>403 Access Denied</code> error. If you have the correct permissions, but you're\n         not using an identity that belongs to the bucket owner's account, Amazon S3 returns a\n         <code>405 Method Not Allowed</code> error. </p>\n      \n      \n         <important>\n            <p>As a security precaution, the root user of the AWS account that owns a bucket can always use this operation,\n         even if the policy explicitly denies the root user the ability to perform this action.</p>\n         </important>      \n      \n         <p>For more information about bucket policies, see <a href=\" https://docs.aws.amazon.com/AmazonS3/latest/dev/using-iam-policies.html\">Using Bucket Policies and User\n            Policies</a>. </p>\n      \n         <p>All Amazon S3 on Outposts REST API requests for this action require an additional parameter of outpost-id to be passed with the request and an S3 on Outposts endpoint hostname prefix instead of s3-control. For an example of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts endpoint hostname prefix and the outpost-id derived using the access point ARN, see the \n         <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API__control_DeleteBucketPolicy.html#API_control_DeleteBucketPolicy_Examples\">\n            Example</a> section below.</p>\n      \n         <p>The following actions are related to <code>DeleteBucketPolicy</code>:</p>\n         <ul>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetBucketPolicy.html\">GetBucketPolicy</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API__control_PutBucketPolicy.html\">PutBucketPolicy</a>\n               </p>\n            </li>\n         </ul>",
         "smithy.api#endpoint": {
           "hostPrefix": "{AccountId}."
         },
@@ -783,18 +827,20 @@
     "com.amazonaws.s3control#DeleteBucketPolicyRequest": {
       "type": "structure",
       "members": {
-        "Bucket": {
-          "target": "com.amazonaws.s3control#BucketName",
-          "traits": {
-            "smithy.api#httpLabel": {},
-            "smithy.api#required": {}
-          }
-        },
         "AccountId": {
           "target": "com.amazonaws.s3control#AccountId",
           "traits": {
+            "smithy.api#documentation": "<p>The account ID of the Outposts bucket.</p>",
             "smithy.api#hostLabel": {},
             "smithy.api#httpHeader": "x-amz-account-id",
+            "smithy.api#required": {}
+          }
+        },
+        "Bucket": {
+          "target": "com.amazonaws.s3control#BucketName",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the bucket.</p>\n         <p>For Amazon S3 on Outposts specify the ARN of the bucket accessed in the format <code>arn:aws:s3-outposts:<Region>:<account-id>:outpost/<outpost-id>/bucket/<my-bucket-name></code>. For example, to access the bucket <code>reports</code> through outpost <code>my-outpost</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/bucket/reports</code>. The value must be URL encoded.  </p>",
+            "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
         }
@@ -806,6 +852,7 @@
         "Bucket": {
           "target": "com.amazonaws.s3control#BucketName",
           "traits": {
+            "smithy.api#documentation": "<p>Specifies the bucket being deleted.</p>\n         <p>For Amazon S3 on Outposts specify the ARN of the bucket accessed in the format <code>arn:aws:s3-outposts:<Region>:<account-id>:outpost/<outpost-id>/bucket/<my-bucket-name></code>. For example, to access the bucket <code>reports</code> through outpost <code>my-outpost</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/bucket/reports</code>. The value must be URL encoded.  </p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -813,6 +860,7 @@
         "AccountId": {
           "target": "com.amazonaws.s3control#AccountId",
           "traits": {
+            "smithy.api#documentation": "<p>The account ID that owns the Outposts bucket.</p>",
             "smithy.api#hostLabel": {},
             "smithy.api#httpHeader": "x-amz-account-id",
             "smithy.api#required": {}
@@ -826,6 +874,7 @@
         "target": "com.amazonaws.s3control#DeleteBucketTaggingRequest"
       },
       "traits": {
+        "smithy.api#documentation": "<note>\n            <p>This API operation deletes an Amazon S3 on Outposts bucket's tags. To delete an \n         S3 bucket tags, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketTagging.html\">DeleteBucketTagging</a> in the <i>Amazon Simple Storage Service API</i>.\n      </p>\n         </note>\n         <p>Deletes the tags from the Outposts bucket. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html\">Using Amazon S3 on Outposts</a> in\n            <i>Amazon Simple Storage Service Developer Guide</i>.</p>\n      \n         <p>To use this operation, you must have permission to perform the <code>PutBucketTagging</code> action. \n         By default, the bucket owner has this permission and can grant this permission to others. \n      </p>\n      \n         <p>All Amazon S3 on Outposts REST API requests for this action require an additional parameter of outpost-id to be passed with the request and an S3 on Outposts endpoint hostname prefix instead of s3-control. For an example of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts endpoint hostname prefix and the outpost-id derived using the access point ARN, see the \n         <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API__control_DeleteBucketTagging.html#API_control_DeleteBucketTagging_Examples\">\n            Example</a> section below.</p>\n      \n         <p>The following actions are related to <code>DeleteBucketTagging</code>:</p>\n         <ul>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetBucketTagging.html\">GetBucketTagging</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutBucketTagging.html\">PutBucketTagging</a>\n               </p>\n            </li>\n         </ul>",
         "smithy.api#endpoint": {
           "hostPrefix": "{AccountId}."
         },
@@ -842,6 +891,7 @@
         "AccountId": {
           "target": "com.amazonaws.s3control#AccountId",
           "traits": {
+            "smithy.api#documentation": "<p>The AWS account ID of the Outposts bucket tag set to be removed.</p>",
             "smithy.api#hostLabel": {},
             "smithy.api#httpHeader": "x-amz-account-id",
             "smithy.api#required": {}
@@ -850,6 +900,7 @@
         "Bucket": {
           "target": "com.amazonaws.s3control#BucketName",
           "traits": {
+            "smithy.api#documentation": "<p>The bucket ARN that has the tag set to be removed.</p>\n         <p>For Amazon S3 on Outposts specify the ARN of the bucket accessed in the format <code>arn:aws:s3-outposts:<Region>:<account-id>:outpost/<outpost-id>/bucket/<my-bucket-name></code>. For example, to access the bucket <code>reports</code> through outpost <code>my-outpost</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/bucket/reports</code>. The value must be URL encoded.  </p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -876,7 +927,10 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Removes the entire tag set from the specified S3 Batch Operations job. To use this operation,\n         you must have permission to perform the <code>s3:DeleteJobTagging</code> action. For more\n         information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-managing-jobs.html#batch-ops-job-tags\">Controlling access and labeling jobs using tags</a> in the\n            <i>Amazon Simple Storage Service Developer Guide</i>.</p>\n         <p></p>\n         <p>Related actions include:</p>\n         <ul>\n            <li>\n               <p>\n                  <a>CreateJob</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a>GetJobTagging</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a>PutJobTagging</a>\n               </p>\n            </li>\n         </ul>",
+        "smithy.api#documentation": "<p>Removes the entire tag set from the specified S3 Batch Operations job. To use this operation,\n         you must have permission to perform the <code>s3:DeleteJobTagging</code> action. For more\n         information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-managing-jobs.html#batch-ops-job-tags\">Controlling access and labeling jobs using tags</a> in the\n            <i>Amazon Simple Storage Service Developer Guide</i>.</p>\n         <p></p>\n         <p>Related actions include:</p>\n         <ul>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_CreateJob.html\">CreateJob</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetJobTagging.html\">GetJobTagging</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutJobTagging.html\">PutJobTagging</a>\n               </p>\n            </li>\n         </ul>",
+        "smithy.api#endpoint": {
+          "hostPrefix": "{AccountId}."
+        },
         "smithy.api#http": {
           "method": "DELETE",
           "uri": "/v20180820/jobs/{JobId}/tagging",
@@ -899,6 +953,7 @@
           "target": "com.amazonaws.s3control#AccountId",
           "traits": {
             "smithy.api#documentation": "<p>The AWS account ID associated with the S3 Batch Operations job.</p>",
+            "smithy.api#hostLabel": {},
             "smithy.api#httpHeader": "x-amz-account-id",
             "smithy.api#required": {}
           }
@@ -915,7 +970,7 @@
         "target": "com.amazonaws.s3control#DeletePublicAccessBlockRequest"
       },
       "traits": {
-        "smithy.api#documentation": "<p>Removes the <code>PublicAccessBlock</code> configuration for an AWS account.</p>",
+        "smithy.api#documentation": "<p>Removes the <code>PublicAccessBlock</code> configuration for an AWS account. For more\n         information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html\"> Using Amazon S3 block\n            public access</a>.</p>\n         <p>Related actions include:</p>\n         <ul>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetPublicAccessBlock.html\">GetPublicAccessBlock</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutPublicAccessBlock.html\">PutPublicAccessBlock</a>\n               </p>\n            </li>\n         </ul>",
         "smithy.api#endpoint": {
           "hostPrefix": "{AccountId}."
         },
@@ -963,7 +1018,10 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Retrieves the configuration parameters and status for a Batch Operations job. For more\n         information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-basics.html\">S3 Batch Operations</a> in\n         the <i>Amazon Simple Storage Service Developer Guide</i>.</p>\n         <p></p>\n         <p>Related actions include:</p>\n         <ul>\n            <li>\n               <p>\n                  <a>CreateJob</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a>ListJobs</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a>UpdateJobPriority</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a>UpdateJobStatus</a>\n               </p>\n            </li>\n         </ul>",
+        "smithy.api#documentation": "<p>Retrieves the configuration parameters and status for a Batch Operations job. For more\n         information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-basics.html\">S3 Batch Operations</a> in\n         the <i>Amazon Simple Storage Service Developer Guide</i>.</p>\n         <p></p>\n         <p>Related actions include:</p>\n         <ul>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_CreateJob.html\">CreateJob</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_ListJobs.html\">ListJobs</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_UpdateJobPriority.html\">UpdateJobPriority</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_UpdateJobStatus.html\">UpdateJobStatus</a>\n               </p>\n            </li>\n         </ul>",
+        "smithy.api#endpoint": {
+          "hostPrefix": "{AccountId}."
+        },
         "smithy.api#http": {
           "method": "GET",
           "uri": "/v20180820/jobs/{JobId}",
@@ -974,19 +1032,20 @@
     "com.amazonaws.s3control#DescribeJobRequest": {
       "type": "structure",
       "members": {
-        "AccountId": {
-          "target": "com.amazonaws.s3control#AccountId",
-          "traits": {
-            "smithy.api#documentation": "<p></p>",
-            "smithy.api#httpHeader": "x-amz-account-id",
-            "smithy.api#required": {}
-          }
-        },
         "JobId": {
           "target": "com.amazonaws.s3control#JobId",
           "traits": {
             "smithy.api#documentation": "<p>The ID for the job whose information you want to retrieve.</p>",
             "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "AccountId": {
+          "target": "com.amazonaws.s3control#AccountId",
+          "traits": {
+            "smithy.api#documentation": "<p></p>",
+            "smithy.api#hostLabel": {},
+            "smithy.api#httpHeader": "x-amz-account-id",
             "smithy.api#required": {}
           }
         }
@@ -1047,7 +1106,7 @@
         "target": "com.amazonaws.s3control#GetAccessPointResult"
       },
       "traits": {
-        "smithy.api#documentation": "<p>Returns configuration information about the specified access point.</p>",
+        "smithy.api#documentation": "<p>Returns configuration information about the specified access point.</p>\n         <p></p>\n           \n         <p>All Amazon S3 on Outposts REST API requests for this action require an additional parameter of outpost-id to be passed with the request and an S3 on Outposts endpoint hostname prefix instead of s3-control. For an example of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts endpoint hostname prefix and the outpost-id derived using the access point ARN, see the \n         <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API__control_GetAccessPoint.html#API_control_GetAccessPoint_Examples\">\n            Example</a> section below.</p>\n         <p>The following actions are related to <code>GetAccessPoint</code>:</p>\n         <ul>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_CreateAccessPoint.html\">CreateAccessPoint</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteAccessPoint.html\">DeleteAccessPoint</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_ListAccessPoints.html\">ListAccessPoints</a>\n               </p>\n            </li>\n         </ul>",
         "smithy.api#endpoint": {
           "hostPrefix": "{AccountId}."
         },
@@ -1067,7 +1126,7 @@
         "target": "com.amazonaws.s3control#GetAccessPointPolicyResult"
       },
       "traits": {
-        "smithy.api#documentation": "<p>Returns the access point policy associated with the specified access point.</p>",
+        "smithy.api#documentation": "<p>Returns the access point policy associated with the specified access point.</p>\n         <p>The following actions are related to <code>GetAccessPointPolicy</code>:</p>\n         <ul>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutAccessPointPolicy.html\">PutAccessPointPolicy</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteAccessPointPolicy.html\">DeleteAccessPointPolicy</a>\n               </p>\n            </li>\n         </ul>",
         "smithy.api#endpoint": {
           "hostPrefix": "{AccountId}."
         },
@@ -1084,7 +1143,7 @@
         "Name": {
           "target": "com.amazonaws.s3control#AccessPointName",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the access point whose policy you want to retrieve.</p>",
+            "smithy.api#documentation": "<p>The name of the access point whose policy you want to retrieve.</p>\n         <p>For Amazon S3 on Outposts specify the ARN of the access point accessed in the format <code>arn:aws:s3-outposts:<Region>:<account-id>:outpost/<outpost-id>/accesspoint/<my-accesspoint-name></code>. For example, to access the access point <code>reports-ap</code> through outpost <code>my-outpost</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/accesspoint/reports-ap</code>. The value must be URL encoded. </p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -1134,20 +1193,20 @@
     "com.amazonaws.s3control#GetAccessPointPolicyStatusRequest": {
       "type": "structure",
       "members": {
+        "Name": {
+          "target": "com.amazonaws.s3control#AccessPointName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the access point whose policy status you want to retrieve.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
         "AccountId": {
           "target": "com.amazonaws.s3control#AccountId",
           "traits": {
             "smithy.api#documentation": "<p>The account ID for the account that owns the specified access point.</p>",
             "smithy.api#hostLabel": {},
             "smithy.api#httpHeader": "x-amz-account-id",
-            "smithy.api#required": {}
-          }
-        },
-        "Name": {
-          "target": "com.amazonaws.s3control#AccessPointName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the access point whose policy status you want to retrieve.</p>",
-            "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
         }
@@ -1170,7 +1229,7 @@
         "Name": {
           "target": "com.amazonaws.s3control#AccessPointName",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the access point whose configuration information you want to retrieve.</p>",
+            "smithy.api#documentation": "<p>The name of the access point whose configuration information you want to retrieve.</p>\n         <p>For Amazon S3 on Outposts specify the ARN of the access point accessed in the format <code>arn:aws:s3-outposts:<Region>:<account-id>:outpost/<outpost-id>/accesspoint/<my-accesspoint-name></code>. For example, to access the access point <code>reports-ap</code> through outpost <code>my-outpost</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/accesspoint/reports-ap</code>. The value must be URL encoded. </p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -1189,10 +1248,16 @@
     "com.amazonaws.s3control#GetAccessPointResult": {
       "type": "structure",
       "members": {
-        "NetworkOrigin": {
-          "target": "com.amazonaws.s3control#NetworkOrigin",
+        "Name": {
+          "target": "com.amazonaws.s3control#AccessPointName",
           "traits": {
-            "smithy.api#documentation": "<p>Indicates whether this access point allows access from the public internet. If\n            <code>VpcConfiguration</code> is specified for this access point, then\n            <code>NetworkOrigin</code> is <code>VPC</code>, and the access point doesn't allow access from\n         the public internet. Otherwise, <code>NetworkOrigin</code> is <code>Internet</code>, and\n         the access point allows access from the public internet, subject to the access point and bucket access\n         policies.</p>"
+            "smithy.api#documentation": "<p>The name of the specified access point.</p>"
+          }
+        },
+        "VpcConfiguration": {
+          "target": "com.amazonaws.s3control#VpcConfiguration",
+          "traits": {
+            "smithy.api#documentation": "<p>Contains the virtual private cloud (VPC) configuration for the specified access point.</p>"
           }
         },
         "Bucket": {
@@ -1207,20 +1272,14 @@
             "smithy.api#documentation": "<p>The date and time when the specified access point was created.</p>"
           }
         },
+        "NetworkOrigin": {
+          "target": "com.amazonaws.s3control#NetworkOrigin",
+          "traits": {
+            "smithy.api#documentation": "<p>Indicates whether this access point allows access from the public internet. If\n            <code>VpcConfiguration</code> is specified for this access point, then\n            <code>NetworkOrigin</code> is <code>VPC</code>, and the access point doesn't allow access from\n         the public internet. Otherwise, <code>NetworkOrigin</code> is <code>Internet</code>, and\n         the access point allows access from the public internet, subject to the access point and bucket access\n         policies.</p>\n         <p>This will always be true for an Amazon S3 on Outposts access point</p>"
+          }
+        },
         "PublicAccessBlockConfiguration": {
           "target": "com.amazonaws.s3control#PublicAccessBlockConfiguration"
-        },
-        "Name": {
-          "target": "com.amazonaws.s3control#AccessPointName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the specified access point.</p>"
-          }
-        },
-        "VpcConfiguration": {
-          "target": "com.amazonaws.s3control#VpcConfiguration",
-          "traits": {
-            "smithy.api#documentation": "<p>Contains the virtual private cloud (VPC) configuration for the specified access point.</p>"
-          }
         }
       }
     },
@@ -1233,6 +1292,7 @@
         "target": "com.amazonaws.s3control#GetBucketResult"
       },
       "traits": {
+        "smithy.api#documentation": "<p>Gets an Amazon S3 on Outposts bucket. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html\">\n         Using Amazon S3 on Outposts</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>\n         <p>The following actions are related to <code>GetBucket</code> for Amazon S3 on Outposts:</p>\n         <ul>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html\">PutObject</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API__control_CreateBucket.html\">CreateBucket</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API__control_DeleteBucket.html\">DeleteBucket</a>\n               </p>\n            </li>\n         </ul>",
         "smithy.api#endpoint": {
           "hostPrefix": "{AccountId}."
         },
@@ -1252,6 +1312,7 @@
         "target": "com.amazonaws.s3control#GetBucketLifecycleConfigurationResult"
       },
       "traits": {
+        "smithy.api#documentation": "<note>\n            <p>This API operation gets an Amazon S3 on Outposts bucket's lifecycle configuration. To get an \n         S3 bucket's lifecycle configuration, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketLifecycleConfiguration.html\">GetBucketLifecycleConfiguration</a> in the <i>Amazon Simple Storage Service API</i>.\n      </p>\n         </note>\n         <p>Returns the lifecycle configuration information set on the Outposts bucket. For more\n         information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html\">Using Amazon S3 on Outposts</a> and for\n         information about lifecycle configuration, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html\"> Object Lifecycle Management</a> in\n            <i>Amazon Simple Storage Service Developer Guide</i>.</p>\n      \n         <p>To use this operation, you must have permission to perform the <code>s3outposts:GetLifecycleConfiguration</code> action. \n         The Outposts bucket owner has this permission, by default. The bucket owner can grant this permission to others. For more \n         information about permissions, see \n         <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources\">Permissions \n            Related to Bucket Subresource Operations</a> and <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html\">Managing Access \n               Permissions to Your Amazon S3 Resources</a>.</p>\n      \n         <p>All Amazon S3 on Outposts REST API requests for this action require an additional parameter of outpost-id to be passed with the request and an S3 on Outposts endpoint hostname prefix instead of s3-control. For an example of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts endpoint hostname prefix and the outpost-id derived using the access point ARN, see the \n         <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API__control_GetBucketLifecycleConfiguration.html#API_control_GetBucketLifecycleConfiguration_Examples\">\n            Example</a> section below.</p>\n      \n         <p>\n            <code>GetBucketLifecycleConfiguration</code> has the following special error:</p>\n         <ul>\n            <li>\n               <p>Error code: <code>NoSuchLifecycleConfiguration</code>\n               </p>\n               <ul>\n                  <li>\n                     <p>Description: The lifecycle configuration does not exist.</p>\n                  </li>\n                  <li>\n                     <p>HTTP Status Code: 404 Not Found</p>\n                  </li>\n                  <li>\n                     <p>SOAP Fault Code Prefix: Client</p>\n                  </li>\n               </ul>\n            </li>\n         </ul>\n         <p>The following actions are related to <code>GetBucketLifecycleConfiguration</code>:</p>\n         <ul>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutBucketLifecycleConfiguration.html\">PutBucketLifecycleConfiguration</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteBucketLifecycleConfiguration.html\">DeleteBucketLifecycleConfiguration</a>\n               </p>\n            </li>\n         </ul>",
         "smithy.api#endpoint": {
           "hostPrefix": "{AccountId}."
         },
@@ -1265,18 +1326,20 @@
     "com.amazonaws.s3control#GetBucketLifecycleConfigurationRequest": {
       "type": "structure",
       "members": {
-        "AccountId": {
-          "target": "com.amazonaws.s3control#AccountId",
-          "traits": {
-            "smithy.api#hostLabel": {},
-            "smithy.api#httpHeader": "x-amz-account-id",
-            "smithy.api#required": {}
-          }
-        },
         "Bucket": {
           "target": "com.amazonaws.s3control#BucketName",
           "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the bucket.</p> \n         <p>For Amazon S3 on Outposts specify the ARN of the bucket accessed in the format <code>arn:aws:s3-outposts:<Region>:<account-id>:outpost/<outpost-id>/bucket/<my-bucket-name></code>. For example, to access the bucket <code>reports</code> through outpost <code>my-outpost</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/bucket/reports</code>. The value must be URL encoded.  </p>",
             "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "AccountId": {
+          "target": "com.amazonaws.s3control#AccountId",
+          "traits": {
+            "smithy.api#documentation": "<p>The AWS account ID of the Outposts bucket.</p>",
+            "smithy.api#hostLabel": {},
+            "smithy.api#httpHeader": "x-amz-account-id",
             "smithy.api#required": {}
           }
         }
@@ -1286,7 +1349,10 @@
       "type": "structure",
       "members": {
         "Rules": {
-          "target": "com.amazonaws.s3control#LifecycleRules"
+          "target": "com.amazonaws.s3control#LifecycleRules",
+          "traits": {
+            "smithy.api#documentation": "<p>Container for the lifecycle rule of the Outposts bucket.</p>"
+          }
         }
       }
     },
@@ -1299,6 +1365,7 @@
         "target": "com.amazonaws.s3control#GetBucketPolicyResult"
       },
       "traits": {
+        "smithy.api#documentation": "<note>\n            <p>This API action gets a bucket policy for an Amazon S3 on Outposts bucket. To get a policy for an S3\n            bucket, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketPolicy.html\">GetBucketPolicy</a> in the\n               <i>Amazon Simple Storage Service API</i>. </p>\n         </note>\n         <p>Returns the policy of a specified Outposts bucket. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html\">Using Amazon S3 on Outposts</a> in the\n            <i>Amazon Simple Storage Service Developer Guide</i>.</p>\n         <p>If you are using an identity other than the root user of the AWS account that owns the bucket, the calling identity \n      must have the <code>GetBucketPolicy</code> permissions on the specified bucket and belong to the bucket owner's account in order to use this operation.</p>\n      \n         <p>If you don't have <code>s3outposts:GetBucketPolicy</code> permissions, Amazon S3 returns a <code>403 Access Denied</code> error. If you have the correct permissions, \n         but you're not using an identity that belongs to the bucket owner's account, Amazon S3 returns a <code>405 Method Not Allowed</code> error.</p>\n      \n         <important>\n            <p>As a security precaution, the root user of the AWS account that owns a bucket can always use this operation, even if the policy \n         explicitly denies the root user the ability to perform this action.</p>\n         </important>\n      \n         <p>For more information about bucket policies, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/using-iam-policies.html\">Using Bucket Policies and User Policies</a>.</p>\n      \n         <p>All Amazon S3 on Outposts REST API requests for this action require an additional parameter of outpost-id to be passed with the request and an S3 on Outposts endpoint hostname prefix instead of s3-control. For an example of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts endpoint hostname prefix and the outpost-id derived using the access point ARN, see the \n         <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API__control_GetBucketPolicy.html#API_control_GetBucketPolicy_Examples\">\n            Example</a> section below.</p>\n      \n         <p>The following actions are related to <code>GetBucketPolicy</code>:</p>\n         <ul>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html\">GetObject</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutBucketPolicy.html\">PutBucketPolicy</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteBucketPolicy.html\">DeleteBucketPolicy</a>\n               </p>\n            </li>\n         </ul>",
         "smithy.api#endpoint": {
           "hostPrefix": "{AccountId}."
         },
@@ -1312,18 +1379,20 @@
     "com.amazonaws.s3control#GetBucketPolicyRequest": {
       "type": "structure",
       "members": {
-        "Bucket": {
-          "target": "com.amazonaws.s3control#BucketName",
-          "traits": {
-            "smithy.api#httpLabel": {},
-            "smithy.api#required": {}
-          }
-        },
         "AccountId": {
           "target": "com.amazonaws.s3control#AccountId",
           "traits": {
+            "smithy.api#documentation": "<p>The AWS account ID of the Outposts bucket.</p>",
             "smithy.api#hostLabel": {},
             "smithy.api#httpHeader": "x-amz-account-id",
+            "smithy.api#required": {}
+          }
+        },
+        "Bucket": {
+          "target": "com.amazonaws.s3control#BucketName",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the bucket.</p>\n         <p>For Amazon S3 on Outposts specify the ARN of the bucket accessed in the format <code>arn:aws:s3-outposts:<Region>:<account-id>:outpost/<outpost-id>/bucket/<my-bucket-name></code>. For example, to access the bucket <code>reports</code> through outpost <code>my-outpost</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/bucket/reports</code>. The value must be URL encoded.  </p>",
+            "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
         }
@@ -1333,7 +1402,10 @@
       "type": "structure",
       "members": {
         "Policy": {
-          "target": "com.amazonaws.s3control#Policy"
+          "target": "com.amazonaws.s3control#Policy",
+          "traits": {
+            "smithy.api#documentation": "<p>The policy of the Outposts bucket.</p>"
+          }
         }
       }
     },
@@ -1343,6 +1415,7 @@
         "AccountId": {
           "target": "com.amazonaws.s3control#AccountId",
           "traits": {
+            "smithy.api#documentation": "<p>The AWS account ID of the Outposts bucket.</p>",
             "smithy.api#hostLabel": {},
             "smithy.api#httpHeader": "x-amz-account-id",
             "smithy.api#required": {}
@@ -1351,6 +1424,7 @@
         "Bucket": {
           "target": "com.amazonaws.s3control#BucketName",
           "traits": {
+            "smithy.api#documentation": "<p>The ARN of the bucket.</p> \n         <p>For Amazon S3 on Outposts specify the ARN of the bucket accessed in the format <code>arn:aws:s3-outposts:<Region>:<account-id>:outpost/<outpost-id>/bucket/<my-bucket-name></code>. For example, to access the bucket <code>reports</code> through outpost <code>my-outpost</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/bucket/reports</code>. The value must be URL encoded.  </p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -1360,14 +1434,23 @@
     "com.amazonaws.s3control#GetBucketResult": {
       "type": "structure",
       "members": {
+        "CreationDate": {
+          "target": "com.amazonaws.s3control#CreationDate",
+          "traits": {
+            "smithy.api#documentation": "<p>The creation date of the Outposts bucket.</p>"
+          }
+        },
         "PublicAccessBlockEnabled": {
-          "target": "com.amazonaws.s3control#PublicAccessBlockEnabled"
+          "target": "com.amazonaws.s3control#PublicAccessBlockEnabled",
+          "traits": {
+            "smithy.api#documentation": "<p></p>"
+          }
         },
         "Bucket": {
-          "target": "com.amazonaws.s3control#BucketName"
-        },
-        "CreationDate": {
-          "target": "com.amazonaws.s3control#CreationDate"
+          "target": "com.amazonaws.s3control#BucketName",
+          "traits": {
+            "smithy.api#documentation": "<p>The Outposts bucket requested.</p>"
+          }
         }
       }
     },
@@ -1380,6 +1463,7 @@
         "target": "com.amazonaws.s3control#GetBucketTaggingResult"
       },
       "traits": {
+        "smithy.api#documentation": "<note>\n            <p>This API operation gets an Amazon S3 on Outposts bucket's tags. To get an \n         S3 bucket tags, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketTagging.html\">GetBucketTagging</a> in the <i>Amazon Simple Storage Service API</i>.\n      </p>\n         </note>\n         <p>Returns the tag set associated with the Outposts bucket. For more information, see\n            <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html\">Using Amazon S3 on Outposts</a> in the\n            <i>Amazon Simple Storage Service Developer Guide</i>.</p>\n         <p>To use this operation, you must have permission to perform the <code>GetBucketTagging</code> action. \n         By default, the bucket owner has this permission and can grant this permission to others.</p>\n      \n         <p>\n            <code>GetBucketTagging</code> has the following special error:</p>\n         <ul>\n            <li>\n               <p>Error code: <code>NoSuchTagSetError</code>\n               </p>\n               <ul>\n                  <li>\n                     <p>Description: There is no tag set associated with the bucket.</p>\n                  </li>\n               </ul>\n            </li>\n         </ul>\n         <p>All Amazon S3 on Outposts REST API requests for this action require an additional parameter of outpost-id to be passed with the request and an S3 on Outposts endpoint hostname prefix instead of s3-control. For an example of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts endpoint hostname prefix and the outpost-id derived using the access point ARN, see the \n         <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API__control_GetBucketTagging.html#API_control_GetBucketTagging_Examples\">\n            Example</a> section below.</p>\n      \n         <p>The following actions are related to <code>GetBucketTagging</code>:</p>\n         <ul>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutBucketTagging.html\">PutBucketTagging</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteBucketTagging.html\">DeleteBucketTagging</a>\n               </p>\n            </li>\n         </ul>",
         "smithy.api#endpoint": {
           "hostPrefix": "{AccountId}."
         },
@@ -1396,6 +1480,7 @@
         "Bucket": {
           "target": "com.amazonaws.s3control#BucketName",
           "traits": {
+            "smithy.api#documentation": "<p>The ARN of the bucket.</p>\n         <p>For Amazon S3 on Outposts specify the ARN of the bucket accessed in the format <code>arn:aws:s3-outposts:<Region>:<account-id>:outpost/<outpost-id>/bucket/<my-bucket-name></code>. For example, to access the bucket <code>reports</code> through outpost <code>my-outpost</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/bucket/reports</code>. The value must be URL encoded.  </p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -1403,6 +1488,7 @@
         "AccountId": {
           "target": "com.amazonaws.s3control#AccountId",
           "traits": {
+            "smithy.api#documentation": "<p>The AWS account ID of the Outposts bucket.</p>",
             "smithy.api#hostLabel": {},
             "smithy.api#httpHeader": "x-amz-account-id",
             "smithy.api#required": {}
@@ -1416,6 +1502,7 @@
         "TagSet": {
           "target": "com.amazonaws.s3control#S3TagSet",
           "traits": {
+            "smithy.api#documentation": "<p>The tags set of the Outposts bucket.</p>",
             "smithy.api#required": {}
           }
         }
@@ -1441,7 +1528,10 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Returns the tags on an S3 Batch Operations job. To use this operation, you must have\n         permission to perform the <code>s3:GetJobTagging</code> action. For more information, see\n            <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-managing-jobs.html#batch-ops-job-tags\">Controlling\n            access and labeling jobs using tags</a> in the\n         <i>Amazon Simple Storage Service Developer Guide</i>.</p>\n         <p></p>\n         <p>Related actions include:</p>\n         <ul>\n            <li>\n               <p>\n                  <a>CreateJob</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a>PutJobTagging</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a>DeleteJobTagging</a>\n               </p>\n            </li>\n         </ul>",
+        "smithy.api#documentation": "<p>Returns the tags on an S3 Batch Operations job. To use this operation, you must have\n         permission to perform the <code>s3:GetJobTagging</code> action. For more information, see\n            <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-managing-jobs.html#batch-ops-job-tags\">Controlling\n            access and labeling jobs using tags</a> in the\n         <i>Amazon Simple Storage Service Developer Guide</i>.</p>\n         <p></p>\n         <p>Related actions include:</p>\n         <ul>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_CreateJob.html\">CreateJob</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutJobTagging.html\">PutJobTagging</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteJobTagging.html\">DeleteJobTagging</a>\n               </p>\n            </li>\n         </ul>",
+        "smithy.api#endpoint": {
+          "hostPrefix": "{AccountId}."
+        },
         "smithy.api#http": {
           "method": "GET",
           "uri": "/v20180820/jobs/{JobId}/tagging",
@@ -1464,6 +1554,7 @@
           "target": "com.amazonaws.s3control#AccountId",
           "traits": {
             "smithy.api#documentation": "<p>The AWS account ID associated with the S3 Batch Operations job.</p>",
+            "smithy.api#hostLabel": {},
             "smithy.api#httpHeader": "x-amz-account-id",
             "smithy.api#required": {}
           }
@@ -1495,7 +1586,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Retrieves the <code>PublicAccessBlock</code> configuration for an AWS account.</p>",
+        "smithy.api#documentation": "<p>Retrieves the <code>PublicAccessBlock</code> configuration for an AWS account. For more\n         information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html\"> Using Amazon S3 block\n            public access</a>.</p>\n         <p>Related actions include:</p>\n         <ul>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeletePublicAccessBlock.html\">DeletePublicAccessBlock</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutPublicAccessBlock.html\">PutPublicAccessBlock</a>\n               </p>\n            </li>\n         </ul>",
         "smithy.api#endpoint": {
           "hostPrefix": "{AccountId}."
         },
@@ -1627,16 +1718,16 @@
     "com.amazonaws.s3control#JobDescriptor": {
       "type": "structure",
       "members": {
-        "JobArn": {
-          "target": "com.amazonaws.s3control#JobArn",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) for this job.</p>"
-          }
-        },
         "Manifest": {
           "target": "com.amazonaws.s3control#JobManifest",
           "traits": {
             "smithy.api#documentation": "<p>The configuration information for the specified job's manifest object.</p>"
+          }
+        },
+        "ProgressSummary": {
+          "target": "com.amazonaws.s3control#JobProgressSummary",
+          "traits": {
+            "smithy.api#documentation": "<p>Describes the total number of tasks that the specified job has run, the number of tasks\n         that succeeded, and the number of tasks that failed.</p>"
           }
         },
         "ConfirmationRequired": {
@@ -1646,64 +1737,16 @@
             "smithy.api#documentation": "<p>Indicates whether confirmation is required before Amazon S3 begins running the specified job. Confirmation is required only for jobs created through the Amazon S3 console.</p>"
           }
         },
-        "SuspendedDate": {
-          "target": "com.amazonaws.s3control#SuspendedDate",
+        "JobArn": {
+          "target": "com.amazonaws.s3control#JobArn",
           "traits": {
-            "smithy.api#documentation": "<p>The timestamp when this job was suspended, if it has been suspended.</p>"
-          }
-        },
-        "CreationTime": {
-          "target": "com.amazonaws.s3control#JobCreationTime",
-          "traits": {
-            "smithy.api#documentation": "<p>A timestamp indicating when this job was created.</p>"
-          }
-        },
-        "JobId": {
-          "target": "com.amazonaws.s3control#JobId",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID for the specified job.</p>"
-          }
-        },
-        "TerminationDate": {
-          "target": "com.amazonaws.s3control#JobTerminationDate",
-          "traits": {
-            "smithy.api#documentation": "<p>A timestamp indicating when this job terminated. A job's termination date is the date and time when it succeeded, failed, or was canceled.</p>"
-          }
-        },
-        "Description": {
-          "target": "com.amazonaws.s3control#NonEmptyMaxLength256String",
-          "traits": {
-            "smithy.api#documentation": "<p>The description for this job, if one was provided in this job's <code>Create Job</code> request.</p>"
-          }
-        },
-        "RoleArn": {
-          "target": "com.amazonaws.s3control#IAMRoleArn",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) for the AWS Identity and Access Management (IAM) role\n         assigned to execute the tasks for this job.</p>"
-          }
-        },
-        "FailureReasons": {
-          "target": "com.amazonaws.s3control#JobFailureList",
-          "traits": {
-            "smithy.api#documentation": "<p>If the specified job failed, this field contains information describing the failure.</p>"
-          }
-        },
-        "StatusUpdateReason": {
-          "target": "com.amazonaws.s3control#JobStatusUpdateReason",
-          "traits": {
-            "smithy.api#documentation": "<p></p>"
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) for this job.</p>"
           }
         },
         "Priority": {
           "target": "com.amazonaws.s3control#JobPriority",
           "traits": {
             "smithy.api#documentation": "<p>The priority of the specified job.</p>"
-          }
-        },
-        "SuspendedCause": {
-          "target": "com.amazonaws.s3control#SuspendedCause",
-          "traits": {
-            "smithy.api#documentation": "<p>The reason why the specified job was suspended. A job is only suspended if you create it through the Amazon S3 console. When you create the job, it enters\n            the <code>Suspended</code> state to await confirmation before running. After you confirm the job, it automatically exits the <code>Suspended</code> state.</p>"
           }
         },
         "Report": {
@@ -1718,16 +1761,64 @@
             "smithy.api#documentation": "<p>The current status of the specified job.</p>"
           }
         },
+        "TerminationDate": {
+          "target": "com.amazonaws.s3control#JobTerminationDate",
+          "traits": {
+            "smithy.api#documentation": "<p>A timestamp indicating when this job terminated. A job's termination date is the date and time when it succeeded, failed, or was canceled.</p>"
+          }
+        },
+        "SuspendedCause": {
+          "target": "com.amazonaws.s3control#SuspendedCause",
+          "traits": {
+            "smithy.api#documentation": "<p>The reason why the specified job was suspended. A job is only suspended if you create it through the Amazon S3 console. When you create the job, it enters\n            the <code>Suspended</code> state to await confirmation before running. After you confirm the job, it automatically exits the <code>Suspended</code> state.</p>"
+          }
+        },
+        "Description": {
+          "target": "com.amazonaws.s3control#NonEmptyMaxLength256String",
+          "traits": {
+            "smithy.api#documentation": "<p>The description for this job, if one was provided in this job's <code>Create Job</code> request.</p>"
+          }
+        },
         "Operation": {
           "target": "com.amazonaws.s3control#JobOperation",
           "traits": {
-            "smithy.api#documentation": "<p>The operation that the specified job is configured to execute on the objects listed in the manifest.</p>"
+            "smithy.api#documentation": "<p>The operation that the specified job is configured to run on the objects listed in the manifest.</p>"
           }
         },
-        "ProgressSummary": {
-          "target": "com.amazonaws.s3control#JobProgressSummary",
+        "RoleArn": {
+          "target": "com.amazonaws.s3control#IAMRoleArn",
           "traits": {
-            "smithy.api#documentation": "<p>Describes the total number of tasks that the specified job has executed, the number of tasks that succeeded, and the number of tasks that failed.</p>"
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) for the AWS Identity and Access Management (IAM) role\n         assigned to run the tasks for this job.</p>"
+          }
+        },
+        "SuspendedDate": {
+          "target": "com.amazonaws.s3control#SuspendedDate",
+          "traits": {
+            "smithy.api#documentation": "<p>The timestamp when this job was suspended, if it has been suspended.</p>"
+          }
+        },
+        "FailureReasons": {
+          "target": "com.amazonaws.s3control#JobFailureList",
+          "traits": {
+            "smithy.api#documentation": "<p>If the specified job failed, this field contains information describing the failure.</p>"
+          }
+        },
+        "StatusUpdateReason": {
+          "target": "com.amazonaws.s3control#JobStatusUpdateReason",
+          "traits": {
+            "smithy.api#documentation": "<p>The reason for updating the job.</p>"
+          }
+        },
+        "CreationTime": {
+          "target": "com.amazonaws.s3control#JobCreationTime",
+          "traits": {
+            "smithy.api#documentation": "<p>A timestamp indicating when this job was created.</p>"
+          }
+        },
+        "JobId": {
+          "target": "com.amazonaws.s3control#JobId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID for the specified job.</p>"
           }
         }
       },
@@ -1792,16 +1883,34 @@
     "com.amazonaws.s3control#JobListDescriptor": {
       "type": "structure",
       "members": {
-        "ProgressSummary": {
-          "target": "com.amazonaws.s3control#JobProgressSummary",
-          "traits": {
-            "smithy.api#documentation": "<p>Describes the total number of tasks that the specified job has executed, the number of tasks that succeeded, and the number of tasks that failed.</p>"
-          }
-        },
         "JobId": {
           "target": "com.amazonaws.s3control#JobId",
           "traits": {
             "smithy.api#documentation": "<p>The ID for the specified job.</p>"
+          }
+        },
+        "Priority": {
+          "target": "com.amazonaws.s3control#JobPriority",
+          "traits": {
+            "smithy.api#documentation": "<p>The current priority for the specified job.</p>"
+          }
+        },
+        "ProgressSummary": {
+          "target": "com.amazonaws.s3control#JobProgressSummary",
+          "traits": {
+            "smithy.api#documentation": "<p>Describes the total number of tasks that the specified job has run, the number of tasks\n         that succeeded, and the number of tasks that failed.</p>"
+          }
+        },
+        "Description": {
+          "target": "com.amazonaws.s3control#NonEmptyMaxLength256String",
+          "traits": {
+            "smithy.api#documentation": "<p>The user-specified description that was included in the specified job's <code>Create Job</code> request.</p>"
+          }
+        },
+        "Operation": {
+          "target": "com.amazonaws.s3control#OperationName",
+          "traits": {
+            "smithy.api#documentation": "<p>The operation that the specified job is configured to run on each object listed in the manifest.</p>"
           }
         },
         "CreationTime": {
@@ -1820,24 +1929,6 @@
           "target": "com.amazonaws.s3control#JobStatus",
           "traits": {
             "smithy.api#documentation": "<p>The specified job's current status.</p>"
-          }
-        },
-        "Description": {
-          "target": "com.amazonaws.s3control#NonEmptyMaxLength256String",
-          "traits": {
-            "smithy.api#documentation": "<p>The user-specified description that was included in the specified job's <code>Create Job</code> request.</p>"
-          }
-        },
-        "Operation": {
-          "target": "com.amazonaws.s3control#OperationName",
-          "traits": {
-            "smithy.api#documentation": "<p>The operation that the specified job is configured to run on each object listed in the manifest.</p>"
-          }
-        },
-        "Priority": {
-          "target": "com.amazonaws.s3control#JobPriority",
-          "traits": {
-            "smithy.api#documentation": "<p>The current priority for the specified job.</p>"
           }
         }
       },
@@ -1920,12 +2011,6 @@
     "com.amazonaws.s3control#JobManifestLocation": {
       "type": "structure",
       "members": {
-        "ObjectVersionId": {
-          "target": "com.amazonaws.s3control#S3ObjectVersionId",
-          "traits": {
-            "smithy.api#documentation": "<p>The optional version ID to identify a specific version of the manifest object.</p>"
-          }
-        },
         "ETag": {
           "target": "com.amazonaws.s3control#NonEmptyMaxLength1024String",
           "traits": {
@@ -1939,6 +2024,12 @@
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) for a manifest object.</p>",
             "smithy.api#required": {}
           }
+        },
+        "ObjectVersionId": {
+          "target": "com.amazonaws.s3control#S3ObjectVersionId",
+          "traits": {
+            "smithy.api#documentation": "<p>The optional version ID to identify a specific version of the manifest object.</p>"
+          }
         }
       },
       "traits": {
@@ -1948,17 +2039,17 @@
     "com.amazonaws.s3control#JobManifestSpec": {
       "type": "structure",
       "members": {
-        "Fields": {
-          "target": "com.amazonaws.s3control#JobManifestFieldList",
-          "traits": {
-            "smithy.api#documentation": "<p>If the specified manifest object is in the <code>S3BatchOperations_CSV_20180820</code> format, this element describes which columns contain the required data.</p>"
-          }
-        },
         "Format": {
           "target": "com.amazonaws.s3control#JobManifestFormat",
           "traits": {
             "smithy.api#documentation": "<p>Indicates which of the available formats the specified manifest uses.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "Fields": {
+          "target": "com.amazonaws.s3control#JobManifestFieldList",
+          "traits": {
+            "smithy.api#documentation": "<p>If the specified manifest object is in the <code>S3BatchOperations_CSV_20180820</code> format, this element describes which columns contain the required data.</p>"
           }
         }
       },
@@ -1985,20 +2076,29 @@
     "com.amazonaws.s3control#JobOperation": {
       "type": "structure",
       "members": {
+        "S3PutObjectLegalHold": {
+          "target": "com.amazonaws.s3control#S3SetObjectLegalHoldOperation"
+        },
+        "S3PutObjectCopy": {
+          "target": "com.amazonaws.s3control#S3CopyObjectOperation",
+          "traits": {
+            "smithy.api#documentation": "<p>Directs the specified job to run a PUT Copy object call on each object in the manifest.</p>"
+          }
+        },
+        "S3InitiateRestoreObject": {
+          "target": "com.amazonaws.s3control#S3InitiateRestoreObjectOperation",
+          "traits": {
+            "smithy.api#documentation": "<p>Directs the specified job to run an Initiate Glacier Restore call on each object in the manifest.</p>"
+          }
+        },
         "S3PutObjectTagging": {
           "target": "com.amazonaws.s3control#S3SetObjectTaggingOperation",
           "traits": {
-            "smithy.api#documentation": "<p>Directs the specified job to execute a PUT Object tagging call on each object in the manifest.</p>"
+            "smithy.api#documentation": "<p>Directs the specified job to run a PUT Object tagging call on each object in the manifest.</p>"
           }
         },
-        "S3PutObjectAcl": {
-          "target": "com.amazonaws.s3control#S3SetObjectAclOperation",
-          "traits": {
-            "smithy.api#documentation": "<p>Directs the specified job to execute a PUT Object acl call on each object in the manifest.</p>"
-          }
-        },
-        "S3PutObjectLegalHold": {
-          "target": "com.amazonaws.s3control#S3SetObjectLegalHoldOperation"
+        "S3PutObjectRetention": {
+          "target": "com.amazonaws.s3control#S3SetObjectRetentionOperation"
         },
         "LambdaInvoke": {
           "target": "com.amazonaws.s3control#LambdaInvokeOperation",
@@ -2006,19 +2106,10 @@
             "smithy.api#documentation": "<p>Directs the specified job to invoke an AWS Lambda function on each object in the manifest.</p>"
           }
         },
-        "S3InitiateRestoreObject": {
-          "target": "com.amazonaws.s3control#S3InitiateRestoreObjectOperation",
+        "S3PutObjectAcl": {
+          "target": "com.amazonaws.s3control#S3SetObjectAclOperation",
           "traits": {
-            "smithy.api#documentation": "<p>Directs the specified job to execute an Initiate Glacier Restore call on each object in the manifest.</p>"
-          }
-        },
-        "S3PutObjectRetention": {
-          "target": "com.amazonaws.s3control#S3SetObjectRetentionOperation"
-        },
-        "S3PutObjectCopy": {
-          "target": "com.amazonaws.s3control#S3CopyObjectOperation",
-          "traits": {
-            "smithy.api#documentation": "<p>Directs the specified job to execute a PUT Copy object call on each object in the manifest.</p>"
+            "smithy.api#documentation": "<p>Directs the specified job to run a PUT Object acl call on each object in the manifest.</p>"
           }
         }
       },
@@ -2038,8 +2129,8 @@
     "com.amazonaws.s3control#JobProgressSummary": {
       "type": "structure",
       "members": {
-        "NumberOfTasksFailed": {
-          "target": "com.amazonaws.s3control#JobNumberOfTasksFailed",
+        "NumberOfTasksSucceeded": {
+          "target": "com.amazonaws.s3control#JobNumberOfTasksSucceeded",
           "traits": {
             "smithy.api#box": {},
             "smithy.api#documentation": "<p></p>"
@@ -2052,8 +2143,8 @@
             "smithy.api#documentation": "<p></p>"
           }
         },
-        "NumberOfTasksSucceeded": {
-          "target": "com.amazonaws.s3control#JobNumberOfTasksSucceeded",
+        "NumberOfTasksFailed": {
+          "target": "com.amazonaws.s3control#JobNumberOfTasksFailed",
           "traits": {
             "smithy.api#box": {},
             "smithy.api#documentation": "<p></p>"
@@ -2061,12 +2152,18 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Describes the total number of tasks that the specified job has executed, the number of tasks that succeeded, and the number of tasks that failed.</p>"
+        "smithy.api#documentation": "<p>Describes the total number of tasks that the specified job has started, the number of tasks that succeeded, and the number of tasks that failed.</p>"
       }
     },
     "com.amazonaws.s3control#JobReport": {
       "type": "structure",
       "members": {
+        "Format": {
+          "target": "com.amazonaws.s3control#JobReportFormat",
+          "traits": {
+            "smithy.api#documentation": "<p>The format of the specified job-completion report.</p>"
+          }
+        },
         "ReportScope": {
           "target": "com.amazonaws.s3control#JobReportScope",
           "traits": {
@@ -2079,12 +2176,6 @@
             "smithy.api#documentation": "<p>An optional prefix to describe where in the specified bucket the job-completion report\n         will be stored. Amazon S3 stores the job-completion report at\n            <code><prefix>/job-<job-id>/report.json</code>.</p>"
           }
         },
-        "Bucket": {
-          "target": "com.amazonaws.s3control#S3BucketArnString",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) for the bucket where specified job-completion report will be stored.</p>"
-          }
-        },
         "Enabled": {
           "target": "com.amazonaws.s3control#Boolean",
           "traits": {
@@ -2092,10 +2183,10 @@
             "smithy.api#required": {}
           }
         },
-        "Format": {
-          "target": "com.amazonaws.s3control#JobReportFormat",
+        "Bucket": {
+          "target": "com.amazonaws.s3control#S3BucketArnString",
           "traits": {
-            "smithy.api#documentation": "<p>The format of the specified job-completion report.</p>"
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) for the bucket where specified job-completion report will be stored.</p>"
           }
         }
       },
@@ -2253,65 +2344,117 @@
       "type": "structure",
       "members": {
         "Rules": {
-          "target": "com.amazonaws.s3control#LifecycleRules"
+          "target": "com.amazonaws.s3control#LifecycleRules",
+          "traits": {
+            "smithy.api#documentation": "<p>A lifecycle rule for individual objects in an Outposts bucket. </p>"
+          }
         }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The container for the Outposts bucket lifecycle configuration.</p>"
       }
     },
     "com.amazonaws.s3control#LifecycleExpiration": {
       "type": "structure",
       "members": {
         "ExpiredObjectDeleteMarker": {
-          "target": "com.amazonaws.s3control#ExpiredObjectDeleteMarker"
-        },
-        "Days": {
-          "target": "com.amazonaws.s3control#Days"
+          "target": "com.amazonaws.s3control#ExpiredObjectDeleteMarker",
+          "traits": {
+            "smithy.api#documentation": "<p>Indicates whether Amazon S3 will remove a delete marker with no noncurrent versions. If set\n         to true, the delete marker will be expired. If set to false, the policy takes no action.\n         This cannot be specified with Days or Date in a Lifecycle Expiration Policy.</p>"
+          }
         },
         "Date": {
-          "target": "com.amazonaws.s3control#Date"
+          "target": "com.amazonaws.s3control#Date",
+          "traits": {
+            "smithy.api#documentation": "<p>Indicates at what date the object is to be deleted. Should be in GMT ISO 8601\n         format.</p>"
+          }
+        },
+        "Days": {
+          "target": "com.amazonaws.s3control#Days",
+          "traits": {
+            "smithy.api#documentation": "<p>Indicates the lifetime, in days, of the objects that are subject to the rule. The value must be a non-zero positive integer.</p>"
+          }
         }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The container of the Outposts bucket lifecycle expiration.</p>"
       }
     },
     "com.amazonaws.s3control#LifecycleRule": {
       "type": "structure",
       "members": {
-        "Status": {
-          "target": "com.amazonaws.s3control#ExpirationStatus",
+        "ID": {
+          "target": "com.amazonaws.s3control#ID",
           "traits": {
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>Unique identifier for the rule. The value cannot be longer than 255 characters.</p>"
+          }
+        },
+        "Filter": {
+          "target": "com.amazonaws.s3control#LifecycleRuleFilter",
+          "traits": {
+            "smithy.api#documentation": "<p>The container for the filter of lifecycle rule.</p>"
+          }
+        },
+        "Expiration": {
+          "target": "com.amazonaws.s3control#LifecycleExpiration",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies the expiration for the lifecycle of the object in the form of date, days and, whether the object \n         has a delete marker.</p>"
+          }
+        },
+        "Transitions": {
+          "target": "com.amazonaws.s3control#TransitionList",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies when an Amazon S3 object transitions to a specified storage class.</p>\n         <note>\n            <p>This is not supported by Amazon S3 on Outposts buckets.</p>\n         </note>"
           }
         },
         "NoncurrentVersionExpiration": {
-          "target": "com.amazonaws.s3control#NoncurrentVersionExpiration"
-        },
-        "AbortIncompleteMultipartUpload": {
-          "target": "com.amazonaws.s3control#AbortIncompleteMultipartUpload"
-        },
-        "Transitions": {
-          "target": "com.amazonaws.s3control#TransitionList"
-        },
-        "ID": {
-          "target": "com.amazonaws.s3control#ID"
+          "target": "com.amazonaws.s3control#NoncurrentVersionExpiration",
+          "traits": {
+            "smithy.api#documentation": "<p>The noncurrent version expiration of the lifecycle rule.</p>\n         <note>\n            <p>This is not supported by Amazon S3 on Outposts buckets.</p>\n         </note>"
+          }
         },
         "NoncurrentVersionTransitions": {
-          "target": "com.amazonaws.s3control#NoncurrentVersionTransitionList"
+          "target": "com.amazonaws.s3control#NoncurrentVersionTransitionList",
+          "traits": {
+            "smithy.api#documentation": "<p> Specifies the transition rule for the lifecycle rule that describes when noncurrent\n         objects transition to a specific storage class. If your bucket is versioning-enabled (or\n         versioning is suspended), you can set this action to request that Amazon S3 transition\n         noncurrent object versions to a specific storage class at a set period in the object's\n         lifetime. </p>\n         <note>\n            <p>This is not supported by Amazon S3 on Outposts buckets.</p>\n         </note>"
+          }
         },
-        "Expiration": {
-          "target": "com.amazonaws.s3control#LifecycleExpiration"
+        "Status": {
+          "target": "com.amazonaws.s3control#ExpirationStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>If 'Enabled', the rule is currently being applied. If 'Disabled', the rule is not currently being applied.</p>",
+            "smithy.api#required": {}
+          }
         },
-        "Filter": {
-          "target": "com.amazonaws.s3control#LifecycleRuleFilter"
+        "AbortIncompleteMultipartUpload": {
+          "target": "com.amazonaws.s3control#AbortIncompleteMultipartUpload",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies the days since the initiation of an incomplete multipart upload that Amazon S3\n         waits before permanently removing all parts of the upload. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuoverview.html#mpu-abort-incomplete-mpu-lifecycle-config\">\n            Aborting Incomplete Multipart Uploads Using a Bucket Lifecycle Policy</a> in the\n            <i>Amazon Simple Storage Service Developer Guide</i>.</p>"
+          }
         }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The container for the Outposts bucket lifecycle rule.</p>"
       }
     },
     "com.amazonaws.s3control#LifecycleRuleAndOperator": {
       "type": "structure",
       "members": {
-        "Prefix": {
-          "target": "com.amazonaws.s3control#Prefix"
-        },
         "Tags": {
-          "target": "com.amazonaws.s3control#S3TagSet"
+          "target": "com.amazonaws.s3control#S3TagSet",
+          "traits": {
+            "smithy.api#documentation": "<p>All of these tags must exist in the object's tag set in order for the rule to apply.</p>"
+          }
+        },
+        "Prefix": {
+          "target": "com.amazonaws.s3control#Prefix",
+          "traits": {
+            "smithy.api#documentation": "<p>Prefix identifying one or more objects to which the rule applies.</p>"
+          }
         }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The container for the Outposts bucket lifecycle rule and operator.</p>"
       }
     },
     "com.amazonaws.s3control#LifecycleRuleFilter": {
@@ -2321,11 +2464,20 @@
           "target": "com.amazonaws.s3control#S3Tag"
         },
         "Prefix": {
-          "target": "com.amazonaws.s3control#Prefix"
+          "target": "com.amazonaws.s3control#Prefix",
+          "traits": {
+            "smithy.api#documentation": "<p>Prefix identifying one or more objects to which the rule applies.</p>"
+          }
         },
         "And": {
-          "target": "com.amazonaws.s3control#LifecycleRuleAndOperator"
+          "target": "com.amazonaws.s3control#LifecycleRuleAndOperator",
+          "traits": {
+            "smithy.api#documentation": "<p>The container for the <code>AND</code> condition for the lifecycle rule.</p>"
+          }
         }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The container for the filter of the lifecycle rule.</p>"
       }
     },
     "com.amazonaws.s3control#LifecycleRules": {
@@ -2346,7 +2498,7 @@
         "target": "com.amazonaws.s3control#ListAccessPointsResult"
       },
       "traits": {
-        "smithy.api#documentation": "<p>Returns a list of the access points currently associated with the specified bucket. You\n         can retrieve up to 1000 access points per call. If the specified bucket has more than 1,000\n         access points (or the number specified in <code>maxResults</code>, whichever is less), the\n         response will include a continuation token that you can use to list the additional access\n         points.</p>",
+        "smithy.api#documentation": "<p>Returns a list of the access points currently associated with the specified bucket. You\n         can retrieve up to 1000 access points per call. If the specified bucket has more than 1,000\n         access points (or the number specified in <code>maxResults</code>, whichever is less), the\n         response will include a continuation token that you can use to list the additional access\n         points.</p>\n         <p></p>\n         <p>All Amazon S3 on Outposts REST API requests for this action require an additional parameter of outpost-id to be passed with the request and an S3 on Outposts endpoint hostname prefix instead of s3-control. For an example of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts endpoint hostname prefix and the outpost-id derived using the access point ARN, see the  \n         <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API__control_GetAccessPoint.html#API_control_GetAccessPoint_Examples\">\n            Example</a> section below.</p>\n         <p>The following actions are related to <code>ListAccessPoints</code>:</p>\n         <ul>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_CreateAccessPoint.html\">CreateAccessPoint</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteAccessPoint.html\">DeleteAccessPoint</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetAccessPoint.html\">GetAccessPoint</a>\n               </p>\n            </li>\n         </ul>",
         "smithy.api#endpoint": {
           "hostPrefix": "{AccountId}."
         },
@@ -2365,19 +2517,10 @@
     "com.amazonaws.s3control#ListAccessPointsRequest": {
       "type": "structure",
       "members": {
-        "AccountId": {
-          "target": "com.amazonaws.s3control#AccountId",
-          "traits": {
-            "smithy.api#documentation": "<p>The AWS account ID for owner of the bucket whose access points you want to list.</p>",
-            "smithy.api#hostLabel": {},
-            "smithy.api#httpHeader": "x-amz-account-id",
-            "smithy.api#required": {}
-          }
-        },
         "Bucket": {
           "target": "com.amazonaws.s3control#BucketName",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the bucket whose associated access points you want to list.</p>",
+            "smithy.api#documentation": "<p>The name of the bucket whose associated access points you want to list.</p>\n         <p>For Amazon S3 on Outposts specify the ARN of the bucket accessed in the format <code>arn:aws:s3-outposts:<Region>:<account-id>:outpost/<outpost-id>/bucket/<my-bucket-name></code>. For example, to access the bucket <code>reports</code> through outpost <code>my-outpost</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/bucket/reports</code>. The value must be URL encoded.  </p>",
             "smithy.api#httpQuery": "bucket"
           }
         },
@@ -2386,6 +2529,15 @@
           "traits": {
             "smithy.api#documentation": "<p>The maximum number of access points that you want to include in the list. If the specified\n         bucket has more than this number of access points, then the response will include a\n         continuation token in the <code>NextToken</code> field that you can use to retrieve the\n         next page of access points.</p>",
             "smithy.api#httpQuery": "maxResults"
+          }
+        },
+        "AccountId": {
+          "target": "com.amazonaws.s3control#AccountId",
+          "traits": {
+            "smithy.api#documentation": "<p>The AWS account ID for owner of the bucket whose access points you want to list.</p>",
+            "smithy.api#hostLabel": {},
+            "smithy.api#httpHeader": "x-amz-account-id",
+            "smithy.api#required": {}
           }
         },
         "NextToken": {
@@ -2400,16 +2552,16 @@
     "com.amazonaws.s3control#ListAccessPointsResult": {
       "type": "structure",
       "members": {
+        "NextToken": {
+          "target": "com.amazonaws.s3control#NonEmptyMaxLength1024String",
+          "traits": {
+            "smithy.api#documentation": "<p>If the specified bucket has more access points than can be returned in one call to this\n         API, this field contains a continuation token that you can provide in subsequent calls to\n         this API to retrieve additional access points.</p>"
+          }
+        },
         "AccessPointList": {
           "target": "com.amazonaws.s3control#AccessPointList",
           "traits": {
             "smithy.api#documentation": "<p>Contains identification and configuration information for one or more access points\n         associated with the specified bucket.</p>"
-          }
-        },
-        "NextToken": {
-          "target": "com.amazonaws.s3control#NonEmptyMaxLength1024String",
-          "traits": {
-            "smithy.api#documentation": "<p>If the specified bucket has more access points than can be returned in one call to this\n         API, then this field contains a continuation token that you can provide in subsequent calls\n         to this API to retrieve additional access points.</p>"
           }
         }
       }
@@ -2434,7 +2586,10 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Lists current S3 Batch Operations jobs and jobs that have ended within the last 30 days for\n         the AWS account making the request. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-basics.html\">S3 Batch Operations</a> in the\n            <i>Amazon Simple Storage Service Developer Guide</i>.</p>\n         <p>Related actions include:</p>\n         <p></p>\n         <ul>\n            <li>\n               <p>\n                  <a>CreateJob</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a>DescribeJob</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a>UpdateJobPriority</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a>UpdateJobStatus</a>\n               </p>\n            </li>\n         </ul>",
+        "smithy.api#documentation": "<p>Lists current S3 Batch Operations jobs and jobs that have ended within the last 30 days for\n         the AWS account making the request. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-basics.html\">S3 Batch Operations</a> in the\n            <i>Amazon Simple Storage Service Developer Guide</i>.</p>\n         <p>Related actions include:</p>\n         <p></p>\n         <ul>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_CreateJob.html\">CreateJob</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DescribeJob.html\">DescribeJob</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_UpdateJobPriority.html\">UpdateJobPriority</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_UpdateJobStatus.html\">UpdateJobStatus</a>\n               </p>\n            </li>\n         </ul>",
+        "smithy.api#endpoint": {
+          "hostPrefix": "{AccountId}."
+        },
         "smithy.api#http": {
           "method": "GET",
           "uri": "/v20180820/jobs",
@@ -2450,6 +2605,21 @@
     "com.amazonaws.s3control#ListJobsRequest": {
       "type": "structure",
       "members": {
+        "JobStatuses": {
+          "target": "com.amazonaws.s3control#JobStatusList",
+          "traits": {
+            "smithy.api#documentation": "<p>The <code>List Jobs</code> request returns jobs that match the statuses listed in this element.</p>",
+            "smithy.api#httpQuery": "jobStatuses"
+          }
+        },
+        "MaxResults": {
+          "target": "com.amazonaws.s3control#MaxResults",
+          "traits": {
+            "smithy.api#box": {},
+            "smithy.api#documentation": "<p>The maximum number of jobs that Amazon S3 will include in the <code>List Jobs</code> response. If there are more jobs than this number, the response will include a pagination token in the <code>NextToken</code> field to enable you to retrieve the next page of results.</p>",
+            "smithy.api#httpQuery": "maxResults"
+          }
+        },
         "NextToken": {
           "target": "com.amazonaws.s3control#StringForNextToken",
           "traits": {
@@ -2461,23 +2631,9 @@
           "target": "com.amazonaws.s3control#AccountId",
           "traits": {
             "smithy.api#documentation": "<p></p>",
+            "smithy.api#hostLabel": {},
             "smithy.api#httpHeader": "x-amz-account-id",
             "smithy.api#required": {}
-          }
-        },
-        "MaxResults": {
-          "target": "com.amazonaws.s3control#MaxResults",
-          "traits": {
-            "smithy.api#box": {},
-            "smithy.api#documentation": "<p>The maximum number of jobs that Amazon S3 will include in the <code>List Jobs</code> response. If there are more jobs than this number, the response will include a pagination token in the <code>NextToken</code> field to enable you to retrieve the next page of results.</p>",
-            "smithy.api#httpQuery": "maxResults"
-          }
-        },
-        "JobStatuses": {
-          "target": "com.amazonaws.s3control#JobStatusList",
-          "traits": {
-            "smithy.api#documentation": "<p>The <code>List Jobs</code> request returns jobs that match the statuses listed in this element.</p>",
-            "smithy.api#httpQuery": "jobStatuses"
           }
         }
       }
@@ -2508,6 +2664,7 @@
         "target": "com.amazonaws.s3control#ListRegionalBucketsResult"
       },
       "traits": {
+        "smithy.api#documentation": "<p>Returns a list of all Outposts buckets in an Outposts that are owned by the\n         authenticated sender of the request. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html\">Using Amazon S3 on Outposts</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>\n         <p>For an example of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts endpoint hostname prefix and outpost-id in your API request, see the \n         <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API__control_ListRegionalBuckets.html#API_control_ListRegionalBuckets_Examples\">\n            Example</a> section below.</p>",
         "smithy.api#endpoint": {
           "hostPrefix": "{AccountId}."
         },
@@ -2529,27 +2686,31 @@
         "AccountId": {
           "target": "com.amazonaws.s3control#AccountId",
           "traits": {
+            "smithy.api#documentation": "<p>The AWS account ID of the Outposts bucket.</p>",
             "smithy.api#hostLabel": {},
             "smithy.api#httpHeader": "x-amz-account-id",
             "smithy.api#required": {}
           }
         },
+        "MaxResults": {
+          "target": "com.amazonaws.s3control#MaxResults",
+          "traits": {
+            "smithy.api#documentation": "<p></p>",
+            "smithy.api#httpQuery": "maxResults"
+          }
+        },
         "OutpostId": {
           "target": "com.amazonaws.s3control#NonEmptyMaxLength64String",
           "traits": {
+            "smithy.api#documentation": "<p>The ID of the AWS Outposts.</p>\n         <note>\n            <p>This is required by Amazon S3 on Outposts buckets.</p> \n         </note>",
             "smithy.api#httpHeader": "x-amz-outpost-id"
           }
         },
         "NextToken": {
           "target": "com.amazonaws.s3control#NonEmptyMaxLength1024String",
           "traits": {
+            "smithy.api#documentation": "<p></p>",
             "smithy.api#httpQuery": "nextToken"
-          }
-        },
-        "MaxResults": {
-          "target": "com.amazonaws.s3control#MaxResults",
-          "traits": {
-            "smithy.api#httpQuery": "maxResults"
           }
         }
       }
@@ -2557,11 +2718,17 @@
     "com.amazonaws.s3control#ListRegionalBucketsResult": {
       "type": "structure",
       "members": {
-        "RegionalBucketList": {
-          "target": "com.amazonaws.s3control#RegionalBucketList"
-        },
         "NextToken": {
-          "target": "com.amazonaws.s3control#NonEmptyMaxLength1024String"
+          "target": "com.amazonaws.s3control#NonEmptyMaxLength1024String",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            <code>NextToken</code> is sent when <code>isTruncated</code> is true, which means\n      there are more buckets that can be listed. The next list requests to Amazon S3\n      can be continued with this <code>NextToken</code>.\n      <code>NextToken</code> is obfuscated and is not a real key.</p>"
+          }
+        },
+        "RegionalBucketList": {
+          "target": "com.amazonaws.s3control#RegionalBucketList",
+          "traits": {
+            "smithy.api#documentation": "<p></p>"
+          }
         }
       }
     },
@@ -2657,19 +2824,34 @@
       "type": "structure",
       "members": {
         "NoncurrentDays": {
-          "target": "com.amazonaws.s3control#Days"
+          "target": "com.amazonaws.s3control#Days",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies the number of days an object is noncurrent before Amazon S3 can perform the\n         associated action. For information about the noncurrent days calculations, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/intro-lifecycle-rules.html#non-current-days-calculations\">How\n            Amazon S3 Calculates When an Object Became Noncurrent</a> in the <i>Amazon\n               Simple Storage Service Developer Guide</i>.</p>"
+          }
         }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The container of the noncurrent version expiration.</p>"
       }
     },
     "com.amazonaws.s3control#NoncurrentVersionTransition": {
       "type": "structure",
       "members": {
-        "StorageClass": {
-          "target": "com.amazonaws.s3control#TransitionStorageClass"
-        },
         "NoncurrentDays": {
-          "target": "com.amazonaws.s3control#Days"
+          "target": "com.amazonaws.s3control#Days",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies the number of days an object is noncurrent before Amazon S3 can perform the associated action.  \n         For information about the noncurrent days calculations, see \n         <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/intro-lifecycle-rules.html#non-current-days-calculations\">\n            How Amazon S3 Calculates How Long an Object Has Been Noncurrent</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>"
+          }
+        },
+        "StorageClass": {
+          "target": "com.amazonaws.s3control#TransitionStorageClass",
+          "traits": {
+            "smithy.api#documentation": "<p>The class of storage used to store the object.</p>"
+          }
         }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The container for the noncurrent version transition.</p>"
       }
     },
     "com.amazonaws.s3control#NoncurrentVersionTransitionList": {
@@ -2755,37 +2937,37 @@
     "com.amazonaws.s3control#PublicAccessBlockConfiguration": {
       "type": "structure",
       "members": {
-        "BlockPublicAcls": {
-          "target": "com.amazonaws.s3control#Setting",
-          "traits": {
-            "smithy.api#documentation": "<p>Specifies whether Amazon S3 should block public access control lists (ACLs) for buckets in\n      this account. Setting this element to <code>TRUE</code> causes the following behavior:</p>\n         <ul>\n            <li>\n               <p>PUT Bucket acl and PUT Object acl calls fail if the specified ACL is public.</p>\n            </li>\n            <li>\n               <p>PUT Object calls fail if the request includes a public ACL.</p>\n            </li>\n            <li>\n               <p>PUT Bucket calls fail if the request includes a public ACL.</p>\n            </li>\n         </ul>\n         <p>Enabling this setting doesn't affect existing policies or ACLs.</p>",
-            "smithy.api#xmlName": "BlockPublicAcls"
-          }
-        },
         "RestrictPublicBuckets": {
           "target": "com.amazonaws.s3control#Setting",
           "traits": {
-            "smithy.api#documentation": "<p>Specifies whether Amazon S3 should restrict public bucket policies for buckets in this account.\n         Setting this element to <code>TRUE</code> restricts access to buckets with public policies\n         to only AWS services and authorized users within this account.</p>\n         <p>Enabling this setting doesn't affect previously stored bucket policies, except that public\n         and cross-account access within any public bucket policy, including non-public delegation to\n         specific accounts, is blocked.</p>",
+            "smithy.api#documentation": "<p>Specifies whether Amazon S3 should restrict public bucket policies for buckets in this account.\n         Setting this element to <code>TRUE</code> restricts access to buckets with public policies\n         to only AWS services and authorized users within this account.</p>\n         <p>Enabling this setting doesn't affect previously stored bucket policies, except that public\n         and cross-account access within any public bucket policy, including non-public delegation to\n         specific accounts, is blocked.</p>\n         <p>This is not supported for Amazon S3 on Outposts.</p>",
             "smithy.api#xmlName": "RestrictPublicBuckets"
           }
         },
         "BlockPublicPolicy": {
           "target": "com.amazonaws.s3control#Setting",
           "traits": {
-            "smithy.api#documentation": "<p>Specifies whether Amazon S3 should block public bucket policies for buckets in this account.\n         Setting this element to <code>TRUE</code> causes Amazon S3 to reject calls to PUT Bucket\n         policy if the specified bucket policy allows public access. </p>\n         <p>Enabling this setting doesn't affect existing bucket policies.</p>",
+            "smithy.api#documentation": "<p>Specifies whether Amazon S3 should block public bucket policies for buckets in this account.\n         Setting this element to <code>TRUE</code> causes Amazon S3 to reject calls to PUT Bucket\n         policy if the specified bucket policy allows public access. </p>\n         <p>Enabling this setting doesn't affect existing bucket policies.</p>\n         <p>This is not supported for Amazon S3 on Outposts.</p>",
             "smithy.api#xmlName": "BlockPublicPolicy"
+          }
+        },
+        "BlockPublicAcls": {
+          "target": "com.amazonaws.s3control#Setting",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies whether Amazon S3 should block public access control lists (ACLs) for buckets in\n      this account. Setting this element to <code>TRUE</code> causes the following behavior:</p>\n         <ul>\n            <li>\n               <p>PUT Bucket acl and PUT Object acl calls fail if the specified ACL is public.</p>\n            </li>\n            <li>\n               <p>PUT Object calls fail if the request includes a public ACL.</p>\n            </li>\n            <li>\n               <p>PUT Bucket calls fail if the request includes a public ACL.</p>\n            </li>\n         </ul>\n         <p>Enabling this setting doesn't affect existing policies or ACLs.</p>\n         <p>This is not supported for Amazon S3 on Outposts.</p>",
+            "smithy.api#xmlName": "BlockPublicAcls"
           }
         },
         "IgnorePublicAcls": {
           "target": "com.amazonaws.s3control#Setting",
           "traits": {
-            "smithy.api#documentation": "<p>Specifies whether Amazon S3 should ignore public ACLs for buckets in this account. Setting this\n         element to <code>TRUE</code> causes Amazon S3 to ignore all public ACLs on buckets in this\n         account and any objects that they contain. </p>\n         <p>Enabling this setting doesn't affect the persistence of any existing ACLs and doesn't\n         prevent new public ACLs from being set.</p>",
+            "smithy.api#documentation": "<p>Specifies whether Amazon S3 should ignore public ACLs for buckets in this account. Setting this\n         element to <code>TRUE</code> causes Amazon S3 to ignore all public ACLs on buckets in this\n         account and any objects that they contain. </p>\n         <p>Enabling this setting doesn't affect the persistence of any existing ACLs and doesn't\n         prevent new public ACLs from being set.</p>\n         <p>This is not supported for Amazon S3 on Outposts.</p>",
             "smithy.api#xmlName": "IgnorePublicAcls"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The <code>PublicAccessBlock</code> configuration that you want to apply to this Amazon S3 bucket.\n         You can enable the configuration options in any combination. For more information about\n         when Amazon S3 considers a bucket or object public, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status\">The Meaning of \"Public\"</a> in the <i>Amazon Simple Storage Service Developer\n         Guide</i>.</p>"
+        "smithy.api#documentation": "<p>The <code>PublicAccessBlock</code> configuration that you want to apply to this Amazon S3 bucket.\n         You can enable the configuration options in any combination. For more information about\n         when Amazon S3 considers a bucket or object public, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status\">The Meaning of \"Public\"</a> in the <i>Amazon Simple Storage Service Developer\n         Guide</i>.</p>\n         <p>This is not supported for Amazon S3 on Outposts.</p>"
       }
     },
     "com.amazonaws.s3control#PublicAccessBlockEnabled": {
@@ -2797,7 +2979,7 @@
         "target": "com.amazonaws.s3control#PutAccessPointPolicyRequest"
       },
       "traits": {
-        "smithy.api#documentation": "<p>Associates an access policy with the specified access point. Each access point can have only one policy, so a request made to this API replaces any existing policy associated with the specified access point.</p>",
+        "smithy.api#documentation": "<p>Associates an access policy with the specified access point. Each access point can have only one policy, so a request made to this API \n         replaces any existing policy associated with the specified access point.</p>\n         <p></p>\n         <p>All Amazon S3 on Outposts REST API requests for this action require an additional parameter of outpost-id to be passed with the request and an S3 on Outposts endpoint hostname prefix instead of s3-control. For an example of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts endpoint hostname prefix and the outpost-id derived using the access point ARN, see the \n         <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API__control_PutAccessPointPolicy.html#API_control_PutAccessPointPolicy_Examples\">\n            Example</a> section below.</p>\n         <p>The following actions are related to <code>PutAccessPointPolicy</code>:</p>\n         <ul>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetAccessPointPolicy.html\">GetAccessPointPolicy</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteAccessPointPolicy.html\">DeleteAccessPointPolicy</a>\n               </p>\n            </li>\n         </ul>",
         "smithy.api#endpoint": {
           "hostPrefix": "{AccountId}."
         },
@@ -2811,19 +2993,10 @@
     "com.amazonaws.s3control#PutAccessPointPolicyRequest": {
       "type": "structure",
       "members": {
-        "AccountId": {
-          "target": "com.amazonaws.s3control#AccountId",
-          "traits": {
-            "smithy.api#documentation": "<p>The AWS account ID for owner of the bucket associated with the specified access point.</p>",
-            "smithy.api#hostLabel": {},
-            "smithy.api#httpHeader": "x-amz-account-id",
-            "smithy.api#required": {}
-          }
-        },
         "Name": {
           "target": "com.amazonaws.s3control#AccessPointName",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the access point that you want to associate with the specified policy.</p>",
+            "smithy.api#documentation": "<p>The name of the access point that you want to associate with the specified policy.</p>\n         <p>For Amazon S3 on Outposts specify the ARN of the access point accessed in the format <code>arn:aws:s3-outposts:<Region>:<account-id>:outpost/<outpost-id>/accesspoint/<my-accesspoint-name></code>. For example, to access the access point <code>reports-ap</code> through outpost <code>my-outpost</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/accesspoint/reports-ap</code>. The value must be URL encoded. </p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -2832,6 +3005,15 @@
           "target": "com.amazonaws.s3control#Policy",
           "traits": {
             "smithy.api#documentation": "<p>The policy that you want to apply to the specified access point. For more information about access point policies, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/access-points.html\">Managing Data Access with Amazon S3 Access Points</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "AccountId": {
+          "target": "com.amazonaws.s3control#AccountId",
+          "traits": {
+            "smithy.api#documentation": "<p>The AWS account ID for owner of the bucket associated with the specified access point.</p>",
+            "smithy.api#hostLabel": {},
+            "smithy.api#httpHeader": "x-amz-account-id",
             "smithy.api#required": {}
           }
         }
@@ -2843,6 +3025,7 @@
         "target": "com.amazonaws.s3control#PutBucketLifecycleConfigurationRequest"
       },
       "traits": {
+        "smithy.api#documentation": "<note>\n            <p>This API action puts a lifecycle configuration to an Amazon S3 on Outposts bucket. To put a lifecycle configuration to an S3 bucket, \n         see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketLifecycleConfiguration.html\">PutBucketLifecycleConfiguration</a> in the <i>Amazon Simple Storage Service API</i>.\n      </p>\n         </note>\n         <p>Creates a new lifecycle configuration for the Outposts bucket or replaces an existing\n         lifecycle configuration. Outposts buckets can only support a lifecycle that deletes objects\n         after a certain period of time. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html\">Managing Lifecycle Permissions for Amazon S3 on Outposts</a>.</p>\n         <p></p>\n         <p>All Amazon S3 on Outposts REST API requests for this action require an additional parameter of outpost-id to be passed with the request and an S3 on Outposts endpoint hostname prefix instead of s3-control. For an example of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts endpoint hostname prefix and the outpost-id derived using the access point ARN, see the \n         <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API__control_PutBucketLifecycleConfiguration.html#API_control_PutBucketLifecycleConfiguration_Examples\">\n            Example</a> section below.</p>\n         <p>The following actions are related to <code>PutBucketLifecycleConfiguration</code>:</p>\n         <ul>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetBucketLifecycleConfiguration.html\">GetBucketLifecycleConfiguration</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteBucketLifecycleConfiguration.html\">DeleteBucketLifecycleConfiguration</a>\n               </p>\n            </li>\n         </ul>",
         "smithy.api#endpoint": {
           "hostPrefix": "{AccountId}."
         },
@@ -2860,6 +3043,7 @@
         "Bucket": {
           "target": "com.amazonaws.s3control#BucketName",
           "traits": {
+            "smithy.api#documentation": "<p>The name of the bucket for which to set the configuration.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -2867,6 +3051,7 @@
         "AccountId": {
           "target": "com.amazonaws.s3control#AccountId",
           "traits": {
+            "smithy.api#documentation": "<p>The AWS account ID of the Outposts bucket.</p>",
             "smithy.api#hostLabel": {},
             "smithy.api#httpHeader": "x-amz-account-id",
             "smithy.api#required": {}
@@ -2875,6 +3060,7 @@
         "LifecycleConfiguration": {
           "target": "com.amazonaws.s3control#LifecycleConfiguration",
           "traits": {
+            "smithy.api#documentation": "<p>Container for lifecycle rules. You can add as many as 1,000 rules.</p>",
             "smithy.api#httpPayload": {}
           }
         }
@@ -2886,6 +3072,7 @@
         "target": "com.amazonaws.s3control#PutBucketPolicyRequest"
       },
       "traits": {
+        "smithy.api#documentation": "<note>\n            <p>This API action puts a bucket policy to an Amazon S3 on Outposts bucket. To put a policy on an S3 bucket, \n         see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketPolicy.html\">PutBucketPolicy</a> in the <i>Amazon Simple Storage Service API</i>.\n      </p>\n         </note>\n         <p>Applies an Amazon S3 bucket policy to an Outposts bucket. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html\">Using Amazon S3 on Outposts</a> in the\n            <i>Amazon Simple Storage Service Developer Guide</i>.</p> \n         <p>If you are using an identity other than the root user of the AWS account that owns the\n         Outposts bucket, the calling identity must have the <code>PutBucketPolicy</code>\n         permissions on the specified Outposts bucket and belong to the bucket owner's account in\n         order to use this operation.</p>\n      \n         <p>If you don't have <code>PutBucketPolicy</code> permissions, Amazon S3 returns a <code>403 Access Denied</code> error. If you have the correct permissions, \n         but you're not using an identity that belongs to the bucket owner's account, Amazon S3 returns a <code>405 Method Not Allowed</code> error.</p>\n      \n         <important>\n            <p> As a security precaution, the root user of the AWS account that owns a bucket can always use this operation, even if the policy \n         explicitly denies the root user the ability to perform this action.\n      </p>\n         </important>\n      \n      \n         <p>For more information about bucket policies, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/using-iam-policies.html\">Using Bucket Policies and User Policies</a>.</p>\n      \n         <p>All Amazon S3 on Outposts REST API requests for this action require an additional parameter of outpost-id to be passed with the request and an S3 on Outposts endpoint hostname prefix instead of s3-control. For an example of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts endpoint hostname prefix and the outpost-id derived using the access point ARN, see the \n         <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API__control_PutBucketPolicy.html#API_control_PutBucketPolicy_Examples\">\n            Example</a> section below.</p>\n      \n         <p>The following actions are related to <code>PutBucketPolicy</code>:</p>\n         <ul>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetBucketPolicy.html\">GetBucketPolicy</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteBucketPolicy.html\">DeleteBucketPolicy</a>\n               </p>\n            </li>\n         </ul>",
         "smithy.api#endpoint": {
           "hostPrefix": "{AccountId}."
         },
@@ -2900,30 +3087,34 @@
     "com.amazonaws.s3control#PutBucketPolicyRequest": {
       "type": "structure",
       "members": {
-        "Policy": {
-          "target": "com.amazonaws.s3control#Policy",
-          "traits": {
-            "smithy.api#required": {}
-          }
-        },
         "AccountId": {
           "target": "com.amazonaws.s3control#AccountId",
           "traits": {
+            "smithy.api#documentation": "<p>The AWS account ID of the Outposts bucket.</p>",
             "smithy.api#hostLabel": {},
             "smithy.api#httpHeader": "x-amz-account-id",
+            "smithy.api#required": {}
+          }
+        },
+        "Bucket": {
+          "target": "com.amazonaws.s3control#BucketName",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the bucket.</p>\n         <p>For Amazon S3 on Outposts specify the ARN of the bucket accessed in the format <code>arn:aws:s3-outposts:<Region>:<account-id>:outpost/<outpost-id>/bucket/<my-bucket-name></code>. For example, to access the bucket <code>reports</code> through outpost <code>my-outpost</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/bucket/reports</code>. The value must be URL encoded.  </p>",
+            "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
         },
         "ConfirmRemoveSelfBucketAccess": {
           "target": "com.amazonaws.s3control#ConfirmRemoveSelfBucketAccess",
           "traits": {
+            "smithy.api#documentation": "<p>Set this parameter to true to confirm that you want to remove your permissions to change this bucket policy in the future.</p>\n         <note>\n            <p>This is not supported by Amazon S3 on Outposts buckets.</p>\n         </note>",
             "smithy.api#httpHeader": "x-amz-confirm-remove-self-bucket-access"
           }
         },
-        "Bucket": {
-          "target": "com.amazonaws.s3control#BucketName",
+        "Policy": {
+          "target": "com.amazonaws.s3control#Policy",
           "traits": {
-            "smithy.api#httpLabel": {},
+            "smithy.api#documentation": "<p>The bucket policy as a JSON document.</p>",
             "smithy.api#required": {}
           }
         }
@@ -2935,6 +3126,7 @@
         "target": "com.amazonaws.s3control#PutBucketTaggingRequest"
       },
       "traits": {
+        "smithy.api#documentation": "<note>\n            <p>This API action puts tags on an Amazon S3 on Outposts bucket. To put tags on an S3 bucket, see\n               <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketTagging.html\">PutBucketTagging</a> in the <i>Amazon Simple Storage Service API</i>. </p>\n         </note>\n         <p>Sets the tags for an Outposts bucket. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html\">Using Amazon S3 on Outposts</a> in the\n            <i>Amazon Simple Storage Service Developer Guide</i>.</p>\n         <p>Use tags to organize your AWS bill to reflect your own cost structure. To do this, sign up to get your \n         AWS account bill with tag key values included. Then, to see the cost of combined resources, organize your \n         billing information according to resources with the same tag key values. For example, you can tag several \n         resources with a specific application name, and then organize your billing information to see the total cost \n         of that application across several services. For more information, see \n         <a href=\"https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html\">Cost Allocation and Tagging</a>.</p>\n      \n         <note>\n            <p>Within a bucket, if you add a tag that has the same key as an existing tag, the new value overwrites \n         the old value. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/CostAllocTagging.html\">Using Cost Allocation in Amazon S3 \n            Bucket Tags</a>.</p>\n         </note>\n         <p>To use this operation, you must have permissions to perform the\n            <code>s3outposts:PutBucketTagging</code> action. The Outposts bucket owner has this\n         permission by default and can grant this permission to others. For more information about\n         permissions, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources\"> Permissions Related to Bucket Subresource Operations</a> and <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html\">Managing Access Permissions to Your Amazon S3\n            Resources</a>.</p>\n      \n         <p>\n            <code>PutBucketTagging</code> has the following special errors:</p>\n         <ul>\n            <li>\n               <p>Error code: <code>InvalidTagError</code>\n               </p>\n               <ul>\n                  <li>\n                     <p>Description: The tag provided was not a valid tag. This error can occur if the tag did not pass input validation. \n                  For information about tag restrictions, see <a href=\"https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/allocation-tag-restrictions.html\">\n                     User-Defined Tag Restrictions</a>  and <a href=\"https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/aws-tag-restrictions.html\">\n                        AWS-Generated Cost Allocation Tag Restrictions</a>.</p>\n                  </li>\n               </ul>\n            </li>\n            <li>\n               <p>Error code: <code>MalformedXMLError</code>\n               </p>\n               <ul>\n                  <li>\n                     <p>Description: The XML provided does not match the schema.</p>\n                  </li>\n               </ul>\n            </li>\n            <li>\n               <p>Error code: <code>OperationAbortedError </code>\n               </p>\n               <ul>\n                  <li>\n                     <p>Description: A conflicting conditional operation is currently in progress against this\n                     resource. Try again.</p>\n                  </li>\n               </ul>\n            </li>\n            <li>\n               <p>Error code: <code>InternalError</code>\n               </p>\n               <ul>\n                  <li>\n                     <p>Description: The service was unable to apply the provided tag to the bucket.</p>\n                  </li>\n               </ul>\n            </li>\n         </ul>\n         <p>All Amazon S3 on Outposts REST API requests for this action require an additional parameter of outpost-id to be passed with the request and an S3 on Outposts endpoint hostname prefix instead of s3-control. For an example of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts endpoint hostname prefix and the outpost-id derived using the access point ARN, see the \n         <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API__control_PutBucketTagging.html#API_control_PutBucketTagging_Examples\">\n            Example</a> section below.</p>\n      \n         <p>The following actions are related to <code>PutBucketTagging</code>:</p>\n         <ul>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetBucketTagging.html\">GetBucketTagging</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteBucketTagging.html\">DeleteBucketTagging</a>\n               </p>\n            </li>\n         </ul>",
         "smithy.api#endpoint": {
           "hostPrefix": "{AccountId}."
         },
@@ -2949,25 +3141,28 @@
     "com.amazonaws.s3control#PutBucketTaggingRequest": {
       "type": "structure",
       "members": {
-        "Bucket": {
-          "target": "com.amazonaws.s3control#BucketName",
+        "Tagging": {
+          "target": "com.amazonaws.s3control#Tagging",
           "traits": {
-            "smithy.api#httpLabel": {},
+            "smithy.api#documentation": "<p></p>",
+            "smithy.api#httpPayload": {},
             "smithy.api#required": {}
           }
         },
         "AccountId": {
           "target": "com.amazonaws.s3control#AccountId",
           "traits": {
+            "smithy.api#documentation": "<p>The AWS account ID of the Outposts bucket.</p>",
             "smithy.api#hostLabel": {},
             "smithy.api#httpHeader": "x-amz-account-id",
             "smithy.api#required": {}
           }
         },
-        "Tagging": {
-          "target": "com.amazonaws.s3control#Tagging",
+        "Bucket": {
+          "target": "com.amazonaws.s3control#BucketName",
           "traits": {
-            "smithy.api#httpPayload": {},
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the bucket.</p>\n         <p>For Amazon S3 on Outposts specify the ARN of the bucket accessed in the format <code>arn:aws:s3-outposts:<Region>:<account-id>:outpost/<outpost-id>/bucket/<my-bucket-name></code>. For example, to access the bucket <code>reports</code> through outpost <code>my-outpost</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/bucket/reports</code>. The value must be URL encoded.  </p>",
+            "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
         }
@@ -2996,7 +3191,10 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Sets the supplied tag-set on an S3 Batch Operations job.</p>\n         <p>A tag is a key-value pair. You can associate S3 Batch Operations tags with any job by sending\n         a PUT request against the tagging subresource that is associated with the job. To modify\n         the existing tag set, you can either replace the existing tag set entirely, or make changes\n         within the existing tag set by retrieving the existing tag set using <a>GetJobTagging</a>, modify that tag set, and use this API action to replace the\n         tag set with the one you modified. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-managing-jobs.html#batch-ops-job-tags\">Controlling access and\n            labeling jobs using tags</a> in the <i>Amazon Simple Storage Service Developer Guide</i>. </p>\n         <p></p>\n         <note>\n            <ul>\n               <li>\n                  <p>If you send this request with an empty tag set, Amazon S3 deletes the existing tag set on the\n                  Batch Operations job. If you use this method, you are charged for a Tier 1 Request\n                  (PUT). For more information, see <a href=\"http://aws.amazon.com/s3/pricing/\">Amazon S3\n                     pricing</a>.</p>\n               </li>\n               <li>\n                  <p>For deleting existing tags for your Batch Operations job, a <a>DeleteJobTagging</a>\n                  request is preferred because it achieves the same result without incurring\n                  charges.</p>\n               </li>\n               <li>\n                  <p>A few things to consider about using tags:</p>\n                  <ul>\n                     <li>\n                        <p>Amazon S3 limits the maximum number of tags to 50 tags per job.</p>\n                     </li>\n                     <li>\n                        <p>You can associate up to 50 tags with a job as long as they have unique tag keys.</p>\n                     </li>\n                     <li>\n                        <p>A tag key can be up to 128 Unicode characters in length, and tag values can be up to 256 Unicode characters in length.</p>\n                     </li>\n                     <li>\n                        <p>The key and values are case sensitive.</p>\n                     </li>\n                     <li>\n                        <p>For tagging-related restrictions related to characters and encodings, see <a href=\"https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/allocation-tag-restrictions.html\">User-Defined Tag Restrictions</a> in the <i>AWS Billing and\n                           Cost Management User Guide</i>.</p>\n                     </li>\n                  </ul>\n               </li>\n            </ul>\n         </note>\n         <p></p>\n         <p>To use this operation, you must have permission to perform the <code>s3:PutJobTagging</code> action.</p>\n         <p>Related actions include:</p>\n         <ul>\n            <li>\n               <p>\n                  <a>CreateJob</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a>GetJobTagging</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a>DeleteJobTagging</a>\n               </p>\n            </li>\n         </ul>",
+        "smithy.api#documentation": "<p>Sets the supplied tag-set on an S3 Batch Operations job.</p>\n         <p>A tag is a key-value pair. You can associate S3 Batch Operations tags with any job by sending\n         a PUT request against the tagging subresource that is associated with the job. To modify\n         the existing tag set, you can either replace the existing tag set entirely, or make changes\n         within the existing tag set by retrieving the existing tag set using <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetJobTagging.html\">GetJobTagging</a>, modify that tag set, and use this API action to replace the\n         tag set with the one you modified. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-managing-jobs.html#batch-ops-job-tags\">Controlling access and\n            labeling jobs using tags</a> in the <i>Amazon Simple Storage Service Developer Guide</i>. </p>\n         <p></p>\n         <note>\n            <ul>\n               <li>\n                  <p>If you send this request with an empty tag set, Amazon S3 deletes the existing tag set on the\n                  Batch Operations job. If you use this method, you are charged for a Tier 1 Request\n                  (PUT). For more information, see <a href=\"http://aws.amazon.com/s3/pricing/\">Amazon S3\n                     pricing</a>.</p>\n               </li>\n               <li>\n                  <p>For deleting existing tags for your Batch Operations job, a <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteJobTagging.html\">DeleteJobTagging</a>\n                  request is preferred because it achieves the same result without incurring\n                  charges.</p>\n               </li>\n               <li>\n                  <p>A few things to consider about using tags:</p>\n                  <ul>\n                     <li>\n                        <p>Amazon S3 limits the maximum number of tags to 50 tags per job.</p>\n                     </li>\n                     <li>\n                        <p>You can associate up to 50 tags with a job as long as they have unique tag keys.</p>\n                     </li>\n                     <li>\n                        <p>A tag key can be up to 128 Unicode characters in length, and tag values can be up to 256 Unicode characters in length.</p>\n                     </li>\n                     <li>\n                        <p>The key and values are case sensitive.</p>\n                     </li>\n                     <li>\n                        <p>For tagging-related restrictions related to characters and encodings, see <a href=\"https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/allocation-tag-restrictions.html\">User-Defined Tag Restrictions</a> in the <i>AWS Billing and\n                           Cost Management User Guide</i>.</p>\n                     </li>\n                  </ul>\n               </li>\n            </ul>\n         </note>\n         <p></p>\n         <p>To use this operation, you must have permission to perform the <code>s3:PutJobTagging</code> action.</p>\n         <p>Related actions include:</p>\n         <ul>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_CreateJob.html\">CreatJob</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetJobTagging.html\">GetJobTagging</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteJobTagging.html\">DeleteJobTagging</a>\n               </p>\n            </li>\n         </ul>",
+        "smithy.api#endpoint": {
+          "hostPrefix": "{AccountId}."
+        },
         "smithy.api#http": {
           "method": "PUT",
           "uri": "/v20180820/jobs/{JobId}/tagging",
@@ -3007,18 +3205,11 @@
     "com.amazonaws.s3control#PutJobTaggingRequest": {
       "type": "structure",
       "members": {
-        "JobId": {
-          "target": "com.amazonaws.s3control#JobId",
-          "traits": {
-            "smithy.api#documentation": "<p>The ID for the S3 Batch Operations job whose tags you want to replace.</p>",
-            "smithy.api#httpLabel": {},
-            "smithy.api#required": {}
-          }
-        },
         "AccountId": {
           "target": "com.amazonaws.s3control#AccountId",
           "traits": {
             "smithy.api#documentation": "<p>The AWS account ID associated with the S3 Batch Operations job.</p>",
+            "smithy.api#hostLabel": {},
             "smithy.api#httpHeader": "x-amz-account-id",
             "smithy.api#required": {}
           }
@@ -3027,6 +3218,14 @@
           "target": "com.amazonaws.s3control#S3TagSet",
           "traits": {
             "smithy.api#documentation": "<p>The set of tags to associate with the S3 Batch Operations job.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "JobId": {
+          "target": "com.amazonaws.s3control#JobId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID for the S3 Batch Operations job whose tags you want to replace.</p>",
+            "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
         }
@@ -3042,7 +3241,7 @@
         "target": "com.amazonaws.s3control#PutPublicAccessBlockRequest"
       },
       "traits": {
-        "smithy.api#documentation": "<p>Creates or modifies the <code>PublicAccessBlock</code> configuration for an AWS\n         account.</p>",
+        "smithy.api#documentation": "<p>Creates or modifies the <code>PublicAccessBlock</code> configuration for an AWS account. For\n         more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html\"> Using Amazon S3 block\n            public access</a>.</p>\n         <p>Related actions include:</p>\n         <ul>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetPublicAccessBlock.html\">GetPublicAccessBlock</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeletePublicAccessBlock.html\">DeletePublicAccessBlock</a>\n               </p>\n            </li>\n         </ul>",
         "smithy.api#endpoint": {
           "hostPrefix": "{AccountId}."
         },
@@ -3056,6 +3255,14 @@
     "com.amazonaws.s3control#PutPublicAccessBlockRequest": {
       "type": "structure",
       "members": {
+        "PublicAccessBlockConfiguration": {
+          "target": "com.amazonaws.s3control#PublicAccessBlockConfiguration",
+          "traits": {
+            "smithy.api#documentation": "<p>The <code>PublicAccessBlock</code> configuration that you want to apply to the specified AWS\n         account.</p>",
+            "smithy.api#httpPayload": {},
+            "smithy.api#required": {}
+          }
+        },
         "AccountId": {
           "target": "com.amazonaws.s3control#AccountId",
           "traits": {
@@ -3064,44 +3271,48 @@
             "smithy.api#httpHeader": "x-amz-account-id",
             "smithy.api#required": {}
           }
-        },
-        "PublicAccessBlockConfiguration": {
-          "target": "com.amazonaws.s3control#PublicAccessBlockConfiguration",
-          "traits": {
-            "smithy.api#documentation": "<p>The <code>PublicAccessBlock</code> configuration that you want to apply to the specified AWS\n         account.</p>",
-            "smithy.api#httpPayload": {},
-            "smithy.api#required": {}
-          }
         }
       }
     },
     "com.amazonaws.s3control#RegionalBucket": {
       "type": "structure",
       "members": {
-        "BucketArn": {
-          "target": "com.amazonaws.s3control#S3RegionalBucketArn"
-        },
-        "CreationDate": {
-          "target": "com.amazonaws.s3control#CreationDate",
+        "PublicAccessBlockEnabled": {
+          "target": "com.amazonaws.s3control#PublicAccessBlockEnabled",
           "traits": {
+            "smithy.api#documentation": "<p></p>",
             "smithy.api#required": {}
           }
-        },
-        "OutpostId": {
-          "target": "com.amazonaws.s3control#NonEmptyMaxLength64String"
         },
         "Bucket": {
           "target": "com.amazonaws.s3control#BucketName",
           "traits": {
+            "smithy.api#documentation": "<p></p>",
             "smithy.api#required": {}
           }
         },
-        "PublicAccessBlockEnabled": {
-          "target": "com.amazonaws.s3control#PublicAccessBlockEnabled",
+        "BucketArn": {
+          "target": "com.amazonaws.s3control#S3RegionalBucketArn",
           "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) for the regional bucket.</p>"
+          }
+        },
+        "OutpostId": {
+          "target": "com.amazonaws.s3control#NonEmptyMaxLength64String",
+          "traits": {
+            "smithy.api#documentation": "<p>The AWS Outposts ID of the regional bucket.</p>"
+          }
+        },
+        "CreationDate": {
+          "target": "com.amazonaws.s3control#CreationDate",
+          "traits": {
+            "smithy.api#documentation": "<p>The creation date of the regional bucket</p>",
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The container for the regional bucket.</p>"
       }
     },
     "com.amazonaws.s3control#RegionalBucketList": {
@@ -3140,17 +3351,17 @@
     "com.amazonaws.s3control#S3AccessControlList": {
       "type": "structure",
       "members": {
+        "Grants": {
+          "target": "com.amazonaws.s3control#S3GrantList",
+          "traits": {
+            "smithy.api#documentation": "<p></p>"
+          }
+        },
         "Owner": {
           "target": "com.amazonaws.s3control#S3ObjectOwner",
           "traits": {
             "smithy.api#documentation": "<p></p>",
             "smithy.api#required": {}
-          }
-        },
-        "Grants": {
-          "target": "com.amazonaws.s3control#S3GrantList",
-          "traits": {
-            "smithy.api#documentation": "<p></p>"
           }
         }
       },
@@ -3243,28 +3454,16 @@
     "com.amazonaws.s3control#S3CopyObjectOperation": {
       "type": "structure",
       "members": {
-        "ObjectLockLegalHoldStatus": {
-          "target": "com.amazonaws.s3control#S3ObjectLockLegalHoldStatus",
-          "traits": {
-            "smithy.api#documentation": "<p>The legal hold status to be applied to all objects in the Batch Operations job.</p>"
-          }
-        },
-        "MetadataDirective": {
-          "target": "com.amazonaws.s3control#S3MetadataDirective",
-          "traits": {
-            "smithy.api#documentation": "<p></p>"
-          }
-        },
-        "StorageClass": {
-          "target": "com.amazonaws.s3control#S3StorageClass",
-          "traits": {
-            "smithy.api#documentation": "<p></p>"
-          }
-        },
         "SSEAwsKmsKeyId": {
           "target": "com.amazonaws.s3control#KmsKeyArnString",
           "traits": {
             "smithy.api#documentation": "<p></p>"
+          }
+        },
+        "ObjectLockMode": {
+          "target": "com.amazonaws.s3control#S3ObjectLockMode",
+          "traits": {
+            "smithy.api#documentation": "<p>The retention mode to be applied to all objects in the Batch Operations job.</p>"
           }
         },
         "AccessControlGrants": {
@@ -3285,44 +3484,14 @@
             "smithy.api#documentation": "<p>The date when the applied object retention configuration expires on all objects in\n         the Batch Operations job.</p>"
           }
         },
-        "RequesterPays": {
-          "target": "com.amazonaws.s3control#Boolean",
+        "ObjectLockLegalHoldStatus": {
+          "target": "com.amazonaws.s3control#S3ObjectLockLegalHoldStatus",
           "traits": {
-            "smithy.api#documentation": "<p></p>"
+            "smithy.api#documentation": "<p>The legal hold status to be applied to all objects in the Batch Operations job.</p>"
           }
         },
-        "NewObjectTagging": {
-          "target": "com.amazonaws.s3control#S3TagSet",
-          "traits": {
-            "smithy.api#documentation": "<p></p>"
-          }
-        },
-        "ObjectLockMode": {
-          "target": "com.amazonaws.s3control#S3ObjectLockMode",
-          "traits": {
-            "smithy.api#documentation": "<p>The retention mode to be applied to all objects in the Batch Operations job.</p>"
-          }
-        },
-        "ModifiedSinceConstraint": {
-          "target": "com.amazonaws.s3control#TimeStamp",
-          "traits": {
-            "smithy.api#documentation": "<p></p>"
-          }
-        },
-        "NewObjectMetadata": {
-          "target": "com.amazonaws.s3control#S3ObjectMetadata",
-          "traits": {
-            "smithy.api#documentation": "<p></p>"
-          }
-        },
-        "UnModifiedSinceConstraint": {
-          "target": "com.amazonaws.s3control#TimeStamp",
-          "traits": {
-            "smithy.api#documentation": "<p></p>"
-          }
-        },
-        "CannedAccessControlList": {
-          "target": "com.amazonaws.s3control#S3CannedAccessControlList",
+        "MetadataDirective": {
+          "target": "com.amazonaws.s3control#S3MetadataDirective",
           "traits": {
             "smithy.api#documentation": "<p></p>"
           }
@@ -3335,6 +3504,48 @@
         },
         "TargetResource": {
           "target": "com.amazonaws.s3control#S3BucketArnString",
+          "traits": {
+            "smithy.api#documentation": "<p></p>"
+          }
+        },
+        "NewObjectMetadata": {
+          "target": "com.amazonaws.s3control#S3ObjectMetadata",
+          "traits": {
+            "smithy.api#documentation": "<p></p>"
+          }
+        },
+        "CannedAccessControlList": {
+          "target": "com.amazonaws.s3control#S3CannedAccessControlList",
+          "traits": {
+            "smithy.api#documentation": "<p></p>"
+          }
+        },
+        "NewObjectTagging": {
+          "target": "com.amazonaws.s3control#S3TagSet",
+          "traits": {
+            "smithy.api#documentation": "<p></p>"
+          }
+        },
+        "ModifiedSinceConstraint": {
+          "target": "com.amazonaws.s3control#TimeStamp",
+          "traits": {
+            "smithy.api#documentation": "<p></p>"
+          }
+        },
+        "UnModifiedSinceConstraint": {
+          "target": "com.amazonaws.s3control#TimeStamp",
+          "traits": {
+            "smithy.api#documentation": "<p></p>"
+          }
+        },
+        "RequesterPays": {
+          "target": "com.amazonaws.s3control#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p></p>"
+          }
+        },
+        "StorageClass": {
+          "target": "com.amazonaws.s3control#S3StorageClass",
           "traits": {
             "smithy.api#documentation": "<p></p>"
           }
@@ -3370,14 +3581,14 @@
     "com.amazonaws.s3control#S3Grant": {
       "type": "structure",
       "members": {
-        "Permission": {
-          "target": "com.amazonaws.s3control#S3Permission",
+        "Grantee": {
+          "target": "com.amazonaws.s3control#S3Grantee",
           "traits": {
             "smithy.api#documentation": "<p></p>"
           }
         },
-        "Grantee": {
-          "target": "com.amazonaws.s3control#S3Grantee",
+        "Permission": {
+          "target": "com.amazonaws.s3control#S3Permission",
           "traits": {
             "smithy.api#documentation": "<p></p>"
           }
@@ -3396,14 +3607,14 @@
     "com.amazonaws.s3control#S3Grantee": {
       "type": "structure",
       "members": {
-        "DisplayName": {
-          "target": "com.amazonaws.s3control#NonEmptyMaxLength1024String",
+        "TypeIdentifier": {
+          "target": "com.amazonaws.s3control#S3GranteeTypeIdentifier",
           "traits": {
             "smithy.api#documentation": "<p></p>"
           }
         },
-        "TypeIdentifier": {
-          "target": "com.amazonaws.s3control#S3GranteeTypeIdentifier",
+        "DisplayName": {
+          "target": "com.amazonaws.s3control#NonEmptyMaxLength1024String",
           "traits": {
             "smithy.api#documentation": "<p></p>"
           }
@@ -3441,14 +3652,14 @@
     "com.amazonaws.s3control#S3InitiateRestoreObjectOperation": {
       "type": "structure",
       "members": {
-        "GlacierJobTier": {
-          "target": "com.amazonaws.s3control#S3GlacierJobTier",
+        "ExpirationInDays": {
+          "target": "com.amazonaws.s3control#S3ExpirationInDays",
           "traits": {
             "smithy.api#documentation": "<p></p>"
           }
         },
-        "ExpirationInDays": {
-          "target": "com.amazonaws.s3control#S3ExpirationInDays",
+        "GlacierJobTier": {
+          "target": "com.amazonaws.s3control#S3GlacierJobTier",
           "traits": {
             "smithy.api#documentation": "<p></p>"
           }
@@ -3546,13 +3757,19 @@
     "com.amazonaws.s3control#S3ObjectMetadata": {
       "type": "structure",
       "members": {
-        "UserMetadata": {
-          "target": "com.amazonaws.s3control#S3UserMetadata",
+        "ContentEncoding": {
+          "target": "com.amazonaws.s3control#NonEmptyMaxLength1024String",
           "traits": {
             "smithy.api#documentation": "<p></p>"
           }
         },
-        "ContentLanguage": {
+        "ContentDisposition": {
+          "target": "com.amazonaws.s3control#NonEmptyMaxLength1024String",
+          "traits": {
+            "smithy.api#documentation": "<p></p>"
+          }
+        },
+        "ContentType": {
           "target": "com.amazonaws.s3control#NonEmptyMaxLength1024String",
           "traits": {
             "smithy.api#documentation": "<p></p>"
@@ -3565,7 +3782,7 @@
             "smithy.api#documentation": "<p></p>"
           }
         },
-        "ContentEncoding": {
+        "CacheControl": {
           "target": "com.amazonaws.s3control#NonEmptyMaxLength1024String",
           "traits": {
             "smithy.api#documentation": "<p></p>"
@@ -3577,14 +3794,14 @@
             "smithy.api#documentation": "<p></p>"
           }
         },
-        "ContentDisposition": {
-          "target": "com.amazonaws.s3control#NonEmptyMaxLength1024String",
+        "SSEAlgorithm": {
+          "target": "com.amazonaws.s3control#S3SSEAlgorithm",
           "traits": {
             "smithy.api#documentation": "<p></p>"
           }
         },
-        "SSEAlgorithm": {
-          "target": "com.amazonaws.s3control#S3SSEAlgorithm",
+        "UserMetadata": {
+          "target": "com.amazonaws.s3control#S3UserMetadata",
           "traits": {
             "smithy.api#documentation": "<p></p>"
           }
@@ -3595,20 +3812,14 @@
             "smithy.api#documentation": "<p></p>"
           }
         },
+        "ContentLanguage": {
+          "target": "com.amazonaws.s3control#NonEmptyMaxLength1024String",
+          "traits": {
+            "smithy.api#documentation": "<p></p>"
+          }
+        },
         "RequesterCharged": {
           "target": "com.amazonaws.s3control#Boolean",
-          "traits": {
-            "smithy.api#documentation": "<p></p>"
-          }
-        },
-        "CacheControl": {
-          "target": "com.amazonaws.s3control#NonEmptyMaxLength1024String",
-          "traits": {
-            "smithy.api#documentation": "<p></p>"
-          }
-        },
-        "ContentType": {
-          "target": "com.amazonaws.s3control#NonEmptyMaxLength1024String",
           "traits": {
             "smithy.api#documentation": "<p></p>"
           }
@@ -3750,18 +3961,18 @@
     "com.amazonaws.s3control#S3SetObjectRetentionOperation": {
       "type": "structure",
       "members": {
-        "Retention": {
-          "target": "com.amazonaws.s3control#S3Retention",
-          "traits": {
-            "smithy.api#documentation": "<p>Contains the Object Lock retention mode to be applied to all objects in the Batch Operations\n         job. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-retention-date.html\">Using S3 Object Lock retention\n            with S3 Batch Operations</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>",
-            "smithy.api#required": {}
-          }
-        },
         "BypassGovernanceRetention": {
           "target": "com.amazonaws.s3control#Boolean",
           "traits": {
             "smithy.api#box": {},
             "smithy.api#documentation": "<p>Indicates if the action should be applied to objects in the Batch Operations job even if they have Object Lock <code>\n         GOVERNANCE</code> type in place.</p>"
+          }
+        },
+        "Retention": {
+          "target": "com.amazonaws.s3control#S3Retention",
+          "traits": {
+            "smithy.api#documentation": "<p>Contains the Object Lock retention mode to be applied to all objects in the Batch Operations\n         job. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-retention-date.html\">Using S3 Object Lock retention\n            with S3 Batch Operations</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>",
+            "smithy.api#required": {}
           }
         }
       },
@@ -3839,10 +4050,7 @@
     "com.amazonaws.s3control#S3TagSet": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.s3control#S3Tag",
-        "traits": {
-          "smithy.api#xmlName": "Tag"
-        }
+        "target": "com.amazonaws.s3control#S3Tag"
       }
     },
     "com.amazonaws.s3control#S3UserMetadata": {
@@ -3911,9 +4119,13 @@
         "TagSet": {
           "target": "com.amazonaws.s3control#S3TagSet",
           "traits": {
+            "smithy.api#documentation": "<p>A collection for a set of tags.</p>",
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p></p>"
       }
     },
     "com.amazonaws.s3control#TimeStamp": {
@@ -3946,15 +4158,27 @@
     "com.amazonaws.s3control#Transition": {
       "type": "structure",
       "members": {
-        "StorageClass": {
-          "target": "com.amazonaws.s3control#TransitionStorageClass"
-        },
         "Date": {
-          "target": "com.amazonaws.s3control#Date"
+          "target": "com.amazonaws.s3control#Date",
+          "traits": {
+            "smithy.api#documentation": "<p>Indicates when objects are transitioned to the specified storage class. \n         The date value must be in ISO 8601 format. The time is always midnight UTC.</p>"
+          }
+        },
+        "StorageClass": {
+          "target": "com.amazonaws.s3control#TransitionStorageClass",
+          "traits": {
+            "smithy.api#documentation": "<p>The storage class to which you want the object to transition.</p>"
+          }
         },
         "Days": {
-          "target": "com.amazonaws.s3control#Days"
+          "target": "com.amazonaws.s3control#Days",
+          "traits": {
+            "smithy.api#documentation": "<p>Indicates the number of days after creation when objects are transitioned to the specified storage class. \n         The value must be a positive integer.</p>"
+          }
         }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Specifies when an object transitions to a specified storage class. For more information\n         about Amazon S3 Lifecycle configuration rules, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/lifecycle-transition-general-considerations.html\">\n            Transitioning Objects Using Amazon S3 Lifecycle</a> in the\n            <i>Amazon Simple Storage Service Developer Guide</i>.</p>"
       }
     },
     "com.amazonaws.s3control#TransitionList": {
@@ -4011,7 +4235,10 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Updates an existing S3 Batch Operations job's priority. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-basics.html\">S3 Batch Operations</a> in the\n            <i>Amazon Simple Storage Service Developer Guide</i>.</p>\n         <p></p>\n         <p>Related actions include:</p>\n         <ul>\n            <li>\n               <p>\n                  <a>CreateJob</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a>ListJobs</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a>DescribeJob</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a>UpdateJobStatus</a>\n               </p>\n            </li>\n         </ul>",
+        "smithy.api#documentation": "<p>Updates an existing S3 Batch Operations job's priority. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-basics.html\">S3 Batch Operations</a> in the\n            <i>Amazon Simple Storage Service Developer Guide</i>.</p>\n         <p></p>\n         <p>Related actions include:</p>\n         <ul>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_CreateJob.html\">CreateJob</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_ListJobs.html\">ListJobs</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DescribeJob.html\">DescribeJob</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_UpdateJobStatus.html\">UpdateJobStatus</a>\n               </p>\n            </li>\n         </ul>",
+        "smithy.api#endpoint": {
+          "hostPrefix": "{AccountId}."
+        },
         "smithy.api#http": {
           "method": "POST",
           "uri": "/v20180820/jobs/{JobId}/priority",
@@ -4022,19 +4249,20 @@
     "com.amazonaws.s3control#UpdateJobPriorityRequest": {
       "type": "structure",
       "members": {
-        "AccountId": {
-          "target": "com.amazonaws.s3control#AccountId",
-          "traits": {
-            "smithy.api#documentation": "<p></p>",
-            "smithy.api#httpHeader": "x-amz-account-id",
-            "smithy.api#required": {}
-          }
-        },
         "JobId": {
           "target": "com.amazonaws.s3control#JobId",
           "traits": {
             "smithy.api#documentation": "<p>The ID for the job whose priority you want to update.</p>",
             "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "AccountId": {
+          "target": "com.amazonaws.s3control#AccountId",
+          "traits": {
+            "smithy.api#documentation": "<p></p>",
+            "smithy.api#hostLabel": {},
+            "smithy.api#httpHeader": "x-amz-account-id",
             "smithy.api#required": {}
           }
         },
@@ -4093,7 +4321,10 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Updates the status for the specified job. Use this operation to confirm that you want to\n         run a job or to cancel an existing job. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-basics.html\">S3 Batch Operations</a> in the\n            <i>Amazon Simple Storage Service Developer Guide</i>.</p>\n         <p></p>\n         <p>Related actions include:</p>\n         <ul>\n            <li>\n               <p>\n                  <a>CreateJob</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a>ListJobs</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a>DescribeJob</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a>UpdateJobStatus</a>\n               </p>\n            </li>\n         </ul>",
+        "smithy.api#documentation": "<p>Updates the status for the specified job. Use this operation to confirm that you want to\n         run a job or to cancel an existing job. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-basics.html\">S3 Batch Operations</a> in the\n            <i>Amazon Simple Storage Service Developer Guide</i>.</p>\n         <p></p>\n         <p>Related actions include:</p>\n         <ul>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_CreateJob.html\">CreateJob</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_ListJobs.html\">ListJobs</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DescribeJob.html\">DescribeJob</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_UpdateJobStatus.html\">UpdateJobStatus</a>\n               </p>\n            </li>\n         </ul>",
+        "smithy.api#endpoint": {
+          "hostPrefix": "{AccountId}."
+        },
         "smithy.api#http": {
           "method": "POST",
           "uri": "/v20180820/jobs/{JobId}/status",
@@ -4131,6 +4362,7 @@
           "target": "com.amazonaws.s3control#AccountId",
           "traits": {
             "smithy.api#documentation": "<p></p>",
+            "smithy.api#hostLabel": {},
             "smithy.api#httpHeader": "x-amz-account-id",
             "smithy.api#required": {}
           }
@@ -4140,6 +4372,12 @@
     "com.amazonaws.s3control#UpdateJobStatusResult": {
       "type": "structure",
       "members": {
+        "Status": {
+          "target": "com.amazonaws.s3control#JobStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The current status for the specified job.</p>"
+          }
+        },
         "StatusUpdateReason": {
           "target": "com.amazonaws.s3control#JobStatusUpdateReason",
           "traits": {
@@ -4150,12 +4388,6 @@
           "target": "com.amazonaws.s3control#JobId",
           "traits": {
             "smithy.api#documentation": "<p>The ID for the job whose status was updated.</p>"
-          }
-        },
-        "Status": {
-          "target": "com.amazonaws.s3control#JobStatus",
-          "traits": {
-            "smithy.api#documentation": "<p>The current status for the specified job.</p>"
           }
         }
       }
