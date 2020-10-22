@@ -2812,6 +2812,12 @@
             "smithy.api#documentation": "<p>The time that the crawler was last updated.</p>"
           }
         },
+        "RecrawlPolicy": {
+          "target": "com.amazonaws.glue#RecrawlPolicy",
+          "traits": {
+            "smithy.api#documentation": "<p>A policy that specifies whether to crawl the entire dataset again, or to crawl only folders that were added since the last crawler run.</p>"
+          }
+        },
         "LastCrawl": {
           "target": "com.amazonaws.glue#LastCrawlInfo",
           "traits": {
@@ -3251,6 +3257,38 @@
     "com.amazonaws.glue#CreateCrawlerRequest": {
       "type": "structure",
       "members": {
+        "Role": {
+          "target": "com.amazonaws.glue#Role",
+          "traits": {
+            "smithy.api#documentation": "<p>The IAM role or Amazon Resource Name (ARN) of an IAM role used by the new crawler to\n      access customer resources.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Tags": {
+          "target": "com.amazonaws.glue#TagsMap",
+          "traits": {
+            "smithy.api#documentation": "<p>The tags to use with this crawler request. You may use tags to limit access to the\n            crawler. For more information about tags in AWS Glue, see <a href=\"https://docs.aws.amazon.com/glue/latest/dg/monitor-tags.html\">AWS Tags in AWS Glue</a> in the developer\n            guide.</p>"
+          }
+        },
+        "Name": {
+          "target": "com.amazonaws.glue#NameString",
+          "traits": {
+            "smithy.api#documentation": "<p>Name of the new crawler.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "CrawlerSecurityConfiguration": {
+          "target": "com.amazonaws.glue#CrawlerSecurityConfiguration",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the <code>SecurityConfiguration</code> structure to be used by this\n      crawler.</p>"
+          }
+        },
+        "Schedule": {
+          "target": "com.amazonaws.glue#CronExpression",
+          "traits": {
+            "smithy.api#documentation": "<p>A <code>cron</code> expression used to specify the schedule (see <a href=\"https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html\">Time-Based Schedules for Jobs and Crawlers</a>. For example, to run\n      something every day at 12:15 UTC, you would specify:\n      <code>cron(15 12 * * ? *)</code>.</p>"
+          }
+        },
         "SchemaChangePolicy": {
           "target": "com.amazonaws.glue#SchemaChangePolicy",
           "traits": {
@@ -3276,30 +3314,10 @@
             "smithy.api#documentation": "<p>The AWS Glue database where results are written, such as:\n        <code>arn:aws:daylight:us-east-1::database/sometable/*</code>.</p>"
           }
         },
-        "Role": {
-          "target": "com.amazonaws.glue#Role",
-          "traits": {
-            "smithy.api#documentation": "<p>The IAM role or Amazon Resource Name (ARN) of an IAM role used by the new crawler to\n      access customer resources.</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "Tags": {
-          "target": "com.amazonaws.glue#TagsMap",
-          "traits": {
-            "smithy.api#documentation": "<p>The tags to use with this crawler request. You may use tags to limit access to the\n            crawler. For more information about tags in AWS Glue, see <a href=\"https://docs.aws.amazon.com/glue/latest/dg/monitor-tags.html\">AWS Tags in AWS Glue</a> in the developer\n            guide.</p>"
-          }
-        },
         "TablePrefix": {
           "target": "com.amazonaws.glue#TablePrefix",
           "traits": {
             "smithy.api#documentation": "<p>The table prefix used for catalog tables that are created.</p>"
-          }
-        },
-        "Name": {
-          "target": "com.amazonaws.glue#NameString",
-          "traits": {
-            "smithy.api#documentation": "<p>Name of the new crawler.</p>",
-            "smithy.api#required": {}
           }
         },
         "Configuration": {
@@ -3308,22 +3326,16 @@
             "smithy.api#documentation": "<p>Crawler configuration information. This versioned JSON\n      string allows users to specify aspects of a crawler's behavior.\n      For more information, see <a href=\"https://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html\">Configuring a Crawler</a>.</p>"
           }
         },
-        "CrawlerSecurityConfiguration": {
-          "target": "com.amazonaws.glue#CrawlerSecurityConfiguration",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the <code>SecurityConfiguration</code> structure to be used by this\n      crawler.</p>"
-          }
-        },
         "Classifiers": {
           "target": "com.amazonaws.glue#ClassifierNameList",
           "traits": {
             "smithy.api#documentation": "<p>A list of custom classifiers that the user has registered. By default, all built-in\n      classifiers are included in a crawl, but these custom classifiers always override the default\n      classifiers for a given classification.</p>"
           }
         },
-        "Schedule": {
-          "target": "com.amazonaws.glue#CronExpression",
+        "RecrawlPolicy": {
+          "target": "com.amazonaws.glue#RecrawlPolicy",
           "traits": {
-            "smithy.api#documentation": "<p>A <code>cron</code> expression used to specify the schedule (see <a href=\"https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html\">Time-Based Schedules for Jobs and Crawlers</a>. For example, to run\n      something every day at 12:15 UTC, you would specify:\n      <code>cron(15 12 * * ? *)</code>.</p>"
+            "smithy.api#documentation": "<p>A policy that specifies whether to crawl the entire dataset again, or to crawl only folders that were added since the last crawler run.</p>"
           }
         }
       }
@@ -12653,6 +12665,35 @@
         "smithy.api#box": {}
       }
     },
+    "com.amazonaws.glue#RecrawlBehavior": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": [
+          {
+            "value": "CRAWL_EVERYTHING",
+            "name": "CRAWL_EVERYTHING"
+          },
+          {
+            "value": "CRAWL_NEW_FOLDERS_ONLY",
+            "name": "CRAWL_NEW_FOLDERS_ONLY"
+          }
+        ]
+      }
+    },
+    "com.amazonaws.glue#RecrawlPolicy": {
+      "type": "structure",
+      "members": {
+        "RecrawlBehavior": {
+          "target": "com.amazonaws.glue#RecrawlBehavior",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies whether to crawl the entire dataset again or to crawl only folders that were added since the last crawler run.</p>\n\t\n\t        <p>A value of <code>CRAWL_EVERYTHING</code> specifies crawling the entire dataset again.</p>\n  \n         <p>A value of <code>CRAWL_NEW_FOLDERS_ONLY</code> specifies crawling only folders that were added since the last crawler run.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>When crawling an Amazon S3 data source after the first crawl is complete, specifies whether to crawl the entire dataset again or to crawl only folders that were added since the last crawler run. For more information, see <a href=\"https://docs.aws.amazon.com/glue/latest/dg/incremental-crawls.html\">Incremental Crawls in AWS Glue</a> in the developer guide.</p>"
+      }
+    },
     "com.amazonaws.glue#ReplaceBoolean": {
       "type": "boolean"
     },
@@ -15737,6 +15778,12 @@
           "target": "com.amazonaws.glue#CronExpression",
           "traits": {
             "smithy.api#documentation": "<p>A <code>cron</code> expression used to specify the schedule (see <a href=\"https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html\">Time-Based Schedules for Jobs and Crawlers</a>. For example, to run\n      something every day at 12:15 UTC, you would specify:\n      <code>cron(15 12 * * ? *)</code>.</p>"
+          }
+        },
+        "RecrawlPolicy": {
+          "target": "com.amazonaws.glue#RecrawlPolicy",
+          "traits": {
+            "smithy.api#documentation": "<p>A policy that specifies whether to crawl the entire dataset again, or to crawl only folders that were added since the last crawler run.</p>"
           }
         },
         "SchemaChangePolicy": {

@@ -16812,7 +16812,7 @@
         "Release": {
           "target": "com.amazonaws.ssm#PatchRelease",
           "traits": {
-            "smithy.api#documentation": "<p>The particular release of a patch. For example,\n   in <code>pkg-example-EE-20180914-2.2.amzn1.noarch</code>, the release is <code>2.amaz1</code>.\n   Applies to Linux-based instances only.</p>"
+            "smithy.api#documentation": "<p>The particular release of a patch. For example, in\n    <code>pkg-example-EE-20180914-2.2.amzn1.noarch</code>, the release is <code>2.amaz1</code>.\n   Applies to Linux-based instances only.</p>"
           }
         },
         "Version": {
@@ -16830,7 +16830,7 @@
         "Repository": {
           "target": "com.amazonaws.ssm#PatchRepository",
           "traits": {
-            "smithy.api#documentation": "<p>The source patch repository for the operating\n   system and version, such as <code>trusty-security</code> for Ubuntu Server 14.04 LTE and\n    <code>focal-security</code> for Ubuntu Server 20.04 LTE. Applies to Linux-based instances\n   only.</p>"
+            "smithy.api#documentation": "<p>The source patch repository for the operating system and version, such as\n    <code>trusty-security</code> for Ubuntu Server 14.04 LTE and <code>focal-security</code> for\n   Ubuntu Server 20.04 LTE. Applies to Linux-based instances only.</p>"
           }
         },
         "Arch": {
@@ -16848,7 +16848,7 @@
         "Severity": {
           "target": "com.amazonaws.ssm#PatchSeverity",
           "traits": {
-            "smithy.api#documentation": "<p>The severity level of the patch. For example,\n    <code>CRITICAL</code> or <code>MODERATE</code>.</p>"
+            "smithy.api#documentation": "<p>The severity level of the patch. For example, <code>CRITICAL</code> or\n   <code>MODERATE</code>.</p>"
           }
         },
         "KbNumber": {
@@ -16866,7 +16866,7 @@
         "CVEIds": {
           "target": "com.amazonaws.ssm#PatchCVEIdList",
           "traits": {
-            "smithy.api#documentation": "<p>The Common Vulnerabilities and Exposures (CVE) ID\n   of the patch. For example, <code>CVE-1999-0067</code>. Applies to Linux-based instances\n   only.</p>"
+            "smithy.api#documentation": "<p>The Common Vulnerabilities and Exposures (CVE) ID of the patch. For example,\n    <code>CVE-1999-0067</code>. Applies to Linux-based instances only.</p>"
           }
         },
         "Classification": {
@@ -16884,7 +16884,7 @@
         "AdvisoryIds": {
           "target": "com.amazonaws.ssm#PatchAdvisoryIdList",
           "traits": {
-            "smithy.api#documentation": "<p>The Advisory ID of the patch. For example,\n    <code>RHSA-2020:3779</code>. Applies to Linux-based instances only.</p>"
+            "smithy.api#documentation": "<p>The Advisory ID of the patch. For example, <code>RHSA-2020:3779</code>. Applies to\n   Linux-based instances only.</p>"
           }
         },
         "Description": {
@@ -16920,7 +16920,7 @@
         "BugzillaIds": {
           "target": "com.amazonaws.ssm#PatchBugzillaIdList",
           "traits": {
-            "smithy.api#documentation": "<p>The Bugzilla ID of the patch. For example,\n    <code>1600646</code>. Applies to Linux-based instances only.</p>"
+            "smithy.api#documentation": "<p>The Bugzilla ID of the patch. For example, <code>1600646</code>. Applies to Linux-based\n   instances only.</p>"
           }
         },
         "Title": {
@@ -16932,13 +16932,13 @@
         "Name": {
           "target": "com.amazonaws.ssm#PatchName",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the patch. Applies to Linux-based\n   instances only.</p>"
+            "smithy.api#documentation": "<p>The name of the patch. Applies to Linux-based instances only.</p>"
           }
         },
         "Epoch": {
           "target": "com.amazonaws.ssm#PatchEpoch",
           "traits": {
-            "smithy.api#documentation": "<p>The epoch of the patch. For example in\n    <code>pkg-example-EE-20180914-2.2.amzn1.noarch</code>, the epoch value is\n    <code>20180914-2</code>. Applies to Linux-based instances only.</p>"
+            "smithy.api#documentation": "<p>The epoch of the patch. For example in\n   <code>pkg-example-EE-20180914-2.2.amzn1.noarch</code>, the epoch value is\n   <code>20180914-2</code>. Applies to Linux-based instances only.</p>"
           }
         },
         "Vendor": {
@@ -17050,6 +17050,9 @@
         "target": "com.amazonaws.ssm#PatchCVEId"
       }
     },
+    "com.amazonaws.ssm#PatchCVEIds": {
+      "type": "string"
+    },
     "com.amazonaws.ssm#PatchClassification": {
       "type": "string"
     },
@@ -17089,6 +17092,12 @@
           "traits": {
             "smithy.api#documentation": "<p>The state of the patch on the instance, such as INSTALLED or FAILED.</p>\n         <p>For descriptions of each patch state, see <a href=\"https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-compliance-about.html#sysman-compliance-monitor-patch\">About patch compliance</a> in the <i>AWS Systems Manager User Guide</i>.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "CVEIds": {
+          "target": "com.amazonaws.ssm#PatchCVEIds",
+          "traits": {
+            "smithy.api#documentation": "<p>The IDs of one or more Common Vulnerabilities and Exposure (CVE) issues that are resolved by\n   the patch.</p>"
           }
         },
         "Classification": {
@@ -18199,7 +18208,7 @@
         "Type": {
           "target": "com.amazonaws.ssm#ParameterType",
           "traits": {
-            "smithy.api#documentation": "<p>The type of parameter that you want to add to the system.</p>\n         <note>\n            <p>\n               <code>SecureString</code> is not currently supported for AWS CloudFormation templates or\n    in the China Regions.</p>\n         </note>\n         <p>Items in a <code>StringList</code> must be separated by a comma (,). You can't\n   use other punctuation or special character to escape items in the list. If you have a parameter\n   value that requires a comma, then use the <code>String</code> data type.</p>\n         <important>\n            <p>Specifying a parameter type is not required when updating a parameter. You must specify a\n    parameter type when creating a parameter.</p>\n         </important>"
+            "smithy.api#documentation": "<p>The type of parameter that you want to add to the system.</p>\n         <note>\n            <p>\n               <code>SecureString</code> is not currently supported for AWS CloudFormation\n    templates.</p>\n         </note>\n         <p>Items in a <code>StringList</code> must be separated by a comma (,). You can't\n   use other punctuation or special character to escape items in the list. If you have a parameter\n   value that requires a comma, then use the <code>String</code> data type.</p>\n         <important>\n            <p>Specifying a parameter type is not required when updating a parameter. You must specify a\n    parameter type when creating a parameter.</p>\n         </important>"
           }
         },
         "Name": {

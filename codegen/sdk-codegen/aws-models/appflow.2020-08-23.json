@@ -114,17 +114,17 @@
     "com.amazonaws.appflow#AmplitudeConnectorProfileCredentials": {
       "type": "structure",
       "members": {
-        "secretKey": {
-          "target": "com.amazonaws.appflow#SecretKey",
-          "traits": {
-            "smithy.api#documentation": "<p>\n  The Secret Access Key portion of the credentials.\n</p>",
-            "smithy.api#required": {}
-          }
-        },
         "apiKey": {
           "target": "com.amazonaws.appflow#ApiKey",
           "traits": {
             "smithy.api#documentation": "<p>\n  A unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.\n</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "secretKey": {
+          "target": "com.amazonaws.appflow#SecretKey",
+          "traits": {
+            "smithy.api#documentation": "<p>\n  The Secret Access Key portion of the credentials.\n</p>",
             "smithy.api#required": {}
           }
         }
@@ -236,6 +236,17 @@
         "smithy.api#pattern": ".*"
       }
     },
+    "com.amazonaws.appflow#ClientCredentialsArn": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 20,
+          "max": 2048
+        },
+        "smithy.api#pattern": "arn:aws:secretsmanager:.*:[0-9]+:.*",
+        "smithy.api#sensitive": {}
+      }
+    },
     "com.amazonaws.appflow#ClientId": {
       "type": "string",
       "traits": {
@@ -301,6 +312,36 @@
     "com.amazonaws.appflow#ConnectorConfiguration": {
       "type": "structure",
       "members": {
+        "isPrivateLinkEndpointUrlRequired": {
+          "target": "com.amazonaws.appflow#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>\nSpecifies if a PrivateLink endpoint URL is required.\n</p>"
+          }
+        },
+        "supportedSchedulingFrequencies": {
+          "target": "com.amazonaws.appflow#SchedulingFrequencyTypeList",
+          "traits": {
+            "smithy.api#documentation": "<p>\n    Specifies the supported flow frequency for that connector.\n    </p>"
+          }
+        },
+        "supportedTriggerTypes": {
+          "target": "com.amazonaws.appflow#TriggerTypeList",
+          "traits": {
+            "smithy.api#documentation": "<p>\nSpecifies the supported trigger types for the flow. \n</p>"
+          }
+        },
+        "canUseAsDestination": {
+          "target": "com.amazonaws.appflow#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>\nSpecifies whether the connector can be used as a destination.\n</p>"
+          }
+        },
+        "isPrivateLinkEnabled": {
+          "target": "com.amazonaws.appflow#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>\nSpecifies if PrivateLink is enabled for that connector.\n</p>"
+          }
+        },
         "canUseAsSource": {
           "target": "com.amazonaws.appflow#Boolean",
           "traits": {
@@ -313,40 +354,10 @@
             "smithy.api#documentation": "<p>\nSpecifies connector-specific metadata such as <code>oAuthScopes</code>, <code>supportedRegions</code>, <code>privateLinkServiceUrl</code>, and so on.\n</p>"
           }
         },
-        "canUseAsDestination": {
-          "target": "com.amazonaws.appflow#Boolean",
-          "traits": {
-            "smithy.api#documentation": "<p>\nSpecifies whether the connector can be used as a destination.\n</p>"
-          }
-        },
         "supportedDestinationConnectors": {
           "target": "com.amazonaws.appflow#ConnectorTypeList",
           "traits": {
             "smithy.api#documentation": "<p>\nLists the connectors that are available for use as destinations.\n</p>"
-          }
-        },
-        "supportedTriggerTypes": {
-          "target": "com.amazonaws.appflow#TriggerTypeList",
-          "traits": {
-            "smithy.api#documentation": "<p>\nSpecifies the supported trigger types for the flow. \n</p>"
-          }
-        },
-        "isPrivateLinkEnabled": {
-          "target": "com.amazonaws.appflow#Boolean",
-          "traits": {
-            "smithy.api#documentation": "<p>\nSpecifies if PrivateLink is enabled for that connector.\n</p>"
-          }
-        },
-        "isPrivateLinkEndpointUrlRequired": {
-          "target": "com.amazonaws.appflow#Boolean",
-          "traits": {
-            "smithy.api#documentation": "<p>\nSpecifies if a PrivateLink endpoint URL is required.\n</p>"
-          }
-        },
-        "supportedSchedulingFrequencies": {
-          "target": "com.amazonaws.appflow#SchedulingFrequencyTypeList",
-          "traits": {
-            "smithy.api#documentation": "<p>\n    Specifies the supported flow frequency for that connector.\n    </p>"
           }
         }
       },
@@ -366,16 +377,16 @@
     "com.amazonaws.appflow#ConnectorEntity": {
       "type": "structure",
       "members": {
-        "hasNestedEntities": {
-          "target": "com.amazonaws.appflow#Boolean",
-          "traits": {
-            "smithy.api#documentation": "<p>\nSpecifies whether the connector entity is a parent or a category and has more entities nested underneath it. If another call is made with <code>entitiesPath = \"the_current_entity_name_with_hasNestedEntities_true\"</code>, then it returns the nested entities underneath it. This provides a way to retrieve all supported entities in a recursive fashion.\n</p>"
-          }
-        },
         "label": {
           "target": "com.amazonaws.appflow#Label",
           "traits": {
             "smithy.api#documentation": "<p>\nThe label applied to the connector entity.\n</p>"
+          }
+        },
+        "hasNestedEntities": {
+          "target": "com.amazonaws.appflow#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>\nSpecifies whether the connector entity is a parent or a category and has more entities nested underneath it. If another call is made with <code>entitiesPath = \"the_current_entity_name_with_hasNestedEntities_true\"</code>, then it returns the nested entities underneath it. This provides a way to retrieve all supported entities in a recursive fashion.\n</p>"
           }
         },
         "name": {
@@ -393,6 +404,24 @@
     "com.amazonaws.appflow#ConnectorEntityField": {
       "type": "structure",
       "members": {
+        "description": {
+          "target": "com.amazonaws.appflow#Description",
+          "traits": {
+            "smithy.api#documentation": "<p>\n  A description of the connector entity field.\n</p>"
+          }
+        },
+        "supportedFieldTypeDetails": {
+          "target": "com.amazonaws.appflow#SupportedFieldTypeDetails",
+          "traits": {
+            "smithy.api#documentation": "<p>\n Contains details regarding the supported <code>FieldType</code>, including the corresponding <code>filterOperators</code> and <code>supportedValues</code>.\n</p>"
+          }
+        },
+        "label": {
+          "target": "com.amazonaws.appflow#Label",
+          "traits": {
+            "smithy.api#documentation": "<p>\nThe label applied to a connector entity field.\n</p>"
+          }
+        },
         "destinationProperties": {
           "target": "com.amazonaws.appflow#DestinationFieldProperties",
           "traits": {
@@ -404,24 +433,6 @@
           "traits": {
             "smithy.api#documentation": "<p>\nThe unique identifier of the connector field.\n</p>",
             "smithy.api#required": {}
-          }
-        },
-        "label": {
-          "target": "com.amazonaws.appflow#Label",
-          "traits": {
-            "smithy.api#documentation": "<p>\nThe label applied to a connector entity field.\n</p>"
-          }
-        },
-        "supportedFieldTypeDetails": {
-          "target": "com.amazonaws.appflow#SupportedFieldTypeDetails",
-          "traits": {
-            "smithy.api#documentation": "<p>\n Contains details regarding the supported <code>FieldType</code>, including the corresponding <code>filterOperators</code> and <code>supportedValues</code>.\n</p>"
-          }
-        },
-        "description": {
-          "target": "com.amazonaws.appflow#Description",
-          "traits": {
-            "smithy.api#documentation": "<p>\n  A description of the connector entity field.\n</p>"
           }
         },
         "sourceProperties": {
@@ -459,18 +470,6 @@
     "com.amazonaws.appflow#ConnectorMetadata": {
       "type": "structure",
       "members": {
-        "Snowflake": {
-          "target": "com.amazonaws.appflow#SnowflakeMetadata",
-          "traits": {
-            "smithy.api#documentation": "<p>\n  The connector metadata specific to Snowflake.\n</p>"
-          }
-        },
-        "Slack": {
-          "target": "com.amazonaws.appflow#SlackMetadata",
-          "traits": {
-            "smithy.api#documentation": "<p>\n  The connector metadata specific to Slack.\n</p>"
-          }
-        },
         "Redshift": {
           "target": "com.amazonaws.appflow#RedshiftMetadata",
           "traits": {
@@ -483,34 +482,10 @@
             "smithy.api#documentation": "<p>\n  The connector metadata specific to Marketo.\n</p>"
           }
         },
-        "Datadog": {
-          "target": "com.amazonaws.appflow#DatadogMetadata",
+        "InforNexus": {
+          "target": "com.amazonaws.appflow#InforNexusMetadata",
           "traits": {
-            "smithy.api#documentation": "<p>\n  The connector metadata specific to Datadog.\n</p>"
-          }
-        },
-        "Veeva": {
-          "target": "com.amazonaws.appflow#VeevaMetadata",
-          "traits": {
-            "smithy.api#documentation": "<p>\n  The connector metadata specific to Veeva.\n</p>"
-          }
-        },
-        "EventBridge": {
-          "target": "com.amazonaws.appflow#EventBridgeMetadata",
-          "traits": {
-            "smithy.api#documentation": "<p>\n      The connector metadata specific to Amazon EventBridge.\n    </p>"
-          }
-        },
-        "Trendmicro": {
-          "target": "com.amazonaws.appflow#TrendmicroMetadata",
-          "traits": {
-            "smithy.api#documentation": "<p>\n  The connector metadata specific to Trend Micro.\n</p>"
-          }
-        },
-        "ServiceNow": {
-          "target": "com.amazonaws.appflow#ServiceNowMetadata",
-          "traits": {
-            "smithy.api#documentation": "<p>\n  The connector metadata specific to ServiceNow.\n</p>"
+            "smithy.api#documentation": "<p>\n  The connector metadata specific to Infor Nexus.\n</p>"
           }
         },
         "Zendesk": {
@@ -525,10 +500,40 @@
             "smithy.api#documentation": "<p>\n  The connector metadata specific to Dynatrace.\n</p>"
           }
         },
-        "Amplitude": {
-          "target": "com.amazonaws.appflow#AmplitudeMetadata",
+        "Snowflake": {
+          "target": "com.amazonaws.appflow#SnowflakeMetadata",
           "traits": {
-            "smithy.api#documentation": "<p>\n The connector metadata specific to Amplitude.\n</p>"
+            "smithy.api#documentation": "<p>\n  The connector metadata specific to Snowflake.\n</p>"
+          }
+        },
+        "Trendmicro": {
+          "target": "com.amazonaws.appflow#TrendmicroMetadata",
+          "traits": {
+            "smithy.api#documentation": "<p>\n  The connector metadata specific to Trend Micro.\n</p>"
+          }
+        },
+        "EventBridge": {
+          "target": "com.amazonaws.appflow#EventBridgeMetadata",
+          "traits": {
+            "smithy.api#documentation": "<p>\n      The connector metadata specific to Amazon EventBridge.\n    </p>"
+          }
+        },
+        "Slack": {
+          "target": "com.amazonaws.appflow#SlackMetadata",
+          "traits": {
+            "smithy.api#documentation": "<p>\n  The connector metadata specific to Slack.\n</p>"
+          }
+        },
+        "Veeva": {
+          "target": "com.amazonaws.appflow#VeevaMetadata",
+          "traits": {
+            "smithy.api#documentation": "<p>\n  The connector metadata specific to Veeva.\n</p>"
+          }
+        },
+        "Datadog": {
+          "target": "com.amazonaws.appflow#DatadogMetadata",
+          "traits": {
+            "smithy.api#documentation": "<p>\n  The connector metadata specific to Datadog.\n</p>"
           }
         },
         "GoogleAnalytics": {
@@ -537,16 +542,16 @@
             "smithy.api#documentation": "<p>\n  The connector metadata specific to Google Analytics.\n</p>"
           }
         },
-        "S3": {
-          "target": "com.amazonaws.appflow#S3Metadata",
+        "ServiceNow": {
+          "target": "com.amazonaws.appflow#ServiceNowMetadata",
           "traits": {
-            "smithy.api#documentation": "<p>\n  The connector metadata specific to Amazon S3.\n</p>"
+            "smithy.api#documentation": "<p>\n  The connector metadata specific to ServiceNow.\n</p>"
           }
         },
-        "InforNexus": {
-          "target": "com.amazonaws.appflow#InforNexusMetadata",
+        "Amplitude": {
+          "target": "com.amazonaws.appflow#AmplitudeMetadata",
           "traits": {
-            "smithy.api#documentation": "<p>\n  The connector metadata specific to Infor Nexus.\n</p>"
+            "smithy.api#documentation": "<p>\n The connector metadata specific to Amplitude.\n</p>"
           }
         },
         "Salesforce": {
@@ -560,6 +565,12 @@
           "traits": {
             "smithy.api#documentation": "<p>\n  The connector metadata specific to Singular.\n</p>"
           }
+        },
+        "S3": {
+          "target": "com.amazonaws.appflow#S3Metadata",
+          "traits": {
+            "smithy.api#documentation": "<p>\n  The connector metadata specific to Amazon S3.\n</p>"
+          }
         }
       },
       "traits": {
@@ -569,16 +580,16 @@
     "com.amazonaws.appflow#ConnectorOAuthRequest": {
       "type": "structure",
       "members": {
-        "authCode": {
-          "target": "com.amazonaws.appflow#AuthCode",
-          "traits": {
-            "smithy.api#documentation": "<p>\n The code provided by the connector when it has been authenticated via the connected app.\n</p>"
-          }
-        },
         "redirectUri": {
           "target": "com.amazonaws.appflow#RedirectUri",
           "traits": {
             "smithy.api#documentation": "<p>\n      The URL to which the authentication server redirects the browser after authorization has been granted.\n    </p>"
+          }
+        },
+        "authCode": {
+          "target": "com.amazonaws.appflow#AuthCode",
+          "traits": {
+            "smithy.api#documentation": "<p>\n The code provided by the connector when it has been authenticated via the connected app.\n</p>"
           }
         }
       },
@@ -589,70 +600,16 @@
     "com.amazonaws.appflow#ConnectorOperator": {
       "type": "structure",
       "members": {
-        "Slack": {
-          "target": "com.amazonaws.appflow#SlackConnectorOperator",
-          "traits": {
-            "smithy.api#documentation": "<p>\n  The operation to be performed on the provided Slack source fields.\n</p>"
-          }
-        },
-        "InforNexus": {
-          "target": "com.amazonaws.appflow#InforNexusConnectorOperator",
-          "traits": {
-            "smithy.api#documentation": "<p>\n  The operation to be performed on the provided Infor Nexus source fields.\n</p>"
-          }
-        },
         "Zendesk": {
           "target": "com.amazonaws.appflow#ZendeskConnectorOperator",
           "traits": {
             "smithy.api#documentation": "<p>\n  The operation to be performed on the provided Zendesk source fields.\n</p>"
           }
         },
-        "Dynatrace": {
-          "target": "com.amazonaws.appflow#DynatraceConnectorOperator",
+        "Marketo": {
+          "target": "com.amazonaws.appflow#MarketoConnectorOperator",
           "traits": {
-            "smithy.api#documentation": "<p>\n  The operation to be performed on the provided Dynatrace source fields.\n</p>"
-          }
-        },
-        "S3": {
-          "target": "com.amazonaws.appflow#S3ConnectorOperator",
-          "traits": {
-            "smithy.api#documentation": "<p>\n  The operation to be performed on the provided Amazon S3 source fields.\n</p>"
-          }
-        },
-        "Singular": {
-          "target": "com.amazonaws.appflow#SingularConnectorOperator",
-          "traits": {
-            "smithy.api#documentation": "<p>\n  The operation to be performed on the provided Singular source fields.\n</p>"
-          }
-        },
-        "Salesforce": {
-          "target": "com.amazonaws.appflow#SalesforceConnectorOperator",
-          "traits": {
-            "smithy.api#documentation": "<p>\n  The operation to be performed on the provided Salesforce source fields.\n</p>"
-          }
-        },
-        "Trendmicro": {
-          "target": "com.amazonaws.appflow#TrendmicroConnectorOperator",
-          "traits": {
-            "smithy.api#documentation": "<p>\n  The operation to be performed on the provided Trend Micro source fields.\n</p>"
-          }
-        },
-        "ServiceNow": {
-          "target": "com.amazonaws.appflow#ServiceNowConnectorOperator",
-          "traits": {
-            "smithy.api#documentation": "<p>\n  The operation to be performed on the provided ServiceNow source fields.\n</p>"
-          }
-        },
-        "Amplitude": {
-          "target": "com.amazonaws.appflow#AmplitudeConnectorOperator",
-          "traits": {
-            "smithy.api#documentation": "<p>\n      The operation to be performed on the provided Amplitude source fields.\n    </p>"
-          }
-        },
-        "GoogleAnalytics": {
-          "target": "com.amazonaws.appflow#GoogleAnalyticsConnectorOperator",
-          "traits": {
-            "smithy.api#documentation": "<p>\n  The operation to be performed on the provided Google Analytics source fields.\n</p>"
+            "smithy.api#documentation": "<p>\n  The operation to be performed on the provided Marketo source fields.\n</p>"
           }
         },
         "Datadog": {
@@ -667,10 +624,64 @@
             "smithy.api#documentation": "<p>\n  The operation to be performed on the provided Veeva source fields.\n</p>"
           }
         },
-        "Marketo": {
-          "target": "com.amazonaws.appflow#MarketoConnectorOperator",
+        "Dynatrace": {
+          "target": "com.amazonaws.appflow#DynatraceConnectorOperator",
           "traits": {
-            "smithy.api#documentation": "<p>\n  The operation to be performed on the provided Marketo source fields.\n</p>"
+            "smithy.api#documentation": "<p>\n  The operation to be performed on the provided Dynatrace source fields.\n</p>"
+          }
+        },
+        "ServiceNow": {
+          "target": "com.amazonaws.appflow#ServiceNowConnectorOperator",
+          "traits": {
+            "smithy.api#documentation": "<p>\n  The operation to be performed on the provided ServiceNow source fields.\n</p>"
+          }
+        },
+        "Salesforce": {
+          "target": "com.amazonaws.appflow#SalesforceConnectorOperator",
+          "traits": {
+            "smithy.api#documentation": "<p>\n  The operation to be performed on the provided Salesforce source fields.\n</p>"
+          }
+        },
+        "Amplitude": {
+          "target": "com.amazonaws.appflow#AmplitudeConnectorOperator",
+          "traits": {
+            "smithy.api#documentation": "<p>\n      The operation to be performed on the provided Amplitude source fields.\n    </p>"
+          }
+        },
+        "Singular": {
+          "target": "com.amazonaws.appflow#SingularConnectorOperator",
+          "traits": {
+            "smithy.api#documentation": "<p>\n  The operation to be performed on the provided Singular source fields.\n</p>"
+          }
+        },
+        "S3": {
+          "target": "com.amazonaws.appflow#S3ConnectorOperator",
+          "traits": {
+            "smithy.api#documentation": "<p>\n  The operation to be performed on the provided Amazon S3 source fields.\n</p>"
+          }
+        },
+        "InforNexus": {
+          "target": "com.amazonaws.appflow#InforNexusConnectorOperator",
+          "traits": {
+            "smithy.api#documentation": "<p>\n  The operation to be performed on the provided Infor Nexus source fields.\n</p>"
+          }
+        },
+        "GoogleAnalytics": {
+          "target": "com.amazonaws.appflow#GoogleAnalyticsConnectorOperator",
+          "traits": {
+            "smithy.api#documentation": "<p>\n  The operation to be performed on the provided Google Analytics source fields.\n</p>"
+          }
+        },
+        "Slack": {
+          "target": "com.amazonaws.appflow#SlackConnectorOperator",
+          "traits": {
+            "smithy.api#documentation": "<p>\n  The operation to be performed on the provided Slack source fields.\n</p>"
+          }
+        },
+        "Trendmicro": {
+          "target": "com.amazonaws.appflow#TrendmicroConnectorOperator",
+          "traits": {
+            "smithy.api#documentation": "<p>\n  The operation to be performed on the provided Trend Micro source fields.\n</p>"
           }
         }
       },
@@ -681,16 +692,10 @@
     "com.amazonaws.appflow#ConnectorProfile": {
       "type": "structure",
       "members": {
-        "connectorProfileName": {
-          "target": "com.amazonaws.appflow#ConnectorProfileName",
+        "connectorProfileProperties": {
+          "target": "com.amazonaws.appflow#ConnectorProfileProperties",
           "traits": {
-            "smithy.api#documentation": "<p>\n  The name of the connector profile. The name is unique for each <code>ConnectorProfile</code> in the AWS account.\n</p>"
-          }
-        },
-        "credentialsArn": {
-          "target": "com.amazonaws.appflow#ARN",
-          "traits": {
-            "smithy.api#documentation": "<p>\n  The Amazon Resource Name (ARN) of the connector profile credentials.\n</p>"
+            "smithy.api#documentation": "<p>\nThe connector-specific properties of the profile configuration.\n</p>"
           }
         },
         "connectorProfileArn": {
@@ -705,16 +710,16 @@
             "smithy.api#documentation": "<p>\n  The type of connector, such as Salesforce, Amplitude, and so on.\n</p>"
           }
         },
-        "lastUpdatedAt": {
-          "target": "com.amazonaws.appflow#Date",
+        "credentialsArn": {
+          "target": "com.amazonaws.appflow#ARN",
           "traits": {
-            "smithy.api#documentation": "<p>\n  Specifies when the connector profile was last updated.\n</p>"
+            "smithy.api#documentation": "<p>\n  The Amazon Resource Name (ARN) of the connector profile credentials.\n</p>"
           }
         },
-        "connectorProfileProperties": {
-          "target": "com.amazonaws.appflow#ConnectorProfileProperties",
+        "connectorProfileName": {
+          "target": "com.amazonaws.appflow#ConnectorProfileName",
           "traits": {
-            "smithy.api#documentation": "<p>\nThe connector-specific properties of the profile configuration.\n</p>"
+            "smithy.api#documentation": "<p>\n  The name of the connector profile. The name is unique for each <code>ConnectorProfile</code> in the AWS account.\n</p>"
           }
         },
         "connectionMode": {
@@ -727,6 +732,12 @@
           "target": "com.amazonaws.appflow#Date",
           "traits": {
             "smithy.api#documentation": "<p>\n  Specifies when the connector profile was created.\n</p>"
+          }
+        },
+        "lastUpdatedAt": {
+          "target": "com.amazonaws.appflow#Date",
+          "traits": {
+            "smithy.api#documentation": "<p>\n  Specifies when the connector profile was last updated.\n</p>"
           }
         }
       },
@@ -769,52 +780,10 @@
     "com.amazonaws.appflow#ConnectorProfileCredentials": {
       "type": "structure",
       "members": {
-        "Datadog": {
-          "target": "com.amazonaws.appflow#DatadogConnectorProfileCredentials",
+        "ServiceNow": {
+          "target": "com.amazonaws.appflow#ServiceNowConnectorProfileCredentials",
           "traits": {
-            "smithy.api#documentation": "<p>\n  The connector-specific credentials required when using Datadog.\n</p>"
-          }
-        },
-        "Marketo": {
-          "target": "com.amazonaws.appflow#MarketoConnectorProfileCredentials",
-          "traits": {
-            "smithy.api#documentation": "<p>\n  The connector-specific credentials required when using Marketo.\n</p>"
-          }
-        },
-        "Redshift": {
-          "target": "com.amazonaws.appflow#RedshiftConnectorProfileCredentials",
-          "traits": {
-            "smithy.api#documentation": "<p>\n  The connector-specific credentials required when using Amazon Redshift.\n</p>"
-          }
-        },
-        "Dynatrace": {
-          "target": "com.amazonaws.appflow#DynatraceConnectorProfileCredentials",
-          "traits": {
-            "smithy.api#documentation": "<p>\n  The connector-specific credentials required when using Dynatrace.\n</p>"
-          }
-        },
-        "InforNexus": {
-          "target": "com.amazonaws.appflow#InforNexusConnectorProfileCredentials",
-          "traits": {
-            "smithy.api#documentation": "<p>\n  The connector-specific credentials required when using Infor Nexus.\n</p>"
-          }
-        },
-        "Zendesk": {
-          "target": "com.amazonaws.appflow#ZendeskConnectorProfileCredentials",
-          "traits": {
-            "smithy.api#documentation": "<p>\n  The connector-specific credentials required when using Zendesk.\n</p>"
-          }
-        },
-        "Trendmicro": {
-          "target": "com.amazonaws.appflow#TrendmicroConnectorProfileCredentials",
-          "traits": {
-            "smithy.api#documentation": "<p>\n  The connector-specific credentials required when using Trend Micro.\n</p>"
-          }
-        },
-        "Slack": {
-          "target": "com.amazonaws.appflow#SlackConnectorProfileCredentials",
-          "traits": {
-            "smithy.api#documentation": "<p>\n  The connector-specific credentials required when using Slack.\n</p>"
+            "smithy.api#documentation": "<p>\n  The connector-specific credentials required when using ServiceNow.\n</p>"
           }
         },
         "Salesforce": {
@@ -823,16 +792,28 @@
             "smithy.api#documentation": "<p>\n  The connector-specific credentials required when using Salesforce.\n</p>"
           }
         },
-        "Snowflake": {
-          "target": "com.amazonaws.appflow#SnowflakeConnectorProfileCredentials",
+        "Amplitude": {
+          "target": "com.amazonaws.appflow#AmplitudeConnectorProfileCredentials",
           "traits": {
-            "smithy.api#documentation": "<p>\n  The connector-specific credentials required when using Snowflake.\n</p>"
+            "smithy.api#documentation": "<p>\n  The connector-specific credentials required when using Amplitude.\n</p>"
           }
         },
-        "Singular": {
-          "target": "com.amazonaws.appflow#SingularConnectorProfileCredentials",
+        "Trendmicro": {
+          "target": "com.amazonaws.appflow#TrendmicroConnectorProfileCredentials",
           "traits": {
-            "smithy.api#documentation": "<p>\n  The connector-specific credentials required when using Singular.\n</p>"
+            "smithy.api#documentation": "<p>\n  The connector-specific credentials required when using Trend Micro.\n</p>"
+          }
+        },
+        "Dynatrace": {
+          "target": "com.amazonaws.appflow#DynatraceConnectorProfileCredentials",
+          "traits": {
+            "smithy.api#documentation": "<p>\n  The connector-specific credentials required when using Dynatrace.\n</p>"
+          }
+        },
+        "Zendesk": {
+          "target": "com.amazonaws.appflow#ZendeskConnectorProfileCredentials",
+          "traits": {
+            "smithy.api#documentation": "<p>\n  The connector-specific credentials required when using Zendesk.\n</p>"
           }
         },
         "GoogleAnalytics": {
@@ -841,16 +822,46 @@
             "smithy.api#documentation": "<p>\n  The connector-specific credentials required when using Google Analytics.\n</p>"
           }
         },
-        "ServiceNow": {
-          "target": "com.amazonaws.appflow#ServiceNowConnectorProfileCredentials",
+        "Singular": {
+          "target": "com.amazonaws.appflow#SingularConnectorProfileCredentials",
           "traits": {
-            "smithy.api#documentation": "<p>\n  The connector-specific credentials required when using ServiceNow.\n</p>"
+            "smithy.api#documentation": "<p>\n  The connector-specific credentials required when using Singular.\n</p>"
           }
         },
-        "Amplitude": {
-          "target": "com.amazonaws.appflow#AmplitudeConnectorProfileCredentials",
+        "Snowflake": {
+          "target": "com.amazonaws.appflow#SnowflakeConnectorProfileCredentials",
           "traits": {
-            "smithy.api#documentation": "<p>\n  The connector-specific credentials required when using Amplitude.\n</p>"
+            "smithy.api#documentation": "<p>\n  The connector-specific credentials required when using Snowflake.\n</p>"
+          }
+        },
+        "Redshift": {
+          "target": "com.amazonaws.appflow#RedshiftConnectorProfileCredentials",
+          "traits": {
+            "smithy.api#documentation": "<p>\n  The connector-specific credentials required when using Amazon Redshift.\n</p>"
+          }
+        },
+        "InforNexus": {
+          "target": "com.amazonaws.appflow#InforNexusConnectorProfileCredentials",
+          "traits": {
+            "smithy.api#documentation": "<p>\n  The connector-specific credentials required when using Infor Nexus.\n</p>"
+          }
+        },
+        "Slack": {
+          "target": "com.amazonaws.appflow#SlackConnectorProfileCredentials",
+          "traits": {
+            "smithy.api#documentation": "<p>\n  The connector-specific credentials required when using Slack.\n</p>"
+          }
+        },
+        "Marketo": {
+          "target": "com.amazonaws.appflow#MarketoConnectorProfileCredentials",
+          "traits": {
+            "smithy.api#documentation": "<p>\n  The connector-specific credentials required when using Marketo.\n</p>"
+          }
+        },
+        "Datadog": {
+          "target": "com.amazonaws.appflow#DatadogConnectorProfileCredentials",
+          "traits": {
+            "smithy.api#documentation": "<p>\n  The connector-specific credentials required when using Datadog.\n</p>"
           }
         },
         "Veeva": {
@@ -895,34 +906,16 @@
     "com.amazonaws.appflow#ConnectorProfileProperties": {
       "type": "structure",
       "members": {
-        "GoogleAnalytics": {
-          "target": "com.amazonaws.appflow#GoogleAnalyticsConnectorProfileProperties",
-          "traits": {
-            "smithy.api#documentation": "<p>\n  The connector-specific properties required Google Analytics.\n</p>"
-          }
-        },
-        "ServiceNow": {
-          "target": "com.amazonaws.appflow#ServiceNowConnectorProfileProperties",
-          "traits": {
-            "smithy.api#documentation": "<p>\n  The connector-specific properties required by serviceNow.\n</p>"
-          }
-        },
-        "Amplitude": {
-          "target": "com.amazonaws.appflow#AmplitudeConnectorProfileProperties",
-          "traits": {
-            "smithy.api#documentation": "<p>\n  The connector-specific properties required by Amplitude.\n</p>"
-          }
-        },
-        "Trendmicro": {
-          "target": "com.amazonaws.appflow#TrendmicroConnectorProfileProperties",
-          "traits": {
-            "smithy.api#documentation": "<p>\n  The connector-specific properties required by Trend Micro.\n</p>"
-          }
-        },
         "Slack": {
           "target": "com.amazonaws.appflow#SlackConnectorProfileProperties",
           "traits": {
             "smithy.api#documentation": "<p>\n  The connector-specific properties required by Slack.\n</p>"
+          }
+        },
+        "Snowflake": {
+          "target": "com.amazonaws.appflow#SnowflakeConnectorProfileProperties",
+          "traits": {
+            "smithy.api#documentation": "<p>\nThe connector-specific properties required by Snowflake.\n</p>"
           }
         },
         "Veeva": {
@@ -949,10 +942,28 @@
             "smithy.api#documentation": "<p>\n  The connector-specific properties required by Amazon Redshift.\n</p>"
           }
         },
-        "Singular": {
-          "target": "com.amazonaws.appflow#SingularConnectorProfileProperties",
+        "Trendmicro": {
+          "target": "com.amazonaws.appflow#TrendmicroConnectorProfileProperties",
           "traits": {
-            "smithy.api#documentation": "<p>\n  The connector-specific properties required by Singular.\n</p>"
+            "smithy.api#documentation": "<p>\n  The connector-specific properties required by Trend Micro.\n</p>"
+          }
+        },
+        "ServiceNow": {
+          "target": "com.amazonaws.appflow#ServiceNowConnectorProfileProperties",
+          "traits": {
+            "smithy.api#documentation": "<p>\n  The connector-specific properties required by serviceNow.\n</p>"
+          }
+        },
+        "Amplitude": {
+          "target": "com.amazonaws.appflow#AmplitudeConnectorProfileProperties",
+          "traits": {
+            "smithy.api#documentation": "<p>\n  The connector-specific properties required by Amplitude.\n</p>"
+          }
+        },
+        "GoogleAnalytics": {
+          "target": "com.amazonaws.appflow#GoogleAnalyticsConnectorProfileProperties",
+          "traits": {
+            "smithy.api#documentation": "<p>\n  The connector-specific properties required Google Analytics.\n</p>"
           }
         },
         "InforNexus": {
@@ -967,10 +978,10 @@
             "smithy.api#documentation": "<p>\n  The connector-specific properties required by Zendesk.\n</p>"
           }
         },
-        "Snowflake": {
-          "target": "com.amazonaws.appflow#SnowflakeConnectorProfileProperties",
+        "Singular": {
+          "target": "com.amazonaws.appflow#SingularConnectorProfileProperties",
           "traits": {
-            "smithy.api#documentation": "<p>\nThe connector-specific properties required by Snowflake.\n</p>"
+            "smithy.api#documentation": "<p>\n  The connector-specific properties required by Singular.\n</p>"
           }
         },
         "Dynatrace": {
@@ -1127,17 +1138,11 @@
     "com.amazonaws.appflow#CreateConnectorProfileRequest": {
       "type": "structure",
       "members": {
-        "connectionMode": {
-          "target": "com.amazonaws.appflow#ConnectionMode",
+        "connectorProfileName": {
+          "target": "com.amazonaws.appflow#ConnectorProfileName",
           "traits": {
-            "smithy.api#documentation": "<p>\n  Indicates the connection mode and specifies whether it is public or private. Private flows use AWS PrivateLink to route data over AWS infrastructure without exposing it to the public internet.\n</p>",
+            "smithy.api#documentation": "<p>\n  The name of the connector profile. The name is unique for each <code>ConnectorProfile</code> in your AWS account.\n</p>",
             "smithy.api#required": {}
-          }
-        },
-        "kmsArn": {
-          "target": "com.amazonaws.appflow#KMSArn",
-          "traits": {
-            "smithy.api#documentation": "<p>\n  The ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.\n</p>"
           }
         },
         "connectorType": {
@@ -1147,17 +1152,23 @@
             "smithy.api#required": {}
           }
         },
-        "connectorProfileName": {
-          "target": "com.amazonaws.appflow#ConnectorProfileName",
-          "traits": {
-            "smithy.api#documentation": "<p>\n  The name of the connector profile. The name is unique for each <code>ConnectorProfile</code> in your AWS account.\n</p>",
-            "smithy.api#required": {}
-          }
-        },
         "connectorProfileConfig": {
           "target": "com.amazonaws.appflow#ConnectorProfileConfig",
           "traits": {
             "smithy.api#documentation": "<p>\nDefines the connector-specific configuration and credentials.\n</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "kmsArn": {
+          "target": "com.amazonaws.appflow#KMSArn",
+          "traits": {
+            "smithy.api#documentation": "<p>\n  The ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.\n</p>"
+          }
+        },
+        "connectionMode": {
+          "target": "com.amazonaws.appflow#ConnectionMode",
+          "traits": {
+            "smithy.api#documentation": "<p>\n  Indicates the connection mode and specifies whether it is public or private. Private flows use AWS PrivateLink to route data over AWS infrastructure without exposing it to the public internet.\n</p>",
             "smithy.api#required": {}
           }
         }
@@ -1217,19 +1228,6 @@
     "com.amazonaws.appflow#CreateFlowRequest": {
       "type": "structure",
       "members": {
-        "description": {
-          "target": "com.amazonaws.appflow#FlowDescription",
-          "traits": {
-            "smithy.api#documentation": "<p>\n A description of the flow you want to create. \n</p>"
-          }
-        },
-        "triggerConfig": {
-          "target": "com.amazonaws.appflow#TriggerConfig",
-          "traits": {
-            "smithy.api#documentation": "<p>\n The trigger settings that determine how and when the flow runs.\n</p>",
-            "smithy.api#required": {}
-          }
-        },
         "kmsArn": {
           "target": "com.amazonaws.appflow#KMSArn",
           "traits": {
@@ -1250,6 +1248,26 @@
             "smithy.api#required": {}
           }
         },
+        "triggerConfig": {
+          "target": "com.amazonaws.appflow#TriggerConfig",
+          "traits": {
+            "smithy.api#documentation": "<p>\n The trigger settings that determine how and when the flow runs.\n</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "description": {
+          "target": "com.amazonaws.appflow#FlowDescription",
+          "traits": {
+            "smithy.api#documentation": "<p>\n A description of the flow you want to create. \n</p>"
+          }
+        },
+        "flowName": {
+          "target": "com.amazonaws.appflow#FlowName",
+          "traits": {
+            "smithy.api#documentation": "<p>\nThe specified name of the flow. Spaces are not allowed. Use underscores (_) or hyphens (-) only.\n</p>",
+            "smithy.api#required": {}
+          }
+        },
         "tags": {
           "target": "com.amazonaws.appflow#TagMap",
           "traits": {
@@ -1260,13 +1278,6 @@
           "target": "com.amazonaws.appflow#Tasks",
           "traits": {
             "smithy.api#documentation": "<p>\n A list of tasks that Amazon AppFlow performs while transferring the data in the flow run.\n</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "flowName": {
-          "target": "com.amazonaws.appflow#FlowName",
-          "traits": {
-            "smithy.api#documentation": "<p>\nThe specified name of the flow. Spaces are not allowed. Use underscores (_) or hyphens (-) only.\n</p>",
             "smithy.api#required": {}
           }
         }
@@ -1394,17 +1405,17 @@
     "com.amazonaws.appflow#DatadogConnectorProfileCredentials": {
       "type": "structure",
       "members": {
-        "applicationKey": {
-          "target": "com.amazonaws.appflow#ApplicationKey",
-          "traits": {
-            "smithy.api#documentation": "<p>\n  Application keys, in conjunction with your API key, give you full access to Datadog’s programmatic API. Application keys are associated with the user account that created them. The application key is used to log all requests made to the API. \n</p>",
-            "smithy.api#required": {}
-          }
-        },
         "apiKey": {
           "target": "com.amazonaws.appflow#ApiKey",
           "traits": {
             "smithy.api#documentation": "<p>\n  A unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.\n</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "applicationKey": {
+          "target": "com.amazonaws.appflow#ApplicationKey",
+          "traits": {
+            "smithy.api#documentation": "<p>\n  Application keys, in conjunction with your API key, give you full access to Datadog’s programmatic API. Application keys are associated with the user account that created them. The application key is used to log all requests made to the API. \n</p>",
             "smithy.api#required": {}
           }
         }
@@ -1452,6 +1463,16 @@
     },
     "com.amazonaws.appflow#Date": {
       "type": "timestamp"
+    },
+    "com.amazonaws.appflow#DatetimeTypeFieldName": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 256
+        },
+        "smithy.api#pattern": ".*"
+      }
     },
     "com.amazonaws.appflow#DeleteConnectorProfile": {
       "type": "operation",
@@ -1534,17 +1555,17 @@
     "com.amazonaws.appflow#DeleteFlowRequest": {
       "type": "structure",
       "members": {
-        "forceDelete": {
-          "target": "com.amazonaws.appflow#Boolean",
-          "traits": {
-            "smithy.api#documentation": "<p>\n  Indicates whether Amazon AppFlow should delete the flow, even if it is currently in use.\n</p>"
-          }
-        },
         "flowName": {
           "target": "com.amazonaws.appflow#FlowName",
           "traits": {
             "smithy.api#documentation": "<p>\n  The specified name of the flow. Spaces are not allowed. Use underscores (_) or hyphens (-) only.\n</p>",
             "smithy.api#required": {}
+          }
+        },
+        "forceDelete": {
+          "target": "com.amazonaws.appflow#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>\n  Indicates whether Amazon AppFlow should delete the flow, even if it is currently in use.\n</p>"
           }
         }
       }
@@ -1590,10 +1611,11 @@
     "com.amazonaws.appflow#DescribeConnectorEntityRequest": {
       "type": "structure",
       "members": {
-        "connectorProfileName": {
-          "target": "com.amazonaws.appflow#ConnectorProfileName",
+        "connectorEntityName": {
+          "target": "com.amazonaws.appflow#Name",
           "traits": {
-            "smithy.api#documentation": "<p>\n  The name of the connector profile. The name is unique for each <code>ConnectorProfile</code> in the AWS account.\n</p>"
+            "smithy.api#documentation": "<p>\n The entity name for that connector.\n</p>",
+            "smithy.api#required": {}
           }
         },
         "connectorType": {
@@ -1602,11 +1624,10 @@
             "smithy.api#documentation": "<p>\n  The type of connector application, such as Salesforce, Amplitude, and so on.\n</p>"
           }
         },
-        "connectorEntityName": {
-          "target": "com.amazonaws.appflow#Name",
+        "connectorProfileName": {
+          "target": "com.amazonaws.appflow#ConnectorProfileName",
           "traits": {
-            "smithy.api#documentation": "<p>\n The entity name for that connector.\n</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>\n  The name of the connector profile. The name is unique for each <code>ConnectorProfile</code> in the AWS account.\n</p>"
           }
         }
       }
@@ -1656,6 +1677,12 @@
     "com.amazonaws.appflow#DescribeConnectorProfilesRequest": {
       "type": "structure",
       "members": {
+        "nextToken": {
+          "target": "com.amazonaws.appflow#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>\nThe pagination token for the next page of data.\n</p>"
+          }
+        },
         "connectorProfileNames": {
           "target": "com.amazonaws.appflow#ConnectorProfileNameList",
           "traits": {
@@ -1672,12 +1699,6 @@
           "target": "com.amazonaws.appflow#MaxResults",
           "traits": {
             "smithy.api#documentation": "<p>\n       Specifies the maximum number of items that should be returned in the result set. The default for <code>maxResults</code> is 20 (for all paginated API operations).\n    </p>"
-          }
-        },
-        "nextToken": {
-          "target": "com.amazonaws.appflow#NextToken",
-          "traits": {
-            "smithy.api#documentation": "<p>\nThe pagination token for the next page of data.\n</p>"
           }
         }
       }
@@ -1731,16 +1752,16 @@
     "com.amazonaws.appflow#DescribeConnectorsRequest": {
       "type": "structure",
       "members": {
-        "connectorTypes": {
-          "target": "com.amazonaws.appflow#ConnectorTypeList",
-          "traits": {
-            "smithy.api#documentation": "<p>\n  The type of connector, such as Salesforce, Amplitude, and so on.\n</p>"
-          }
-        },
         "nextToken": {
           "target": "com.amazonaws.appflow#NextToken",
           "traits": {
             "smithy.api#documentation": "<p>\nThe pagination token for the next page of data.\n</p>"
+          }
+        },
+        "connectorTypes": {
+          "target": "com.amazonaws.appflow#ConnectorTypeList",
+          "traits": {
+            "smithy.api#documentation": "<p>\n  The type of connector, such as Salesforce, Amplitude, and so on.\n</p>"
           }
         }
       }
@@ -1748,16 +1769,16 @@
     "com.amazonaws.appflow#DescribeConnectorsResponse": {
       "type": "structure",
       "members": {
-        "nextToken": {
-          "target": "com.amazonaws.appflow#NextToken",
-          "traits": {
-            "smithy.api#documentation": "<p>\nThe pagination token for the next page of data.\n</p>"
-          }
-        },
         "connectorConfigurations": {
           "target": "com.amazonaws.appflow#ConnectorConfigurationsMap",
           "traits": {
             "smithy.api#documentation": "<p>\n  The configuration that is applied to the connectors used in the flow.\n</p>"
+          }
+        },
+        "nextToken": {
+          "target": "com.amazonaws.appflow#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>\nThe pagination token for the next page of data.\n</p>"
           }
         }
       }
@@ -1823,10 +1844,10 @@
     "com.amazonaws.appflow#DescribeFlowExecutionRecordsRequest": {
       "type": "structure",
       "members": {
-        "maxResults": {
-          "target": "com.amazonaws.appflow#MaxResults",
+        "nextToken": {
+          "target": "com.amazonaws.appflow#NextToken",
           "traits": {
-            "smithy.api#documentation": "<p>\n    Specifies the maximum number of items that should be returned in the result set. The default for <code>maxResults</code> is 20 (for all paginated API operations).\n  </p>"
+            "smithy.api#documentation": "<p>\nThe pagination token for the next page of data.\n</p>"
           }
         },
         "flowName": {
@@ -1836,10 +1857,10 @@
             "smithy.api#required": {}
           }
         },
-        "nextToken": {
-          "target": "com.amazonaws.appflow#NextToken",
+        "maxResults": {
+          "target": "com.amazonaws.appflow#MaxResults",
           "traits": {
-            "smithy.api#documentation": "<p>\nThe pagination token for the next page of data.\n</p>"
+            "smithy.api#documentation": "<p>\n    Specifies the maximum number of items that should be returned in the result set. The default for <code>maxResults</code> is 20 (for all paginated API operations).\n  </p>"
           }
         }
       }
@@ -1876,76 +1897,10 @@
     "com.amazonaws.appflow#DescribeFlowResponse": {
       "type": "structure",
       "members": {
-        "sourceFlowConfig": {
-          "target": "com.amazonaws.appflow#SourceFlowConfig",
+        "description": {
+          "target": "com.amazonaws.appflow#FlowDescription",
           "traits": {
-            "smithy.api#documentation": "<p>\n  The configuration that controls how Amazon AppFlow retrieves data from the source connector.\n</p>"
-          }
-        },
-        "triggerConfig": {
-          "target": "com.amazonaws.appflow#TriggerConfig",
-          "traits": {
-            "smithy.api#documentation": "<p>\n  The trigger settings that determine how and when the flow runs.\n</p>"
-          }
-        },
-        "lastUpdatedBy": {
-          "target": "com.amazonaws.appflow#UpdatedBy",
-          "traits": {
-            "smithy.api#documentation": "<p>\nSpecifies the user name of the account that performed the most recent update. \n</p>"
-          }
-        },
-        "destinationFlowConfigList": {
-          "target": "com.amazonaws.appflow#DestinationFlowConfigList",
-          "traits": {
-            "smithy.api#documentation": "<p>\n  The configuration that controls how Amazon AppFlow transfers data to the destination connector.\n</p>"
-          }
-        },
-        "flowStatusMessage": {
-          "target": "com.amazonaws.appflow#FlowStatusMessage",
-          "traits": {
-            "smithy.api#documentation": "<p>\n      Contains an error message if the flow status is in a suspended or error state. This applies only to scheduled or event-triggered flows.   \n    </p>"
-          }
-        },
-        "kmsArn": {
-          "target": "com.amazonaws.appflow#KMSArn",
-          "traits": {
-            "smithy.api#documentation": "<p>\n  The ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.\n</p>"
-          }
-        },
-        "lastUpdatedAt": {
-          "target": "com.amazonaws.appflow#Date",
-          "traits": {
-            "smithy.api#documentation": "<p>\n  Specifies when the flow was last updated.\n</p>"
-          }
-        },
-        "lastRunExecutionDetails": {
-          "target": "com.amazonaws.appflow#ExecutionDetails",
-          "traits": {
-            "smithy.api#documentation": "<p>\nDescribes the details of the most recent flow run.\n</p>"
-          }
-        },
-        "flowStatus": {
-          "target": "com.amazonaws.appflow#FlowStatus",
-          "traits": {
-            "smithy.api#documentation": "<p>\n      Indicates the current status of the flow.\n    </p>"
-          }
-        },
-        "tasks": {
-          "target": "com.amazonaws.appflow#Tasks",
-          "traits": {
-            "smithy.api#documentation": "<p>\n  A list of tasks that Amazon AppFlow performs while transferring the data in the flow run.\n</p>"
-          }
-        },
-        "createdAt": {
-          "target": "com.amazonaws.appflow#Date",
-          "traits": {
-            "smithy.api#documentation": "<p>\nSpecifies when the flow was created.\n</p>"
-          }
-        },
-        "createdBy": {
-          "target": "com.amazonaws.appflow#CreatedBy",
-          "traits": {
-            "smithy.api#documentation": "<p>\n  The ARN of the user who created the flow.\n</p>"
+            "smithy.api#documentation": "<p>\n  A description of the flow.\n</p>"
           }
         },
         "flowName": {
@@ -1954,16 +1909,82 @@
             "smithy.api#documentation": "<p>\n  The specified name of the flow. Spaces are not allowed. Use underscores (_) or hyphens (-) only.\n</p>"
           }
         },
+        "flowStatus": {
+          "target": "com.amazonaws.appflow#FlowStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>\n      Indicates the current status of the flow.\n    </p>"
+          }
+        },
+        "kmsArn": {
+          "target": "com.amazonaws.appflow#KMSArn",
+          "traits": {
+            "smithy.api#documentation": "<p>\n  The ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.\n</p>"
+          }
+        },
+        "destinationFlowConfigList": {
+          "target": "com.amazonaws.appflow#DestinationFlowConfigList",
+          "traits": {
+            "smithy.api#documentation": "<p>\n  The configuration that controls how Amazon AppFlow transfers data to the destination connector.\n</p>"
+          }
+        },
+        "tasks": {
+          "target": "com.amazonaws.appflow#Tasks",
+          "traits": {
+            "smithy.api#documentation": "<p>\n  A list of tasks that Amazon AppFlow performs while transferring the data in the flow run.\n</p>"
+          }
+        },
+        "sourceFlowConfig": {
+          "target": "com.amazonaws.appflow#SourceFlowConfig",
+          "traits": {
+            "smithy.api#documentation": "<p>\n  The configuration that controls how Amazon AppFlow retrieves data from the source connector.\n</p>"
+          }
+        },
+        "lastUpdatedBy": {
+          "target": "com.amazonaws.appflow#UpdatedBy",
+          "traits": {
+            "smithy.api#documentation": "<p>\nSpecifies the user name of the account that performed the most recent update. \n</p>"
+          }
+        },
         "flowArn": {
           "target": "com.amazonaws.appflow#FlowArn",
           "traits": {
             "smithy.api#documentation": "<p>\n  The flow's Amazon Resource Name (ARN).\n</p>"
           }
         },
-        "description": {
-          "target": "com.amazonaws.appflow#FlowDescription",
+        "createdBy": {
+          "target": "com.amazonaws.appflow#CreatedBy",
           "traits": {
-            "smithy.api#documentation": "<p>\n  A description of the flow.\n</p>"
+            "smithy.api#documentation": "<p>\n  The ARN of the user who created the flow.\n</p>"
+          }
+        },
+        "flowStatusMessage": {
+          "target": "com.amazonaws.appflow#FlowStatusMessage",
+          "traits": {
+            "smithy.api#documentation": "<p>\n      Contains an error message if the flow status is in a suspended or error state. This applies only to scheduled or event-triggered flows.   \n    </p>"
+          }
+        },
+        "createdAt": {
+          "target": "com.amazonaws.appflow#Date",
+          "traits": {
+            "smithy.api#documentation": "<p>\nSpecifies when the flow was created.\n</p>"
+          }
+        },
+        "lastUpdatedAt": {
+          "target": "com.amazonaws.appflow#Date",
+          "traits": {
+            "smithy.api#documentation": "<p>\n  Specifies when the flow was last updated.\n</p>"
+          }
+        },
+        "triggerConfig": {
+          "target": "com.amazonaws.appflow#TriggerConfig",
+          "traits": {
+            "smithy.api#documentation": "<p>\n  The trigger settings that determine how and when the flow runs.\n</p>"
+          }
+        },
+        "lastRunExecutionDetails": {
+          "target": "com.amazonaws.appflow#ExecutionDetails",
+          "traits": {
+            "smithy.api#documentation": "<p>\nDescribes the details of the most recent flow run.\n</p>"
           }
         },
         "tags": {
@@ -1987,10 +2008,16 @@
     "com.amazonaws.appflow#DestinationConnectorProperties": {
       "type": "structure",
       "members": {
-        "S3": {
-          "target": "com.amazonaws.appflow#S3DestinationProperties",
+        "EventBridge": {
+          "target": "com.amazonaws.appflow#EventBridgeDestinationProperties",
           "traits": {
-            "smithy.api#documentation": "<p>\n  The properties required to query Amazon S3.\n</p>"
+            "smithy.api#documentation": "<p>\n      The properties required to query Amazon EventBridge.\n    </p>"
+          }
+        },
+        "Snowflake": {
+          "target": "com.amazonaws.appflow#SnowflakeDestinationProperties",
+          "traits": {
+            "smithy.api#documentation": "<p>\n  The properties required to query Snowflake.\n</p>"
           }
         },
         "Redshift": {
@@ -2005,16 +2032,10 @@
             "smithy.api#documentation": "<p>\n  The properties required to query Salesforce.\n</p>"
           }
         },
-        "EventBridge": {
-          "target": "com.amazonaws.appflow#EventBridgeDestinationProperties",
+        "S3": {
+          "target": "com.amazonaws.appflow#S3DestinationProperties",
           "traits": {
-            "smithy.api#documentation": "<p>\n      The properties required to query Amazon EventBridge.\n    </p>"
-          }
-        },
-        "Snowflake": {
-          "target": "com.amazonaws.appflow#SnowflakeDestinationProperties",
-          "traits": {
-            "smithy.api#documentation": "<p>\n  The properties required to query Snowflake.\n</p>"
+            "smithy.api#documentation": "<p>\n  The properties required to query Amazon S3.\n</p>"
           }
         }
       },
@@ -2035,10 +2056,22 @@
     "com.amazonaws.appflow#DestinationFieldProperties": {
       "type": "structure",
       "members": {
-        "isCreatable": {
+        "isNullable": {
           "target": "com.amazonaws.appflow#Boolean",
           "traits": {
-            "smithy.api#documentation": "<p>\n  Specifies if the destination field can be created by the current user.\n</p>"
+            "smithy.api#documentation": "<p>\n  Specifies if the destination field can have a null value.\n</p>"
+          }
+        },
+        "supportedWriteOperations": {
+          "target": "com.amazonaws.appflow#SupportedWriteOperationList",
+          "traits": {
+            "smithy.api#documentation": "<p>\n      A list of supported write operations. For each write operation listed, this field can be used in <code>idFieldNames</code> when that write operation is present as a destination option. \n    </p>"
+          }
+        },
+        "isUpdatable": {
+          "target": "com.amazonaws.appflow#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>\n      Specifies whether the field can be updated during an <code>UPDATE</code> or <code>UPSERT</code> write operation.\n    </p>"
           }
         },
         "isUpsertable": {
@@ -2047,10 +2080,10 @@
             "smithy.api#documentation": "<p>\n      Specifies if the flow run can either insert new rows in the destination field if they do not already exist, or update them if they do.\n    </p>"
           }
         },
-        "isNullable": {
+        "isCreatable": {
           "target": "com.amazonaws.appflow#Boolean",
           "traits": {
-            "smithy.api#documentation": "<p>\n  Specifies if the destination field can have a null value.\n</p>"
+            "smithy.api#documentation": "<p>\n  Specifies if the destination field can be created by the current user.\n</p>"
           }
         }
       },
@@ -2061,6 +2094,13 @@
     "com.amazonaws.appflow#DestinationFlowConfig": {
       "type": "structure",
       "members": {
+        "destinationConnectorProperties": {
+          "target": "com.amazonaws.appflow#DestinationConnectorProperties",
+          "traits": {
+            "smithy.api#documentation": "<p>\n  This stores the information that is required to query a particular connector.\n</p>",
+            "smithy.api#required": {}
+          }
+        },
         "connectorProfileName": {
           "target": "com.amazonaws.appflow#ConnectorProfileName",
           "traits": {
@@ -2071,13 +2111,6 @@
           "target": "com.amazonaws.appflow#ConnectorType",
           "traits": {
             "smithy.api#documentation": "<p>\n  The type of connector, such as Salesforce, Amplitude, and so on.\n</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "destinationConnectorProperties": {
-          "target": "com.amazonaws.appflow#DestinationConnectorProperties",
-          "traits": {
-            "smithy.api#documentation": "<p>\n  This stores the information that is required to query a particular connector.\n</p>",
             "smithy.api#required": {}
           }
         }
@@ -2224,6 +2257,12 @@
     "com.amazonaws.appflow#ErrorHandlingConfig": {
       "type": "structure",
       "members": {
+        "failOnFirstDestinationError": {
+          "target": "com.amazonaws.appflow#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>\nSpecifies if the flow should fail after the first instance of a failure when attempting to place data in the destination.\n</p>"
+          }
+        },
         "bucketPrefix": {
           "target": "com.amazonaws.appflow#BucketPrefix",
           "traits": {
@@ -2235,12 +2274,6 @@
           "traits": {
             "smithy.api#documentation": "<p>\nSpecifies the name of the Amazon S3 bucket.\n</p>"
           }
-        },
-        "failOnFirstDestinationError": {
-          "target": "com.amazonaws.appflow#Boolean",
-          "traits": {
-            "smithy.api#documentation": "<p>\nSpecifies if the flow should fail after the first instance of a failure when attempting to place data in the destination.\n</p>"
-          }
         }
       },
       "traits": {
@@ -2250,16 +2283,16 @@
     "com.amazonaws.appflow#ErrorInfo": {
       "type": "structure",
       "members": {
-        "executionMessage": {
-          "target": "com.amazonaws.appflow#ExecutionMessage",
-          "traits": {
-            "smithy.api#documentation": "<p>\nSpecifies the error message that appears if a flow fails.\n</p>"
-          }
-        },
         "putFailuresCount": {
           "target": "com.amazonaws.appflow#Long",
           "traits": {
             "smithy.api#documentation": "<p>\nSpecifies the failure count for the attempted flow.\n</p>"
+          }
+        },
+        "executionMessage": {
+          "target": "com.amazonaws.appflow#ExecutionMessage",
+          "traits": {
+            "smithy.api#documentation": "<p>\nSpecifies the error message that appears if a flow fails.\n</p>"
           }
         }
       },
@@ -2280,15 +2313,15 @@
     "com.amazonaws.appflow#EventBridgeDestinationProperties": {
       "type": "structure",
       "members": {
+        "errorHandlingConfig": {
+          "target": "com.amazonaws.appflow#ErrorHandlingConfig"
+        },
         "object": {
           "target": "com.amazonaws.appflow#Object",
           "traits": {
             "smithy.api#documentation": "<p>\n      The object specified in the Amazon EventBridge flow destination.\n    </p>",
             "smithy.api#required": {}
           }
-        },
-        "errorHandlingConfig": {
-          "target": "com.amazonaws.appflow#ErrorHandlingConfig"
         }
       },
       "traits": {
@@ -2305,16 +2338,16 @@
     "com.amazonaws.appflow#ExecutionDetails": {
       "type": "structure",
       "members": {
-        "mostRecentExecutionStatus": {
-          "target": "com.amazonaws.appflow#ExecutionStatus",
-          "traits": {
-            "smithy.api#documentation": "<p>\n  Specifies the status of the most recent flow run.\n</p>"
-          }
-        },
         "mostRecentExecutionTime": {
           "target": "com.amazonaws.appflow#Date",
           "traits": {
             "smithy.api#documentation": "<p>\n  Specifies the time of the most recent flow run.\n</p>"
+          }
+        },
+        "mostRecentExecutionStatus": {
+          "target": "com.amazonaws.appflow#ExecutionStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>\n  Specifies the status of the most recent flow run.\n</p>"
           }
         },
         "mostRecentExecutionMessage": {
@@ -2357,28 +2390,28 @@
             "smithy.api#documentation": "<p>\nSpecifies the flow run status and whether it is in progress, has completed successfully, or has failed.\n</p>"
           }
         },
-        "lastUpdatedAt": {
-          "target": "com.amazonaws.appflow#Date",
-          "traits": {
-            "smithy.api#documentation": "<p>\n  Specifies the time of the most recent update.\n</p>"
-          }
-        },
         "executionId": {
           "target": "com.amazonaws.appflow#ExecutionId",
           "traits": {
             "smithy.api#documentation": "<p>\nSpecifies the identifier of the given flow run.\n</p>"
           }
         },
-        "executionResult": {
-          "target": "com.amazonaws.appflow#ExecutionResult",
+        "lastUpdatedAt": {
+          "target": "com.amazonaws.appflow#Date",
           "traits": {
-            "smithy.api#documentation": "<p>\nDescribes the result of the given flow run.\n</p>"
+            "smithy.api#documentation": "<p>\n  Specifies the time of the most recent update.\n</p>"
           }
         },
         "startedAt": {
           "target": "com.amazonaws.appflow#Date",
           "traits": {
             "smithy.api#documentation": "<p>\nSpecifies the start time of the flow run.\n</p>"
+          }
+        },
+        "executionResult": {
+          "target": "com.amazonaws.appflow#ExecutionResult",
+          "traits": {
+            "smithy.api#documentation": "<p>\nDescribes the result of the given flow run.\n</p>"
           }
         }
       },
@@ -2389,28 +2422,28 @@
     "com.amazonaws.appflow#ExecutionResult": {
       "type": "structure",
       "members": {
-        "bytesProcessed": {
-          "target": "com.amazonaws.appflow#Long",
-          "traits": {
-            "smithy.api#documentation": "<p>\n  The total number of bytes processed by the flow run.\n</p>"
-          }
-        },
         "errorInfo": {
           "target": "com.amazonaws.appflow#ErrorInfo",
           "traits": {
             "smithy.api#documentation": "<p>\nProvides any error message information related to the flow run.\n</p>"
           }
         },
-        "bytesWritten": {
+        "bytesProcessed": {
           "target": "com.amazonaws.appflow#Long",
           "traits": {
-            "smithy.api#documentation": "<p>\n  The total number of bytes written as a result of the flow run.\n</p>"
+            "smithy.api#documentation": "<p>\n  The total number of bytes processed by the flow run.\n</p>"
           }
         },
         "recordsProcessed": {
           "target": "com.amazonaws.appflow#Long",
           "traits": {
             "smithy.api#documentation": "<p>\nThe number of records processed in the flow run.\n</p>"
+          }
+        },
+        "bytesWritten": {
+          "target": "com.amazonaws.appflow#Long",
+          "traits": {
+            "smithy.api#documentation": "<p>\n  The total number of bytes written as a result of the flow run.\n</p>"
           }
         }
       },
@@ -2443,10 +2476,10 @@
     "com.amazonaws.appflow#FieldTypeDetails": {
       "type": "structure",
       "members": {
-        "filterOperators": {
-          "target": "com.amazonaws.appflow#FilterOperatorList",
+        "fieldType": {
+          "target": "com.amazonaws.appflow#FieldType",
           "traits": {
-            "smithy.api#documentation": "<p>\nThe list of operators supported by a field.\n</p>",
+            "smithy.api#documentation": "<p>\nThe type of field, such as string, integer, date, and so on.\n</p>",
             "smithy.api#required": {}
           }
         },
@@ -2456,10 +2489,10 @@
             "smithy.api#documentation": "<p>\n The list of values that a field can contain. For example, a Boolean <code>fieldType</code> can have two values: \"true\" and \"false\". \n</p>"
           }
         },
-        "fieldType": {
-          "target": "com.amazonaws.appflow#FieldType",
+        "filterOperators": {
+          "target": "com.amazonaws.appflow#FilterOperatorList",
           "traits": {
-            "smithy.api#documentation": "<p>\nThe type of field, such as string, integer, date, and so on.\n</p>",
+            "smithy.api#documentation": "<p>\nThe list of operators supported by a field.\n</p>",
             "smithy.api#required": {}
           }
         }
@@ -2506,22 +2539,10 @@
     "com.amazonaws.appflow#FlowDefinition": {
       "type": "structure",
       "members": {
-        "lastUpdatedBy": {
-          "target": "com.amazonaws.appflow#UpdatedBy",
+        "description": {
+          "target": "com.amazonaws.appflow#FlowDescription",
           "traits": {
-            "smithy.api#documentation": "<p>\n  Specifies the account user name that most recently updated the flow. \n</p>"
-          }
-        },
-        "lastUpdatedAt": {
-          "target": "com.amazonaws.appflow#Date",
-          "traits": {
-            "smithy.api#documentation": "<p>\n  Specifies when the flow was last updated.\n</p>"
-          }
-        },
-        "lastRunExecutionDetails": {
-          "target": "com.amazonaws.appflow#ExecutionDetails",
-          "traits": {
-            "smithy.api#documentation": "<p>\n  Describes the details of the most recent flow run.\n</p>"
+            "smithy.api#documentation": "<p>\n  A user-entered description of the flow.\n</p>"
           }
         },
         "flowName": {
@@ -2530,22 +2551,22 @@
             "smithy.api#documentation": "<p>\n  The specified name of the flow. Spaces are not allowed. Use underscores (_) or hyphens (-) only.\n</p>"
           }
         },
-        "description": {
-          "target": "com.amazonaws.appflow#FlowDescription",
+        "triggerType": {
+          "target": "com.amazonaws.appflow#TriggerType",
           "traits": {
-            "smithy.api#documentation": "<p>\n  A user-entered description of the flow.\n</p>"
+            "smithy.api#documentation": "<p>\n  Specifies the type of flow trigger. This can be <code>OnDemand</code>, <code>Scheduled</code>, or <code>Event</code>.\n</p>"
           }
         },
-        "createdBy": {
-          "target": "com.amazonaws.appflow#CreatedBy",
+        "flowStatus": {
+          "target": "com.amazonaws.appflow#FlowStatus",
           "traits": {
-            "smithy.api#documentation": "<p>\n  The ARN of the user who created the flow.\n</p>"
+            "smithy.api#documentation": "<p>\n  Indicates the current status of the flow.\n</p>"
           }
         },
-        "flowArn": {
-          "target": "com.amazonaws.appflow#FlowArn",
+        "destinationConnectorType": {
+          "target": "com.amazonaws.appflow#ConnectorType",
           "traits": {
-            "smithy.api#documentation": "<p>\n  The flow's Amazon Resource Name (ARN).\n</p>"
+            "smithy.api#documentation": "<p>\n  Specifies the destination connector type, such as Salesforce, Amazon S3, Amplitude, and so on.\n</p>"
           }
         },
         "sourceConnectorType": {
@@ -2560,28 +2581,40 @@
             "smithy.api#documentation": "<p>\nThe tags used to organize, track, or control access for your flow. \n</p>"
           }
         },
+        "lastRunExecutionDetails": {
+          "target": "com.amazonaws.appflow#ExecutionDetails",
+          "traits": {
+            "smithy.api#documentation": "<p>\n  Describes the details of the most recent flow run.\n</p>"
+          }
+        },
+        "lastUpdatedAt": {
+          "target": "com.amazonaws.appflow#Date",
+          "traits": {
+            "smithy.api#documentation": "<p>\n  Specifies when the flow was last updated.\n</p>"
+          }
+        },
+        "createdBy": {
+          "target": "com.amazonaws.appflow#CreatedBy",
+          "traits": {
+            "smithy.api#documentation": "<p>\n  The ARN of the user who created the flow.\n</p>"
+          }
+        },
+        "flowArn": {
+          "target": "com.amazonaws.appflow#FlowArn",
+          "traits": {
+            "smithy.api#documentation": "<p>\n  The flow's Amazon Resource Name (ARN).\n</p>"
+          }
+        },
+        "lastUpdatedBy": {
+          "target": "com.amazonaws.appflow#UpdatedBy",
+          "traits": {
+            "smithy.api#documentation": "<p>\n  Specifies the account user name that most recently updated the flow. \n</p>"
+          }
+        },
         "createdAt": {
           "target": "com.amazonaws.appflow#Date",
           "traits": {
             "smithy.api#documentation": "<p>\n  Specifies when the flow was created.\n</p>"
-          }
-        },
-        "destinationConnectorType": {
-          "target": "com.amazonaws.appflow#ConnectorType",
-          "traits": {
-            "smithy.api#documentation": "<p>\n  Specifies the destination connector type, such as Salesforce, Amazon S3, Amplitude, and so on.\n</p>"
-          }
-        },
-        "triggerType": {
-          "target": "com.amazonaws.appflow#TriggerType",
-          "traits": {
-            "smithy.api#documentation": "<p>\n  Specifies the type of flow trigger. This can be <code>OnDemand</code>, <code>Scheduled</code>, or <code>Event</code>.\n</p>"
-          }
-        },
-        "flowStatus": {
-          "target": "com.amazonaws.appflow#FlowStatus",
-          "traits": {
-            "smithy.api#documentation": "<p>\n  Indicates the current status of the flow.\n</p>"
           }
         }
       },
@@ -2680,19 +2713,6 @@
     "com.amazonaws.appflow#GoogleAnalyticsConnectorProfileCredentials": {
       "type": "structure",
       "members": {
-        "clientSecret": {
-          "target": "com.amazonaws.appflow#ClientSecret",
-          "traits": {
-            "smithy.api#documentation": "<p>\n  The client secret used by the oauth client to authenticate to the authorization server. \n</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "oAuthRequest": {
-          "target": "com.amazonaws.appflow#ConnectorOAuthRequest",
-          "traits": {
-            "smithy.api#documentation": "<p>\n  The oauth requirement needed to request security tokens from the connector endpoint.\n</p>"
-          }
-        },
         "clientId": {
           "target": "com.amazonaws.appflow#ClientId",
           "traits": {
@@ -2700,16 +2720,29 @@
             "smithy.api#required": {}
           }
         },
-        "refreshToken": {
-          "target": "com.amazonaws.appflow#RefreshToken",
-          "traits": {
-            "smithy.api#documentation": "<p>\n  The credentials used to acquire new access tokens. This is required only for OAuth2 access tokens, and is not required for OAuth1 access tokens.\n</p>"
-          }
-        },
         "accessToken": {
           "target": "com.amazonaws.appflow#AccessToken",
           "traits": {
             "smithy.api#documentation": "<p>\nThe credentials used to access protected Google Analytics resources.\n</p>"
+          }
+        },
+        "oAuthRequest": {
+          "target": "com.amazonaws.appflow#ConnectorOAuthRequest",
+          "traits": {
+            "smithy.api#documentation": "<p>\n  The OAuth requirement needed to request security tokens from the connector endpoint.\n</p>"
+          }
+        },
+        "clientSecret": {
+          "target": "com.amazonaws.appflow#ClientSecret",
+          "traits": {
+            "smithy.api#documentation": "<p>\n  The client secret used by the OAuth client to authenticate to the authorization server. \n</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "refreshToken": {
+          "target": "com.amazonaws.appflow#RefreshToken",
+          "traits": {
+            "smithy.api#documentation": "<p>\n  The credentials used to acquire new access tokens. This is required only for OAuth2 access tokens, and is not required for OAuth1 access tokens.\n</p>"
           }
         }
       },
@@ -2763,6 +2796,19 @@
         "smithy.api#pattern": "\\S+"
       }
     },
+    "com.amazonaws.appflow#IdFieldNameList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.appflow#Name"
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>\n      A list of field names that can be used as an ID field when performing a write operation.\n    </p>",
+        "smithy.api#length": {
+          "min": 0,
+          "max": 1
+        }
+      }
+    },
     "com.amazonaws.appflow#Identifier": {
       "type": "string",
       "traits": {
@@ -2771,6 +2817,20 @@
           "max": 128
         },
         "smithy.api#pattern": "\\S+"
+      }
+    },
+    "com.amazonaws.appflow#IncrementalPullConfig": {
+      "type": "structure",
+      "members": {
+        "datetimeTypeFieldName": {
+          "target": "com.amazonaws.appflow#DatetimeTypeFieldName",
+          "traits": {
+            "smithy.api#documentation": "<p>\n      A field that specifies the date time or timestamp field as the criteria to use when importing incremental records from the source.\n    </p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>\nSpecifies the configuration used when importing incremental records from the source.\n</p>"
       }
     },
     "com.amazonaws.appflow#InforNexusConnectorOperator": {
@@ -2843,10 +2903,10 @@
     "com.amazonaws.appflow#InforNexusConnectorProfileCredentials": {
       "type": "structure",
       "members": {
-        "secretAccessKey": {
-          "target": "com.amazonaws.appflow#Key",
+        "userId": {
+          "target": "com.amazonaws.appflow#Username",
           "traits": {
-            "smithy.api#documentation": "<p>\n  The secret key used to sign requests.\n</p>",
+            "smithy.api#documentation": "<p>\n  The identifier for the user.\n</p>",
             "smithy.api#required": {}
           }
         },
@@ -2864,10 +2924,10 @@
             "smithy.api#required": {}
           }
         },
-        "userId": {
-          "target": "com.amazonaws.appflow#Username",
+        "secretAccessKey": {
+          "target": "com.amazonaws.appflow#Key",
           "traits": {
-            "smithy.api#documentation": "<p>\n  The identifier for the user.\n</p>",
+            "smithy.api#documentation": "<p>\n  The secret key used to sign requests.\n</p>",
             "smithy.api#required": {}
           }
         }
@@ -3003,16 +3063,16 @@
     "com.amazonaws.appflow#ListConnectorEntitiesRequest": {
       "type": "structure",
       "members": {
-        "connectorType": {
-          "target": "com.amazonaws.appflow#ConnectorType",
-          "traits": {
-            "smithy.api#documentation": "<p>\n  The type of connector, such as Salesforce, Amplitude, and so on.\n</p>"
-          }
-        },
         "connectorProfileName": {
           "target": "com.amazonaws.appflow#ConnectorProfileName",
           "traits": {
             "smithy.api#documentation": "<p>\n  The name of the connector profile. The name is unique for each <code>ConnectorProfile</code> in the AWS account, and is used to query the downstream connector.\n</p>"
+          }
+        },
+        "connectorType": {
+          "target": "com.amazonaws.appflow#ConnectorType",
+          "traits": {
+            "smithy.api#documentation": "<p>\n  The type of connector, such as Salesforce, Amplitude, and so on.\n</p>"
           }
         },
         "entitiesPath": {
@@ -3068,16 +3128,16 @@
     "com.amazonaws.appflow#ListFlowsRequest": {
       "type": "structure",
       "members": {
-        "maxResults": {
-          "target": "com.amazonaws.appflow#MaxResults",
-          "traits": {
-            "smithy.api#documentation": "<p>\n      Specifies the maximum number of items that should be returned in the result set.\n    </p>"
-          }
-        },
         "nextToken": {
           "target": "com.amazonaws.appflow#NextToken",
           "traits": {
             "smithy.api#documentation": "<p>\n The pagination token for next page of data.\n</p>"
+          }
+        },
+        "maxResults": {
+          "target": "com.amazonaws.appflow#MaxResults",
+          "traits": {
+            "smithy.api#documentation": "<p>\n      Specifies the maximum number of items that should be returned in the result set.\n    </p>"
           }
         }
       }
@@ -3085,16 +3145,16 @@
     "com.amazonaws.appflow#ListFlowsResponse": {
       "type": "structure",
       "members": {
-        "nextToken": {
-          "target": "com.amazonaws.appflow#NextToken",
-          "traits": {
-            "smithy.api#documentation": "<p>\nThe pagination token for next page of data.\n</p>"
-          }
-        },
         "flows": {
           "target": "com.amazonaws.appflow#FlowList",
           "traits": {
             "smithy.api#documentation": "<p>\nThe list of flows associated with your account.\n</p>"
+          }
+        },
+        "nextToken": {
+          "target": "com.amazonaws.appflow#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>\nThe pagination token for next page of data.\n</p>"
           }
         }
       }
@@ -3231,17 +3291,10 @@
     "com.amazonaws.appflow#MarketoConnectorProfileCredentials": {
       "type": "structure",
       "members": {
-        "clientId": {
-          "target": "com.amazonaws.appflow#ClientId",
-          "traits": {
-            "smithy.api#documentation": "<p>\n  The identifier for the desired client.\n</p>",
-            "smithy.api#required": {}
-          }
-        },
         "clientSecret": {
           "target": "com.amazonaws.appflow#ClientSecret",
           "traits": {
-            "smithy.api#documentation": "<p>\n  The client secret used by the oauth client to authenticate to the authorization server. \n</p>",
+            "smithy.api#documentation": "<p>\n  The client secret used by the OAuth client to authenticate to the authorization server. \n</p>",
             "smithy.api#required": {}
           }
         },
@@ -3251,10 +3304,17 @@
             "smithy.api#documentation": "<p>\n  The credentials used to access protected Marketo resources.\n</p>"
           }
         },
+        "clientId": {
+          "target": "com.amazonaws.appflow#ClientId",
+          "traits": {
+            "smithy.api#documentation": "<p>\n  The identifier for the desired client.\n</p>",
+            "smithy.api#required": {}
+          }
+        },
         "oAuthRequest": {
           "target": "com.amazonaws.appflow#ConnectorOAuthRequest",
           "traits": {
-            "smithy.api#documentation": "<p>\n  The oauth requirement needed to request security tokens from the connector endpoint.\n</p>"
+            "smithy.api#documentation": "<p>\n  The OAuth requirement needed to request security tokens from the connector endpoint.\n</p>"
           }
         }
       },
@@ -3651,6 +3711,13 @@
     "com.amazonaws.appflow#RedshiftConnectorProfileProperties": {
       "type": "structure",
       "members": {
+        "roleArn": {
+          "target": "com.amazonaws.appflow#RoleArn",
+          "traits": {
+            "smithy.api#documentation": "<p>\n  The Amazon Resource Name (ARN) of the IAM role.\n</p>",
+            "smithy.api#required": {}
+          }
+        },
         "bucketPrefix": {
           "target": "com.amazonaws.appflow#BucketPrefix",
           "traits": {
@@ -3661,13 +3728,6 @@
           "target": "com.amazonaws.appflow#BucketName",
           "traits": {
             "smithy.api#documentation": "<p>\n  A name for the associated Amazon S3 bucket. \n</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "roleArn": {
-          "target": "com.amazonaws.appflow#RoleArn",
-          "traits": {
-            "smithy.api#documentation": "<p>\n  The Amazon Resource Name (ARN) of the IAM role.\n</p>",
             "smithy.api#required": {}
           }
         },
@@ -3686,6 +3746,12 @@
     "com.amazonaws.appflow#RedshiftDestinationProperties": {
       "type": "structure",
       "members": {
+        "bucketPrefix": {
+          "target": "com.amazonaws.appflow#BucketPrefix",
+          "traits": {
+            "smithy.api#documentation": "<p>\n  The object key for the bucket in which Amazon AppFlow places the destination files.\n</p>"
+          }
+        },
         "object": {
           "target": "com.amazonaws.appflow#Object",
           "traits": {
@@ -3704,12 +3770,6 @@
           "traits": {
             "smithy.api#documentation": "<p>\n The intermediate bucket that Amazon AppFlow uses when moving data into Amazon Redshift.\n</p>",
             "smithy.api#required": {}
-          }
-        },
-        "bucketPrefix": {
-          "target": "com.amazonaws.appflow#BucketPrefix",
-          "traits": {
-            "smithy.api#documentation": "<p>\n  The object key for the bucket in which Amazon AppFlow places the destination files.\n</p>"
           }
         }
       },
@@ -3863,9 +3923,6 @@
     "com.amazonaws.appflow#S3DestinationProperties": {
       "type": "structure",
       "members": {
-        "s3OutputFormatConfig": {
-          "target": "com.amazonaws.appflow#S3OutputFormatConfig"
-        },
         "bucketPrefix": {
           "target": "com.amazonaws.appflow#BucketPrefix",
           "traits": {
@@ -3878,6 +3935,9 @@
             "smithy.api#documentation": "<p>\n  The Amazon S3 bucket name in which Amazon AppFlow places the transferred data.\n</p>",
             "smithy.api#required": {}
           }
+        },
+        "s3OutputFormatConfig": {
+          "target": "com.amazonaws.appflow#S3OutputFormatConfig"
         }
       },
       "traits": {
@@ -3894,12 +3954,6 @@
     "com.amazonaws.appflow#S3OutputFormatConfig": {
       "type": "structure",
       "members": {
-        "fileType": {
-          "target": "com.amazonaws.appflow#FileType",
-          "traits": {
-            "smithy.api#documentation": "<p>\nIndicates the file type that Amazon AppFlow places in the Amazon S3 bucket.\n    </p>"
-          }
-        },
         "prefixConfig": {
           "target": "com.amazonaws.appflow#PrefixConfig",
           "traits": {
@@ -3908,6 +3962,12 @@
         },
         "aggregationConfig": {
           "target": "com.amazonaws.appflow#AggregationConfig"
+        },
+        "fileType": {
+          "target": "com.amazonaws.appflow#FileType",
+          "traits": {
+            "smithy.api#documentation": "<p>\nIndicates the file type that Amazon AppFlow places in the Amazon S3 bucket.\n    </p>"
+          }
         }
       },
       "traits": {
@@ -4029,22 +4089,28 @@
     "com.amazonaws.appflow#SalesforceConnectorProfileCredentials": {
       "type": "structure",
       "members": {
-        "accessToken": {
-          "target": "com.amazonaws.appflow#AccessToken",
-          "traits": {
-            "smithy.api#documentation": "<p>\n  The credentials used to access protected Salesforce resources.\n</p>"
-          }
-        },
         "refreshToken": {
           "target": "com.amazonaws.appflow#RefreshToken",
           "traits": {
             "smithy.api#documentation": "<p>\n  The credentials used to acquire new access tokens. \n</p>"
           }
         },
+        "clientCredentialsArn": {
+          "target": "com.amazonaws.appflow#ClientCredentialsArn",
+          "traits": {
+            "smithy.api#documentation": "<p>\n      The secret manager ARN, which contains the client ID and client secret of the connected app. \n    </p>"
+          }
+        },
+        "accessToken": {
+          "target": "com.amazonaws.appflow#AccessToken",
+          "traits": {
+            "smithy.api#documentation": "<p>\n  The credentials used to access protected Salesforce resources.\n</p>"
+          }
+        },
         "oAuthRequest": {
           "target": "com.amazonaws.appflow#ConnectorOAuthRequest",
           "traits": {
-            "smithy.api#documentation": "<p>\n  The oauth requirement needed to request security tokens from the connector endpoint.\n</p>"
+            "smithy.api#documentation": "<p>\n  The OAuth requirement needed to request security tokens from the connector endpoint.\n</p>"
           }
         }
       },
@@ -4055,16 +4121,16 @@
     "com.amazonaws.appflow#SalesforceConnectorProfileProperties": {
       "type": "structure",
       "members": {
-        "instanceUrl": {
-          "target": "com.amazonaws.appflow#InstanceUrl",
-          "traits": {
-            "smithy.api#documentation": "<p>\n  The location of the Salesforce resource.\n</p>"
-          }
-        },
         "isSandboxEnvironment": {
           "target": "com.amazonaws.appflow#Boolean",
           "traits": {
             "smithy.api#documentation": "<p>\n Indicates whether the connector profile applies to a sandbox or production environment. \n</p>"
+          }
+        },
+        "instanceUrl": {
+          "target": "com.amazonaws.appflow#InstanceUrl",
+          "traits": {
+            "smithy.api#documentation": "<p>\n  The location of the Salesforce resource.\n</p>"
           }
         }
       },
@@ -4081,11 +4147,23 @@
             "smithy.api#documentation": "<p>\n  The settings that determine how Amazon AppFlow handles an error when placing data in the Salesforce destination. For example, this setting would determine if the flow should fail after one insertion error, or continue and attempt to insert every record regardless of the initial failure. <code>ErrorHandlingConfig</code> is a part of the destination connector details.\n</p>"
           }
         },
+        "idFieldNames": {
+          "target": "com.amazonaws.appflow#IdFieldNameList",
+          "traits": {
+            "smithy.api#documentation": "<p>\n      The name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update or delete.\n    </p>"
+          }
+        },
         "object": {
           "target": "com.amazonaws.appflow#Object",
           "traits": {
             "smithy.api#documentation": "<p>\n  The object specified in the Salesforce flow destination.\n</p>",
             "smithy.api#required": {}
+          }
+        },
+        "writeOperationType": {
+          "target": "com.amazonaws.appflow#WriteOperationType",
+          "traits": {
+            "smithy.api#documentation": "<p>\n      This specifies the type of write operation to be performed in Salesforce. When the value is <code>UPSERT</code>, then <code>idFieldNames</code> is required.\n    </p>"
           }
         }
       },
@@ -4110,6 +4188,13 @@
     "com.amazonaws.appflow#SalesforceSourceProperties": {
       "type": "structure",
       "members": {
+        "object": {
+          "target": "com.amazonaws.appflow#Object",
+          "traits": {
+            "smithy.api#documentation": "<p>\n  The object specified in the Salesforce flow source.\n</p>",
+            "smithy.api#required": {}
+          }
+        },
         "includeDeletedRecords": {
           "target": "com.amazonaws.appflow#Boolean",
           "traits": {
@@ -4120,13 +4205,6 @@
           "target": "com.amazonaws.appflow#Boolean",
           "traits": {
             "smithy.api#documentation": "<p>\nThe flag that enables dynamic fetching of new (recently added) fields in the Salesforce objects while running a flow.\n     </p>"
-          }
-        },
-        "object": {
-          "target": "com.amazonaws.appflow#Object",
-          "traits": {
-            "smithy.api#documentation": "<p>\n  The object specified in the Salesforce flow source.\n</p>",
-            "smithy.api#required": {}
           }
         }
       },
@@ -4252,16 +4330,10 @@
     "com.amazonaws.appflow#ScheduledTriggerProperties": {
       "type": "structure",
       "members": {
-        "scheduleStartTime": {
-          "target": "com.amazonaws.appflow#Date",
+        "timezone": {
+          "target": "com.amazonaws.appflow#Timezone",
           "traits": {
-            "smithy.api#documentation": "<p>\nSpecifies the scheduled start time for a schedule-triggered flow.\n</p>"
-          }
-        },
-        "scheduleEndTime": {
-          "target": "com.amazonaws.appflow#Date",
-          "traits": {
-            "smithy.api#documentation": "<p>\n Specifies the scheduled end time for a schedule-triggered flow.\n</p>"
+            "smithy.api#documentation": "<p>\nSpecifies the time zone used when referring to the date and time of a scheduled-triggered flow. \n</p>"
           }
         },
         "scheduleExpression": {
@@ -4277,10 +4349,16 @@
             "smithy.api#documentation": "<p>\n Specifies whether a scheduled flow has an incremental data transfer or a complete data transfer for each flow run.\n</p>"
           }
         },
-        "timezone": {
-          "target": "com.amazonaws.appflow#Timezone",
+        "scheduleStartTime": {
+          "target": "com.amazonaws.appflow#Date",
           "traits": {
-            "smithy.api#documentation": "<p>\nSpecifies the time zone used when referring to the date and time of a scheduled-triggered flow. \n</p>"
+            "smithy.api#documentation": "<p>\nSpecifies the scheduled start time for a schedule-triggered flow.\n</p>"
+          }
+        },
+        "scheduleEndTime": {
+          "target": "com.amazonaws.appflow#Date",
+          "traits": {
+            "smithy.api#documentation": "<p>\n Specifies the scheduled end time for a schedule-triggered flow.\n</p>"
           }
         }
       },
@@ -4399,17 +4477,17 @@
     "com.amazonaws.appflow#ServiceNowConnectorProfileCredentials": {
       "type": "structure",
       "members": {
-        "password": {
-          "target": "com.amazonaws.appflow#Password",
-          "traits": {
-            "smithy.api#documentation": "<p>\n  The password that corresponds to the user name.\n</p>",
-            "smithy.api#required": {}
-          }
-        },
         "username": {
           "target": "com.amazonaws.appflow#Username",
           "traits": {
             "smithy.api#documentation": "<p>\n  The name of the user.\n</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "password": {
+          "target": "com.amazonaws.appflow#Password",
+          "traits": {
+            "smithy.api#documentation": "<p>\n  The password that corresponds to the user name.\n</p>",
             "smithy.api#required": {}
           }
         }
@@ -4661,10 +4739,10 @@
     "com.amazonaws.appflow#SlackConnectorProfileCredentials": {
       "type": "structure",
       "members": {
-        "clientSecret": {
-          "target": "com.amazonaws.appflow#ClientSecret",
+        "clientId": {
+          "target": "com.amazonaws.appflow#ClientId",
           "traits": {
-            "smithy.api#documentation": "<p>\n  The client secret used by the oauth client to authenticate to the authorization server. \n</p>",
+            "smithy.api#documentation": "<p>\n  The identifier for the client.\n</p>",
             "smithy.api#required": {}
           }
         },
@@ -4674,17 +4752,17 @@
             "smithy.api#documentation": "<p>\n  The credentials used to access protected Slack resources.\n</p>"
           }
         },
-        "clientId": {
-          "target": "com.amazonaws.appflow#ClientId",
+        "clientSecret": {
+          "target": "com.amazonaws.appflow#ClientSecret",
           "traits": {
-            "smithy.api#documentation": "<p>\n  The identifier for the client.\n</p>",
+            "smithy.api#documentation": "<p>\n  The client secret used by the OAuth client to authenticate to the authorization server. \n</p>",
             "smithy.api#required": {}
           }
         },
         "oAuthRequest": {
           "target": "com.amazonaws.appflow#ConnectorOAuthRequest",
           "traits": {
-            "smithy.api#documentation": "<p>\n  The oauth requirement needed to request security tokens from the connector endpoint.\n</p>"
+            "smithy.api#documentation": "<p>\n  The OAuth requirement needed to request security tokens from the connector endpoint.\n</p>"
           }
         }
       },
@@ -4761,10 +4839,23 @@
     "com.amazonaws.appflow#SnowflakeConnectorProfileProperties": {
       "type": "structure",
       "members": {
-        "region": {
-          "target": "com.amazonaws.appflow#Region",
+        "accountName": {
+          "target": "com.amazonaws.appflow#AccountName",
           "traits": {
-            "smithy.api#documentation": "<p>\nThe AWS Region of the Snowflake account.\n</p>"
+            "smithy.api#documentation": "<p>\nThe name of the account.\n</p>"
+          }
+        },
+        "bucketPrefix": {
+          "target": "com.amazonaws.appflow#BucketPrefix",
+          "traits": {
+            "smithy.api#documentation": "<p>\n  The bucket path that refers to the Amazon S3 bucket associated with Snowflake.\n</p>"
+          }
+        },
+        "stage": {
+          "target": "com.amazonaws.appflow#Stage",
+          "traits": {
+            "smithy.api#documentation": "<p>\n  The name of the Amazon S3 stage that was created while setting up an Amazon S3 stage in the Snowflake account. This is written in the following format: < Database>< Schema><Stage Name>.\n</p>",
+            "smithy.api#required": {}
           }
         },
         "bucketName": {
@@ -4774,29 +4865,16 @@
             "smithy.api#required": {}
           }
         },
-        "bucketPrefix": {
-          "target": "com.amazonaws.appflow#BucketPrefix",
-          "traits": {
-            "smithy.api#documentation": "<p>\n  The bucket path that refers to the Amazon S3 bucket associated with Snowflake.\n</p>"
-          }
-        },
         "privateLinkServiceName": {
           "target": "com.amazonaws.appflow#PrivateLinkServiceName",
           "traits": {
             "smithy.api#documentation": "<p>\nThe Snowflake Private Link service name to be used for private data transfers.\n</p>"
           }
         },
-        "accountName": {
-          "target": "com.amazonaws.appflow#AccountName",
+        "region": {
+          "target": "com.amazonaws.appflow#Region",
           "traits": {
-            "smithy.api#documentation": "<p>\nThe name of the account.\n</p>"
-          }
-        },
-        "stage": {
-          "target": "com.amazonaws.appflow#Stage",
-          "traits": {
-            "smithy.api#documentation": "<p>\n  The name of the Amazon S3 stage that was created while setting up an Amazon S3 stage in the Snowflake account. This is written in the following format: < Database>< Schema><Stage Name>.\n</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>\nThe AWS Region of the Snowflake account.\n</p>"
           }
         },
         "warehouse": {
@@ -4814,11 +4892,10 @@
     "com.amazonaws.appflow#SnowflakeDestinationProperties": {
       "type": "structure",
       "members": {
-        "object": {
-          "target": "com.amazonaws.appflow#Object",
+        "bucketPrefix": {
+          "target": "com.amazonaws.appflow#BucketPrefix",
           "traits": {
-            "smithy.api#documentation": "<p>\n  The object specified in the Snowflake flow destination.\n</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>\n  The object key for the destination bucket in which Amazon AppFlow places the files.\n</p>"
           }
         },
         "errorHandlingConfig": {
@@ -4827,10 +4904,11 @@
             "smithy.api#documentation": "<p>\n  The settings that determine how Amazon AppFlow handles an error when placing data in the Snowflake destination. For example, this setting would determine if the flow should fail after one insertion error, or continue and attempt to insert every record regardless of the initial failure. <code>ErrorHandlingConfig</code> is a part of the destination connector details.\n</p>"
           }
         },
-        "bucketPrefix": {
-          "target": "com.amazonaws.appflow#BucketPrefix",
+        "object": {
+          "target": "com.amazonaws.appflow#Object",
           "traits": {
-            "smithy.api#documentation": "<p>\n  The object key for the destination bucket in which Amazon AppFlow places the files.\n</p>"
+            "smithy.api#documentation": "<p>\n  The object specified in the Snowflake flow destination.\n</p>",
+            "smithy.api#required": {}
           }
         },
         "intermediateBucketName": {
@@ -4862,28 +4940,28 @@
     "com.amazonaws.appflow#SourceConnectorProperties": {
       "type": "structure",
       "members": {
-        "ServiceNow": {
-          "target": "com.amazonaws.appflow#ServiceNowSourceProperties",
-          "traits": {
-            "smithy.api#documentation": "<p>\n  Specifies the information that is required for querying ServiceNow.\n</p>"
-          }
-        },
-        "Trendmicro": {
-          "target": "com.amazonaws.appflow#TrendmicroSourceProperties",
-          "traits": {
-            "smithy.api#documentation": "<p>\n  Specifies the information that is required for querying Trend Micro.\n</p>"
-          }
-        },
         "S3": {
           "target": "com.amazonaws.appflow#S3SourceProperties",
           "traits": {
             "smithy.api#documentation": "<p>\n  Specifies the information that is required for querying Amazon S3.\n</p>"
           }
         },
-        "Salesforce": {
-          "target": "com.amazonaws.appflow#SalesforceSourceProperties",
+        "Amplitude": {
+          "target": "com.amazonaws.appflow#AmplitudeSourceProperties",
           "traits": {
-            "smithy.api#documentation": "<p>\n  Specifies the information that is required for querying Salesforce.\n</p>"
+            "smithy.api#documentation": "<p>\n  Specifies the information that is required for querying Amplitude.\n</p>"
+          }
+        },
+        "ServiceNow": {
+          "target": "com.amazonaws.appflow#ServiceNowSourceProperties",
+          "traits": {
+            "smithy.api#documentation": "<p>\n  Specifies the information that is required for querying ServiceNow.\n</p>"
+          }
+        },
+        "Zendesk": {
+          "target": "com.amazonaws.appflow#ZendeskSourceProperties",
+          "traits": {
+            "smithy.api#documentation": "<p>\n  Specifies the information that is required for querying Zendesk.\n</p>"
           }
         },
         "Veeva": {
@@ -4898,28 +4976,22 @@
             "smithy.api#documentation": "<p>\n  Specifies the information that is required for querying Dynatrace.\n</p>"
           }
         },
+        "Trendmicro": {
+          "target": "com.amazonaws.appflow#TrendmicroSourceProperties",
+          "traits": {
+            "smithy.api#documentation": "<p>\n  Specifies the information that is required for querying Trend Micro.\n</p>"
+          }
+        },
         "InforNexus": {
           "target": "com.amazonaws.appflow#InforNexusSourceProperties",
           "traits": {
             "smithy.api#documentation": "<p>\n  Specifies the information that is required for querying Infor Nexus.\n</p>"
           }
         },
-        "Zendesk": {
-          "target": "com.amazonaws.appflow#ZendeskSourceProperties",
+        "Marketo": {
+          "target": "com.amazonaws.appflow#MarketoSourceProperties",
           "traits": {
-            "smithy.api#documentation": "<p>\n  Specifies the information that is required for querying Zendesk.\n</p>"
-          }
-        },
-        "Amplitude": {
-          "target": "com.amazonaws.appflow#AmplitudeSourceProperties",
-          "traits": {
-            "smithy.api#documentation": "<p>\n  Specifies the information that is required for querying Amplitude.\n</p>"
-          }
-        },
-        "Slack": {
-          "target": "com.amazonaws.appflow#SlackSourceProperties",
-          "traits": {
-            "smithy.api#documentation": "<p>\n  Specifies the information that is required for querying Slack.\n</p>"
+            "smithy.api#documentation": "<p>\n  Specifies the information that is required for querying Marketo.\n</p>"
           }
         },
         "Datadog": {
@@ -4928,16 +5000,22 @@
             "smithy.api#documentation": "<p>\n  Specifies the information that is required for querying Datadog.\n</p>"
           }
         },
+        "Salesforce": {
+          "target": "com.amazonaws.appflow#SalesforceSourceProperties",
+          "traits": {
+            "smithy.api#documentation": "<p>\n  Specifies the information that is required for querying Salesforce.\n</p>"
+          }
+        },
         "Singular": {
           "target": "com.amazonaws.appflow#SingularSourceProperties",
           "traits": {
             "smithy.api#documentation": "<p>\n  Specifies the information that is required for querying Singular.\n</p>"
           }
         },
-        "Marketo": {
-          "target": "com.amazonaws.appflow#MarketoSourceProperties",
+        "Slack": {
+          "target": "com.amazonaws.appflow#SlackSourceProperties",
           "traits": {
-            "smithy.api#documentation": "<p>\n  Specifies the information that is required for querying Marketo.\n</p>"
+            "smithy.api#documentation": "<p>\n  Specifies the information that is required for querying Slack.\n</p>"
           }
         },
         "GoogleAnalytics": {
@@ -4980,10 +5058,10 @@
     "com.amazonaws.appflow#SourceFlowConfig": {
       "type": "structure",
       "members": {
-        "sourceConnectorProperties": {
-          "target": "com.amazonaws.appflow#SourceConnectorProperties",
+        "connectorType": {
+          "target": "com.amazonaws.appflow#ConnectorType",
           "traits": {
-            "smithy.api#documentation": "<p>\n  Specifies the information that is required to query a particular source connector.\n</p>",
+            "smithy.api#documentation": "<p>\n  The type of connector, such as Salesforce, Amplitude, and so on.\n</p>",
             "smithy.api#required": {}
           }
         },
@@ -4993,10 +5071,16 @@
             "smithy.api#documentation": "<p>\n  The name of the connector profile. This name must be unique for each connector profile in the AWS account.\n</p>"
           }
         },
-        "connectorType": {
-          "target": "com.amazonaws.appflow#ConnectorType",
+        "incrementalPullConfig": {
+          "target": "com.amazonaws.appflow#IncrementalPullConfig",
           "traits": {
-            "smithy.api#documentation": "<p>\n  The type of connector, such as Salesforce, Amplitude, and so on.\n</p>",
+            "smithy.api#documentation": "<p>\n      Defines the configuration for a scheduled incremental data pull. If a valid configuration is provided, the fields specified in the configuration are used when querying for the incremental data pull.\n    </p>"
+          }
+        },
+        "sourceConnectorProperties": {
+          "target": "com.amazonaws.appflow#SourceConnectorProperties",
+          "traits": {
+            "smithy.api#documentation": "<p>\n  Specifies the information that is required to query a particular source connector.\n</p>",
             "smithy.api#required": {}
           }
         }
@@ -5061,6 +5145,12 @@
     "com.amazonaws.appflow#StartFlowResponse": {
       "type": "structure",
       "members": {
+        "executionId": {
+          "target": "com.amazonaws.appflow#ExecutionId",
+          "traits": {
+            "smithy.api#documentation": "<p>\n      Returns the internal execution ID of an on-demand flow when the flow is started. For scheduled or event-triggered flows, this value is null.\n    </p>"
+          }
+        },
         "flowStatus": {
           "target": "com.amazonaws.appflow#FlowStatus",
           "traits": {
@@ -5166,6 +5256,12 @@
         "target": "com.amazonaws.appflow#Value"
       }
     },
+    "com.amazonaws.appflow#SupportedWriteOperationList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.appflow#WriteOperationType"
+      }
+    },
     "com.amazonaws.appflow#TagKey": {
       "type": "string",
       "traits": {
@@ -5234,18 +5330,18 @@
     "com.amazonaws.appflow#TagResourceRequest": {
       "type": "structure",
       "members": {
-        "tags": {
-          "target": "com.amazonaws.appflow#TagMap",
-          "traits": {
-            "smithy.api#documentation": "<p>\n  The tags used to organize, track, or control access for your flow. \n</p>",
-            "smithy.api#required": {}
-          }
-        },
         "resourceArn": {
           "target": "com.amazonaws.appflow#ARN",
           "traits": {
             "smithy.api#documentation": "<p>\n  The Amazon Resource Name (ARN) of the flow that you want to tag.\n</p>",
             "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "tags": {
+          "target": "com.amazonaws.appflow#TagMap",
+          "traits": {
+            "smithy.api#documentation": "<p>\n  The tags used to organize, track, or control access for your flow. \n</p>",
             "smithy.api#required": {}
           }
         }
@@ -5282,12 +5378,6 @@
             "smithy.api#required": {}
           }
         },
-        "taskProperties": {
-          "target": "com.amazonaws.appflow#TaskPropertiesMap",
-          "traits": {
-            "smithy.api#documentation": "<p>\n A map used to store task-related information. The execution service looks for particular information based on the <code>TaskType</code>.\n</p>"
-          }
-        },
         "destinationField": {
           "target": "com.amazonaws.appflow#DestinationField",
           "traits": {
@@ -5298,6 +5388,12 @@
           "target": "com.amazonaws.appflow#ConnectorOperator",
           "traits": {
             "smithy.api#documentation": "<p>\nThe operation to be performed on the provided source fields.\n</p>"
+          }
+        },
+        "taskProperties": {
+          "target": "com.amazonaws.appflow#TaskPropertiesMap",
+          "traits": {
+            "smithy.api#documentation": "<p>\n A map used to store task-related information. The execution service looks for particular information based on the <code>TaskType</code>.\n</p>"
           }
         }
       },
@@ -5361,7 +5457,8 @@
         "smithy.api#length": {
           "min": 0,
           "max": 256
-        }
+        },
+        "smithy.api#pattern": ".*"
       }
     },
     "com.amazonaws.appflow#TrendmicroConnectorOperator": {
@@ -5474,17 +5571,17 @@
     "com.amazonaws.appflow#TriggerConfig": {
       "type": "structure",
       "members": {
+        "triggerProperties": {
+          "target": "com.amazonaws.appflow#TriggerProperties",
+          "traits": {
+            "smithy.api#documentation": "<p>\n  Specifies the configuration details of a schedule-triggered flow as defined by the user. Currently, these settings only apply to the <code>Scheduled</code> trigger type.\n</p>"
+          }
+        },
         "triggerType": {
           "target": "com.amazonaws.appflow#TriggerType",
           "traits": {
             "smithy.api#documentation": "<p>\n  Specifies the type of flow trigger. This can be <code>OnDemand</code>, <code>Scheduled</code>, or <code>Event</code>.\n</p>",
             "smithy.api#required": {}
-          }
-        },
-        "triggerProperties": {
-          "target": "com.amazonaws.appflow#TriggerProperties",
-          "traits": {
-            "smithy.api#documentation": "<p>\n  Specifies the configuration details of a schedule-triggered flow as defined by the user. Currently, these settings only apply to the <code>Scheduled</code> trigger type.\n</p>"
           }
         }
       },
@@ -5575,19 +5672,19 @@
     "com.amazonaws.appflow#UntagResourceRequest": {
       "type": "structure",
       "members": {
-        "tagKeys": {
-          "target": "com.amazonaws.appflow#TagKeyList",
-          "traits": {
-            "smithy.api#documentation": "<p>\nThe tag keys associated with the tag that you want to remove from your flow.\n</p>",
-            "smithy.api#httpQuery": "tagKeys",
-            "smithy.api#required": {}
-          }
-        },
         "resourceArn": {
           "target": "com.amazonaws.appflow#ARN",
           "traits": {
             "smithy.api#documentation": "<p>\n  The Amazon Resource Name (ARN) of the flow that you want to untag.\n</p>",
             "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "tagKeys": {
+          "target": "com.amazonaws.appflow#TagKeyList",
+          "traits": {
+            "smithy.api#documentation": "<p>\nThe tag keys associated with the tag that you want to remove from your flow.\n</p>",
+            "smithy.api#httpQuery": "tagKeys",
             "smithy.api#required": {}
           }
         }
@@ -5634,10 +5731,10 @@
     "com.amazonaws.appflow#UpdateConnectorProfileRequest": {
       "type": "structure",
       "members": {
-        "connectorProfileName": {
-          "target": "com.amazonaws.appflow#ConnectorProfileName",
+        "connectionMode": {
+          "target": "com.amazonaws.appflow#ConnectionMode",
           "traits": {
-            "smithy.api#documentation": "<p>\n  The name of the connector profile and is unique for each <code>ConnectorProfile</code> in the AWS Account.\n</p>",
+            "smithy.api#documentation": "<p>\n  Indicates the connection mode and if it is public or private.\n</p>",
             "smithy.api#required": {}
           }
         },
@@ -5648,10 +5745,10 @@
             "smithy.api#required": {}
           }
         },
-        "connectionMode": {
-          "target": "com.amazonaws.appflow#ConnectionMode",
+        "connectorProfileName": {
+          "target": "com.amazonaws.appflow#ConnectorProfileName",
           "traits": {
-            "smithy.api#documentation": "<p>\n  Indicates the connection mode and if it is public or private.\n</p>",
+            "smithy.api#documentation": "<p>\n  The name of the connector profile and is unique for each <code>ConnectorProfile</code> in the AWS Account.\n</p>",
             "smithy.api#required": {}
           }
         }
@@ -5711,22 +5808,12 @@
     "com.amazonaws.appflow#UpdateFlowRequest": {
       "type": "structure",
       "members": {
-        "tasks": {
-          "target": "com.amazonaws.appflow#Tasks",
+        "flowName": {
+          "target": "com.amazonaws.appflow#FlowName",
           "traits": {
-            "smithy.api#documentation": "<p>\n  A list of tasks that Amazon AppFlow performs while transferring the data in the flow run.\n</p>",
+            "smithy.api#documentation": "<p>\n  The specified name of the flow. Spaces are not allowed. Use underscores (_) or hyphens (-) only.\n</p>",
             "smithy.api#required": {}
           }
-        },
-        "destinationFlowConfigList": {
-          "target": "com.amazonaws.appflow#DestinationFlowConfigList",
-          "traits": {
-            "smithy.api#documentation": "<p>\n  The configuration that controls how Amazon AppFlow transfers data to the destination connector.\n</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "sourceFlowConfig": {
-          "target": "com.amazonaws.appflow#SourceFlowConfig"
         },
         "triggerConfig": {
           "target": "com.amazonaws.appflow#TriggerConfig",
@@ -5735,17 +5822,27 @@
             "smithy.api#required": {}
           }
         },
+        "sourceFlowConfig": {
+          "target": "com.amazonaws.appflow#SourceFlowConfig"
+        },
+        "destinationFlowConfigList": {
+          "target": "com.amazonaws.appflow#DestinationFlowConfigList",
+          "traits": {
+            "smithy.api#documentation": "<p>\n  The configuration that controls how Amazon AppFlow transfers data to the destination connector.\n</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "tasks": {
+          "target": "com.amazonaws.appflow#Tasks",
+          "traits": {
+            "smithy.api#documentation": "<p>\n  A list of tasks that Amazon AppFlow performs while transferring the data in the flow run.\n</p>",
+            "smithy.api#required": {}
+          }
+        },
         "description": {
           "target": "com.amazonaws.appflow#FlowDescription",
           "traits": {
             "smithy.api#documentation": "<p>\n  A description of the flow.\n</p>"
-          }
-        },
-        "flowName": {
-          "target": "com.amazonaws.appflow#FlowName",
-          "traits": {
-            "smithy.api#documentation": "<p>\n  The specified name of the flow. Spaces are not allowed. Use underscores (_) or hyphens (-) only.\n</p>",
-            "smithy.api#required": {}
           }
         }
       }
@@ -5964,6 +6061,26 @@
         "smithy.api#pattern": "[\\s\\w/!@#+=.-]*"
       }
     },
+    "com.amazonaws.appflow#WriteOperationType": {
+      "type": "string",
+      "traits": {
+        "smithy.api#documentation": "<p>\n      The possible write operations in the destination connector. When this value is not provided, this defaults to the <code>INSERT</code> operation.\n    </p>",
+        "smithy.api#enum": [
+          {
+            "value": "INSERT",
+            "name": "INSERT"
+          },
+          {
+            "value": "UPSERT",
+            "name": "UPSERT"
+          },
+          {
+            "value": "UPDATE",
+            "name": "UPDATE"
+          }
+        ]
+      }
+    },
     "com.amazonaws.appflow#ZendeskConnectorOperator": {
       "type": "string",
       "traits": {
@@ -6030,19 +6147,6 @@
     "com.amazonaws.appflow#ZendeskConnectorProfileCredentials": {
       "type": "structure",
       "members": {
-        "clientSecret": {
-          "target": "com.amazonaws.appflow#ClientSecret",
-          "traits": {
-            "smithy.api#documentation": "<p>\n The client secret used by the oauth client to authenticate to the authorization server. \n</p>",
-            "smithy.api#required": {}
-          }
-        },
-        "oAuthRequest": {
-          "target": "com.amazonaws.appflow#ConnectorOAuthRequest",
-          "traits": {
-            "smithy.api#documentation": "<p>\n The oauth requirement needed to request security tokens from the connector endpoint.\n</p>"
-          }
-        },
         "clientId": {
           "target": "com.amazonaws.appflow#ClientId",
           "traits": {
@@ -6050,10 +6154,23 @@
             "smithy.api#required": {}
           }
         },
+        "clientSecret": {
+          "target": "com.amazonaws.appflow#ClientSecret",
+          "traits": {
+            "smithy.api#documentation": "<p>\n The client secret used by the OAuth client to authenticate to the authorization server. \n</p>",
+            "smithy.api#required": {}
+          }
+        },
         "accessToken": {
           "target": "com.amazonaws.appflow#AccessToken",
           "traits": {
             "smithy.api#documentation": "<p>\n  The credentials used to access protected Zendesk resources.\n</p>"
+          }
+        },
+        "oAuthRequest": {
+          "target": "com.amazonaws.appflow#ConnectorOAuthRequest",
+          "traits": {
+            "smithy.api#documentation": "<p>\n The OAuth requirement needed to request security tokens from the connector endpoint.\n</p>"
           }
         }
       },
