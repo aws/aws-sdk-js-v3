@@ -1,4 +1,4 @@
-@aws-sdk/client-elasticsearch-service
+# @aws-sdk/client-elasticsearch-service
 
 [![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-elasticsearch-service/rc.svg)](https://www.npmjs.com/package/@aws-sdk/client-elasticsearch-service)
 [![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-elasticsearch-service.svg)](https://www.npmjs.com/package/@aws-sdk/client-elasticsearch-service)

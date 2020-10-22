@@ -1,4 +1,4 @@
-@aws-sdk/client-ebs
+# @aws-sdk/client-ebs
 
 [![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-ebs/rc.svg)](https://www.npmjs.com/package/@aws-sdk/client-ebs)
 [![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-ebs.svg)](https://www.npmjs.com/package/@aws-sdk/client-ebs)

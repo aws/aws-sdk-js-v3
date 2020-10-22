@@ -1,4 +1,4 @@
-@aws-sdk/client-iot-jobs-data-plane
+# @aws-sdk/client-iot-jobs-data-plane
 
 [![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-iot-jobs-data-plane/rc.svg)](https://www.npmjs.com/package/@aws-sdk/client-iot-jobs-data-plane)
 [![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-iot-jobs-data-plane.svg)](https://www.npmjs.com/package/@aws-sdk/client-iot-jobs-data-plane)

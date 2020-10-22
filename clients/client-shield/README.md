@@ -1,4 +1,4 @@
-@aws-sdk/client-shield
+# @aws-sdk/client-shield
 
 [![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-shield/rc.svg)](https://www.npmjs.com/package/@aws-sdk/client-shield)
 [![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-shield.svg)](https://www.npmjs.com/package/@aws-sdk/client-shield)

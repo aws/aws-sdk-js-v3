@@ -1,4 +1,4 @@
-@aws-sdk/client-sts
+# @aws-sdk/client-sts
 
 [![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-sts/rc.svg)](https://www.npmjs.com/package/@aws-sdk/client-sts)
 [![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-sts.svg)](https://www.npmjs.com/package/@aws-sdk/client-sts)

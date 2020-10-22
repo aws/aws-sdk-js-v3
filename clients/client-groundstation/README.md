@@ -1,4 +1,4 @@
-@aws-sdk/client-groundstation
+# @aws-sdk/client-groundstation
 
 [![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-groundstation/rc.svg)](https://www.npmjs.com/package/@aws-sdk/client-groundstation)
 [![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-groundstation.svg)](https://www.npmjs.com/package/@aws-sdk/client-groundstation)

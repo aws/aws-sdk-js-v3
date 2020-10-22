@@ -1,4 +1,4 @@
-@aws-sdk/client-marketplace-metering
+# @aws-sdk/client-marketplace-metering
 
 [![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-marketplace-metering/rc.svg)](https://www.npmjs.com/package/@aws-sdk/client-marketplace-metering)
 [![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-marketplace-metering.svg)](https://www.npmjs.com/package/@aws-sdk/client-marketplace-metering)

@@ -1,4 +1,4 @@
-@aws-sdk/client-glacier
+# @aws-sdk/client-glacier
 
 [![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-glacier/rc.svg)](https://www.npmjs.com/package/@aws-sdk/client-glacier)
 [![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-glacier.svg)](https://www.npmjs.com/package/@aws-sdk/client-glacier)

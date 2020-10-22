@@ -1,4 +1,4 @@
-@aws-sdk/client-mediastore
+# @aws-sdk/client-mediastore
 
 [![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-mediastore/rc.svg)](https://www.npmjs.com/package/@aws-sdk/client-mediastore)
 [![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-mediastore.svg)](https://www.npmjs.com/package/@aws-sdk/client-mediastore)

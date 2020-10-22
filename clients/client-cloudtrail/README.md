@@ -1,4 +1,4 @@
-@aws-sdk/client-cloudtrail
+# @aws-sdk/client-cloudtrail
 
 [![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-cloudtrail/rc.svg)](https://www.npmjs.com/package/@aws-sdk/client-cloudtrail)
 [![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-cloudtrail.svg)](https://www.npmjs.com/package/@aws-sdk/client-cloudtrail)

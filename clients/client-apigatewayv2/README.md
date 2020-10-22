@@ -1,4 +1,4 @@
-@aws-sdk/client-apigatewayv2
+# @aws-sdk/client-apigatewayv2
 
 [![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-apigatewayv2/rc.svg)](https://www.npmjs.com/package/@aws-sdk/client-apigatewayv2)
 [![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-apigatewayv2.svg)](https://www.npmjs.com/package/@aws-sdk/client-apigatewayv2)

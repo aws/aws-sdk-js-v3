@@ -1,4 +1,4 @@
-@aws-sdk/client-s3outposts
+# @aws-sdk/client-s3outposts
 
 [![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-s3outposts/rc.svg)](https://www.npmjs.com/package/@aws-sdk/client-s3outposts)
 [![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-s3outposts.svg)](https://www.npmjs.com/package/@aws-sdk/client-s3outposts)

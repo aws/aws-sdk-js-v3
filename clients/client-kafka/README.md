@@ -1,4 +1,4 @@
-@aws-sdk/client-kafka
+# @aws-sdk/client-kafka
 
 [![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-kafka/rc.svg)](https://www.npmjs.com/package/@aws-sdk/client-kafka)
 [![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-kafka.svg)](https://www.npmjs.com/package/@aws-sdk/client-kafka)

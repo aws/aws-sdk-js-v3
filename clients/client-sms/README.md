@@ -1,4 +1,4 @@
-@aws-sdk/client-sms
+# @aws-sdk/client-sms
 
 [![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-sms/rc.svg)](https://www.npmjs.com/package/@aws-sdk/client-sms)
 [![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-sms.svg)](https://www.npmjs.com/package/@aws-sdk/client-sms)

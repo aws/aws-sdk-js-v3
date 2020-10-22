@@ -1,4 +1,4 @@
-@aws-sdk/client-securityhub
+# @aws-sdk/client-securityhub
 
 [![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-securityhub/rc.svg)](https://www.npmjs.com/package/@aws-sdk/client-securityhub)
 [![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-securityhub.svg)](https://www.npmjs.com/package/@aws-sdk/client-securityhub)
