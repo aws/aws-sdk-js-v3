@@ -1,4 +1,4 @@
-@aws-sdk/client-cognito-identity
+# @aws-sdk/client-cognito-identity
 
 [![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-cognito-identity/beta.svg)](https://www.npmjs.com/package/@aws-sdk/client-cognito-identity)
 [![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-cognito-identity.svg)](https://www.npmjs.com/package/@aws-sdk/client-cognito-identity)

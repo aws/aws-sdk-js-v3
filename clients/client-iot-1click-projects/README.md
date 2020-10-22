@@ -1,4 +1,4 @@
-@aws-sdk/client-iot-1click-projects
+# @aws-sdk/client-iot-1click-projects
 
 [![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-iot-1click-projects/beta.svg)](https://www.npmjs.com/package/@aws-sdk/client-iot-1click-projects)
 [![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-iot-1click-projects.svg)](https://www.npmjs.com/package/@aws-sdk/client-iot-1click-projects)

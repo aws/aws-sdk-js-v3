@@ -1,4 +1,4 @@
-@aws-sdk/client-elastic-transcoder
+# @aws-sdk/client-elastic-transcoder
 
 [![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-elastic-transcoder/beta.svg)](https://www.npmjs.com/package/@aws-sdk/client-elastic-transcoder)
 [![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-elastic-transcoder.svg)](https://www.npmjs.com/package/@aws-sdk/client-elastic-transcoder)

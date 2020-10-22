@@ -1,4 +1,4 @@
-@aws-sdk/client-servicediscovery
+# @aws-sdk/client-servicediscovery
 
 [![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-servicediscovery/beta.svg)](https://www.npmjs.com/package/@aws-sdk/client-servicediscovery)
 [![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-servicediscovery.svg)](https://www.npmjs.com/package/@aws-sdk/client-servicediscovery)

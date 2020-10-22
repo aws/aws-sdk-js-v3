@@ -1,4 +1,4 @@
-@aws-sdk/client-textract
+# @aws-sdk/client-textract
 
 [![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-textract/beta.svg)](https://www.npmjs.com/package/@aws-sdk/client-textract)
 [![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-textract.svg)](https://www.npmjs.com/package/@aws-sdk/client-textract)

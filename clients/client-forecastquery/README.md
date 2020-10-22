@@ -1,4 +1,4 @@
-@aws-sdk/client-forecastquery
+# @aws-sdk/client-forecastquery
 
 [![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-forecastquery/beta.svg)](https://www.npmjs.com/package/@aws-sdk/client-forecastquery)
 [![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-forecastquery.svg)](https://www.npmjs.com/package/@aws-sdk/client-forecastquery)

@@ -1,4 +1,4 @@
-@aws-sdk/client-personalize
+# @aws-sdk/client-personalize
 
 [![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-personalize/beta.svg)](https://www.npmjs.com/package/@aws-sdk/client-personalize)
 [![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-personalize.svg)](https://www.npmjs.com/package/@aws-sdk/client-personalize)

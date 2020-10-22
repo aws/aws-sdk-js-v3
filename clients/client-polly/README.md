@@ -1,4 +1,4 @@
-@aws-sdk/client-polly
+# @aws-sdk/client-polly
 
 [![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-polly/beta.svg)](https://www.npmjs.com/package/@aws-sdk/client-polly)
 [![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-polly.svg)](https://www.npmjs.com/package/@aws-sdk/client-polly)

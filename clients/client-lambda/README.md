@@ -1,4 +1,4 @@
-@aws-sdk/client-lambda
+# @aws-sdk/client-lambda
 
 [![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-lambda/beta.svg)](https://www.npmjs.com/package/@aws-sdk/client-lambda)
 [![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-lambda.svg)](https://www.npmjs.com/package/@aws-sdk/client-lambda)

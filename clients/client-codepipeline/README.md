@@ -1,4 +1,4 @@
-@aws-sdk/client-codepipeline
+# @aws-sdk/client-codepipeline
 
 [![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-codepipeline/beta.svg)](https://www.npmjs.com/package/@aws-sdk/client-codepipeline)
 [![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-codepipeline.svg)](https://www.npmjs.com/package/@aws-sdk/client-codepipeline)

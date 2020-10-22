@@ -1,4 +1,4 @@
-@aws-sdk/client-codestar-connections
+# @aws-sdk/client-codestar-connections
 
 [![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-codestar-connections/beta.svg)](https://www.npmjs.com/package/@aws-sdk/client-codestar-connections)
 [![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-codestar-connections.svg)](https://www.npmjs.com/package/@aws-sdk/client-codestar-connections)

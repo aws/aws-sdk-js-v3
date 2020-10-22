@@ -1,4 +1,4 @@
-@aws-sdk/client-imagebuilder
+# @aws-sdk/client-imagebuilder
 
 [![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-imagebuilder/beta.svg)](https://www.npmjs.com/package/@aws-sdk/client-imagebuilder)
 [![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-imagebuilder.svg)](https://www.npmjs.com/package/@aws-sdk/client-imagebuilder)

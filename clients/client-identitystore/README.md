@@ -1,4 +1,4 @@
-@aws-sdk/client-identitystore
+# @aws-sdk/client-identitystore
 
 [![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-identitystore/beta.svg)](https://www.npmjs.com/package/@aws-sdk/client-identitystore)
 [![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-identitystore.svg)](https://www.npmjs.com/package/@aws-sdk/client-identitystore)

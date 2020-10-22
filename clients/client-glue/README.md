@@ -1,4 +1,4 @@
-@aws-sdk/client-glue
+# @aws-sdk/client-glue
 
 [![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-glue/beta.svg)](https://www.npmjs.com/package/@aws-sdk/client-glue)
 [![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-glue.svg)](https://www.npmjs.com/package/@aws-sdk/client-glue)

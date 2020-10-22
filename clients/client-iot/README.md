@@ -1,4 +1,4 @@
-@aws-sdk/client-iot
+# @aws-sdk/client-iot
 
 [![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-iot/beta.svg)](https://www.npmjs.com/package/@aws-sdk/client-iot)
 [![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-iot.svg)](https://www.npmjs.com/package/@aws-sdk/client-iot)

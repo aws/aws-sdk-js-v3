@@ -1,4 +1,4 @@
-@aws-sdk/client-braket
+# @aws-sdk/client-braket
 
 [![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-braket/beta.svg)](https://www.npmjs.com/package/@aws-sdk/client-braket)
 [![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-braket.svg)](https://www.npmjs.com/package/@aws-sdk/client-braket)
