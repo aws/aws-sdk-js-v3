@@ -115,7 +115,7 @@ export class ServiceDiscovery extends ServiceDiscoveryClient {
   /**
    * <p>Creates an HTTP namespace. Service instances that you register using an HTTP namespace can be discovered using a
    *     <code>DiscoverInstances</code> request but can't be discovered using DNS. </p>
-   *          <p>For the current limit on the number of namespaces that you can create using the same AWS account, see <a href="https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html">AWS Cloud Map Limits</a> in the
+   *          <p>For the current quota on the number of namespaces that you can create using the same AWS account, see <a href="https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html">AWS Cloud Map quotas</a> in the
    *     <i>AWS Cloud Map Developer Guide</i>.</p>
    */
   public createHttpNamespace(
@@ -151,7 +151,7 @@ export class ServiceDiscovery extends ServiceDiscoveryClient {
    * <p>Creates a private namespace based on DNS, which will be visible only inside a specified Amazon VPC. The
    *    namespace defines your service naming scheme. For example, if you name your namespace <code>example.com</code> and
    *    name your service <code>backend</code>, the resulting DNS name for the service will be
-   *     <code>backend.example.com</code>. For the current limit on the number of namespaces that you can create using the
+   *     <code>backend.example.com</code>. For the current quota on the number of namespaces that you can create using the
    *    same AWS account, see <a href="https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html">AWS Cloud Map
    *     Limits</a> in the <i>AWS Cloud Map Developer Guide</i>.</p>
    */
@@ -188,7 +188,7 @@ export class ServiceDiscovery extends ServiceDiscoveryClient {
    * <p>Creates a public namespace based on DNS, which will be visible on the internet. The namespace defines your
    *    service naming scheme. For example, if you name your namespace <code>example.com</code> and name your service
    *     <code>backend</code>, the resulting DNS name for the service will be <code>backend.example.com</code>. For the
-   *    current limit on the number of namespaces that you can create using the same AWS account, see <a href="https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html">AWS Cloud Map Limits</a> in the
+   *    current quota on the number of namespaces that you can create using the same AWS account, see <a href="https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html">AWS Cloud Map Limits</a> in the
    *     <i>AWS Cloud Map Developer Guide</i>.</p>
    */
   public createPublicDnsNamespace(
@@ -224,22 +224,32 @@ export class ServiceDiscovery extends ServiceDiscoveryClient {
    * <p>Creates a service, which defines the configuration for the following entities:</p>
    *          <ul>
    *             <li>
-   *                <p>For public and private DNS namespaces, one of the following combinations of DNS records in Amazon Route 53:</p>
+   *                <p>For public and private DNS namespaces, one of the following combinations of DNS records in Amazon Route 53:</p>
    *                <ul>
    *                   <li>
-   *                      <p>A</p>
+   *                      <p>
+   *                         <code>A</code>
+   *                      </p>
    *                   </li>
    *                   <li>
-   *                      <p>AAAA</p>
+   *                      <p>
+   *                         <code>AAAA</code>
+   *                      </p>
    *                   </li>
    *                   <li>
-   *                      <p>A and AAAA</p>
+   *                      <p>
+   *                         <code>A</code> and <code>AAAA</code>
+   *                      </p>
    *                   </li>
    *                   <li>
-   *                      <p>SRV</p>
+   *                      <p>
+   *                         <code>SRV</code>
+   *                      </p>
    *                   </li>
    *                   <li>
-   *                      <p>CNAME</p>
+   *                      <p>
+   *                         <code>CNAME</code>
+   *                      </p>
    *                   </li>
    *                </ul>
    *             </li>
@@ -249,7 +259,7 @@ export class ServiceDiscovery extends ServiceDiscoveryClient {
    *          </ul>
    *          <p>After you create the service, you can submit a <a href="https://docs.aws.amazon.com/cloud-map/latest/api/API_RegisterInstance.html">RegisterInstance</a> request, and AWS Cloud Map uses the
    *    values in the configuration to create the specified entities.</p>
-   *          <p>For the current limit on the number of instances that you can register using the same namespace and using the
+   *          <p>For the current quota on the number of instances that you can register using the same namespace and using the
    *    same service, see <a href="https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html">AWS Cloud Map
    *     Limits</a> in the <i>AWS Cloud Map Developer Guide</i>.</p>
    */
@@ -349,7 +359,7 @@ export class ServiceDiscovery extends ServiceDiscoveryClient {
   }
 
   /**
-   * <p>Deletes the Amazon Route 53 DNS records and health check, if any, that AWS Cloud Map created for the specified
+   * <p>Deletes the Amazon Route 53 DNS records and health check, if any, that AWS Cloud Map created for the specified
    *    instance.</p>
    */
   public deregisterInstance(
@@ -761,7 +771,7 @@ export class ServiceDiscovery extends ServiceDiscoveryClient {
    *      records</p>
    *             </li>
    *          </ul>
-   *          <p>For the current limit on the number of instances that you can register using the same namespace and using the
+   *          <p>For the current quota on the number of instances that you can register using the same namespace and using the
    *    same service, see <a href="https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html">AWS Cloud Map
    *     Limits</a> in the <i>AWS Cloud Map Developer Guide</i>.</p>
    */
@@ -856,7 +866,7 @@ export class ServiceDiscovery extends ServiceDiscoveryClient {
    * <p>Submits a request to change the health status of a custom health check to healthy or unhealthy.</p>
    *          <p>You can use <code>UpdateInstanceCustomHealthStatus</code> to change the status only for custom health checks,
    *    which you define using <code>HealthCheckCustomConfig</code> when you create a service. You can't use it to change the
-   *    status for Route 53 health checks, which you define using <code>HealthCheckConfig</code>.</p>
+   *    status for Route 53 health checks, which you define using <code>HealthCheckConfig</code>.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/cloud-map/latest/api/API_HealthCheckCustomConfig.html">HealthCheckCustomConfig</a>.</p>
    */
   public updateInstanceCustomHealthStatus(

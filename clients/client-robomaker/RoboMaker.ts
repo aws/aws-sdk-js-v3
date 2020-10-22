@@ -1,5 +1,10 @@
 import { RoboMakerClient } from "./RoboMakerClient";
 import {
+  BatchDeleteWorldsCommand,
+  BatchDeleteWorldsCommandInput,
+  BatchDeleteWorldsCommandOutput,
+} from "./commands/BatchDeleteWorldsCommand";
+import {
   BatchDescribeSimulationJobCommand,
   BatchDescribeSimulationJobCommandInput,
   BatchDescribeSimulationJobCommandOutput,
@@ -19,6 +24,16 @@ import {
   CancelSimulationJobCommandInput,
   CancelSimulationJobCommandOutput,
 } from "./commands/CancelSimulationJobCommand";
+import {
+  CancelWorldExportJobCommand,
+  CancelWorldExportJobCommandInput,
+  CancelWorldExportJobCommandOutput,
+} from "./commands/CancelWorldExportJobCommand";
+import {
+  CancelWorldGenerationJobCommand,
+  CancelWorldGenerationJobCommandInput,
+  CancelWorldGenerationJobCommandOutput,
+} from "./commands/CancelWorldGenerationJobCommand";
 import {
   CreateDeploymentJobCommand,
   CreateDeploymentJobCommandInput,
@@ -51,6 +66,21 @@ import {
   CreateSimulationJobCommandInput,
   CreateSimulationJobCommandOutput,
 } from "./commands/CreateSimulationJobCommand";
+import {
+  CreateWorldExportJobCommand,
+  CreateWorldExportJobCommandInput,
+  CreateWorldExportJobCommandOutput,
+} from "./commands/CreateWorldExportJobCommand";
+import {
+  CreateWorldGenerationJobCommand,
+  CreateWorldGenerationJobCommandInput,
+  CreateWorldGenerationJobCommandOutput,
+} from "./commands/CreateWorldGenerationJobCommand";
+import {
+  CreateWorldTemplateCommand,
+  CreateWorldTemplateCommandInput,
+  CreateWorldTemplateCommandOutput,
+} from "./commands/CreateWorldTemplateCommand";
 import { DeleteFleetCommand, DeleteFleetCommandInput, DeleteFleetCommandOutput } from "./commands/DeleteFleetCommand";
 import {
   DeleteRobotApplicationCommand,
@@ -63,6 +93,11 @@ import {
   DeleteSimulationApplicationCommandInput,
   DeleteSimulationApplicationCommandOutput,
 } from "./commands/DeleteSimulationApplicationCommand";
+import {
+  DeleteWorldTemplateCommand,
+  DeleteWorldTemplateCommandInput,
+  DeleteWorldTemplateCommandOutput,
+} from "./commands/DeleteWorldTemplateCommand";
 import {
   DeregisterRobotCommand,
   DeregisterRobotCommandInput,
@@ -104,6 +139,31 @@ import {
   DescribeSimulationJobCommandOutput,
 } from "./commands/DescribeSimulationJobCommand";
 import {
+  DescribeWorldCommand,
+  DescribeWorldCommandInput,
+  DescribeWorldCommandOutput,
+} from "./commands/DescribeWorldCommand";
+import {
+  DescribeWorldExportJobCommand,
+  DescribeWorldExportJobCommandInput,
+  DescribeWorldExportJobCommandOutput,
+} from "./commands/DescribeWorldExportJobCommand";
+import {
+  DescribeWorldGenerationJobCommand,
+  DescribeWorldGenerationJobCommandInput,
+  DescribeWorldGenerationJobCommandOutput,
+} from "./commands/DescribeWorldGenerationJobCommand";
+import {
+  DescribeWorldTemplateCommand,
+  DescribeWorldTemplateCommandInput,
+  DescribeWorldTemplateCommandOutput,
+} from "./commands/DescribeWorldTemplateCommand";
+import {
+  GetWorldTemplateBodyCommand,
+  GetWorldTemplateBodyCommandInput,
+  GetWorldTemplateBodyCommandOutput,
+} from "./commands/GetWorldTemplateBodyCommand";
+import {
   ListDeploymentJobsCommand,
   ListDeploymentJobsCommandInput,
   ListDeploymentJobsCommandOutput,
@@ -135,6 +195,22 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import {
+  ListWorldExportJobsCommand,
+  ListWorldExportJobsCommandInput,
+  ListWorldExportJobsCommandOutput,
+} from "./commands/ListWorldExportJobsCommand";
+import {
+  ListWorldGenerationJobsCommand,
+  ListWorldGenerationJobsCommandInput,
+  ListWorldGenerationJobsCommandOutput,
+} from "./commands/ListWorldGenerationJobsCommand";
+import {
+  ListWorldTemplatesCommand,
+  ListWorldTemplatesCommandInput,
+  ListWorldTemplatesCommandOutput,
+} from "./commands/ListWorldTemplatesCommand";
+import { ListWorldsCommand, ListWorldsCommandInput, ListWorldsCommandOutput } from "./commands/ListWorldsCommand";
 import {
   RegisterRobotCommand,
   RegisterRobotCommandInput,
@@ -171,12 +247,49 @@ import {
   UpdateSimulationApplicationCommandInput,
   UpdateSimulationApplicationCommandOutput,
 } from "./commands/UpdateSimulationApplicationCommand";
+import {
+  UpdateWorldTemplateCommand,
+  UpdateWorldTemplateCommandInput,
+  UpdateWorldTemplateCommandOutput,
+} from "./commands/UpdateWorldTemplateCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
  * <p>This section provides documentation for the AWS RoboMaker API operations.</p>
  */
 export class RoboMaker extends RoboMakerClient {
+  /**
+   * <p>Deletes one or more worlds in a batch operation.</p>
+   */
+  public batchDeleteWorlds(
+    args: BatchDeleteWorldsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchDeleteWorldsCommandOutput>;
+  public batchDeleteWorlds(
+    args: BatchDeleteWorldsCommandInput,
+    cb: (err: any, data?: BatchDeleteWorldsCommandOutput) => void
+  ): void;
+  public batchDeleteWorlds(
+    args: BatchDeleteWorldsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchDeleteWorldsCommandOutput) => void
+  ): void;
+  public batchDeleteWorlds(
+    args: BatchDeleteWorldsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchDeleteWorldsCommandOutput) => void),
+    cb?: (err: any, data?: BatchDeleteWorldsCommandOutput) => void
+  ): Promise<BatchDeleteWorldsCommandOutput> | void {
+    const command = new BatchDeleteWorldsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
   /**
    * <p>Describes one or more simulation jobs.</p>
    */
@@ -298,6 +411,70 @@ export class RoboMaker extends RoboMakerClient {
     cb?: (err: any, data?: CancelSimulationJobBatchCommandOutput) => void
   ): Promise<CancelSimulationJobBatchCommandOutput> | void {
     const command = new CancelSimulationJobBatchCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Cancels the specified export job.</p>
+   */
+  public cancelWorldExportJob(
+    args: CancelWorldExportJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CancelWorldExportJobCommandOutput>;
+  public cancelWorldExportJob(
+    args: CancelWorldExportJobCommandInput,
+    cb: (err: any, data?: CancelWorldExportJobCommandOutput) => void
+  ): void;
+  public cancelWorldExportJob(
+    args: CancelWorldExportJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CancelWorldExportJobCommandOutput) => void
+  ): void;
+  public cancelWorldExportJob(
+    args: CancelWorldExportJobCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CancelWorldExportJobCommandOutput) => void),
+    cb?: (err: any, data?: CancelWorldExportJobCommandOutput) => void
+  ): Promise<CancelWorldExportJobCommandOutput> | void {
+    const command = new CancelWorldExportJobCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Cancels the specified world generator job.</p>
+   */
+  public cancelWorldGenerationJob(
+    args: CancelWorldGenerationJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CancelWorldGenerationJobCommandOutput>;
+  public cancelWorldGenerationJob(
+    args: CancelWorldGenerationJobCommandInput,
+    cb: (err: any, data?: CancelWorldGenerationJobCommandOutput) => void
+  ): void;
+  public cancelWorldGenerationJob(
+    args: CancelWorldGenerationJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CancelWorldGenerationJobCommandOutput) => void
+  ): void;
+  public cancelWorldGenerationJob(
+    args: CancelWorldGenerationJobCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CancelWorldGenerationJobCommandOutput) => void),
+    cb?: (err: any, data?: CancelWorldGenerationJobCommandOutput) => void
+  ): Promise<CancelWorldGenerationJobCommandOutput> | void {
+    const command = new CancelWorldGenerationJobCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -566,6 +743,102 @@ export class RoboMaker extends RoboMakerClient {
   }
 
   /**
+   * <p>Creates a world export job.</p>
+   */
+  public createWorldExportJob(
+    args: CreateWorldExportJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateWorldExportJobCommandOutput>;
+  public createWorldExportJob(
+    args: CreateWorldExportJobCommandInput,
+    cb: (err: any, data?: CreateWorldExportJobCommandOutput) => void
+  ): void;
+  public createWorldExportJob(
+    args: CreateWorldExportJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateWorldExportJobCommandOutput) => void
+  ): void;
+  public createWorldExportJob(
+    args: CreateWorldExportJobCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateWorldExportJobCommandOutput) => void),
+    cb?: (err: any, data?: CreateWorldExportJobCommandOutput) => void
+  ): Promise<CreateWorldExportJobCommandOutput> | void {
+    const command = new CreateWorldExportJobCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates worlds using the specified template.</p>
+   */
+  public createWorldGenerationJob(
+    args: CreateWorldGenerationJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateWorldGenerationJobCommandOutput>;
+  public createWorldGenerationJob(
+    args: CreateWorldGenerationJobCommandInput,
+    cb: (err: any, data?: CreateWorldGenerationJobCommandOutput) => void
+  ): void;
+  public createWorldGenerationJob(
+    args: CreateWorldGenerationJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateWorldGenerationJobCommandOutput) => void
+  ): void;
+  public createWorldGenerationJob(
+    args: CreateWorldGenerationJobCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateWorldGenerationJobCommandOutput) => void),
+    cb?: (err: any, data?: CreateWorldGenerationJobCommandOutput) => void
+  ): Promise<CreateWorldGenerationJobCommandOutput> | void {
+    const command = new CreateWorldGenerationJobCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates a world template.</p>
+   */
+  public createWorldTemplate(
+    args: CreateWorldTemplateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateWorldTemplateCommandOutput>;
+  public createWorldTemplate(
+    args: CreateWorldTemplateCommandInput,
+    cb: (err: any, data?: CreateWorldTemplateCommandOutput) => void
+  ): void;
+  public createWorldTemplate(
+    args: CreateWorldTemplateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateWorldTemplateCommandOutput) => void
+  ): void;
+  public createWorldTemplate(
+    args: CreateWorldTemplateCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateWorldTemplateCommandOutput) => void),
+    cb?: (err: any, data?: CreateWorldTemplateCommandOutput) => void
+  ): Promise<CreateWorldTemplateCommandOutput> | void {
+    const command = new CreateWorldTemplateCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Deletes a fleet.</p>
    */
   public deleteFleet(args: DeleteFleetCommandInput, options?: __HttpHandlerOptions): Promise<DeleteFleetCommandOutput>;
@@ -671,6 +944,38 @@ export class RoboMaker extends RoboMakerClient {
     cb?: (err: any, data?: DeleteSimulationApplicationCommandOutput) => void
   ): Promise<DeleteSimulationApplicationCommandOutput> | void {
     const command = new DeleteSimulationApplicationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes a world template.</p>
+   */
+  public deleteWorldTemplate(
+    args: DeleteWorldTemplateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteWorldTemplateCommandOutput>;
+  public deleteWorldTemplate(
+    args: DeleteWorldTemplateCommandInput,
+    cb: (err: any, data?: DeleteWorldTemplateCommandOutput) => void
+  ): void;
+  public deleteWorldTemplate(
+    args: DeleteWorldTemplateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteWorldTemplateCommandOutput) => void
+  ): void;
+  public deleteWorldTemplate(
+    args: DeleteWorldTemplateCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteWorldTemplateCommandOutput) => void),
+    cb?: (err: any, data?: DeleteWorldTemplateCommandOutput) => void
+  ): Promise<DeleteWorldTemplateCommandOutput> | void {
+    const command = new DeleteWorldTemplateCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -938,6 +1243,166 @@ export class RoboMaker extends RoboMakerClient {
   }
 
   /**
+   * <p>Describes a world.</p>
+   */
+  public describeWorld(
+    args: DescribeWorldCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeWorldCommandOutput>;
+  public describeWorld(
+    args: DescribeWorldCommandInput,
+    cb: (err: any, data?: DescribeWorldCommandOutput) => void
+  ): void;
+  public describeWorld(
+    args: DescribeWorldCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeWorldCommandOutput) => void
+  ): void;
+  public describeWorld(
+    args: DescribeWorldCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeWorldCommandOutput) => void),
+    cb?: (err: any, data?: DescribeWorldCommandOutput) => void
+  ): Promise<DescribeWorldCommandOutput> | void {
+    const command = new DescribeWorldCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Describes a world export job.</p>
+   */
+  public describeWorldExportJob(
+    args: DescribeWorldExportJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeWorldExportJobCommandOutput>;
+  public describeWorldExportJob(
+    args: DescribeWorldExportJobCommandInput,
+    cb: (err: any, data?: DescribeWorldExportJobCommandOutput) => void
+  ): void;
+  public describeWorldExportJob(
+    args: DescribeWorldExportJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeWorldExportJobCommandOutput) => void
+  ): void;
+  public describeWorldExportJob(
+    args: DescribeWorldExportJobCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeWorldExportJobCommandOutput) => void),
+    cb?: (err: any, data?: DescribeWorldExportJobCommandOutput) => void
+  ): Promise<DescribeWorldExportJobCommandOutput> | void {
+    const command = new DescribeWorldExportJobCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Describes a world generation job.</p>
+   */
+  public describeWorldGenerationJob(
+    args: DescribeWorldGenerationJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeWorldGenerationJobCommandOutput>;
+  public describeWorldGenerationJob(
+    args: DescribeWorldGenerationJobCommandInput,
+    cb: (err: any, data?: DescribeWorldGenerationJobCommandOutput) => void
+  ): void;
+  public describeWorldGenerationJob(
+    args: DescribeWorldGenerationJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeWorldGenerationJobCommandOutput) => void
+  ): void;
+  public describeWorldGenerationJob(
+    args: DescribeWorldGenerationJobCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeWorldGenerationJobCommandOutput) => void),
+    cb?: (err: any, data?: DescribeWorldGenerationJobCommandOutput) => void
+  ): Promise<DescribeWorldGenerationJobCommandOutput> | void {
+    const command = new DescribeWorldGenerationJobCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Describes a world template.</p>
+   */
+  public describeWorldTemplate(
+    args: DescribeWorldTemplateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeWorldTemplateCommandOutput>;
+  public describeWorldTemplate(
+    args: DescribeWorldTemplateCommandInput,
+    cb: (err: any, data?: DescribeWorldTemplateCommandOutput) => void
+  ): void;
+  public describeWorldTemplate(
+    args: DescribeWorldTemplateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeWorldTemplateCommandOutput) => void
+  ): void;
+  public describeWorldTemplate(
+    args: DescribeWorldTemplateCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeWorldTemplateCommandOutput) => void),
+    cb?: (err: any, data?: DescribeWorldTemplateCommandOutput) => void
+  ): Promise<DescribeWorldTemplateCommandOutput> | void {
+    const command = new DescribeWorldTemplateCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Gets the world template body.</p>
+   */
+  public getWorldTemplateBody(
+    args: GetWorldTemplateBodyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetWorldTemplateBodyCommandOutput>;
+  public getWorldTemplateBody(
+    args: GetWorldTemplateBodyCommandInput,
+    cb: (err: any, data?: GetWorldTemplateBodyCommandOutput) => void
+  ): void;
+  public getWorldTemplateBody(
+    args: GetWorldTemplateBodyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetWorldTemplateBodyCommandOutput) => void
+  ): void;
+  public getWorldTemplateBody(
+    args: GetWorldTemplateBodyCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetWorldTemplateBodyCommandOutput) => void),
+    cb?: (err: any, data?: GetWorldTemplateBodyCommandOutput) => void
+  ): Promise<GetWorldTemplateBodyCommandOutput> | void {
+    const command = new GetWorldTemplateBodyCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Returns a list of deployment jobs for a fleet. You can optionally provide filters to retrieve
    *          specific deployment jobs.
    *          </p>
@@ -1180,6 +1645,128 @@ export class RoboMaker extends RoboMakerClient {
     cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): Promise<ListTagsForResourceCommandOutput> | void {
     const command = new ListTagsForResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Lists world export jobs.</p>
+   */
+  public listWorldExportJobs(
+    args: ListWorldExportJobsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListWorldExportJobsCommandOutput>;
+  public listWorldExportJobs(
+    args: ListWorldExportJobsCommandInput,
+    cb: (err: any, data?: ListWorldExportJobsCommandOutput) => void
+  ): void;
+  public listWorldExportJobs(
+    args: ListWorldExportJobsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListWorldExportJobsCommandOutput) => void
+  ): void;
+  public listWorldExportJobs(
+    args: ListWorldExportJobsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListWorldExportJobsCommandOutput) => void),
+    cb?: (err: any, data?: ListWorldExportJobsCommandOutput) => void
+  ): Promise<ListWorldExportJobsCommandOutput> | void {
+    const command = new ListWorldExportJobsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Lists world generator jobs.</p>
+   */
+  public listWorldGenerationJobs(
+    args: ListWorldGenerationJobsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListWorldGenerationJobsCommandOutput>;
+  public listWorldGenerationJobs(
+    args: ListWorldGenerationJobsCommandInput,
+    cb: (err: any, data?: ListWorldGenerationJobsCommandOutput) => void
+  ): void;
+  public listWorldGenerationJobs(
+    args: ListWorldGenerationJobsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListWorldGenerationJobsCommandOutput) => void
+  ): void;
+  public listWorldGenerationJobs(
+    args: ListWorldGenerationJobsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListWorldGenerationJobsCommandOutput) => void),
+    cb?: (err: any, data?: ListWorldGenerationJobsCommandOutput) => void
+  ): Promise<ListWorldGenerationJobsCommandOutput> | void {
+    const command = new ListWorldGenerationJobsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Lists worlds.</p>
+   */
+  public listWorlds(args: ListWorldsCommandInput, options?: __HttpHandlerOptions): Promise<ListWorldsCommandOutput>;
+  public listWorlds(args: ListWorldsCommandInput, cb: (err: any, data?: ListWorldsCommandOutput) => void): void;
+  public listWorlds(
+    args: ListWorldsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListWorldsCommandOutput) => void
+  ): void;
+  public listWorlds(
+    args: ListWorldsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListWorldsCommandOutput) => void),
+    cb?: (err: any, data?: ListWorldsCommandOutput) => void
+  ): Promise<ListWorldsCommandOutput> | void {
+    const command = new ListWorldsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Lists world templates.</p>
+   */
+  public listWorldTemplates(
+    args: ListWorldTemplatesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListWorldTemplatesCommandOutput>;
+  public listWorldTemplates(
+    args: ListWorldTemplatesCommandInput,
+    cb: (err: any, data?: ListWorldTemplatesCommandOutput) => void
+  ): void;
+  public listWorldTemplates(
+    args: ListWorldTemplatesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListWorldTemplatesCommandOutput) => void
+  ): void;
+  public listWorldTemplates(
+    args: ListWorldTemplatesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListWorldTemplatesCommandOutput) => void),
+    cb?: (err: any, data?: ListWorldTemplatesCommandOutput) => void
+  ): Promise<ListWorldTemplatesCommandOutput> | void {
+    const command = new ListWorldTemplatesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1438,6 +2025,38 @@ export class RoboMaker extends RoboMakerClient {
     cb?: (err: any, data?: UpdateSimulationApplicationCommandOutput) => void
   ): Promise<UpdateSimulationApplicationCommandOutput> | void {
     const command = new UpdateSimulationApplicationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates a world template.</p>
+   */
+  public updateWorldTemplate(
+    args: UpdateWorldTemplateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateWorldTemplateCommandOutput>;
+  public updateWorldTemplate(
+    args: UpdateWorldTemplateCommandInput,
+    cb: (err: any, data?: UpdateWorldTemplateCommandOutput) => void
+  ): void;
+  public updateWorldTemplate(
+    args: UpdateWorldTemplateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateWorldTemplateCommandOutput) => void
+  ): void;
+  public updateWorldTemplate(
+    args: UpdateWorldTemplateCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateWorldTemplateCommandOutput) => void),
+    cb?: (err: any, data?: UpdateWorldTemplateCommandOutput) => void
+  ): Promise<UpdateWorldTemplateCommandOutput> | void {
+    const command = new UpdateWorldTemplateCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

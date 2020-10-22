@@ -56,11 +56,13 @@
     "@aws-sdk/util-user-agent-node": "1.0.0-rc.1",
     "@aws-sdk/util-utf8-browser": "1.0.0-rc.1",
     "@aws-sdk/util-utf8-node": "1.0.0-rc.1",
-    "tslib": "^2.0.0"
+    "tslib": "^2.0.0",
+    "uuid": "^3.0.0"
   },
   "devDependencies": {
     "@aws-sdk/client-documentation-generator": "1.0.0-rc.1",
     "@types/node": "^12.7.5",
+    "@types/uuid": "^3.0.0",
     "jest": "^26.1.0",
     "rimraf": "^3.0.0",
     "typedoc": "^0.17.8",

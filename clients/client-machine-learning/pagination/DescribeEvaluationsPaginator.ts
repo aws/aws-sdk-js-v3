@@ -33,7 +33,7 @@ export async function* describeEvaluationsPaginate(
   let hasNext = true;
   let page: DescribeEvaluationsCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["Limit"] = config.pageSize;
     if (config.client instanceof MachineLearning) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* describeEvaluationsPaginate(
       throw new Error("Invalid client, expected MachineLearning | MachineLearningClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

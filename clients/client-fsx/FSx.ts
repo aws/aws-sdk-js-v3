@@ -127,7 +127,7 @@ export class FSx extends FSxClient {
    *                <p>a Persistent deployment type</p>
    *             </li>
    *             <li>
-   *                <p>is <i>not</i> linked to an Amazon S3 data respository.</p>
+   *                <p>is <i>not</i> linked to a data respository.</p>
    *             </li>
    *          </ul>
    *             <p>For more information about backing up Amazon FSx for Lustre file systems,

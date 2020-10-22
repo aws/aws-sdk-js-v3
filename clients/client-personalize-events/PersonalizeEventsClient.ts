@@ -1,4 +1,6 @@
 import { PutEventsCommandInput, PutEventsCommandOutput } from "./commands/PutEventsCommand";
+import { PutItemsCommandInput, PutItemsCommandOutput } from "./commands/PutItemsCommand";
+import { PutUsersCommandInput, PutUsersCommandOutput } from "./commands/PutUsersCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -48,9 +50,9 @@ import {
   UrlParser as __UrlParser,
 } from "@aws-sdk/types";
 
-export type ServiceInputTypes = PutEventsCommandInput;
+export type ServiceInputTypes = PutEventsCommandInput | PutItemsCommandInput | PutUsersCommandInput;
 
-export type ServiceOutputTypes = PutEventsCommandOutput;
+export type ServiceOutputTypes = PutEventsCommandOutput | PutItemsCommandOutput | PutUsersCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
@@ -165,7 +167,8 @@ export type PersonalizeEventsClientResolvedConfig = __SmithyResolvedConfiguratio
   HostHeaderResolvedConfig;
 
 /**
- * <p></p>
+ * <p>Amazon Personalize can consume real-time user event data, such as <i>stream</i> or <i>click</i> data, and use
+ *       it for model training either alone or combined with historical data. For more information see <a>recording-events</a>.</p>
  */
 export class PersonalizeEventsClient extends __Client<
   __HttpHandlerOptions,

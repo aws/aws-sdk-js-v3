@@ -50,6 +50,8 @@ export * from "./commands/EnableAWSOrganizationsAccessCommand";
 export * from "./commands/ExecuteProvisionedProductPlanCommand";
 export * from "./commands/ExecuteProvisionedProductServiceActionCommand";
 export * from "./commands/GetAWSOrganizationsAccessStatusCommand";
+export * from "./commands/GetProvisionedProductOutputsCommand";
+export * from "./pagination/GetProvisionedProductOutputsPaginator";
 export * from "./commands/ListAcceptedPortfolioSharesCommand";
 export * from "./pagination/ListAcceptedPortfolioSharesPaginator";
 export * from "./commands/ListBudgetsForResourceCommand";

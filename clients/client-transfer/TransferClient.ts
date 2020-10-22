@@ -3,9 +3,17 @@ import { CreateUserCommandInput, CreateUserCommandOutput } from "./commands/Crea
 import { DeleteServerCommandInput, DeleteServerCommandOutput } from "./commands/DeleteServerCommand";
 import { DeleteSshPublicKeyCommandInput, DeleteSshPublicKeyCommandOutput } from "./commands/DeleteSshPublicKeyCommand";
 import { DeleteUserCommandInput, DeleteUserCommandOutput } from "./commands/DeleteUserCommand";
+import {
+  DescribeSecurityPolicyCommandInput,
+  DescribeSecurityPolicyCommandOutput,
+} from "./commands/DescribeSecurityPolicyCommand";
 import { DescribeServerCommandInput, DescribeServerCommandOutput } from "./commands/DescribeServerCommand";
 import { DescribeUserCommandInput, DescribeUserCommandOutput } from "./commands/DescribeUserCommand";
 import { ImportSshPublicKeyCommandInput, ImportSshPublicKeyCommandOutput } from "./commands/ImportSshPublicKeyCommand";
+import {
+  ListSecurityPoliciesCommandInput,
+  ListSecurityPoliciesCommandOutput,
+} from "./commands/ListSecurityPoliciesCommand";
 import { ListServersCommandInput, ListServersCommandOutput } from "./commands/ListServersCommand";
 import {
   ListTagsForResourceCommandInput,
@@ -77,9 +85,11 @@ export type ServiceInputTypes =
   | DeleteServerCommandInput
   | DeleteSshPublicKeyCommandInput
   | DeleteUserCommandInput
+  | DescribeSecurityPolicyCommandInput
   | DescribeServerCommandInput
   | DescribeUserCommandInput
   | ImportSshPublicKeyCommandInput
+  | ListSecurityPoliciesCommandInput
   | ListServersCommandInput
   | ListTagsForResourceCommandInput
   | ListUsersCommandInput
@@ -97,9 +107,11 @@ export type ServiceOutputTypes =
   | DeleteServerCommandOutput
   | DeleteSshPublicKeyCommandOutput
   | DeleteUserCommandOutput
+  | DescribeSecurityPolicyCommandOutput
   | DescribeServerCommandOutput
   | DescribeUserCommandOutput
   | ImportSshPublicKeyCommandOutput
+  | ListSecurityPoliciesCommandOutput
   | ListServersCommandOutput
   | ListTagsForResourceCommandOutput
   | ListUsersCommandOutput
@@ -225,14 +237,14 @@ export type TransferClientResolvedConfig = __SmithyResolvedConfiguration<__HttpH
 
 /**
  * <p>AWS Transfer Family is a fully managed service that enables the transfer of files over the
- *       the File Transfer Protocol (FTP), File Transfer Protocol over SSL (FTPS), or Secure Shell
- *       (SSH) File Transfer Protocol (SFTP) directly into and out of Amazon Simple Storage Service
- *       (Amazon S3). AWS helps you seamlessly migrate your file transfer workflows to AWS Transfer
- *       Family by integrating with existing authentication systems, and providing DNS routing with
- *       Amazon Route 53 so nothing changes for your customers and partners, or their applications.
- *       With your data in Amazon S3, you can use it with AWS services for processing, analytics,
- *       machine learning, and archiving. Getting started with AWS Transfer Family is easy since there
- *       is no infrastructure to buy and set up.</p>
+ *       File Transfer Protocol (FTP), File Transfer Protocol over SSL (FTPS), or Secure Shell (SSH)
+ *       File Transfer Protocol (SFTP) directly into and out of Amazon Simple Storage Service (Amazon
+ *       S3). AWS helps you seamlessly migrate your file transfer workflows to AWS Transfer Family by
+ *       integrating with existing authentication systems, and providing DNS routing with Amazon Route
+ *       53 so nothing changes for your customers and partners, or their applications. With your data
+ *       in Amazon S3, you can use it with AWS services for processing, analytics, machine learning,
+ *       and archiving. Getting started with AWS Transfer Family is easy since there is no
+ *       infrastructure to buy and set up.</p>
  */
 export class TransferClient extends __Client<
   __HttpHandlerOptions,

@@ -33,7 +33,7 @@ export async function* listResourcesPaginate(
   let hasNext = true;
   let page: ListResourcesCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof LakeFormation) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* listResourcesPaginate(
       throw new Error("Invalid client, expected LakeFormation | LakeFormationClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

@@ -35,6 +35,8 @@ import {
   CreateReplicationGroupCommandOutput,
 } from "./commands/CreateReplicationGroupCommand";
 import { CreateSnapshotCommandInput, CreateSnapshotCommandOutput } from "./commands/CreateSnapshotCommand";
+import { CreateUserCommandInput, CreateUserCommandOutput } from "./commands/CreateUserCommand";
+import { CreateUserGroupCommandInput, CreateUserGroupCommandOutput } from "./commands/CreateUserGroupCommand";
 import {
   DecreaseNodeGroupsInGlobalReplicationGroupCommandInput,
   DecreaseNodeGroupsInGlobalReplicationGroupCommandOutput,
@@ -65,6 +67,8 @@ import {
   DeleteReplicationGroupCommandOutput,
 } from "./commands/DeleteReplicationGroupCommand";
 import { DeleteSnapshotCommandInput, DeleteSnapshotCommandOutput } from "./commands/DeleteSnapshotCommand";
+import { DeleteUserCommandInput, DeleteUserCommandOutput } from "./commands/DeleteUserCommand";
+import { DeleteUserGroupCommandInput, DeleteUserGroupCommandOutput } from "./commands/DeleteUserGroupCommand";
 import {
   DescribeCacheClustersCommandInput,
   DescribeCacheClustersCommandOutput,
@@ -119,6 +123,8 @@ import {
   DescribeUpdateActionsCommandInput,
   DescribeUpdateActionsCommandOutput,
 } from "./commands/DescribeUpdateActionsCommand";
+import { DescribeUserGroupsCommandInput, DescribeUserGroupsCommandOutput } from "./commands/DescribeUserGroupsCommand";
+import { DescribeUsersCommandInput, DescribeUsersCommandOutput } from "./commands/DescribeUsersCommand";
 import {
   DisassociateGlobalReplicationGroupCommandInput,
   DisassociateGlobalReplicationGroupCommandOutput,
@@ -164,6 +170,8 @@ import {
   ModifyReplicationGroupShardConfigurationCommandInput,
   ModifyReplicationGroupShardConfigurationCommandOutput,
 } from "./commands/ModifyReplicationGroupShardConfigurationCommand";
+import { ModifyUserCommandInput, ModifyUserCommandOutput } from "./commands/ModifyUserCommand";
+import { ModifyUserGroupCommandInput, ModifyUserGroupCommandOutput } from "./commands/ModifyUserGroupCommand";
 import {
   PurchaseReservedCacheNodesOfferingCommandInput,
   PurchaseReservedCacheNodesOfferingCommandOutput,
@@ -250,6 +258,8 @@ export type ServiceInputTypes =
   | CreateGlobalReplicationGroupCommandInput
   | CreateReplicationGroupCommandInput
   | CreateSnapshotCommandInput
+  | CreateUserCommandInput
+  | CreateUserGroupCommandInput
   | DecreaseNodeGroupsInGlobalReplicationGroupCommandInput
   | DecreaseReplicaCountCommandInput
   | DeleteCacheClusterCommandInput
@@ -259,6 +269,8 @@ export type ServiceInputTypes =
   | DeleteGlobalReplicationGroupCommandInput
   | DeleteReplicationGroupCommandInput
   | DeleteSnapshotCommandInput
+  | DeleteUserCommandInput
+  | DeleteUserGroupCommandInput
   | DescribeCacheClustersCommandInput
   | DescribeCacheEngineVersionsCommandInput
   | DescribeCacheParameterGroupsCommandInput
@@ -274,6 +286,8 @@ export type ServiceInputTypes =
   | DescribeServiceUpdatesCommandInput
   | DescribeSnapshotsCommandInput
   | DescribeUpdateActionsCommandInput
+  | DescribeUserGroupsCommandInput
+  | DescribeUsersCommandInput
   | DisassociateGlobalReplicationGroupCommandInput
   | FailoverGlobalReplicationGroupCommandInput
   | IncreaseNodeGroupsInGlobalReplicationGroupCommandInput
@@ -286,6 +300,8 @@ export type ServiceInputTypes =
   | ModifyGlobalReplicationGroupCommandInput
   | ModifyReplicationGroupCommandInput
   | ModifyReplicationGroupShardConfigurationCommandInput
+  | ModifyUserCommandInput
+  | ModifyUserGroupCommandInput
   | PurchaseReservedCacheNodesOfferingCommandInput
   | RebalanceSlotsInGlobalReplicationGroupCommandInput
   | RebootCacheClusterCommandInput
@@ -309,6 +325,8 @@ export type ServiceOutputTypes =
   | CreateGlobalReplicationGroupCommandOutput
   | CreateReplicationGroupCommandOutput
   | CreateSnapshotCommandOutput
+  | CreateUserCommandOutput
+  | CreateUserGroupCommandOutput
   | DecreaseNodeGroupsInGlobalReplicationGroupCommandOutput
   | DecreaseReplicaCountCommandOutput
   | DeleteCacheClusterCommandOutput
@@ -318,6 +336,8 @@ export type ServiceOutputTypes =
   | DeleteGlobalReplicationGroupCommandOutput
   | DeleteReplicationGroupCommandOutput
   | DeleteSnapshotCommandOutput
+  | DeleteUserCommandOutput
+  | DeleteUserGroupCommandOutput
   | DescribeCacheClustersCommandOutput
   | DescribeCacheEngineVersionsCommandOutput
   | DescribeCacheParameterGroupsCommandOutput
@@ -333,6 +353,8 @@ export type ServiceOutputTypes =
   | DescribeServiceUpdatesCommandOutput
   | DescribeSnapshotsCommandOutput
   | DescribeUpdateActionsCommandOutput
+  | DescribeUserGroupsCommandOutput
+  | DescribeUsersCommandOutput
   | DisassociateGlobalReplicationGroupCommandOutput
   | FailoverGlobalReplicationGroupCommandOutput
   | IncreaseNodeGroupsInGlobalReplicationGroupCommandOutput
@@ -345,6 +367,8 @@ export type ServiceOutputTypes =
   | ModifyGlobalReplicationGroupCommandOutput
   | ModifyReplicationGroupCommandOutput
   | ModifyReplicationGroupShardConfigurationCommandOutput
+  | ModifyUserCommandOutput
+  | ModifyUserGroupCommandOutput
   | PurchaseReservedCacheNodesOfferingCommandOutput
   | RebalanceSlotsInGlobalReplicationGroupCommandOutput
   | RebootCacheClusterCommandOutput

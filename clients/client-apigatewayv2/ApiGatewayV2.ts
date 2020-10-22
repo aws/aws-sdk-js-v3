@@ -196,6 +196,11 @@ import { GetVpcLinkCommand, GetVpcLinkCommandInput, GetVpcLinkCommandOutput } fr
 import { GetVpcLinksCommand, GetVpcLinksCommandInput, GetVpcLinksCommandOutput } from "./commands/GetVpcLinksCommand";
 import { ImportApiCommand, ImportApiCommandInput, ImportApiCommandOutput } from "./commands/ImportApiCommand";
 import { ReimportApiCommand, ReimportApiCommandInput, ReimportApiCommandOutput } from "./commands/ReimportApiCommand";
+import {
+  ResetAuthorizersCacheCommand,
+  ResetAuthorizersCacheCommandInput,
+  ResetAuthorizersCacheCommandOutput,
+} from "./commands/ResetAuthorizersCacheCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
@@ -1931,6 +1936,38 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
     cb?: (err: any, data?: ReimportApiCommandOutput) => void
   ): Promise<ReimportApiCommandOutput> | void {
     const command = new ReimportApiCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Resets all authorizer cache entries on a stage. Supported only for HTTP APIs.</p>
+   */
+  public resetAuthorizersCache(
+    args: ResetAuthorizersCacheCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ResetAuthorizersCacheCommandOutput>;
+  public resetAuthorizersCache(
+    args: ResetAuthorizersCacheCommandInput,
+    cb: (err: any, data?: ResetAuthorizersCacheCommandOutput) => void
+  ): void;
+  public resetAuthorizersCache(
+    args: ResetAuthorizersCacheCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ResetAuthorizersCacheCommandOutput) => void
+  ): void;
+  public resetAuthorizersCache(
+    args: ResetAuthorizersCacheCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ResetAuthorizersCacheCommandOutput) => void),
+    cb?: (err: any, data?: ResetAuthorizersCacheCommandOutput) => void
+  ): Promise<ResetAuthorizersCacheCommandOutput> | void {
+    const command = new ResetAuthorizersCacheCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

@@ -1,16 +1,178 @@
 import {
-  ContinuationEvent,
-  EndEvent,
   ExpressionType,
+  GlacierJobParameters,
   InputSerialization,
+  OutputLocation,
   OutputSerialization,
-  ProgressEvent,
   RequestCharged,
   RequestPayer,
+  SelectParameters,
   ServerSideEncryption,
+  Tier,
 } from "./models_0";
 import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
 import { Readable } from "stream";
+
+export enum RestoreRequestType {
+  SELECT = "SELECT",
+}
+
+/**
+ * <p>Container for restore job parameters.</p>
+ */
+export interface RestoreRequest {
+  /**
+   * <p>S3 Glacier related parameters pertaining to this job. Do not use with restores that specify
+   *             <code>OutputLocation</code>.</p>
+   */
+  GlacierJobParameters?: GlacierJobParameters;
+
+  /**
+   * <p>Lifetime of the active copy in days. Do not use with restores that specify
+   *             <code>OutputLocation</code>.</p>
+   */
+  Days?: number;
+
+  /**
+   * <p>Describes the location where the restore job's output is stored.</p>
+   */
+  OutputLocation?: OutputLocation;
+
+  /**
+   * <p>Describes the parameters for Select job types.</p>
+   */
+  SelectParameters?: SelectParameters;
+
+  /**
+   * <p>S3 Glacier retrieval tier at which the restore will be processed.</p>
+   */
+  Tier?: Tier | string;
+
+  /**
+   * <p>The optional description for the job.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>Type of restore request.</p>
+   */
+  Type?: RestoreRequestType | string;
+}
+
+export namespace RestoreRequest {
+  export const filterSensitiveLog = (obj: RestoreRequest): any => ({
+    ...obj,
+    ...(obj.OutputLocation && { OutputLocation: OutputLocation.filterSensitiveLog(obj.OutputLocation) }),
+  });
+}
+
+export interface RestoreObjectRequest {
+  /**
+   * <p>Container for restore job parameters.</p>
+   */
+  RestoreRequest?: RestoreRequest;
+
+  /**
+   * <p>Confirms that the requester knows that they will be charged for the request. Bucket
+   *          owners need not specify this parameter in their requests. For information about downloading
+   *          objects from requester pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in Requestor Pays Buckets</a> in the
+   *             <i>Amazon S3 Developer Guide</i>.</p>
+   */
+  RequestPayer?: RequestPayer | string;
+
+  /**
+   * <p>VersionId used to reference a specific version of the object.</p>
+   */
+  VersionId?: string;
+
+  /**
+   * <p>Object key for which the operation was initiated.</p>
+   */
+  Key: string | undefined;
+
+  /**
+   * <p>The bucket name or containing the object to restore. </p>
+   *          <p>When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this operation with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html">Using Access Points</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
+   *          <p>When using this API with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com. When using this operation using S3 on Outposts through the AWS SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html">Using S3 on Outposts</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
+   */
+  Bucket: string | undefined;
+
+  /**
+   * <p>The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP <code>403 (Access Denied)</code> error.</p>
+   */
+  ExpectedBucketOwner?: string;
+}
+
+export namespace RestoreObjectRequest {
+  export const filterSensitiveLog = (obj: RestoreObjectRequest): any => ({
+    ...obj,
+    ...(obj.RestoreRequest && { RestoreRequest: RestoreRequest.filterSensitiveLog(obj.RestoreRequest) }),
+  });
+}
+
+/**
+ * <p></p>
+ */
+export interface ContinuationEvent {}
+
+export namespace ContinuationEvent {
+  export const filterSensitiveLog = (obj: ContinuationEvent): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A message that indicates the request is complete and no more messages will be sent. You should not assume that the request is complete until the client receives an <code>EndEvent</code>.</p>
+ */
+export interface EndEvent {}
+
+export namespace EndEvent {
+  export const filterSensitiveLog = (obj: EndEvent): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>This data type contains information about progress of an operation.</p>
+ */
+export interface Progress {
+  /**
+   * <p>The current number of object bytes scanned.</p>
+   */
+  BytesScanned?: number;
+
+  /**
+   * <p>The current number of uncompressed object bytes processed.</p>
+   */
+  BytesProcessed?: number;
+
+  /**
+   * <p>The current number of bytes of records payload data returned.</p>
+   */
+  BytesReturned?: number;
+}
+
+export namespace Progress {
+  export const filterSensitiveLog = (obj: Progress): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>This data type contains information about the progress event of an operation.</p>
+ */
+export interface ProgressEvent {
+  /**
+   * <p>The Progress event details.</p>
+   */
+  Details?: Progress;
+}
+
+export namespace ProgressEvent {
+  export const filterSensitiveLog = (obj: ProgressEvent): any => ({
+    ...obj,
+  });
+}
 
 /**
  * <p>The container for the records event.</p>
@@ -83,26 +245,14 @@ export type SelectObjectContentEventStream =
 
 export namespace SelectObjectContentEventStream {
   /**
-   * <p>The Stats Event.</p>
+   * <p>The Continuation Event.</p>
    */
-  export interface StatsMember {
-    Stats: StatsEvent;
-    End?: never;
+  export interface ContMember {
+    Cont: ContinuationEvent;
     Progress?: never;
-    Records?: never;
-    Cont?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>The End Event.</p>
-   */
-  export interface EndMember {
     Stats?: never;
-    End: EndEvent;
-    Progress?: never;
+    End?: never;
     Records?: never;
-    Cont?: never;
     $unknown?: never;
   }
 
@@ -110,11 +260,35 @@ export namespace SelectObjectContentEventStream {
    * <p>The Progress Event.</p>
    */
   export interface ProgressMember {
+    Cont?: never;
+    Progress: ProgressEvent;
     Stats?: never;
     End?: never;
-    Progress: ProgressEvent;
     Records?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The Stats Event.</p>
+   */
+  export interface StatsMember {
     Cont?: never;
+    Progress?: never;
+    Stats: StatsEvent;
+    End?: never;
+    Records?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The End Event.</p>
+   */
+  export interface EndMember {
+    Cont?: never;
+    Progress?: never;
+    Stats?: never;
+    End: EndEvent;
+    Records?: never;
     $unknown?: never;
   }
 
@@ -122,59 +296,47 @@ export namespace SelectObjectContentEventStream {
    * <p>The Records Event.</p>
    */
   export interface RecordsMember {
-    Stats?: never;
-    End?: never;
-    Progress?: never;
-    Records: RecordsEvent;
     Cont?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>The Continuation Event.</p>
-   */
-  export interface ContMember {
+    Progress?: never;
     Stats?: never;
     End?: never;
-    Progress?: never;
-    Records?: never;
-    Cont: ContinuationEvent;
+    Records: RecordsEvent;
     $unknown?: never;
   }
 
   export interface $UnknownMember {
+    Cont?: never;
+    Progress?: never;
     Stats?: never;
     End?: never;
-    Progress?: never;
     Records?: never;
-    Cont?: never;
     $unknown: [string, any];
   }
 
   export interface Visitor<T> {
+    Cont: (value: ContinuationEvent) => T;
+    Progress: (value: ProgressEvent) => T;
     Stats: (value: StatsEvent) => T;
     End: (value: EndEvent) => T;
-    Progress: (value: ProgressEvent) => T;
     Records: (value: RecordsEvent) => T;
-    Cont: (value: ContinuationEvent) => T;
     _: (name: string, value: any) => T;
   }
 
   export const visit = <T>(value: SelectObjectContentEventStream, visitor: Visitor<T>): T => {
+    if (value.Cont !== undefined) return visitor.Cont(value.Cont);
+    if (value.Progress !== undefined) return visitor.Progress(value.Progress);
     if (value.Stats !== undefined) return visitor.Stats(value.Stats);
     if (value.End !== undefined) return visitor.End(value.End);
-    if (value.Progress !== undefined) return visitor.Progress(value.Progress);
     if (value.Records !== undefined) return visitor.Records(value.Records);
-    if (value.Cont !== undefined) return visitor.Cont(value.Cont);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 
   export const filterSensitiveLog = (obj: SelectObjectContentEventStream): any => {
+    if (obj.Cont !== undefined) return { Cont: ContinuationEvent.filterSensitiveLog(obj.Cont) };
+    if (obj.Progress !== undefined) return { Progress: ProgressEvent.filterSensitiveLog(obj.Progress) };
     if (obj.Stats !== undefined) return { Stats: StatsEvent.filterSensitiveLog(obj.Stats) };
     if (obj.End !== undefined) return { End: EndEvent.filterSensitiveLog(obj.End) };
-    if (obj.Progress !== undefined) return { Progress: ProgressEvent.filterSensitiveLog(obj.Progress) };
     if (obj.Records !== undefined) return { Records: RecordsEvent.filterSensitiveLog(obj.Records) };
-    if (obj.Cont !== undefined) return { Cont: ContinuationEvent.filterSensitiveLog(obj.Cont) };
     if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
   };
 }
@@ -216,12 +378,6 @@ export namespace RequestProgress {
  */
 export interface ScanRange {
   /**
-   * <p>Specifies the start of the byte range. This parameter is optional. Valid values: non-negative integers. The default value is 0.
-   *       If only start is supplied, it means scan from that point to the end of the file.For example; <code><scanrange><start>50</start></scanrange></code> means scan from byte 50 until the end of the file.</p>
-   */
-  Start?: number;
-
-  /**
    * <p>Specifies the end of the byte range. This parameter is optional. Valid values: non-negative
    *          integers. The default value is one less than the size of the object being queried. If only
    *          the End parameter is supplied, it is interpreted to mean scan the last N bytes of the file.
@@ -229,6 +385,12 @@ export interface ScanRange {
    *          means scan the last 50 bytes.</p>
    */
   End?: number;
+
+  /**
+   * <p>Specifies the start of the byte range. This parameter is optional. Valid values: non-negative integers. The default value is 0.
+   *       If only start is supplied, it means scan from that point to the end of the file.For example; <code><scanrange><start>50</start></scanrange></code> means scan from byte 50 until the end of the file.</p>
+   */
+  Start?: number;
 }
 
 export namespace ScanRange {
@@ -247,19 +409,19 @@ export namespace ScanRange {
  */
 export interface SelectObjectContentRequest {
   /**
-   * <p>Specifies if periodic request progress information should be enabled.</p>
+   * <p>The object key.</p>
    */
-  RequestProgress?: RequestProgress;
+  Key: string | undefined;
 
   /**
-   * <p>Describes the format of the data in the object that is being queried.</p>
+   * <p>The SSE Algorithm used to encrypt the object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html">Server-Side Encryption (Using Customer-Provided Encryption Keys</a>. </p>
    */
-  InputSerialization: InputSerialization | undefined;
+  SSECustomerAlgorithm?: string;
 
   /**
-   * <p>The type of the provided expression (for example, SQL).</p>
+   * <p>Describes the format of the data that you want Amazon S3 to return in response.</p>
    */
-  ExpressionType: ExpressionType | string | undefined;
+  OutputSerialization: OutputSerialization | undefined;
 
   /**
    * <p>The SSE Customer Key. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html">Server-Side Encryption
@@ -268,19 +430,40 @@ export interface SelectObjectContentRequest {
   SSECustomerKey?: string;
 
   /**
-   * <p>The object key.</p>
+   * <p>The type of the provided expression (for example, SQL).</p>
    */
-  Key: string | undefined;
+  ExpressionType: ExpressionType | string | undefined;
 
   /**
-   * <p>Describes the format of the data that you want Amazon S3 to return in response.</p>
+   * <p>The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP <code>403 (Access Denied)</code> error.</p>
    */
-  OutputSerialization: OutputSerialization | undefined;
+  ExpectedBucketOwner?: string;
+
+  /**
+   * <p>Describes the format of the data in the object that is being queried.</p>
+   */
+  InputSerialization: InputSerialization | undefined;
+
+  /**
+   * <p>The SSE Customer Key MD5. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html">Server-Side Encryption
+   *             (Using Customer-Provided Encryption Keys</a>. </p>
+   */
+  SSECustomerKeyMD5?: string;
 
   /**
    * <p>The expression that is used to query the object.</p>
    */
   Expression: string | undefined;
+
+  /**
+   * <p>The S3 bucket.</p>
+   */
+  Bucket: string | undefined;
+
+  /**
+   * <p>Specifies if periodic request progress information should be enabled.</p>
+   */
+  RequestProgress?: RequestProgress;
 
   /**
    * <p>Specifies the byte range of the object to get the records from. A record is processed when its first byte is contained by the range. This parameter is optional,
@@ -303,22 +486,6 @@ export interface SelectObjectContentRequest {
    *          </ul>
    */
   ScanRange?: ScanRange;
-
-  /**
-   * <p>The SSE Customer Key MD5. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html">Server-Side Encryption
-   *             (Using Customer-Provided Encryption Keys</a>. </p>
-   */
-  SSECustomerKeyMD5?: string;
-
-  /**
-   * <p>The S3 bucket.</p>
-   */
-  Bucket: string | undefined;
-
-  /**
-   * <p>The SSE Algorithm used to encrypt the object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html">Server-Side Encryption (Using Customer-Provided Encryption Keys</a>. </p>
-   */
-  SSECustomerAlgorithm?: string;
 }
 
 export namespace SelectObjectContentRequest {
@@ -330,16 +497,28 @@ export namespace SelectObjectContentRequest {
 
 export interface UploadPartOutput {
   /**
-   * <p>If present, specifies the ID of the AWS Key Management Service (AWS KMS) symmetric customer managed customer master key
-   *          (CMK) was used for the object.</p>
+   * <p>If server-side encryption with a customer-provided encryption key was requested, the response
+   *          will include this header to provide round-trip message integrity verification of the
+   *          customer-provided encryption key.</p>
    */
-  SSEKMSKeyId?: string;
+  SSECustomerKeyMD5?: string;
 
   /**
    * <p>The server-side encryption algorithm used when storing this object in Amazon S3 (for example,
    *          AES256, aws:kms).</p>
    */
   ServerSideEncryption?: ServerSideEncryption | string;
+
+  /**
+   * <p>If present, specifies the ID of the AWS Key Management Service (AWS KMS) symmetric customer managed customer master key
+   *          (CMK) was used for the object.</p>
+   */
+  SSEKMSKeyId?: string;
+
+  /**
+   * <p>If server-side encryption with a customer-provided encryption key was requested, the response will include this header confirming the encryption algorithm used.</p>
+   */
+  SSECustomerAlgorithm?: string;
 
   /**
    * <p>If present, indicates that the requester was successfully charged for the request.</p>
@@ -350,18 +529,6 @@ export interface UploadPartOutput {
    * <p>Entity tag for the uploaded object.</p>
    */
   ETag?: string;
-
-  /**
-   * <p>If server-side encryption with a customer-provided encryption key was requested, the response
-   *          will include this header to provide round-trip message integrity verification of the
-   *          customer-provided encryption key.</p>
-   */
-  SSECustomerKeyMD5?: string;
-
-  /**
-   * <p>If server-side encryption with a customer-provided encryption key was requested, the response will include this header confirming the encryption algorithm used.</p>
-   */
-  SSECustomerAlgorithm?: string;
 }
 
 export namespace UploadPartOutput {
@@ -373,30 +540,19 @@ export namespace UploadPartOutput {
 
 export interface UploadPartRequest {
   /**
-   * <p>Size of the body in bytes. This parameter is useful when the size of the body cannot be determined automatically.</p>
+   * <p>Part number of part being uploaded. This is a positive integer between 1 and 10,000.</p>
    */
-  ContentLength?: number;
+  PartNumber: number | undefined;
 
   /**
-   * <p>Name of the bucket to which the multipart upload was initiated.</p>
+   * <p>Object data.</p>
    */
-  Bucket: string | undefined;
+  Body?: Readable | ReadableStream | Blob;
 
   /**
-   * <p>Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This
-   *          value is used to store the object and then it is discarded; Amazon S3 does not store the
-   *          encryption key. The key must be appropriate for use with the algorithm specified in the
-   *             <code>x-amz-server-side​-encryption​-customer-algorithm header</code>. This must be the
-   *          same encryption key specified in the initiate multipart upload request.</p>
+   * <p>The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP <code>403 (Access Denied)</code> error.</p>
    */
-  SSECustomerKey?: string;
-
-  /**
-   * <p>Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses
-   *          this header for a message integrity check to ensure that the encryption key was transmitted
-   *          without error.</p>
-   */
-  SSECustomerKeyMD5?: string;
+  ExpectedBucketOwner?: string;
 
   /**
    * <p>Confirms that the requester knows that they will be charged for the request. Bucket
@@ -407,11 +563,30 @@ export interface UploadPartRequest {
   RequestPayer?: RequestPayer | string;
 
   /**
-   * <p>The base64-encoded 128-bit MD5 digest of the part data. This parameter is auto-populated when
-   *          using the command from the CLI. This parameter is required if object lock parameters are
-   *          specified.</p>
+   * <p>Size of the body in bytes. This parameter is useful when the size of the body cannot be determined automatically.</p>
    */
-  ContentMD5?: string;
+  ContentLength?: number;
+
+  /**
+   * <p>Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This
+   *          value is used to store the object and then it is discarded; Amazon S3 does not store the
+   *          encryption key. The key must be appropriate for use with the algorithm specified in the
+   *             <code>x-amz-server-side-encryption-customer-algorithm header</code>. This must be the
+   *          same encryption key specified in the initiate multipart upload request.</p>
+   */
+  SSECustomerKey?: string;
+
+  /**
+   * <p>The name of the bucket to which the multipart upload was initiated.</p>
+   *          <p>When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this operation with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html">Using Access Points</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
+   *          <p>When using this API with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com. When using this operation using S3 on Outposts through the AWS SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html">Using S3 on Outposts</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
+   */
+  Bucket: string | undefined;
+
+  /**
+   * <p>Object key for which the multipart upload was initiated.</p>
+   */
+  Key: string | undefined;
 
   /**
    * <p>Specifies the algorithm to use to when encrypting the object (for example, AES256).</p>
@@ -419,24 +594,23 @@ export interface UploadPartRequest {
   SSECustomerAlgorithm?: string;
 
   /**
-   * <p>Object data.</p>
-   */
-  Body?: Readable | ReadableStream | Blob;
-
-  /**
-   * <p>Part number of part being uploaded. This is a positive integer between 1 and 10,000.</p>
-   */
-  PartNumber: number | undefined;
-
-  /**
    * <p>Upload ID identifying the multipart upload whose part is being uploaded.</p>
    */
   UploadId: string | undefined;
 
   /**
-   * <p>Object key for which the multipart upload was initiated.</p>
+   * <p>Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses
+   *          this header for a message integrity check to ensure that the encryption key was transmitted
+   *          without error.</p>
    */
-  Key: string | undefined;
+  SSECustomerKeyMD5?: string;
+
+  /**
+   * <p>The base64-encoded 128-bit MD5 digest of the part data. This parameter is auto-populated when
+   *          using the command from the CLI. This parameter is required if object lock parameters are
+   *          specified.</p>
+   */
+  ContentMD5?: string;
 }
 
 export namespace UploadPartRequest {
@@ -469,23 +643,21 @@ export namespace CopyPartResult {
 
 export interface UploadPartCopyOutput {
   /**
+   * <p>The version of the source object that was copied, if you have enabled versioning on the source bucket.</p>
+   */
+  CopySourceVersionId?: string;
+
+  /**
+   * <p>If server-side encryption with a customer-provided encryption key was requested, the response will include this header confirming the encryption algorithm used.</p>
+   */
+  SSECustomerAlgorithm?: string;
+
+  /**
    * <p>If server-side encryption with a customer-provided encryption key was requested, the response
    *          will include this header to provide round-trip message integrity verification of the
    *          customer-provided encryption key.</p>
    */
   SSECustomerKeyMD5?: string;
-
-  /**
-   * <p>The server-side encryption algorithm used when storing this object in Amazon S3 (for example,
-   *          AES256, aws:kms).</p>
-   */
-  ServerSideEncryption?: ServerSideEncryption | string;
-
-  /**
-   * <p>If present, specifies the ID of the AWS Key Management Service (AWS KMS) symmetric customer managed customer master key
-   *          (CMK) that was used for the object.</p>
-   */
-  SSEKMSKeyId?: string;
 
   /**
    * <p>Container for all response elements.</p>
@@ -498,14 +670,16 @@ export interface UploadPartCopyOutput {
   RequestCharged?: RequestCharged | string;
 
   /**
-   * <p>The version of the source object that was copied, if you have enabled versioning on the source bucket.</p>
+   * <p>If present, specifies the ID of the AWS Key Management Service (AWS KMS) symmetric customer managed customer master key
+   *          (CMK) that was used for the object.</p>
    */
-  CopySourceVersionId?: string;
+  SSEKMSKeyId?: string;
 
   /**
-   * <p>If server-side encryption with a customer-provided encryption key was requested, the response will include this header confirming the encryption algorithm used.</p>
+   * <p>The server-side encryption algorithm used when storing this object in Amazon S3 (for example,
+   *          AES256, aws:kms).</p>
    */
-  SSECustomerAlgorithm?: string;
+  ServerSideEncryption?: ServerSideEncryption | string;
 }
 
 export namespace UploadPartCopyOutput {
@@ -517,85 +691,17 @@ export namespace UploadPartCopyOutput {
 
 export interface UploadPartCopyRequest {
   /**
+   * <p>Upload ID identifying the multipart upload whose part is being copied.</p>
+   */
+  UploadId: string | undefined;
+
+  /**
    * <p>Confirms that the requester knows that they will be charged for the request. Bucket
    *          owners need not specify this parameter in their requests. For information about downloading
    *          objects from requester pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in Requestor Pays Buckets</a> in the
    *             <i>Amazon S3 Developer Guide</i>.</p>
    */
   RequestPayer?: RequestPayer | string;
-
-  /**
-   * <p>Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses
-   *          this header for a message integrity check to ensure that the encryption key was transmitted
-   *          without error.</p>
-   */
-  SSECustomerKeyMD5?: string;
-
-  /**
-   * <p>Upload ID identifying the multipart upload whose part is being copied.</p>
-   */
-  UploadId: string | undefined;
-
-  /**
-   * <p>Copies the object if it hasn't been modified since the specified time.</p>
-   */
-  CopySourceIfUnmodifiedSince?: Date;
-
-  /**
-   * <p>Copies the object if its entity tag (ETag) is different than the specified ETag.</p>
-   */
-  CopySourceIfNoneMatch?: string;
-
-  /**
-   * <p>The bucket name.</p>
-   */
-  Bucket: string | undefined;
-
-  /**
-   * <p>Copies the object if its entity tag (ETag) matches the specified tag.</p>
-   */
-  CopySourceIfMatch?: string;
-
-  /**
-   * <p>Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses
-   *          this header for a message integrity check to ensure that the encryption key was transmitted
-   *          without error.</p>
-   */
-  CopySourceSSECustomerKeyMD5?: string;
-
-  /**
-   * <p>Part number of part being copied. This is a positive integer between 1 and 10,000.</p>
-   */
-  PartNumber: number | undefined;
-
-  /**
-   * <p>Specifies the customer-provided encryption key for Amazon S3 to use to decrypt the source object. The encryption key provided in this header must be one that was used when the source object was created.</p>
-   */
-  CopySourceSSECustomerKey?: string;
-
-  /**
-   * <p>Specifies the algorithm to use when decrypting the source object (for example, AES256).</p>
-   */
-  CopySourceSSECustomerAlgorithm?: string;
-
-  /**
-   * <p>Copies the object if it has been modified since the specified time.</p>
-   */
-  CopySourceIfModifiedSince?: Date;
-
-  /**
-   * <p>Specifies the algorithm to use to when encrypting the object (for example, AES256).</p>
-   */
-  SSECustomerAlgorithm?: string;
-
-  /**
-   * <p>Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This
-   *          value is used to store the object and then it is discarded; Amazon S3 does not store the
-   *          encryption key. The key must be appropriate for use with the algorithm specified in the
-   *             <code>x-amz-server-side​-encryption​-customer-algorithm</code> header. This must be the
-   *          same encryption key specified in the initiate multipart upload request.</p>
-   */
-  SSECustomerKey?: string;
 
   /**
    * <p>The range of bytes to copy from the source object. The range value must use the form
@@ -606,20 +712,119 @@ export interface UploadPartCopyRequest {
   CopySourceRange?: string;
 
   /**
-   * <p>The name of the source bucket and key name of the source object, separated by a slash (/). Must be URL-encoded.</p>
+   * <p>Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This
+   *          value is used to store the object and then it is discarded; Amazon S3 does not store the
+   *          encryption key. The key must be appropriate for use with the algorithm specified in the
+   *             <code>x-amz-server-side-encryption-customer-algorithm</code> header. This must be the
+   *          same encryption key specified in the initiate multipart upload request.</p>
+   */
+  SSECustomerKey?: string;
+
+  /**
+   * <p>Specifies the algorithm to use to when encrypting the object (for example, AES256).</p>
+   */
+  SSECustomerAlgorithm?: string;
+
+  /**
+   * <p>Copies the object if its entity tag (ETag) matches the specified tag.</p>
+   */
+  CopySourceIfMatch?: string;
+
+  /**
+   * <p>The bucket name.</p>
+   *          <p>When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this operation with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html">Using Access Points</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
+   *          <p>When using this API with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com. When using this operation using S3 on Outposts through the AWS SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html">Using S3 on Outposts</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
+   */
+  Bucket: string | undefined;
+
+  /**
+   * <p>The account id of the expected destination bucket owner. If the destination bucket is owned by a different account, the request will fail with an HTTP <code>403 (Access Denied)</code> error.</p>
+   */
+  ExpectedBucketOwner?: string;
+
+  /**
+   * <p>Specifies the customer-provided encryption key for Amazon S3 to use to decrypt the source object. The encryption key provided in this header must be one that was used when the source object was created.</p>
+   */
+  CopySourceSSECustomerKey?: string;
+
+  /**
+   * <p>Specifies the source object for the copy operation. You specify the value in one of two formats, depending on whether you want
+   *       to access the source object through an <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/access-points.html">access point</a>:</p>
+   *          <ul>
+   *             <li>
+   *                <p>For objects not accessed through an access point, specify the name of the source bucket and key of the source object, separated by a slash (/).
+   *             For example, to copy the object <code>reports/january.pdf</code> from the bucket <code>awsexamplebucket</code>, use <code>awsexamplebucket/reports/january.pdf</code>. The value must be URL encoded.</p>
+   *             </li>
+   *             <li>
+   *                <p>For objects accessed through access points, specify the Amazon Resource Name (ARN) of the object as accessed through the access point, in the format <code>arn:aws:s3:<Region>:<account-id>:accesspoint/<access-point-name>/object/<key></code>. For example, to copy the object <code>reports/january.pdf</code> through access point <code>my-access-point</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3:us-west-2:123456789012:accesspoint/my-access-point/object/reports/january.pdf</code>. The value must be URL encoded.</p>
+   *                <note>
+   *                   <p>Amazon S3 supports copy operations using access points only when the source and destination buckets are in the same AWS Region.</p>
+   *                </note>
+   *                <p>Alternatively, for objects accessed through Amazon S3 on Outposts, specify the ARN of the object as accessed in the format <code>arn:aws:s3-outposts:<Region>:<account-id>:outpost/<outpost-id>/object/<key></code>. For example, to copy the object <code>reports/january.pdf</code> through outpost <code>my-outpost</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/object/reports/january.pdf</code>. The value must be URL encoded.  </p>
+   *             </li>
+   *          </ul>
+   *          <p>To copy a specific version of an object, append <code>?versionId=<version-id></code>
+   *          to the value (for example,
+   *             <code>awsexamplebucket/reports/january.pdf?versionId=QUpfdndhfd8438MNFDN93jdnJFkdmqnh893</code>).
+   *          If you don't specify a version ID, Amazon S3 copies the latest version of the source
+   *          object.</p>
    */
   CopySource: string | undefined;
+
+  /**
+   * <p>Part number of part being copied. This is a positive integer between 1 and 10,000.</p>
+   */
+  PartNumber: number | undefined;
+
+  /**
+   * <p>Copies the object if it has been modified since the specified time.</p>
+   */
+  CopySourceIfModifiedSince?: Date;
+
+  /**
+   * <p>Specifies the algorithm to use when decrypting the source object (for example, AES256).</p>
+   */
+  CopySourceSSECustomerAlgorithm?: string;
 
   /**
    * <p>Object key for which the multipart upload was initiated.</p>
    */
   Key: string | undefined;
+
+  /**
+   * <p>Copies the object if it hasn't been modified since the specified time.</p>
+   */
+  CopySourceIfUnmodifiedSince?: Date;
+
+  /**
+   * <p>The account id of the expected source bucket owner. If the source bucket is owned by a different account, the request will fail with an HTTP <code>403 (Access Denied)</code> error.</p>
+   */
+  ExpectedSourceBucketOwner?: string;
+
+  /**
+   * <p>Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses
+   *          this header for a message integrity check to ensure that the encryption key was transmitted
+   *          without error.</p>
+   */
+  SSECustomerKeyMD5?: string;
+
+  /**
+   * <p>Copies the object if its entity tag (ETag) is different than the specified ETag.</p>
+   */
+  CopySourceIfNoneMatch?: string;
+
+  /**
+   * <p>Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses
+   *          this header for a message integrity check to ensure that the encryption key was transmitted
+   *          without error.</p>
+   */
+  CopySourceSSECustomerKeyMD5?: string;
 }
 
 export namespace UploadPartCopyRequest {
   export const filterSensitiveLog = (obj: UploadPartCopyRequest): any => ({
     ...obj,
-    ...(obj.CopySourceSSECustomerKey && { CopySourceSSECustomerKey: SENSITIVE_STRING }),
     ...(obj.SSECustomerKey && { SSECustomerKey: SENSITIVE_STRING }),
+    ...(obj.CopySourceSSECustomerKey && { CopySourceSSECustomerKey: SENSITIVE_STRING }),
   });
 }

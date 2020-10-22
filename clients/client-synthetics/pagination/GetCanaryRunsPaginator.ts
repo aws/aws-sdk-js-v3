@@ -33,7 +33,7 @@ export async function* getCanaryRunsPaginate(
   let hasNext = true;
   let page: GetCanaryRunsCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof Synthetics) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* getCanaryRunsPaginate(
       throw new Error("Invalid client, expected Synthetics | SyntheticsClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

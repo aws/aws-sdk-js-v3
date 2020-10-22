@@ -33,7 +33,7 @@ export async function* listCustomVerificationEmailTemplatesPaginate(
   let hasNext = true;
   let page: ListCustomVerificationEmailTemplatesCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof SES) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* listCustomVerificationEmailTemplatesPaginate(
       throw new Error("Invalid client, expected SES | SESClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

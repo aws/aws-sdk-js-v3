@@ -33,7 +33,7 @@ export async function* listObjectsV2Paginate(
   let hasNext = true;
   let page: ListObjectsV2CommandOutput;
   while (hasNext) {
-    input["ContinuationToken"] = token;
+    input.ContinuationToken = token;
     input["MaxKeys"] = config.pageSize;
     if (config.client instanceof S3) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* listObjectsV2Paginate(
       throw new Error("Invalid client, expected S3 | S3Client");
     }
     yield page;
-    token = page["NextContinuationToken"];
+    token = page.NextContinuationToken;
     hasNext = !!token;
   }
   // @ts-ignore

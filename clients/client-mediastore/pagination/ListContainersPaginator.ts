@@ -33,7 +33,7 @@ export async function* listContainersPaginate(
   let hasNext = true;
   let page: ListContainersCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof MediaStore) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* listContainersPaginate(
       throw new Error("Invalid client, expected MediaStore | MediaStoreClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

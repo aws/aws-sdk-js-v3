@@ -282,8 +282,8 @@ export const serializeAws_restJson1ListJobsByPipelineCommand = async (
     throw new Error("No value provided for input HTTP label: PipelineId.");
   }
   const query: any = {
-    ...(input.Ascending !== undefined && { Ascending: input.Ascending }),
     ...(input.PageToken !== undefined && { PageToken: input.PageToken }),
+    ...(input.Ascending !== undefined && { Ascending: input.Ascending }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -317,8 +317,8 @@ export const serializeAws_restJson1ListJobsByStatusCommand = async (
     throw new Error("No value provided for input HTTP label: Status.");
   }
   const query: any = {
-    ...(input.Ascending !== undefined && { Ascending: input.Ascending }),
     ...(input.PageToken !== undefined && { PageToken: input.PageToken }),
+    ...(input.Ascending !== undefined && { Ascending: input.Ascending }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();

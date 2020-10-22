@@ -706,8 +706,8 @@ export const serializeAws_restJson1ListChannelsCommand = async (
   };
   let resolvedPath = "/channels";
   const query: any = {
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -741,11 +741,11 @@ export const serializeAws_restJson1ListDatasetContentsCommand = async (
     throw new Error("No value provided for input HTTP label: datasetName.");
   }
   const query: any = {
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
     ...(input.scheduledOnOrAfter !== undefined && {
       scheduledOnOrAfter: (input.scheduledOnOrAfter.toISOString().split(".")[0] + "Z").toString(),
     }),
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.scheduledBefore !== undefined && {
       scheduledBefore: (input.scheduledBefore.toISOString().split(".")[0] + "Z").toString(),
     }),
@@ -773,8 +773,8 @@ export const serializeAws_restJson1ListDatasetsCommand = async (
   };
   let resolvedPath = "/datasets";
   const query: any = {
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -938,9 +938,9 @@ export const serializeAws_restJson1SampleChannelDataCommand = async (
     throw new Error("No value provided for input HTTP label: channelName.");
   }
   const query: any = {
-    ...(input.endTime !== undefined && { endTime: (input.endTime.toISOString().split(".")[0] + "Z").toString() }),
     ...(input.startTime !== undefined && { startTime: (input.startTime.toISOString().split(".")[0] + "Z").toString() }),
     ...(input.maxMessages !== undefined && { maxMessages: input.maxMessages.toString() }),
+    ...(input.endTime !== undefined && { endTime: (input.endTime.toISOString().split(".")[0] + "Z").toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();

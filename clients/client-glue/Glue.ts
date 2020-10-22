@@ -60,6 +60,11 @@ import {
   BatchStopJobRunCommandOutput,
 } from "./commands/BatchStopJobRunCommand";
 import {
+  BatchUpdatePartitionCommand,
+  BatchUpdatePartitionCommandInput,
+  BatchUpdatePartitionCommandOutput,
+} from "./commands/BatchUpdatePartitionCommand";
+import {
   CancelMLTaskRunCommand,
   CancelMLTaskRunCommandInput,
   CancelMLTaskRunCommandOutput,
@@ -306,6 +311,11 @@ import {
   GetPartitionCommandInput,
   GetPartitionCommandOutput,
 } from "./commands/GetPartitionCommand";
+import {
+  GetPartitionIndexesCommand,
+  GetPartitionIndexesCommandInput,
+  GetPartitionIndexesCommandOutput,
+} from "./commands/GetPartitionIndexesCommand";
 import {
   GetPartitionsCommand,
   GetPartitionsCommandInput,
@@ -952,6 +962,38 @@ export class Glue extends GlueClient {
     cb?: (err: any, data?: BatchStopJobRunCommandOutput) => void
   ): Promise<BatchStopJobRunCommandOutput> | void {
     const command = new BatchStopJobRunCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates one or more partitions in a batch operation.</p>
+   */
+  public batchUpdatePartition(
+    args: BatchUpdatePartitionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchUpdatePartitionCommandOutput>;
+  public batchUpdatePartition(
+    args: BatchUpdatePartitionCommandInput,
+    cb: (err: any, data?: BatchUpdatePartitionCommandOutput) => void
+  ): void;
+  public batchUpdatePartition(
+    args: BatchUpdatePartitionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchUpdatePartitionCommandOutput) => void
+  ): void;
+  public batchUpdatePartition(
+    args: BatchUpdatePartitionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchUpdatePartitionCommandOutput) => void),
+    cb?: (err: any, data?: BatchUpdatePartitionCommandOutput) => void
+  ): Promise<BatchUpdatePartitionCommandOutput> | void {
+    const command = new BatchUpdatePartitionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -2845,6 +2887,38 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * <p>Retrieves the partition indexes associated with a table.</p>
+   */
+  public getPartitionIndexes(
+    args: GetPartitionIndexesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetPartitionIndexesCommandOutput>;
+  public getPartitionIndexes(
+    args: GetPartitionIndexesCommandInput,
+    cb: (err: any, data?: GetPartitionIndexesCommandOutput) => void
+  ): void;
+  public getPartitionIndexes(
+    args: GetPartitionIndexesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetPartitionIndexesCommandOutput) => void
+  ): void;
+  public getPartitionIndexes(
+    args: GetPartitionIndexesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetPartitionIndexesCommandOutput) => void),
+    cb?: (err: any, data?: GetPartitionIndexesCommandOutput) => void
+  ): Promise<GetPartitionIndexesCommandOutput> | void {
+    const command = new GetPartitionIndexesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Retrieves information about the partitions in a table.</p>
    */
   public getPartitions(
@@ -3781,7 +3855,7 @@ export class Glue extends GlueClient {
   }
 
   /**
-   * <p>Restarts any completed nodes in a workflow run and resumes the run execution.</p>
+   * <p>Restarts selected nodes of a previous partially completed workflow run and resumes the workflow run. The selected nodes and all nodes that are downstream from the selected nodes are run.</p>
    */
   public resumeWorkflowRun(
     args: ResumeWorkflowRunCommandInput,

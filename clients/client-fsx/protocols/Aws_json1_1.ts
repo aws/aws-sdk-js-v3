@@ -2016,6 +2016,7 @@ const serializeAws_json1_1CreateFileSystemLustreConfiguration = (
       DailyAutomaticBackupStartTime: input.DailyAutomaticBackupStartTime,
     }),
     ...(input.DeploymentType !== undefined && { DeploymentType: input.DeploymentType }),
+    ...(input.DriveCacheType !== undefined && { DriveCacheType: input.DriveCacheType }),
     ...(input.ExportPath !== undefined && { ExportPath: input.ExportPath }),
     ...(input.ImportPath !== undefined && { ImportPath: input.ImportPath }),
     ...(input.ImportedFileChunkSize !== undefined && { ImportedFileChunkSize: input.ImportedFileChunkSize }),
@@ -2921,6 +2922,8 @@ const deserializeAws_json1_1LustreFileSystemConfiguration = (
         : undefined,
     DeploymentType:
       output.DeploymentType !== undefined && output.DeploymentType !== null ? output.DeploymentType : undefined,
+    DriveCacheType:
+      output.DriveCacheType !== undefined && output.DriveCacheType !== null ? output.DriveCacheType : undefined,
     MountName: output.MountName !== undefined && output.MountName !== null ? output.MountName : undefined,
     PerUnitStorageThroughput:
       output.PerUnitStorageThroughput !== undefined && output.PerUnitStorageThroughput !== null

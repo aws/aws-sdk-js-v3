@@ -33,7 +33,7 @@ export async function* describeLoadBalancersPaginate(
   let hasNext = true;
   let page: DescribeLoadBalancersCommandOutput;
   while (hasNext) {
-    input["Marker"] = token;
+    input.Marker = token;
     if (config.client instanceof ElasticLoadBalancing) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
     } else if (config.client instanceof ElasticLoadBalancingClient) {
@@ -42,7 +42,7 @@ export async function* describeLoadBalancersPaginate(
       throw new Error("Invalid client, expected ElasticLoadBalancing | ElasticLoadBalancingClient");
     }
     yield page;
-    token = page["NextMarker"];
+    token = page.NextMarker;
     hasNext = !!token;
   }
   // @ts-ignore

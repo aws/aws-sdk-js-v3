@@ -95,6 +95,11 @@ import {
   DescribeKeyPhrasesDetectionJobCommandOutput,
 } from "./commands/DescribeKeyPhrasesDetectionJobCommand";
 import {
+  DescribePiiEntitiesDetectionJobCommand,
+  DescribePiiEntitiesDetectionJobCommandInput,
+  DescribePiiEntitiesDetectionJobCommandOutput,
+} from "./commands/DescribePiiEntitiesDetectionJobCommand";
+import {
   DescribeSentimentDetectionJobCommand,
   DescribeSentimentDetectionJobCommandInput,
   DescribeSentimentDetectionJobCommandOutput,
@@ -119,6 +124,11 @@ import {
   DetectKeyPhrasesCommandInput,
   DetectKeyPhrasesCommandOutput,
 } from "./commands/DetectKeyPhrasesCommand";
+import {
+  DetectPiiEntitiesCommand,
+  DetectPiiEntitiesCommandInput,
+  DetectPiiEntitiesCommandOutput,
+} from "./commands/DetectPiiEntitiesCommand";
 import {
   DetectSentimentCommand,
   DetectSentimentCommandInput,
@@ -165,6 +175,11 @@ import {
   ListKeyPhrasesDetectionJobsCommandOutput,
 } from "./commands/ListKeyPhrasesDetectionJobsCommand";
 import {
+  ListPiiEntitiesDetectionJobsCommand,
+  ListPiiEntitiesDetectionJobsCommandInput,
+  ListPiiEntitiesDetectionJobsCommandOutput,
+} from "./commands/ListPiiEntitiesDetectionJobsCommand";
+import {
   ListSentimentDetectionJobsCommand,
   ListSentimentDetectionJobsCommandInput,
   ListSentimentDetectionJobsCommandOutput,
@@ -200,6 +215,11 @@ import {
   StartKeyPhrasesDetectionJobCommandOutput,
 } from "./commands/StartKeyPhrasesDetectionJobCommand";
 import {
+  StartPiiEntitiesDetectionJobCommand,
+  StartPiiEntitiesDetectionJobCommandInput,
+  StartPiiEntitiesDetectionJobCommandOutput,
+} from "./commands/StartPiiEntitiesDetectionJobCommand";
+import {
   StartSentimentDetectionJobCommand,
   StartSentimentDetectionJobCommandInput,
   StartSentimentDetectionJobCommandOutput,
@@ -224,6 +244,11 @@ import {
   StopKeyPhrasesDetectionJobCommandInput,
   StopKeyPhrasesDetectionJobCommandOutput,
 } from "./commands/StopKeyPhrasesDetectionJobCommand";
+import {
+  StopPiiEntitiesDetectionJobCommand,
+  StopPiiEntitiesDetectionJobCommandInput,
+  StopPiiEntitiesDetectionJobCommandOutput,
+} from "./commands/StopPiiEntitiesDetectionJobCommand";
 import {
   StopSentimentDetectionJobCommand,
   StopSentimentDetectionJobCommandInput,
@@ -253,14 +278,16 @@ import {
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- * <p>Amazon Comprehend is an AWS service for gaining insight into the content of documents. Use these
- *       actions to determine the topics contained in your documents, the topics they discuss, the
- *       predominant sentiment expressed in them, the predominant language used, and more.</p>
+ * <p>Amazon Comprehend is an AWS service for gaining insight into the content of documents.
+ *       Use these actions to determine the topics contained in your documents, the topics they
+ *       discuss, the predominant sentiment expressed in them, the predominant language used, and
+ *       more.</p>
  */
 export class Comprehend extends ComprehendClient {
   /**
    * <p>Determines the dominant language of the input text for a batch of documents. For a list
-   *       of languages that Amazon Comprehend can detect, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-languages.html">Amazon Comprehend Supported Languages</a>. </p>
+   *       of languages that Amazon Comprehend can detect, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-languages.html">Amazon Comprehend Supported Languages</a>.
+   *     </p>
    */
   public batchDetectDominantLanguage(
     args: BatchDetectDominantLanguageCommandInput,
@@ -425,7 +452,8 @@ export class Comprehend extends ComprehendClient {
   }
 
   /**
-   * <p>Creates a new document classification request to analyze a single document in real-time, using a previously created and trained custom model and an endpoint.</p>
+   * <p>Creates a new document classification request to analyze a single document in real-time,
+   *       using a previously created and trained custom model and an endpoint.</p>
    */
   public classifyDocument(
     args: ClassifyDocumentCommandInput,
@@ -492,7 +520,9 @@ export class Comprehend extends ComprehendClient {
   }
 
   /**
-   * <p>Creates a model-specific endpoint for synchronous inference for a previously trained custom model </p>
+   * <p>Creates a model-specific endpoint for synchronous inference for a previously trained
+   *       custom model
+   *       </p>
    */
   public createEndpoint(
     args: CreateEndpointCommandInput,
@@ -524,8 +554,9 @@ export class Comprehend extends ComprehendClient {
   }
 
   /**
-   * <p>Creates an entity recognizer using submitted files. After your <code>CreateEntityRecognizer</code> request is
-   *       submitted, you can check job status using the  API. </p>
+   * <p>Creates an entity recognizer using submitted files. After your
+   *         <code>CreateEntityRecognizer</code> request is submitted, you can check job status using the
+   *          API. </p>
    */
   public createEntityRecognizer(
     args: CreateEntityRecognizerCommandInput,
@@ -558,11 +589,12 @@ export class Comprehend extends ComprehendClient {
 
   /**
    * <p>Deletes a previously created document classifier</p>
-   *          <p>Only those classifiers that are in terminated states (IN_ERROR, TRAINED) will be
-   *       deleted. If an active inference job is using the model, a <code>ResourceInUseException</code> will be
+   *          <p>Only those classifiers that are in terminated states (IN_ERROR, TRAINED) will be deleted.
+   *       If an active inference job is using the model, a <code>ResourceInUseException</code> will be
    *       returned.</p>
-   *          <p>This is an asynchronous action that puts the classifier into a DELETING state, and it is then removed by
-   *       a background job. Once removed, the classifier disappears from your account and is no longer available for use. </p>
+   *          <p>This is an asynchronous action that puts the classifier into a DELETING state, and it is
+   *       then removed by a background job. Once removed, the classifier disappears from your account
+   *       and is no longer available for use. </p>
    */
   public deleteDocumentClassifier(
     args: DeleteDocumentClassifierCommandInput,
@@ -594,7 +626,8 @@ export class Comprehend extends ComprehendClient {
   }
 
   /**
-   * <p>Deletes a model-specific endpoint for a previously-trained custom model. All endpoints must be deleted in order for the model to be deleted.</p>
+   * <p>Deletes a model-specific endpoint for a previously-trained custom model. All endpoints
+   *       must be deleted in order for the model to be deleted.</p>
    */
   public deleteEndpoint(
     args: DeleteEndpointCommandInput,
@@ -627,11 +660,12 @@ export class Comprehend extends ComprehendClient {
 
   /**
    * <p>Deletes an entity recognizer.</p>
-   *          <p>Only those recognizers that are in terminated states (IN_ERROR, TRAINED) will be
-   *       deleted. If an active inference job is using the model, a <code>ResourceInUseException</code> will be
-   *     returned.</p>
-   *          <p>This is an asynchronous action that puts the recognizer into a DELETING state, and it is then removed by
-   *       a background job. Once removed, the recognizer disappears from your account and is no longer available for use. </p>
+   *          <p>Only those recognizers that are in terminated states (IN_ERROR, TRAINED) will be deleted.
+   *       If an active inference job is using the model, a <code>ResourceInUseException</code> will be
+   *       returned.</p>
+   *          <p>This is an asynchronous action that puts the recognizer into a DELETING state, and it is
+   *       then removed by a background job. Once removed, the recognizer disappears from your account
+   *       and is no longer available for use. </p>
    */
   public deleteEntityRecognizer(
     args: DeleteEntityRecognizerCommandInput,
@@ -761,7 +795,8 @@ export class Comprehend extends ComprehendClient {
   }
 
   /**
-   * <p>Gets the properties associated with a specific endpoint. Use this operation to get the status of an endpoint.</p>
+   * <p>Gets the properties associated with a specific endpoint. Use this operation to get the
+   *       status of an endpoint.</p>
    */
   public describeEndpoint(
     args: DescribeEndpointCommandInput,
@@ -892,6 +927,39 @@ export class Comprehend extends ComprehendClient {
   }
 
   /**
+   * <p>Gets the properties associated with a PII entities detection job. For example, you can use
+   *       this operation to get the job status.</p>
+   */
+  public describePiiEntitiesDetectionJob(
+    args: DescribePiiEntitiesDetectionJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribePiiEntitiesDetectionJobCommandOutput>;
+  public describePiiEntitiesDetectionJob(
+    args: DescribePiiEntitiesDetectionJobCommandInput,
+    cb: (err: any, data?: DescribePiiEntitiesDetectionJobCommandOutput) => void
+  ): void;
+  public describePiiEntitiesDetectionJob(
+    args: DescribePiiEntitiesDetectionJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribePiiEntitiesDetectionJobCommandOutput) => void
+  ): void;
+  public describePiiEntitiesDetectionJob(
+    args: DescribePiiEntitiesDetectionJobCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribePiiEntitiesDetectionJobCommandOutput) => void),
+    cb?: (err: any, data?: DescribePiiEntitiesDetectionJobCommandOutput) => void
+  ): Promise<DescribePiiEntitiesDetectionJobCommandOutput> | void {
+    const command = new DescribePiiEntitiesDetectionJobCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Gets the properties associated with a sentiment detection job. Use this operation to get
    *       the status of a detection job.</p>
    */
@@ -958,8 +1026,8 @@ export class Comprehend extends ComprehendClient {
   }
 
   /**
-   * <p>Determines the dominant language of the input text. For a list of languages that Amazon Comprehend
-   *       can detect, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-languages.html">Amazon Comprehend Supported Languages</a>. </p>
+   * <p>Determines the dominant language of the input text. For a list of languages that Amazon
+   *       Comprehend can detect, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-languages.html">Amazon Comprehend Supported Languages</a>. </p>
    */
   public detectDominantLanguage(
     args: DetectDominantLanguageCommandInput,
@@ -1045,6 +1113,39 @@ export class Comprehend extends ComprehendClient {
     cb?: (err: any, data?: DetectKeyPhrasesCommandOutput) => void
   ): Promise<DetectKeyPhrasesCommandOutput> | void {
     const command = new DetectKeyPhrasesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Inspects the input text for entities that contain personally identifiable information
+   *       (PII) and returns information about them.</p>
+   */
+  public detectPiiEntities(
+    args: DetectPiiEntitiesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DetectPiiEntitiesCommandOutput>;
+  public detectPiiEntities(
+    args: DetectPiiEntitiesCommandInput,
+    cb: (err: any, data?: DetectPiiEntitiesCommandOutput) => void
+  ): void;
+  public detectPiiEntities(
+    args: DetectPiiEntitiesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DetectPiiEntitiesCommandOutput) => void
+  ): void;
+  public detectPiiEntities(
+    args: DetectPiiEntitiesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DetectPiiEntitiesCommandOutput) => void),
+    cb?: (err: any, data?: DetectPiiEntitiesCommandOutput) => void
+  ): Promise<DetectPiiEntitiesCommandOutput> | void {
+    const command = new DetectPiiEntitiesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1279,11 +1380,10 @@ export class Comprehend extends ComprehendClient {
   }
 
   /**
-   * <p>Gets a list of the properties of all entity recognizers that you created, including recognizers currently
-   *       in training. Allows
-   *       you to filter the list of recognizers based on criteria such as status and submission time. This
-   *       call returns up to 500 entity recognizers in the list, with a default number of 100
-   *       recognizers in the list.</p>
+   * <p>Gets a list of the properties of all entity recognizers that you created, including
+   *       recognizers currently in training. Allows you to filter the list of recognizers based on
+   *       criteria such as status and submission time. This call returns up to 500 entity recognizers in
+   *       the list, with a default number of 100 recognizers in the list.</p>
    *          <p>The results of this list are not in any particular order. Please get the list and sort
    *       locally if needed.</p>
    */
@@ -1349,6 +1449,38 @@ export class Comprehend extends ComprehendClient {
   }
 
   /**
+   * <p>Gets a list of the PII entity detection jobs that you have submitted.</p>
+   */
+  public listPiiEntitiesDetectionJobs(
+    args: ListPiiEntitiesDetectionJobsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListPiiEntitiesDetectionJobsCommandOutput>;
+  public listPiiEntitiesDetectionJobs(
+    args: ListPiiEntitiesDetectionJobsCommandInput,
+    cb: (err: any, data?: ListPiiEntitiesDetectionJobsCommandOutput) => void
+  ): void;
+  public listPiiEntitiesDetectionJobs(
+    args: ListPiiEntitiesDetectionJobsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListPiiEntitiesDetectionJobsCommandOutput) => void
+  ): void;
+  public listPiiEntitiesDetectionJobs(
+    args: ListPiiEntitiesDetectionJobsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListPiiEntitiesDetectionJobsCommandOutput) => void),
+    cb?: (err: any, data?: ListPiiEntitiesDetectionJobsCommandOutput) => void
+  ): Promise<ListPiiEntitiesDetectionJobsCommandOutput> | void {
+    const command = new ListPiiEntitiesDetectionJobsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Gets a list of sentiment detection jobs that you have submitted.</p>
    */
   public listSentimentDetectionJobs(
@@ -1381,7 +1513,7 @@ export class Comprehend extends ComprehendClient {
   }
 
   /**
-   * <p>Lists all tags associated with a given Amazon Comprehend resource.     </p>
+   * <p>Lists all tags associated with a given Amazon Comprehend resource. </p>
    */
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -1513,9 +1645,10 @@ export class Comprehend extends ComprehendClient {
 
   /**
    * <p>Starts an asynchronous entity detection job for a collection of documents. Use the  operation to track the status of a job.</p>
-   *          <p>This API can be used for either standard entity detection or custom entity recognition. In order
-   *     to be used for custom entity recognition, the optional <code>EntityRecognizerArn</code> must be used
-   *     in order to provide access to the recognizer being used to detect the custom entity.</p>
+   *          <p>This API can be used for either standard entity detection or custom entity recognition. In
+   *       order to be used for custom entity recognition, the optional <code>EntityRecognizerArn</code>
+   *       must be used in order to provide access to the recognizer being used to detect the custom
+   *       entity.</p>
    */
   public startEntitiesDetectionJob(
     args: StartEntitiesDetectionJobCommandInput,
@@ -1570,6 +1703,38 @@ export class Comprehend extends ComprehendClient {
     cb?: (err: any, data?: StartKeyPhrasesDetectionJobCommandOutput) => void
   ): Promise<StartKeyPhrasesDetectionJobCommandOutput> | void {
     const command = new StartKeyPhrasesDetectionJobCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Starts an asynchronous PII entity detection job for a collection of documents.</p>
+   */
+  public startPiiEntitiesDetectionJob(
+    args: StartPiiEntitiesDetectionJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartPiiEntitiesDetectionJobCommandOutput>;
+  public startPiiEntitiesDetectionJob(
+    args: StartPiiEntitiesDetectionJobCommandInput,
+    cb: (err: any, data?: StartPiiEntitiesDetectionJobCommandOutput) => void
+  ): void;
+  public startPiiEntitiesDetectionJob(
+    args: StartPiiEntitiesDetectionJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartPiiEntitiesDetectionJobCommandOutput) => void
+  ): void;
+  public startPiiEntitiesDetectionJob(
+    args: StartPiiEntitiesDetectionJobCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartPiiEntitiesDetectionJobCommandOutput) => void),
+    cb?: (err: any, data?: StartPiiEntitiesDetectionJobCommandOutput) => void
+  ): Promise<StartPiiEntitiesDetectionJobCommandOutput> | void {
+    const command = new StartPiiEntitiesDetectionJobCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1771,6 +1936,38 @@ export class Comprehend extends ComprehendClient {
   }
 
   /**
+   * <p>Stops a PII entities detection job in progress.</p>
+   */
+  public stopPiiEntitiesDetectionJob(
+    args: StopPiiEntitiesDetectionJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StopPiiEntitiesDetectionJobCommandOutput>;
+  public stopPiiEntitiesDetectionJob(
+    args: StopPiiEntitiesDetectionJobCommandInput,
+    cb: (err: any, data?: StopPiiEntitiesDetectionJobCommandOutput) => void
+  ): void;
+  public stopPiiEntitiesDetectionJob(
+    args: StopPiiEntitiesDetectionJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StopPiiEntitiesDetectionJobCommandOutput) => void
+  ): void;
+  public stopPiiEntitiesDetectionJob(
+    args: StopPiiEntitiesDetectionJobCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopPiiEntitiesDetectionJobCommandOutput) => void),
+    cb?: (err: any, data?: StopPiiEntitiesDetectionJobCommandOutput) => void
+  ): Promise<StopPiiEntitiesDetectionJobCommandOutput> | void {
+    const command = new StopPiiEntitiesDetectionJobCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Stops a sentiment detection job in progress.</p>
    *          <p>If the job state is <code>IN_PROGRESS</code> the job is marked for termination and put
    *       into the <code>STOP_REQUESTED</code> state. If the job completes before it can be stopped, it
@@ -1813,11 +2010,11 @@ export class Comprehend extends ComprehendClient {
 
   /**
    * <p>Stops a document classifier training job while in progress.</p>
-   *          <p>If the training job state is <code>TRAINING</code>, the job is marked for termination
-   *       and put into the <code>STOP_REQUESTED</code> state. If the training job completes before it can be
+   *          <p>If the training job state is <code>TRAINING</code>, the job is marked for termination and
+   *       put into the <code>STOP_REQUESTED</code> state. If the training job completes before it can be
    *       stopped, it is put into the <code>TRAINED</code>; otherwise the training job is stopped and
-   *       put into the <code>STOPPED</code> state and the service sends back an HTTP 200 response
-   *       with an empty HTTP body. </p>
+   *       put into the <code>STOPPED</code> state and the service sends back an HTTP 200 response with
+   *       an empty HTTP body. </p>
    */
   public stopTrainingDocumentClassifier(
     args: StopTrainingDocumentClassifierCommandInput,
@@ -1850,9 +2047,11 @@ export class Comprehend extends ComprehendClient {
 
   /**
    * <p>Stops an entity recognizer training job while in progress.</p>
-   *          <p>If the training job state is <code>TRAINING</code>, the job is marked for termination and put into
-   *       the <code>STOP_REQUESTED</code> state. If the training job completes before it can be stopped, it is put into the <code>TRAINED</code>; otherwise the
-   *       training job is stopped and putted into the <code>STOPPED</code> state and the service sends back an HTTP 200 response with an empty HTTP body.</p>
+   *          <p>If the training job state is <code>TRAINING</code>, the job is marked for termination and
+   *       put into the <code>STOP_REQUESTED</code> state. If the training job completes before it can be
+   *       stopped, it is put into the <code>TRAINED</code>; otherwise the training job is stopped and
+   *       putted into the <code>STOPPED</code> state and the service sends back an HTTP 200 response
+   *       with an empty HTTP body.</p>
    */
   public stopTrainingEntityRecognizer(
     args: StopTrainingEntityRecognizerCommandInput,
@@ -1884,9 +2083,10 @@ export class Comprehend extends ComprehendClient {
   }
 
   /**
-   * <p>Associates a specific tag with an Amazon Comprehend resource. A tag is a key-value pair that adds as a metadata to a resource used by Amazon Comprehend.
-   *       For example,
-   *       a tag with "Sales" as the key might be added to a resource to indicate its use by the sales department.     </p>
+   * <p>Associates a specific tag with an Amazon Comprehend resource. A tag is a key-value pair
+   *       that adds as a metadata to a resource used by Amazon Comprehend. For example, a tag with
+   *       "Sales" as the key might be added to a resource to indicate its use by the sales department.
+   *     </p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
   public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;

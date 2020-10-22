@@ -3,15 +3,15 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export interface CloseTunnelRequest {
   /**
-   * <p>The ID of the tunnel to close.</p>
-   */
-  tunnelId: string | undefined;
-
-  /**
    * <p>When set to true, AWS IoT Secure Tunneling deletes the tunnel data
    * 			immediately.</p>
    */
   delete?: boolean;
+
+  /**
+   * <p>The ID of the tunnel to close.</p>
+   */
+  tunnelId: string | undefined;
 }
 
 export namespace CloseTunnelRequest {
@@ -53,15 +53,15 @@ export enum ConnectionStatus {
  */
 export interface ConnectionState {
   /**
+   * <p>The last time the connection status was updated.</p>
+   */
+  lastUpdatedAt?: Date;
+
+  /**
    * <p>The connection status of the tunnel. Valid values are <code>CONNECTED</code> and
    * 				<code>DISCONNECTED</code>.</p>
    */
   status?: ConnectionStatus | string;
-
-  /**
-   * <p>The last time the connection status was updated.</p>
-   */
-  lastUpdatedAt?: Date;
 }
 
 export namespace ConnectionState {
@@ -119,14 +119,14 @@ export enum TunnelStatus {
  */
 export interface Tag {
   /**
-   * <p>The key of the tag.</p>
-   */
-  key: string | undefined;
-
-  /**
    * <p>The value of the tag.</p>
    */
   value: string | undefined;
+
+  /**
+   * <p>The key of the tag.</p>
+   */
+  key: string | undefined;
 }
 
 export namespace Tag {
@@ -158,14 +158,9 @@ export namespace TimeoutConfig {
  */
 export interface Tunnel {
   /**
-   * <p>The time when the tunnel was created.</p>
+   * <p>A description of the tunnel.</p>
    */
-  createdAt?: Date;
-
-  /**
-   * <p>Timeout configuration for the tunnel.</p>
-   */
-  timeoutConfig?: TimeoutConfig;
+  description?: string;
 
   /**
    * <p>The Amazon Resource Name (ARN) of a tunnel. The tunnel ARN format is
@@ -180,14 +175,19 @@ export interface Tunnel {
   lastUpdatedAt?: Date;
 
   /**
+   * <p>A list of tag metadata associated with the secure tunnel.</p>
+   */
+  tags?: Tag[];
+
+  /**
    * <p>The connection state of the source application.</p>
    */
   sourceConnectionState?: ConnectionState;
 
   /**
-   * <p>A unique alpha-numeric ID that identifies a tunnel.</p>
+   * <p>The status of a tunnel. Valid values are: Open and Closed.</p>
    */
-  tunnelId?: string;
+  status?: TunnelStatus | string;
 
   /**
    * <p>The connection state of the destination application.</p>
@@ -195,14 +195,14 @@ export interface Tunnel {
   destinationConnectionState?: ConnectionState;
 
   /**
-   * <p>A description of the tunnel.</p>
+   * <p>A unique alpha-numeric ID that identifies a tunnel.</p>
    */
-  description?: string;
+  tunnelId?: string;
 
   /**
-   * <p>The status of a tunnel. Valid values are: Open and Closed.</p>
+   * <p>Timeout configuration for the tunnel.</p>
    */
-  status?: TunnelStatus | string;
+  timeoutConfig?: TimeoutConfig;
 
   /**
    * <p>The destination configuration that specifies the thing name of the destination
@@ -212,9 +212,9 @@ export interface Tunnel {
   destinationConfig?: DestinationConfig;
 
   /**
-   * <p>A list of tag metadata associated with the secure tunnel.</p>
+   * <p>The time when the tunnel was created.</p>
    */
-  tags?: Tag[];
+  createdAt?: Date;
 }
 
 export namespace Tunnel {
@@ -264,9 +264,9 @@ export namespace ListTagsForResourceResponse {
 
 export interface ListTunnelsRequest {
   /**
-   * <p>The name of the IoT thing associated with the destination device.</p>
+   * <p>A token to retrieve the next set of results.</p>
    */
-  thingName?: string;
+  nextToken?: string;
 
   /**
    * <p>The maximum number of results to return at once.</p>
@@ -274,9 +274,9 @@ export interface ListTunnelsRequest {
   maxResults?: number;
 
   /**
-   * <p>A token to retrieve the next set of results.</p>
+   * <p>The name of the IoT thing associated with the destination device.</p>
    */
-  nextToken?: string;
+  thingName?: string;
 }
 
 export namespace ListTunnelsRequest {
@@ -290,14 +290,19 @@ export namespace ListTunnelsRequest {
  */
 export interface TunnelSummary {
   /**
-   * <p>The time the tunnel was last updated.</p>
+   * <p>The unique alpha-numeric identifier for the tunnel.</p>
    */
-  lastUpdatedAt?: Date;
+  tunnelId?: string;
 
   /**
    * <p>The status of a tunnel. Valid values are: Open and Closed.</p>
    */
   status?: TunnelStatus | string;
+
+  /**
+   * <p>A description of the tunnel.</p>
+   */
+  description?: string;
 
   /**
    * <p>The Amazon Resource Name of the tunnel. The tunnel ARN format is
@@ -307,19 +312,14 @@ export interface TunnelSummary {
   tunnelArn?: string;
 
   /**
-   * <p>A description of the tunnel.</p>
+   * <p>The time the tunnel was last updated.</p>
    */
-  description?: string;
+  lastUpdatedAt?: Date;
 
   /**
    * <p>The time the tunnel was created.</p>
    */
   createdAt?: Date;
-
-  /**
-   * <p>The unique alpha-numeric identifier for the tunnel.</p>
-   */
-  tunnelId?: string;
 }
 
 export namespace TunnelSummary {
@@ -363,9 +363,9 @@ export namespace LimitExceededException {
 
 export interface OpenTunnelRequest {
   /**
-   * <p>A collection of tag metadata.</p>
+   * <p>A short text description of the tunnel. </p>
    */
-  tags?: Tag[];
+  description?: string;
 
   /**
    * <p>Timeout configuration for a tunnel.</p>
@@ -378,9 +378,9 @@ export interface OpenTunnelRequest {
   destinationConfig?: DestinationConfig;
 
   /**
-   * <p>A short text description of the tunnel. </p>
+   * <p>A collection of tag metadata.</p>
    */
-  description?: string;
+  tags?: Tag[];
 }
 
 export namespace OpenTunnelRequest {
@@ -390,6 +390,17 @@ export namespace OpenTunnelRequest {
 }
 
 export interface OpenTunnelResponse {
+  /**
+   * <p>A unique alpha-numeric tunnel ID.</p>
+   */
+  tunnelId?: string;
+
+  /**
+   * <p>The access token the source local proxy uses to connect to AWS IoT Secure
+   * 			Tunneling.</p>
+   */
+  sourceAccessToken?: string;
+
   /**
    * <p>The Amazon Resource Name for the tunnel. The tunnel ARN format is
    * 				<code>arn:aws:tunnel:<region>:<account-id>:tunnel/<tunnel-id></code>
@@ -402,37 +413,26 @@ export interface OpenTunnelResponse {
    * 			Tunneling.</p>
    */
   destinationAccessToken?: string;
-
-  /**
-   * <p>The access token the source local proxy uses to connect to AWS IoT Secure
-   * 			Tunneling.</p>
-   */
-  sourceAccessToken?: string;
-
-  /**
-   * <p>A unique alpha-numeric tunnel ID.</p>
-   */
-  tunnelId?: string;
 }
 
 export namespace OpenTunnelResponse {
   export const filterSensitiveLog = (obj: OpenTunnelResponse): any => ({
     ...obj,
-    ...(obj.destinationAccessToken && { destinationAccessToken: SENSITIVE_STRING }),
     ...(obj.sourceAccessToken && { sourceAccessToken: SENSITIVE_STRING }),
+    ...(obj.destinationAccessToken && { destinationAccessToken: SENSITIVE_STRING }),
   });
 }
 
 export interface TagResourceRequest {
   /**
-   * <p>The tags for the resource.</p>
-   */
-  tags: Tag[] | undefined;
-
-  /**
    * <p>The ARN of the resource.</p>
    */
   resourceArn: string | undefined;
+
+  /**
+   * <p>The tags for the resource.</p>
+   */
+  tags: Tag[] | undefined;
 }
 
 export namespace TagResourceRequest {
@@ -451,14 +451,14 @@ export namespace TagResourceResponse {
 
 export interface UntagResourceRequest {
   /**
-   * <p>The keys of the tags to remove.</p>
-   */
-  tagKeys: string[] | undefined;
-
-  /**
    * <p>The resource ARN.</p>
    */
   resourceArn: string | undefined;
+
+  /**
+   * <p>The keys of the tags to remove.</p>
+   */
+  tagKeys: string[] | undefined;
 }
 
 export namespace UntagResourceRequest {

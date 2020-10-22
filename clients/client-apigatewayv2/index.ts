@@ -57,6 +57,7 @@ export * from "./commands/GetVpcLinkCommand";
 export * from "./commands/GetVpcLinksCommand";
 export * from "./commands/ImportApiCommand";
 export * from "./commands/ReimportApiCommand";
+export * from "./commands/ResetAuthorizersCacheCommand";
 export * from "./commands/TagResourceCommand";
 export * from "./commands/UntagResourceCommand";
 export * from "./commands/UpdateApiCommand";

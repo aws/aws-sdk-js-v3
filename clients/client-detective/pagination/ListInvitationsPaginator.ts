@@ -33,7 +33,7 @@ export async function* listInvitationsPaginate(
   let hasNext = true;
   let page: ListInvitationsCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof Detective) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* listInvitationsPaginate(
       throw new Error("Invalid client, expected Detective | DetectiveClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

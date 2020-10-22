@@ -10,12 +10,11 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 export interface AccessDeniedException extends __SmithyException, $MetadataBearer {
   name: "AccessDeniedException";
   $fault: "client";
+  Message?: string;
   /**
    * <p>The AWS request ID for this request.</p>
    */
   RequestId?: string;
-
-  Message?: string;
 }
 
 export namespace AccessDeniedException {
@@ -25,7 +24,7 @@ export namespace AccessDeniedException {
 }
 
 /**
- * <p>The customizations associated with your AWS account for QuickSight.</p>
+ * <p>The Amazon QuickSight customizations associated with your AWS account or a QuickSight namespace in a specific AWS Region.</p>
  */
 export interface AccountCustomization {
   /**
@@ -50,7 +49,9 @@ export enum Edition {
  */
 export interface AccountSettings {
   /**
-   * <p>The name associated with the QuickSight subscription in your AWS account.</p>
+   * <p>The "account name" you provided for the QuickSight subscription in your AWS account.
+   *             You create this name when you sign up for QuickSight. It is unique in all of AWS and
+   *             it appears only in the console when users sign in.</p>
    */
   AccountName?: string;
 
@@ -60,12 +61,13 @@ export interface AccountSettings {
   NotificationEmail?: string;
 
   /**
-   * <p>The default QuickSight namespace for your AWS account.</p>
+   * <p>The default QuickSight namespace for your AWS account. </p>
    */
   DefaultNamespace?: string;
 
   /**
-   * <p>The edition of QuickSight that you're currently subscribed to.</p>
+   * <p>The edition of QuickSight that you're currently subscribed to:
+   *         Enterprise edition or Standard edition.</p>
    */
   Edition?: Edition | string;
 }
@@ -130,6 +132,273 @@ export interface AmazonElasticsearchParameters {
 
 export namespace AmazonElasticsearchParameters {
   export const filterSensitiveLog = (obj: AmazonElasticsearchParameters): any => ({
+    ...obj,
+  });
+}
+
+export enum AnalysisErrorType {
+  ACCESS_DENIED = "ACCESS_DENIED",
+  COLUMN_GEOGRAPHIC_ROLE_MISMATCH = "COLUMN_GEOGRAPHIC_ROLE_MISMATCH",
+  COLUMN_REPLACEMENT_MISSING = "COLUMN_REPLACEMENT_MISSING",
+  COLUMN_TYPE_MISMATCH = "COLUMN_TYPE_MISMATCH",
+  DATA_SET_NOT_FOUND = "DATA_SET_NOT_FOUND",
+  INTERNAL_FAILURE = "INTERNAL_FAILURE",
+  PARAMETER_NOT_FOUND = "PARAMETER_NOT_FOUND",
+  PARAMETER_TYPE_INVALID = "PARAMETER_TYPE_INVALID",
+  PARAMETER_VALUE_INCOMPATIBLE = "PARAMETER_VALUE_INCOMPATIBLE",
+  SOURCE_NOT_FOUND = "SOURCE_NOT_FOUND",
+}
+
+/**
+ * <p>A metadata error structure for an analysis.</p>
+ */
+export interface AnalysisError {
+  /**
+   * <p>The message associated with the analysis error.</p>
+   */
+  Message?: string;
+
+  /**
+   * <p>The type of the analysis error.</p>
+   */
+  Type?: AnalysisErrorType | string;
+}
+
+export namespace AnalysisError {
+  export const filterSensitiveLog = (obj: AnalysisError): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A sheet is an object that contains a set of visuals that are viewed together on one page in the
+ *             Amazon QuickSight console. Every analysis and dashboard contains at least one sheet. Each sheet contains at
+ *             least one visualization widget, for example a chart, pivot table, or narrative insight. Sheets can
+ *             be associated with other components, such as controls, filters, and so on.</p>
+ */
+export interface Sheet {
+  /**
+   * <p>The name of a sheet. This is displayed on the sheet's tab in the QuickSight console.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The unique identifier associated with a sheet.</p>
+   */
+  SheetId?: string;
+}
+
+export namespace Sheet {
+  export const filterSensitiveLog = (obj: Sheet): any => ({
+    ...obj,
+  });
+}
+
+export enum ResourceStatus {
+  CREATION_FAILED = "CREATION_FAILED",
+  CREATION_IN_PROGRESS = "CREATION_IN_PROGRESS",
+  CREATION_SUCCESSFUL = "CREATION_SUCCESSFUL",
+  DELETED = "DELETED",
+  UPDATE_FAILED = "UPDATE_FAILED",
+  UPDATE_IN_PROGRESS = "UPDATE_IN_PROGRESS",
+  UPDATE_SUCCESSFUL = "UPDATE_SUCCESSFUL",
+}
+
+/**
+ * <p>Metadata structure for an analysis in Amazon QuickSight</p>
+ */
+export interface Analysis {
+  /**
+   * <p>A list of the associated sheets with the unique identifier and name of each sheet.</p>
+   */
+  Sheets?: Sheet[];
+
+  /**
+   * <p>The ID of the analysis.</p>
+   */
+  AnalysisId?: string;
+
+  /**
+   * <p>The ARNs of the datasets of the analysis.</p>
+   */
+  DataSetArns?: string[];
+
+  /**
+   * <p>Status associated with the analysis.</p>
+   */
+  Status?: ResourceStatus | string;
+
+  /**
+   * <p>Errors associated with the analysis.</p>
+   */
+  Errors?: AnalysisError[];
+
+  /**
+   * <p>The ARN of the theme of the analysis.</p>
+   */
+  ThemeArn?: string;
+
+  /**
+   * <p>The descriptive name of the analysis.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The time that the analysis was created.</p>
+   */
+  CreatedTime?: Date;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the analysis.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>The time that the analysis was last updated.</p>
+   */
+  LastUpdatedTime?: Date;
+}
+
+export namespace Analysis {
+  export const filterSensitiveLog = (obj: Analysis): any => ({
+    ...obj,
+  });
+}
+
+export enum AnalysisFilterAttribute {
+  QUICKSIGHT_USER = "QUICKSIGHT_USER",
+}
+
+export enum FilterOperator {
+  StringEquals = "StringEquals",
+}
+
+/**
+ * <p>A filter that you apply when searching for one or more analyses.</p>
+ */
+export interface AnalysisSearchFilter {
+  /**
+   * <p>The name of the value that you want to use as a filter, for example <code>"Name":
+   *                 "QUICKSIGHT_USER"</code>.</p>
+   */
+  Name?: AnalysisFilterAttribute | string;
+
+  /**
+   * <p>The value of the named item, in this case <code>QUICKSIGHT_USER</code>, that you want
+   *             to use as a filter, for example <code>"Value"</code>. An example is
+   *                 <code>"arn:aws:quicksight:us-east-1:1:user/default/UserName1"</code>.</p>
+   */
+  Value?: string;
+
+  /**
+   * <p>The comparison operator that you want to use as a filter, for example
+   *                 <code>"Operator": "StringEquals"</code>.</p>
+   */
+  Operator?: FilterOperator | string;
+}
+
+export namespace AnalysisSearchFilter {
+  export const filterSensitiveLog = (obj: AnalysisSearchFilter): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Dataset reference.</p>
+ */
+export interface DataSetReference {
+  /**
+   * <p>Dataset Amazon Resource Name (ARN).</p>
+   */
+  DataSetArn: string | undefined;
+
+  /**
+   * <p>Dataset placeholder.</p>
+   */
+  DataSetPlaceholder: string | undefined;
+}
+
+export namespace DataSetReference {
+  export const filterSensitiveLog = (obj: DataSetReference): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The source template of an analysis.</p>
+ */
+export interface AnalysisSourceTemplate {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the source template of an analysis.</p>
+   */
+  Arn: string | undefined;
+
+  /**
+   * <p>The dataset references of the source template of an analysis.</p>
+   */
+  DataSetReferences: DataSetReference[] | undefined;
+}
+
+export namespace AnalysisSourceTemplate {
+  export const filterSensitiveLog = (obj: AnalysisSourceTemplate): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The source entity of an analysis.</p>
+ */
+export interface AnalysisSourceEntity {
+  /**
+   * <p>The source template for the source entity of the analysis.</p>
+   */
+  SourceTemplate?: AnalysisSourceTemplate;
+}
+
+export namespace AnalysisSourceEntity {
+  export const filterSensitiveLog = (obj: AnalysisSourceEntity): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The summary metadata that describes an analysis.</p>
+ */
+export interface AnalysisSummary {
+  /**
+   * <p>The last known status for the analysis.</p>
+   */
+  Status?: ResourceStatus | string;
+
+  /**
+   * <p>The name of the analysis. This name is displayed in the QuickSight console.
+   *             </p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The time that the analysis was last updated.</p>
+   */
+  LastUpdatedTime?: Date;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the analysis.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>The ID of the analysis. This ID displays in the URL.</p>
+   */
+  AnalysisId?: string;
+
+  /**
+   * <p>The time that the analysis was created.</p>
+   */
+  CreatedTime?: Date;
+}
+
+export namespace AnalysisSummary {
+  export const filterSensitiveLog = (obj: AnalysisSummary): any => ({
     ...obj,
   });
 }
@@ -245,16 +514,16 @@ export namespace BorderStyle {
  */
 export interface CalculatedColumn {
   /**
+   * <p>Column name.</p>
+   */
+  ColumnName: string | undefined;
+
+  /**
    * <p>A unique ID to identify a calculated column. During a dataset update, if the column ID
    *             of a calculated column matches that of an existing calculated column, Amazon QuickSight
    *             preserves the existing calculated column.</p>
    */
   ColumnId: string | undefined;
-
-  /**
-   * <p>Column name.</p>
-   */
-  ColumnName: string | undefined;
 
   /**
    * <p>An expression that defines the calculated column.</p>
@@ -419,12 +688,11 @@ export namespace ResourceNotFoundException {
 export interface ThrottlingException extends __SmithyException, $MetadataBearer {
   name: "ThrottlingException";
   $fault: "client";
+  Message?: string;
   /**
    * <p>The AWS request ID for this request.</p>
    */
   RequestId?: string;
-
-  Message?: string;
 }
 
 export namespace ThrottlingException {
@@ -476,14 +744,14 @@ export enum GeoSpatialCountryCode {
  */
 export interface GeoSpatialColumnGroup {
   /**
-   * <p>A display name for the hierarchy.</p>
-   */
-  Name: string | undefined;
-
-  /**
    * <p>Columns in this hierarchy.</p>
    */
   Columns: string[] | undefined;
+
+  /**
+   * <p>A display name for the hierarchy.</p>
+   */
+  Name: string | undefined;
 
   /**
    * <p>Country code.</p>
@@ -557,6 +825,11 @@ export namespace ColumnGroupSchema {
  */
 export interface ColumnSchema {
   /**
+   * <p>The name of the column schema.</p>
+   */
+  Name?: string;
+
+  /**
    * <p>The data type of the column schema.</p>
    */
   DataType?: string;
@@ -565,11 +838,6 @@ export interface ColumnSchema {
    * <p>The geographic role of the column schema.</p>
    */
   GeographicRole?: string;
-
-  /**
-   * <p>The name of the column schema.</p>
-   */
-  Name?: string;
 }
 
 export namespace ColumnSchema {
@@ -607,7 +875,7 @@ export namespace ColumnTag {
 }
 
 /**
- * <p>A resource is already in a state that indicates an action is happening that must complete
+ * <p>A resource is already in a state that indicates an operation is happening that must complete
  * 			before a new update can be applied.</p>
  */
 export interface ConcurrentUpdatingException extends __SmithyException, $MetadataBearer {
@@ -629,12 +897,11 @@ export namespace ConcurrentUpdatingException {
 export interface ConflictException extends __SmithyException, $MetadataBearer {
   name: "ConflictException";
   $fault: "client";
+  Message?: string;
   /**
    * <p>The AWS request ID for this request.</p>
    */
   RequestId?: string;
-
-  Message?: string;
 }
 
 export namespace ConflictException {
@@ -643,18 +910,50 @@ export namespace ConflictException {
   });
 }
 
+/**
+ * <p>The key or keys of the key-value pairs for the resource tag or tags assigned to the
+ *             resource.</p>
+ */
+export interface Tag {
+  /**
+   * <p>Tag key.</p>
+   */
+  Key: string | undefined;
+
+  /**
+   * <p>Tag value.</p>
+   */
+  Value: string | undefined;
+}
+
+export namespace Tag {
+  export const filterSensitiveLog = (obj: Tag): any => ({
+    ...obj,
+  });
+}
+
 export interface CreateAccountCustomizationRequest {
   /**
-   * <p>The namespace associated with the customization that you're creating.</p>
+   * <p>The QuickSight namespace that you want to add customizations to.</p>
    */
   Namespace?: string;
 
   /**
-   * <p>The customizations you're adding to the QuickSight subscription for the AWS account.
-   * 	  For example, you could add a default theme by setting <code>AccountCustomization</code> to
-   * 	      the midnight theme (<code>DefaultTheme="arn:aws:quicksight::aws:theme/MIDNIGHT"</code>) or to a custom theme (<code>DefaultTheme="arn:aws:quicksight:us-west-2:111122223333:theme/bdb844d0-0fe9-4d9d-b520-0fe602d93639"</code>).</p>
+   * <p>The QuickSight customizations you're adding in the current AWS Region. You can add
+   *             these to an AWS account and a QuickSight namespace. </p>
+   *         <p>For example, you can add a default theme by setting <code>AccountCustomization</code>
+   *             to the midnight theme: <code>"AccountCustomization": { "DefaultTheme":
+   *                 "arn:aws:quicksight::aws:theme/MIDNIGHT" }</code>. Or, you can add a custom theme by
+   *             specifying <code>"AccountCustomization": { "DefaultTheme":
+   *                 "arn:aws:quicksight:us-west-2:111122223333:theme/bdb844d0-0fe9-4d9d-b520-0fe602d93639"
+   *                 }</code>. </p>
    */
   AccountCustomization: AccountCustomization | undefined;
+
+  /**
+   * <p>A list of the tags that you want to attach to this resource.</p>
+   */
+  Tags?: Tag[];
 
   /**
    * <p>The ID for the AWS account that you want to customize QuickSight for.</p>
@@ -675,7 +974,12 @@ export interface CreateAccountCustomizationResponse {
   RequestId?: string;
 
   /**
-   * <p>The customizations you're adding to the QuickSight subscription for the AWS account.</p>
+   * <p>The Amazon Resource Name (ARN) for the customization that you created for this AWS account.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>The QuickSight customizations you're adding in the current AWS Region. </p>
    */
   AccountCustomization?: AccountCustomization;
 
@@ -716,6 +1020,265 @@ export interface ResourceUnavailableException extends __SmithyException, $Metada
 
 export namespace ResourceUnavailableException {
   export const filterSensitiveLog = (obj: ResourceUnavailableException): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A date-time parameter.</p>
+ */
+export interface DateTimeParameter {
+  /**
+   * <p>The values for the date-time parameter.</p>
+   */
+  Values: Date[] | undefined;
+
+  /**
+   * <p>A display name for the date-time parameter.</p>
+   */
+  Name: string | undefined;
+}
+
+export namespace DateTimeParameter {
+  export const filterSensitiveLog = (obj: DateTimeParameter): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A decimal parameter.</p>
+ */
+export interface DecimalParameter {
+  /**
+   * <p>The values for the decimal parameter.</p>
+   */
+  Values: number[] | undefined;
+
+  /**
+   * <p>A display name for the decimal parameter.</p>
+   */
+  Name: string | undefined;
+}
+
+export namespace DecimalParameter {
+  export const filterSensitiveLog = (obj: DecimalParameter): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>An integer parameter.</p>
+ */
+export interface IntegerParameter {
+  /**
+   * <p>The values for the integer parameter.</p>
+   */
+  Values: number[] | undefined;
+
+  /**
+   * <p>The name of the integer parameter.</p>
+   */
+  Name: string | undefined;
+}
+
+export namespace IntegerParameter {
+  export const filterSensitiveLog = (obj: IntegerParameter): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A string parameter.</p>
+ */
+export interface StringParameter {
+  /**
+   * <p>The values of a string parameter.</p>
+   */
+  Values: string[] | undefined;
+
+  /**
+   * <p>A display name for a string parameter.</p>
+   */
+  Name: string | undefined;
+}
+
+export namespace StringParameter {
+  export const filterSensitiveLog = (obj: StringParameter): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A list of QuickSight parameters and the list's override values.</p>
+ */
+export interface _Parameters {
+  /**
+   * <p>Decimal parameters.</p>
+   */
+  DecimalParameters?: DecimalParameter[];
+
+  /**
+   * <p>String parameters.</p>
+   */
+  StringParameters?: StringParameter[];
+
+  /**
+   * <p>Date-time parameters.</p>
+   */
+  DateTimeParameters?: DateTimeParameter[];
+
+  /**
+   * <p>Integer parameters.</p>
+   */
+  IntegerParameters?: IntegerParameter[];
+}
+
+export namespace _Parameters {
+  export const filterSensitiveLog = (obj: _Parameters): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Permission for the resource.</p>
+ */
+export interface ResourcePermission {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the principal. This can be one of the
+   *             following:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>The ARN of an Amazon QuickSight user, group, or namespace. (This is most
+   *                     common.)</p>
+   *             </li>
+   *             <li>
+   *                 <p>The ARN of an AWS account root: This is an IAM ARN rather than a QuickSight
+   *                     ARN. Use this option only to share resources (templates) across AWS accounts.
+   *                     (This is less common.) </p>
+   *             </li>
+   *          </ul>
+   */
+  Principal: string | undefined;
+
+  /**
+   * <p>The IAM action to grant or revoke permissions on, for example
+   *             <code>"quicksight:DescribeDashboard"</code>.</p>
+   */
+  Actions: string[] | undefined;
+}
+
+export namespace ResourcePermission {
+  export const filterSensitiveLog = (obj: ResourcePermission): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateAnalysisRequest {
+  /**
+   * <p>The ARN for the theme to apply to the analysis that you're creating. To see the theme
+   *             in the QuickSight console, make sure that you have access to it.</p>
+   */
+  ThemeArn?: string;
+
+  /**
+   * <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the
+   *             analysis.</p>
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>The parameter names and override values that you want to use. An analysis can have
+   *             any parameter type, and some parameters might accept multiple values. </p>
+   */
+  Parameters?: _Parameters;
+
+  /**
+   * <p>A source entity to use for the analysis that you're creating. This metadata structure
+   *             contains details that describe a source template and one or more datasets.</p>
+   */
+  SourceEntity: AnalysisSourceEntity | undefined;
+
+  /**
+   * <p>The ID for the analysis that you're creating. This ID displays in the URL of the
+   *             analysis.</p>
+   */
+  AnalysisId: string | undefined;
+
+  /**
+   * <p>A structure that describes the principals and the resource-level permissions on an
+   *             analysis. You can use the <code>Permissions</code> structure to grant permissions by
+   *             providing a list of AWS Identity and Access Management (IAM) action information for each
+   *             principal listed by Amazon Resource Name (ARN). </p>
+   *
+   *         <p>To specify no permissions, omit <code>Permissions</code>.</p>
+   */
+  Permissions?: ResourcePermission[];
+
+  /**
+   * <p>The ID of the AWS account where you are creating an analysis.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>A descriptive name for the analysis that you're creating. This name displays for the
+   *             analysis in the QuickSight console. </p>
+   */
+  Name: string | undefined;
+}
+
+export namespace CreateAnalysisRequest {
+  export const filterSensitiveLog = (obj: CreateAnalysisRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateAnalysisResponse {
+  /**
+   * <p>The status of the creation of the analysis. </p>
+   */
+  CreationStatus?: ResourceStatus | string;
+
+  /**
+   * <p>The ARN for the analysis.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>The AWS request ID for this operation.</p>
+   */
+  RequestId?: string;
+
+  /**
+   * <p>The ID of the analysis.</p>
+   */
+  AnalysisId?: string;
+}
+
+export namespace CreateAnalysisResponse {
+  export const filterSensitiveLog = (obj: CreateAnalysisResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>This error indicates that you are calling an operation on an Amazon QuickSight
+ * 			subscription where the edition doesn't include support for that operation. Amazon
+ * 			QuickSight currently has Standard Edition and Enterprise Edition. Not every operation and
+ * 			capability is available in every edition.</p>
+ */
+export interface UnsupportedUserEditionException extends __SmithyException, $MetadataBearer {
+  name: "UnsupportedUserEditionException";
+  $fault: "client";
+  /**
+   * <p>The AWS request ID for this request.</p>
+   */
+  RequestId?: string;
+
+  Message?: string;
+}
+
+export namespace UnsupportedUserEditionException {
+  export const filterSensitiveLog = (obj: UnsupportedUserEditionException): any => ({
     ...obj,
   });
 }
@@ -779,14 +1342,14 @@ export namespace SheetControlsOption {
  */
 export interface DashboardPublishOptions {
   /**
-   * <p>Export to .csv option.</p>
-   */
-  ExportToCSVOption?: ExportToCSVOption;
-
-  /**
    * <p>Ad hoc (one-time) filtering option.</p>
    */
   AdHocFilteringOption?: AdHocFilteringOption;
+
+  /**
+   * <p>Export to .csv option.</p>
+   */
+  ExportToCSVOption?: ExportToCSVOption;
 
   /**
    * <p>Sheet controls option.</p>
@@ -801,188 +1364,18 @@ export namespace DashboardPublishOptions {
 }
 
 /**
- * <p>Date time parameter.</p>
- */
-export interface DateTimeParameter {
-  /**
-   * <p>Values.</p>
-   */
-  Values: Date[] | undefined;
-
-  /**
-   * <p>A display name for the dataset.</p>
-   */
-  Name: string | undefined;
-}
-
-export namespace DateTimeParameter {
-  export const filterSensitiveLog = (obj: DateTimeParameter): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Decimal parameter.</p>
- */
-export interface DecimalParameter {
-  /**
-   * <p>A display name for the dataset.</p>
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>Values.</p>
-   */
-  Values: number[] | undefined;
-}
-
-export namespace DecimalParameter {
-  export const filterSensitiveLog = (obj: DecimalParameter): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Integer parameter.</p>
- */
-export interface IntegerParameter {
-  /**
-   * <p>A display name for the dataset.</p>
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>Values.</p>
-   */
-  Values: number[] | undefined;
-}
-
-export namespace IntegerParameter {
-  export const filterSensitiveLog = (obj: IntegerParameter): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>String parameter.</p>
- */
-export interface StringParameter {
-  /**
-   * <p>Values.</p>
-   */
-  Values: string[] | undefined;
-
-  /**
-   * <p>A display name for the dataset.</p>
-   */
-  Name: string | undefined;
-}
-
-export namespace StringParameter {
-  export const filterSensitiveLog = (obj: StringParameter): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Parameters.</p>
- */
-export interface _Parameters {
-  /**
-   * <p>String parameters.</p>
-   */
-  StringParameters?: StringParameter[];
-
-  /**
-   * <p>Decimal parameters.</p>
-   */
-  DecimalParameters?: DecimalParameter[];
-
-  /**
-   * <p>DateTime parameters.</p>
-   */
-  DateTimeParameters?: DateTimeParameter[];
-
-  /**
-   * <p>Integer parameters.</p>
-   */
-  IntegerParameters?: IntegerParameter[];
-}
-
-export namespace _Parameters {
-  export const filterSensitiveLog = (obj: _Parameters): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Permission for the resource.</p>
- */
-export interface ResourcePermission {
-  /**
-   * <p>The action to grant or revoke permissions on, for example
-   *             <code>"quicksight:DescribeDashboard"</code>.</p>
-   */
-  Actions: string[] | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the principal. This can be one of the
-   *             following:</p>
-   *         <ul>
-   *             <li>
-   *                 <p>The ARN of an Amazon QuickSight user, group, or namespace. (This is most
-   *                     common.)</p>
-   *             </li>
-   *             <li>
-   *                 <p>The ARN of an AWS account root: This is an IAM ARN rather than a QuickSight
-   *                     ARN. Use this option only to share resources (templates) across AWS accounts.
-   *                     (This is less common.) </p>
-   *             </li>
-   *          </ul>
-   */
-  Principal: string | undefined;
-}
-
-export namespace ResourcePermission {
-  export const filterSensitiveLog = (obj: ResourcePermission): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Dataset reference.</p>
- */
-export interface DataSetReference {
-  /**
-   * <p>Dataset Amazon Resource Name (ARN).</p>
-   */
-  DataSetArn: string | undefined;
-
-  /**
-   * <p>Dataset placeholder.</p>
-   */
-  DataSetPlaceholder: string | undefined;
-}
-
-export namespace DataSetReference {
-  export const filterSensitiveLog = (obj: DataSetReference): any => ({
-    ...obj,
-  });
-}
-
-/**
  * <p>Dashboard source template.</p>
  */
 export interface DashboardSourceTemplate {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource.</p>
-   */
-  Arn: string | undefined;
-
-  /**
    * <p>Dataset references.</p>
    */
   DataSetReferences: DataSetReference[] | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource.</p>
+   */
+  Arn: string | undefined;
 }
 
 export namespace DashboardSourceTemplate {
@@ -1007,34 +1400,11 @@ export namespace DashboardSourceEntity {
   });
 }
 
-/**
- * <p>The key or keys of the key-value pairs for the resource tag or tags assigned to the
- *             resource.</p>
- */
-export interface Tag {
-  /**
-   * <p>Tag key.</p>
-   */
-  Key: string | undefined;
-
-  /**
-   * <p>Tag value.</p>
-   */
-  Value: string | undefined;
-}
-
-export namespace Tag {
-  export const filterSensitiveLog = (obj: Tag): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateDashboardRequest {
   /**
-   * <p>A structure that contains the permissions of the dashboard. You can use this structure for
-   * 			granting permissions with principal and action information.</p>
+   * <p>A description for the first version of the dashboard being created.</p>
    */
-  Permissions?: ResourcePermission[];
+  VersionDescription?: string;
 
   /**
    * <p>The ID for the dashboard, also added to the IAM policy.</p>
@@ -1047,9 +1417,13 @@ export interface CreateDashboardRequest {
   Name: string | undefined;
 
   /**
-   * <p>A description for the first version of the dashboard being created.</p>
+   * <p>A structure that contains the permissions of the dashboard. You can use this structure
+   *             for granting permissions by providing a list of IAM action information for each
+   *             principal ARN. </p>
+   *
+   *         <p>To specify no permissions, omit the permissions list.</p>
    */
-  VersionDescription?: string;
+  Permissions?: ResourcePermission[];
 
   /**
    * <p>The ID of the AWS account where you want to create the dashboard.</p>
@@ -1057,64 +1431,65 @@ export interface CreateDashboardRequest {
   AwsAccountId: string | undefined;
 
   /**
-   * <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the dashboard.</p>
+   * <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the
+   *             dashboard.</p>
    */
   Tags?: Tag[];
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the theme that is being used for this dashboard. If you add a value
-   * 			for this field, it overrides the value that is used in the source entity. The theme ARN must exist
-   * 			in the same AWS account where you create the dashboard.</p>
-   */
-  ThemeArn?: string;
-
-  /**
-   * <p>The parameters for the creation of the dashboard, which you want to use to override the default settings.
-   * 			A dashboard can have any type of parameters, and some parameters might
-   * 			accept multiple values.
-   * 		</p>
+   * <p>The parameters for the creation of the dashboard, which you want to use to override
+   *             the default settings. A dashboard can have any type of parameters, and some parameters
+   *             might accept multiple values. </p>
    */
   Parameters?: _Parameters;
 
   /**
    * <p>The entity that you are using as a source when you create the dashboard. In
-   * 			<code>SourceEntity</code>, you specify the type of object you're using as source. You
-   * 			can only create a dashboard from a template, so you use a <code>SourceTemplate</code>
-   * 			entity. If you need to create a dashboard from an analysis, first convert the analysis
-   * 			to a template by using the <a>CreateTemplate</a> API operation. For
-   * 			<code>SourceTemplate</code>, specify the Amazon Resource Name (ARN) of the source
-   * 			template. The <code>SourceTemplate</code>ARN can contain any AWS Account and any QuickSight-supported
-   * 			AWS Region. </p>
-   * 		       <p>Use the <code>DataSetReferences</code> entity within <code>SourceTemplate</code>
-   * 			to list the replacement datasets for the placeholders listed
-   * 			in the original. The schema in each dataset must match its placeholder. </p>
+   *             <code>SourceEntity</code>, you specify the type of object you're using as source. You
+   *             can only create a dashboard from a template, so you use a <code>SourceTemplate</code>
+   *             entity. If you need to create a dashboard from an analysis, first convert the analysis
+   *             to a template by using the <a>CreateTemplate</a> API operation. For
+   *             <code>SourceTemplate</code>, specify the Amazon Resource Name (ARN) of the source
+   *             template. The <code>SourceTemplate</code>ARN can contain any AWS Account and any
+   *             QuickSight-supported AWS Region. </p>
+   *         <p>Use the <code>DataSetReferences</code> entity within <code>SourceTemplate</code> to
+   *             list the replacement datasets for the placeholders listed in the original. The schema in
+   *             each dataset must match its placeholder. </p>
    */
   SourceEntity: DashboardSourceEntity | undefined;
 
   /**
+   * <p>The Amazon Resource Name (ARN) of the theme that is being used for this dashboard. If
+   *             you add a value for this field, it overrides the value that is used in the source
+   *             entity. The theme ARN must exist in the same AWS account where you create the
+   *             dashboard.</p>
+   */
+  ThemeArn?: string;
+
+  /**
    * <p>Options for publishing the dashboard when you create it:</p>
-   * 		       <ul>
+   *         <ul>
    *             <li>
-   * 					          <p>
-   *                   <code>AvailabilityStatus</code> for <code>AdHocFilteringOption</code> - This status can
-   * 					be either <code>ENABLED</code> or <code>DISABLED</code>. When this is set to
-   * 						<code>DISABLED</code>, QuickSight disables the left filter pane on the
-   * 					published dashboard, which can be used for ad hoc (one-time) filtering. This
-   * 					option is <code>ENABLED</code> by default. </p>
-   * 			         </li>
+   *                 <p>
+   *                   <code>AvailabilityStatus</code> for <code>AdHocFilteringOption</code> - This
+   *                     status can be either <code>ENABLED</code> or <code>DISABLED</code>. When this is
+   *                     set to <code>DISABLED</code>, QuickSight disables the left filter pane on the
+   *                     published dashboard, which can be used for ad hoc (one-time) filtering. This
+   *                     option is <code>ENABLED</code> by default. </p>
+   *             </li>
    *             <li>
-   * 				           <p>
-   *                   <code>AvailabilityStatus</code> for <code>ExportToCSVOption</code> - This status can be
-   * 					either <code>ENABLED</code> or <code>DISABLED</code>. The visual option to
-   * 					export data to .csv format isn't enabled when this is set to
-   * 						<code>DISABLED</code>. This option is <code>ENABLED</code> by default. </p>
-   * 			         </li>
+   *                 <p>
+   *                   <code>AvailabilityStatus</code> for <code>ExportToCSVOption</code> - This
+   *                     status can be either <code>ENABLED</code> or <code>DISABLED</code>. The visual
+   *                     option to export data to .CSV format isn't enabled when this is set to
+   *                     <code>DISABLED</code>. This option is <code>ENABLED</code> by default. </p>
+   *             </li>
    *             <li>
-   * 				           <p>
-   *                   <code>VisibilityState</code> for <code>SheetControlsOption</code> - This visibility state
-   * 					can be either <code>COLLAPSED</code> or <code>EXPANDED</code>. This option is
-   * 						<code>COLLAPSED</code> by default. </p>
-   * 			         </li>
+   *                 <p>
+   *                   <code>VisibilityState</code> for <code>SheetControlsOption</code> - This
+   *                     visibility state can be either <code>COLLAPSED</code> or <code>EXPANDED</code>.
+   *                     This option is <code>COLLAPSED</code> by default. </p>
+   *             </li>
    *          </ul>
    */
   DashboardPublishOptions?: DashboardPublishOptions;
@@ -1124,15 +1499,6 @@ export namespace CreateDashboardRequest {
   export const filterSensitiveLog = (obj: CreateDashboardRequest): any => ({
     ...obj,
   });
-}
-
-export enum ResourceStatus {
-  CREATION_FAILED = "CREATION_FAILED",
-  CREATION_IN_PROGRESS = "CREATION_IN_PROGRESS",
-  CREATION_SUCCESSFUL = "CREATION_SUCCESSFUL",
-  UPDATE_FAILED = "UPDATE_FAILED",
-  UPDATE_IN_PROGRESS = "UPDATE_IN_PROGRESS",
-  UPDATE_SUCCESSFUL = "UPDATE_SUCCESSFUL",
 }
 
 export interface CreateDashboardResponse {
@@ -1152,8 +1518,8 @@ export interface CreateDashboardResponse {
   CreationStatus?: ResourceStatus | string;
 
   /**
-   * <p>The ARN of the dashboard, including the version number
-   * 			of the first version that is created.</p>
+   * <p>The ARN of the dashboard, including the version number of the first version that is
+   *             created.</p>
    */
   VersionArn?: string;
 
@@ -1165,29 +1531,6 @@ export interface CreateDashboardResponse {
 
 export namespace CreateDashboardResponse {
   export const filterSensitiveLog = (obj: CreateDashboardResponse): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>This error indicates that you are calling an operation on an Amazon QuickSight
- * 			subscription where the edition doesn't include support for that operation. Amazon
- * 			QuickSight currently has Standard Edition and Enterprise Edition. Not every operation and
- * 			capability is available in every edition.</p>
- */
-export interface UnsupportedUserEditionException extends __SmithyException, $MetadataBearer {
-  name: "UnsupportedUserEditionException";
-  $fault: "client";
-  /**
-   * <p>The AWS request ID for this request.</p>
-   */
-  RequestId?: string;
-
-  Message?: string;
-}
-
-export namespace UnsupportedUserEditionException {
-  export const filterSensitiveLog = (obj: UnsupportedUserEditionException): any => ({
     ...obj,
   });
 }
@@ -1297,16 +1640,16 @@ export interface TransformOperation {
   TagColumnOperation?: TagColumnOperation;
 
   /**
-   * <p>An operation that projects columns. Operations that come after a projection can only
-   *             refer to projected columns.</p>
-   */
-  ProjectOperation?: ProjectOperation;
-
-  /**
    * <p>An operation that creates calculated columns. Columns created in one such operation
    *             form a lexical closure.</p>
    */
   CreateColumnsOperation?: CreateColumnsOperation;
+
+  /**
+   * <p>An operation that projects columns. Operations that come after a projection can only
+   *             refer to projected columns.</p>
+   */
+  ProjectOperation?: ProjectOperation;
 
   /**
    * <p>An operation that filters rows based on some condition.</p>
@@ -1337,14 +1680,14 @@ export interface JoinInstruction {
   Type: JoinType | string | undefined;
 
   /**
-   * <p>Left operand.</p>
-   */
-  LeftOperand: string | undefined;
-
-  /**
    * <p>On Clause.</p>
    */
   OnClause: string | undefined;
+
+  /**
+   * <p>Left operand.</p>
+   */
+  LeftOperand: string | undefined;
 
   /**
    * <p>Right operand.</p>
@@ -1393,14 +1736,14 @@ export interface LogicalTable {
   Source: LogicalTableSource | undefined;
 
   /**
-   * <p>Transform operations that act on this logical table.</p>
-   */
-  DataTransforms?: TransformOperation[];
-
-  /**
    * <p>A display name for the logical table.</p>
    */
   Alias: string | undefined;
+
+  /**
+   * <p>Transform operations that act on this logical table.</p>
+   */
+  DataTransforms?: TransformOperation[];
 }
 
 export namespace LogicalTable {
@@ -1481,14 +1824,14 @@ export interface RelationalTable {
   Schema?: string;
 
   /**
-   * <p>The name of the relational table.</p>
-   */
-  Name: string | undefined;
-
-  /**
    * <p>The Amazon Resource Name (ARN) for the data source.</p>
    */
   DataSourceArn: string | undefined;
+
+  /**
+   * <p>The name of the relational table.</p>
+   */
+  Name: string | undefined;
 
   /**
    * <p>The column schema of the table.</p>
@@ -1521,9 +1864,9 @@ export enum TextQualifier {
  */
 export interface UploadSettings {
   /**
-   * <p>File format.</p>
+   * <p>The delimiter between values in the file.</p>
    */
-  Format?: FileFormat | string;
+  Delimiter?: string;
 
   /**
    * <p>A row number to start reading data from.</p>
@@ -1531,19 +1874,19 @@ export interface UploadSettings {
   StartFromRow?: number;
 
   /**
+   * <p>Whether the file has a header row, or the files each have a header row.</p>
+   */
+  ContainsHeader?: boolean;
+
+  /**
    * <p>Text qualifier.</p>
    */
   TextQualifier?: TextQualifier | string;
 
   /**
-   * <p>The delimiter between values in the file.</p>
+   * <p>File format.</p>
    */
-  Delimiter?: string;
-
-  /**
-   * <p>Whether the file has a header row, or the files each have a header row.</p>
-   */
-  ContainsHeader?: boolean;
+  Format?: FileFormat | string;
 }
 
 export namespace UploadSettings {
@@ -1557,9 +1900,9 @@ export namespace UploadSettings {
  */
 export interface S3Source {
   /**
-   * <p>Information about the format for the S3 source file or files.</p>
+   * <p>The amazon Resource Name (ARN) for the data source.</p>
    */
-  UploadSettings?: UploadSettings;
+  DataSourceArn: string | undefined;
 
   /**
    * <p>A physical table type for as S3 data source.</p>
@@ -1567,9 +1910,9 @@ export interface S3Source {
   InputColumns: InputColumn[] | undefined;
 
   /**
-   * <p>The amazon Resource Name (ARN) for the data source.</p>
+   * <p>Information about the format for the S3 source file or files.</p>
    */
-  DataSourceArn: string | undefined;
+  UploadSettings?: UploadSettings;
 }
 
 export namespace S3Source {
@@ -1590,14 +1933,14 @@ export interface PhysicalTable {
   RelationalTable?: RelationalTable;
 
   /**
-   * <p>A physical table type built from the results of the custom SQL query.</p>
-   */
-  CustomSql?: CustomSql;
-
-  /**
    * <p>A physical table type for as S3 data source.</p>
    */
   S3Source?: S3Source;
+
+  /**
+   * <p>A physical table type built from the results of the custom SQL query.</p>
+   */
+  CustomSql?: CustomSql;
 }
 
 export namespace PhysicalTable {
@@ -1649,19 +1992,14 @@ export interface CreateDataSetRequest {
   DataSetId: string | undefined;
 
   /**
-   * <p>A list of resource permissions on the dataset.</p>
+   * <p>Indicates whether you want to import the data into SPICE.</p>
    */
-  Permissions?: ResourcePermission[];
+  ImportMode: DataSetImportMode | string | undefined;
 
   /**
    * <p>Configures the combination and transformation of the data from the physical tables.</p>
    */
   LogicalTableMap?: { [key: string]: LogicalTable };
-
-  /**
-   * <p>Indicates whether you want to import the data into SPICE.</p>
-   */
-  ImportMode: DataSetImportMode | string | undefined;
 
   /**
    * <p>Groupings of columns that work together in certain QuickSight features. Currently, only geospatial hierarchy is supported.</p>
@@ -1677,6 +2015,11 @@ export interface CreateDataSetRequest {
    * <p>Declares the physical tables that are available in the underlying data sources.</p>
    */
   PhysicalTableMap: { [key: string]: PhysicalTable } | undefined;
+
+  /**
+   * <p>A list of resource permissions on the dataset.</p>
+   */
+  Permissions?: ResourcePermission[];
 
   /**
    * <p>The display name for the dataset.</p>
@@ -1708,9 +2051,9 @@ export interface CreateDataSetResponse {
   Arn?: string;
 
   /**
-   * <p>The AWS request ID for this operation.</p>
+   * <p>The ID for the dataset that you want to create. This ID is unique per AWS Region for each AWS account.</p>
    */
-  RequestId?: string;
+  DataSetId?: string;
 
   /**
    * <p>The ARN for the ingestion, which is triggered as a result of dataset creation if the import
@@ -1719,9 +2062,9 @@ export interface CreateDataSetResponse {
   IngestionArn?: string;
 
   /**
-   * <p>The ID for the dataset that you want to create. This ID is unique per AWS Region for each AWS account.</p>
+   * <p>The AWS request ID for this operation.</p>
    */
-  DataSetId?: string;
+  RequestId?: string;
 }
 
 export namespace CreateDataSetResponse {
@@ -1775,11 +2118,6 @@ export namespace JiraParameters {
  */
 export interface MariaDbParameters {
   /**
-   * <p>Port.</p>
-   */
-  Port: number | undefined;
-
-  /**
    * <p>Database.</p>
    */
   Database: string | undefined;
@@ -1788,6 +2126,11 @@ export interface MariaDbParameters {
    * <p>Host.</p>
    */
   Host: string | undefined;
+
+  /**
+   * <p>Port.</p>
+   */
+  Port: number | undefined;
 }
 
 export namespace MariaDbParameters {
@@ -1801,11 +2144,6 @@ export namespace MariaDbParameters {
  */
 export interface MySqlParameters {
   /**
-   * <p>Database.</p>
-   */
-  Database: string | undefined;
-
-  /**
    * <p>Port.</p>
    */
   Port: number | undefined;
@@ -1814,6 +2152,11 @@ export interface MySqlParameters {
    * <p>Host.</p>
    */
   Host: string | undefined;
+
+  /**
+   * <p>Database.</p>
+   */
+  Database: string | undefined;
 }
 
 export namespace MySqlParameters {
@@ -1902,14 +2245,14 @@ export namespace RdsParameters {
  */
 export interface RedshiftParameters {
   /**
-   * <p>Database.</p>
-   */
-  Database: string | undefined;
-
-  /**
    * <p>Host. This field can be blank if <code>ClusterId</code> is provided.</p>
    */
   Host?: string;
+
+  /**
+   * <p>Database.</p>
+   */
+  Database: string | undefined;
 
   /**
    * <p>Port. This field can be blank if the <code>ClusterId</code> is provided.</p>
@@ -1993,14 +2336,14 @@ export interface SnowflakeParameters {
   Host: string | undefined;
 
   /**
-   * <p>Warehouse.</p>
-   */
-  Warehouse: string | undefined;
-
-  /**
    * <p>Database.</p>
    */
   Database: string | undefined;
+
+  /**
+   * <p>Warehouse.</p>
+   */
+  Warehouse: string | undefined;
 }
 
 export namespace SnowflakeParameters {
@@ -2061,6 +2404,11 @@ export namespace SqlServerParameters {
  */
 export interface TeradataParameters {
   /**
+   * <p>Database.</p>
+   */
+  Database: string | undefined;
+
+  /**
    * <p>Host.</p>
    */
   Host: string | undefined;
@@ -2069,11 +2417,6 @@ export interface TeradataParameters {
    * <p>Port.</p>
    */
   Port: number | undefined;
-
-  /**
-   * <p>Database.</p>
-   */
-  Database: string | undefined;
 }
 
 export namespace TeradataParameters {
@@ -2110,19 +2453,14 @@ export namespace TwitterParameters {
  */
 export interface DataSourceParameters {
   /**
-   * <p>Presto parameters.</p>
-   */
-  PrestoParameters?: PrestoParameters;
-
-  /**
    * <p>ServiceNow parameters.</p>
    */
   ServiceNowParameters?: ServiceNowParameters;
 
   /**
-   * <p>S3 parameters.</p>
+   * <p>Presto parameters.</p>
    */
-  S3Parameters?: S3Parameters;
+  PrestoParameters?: PrestoParameters;
 
   /**
    * <p>Amazon Aurora MySQL parameters.</p>
@@ -2130,9 +2468,19 @@ export interface DataSourceParameters {
   AuroraParameters?: AuroraParameters;
 
   /**
+   * <p>S3 parameters.</p>
+   */
+  S3Parameters?: S3Parameters;
+
+  /**
    * <p>Twitter parameters.</p>
    */
   TwitterParameters?: TwitterParameters;
+
+  /**
+   * <p>Amazon Redshift parameters.</p>
+   */
+  RedshiftParameters?: RedshiftParameters;
 
   /**
    * <p>Aurora PostgreSQL parameters.</p>
@@ -2140,9 +2488,9 @@ export interface DataSourceParameters {
   AuroraPostgreSqlParameters?: AuroraPostgreSqlParameters;
 
   /**
-   * <p>Amazon Redshift parameters.</p>
+   * <p>MariaDB parameters.</p>
    */
-  RedshiftParameters?: RedshiftParameters;
+  MariaDbParameters?: MariaDbParameters;
 
   /**
    * <p>Amazon Athena parameters.</p>
@@ -2155,19 +2503,9 @@ export interface DataSourceParameters {
   SparkParameters?: SparkParameters;
 
   /**
-   * <p>MariaDB parameters.</p>
-   */
-  MariaDbParameters?: MariaDbParameters;
-
-  /**
    * <p>AWS IoT Analytics parameters.</p>
    */
   AwsIotAnalyticsParameters?: AwsIotAnalyticsParameters;
-
-  /**
-   * <p>Amazon RDS parameters.</p>
-   */
-  RdsParameters?: RdsParameters;
 
   /**
    * <p>MySQL parameters.</p>
@@ -2180,14 +2518,19 @@ export interface DataSourceParameters {
   AmazonElasticsearchParameters?: AmazonElasticsearchParameters;
 
   /**
-   * <p>Snowflake parameters.</p>
-   */
-  SnowflakeParameters?: SnowflakeParameters;
-
-  /**
    * <p>Jira parameters.</p>
    */
   JiraParameters?: JiraParameters;
+
+  /**
+   * <p>Amazon RDS parameters.</p>
+   */
+  RdsParameters?: RdsParameters;
+
+  /**
+   * <p>PostgreSQL parameters.</p>
+   */
+  PostgreSqlParameters?: PostgreSqlParameters;
 
   /**
    * <p>Teradata parameters.</p>
@@ -2200,9 +2543,9 @@ export interface DataSourceParameters {
   SqlServerParameters?: SqlServerParameters;
 
   /**
-   * <p>PostgreSQL parameters.</p>
+   * <p>Snowflake parameters.</p>
    */
-  PostgreSqlParameters?: PostgreSqlParameters;
+  SnowflakeParameters?: SnowflakeParameters;
 }
 
 export namespace DataSourceParameters {
@@ -2218,7 +2561,7 @@ export interface CredentialPair {
   /**
    * <p>A set of alternate data source parameters that you want to share for these
    *             credentials. The credentials are applied in tandem with the data source parameters when
-   *             you copy a data source by using a create or update request. The API compares the
+   *             you copy a data source by using a create or update request. The API operation compares the
    *             <code>DataSourceParameters</code> structure that's in the request with the structures in
    *             the <code>AlternateDataSourceParameters</code> allowlist. If the structures are an exact
    *             match, the request is allowed to use the new data source with the existing credentials.
@@ -2229,14 +2572,14 @@ export interface CredentialPair {
   AlternateDataSourceParameters?: DataSourceParameters[];
 
   /**
-   * <p>Password.</p>
-   */
-  Password: string | undefined;
-
-  /**
    * <p>User name.</p>
    */
   Username: string | undefined;
+
+  /**
+   * <p>Password.</p>
+   */
+  Password: string | undefined;
 }
 
 export namespace CredentialPair {
@@ -2308,6 +2651,7 @@ export enum DataSourceType {
   SPARK = "SPARK",
   SQLSERVER = "SQLSERVER",
   TERADATA = "TERADATA",
+  TIMESTREAM = "TIMESTREAM",
   TWITTER = "TWITTER",
 }
 
@@ -2334,9 +2678,9 @@ export interface CreateDataSourceRequest {
   SslProperties?: SslProperties;
 
   /**
-   * <p>A display name for the data source.</p>
+   * <p>The AWS account ID.</p>
    */
-  Name: string | undefined;
+  AwsAccountId: string | undefined;
 
   /**
    * <p>A list of resource permissions on the data source.</p>
@@ -2349,9 +2693,14 @@ export interface CreateDataSourceRequest {
   DataSourceParameters?: DataSourceParameters;
 
   /**
-   * <p>The AWS account ID.</p>
+   * <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the data source.</p>
    */
-  AwsAccountId: string | undefined;
+  Tags?: Tag[];
+
+  /**
+   * <p>An ID for the data source. This ID is unique per AWS Region for each AWS account. </p>
+   */
+  DataSourceId: string | undefined;
 
   /**
    * <p>The credentials QuickSight that uses to connect to your underlying source. Currently, only
@@ -2360,14 +2709,9 @@ export interface CreateDataSourceRequest {
   Credentials?: DataSourceCredentials;
 
   /**
-   * <p>An ID for the data source. This ID is unique per AWS Region for each AWS account. </p>
+   * <p>A display name for the data source.</p>
    */
-  DataSourceId: string | undefined;
-
-  /**
-   * <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the data source.</p>
-   */
-  Tags?: Tag[];
+  Name: string | undefined;
 
   /**
    * <p>The type of the data source. Currently, the supported types for this operation are:
@@ -2399,11 +2743,6 @@ export interface CreateDataSourceResponse {
   RequestId?: string;
 
   /**
-   * <p>The ID of the data source. This ID is unique per AWS Region for each AWS account.</p>
-   */
-  DataSourceId?: string;
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the data source.</p>
    */
   Arn?: string;
@@ -2412,6 +2751,11 @@ export interface CreateDataSourceResponse {
    * <p>The status of creating the data source.</p>
    */
   CreationStatus?: ResourceStatus | string;
+
+  /**
+   * <p>The ID of the data source. This ID is unique per AWS Region for each AWS account.</p>
+   */
+  DataSourceId?: string;
 }
 
 export namespace CreateDataSourceResponse {
@@ -2425,9 +2769,9 @@ export namespace CreateDataSourceResponse {
  */
 export interface CreateGroupRequest {
   /**
-   * <p>A description for the group that you want to create.</p>
+   * <p>The namespace. Currently, you should set this to <code>default</code>.</p>
    */
-  Description?: string;
+  Namespace: string | undefined;
 
   /**
    * <p>The ID for the AWS account that the group is in. Currently, you use the ID for the AWS
@@ -2436,14 +2780,14 @@ export interface CreateGroupRequest {
   AwsAccountId: string | undefined;
 
   /**
+   * <p>A description for the group that you want to create.</p>
+   */
+  Description?: string;
+
+  /**
    * <p>A name for the group that you want to create.</p>
    */
   GroupName: string | undefined;
-
-  /**
-   * <p>The namespace. Currently, you should set this to <code>default</code>.</p>
-   */
-  Namespace: string | undefined;
 }
 
 export namespace CreateGroupRequest {
@@ -2454,8 +2798,7 @@ export namespace CreateGroupRequest {
 
 /**
  * <p>A <i>group</i> in Amazon QuickSight consists of a set of users. You can
- *             use groups to make it easier to manage access and security. Currently, an Amazon
- *             QuickSight subscription can't contain more than 500 Amazon QuickSight groups.</p>
+ *             use groups to make it easier to manage access and security. </p>
  */
 export interface Group {
   /**
@@ -2537,15 +2880,15 @@ export interface CreateGroupMembershipRequest {
   MemberName: string | undefined;
 
   /**
-   * <p>The namespace. Currently, you should set this to <code>default</code>.</p>
-   */
-  Namespace: string | undefined;
-
-  /**
    * <p>The ID for the AWS account that the group is in. Currently, you use the ID for the AWS
    * 			account that contains your Amazon QuickSight account.</p>
    */
   AwsAccountId: string | undefined;
+
+  /**
+   * <p>The namespace. Currently, you should set this to <code>default</code>.</p>
+   */
+  Namespace: string | undefined;
 }
 
 export namespace CreateGroupMembershipRequest {
@@ -2602,6 +2945,16 @@ export interface CreateIAMPolicyAssignmentRequest {
   AwsAccountId: string | undefined;
 
   /**
+   * <p>The name of the assignment. It must be unique within an AWS account.</p>
+   */
+  AssignmentName: string | undefined;
+
+  /**
+   * <p>The QuickSight users, groups, or both that you want to assign the policy to.</p>
+   */
+  Identities?: { [key: string]: string[] };
+
+  /**
    * <p>The status of the assignment. Possible values are as follows:</p>
    * 		       <ul>
    *             <li>
@@ -2623,11 +2976,6 @@ export interface CreateIAMPolicyAssignmentRequest {
   AssignmentStatus: AssignmentStatus | string | undefined;
 
   /**
-   * <p>The QuickSight users, groups, or both that you want to assign the policy to.</p>
-   */
-  Identities?: { [key: string]: string[] };
-
-  /**
    * <p>The namespace that contains the assignment.</p>
    */
   Namespace: string | undefined;
@@ -2637,11 +2985,6 @@ export interface CreateIAMPolicyAssignmentRequest {
    * 			specified in this assignment.</p>
    */
   PolicyArn?: string;
-
-  /**
-   * <p>The name of the assignment. It must be unique within an AWS account.</p>
-   */
-  AssignmentName: string | undefined;
 }
 
 export namespace CreateIAMPolicyAssignmentRequest {
@@ -2688,14 +3031,14 @@ export interface CreateIAMPolicyAssignmentResponse {
   AssignmentId?: string;
 
   /**
-   * <p>The QuickSight users, groups, or both that the IAM policy is assigned to.</p>
-   */
-  Identities?: { [key: string]: string[] };
-
-  /**
    * <p>The AWS request ID for this operation.</p>
    */
   RequestId?: string;
+
+  /**
+   * <p>The QuickSight users, groups, or both that the IAM policy is assigned to.</p>
+   */
+  Identities?: { [key: string]: string[] };
 }
 
 export namespace CreateIAMPolicyAssignmentResponse {
@@ -2711,14 +3054,14 @@ export interface CreateIngestionRequest {
   DataSetId: string | undefined;
 
   /**
-   * <p>An ID for the ingestion.</p>
-   */
-  IngestionId: string | undefined;
-
-  /**
    * <p>The AWS account ID.</p>
    */
   AwsAccountId: string | undefined;
+
+  /**
+   * <p>An ID for the ingestion.</p>
+   */
+  IngestionId: string | undefined;
 }
 
 export namespace CreateIngestionRequest {
@@ -2743,14 +3086,14 @@ export interface CreateIngestionResponse {
   IngestionId?: string;
 
   /**
-   * <p>The AWS request ID for this operation.</p>
-   */
-  RequestId?: string;
-
-  /**
    * <p>The ingestion status.</p>
    */
   IngestionStatus?: IngestionStatus | string;
+
+  /**
+   * <p>The AWS request ID for this operation.</p>
+   */
+  RequestId?: string;
 
   /**
    * <p>The Amazon Resource Name (ARN) for the data ingestion.</p>
@@ -2775,9 +3118,10 @@ export interface CreateNamespaceRequest {
   AwsAccountId: string | undefined;
 
   /**
-   * <p>The tags that you want to associate with the namespace that you're creating.</p>
+   * <p>Specifies the type of your user identity directory. Currently, this supports users
+   *             with an identity type of <code>QUICKSIGHT</code>.</p>
    */
-  Tags?: Tag[];
+  IdentityStore: IdentityStore | string | undefined;
 
   /**
    * <p>The name that you want to use to describe the new namespace.</p>
@@ -2785,10 +3129,9 @@ export interface CreateNamespaceRequest {
   Namespace: string | undefined;
 
   /**
-   * <p>Specifies the type of your user identity directory. Currently, this supports users
-   *             with an identity type of <code>QUICKSIGHT</code>.</p>
+   * <p>The tags that you want to associate with the namespace that you're creating.</p>
    */
-  IdentityStore: IdentityStore | string | undefined;
+  Tags?: Tag[];
 }
 
 export namespace CreateNamespaceRequest {
@@ -2807,13 +3150,10 @@ export enum NamespaceStatus {
 
 export interface CreateNamespaceResponse {
   /**
-   * <p>The status of the creation of the namespace. This is an asynchronous process. A status
-   *             of <code>CREATED</code> means that your namespace is ready to use. If an error occurs,
-   *             it indicates if the process is <code>retryable</code> or <code>non-retryable</code>. In
-   *             the case of a non-retryable error, refer to the error message for follow-up
-   *             actions.</p>
+   * <p>Specifies the type of your user identity directory. Currently, this supports users
+   *             with an identity type of <code>QUICKSIGHT</code>.</p>
    */
-  CreationStatus?: NamespaceStatus | string;
+  IdentityStore?: IdentityStore | string;
 
   /**
    * <p>The name of the new namespace that you created.</p>
@@ -2821,10 +3161,18 @@ export interface CreateNamespaceResponse {
   Name?: string;
 
   /**
-   * <p>Specifies the type of your user identity directory. Currently, this supports users
-   *             with an identity type of <code>QUICKSIGHT</code>.</p>
+   * <p>The status of the creation of the namespace. This is an asynchronous process. A status
+   *             of <code>CREATED</code> means that your namespace is ready to use. If an error occurs,
+   *             it indicates if the process is <code>retryable</code> or <code>non-retryable</code>. In
+   *             the case of a non-retryable error, refer to the error message for follow-up
+   *             tasks.</p>
    */
-  IdentityStore?: IdentityStore | string;
+  CreationStatus?: NamespaceStatus | string;
+
+  /**
+   * <p>The ARN of the QuickSight namespace you created. </p>
+   */
+  Arn?: string;
 
   /**
    * <p>The AWS request ID for this operation.</p>
@@ -2836,11 +3184,6 @@ export interface CreateNamespaceResponse {
    *             This is set to the region that you run CreateNamespace in. </p>
    */
   CapacityRegion?: string;
-
-  /**
-   * <p>The ARN of the QuickSight namespace you created. </p>
-   */
-  Arn?: string;
 }
 
 export namespace CreateNamespaceResponse {
@@ -2915,11 +3258,6 @@ export interface CreateTemplateRequest {
   Tags?: Tag[];
 
   /**
-   * <p>A display name for the template.</p>
-   */
-  Name?: string;
-
-  /**
    * <p>The entity that you are using as a source when you create the template. In
    * 			<code>SourceEntity</code>, you specify the type of object you're using as source:
    * 			<code>SourceTemplate</code> for a template or <code>SourceAnalysis</code> for an
@@ -2940,15 +3278,20 @@ export interface CreateTemplateRequest {
   AwsAccountId: string | undefined;
 
   /**
+   * <p>A list of resource permissions to be set on the template. </p>
+   */
+  Permissions?: ResourcePermission[];
+
+  /**
+   * <p>A display name for the template.</p>
+   */
+  Name?: string;
+
+  /**
    * <p>An ID for the template that you want to create. This template is unique per AWS Region in
    * 			each AWS account.</p>
    */
   TemplateId: string | undefined;
-
-  /**
-   * <p>A list of resource permissions to be set on the template. </p>
-   */
-  Permissions?: ResourcePermission[];
 
   /**
    * <p>A description of the current template version being created. This API operation creates the
@@ -2977,6 +3320,11 @@ export interface CreateTemplateResponse {
   TemplateId?: string;
 
   /**
+   * <p>The ARN for the template.</p>
+   */
+  Arn?: string;
+
+  /**
    * <p>The AWS request ID for this operation.</p>
    */
   RequestId?: string;
@@ -2986,11 +3334,6 @@ export interface CreateTemplateResponse {
    * 			the first version.</p>
    */
   VersionArn?: string;
-
-  /**
-   * <p>The ARN for the template.</p>
-   */
-  Arn?: string;
 }
 
 export namespace CreateTemplateResponse {
@@ -3034,14 +3377,14 @@ export namespace CreateTemplateAliasRequest {
  */
 export interface TemplateAlias {
   /**
-   * <p>The version number of the template alias.</p>
-   */
-  TemplateVersionNumber?: number;
-
-  /**
    * <p>The display name of the template alias.</p>
    */
   AliasName?: string;
+
+  /**
+   * <p>The version number of the template alias.</p>
+   */
+  TemplateVersionNumber?: number;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the template alias.</p>
@@ -3207,10 +3550,10 @@ export interface UIColorPalette {
   Warning?: string;
 
   /**
-   * <p>The foreground color that applies to any sheet title, sheet control text, or UI that
-   *             appears over the secondary background.</p>
+   * <p>The foreground color that applies to any text or other elements that appear over the
+   *             dimension color.</p>
    */
-  SecondaryForeground?: string;
+  DimensionForeground?: string;
 
   /**
    * <p>The foreground color that applies to any text or other elements that appear over the
@@ -3219,28 +3562,16 @@ export interface UIColorPalette {
   MeasureForeground?: string;
 
   /**
-   * <p>The foreground color that applies to any text or other elements that appear over the
-   *             dimension color.</p>
+   * <p>The foreground color that applies to any sheet title, sheet control text, or UI that
+   *             appears over the secondary background.</p>
    */
-  DimensionForeground?: string;
-
-  /**
-   * <p>The foreground color that applies to any text or other elements that appear over the
-   *             error color.</p>
-   */
-  DangerForeground?: string;
+  SecondaryForeground?: string;
 
   /**
    * <p>The color that applies to the names of fields that are identified as
    *             dimensions.</p>
    */
   Dimension?: string;
-
-  /**
-   * <p>The color that applies to success messages, for example the check mark for a
-   *             successful download.</p>
-   */
-  Success?: string;
 
   /**
    * <p>The color of text and other foreground elements that appear over the primary
@@ -3250,9 +3581,9 @@ export interface UIColorPalette {
 
   /**
    * <p>The foreground color that applies to any text or other elements that appear over the
-   *             accent color.</p>
+   *             error color.</p>
    */
-  AccentForeground?: string;
+  DangerForeground?: string;
 
   /**
    * <p>The foreground color that applies to any text or other elements that appear over the
@@ -3261,14 +3592,25 @@ export interface UIColorPalette {
   SuccessForeground?: string;
 
   /**
-   * <p>This color is that applies to selected states and buttons.</p>
+   * <p>The foreground color that applies to any text or other elements that appear over the
+   *             accent color.</p>
    */
-  Accent?: string;
+  AccentForeground?: string;
 
   /**
    * <p>The color that applies to error messages.</p>
    */
   Danger?: string;
+
+  /**
+   * <p>This color is that applies to selected states and buttons.</p>
+   */
+  Accent?: string;
+
+  /**
+   * <p>The background color that applies to visuals and other high emphasis UI.</p>
+   */
+  PrimaryBackground?: string;
 
   /**
    * <p>The foreground color that applies to any text or other elements that appear over the
@@ -3277,9 +3619,10 @@ export interface UIColorPalette {
   WarningForeground?: string;
 
   /**
-   * <p>The background color that applies to visuals and other high emphasis UI.</p>
+   * <p>The color that applies to success messages, for example the check mark for a
+   *             successful download.</p>
    */
-  PrimaryBackground?: string;
+  Success?: string;
 
   /**
    * <p>The color that applies to the names of fields that are identified as measures.</p>
@@ -3304,14 +3647,14 @@ export namespace UIColorPalette {
  */
 export interface ThemeConfiguration {
   /**
-   * <p>Display options related to sheets.</p>
-   */
-  Sheet?: SheetStyle;
-
-  /**
    * <p>Color properties that apply to chart data colors.</p>
    */
   DataColorPalette?: DataColorPalette;
+
+  /**
+   * <p>Display options related to sheets.</p>
+   */
+  Sheet?: SheetStyle;
 
   /**
    * <p>Color properties that apply to the UI and to charts, excluding the colors that apply
@@ -3348,6 +3691,11 @@ export interface CreateThemeRequest {
   Tags?: Tag[];
 
   /**
+   * <p>A display name for the theme.</p>
+   */
+  Name: string | undefined;
+
+  /**
    * <p>The ID of the AWS account where you want to store the new theme. </p>
    */
   AwsAccountId: string | undefined;
@@ -3362,11 +3710,6 @@ export interface CreateThemeRequest {
    * <p>The theme configuration, which contains the theme display properties.</p>
    */
   Configuration: ThemeConfiguration | undefined;
-
-  /**
-   * <p>A display name for the theme.</p>
-   */
-  Name: string | undefined;
 
   /**
    * <p>A description of the first version of the theme that you're creating. Every time
@@ -3385,9 +3728,9 @@ export namespace CreateThemeRequest {
 
 export interface CreateThemeResponse {
   /**
-   * <p>The ID of the theme.</p>
+   * <p>The theme creation status.</p>
    */
-  ThemeId?: string;
+  CreationStatus?: ResourceStatus | string;
 
   /**
    * <p>The AWS request ID for this operation.</p>
@@ -3395,19 +3738,19 @@ export interface CreateThemeResponse {
   RequestId?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) for the theme.</p>
+   * <p>The ID of the theme.</p>
    */
-  Arn?: string;
-
-  /**
-   * <p>The theme creation status.</p>
-   */
-  CreationStatus?: ResourceStatus | string;
+  ThemeId?: string;
 
   /**
    * <p>The Amazon Resource Name (ARN) for the new theme.</p>
    */
   VersionArn?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the theme.</p>
+   */
+  Arn?: string;
 }
 
 export namespace CreateThemeResponse {
@@ -3418,14 +3761,11 @@ export namespace CreateThemeResponse {
 
 export interface CreateThemeAliasRequest {
   /**
-   * <p>The ID of the AWS account that contains the theme for the new theme alias.</p>
+   * <p>The name that you want to give to the theme alias that you are creating. The
+   * 			alias name can't begin with a <code>$</code>. Alias names that start with <code>$</code>
+   * 			are reserved by Amazon QuickSight. </p>
    */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>An ID for the theme alias.</p>
-   */
-  ThemeId: string | undefined;
+  AliasName: string | undefined;
 
   /**
    * <p>The version number of the theme.</p>
@@ -3433,11 +3773,14 @@ export interface CreateThemeAliasRequest {
   ThemeVersionNumber: number | undefined;
 
   /**
-   * <p>The name that you want to give to the theme alias that you are creating. The
-   * 			alias name can't begin with a <code>$</code>. Alias names that start with <code>$</code>
-   * 			are reserved by Amazon QuickSight. </p>
+   * <p>An ID for the theme alias.</p>
    */
-  AliasName: string | undefined;
+  ThemeId: string | undefined;
+
+  /**
+   * <p>The ID of the AWS account that contains the theme for the new theme alias.</p>
+   */
+  AwsAccountId: string | undefined;
 }
 
 export namespace CreateThemeAliasRequest {
@@ -3451,14 +3794,14 @@ export namespace CreateThemeAliasRequest {
  */
 export interface ThemeAlias {
   /**
-   * <p>The version number of the theme alias.</p>
-   */
-  ThemeVersionNumber?: number;
-
-  /**
    * <p>The display name of the theme alias.</p>
    */
   AliasName?: string;
+
+  /**
+   * <p>The version number of the theme alias.</p>
+   */
+  ThemeVersionNumber?: number;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the theme alias.</p>
@@ -3529,25 +3872,20 @@ export namespace DashboardError {
  */
 export interface DashboardVersion {
   /**
-   * <p>Version number.</p>
-   */
-  VersionNumber?: number;
-
-  /**
-   * <p>Errors.</p>
-   */
-  Errors?: DashboardError[];
-
-  /**
-   * <p>The Amazon Resource Numbers (ARNs) for the datasets that are associated with a version
-   *             of the dashboard.</p>
+   * <p>The Amazon Resource Numbers (ARNs) for the datasets that are associated with this
+   *             version of the dashboard.</p>
    */
   DataSetArns?: string[];
 
   /**
-   * <p>The time that this dashboard version was created.</p>
+   * <p>Version number for this version of the dashboard.</p>
    */
-  CreatedTime?: Date;
+  VersionNumber?: number;
+
+  /**
+   * <p>The ARN of the theme associated with a version of the dashboard.</p>
+   */
+  ThemeArn?: string;
 
   /**
    * <p>Description.</p>
@@ -3555,9 +3893,9 @@ export interface DashboardVersion {
   Description?: string;
 
   /**
-   * <p>Source entity ARN.</p>
+   * <p>The time that this dashboard version was created.</p>
    */
-  SourceEntityArn?: string;
+  CreatedTime?: Date;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
@@ -3565,9 +3903,24 @@ export interface DashboardVersion {
   Arn?: string;
 
   /**
+   * <p>A list of the associated sheets with the unique identifier and name of each sheet.</p>
+   */
+  Sheets?: Sheet[];
+
+  /**
    * <p>The HTTP status of the request.</p>
    */
   Status?: ResourceStatus | string;
+
+  /**
+   * <p>Errors associated with this dashboard version.</p>
+   */
+  Errors?: DashboardError[];
+
+  /**
+   * <p>Source entity ARN.</p>
+   */
+  SourceEntityArn?: string;
 }
 
 export namespace DashboardVersion {
@@ -3581,9 +3934,9 @@ export namespace DashboardVersion {
  */
 export interface Dashboard {
   /**
-   * <p>Dashboard ID.</p>
+   * <p>The Amazon Resource Name (ARN) of the resource.</p>
    */
-  DashboardId?: string;
+  Arn?: string;
 
   /**
    * <p>Version.</p>
@@ -3591,14 +3944,9 @@ export interface Dashboard {
   Version?: DashboardVersion;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource.</p>
+   * <p>Dashboard ID.</p>
    */
-  Arn?: string;
-
-  /**
-   * <p>A display name for the dashboard.</p>
-   */
-  Name?: string;
+  DashboardId?: string;
 
   /**
    * <p>The last time that this dataset was published.</p>
@@ -3606,14 +3954,19 @@ export interface Dashboard {
   LastPublishedTime?: Date;
 
   /**
-   * <p>The time that this dataset was created.</p>
+   * <p>A display name for the dashboard.</p>
    */
-  CreatedTime?: Date;
+  Name?: string;
 
   /**
    * <p>The last time that this dataset was updated.</p>
    */
   LastUpdatedTime?: Date;
+
+  /**
+   * <p>The time that this dataset was created.</p>
+   */
+  CreatedTime?: Date;
 }
 
 export namespace Dashboard {
@@ -3624,10 +3977,6 @@ export namespace Dashboard {
 
 export enum DashboardFilterAttribute {
   QUICKSIGHT_USER = "QUICKSIGHT_USER",
-}
-
-export enum FilterOperator {
-  StringEquals = "StringEquals",
 }
 
 /**
@@ -3665,24 +4014,19 @@ export namespace DashboardSearchFilter {
  */
 export interface DashboardSummary {
   /**
-   * <p>The time that this dashboard was created.</p>
+   * <p>The last time that this dashboard was published.</p>
    */
-  CreatedTime?: Date;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the resource.</p>
-   */
-  Arn?: string;
-
-  /**
-   * <p>Dashboard ID.</p>
-   */
-  DashboardId?: string;
+  LastPublishedTime?: Date;
 
   /**
    * <p>Published version number.</p>
    */
   PublishedVersionNumber?: number;
+
+  /**
+   * <p>Dashboard ID.</p>
+   */
+  DashboardId?: string;
 
   /**
    * <p>The last time that this dashboard was updated.</p>
@@ -3695,9 +4039,14 @@ export interface DashboardSummary {
   Name?: string;
 
   /**
-   * <p>The last time that this dashboard was published.</p>
+   * <p>The Amazon Resource Name (ARN) of the resource.</p>
    */
-  LastPublishedTime?: Date;
+  Arn?: string;
+
+  /**
+   * <p>The time that this dashboard was created.</p>
+   */
+  CreatedTime?: Date;
 }
 
 export namespace DashboardSummary {
@@ -3711,6 +4060,11 @@ export namespace DashboardSummary {
  */
 export interface DashboardVersionSummary {
   /**
+   * <p>The Amazon Resource Name (ARN) of the resource.</p>
+   */
+  Arn?: string;
+
+  /**
    * <p>Description.</p>
    */
   Description?: string;
@@ -3721,24 +4075,19 @@ export interface DashboardVersionSummary {
   CreatedTime?: Date;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource.</p>
-   */
-  Arn?: string;
-
-  /**
    * <p>Version number.</p>
    */
   VersionNumber?: number;
 
   /**
-   * <p>The HTTP status of the request.</p>
-   */
-  Status?: ResourceStatus | string;
-
-  /**
    * <p>Source entity ARN.</p>
    */
   SourceEntityArn?: string;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: ResourceStatus | string;
 }
 
 export namespace DashboardVersionSummary {
@@ -3773,20 +4122,31 @@ export namespace OutputColumn {
  */
 export interface DataSet {
   /**
+   * <p>A display name for the dataset.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>Configures the combination and transformation of the data from the physical
+   *             tables.</p>
+   */
+  LogicalTableMap?: { [key: string]: LogicalTable };
+
+  /**
    * <p>The last time that this dataset was updated.</p>
    */
   LastUpdatedTime?: Date;
+
+  /**
+   * <p>The row-level security configuration for the dataset.</p>
+   */
+  RowLevelPermissionDataSet?: RowLevelPermissionDataSet;
 
   /**
    * <p>The amount of SPICE capacity used by this dataset. This is 0 if the dataset isn't
    *             imported into SPICE.</p>
    */
   ConsumedSpiceCapacityInBytes?: number;
-
-  /**
-   * <p>A display name for the dataset.</p>
-   */
-  Name?: string;
 
   /**
    * <p>The list of columns after all transforms. These columns are available in templates,
@@ -3800,14 +4160,15 @@ export interface DataSet {
   ImportMode?: DataSetImportMode | string;
 
   /**
+   * <p>Groupings of columns that work together in certain Amazon QuickSight features.
+   *             Currently, only geospatial hierarchy is supported.</p>
+   */
+  ColumnGroups?: ColumnGroup[];
+
+  /**
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
    */
   Arn?: string;
-
-  /**
-   * <p>The row-level security configuration for the dataset.</p>
-   */
-  RowLevelPermissionDataSet?: RowLevelPermissionDataSet;
 
   /**
    * <p>The ID of the dataset.</p>
@@ -3815,26 +4176,14 @@ export interface DataSet {
   DataSetId?: string;
 
   /**
-   * <p>Groupings of columns that work together in certain Amazon QuickSight features.
-   *             Currently, only geospatial hierarchy is supported.</p>
-   */
-  ColumnGroups?: ColumnGroup[];
-
-  /**
-   * <p>Declares the physical tables that are available in the underlying data sources.</p>
-   */
-  PhysicalTableMap?: { [key: string]: PhysicalTable };
-
-  /**
    * <p>The time that this dataset was created.</p>
    */
   CreatedTime?: Date;
 
   /**
-   * <p>Configures the combination and transformation of the data from the physical
-   *             tables.</p>
+   * <p>Declares the physical tables that are available in the underlying data sources.</p>
    */
-  LogicalTableMap?: { [key: string]: LogicalTable };
+  PhysicalTableMap?: { [key: string]: PhysicalTable };
 }
 
 export namespace DataSet {
@@ -3890,16 +4239,6 @@ export namespace DataSetConfiguration {
  */
 export interface DataSetSummary {
   /**
-   * <p>The Amazon Resource Name (ARN) of the dataset.</p>
-   */
-  Arn?: string;
-
-  /**
-   * <p>The row-level security configuration for the dataset.</p>
-   */
-  RowLevelPermissionDataSet?: RowLevelPermissionDataSet;
-
-  /**
    * <p>Indicates whether you want to import the data into SPICE.</p>
    */
   ImportMode?: DataSetImportMode | string;
@@ -3910,9 +4249,9 @@ export interface DataSetSummary {
   CreatedTime?: Date;
 
   /**
-   * <p>A display name for the dataset.</p>
+   * <p>The row-level security configuration for the dataset.</p>
    */
-  Name?: string;
+  RowLevelPermissionDataSet?: RowLevelPermissionDataSet;
 
   /**
    * <p>The ID of the dataset.</p>
@@ -3923,6 +4262,16 @@ export interface DataSetSummary {
    * <p>The last time that this dataset was updated.</p>
    */
   LastUpdatedTime?: Date;
+
+  /**
+   * <p>A display name for the dataset.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the dataset.</p>
+   */
+  Arn?: string;
 }
 
 export namespace DataSetSummary {
@@ -3973,20 +4322,10 @@ export interface DataSource {
   Arn?: string;
 
   /**
-   * <p>The last time that this data source was updated.</p>
-   */
-  LastUpdatedTime?: Date;
-
-  /**
-   * <p>A display name for the data source.</p>
-   */
-  Name?: string;
-
-  /**
    * <p>A set of alternate data source parameters that you want to share for the credentials
    *             stored with this data source. The credentials are applied in tandem with the data source
    *             parameters when you copy a data source by using a create or update request. The API
-   *             compares the <code>DataSourceParameters</code> structure that's in the request with the
+   *             operation compares the <code>DataSourceParameters</code> structure that's in the request with the
    *             structures in the <code>AlternateDataSourceParameters</code> allowlist. If the
    *             structures are an exact match, the request is allowed to use the credentials from this
    *             existing data source. If the <code>AlternateDataSourceParameters</code> list is null,
@@ -3996,16 +4335,14 @@ export interface DataSource {
   AlternateDataSourceParameters?: DataSourceParameters[];
 
   /**
-   * <p>Secure Socket Layer (SSL) properties that apply when QuickSight connects to your
-   *             underlying source.</p>
+   * <p>A display name for the data source.</p>
    */
-  SslProperties?: SslProperties;
+  Name?: string;
 
   /**
-   * <p>The ID of the data source. This ID is unique per AWS Region for each AWS
-   *             account.</p>
+   * <p>The HTTP status of the request.</p>
    */
-  DataSourceId?: string;
+  Status?: ResourceStatus | string;
 
   /**
    * <p>The VPC connection information. You need to use this parameter only when you want
@@ -4014,10 +4351,21 @@ export interface DataSource {
   VpcConnectionProperties?: VpcConnectionProperties;
 
   /**
+   * <p>Secure Socket Layer (SSL) properties that apply when QuickSight connects to your
+   *             underlying source.</p>
+   */
+  SslProperties?: SslProperties;
+
+  /**
    * <p>The type of the data source. This type indicates which database engine the data source
    *             connects to.</p>
    */
   Type?: DataSourceType | string;
+
+  /**
+   * <p>Error information from the last update or the creation of the data source.</p>
+   */
+  ErrorInfo?: DataSourceErrorInfo;
 
   /**
    * <p>The parameters that Amazon QuickSight uses to connect to your underlying source. This
@@ -4027,19 +4375,20 @@ export interface DataSource {
   DataSourceParameters?: DataSourceParameters;
 
   /**
-   * <p>The HTTP status of the request.</p>
+   * <p>The ID of the data source. This ID is unique per AWS Region for each AWS
+   *             account.</p>
    */
-  Status?: ResourceStatus | string;
+  DataSourceId?: string;
+
+  /**
+   * <p>The last time that this data source was updated.</p>
+   */
+  LastUpdatedTime?: Date;
 
   /**
    * <p>The time that this data source was created.</p>
    */
   CreatedTime?: Date;
-
-  /**
-   * <p>Error information from the last update or the creation of the data source.</p>
-   */
-  ErrorInfo?: DataSourceErrorInfo;
 }
 
 export namespace DataSource {
@@ -4050,14 +4399,15 @@ export namespace DataSource {
 
 export interface DeleteAccountCustomizationRequest {
   /**
-   * <p>The ID for the AWS account that you want to delete QuickSight customizations from.</p>
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The namespace associated with the customization that you're deleting.</p>
+   * <p>The QuickSight namespace that you're deleting the customizations from.</p>
    */
   Namespace?: string;
+
+  /**
+   * <p>The ID for the AWS account that you want to delete QuickSight customizations from in
+   *             this AWS Region.</p>
+   */
+  AwsAccountId: string | undefined;
 }
 
 export namespace DeleteAccountCustomizationRequest {
@@ -4079,6 +4429,66 @@ export namespace DeleteAccountCustomizationResponse {
   });
 }
 
+export interface DeleteAnalysisRequest {
+  /**
+   * <p>The ID of the analysis that you're deleting.</p>
+   */
+  AnalysisId: string | undefined;
+
+  /**
+   * <p>The ID of the AWS account where you want to delete an analysis.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>A value that specifies the number of days that QuickSight waits before it deletes the
+   *             analysis. You can't use this parameter with the <code>ForceDeleteWithoutRecovery</code>
+   *             option in the same API call. The default value is 30.</p>
+   */
+  RecoveryWindowInDays?: number;
+
+  /**
+   * <p>This option defaults to the value <code>NoForceDeleteWithoutRecovery</code>. To
+   *             immediately delete the analysis, add the <code>ForceDeleteWithoutRecovery</code> option.
+   *             You can't restore an analysis after it's deleted. </p>
+   */
+  ForceDeleteWithoutRecovery?: boolean;
+}
+
+export namespace DeleteAnalysisRequest {
+  export const filterSensitiveLog = (obj: DeleteAnalysisRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteAnalysisResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the deleted analysis.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>The date and time that the analysis is scheduled to be deleted.</p>
+   */
+  DeletionTime?: Date;
+
+  /**
+   * <p>The ID of the deleted analysis.</p>
+   */
+  AnalysisId?: string;
+
+  /**
+   * <p>The AWS request ID for this operation.</p>
+   */
+  RequestId?: string;
+}
+
+export namespace DeleteAnalysisResponse {
+  export const filterSensitiveLog = (obj: DeleteAnalysisResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface DeleteDashboardRequest {
   /**
    * <p>The ID for the dashboard.</p>
@@ -4086,15 +4496,16 @@ export interface DeleteDashboardRequest {
   DashboardId: string | undefined;
 
   /**
-   * <p>The ID of the AWS account that contains the dashboard that you're deleting.</p>
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The version number of the dashboard. If the version number property is provided, only the
-   * 			specified version of the dashboard is deleted.</p>
+   * <p>The version number of the dashboard. If the version number property is provided, only
+   *             the specified version of the dashboard is deleted.</p>
    */
   VersionNumber?: number;
+
+  /**
+   * <p>The ID of the AWS account that contains the dashboard that you're
+   *             deleting.</p>
+   */
+  AwsAccountId: string | undefined;
 }
 
 export namespace DeleteDashboardRequest {
@@ -4105,11 +4516,6 @@ export namespace DeleteDashboardRequest {
 
 export interface DeleteDashboardResponse {
   /**
-   * <p>The Secure Socket Layer (SSL) properties that apply for the resource.</p>
-   */
-  Arn?: string;
-
-  /**
    * <p>The AWS request ID for this operation.</p>
    */
   RequestId?: string;
@@ -4118,6 +4524,11 @@ export interface DeleteDashboardResponse {
    * <p>The ID of the dashboard.</p>
    */
   DashboardId?: string;
+
+  /**
+   * <p>The Secure Socket Layer (SSL) properties that apply for the resource.</p>
+   */
+  Arn?: string;
 }
 
 export namespace DeleteDashboardResponse {
@@ -4146,14 +4557,14 @@ export namespace DeleteDataSetRequest {
 
 export interface DeleteDataSetResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the dataset.</p>
-   */
-  Arn?: string;
-
-  /**
    * <p>The AWS request ID for this operation.</p>
    */
   RequestId?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the dataset.</p>
+   */
+  Arn?: string;
 
   /**
    * <p>The ID for the dataset that you want to create. This ID is unique per AWS Region for each AWS account.</p>
@@ -4361,6 +4772,11 @@ export namespace DeleteNamespaceResponse {
 
 export interface DeleteTemplateRequest {
   /**
+   * <p>An ID for the template you want to delete.</p>
+   */
+  TemplateId: string | undefined;
+
+  /**
    * <p>Specifies the version of the template that you want to delete.
    * 			If you don't provide a version number, <code>DeleteTemplate</code> deletes all versions of the template.
    * 	 </p>
@@ -4371,11 +4787,6 @@ export interface DeleteTemplateRequest {
    * <p>The ID of the AWS account that contains the template that you're deleting.</p>
    */
   AwsAccountId: string | undefined;
-
-  /**
-   * <p>An ID for the template you want to delete.</p>
-   */
-  TemplateId: string | undefined;
 }
 
 export namespace DeleteTemplateRequest {
@@ -4386,14 +4797,14 @@ export namespace DeleteTemplateRequest {
 
 export interface DeleteTemplateResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource.</p>
-   */
-  Arn?: string;
-
-  /**
    * <p>An ID for the template.</p>
    */
   TemplateId?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource.</p>
+   */
+  Arn?: string;
 
   /**
    * <p>The AWS request ID for this operation.</p>
@@ -4409,6 +4820,11 @@ export namespace DeleteTemplateResponse {
 
 export interface DeleteTemplateAliasRequest {
   /**
+   * <p>The ID of the AWS account that contains the item to delete.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
    * <p>The name for the template alias. To delete a specific alias, you delete the version that the
    * 			alias points to. You can specify the alias name, or specify the latest version of the
    * 			template by providing the keyword <code>$LATEST</code> in the <code>AliasName</code>
@@ -4420,11 +4836,6 @@ export interface DeleteTemplateAliasRequest {
    * <p>The ID for the template that the specified alias is for.</p>
    */
   TemplateId: string | undefined;
-
-  /**
-   * <p>The ID of the AWS account that contains the item to delete.</p>
-   */
-  AwsAccountId: string | undefined;
 }
 
 export namespace DeleteTemplateAliasRequest {
@@ -4435,9 +4846,9 @@ export namespace DeleteTemplateAliasRequest {
 
 export interface DeleteTemplateAliasResponse {
   /**
-   * <p>The name for the template alias.</p>
+   * <p>The Amazon Resource Name (ARN) of the template you want to delete.</p>
    */
-  AliasName?: string;
+  Arn?: string;
 
   /**
    * <p>The AWS request ID for this operation.</p>
@@ -4445,9 +4856,9 @@ export interface DeleteTemplateAliasResponse {
   RequestId?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the template you want to delete.</p>
+   * <p>The name for the template alias.</p>
    */
-  Arn?: string;
+  AliasName?: string;
 
   /**
    * <p>An ID for the template associated with the deletion.</p>
@@ -4489,9 +4900,9 @@ export namespace DeleteThemeRequest {
 
 export interface DeleteThemeResponse {
   /**
-   * <p>The AWS request ID for this operation.</p>
+   * <p>An ID for the theme.</p>
    */
-  RequestId?: string;
+  ThemeId?: string;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
@@ -4499,9 +4910,9 @@ export interface DeleteThemeResponse {
   Arn?: string;
 
   /**
-   * <p>An ID for the theme.</p>
+   * <p>The AWS request ID for this operation.</p>
    */
-  ThemeId?: string;
+  RequestId?: string;
 }
 
 export namespace DeleteThemeResponse {
@@ -4535,11 +4946,6 @@ export namespace DeleteThemeAliasRequest {
 
 export interface DeleteThemeAliasResponse {
   /**
-   * <p>An ID for the theme associated with the deletion.</p>
-   */
-  ThemeId?: string;
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the theme resource using the deleted alias.</p>
    */
   Arn?: string;
@@ -4548,6 +4954,11 @@ export interface DeleteThemeAliasResponse {
    * <p>The AWS request ID for this operation.</p>
    */
   RequestId?: string;
+
+  /**
+   * <p>An ID for the theme associated with the deletion.</p>
+   */
+  ThemeId?: string;
 
   /**
    * <p>The name for the theme alias.</p>
@@ -4563,14 +4974,14 @@ export namespace DeleteThemeAliasResponse {
 
 export interface DeleteUserRequest {
   /**
-   * <p>The namespace. Currently, you should set this to <code>default</code>.</p>
-   */
-  Namespace: string | undefined;
-
-  /**
    * <p>The name of the user that you want to delete.</p>
    */
   UserName: string | undefined;
+
+  /**
+   * <p>The namespace. Currently, you should set this to <code>default</code>.</p>
+   */
+  Namespace: string | undefined;
 
   /**
    * <p>The ID for the AWS account that the user is in. Currently, you use the ID for the AWS
@@ -4640,18 +5051,23 @@ export namespace DeleteUserByPrincipalIdResponse {
 
 export interface DescribeAccountCustomizationRequest {
   /**
-   * <p>The ID for the AWS account that you want to describe QuickSight customizations for.</p>
+   * <p>The ID for the AWS account that you want to describe QuickSight customizations
+   *             for.</p>
    */
   AwsAccountId: string | undefined;
 
   /**
-   * <p>The status of the creation of the customization. This is an asynchronous process. A status
-   *             of <code>CREATED</code> means that your customization is ready to use.</p>
+   * <p>The <code>Resolved</code> flag works with the other parameters to determine which view
+   *             of QuickSight customizations is returned. You can add this flag to your command to use
+   *             the same view that QuickSight uses to identify which customizations to apply to the
+   *             console. Omit this flag, or set it to <code>no-resolved</code>, to reveal customizations
+   *             that are configured at different levels. </p>
    */
   Resolved?: boolean;
 
   /**
-   * <p>The namespace associated with the customization that you're describing.</p>
+   * <p>The QuickSight namespace that you want to describe QuickSight customizations
+   *             for.</p>
    */
   Namespace?: string;
 }
@@ -4669,19 +5085,24 @@ export interface DescribeAccountCustomizationResponse {
   RequestId?: string;
 
   /**
-   * <p>The namespace associated with the customization that you're describing.</p>
-   */
-  Namespace?: string;
-
-  /**
-   * <p>The ID for the AWS account that you want to describe QuickSight customizations for.</p>
+   * <p>The ID for the AWS account that you're describing.</p>
    */
   AwsAccountId?: string;
 
   /**
-   * <p>The customizations associated with QuickSight.</p>
+   * <p>The QuickSight namespace that you're describing. </p>
+   */
+  Namespace?: string;
+
+  /**
+   * <p>The QuickSight customizations that exist in the current AWS Region. </p>
    */
   AccountCustomization?: AccountCustomization;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the customization that's associated with this AWS account.</p>
+   */
+  Arn?: string;
 }
 
 export namespace DescribeAccountCustomizationResponse {
@@ -4692,7 +5113,7 @@ export namespace DescribeAccountCustomizationResponse {
 
 export interface DescribeAccountSettingsRequest {
   /**
-   * <p>The ID for the AWS account that contains the QuickSight namespaces that you want to list.</p>
+   * <p>The ID for the AWS account that contains the settings that you want to list.</p>
    */
   AwsAccountId: string | undefined;
 }
@@ -4705,11 +5126,12 @@ export namespace DescribeAccountSettingsRequest {
 
 export interface DescribeAccountSettingsResponse {
   /**
-   * <p>The settings associated with the QuickSight subscription associated with this AWS account. This information includes the
-   *             edition of Amazon QuickSight that you subscribed to (Standard or Enterprise) and the
-   *             notification email for the QuickSight subscription. The QuickSight console, the
-   *             QuickSight subscription is sometimes referred to as a QuickSight "account" even though
-   *             it is technically not an account, but a subscription in your AWS account.</p>
+   * <p>The QuickSight settings for this AWS account. This information includes the edition of Amazon
+   *             QuickSight that you subscribed to (Standard or Enterprise) and the notification email for the
+   *             QuickSight subscription. In the QuickSight console, the QuickSight subscription is sometimes
+   *             referred to as a QuickSight "account" even though it's technically not an account
+   *             by itself. Instead, it's a subscription to the QuickSight service for your AWS account. The
+   *             edition that you subscribe to applies to QuickSight in every AWS Region where you use it.</p>
    */
   AccountSettings?: AccountSettings;
 
@@ -4725,27 +5147,117 @@ export namespace DescribeAccountSettingsResponse {
   });
 }
 
-export interface DescribeDashboardRequest {
+export interface DescribeAnalysisRequest {
   /**
-   * <p>The ID for the dashboard.</p>
+   * <p>The ID of the AWS account that contains the analysis. You must be using the AWS
+   *             account that the analysis is in.</p>
    */
-  DashboardId: string | undefined;
+  AwsAccountId: string | undefined;
 
+  /**
+   * <p>The ID of the analysis that you're describing. The ID is part of the URL of the
+   *             analysis.</p>
+   */
+  AnalysisId: string | undefined;
+}
+
+export namespace DescribeAnalysisRequest {
+  export const filterSensitiveLog = (obj: DescribeAnalysisRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeAnalysisResponse {
+  /**
+   * <p>A metadata structure that contains summary information for the analysis that you're
+   *             describing.</p>
+   */
+  Analysis?: Analysis;
+
+  /**
+   * <p>The AWS request ID for this operation.</p>
+   */
+  RequestId?: string;
+}
+
+export namespace DescribeAnalysisResponse {
+  export const filterSensitiveLog = (obj: DescribeAnalysisResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeAnalysisPermissionsRequest {
+  /**
+   * <p>The ID of the AWS account that contains the analysis whose permissions you're
+   *             describing. You must be using the AWS account that the analysis is in.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID of the analysis whose permissions you're describing. The ID is part of the
+   *             analysis URL.</p>
+   */
+  AnalysisId: string | undefined;
+}
+
+export namespace DescribeAnalysisPermissionsRequest {
+  export const filterSensitiveLog = (obj: DescribeAnalysisPermissionsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeAnalysisPermissionsResponse {
+  /**
+   * <p>The ID of the analysis whose permissions you're describing.</p>
+   */
+  AnalysisId?: string;
+
+  /**
+   * <p>The AWS request ID for this operation.</p>
+   */
+  RequestId?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the analysis whose permissions you're
+   *             describing.</p>
+   */
+  AnalysisArn?: string;
+
+  /**
+   * <p>A structure that describes the principals and the resource-level permissions on an
+   *             analysis.</p>
+   */
+  Permissions?: ResourcePermission[];
+}
+
+export namespace DescribeAnalysisPermissionsResponse {
+  export const filterSensitiveLog = (obj: DescribeAnalysisPermissionsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeDashboardRequest {
   /**
    * <p>The alias name.</p>
    */
   AliasName?: string;
 
   /**
-   * <p>The ID of the AWS account that contains the dashboard that you're describing.</p>
+   * <p>The ID for the dashboard.</p>
    */
-  AwsAccountId: string | undefined;
+  DashboardId: string | undefined;
 
   /**
-   * <p>The version number for the dashboard. If a version number isn't passed, the latest
-   * 			published dashboard version is described. </p>
+   * <p>The version number for the dashboard. If a version number isn't passed, the
+   *             latest published dashboard version is described. </p>
    */
   VersionNumber?: number;
+
+  /**
+   * <p>The ID of the AWS account that contains the dashboard that you're
+   *             describing.</p>
+   */
+  AwsAccountId: string | undefined;
 }
 
 export namespace DescribeDashboardRequest {
@@ -4774,15 +5286,15 @@ export namespace DescribeDashboardResponse {
 
 export interface DescribeDashboardPermissionsRequest {
   /**
+   * <p>The ID of the AWS account that contains the dashboard that you're describing
+   *             permissions for.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
    * <p>The ID for the dashboard, also added to the IAM policy.</p>
    */
   DashboardId: string | undefined;
-
-  /**
-   * <p>The ID of the AWS account that contains the dashboard that you're describing
-   * 			permissions for.</p>
-   */
-  AwsAccountId: string | undefined;
 }
 
 export namespace DescribeDashboardPermissionsRequest {
@@ -4803,14 +5315,14 @@ export interface DescribeDashboardPermissionsResponse {
   RequestId?: string;
 
   /**
-   * <p>The ID for the dashboard.</p>
-   */
-  DashboardId?: string;
-
-  /**
    * <p>A structure that contains the permissions for the dashboard.</p>
    */
   Permissions?: ResourcePermission[];
+
+  /**
+   * <p>The ID for the dashboard.</p>
+   */
+  DashboardId?: string;
 }
 
 export namespace DescribeDashboardPermissionsResponse {
@@ -4821,14 +5333,14 @@ export namespace DescribeDashboardPermissionsResponse {
 
 export interface DescribeDataSetRequest {
   /**
-   * <p>The AWS account ID.</p>
-   */
-  AwsAccountId: string | undefined;
-
-  /**
    * <p>The ID for the dataset that you want to create. This ID is unique per AWS Region for each AWS account.</p>
    */
   DataSetId: string | undefined;
+
+  /**
+   * <p>The AWS account ID.</p>
+   */
+  AwsAccountId: string | undefined;
 }
 
 export namespace DescribeDataSetRequest {
@@ -4857,14 +5369,14 @@ export namespace DescribeDataSetResponse {
 
 export interface DescribeDataSetPermissionsRequest {
   /**
-   * <p>The AWS account ID.</p>
-   */
-  AwsAccountId: string | undefined;
-
-  /**
    * <p>The ID for the dataset that you want to create. This ID is unique per AWS Region for each AWS account.</p>
    */
   DataSetId: string | undefined;
+
+  /**
+   * <p>The AWS account ID.</p>
+   */
+  AwsAccountId: string | undefined;
 }
 
 export namespace DescribeDataSetPermissionsRequest {
@@ -4875,9 +5387,9 @@ export namespace DescribeDataSetPermissionsRequest {
 
 export interface DescribeDataSetPermissionsResponse {
   /**
-   * <p>A list of resource permissions on the dataset.</p>
+   * <p>The AWS request ID for this operation.</p>
    */
-  Permissions?: ResourcePermission[];
+  RequestId?: string;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the dataset.</p>
@@ -4885,14 +5397,14 @@ export interface DescribeDataSetPermissionsResponse {
   DataSetArn?: string;
 
   /**
-   * <p>The AWS request ID for this operation.</p>
-   */
-  RequestId?: string;
-
-  /**
    * <p>The ID for the dataset that you want to create. This ID is unique per AWS Region for each AWS account.</p>
    */
   DataSetId?: string;
+
+  /**
+   * <p>A list of resource permissions on the dataset.</p>
+   */
+  Permissions?: ResourcePermission[];
 }
 
 export namespace DescribeDataSetPermissionsResponse {
@@ -4939,14 +5451,14 @@ export namespace DescribeDataSourceResponse {
 
 export interface DescribeDataSourcePermissionsRequest {
   /**
-   * <p>The ID of the data source. This ID is unique per AWS Region for each AWS account.</p>
-   */
-  DataSourceId: string | undefined;
-
-  /**
    * <p>The AWS account ID.</p>
    */
   AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID of the data source. This ID is unique per AWS Region for each AWS account.</p>
+   */
+  DataSourceId: string | undefined;
 }
 
 export namespace DescribeDataSourcePermissionsRequest {
@@ -5027,14 +5539,14 @@ export namespace DescribeGroupResponse {
 
 export interface DescribeIAMPolicyAssignmentRequest {
   /**
-   * <p>The ID of the AWS account that contains the assignment that you want to describe.</p>
-   */
-  AwsAccountId: string | undefined;
-
-  /**
    * <p>The namespace that contains the assignment.</p>
    */
   Namespace: string | undefined;
+
+  /**
+   * <p>The ID of the AWS account that contains the assignment that you want to describe.</p>
+   */
+  AwsAccountId: string | undefined;
 
   /**
    * <p>The name of the assignment. </p>
@@ -5053,14 +5565,9 @@ export namespace DescribeIAMPolicyAssignmentRequest {
  */
 export interface IAMPolicyAssignment {
   /**
-   * <p>Assignment name.</p>
+   * <p>The AWS account ID.</p>
    */
-  AssignmentName?: string;
-
-  /**
-   * <p>Assignment ID.</p>
-   */
-  AssignmentId?: string;
+  AwsAccountId?: string;
 
   /**
    * <p>The Amazon Resource Name (ARN) for the IAM policy.</p>
@@ -5068,19 +5575,24 @@ export interface IAMPolicyAssignment {
   PolicyArn?: string;
 
   /**
+   * <p>Assignment ID.</p>
+   */
+  AssignmentId?: string;
+
+  /**
    * <p>Identities.</p>
    */
   Identities?: { [key: string]: string[] };
 
   /**
+   * <p>Assignment name.</p>
+   */
+  AssignmentName?: string;
+
+  /**
    * <p>Assignment status.</p>
    */
   AssignmentStatus?: AssignmentStatus | string;
-
-  /**
-   * <p>The AWS account ID.</p>
-   */
-  AwsAccountId?: string;
 }
 
 export namespace IAMPolicyAssignment {
@@ -5091,14 +5603,14 @@ export namespace IAMPolicyAssignment {
 
 export interface DescribeIAMPolicyAssignmentResponse {
   /**
-   * <p>The AWS request ID for this operation.</p>
-   */
-  RequestId?: string;
-
-  /**
    * <p>Information describing the IAM policy assignment.</p>
    */
   IAMPolicyAssignment?: IAMPolicyAssignment;
+
+  /**
+   * <p>The AWS request ID for this operation.</p>
+   */
+  RequestId?: string;
 }
 
 export namespace DescribeIAMPolicyAssignmentResponse {
@@ -5129,6 +5641,11 @@ export namespace InvalidNextTokenException {
 
 export interface DescribeIngestionRequest {
   /**
+   * <p>The ID of the dataset used in the ingestion.</p>
+   */
+  DataSetId: string | undefined;
+
+  /**
    * <p>The AWS account ID.</p>
    */
   AwsAccountId: string | undefined;
@@ -5137,11 +5654,6 @@ export interface DescribeIngestionRequest {
    * <p>An ID for the ingestion.</p>
    */
   IngestionId: string | undefined;
-
-  /**
-   * <p>The ID of the dataset used in the ingestion.</p>
-   */
-  DataSetId: string | undefined;
 }
 
 export namespace DescribeIngestionRequest {
@@ -5279,39 +5791,14 @@ export interface Ingestion {
   Arn: string | undefined;
 
   /**
-   * <p>Information about rows for a data set SPICE ingestion.</p>
-   */
-  RowInfo?: RowInfo;
-
-  /**
    * <p>The size of the data ingested, in bytes.</p>
    */
   IngestionSizeInBytes?: number;
 
   /**
-   * <p>Ingestion status.</p>
+   * <p>Information about rows for a data set SPICE ingestion.</p>
    */
-  IngestionStatus: IngestionStatus | string | undefined;
-
-  /**
-   * <p>Type of this ingestion.</p>
-   */
-  RequestType?: IngestionRequestType | string;
-
-  /**
-   * <p>Error information for this ingestion.</p>
-   */
-  ErrorInfo?: ErrorInfo;
-
-  /**
-   * <p>Information about a queued dataset SPICE ingestion.</p>
-   */
-  QueueInfo?: QueueInfo;
-
-  /**
-   * <p>Ingestion ID.</p>
-   */
-  IngestionId?: string;
+  RowInfo?: RowInfo;
 
   /**
    * <p>The time that this ingestion took, measured in seconds.</p>
@@ -5319,9 +5806,34 @@ export interface Ingestion {
   IngestionTimeInSeconds?: number;
 
   /**
+   * <p>Ingestion status.</p>
+   */
+  IngestionStatus: IngestionStatus | string | undefined;
+
+  /**
+   * <p>Error information for this ingestion.</p>
+   */
+  ErrorInfo?: ErrorInfo;
+
+  /**
+   * <p>Type of this ingestion.</p>
+   */
+  RequestType?: IngestionRequestType | string;
+
+  /**
+   * <p>Ingestion ID.</p>
+   */
+  IngestionId?: string;
+
+  /**
    * <p>The time that this ingestion started.</p>
    */
   CreatedTime: Date | undefined;
+
+  /**
+   * <p>Information about a queued dataset SPICE ingestion.</p>
+   */
+  QueueInfo?: QueueInfo;
 
   /**
    * <p>Event source for this ingestion.</p>
@@ -5337,14 +5849,14 @@ export namespace Ingestion {
 
 export interface DescribeIngestionResponse {
   /**
-   * <p>Information about the ingestion.</p>
-   */
-  Ingestion?: Ingestion;
-
-  /**
    * <p>The AWS request ID for this operation.</p>
    */
   RequestId?: string;
+
+  /**
+   * <p>Information about the ingestion.</p>
+   */
+  Ingestion?: Ingestion;
 }
 
 export namespace DescribeIngestionResponse {
@@ -5402,6 +5914,11 @@ export namespace NamespaceError {
  */
 export interface NamespaceInfoV2 {
   /**
+   * <p>The namespace AWS Region.</p>
+   */
+  CapacityRegion?: string;
+
+  /**
    * <p>The namespace ARN.</p>
    */
   Arn?: string;
@@ -5417,19 +5934,14 @@ export interface NamespaceInfoV2 {
   IdentityStore?: IdentityStore | string;
 
   /**
-   * <p>The namespace AWS Region.</p>
-   */
-  CapacityRegion?: string;
-
-  /**
-   * <p>An error that occured when the namespace was created.</p>
-   */
-  NamespaceError?: NamespaceError;
-
-  /**
    * <p>The creation status of a namespace that is not yet completely created.</p>
    */
   CreationStatus?: NamespaceStatus | string;
+
+  /**
+   * <p>An error that occurred when the namespace was created.</p>
+   */
+  NamespaceError?: NamespaceError;
 }
 
 export namespace NamespaceInfoV2 {
@@ -5443,7 +5955,7 @@ export interface DescribeNamespaceResponse {
    * <p>The information about the namespace that you're describing. The response includes
    *         the namespace ARN, name, AWS Region, creation status, and identity store. <code>DescribeNamespace</code> also
    *         works for namespaces that are in the process of being created. For incomplete namespaces,
-   *         this API lists the namespace error types and messages associated with the creation process.</p>
+   *         this API operation lists the namespace error types and messages associated with the creation process.</p>
    */
   Namespace?: NamespaceInfoV2;
 
@@ -5460,6 +5972,11 @@ export namespace DescribeNamespaceResponse {
 }
 
 export interface DescribeTemplateRequest {
+  /**
+   * <p>The ID for the template.</p>
+   */
+  TemplateId: string | undefined;
+
   /**
    * <p>The ID of the AWS account that contains the template that you're describing.</p>
    */
@@ -5478,11 +5995,6 @@ export interface DescribeTemplateRequest {
    * 			value isn't provided, the latest version of the template is described.</p>
    */
   VersionNumber?: number;
-
-  /**
-   * <p>The ID for the template.</p>
-   */
-  TemplateId: string | undefined;
 }
 
 export namespace DescribeTemplateRequest {
@@ -5492,6 +6004,7 @@ export namespace DescribeTemplateRequest {
 }
 
 export enum TemplateErrorType {
+  ACCESS_DENIED = "ACCESS_DENIED",
   DATA_SET_NOT_FOUND = "DATA_SET_NOT_FOUND",
   INTERNAL_FAILURE = "INTERNAL_FAILURE",
   SOURCE_NOT_FOUND = "SOURCE_NOT_FOUND",
@@ -5523,32 +6036,25 @@ export namespace TemplateError {
  */
 export interface TemplateVersion {
   /**
-   * <p>The version number of the template.</p>
-   */
-  VersionNumber?: number;
-
-  /**
    * <p>The HTTP status of the request.</p>
    */
   Status?: ResourceStatus | string;
 
   /**
-   * <p>Errors associated with the template.</p>
+   * <p>Errors associated with this template version.</p>
    */
   Errors?: TemplateError[];
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the analysis or template which was used to create
-   *             this template.</p>
+   * <p>The ARN of the theme associated with this version of the template.</p>
    */
-  SourceEntityArn?: string;
+  ThemeArn?: string;
 
   /**
-   * <p>Schema of the dataset identified by the placeholder. The idea is that any dashboard
-   *             created from the template should be bound to new datasets matching the same schema
-   *             described through this API. .</p>
+   * <p>The Amazon Resource Name (ARN) of an analysis or template that was used to create this
+   *             template.</p>
    */
-  DataSetConfigurations?: DataSetConfiguration[];
+  SourceEntityArn?: string;
 
   /**
    * <p>The description of the template.</p>
@@ -5559,6 +6065,23 @@ export interface TemplateVersion {
    * <p>The time that this template version was created.</p>
    */
   CreatedTime?: Date;
+
+  /**
+   * <p>Schema of the dataset identified by the placeholder. Any dashboard created from this
+   *             template should be bound to new datasets matching the same schema described through this
+   *             API operation.</p>
+   */
+  DataSetConfigurations?: DataSetConfiguration[];
+
+  /**
+   * <p>The version number of the template version.</p>
+   */
+  VersionNumber?: number;
+
+  /**
+   * <p>A list of the associated sheets with the unique identifier and name of each sheet.</p>
+   */
+  Sheets?: Sheet[];
 }
 
 export namespace TemplateVersion {
@@ -5571,7 +6094,7 @@ export namespace TemplateVersion {
  * <p>A template object. A <i>template</i> is an entity in QuickSight that
  *             encapsulates the metadata required to create an analysis and that you can use to create
  *             a dashboard. A template adds a layer of abstraction by using placeholders to replace the
- *             dataset associated with the analysis. You can use templates to create dashboards by
+ *             dataset associated with an analysis. You can use templates to create dashboards by
  *             replacing dataset placeholders with datasets that follow the same schema that was used
  *             to create the source analysis and template.</p>
  *         <p>You can share templates across AWS accounts by allowing users in other AWS accounts to
@@ -5579,24 +6102,9 @@ export namespace TemplateVersion {
  */
 export interface Template {
   /**
-   * <p>Time when this was created.</p>
-   */
-  CreatedTime?: Date;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the template.</p>
-   */
-  Arn?: string;
-
-  /**
    * <p>The ID for the template. This is unique per AWS Region for each AWS account.</p>
    */
   TemplateId?: string;
-
-  /**
-   * <p>The display name of the template.</p>
-   */
-  Name?: string;
 
   /**
    * <p>Time when this was last updated.</p>
@@ -5607,6 +6115,21 @@ export interface Template {
    * <p>A structure describing the versions of the template.</p>
    */
   Version?: TemplateVersion;
+
+  /**
+   * <p>The display name of the template.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the template.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>Time when this was created.</p>
+   */
+  CreatedTime?: Date;
 }
 
 export namespace Template {
@@ -5635,18 +6158,18 @@ export namespace DescribeTemplateResponse {
 
 export interface DescribeTemplateAliasRequest {
   /**
+   * <p>The ID of the AWS account that contains the template alias that you're
+   * 			describing.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
    * <p>The name of the template alias that you want to describe. If you name a specific alias, you
    * 			describe the version that the alias points to. You can specify the latest version of the
    * 			template by providing the keyword <code>$LATEST</code> in the <code>AliasName</code>
    * 			parameter. The keyword <code>$PUBLISHED</code> doesn't apply to templates.</p>
    */
   AliasName: string | undefined;
-
-  /**
-   * <p>The ID of the AWS account that contains the template alias that you're
-   * 			describing.</p>
-   */
-  AwsAccountId: string | undefined;
 
   /**
    * <p>The ID for the template.</p>
@@ -5662,14 +6185,14 @@ export namespace DescribeTemplateAliasRequest {
 
 export interface DescribeTemplateAliasResponse {
   /**
-   * <p>The AWS request ID for this operation.</p>
-   */
-  RequestId?: string;
-
-  /**
    * <p>Information about the template alias.</p>
    */
   TemplateAlias?: TemplateAlias;
+
+  /**
+   * <p>The AWS request ID for this operation.</p>
+   */
+  RequestId?: string;
 }
 
 export namespace DescribeTemplateAliasResponse {
@@ -5726,17 +6249,17 @@ export namespace DescribeTemplatePermissionsResponse {
 
 export interface DescribeThemeRequest {
   /**
-   * <p>The ID for the theme.</p>
-   */
-  ThemeId: string | undefined;
-
-  /**
    * <p>The alias of the theme that you want to describe. If you name a specific alias, you
    * 			describe the version that the alias points to. You can specify the latest version of the
    * 			theme by providing the keyword <code>$LATEST</code> in the <code>AliasName</code>
    * 			parameter. The keyword <code>$PUBLISHED</code> doesn't apply to themes.</p>
    */
   AliasName?: string;
+
+  /**
+   * <p>The ID for the theme.</p>
+   */
+  ThemeId: string | undefined;
 
   /**
    * <p>The ID of the AWS account that contains the theme that you're describing.</p>
@@ -5771,14 +6294,14 @@ export enum ThemeErrorType {
  */
 export interface ThemeError {
   /**
-   * <p>The error message.</p>
-   */
-  Message?: string;
-
-  /**
    * <p>The type of error.</p>
    */
   Type?: ThemeErrorType | string;
+
+  /**
+   * <p>The error message.</p>
+   */
+  Message?: string;
 }
 
 export namespace ThemeError {
@@ -5807,14 +6330,19 @@ export interface ThemeVersion {
   VersionNumber?: number;
 
   /**
-   * <p>The date and time that this theme version was created.</p>
+   * <p>Errors associated with the theme.</p>
    */
-  CreatedTime?: Date;
+  Errors?: ThemeError[];
 
   /**
    * <p>The theme configuration, which contains all the theme display properties.</p>
    */
   Configuration?: ThemeConfiguration;
+
+  /**
+   * <p>The date and time that this theme version was created.</p>
+   */
+  CreatedTime?: Date;
 
   /**
    * <p>The status of the theme version.</p>
@@ -5826,11 +6354,6 @@ export interface ThemeVersion {
    *             themes initially inherit from a default QuickSight theme.</p>
    */
   BaseThemeId?: string;
-
-  /**
-   * <p>Errors associated with the theme.</p>
-   */
-  Errors?: ThemeError[];
 }
 
 export namespace ThemeVersion {
@@ -5840,14 +6363,9 @@ export namespace ThemeVersion {
 }
 
 /**
- * <p></p>
+ * <p>Summary information about a theme.</p>
  */
 export interface Theme {
-  /**
-   * <p>The name that the user gives to the theme.</p>
-   */
-  Name?: string;
-
   /**
    * <p>The type of theme, based on how it was created. Valid values include:
    *             <code>QUICKSIGHT</code> and <code>CUSTOM</code>.</p>
@@ -5855,14 +6373,9 @@ export interface Theme {
   Type?: ThemeType | string;
 
   /**
-   * <p>The date and time that the theme was last updated.</p>
+   * <p>The name that the user gives to the theme.</p>
    */
-  LastUpdatedTime?: Date;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the theme.</p>
-   */
-  Arn?: string;
+  Name?: string;
 
   /**
    * <p>A version of a theme.</p>
@@ -5870,14 +6383,24 @@ export interface Theme {
   Version?: ThemeVersion;
 
   /**
-   * <p>The date and time that the theme was created.</p>
+   * <p>The Amazon Resource Name (ARN) of the theme.</p>
    */
-  CreatedTime?: Date;
+  Arn?: string;
 
   /**
    * <p>The identifier that the user gives to the theme.</p>
    */
   ThemeId?: string;
+
+  /**
+   * <p>The date and time that the theme was last updated.</p>
+   */
+  LastUpdatedTime?: Date;
+
+  /**
+   * <p>The date and time that the theme was created.</p>
+   */
+  CreatedTime?: Date;
 }
 
 export namespace Theme {
@@ -5912,14 +6435,14 @@ export interface DescribeThemeAliasRequest {
   AwsAccountId: string | undefined;
 
   /**
-   * <p>The ID for the theme.</p>
-   */
-  ThemeId: string | undefined;
-
-  /**
    * <p>The name of the theme alias that you want to describe.</p>
    */
   AliasName: string | undefined;
+
+  /**
+   * <p>The ID for the theme.</p>
+   */
+  ThemeId: string | undefined;
 }
 
 export namespace DescribeThemeAliasRequest {
@@ -5930,14 +6453,14 @@ export namespace DescribeThemeAliasRequest {
 
 export interface DescribeThemeAliasResponse {
   /**
-   * <p>Information about the theme alias.</p>
-   */
-  ThemeAlias?: ThemeAlias;
-
-  /**
    * <p>The AWS request ID for this operation.</p>
    */
   RequestId?: string;
+
+  /**
+   * <p>Information about the theme alias.</p>
+   */
+  ThemeAlias?: ThemeAlias;
 }
 
 export namespace DescribeThemeAliasResponse {
@@ -5976,14 +6499,14 @@ export interface DescribeThemePermissionsResponse {
   RequestId?: string;
 
   /**
-   * <p>A list of resource permissions set on the theme. </p>
-   */
-  Permissions?: ResourcePermission[];
-
-  /**
    * <p>The ID for the theme.</p>
    */
   ThemeId?: string;
+
+  /**
+   * <p>A list of resource permissions set on the theme. </p>
+   */
+  Permissions?: ResourcePermission[];
 }
 
 export namespace DescribeThemePermissionsResponse {
@@ -5999,15 +6522,15 @@ export interface DescribeUserRequest {
   Namespace: string | undefined;
 
   /**
-   * <p>The name of the user that you want to describe.</p>
-   */
-  UserName: string | undefined;
-
-  /**
    * <p>The ID for the AWS account that the user is in. Currently, you use the ID for the AWS
    * 			account that contains your Amazon QuickSight account.</p>
    */
   AwsAccountId: string | undefined;
+
+  /**
+   * <p>The name of the user that you want to describe.</p>
+   */
+  UserName: string | undefined;
 }
 
 export namespace DescribeUserRequest {
@@ -6030,8 +6553,7 @@ export enum UserRole {
 }
 
 /**
- * <p>A registered user of Amazon QuickSight. Currently, an Amazon QuickSight subscription
- *             can't contain more than 20 million users.</p>
+ * <p>A registered user of Amazon QuickSight. </p>
  */
 export interface User {
   /**
@@ -6040,9 +6562,11 @@ export interface User {
   CustomPermissionsName?: string;
 
   /**
-   * <p>The user's user name.</p>
+   * <p>The active status of user. When you create an Amazon QuickSight user that’s not an IAM
+   *             user or an Active Directory user, that user is inactive until they sign in and provide a
+   *             password.</p>
    */
-  UserName?: string;
+  Active?: boolean;
 
   /**
    * <p>The Amazon QuickSight role for the user. The user role can be one of the
@@ -6077,11 +6601,19 @@ export interface User {
   Role?: UserRole | string;
 
   /**
-   * <p>The active status of user. When you create an Amazon QuickSight user that’s not an IAM
-   *             user or an Active Directory user, that user is inactive until they sign in and provide a
-   *             password.</p>
+   * <p>The user's email address.</p>
    */
-  Active?: boolean;
+  Email?: string;
+
+  /**
+   * <p>The user's user name.</p>
+   */
+  UserName?: string;
+
+  /**
+   * <p>The type of identity authentication used by the user.</p>
+   */
+  IdentityType?: IdentityType | string;
 
   /**
    * <p>The Amazon Resource Name (ARN) for the user.</p>
@@ -6092,16 +6624,6 @@ export interface User {
    * <p>The principal ID of the user.</p>
    */
   PrincipalId?: string;
-
-  /**
-   * <p>The user's email address.</p>
-   */
-  Email?: string;
-
-  /**
-   * <p>The type of identity authentication used by the user.</p>
-   */
-  IdentityType?: IdentityType | string;
 }
 
 export namespace User {
@@ -6135,11 +6657,12 @@ export namespace DescribeUserResponse {
 export interface DomainNotWhitelistedException extends __SmithyException, $MetadataBearer {
   name: "DomainNotWhitelistedException";
   $fault: "client";
-  Message?: string;
   /**
    * <p>The AWS request ID for this request.</p>
    */
   RequestId?: string;
+
+  Message?: string;
 }
 
 export namespace DomainNotWhitelistedException {
@@ -6150,15 +6673,15 @@ export namespace DomainNotWhitelistedException {
 
 export interface GetDashboardEmbedUrlRequest {
   /**
+   * <p>How many minutes the session is valid. The session lifetime must be 15-600 minutes.</p>
+   */
+  SessionLifetimeInMinutes?: number;
+
+  /**
    * <p>Remove the reset button on the embedded dashboard. The default is FALSE, which enables the
    * 			reset button.</p>
    */
   ResetDisabled?: boolean;
-
-  /**
-   * <p>How many minutes the session is valid. The session lifetime must be 15-600 minutes.</p>
-   */
-  SessionLifetimeInMinutes?: number;
 
   /**
    * <p>The ID for the AWS account that contains the dashboard that you're embedding.</p>
@@ -6169,12 +6692,6 @@ export interface GetDashboardEmbedUrlRequest {
    * <p>The authentication method that the user uses to sign in.</p>
    */
   IdentityType: IdentityType | string | undefined;
-
-  /**
-   * <p>Remove the undo/redo button on the embedded dashboard. The default is FALSE, which enables
-   * 			the undo/redo button.</p>
-   */
-  UndoRedoDisabled?: boolean;
 
   /**
    * <p>The Amazon QuickSight user's Amazon Resource Name (ARN), for use with <code>QUICKSIGHT</code> identity type.
@@ -6192,6 +6709,8 @@ export interface GetDashboardEmbedUrlRequest {
    * 					SAML, OpenID Connect, or IAM federation.</p>
    * 			         </li>
    *          </ul>
+   *          <p>Omit this parameter for users in the third group – IAM users and IAM
+   *             role-based sessions.</p>
    */
   UserArn?: string;
 
@@ -6199,6 +6718,12 @@ export interface GetDashboardEmbedUrlRequest {
    * <p>The ID for the dashboard, also added to the IAM policy.</p>
    */
   DashboardId: string | undefined;
+
+  /**
+   * <p>Remove the undo/redo button on the embedded dashboard. The default is FALSE, which enables
+   * 			the undo/redo button.</p>
+   */
+  UndoRedoDisabled?: boolean;
 }
 
 export namespace GetDashboardEmbedUrlRequest {
@@ -6210,7 +6735,7 @@ export namespace GetDashboardEmbedUrlRequest {
 export interface GetDashboardEmbedUrlResponse {
   /**
    * <p>A single-use URL that you can put into your server-side webpage to embed your
-   * 			dashboard. This URL is valid for 5 minutes. The API provides the URL with an
+   * 			dashboard. This URL is valid for 5 minutes. The API operation provides the URL with an
    * 			<code>auth_code</code> value that enables one (and only one) sign-on to a user session
    * 			that is valid for 10 hours. </p>
    */
@@ -6258,12 +6783,11 @@ export namespace IdentityTypeNotSupportedException {
 export interface QuickSightUserNotFoundException extends __SmithyException, $MetadataBearer {
   name: "QuickSightUserNotFoundException";
   $fault: "client";
+  Message?: string;
   /**
    * <p>The AWS request ID for this request.</p>
    */
   RequestId?: string;
-
-  Message?: string;
 }
 
 export namespace QuickSightUserNotFoundException {
@@ -6299,15 +6823,53 @@ export interface GetSessionEmbedUrlRequest {
   SessionLifetimeInMinutes?: number;
 
   /**
-   * <p>The ID for the AWS account that contains the QuickSight session that you're embedding.</p>
+   * <p>The URL you use to access the embedded session. The entry point URL is constrained to
+   *           the following paths:</p>
+   *          <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>/start</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>/start/analyses</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>/start/dashboards</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>/start/favorites</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>/dashboards/<i>DashboardId</i>
+   *                   </code> - where <code>DashboardId</code> is the actual ID key from the QuickSight console URL of the dashboard</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>/analyses/<i>AnalysisId</i>
+   *                   </code> - where <code>AnalysisId</code> is the actual ID key from the QuickSight console URL of the analysis</p>
+   *             </li>
+   *          </ul>
+   */
+  EntryPoint?: string;
+
+  /**
+   * <p>The ID for the AWS account associated with your QuickSight subscription.</p>
    */
   AwsAccountId: string | undefined;
 
   /**
    * <p>The Amazon QuickSight user's Amazon Resource Name (ARN), for use with <code>QUICKSIGHT</code> identity type.
-   * 			You can use this for any Amazon QuickSight users in your account (readers, authors, or
-   * 			admins) authenticated as one of the following:</p>
-   * 		       <ul>
+   * 			You can use this for any type of Amazon QuickSight users in your account (readers, authors, or
+   * 			admins). They need to be authenticated as one of the following:</p>
+   * 		       <ol>
    *             <li>
    * 				           <p>Active Directory (AD) users or group members</p>
    * 			         </li>
@@ -6316,16 +6878,13 @@ export interface GetSessionEmbedUrlRequest {
    * 			         </li>
    *             <li>
    * 				           <p>IAM users and IAM role-based sessions authenticated through Federated Single Sign-On using
-   * 					SAML, OpenID Connect, or IAM federation.</p>
+   *                     SAML, OpenID Connect, or IAM federation</p>
    * 			         </li>
-   *          </ul>
+   *          </ol>
+   *          <p>Omit this parameter for users in the third group – IAM users and IAM
+   *             role-based sessions.</p>
    */
   UserArn?: string;
-
-  /**
-   * <p>The entry point for the embedded session.</p>
-   */
-  EntryPoint?: string;
 }
 
 export namespace GetSessionEmbedUrlRequest {
@@ -6337,7 +6896,7 @@ export namespace GetSessionEmbedUrlRequest {
 export interface GetSessionEmbedUrlResponse {
   /**
    * <p>A single-use URL that you can put into your server-side web page to embed your
-   * 			QuickSight session. This URL is valid for 5 minutes. The API provides the URL with an
+   * 			QuickSight session. This URL is valid for 5 minutes. The API operation provides the URL with an
    * 			<code>auth_code</code> value that enables one (and only one) sign-on to a user session
    * 			that is valid for 10 hours. </p>
    */
@@ -6361,14 +6920,14 @@ export namespace GetSessionEmbedUrlResponse {
  */
 export interface IAMPolicyAssignmentSummary {
   /**
-   * <p>Assignment status.</p>
-   */
-  AssignmentStatus?: AssignmentStatus | string;
-
-  /**
    * <p>Assignment name.</p>
    */
   AssignmentName?: string;
+
+  /**
+   * <p>Assignment status.</p>
+   */
+  AssignmentStatus?: AssignmentStatus | string;
 }
 
 export namespace IAMPolicyAssignmentSummary {
@@ -6377,16 +6936,63 @@ export namespace IAMPolicyAssignmentSummary {
   });
 }
 
-export interface ListDashboardsRequest {
+export interface ListAnalysesRequest {
   /**
-   * <p>The ID of the AWS account that contains the dashboards that you're listing.</p>
+   * <p>The maximum number of results to return.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>A pagination token that can be used in a subsequent request.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The ID of the AWS account that contains the analyses.</p>
    */
   AwsAccountId: string | undefined;
+}
 
+export namespace ListAnalysesRequest {
+  export const filterSensitiveLog = (obj: ListAnalysesRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListAnalysesResponse {
+  /**
+   * <p>Metadata describing each of the analyses that are listed.</p>
+   */
+  AnalysisSummaryList?: AnalysisSummary[];
+
+  /**
+   * <p>The AWS request ID for this operation.</p>
+   */
+  RequestId?: string;
+
+  /**
+   * <p>A pagination token that can be used in a subsequent request.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListAnalysesResponse {
+  export const filterSensitiveLog = (obj: ListAnalysesResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListDashboardsRequest {
   /**
    * <p>The token for the next set of results, or null if there are no more results.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The ID of the AWS account that contains the dashboards that you're
+   *             listing.</p>
+   */
+  AwsAccountId: string | undefined;
 
   /**
    * <p>The maximum number of results to be returned per request.</p>
@@ -6403,7 +7009,7 @@ export namespace ListDashboardsRequest {
 export interface ListDashboardsResponse {
   /**
    * <p>A structure that contains all of the dashboards in your AWS account. This structure
-   * 			provides basic information about the dashboards.</p>
+   *             provides basic information about the dashboards.</p>
    */
   DashboardSummaryList?: DashboardSummary[];
 
@@ -6437,7 +7043,7 @@ export interface ListDashboardVersionsRequest {
 
   /**
    * <p>The ID of the AWS account that contains the dashboard that you're listing versions
-   * 			for.</p>
+   *             for.</p>
    */
   AwsAccountId: string | undefined;
 
@@ -6506,14 +7112,14 @@ export interface ListDataSetsResponse {
   DataSetSummaries?: DataSetSummary[];
 
   /**
-   * <p>The AWS request ID for this operation.</p>
-   */
-  RequestId?: string;
-
-  /**
    * <p>The token for the next set of results, or null if there are no more results.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The AWS request ID for this operation.</p>
+   */
+  RequestId?: string;
 }
 
 export namespace ListDataSetsResponse {
@@ -6547,6 +7153,11 @@ export namespace ListDataSourcesRequest {
 
 export interface ListDataSourcesResponse {
   /**
+   * <p>A list of data sources.</p>
+   */
+  DataSources?: DataSource[];
+
+  /**
    * <p>The token for the next set of results, or null if there are no more results.</p>
    */
   NextToken?: string;
@@ -6555,11 +7166,6 @@ export interface ListDataSourcesResponse {
    * <p>The AWS request ID for this operation.</p>
    */
   RequestId?: string;
-
-  /**
-   * <p>A list of data sources.</p>
-   */
-  DataSources?: DataSource[];
 }
 
 export namespace ListDataSourcesResponse {
@@ -6570,9 +7176,9 @@ export namespace ListDataSourcesResponse {
 
 export interface ListGroupMembershipsRequest {
   /**
-   * <p>The maximum number of results to return from this request.</p>
+   * <p>The name of the group that you want to see a membership list of.</p>
    */
-  MaxResults?: number;
+  GroupName: string | undefined;
 
   /**
    * <p>A pagination token that can be used in a subsequent request.</p>
@@ -6580,9 +7186,9 @@ export interface ListGroupMembershipsRequest {
   NextToken?: string;
 
   /**
-   * <p>The name of the group that you want to see a membership list of.</p>
+   * <p>The maximum number of results to return from this request.</p>
    */
-  GroupName: string | undefined;
+  MaxResults?: number;
 
   /**
    * <p>The namespace. Currently, you should set this to <code>default</code>.</p>
@@ -6604,14 +7210,14 @@ export namespace ListGroupMembershipsRequest {
 
 export interface ListGroupMembershipsResponse {
   /**
-   * <p>The AWS request ID for this operation.</p>
-   */
-  RequestId?: string;
-
-  /**
    * <p>A pagination token that can be used in a subsequent request.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The AWS request ID for this operation.</p>
+   */
+  RequestId?: string;
 
   /**
    * <p>The list of the members of the group.</p>
@@ -6632,15 +7238,15 @@ export interface ListGroupsRequest {
   NextToken?: string;
 
   /**
-   * <p>The maximum number of results to return.</p>
-   */
-  MaxResults?: number;
-
-  /**
    * <p>The ID for the AWS account that the group is in. Currently, you use the ID for the AWS
    * 			account that contains your Amazon QuickSight account.</p>
    */
   AwsAccountId: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return.</p>
+   */
+  MaxResults?: number;
 
   /**
    * <p>The namespace. Currently, you should set this to <code>default</code>.</p>
@@ -6689,9 +7295,9 @@ export interface ListIAMPolicyAssignmentsRequest {
   NextToken?: string;
 
   /**
-   * <p>The status of the assignments.</p>
+   * <p>The namespace for the assignments.</p>
    */
-  AssignmentStatus?: AssignmentStatus | string;
+  Namespace: string | undefined;
 
   /**
    * <p>The ID of the AWS account that contains these IAM policy assignments.</p>
@@ -6699,9 +7305,9 @@ export interface ListIAMPolicyAssignmentsRequest {
   AwsAccountId: string | undefined;
 
   /**
-   * <p>The namespace for the assignments.</p>
+   * <p>The status of the assignments.</p>
    */
-  Namespace: string | undefined;
+  AssignmentStatus?: AssignmentStatus | string;
 }
 
 export namespace ListIAMPolicyAssignmentsRequest {
@@ -6712,6 +7318,11 @@ export namespace ListIAMPolicyAssignmentsRequest {
 
 export interface ListIAMPolicyAssignmentsResponse {
   /**
+   * <p>Information describing the IAM policy assignments.</p>
+   */
+  IAMPolicyAssignments?: IAMPolicyAssignmentSummary[];
+
+  /**
    * <p>The AWS request ID for this operation.</p>
    */
   RequestId?: string;
@@ -6720,11 +7331,6 @@ export interface ListIAMPolicyAssignmentsResponse {
    * <p>The token for the next set of results, or null if there are no more results.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>Information describing the IAM policy assignments.</p>
-   */
-  IAMPolicyAssignments?: IAMPolicyAssignmentSummary[];
 }
 
 export namespace ListIAMPolicyAssignmentsResponse {
@@ -6735,14 +7341,14 @@ export namespace ListIAMPolicyAssignmentsResponse {
 
 export interface ListIAMPolicyAssignmentsForUserRequest {
   /**
-   * <p>The ID of the AWS account that contains the assignments.</p>
-   */
-  AwsAccountId: string | undefined;
-
-  /**
    * <p>The namespace of the assignment.</p>
    */
   Namespace: string | undefined;
+
+  /**
+   * <p>The ID of the AWS account that contains the assignments.</p>
+   */
+  AwsAccountId: string | undefined;
 
   /**
    * <p>The name of the user.</p>
@@ -6750,14 +7356,14 @@ export interface ListIAMPolicyAssignmentsForUserRequest {
   UserName: string | undefined;
 
   /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>The maximum number of results to be returned per request.</p>
    */
   MaxResults?: number;
+
+  /**
+   * <p>The token for the next set of results, or null if there are no more results.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace ListIAMPolicyAssignmentsForUserRequest {
@@ -6791,14 +7397,14 @@ export namespace ListIAMPolicyAssignmentsForUserResponse {
 
 export interface ListIngestionsRequest {
   /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>The AWS account ID.</p>
    */
   AwsAccountId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results, or null if there are no more results.</p>
+   */
+  NextToken?: string;
 
   /**
    * <p>The ID of the dataset used in the ingestion.</p>
@@ -6842,14 +7448,14 @@ export namespace ListIngestionsResponse {
 
 export interface ListNamespacesRequest {
   /**
-   * <p>The ID for the AWS account that contains the QuickSight namespaces that you want to list.</p>
-   */
-  AwsAccountId: string | undefined;
-
-  /**
    * <p>The maximum number of results to return.</p>
    */
   MaxResults?: number;
+
+  /**
+   * <p>The ID for the AWS account that contains the QuickSight namespaces that you want to list.</p>
+   */
+  AwsAccountId: string | undefined;
 
   /**
    * <p>A pagination token that can be used in a subsequent request.</p>
@@ -6865,11 +7471,9 @@ export namespace ListNamespacesRequest {
 
 export interface ListNamespacesResponse {
   /**
-   * <p>The information about the namespaces in this AWS account. The response includes
-   *         the namespace ARN, name, AWS Region, notification email address, creation status, and
-   *         identity store.</p>
+   * <p>A pagination token that can be used in a subsequent request.</p>
    */
-  Namespaces?: NamespaceInfoV2[];
+  NextToken?: string;
 
   /**
    * <p>The AWS request ID for this operation.</p>
@@ -6877,9 +7481,11 @@ export interface ListNamespacesResponse {
   RequestId?: string;
 
   /**
-   * <p>A pagination token that can be used in a subsequent request.</p>
+   * <p>The information about the namespaces in this AWS account. The response includes
+   *         the namespace ARN, name, AWS Region, notification email address, creation status, and
+   *         identity store.</p>
    */
-  NextToken?: string;
+  Namespaces?: NamespaceInfoV2[];
 }
 
 export namespace ListNamespacesResponse {
@@ -6903,15 +7509,15 @@ export namespace ListTagsForResourceRequest {
 
 export interface ListTagsForResourceResponse {
   /**
-   * <p>The AWS request ID for this operation.</p>
-   */
-  RequestId?: string;
-
-  /**
    * <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the
    * 			resource.</p>
    */
   Tags?: Tag[];
+
+  /**
+   * <p>The AWS request ID for this operation.</p>
+   */
+  RequestId?: string;
 }
 
 export namespace ListTagsForResourceResponse {
@@ -6922,14 +7528,14 @@ export namespace ListTagsForResourceResponse {
 
 export interface ListTemplateAliasesRequest {
   /**
-   * <p>The maximum number of results to be returned per request.</p>
-   */
-  MaxResults?: number;
-
-  /**
    * <p>The token for the next set of results, or null if there are no more results.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to be returned per request.</p>
+   */
+  MaxResults?: number;
 
   /**
    * <p>The ID for the template.</p>
@@ -6955,672 +7561,18 @@ export interface ListTemplateAliasesResponse {
   TemplateAliasList?: TemplateAlias[];
 
   /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>The AWS request ID for this operation.</p>
    */
   RequestId?: string;
+
+  /**
+   * <p>The token for the next set of results, or null if there are no more results.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace ListTemplateAliasesResponse {
   export const filterSensitiveLog = (obj: ListTemplateAliasesResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface ListTemplatesRequest {
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of results to be returned per request.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The ID of the AWS account that contains the templates that you're listing.</p>
-   */
-  AwsAccountId: string | undefined;
-}
-
-export namespace ListTemplatesRequest {
-  export const filterSensitiveLog = (obj: ListTemplatesRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The template summary.</p>
- */
-export interface TemplateSummary {
-  /**
-   * <p>The last time that this template was created.</p>
-   */
-  CreatedTime?: Date;
-
-  /**
-   * <p>The ID of the template. This ID is unique per AWS Region for each AWS account.</p>
-   */
-  TemplateId?: string;
-
-  /**
-   * <p>A summary of a template.</p>
-   */
-  Arn?: string;
-
-  /**
-   * <p>The last time that this template was updated.</p>
-   */
-  LastUpdatedTime?: Date;
-
-  /**
-   * <p>A display name for the template.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>A structure containing a list of version numbers for the template summary.</p>
-   */
-  LatestVersionNumber?: number;
-}
-
-export namespace TemplateSummary {
-  export const filterSensitiveLog = (obj: TemplateSummary): any => ({
-    ...obj,
-  });
-}
-
-export interface ListTemplatesResponse {
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The AWS request ID for this operation.</p>
-   */
-  RequestId?: string;
-
-  /**
-   * <p>A structure containing information about the templates in the list.</p>
-   */
-  TemplateSummaryList?: TemplateSummary[];
-}
-
-export namespace ListTemplatesResponse {
-  export const filterSensitiveLog = (obj: ListTemplatesResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface ListTemplateVersionsRequest {
-  /**
-   * <p>The ID for the template.</p>
-   */
-  TemplateId: string | undefined;
-
-  /**
-   * <p>The maximum number of results to be returned per request.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The ID of the AWS account that contains the templates that you're listing.</p>
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace ListTemplateVersionsRequest {
-  export const filterSensitiveLog = (obj: ListTemplateVersionsRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The template version.</p>
- */
-export interface TemplateVersionSummary {
-  /**
-   * <p>The version number of the template version.</p>
-   */
-  VersionNumber?: number;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the template version.</p>
-   */
-  Arn?: string;
-
-  /**
-   * <p>The status of the template version.</p>
-   */
-  Status?: ResourceStatus | string;
-
-  /**
-   * <p>The time that this template version was created.</p>
-   */
-  CreatedTime?: Date;
-
-  /**
-   * <p>The description of the template version.</p>
-   */
-  Description?: string;
-}
-
-export namespace TemplateVersionSummary {
-  export const filterSensitiveLog = (obj: TemplateVersionSummary): any => ({
-    ...obj,
-  });
-}
-
-export interface ListTemplateVersionsResponse {
-  /**
-   * <p>A structure containing a list of all the versions of the specified template.</p>
-   */
-  TemplateVersionSummaryList?: TemplateVersionSummary[];
-
-  /**
-   * <p>The AWS request ID for this operation.</p>
-   */
-  RequestId?: string;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace ListTemplateVersionsResponse {
-  export const filterSensitiveLog = (obj: ListTemplateVersionsResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface ListThemeAliasesRequest {
-  /**
-   * <p>The maximum number of results to be returned per request.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The ID of the AWS account that contains the theme aliases that you're listing.</p>
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The ID for the theme.</p>
-   */
-  ThemeId: string | undefined;
-}
-
-export namespace ListThemeAliasesRequest {
-  export const filterSensitiveLog = (obj: ListThemeAliasesRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface ListThemeAliasesResponse {
-  /**
-   * <p>A structure containing the list of the theme's aliases.</p>
-   */
-  ThemeAliasList?: ThemeAlias[];
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The AWS request ID for this operation.</p>
-   */
-  RequestId?: string;
-}
-
-export namespace ListThemeAliasesResponse {
-  export const filterSensitiveLog = (obj: ListThemeAliasesResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface ListThemesRequest {
-  /**
-   * <p>The maximum number of results to be returned per request.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The ID of the AWS account that contains the themes that you're listing.</p>
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The type of themes that you want to list. Valid options include the following:</p>
-   *     	    <ul>
-   *             <li>
-   *                <p>
-   *                   <code>ALL (default)</code>- Display all existing themes.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>CUSTOM</code> - Display only the themes created by people using Amazon QuickSight.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>QUICKSIGHT</code> - Display only the starting themes defined by QuickSight.</p>
-   *             </li>
-   *          </ul>
-   */
-  Type?: ThemeType | string;
-}
-
-export namespace ListThemesRequest {
-  export const filterSensitiveLog = (obj: ListThemesRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The theme summary.</p>
- */
-export interface ThemeSummary {
-  /**
-   * <p>the display name for the theme.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>The date and time that this theme was created.</p>
-   */
-  CreatedTime?: Date;
-
-  /**
-   * <p>The ID of the theme. This ID is unique per AWS Region for each AWS account.</p>
-   */
-  ThemeId?: string;
-
-  /**
-   * <p>The latest version number for the theme. </p>
-   */
-  LatestVersionNumber?: number;
-
-  /**
-   * <p>The last date and time that this theme was updated.</p>
-   */
-  LastUpdatedTime?: Date;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the resource.</p>
-   */
-  Arn?: string;
-}
-
-export namespace ThemeSummary {
-  export const filterSensitiveLog = (obj: ThemeSummary): any => ({
-    ...obj,
-  });
-}
-
-export interface ListThemesResponse {
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The AWS request ID for this operation.</p>
-   */
-  RequestId?: string;
-
-  /**
-   * <p>Information about the themes in the list.</p>
-   */
-  ThemeSummaryList?: ThemeSummary[];
-}
-
-export namespace ListThemesResponse {
-  export const filterSensitiveLog = (obj: ListThemesResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface ListThemeVersionsRequest {
-  /**
-   * <p>The ID for the theme.</p>
-   */
-  ThemeId: string | undefined;
-
-  /**
-   * <p>The maximum number of results to be returned per request.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The ID of the AWS account that contains the themes that you're listing.</p>
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace ListThemeVersionsRequest {
-  export const filterSensitiveLog = (obj: ListThemeVersionsRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The theme version.</p>
- */
-export interface ThemeVersionSummary {
-  /**
-   * <p>The version number of the theme version.</p>
-   */
-  VersionNumber?: number;
-
-  /**
-   * <p>The status of the theme version.</p>
-   */
-  Status?: ResourceStatus | string;
-
-  /**
-   * <p>The date and time that this theme version was created.</p>
-   */
-  CreatedTime?: Date;
-
-  /**
-   * <p>The description of the theme version.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the theme version.</p>
-   */
-  Arn?: string;
-}
-
-export namespace ThemeVersionSummary {
-  export const filterSensitiveLog = (obj: ThemeVersionSummary): any => ({
-    ...obj,
-  });
-}
-
-export interface ListThemeVersionsResponse {
-  /**
-   * <p>The AWS request ID for this operation.</p>
-   */
-  RequestId?: string;
-
-  /**
-   * <p>A structure containing a list of all the versions of the specified theme.</p>
-   */
-  ThemeVersionSummaryList?: ThemeVersionSummary[];
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace ListThemeVersionsResponse {
-  export const filterSensitiveLog = (obj: ListThemeVersionsResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface ListUserGroupsRequest {
-  /**
-   * <p>The maximum number of results to return from this request.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The namespace. Currently, you should set this to <code>default</code>.</p>
-   */
-  Namespace: string | undefined;
-
-  /**
-   * <p>A pagination token that can be used in a subsequent request.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The AWS account ID that the user is in. Currently, you use the ID for the AWS account
-   * 			that contains your Amazon QuickSight account.</p>
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The Amazon QuickSight user name that you want to list group memberships for.</p>
-   */
-  UserName: string | undefined;
-}
-
-export namespace ListUserGroupsRequest {
-  export const filterSensitiveLog = (obj: ListUserGroupsRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface ListUserGroupsResponse {
-  /**
-   * <p>The AWS request ID for this operation.</p>
-   */
-  RequestId?: string;
-
-  /**
-   * <p>The list of groups the user is a member of.</p>
-   */
-  GroupList?: Group[];
-
-  /**
-   * <p>A pagination token that can be used in a subsequent request.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace ListUserGroupsResponse {
-  export const filterSensitiveLog = (obj: ListUserGroupsResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface ListUsersRequest {
-  /**
-   * <p>The maximum number of results to return from this request.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>A pagination token that can be used in a subsequent request.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The namespace. Currently, you should set this to <code>default</code>.</p>
-   */
-  Namespace: string | undefined;
-
-  /**
-   * <p>The ID for the AWS account that the user is in. Currently, you use the ID for the AWS
-   * 			account that contains your Amazon QuickSight account.</p>
-   */
-  AwsAccountId: string | undefined;
-}
-
-export namespace ListUsersRequest {
-  export const filterSensitiveLog = (obj: ListUsersRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface ListUsersResponse {
-  /**
-   * <p>The list of users.</p>
-   */
-  UserList?: User[];
-
-  /**
-   * <p>The AWS request ID for this operation.</p>
-   */
-  RequestId?: string;
-
-  /**
-   * <p>A pagination token that can be used in a subsequent request.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace ListUsersResponse {
-  export const filterSensitiveLog = (obj: ListUsersResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface RegisterUserRequest {
-  /**
-   * <p>Amazon QuickSight supports several ways of managing the identity of users. This
-   * 			parameter accepts two values:</p>
-   * 		       <ul>
-   *             <li>
-   * 				           <p>
-   *                   <code>IAM</code>: A user whose identity maps to an existing IAM user or role.
-   * 				</p>
-   * 			         </li>
-   *             <li>
-   * 				           <p>
-   *                   <code>QUICKSIGHT</code>: A user whose identity is owned and managed internally by
-   * 					Amazon QuickSight. </p>
-   * 			         </li>
-   *          </ul>
-   */
-  IdentityType: IdentityType | string | undefined;
-
-  /**
-   * <p>You need to use this parameter only when you register one or more users using an assumed
-   * 			IAM role. You don't need to provide the session name for other scenarios, for example when
-   * 			you are registering an IAM user or an Amazon QuickSight user. You can register multiple
-   * 			users using the same IAM role if each user has a different session name. For more
-   * 			information on assuming IAM roles, see <a href="https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sts/assume-role.html">
-   *                <code>assume-role</code>
-   *             </a> in the <i>AWS CLI Reference.</i>
-   *          </p>
-   */
-  SessionName?: string;
-
-  /**
-   * <p>The ARN of the IAM user or role that you are registering with Amazon QuickSight. </p>
-   */
-  IamArn?: string;
-
-  /**
-   * <p>The Amazon QuickSight role for the user. The user role can be one of the
-   * 			following:</p>
-   * 		       <ul>
-   *             <li>
-   * 				           <p>
-   *                   <code>READER</code>: A user who has read-only access to dashboards.</p>
-   * 			         </li>
-   *             <li>
-   * 				           <p>
-   *                   <code>AUTHOR</code>: A user who can create data sources, datasets, analyses, and
-   * 					dashboards.</p>
-   * 			         </li>
-   *             <li>
-   * 				           <p>
-   *                   <code>ADMIN</code>: A user who is an author, who can also manage Amazon QuickSight
-   * 					settings.</p>
-   * 			         </li>
-   *             <li>
-   * 				           <p>
-   *                   <code>RESTRICTED_READER</code>: This role isn't currently available for
-   * 					use.</p>
-   * 			         </li>
-   *             <li>
-   * 				           <p>
-   *                   <code>RESTRICTED_AUTHOR</code>: This role isn't currently available for
-   * 					use.</p>
-   * 			         </li>
-   *          </ul>
-   */
-  UserRole: UserRole | string | undefined;
-
-  /**
-   * <p>The namespace. Currently, you should set this to <code>default</code>.</p>
-   */
-  Namespace: string | undefined;
-
-  /**
-   * <p>The ID for the AWS account that the user is in. Currently, you use the ID for the AWS
-   * 			account that contains your Amazon QuickSight account.</p>
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>(Enterprise edition only) The name of the custom permissions profile that you want to assign to this user.
-   *         Currently, custom permissions profile names are assigned to permissions profiles in the
-   *         QuickSight console. You use this API to assign the named set of permissions to a
-   *         QuickSight user. </p>
-   *
-   *         <p>Customizing permissions in the QuickSight UI allows you to control a user's access
-   *             to the following operations:</p>
-   *         <ul>
-   *             <li>
-   *                <p></p>
-   *             </li>
-   *             <li>
-   *                <p></p>
-   *             </li>
-   *             <li>
-   *                <p></p>
-   *             </li>
-   *             <li>
-   *                <p></p>
-   *             </li>
-   *          </ul>
-   *         <p>QuickSight custom permissions are applied through IAM policies. Therefore, they
-   *             override the permissions typically granted by assigning QuickSight users to
-   *             one of the default security cohorts (admin, author, reader) in QuickSight.</p>
-   *         <p>This feature is available only to QuickSight Enterprise edition subscriptions that
-   *             use SAML 2.0-Based Federation for Single Sign-On (SSO).</p>
-   */
-  CustomPermissionsName?: string;
-
-  /**
-   * <p>The email address of the user that you want to register.</p>
-   */
-  Email: string | undefined;
-
-  /**
-   * <p>The Amazon QuickSight user name that you want to create for the user you are
-   * 			registering.</p>
-   */
-  UserName?: string;
-}
-
-export namespace RegisterUserRequest {
-  export const filterSensitiveLog = (obj: RegisterUserRequest): any => ({
     ...obj,
   });
 }

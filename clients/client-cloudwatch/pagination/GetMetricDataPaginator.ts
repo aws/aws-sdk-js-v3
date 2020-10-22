@@ -33,7 +33,7 @@ export async function* getMetricDataPaginate(
   let hasNext = true;
   let page: GetMetricDataCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxDatapoints"] = config.pageSize;
     if (config.client instanceof CloudWatch) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* getMetricDataPaginate(
       throw new Error("Invalid client, expected CloudWatch | CloudWatchClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

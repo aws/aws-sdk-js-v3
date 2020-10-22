@@ -364,8 +364,8 @@ export const serializeAws_restJson1ListAssetsCommand = async (
   let resolvedPath = "/assets";
   const query: any = {
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
-    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.PackagingGroupId !== undefined && { packagingGroupId: input.PackagingGroupId }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -390,8 +390,8 @@ export const serializeAws_restJson1ListPackagingConfigurationsCommand = async (
   };
   let resolvedPath = "/packaging_configurations";
   const query: any = {
-    ...(input.PackagingGroupId !== undefined && { packagingGroupId: input.PackagingGroupId }),
     ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
+    ...(input.PackagingGroupId !== undefined && { packagingGroupId: input.PackagingGroupId }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
   };
   let body: any;
@@ -417,8 +417,8 @@ export const serializeAws_restJson1ListPackagingGroupsCommand = async (
   };
   let resolvedPath = "/packaging_groups";
   const query: any = {
-    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
     ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();

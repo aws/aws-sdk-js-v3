@@ -33,7 +33,7 @@ export async function* getLogEventsPaginate(
   let hasNext = true;
   let page: GetLogEventsCommandOutput;
   while (hasNext) {
-    input["nextToken"] = token;
+    input.nextToken = token;
     input["limit"] = config.pageSize;
     if (config.client instanceof CloudWatchLogs) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* getLogEventsPaginate(
       throw new Error("Invalid client, expected CloudWatchLogs | CloudWatchLogsClient");
     }
     yield page;
-    token = page["nextForwardToken"];
+    token = page.nextForwardToken;
     hasNext = !!token;
   }
   // @ts-ignore

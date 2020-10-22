@@ -60,6 +60,9 @@ import {
   InvalidParameterException,
   InvalidRequestException,
   Issue,
+  KubernetesNetworkConfigRequest,
+  KubernetesNetworkConfigResponse,
+  LaunchTemplateSpecification,
   LogSetup,
   LogType,
   Logging,
@@ -109,6 +112,12 @@ export const serializeAws_restJson1CreateClusterCommand = async (
     clientRequestToken: input.clientRequestToken ?? generateIdempotencyToken(),
     ...(input.encryptionConfig !== undefined && {
       encryptionConfig: serializeAws_restJson1EncryptionConfigList(input.encryptionConfig, context),
+    }),
+    ...(input.kubernetesNetworkConfig !== undefined && {
+      kubernetesNetworkConfig: serializeAws_restJson1KubernetesNetworkConfigRequest(
+        input.kubernetesNetworkConfig,
+        context
+      ),
     }),
     ...(input.logging !== undefined && { logging: serializeAws_restJson1Logging(input.logging, context) }),
     ...(input.name !== undefined && { name: input.name }),
@@ -197,6 +206,9 @@ export const serializeAws_restJson1CreateNodegroupCommand = async (
       instanceTypes: serializeAws_restJson1StringList(input.instanceTypes, context),
     }),
     ...(input.labels !== undefined && { labels: serializeAws_restJson1labelsMap(input.labels, context) }),
+    ...(input.launchTemplate !== undefined && {
+      launchTemplate: serializeAws_restJson1LaunchTemplateSpecification(input.launchTemplate, context),
+    }),
     ...(input.nodeRole !== undefined && { nodeRole: input.nodeRole }),
     ...(input.nodegroupName !== undefined && { nodegroupName: input.nodegroupName }),
     ...(input.releaseVersion !== undefined && { releaseVersion: input.releaseVersion }),
@@ -260,15 +272,6 @@ export const serializeAws_restJson1DeleteFargateProfileCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/clusters/{clusterName}/fargate-profiles/{fargateProfileName}";
-  if (input.fargateProfileName !== undefined) {
-    const labelValue: string = input.fargateProfileName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: fargateProfileName.");
-    }
-    resolvedPath = resolvedPath.replace("{fargateProfileName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: fargateProfileName.");
-  }
   if (input.clusterName !== undefined) {
     const labelValue: string = input.clusterName;
     if (labelValue.length <= 0) {
@@ -277,6 +280,15 @@ export const serializeAws_restJson1DeleteFargateProfileCommand = async (
     resolvedPath = resolvedPath.replace("{clusterName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: clusterName.");
+  }
+  if (input.fargateProfileName !== undefined) {
+    const labelValue: string = input.fargateProfileName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: fargateProfileName.");
+    }
+    resolvedPath = resolvedPath.replace("{fargateProfileName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: fargateProfileName.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -299,15 +311,6 @@ export const serializeAws_restJson1DeleteNodegroupCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/clusters/{clusterName}/node-groups/{nodegroupName}";
-  if (input.nodegroupName !== undefined) {
-    const labelValue: string = input.nodegroupName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: nodegroupName.");
-    }
-    resolvedPath = resolvedPath.replace("{nodegroupName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: nodegroupName.");
-  }
   if (input.clusterName !== undefined) {
     const labelValue: string = input.clusterName;
     if (labelValue.length <= 0) {
@@ -316,6 +319,15 @@ export const serializeAws_restJson1DeleteNodegroupCommand = async (
     resolvedPath = resolvedPath.replace("{clusterName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: clusterName.");
+  }
+  if (input.nodegroupName !== undefined) {
+    const labelValue: string = input.nodegroupName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: nodegroupName.");
+    }
+    resolvedPath = resolvedPath.replace("{nodegroupName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: nodegroupName.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -407,15 +419,6 @@ export const serializeAws_restJson1DescribeNodegroupCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/clusters/{clusterName}/node-groups/{nodegroupName}";
-  if (input.nodegroupName !== undefined) {
-    const labelValue: string = input.nodegroupName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: nodegroupName.");
-    }
-    resolvedPath = resolvedPath.replace("{nodegroupName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: nodegroupName.");
-  }
   if (input.clusterName !== undefined) {
     const labelValue: string = input.clusterName;
     if (labelValue.length <= 0) {
@@ -424,6 +427,15 @@ export const serializeAws_restJson1DescribeNodegroupCommand = async (
     resolvedPath = resolvedPath.replace("{clusterName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: clusterName.");
+  }
+  if (input.nodegroupName !== undefined) {
+    const labelValue: string = input.nodegroupName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: nodegroupName.");
+    }
+    resolvedPath = resolvedPath.replace("{nodegroupName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: nodegroupName.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -446,15 +458,6 @@ export const serializeAws_restJson1DescribeUpdateCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/clusters/{name}/updates/{updateId}";
-  if (input.updateId !== undefined) {
-    const labelValue: string = input.updateId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: updateId.");
-    }
-    resolvedPath = resolvedPath.replace("{updateId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: updateId.");
-  }
   if (input.name !== undefined) {
     const labelValue: string = input.name;
     if (labelValue.length <= 0) {
@@ -463,6 +466,15 @@ export const serializeAws_restJson1DescribeUpdateCommand = async (
     resolvedPath = resolvedPath.replace("{name}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: name.");
+  }
+  if (input.updateId !== undefined) {
+    const labelValue: string = input.updateId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: updateId.");
+    }
+    resolvedPath = resolvedPath.replace("{updateId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: updateId.");
   }
   const query: any = {
     ...(input.nodegroupName !== undefined && { nodegroupName: input.nodegroupName }),
@@ -525,8 +537,8 @@ export const serializeAws_restJson1ListFargateProfilesCommand = async (
     throw new Error("No value provided for input HTTP label: clusterName.");
   }
   const query: any = {
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -560,8 +572,8 @@ export const serializeAws_restJson1ListNodegroupsCommand = async (
     throw new Error("No value provided for input HTTP label: clusterName.");
   }
   const query: any = {
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -835,15 +847,6 @@ export const serializeAws_restJson1UpdateNodegroupVersionCommand = async (
     "Content-Type": "application/json",
   };
   let resolvedPath = "/clusters/{clusterName}/node-groups/{nodegroupName}/update-version";
-  if (input.clusterName !== undefined) {
-    const labelValue: string = input.clusterName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: clusterName.");
-    }
-    resolvedPath = resolvedPath.replace("{clusterName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: clusterName.");
-  }
   if (input.nodegroupName !== undefined) {
     const labelValue: string = input.nodegroupName;
     if (labelValue.length <= 0) {
@@ -853,10 +856,22 @@ export const serializeAws_restJson1UpdateNodegroupVersionCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: nodegroupName.");
   }
+  if (input.clusterName !== undefined) {
+    const labelValue: string = input.clusterName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: clusterName.");
+    }
+    resolvedPath = resolvedPath.replace("{clusterName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: clusterName.");
+  }
   let body: any;
   body = JSON.stringify({
     clientRequestToken: input.clientRequestToken ?? generateIdempotencyToken(),
     ...(input.force !== undefined && { force: input.force }),
+    ...(input.launchTemplate !== undefined && {
+      launchTemplate: serializeAws_restJson1LaunchTemplateSpecification(input.launchTemplate, context),
+    }),
     ...(input.releaseVersion !== undefined && { releaseVersion: input.releaseVersion }),
     ...(input.version !== undefined && { version: input.version }),
   });
@@ -2957,6 +2972,15 @@ const serializeAws_restJson1FargateProfileSelectors = (
   return input.map((entry) => serializeAws_restJson1FargateProfileSelector(entry, context));
 };
 
+const serializeAws_restJson1KubernetesNetworkConfigRequest = (
+  input: KubernetesNetworkConfigRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.serviceIpv4Cidr !== undefined && { serviceIpv4Cidr: input.serviceIpv4Cidr }),
+  };
+};
+
 const serializeAws_restJson1labelsKeyList = (input: string[], context: __SerdeContext): any => {
   return input.map((entry) => entry);
 };
@@ -2969,6 +2993,17 @@ const serializeAws_restJson1labelsMap = (input: { [key: string]: string }, conte
     }),
     {}
   );
+};
+
+const serializeAws_restJson1LaunchTemplateSpecification = (
+  input: LaunchTemplateSpecification,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.id !== undefined && { id: input.id }),
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.version !== undefined && { version: input.version }),
+  };
 };
 
 const serializeAws_restJson1Logging = (input: Logging, context: __SerdeContext): any => {
@@ -3095,6 +3130,10 @@ const deserializeAws_restJson1Cluster = (output: any, context: __SerdeContext): 
     identity:
       output.identity !== undefined && output.identity !== null
         ? deserializeAws_restJson1Identity(output.identity, context)
+        : undefined,
+    kubernetesNetworkConfig:
+      output.kubernetesNetworkConfig !== undefined && output.kubernetesNetworkConfig !== null
+        ? deserializeAws_restJson1KubernetesNetworkConfigResponse(output.kubernetesNetworkConfig, context)
         : undefined,
     logging:
       output.logging !== undefined && output.logging !== null
@@ -3241,6 +3280,16 @@ const deserializeAws_restJson1IssueList = (output: any, context: __SerdeContext)
   return (output || []).map((entry: any) => deserializeAws_restJson1Issue(entry, context));
 };
 
+const deserializeAws_restJson1KubernetesNetworkConfigResponse = (
+  output: any,
+  context: __SerdeContext
+): KubernetesNetworkConfigResponse => {
+  return {
+    serviceIpv4Cidr:
+      output.serviceIpv4Cidr !== undefined && output.serviceIpv4Cidr !== null ? output.serviceIpv4Cidr : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1labelsMap = (output: any, context: __SerdeContext): { [key: string]: string } => {
   return Object.entries(output).reduce(
     (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
@@ -3249,6 +3298,17 @@ const deserializeAws_restJson1labelsMap = (output: any, context: __SerdeContext)
     }),
     {}
   );
+};
+
+const deserializeAws_restJson1LaunchTemplateSpecification = (
+  output: any,
+  context: __SerdeContext
+): LaunchTemplateSpecification => {
+  return {
+    id: output.id !== undefined && output.id !== null ? output.id : undefined,
+    name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    version: output.version !== undefined && output.version !== null ? output.version : undefined,
+  } as any;
 };
 
 const deserializeAws_restJson1Logging = (output: any, context: __SerdeContext): Logging => {
@@ -3298,6 +3358,10 @@ const deserializeAws_restJson1Nodegroup = (output: any, context: __SerdeContext)
     labels:
       output.labels !== undefined && output.labels !== null
         ? deserializeAws_restJson1labelsMap(output.labels, context)
+        : undefined,
+    launchTemplate:
+      output.launchTemplate !== undefined && output.launchTemplate !== null
+        ? deserializeAws_restJson1LaunchTemplateSpecification(output.launchTemplate, context)
         : undefined,
     modifiedAt:
       output.modifiedAt !== undefined && output.modifiedAt !== null

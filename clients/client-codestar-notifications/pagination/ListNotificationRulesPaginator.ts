@@ -33,7 +33,7 @@ export async function* listNotificationRulesPaginate(
   let hasNext = true;
   let page: ListNotificationRulesCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof CodestarNotifications) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* listNotificationRulesPaginate(
       throw new Error("Invalid client, expected CodestarNotifications | CodestarNotificationsClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

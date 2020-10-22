@@ -33,7 +33,7 @@ export async function* listRepositoriesPaginate(
   let hasNext = true;
   let page: ListRepositoriesCommandOutput;
   while (hasNext) {
-    input["nextToken"] = token;
+    input.nextToken = token;
     if (config.client instanceof CodeCommit) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
     } else if (config.client instanceof CodeCommitClient) {
@@ -42,7 +42,7 @@ export async function* listRepositoriesPaginate(
       throw new Error("Invalid client, expected CodeCommit | CodeCommitClient");
     }
     yield page;
-    token = page["nextToken"];
+    token = page.nextToken;
     hasNext = !!token;
   }
   // @ts-ignore

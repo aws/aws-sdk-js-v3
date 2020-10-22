@@ -451,10 +451,6 @@ import {
   DeleteModelPackageInput,
   DeleteMonitoringScheduleRequest,
   DeleteNotebookInstanceInput,
-  DeleteNotebookInstanceLifecycleConfigInput,
-  DeleteTagsInput,
-  DeleteTagsOutput,
-  DeleteTrialRequest,
   EndpointInput,
   ExperimentConfig,
   FileSystemDataSource,
@@ -472,6 +468,7 @@ import {
   HyperParameterTuningJobConfig,
   HyperParameterTuningJobObjective,
   HyperParameterTuningJobWarmStartConfig,
+  ImageConfig,
   InferenceSpecification,
   InputConfig,
   IntegerParameterRange,
@@ -485,6 +482,7 @@ import {
   LabelingJobOutputConfig,
   LabelingJobResourceConfig,
   LabelingJobS3DataSource,
+  LabelingJobSnsDataSource,
   LabelingJobStoppingConditions,
   MemberDefinition,
   MetricDefinition,
@@ -568,8 +566,12 @@ import {
   VpcConfig,
 } from "../models/models_0";
 import {
+  DeleteNotebookInstanceLifecycleConfigInput,
+  DeleteTagsInput,
+  DeleteTagsOutput,
   DeleteTrialComponentRequest,
   DeleteTrialComponentResponse,
+  DeleteTrialRequest,
   DeleteTrialResponse,
   DeleteUserProfileRequest,
   DeleteWorkforceRequest,
@@ -10226,6 +10228,9 @@ const serializeAws_json1_1ContainerDefinition = (input: ContainerDefinition, con
       Environment: serializeAws_json1_1EnvironmentMap(input.Environment, context),
     }),
     ...(input.Image !== undefined && { Image: input.Image }),
+    ...(input.ImageConfig !== undefined && {
+      ImageConfig: serializeAws_json1_1ImageConfig(input.ImageConfig, context),
+    }),
     ...(input.Mode !== undefined && { Mode: input.Mode }),
     ...(input.ModelDataUrl !== undefined && { ModelDataUrl: input.ModelDataUrl }),
     ...(input.ModelPackageName !== undefined && { ModelPackageName: input.ModelPackageName }),
@@ -10368,6 +10373,7 @@ const serializeAws_json1_1CreateCompilationJobRequest = (
 
 const serializeAws_json1_1CreateDomainRequest = (input: CreateDomainRequest, context: __SerdeContext): any => {
   return {
+    ...(input.AppNetworkAccessType !== undefined && { AppNetworkAccessType: input.AppNetworkAccessType }),
     ...(input.AuthMode !== undefined && { AuthMode: input.AuthMode }),
     ...(input.DefaultUserSettings !== undefined && {
       DefaultUserSettings: serializeAws_json1_1UserSettings(input.DefaultUserSettings, context),
@@ -11682,6 +11688,12 @@ const serializeAws_json1_1HyperParameterTuningJobWarmStartConfig = (
   };
 };
 
+const serializeAws_json1_1ImageConfig = (input: ImageConfig, context: __SerdeContext): any => {
+  return {
+    ...(input.RepositoryAccessMode !== undefined && { RepositoryAccessMode: input.RepositoryAccessMode }),
+  };
+};
+
 const serializeAws_json1_1InferenceSpecification = (input: InferenceSpecification, context: __SerdeContext): any => {
   return {
     ...(input.Containers !== undefined && {
@@ -11809,6 +11821,9 @@ const serializeAws_json1_1LabelingJobDataSource = (input: LabelingJobDataSource,
     ...(input.S3DataSource !== undefined && {
       S3DataSource: serializeAws_json1_1LabelingJobS3DataSource(input.S3DataSource, context),
     }),
+    ...(input.SnsDataSource !== undefined && {
+      SnsDataSource: serializeAws_json1_1LabelingJobSnsDataSource(input.SnsDataSource, context),
+    }),
   };
 };
 
@@ -11827,6 +11842,7 @@ const serializeAws_json1_1LabelingJobOutputConfig = (input: LabelingJobOutputCon
   return {
     ...(input.KmsKeyId !== undefined && { KmsKeyId: input.KmsKeyId }),
     ...(input.S3OutputPath !== undefined && { S3OutputPath: input.S3OutputPath }),
+    ...(input.SnsTopicArn !== undefined && { SnsTopicArn: input.SnsTopicArn }),
   };
 };
 
@@ -11842,6 +11858,15 @@ const serializeAws_json1_1LabelingJobResourceConfig = (
 const serializeAws_json1_1LabelingJobS3DataSource = (input: LabelingJobS3DataSource, context: __SerdeContext): any => {
   return {
     ...(input.ManifestS3Uri !== undefined && { ManifestS3Uri: input.ManifestS3Uri }),
+  };
+};
+
+const serializeAws_json1_1LabelingJobSnsDataSource = (
+  input: LabelingJobSnsDataSource,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.SnsTopicArn !== undefined && { SnsTopicArn: input.SnsTopicArn }),
   };
 };
 
@@ -14462,6 +14487,10 @@ const deserializeAws_json1_1ContainerDefinition = (output: any, context: __Serde
         ? deserializeAws_json1_1EnvironmentMap(output.Environment, context)
         : undefined,
     Image: output.Image !== undefined && output.Image !== null ? output.Image : undefined,
+    ImageConfig:
+      output.ImageConfig !== undefined && output.ImageConfig !== null
+        ? deserializeAws_json1_1ImageConfig(output.ImageConfig, context)
+        : undefined,
     Mode: output.Mode !== undefined && output.Mode !== null ? output.Mode : undefined,
     ModelDataUrl: output.ModelDataUrl !== undefined && output.ModelDataUrl !== null ? output.ModelDataUrl : undefined,
     ModelPackageName:
@@ -15225,6 +15254,10 @@ const deserializeAws_json1_1DescribeCompilationJobResponse = (
 
 const deserializeAws_json1_1DescribeDomainResponse = (output: any, context: __SerdeContext): DescribeDomainResponse => {
   return {
+    AppNetworkAccessType:
+      output.AppNetworkAccessType !== undefined && output.AppNetworkAccessType !== null
+        ? output.AppNetworkAccessType
+        : undefined,
     AuthMode: output.AuthMode !== undefined && output.AuthMode !== null ? output.AuthMode : undefined,
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null
@@ -16933,6 +16966,15 @@ const deserializeAws_json1_1HyperParameterTuningJobWarmStartConfig = (
   } as any;
 };
 
+const deserializeAws_json1_1ImageConfig = (output: any, context: __SerdeContext): ImageConfig => {
+  return {
+    RepositoryAccessMode:
+      output.RepositoryAccessMode !== undefined && output.RepositoryAccessMode !== null
+        ? output.RepositoryAccessMode
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1InferenceSpecification = (output: any, context: __SerdeContext): InferenceSpecification => {
   return {
     Containers:
@@ -17093,6 +17135,10 @@ const deserializeAws_json1_1LabelingJobDataSource = (output: any, context: __Ser
       output.S3DataSource !== undefined && output.S3DataSource !== null
         ? deserializeAws_json1_1LabelingJobS3DataSource(output.S3DataSource, context)
         : undefined,
+    SnsDataSource:
+      output.SnsDataSource !== undefined && output.SnsDataSource !== null
+        ? deserializeAws_json1_1LabelingJobSnsDataSource(output.SnsDataSource, context)
+        : undefined,
   } as any;
 };
 
@@ -17164,6 +17210,7 @@ const deserializeAws_json1_1LabelingJobOutputConfig = (
   return {
     KmsKeyId: output.KmsKeyId !== undefined && output.KmsKeyId !== null ? output.KmsKeyId : undefined,
     S3OutputPath: output.S3OutputPath !== undefined && output.S3OutputPath !== null ? output.S3OutputPath : undefined,
+    SnsTopicArn: output.SnsTopicArn !== undefined && output.SnsTopicArn !== null ? output.SnsTopicArn : undefined,
   } as any;
 };
 
@@ -17184,6 +17231,15 @@ const deserializeAws_json1_1LabelingJobS3DataSource = (
   return {
     ManifestS3Uri:
       output.ManifestS3Uri !== undefined && output.ManifestS3Uri !== null ? output.ManifestS3Uri : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1LabelingJobSnsDataSource = (
+  output: any,
+  context: __SerdeContext
+): LabelingJobSnsDataSource => {
+  return {
+    SnsTopicArn: output.SnsTopicArn !== undefined && output.SnsTopicArn !== null ? output.SnsTopicArn : undefined,
   } as any;
 };
 

@@ -117,6 +117,7 @@ import {
   ListTaskExecutionsResponse,
   ListTasksRequest,
   ListTasksResponse,
+  LocationFilter,
   LocationListEntry,
   NfsMountOptions,
   OnPremConfig,
@@ -131,6 +132,7 @@ import {
   TagResourceResponse,
   TaskExecutionListEntry,
   TaskExecutionResultDetail,
+  TaskFilter,
   TaskListEntry,
   TaskSchedule,
   UntagResourceRequest,
@@ -2629,6 +2631,7 @@ const serializeAws_json1_1CreateLocationObjectStorageRequest = (
 
 const serializeAws_json1_1CreateLocationS3Request = (input: CreateLocationS3Request, context: __SerdeContext): any => {
   return {
+    ...(input.AgentArns !== undefined && { AgentArns: serializeAws_json1_1AgentArnList(input.AgentArns, context) }),
     ...(input.S3BucketArn !== undefined && { S3BucketArn: input.S3BucketArn }),
     ...(input.S3Config !== undefined && { S3Config: serializeAws_json1_1S3Config(input.S3Config, context) }),
     ...(input.S3StorageClass !== undefined && { S3StorageClass: input.S3StorageClass }),
@@ -2785,6 +2788,10 @@ const serializeAws_json1_1FilterRule = (input: FilterRule, context: __SerdeConte
   };
 };
 
+const serializeAws_json1_1FilterValues = (input: string[], context: __SerdeContext): any => {
+  return input.map((entry) => entry);
+};
+
 const serializeAws_json1_1InputTagList = (input: TagListEntry[], context: __SerdeContext): any => {
   return input.map((entry) => serializeAws_json1_1TagListEntry(entry, context));
 };
@@ -2798,6 +2805,7 @@ const serializeAws_json1_1ListAgentsRequest = (input: ListAgentsRequest, context
 
 const serializeAws_json1_1ListLocationsRequest = (input: ListLocationsRequest, context: __SerdeContext): any => {
   return {
+    ...(input.Filters !== undefined && { Filters: serializeAws_json1_1LocationFilters(input.Filters, context) }),
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
   };
@@ -2827,9 +2835,22 @@ const serializeAws_json1_1ListTaskExecutionsRequest = (
 
 const serializeAws_json1_1ListTasksRequest = (input: ListTasksRequest, context: __SerdeContext): any => {
   return {
+    ...(input.Filters !== undefined && { Filters: serializeAws_json1_1TaskFilters(input.Filters, context) }),
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
   };
+};
+
+const serializeAws_json1_1LocationFilter = (input: LocationFilter, context: __SerdeContext): any => {
+  return {
+    ...(input.Name !== undefined && { Name: input.Name }),
+    ...(input.Operator !== undefined && { Operator: input.Operator }),
+    ...(input.Values !== undefined && { Values: serializeAws_json1_1FilterValues(input.Values, context) }),
+  };
+};
+
+const serializeAws_json1_1LocationFilters = (input: LocationFilter[], context: __SerdeContext): any => {
+  return input.map((entry) => serializeAws_json1_1LocationFilter(entry, context));
 };
 
 const serializeAws_json1_1NfsMountOptions = (input: NfsMountOptions, context: __SerdeContext): any => {
@@ -2911,6 +2932,18 @@ const serializeAws_json1_1TagResourceRequest = (input: TagResourceRequest, conte
     ...(input.ResourceArn !== undefined && { ResourceArn: input.ResourceArn }),
     ...(input.Tags !== undefined && { Tags: serializeAws_json1_1InputTagList(input.Tags, context) }),
   };
+};
+
+const serializeAws_json1_1TaskFilter = (input: TaskFilter, context: __SerdeContext): any => {
+  return {
+    ...(input.Name !== undefined && { Name: input.Name }),
+    ...(input.Operator !== undefined && { Operator: input.Operator }),
+    ...(input.Values !== undefined && { Values: serializeAws_json1_1FilterValues(input.Values, context) }),
+  };
+};
+
+const serializeAws_json1_1TaskFilters = (input: TaskFilter[], context: __SerdeContext): any => {
+  return input.map((entry) => serializeAws_json1_1TaskFilter(entry, context));
 };
 
 const serializeAws_json1_1TaskSchedule = (input: TaskSchedule, context: __SerdeContext): any => {
@@ -3153,6 +3186,10 @@ const deserializeAws_json1_1DescribeLocationS3Response = (
   context: __SerdeContext
 ): DescribeLocationS3Response => {
   return {
+    AgentArns:
+      output.AgentArns !== undefined && output.AgentArns !== null
+        ? deserializeAws_json1_1AgentArnList(output.AgentArns, context)
+        : undefined,
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null
         ? new Date(Math.round(output.CreationTime * 1000))

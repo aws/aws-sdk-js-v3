@@ -1,6 +1,81 @@
 import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
+export enum AccessControlRuleEffect {
+  ALLOW = "ALLOW",
+  DENY = "DENY",
+}
+
+/**
+ * <p>A rule that controls access to an Amazon WorkMail organization.</p>
+ */
+export interface AccessControlRule {
+  /**
+   * <p>Access protocol actions to exclude from the rule. Valid values include
+   *             <code>ActiveSync</code>, <code>AutoDiscover</code>, <code>EWS</code>, <code>IMAP</code>,
+   *             <code>SMTP</code>, <code>WindowsOutlook</code>, and <code>WebMail</code>.</p>
+   */
+  NotActions?: string[];
+
+  /**
+   * <p>The rule description.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>Access protocol actions to include in the rule. Valid values include
+   *             <code>ActiveSync</code>, <code>AutoDiscover</code>, <code>EWS</code>, <code>IMAP</code>,
+   *             <code>SMTP</code>, <code>WindowsOutlook</code>, and <code>WebMail</code>.</p>
+   */
+  Actions?: string[];
+
+  /**
+   * <p>IPv4 CIDR ranges to include in the rule.</p>
+   */
+  IpRanges?: string[];
+
+  /**
+   * <p>The rule effect.</p>
+   */
+  Effect?: AccessControlRuleEffect | string;
+
+  /**
+   * <p>The date that the rule was created.</p>
+   */
+  DateCreated?: Date;
+
+  /**
+   * <p>IPv4 CIDR ranges to exclude from the rule.</p>
+   */
+  NotIpRanges?: string[];
+
+  /**
+   * <p>User IDs to exclude from the rule.</p>
+   */
+  NotUserIds?: string[];
+
+  /**
+   * <p>The date that the rule was modified.</p>
+   */
+  DateModified?: Date;
+
+  /**
+   * <p>User IDs to include in the rule.</p>
+   */
+  UserIds?: string[];
+
+  /**
+   * <p>The rule name.</p>
+   */
+  Name?: string;
+}
+
+export namespace AccessControlRule {
+  export const filterSensitiveLog = (obj: AccessControlRule): any => ({
+    ...obj,
+  });
+}
+
 export interface AssociateDelegateToResourceRequest {
   /**
    * <p>The organization under which the resource exists.</p>
@@ -33,8 +108,8 @@ export namespace AssociateDelegateToResourceResponse {
 }
 
 /**
- * <p>The identifier supplied for the user, group, or resource does not
- *          exist in your organization.</p>
+ * <p>The identifier supplied for the user, group, or resource does not exist in your
+ *          organization.</p>
  */
 export interface EntityNotFoundException extends __SmithyException, $MetadataBearer {
   name: "EntityNotFoundException";
@@ -96,7 +171,7 @@ export namespace OrganizationNotFoundException {
 }
 
 /**
- * <p>The organization must have a valid state (Active or Synchronizing) to perform certain
+ * <p>The organization must have a valid state to perform certain
  *          operations on the organization or its members.</p>
  */
 export interface OrganizationStateException extends __SmithyException, $MetadataBearer {
@@ -118,14 +193,14 @@ export interface AssociateMemberToGroupRequest {
   MemberId: string | undefined;
 
   /**
-   * <p>The group to which the member (user or group) is associated.</p>
-   */
-  GroupId: string | undefined;
-
-  /**
    * <p>The organization under which the group exists.</p>
    */
   OrganizationId: string | undefined;
+
+  /**
+   * <p>The group to which the member (user or group) is associated.</p>
+   */
+  GroupId: string | undefined;
 }
 
 export namespace AssociateMemberToGroupRequest {
@@ -143,8 +218,7 @@ export namespace AssociateMemberToGroupResponse {
 }
 
 /**
- * <p>The directory service doesn't recognize the credentials supplied by
- *          WorkMail.</p>
+ * <p>The directory service doesn't recognize the credentials supplied by WorkMail.</p>
  */
 export interface DirectoryServiceAuthenticationFailedException extends __SmithyException, $MetadataBearer {
   name: "DirectoryServiceAuthenticationFailedException";
@@ -159,8 +233,7 @@ export namespace DirectoryServiceAuthenticationFailedException {
 }
 
 /**
- * <p>The directory on which you are trying to perform operations isn't
- *          available.</p>
+ * <p>The directory is unavailable. It might be located in another Region or deleted.</p>
  */
 export interface DirectoryUnavailableException extends __SmithyException, $MetadataBearer {
   name: "DirectoryUnavailableException";
@@ -195,23 +268,55 @@ export namespace UnsupportedOperationException {
  */
 export interface BookingOptions {
   /**
+   * <p>The resource's ability to automatically decline any conflicting requests.</p>
+   */
+  AutoDeclineConflictingRequests?: boolean;
+
+  /**
    * <p>The resource's ability to automatically decline any recurring requests.</p>
    */
   AutoDeclineRecurringRequests?: boolean;
 
   /**
-   * <p>The resource's ability to automatically reply to requests. If disabled, delegates must be associated to the resource.</p>
+   * <p>The resource's ability to automatically reply to requests. If disabled, delegates
+   *          must be associated to the resource.</p>
    */
   AutoAcceptRequests?: boolean;
-
-  /**
-   * <p>The resource's ability to automatically decline any conflicting requests.</p>
-   */
-  AutoDeclineConflictingRequests?: boolean;
 }
 
 export namespace BookingOptions {
   export const filterSensitiveLog = (obj: BookingOptions): any => ({
+    ...obj,
+  });
+}
+
+export interface CancelMailboxExportJobRequest {
+  /**
+   * <p>The idempotency token for the client request.</p>
+   */
+  ClientToken?: string;
+
+  /**
+   * <p>The organization ID.</p>
+   */
+  OrganizationId: string | undefined;
+
+  /**
+   * <p>The job ID.</p>
+   */
+  JobId: string | undefined;
+}
+
+export namespace CancelMailboxExportJobRequest {
+  export const filterSensitiveLog = (obj: CancelMailboxExportJobRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface CancelMailboxExportJobResponse {}
+
+export namespace CancelMailboxExportJobResponse {
+  export const filterSensitiveLog = (obj: CancelMailboxExportJobResponse): any => ({
     ...obj,
   });
 }
@@ -223,14 +328,14 @@ export interface CreateAliasRequest {
   OrganizationId: string | undefined;
 
   /**
-   * <p>The member (user or group) to which this alias is added.</p>
-   */
-  EntityId: string | undefined;
-
-  /**
    * <p>The alias to add to the member set.</p>
    */
   Alias: string | undefined;
+
+  /**
+   * <p>The member (user or group) to which this alias is added.</p>
+   */
+  EntityId: string | undefined;
 }
 
 export namespace CreateAliasRequest {
@@ -264,8 +369,23 @@ export namespace EmailAddressInUseException {
 }
 
 /**
- * <p>For an email or alias to be created in Amazon WorkMail, the included domain must be
- *          defined in the organization.</p>
+ * <p>The request exceeds the limit of the resource.</p>
+ */
+export interface LimitExceededException extends __SmithyException, $MetadataBearer {
+  name: "LimitExceededException";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace LimitExceededException {
+  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>For an email or alias to be created in Amazon WorkMail, the included domain must be defined
+ *          in the organization.</p>
  */
 export interface MailDomainNotFoundException extends __SmithyException, $MetadataBearer {
   name: "MailDomainNotFoundException";
@@ -356,6 +476,95 @@ export namespace ReservedNameException {
   });
 }
 
+/**
+ * <p>The domain to associate with an Amazon WorkMail organization.</p>
+ *          <p>When you configure a domain hosted in Amazon Route 53 (Route 53), all recommended DNS records are added to the organization when you create it. For more information, see <a href="https://docs.aws.amazon.com/workmail/latest/adminguide/add_domain.html">Adding a domain</a> in the <i>Amazon WorkMail Administrator Guide</i>.</p>
+ */
+export interface Domain {
+  /**
+   * <p>The hosted zone ID for a domain hosted in Route 53. Required when configuring a domain hosted in Route 53.</p>
+   */
+  HostedZoneId?: string;
+
+  /**
+   * <p>The fully qualified domain name.</p>
+   */
+  DomainName?: string;
+}
+
+export namespace Domain {
+  export const filterSensitiveLog = (obj: Domain): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateOrganizationRequest {
+  /**
+   * <p>The organization alias.</p>
+   */
+  Alias: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of a customer managed master key from AWS
+   *          KMS.</p>
+   */
+  KmsKeyArn?: string;
+
+  /**
+   * <p>The AWS Directory Service directory ID.</p>
+   */
+  DirectoryId?: string;
+
+  /**
+   * <p>The email domains to associate with the organization.</p>
+   */
+  Domains?: Domain[];
+
+  /**
+   * <p>When <code>true</code>, allows organization interoperability between Amazon WorkMail and Microsoft Exchange. Can only be set to <code>true</code> if an AD Connector directory ID is included in the request.</p>
+   */
+  EnableInteroperability?: boolean;
+
+  /**
+   * <p>The idempotency token associated with the request.</p>
+   */
+  ClientToken?: string;
+}
+
+export namespace CreateOrganizationRequest {
+  export const filterSensitiveLog = (obj: CreateOrganizationRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateOrganizationResponse {
+  /**
+   * <p>The organization ID.</p>
+   */
+  OrganizationId?: string;
+}
+
+export namespace CreateOrganizationResponse {
+  export const filterSensitiveLog = (obj: CreateOrganizationResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The directory is already in use by another WorkMail organization in the same account and Region.</p>
+ */
+export interface DirectoryInUseException extends __SmithyException, $MetadataBearer {
+  name: "DirectoryInUseException";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace DirectoryInUseException {
+  export const filterSensitiveLog = (obj: DirectoryInUseException): any => ({
+    ...obj,
+  });
+}
+
 export enum ResourceType {
   EQUIPMENT = "EQUIPMENT",
   ROOM = "ROOM",
@@ -369,15 +578,15 @@ export interface CreateResourceRequest {
   Type: ResourceType | string | undefined;
 
   /**
-   * <p>The name of the new resource.</p>
-   */
-  Name: string | undefined;
-
-  /**
    * <p>The identifier associated with the organization for which the resource is
    *          created.</p>
    */
   OrganizationId: string | undefined;
+
+  /**
+   * <p>The name of the new resource.</p>
+   */
+  Name: string | undefined;
 }
 
 export namespace CreateResourceRequest {
@@ -401,14 +610,15 @@ export namespace CreateResourceResponse {
 
 export interface CreateUserRequest {
   /**
+   * <p>The name for the new user. Simple AD or AD Connector user names have a maximum length
+   *          of 20. All others have a maximum length of 64.</p>
+   */
+  Name: string | undefined;
+
+  /**
    * <p>The password for the new user.</p>
    */
   Password: string | undefined;
-
-  /**
-   * <p>The name for the new user. Simple AD or AD Connector user names have a maximum length of 20. All others have a maximum length of 64.</p>
-   */
-  Name: string | undefined;
 
   /**
    * <p>The display name for the new user.</p>
@@ -484,7 +694,39 @@ export namespace Delegate {
   });
 }
 
+export interface DeleteAccessControlRuleRequest {
+  /**
+   * <p>The name of the access control rule.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The identifier for the organization.</p>
+   */
+  OrganizationId: string | undefined;
+}
+
+export namespace DeleteAccessControlRuleRequest {
+  export const filterSensitiveLog = (obj: DeleteAccessControlRuleRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteAccessControlRuleResponse {}
+
+export namespace DeleteAccessControlRuleResponse {
+  export const filterSensitiveLog = (obj: DeleteAccessControlRuleResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface DeleteAliasRequest {
+  /**
+   * <p>The aliases to be removed from the user's set of aliases. Duplicate entries in the
+   *          list are collapsed into single entries (the list is transformed into a set).</p>
+   */
+  Alias: string | undefined;
+
   /**
    * <p>The identifier for the organization under which the user exists.</p>
    */
@@ -495,12 +737,6 @@ export interface DeleteAliasRequest {
    *          removed.</p>
    */
   EntityId: string | undefined;
-
-  /**
-   * <p>The aliases to be removed from the user's set of aliases. Duplicate entries in the
-   *          list are collapsed into single entries (the list is transformed into a set).</p>
-   */
-  Alias: string | undefined;
 }
 
 export namespace DeleteAliasRequest {
@@ -545,21 +781,21 @@ export namespace DeleteGroupResponse {
 
 export interface DeleteMailboxPermissionsRequest {
   /**
-   * <p>The identifier of the member (user or group)that owns the mailbox.</p>
+   * <p>The identifier of the member (user or group) that owns the mailbox.</p>
    */
   EntityId: string | undefined;
-
-  /**
-   * <p>The identifier of the organization under which the member (user or group)
-   *          exists.</p>
-   */
-  OrganizationId: string | undefined;
 
   /**
    * <p>The identifier of the member (user or group) for which to delete granted
    *          permissions.</p>
    */
   GranteeId: string | undefined;
+
+  /**
+   * <p>The identifier of the organization under which the member (user or group)
+   *          exists.</p>
+   */
+  OrganizationId: string | undefined;
 }
 
 export namespace DeleteMailboxPermissionsRequest {
@@ -576,17 +812,58 @@ export namespace DeleteMailboxPermissionsResponse {
   });
 }
 
-export interface DeleteResourceRequest {
+export interface DeleteOrganizationRequest {
   /**
-   * <p>The identifier of the resource to be deleted.</p>
+   * <p>If true, deletes the AWS Directory Service directory associated with the organization.</p>
    */
-  ResourceId: string | undefined;
+  DeleteDirectory: boolean | undefined;
 
+  /**
+   * <p>The organization ID.</p>
+   */
+  OrganizationId: string | undefined;
+
+  /**
+   * <p>The idempotency token associated with the request.</p>
+   */
+  ClientToken?: string;
+}
+
+export namespace DeleteOrganizationRequest {
+  export const filterSensitiveLog = (obj: DeleteOrganizationRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteOrganizationResponse {
+  /**
+   * <p>The organization ID.</p>
+   */
+  OrganizationId?: string;
+
+  /**
+   * <p>The state of the organization.</p>
+   */
+  State?: string;
+}
+
+export namespace DeleteOrganizationResponse {
+  export const filterSensitiveLog = (obj: DeleteOrganizationResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteResourceRequest {
   /**
    * <p>The identifier associated with the organization from which the resource is
    *          deleted.</p>
    */
   OrganizationId: string | undefined;
+
+  /**
+   * <p>The identifier of the resource to be deleted.</p>
+   */
+  ResourceId: string | undefined;
 }
 
 export namespace DeleteResourceRequest {
@@ -603,16 +880,42 @@ export namespace DeleteResourceResponse {
   });
 }
 
-export interface DeleteUserRequest {
+export interface DeleteRetentionPolicyRequest {
   /**
-   * <p>The identifier of the user to be deleted.</p>
+   * <p>The retention policy ID.</p>
    */
-  UserId: string | undefined;
+  Id: string | undefined;
 
+  /**
+   * <p>The organization ID.</p>
+   */
+  OrganizationId: string | undefined;
+}
+
+export namespace DeleteRetentionPolicyRequest {
+  export const filterSensitiveLog = (obj: DeleteRetentionPolicyRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteRetentionPolicyResponse {}
+
+export namespace DeleteRetentionPolicyResponse {
+  export const filterSensitiveLog = (obj: DeleteRetentionPolicyResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteUserRequest {
   /**
    * <p>The organization that contains the user to be deleted.</p>
    */
   OrganizationId: string | undefined;
+
+  /**
+   * <p>The identifier of the user to be deleted.</p>
+   */
+  UserId: string | undefined;
 }
 
 export namespace DeleteUserRequest {
@@ -631,15 +934,14 @@ export namespace DeleteUserResponse {
 
 export interface DeregisterFromWorkMailRequest {
   /**
-   * <p>The identifier for the organization under which the Amazon WorkMail entity
-   *          exists.</p>
-   */
-  OrganizationId: string | undefined;
-
-  /**
    * <p>The identifier for the member (user or group) to be updated.</p>
    */
   EntityId: string | undefined;
+
+  /**
+   * <p>The identifier for the organization under which the Amazon WorkMail entity exists.</p>
+   */
+  OrganizationId: string | undefined;
 }
 
 export namespace DeregisterFromWorkMailRequest {
@@ -687,10 +989,10 @@ export interface DescribeGroupResponse {
   GroupId?: string;
 
   /**
-   * <p>The date and time when a user was deregistered from WorkMail, in UNIX epoch time
+   * <p>The date and time when a user was registered to WorkMail, in UNIX epoch time
    *          format.</p>
    */
-  DisabledDate?: Date;
+  EnabledDate?: Date;
 
   /**
    * <p>The name of the described group.</p>
@@ -698,10 +1000,10 @@ export interface DescribeGroupResponse {
   Name?: string;
 
   /**
-   * <p>The date and time when a user was registered to WorkMail, in UNIX epoch time
+   * <p>The date and time when a user was deregistered from WorkMail, in UNIX epoch time
    *          format.</p>
    */
-  EnabledDate?: Date;
+  DisabledDate?: Date;
 
   /**
    * <p>The email of the described group.</p>
@@ -709,14 +1011,110 @@ export interface DescribeGroupResponse {
   Email?: string;
 
   /**
-   * <p>The state of the user: enabled (registered to Amazon WorkMail) or disabled
-   *          (deregistered or never registered to WorkMail).</p>
+   * <p>The state of the user: enabled (registered to Amazon WorkMail) or disabled (deregistered or
+   *          never registered to WorkMail).</p>
    */
   State?: EntityState | string;
 }
 
 export namespace DescribeGroupResponse {
   export const filterSensitiveLog = (obj: DescribeGroupResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeMailboxExportJobRequest {
+  /**
+   * <p>The mailbox export job ID.</p>
+   */
+  JobId: string | undefined;
+
+  /**
+   * <p>The organization ID.</p>
+   */
+  OrganizationId: string | undefined;
+}
+
+export namespace DescribeMailboxExportJobRequest {
+  export const filterSensitiveLog = (obj: DescribeMailboxExportJobRequest): any => ({
+    ...obj,
+  });
+}
+
+export enum MailboxExportJobState {
+  CANCELLED = "CANCELLED",
+  COMPLETED = "COMPLETED",
+  FAILED = "FAILED",
+  RUNNING = "RUNNING",
+}
+
+export interface DescribeMailboxExportJobResponse {
+  /**
+   * <p>The mailbox export job description.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The ARN of the AWS Identity and Access Management (IAM) role that grants write permission to the Amazon Simple
+   *          Storage Service (Amazon S3) bucket.</p>
+   */
+  RoleArn?: string;
+
+  /**
+   * <p>The identifier of the user or resource associated with the mailbox.</p>
+   */
+  EntityId?: string;
+
+  /**
+   * <p>The path to the S3 bucket and file that the mailbox export job is exporting
+   *          to.</p>
+   */
+  S3Path?: string;
+
+  /**
+   * <p>The mailbox export job end timestamp.</p>
+   */
+  EndTime?: Date;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the symmetric AWS Key Management Service (AWS KMS)
+   *          key that encrypts the exported mailbox content.</p>
+   */
+  KmsKeyArn?: string;
+
+  /**
+   * <p>The estimated progress of the mailbox export job, in percentage points.</p>
+   */
+  EstimatedProgress?: number;
+
+  /**
+   * <p>The name of the S3 bucket.</p>
+   */
+  S3BucketName?: string;
+
+  /**
+   * <p>The state of the mailbox export job.</p>
+   */
+  State?: MailboxExportJobState | string;
+
+  /**
+   * <p>The S3 bucket prefix.</p>
+   */
+  S3Prefix?: string;
+
+  /**
+   * <p>The mailbox export job start timestamp.</p>
+   */
+  StartTime?: Date;
+
+  /**
+   * <p>Error information for failed mailbox export jobs.</p>
+   */
+  ErrorInfo?: string;
+}
+
+export namespace DescribeMailboxExportJobResponse {
+  export const filterSensitiveLog = (obj: DescribeMailboxExportJobResponse): any => ({
     ...obj,
   });
 }
@@ -736,10 +1134,14 @@ export namespace DescribeOrganizationRequest {
 
 export interface DescribeOrganizationResponse {
   /**
-   * <p>The identifier for the directory associated with an Amazon WorkMail
-   *          organization.</p>
+   * <p>The identifier for the directory associated with an Amazon WorkMail organization.</p>
    */
   DirectoryId?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the organization.</p>
+   */
+  ARN?: string;
 
   /**
    * <p>(Optional) The error message indicating if unexpected behavior was encountered with
@@ -748,14 +1150,24 @@ export interface DescribeOrganizationResponse {
   ErrorMessage?: string;
 
   /**
-   * <p>The default mail domain associated with the organization.</p>
+   * <p>The type of directory associated with the WorkMail organization.</p>
    */
-  DefaultMailDomain?: string;
+  DirectoryType?: string;
+
+  /**
+   * <p>The state of an organization.</p>
+   */
+  State?: string;
 
   /**
    * <p>The identifier of an organization.</p>
    */
   OrganizationId?: string;
+
+  /**
+   * <p>The alias for an organization.</p>
+   */
+  Alias?: string;
 
   /**
    * <p>The date at which the organization became usable in the WorkMail context, in UNIX epoch
@@ -764,19 +1176,9 @@ export interface DescribeOrganizationResponse {
   CompletedDate?: Date;
 
   /**
-   * <p>The type of directory associated with the WorkMail organization.</p>
+   * <p>The default mail domain associated with the organization.</p>
    */
-  DirectoryType?: string;
-
-  /**
-   * <p>The alias for an organization.</p>
-   */
-  Alias?: string;
-
-  /**
-   * <p>The state of an organization.</p>
-   */
-  State?: string;
+  DefaultMailDomain?: string;
 }
 
 export namespace DescribeOrganizationResponse {
@@ -806,20 +1208,21 @@ export namespace DescribeResourceRequest {
 
 export interface DescribeResourceResponse {
   /**
+   * <p>The date and time when a resource was disabled from WorkMail, in UNIX epoch time
+   *          format.</p>
+   */
+  DisabledDate?: Date;
+
+  /**
    * <p>The type of the described resource.</p>
    */
   Type?: ResourceType | string;
 
   /**
-   * <p>The name of the described resource.</p>
+   * <p>The state of the resource: enabled (registered to Amazon WorkMail), disabled (deregistered
+   *          or never registered to WorkMail), or deleted.</p>
    */
-  Name?: string;
-
-  /**
-   * <p>The date and time when a resource was disabled from WorkMail, in UNIX epoch time
-   *          format.</p>
-   */
-  DisabledDate?: Date;
+  State?: EntityState | string;
 
   /**
    * <p>The identifier of the described resource.</p>
@@ -827,15 +1230,9 @@ export interface DescribeResourceResponse {
   ResourceId?: string;
 
   /**
-   * <p>The state of the resource: enabled (registered to Amazon WorkMail) or disabled
-   *          (deregistered or never registered to WorkMail).</p>
+   * <p>The email of the described resource.</p>
    */
-  State?: EntityState | string;
-
-  /**
-   * <p>The booking options for the described resource.</p>
-   */
-  BookingOptions?: BookingOptions;
+  Email?: string;
 
   /**
    * <p>The date and time when a resource was enabled for WorkMail, in UNIX epoch time
@@ -844,9 +1241,14 @@ export interface DescribeResourceResponse {
   EnabledDate?: Date;
 
   /**
-   * <p>The email of the described resource.</p>
+   * <p>The booking options for the described resource.</p>
    */
-  Email?: string;
+  BookingOptions?: BookingOptions;
+
+  /**
+   * <p>The name of the described resource.</p>
+   */
+  Name?: string;
 }
 
 export namespace DescribeResourceResponse {
@@ -881,34 +1283,10 @@ export enum UserRole {
 
 export interface DescribeUserResponse {
   /**
-   * <p>The date and time at which the user was disabled for Amazon WorkMail usage, in UNIX epoch time format.</p>
+   * <p>The date and time at which the user was disabled for Amazon WorkMail usage, in UNIX epoch
+   *          time format.</p>
    */
   DisabledDate?: Date;
-
-  /**
-   * <p>The date and time at which the user was enabled for Amazon WorkMail usage, in UNIX epoch time format.</p>
-   */
-  EnabledDate?: Date;
-
-  /**
-   * <p>The email of the user.</p>
-   */
-  Email?: string;
-
-  /**
-   * <p>In certain cases, other entities are modeled as users. If interoperability is
-   *          enabled, resources are imported into Amazon WorkMail as users. Because different
-   *          WorkMail organizations rely on different directory types, administrators can distinguish
-   *          between an unregistered user (account is disabled and has a user role) and the directory
-   *          administrators. The values are USER, RESOURCE, and SYSTEM_USER.</p>
-   */
-  UserRole?: UserRole | string;
-
-  /**
-   * <p>The state of a user: enabled (registered to Amazon WorkMail) or disabled
-   *          (deregistered or never registered to WorkMail).</p>
-   */
-  State?: EntityState | string;
 
   /**
    * <p>The name for the user.</p>
@@ -916,14 +1294,40 @@ export interface DescribeUserResponse {
   Name?: string;
 
   /**
-   * <p>The identifier for the described user.</p>
+   * <p>The date and time at which the user was enabled for Amazon WorkMail usage, in UNIX epoch
+   *          time format.</p>
    */
-  UserId?: string;
+  EnabledDate?: Date;
+
+  /**
+   * <p>In certain cases, other entities are modeled as users. If interoperability is
+   *          enabled, resources are imported into Amazon WorkMail as users. Because different WorkMail
+   *          organizations rely on different directory types, administrators can distinguish between an
+   *          unregistered user (account is disabled and has a user role) and the directory
+   *          administrators. The values are USER, RESOURCE, and SYSTEM_USER.</p>
+   */
+  UserRole?: UserRole | string;
+
+  /**
+   * <p>The state of a user: enabled (registered to Amazon WorkMail) or disabled (deregistered or
+   *          never registered to WorkMail).</p>
+   */
+  State?: EntityState | string;
+
+  /**
+   * <p>The email of the user.</p>
+   */
+  Email?: string;
 
   /**
    * <p>The display name of the user.</p>
    */
   DisplayName?: string;
+
+  /**
+   * <p>The identifier for the described user.</p>
+   */
+  UserId?: string;
 }
 
 export namespace DescribeUserResponse {
@@ -934,17 +1338,19 @@ export namespace DescribeUserResponse {
 
 export interface DisassociateDelegateFromResourceRequest {
   /**
+   * <p>The identifier of the resource from which delegates' set members are removed.
+   *       </p>
+   */
+  ResourceId: string | undefined;
+
+  /**
    * <p>The identifier for the organization under which the resource exists.</p>
    */
   OrganizationId: string | undefined;
 
   /**
-   * <p>The identifier of the resource from which delegates' set members are removed. </p>
-   */
-  ResourceId: string | undefined;
-
-  /**
-   * <p>The identifier for the member (user, group) to be removed from the resource's delegates.</p>
+   * <p>The identifier for the member (user, group) to be removed from the resource's
+   *          delegates.</p>
    */
   EntityId: string | undefined;
 }
@@ -995,7 +1401,8 @@ export namespace DisassociateMemberFromGroupResponse {
 }
 
 /**
- * <p>The user, group, or resource that you're trying to register is already registered.</p>
+ * <p>The user, group, or resource that you're trying to register is already
+ *          registered.</p>
  */
 export interface EntityAlreadyRegisteredException extends __SmithyException, $MetadataBearer {
   name: "EntityAlreadyRegisteredException";
@@ -1005,6 +1412,137 @@ export interface EntityAlreadyRegisteredException extends __SmithyException, $Me
 
 export namespace EntityAlreadyRegisteredException {
   export const filterSensitiveLog = (obj: EntityAlreadyRegisteredException): any => ({
+    ...obj,
+  });
+}
+
+export enum RetentionAction {
+  DELETE = "DELETE",
+  NONE = "NONE",
+  PERMANENTLY_DELETE = "PERMANENTLY_DELETE",
+}
+
+export enum FolderName {
+  DELETED_ITEMS = "DELETED_ITEMS",
+  DRAFTS = "DRAFTS",
+  INBOX = "INBOX",
+  JUNK_EMAIL = "JUNK_EMAIL",
+  SENT_ITEMS = "SENT_ITEMS",
+}
+
+/**
+ * <p>The configuration applied to an organization's folders by its retention
+ *          policy.</p>
+ */
+export interface FolderConfiguration {
+  /**
+   * <p>The action to take on the folder contents at the end of the folder configuration
+   *          period.</p>
+   */
+  Action: RetentionAction | string | undefined;
+
+  /**
+   * <p>The period of time at which the folder configuration action is applied.</p>
+   */
+  Period?: number;
+
+  /**
+   * <p>The folder name.</p>
+   */
+  Name: FolderName | string | undefined;
+}
+
+export namespace FolderConfiguration {
+  export const filterSensitiveLog = (obj: FolderConfiguration): any => ({
+    ...obj,
+  });
+}
+
+export interface GetAccessControlEffectRequest {
+  /**
+   * <p>The access protocol action. Valid values include <code>ActiveSync</code>,
+   *             <code>AutoDiscover</code>, <code>EWS</code>, <code>IMAP</code>, <code>SMTP</code>,
+   *             <code>WindowsOutlook</code>, and <code>WebMail</code>.</p>
+   */
+  Action: string | undefined;
+
+  /**
+   * <p>The identifier for the organization.</p>
+   */
+  OrganizationId: string | undefined;
+
+  /**
+   * <p>The IPv4 address.</p>
+   */
+  IpAddress: string | undefined;
+
+  /**
+   * <p>The user ID.</p>
+   */
+  UserId: string | undefined;
+}
+
+export namespace GetAccessControlEffectRequest {
+  export const filterSensitiveLog = (obj: GetAccessControlEffectRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface GetAccessControlEffectResponse {
+  /**
+   * <p>The rule effect.</p>
+   */
+  Effect?: AccessControlRuleEffect | string;
+
+  /**
+   * <p>The rules that match the given parameters, resulting in an effect.</p>
+   */
+  MatchedRules?: string[];
+}
+
+export namespace GetAccessControlEffectResponse {
+  export const filterSensitiveLog = (obj: GetAccessControlEffectResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface GetDefaultRetentionPolicyRequest {
+  /**
+   * <p>The organization ID.</p>
+   */
+  OrganizationId: string | undefined;
+}
+
+export namespace GetDefaultRetentionPolicyRequest {
+  export const filterSensitiveLog = (obj: GetDefaultRetentionPolicyRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface GetDefaultRetentionPolicyResponse {
+  /**
+   * <p>The retention policy folder configurations.</p>
+   */
+  FolderConfigurations?: FolderConfiguration[];
+
+  /**
+   * <p>The retention policy name.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The retention policy description.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The retention policy ID.</p>
+   */
+  Id?: string;
+}
+
+export namespace GetDefaultRetentionPolicyResponse {
+  export const filterSensitiveLog = (obj: GetDefaultRetentionPolicyResponse): any => ({
     ...obj,
   });
 }
@@ -1051,24 +1589,9 @@ export namespace GetMailboxDetailsResponse {
  */
 export interface Group {
   /**
-   * <p>The state of the group, which can be ENABLED, DISABLED, or DELETED.</p>
+   * <p>The date indicating when the group was disabled from Amazon WorkMail use.</p>
    */
-  State?: EntityState | string;
-
-  /**
-   * <p>The email of the group.</p>
-   */
-  Email?: string;
-
-  /**
-   * <p>The identifier of the group.</p>
-   */
-  Id?: string;
-
-  /**
-   * <p>The date indicating when the group was enabled for Amazon WorkMail use.</p>
-   */
-  EnabledDate?: Date;
+  DisabledDate?: Date;
 
   /**
    * <p>The name of the group.</p>
@@ -1076,9 +1599,24 @@ export interface Group {
   Name?: string;
 
   /**
-   * <p>The date indicating when the group was disabled from Amazon WorkMail use.</p>
+   * <p>The date indicating when the group was enabled for Amazon WorkMail use.</p>
    */
-  DisabledDate?: Date;
+  EnabledDate?: Date;
+
+  /**
+   * <p>The identifier of the group.</p>
+   */
+  Id?: string;
+
+  /**
+   * <p>The email of the group.</p>
+   */
+  Email?: string;
+
+  /**
+   * <p>The state of the group, which can be ENABLED, DISABLED, or DELETED.</p>
+   */
+  State?: EntityState | string;
 }
 
 export namespace Group {
@@ -1100,6 +1638,89 @@ export interface InvalidConfigurationException extends __SmithyException, $Metad
 
 export namespace InvalidConfigurationException {
   export const filterSensitiveLog = (obj: InvalidConfigurationException): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The details of a mailbox export job, including the user or resource ID associated
+ *          with the mailbox and the S3 bucket that the mailbox contents are exported to.</p>
+ */
+export interface MailboxExportJob {
+  /**
+   * <p>The path to the S3 bucket and file that the mailbox export job exports to.</p>
+   */
+  S3Path?: string;
+
+  /**
+   * <p>The identifier of the user or resource associated with the mailbox.</p>
+   */
+  EntityId?: string;
+
+  /**
+   * <p>The mailbox export job end timestamp.</p>
+   */
+  EndTime?: Date;
+
+  /**
+   * <p>The mailbox export job description.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The state of the mailbox export job.</p>
+   */
+  State?: MailboxExportJobState | string;
+
+  /**
+   * <p>The mailbox export job start timestamp.</p>
+   */
+  StartTime?: Date;
+
+  /**
+   * <p>The name of the S3 bucket.</p>
+   */
+  S3BucketName?: string;
+
+  /**
+   * <p>The estimated progress of the mailbox export job, in percentage points.</p>
+   */
+  EstimatedProgress?: number;
+
+  /**
+   * <p>The identifier of the mailbox export job.</p>
+   */
+  JobId?: string;
+}
+
+export namespace MailboxExportJob {
+  export const filterSensitiveLog = (obj: MailboxExportJob): any => ({
+    ...obj,
+  });
+}
+
+export interface ListAccessControlRulesRequest {
+  /**
+   * <p>The identifier for the organization.</p>
+   */
+  OrganizationId: string | undefined;
+}
+
+export namespace ListAccessControlRulesRequest {
+  export const filterSensitiveLog = (obj: ListAccessControlRulesRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListAccessControlRulesResponse {
+  /**
+   * <p>The access control rules.</p>
+   */
+  Rules?: AccessControlRule[];
+}
+
+export namespace ListAccessControlRulesResponse {
+  export const filterSensitiveLog = (obj: ListAccessControlRulesResponse): any => ({
     ...obj,
   });
 }
@@ -1154,7 +1775,8 @@ export namespace ListAliasesResponse {
 
 export interface ListGroupMembersRequest {
   /**
-   * <p>The identifier for the group to which the members (users or groups) are associated.</p>
+   * <p>The identifier for the group to which the members (users or groups) are
+   *          associated.</p>
    */
   GroupId: string | undefined;
 
@@ -1164,15 +1786,15 @@ export interface ListGroupMembersRequest {
   OrganizationId: string | undefined;
 
   /**
-   * <p>The maximum number of results to return in a single call.</p>
-   */
-  MaxResults?: number;
-
-  /**
    * <p> The token to use to retrieve the next page of results. The first call does not
    *          contain any tokens.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return in a single call.</p>
+   */
+  MaxResults?: number;
 }
 
 export namespace ListGroupMembersRequest {
@@ -1191,20 +1813,9 @@ export interface Member {
   State?: EntityState | string;
 
   /**
-   * <p>The identifier of the member.</p>
-   */
-  Id?: string;
-
-  /**
    * <p>The name of the member.</p>
    */
   Name?: string;
-
-  /**
-   * <p>The date indicating when the member was enabled for Amazon WorkMail
-   *          use.</p>
-   */
-  EnabledDate?: Date;
 
   /**
    * <p>A member can be a user or group.</p>
@@ -1212,10 +1823,19 @@ export interface Member {
   Type?: MemberType | string;
 
   /**
-   * <p>The date indicating when the member was disabled from Amazon WorkMail
-   *          use.</p>
+   * <p>The date indicating when the member was disabled from Amazon WorkMail use.</p>
    */
   DisabledDate?: Date;
+
+  /**
+   * <p>The date indicating when the member was enabled for Amazon WorkMail use.</p>
+   */
+  EnabledDate?: Date;
+
+  /**
+   * <p>The identifier of the member.</p>
+   */
+  Id?: string;
 }
 
 export namespace Member {
@@ -1226,15 +1846,15 @@ export namespace Member {
 
 export interface ListGroupMembersResponse {
   /**
-   * <p>The members associated to the group.</p>
-   */
-  Members?: Member[];
-
-  /**
    * <p>The token to use to retrieve the next page of results. The first call does not
    *          contain any tokens.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The members associated to the group.</p>
+   */
+  Members?: Member[];
 }
 
 export namespace ListGroupMembersResponse {
@@ -1251,14 +1871,14 @@ export interface ListGroupsRequest {
   NextToken?: string;
 
   /**
-   * <p>The maximum number of results to return in a single call.</p>
-   */
-  MaxResults?: number;
-
-  /**
    * <p>The identifier for the organization under which the groups exist.</p>
    */
   OrganizationId: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return in a single call.</p>
+   */
+  MaxResults?: number;
 }
 
 export namespace ListGroupsRequest {
@@ -1286,6 +1906,47 @@ export namespace ListGroupsResponse {
   });
 }
 
+export interface ListMailboxExportJobsRequest {
+  /**
+   * <p>The token to use to retrieve the next page of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return in a single call.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The organization ID.</p>
+   */
+  OrganizationId: string | undefined;
+}
+
+export namespace ListMailboxExportJobsRequest {
+  export const filterSensitiveLog = (obj: ListMailboxExportJobsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListMailboxExportJobsResponse {
+  /**
+   * <p>The mailbox export job details.</p>
+   */
+  Jobs?: MailboxExportJob[];
+
+  /**
+   * <p>The token to use to retrieve the next page of results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListMailboxExportJobsResponse {
+  export const filterSensitiveLog = (obj: ListMailboxExportJobsResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface ListMailboxPermissionsRequest {
   /**
    * <p>The identifier of the organization under which the user, group, or resource
@@ -1294,13 +1955,8 @@ export interface ListMailboxPermissionsRequest {
   OrganizationId: string | undefined;
 
   /**
-   * <p>The identifier of the user, group, or resource for which to list mailbox
-   *          permissions.</p>
-   */
-  EntityId: string | undefined;
-
-  /**
-   * <p>The token to use to retrieve the next page of results. The first call does not contain any tokens.</p>
+   * <p>The token to use to retrieve the next page of results. The first call does not
+   *          contain any tokens.</p>
    */
   NextToken?: string;
 
@@ -1308,6 +1964,12 @@ export interface ListMailboxPermissionsRequest {
    * <p>The maximum number of results to return in a single call.</p>
    */
   MaxResults?: number;
+
+  /**
+   * <p>The identifier of the user, group, or resource for which to list mailbox
+   *          permissions.</p>
+   */
+  EntityId: string | undefined;
 }
 
 export namespace ListMailboxPermissionsRequest {
@@ -1328,7 +1990,18 @@ export enum PermissionType {
  */
 export interface Permission {
   /**
-   * <p>The permissions granted to the grantee. SEND_AS allows the grantee to send email as the owner of the mailbox (the grantee is not mentioned on these emails). SEND_ON_BEHALF allows the grantee to send email on behalf of the owner of the mailbox (the grantee is not mentioned as the physical sender of these emails). FULL_ACCESS allows the grantee full access to the mailbox, irrespective of other folder-level permissions set on the mailbox.</p>
+   * <p>The identifier of the user, group, or resource to which the permissions are
+   *          granted.</p>
+   */
+  GranteeId: string | undefined;
+
+  /**
+   * <p>The permissions granted to the grantee. SEND_AS allows the grantee to send email as
+   *          the owner of the mailbox (the grantee is not mentioned on these emails). SEND_ON_BEHALF
+   *          allows the grantee to send email on behalf of the owner of the mailbox (the grantee is not
+   *          mentioned as the physical sender of these emails). FULL_ACCESS allows the grantee full
+   *          access to the mailbox, irrespective of other folder-level permissions set on the
+   *          mailbox.</p>
    */
   PermissionValues: (PermissionType | string)[] | undefined;
 
@@ -1336,12 +2009,6 @@ export interface Permission {
    * <p>The type of user, group, or resource referred to in GranteeId.</p>
    */
   GranteeType: MemberType | string | undefined;
-
-  /**
-   * <p>The identifier of the user, group, or resource to which the permissions are
-   *          granted.</p>
-   */
-  GranteeId: string | undefined;
 }
 
 export namespace Permission {
@@ -1352,14 +2019,15 @@ export namespace Permission {
 
 export interface ListMailboxPermissionsResponse {
   /**
-   * <p>The token to use to retrieve the next page of results. The value is "null" when there are no more results to return.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>One page of the user, group, or resource mailbox permissions.</p>
    */
   Permissions?: Permission[];
+
+  /**
+   * <p>The token to use to retrieve the next page of results. The value is "null" when there
+   *          are no more results to return.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace ListMailboxPermissionsResponse {
@@ -1392,21 +2060,26 @@ export namespace ListOrganizationsRequest {
  */
 export interface OrganizationSummary {
   /**
-   * <p>The error message associated with the organization. It is only  present if unexpected
-   *          behavior has occurred with regards to the organization. It provides insight or solutions
-   *          regarding unexpected behavior.</p>
-   */
-  ErrorMessage?: string;
-
-  /**
    * <p>The state associated with the organization.</p>
    */
   State?: string;
 
   /**
+   * <p>The default email domain associated with the organization.</p>
+   */
+  DefaultMailDomain?: string;
+
+  /**
    * <p>The alias associated with the organization.</p>
    */
   Alias?: string;
+
+  /**
+   * <p>The error message associated with the organization. It is only present if unexpected
+   *          behavior has occurred with regards to the organization. It provides insight or solutions
+   *          regarding unexpected behavior.</p>
+   */
+  ErrorMessage?: string;
 
   /**
    * <p>The identifier associated with the organization.</p>
@@ -1428,7 +2101,8 @@ export interface ListOrganizationsResponse {
   NextToken?: string;
 
   /**
-   * <p>The overview of owned organizations presented as a list of organization summaries.</p>
+   * <p>The overview of owned organizations presented as a list of organization
+   *          summaries.</p>
    */
   OrganizationSummaries?: OrganizationSummary[];
 }
@@ -1446,20 +2120,21 @@ export interface ListResourceDelegatesRequest {
   MaxResults?: number;
 
   /**
-   * <p>The identifier for the organization that contains the resource for which delegates
-   *          are listed.</p>
-   */
-  OrganizationId: string | undefined;
-
-  /**
    * <p>The identifier for the resource whose delegates are listed.</p>
    */
   ResourceId: string | undefined;
 
   /**
-   * <p>The token used to paginate through the delegates associated with a resource.</p>
+   * <p>The token used to paginate through the delegates associated with a
+   *          resource.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The identifier for the organization that contains the resource for which delegates
+   *          are listed.</p>
+   */
+  OrganizationId: string | undefined;
 }
 
 export namespace ListResourceDelegatesRequest {
@@ -1470,16 +2145,16 @@ export namespace ListResourceDelegatesRequest {
 
 export interface ListResourceDelegatesResponse {
   /**
+   * <p>One page of the resource's delegates.</p>
+   */
+  Delegates?: Delegate[];
+
+  /**
    * <p>The token used to paginate through the delegates associated with a resource. While
    *          results are still available, it has an associated value. When the last page is reached, the
    *          token is empty. </p>
    */
   NextToken?: string;
-
-  /**
-   * <p>One page of the resource's delegates.</p>
-   */
-  Delegates?: Delegate[];
 }
 
 export namespace ListResourceDelegatesResponse {
@@ -1490,9 +2165,9 @@ export namespace ListResourceDelegatesResponse {
 
 export interface ListResourcesRequest {
   /**
-   * <p>The maximum number of results to return in a single call.</p>
+   * <p>The identifier for the organization under which the resources exist.</p>
    */
-  MaxResults?: number;
+  OrganizationId: string | undefined;
 
   /**
    * <p>The token to use to retrieve the next page of results. The first call does not
@@ -1501,9 +2176,9 @@ export interface ListResourcesRequest {
   NextToken?: string;
 
   /**
-   * <p>The identifier for the organization under which the resources exist.</p>
+   * <p>The maximum number of results to return in a single call.</p>
    */
-  OrganizationId: string | undefined;
+  MaxResults?: number;
 }
 
 export namespace ListResourcesRequest {
@@ -1522,9 +2197,9 @@ export interface Resource {
   EnabledDate?: Date;
 
   /**
-   * <p>The email of the resource.</p>
+   * <p>The date indicating when the resource was disabled from Amazon WorkMail use.</p>
    */
-  Email?: string;
+  DisabledDate?: Date;
 
   /**
    * <p>The type of the resource: equipment or room.</p>
@@ -1532,10 +2207,9 @@ export interface Resource {
   Type?: ResourceType | string;
 
   /**
-   * <p>The date indicating when the resource was disabled from Amazon WorkMail
-   *          use.</p>
+   * <p>The state of the resource, which can be ENABLED, DISABLED, or DELETED.</p>
    */
-  DisabledDate?: Date;
+  State?: EntityState | string;
 
   /**
    * <p>The name of the resource.</p>
@@ -1548,9 +2222,9 @@ export interface Resource {
   Id?: string;
 
   /**
-   * <p>The state of the resource, which can be ENABLED, DISABLED, or DELETED.</p>
+   * <p>The email of the resource.</p>
    */
-  State?: EntityState | string;
+  Email?: string;
 }
 
 export namespace Resource {
@@ -1579,9 +2253,77 @@ export namespace ListResourcesResponse {
   });
 }
 
+export interface ListTagsForResourceRequest {
+  /**
+   * <p>The resource ARN.</p>
+   */
+  ResourceARN: string | undefined;
+}
+
+export namespace ListTagsForResourceRequest {
+  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes a tag applied to a resource.</p>
+ */
+export interface Tag {
+  /**
+   * <p>The key of the tag.</p>
+   */
+  Key: string | undefined;
+
+  /**
+   * <p>The value of the tag.</p>
+   */
+  Value: string | undefined;
+}
+
+export namespace Tag {
+  export const filterSensitiveLog = (obj: Tag): any => ({
+    ...obj,
+  });
+}
+
+export interface ListTagsForResourceResponse {
+  /**
+   * <p>A list of tag key-value pairs.</p>
+   */
+  Tags?: Tag[];
+}
+
+export namespace ListTagsForResourceResponse {
+  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The resource cannot be found.</p>
+ */
+export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
+  name: "ResourceNotFoundException";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace ResourceNotFoundException {
+  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
+    ...obj,
+  });
+}
+
 export interface ListUsersRequest {
   /**
-   * <p>The token to use to retrieve the next page of results. The first call does not contain any tokens.</p>
+   * <p>The identifier for the organization under which the users exist.</p>
+   */
+  OrganizationId: string | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results. The first call does not
+   *          contain any tokens.</p>
    */
   NextToken?: string;
 
@@ -1589,11 +2331,6 @@ export interface ListUsersRequest {
    * <p>The maximum number of results to return in a single call.</p>
    */
   MaxResults?: number;
-
-  /**
-   * <p>The identifier for the organization under which the users exist.</p>
-   */
-  OrganizationId: string | undefined;
 }
 
 export namespace ListUsersRequest {
@@ -1612,19 +2349,19 @@ export interface User {
   DisplayName?: string;
 
   /**
-   * <p>The state of the user, which can be ENABLED, DISABLED, or DELETED.</p>
-   */
-  State?: EntityState | string;
-
-  /**
    * <p>The name of the user.</p>
    */
   Name?: string;
 
   /**
-   * <p>The role of the user.</p>
+   * <p>The date indicating when the user was disabled from Amazon WorkMail use.</p>
    */
-  UserRole?: UserRole | string;
+  DisabledDate?: Date;
+
+  /**
+   * <p>The date indicating when the user was enabled for Amazon WorkMail use.</p>
+   */
+  EnabledDate?: Date;
 
   /**
    * <p>The identifier of the user.</p>
@@ -1637,14 +2374,14 @@ export interface User {
   Email?: string;
 
   /**
-   * <p>The date indicating when the user was enabled for Amazon WorkMail use.</p>
+   * <p>The state of the user, which can be ENABLED, DISABLED, or DELETED.</p>
    */
-  EnabledDate?: Date;
+  State?: EntityState | string;
 
   /**
-   * <p>The date indicating when the user was disabled from Amazon WorkMail use.</p>
+   * <p>The role of the user.</p>
    */
-  DisabledDate?: Date;
+  UserRole?: UserRole | string;
 }
 
 export namespace User {
@@ -1655,7 +2392,8 @@ export namespace User {
 
 export interface ListUsersResponse {
   /**
-   * <p> The token to use to retrieve the next page of results. This value is `null` when there are no more results to return.</p>
+   * <p> The token to use to retrieve the next page of results. This value is `null` when
+   *          there are no more results to return.</p>
    */
   NextToken?: string;
 
@@ -1667,6 +2405,76 @@ export interface ListUsersResponse {
 
 export namespace ListUsersResponse {
   export const filterSensitiveLog = (obj: ListUsersResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface PutAccessControlRuleRequest {
+  /**
+   * <p>The rule description.</p>
+   */
+  Description: string | undefined;
+
+  /**
+   * <p>User IDs to include in the rule.</p>
+   */
+  UserIds?: string[];
+
+  /**
+   * <p>User IDs to exclude from the rule.</p>
+   */
+  NotUserIds?: string[];
+
+  /**
+   * <p>IPv4 CIDR ranges to exclude from the rule.</p>
+   */
+  NotIpRanges?: string[];
+
+  /**
+   * <p>The rule name.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The rule effect.</p>
+   */
+  Effect: AccessControlRuleEffect | string | undefined;
+
+  /**
+   * <p>IPv4 CIDR ranges to include in the rule.</p>
+   */
+  IpRanges?: string[];
+
+  /**
+   * <p>The identifier of the organization.</p>
+   */
+  OrganizationId: string | undefined;
+
+  /**
+   * <p>Access protocol actions to exclude from the rule. Valid values include
+   *             <code>ActiveSync</code>, <code>AutoDiscover</code>, <code>EWS</code>, <code>IMAP</code>,
+   *             <code>SMTP</code>, <code>WindowsOutlook</code>, and <code>WebMail</code>.</p>
+   */
+  NotActions?: string[];
+
+  /**
+   * <p>Access protocol actions to include in the rule. Valid values include
+   *             <code>ActiveSync</code>, <code>AutoDiscover</code>, <code>EWS</code>, <code>IMAP</code>,
+   *             <code>SMTP</code>, <code>WindowsOutlook</code>, and <code>WebMail</code>.</p>
+   */
+  Actions?: string[];
+}
+
+export namespace PutAccessControlRuleRequest {
+  export const filterSensitiveLog = (obj: PutAccessControlRuleRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface PutAccessControlRuleResponse {}
+
+export namespace PutAccessControlRuleResponse {
+  export const filterSensitiveLog = (obj: PutAccessControlRuleResponse): any => ({
     ...obj,
   });
 }
@@ -1685,7 +2493,12 @@ export interface PutMailboxPermissionsRequest {
   EntityId: string | undefined;
 
   /**
-   * <p>The permissions granted to the grantee. SEND_AS allows the grantee to send email as the owner of the mailbox (the grantee is not mentioned on these emails). SEND_ON_BEHALF allows the grantee to send email on behalf of the owner of the mailbox (the grantee is not mentioned as the physical sender of these emails). FULL_ACCESS allows the grantee full access to the mailbox, irrespective of other folder-level permissions set on the mailbox.</p>
+   * <p>The permissions granted to the grantee. SEND_AS allows the grantee to send email as
+   *          the owner of the mailbox (the grantee is not mentioned on these emails). SEND_ON_BEHALF
+   *          allows the grantee to send email on behalf of the owner of the mailbox (the grantee is not
+   *          mentioned as the physical sender of these emails). FULL_ACCESS allows the grantee full
+   *          access to the mailbox, irrespective of other folder-level permissions set on the
+   *          mailbox.</p>
    */
   PermissionValues: (PermissionType | string)[] | undefined;
 
@@ -1710,7 +2523,54 @@ export namespace PutMailboxPermissionsResponse {
   });
 }
 
+export interface PutRetentionPolicyRequest {
+  /**
+   * <p>The retention policy name.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The retention policy ID.</p>
+   */
+  Id?: string;
+
+  /**
+   * <p>The organization ID.</p>
+   */
+  OrganizationId: string | undefined;
+
+  /**
+   * <p>The retention policy description.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The retention policy folder configurations.</p>
+   */
+  FolderConfigurations: FolderConfiguration[] | undefined;
+}
+
+export namespace PutRetentionPolicyRequest {
+  export const filterSensitiveLog = (obj: PutRetentionPolicyRequest): any => ({
+    ...obj,
+    ...(obj.Description && { Description: SENSITIVE_STRING }),
+  });
+}
+
+export interface PutRetentionPolicyResponse {}
+
+export namespace PutRetentionPolicyResponse {
+  export const filterSensitiveLog = (obj: PutRetentionPolicyResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface RegisterToWorkMailRequest {
+  /**
+   * <p>The identifier for the user, group, or resource to be updated.</p>
+   */
+  EntityId: string | undefined;
+
   /**
    * <p>The email for the user, group, or resource to be updated.</p>
    */
@@ -1721,11 +2581,6 @@ export interface RegisterToWorkMailRequest {
    *          exists.</p>
    */
   OrganizationId: string | undefined;
-
-  /**
-   * <p>The identifier for the user, group, or resource to be updated.</p>
-   */
-  EntityId: string | undefined;
 }
 
 export namespace RegisterToWorkMailRequest {
@@ -1744,15 +2599,15 @@ export namespace RegisterToWorkMailResponse {
 
 export interface ResetPasswordRequest {
   /**
+   * <p>The identifier of the user for whom the password is reset.</p>
+   */
+  UserId: string | undefined;
+
+  /**
    * <p>The identifier of the organization that contains the user for which the password is
    *          reset.</p>
    */
   OrganizationId: string | undefined;
-
-  /**
-   * <p>The identifier of the user for whom the password is reset.</p>
-   */
-  UserId: string | undefined;
 
   /**
    * <p>The new password for the user.</p>
@@ -1775,6 +2630,136 @@ export namespace ResetPasswordResponse {
   });
 }
 
+export interface StartMailboxExportJobRequest {
+  /**
+   * <p>The identifier of the user or resource associated with the mailbox.</p>
+   */
+  EntityId: string | undefined;
+
+  /**
+   * <p>The mailbox export job description.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The ARN of the AWS Identity and Access Management (IAM) role that grants write permission to the S3
+   *          bucket.</p>
+   */
+  RoleArn: string | undefined;
+
+  /**
+   * <p>The idempotency token for the client request.</p>
+   */
+  ClientToken?: string;
+
+  /**
+   * <p>The name of the S3 bucket.</p>
+   */
+  S3BucketName: string | undefined;
+
+  /**
+   * <p>The S3 bucket prefix.</p>
+   */
+  S3Prefix: string | undefined;
+
+  /**
+   * <p>The identifier associated with the organization.</p>
+   */
+  OrganizationId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the symmetric AWS Key Management Service (AWS KMS)
+   *          key that encrypts the exported mailbox content.</p>
+   */
+  KmsKeyArn: string | undefined;
+}
+
+export namespace StartMailboxExportJobRequest {
+  export const filterSensitiveLog = (obj: StartMailboxExportJobRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface StartMailboxExportJobResponse {
+  /**
+   * <p>The job ID.</p>
+   */
+  JobId?: string;
+}
+
+export namespace StartMailboxExportJobResponse {
+  export const filterSensitiveLog = (obj: StartMailboxExportJobResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface TagResourceRequest {
+  /**
+   * <p>The tag key-value pairs.</p>
+   */
+  Tags: Tag[] | undefined;
+
+  /**
+   * <p>The resource ARN.</p>
+   */
+  ResourceARN: string | undefined;
+}
+
+export namespace TagResourceRequest {
+  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface TagResourceResponse {}
+
+export namespace TagResourceResponse {
+  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The resource can have up to 50 user-applied tags.</p>
+ */
+export interface TooManyTagsException extends __SmithyException, $MetadataBearer {
+  name: "TooManyTagsException";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace TooManyTagsException {
+  export const filterSensitiveLog = (obj: TooManyTagsException): any => ({
+    ...obj,
+  });
+}
+
+export interface UntagResourceRequest {
+  /**
+   * <p>The resource ARN.</p>
+   */
+  ResourceARN: string | undefined;
+
+  /**
+   * <p>The tag keys.</p>
+   */
+  TagKeys: string[] | undefined;
+}
+
+export namespace UntagResourceRequest {
+  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UntagResourceResponse {}
+
+export namespace UntagResourceResponse {
+  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface UpdateMailboxQuotaRequest {
   /**
    * <p>The identifer for the user for whom to update the mailbox quota.</p>
@@ -1782,7 +2767,8 @@ export interface UpdateMailboxQuotaRequest {
   UserId: string | undefined;
 
   /**
-   * <p>The identifier for the organization that contains the user for whom to update the mailbox quota.</p>
+   * <p>The identifier for the organization that contains the user for whom to update the
+   *          mailbox quota.</p>
    */
   OrganizationId: string | undefined;
 
@@ -1839,25 +2825,25 @@ export namespace UpdatePrimaryEmailAddressResponse {
 
 export interface UpdateResourceRequest {
   /**
+   * <p>The name of the resource to be updated.</p>
+   */
+  Name?: string;
+
+  /**
    * <p>The identifier of the resource to be updated.</p>
    */
   ResourceId: string | undefined;
+
+  /**
+   * <p>The resource's booking options to be updated.</p>
+   */
+  BookingOptions?: BookingOptions;
 
   /**
    * <p>The identifier associated with the organization for which the resource is
    *          updated.</p>
    */
   OrganizationId: string | undefined;
-
-  /**
-   * <p>The name of the resource to be updated.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>The resource's booking options to be updated.</p>
-   */
-  BookingOptions?: BookingOptions;
 }
 
 export namespace UpdateResourceRequest {

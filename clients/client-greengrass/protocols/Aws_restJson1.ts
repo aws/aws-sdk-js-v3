@@ -191,6 +191,10 @@ import {
   GetSubscriptionDefinitionVersionCommandOutput,
 } from "../commands/GetSubscriptionDefinitionVersionCommand";
 import {
+  GetThingRuntimeConfigurationCommandInput,
+  GetThingRuntimeConfigurationCommandOutput,
+} from "../commands/GetThingRuntimeConfigurationCommand";
+import {
   ListBulkDeploymentDetailedReportsCommandInput,
   ListBulkDeploymentDetailedReportsCommandOutput,
 } from "../commands/ListBulkDeploymentDetailedReportsCommand";
@@ -311,6 +315,10 @@ import {
   UpdateSubscriptionDefinitionCommandOutput,
 } from "../commands/UpdateSubscriptionDefinitionCommand";
 import {
+  UpdateThingRuntimeConfigurationCommandInput,
+  UpdateThingRuntimeConfigurationCommandOutput,
+} from "../commands/UpdateThingRuntimeConfigurationCommand";
+import {
   BadRequestException,
   BulkDeployment,
   BulkDeploymentMetrics,
@@ -347,11 +355,14 @@ import {
   ResourceDataContainer,
   ResourceDefinitionVersion,
   ResourceDownloadOwnerSetting,
+  RuntimeConfiguration,
   S3MachineLearningModelResourceData,
   SageMakerMachineLearningModelResourceData,
   SecretsManagerSecretResourceData,
   Subscription,
   SubscriptionDefinitionVersion,
+  TelemetryConfiguration,
+  TelemetryConfigurationUpdate,
   VersionInformation,
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
@@ -1553,15 +1564,6 @@ export const serializeAws_restJson1GetCoreDefinitionVersionCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/greengrass/definition/cores/{CoreDefinitionId}/versions/{CoreDefinitionVersionId}";
-  if (input.CoreDefinitionId !== undefined) {
-    const labelValue: string = input.CoreDefinitionId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: CoreDefinitionId.");
-    }
-    resolvedPath = resolvedPath.replace("{CoreDefinitionId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: CoreDefinitionId.");
-  }
   if (input.CoreDefinitionVersionId !== undefined) {
     const labelValue: string = input.CoreDefinitionVersionId;
     if (labelValue.length <= 0) {
@@ -1570,6 +1572,15 @@ export const serializeAws_restJson1GetCoreDefinitionVersionCommand = async (
     resolvedPath = resolvedPath.replace("{CoreDefinitionVersionId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: CoreDefinitionVersionId.");
+  }
+  if (input.CoreDefinitionId !== undefined) {
+    const labelValue: string = input.CoreDefinitionId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: CoreDefinitionId.");
+    }
+    resolvedPath = resolvedPath.replace("{CoreDefinitionId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: CoreDefinitionId.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1592,15 +1603,6 @@ export const serializeAws_restJson1GetDeploymentStatusCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/greengrass/groups/{GroupId}/deployments/{DeploymentId}/status";
-  if (input.DeploymentId !== undefined) {
-    const labelValue: string = input.DeploymentId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: DeploymentId.");
-    }
-    resolvedPath = resolvedPath.replace("{DeploymentId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: DeploymentId.");
-  }
   if (input.GroupId !== undefined) {
     const labelValue: string = input.GroupId;
     if (labelValue.length <= 0) {
@@ -1609,6 +1611,15 @@ export const serializeAws_restJson1GetDeploymentStatusCommand = async (
     resolvedPath = resolvedPath.replace("{GroupId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: GroupId.");
+  }
+  if (input.DeploymentId !== undefined) {
+    const labelValue: string = input.DeploymentId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: DeploymentId.");
+    }
+    resolvedPath = resolvedPath.replace("{DeploymentId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: DeploymentId.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1661,15 +1672,6 @@ export const serializeAws_restJson1GetDeviceDefinitionVersionCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/greengrass/definition/devices/{DeviceDefinitionId}/versions/{DeviceDefinitionVersionId}";
-  if (input.DeviceDefinitionVersionId !== undefined) {
-    const labelValue: string = input.DeviceDefinitionVersionId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: DeviceDefinitionVersionId.");
-    }
-    resolvedPath = resolvedPath.replace("{DeviceDefinitionVersionId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: DeviceDefinitionVersionId.");
-  }
   if (input.DeviceDefinitionId !== undefined) {
     const labelValue: string = input.DeviceDefinitionId;
     if (labelValue.length <= 0) {
@@ -1678,6 +1680,15 @@ export const serializeAws_restJson1GetDeviceDefinitionVersionCommand = async (
     resolvedPath = resolvedPath.replace("{DeviceDefinitionId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: DeviceDefinitionId.");
+  }
+  if (input.DeviceDefinitionVersionId !== undefined) {
+    const labelValue: string = input.DeviceDefinitionVersionId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: DeviceDefinitionVersionId.");
+    }
+    resolvedPath = resolvedPath.replace("{DeviceDefinitionVersionId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: DeviceDefinitionVersionId.");
   }
   const query: any = {
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
@@ -1807,15 +1818,6 @@ export const serializeAws_restJson1GetGroupCertificateAuthorityCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/greengrass/groups/{GroupId}/certificateauthorities/{CertificateAuthorityId}";
-  if (input.CertificateAuthorityId !== undefined) {
-    const labelValue: string = input.CertificateAuthorityId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: CertificateAuthorityId.");
-    }
-    resolvedPath = resolvedPath.replace("{CertificateAuthorityId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: CertificateAuthorityId.");
-  }
   if (input.GroupId !== undefined) {
     const labelValue: string = input.GroupId;
     if (labelValue.length <= 0) {
@@ -1824,6 +1826,15 @@ export const serializeAws_restJson1GetGroupCertificateAuthorityCommand = async (
     resolvedPath = resolvedPath.replace("{GroupId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: GroupId.");
+  }
+  if (input.CertificateAuthorityId !== undefined) {
+    const labelValue: string = input.CertificateAuthorityId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: CertificateAuthorityId.");
+    }
+    resolvedPath = resolvedPath.replace("{CertificateAuthorityId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: CertificateAuthorityId.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1945,15 +1956,6 @@ export const serializeAws_restJson1GetLoggerDefinitionVersionCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/greengrass/definition/loggers/{LoggerDefinitionId}/versions/{LoggerDefinitionVersionId}";
-  if (input.LoggerDefinitionId !== undefined) {
-    const labelValue: string = input.LoggerDefinitionId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: LoggerDefinitionId.");
-    }
-    resolvedPath = resolvedPath.replace("{LoggerDefinitionId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: LoggerDefinitionId.");
-  }
   if (input.LoggerDefinitionVersionId !== undefined) {
     const labelValue: string = input.LoggerDefinitionVersionId;
     if (labelValue.length <= 0) {
@@ -1962,6 +1964,15 @@ export const serializeAws_restJson1GetLoggerDefinitionVersionCommand = async (
     resolvedPath = resolvedPath.replace("{LoggerDefinitionVersionId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: LoggerDefinitionVersionId.");
+  }
+  if (input.LoggerDefinitionId !== undefined) {
+    const labelValue: string = input.LoggerDefinitionId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: LoggerDefinitionId.");
+    }
+    resolvedPath = resolvedPath.replace("{LoggerDefinitionId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: LoggerDefinitionId.");
   }
   const query: any = {
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
@@ -2145,6 +2156,36 @@ export const serializeAws_restJson1GetSubscriptionDefinitionVersionCommand = asy
   });
 };
 
+export const serializeAws_restJson1GetThingRuntimeConfigurationCommand = async (
+  input: GetThingRuntimeConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "",
+  };
+  let resolvedPath = "/greengrass/things/{ThingName}/runtimeconfig";
+  if (input.ThingName !== undefined) {
+    const labelValue: string = input.ThingName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: ThingName.");
+    }
+    resolvedPath = resolvedPath.replace("{ThingName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: ThingName.");
+  }
+  let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1ListBulkDeploymentDetailedReportsCommand = async (
   input: ListBulkDeploymentDetailedReportsCommandInput,
   context: __SerdeContext
@@ -2163,8 +2204,8 @@ export const serializeAws_restJson1ListBulkDeploymentDetailedReportsCommand = as
     throw new Error("No value provided for input HTTP label: BulkDeploymentId.");
   }
   const query: any = {
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -2189,8 +2230,8 @@ export const serializeAws_restJson1ListBulkDeploymentsCommand = async (
   };
   let resolvedPath = "/greengrass/bulk/deployments";
   const query: any = {
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -2276,8 +2317,8 @@ export const serializeAws_restJson1ListCoreDefinitionsCommand = async (
   };
   let resolvedPath = "/greengrass/definition/cores";
   const query: any = {
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -2346,8 +2387,8 @@ export const serializeAws_restJson1ListDeploymentsCommand = async (
     throw new Error("No value provided for input HTTP label: GroupId.");
   }
   const query: any = {
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -2620,8 +2661,8 @@ export const serializeAws_restJson1ListLoggerDefinitionVersionsCommand = async (
     throw new Error("No value provided for input HTTP label: LoggerDefinitionId.");
   }
   const query: any = {
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -3268,6 +3309,41 @@ export const serializeAws_restJson1UpdateSubscriptionDefinitionCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.Name !== undefined && { Name: input.Name }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1UpdateThingRuntimeConfigurationCommand = async (
+  input: UpdateThingRuntimeConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+  };
+  let resolvedPath = "/greengrass/things/{ThingName}/runtimeconfig";
+  if (input.ThingName !== undefined) {
+    const labelValue: string = input.ThingName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: ThingName.");
+    }
+    resolvedPath = resolvedPath.replace("{ThingName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: ThingName.");
+  }
+  let body: any;
+  body = JSON.stringify({
+    ...(input.TelemetryConfiguration !== undefined && {
+      TelemetryConfiguration: serializeAws_restJson1TelemetryConfigurationUpdate(input.TelemetryConfiguration, context),
+    }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -7030,6 +7106,69 @@ const deserializeAws_restJson1GetSubscriptionDefinitionVersionCommandError = asy
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1GetThingRuntimeConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetThingRuntimeConfigurationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1GetThingRuntimeConfigurationCommandError(output, context);
+  }
+  const contents: GetThingRuntimeConfigurationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    RuntimeConfiguration: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.RuntimeConfiguration !== undefined && data.RuntimeConfiguration !== null) {
+    contents.RuntimeConfiguration = deserializeAws_restJson1RuntimeConfiguration(data.RuntimeConfiguration, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1GetThingRuntimeConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetThingRuntimeConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.greengrass#BadRequestException":
+      response = {
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerErrorException":
+    case "com.amazonaws.greengrass#InternalServerErrorException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1ListBulkDeploymentDetailedReportsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -9028,6 +9167,65 @@ const deserializeAws_restJson1UpdateSubscriptionDefinitionCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1UpdateThingRuntimeConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateThingRuntimeConfigurationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1UpdateThingRuntimeConfigurationCommandError(output, context);
+  }
+  const contents: UpdateThingRuntimeConfigurationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1UpdateThingRuntimeConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateThingRuntimeConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.greengrass#BadRequestException":
+      response = {
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerErrorException":
+    case "com.amazonaws.greengrass#InternalServerErrorException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 const deserializeAws_restJson1BadRequestExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -9488,6 +9686,15 @@ const serializeAws_restJson1Tags = (input: { [key: string]: string }, context: _
     }),
     {}
   );
+};
+
+const serializeAws_restJson1TelemetryConfigurationUpdate = (
+  input: TelemetryConfigurationUpdate,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Telemetry !== undefined && { Telemetry: input.Telemetry }),
+  };
 };
 
 const serializeAws_restJson1UpdateTargets = (input: string[], context: __SerdeContext): any => {
@@ -10065,6 +10272,15 @@ const deserializeAws_restJson1ResourceDownloadOwnerSetting = (
   } as any;
 };
 
+const deserializeAws_restJson1RuntimeConfiguration = (output: any, context: __SerdeContext): RuntimeConfiguration => {
+  return {
+    TelemetryConfiguration:
+      output.TelemetryConfiguration !== undefined && output.TelemetryConfiguration !== null
+        ? deserializeAws_restJson1TelemetryConfiguration(output.TelemetryConfiguration, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1S3MachineLearningModelResourceData = (
   output: any,
   context: __SerdeContext
@@ -10138,6 +10354,19 @@ const deserializeAws_restJson1Tags = (output: any, context: __SerdeContext): { [
     }),
     {}
   );
+};
+
+const deserializeAws_restJson1TelemetryConfiguration = (
+  output: any,
+  context: __SerdeContext
+): TelemetryConfiguration => {
+  return {
+    ConfigurationSyncStatus:
+      output.ConfigurationSyncStatus !== undefined && output.ConfigurationSyncStatus !== null
+        ? output.ConfigurationSyncStatus
+        : undefined,
+    Telemetry: output.Telemetry !== undefined && output.Telemetry !== null ? output.Telemetry : undefined,
+  } as any;
 };
 
 const deserializeAws_restJson1VersionInformation = (output: any, context: __SerdeContext): VersionInformation => {

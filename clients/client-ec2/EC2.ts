@@ -206,6 +206,11 @@ import {
   CreateCapacityReservationCommandOutput,
 } from "./commands/CreateCapacityReservationCommand";
 import {
+  CreateCarrierGatewayCommand,
+  CreateCarrierGatewayCommandInput,
+  CreateCarrierGatewayCommandOutput,
+} from "./commands/CreateCarrierGatewayCommand";
+import {
   CreateClientVpnEndpointCommand,
   CreateClientVpnEndpointCommandInput,
   CreateClientVpnEndpointCommandOutput,
@@ -395,6 +400,11 @@ import {
   CreateTransitGatewayPeeringAttachmentCommandOutput,
 } from "./commands/CreateTransitGatewayPeeringAttachmentCommand";
 import {
+  CreateTransitGatewayPrefixListReferenceCommand,
+  CreateTransitGatewayPrefixListReferenceCommandInput,
+  CreateTransitGatewayPrefixListReferenceCommandOutput,
+} from "./commands/CreateTransitGatewayPrefixListReferenceCommand";
+import {
   CreateTransitGatewayRouteCommand,
   CreateTransitGatewayRouteCommandInput,
   CreateTransitGatewayRouteCommandOutput,
@@ -450,6 +460,11 @@ import {
   CreateVpnGatewayCommandInput,
   CreateVpnGatewayCommandOutput,
 } from "./commands/CreateVpnGatewayCommand";
+import {
+  DeleteCarrierGatewayCommand,
+  DeleteCarrierGatewayCommandInput,
+  DeleteCarrierGatewayCommandOutput,
+} from "./commands/DeleteCarrierGatewayCommand";
 import {
   DeleteClientVpnEndpointCommand,
   DeleteClientVpnEndpointCommandInput,
@@ -623,6 +638,11 @@ import {
   DeleteTransitGatewayPeeringAttachmentCommandOutput,
 } from "./commands/DeleteTransitGatewayPeeringAttachmentCommand";
 import {
+  DeleteTransitGatewayPrefixListReferenceCommand,
+  DeleteTransitGatewayPrefixListReferenceCommandInput,
+  DeleteTransitGatewayPrefixListReferenceCommandOutput,
+} from "./commands/DeleteTransitGatewayPrefixListReferenceCommand";
+import {
   DeleteTransitGatewayRouteCommand,
   DeleteTransitGatewayRouteCommandInput,
   DeleteTransitGatewayRouteCommandOutput,
@@ -738,6 +758,11 @@ import {
   DescribeCapacityReservationsCommandInput,
   DescribeCapacityReservationsCommandOutput,
 } from "./commands/DescribeCapacityReservationsCommand";
+import {
+  DescribeCarrierGatewaysCommand,
+  DescribeCarrierGatewaysCommandInput,
+  DescribeCarrierGatewaysCommandOutput,
+} from "./commands/DescribeCarrierGatewaysCommand";
 import {
   DescribeClassicLinkInstancesCommand,
   DescribeClassicLinkInstancesCommandInput,
@@ -1505,6 +1530,11 @@ import {
   GetTransitGatewayMulticastDomainAssociationsCommandOutput,
 } from "./commands/GetTransitGatewayMulticastDomainAssociationsCommand";
 import {
+  GetTransitGatewayPrefixListReferencesCommand,
+  GetTransitGatewayPrefixListReferencesCommandInput,
+  GetTransitGatewayPrefixListReferencesCommandOutput,
+} from "./commands/GetTransitGatewayPrefixListReferencesCommand";
+import {
   GetTransitGatewayRouteTableAssociationsCommand,
   GetTransitGatewayRouteTableAssociationsCommandInput,
   GetTransitGatewayRouteTableAssociationsCommandOutput,
@@ -1668,6 +1698,16 @@ import {
   ModifyTrafficMirrorSessionCommandOutput,
 } from "./commands/ModifyTrafficMirrorSessionCommand";
 import {
+  ModifyTransitGatewayCommand,
+  ModifyTransitGatewayCommandInput,
+  ModifyTransitGatewayCommandOutput,
+} from "./commands/ModifyTransitGatewayCommand";
+import {
+  ModifyTransitGatewayPrefixListReferenceCommand,
+  ModifyTransitGatewayPrefixListReferenceCommandInput,
+  ModifyTransitGatewayPrefixListReferenceCommandOutput,
+} from "./commands/ModifyTransitGatewayPrefixListReferenceCommand";
+import {
   ModifyTransitGatewayVpcAttachmentCommand,
   ModifyTransitGatewayVpcAttachmentCommandInput,
   ModifyTransitGatewayVpcAttachmentCommandOutput,
@@ -1722,6 +1762,11 @@ import {
   ModifyVpnConnectionCommandInput,
   ModifyVpnConnectionCommandOutput,
 } from "./commands/ModifyVpnConnectionCommand";
+import {
+  ModifyVpnConnectionOptionsCommand,
+  ModifyVpnConnectionOptionsCommandInput,
+  ModifyVpnConnectionOptionsCommandOutput,
+} from "./commands/ModifyVpnConnectionOptionsCommand";
 import {
   ModifyVpnTunnelCertificateCommand,
   ModifyVpnTunnelCertificateCommandInput,
@@ -2257,6 +2302,7 @@ export class EC2 extends EC2Client {
    *          <p>An Elastic IP address is for use either in the EC2-Classic platform or in a VPC. By default, you can allocate
    *          5 Elastic IP addresses for EC2-Classic per Region and 5 Elastic IP addresses for EC2-VPC per Region.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html">Elastic IP Addresses</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *          <p>You can allocate a carrier IP address which is a public IP address from a telecommunication carrier, to a network interface which resides in a subnet in a Wavelength Zone (for example an EC2 instance). </p>
    */
   public allocateAddress(
     args: AllocateAddressCommandInput,
@@ -2438,8 +2484,9 @@ export class EC2 extends EC2Client {
   }
 
   /**
-   * <p>Associates an Elastic IP address with an instance or a network interface. Before you can
-   *       use an Elastic IP address, you must allocate it to your account.</p>
+   * <p>Associates an Elastic IP address, or carrier IP address (for instances that are in
+   *       subnets in Wavelength Zones) with an instance or a network interface. Before you can use an
+   *       Elastic IP address, you must allocate it to your account.</p>
    *          <p>An Elastic IP address is for use in either the EC2-Classic platform or in a VPC.
    * 			For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html">Elastic IP Addresses</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    *          <p>[EC2-Classic, VPC in an EC2-VPC-only account] If the Elastic IP address is already
@@ -2452,6 +2499,8 @@ export class EC2 extends EC2Client {
    *       associated with a different instance or a network interface, you get an error unless you allow
    *       reassociation. You cannot associate an Elastic IP address with an instance or network
    *       interface that has an existing Elastic IP address.</p>
+   *          <p>[Subnets in Wavelength Zones] You can associate an IP address from the telecommunication
+   *       carrier to the instance or network interface. </p>
    *          <p>You cannot associate an Elastic IP address with an interface in a different network border group.</p>
    *          <important>
    *             <p>This is an idempotent operation. If you perform the operation more than once, Amazon EC2
@@ -2879,7 +2928,7 @@ export class EC2 extends EC2Client {
    *          <p>Encrypted EBS volumes must be attached to instances that support Amazon EBS encryption. For
    *       more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon EBS Encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    *          <p>After you attach an EBS volume, you must make it available. For more information, see
-   *       <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-using-volumes.html">Making an EBS Volume Available For Use</a>.</p>
+   *       <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-using-volumes.html">Making an EBS volume available for use</a>.</p>
    *          <p>If a volume has an AWS Marketplace product code:</p>
    *          <ul>
    *             <li>
@@ -2897,7 +2946,7 @@ export class EC2 extends EC2Client {
    *           instance.</p>
    *             </li>
    *          </ul>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-attaching-volume.html">Attaching Amazon EBS Volumes</a> in the
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-attaching-volume.html">Attaching Amazon EBS volumes</a> in the
    *         <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    */
   public attachVolume(
@@ -3498,7 +3547,7 @@ export class EC2 extends EC2Client {
    *       permissions for the CMK used to encrypt the snapshot.</p>
    *          <p>Snapshots created by copying another snapshot have an arbitrary volume ID that should not
    *       be used for any purpose.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-copy-snapshot.html">Copying an Amazon EBS Snapshot</a> in the
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-copy-snapshot.html">Copying an Amazon EBS snapshot</a> in the
    *         <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    */
   public copySnapshot(
@@ -3565,6 +3614,39 @@ export class EC2 extends EC2Client {
     cb?: (err: any, data?: CreateCapacityReservationCommandOutput) => void
   ): Promise<CreateCapacityReservationCommandOutput> | void {
     const command = new CreateCapacityReservationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates a carrier gateway.   For more information about carrier gateways, see <a href="https://docs.aws.amazon.com/wavelength/latest/developerguide/how-wavelengths-work.html#wavelength-carrier-gateway">Carrier gateways</a> in the <i>AWS Wavelength Developer
+   *                 Guide</i>.</p>
+   */
+  public createCarrierGateway(
+    args: CreateCarrierGatewayCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateCarrierGatewayCommandOutput>;
+  public createCarrierGateway(
+    args: CreateCarrierGatewayCommandInput,
+    cb: (err: any, data?: CreateCarrierGatewayCommandOutput) => void
+  ): void;
+  public createCarrierGateway(
+    args: CreateCarrierGatewayCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateCarrierGatewayCommandOutput) => void
+  ): void;
+  public createCarrierGateway(
+    args: CreateCarrierGatewayCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateCarrierGatewayCommandOutput) => void),
+    cb?: (err: any, data?: CreateCarrierGatewayCommandOutput) => void
+  ): Promise<CreateCarrierGatewayCommandOutput> | void {
+    const command = new CreateCarrierGatewayCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -3646,7 +3728,7 @@ export class EC2 extends EC2Client {
    * <p>Provides information to AWS about your VPN customer gateway device. The customer
    *             gateway is the appliance at your end of the VPN connection. (The device on the AWS side
    *             of the VPN connection is the virtual private gateway.) You must provide the
-   *             Internet-routable IP address of the customer gateway's external interface. The IP
+   *             internet-routable IP address of the customer gateway's external interface. The IP
    *             address must be static and can be behind a device performing network address translation
    *             (NAT).</p>
    *         <p>For devices that use Border Gateway Protocol (BGP), you can also provide the device's
@@ -3654,9 +3736,22 @@ export class EC2 extends EC2Client {
    *             network. If you don't have an ASN already, you can use a private ASN (in the 64512 -
    *             65534 range).</p>
    *         <note>
-   *             <p>Amazon EC2 supports all 2-byte ASN numbers in the range of 1 - 65534, with the
-   *                 exception of 7224, which is reserved in the <code>us-east-1</code> Region, and 9059,
-   *                 which is reserved in the <code>eu-west-1</code> Region.</p>
+   *             <p>Amazon EC2 supports all 4-byte ASN numbers in the range of 1 - 2147483647, with the
+   *                 exception of the following:</p>
+   *                 <ul>
+   *                <li>
+   *                   <p>7224 - reserved in the <code>us-east-1</code> Region</p>
+   *                </li>
+   *                <li>
+   *                   <p>9059 - reserved in the <code>eu-west-1</code> Region</p>
+   *                </li>
+   *                <li>
+   *                   <p>17943 - reserved in the <code>ap-southeast-1</code> Region</p>
+   *                </li>
+   *                <li>
+   *                   <p>10124 - reserved in the <code>ap-northeast-1</code> Region</p>
+   *                </li>
+   *             </ul>
    *         </note>
    *         <p>For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html">AWS Site-to-Site VPN</a> in the <i>AWS Site-to-Site VPN
    *                 User Guide</i>.</p>
@@ -4726,8 +4821,8 @@ export class EC2 extends EC2Client {
    *          <p>Snapshots that are taken from encrypted volumes are automatically encrypted. Volumes that
    *       are created from encrypted snapshots are also automatically encrypted. Your encrypted volumes
    *       and any associated snapshots always remain protected.</p>
-   *          <p>You can tag your snapshots during creation. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html">Tagging Your Amazon EC2
-   *         Resources</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *          <p>You can tag your snapshots during creation. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html">Tagging your Amazon EC2
+   *         resources</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AmazonEBS.html">Amazon Elastic Block Store</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon EBS Encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    */
   public createSnapshot(
@@ -5171,6 +5266,40 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * <p>Creates a reference (route) to a prefix list in a specified transit gateway route table.</p>
+   */
+  public createTransitGatewayPrefixListReference(
+    args: CreateTransitGatewayPrefixListReferenceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateTransitGatewayPrefixListReferenceCommandOutput>;
+  public createTransitGatewayPrefixListReference(
+    args: CreateTransitGatewayPrefixListReferenceCommandInput,
+    cb: (err: any, data?: CreateTransitGatewayPrefixListReferenceCommandOutput) => void
+  ): void;
+  public createTransitGatewayPrefixListReference(
+    args: CreateTransitGatewayPrefixListReferenceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateTransitGatewayPrefixListReferenceCommandOutput) => void
+  ): void;
+  public createTransitGatewayPrefixListReference(
+    args: CreateTransitGatewayPrefixListReferenceCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateTransitGatewayPrefixListReferenceCommandOutput) => void),
+    cb?: (err: any, data?: CreateTransitGatewayPrefixListReferenceCommandOutput) => void
+  ): Promise<CreateTransitGatewayPrefixListReferenceCommandOutput> | void {
+    const command = new CreateTransitGatewayPrefixListReferenceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Creates a static route for the specified transit gateway route table.</p>
    */
   public createTransitGatewayRoute(
@@ -5280,9 +5409,9 @@ export class EC2 extends EC2Client {
    *       support Amazon EBS encryption. Volumes that are created from encrypted snapshots are also automatically
    *       encrypted. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon EBS Encryption</a>
    *       in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
-   *          <p>You can tag your volumes during creation. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html">Tagging Your Amazon EC2
-   *         Resources</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-creating-volume.html">Creating an Amazon EBS Volume</a> in the
+   *          <p>You can tag your volumes during creation. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html">Tagging your Amazon EC2
+   *         resources</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-creating-volume.html">Creating an Amazon EBS volume</a> in the
    *         <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    */
   public createVolume(
@@ -5514,14 +5643,14 @@ export class EC2 extends EC2Client {
   }
 
   /**
-   * <p>Creates a VPN connection between an existing virtual private gateway and a VPN
+   * <p>Creates a VPN connection between an existing virtual private gateway or transit gateway and a
    *             customer gateway. The supported connection type is <code>ipsec.1</code>.</p>
    *         <p>The response includes information that you need to give to your network administrator
    *             to configure your customer gateway.</p>
    *         <important>
    *             <p>We strongly recommend that you use HTTPS when calling this operation because the
    *                 response contains sensitive cryptographic information for configuring your customer
-   *                 gateway.</p>
+   *                 gateway device.</p>
    *         </important>
    *         <p>If you decide to shut down your VPN connection for any reason and later create a new
    *             VPN connection, you must reconfigure your customer gateway with the new information
@@ -5616,6 +5745,43 @@ export class EC2 extends EC2Client {
     cb?: (err: any, data?: CreateVpnGatewayCommandOutput) => void
   ): Promise<CreateVpnGatewayCommandOutput> | void {
     const command = new CreateVpnGatewayCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes a carrier gateway.</p>
+   *         <important>
+   *             <p>If you do not delete the route that contains the carrier gateway as the
+   *                 Target, the route is a blackhole route. For information about how to delete a route, see
+   *                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeleteRoute.html">DeleteRoute</a>.</p>
+   *         </important>
+   */
+  public deleteCarrierGateway(
+    args: DeleteCarrierGatewayCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteCarrierGatewayCommandOutput>;
+  public deleteCarrierGateway(
+    args: DeleteCarrierGatewayCommandInput,
+    cb: (err: any, data?: DeleteCarrierGatewayCommandOutput) => void
+  ): void;
+  public deleteCarrierGateway(
+    args: DeleteCarrierGatewayCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteCarrierGatewayCommandOutput) => void
+  ): void;
+  public deleteCarrierGateway(
+    args: DeleteCarrierGatewayCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteCarrierGatewayCommandOutput) => void),
+    cb?: (err: any, data?: DeleteCarrierGatewayCommandOutput) => void
+  ): Promise<DeleteCarrierGatewayCommandOutput> | void {
+    const command = new DeleteCarrierGatewayCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -6451,7 +6617,7 @@ export class EC2 extends EC2Client {
    *       to all the information needed to restore the volume.</p>
    *          <p>You cannot delete a snapshot of the root device of an EBS volume used by a registered AMI.
    *       You must first de-register the AMI before you can delete the snapshot.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-deleting-snapshot.html">Deleting an Amazon EBS Snapshot</a> in the
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-deleting-snapshot.html">Deleting an Amazon EBS snapshot</a> in the
    *         <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    */
   public deleteSnapshot(
@@ -6802,6 +6968,40 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * <p>Deletes a reference (route) to a prefix list in a specified transit gateway route table.</p>
+   */
+  public deleteTransitGatewayPrefixListReference(
+    args: DeleteTransitGatewayPrefixListReferenceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteTransitGatewayPrefixListReferenceCommandOutput>;
+  public deleteTransitGatewayPrefixListReference(
+    args: DeleteTransitGatewayPrefixListReferenceCommandInput,
+    cb: (err: any, data?: DeleteTransitGatewayPrefixListReferenceCommandOutput) => void
+  ): void;
+  public deleteTransitGatewayPrefixListReference(
+    args: DeleteTransitGatewayPrefixListReferenceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteTransitGatewayPrefixListReferenceCommandOutput) => void
+  ): void;
+  public deleteTransitGatewayPrefixListReference(
+    args: DeleteTransitGatewayPrefixListReferenceCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteTransitGatewayPrefixListReferenceCommandOutput) => void),
+    cb?: (err: any, data?: DeleteTransitGatewayPrefixListReferenceCommandOutput) => void
+  ): Promise<DeleteTransitGatewayPrefixListReferenceCommandOutput> | void {
+    const command = new DeleteTransitGatewayPrefixListReferenceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Deletes the specified route from the specified transit gateway route table.</p>
    */
   public deleteTransitGatewayRoute(
@@ -6902,7 +7102,7 @@ export class EC2 extends EC2Client {
    * <p>Deletes the specified EBS volume. The volume must be in the <code>available</code> state
    *       (not attached to an instance).</p>
    *          <p>The volume can remain in the <code>deleting</code> state for several minutes.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-deleting-volume.html">Deleting an Amazon EBS Volume</a> in the
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-deleting-volume.html">Deleting an Amazon EBS volume</a> in the
    *         <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    */
   public deleteVolume(
@@ -7523,10 +7723,12 @@ export class EC2 extends EC2Client {
   }
 
   /**
-   * <p>Describes the Availability Zones and Local Zones that are available to you.
-   *       If there is an event impacting an Availability Zone or Local Zone, you can use this request to view the state and any provided messages for that Availability Zone or Local Zone.</p>
-   *          <p>For more information about Availability Zones and Local Zones, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html">Regions and Availability Zones</a> in the <i>Amazon Elastic Compute Cloud User
-   *         Guide</i>.</p>
+   * <p>Describes the Availability Zones, Local Zones, and Wavelength Zones that are available to
+   *       you. If there is an event impacting a zone, you can use this request to view the state and any
+   *       provided messages for that zone.</p>
+   *          <p>For more information about Availability Zones, Local Zones, and Wavelength Zones, see
+   *         <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html">Regions, Zones and
+   *         Outposts</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    */
   public describeAvailabilityZones(
     args: DescribeAvailabilityZonesCommandInput,
@@ -7649,6 +7851,38 @@ export class EC2 extends EC2Client {
     cb?: (err: any, data?: DescribeCapacityReservationsCommandOutput) => void
   ): Promise<DescribeCapacityReservationsCommandOutput> | void {
     const command = new DescribeCapacityReservationsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Describes one or more of your carrier gateways.</p>
+   */
+  public describeCarrierGateways(
+    args: DescribeCarrierGatewaysCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeCarrierGatewaysCommandOutput>;
+  public describeCarrierGateways(
+    args: DescribeCarrierGatewaysCommandInput,
+    cb: (err: any, data?: DescribeCarrierGatewaysCommandOutput) => void
+  ): void;
+  public describeCarrierGateways(
+    args: DescribeCarrierGatewaysCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeCarrierGatewaysCommandOutput) => void
+  ): void;
+  public describeCarrierGateways(
+    args: DescribeCarrierGatewaysCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeCarrierGatewaysCommandOutput) => void),
+    cb?: (err: any, data?: DescribeCarrierGatewaysCommandOutput) => void
+  ): Promise<DescribeCarrierGatewaysCommandOutput> | void {
+    const command = new DescribeCarrierGatewaysCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -10912,7 +11146,7 @@ export class EC2 extends EC2Client {
    *       recent modification request.</p>
    *          <p>You can also use CloudWatch Events to check the status of a modification to an EBS
    *       volume. For information about CloudWatch Events, see the <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/">Amazon CloudWatch Events User Guide</a>. For more information, see
-   *         <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-expand-volume.html#monitoring_mods">Monitoring Volume Modifications</a> in the
+   *         <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-expand-volume.html#monitoring_mods">Monitoring volume modifications</a> in the
    *       <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    */
   public describeVolumesModifications(
@@ -10961,7 +11195,7 @@ export class EC2 extends EC2Client {
    *         <code>ok</code>. If the check fails, the overall status is <code>impaired</code>. If the
    *       status is <code>insufficient-data</code>, then the checks may still be taking place on your
    *       volume at the time. We recommend that you retry the request. For more information about volume
-   *       status, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-volume-status.html">Monitoring the Status of Your Volumes</a> in the
+   *       status, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-volume-status.html">Monitoring the status of your volumes</a> in the
    *       <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    *          <p>
    *             <i>Events</i>: Reflect the cause of a volume status and may require you to
@@ -11545,7 +11779,7 @@ export class EC2 extends EC2Client {
    *       first.</p>
    *          <p>When a volume with an AWS Marketplace product code is detached from an instance, the
    *       product code is no longer associated with the instance.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-detaching-volume.html">Detaching an Amazon EBS Volume</a> in the
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-detaching-volume.html">Detaching an Amazon EBS volume</a> in the
    *         <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    */
   public detachVolume(
@@ -12114,7 +12348,7 @@ export class EC2 extends EC2Client {
    *       existing volumes.</p>
    *          <p>After you enable encryption by default, you can no longer launch instances
    *       using instance types that do not support encryption. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#EBSEncryption_supported_instances">Supported
-   *         Instance Types</a>.</p>
+   *         instance types</a>.</p>
    */
   public enableEbsEncryptionByDefault(
     args: EnableEbsEncryptionByDefaultCommandInput,
@@ -12150,8 +12384,8 @@ export class EC2 extends EC2Client {
    *          <p>You get the full benefit of fast snapshot restores after they enter the <code>enabled</code> state.
    *       To get the current state of fast snapshot restores, use <a>DescribeFastSnapshotRestores</a>.
    *       To disable fast snapshot restores, use <a>DisableFastSnapshotRestores</a>.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-fast-snapshot-restore.html">Amazon EBS Fast Snapshot
-   *       Restore</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-fast-snapshot-restore.html">Amazon EBS fast snapshot
+   *       restore</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    */
   public enableFastSnapshotRestores(
     args: EnableFastSnapshotRestoresCommandInput,
@@ -13086,6 +13320,40 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * <p>Gets information about the prefix list references in a specified transit gateway route table.</p>
+   */
+  public getTransitGatewayPrefixListReferences(
+    args: GetTransitGatewayPrefixListReferencesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetTransitGatewayPrefixListReferencesCommandOutput>;
+  public getTransitGatewayPrefixListReferences(
+    args: GetTransitGatewayPrefixListReferencesCommandInput,
+    cb: (err: any, data?: GetTransitGatewayPrefixListReferencesCommandOutput) => void
+  ): void;
+  public getTransitGatewayPrefixListReferences(
+    args: GetTransitGatewayPrefixListReferencesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetTransitGatewayPrefixListReferencesCommandOutput) => void
+  ): void;
+  public getTransitGatewayPrefixListReferences(
+    args: GetTransitGatewayPrefixListReferencesCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetTransitGatewayPrefixListReferencesCommandOutput) => void),
+    cb?: (err: any, data?: GetTransitGatewayPrefixListReferencesCommandOutput) => void
+  ): Promise<GetTransitGatewayPrefixListReferencesCommandOutput> | void {
+    const command = new GetTransitGatewayPrefixListReferencesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Gets information about the associations for the specified transit gateway route table.</p>
    */
   public getTransitGatewayRouteTableAssociations(
@@ -13353,7 +13621,8 @@ export class EC2 extends EC2Client {
   }
 
   /**
-   * <p>Enables or disables an Availability Zone group for your account.</p>
+   * <p>Changes the opt-in status of the Local Zone and Wavelength Zone group for your
+   *       account.</p>
    *          <p>Use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html">
    *   		DescribeAvailabilityZones</a> to view the value for <code>GroupName</code>.</p>
    */
@@ -14186,7 +14455,7 @@ export class EC2 extends EC2Client {
    *       you must use multiple operations. You can make up to 500 modifications to a snapshot in a single operation.</p>
    *          <p>Encrypted snapshots and snapshots with AWS Marketplace product codes cannot be made
    *       public. Snapshots encrypted with your default CMK cannot be shared with other accounts.</p>
-   *          <p>For more information about modifying snapshot permissions, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-modifying-snapshot-permissions.html">Sharing Snapshots</a> in the
+   *          <p>For more information about modifying snapshot permissions, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-modifying-snapshot-permissions.html">Sharing snapshots</a> in the
    *         <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    */
   public modifySnapshotAttribute(
@@ -14412,6 +14681,72 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * <p>Modifies the specified transit gateway. When you modify a transit gateway, the modified options are applied to new transit gateway attachments only. Your existing transit gateway attachments are not modified.</p>
+   */
+  public modifyTransitGateway(
+    args: ModifyTransitGatewayCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ModifyTransitGatewayCommandOutput>;
+  public modifyTransitGateway(
+    args: ModifyTransitGatewayCommandInput,
+    cb: (err: any, data?: ModifyTransitGatewayCommandOutput) => void
+  ): void;
+  public modifyTransitGateway(
+    args: ModifyTransitGatewayCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ModifyTransitGatewayCommandOutput) => void
+  ): void;
+  public modifyTransitGateway(
+    args: ModifyTransitGatewayCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyTransitGatewayCommandOutput) => void),
+    cb?: (err: any, data?: ModifyTransitGatewayCommandOutput) => void
+  ): Promise<ModifyTransitGatewayCommandOutput> | void {
+    const command = new ModifyTransitGatewayCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Modifies a reference (route) to a prefix list in a specified transit gateway route table.</p>
+   */
+  public modifyTransitGatewayPrefixListReference(
+    args: ModifyTransitGatewayPrefixListReferenceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ModifyTransitGatewayPrefixListReferenceCommandOutput>;
+  public modifyTransitGatewayPrefixListReference(
+    args: ModifyTransitGatewayPrefixListReferenceCommandInput,
+    cb: (err: any, data?: ModifyTransitGatewayPrefixListReferenceCommandOutput) => void
+  ): void;
+  public modifyTransitGatewayPrefixListReference(
+    args: ModifyTransitGatewayPrefixListReferenceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ModifyTransitGatewayPrefixListReferenceCommandOutput) => void
+  ): void;
+  public modifyTransitGatewayPrefixListReference(
+    args: ModifyTransitGatewayPrefixListReferenceCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ModifyTransitGatewayPrefixListReferenceCommandOutput) => void),
+    cb?: (err: any, data?: ModifyTransitGatewayPrefixListReferenceCommandOutput) => void
+  ): Promise<ModifyTransitGatewayPrefixListReferenceCommandOutput> | void {
+    const command = new ModifyTransitGatewayPrefixListReferenceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Modifies the specified VPC attachment.</p>
    */
   public modifyTransitGatewayVpcAttachment(
@@ -14447,24 +14782,24 @@ export class EC2 extends EC2Client {
    * <p>You can modify several parameters of an existing EBS volume, including volume size, volume
    *       type, and IOPS capacity. If your EBS volume is attached to a current-generation EC2 instance
    *       type, you may be able to apply these changes without stopping the instance or detaching the
-   *       volume from it. For more information about modifying an EBS volume running Linux, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-expand-volume.html">Modifying the Size, IOPS, or
-   *         Type of an EBS Volume on Linux</a>. For more information about modifying an EBS volume
-   *       running Windows, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ebs-expand-volume.html">Modifying the Size, IOPS, or Type of an EBS Volume on Windows</a>. </p>
+   *       volume from it. For more information about modifying an EBS volume running Linux, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-expand-volume.html">Modifying the size, IOPS, or
+   *         type of an EBS volume on Linux</a>. For more information about modifying an EBS volume
+   *       running Windows, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ebs-expand-volume.html">Modifying the size, IOPS, or type of an EBS volume on Windows</a>. </p>
    *          <p> When you complete a resize operation on your volume, you need to extend the volume's
    *       file-system size to take advantage of the new storage capacity. For information about
    *       extending a Linux file system, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-expand-volume.html#recognize-expanded-volume-linux">Extending a Linux
-   *         File System</a>. For information about extending a Windows file system, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ebs-expand-volume.html#recognize-expanded-volume-windows">Extending a
-   *         Windows File System</a>. </p>
+   *         file system</a>. For information about extending a Windows file system, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ebs-expand-volume.html#recognize-expanded-volume-windows">Extending a
+   *         Windows file system</a>. </p>
    *          <p> You can use CloudWatch Events to check the status of a modification to an EBS volume. For
    *       information about CloudWatch Events, see the <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/">Amazon CloudWatch Events User Guide</a>. You can also track the status of a
    *       modification using <a>DescribeVolumesModifications</a>. For information
-   *       about tracking status changes using either method, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-expand-volume.html#monitoring_mods">Monitoring Volume
-   *         Modifications</a>. </p>
+   *       about tracking status changes using either method, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-expand-volume.html#monitoring_mods">Monitoring volume
+   *         modifications</a>. </p>
    *          <p>With previous-generation instance types, resizing an EBS volume may require detaching and
    *       reattaching the volume or stopping and restarting the instance. For more information, see
-   *         <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-expand-volume.html">Modifying the Size,
-   *         IOPS, or Type of an EBS Volume on Linux</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ebs-expand-volume.html">Modifying the Size, IOPS, or Type of an EBS
-   *         Volume on Windows</a>.</p>
+   *         <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-expand-volume.html">Modifying the size,
+   *         IOPS, or type of an EBS volume on Linux</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ebs-expand-volume.html">Modifying the size, IOPS, or type of an EBS
+   *         volume on Windows</a>.</p>
    *          <p>If you reach the maximum volume modification rate per volume limit, you will need to wait
    *       at least six hours before applying further modifications to the affected EBS volume.</p>
    */
@@ -14857,6 +15192,39 @@ export class EC2 extends EC2Client {
     cb?: (err: any, data?: ModifyVpnConnectionCommandOutput) => void
   ): Promise<ModifyVpnConnectionCommandOutput> | void {
     const command = new ModifyVpnConnectionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Modifies the connection options for your Site-to-Site VPN connection.</p>
+   *         <p>When you modify the VPN connection options, the VPN endpoint IP addresses on the AWS side do not change, and the tunnel options do not change. Your VPN connection will be temporarily unavailable for a brief period while the VPN connection is updated.</p>
+   */
+  public modifyVpnConnectionOptions(
+    args: ModifyVpnConnectionOptionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ModifyVpnConnectionOptionsCommandOutput>;
+  public modifyVpnConnectionOptions(
+    args: ModifyVpnConnectionOptionsCommandInput,
+    cb: (err: any, data?: ModifyVpnConnectionOptionsCommandOutput) => void
+  ): void;
+  public modifyVpnConnectionOptions(
+    args: ModifyVpnConnectionOptionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ModifyVpnConnectionOptionsCommandOutput) => void
+  ): void;
+  public modifyVpnConnectionOptions(
+    args: ModifyVpnConnectionOptionsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyVpnConnectionOptionsCommandOutput) => void),
+    cb?: (err: any, data?: ModifyVpnConnectionOptionsCommandOutput) => void
+  ): Promise<ModifyVpnConnectionOptionsCommandOutput> | void {
+    const command = new ModifyVpnConnectionOptionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -16106,7 +16474,7 @@ export class EC2 extends EC2Client {
 
   /**
    * <p>Resets permission settings for the specified snapshot.</p>
-   *          <p>For more information about modifying snapshot permissions, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-modifying-snapshot-permissions.html">Sharing Snapshots</a> in the
+   *          <p>For more information about modifying snapshot permissions, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-modifying-snapshot-permissions.html">Sharing snapshots</a> in the
    *         <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    */
   public resetSnapshotAttribute(
@@ -16236,9 +16604,15 @@ export class EC2 extends EC2Client {
 
   /**
    * <p>[VPC only] Removes the specified egress rules from a security group for EC2-VPC.
-   *        This action doesn't apply to security groups for use in EC2-Classic. To remove a rule, the
+   *        This action does not apply to security groups for use in EC2-Classic. To remove a rule, the
    *        values that you specify (for example, ports) must match the existing rule's values
    *        exactly.</p>
+   *          <note>
+   *             <p>[Default VPC] If the values you specify do not match the existing rule's values, no error is
+   *                 returned, and the output describes the security group rules that were not revoked. </p>
+   *             <p>AWS recommends that you use <a>DescribeSecurityGroups</a> to verify
+   *                 that the rule has been removed.</p>
+   *          </note>
    *          <p>Each rule consists of the protocol and the IPv4 or IPv6 CIDR range or source security
    *       group. For the TCP and UDP protocols, you must also specify the destination port or range of
    *       ports. For the ICMP protocol, you must also specify the ICMP type and code. If the security group rule
@@ -16277,11 +16651,15 @@ export class EC2 extends EC2Client {
   /**
    * <p>Removes the specified ingress rules from a security group. To remove a rule, the values
    *        that you specify (for example, ports) must match the existing rule's values exactly.</p>
+   *
    *    	     <note>
-   *             <p>[EC2-Classic only] If the values you specify do not match the existing
-   *    		rule's values, no error is returned. Use <a>DescribeSecurityGroups</a> to
-   *    		verify that the rule has been removed.</p>
+   *             <p>[EC2-Classic , default VPC] If the values you specify do not match the existing rule's values,
+   *                 no error is returned, and the output describes the security group rules that were
+   *                 not revoked. </p>
+   *             <p>AWS recommends that you use <a>DescribeSecurityGroups</a> to verify
+   *                 that the rule has been removed.</p>
    *          </note>
+   *
    *          <p>Each rule consists of the protocol and the CIDR range or source security group. For the TCP and UDP protocols, you must also specify the destination port or range of ports. For the ICMP protocol, you must also specify the ICMP type and code. If the security group rule has a description, you do not have to specify the description to revoke the rule.</p>
    *          <p>Rule changes are propagated to instances within the security group as quickly as possible. However, a small delay might occur.</p>
    */

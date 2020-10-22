@@ -45,17 +45,17 @@ export namespace BadRequestException {
  */
 export interface CommitTransactionRequest {
   /**
-   * <p>Specifies the transaction ID of the transaction to commit.</p>
-   */
-  TransactionId: string | undefined;
-
-  /**
    * <p>Specifies the commit digest for the transaction to commit. For every active transaction,
    *          the commit digest must be passed. QLDB validates <code>CommitDigest</code> and rejects
    *          the commit with an error if the digest computed on the client does not match the digest
    *          computed by QLDB.</p>
    */
   CommitDigest: Uint8Array | undefined;
+
+  /**
+   * <p>Specifies the transaction ID of the transaction to commit.</p>
+   */
+  TransactionId: string | undefined;
 }
 
 export namespace CommitTransactionRequest {
@@ -112,14 +112,14 @@ export namespace EndSessionResult {
  */
 export interface ValueHolder {
   /**
-   * <p>An Amazon Ion binary value contained in a <code>ValueHolder</code> structure.</p>
-   */
-  IonBinary?: Uint8Array;
-
-  /**
    * <p>An Amazon Ion plaintext value contained in a <code>ValueHolder</code> structure.</p>
    */
   IonText?: string;
+
+  /**
+   * <p>An Amazon Ion binary value contained in a <code>ValueHolder</code> structure.</p>
+   */
+  IonBinary?: Uint8Array;
 }
 
 export namespace ValueHolder {
@@ -133,14 +133,14 @@ export namespace ValueHolder {
  */
 export interface ExecuteStatementRequest {
   /**
-   * <p>Specifies the parameters for the parameterized statement in the request.</p>
-   */
-  Parameters?: ValueHolder[];
-
-  /**
    * <p>Specifies the transaction ID of the request.</p>
    */
   TransactionId: string | undefined;
+
+  /**
+   * <p>Specifies the parameters for the parameterized statement in the request.</p>
+   */
+  Parameters?: ValueHolder[];
 
   /**
    * <p>Specifies the statement of the request.</p>
@@ -234,8 +234,8 @@ export namespace FetchPageResult {
 export interface InvalidSessionException extends __SmithyException, $MetadataBearer {
   name: "InvalidSessionException";
   $fault: "client";
-  Code?: string;
   Message?: string;
+  Code?: string;
 }
 
 export namespace InvalidSessionException {
@@ -319,22 +319,6 @@ export namespace StartTransactionRequest {
 
 export interface SendCommandRequest {
   /**
-   * <p>Command to start a new session. A session token is obtained as part of the
-   *          response.</p>
-   */
-  StartSession?: StartSessionRequest;
-
-  /**
-   * <p>Command to commit the specified transaction.</p>
-   */
-  CommitTransaction?: CommitTransactionRequest;
-
-  /**
-   * <p>Command to end the current session.</p>
-   */
-  EndSession?: EndSessionRequest;
-
-  /**
    * <p>Command to start a new transaction.</p>
    */
   StartTransaction?: StartTransactionRequest;
@@ -343,6 +327,11 @@ export interface SendCommandRequest {
    * <p>Command to abort the current transaction.</p>
    */
   AbortTransaction?: AbortTransactionRequest;
+
+  /**
+   * <p>Command to end the current session.</p>
+   */
+  EndSession?: EndSessionRequest;
 
   /**
    * <p>Command to fetch a page.</p>
@@ -357,6 +346,17 @@ export interface SendCommandRequest {
    *          the current session.</p>
    */
   SessionToken?: string;
+
+  /**
+   * <p>Command to start a new session. A session token is obtained as part of the
+   *          response.</p>
+   */
+  StartSession?: StartSessionRequest;
+
+  /**
+   * <p>Command to commit the specified transaction.</p>
+   */
+  CommitTransaction?: CommitTransactionRequest;
 
   /**
    * <p>Command to execute a statement in the specified transaction.</p>
@@ -405,19 +405,14 @@ export namespace StartTransactionResult {
 
 export interface SendCommandResult {
   /**
+   * <p>Contains the details of the committed transaction.</p>
+   */
+  CommitTransaction?: CommitTransactionResult;
+
+  /**
    * <p>Contains the details of the ended session.</p>
    */
   EndSession?: EndSessionResult;
-
-  /**
-   * <p>Contains the details of the fetched page.</p>
-   */
-  FetchPage?: FetchPageResult;
-
-  /**
-   * <p>Contains the details of the aborted transaction.</p>
-   */
-  AbortTransaction?: AbortTransactionResult;
 
   /**
    * <p>Contains the details of the started session that includes a session token. This
@@ -432,9 +427,14 @@ export interface SendCommandResult {
   StartTransaction?: StartTransactionResult;
 
   /**
-   * <p>Contains the details of the committed transaction.</p>
+   * <p>Contains the details of the aborted transaction.</p>
    */
-  CommitTransaction?: CommitTransactionResult;
+  AbortTransaction?: AbortTransactionResult;
+
+  /**
+   * <p>Contains the details of the fetched page.</p>
+   */
+  FetchPage?: FetchPageResult;
 
   /**
    * <p>Contains the details of the executed statement.</p>

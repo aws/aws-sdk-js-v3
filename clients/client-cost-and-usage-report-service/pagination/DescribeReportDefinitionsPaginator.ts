@@ -33,7 +33,7 @@ export async function* describeReportDefinitionsPaginate(
   let hasNext = true;
   let page: DescribeReportDefinitionsCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof CostAndUsageReportService) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* describeReportDefinitionsPaginate(
       throw new Error("Invalid client, expected CostAndUsageReportService | CostAndUsageReportServiceClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

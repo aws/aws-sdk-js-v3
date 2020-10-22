@@ -155,6 +155,7 @@ import {
   BucketPolicy,
   BucketPublicAccess,
   BucketSortCriteria,
+  Cell,
   ClassificationDetails,
   ClassificationExportConfiguration,
   ClassificationResult,
@@ -195,7 +196,11 @@ import {
   Member,
   MonthlySchedule,
   ObjectCountByEncryptionType,
+  ObjectLevelStatistics,
+  Occurrences,
+  Page,
   PolicyDetails,
+  Range,
   ReplicationDetails,
   ResourceNotFoundException,
   ResourcesAffected,
@@ -228,8 +233,10 @@ import {
   UsageTotal,
   UserIdentity,
   UserIdentityRoot,
+  UserPausedDetails,
   ValidationException,
   WeeklySchedule,
+  _Record,
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
@@ -1260,8 +1267,8 @@ export const serializeAws_restJson1ListFindingsFiltersCommand = async (
   };
   let resolvedPath = "/findingsfilters";
   const query: any = {
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1286,8 +1293,8 @@ export const serializeAws_restJson1ListInvitationsCommand = async (
   };
   let resolvedPath = "/invitations";
   const query: any = {
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1313,8 +1320,8 @@ export const serializeAws_restJson1ListMembersCommand = async (
   let resolvedPath = "/members";
   const query: any = {
     ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
-    ...(input.onlyAssociated !== undefined && { onlyAssociated: input.onlyAssociated }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.onlyAssociated !== undefined && { onlyAssociated: input.onlyAssociated }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1339,8 +1346,8 @@ export const serializeAws_restJson1ListOrganizationAdminAccountsCommand = async 
   };
   let resolvedPath = "/admin";
   const query: any = {
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -3140,6 +3147,7 @@ export const deserializeAws_restJson1DescribeClassificationJobCommand = async (
     scheduleFrequency: undefined,
     statistics: undefined,
     tags: undefined,
+    userPausedDetails: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.clientToken !== undefined && data.clientToken !== null) {
@@ -3189,6 +3197,9 @@ export const deserializeAws_restJson1DescribeClassificationJobCommand = async (
   }
   if (data.tags !== undefined && data.tags !== null) {
     contents.tags = deserializeAws_restJson1TagMap(data.tags, context);
+  }
+  if (data.userPausedDetails !== undefined && data.userPausedDetails !== null) {
+    contents.userPausedDetails = deserializeAws_restJson1UserPausedDetails(data.userPausedDetails, context);
   }
   return Promise.resolve(contents);
 };
@@ -3993,10 +4004,13 @@ export const deserializeAws_restJson1GetBucketStatisticsCommand = async (
     bucketCountByEncryptionType: undefined,
     bucketCountBySharedAccessType: undefined,
     classifiableObjectCount: undefined,
+    classifiableSizeInBytes: undefined,
     lastUpdated: undefined,
     objectCount: undefined,
     sizeInBytes: undefined,
     sizeInBytesCompressed: undefined,
+    unclassifiableObjectCount: undefined,
+    unclassifiableObjectSizeInBytes: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.bucketCount !== undefined && data.bucketCount !== null) {
@@ -4023,6 +4037,9 @@ export const deserializeAws_restJson1GetBucketStatisticsCommand = async (
   if (data.classifiableObjectCount !== undefined && data.classifiableObjectCount !== null) {
     contents.classifiableObjectCount = data.classifiableObjectCount;
   }
+  if (data.classifiableSizeInBytes !== undefined && data.classifiableSizeInBytes !== null) {
+    contents.classifiableSizeInBytes = data.classifiableSizeInBytes;
+  }
   if (data.lastUpdated !== undefined && data.lastUpdated !== null) {
     contents.lastUpdated = new Date(data.lastUpdated);
   }
@@ -4034,6 +4051,18 @@ export const deserializeAws_restJson1GetBucketStatisticsCommand = async (
   }
   if (data.sizeInBytesCompressed !== undefined && data.sizeInBytesCompressed !== null) {
     contents.sizeInBytesCompressed = data.sizeInBytesCompressed;
+  }
+  if (data.unclassifiableObjectCount !== undefined && data.unclassifiableObjectCount !== null) {
+    contents.unclassifiableObjectCount = deserializeAws_restJson1ObjectLevelStatistics(
+      data.unclassifiableObjectCount,
+      context
+    );
+  }
+  if (data.unclassifiableObjectSizeInBytes !== undefined && data.unclassifiableObjectSizeInBytes !== null) {
+    contents.unclassifiableObjectSizeInBytes = deserializeAws_restJson1ObjectLevelStatistics(
+      data.unclassifiableObjectSizeInBytes,
+      context
+    );
   }
   return Promise.resolve(contents);
 };
@@ -7588,6 +7617,7 @@ const deserializeAws_restJson1BucketCountByEffectivePermission = (
       output.publiclyReadable !== undefined && output.publiclyReadable !== null ? output.publiclyReadable : undefined,
     publiclyWritable:
       output.publiclyWritable !== undefined && output.publiclyWritable !== null ? output.publiclyWritable : undefined,
+    unknown: output.unknown !== undefined && output.unknown !== null ? output.unknown : undefined,
   } as any;
 };
 
@@ -7610,6 +7640,7 @@ const deserializeAws_restJson1BucketCountBySharedAccessType = (
     external: output.external !== undefined && output.external !== null ? output.external : undefined,
     internal: output.internal !== undefined && output.internal !== null ? output.internal : undefined,
     notShared: output.notShared !== undefined && output.notShared !== null ? output.notShared : undefined,
+    unknown: output.unknown !== undefined && output.unknown !== null ? output.unknown : undefined,
   } as any;
 };
 
@@ -7646,6 +7677,10 @@ const deserializeAws_restJson1BucketMetadata = (output: any, context: __SerdeCon
       output.classifiableObjectCount !== undefined && output.classifiableObjectCount !== null
         ? output.classifiableObjectCount
         : undefined,
+    classifiableSizeInBytes:
+      output.classifiableSizeInBytes !== undefined && output.classifiableSizeInBytes !== null
+        ? output.classifiableSizeInBytes
+        : undefined,
     lastUpdated:
       output.lastUpdated !== undefined && output.lastUpdated !== null ? new Date(output.lastUpdated) : undefined,
     objectCount: output.objectCount !== undefined && output.objectCount !== null ? output.objectCount : undefined,
@@ -7671,6 +7706,14 @@ const deserializeAws_restJson1BucketMetadata = (output: any, context: __SerdeCon
     tags:
       output.tags !== undefined && output.tags !== null
         ? deserializeAws_restJson1__listOfKeyValuePair(output.tags, context)
+        : undefined,
+    unclassifiableObjectCount:
+      output.unclassifiableObjectCount !== undefined && output.unclassifiableObjectCount !== null
+        ? deserializeAws_restJson1ObjectLevelStatistics(output.unclassifiableObjectCount, context)
+        : undefined,
+    unclassifiableObjectSizeInBytes:
+      output.unclassifiableObjectSizeInBytes !== undefined && output.unclassifiableObjectSizeInBytes !== null
+        ? deserializeAws_restJson1ObjectLevelStatistics(output.unclassifiableObjectSizeInBytes, context)
         : undefined,
     versioning: output.versioning !== undefined && output.versioning !== null ? output.versioning : undefined,
   } as any;
@@ -7718,6 +7761,20 @@ const deserializeAws_restJson1BucketPublicAccess = (output: any, context: __Serd
   } as any;
 };
 
+const deserializeAws_restJson1Cell = (output: any, context: __SerdeContext): Cell => {
+  return {
+    cellReference:
+      output.cellReference !== undefined && output.cellReference !== null ? output.cellReference : undefined,
+    column: output.column !== undefined && output.column !== null ? output.column : undefined,
+    columnName: output.columnName !== undefined && output.columnName !== null ? output.columnName : undefined,
+    row: output.row !== undefined && output.row !== null ? output.row : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1Cells = (output: any, context: __SerdeContext): Cell[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1Cell(entry, context));
+};
+
 const deserializeAws_restJson1ClassificationDetails = (output: any, context: __SerdeContext): ClassificationDetails => {
   return {
     detailedResultsLocation:
@@ -7747,6 +7804,10 @@ const deserializeAws_restJson1ClassificationExportConfiguration = (
 
 const deserializeAws_restJson1ClassificationResult = (output: any, context: __SerdeContext): ClassificationResult => {
   return {
+    additionalOccurrences:
+      output.additionalOccurrences !== undefined && output.additionalOccurrences !== null
+        ? output.additionalOccurrences
+        : undefined,
     customDataIdentifiers:
       output.customDataIdentifiers !== undefined && output.customDataIdentifiers !== null
         ? deserializeAws_restJson1CustomDataIdentifiers(output.customDataIdentifiers, context)
@@ -7836,6 +7897,10 @@ const deserializeAws_restJson1CustomDetection = (output: any, context: __SerdeCo
     arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     count: output.count !== undefined && output.count !== null ? output.count : undefined,
     name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    occurrences:
+      output.occurrences !== undefined && output.occurrences !== null
+        ? deserializeAws_restJson1Occurrences(output.occurrences, context)
+        : undefined,
   } as any;
 };
 
@@ -7850,6 +7915,10 @@ const deserializeAws_restJson1DailySchedule = (output: any, context: __SerdeCont
 const deserializeAws_restJson1DefaultDetection = (output: any, context: __SerdeContext): DefaultDetection => {
   return {
     count: output.count !== undefined && output.count !== null ? output.count : undefined,
+    occurrences:
+      output.occurrences !== undefined && output.occurrences !== null
+        ? deserializeAws_restJson1Occurrences(output.occurrences, context)
+        : undefined,
     type: output.type !== undefined && output.type !== null ? output.type : undefined,
   } as any;
 };
@@ -8094,6 +8163,10 @@ const deserializeAws_restJson1JobSummary = (output: any, context: __SerdeContext
     jobStatus: output.jobStatus !== undefined && output.jobStatus !== null ? output.jobStatus : undefined,
     jobType: output.jobType !== undefined && output.jobType !== null ? output.jobType : undefined,
     name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    userPausedDetails:
+      output.userPausedDetails !== undefined && output.userPausedDetails !== null
+        ? deserializeAws_restJson1UserPausedDetails(output.userPausedDetails, context)
+        : undefined,
   } as any;
 };
 
@@ -8147,6 +8220,57 @@ const deserializeAws_restJson1ObjectCountByEncryptionType = (
   } as any;
 };
 
+const deserializeAws_restJson1ObjectLevelStatistics = (output: any, context: __SerdeContext): ObjectLevelStatistics => {
+  return {
+    fileType: output.fileType !== undefined && output.fileType !== null ? output.fileType : undefined,
+    storageClass: output.storageClass !== undefined && output.storageClass !== null ? output.storageClass : undefined,
+    total: output.total !== undefined && output.total !== null ? output.total : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1Occurrences = (output: any, context: __SerdeContext): Occurrences => {
+  return {
+    cells:
+      output.cells !== undefined && output.cells !== null
+        ? deserializeAws_restJson1Cells(output.cells, context)
+        : undefined,
+    lineRanges:
+      output.lineRanges !== undefined && output.lineRanges !== null
+        ? deserializeAws_restJson1Ranges(output.lineRanges, context)
+        : undefined,
+    offsetRanges:
+      output.offsetRanges !== undefined && output.offsetRanges !== null
+        ? deserializeAws_restJson1Ranges(output.offsetRanges, context)
+        : undefined,
+    pages:
+      output.pages !== undefined && output.pages !== null
+        ? deserializeAws_restJson1Pages(output.pages, context)
+        : undefined,
+    records:
+      output.records !== undefined && output.records !== null
+        ? deserializeAws_restJson1Records(output.records, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1Page = (output: any, context: __SerdeContext): Page => {
+  return {
+    lineRange:
+      output.lineRange !== undefined && output.lineRange !== null
+        ? deserializeAws_restJson1Range(output.lineRange, context)
+        : undefined,
+    offsetRange:
+      output.offsetRange !== undefined && output.offsetRange !== null
+        ? deserializeAws_restJson1Range(output.offsetRange, context)
+        : undefined,
+    pageNumber: output.pageNumber !== undefined && output.pageNumber !== null ? output.pageNumber : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1Pages = (output: any, context: __SerdeContext): Page[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1Page(entry, context));
+};
+
 const deserializeAws_restJson1PolicyDetails = (output: any, context: __SerdeContext): PolicyDetails => {
   return {
     action:
@@ -8158,6 +8282,28 @@ const deserializeAws_restJson1PolicyDetails = (output: any, context: __SerdeCont
         ? deserializeAws_restJson1FindingActor(output.actor, context)
         : undefined,
   } as any;
+};
+
+const deserializeAws_restJson1Range = (output: any, context: __SerdeContext): Range => {
+  return {
+    end: output.end !== undefined && output.end !== null ? output.end : undefined,
+    start: output.start !== undefined && output.start !== null ? output.start : undefined,
+    startColumn: output.startColumn !== undefined && output.startColumn !== null ? output.startColumn : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1Ranges = (output: any, context: __SerdeContext): Range[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1Range(entry, context));
+};
+
+const deserializeAws_restJson1_Record = (output: any, context: __SerdeContext): _Record => {
+  return {
+    recordIndex: output.recordIndex !== undefined && output.recordIndex !== null ? output.recordIndex : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1Records = (output: any, context: __SerdeContext): _Record[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1_Record(entry, context));
 };
 
 const deserializeAws_restJson1ReplicationDetails = (output: any, context: __SerdeContext): ReplicationDetails => {
@@ -8493,6 +8639,19 @@ const deserializeAws_restJson1UserIdentityRoot = (output: any, context: __SerdeC
     accountId: output.accountId !== undefined && output.accountId !== null ? output.accountId : undefined,
     arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     principalId: output.principalId !== undefined && output.principalId !== null ? output.principalId : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1UserPausedDetails = (output: any, context: __SerdeContext): UserPausedDetails => {
+  return {
+    jobExpiresAt:
+      output.jobExpiresAt !== undefined && output.jobExpiresAt !== null ? new Date(output.jobExpiresAt) : undefined,
+    jobImminentExpirationHealthEventArn:
+      output.jobImminentExpirationHealthEventArn !== undefined && output.jobImminentExpirationHealthEventArn !== null
+        ? output.jobImminentExpirationHealthEventArn
+        : undefined,
+    jobPausedAt:
+      output.jobPausedAt !== undefined && output.jobPausedAt !== null ? new Date(output.jobPausedAt) : undefined,
   } as any;
 };
 

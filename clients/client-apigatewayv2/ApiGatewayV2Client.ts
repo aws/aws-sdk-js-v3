@@ -85,6 +85,10 @@ import { GetVpcLinkCommandInput, GetVpcLinkCommandOutput } from "./commands/GetV
 import { GetVpcLinksCommandInput, GetVpcLinksCommandOutput } from "./commands/GetVpcLinksCommand";
 import { ImportApiCommandInput, ImportApiCommandOutput } from "./commands/ImportApiCommand";
 import { ReimportApiCommandInput, ReimportApiCommandOutput } from "./commands/ReimportApiCommand";
+import {
+  ResetAuthorizersCacheCommandInput,
+  ResetAuthorizersCacheCommandOutput,
+} from "./commands/ResetAuthorizersCacheCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateApiCommandInput, UpdateApiCommandOutput } from "./commands/UpdateApiCommand";
@@ -212,6 +216,7 @@ export type ServiceInputTypes =
   | GetVpcLinksCommandInput
   | ImportApiCommandInput
   | ReimportApiCommandInput
+  | ResetAuthorizersCacheCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateApiCommandInput
@@ -285,6 +290,7 @@ export type ServiceOutputTypes =
   | GetVpcLinksCommandOutput
   | ImportApiCommandOutput
   | ReimportApiCommandOutput
+  | ResetAuthorizersCacheCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateApiCommandOutput

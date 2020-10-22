@@ -33,7 +33,7 @@ export async function* describeBackupsPaginate(
   let hasNext = true;
   let page: DescribeBackupsCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof FSx) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* describeBackupsPaginate(
       throw new Error("Invalid client, expected FSx | FSxClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

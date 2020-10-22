@@ -33,7 +33,7 @@ export async function* listProjectsPaginate(
   let hasNext = true;
   let page: ListProjectsCommandOutput;
   while (hasNext) {
-    input["nextToken"] = token;
+    input.nextToken = token;
     input["maxResults"] = config.pageSize;
     if (config.client instanceof Mobile) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* listProjectsPaginate(
       throw new Error("Invalid client, expected Mobile | MobileClient");
     }
     yield page;
-    token = page["nextToken"];
+    token = page.nextToken;
     hasNext = !!token;
   }
   // @ts-ignore

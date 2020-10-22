@@ -52,14 +52,14 @@ export namespace CallInstructionsMessageType {
  */
 export interface CloudWatchLogsDestination {
   /**
-   * The Amazon Resource Name (ARN) of an Amazon Identity and Access Management (IAM) role that is able to write event data to an Amazon CloudWatch destination.
-   */
-  IamRoleArn?: string;
-
-  /**
    * The name of the Amazon CloudWatch Log Group that you want to record events in.
    */
   LogGroupArn?: string;
+
+  /**
+   * The Amazon Resource Name (ARN) of an Amazon Identity and Access Management (IAM) role that is able to write event data to an Amazon CloudWatch destination.
+   */
+  IamRoleArn?: string;
 }
 
 export namespace CloudWatchLogsDestination {
@@ -192,14 +192,9 @@ export namespace SnsDestination {
  */
 export interface EventDestinationDefinition {
   /**
-   * Indicates whether or not the event destination is enabled. If the event destination is enabled, then Amazon Pinpoint sends response data to the specified event destination.
+   * An object that contains information about an event destination that sends data to Amazon CloudWatch Logs.
    */
-  Enabled?: boolean;
-
-  /**
-   * An object that contains information about an event destination that sends data to Amazon SNS.
-   */
-  SnsDestination?: SnsDestination;
+  CloudWatchLogsDestination?: CloudWatchLogsDestination;
 
   /**
    * An object that contains information about an event destination that sends data to Amazon Kinesis Data Firehose.
@@ -212,9 +207,14 @@ export interface EventDestinationDefinition {
   MatchingEventTypes?: (EventType | string)[];
 
   /**
-   * An object that contains information about an event destination that sends data to Amazon CloudWatch Logs.
+   * An object that contains information about an event destination that sends data to Amazon SNS.
    */
-  CloudWatchLogsDestination?: CloudWatchLogsDestination;
+  SnsDestination?: SnsDestination;
+
+  /**
+   * Indicates whether or not the event destination is enabled. If the event destination is enabled, then Amazon Pinpoint sends response data to the specified event destination.
+   */
+  Enabled?: boolean;
 }
 
 export namespace EventDestinationDefinition {
@@ -228,11 +228,6 @@ export namespace EventDestinationDefinition {
  */
 export interface CreateConfigurationSetEventDestinationRequest {
   /**
-   * ConfigurationSetName
-   */
-  ConfigurationSetName: string | undefined;
-
-  /**
    * An object that defines a single event destination.
    */
   EventDestination?: EventDestinationDefinition;
@@ -241,6 +236,11 @@ export interface CreateConfigurationSetEventDestinationRequest {
    * A name that identifies the event destination.
    */
   EventDestinationName?: string;
+
+  /**
+   * ConfigurationSetName
+   */
+  ConfigurationSetName: string | undefined;
 }
 
 export namespace CreateConfigurationSetEventDestinationRequest {
@@ -301,14 +301,14 @@ export namespace DeleteConfigurationSetResponse {
 
 export interface DeleteConfigurationSetEventDestinationRequest {
   /**
-   * ConfigurationSetName
-   */
-  ConfigurationSetName: string | undefined;
-
-  /**
    * EventDestinationName
    */
   EventDestinationName: string | undefined;
+
+  /**
+   * ConfigurationSetName
+   */
+  ConfigurationSetName: string | undefined;
 }
 
 export namespace DeleteConfigurationSetEventDestinationRequest {
@@ -333,21 +333,6 @@ export namespace DeleteConfigurationSetEventDestinationResponse {
  */
 export interface EventDestination {
   /**
-   * A name that identifies the event destination configuration.
-   */
-  Name?: string;
-
-  /**
-   * An object that contains information about an event destination that sends data to Amazon SNS.
-   */
-  SnsDestination?: SnsDestination;
-
-  /**
-   * Indicates whether or not the event destination is enabled. If the event destination is enabled, then Amazon Pinpoint sends response data to the specified event destination.
-   */
-  Enabled?: boolean;
-
-  /**
    * An object that contains information about an event destination that sends data to Amazon Kinesis Data Firehose.
    */
   KinesisFirehoseDestination?: KinesisFirehoseDestination;
@@ -358,9 +343,24 @@ export interface EventDestination {
   MatchingEventTypes?: (EventType | string)[];
 
   /**
+   * Indicates whether or not the event destination is enabled. If the event destination is enabled, then Amazon Pinpoint sends response data to the specified event destination.
+   */
+  Enabled?: boolean;
+
+  /**
    * An object that contains information about an event destination that sends data to Amazon CloudWatch Logs.
    */
   CloudWatchLogsDestination?: CloudWatchLogsDestination;
+
+  /**
+   * A name that identifies the event destination configuration.
+   */
+  Name?: string;
+
+  /**
+   * An object that contains information about an event destination that sends data to Amazon SNS.
+   */
+  SnsDestination?: SnsDestination;
 }
 
 export namespace EventDestination {
@@ -421,14 +421,14 @@ export namespace ListConfigurationSetsRequest {
  */
 export interface ListConfigurationSetsResponse {
   /**
-   * An object that contains a list of configuration sets for your account in the current region.
-   */
-  ConfigurationSets?: string[];
-
-  /**
    * A token returned from a previous call to ListConfigurationSets to indicate the position in the list of configuration sets.
    */
   NextToken?: string;
+
+  /**
+   * An object that contains a list of configuration sets for your account in the current region.
+   */
+  ConfigurationSets?: string[];
 }
 
 export namespace ListConfigurationSetsResponse {
@@ -442,9 +442,9 @@ export namespace ListConfigurationSetsResponse {
  */
 export interface PlainTextMessageType {
   /**
-   * The language to use when delivering the message. For a complete list of supported languages, see the Amazon Polly Developer Guide.
+   * The plain (not SSML-formatted) text to deliver to the recipient.
    */
-  LanguageCode?: string;
+  Text?: string;
 
   /**
    * The name of the voice that you want to use to deliver the message. For a complete list of supported voices, see the Amazon Polly Developer Guide.
@@ -452,9 +452,9 @@ export interface PlainTextMessageType {
   VoiceId?: string;
 
   /**
-   * The plain (not SSML-formatted) text to deliver to the recipient.
+   * The language to use when delivering the message. For a complete list of supported languages, see the Amazon Polly Developer Guide.
    */
-  Text?: string;
+  LanguageCode?: string;
 }
 
 export namespace PlainTextMessageType {
@@ -468,9 +468,9 @@ export namespace PlainTextMessageType {
  */
 export interface SSMLMessageType {
   /**
-   * The language to use when delivering the message. For a complete list of supported languages, see the Amazon Polly Developer Guide.
+   * The SSML-formatted text to deliver to the recipient.
    */
-  LanguageCode?: string;
+  Text?: string;
 
   /**
    * The name of the voice that you want to use to deliver the message. For a complete list of supported voices, see the Amazon Polly Developer Guide.
@@ -478,9 +478,9 @@ export interface SSMLMessageType {
   VoiceId?: string;
 
   /**
-   * The SSML-formatted text to deliver to the recipient.
+   * The language to use when delivering the message. For a complete list of supported languages, see the Amazon Polly Developer Guide.
    */
-  Text?: string;
+  LanguageCode?: string;
 }
 
 export namespace SSMLMessageType {
@@ -494,9 +494,9 @@ export namespace SSMLMessageType {
  */
 export interface VoiceMessageContent {
   /**
-   * An object that defines a message that contains unformatted text.
+   * An object that defines a message that contains SSML-formatted text.
    */
-  PlainTextMessage?: PlainTextMessageType;
+  SSMLMessage?: SSMLMessageType;
 
   /**
    * An object that defines a message that contains text formatted using Amazon Pinpoint Voice Instructions markup.
@@ -504,9 +504,9 @@ export interface VoiceMessageContent {
   CallInstructionsMessage?: CallInstructionsMessageType;
 
   /**
-   * An object that defines a message that contains SSML-formatted text.
+   * An object that defines a message that contains unformatted text.
    */
-  SSMLMessage?: SSMLMessageType;
+  PlainTextMessage?: PlainTextMessageType;
 }
 
 export namespace VoiceMessageContent {
@@ -520,19 +520,19 @@ export namespace VoiceMessageContent {
  */
 export interface SendVoiceMessageRequest {
   /**
-   * The phone number that appears on recipients' devices when they receive the message.
-   */
-  CallerId?: string;
-
-  /**
-   * An object that contains a voice message and information about the recipient that you want to send it to.
-   */
-  Content?: VoiceMessageContent;
-
-  /**
    * The name of the configuration set that you want to use to send the message.
    */
   ConfigurationSetName?: string;
+
+  /**
+   * The phone number that you want to send the voice message to.
+   */
+  DestinationPhoneNumber?: string;
+
+  /**
+   * The phone number that appears on recipients' devices when they receive the message.
+   */
+  CallerId?: string;
 
   /**
    * The phone number that Amazon Pinpoint should use to send the voice message. This isn't necessarily the phone number that appears on recipients' devices when they receive the message, because you can specify a CallerId parameter in the request.
@@ -540,9 +540,9 @@ export interface SendVoiceMessageRequest {
   OriginationPhoneNumber?: string;
 
   /**
-   * The phone number that you want to send the voice message to.
+   * An object that contains a voice message and information about the recipient that you want to send it to.
    */
-  DestinationPhoneNumber?: string;
+  Content?: VoiceMessageContent;
 }
 
 export namespace SendVoiceMessageRequest {
@@ -572,6 +572,11 @@ export namespace SendVoiceMessageResponse {
  */
 export interface UpdateConfigurationSetEventDestinationRequest {
   /**
+   * ConfigurationSetName
+   */
+  ConfigurationSetName: string | undefined;
+
+  /**
    * An object that defines a single event destination.
    */
   EventDestination?: EventDestinationDefinition;
@@ -580,11 +585,6 @@ export interface UpdateConfigurationSetEventDestinationRequest {
    * EventDestinationName
    */
   EventDestinationName: string | undefined;
-
-  /**
-   * ConfigurationSetName
-   */
-  ConfigurationSetName: string | undefined;
 }
 
 export namespace UpdateConfigurationSetEventDestinationRequest {

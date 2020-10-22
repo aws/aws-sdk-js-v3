@@ -1,5 +1,10 @@
 import { TranscribeClient } from "./TranscribeClient";
 import {
+  CreateLanguageModelCommand,
+  CreateLanguageModelCommandInput,
+  CreateLanguageModelCommandOutput,
+} from "./commands/CreateLanguageModelCommand";
+import {
   CreateMedicalVocabularyCommand,
   CreateMedicalVocabularyCommandInput,
   CreateMedicalVocabularyCommandOutput,
@@ -14,6 +19,11 @@ import {
   CreateVocabularyFilterCommandInput,
   CreateVocabularyFilterCommandOutput,
 } from "./commands/CreateVocabularyFilterCommand";
+import {
+  DeleteLanguageModelCommand,
+  DeleteLanguageModelCommandInput,
+  DeleteLanguageModelCommandOutput,
+} from "./commands/DeleteLanguageModelCommand";
 import {
   DeleteMedicalTranscriptionJobCommand,
   DeleteMedicalTranscriptionJobCommandInput,
@@ -40,6 +50,11 @@ import {
   DeleteVocabularyFilterCommandOutput,
 } from "./commands/DeleteVocabularyFilterCommand";
 import {
+  DescribeLanguageModelCommand,
+  DescribeLanguageModelCommandInput,
+  DescribeLanguageModelCommandOutput,
+} from "./commands/DescribeLanguageModelCommand";
+import {
   GetMedicalTranscriptionJobCommand,
   GetMedicalTranscriptionJobCommandInput,
   GetMedicalTranscriptionJobCommandOutput,
@@ -64,6 +79,11 @@ import {
   GetVocabularyFilterCommandInput,
   GetVocabularyFilterCommandOutput,
 } from "./commands/GetVocabularyFilterCommand";
+import {
+  ListLanguageModelsCommand,
+  ListLanguageModelsCommandInput,
+  ListLanguageModelsCommandOutput,
+} from "./commands/ListLanguageModelsCommand";
 import {
   ListMedicalTranscriptionJobsCommand,
   ListMedicalTranscriptionJobsCommandInput,
@@ -121,8 +141,43 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  */
 export class Transcribe extends TranscribeClient {
   /**
-   * <p>Creates a new custom vocabulary that you can use to change how Amazon Transcribe Medical transcribes your
-   *             audio file.</p>
+   * <p>Creates a new custom language model. Use Amazon S3 prefixes to provide the location of your
+   *             input files. The time it takes to create your model depends on the size of your training
+   *             data.</p>
+   */
+  public createLanguageModel(
+    args: CreateLanguageModelCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateLanguageModelCommandOutput>;
+  public createLanguageModel(
+    args: CreateLanguageModelCommandInput,
+    cb: (err: any, data?: CreateLanguageModelCommandOutput) => void
+  ): void;
+  public createLanguageModel(
+    args: CreateLanguageModelCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateLanguageModelCommandOutput) => void
+  ): void;
+  public createLanguageModel(
+    args: CreateLanguageModelCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateLanguageModelCommandOutput) => void),
+    cb?: (err: any, data?: CreateLanguageModelCommandOutput) => void
+  ): Promise<CreateLanguageModelCommandOutput> | void {
+    const command = new CreateLanguageModelCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates a new custom vocabulary that you can use to
+   *             change
+   *             how Amazon Transcribe Medical transcribes your audio file.</p>
    */
   public createMedicalVocabulary(
     args: CreateMedicalVocabularyCommandInput,
@@ -209,6 +264,38 @@ export class Transcribe extends TranscribeClient {
     cb?: (err: any, data?: CreateVocabularyFilterCommandOutput) => void
   ): Promise<CreateVocabularyFilterCommandOutput> | void {
     const command = new CreateVocabularyFilterCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes a custom language model using its name.</p>
+   */
+  public deleteLanguageModel(
+    args: DeleteLanguageModelCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteLanguageModelCommandOutput>;
+  public deleteLanguageModel(
+    args: DeleteLanguageModelCommandInput,
+    cb: (err: any, data?: DeleteLanguageModelCommandOutput) => void
+  ): void;
+  public deleteLanguageModel(
+    args: DeleteLanguageModelCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteLanguageModelCommandOutput) => void
+  ): void;
+  public deleteLanguageModel(
+    args: DeleteLanguageModelCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteLanguageModelCommandOutput) => void),
+    cb?: (err: any, data?: DeleteLanguageModelCommandOutput) => void
+  ): Promise<DeleteLanguageModelCommandOutput> | void {
+    const command = new DeleteLanguageModelCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -381,6 +468,43 @@ export class Transcribe extends TranscribeClient {
   }
 
   /**
+   * <p>Gets information about a single custom language model. Use this information to see
+   *             details about the language model in your AWS account. You can also see whether the base
+   *             language model used to create your custom language model has been updated. If Amazon Transcribe has
+   *             updated the base model, you can create a new custom language model using the updated
+   *             base model. If the language model wasn't created, you can use this operation to
+   *             understand why Amazon Transcribe couldn't create it. </p>
+   */
+  public describeLanguageModel(
+    args: DescribeLanguageModelCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeLanguageModelCommandOutput>;
+  public describeLanguageModel(
+    args: DescribeLanguageModelCommandInput,
+    cb: (err: any, data?: DescribeLanguageModelCommandOutput) => void
+  ): void;
+  public describeLanguageModel(
+    args: DescribeLanguageModelCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeLanguageModelCommandOutput) => void
+  ): void;
+  public describeLanguageModel(
+    args: DescribeLanguageModelCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeLanguageModelCommandOutput) => void),
+    cb?: (err: any, data?: DescribeLanguageModelCommandOutput) => void
+  ): Promise<DescribeLanguageModelCommandOutput> | void {
+    const command = new DescribeLanguageModelCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Returns information about a transcription job from Amazon Transcribe Medical. To see the status of the
    *             job, check the <code>TranscriptionJobStatus</code> field. If the status is
    *                 <code>COMPLETED</code>, the job is finished. You find the results of the completed
@@ -416,7 +540,7 @@ export class Transcribe extends TranscribeClient {
   }
 
   /**
-   * <p>Retrieve information about a medical vocabulary.</p>
+   * <p>Retrieves information about a medical vocabulary.</p>
    */
   public getMedicalVocabulary(
     args: GetMedicalVocabularyCommandInput,
@@ -548,6 +672,41 @@ export class Transcribe extends TranscribeClient {
   }
 
   /**
+   * <p>Provides more information about the custom language models you've created. You can use
+   *             the information in this list to find a specific custom language model. You can then use
+   *             the  operation to get more information about
+   *             it.</p>
+   */
+  public listLanguageModels(
+    args: ListLanguageModelsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListLanguageModelsCommandOutput>;
+  public listLanguageModels(
+    args: ListLanguageModelsCommandInput,
+    cb: (err: any, data?: ListLanguageModelsCommandOutput) => void
+  ): void;
+  public listLanguageModels(
+    args: ListLanguageModelsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListLanguageModelsCommandOutput) => void
+  ): void;
+  public listLanguageModels(
+    args: ListLanguageModelsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListLanguageModelsCommandOutput) => void),
+    cb?: (err: any, data?: ListLanguageModelsCommandOutput) => void
+  ): Promise<ListLanguageModelsCommandOutput> | void {
+    const command = new ListLanguageModelsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Lists medical transcription jobs with a specified status or substring that matches
    *             their names.</p>
    */
@@ -581,8 +740,8 @@ export class Transcribe extends TranscribeClient {
   }
 
   /**
-   * <p>Returns a list of vocabularies that match the specified criteria. You get the entire
-   *             list of vocabularies if you don't enter a value in any of the request parameters.</p>
+   * <p>Returns a list of vocabularies that match the specified criteria. If you don't enter a
+   *             value in any of the request parameters, returns the entire list of vocabularies.</p>
    */
   public listMedicalVocabularies(
     args: ListMedicalVocabulariesCommandInput,
@@ -711,7 +870,7 @@ export class Transcribe extends TranscribeClient {
   }
 
   /**
-   * <p>Start a batch job to transcribe medical speech to text.</p>
+   * <p>Starts a batch job to transcribe medical speech to text.</p>
    */
   public startMedicalTranscriptionJob(
     args: StartMedicalTranscriptionJobCommandInput,
@@ -775,9 +934,10 @@ export class Transcribe extends TranscribeClient {
   }
 
   /**
-   * <p>Updates an existing vocabulary with new values in a different text file. The
-   *                 <code>UpdateMedicalVocabulary</code> operation overwrites all of the existing
-   *             information with the values that you provide in the request.</p>
+   * <p>Updates a vocabulary with new values that you provide in a different text file from
+   *             the one you used to create the vocabulary. The <code>UpdateMedicalVocabulary</code>
+   *             operation overwrites all of the existing information with the values that you provide in
+   *             the request.</p>
    */
   public updateMedicalVocabulary(
     args: UpdateMedicalVocabularyCommandInput,

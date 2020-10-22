@@ -1,9 +1,29 @@
 import { CostExplorerClient } from "./CostExplorerClient";
 import {
+  CreateAnomalyMonitorCommand,
+  CreateAnomalyMonitorCommandInput,
+  CreateAnomalyMonitorCommandOutput,
+} from "./commands/CreateAnomalyMonitorCommand";
+import {
+  CreateAnomalySubscriptionCommand,
+  CreateAnomalySubscriptionCommandInput,
+  CreateAnomalySubscriptionCommandOutput,
+} from "./commands/CreateAnomalySubscriptionCommand";
+import {
   CreateCostCategoryDefinitionCommand,
   CreateCostCategoryDefinitionCommandInput,
   CreateCostCategoryDefinitionCommandOutput,
 } from "./commands/CreateCostCategoryDefinitionCommand";
+import {
+  DeleteAnomalyMonitorCommand,
+  DeleteAnomalyMonitorCommandInput,
+  DeleteAnomalyMonitorCommandOutput,
+} from "./commands/DeleteAnomalyMonitorCommand";
+import {
+  DeleteAnomalySubscriptionCommand,
+  DeleteAnomalySubscriptionCommandInput,
+  DeleteAnomalySubscriptionCommandOutput,
+} from "./commands/DeleteAnomalySubscriptionCommand";
 import {
   DeleteCostCategoryDefinitionCommand,
   DeleteCostCategoryDefinitionCommandInput,
@@ -14,6 +34,21 @@ import {
   DescribeCostCategoryDefinitionCommandInput,
   DescribeCostCategoryDefinitionCommandOutput,
 } from "./commands/DescribeCostCategoryDefinitionCommand";
+import {
+  GetAnomaliesCommand,
+  GetAnomaliesCommandInput,
+  GetAnomaliesCommandOutput,
+} from "./commands/GetAnomaliesCommand";
+import {
+  GetAnomalyMonitorsCommand,
+  GetAnomalyMonitorsCommandInput,
+  GetAnomalyMonitorsCommandOutput,
+} from "./commands/GetAnomalyMonitorsCommand";
+import {
+  GetAnomalySubscriptionsCommand,
+  GetAnomalySubscriptionsCommandInput,
+  GetAnomalySubscriptionsCommandOutput,
+} from "./commands/GetAnomalySubscriptionsCommand";
 import {
   GetCostAndUsageCommand,
   GetCostAndUsageCommandInput,
@@ -86,6 +121,21 @@ import {
   ListCostCategoryDefinitionsCommandOutput,
 } from "./commands/ListCostCategoryDefinitionsCommand";
 import {
+  ProvideAnomalyFeedbackCommand,
+  ProvideAnomalyFeedbackCommandInput,
+  ProvideAnomalyFeedbackCommandOutput,
+} from "./commands/ProvideAnomalyFeedbackCommand";
+import {
+  UpdateAnomalyMonitorCommand,
+  UpdateAnomalyMonitorCommandInput,
+  UpdateAnomalyMonitorCommandOutput,
+} from "./commands/UpdateAnomalyMonitorCommand";
+import {
+  UpdateAnomalySubscriptionCommand,
+  UpdateAnomalySubscriptionCommandInput,
+  UpdateAnomalySubscriptionCommandOutput,
+} from "./commands/UpdateAnomalySubscriptionCommand";
+import {
   UpdateCostCategoryDefinitionCommand,
   UpdateCostCategoryDefinitionCommandInput,
   UpdateCostCategoryDefinitionCommandOutput,
@@ -110,6 +160,73 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  */
 export class CostExplorer extends CostExplorerClient {
   /**
+   * <p>Creates a new cost anomaly detection monitor with the requested type and monitor
+   *       specification. </p>
+   */
+  public createAnomalyMonitor(
+    args: CreateAnomalyMonitorCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateAnomalyMonitorCommandOutput>;
+  public createAnomalyMonitor(
+    args: CreateAnomalyMonitorCommandInput,
+    cb: (err: any, data?: CreateAnomalyMonitorCommandOutput) => void
+  ): void;
+  public createAnomalyMonitor(
+    args: CreateAnomalyMonitorCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateAnomalyMonitorCommandOutput) => void
+  ): void;
+  public createAnomalyMonitor(
+    args: CreateAnomalyMonitorCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateAnomalyMonitorCommandOutput) => void),
+    cb?: (err: any, data?: CreateAnomalyMonitorCommandOutput) => void
+  ): Promise<CreateAnomalyMonitorCommandOutput> | void {
+    const command = new CreateAnomalyMonitorCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Adds a subscription to a cost anomaly detection monitor. You can use each subscription to
+   *       define subscribers with email or SNS notifications. Email subscribers can set a dollar
+   *       threshold and a time frequency for receiving notifications. </p>
+   */
+  public createAnomalySubscription(
+    args: CreateAnomalySubscriptionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateAnomalySubscriptionCommandOutput>;
+  public createAnomalySubscription(
+    args: CreateAnomalySubscriptionCommandInput,
+    cb: (err: any, data?: CreateAnomalySubscriptionCommandOutput) => void
+  ): void;
+  public createAnomalySubscription(
+    args: CreateAnomalySubscriptionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateAnomalySubscriptionCommandOutput) => void
+  ): void;
+  public createAnomalySubscription(
+    args: CreateAnomalySubscriptionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateAnomalySubscriptionCommandOutput) => void),
+    cb?: (err: any, data?: CreateAnomalySubscriptionCommandOutput) => void
+  ): Promise<CreateAnomalySubscriptionCommandOutput> | void {
+    const command = new CreateAnomalySubscriptionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Creates a new Cost Category with the requested name and rules.</p>
    */
   public createCostCategoryDefinition(
@@ -131,6 +248,70 @@ export class CostExplorer extends CostExplorerClient {
     cb?: (err: any, data?: CreateCostCategoryDefinitionCommandOutput) => void
   ): Promise<CreateCostCategoryDefinitionCommandOutput> | void {
     const command = new CreateCostCategoryDefinitionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes a cost anomaly monitor. </p>
+   */
+  public deleteAnomalyMonitor(
+    args: DeleteAnomalyMonitorCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteAnomalyMonitorCommandOutput>;
+  public deleteAnomalyMonitor(
+    args: DeleteAnomalyMonitorCommandInput,
+    cb: (err: any, data?: DeleteAnomalyMonitorCommandOutput) => void
+  ): void;
+  public deleteAnomalyMonitor(
+    args: DeleteAnomalyMonitorCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteAnomalyMonitorCommandOutput) => void
+  ): void;
+  public deleteAnomalyMonitor(
+    args: DeleteAnomalyMonitorCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteAnomalyMonitorCommandOutput) => void),
+    cb?: (err: any, data?: DeleteAnomalyMonitorCommandOutput) => void
+  ): Promise<DeleteAnomalyMonitorCommandOutput> | void {
+    const command = new DeleteAnomalyMonitorCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes a cost anomaly subscription. </p>
+   */
+  public deleteAnomalySubscription(
+    args: DeleteAnomalySubscriptionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteAnomalySubscriptionCommandOutput>;
+  public deleteAnomalySubscription(
+    args: DeleteAnomalySubscriptionCommandInput,
+    cb: (err: any, data?: DeleteAnomalySubscriptionCommandOutput) => void
+  ): void;
+  public deleteAnomalySubscription(
+    args: DeleteAnomalySubscriptionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteAnomalySubscriptionCommandOutput) => void
+  ): void;
+  public deleteAnomalySubscription(
+    args: DeleteAnomalySubscriptionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteAnomalySubscriptionCommandOutput) => void),
+    cb?: (err: any, data?: DeleteAnomalySubscriptionCommandOutput) => void
+  ): Promise<DeleteAnomalySubscriptionCommandOutput> | void {
+    const command = new DeleteAnomalySubscriptionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -207,12 +388,108 @@ export class CostExplorer extends CostExplorerClient {
   }
 
   /**
+   * <p>Retrieves all of the cost anomalies detected on your account, during the time period
+   *       specified by the <code>DateInterval</code> object. </p>
+   */
+  public getAnomalies(
+    args: GetAnomaliesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetAnomaliesCommandOutput>;
+  public getAnomalies(args: GetAnomaliesCommandInput, cb: (err: any, data?: GetAnomaliesCommandOutput) => void): void;
+  public getAnomalies(
+    args: GetAnomaliesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetAnomaliesCommandOutput) => void
+  ): void;
+  public getAnomalies(
+    args: GetAnomaliesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetAnomaliesCommandOutput) => void),
+    cb?: (err: any, data?: GetAnomaliesCommandOutput) => void
+  ): Promise<GetAnomaliesCommandOutput> | void {
+    const command = new GetAnomaliesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Retrieves the cost anomaly monitor definitions for your account. You can filter using a
+   *       list of cost anomaly monitor Amazon Resource Names (ARNs). </p>
+   */
+  public getAnomalyMonitors(
+    args: GetAnomalyMonitorsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetAnomalyMonitorsCommandOutput>;
+  public getAnomalyMonitors(
+    args: GetAnomalyMonitorsCommandInput,
+    cb: (err: any, data?: GetAnomalyMonitorsCommandOutput) => void
+  ): void;
+  public getAnomalyMonitors(
+    args: GetAnomalyMonitorsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetAnomalyMonitorsCommandOutput) => void
+  ): void;
+  public getAnomalyMonitors(
+    args: GetAnomalyMonitorsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetAnomalyMonitorsCommandOutput) => void),
+    cb?: (err: any, data?: GetAnomalyMonitorsCommandOutput) => void
+  ): Promise<GetAnomalyMonitorsCommandOutput> | void {
+    const command = new GetAnomalyMonitorsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Retrieves the cost anomaly subscription objects for your account. You can filter using a
+   *       list of cost anomaly monitor Amazon Resource Names (ARNs). </p>
+   */
+  public getAnomalySubscriptions(
+    args: GetAnomalySubscriptionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetAnomalySubscriptionsCommandOutput>;
+  public getAnomalySubscriptions(
+    args: GetAnomalySubscriptionsCommandInput,
+    cb: (err: any, data?: GetAnomalySubscriptionsCommandOutput) => void
+  ): void;
+  public getAnomalySubscriptions(
+    args: GetAnomalySubscriptionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetAnomalySubscriptionsCommandOutput) => void
+  ): void;
+  public getAnomalySubscriptions(
+    args: GetAnomalySubscriptionsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetAnomalySubscriptionsCommandOutput) => void),
+    cb?: (err: any, data?: GetAnomalySubscriptionsCommandOutput) => void
+  ): Promise<GetAnomalySubscriptionsCommandOutput> | void {
+    const command = new GetAnomalySubscriptionsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Retrieves cost and usage metrics for your account. You can specify which cost and usage-related metric, such as
    * 			<code>BlendedCosts</code> or <code>UsageQuantity</code>, that you want the request to return. You can also filter and group
    * 			your data by various dimensions, such as <code>SERVICE</code> or <code>AZ</code>, in a specific time range. For a complete list
    * 			of valid dimensions, see the
    * 			<a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_GetDimensionValues.html">GetDimensionValues</a>
-   * 			operation. Master accounts in an organization in AWS Organizations have access to all member accounts.</p>
+   * 		  operation. Master account in an organization in AWS Organizations have access to all member accounts.</p>
    */
   public getCostAndUsage(
     args: GetCostAndUsageCommandInput,
@@ -248,7 +525,7 @@ export class CostExplorer extends CostExplorerClient {
    * 	    usage-related metric, such as <code>BlendedCosts</code> or <code>UsageQuantity</code>, that
    * 	    you want the request to return. You can also filter and group your data by various dimensions,
    * 	    such as <code>SERVICE</code> or <code>AZ</code>, in a specific time range. For a complete list
-   * 	    of valid dimensions, see the <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_GetDimensionValues.html">GetDimensionValues</a> operation. Master accounts in an organization in AWS
+   * 	    of valid dimensions, see the <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_GetDimensionValues.html">GetDimensionValues</a> operation. Master account in an organization in AWS
    * 	    Organizations have access to all member accounts. This API is currently available for the Amazon Elastic Compute Cloud – Compute service only.</p>
    * 	        <note>
    *             <p>This is an opt-in only feature. You can enable this feature from the Cost Explorer Settings page. For information on how to access the Settings page, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/ce-access.html">Controlling Access for Cost Explorer</a> in the <i>AWS Billing and Cost Management User Guide</i>.</p>
@@ -462,7 +739,7 @@ export class CostExplorer extends CostExplorerClient {
   }
 
   /**
-   * <p>Retrieves the reservation utilization for your account. Master accounts in an organization have access to member accounts.
+   * <p>Retrieves the reservation utilization for your account. Master account in an organization have access to member accounts.
    * 			You can filter data by dimensions in a time period. You can use <code>GetDimensionValues</code> to determine the possible
    * 			dimension values. Currently, you can group only by <code>SUBSCRIPTION_ID</code>. </p>
    */
@@ -626,7 +903,7 @@ export class CostExplorer extends CostExplorerClient {
   }
 
   /**
-   * <p>Retrieves the Savings Plans utilization for your account across date ranges with daily or monthly granularity. Master accounts in an organization have access to member accounts. You can use <code>GetDimensionValues</code> in <code>SAVINGS_PLANS</code> to determine the possible dimension values.</p>
+   * <p>Retrieves the Savings Plans utilization for your account across date ranges with daily or monthly granularity. Master account in an organization have access to member accounts. You can use <code>GetDimensionValues</code> in <code>SAVINGS_PLANS</code> to determine the possible dimension values.</p>
    * 	        <note>
    *             <p>You cannot group by any dimension values for <code>GetSavingsPlansUtilization</code>.</p>
    *          </note>
@@ -776,6 +1053,103 @@ export class CostExplorer extends CostExplorerClient {
     cb?: (err: any, data?: ListCostCategoryDefinitionsCommandOutput) => void
   ): Promise<ListCostCategoryDefinitionsCommandOutput> | void {
     const command = new ListCostCategoryDefinitionsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Modifies the feedback property of a given cost anomaly. </p>
+   */
+  public provideAnomalyFeedback(
+    args: ProvideAnomalyFeedbackCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ProvideAnomalyFeedbackCommandOutput>;
+  public provideAnomalyFeedback(
+    args: ProvideAnomalyFeedbackCommandInput,
+    cb: (err: any, data?: ProvideAnomalyFeedbackCommandOutput) => void
+  ): void;
+  public provideAnomalyFeedback(
+    args: ProvideAnomalyFeedbackCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ProvideAnomalyFeedbackCommandOutput) => void
+  ): void;
+  public provideAnomalyFeedback(
+    args: ProvideAnomalyFeedbackCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ProvideAnomalyFeedbackCommandOutput) => void),
+    cb?: (err: any, data?: ProvideAnomalyFeedbackCommandOutput) => void
+  ): Promise<ProvideAnomalyFeedbackCommandOutput> | void {
+    const command = new ProvideAnomalyFeedbackCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates an existing cost anomaly monitor. The changes made are applied going forward, and
+   *       does not change anomalies detected in the past. </p>
+   */
+  public updateAnomalyMonitor(
+    args: UpdateAnomalyMonitorCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateAnomalyMonitorCommandOutput>;
+  public updateAnomalyMonitor(
+    args: UpdateAnomalyMonitorCommandInput,
+    cb: (err: any, data?: UpdateAnomalyMonitorCommandOutput) => void
+  ): void;
+  public updateAnomalyMonitor(
+    args: UpdateAnomalyMonitorCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateAnomalyMonitorCommandOutput) => void
+  ): void;
+  public updateAnomalyMonitor(
+    args: UpdateAnomalyMonitorCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateAnomalyMonitorCommandOutput) => void),
+    cb?: (err: any, data?: UpdateAnomalyMonitorCommandOutput) => void
+  ): Promise<UpdateAnomalyMonitorCommandOutput> | void {
+    const command = new UpdateAnomalyMonitorCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p> Updates an existing cost anomaly monitor subscription. </p>
+   */
+  public updateAnomalySubscription(
+    args: UpdateAnomalySubscriptionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateAnomalySubscriptionCommandOutput>;
+  public updateAnomalySubscription(
+    args: UpdateAnomalySubscriptionCommandInput,
+    cb: (err: any, data?: UpdateAnomalySubscriptionCommandOutput) => void
+  ): void;
+  public updateAnomalySubscription(
+    args: UpdateAnomalySubscriptionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateAnomalySubscriptionCommandOutput) => void
+  ): void;
+  public updateAnomalySubscription(
+    args: UpdateAnomalySubscriptionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateAnomalySubscriptionCommandOutput) => void),
+    cb?: (err: any, data?: UpdateAnomalySubscriptionCommandOutput) => void
+  ): Promise<UpdateAnomalySubscriptionCommandOutput> | void {
+    const command = new UpdateAnomalySubscriptionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

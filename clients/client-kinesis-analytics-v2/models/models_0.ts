@@ -20,9 +20,10 @@ export namespace CloudWatchLoggingOption {
 
 export interface AddApplicationCloudWatchLoggingOptionRequest {
   /**
-   * <p>Provides the Amazon CloudWatch log stream Amazon Resource Name (ARN). </p>
+   * <p>The version ID of the Kinesis Data Analytics application. You can retrieve the application version ID using
+   *       <a>DescribeApplication</a>.</p>
    */
-  CloudWatchLoggingOption: CloudWatchLoggingOption | undefined;
+  CurrentApplicationVersionId: number | undefined;
 
   /**
    * <p>The Kinesis Data Analytics application name.</p>
@@ -30,9 +31,9 @@ export interface AddApplicationCloudWatchLoggingOptionRequest {
   ApplicationName: string | undefined;
 
   /**
-   * <p>The version ID of the Kinesis Data Analytics application. You can retrieve the application version ID using <a>DescribeApplication</a>.</p>
+   * <p>Provides the Amazon CloudWatch log stream Amazon Resource Name (ARN). </p>
    */
-  CurrentApplicationVersionId: number | undefined;
+  CloudWatchLoggingOption: CloudWatchLoggingOption | undefined;
 }
 
 export namespace AddApplicationCloudWatchLoggingOptionRequest {
@@ -51,12 +52,6 @@ export interface CloudWatchLoggingOptionDescription {
   CloudWatchLoggingOptionId?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the CloudWatch log to receive application
-   *       messages.</p>
-   */
-  LogStreamARN: string | undefined;
-
-  /**
    * <p>The IAM ARN of the role to use to send application messages. </p>
    *          <note>
    *             <p>Provided for backward compatibility. Applications created with the current API version have an
@@ -64,6 +59,12 @@ export interface CloudWatchLoggingOptionDescription {
    *          </note>
    */
   RoleARN?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the CloudWatch log to receive application
+   *       messages.</p>
+   */
+  LogStreamARN: string | undefined;
 }
 
 export namespace CloudWatchLoggingOptionDescription {
@@ -79,16 +80,16 @@ export interface AddApplicationCloudWatchLoggingOptionResponse {
   ApplicationARN?: string;
 
   /**
-   * <p>The descriptions of the current CloudWatch logging options for the Kinesis Data Analytics application.</p>
-   */
-  CloudWatchLoggingOptionDescriptions?: CloudWatchLoggingOptionDescription[];
-
-  /**
    * <p>The new version ID of the Kinesis Data Analytics application. Kinesis Data Analytics
    *       updates the <code>ApplicationVersionId</code> each time you change the CloudWatch logging
    *       options. </p>
    */
   ApplicationVersionId?: number;
+
+  /**
+   * <p>The descriptions of the current CloudWatch logging options for the Kinesis Data Analytics application.</p>
+   */
+  CloudWatchLoggingOptionDescriptions?: CloudWatchLoggingOptionDescription[];
 }
 
 export namespace AddApplicationCloudWatchLoggingOptionResponse {
@@ -190,7 +191,7 @@ export namespace ResourceNotFoundException {
 }
 
 /**
- * <p>For an SQL-based Amazon Kinesis Data Analytics application, describes the number of
+ * <p>For a SQL-based Kinesis Data Analytics application, describes the number of
  *       in-application streams to create for a given streaming source. </p>
  */
 export interface InputParallelism {
@@ -208,14 +209,13 @@ export namespace InputParallelism {
 
 /**
  * <p>An object that contains the Amazon Resource Name (ARN) of the AWS Lambda function that is
- *       used to preprocess records in the stream in an SQL-based Amazon Kinesis Data Analytics
- *       application. </p>
+ *       used to preprocess records in the stream in a SQL-based Kinesis Data Analytics application. </p>
  */
 export interface InputLambdaProcessor {
   /**
    * <p>The ARN of the AWS Lambda function that operates on records in the stream.</p>
    *          <note>
-   *             <p>To specify an earlier version of the Lambda function than the latest, include the Lambda function version in the Lambda function ARN. For more information about Lambda ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-lambda">Example ARNs: AWS Lambda</a>
+   *             <p>To specify an earlier version of the Lambda function than the latest, include the Lambda function version in the Lambda function ARN. For more information about Lambda ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-lambda">Example ARNs: AWS Lambda</a>
    *             </p>
    *          </note>
    */
@@ -229,9 +229,9 @@ export namespace InputLambdaProcessor {
 }
 
 /**
- * <p>For an SQL-based Amazon Kinesis Data Analytics application, describes a processor that is
+ * <p>For a SQL-based Kinesis Data Analytics application, describes a processor that is
  *       used to preprocess the records in the stream before being processed by your application code.
- *       Currently, the only input processor available is <a href="https://aws.amazon.com/documentation/lambda/">AWS Lambda</a>.</p>
+ *       Currently, the only input processor available is <a href="https://docs.aws.amazon.com/lambda/">AWS Lambda</a>.</p>
  */
 export interface InputProcessingConfiguration {
   /**
@@ -248,17 +248,17 @@ export namespace InputProcessingConfiguration {
 }
 
 /**
- * <p>For an SQL-based Amazon Kinesis Data Analytics application, describes the mapping of each
+ * <p>For a SQL-based Kinesis Data Analytics application, describes the mapping of each
  *       data element in the streaming source to the corresponding column in the in-application
  *       stream.</p>
  *          <p>Also used to describe the format of the reference data source.</p>
  */
 export interface RecordColumn {
   /**
-   * <p>The name of the column that is created in the in-application input stream or reference
-   *       table.</p>
+   * <p>A reference to the data element in the streaming input or the reference data
+   *       source.</p>
    */
-  Name: string | undefined;
+  Mapping?: string;
 
   /**
    * <p>The type of column created in the in-application input stream or reference table.</p>
@@ -266,10 +266,10 @@ export interface RecordColumn {
   SqlType: string | undefined;
 
   /**
-   * <p>A reference to the data element in the streaming input or the reference data
-   *       source.</p>
+   * <p>The name of the column that is created in the in-application input stream or reference
+   *       table.</p>
    */
-  Mapping?: string;
+  Name: string | undefined;
 }
 
 export namespace RecordColumn {
@@ -279,7 +279,7 @@ export namespace RecordColumn {
 }
 
 /**
- * <p>For an SQL-based application, provides additional mapping information when the record
+ * <p>For a SQL-based Kinesis Data Analytics application, provides additional mapping information when the record
  *       format uses delimiters, such as CSV. For example, the following sample records use CSV format,
  *       where the records use the <i>'\n'</i> as the row delimiter and a comma (",") as
  *       the column delimiter: </p>
@@ -293,16 +293,16 @@ export namespace RecordColumn {
  */
 export interface CSVMappingParameters {
   /**
-   * <p>The row delimiter. For example, in a CSV format, <i>'\n'</i> is the typical
-   *       row delimiter.</p>
-   */
-  RecordRowDelimiter: string | undefined;
-
-  /**
    * <p>The column delimiter. For example, in a CSV format, a comma (",") is the typical column
    *       delimiter.</p>
    */
   RecordColumnDelimiter: string | undefined;
+
+  /**
+   * <p>The row delimiter. For example, in a CSV format, <i>'\n'</i> is the typical
+   *       row delimiter.</p>
+   */
+  RecordRowDelimiter: string | undefined;
 }
 
 export namespace CSVMappingParameters {
@@ -312,7 +312,7 @@ export namespace CSVMappingParameters {
 }
 
 /**
- * <p>For an SQL-based Amazon Kinesis Data Analytics application, provides additional mapping
+ * <p>For a SQL-based Kinesis Data Analytics application, provides additional mapping
  *       information when JSON is the record format on the streaming source.</p>
  */
 export interface JSONMappingParameters {
@@ -329,22 +329,22 @@ export namespace JSONMappingParameters {
 }
 
 /**
- * <p>When you configure an SQL-based Amazon Kinesis Data Analytics application's input at the
+ * <p>When you configure a SQL-based Kinesis Data Analytics application's input at the
  *       time of creating or updating an application, provides additional mapping information specific
  *       to the record format (such as JSON, CSV, or record fields delimited by some delimiter) on the
  *       streaming source.</p>
  */
 export interface MappingParameters {
   /**
+   * <p>Provides additional mapping information when JSON is the record format on the streaming source.</p>
+   */
+  JSONMappingParameters?: JSONMappingParameters;
+
+  /**
    * <p>Provides additional mapping information when the record format uses delimiters
    *       (for example, CSV).</p>
    */
   CSVMappingParameters?: CSVMappingParameters;
-
-  /**
-   * <p>Provides additional mapping information when JSON is the record format on the streaming source.</p>
-   */
-  JSONMappingParameters?: JSONMappingParameters;
 }
 
 export namespace MappingParameters {
@@ -359,22 +359,22 @@ export enum RecordFormatType {
 }
 
 /**
- * <p> For an SQL-based Amazon Kinesis Data Analytics application, describes the record format
+ * <p> For a SQL-based Kinesis Data Analytics application, describes the record format
  *       and relevant mapping information that should be applied to schematize the records on the
  *       stream. </p>
  */
 export interface RecordFormat {
-  /**
-   * <p>The type of record format.</p>
-   */
-  RecordFormatType: RecordFormatType | string | undefined;
-
   /**
    * <p>When you configure application input at the time of creating or updating an application,
    *       provides additional mapping information specific to the record format (such as JSON, CSV, or
    *       record fields delimited by some delimiter) on the streaming source.</p>
    */
   MappingParameters?: MappingParameters;
+
+  /**
+   * <p>The type of record format.</p>
+   */
+  RecordFormatType: RecordFormatType | string | undefined;
 }
 
 export namespace RecordFormat {
@@ -384,15 +384,15 @@ export namespace RecordFormat {
 }
 
 /**
- * <p>For an SQL-based Amazon Kinesis Data Analytics application, describes the format of the
+ * <p>For a SQL-based Kinesis Data Analytics application, describes the format of the
  *       data in the streaming source, and how each data element maps to corresponding columns created
  *       in the in-application stream. </p>
  */
 export interface SourceSchema {
   /**
-   * <p>Specifies the format of the records on the streaming source.</p>
+   * <p>A list of <code>RecordColumn</code> objects. </p>
    */
-  RecordFormat: RecordFormat | undefined;
+  RecordColumns: RecordColumn[] | undefined;
 
   /**
    * <p>Specifies the encoding of the records in the streaming source. For example, UTF-8.</p>
@@ -400,9 +400,9 @@ export interface SourceSchema {
   RecordEncoding?: string;
 
   /**
-   * <p>A list of <code>RecordColumn</code> objects. </p>
+   * <p>Specifies the format of the records on the streaming source.</p>
    */
-  RecordColumns: RecordColumn[] | undefined;
+  RecordFormat: RecordFormat | undefined;
 }
 
 export namespace SourceSchema {
@@ -412,7 +412,7 @@ export namespace SourceSchema {
 }
 
 /**
- * <p>For an SQL-based Amazon Kinesis Data Analytics application, identifies a Kinesis Data
+ * <p>For a SQL-based Kinesis Data Analytics application, identifies a Kinesis Data
  *       Firehose delivery stream as the streaming source. You provide the delivery stream's Amazon
  *       Resource Name (ARN).</p>
  */
@@ -430,7 +430,7 @@ export namespace KinesisFirehoseInput {
 }
 
 /**
- * <p> Identifies an Amazon Kinesis data stream as the streaming source. You provide the
+ * <p> Identifies a Kinesis data stream as the streaming source. You provide the
  *       stream's Amazon Resource Name (ARN).</p>
  */
 export interface KinesisStreamsInput {
@@ -447,17 +447,15 @@ export namespace KinesisStreamsInput {
 }
 
 /**
- * <p>When you configure the application input for an SQL-based Amazon Kinesis Data Analytics
- *       application, you specify the streaming source, the in-application stream name that is created,
+ * <p>When you configure the application input for a SQL-based Kinesis Data Analytics application, you specify the streaming source, the in-application stream
+ *       name that is created,
  *       and the mapping between the two. </p>
  */
 export interface Input {
   /**
-   * <p>Describes the format of the data in the streaming source, and how each data element maps
-   *       to corresponding columns in the in-application stream that is being created.</p>
-   *          <p>Also used to describe the format of the reference data source.</p>
+   * <p>Describes the number of in-application streams to create. </p>
    */
-  InputSchema: SourceSchema | undefined;
+  InputParallelism?: InputParallelism;
 
   /**
    * <p>If the streaming source is an Amazon Kinesis data stream, identifies the stream's Amazon Resource Name (ARN). </p>
@@ -474,21 +472,23 @@ export interface Input {
   NamePrefix: string | undefined;
 
   /**
-   * <p>The <a>InputProcessingConfiguration</a> for the input. An input processor transforms records as they are received
-   *       from the stream, before the application's SQL code executes. Currently, the only input processing configuration available is
-   *       <a>InputLambdaProcessor</a>. </p>
-   */
-  InputProcessingConfiguration?: InputProcessingConfiguration;
-
-  /**
    * <p>If the streaming source is an Amazon Kinesis Data Firehose delivery stream, identifies the delivery stream's ARN.</p>
    */
   KinesisFirehoseInput?: KinesisFirehoseInput;
 
   /**
-   * <p>Describes the number of in-application streams to create. </p>
+   * <p>Describes the format of the data in the streaming source, and how each data element maps
+   *       to corresponding columns in the in-application stream that is being created.</p>
+   *          <p>Also used to describe the format of the reference data source.</p>
    */
-  InputParallelism?: InputParallelism;
+  InputSchema: SourceSchema | undefined;
+
+  /**
+   * <p>The <a>InputProcessingConfiguration</a> for the input. An input processor transforms records as they are received
+   *       from the stream, before the application's SQL code executes. Currently, the only input processing configuration available is
+   *       <a>InputLambdaProcessor</a>. </p>
+   */
+  InputProcessingConfiguration?: InputProcessingConfiguration;
 }
 
 export namespace Input {
@@ -499,11 +499,6 @@ export namespace Input {
 
 export interface AddApplicationInputRequest {
   /**
-   * <p>The <a>Input</a> to add.</p>
-   */
-  Input: Input | undefined;
-
-  /**
    * <p>The name of your existing application to which you want to add the streaming
    *       source.</p>
    */
@@ -513,6 +508,11 @@ export interface AddApplicationInputRequest {
    * <p>The current version of your application. You can use the <a>DescribeApplication</a> operation to find the current application version.</p>
    */
   CurrentApplicationVersionId: number | undefined;
+
+  /**
+   * <p>The <a>Input</a> to add.</p>
+   */
+  Input: Input | undefined;
 }
 
 export namespace AddApplicationInputRequest {
@@ -522,7 +522,7 @@ export namespace AddApplicationInputRequest {
 }
 
 /**
- * <p>For an SQL-based Amazon Kinesis Data Analytics application, an object that contains the
+ * <p>For a SQL-based Kinesis Data Analytics application, an object that contains the
  *       Amazon Resource Name (ARN) of the AWS Lambda function that is used to preprocess records in
  *       the stream.</p>
  */
@@ -531,7 +531,7 @@ export interface InputLambdaProcessorDescription {
    * <p>The ARN of the AWS Lambda function that is used to preprocess the records in the
    *       stream.</p>
    *          <note>
-   *             <p>To specify an earlier version of the Lambda function than the latest, include the Lambda function version in the Lambda function ARN. For more information about Lambda ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-lambda">Example ARNs: AWS Lambda</a>
+   *             <p>To specify an earlier version of the Lambda function than the latest, include the Lambda function version in the Lambda function ARN. For more information about Lambda ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-lambda">Example ARNs: AWS Lambda</a>
    *             </p>
    *          </note>
    */
@@ -555,8 +555,8 @@ export namespace InputLambdaProcessorDescription {
 }
 
 /**
- * <p>For an SQL-based Amazon Kinesis Data Analytics application, provides the configuration
- *       information about an input processor. Currently, the only input processor available is <a href="https://aws.amazon.com/documentation/lambda/">AWS Lambda</a>.</p>
+ * <p>For a SQL-based Kinesis Data Analytics application, provides the configuration
+ *         information about an input processor. Currently, the only input processor available is <a href="https://docs.aws.amazon.com/lambda/">AWS Lambda</a>.</p>
  */
 export interface InputProcessingConfigurationDescription {
   /**
@@ -620,6 +620,11 @@ export namespace InputStartingPositionConfiguration {
  */
 export interface KinesisFirehoseInputDescription {
   /**
+   * <p>The Amazon Resource Name (ARN) of the delivery stream.</p>
+   */
+  ResourceARN: string | undefined;
+
+  /**
    * <p>The ARN of the IAM role that Kinesis Data Analytics assumes to access the stream.</p>
    *          <note>
    *             <p>Provided for backward compatibility. Applications that are created with the current API
@@ -628,11 +633,6 @@ export interface KinesisFirehoseInputDescription {
    *          </note>
    */
   RoleARN?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the delivery stream.</p>
-   */
-  ResourceARN: string | undefined;
 }
 
 export namespace KinesisFirehoseInputDescription {
@@ -642,15 +642,10 @@ export namespace KinesisFirehoseInputDescription {
 }
 
 /**
- * <p>For an SQL-based Amazon Kinesis Data Analytics application, describes the Kinesis data
+ * <p>For a SQL-based Kinesis Data Analytics application, describes the Kinesis data
  *       stream that is configured as the streaming source in the application input configuration. </p>
  */
 export interface KinesisStreamsInputDescription {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the Kinesis data stream.</p>
-   */
-  ResourceARN: string | undefined;
-
   /**
    * <p>The ARN of the IAM role that Kinesis Data Analytics can assume to access the
    *       stream.</p>
@@ -661,6 +656,11 @@ export interface KinesisStreamsInputDescription {
    *          </note>
    */
   RoleARN?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Kinesis data stream.</p>
+   */
+  ResourceARN: string | undefined;
 }
 
 export namespace KinesisStreamsInputDescription {
@@ -670,46 +670,14 @@ export namespace KinesisStreamsInputDescription {
 }
 
 /**
- * <p>Describes the application input configuration for an SQL-based Amazon Kinesis Data
- *       Analytics application. </p>
+ * <p>Describes the application input configuration for a SQL-based Kinesis Data Analytics application. </p>
  */
 export interface InputDescription {
   /**
-   * <p>If a Kinesis data stream is configured as a streaming source, provides the Kinesis data
-   *       stream's Amazon Resource Name (ARN). </p>
-   */
-  KinesisStreamsInputDescription?: KinesisStreamsInputDescription;
-
-  /**
-   * <p>Describes the format of the data in the streaming source, and how each data element maps to corresponding columns in the in-application stream that is being created. </p>
-   */
-  InputSchema?: SourceSchema;
-
-  /**
-   * <p>Describes the configured parallelism (number of in-application streams mapped to the streaming source). </p>
-   */
-  InputParallelism?: InputParallelism;
-
-  /**
-   * <p>The input ID that is associated with the application input. This is the ID that Kinesis
-   *       Data Analytics assigns to each input configuration that you add to your application. </p>
+   * <p>The input ID that is associated with the application input. This is the ID that Kinesis Data Analytics assigns to each input
+   *       configuration that you add to your application. </p>
    */
   InputId?: string;
-
-  /**
-   * <p>Returns the in-application stream names that are mapped to the stream source. </p>
-   */
-  InAppStreamNames?: string[];
-
-  /**
-   * <p>The point at which the application is configured to read from the input stream.</p>
-   */
-  InputStartingPositionConfiguration?: InputStartingPositionConfiguration;
-
-  /**
-   * <p>The in-application name prefix.</p>
-   */
-  NamePrefix?: string;
 
   /**
    * <p>If a Kinesis Data Firehose delivery stream is configured as a streaming source, provides the delivery stream's ARN. </p>
@@ -720,6 +688,38 @@ export interface InputDescription {
    * <p>The description of the preprocessor that executes on records in this input before the application's code is run. </p>
    */
   InputProcessingConfigurationDescription?: InputProcessingConfigurationDescription;
+
+  /**
+   * <p>The point at which the application is configured to read from the input stream.</p>
+   */
+  InputStartingPositionConfiguration?: InputStartingPositionConfiguration;
+
+  /**
+   * <p>Returns the in-application stream names that are mapped to the stream source. </p>
+   */
+  InAppStreamNames?: string[];
+
+  /**
+   * <p>The in-application name prefix.</p>
+   */
+  NamePrefix?: string;
+
+  /**
+   * <p>Describes the format of the data in the streaming source, and how each data element maps to corresponding columns
+   *       in the in-application stream that is being created. </p>
+   */
+  InputSchema?: SourceSchema;
+
+  /**
+   * <p>If a Kinesis data stream is configured as a streaming source, provides the Kinesis data
+   *       stream's Amazon Resource Name (ARN). </p>
+   */
+  KinesisStreamsInputDescription?: KinesisStreamsInputDescription;
+
+  /**
+   * <p>Describes the configured parallelism (number of in-application streams mapped to the streaming source). </p>
+   */
+  InputParallelism?: InputParallelism;
 }
 
 export namespace InputDescription {
@@ -738,14 +738,14 @@ export interface AddApplicationInputResponse {
   InputDescriptions?: InputDescription[];
 
   /**
-   * <p>Provides the current application version.</p>
-   */
-  ApplicationVersionId?: number;
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the application.</p>
    */
   ApplicationARN?: string;
+
+  /**
+   * <p>Provides the current application version.</p>
+   */
+  ApplicationVersionId?: number;
 }
 
 export namespace AddApplicationInputResponse {
@@ -780,9 +780,10 @@ export interface AddApplicationInputProcessingConfigurationRequest {
   CurrentApplicationVersionId: number | undefined;
 
   /**
-   * <p>The <a>InputProcessingConfiguration</a> to add to the application.</p>
+   * <p>The name of the application to which you want to add the input processing
+   *       configuration.</p>
    */
-  InputProcessingConfiguration: InputProcessingConfiguration | undefined;
+  ApplicationName: string | undefined;
 
   /**
    * <p>The ID of the input configuration to add the input processing configuration to. You
@@ -791,10 +792,9 @@ export interface AddApplicationInputProcessingConfigurationRequest {
   InputId: string | undefined;
 
   /**
-   * <p>The name of the application to which you want to add the input processing
-   *       configuration.</p>
+   * <p>The <a>InputProcessingConfiguration</a> to add to the application.</p>
    */
-  ApplicationName: string | undefined;
+  InputProcessingConfiguration: InputProcessingConfiguration | undefined;
 }
 
 export namespace AddApplicationInputProcessingConfigurationRequest {
@@ -805,9 +805,16 @@ export namespace AddApplicationInputProcessingConfigurationRequest {
 
 export interface AddApplicationInputProcessingConfigurationResponse {
   /**
-   * <p>The description of the preprocessor that executes on records in this input before the application's code is run.</p>
+   * <p>Provides the current application version.</p>
    */
-  InputProcessingConfigurationDescription?: InputProcessingConfigurationDescription;
+  ApplicationVersionId?: number;
+
+  /**
+   * <p>The input ID that is associated with the application input. This is the ID that Kinesis Data Analytics assigns
+   *       to each input configuration that you add to your
+   *       application.</p>
+   */
+  InputId?: string;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the application.</p>
@@ -815,16 +822,9 @@ export interface AddApplicationInputProcessingConfigurationResponse {
   ApplicationARN?: string;
 
   /**
-   * <p>Provides the current application version.</p>
+   * <p>The description of the preprocessor that executes on records in this input before the application's code is run.</p>
    */
-  ApplicationVersionId?: number;
-
-  /**
-   * <p>The input ID that is associated with the application input. This is the ID that Amazon
-   *       Kinesis Data Analytics assigns to each input configuration that you add to your
-   *       application.</p>
-   */
-  InputId?: string;
+  InputProcessingConfigurationDescription?: InputProcessingConfigurationDescription;
 }
 
 export namespace AddApplicationInputProcessingConfigurationResponse {
@@ -834,8 +834,7 @@ export namespace AddApplicationInputProcessingConfigurationResponse {
 }
 
 /**
- * <p>Describes the data format when records are written to the destination in an SQL-based
- *       Amazon Kinesis Data Analytics application. </p>
+ * <p>Describes the data format when records are written to the destination in a SQL-based Kinesis Data Analytics application. </p>
  */
 export interface DestinationSchema {
   /**
@@ -851,7 +850,7 @@ export namespace DestinationSchema {
 }
 
 /**
- * <p>For an SQL-based Amazon Kinesis Data Analytics application, when configuring application
+ * <p>For a SQL-based Kinesis Data Analytics application, when configuring application
  *       output, identifies a Kinesis Data Firehose delivery stream as the destination. You provide the
  *       stream Amazon Resource Name (ARN) of the delivery stream. </p>
  */
@@ -869,7 +868,7 @@ export namespace KinesisFirehoseOutput {
 }
 
 /**
- * <p>When you configure an SQL-based Amazon Kinesis Data Analytics application's output,
+ * <p>When you configure a SQL-based Kinesis Data Analytics application's output,
  *       identifies a Kinesis data stream as the destination. You provide the stream Amazon Resource
  *       Name (ARN). </p>
  */
@@ -887,7 +886,7 @@ export namespace KinesisStreamsOutput {
 }
 
 /**
- * <p>When you configure an SQL-based Amazon Kinesis Data Analytics application's output,
+ * <p>When you configure a SQL-based Kinesis Data Analytics application's output,
  *       identifies an AWS Lambda function as the destination. You provide the function Amazon Resource
  *       Name (ARN) of the Lambda function. </p>
  */
@@ -895,7 +894,7 @@ export interface LambdaOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the destination Lambda function to write to.</p>
    *          <note>
-   *             <p>To specify an earlier version of the Lambda function than the latest, include the Lambda function version in the Lambda function ARN. For more information about Lambda ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-lambda">Example ARNs: AWS Lambda</a>
+   *             <p>To specify an earlier version of the Lambda function than the latest, include the Lambda function version in the Lambda function ARN. For more information about Lambda ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-lambda">Example ARNs: AWS Lambda</a>
    *             </p>
    *          </note>
    */
@@ -909,7 +908,7 @@ export namespace LambdaOutput {
 }
 
 /**
- * <p> Describes an SQL-based Amazon Kinesis Data Analytics application's output configuration,
+ * <p> Describes a SQL-based Kinesis Data Analytics application's output configuration,
  *       in which you identify an in-application stream and a destination where you want the
  *       in-application stream data to be written. The destination can be a Kinesis data stream or a
  *       Kinesis Data Firehose delivery stream. </p>
@@ -918,31 +917,31 @@ export namespace LambdaOutput {
  */
 export interface Output {
   /**
-   * <p>Identifies an Amazon Kinesis Data Firehose delivery stream as the destination.</p>
-   */
-  KinesisFirehoseOutput?: KinesisFirehoseOutput;
-
-  /**
    * <p>Identifies an AWS Lambda function as the destination.</p>
    */
   LambdaOutput?: LambdaOutput;
 
   /**
-   * <p>Identifies an Amazon Kinesis data stream
+   * <p>The name of the in-application stream.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>Identifies a Kinesis data stream
    *       as the destination.</p>
    */
   KinesisStreamsOutput?: KinesisStreamsOutput;
+
+  /**
+   * <p>Identifies a Kinesis Data Firehose delivery stream as the destination.</p>
+   */
+  KinesisFirehoseOutput?: KinesisFirehoseOutput;
 
   /**
    * <p>Describes the data format when records are written to the destination.
    *       </p>
    */
   DestinationSchema: DestinationSchema | undefined;
-
-  /**
-   * <p>The name of the in-application stream.</p>
-   */
-  Name: string | undefined;
 }
 
 export namespace Output {
@@ -952,6 +951,14 @@ export namespace Output {
 }
 
 export interface AddApplicationOutputRequest {
+  /**
+   * <p>The version of the application to which you want to add the output configuration. You can
+   *       use the <a>DescribeApplication</a> operation to get the current application
+   *       version. If the version specified is not the current version, the
+   *         <code>ConcurrentModificationException</code> is returned. </p>
+   */
+  CurrentApplicationVersionId: number | undefined;
+
   /**
    * <p>The name of the application to which you want to add the output configuration.</p>
    */
@@ -964,14 +971,6 @@ export interface AddApplicationOutputRequest {
    *       record the formation to use when writing to the destination.</p>
    */
   Output: Output | undefined;
-
-  /**
-   * <p>The version of the application to which you want to add the output configuration. You can
-   *       use the <a>DescribeApplication</a> operation to get the current application
-   *       version. If the version specified is not the current version, the
-   *         <code>ConcurrentModificationException</code> is returned. </p>
-   */
-  CurrentApplicationVersionId: number | undefined;
 }
 
 export namespace AddApplicationOutputRequest {
@@ -981,7 +980,7 @@ export namespace AddApplicationOutputRequest {
 }
 
 /**
- * <p>For an SQL-based Amazon Kinesis Data Analytics application's output, describes the Kinesis
+ * <p>For a SQL-based Kinesis Data Analytics application's output, describes the Kinesis
  *       Data Firehose delivery stream that is configured as its destination.</p>
  */
 export interface KinesisFirehoseOutputDescription {
@@ -1009,7 +1008,7 @@ export namespace KinesisFirehoseOutputDescription {
 }
 
 /**
- * <p>For an SQL-based Amazon Kinesis Data Analytics application's output, describes the Kinesis
+ * <p>For an SQL-based Kinesis Data Analytics application's output, describes the Kinesis
  *       data stream that is configured as its destination. </p>
  */
 export interface KinesisStreamsOutputDescription {
@@ -1037,7 +1036,7 @@ export namespace KinesisStreamsOutputDescription {
 }
 
 /**
- * <p>For an SQL-based Amazon Kinesis Data Analytics application output, describes the AWS
+ * <p>For a SQL-based Kinesis Data Analytics application's output, describes the AWS
  *       Lambda function that is configured as its destination. </p>
  */
 export interface LambdaOutputDescription {
@@ -1065,29 +1064,12 @@ export namespace LambdaOutputDescription {
 }
 
 /**
- * <p>For an SQL-based Amazon Kinesis Data Analytics application, describes the application
+ * <p>For a SQL-based Kinesis Data Analytics application, describes the application
  *       output configuration, which includes the in-application stream name and the destination where
  *       the stream data is written. The destination can be a Kinesis data stream or a Kinesis Data
  *       Firehose delivery stream. </p>
  */
 export interface OutputDescription {
-  /**
-   * <p>Describes the Kinesis data stream that is configured as the destination where output is
-   *       written.</p>
-   */
-  KinesisStreamsOutputDescription?: KinesisStreamsOutputDescription;
-
-  /**
-   * <p>Describes the Kinesis Data Firehose delivery stream that is configured as the destination
-   *       where output is written.</p>
-   */
-  KinesisFirehoseOutputDescription?: KinesisFirehoseOutputDescription;
-
-  /**
-   * <p>The data format used for writing data to the destination.</p>
-   */
-  DestinationSchema?: DestinationSchema;
-
   /**
    * <p>A unique identifier for the output configuration.</p>
    */
@@ -1103,6 +1085,23 @@ export interface OutputDescription {
    *       written.</p>
    */
   LambdaOutputDescription?: LambdaOutputDescription;
+
+  /**
+   * <p>The data format used for writing data to the destination.</p>
+   */
+  DestinationSchema?: DestinationSchema;
+
+  /**
+   * <p>Describes the Kinesis Data Firehose delivery stream that is configured as the destination
+   *       where output is written.</p>
+   */
+  KinesisFirehoseOutputDescription?: KinesisFirehoseOutputDescription;
+
+  /**
+   * <p>Describes the Kinesis data stream that is configured as the destination where output is
+   *       written.</p>
+   */
+  KinesisStreamsOutputDescription?: KinesisStreamsOutputDescription;
 }
 
 export namespace OutputDescription {
@@ -1112,12 +1111,6 @@ export namespace OutputDescription {
 }
 
 export interface AddApplicationOutputResponse {
-  /**
-   * <p>The updated application version ID. Kinesis Data Analytics increments this ID when the
-   *       application is updated.</p>
-   */
-  ApplicationVersionId?: number;
-
   /**
    * <p>The application Amazon Resource Name (ARN).</p>
    */
@@ -1131,6 +1124,12 @@ export interface AddApplicationOutputResponse {
    *     </p>
    */
   OutputDescriptions?: OutputDescription[];
+
+  /**
+   * <p>The updated application version ID. Kinesis Data Analytics increments this ID when the
+   *       application is updated.</p>
+   */
+  ApplicationVersionId?: number;
 }
 
 export namespace AddApplicationOutputResponse {
@@ -1140,21 +1139,22 @@ export namespace AddApplicationOutputResponse {
 }
 
 /**
- * <p>For an SQL-based Amazon Kinesis Data Analytics application, identifies the Amazon S3
+ * <p>For a SQL-based Kinesis Data Analytics application, identifies the Amazon S3
  *       bucket and object that contains the reference data.</p>
  *
- *          <p>A Kinesis Data Analytics application loads reference data only once. If the data changes, you call the <a>UpdateApplication</a> operation to trigger reloading of data into your application. </p>
+ *          <p>A Kinesis Data Analytics application loads reference data only once. If the data changes, you call the <a>UpdateApplication</a>
+ *         operation to trigger reloading of data into your application. </p>
  */
 export interface S3ReferenceDataSource {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the S3 bucket.</p>
-   */
-  BucketARN?: string;
-
   /**
    * <p>The object key name containing the reference data.</p>
    */
   FileKey?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the S3 bucket.</p>
+   */
+  BucketARN?: string;
 }
 
 export namespace S3ReferenceDataSource {
@@ -1164,12 +1164,19 @@ export namespace S3ReferenceDataSource {
 }
 
 /**
- * <p>For an SQL-based Amazon Kinesis Data Analytics application, describes the reference data
+ * <p>For a SQL-based Kinesis Data Analytics application, describes the reference data
  *       source by providing the source information (Amazon S3 bucket name and object key name), the
  *       resulting in-application table name that is created, and the necessary schema to map the data
  *       elements in the Amazon S3 object to the in-application table.</p>
  */
 export interface ReferenceDataSource {
+  /**
+   * <p>Identifies the S3 bucket and object that contains the reference data.
+   *
+   *       A Kinesis Data Analytics application loads reference data only once. If the data changes, you call the <a>UpdateApplication</a> operation to trigger reloading of data into your application. </p>
+   */
+  S3ReferenceDataSource?: S3ReferenceDataSource;
+
   /**
    * <p>The name of the in-application table to create.</p>
    */
@@ -1179,13 +1186,6 @@ export interface ReferenceDataSource {
    * <p>Describes the format of the data in the streaming source, and how each data element maps to corresponding columns created in the in-application stream.</p>
    */
   ReferenceSchema: SourceSchema | undefined;
-
-  /**
-   * <p>Identifies the S3 bucket and object that contains the reference data.
-   *
-   *       A Kinesis Data Analytics application loads reference data only once. If the data changes, you call the <a>UpdateApplication</a> operation to trigger reloading of data into your application. </p>
-   */
-  S3ReferenceDataSource?: S3ReferenceDataSource;
 }
 
 export namespace ReferenceDataSource {
@@ -1196,16 +1196,17 @@ export namespace ReferenceDataSource {
 
 export interface AddApplicationReferenceDataSourceRequest {
   /**
-   * <p>The name of an existing application.</p>
-   */
-  ApplicationName: string | undefined;
-
-  /**
    * <p>The reference data source can be an object in your Amazon S3 bucket. Kinesis Data Analytics reads the object and copies the data
-   *       into the in-application table that is created. You provide an S3 bucket, object key name, and the resulting in-application table that is
+   *       into the in-application table that is created. You provide an S3 bucket, object key name, and the resulting
+   *       in-application table that is
    *       created. </p>
    */
   ReferenceDataSource: ReferenceDataSource | undefined;
+
+  /**
+   * <p>The name of an existing application.</p>
+   */
+  ApplicationName: string | undefined;
 
   /**
    * <p>The version of the application for which you are adding the reference data source. You can
@@ -1223,20 +1224,10 @@ export namespace AddApplicationReferenceDataSourceRequest {
 }
 
 /**
- * <p>For an SQL-based Amazon Kinesis Data Analytics application, provides the bucket name and
+ * <p>For a SQL-based Kinesis Data Analytics application, provides the bucket name and
  *       object key name that stores the reference data.</p>
  */
 export interface S3ReferenceDataSourceDescription {
-  /**
-   * <p>Amazon S3 object key name.</p>
-   */
-  FileKey: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the S3 bucket.</p>
-   */
-  BucketARN: string | undefined;
-
   /**
    * <p>The ARN of the IAM role that Kinesis Data Analytics can assume to read the Amazon S3
    *       object on your behalf to populate the in-application reference table. </p>
@@ -1247,6 +1238,16 @@ export interface S3ReferenceDataSourceDescription {
    *          </note>
    */
   ReferenceRoleARN?: string;
+
+  /**
+   * <p>Amazon S3 object key name.</p>
+   */
+  FileKey: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the S3 bucket.</p>
+   */
+  BucketARN: string | undefined;
 }
 
 export namespace S3ReferenceDataSourceDescription {
@@ -1256,14 +1257,14 @@ export namespace S3ReferenceDataSourceDescription {
 }
 
 /**
- * <p>For an SQL-based Amazon Kinesis Data Analytics application, describes the reference data
+ * <p>For a SQL-based Kinesis Data Analytics application, describes the reference data
  *       source configured for an application.</p>
  */
 export interface ReferenceDataSourceDescription {
   /**
-   * <p>Provides the Amazon S3 bucket name, the object key name that contains the reference data. </p>
+   * <p>The in-application table name created by the specific reference data source configuration.</p>
    */
-  S3ReferenceDataSourceDescription: S3ReferenceDataSourceDescription | undefined;
+  TableName: string | undefined;
 
   /**
    * <p>Describes the format of the data in the streaming source, and how each data element maps to corresponding columns created in the in-application stream.</p>
@@ -1277,9 +1278,9 @@ export interface ReferenceDataSourceDescription {
   ReferenceId: string | undefined;
 
   /**
-   * <p>The in-application table name created by the specific reference data source configuration.</p>
+   * <p>Provides the Amazon S3 bucket name, the object key name that contains the reference data. </p>
    */
-  TableName: string | undefined;
+  S3ReferenceDataSourceDescription: S3ReferenceDataSourceDescription | undefined;
 }
 
 export namespace ReferenceDataSourceDescription {
@@ -1290,12 +1291,6 @@ export namespace ReferenceDataSourceDescription {
 
 export interface AddApplicationReferenceDataSourceResponse {
   /**
-   * <p>The updated application version ID. Amazon Kinesis Data Analytics increments this ID when
-   *       the application is updated.</p>
-   */
-  ApplicationVersionId?: number;
-
-  /**
    * <p>Describes reference data sources configured for the application.
    *
    *
@@ -1303,6 +1298,12 @@ export interface AddApplicationReferenceDataSourceResponse {
    *     </p>
    */
   ReferenceDataSourceDescriptions?: ReferenceDataSourceDescription[];
+
+  /**
+   * <p>The updated application version ID. Kinesis Data Analytics increments this ID when
+   *       the application is updated.</p>
+   */
+  ApplicationVersionId?: number;
 
   /**
    * <p>The application Amazon Resource Name (ARN).</p>
@@ -1321,14 +1322,16 @@ export namespace AddApplicationReferenceDataSourceResponse {
  */
 export interface VpcConfiguration {
   /**
-   * <p>The array of <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_Subnet.html">Subnet</a> IDs used by the VPC configuration.</p>
-   */
-  SubnetIds: string[] | undefined;
-
-  /**
-   * <p>The array of <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SecurityGroup.html">SecurityGroup</a> IDs used by the VPC configuration.</p>
+   * <p>The array of <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SecurityGroup.html">SecurityGroup</a>
+   *         IDs used by the VPC configuration.</p>
    */
   SecurityGroupIds: string[] | undefined;
+
+  /**
+   * <p>The array of <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_Subnet.html">Subnet</a> IDs
+   *         used by the VPC configuration.</p>
+   */
+  SubnetIds: string[] | undefined;
 }
 
 export namespace VpcConfiguration {
@@ -1339,6 +1342,14 @@ export namespace VpcConfiguration {
 
 export interface AddApplicationVpcConfigurationRequest {
   /**
+   * <p>The version of the application to which you want to add the VPC
+   *       configuration. You can use the <a>DescribeApplication</a> operation to get the
+   *       current application version. If the version specified is not the current version, the
+   *         <code>ConcurrentModificationException</code> is returned.</p>
+   */
+  CurrentApplicationVersionId: number | undefined;
+
+  /**
    * <p>The name of an existing application.</p>
    */
   ApplicationName: string | undefined;
@@ -1347,14 +1358,6 @@ export interface AddApplicationVpcConfigurationRequest {
    * <p>Description of the VPC to add to the application.</p>
    */
   VpcConfiguration: VpcConfiguration | undefined;
-
-  /**
-   * <p>The version of the application to which you want to add the input processing
-   *       configuration. You can use the <a>DescribeApplication</a> operation to get the
-   *       current application version. If the version specified is not the current version, the
-   *         <code>ConcurrentModificationException</code> is returned.</p>
-   */
-  CurrentApplicationVersionId: number | undefined;
 }
 
 export namespace AddApplicationVpcConfigurationRequest {
@@ -1368,9 +1371,16 @@ export namespace AddApplicationVpcConfigurationRequest {
  */
 export interface VpcConfigurationDescription {
   /**
-   * <p>The array of <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_Subnet.html">Subnet</a> IDs used by the VPC configuration.</p>
+   * <p>The array of <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_Subnet.html">Subnet</a>
+   *         IDs used by the VPC configuration.</p>
    */
   SubnetIds: string[] | undefined;
+
+  /**
+   * <p>The array of <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SecurityGroup.html">SecurityGroup</a>
+   *         IDs used by the VPC configuration.</p>
+   */
+  SecurityGroupIds: string[] | undefined;
 
   /**
    * <p>The ID of the associated VPC.</p>
@@ -1381,11 +1391,6 @@ export interface VpcConfigurationDescription {
    * <p>The ID of the VPC configuration.</p>
    */
   VpcConfigurationId: string | undefined;
-
-  /**
-   * <p>The array of <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SecurityGroup.html">SecurityGroup</a> IDs used by the VPC configuration.</p>
-   */
-  SecurityGroupIds: string[] | undefined;
 }
 
 export namespace VpcConfigurationDescription {
@@ -1396,11 +1401,6 @@ export namespace VpcConfigurationDescription {
 
 export interface AddApplicationVpcConfigurationResponse {
   /**
-   * <p>Provides the current application version. Kinesis Data Analytics updates the ApplicationVersionId each time you update the application. </p>
-   */
-  ApplicationVersionId?: number;
-
-  /**
    * <p>The parameters of the new VPC configuration.</p>
    */
   VpcConfigurationDescription?: VpcConfigurationDescription;
@@ -1409,6 +1409,11 @@ export interface AddApplicationVpcConfigurationResponse {
    * <p>The ARN of the application.</p>
    */
   ApplicationARN?: string;
+
+  /**
+   * <p>Provides the current application version. Kinesis Data Analytics updates the ApplicationVersionId each time you update the application. </p>
+   */
+  ApplicationVersionId?: number;
 }
 
 export namespace AddApplicationVpcConfigurationResponse {
@@ -1418,21 +1423,21 @@ export namespace AddApplicationVpcConfigurationResponse {
 }
 
 /**
- * <p>For a Java-based Amazon Kinesis Data Analytics application, provides a
+ * <p>For a Flink-based Kinesis Data Analytics application, provides a
  *       description of an Amazon S3 object, including the Amazon Resource Name (ARN) of the S3 bucket,
  *       the name of the Amazon S3 object that contains the data, and the version number of the Amazon
  *       S3 object that contains the data. </p>
  */
 export interface S3ContentLocation {
   /**
-   * <p>The version of the object containing the application code.</p>
-   */
-  ObjectVersion?: string;
-
-  /**
    * <p>The file key for the object containing the application code.</p>
    */
   FileKey: string | undefined;
+
+  /**
+   * <p>The version of the object containing the application code.</p>
+   */
+  ObjectVersion?: string;
 
   /**
    * <p>The Amazon Resource Name (ARN) for the S3 bucket containing the application code.</p>
@@ -1448,23 +1453,23 @@ export namespace S3ContentLocation {
 
 /**
  * <p>Specifies either the application code, or the location of the application code, for a
- *       Java-based Amazon Kinesis Data Analytics application. </p>
+ *       Flink-based Kinesis Data Analytics application. </p>
  */
 export interface CodeContent {
-  /**
-   * <p>The zip-format code for a Java-based Kinesis Data Analytics application.</p>
-   */
-  ZipFileContent?: Uint8Array;
-
-  /**
-   * <p>The text-format code for a Java-based Kinesis Data Analytics application.</p>
-   */
-  TextContent?: string;
-
   /**
    * <p>Information about the Amazon S3 bucket containing the application code.</p>
    */
   S3ContentLocation?: S3ContentLocation;
+
+  /**
+   * <p>The zip-format code for a Flink-based Kinesis Data Analytics application.</p>
+   */
+  ZipFileContent?: Uint8Array;
+
+  /**
+   * <p>The text-format code for a Flink-based Kinesis Data Analytics application.</p>
+   */
+  TextContent?: string;
 }
 
 export namespace CodeContent {
@@ -1479,19 +1484,18 @@ export enum CodeContentType {
 }
 
 /**
- * <p>Describes code configuration for a Java-based Kinesis Data Analytics
- *       application.</p>
+ * <p>Describes code configuration for a Flink-based Kinesis Data Analytics application.</p>
  */
 export interface ApplicationCodeConfiguration {
-  /**
-   * <p>Specifies whether the code content is in text or zip format.</p>
-   */
-  CodeContentType: CodeContentType | string | undefined;
-
   /**
    * <p>The location and type of the application code.</p>
    */
   CodeContent?: CodeContent;
+
+  /**
+   * <p>Specifies whether the code content is in text or zip format.</p>
+   */
+  CodeContentType: CodeContentType | string | undefined;
 }
 
 export namespace ApplicationCodeConfiguration {
@@ -1501,15 +1505,9 @@ export namespace ApplicationCodeConfiguration {
 }
 
 /**
- * <p>Describes the location of a Java-based Amazon Kinesis Data Analytics
- *       application's code stored in an S3 bucket.</p>
+ * <p>Describes the location of a Flink-based Kinesis Data Analytics application's code stored in an S3 bucket.</p>
  */
 export interface S3ApplicationCodeLocationDescription {
-  /**
-   * <p>The version of the object containing the application code.</p>
-   */
-  ObjectVersion?: string;
-
   /**
    * <p>The file key for the object containing the application code.</p>
    */
@@ -1519,6 +1517,11 @@ export interface S3ApplicationCodeLocationDescription {
    * <p>The Amazon Resource Name (ARN) for the S3 bucket containing the application code.</p>
    */
   BucketARN: string | undefined;
+
+  /**
+   * <p>The version of the object containing the application code.</p>
+   */
+  ObjectVersion?: string;
 }
 
 export namespace S3ApplicationCodeLocationDescription {
@@ -1528,14 +1531,13 @@ export namespace S3ApplicationCodeLocationDescription {
 }
 
 /**
- * <p>Describes details about the application code for a Java-based Kinesis Data
- *       Analytics application.</p>
+ * <p>Describes details about the application code for a Flink-based Kinesis Data Analytics application.</p>
  */
 export interface CodeContentDescription {
   /**
-   * <p>The size in bytes of the application code. Can be used to validate zip-format code.</p>
+   * <p>The text-format code</p>
    */
-  CodeSize?: number;
+  TextContent?: string;
 
   /**
    * <p>The S3 bucket Amazon Resource Name (ARN), file key, and object version of the application
@@ -1544,9 +1546,9 @@ export interface CodeContentDescription {
   S3ApplicationCodeLocationDescription?: S3ApplicationCodeLocationDescription;
 
   /**
-   * <p>The text-format code</p>
+   * <p>The size in bytes of the application code. Can be used to validate zip-format code.</p>
    */
-  TextContent?: string;
+  CodeSize?: number;
 
   /**
    * <p>The checksum that can be used to validate zip-format code.</p>
@@ -1561,8 +1563,7 @@ export namespace CodeContentDescription {
 }
 
 /**
- * <p>Describes code configuration for a Java-based Kinesis Data Analytics
- *       application.</p>
+ * <p>Describes code configuration for a Flink-based Kinesis Data Analytics application.</p>
  */
 export interface ApplicationCodeConfigurationDescription {
   /**
@@ -1583,15 +1584,10 @@ export namespace ApplicationCodeConfigurationDescription {
 }
 
 /**
- * <p>Describes an update for the Amazon S3 code content location for a Java-based
- *       Amazon Kinesis Data Analytics application.</p>
+ * <p>Describes an update for the Amazon S3 code content location for a
+ *       Flink-based Kinesis Data Analytics application.</p>
  */
 export interface S3ContentLocationUpdate {
-  /**
-   * <p>The new file key for the object containing the application code.</p>
-   */
-  FileKeyUpdate?: string;
-
   /**
    * <p>The new version of the object containing the application code.</p>
    */
@@ -1601,6 +1597,11 @@ export interface S3ContentLocationUpdate {
    * <p>The new Amazon Resource Name (ARN) for the S3 bucket containing the application code.</p>
    */
   BucketARNUpdate?: string;
+
+  /**
+   * <p>The new file key for the object containing the application code.</p>
+   */
+  FileKeyUpdate?: string;
 }
 
 export namespace S3ContentLocationUpdate {
@@ -1610,19 +1611,18 @@ export namespace S3ContentLocationUpdate {
 }
 
 /**
- * <p>Describes an update to the code of a Java-based Kinesis Data Analytics
- *       application.</p>
+ * <p>Describes an update to the code of a Flink-based Kinesis Data Analytics application.</p>
  */
 export interface CodeContentUpdate {
-  /**
-   * <p>Describes an update to the zipped code for an application.</p>
-   */
-  ZipFileContentUpdate?: Uint8Array;
-
   /**
    * <p>Describes an update to the text code for an application.</p>
    */
   TextContentUpdate?: string;
+
+  /**
+   * <p>Describes an update to the zipped code for an application.</p>
+   */
+  ZipFileContentUpdate?: Uint8Array;
 
   /**
    * <p>Describes an update to the location of code for an application.</p>
@@ -1637,8 +1637,7 @@ export namespace CodeContentUpdate {
 }
 
 /**
- * <p>Describes updates to a Java-based Amazon Kinesis Data Analytics
- *       application.</p>
+ * <p>Describes code configuration updates to a Flink-based Kinesis Data Analytics application.</p>
  */
 export interface ApplicationCodeConfigurationUpdate {
   /**
@@ -1659,11 +1658,11 @@ export namespace ApplicationCodeConfigurationUpdate {
 }
 
 /**
- * <p>Describes whether snapshots are enabled for a Java-based Kinesis Data Analytics application.</p>
+ * <p>Describes whether snapshots are enabled for a Flink-based Kinesis Data Analytics application.</p>
  */
 export interface ApplicationSnapshotConfiguration {
   /**
-   * <p>Describes whether snapshots are enabled for a Java-based Kinesis Data Analytics application.</p>
+   * <p>Describes whether snapshots are enabled for a Flink-based Kinesis Data Analytics application.</p>
    */
   SnapshotsEnabled: boolean | undefined;
 }
@@ -1675,19 +1674,18 @@ export namespace ApplicationSnapshotConfiguration {
 }
 
 /**
- * <p>Property key-value pairs passed into a Java-based Kinesis Data Analytics
- *       application.</p>
+ * <p>Property key-value pairs passed into a Flink-based Kinesis Data Analytics application.</p>
  */
 export interface PropertyGroup {
-  /**
-   * <p>Describes the key of an application execution property key-value pair.</p>
-   */
-  PropertyGroupId: string | undefined;
-
   /**
    * <p>Describes the value of an application execution property key-value pair.</p>
    */
   PropertyMap: { [key: string]: string } | undefined;
+
+  /**
+   * <p>Describes the key of an application execution property key-value pair.</p>
+   */
+  PropertyGroupId: string | undefined;
 }
 
 export namespace PropertyGroup {
@@ -1697,8 +1695,7 @@ export namespace PropertyGroup {
 }
 
 /**
- * <p>Describes execution properties for a Java-based Kinesis Data Analytics
- *       application.</p>
+ * <p>Describes execution properties for a Flink-based Kinesis Data Analytics application.</p>
  */
 export interface EnvironmentProperties {
   /**
@@ -1719,24 +1716,50 @@ export enum ConfigurationType {
 }
 
 /**
- * <p>Describes an application's checkpointing configuration. Checkpointing is the process of persisting application state for fault tolerance.
+ * <p>Describes an application's checkpointing configuration. Checkpointing is the process of persisting application state for fault
+ *       tolerance.
  *       For more information, see
- *       <a href="https://ci.apache.org/projects/flink/flink-docs-release-1.6/concepts/programming-model.html#checkpoints-for-fault-tolerance">
+ *       <a href="https://ci.apache.org/projects/flink/flink-docs-release-1.8/concepts/programming-model.html#checkpoints-for-fault-tolerance">
  *         Checkpoints for Fault Tolerance</a> in the
- *       <a href="https://ci.apache.org/projects/flink/flink-docs-release-1.6/">Apache Flink Documentation</a>.</p>
+ *       <a href="https://ci.apache.org/projects/flink/flink-docs-release-1.8/">Apache Flink Documentation</a>.</p>
  */
 export interface CheckpointConfiguration {
+  /**
+   * <p>Describes the minimum time in milliseconds after a checkpoint operation completes that a
+   *       new checkpoint operation can start. If a checkpoint operation takes longer than the
+   *         <code>CheckpointInterval</code>, the application otherwise performs continual checkpoint
+   *       operations. For more information, see <a href="https://ci.apache.org/projects/flink/flink-docs-release-1.8/ops/state/large_state_tuning.html#tuning-checkpointing"> Tuning Checkpointing</a> in the <a href="https://ci.apache.org/projects/flink/flink-docs-release-1.8/">Apache Flink
+   *         Documentation</a>.</p>
+   *          <note>
+   *             <p>If <code>CheckpointConfiguration.ConfigurationType</code> is <code>DEFAULT</code>,
+   *     the application will use a <code>MinPauseBetweenCheckpoints</code> value of 5000, even if this value is set using this
+   *       API or in application code.</p>
+   *          </note>
+   */
+  MinPauseBetweenCheckpoints?: number;
+
   /**
    * <p>Describes the interval in milliseconds between checkpoint operations. </p>
    *          <note>
    *             <p>If <code>CheckpointConfiguration.ConfigurationType</code> is <code>DEFAULT</code>,
-   *     the application will use a <code>CheckpointInterval</code> vaue of 60000, even if this value is set to another value using this API or in application code.</p>
+   *     the application will use a <code>CheckpointInterval</code> vaue of 60000, even if this value is set
+   *       to another value using this API or in application code.</p>
    *          </note>
    */
   CheckpointInterval?: number;
 
   /**
-   * <p>Describes whether the application uses Amazon Kinesis Data Analytics' default checkpointing behavior.
+   * <p>Describes whether checkpointing is enabled for a Flink-based Kinesis Data Analytics application.</p>
+   *          <note>
+   *             <p>If <code>CheckpointConfiguration.ConfigurationType</code> is <code>DEFAULT</code>,
+   *     the application will use a <code>CheckpointingEnabled</code> value of <code>true</code>, even if this value
+   *       is set to another value using this API or in application code.</p>
+   *          </note>
+   */
+  CheckpointingEnabled?: boolean;
+
+  /**
+   * <p>Describes whether the application uses Kinesis Data Analytics' default checkpointing behavior.
    *     You must set this property to <code>CUSTOM</code> in order to set the
    *       <code>CheckpointingEnabled</code>, <code>CheckpointInterval</code>, or <code>MinPauseBetweenCheckpoints</code> parameters.</p>
    *          <note>
@@ -1759,29 +1782,6 @@ export interface CheckpointConfiguration {
    *          </note>
    */
   ConfigurationType: ConfigurationType | string | undefined;
-
-  /**
-   * <p>Describes the minimum time in milliseconds after a checkpoint operation completes that a
-   *       new checkpoint operation can start. If a checkpoint operation takes longer than the
-   *         <code>CheckpointInterval</code>, the application otherwise performs continual checkpoint
-   *       operations. For more information, see <a href="https://ci.apache.org/projects/flink/flink-docs-stable/ops/state/large_state_tuning.html#tuning-checkpointing"> Tuning Checkpointing</a> in the <a href="https://ci.apache.org/projects/flink/flink-docs-release-1.6/">Apache Flink
-   *         Documentation</a>.</p>
-   *          <note>
-   *             <p>If <code>CheckpointConfiguration.ConfigurationType</code> is <code>DEFAULT</code>,
-   *     the application will use a <code>MinPauseBetweenCheckpoints</code> value of 5000, even if this value is set using this API or in application code.</p>
-   *          </note>
-   */
-  MinPauseBetweenCheckpoints?: number;
-
-  /**
-   * <p>Describes whether checkpointing is enabled for a Java-based Kinesis Data Analytics application.</p>
-   *          <note>
-   *             <p>If <code>CheckpointConfiguration.ConfigurationType</code> is <code>DEFAULT</code>,
-   *     the application will use a <code>CheckpointingEnabled</code> value of <code>true</code>, even if this value
-   *       is set to another value using this API or in application code.</p>
-   *          </note>
-   */
-  CheckpointingEnabled?: boolean;
 }
 
 export namespace CheckpointConfiguration {
@@ -1805,17 +1805,13 @@ export enum MetricsLevel {
 }
 
 /**
- * <p>Describes configuration parameters for Amazon CloudWatch logging for a Java-based
+ * <p>Describes configuration parameters for Amazon CloudWatch logging for a Flink-based
  *       Kinesis Data Analytics application. For more information about CloudWatch logging, see <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/java/monitoring-overview.html">Monitoring</a>.</p>
  */
 export interface MonitoringConfiguration {
   /**
-   * <p>Describes the verbosity of the CloudWatch Logs for an application.</p>
-   */
-  LogLevel?: LogLevel | string;
-
-  /**
-   * <p>Describes the granularity of the CloudWatch Logs for an application.</p>
+   * <p>Describes the granularity of the CloudWatch Logs for an application. The <code>Parallelism</code>
+   *     level is not recommended for applications with a Parallelism over 64 due to excessive costs.</p>
    */
   MetricsLevel?: MetricsLevel | string;
 
@@ -1825,6 +1821,11 @@ export interface MonitoringConfiguration {
    *     <code>MetricsLevel</code> parameters.</p>
    */
   ConfigurationType: ConfigurationType | string | undefined;
+
+  /**
+   * <p>Describes the verbosity of the CloudWatch Logs for an application.</p>
+   */
+  LogLevel?: LogLevel | string;
 }
 
 export namespace MonitoringConfiguration {
@@ -1834,39 +1835,40 @@ export namespace MonitoringConfiguration {
 }
 
 /**
- * <p>Describes parameters for how a Java-based Amazon Kinesis Data Analytics
+ * <p>Describes parameters for how a Flink-based Kinesis Data Analytics application
  *       application executes multiple tasks simultaneously. For more information about parallelism,
- *       see <a href="https://ci.apache.org/projects/flink/flink-docs-stable/dev/parallel.html">Parallel Execution</a> in the <a href="https://ci.apache.org/projects/flink/flink-docs-release-1.6/">Apache Flink
+ *       see <a href="https://ci.apache.org/projects/flink/flink-docs-release-1.8/dev/parallel.html">Parallel Execution</a> in the <a href="https://ci.apache.org/projects/flink/flink-docs-release-1.8/">Apache Flink
  *         Documentation</a>.</p>
  */
 export interface ParallelismConfiguration {
   /**
-   * <p>Describes whether the Kinesis Data Analytics service can increase the parallelism of the application in response to increased throughput.</p>
-   */
-  AutoScalingEnabled?: boolean;
-
-  /**
-   * <p>Describes the number of parallel tasks that a Java-based Kinesis Data Analytics
-   *       application can perform per Kinesis Processing Unit (KPU) used by the application. For more
-   *       information about KPUs, see <a href="http://aws.amazon.com/kinesis/data-analytics/pricing/">Amazon Kinesis Data Analytics Pricing</a>.</p>
-   */
-  ParallelismPerKPU?: number;
-
-  /**
-   * <p>Describes whether the application uses the default parallelism for the Kinesis Data
-   *       Analytics service. You must set this property to <code>CUSTOM</code>
+   * <p>Describes whether the application uses the default parallelism for the Kinesis Data Analytics service. You must set this property to <code>CUSTOM</code>
    *     in order to change your application's <code>AutoScalingEnabled</code>, <code>Parallelism</code>, or <code>ParallelismPerKPU</code> properties.</p>
    */
   ConfigurationType: ConfigurationType | string | undefined;
 
   /**
-   * <p>Describes the initial number of parallel tasks that a Java-based Kinesis Data Analytics
-   *       application can perform. If <code>AutoScalingEnabled</code> is set to True, Kinesis Data Analytics increases the <code>CurrentParallelism</code> value in response to application
-   *     load. The service can increase the <code>CurrentParallelism</code> value up to the maximum parallelism, which is <code>ParalellismPerKPU</code> times the maximum KPUs for the application.
-   *     The maximum KPUs for an application is 32 by default, and can be increased by requesting a limit increase. If application load is reduced, the service can
+   * <p>Describes the number of parallel tasks that a Flink-based Kinesis Data Analytics application can perform per Kinesis Processing Unit
+   *       (KPU) used by the application. For more
+   *       information about KPUs, see <a href="http://aws.amazon.com/kinesis/data-analytics/pricing/">Amazon Kinesis Data Analytics Pricing</a>.</p>
+   */
+  ParallelismPerKPU?: number;
+
+  /**
+   * <p>Describes the initial number of parallel tasks that a Flink-based Kinesis Data Analytics application can perform. If <code>AutoScalingEnabled</code>
+   *       is set to True, Kinesis Data Analytics increases the <code>CurrentParallelism</code> value in response to application
+   *     load. The service can increase the <code>CurrentParallelism</code> value up to the maximum parallelism, which is
+   *       <code>ParalellismPerKPU</code> times the maximum KPUs for the application.
+   *     The maximum KPUs for an application is 32 by default, and can be increased by requesting a limit increase. If
+   *     application load is reduced, the service can
    *     reduce the <code>CurrentParallelism</code> value down to the <code>Parallelism</code> setting.</p>
    */
   Parallelism?: number;
+
+  /**
+   * <p>Describes whether the Kinesis Data Analytics service can increase the parallelism of the application in response to increased throughput.</p>
+   */
+  AutoScalingEnabled?: boolean;
 }
 
 export namespace ParallelismConfiguration {
@@ -1876,17 +1878,16 @@ export namespace ParallelismConfiguration {
 }
 
 /**
- * <p>Describes configuration parameters for a Java-based Amazon Kinesis Data Analytics
- *       application.</p>
+ * <p>Describes configuration parameters for a Flink-based Kinesis Data Analytics application.</p>
  */
 export interface FlinkApplicationConfiguration {
   /**
    * <p>Describes an application's checkpointing configuration. Checkpointing is the
    *       process of persisting application state for fault tolerance.
    *       For more information, see
-   *       <a href="https://ci.apache.org/projects/flink/flink-docs-release-1.6/concepts/programming-model.html#checkpoints-for-fault-tolerance">
+   *       <a href="https://ci.apache.org/projects/flink/flink-docs-release-1.8/concepts/programming-model.html#checkpoints-for-fault-tolerance">
    *         Checkpoints for Fault Tolerance</a> in the
-   *       <a href="https://ci.apache.org/projects/flink/flink-docs-release-1.6/">Apache Flink Documentation</a>. </p>
+   *       <a href="https://ci.apache.org/projects/flink/flink-docs-release-1.8/">Apache Flink Documentation</a>. </p>
    */
   CheckpointConfiguration?: CheckpointConfiguration;
 
@@ -1909,8 +1910,7 @@ export namespace FlinkApplicationConfiguration {
 }
 
 /**
- * <p>Describes the inputs, outputs, and reference data sources for an SQL-based Kinesis Data
- *       Analytics application.</p>
+ * <p>Describes the inputs, outputs, and reference data sources for a SQL-based Kinesis Data Analytics application.</p>
  */
 export interface SqlApplicationConfiguration {
   /**
@@ -1939,30 +1939,18 @@ export namespace SqlApplicationConfiguration {
 }
 
 /**
- * <p>Specifies the creation parameters for an Amazon Kinesis Data Analytics
- *       application.</p>
+ * <p>Specifies the creation parameters for a Kinesis Data Analytics application.</p>
  */
 export interface ApplicationConfiguration {
   /**
-   * <p>The code location and type parameters for a Java-based Kinesis Data Analytics application.</p>
-   */
-  ApplicationCodeConfiguration: ApplicationCodeConfiguration | undefined;
-
-  /**
-   * <p>The creation and update parameters for a Java-based Kinesis Data Analytics
-   *       application.</p>
-   */
-  FlinkApplicationConfiguration?: FlinkApplicationConfiguration;
-
-  /**
-   * <p>Describes execution properties for a Java-based Kinesis Data Analytics application.</p>
+   * <p>Describes execution properties for a Flink-based Kinesis Data Analytics application.</p>
    */
   EnvironmentProperties?: EnvironmentProperties;
 
   /**
-   * <p>Describes whether snapshots are enabled for a Java-based Kinesis Data Analytics application.</p>
+   * <p>The code location and type parameters for a Flink-based Kinesis Data Analytics application.</p>
    */
-  ApplicationSnapshotConfiguration?: ApplicationSnapshotConfiguration;
+  ApplicationCodeConfiguration: ApplicationCodeConfiguration | undefined;
 
   /**
    * <p>The array of descriptions of VPC configurations available to the application.</p>
@@ -1970,10 +1958,19 @@ export interface ApplicationConfiguration {
   VpcConfigurations?: VpcConfiguration[];
 
   /**
-   * <p>The creation and update parameters for an SQL-based Kinesis Data Analytics
-   *       application.</p>
+   * <p>The creation and update parameters for a SQL-based Kinesis Data Analytics application.</p>
    */
   SqlApplicationConfiguration?: SqlApplicationConfiguration;
+
+  /**
+   * <p>The creation and update parameters for a Flink-based Kinesis Data Analytics application.</p>
+   */
+  FlinkApplicationConfiguration?: FlinkApplicationConfiguration;
+
+  /**
+   * <p>Describes whether snapshots are enabled for a Flink-based Kinesis Data Analytics application.</p>
+   */
+  ApplicationSnapshotConfiguration?: ApplicationSnapshotConfiguration;
 }
 
 export namespace ApplicationConfiguration {
@@ -1983,11 +1980,11 @@ export namespace ApplicationConfiguration {
 }
 
 /**
- * <p>Describes whether snapshots are enabled for a Java-based Kinesis Data Analytics application.</p>
+ * <p>Describes whether snapshots are enabled for a Flink-based Kinesis Data Analytics application.</p>
  */
 export interface ApplicationSnapshotConfigurationDescription {
   /**
-   * <p>Describes whether snapshots are enabled for a Java-based Kinesis Data Analytics application.</p>
+   * <p>Describes whether snapshots are enabled for a Flink-based Kinesis Data Analytics application.</p>
    */
   SnapshotsEnabled: boolean | undefined;
 }
@@ -1999,8 +1996,7 @@ export namespace ApplicationSnapshotConfigurationDescription {
 }
 
 /**
- * <p>Describes the execution properties for a Java-based Amazon Kinesis Data Analytics
- *       application.</p>
+ * <p>Describes the execution properties for a Flink-based Kinesis Data Analytics application.</p>
  */
 export interface EnvironmentPropertyDescriptions {
   /**
@@ -2016,43 +2012,24 @@ export namespace EnvironmentPropertyDescriptions {
 }
 
 /**
- * <p>Describes checkpointing parameters for a Java-based Amazon Kinesis Data Analytics
- *       application.</p>
+ * <p>Describes checkpointing parameters for a Flink-based Kinesis Data Analytics application.</p>
  */
 export interface CheckpointConfigurationDescription {
   /**
-   * <p>Describes whether checkpointing is enabled for a Java-based Kinesis Data Analytics application.</p>
+   * <p>Describes whether checkpointing is enabled for a Flink-based Kinesis Data Analytics application.</p>
    *          <note>
    *             <p>If <code>CheckpointConfiguration.ConfigurationType</code> is <code>DEFAULT</code>,
-   *     the application will use a <code>CheckpointingEnabled</code> value of <code>true</code>, even if this value is set to another value using this API or in application code.</p>
+   *     the application will use a <code>CheckpointingEnabled</code> value of <code>true</code>, even if this value is set to
+   *       another value using this API or in application code.</p>
    *          </note>
    */
   CheckpointingEnabled?: boolean;
 
   /**
-   * <p>Describes the minimum time in milliseconds after a checkpoint operation completes that a new checkpoint operation
-   *       can start. </p>
+   * <p>Describes whether the application uses the default checkpointing behavior in Kinesis Data Analytics. </p>
    *          <note>
-   *             <p>If <code>CheckpointConfiguration.ConfigurationType</code> is <code>DEFAULT</code>,
-   *     the application will use a <code>MinPauseBetweenCheckpoints</code> value of 5000, even if this value is set using this API or in application code.</p>
-   *          </note>
-   */
-  MinPauseBetweenCheckpoints?: number;
-
-  /**
-   * <p>Describes the interval in milliseconds between checkpoint operations. </p>
-   *          <note>
-   *             <p>If <code>CheckpointConfiguration.ConfigurationType</code> is <code>DEFAULT</code>,
-   *     the application will use a <code>CheckpointInterval</code> vaue of 60000, even if this value is set to another value using this API or in application code.</p>
-   *          </note>
-   */
-  CheckpointInterval?: number;
-
-  /**
-   * <p>Describes whether the application uses the default checkpointing behavior in Kinesis Data
-   *       Analytics. </p>
-   *          <note>
-   *             <p>If this value is set to <code>DEFAULT</code>, the application will use the following values, even if they are set to other values using APIs or
+   *             <p>If this value is set to <code>DEFAULT</code>, the application will use the following values,
+   *       even if they are set to other values using APIs or
    *     application code:</p>
    *             <ul>
    *                <li>
@@ -2071,6 +2048,27 @@ export interface CheckpointConfigurationDescription {
    *          </note>
    */
   ConfigurationType?: ConfigurationType | string;
+
+  /**
+   * <p>Describes the interval in milliseconds between checkpoint operations. </p>
+   *          <note>
+   *             <p>If <code>CheckpointConfiguration.ConfigurationType</code> is <code>DEFAULT</code>,
+   *     the application will use a <code>CheckpointInterval</code> vaue of 60000, even if this value is set to another value
+   *       using this API or in application code.</p>
+   *          </note>
+   */
+  CheckpointInterval?: number;
+
+  /**
+   * <p>Describes the minimum time in milliseconds after a checkpoint operation completes that a new checkpoint operation
+   *       can start. </p>
+   *          <note>
+   *             <p>If <code>CheckpointConfiguration.ConfigurationType</code> is <code>DEFAULT</code>,
+   *     the application will use a <code>MinPauseBetweenCheckpoints</code> value of 5000, even if this value is set using this
+   *       API or in application code.</p>
+   *          </note>
+   */
+  MinPauseBetweenCheckpoints?: number;
 }
 
 export namespace CheckpointConfigurationDescription {
@@ -2080,19 +2078,19 @@ export namespace CheckpointConfigurationDescription {
 }
 
 /**
- * <p>Describes configuration parameters for CloudWatch logging for a Java-based
+ * <p>Describes configuration parameters for CloudWatch logging for a Flink-based
  *       Kinesis Data Analytics application.</p>
  */
 export interface MonitoringConfigurationDescription {
   /**
-   * <p>Describes the verbosity of the CloudWatch Logs for an application.</p>
-   */
-  LogLevel?: LogLevel | string;
-
-  /**
    * <p>Describes whether to use the default CloudWatch logging configuration for an application.</p>
    */
   ConfigurationType?: ConfigurationType | string;
+
+  /**
+   * <p>Describes the verbosity of the CloudWatch Logs for an application.</p>
+   */
+  LogLevel?: LogLevel | string;
 
   /**
    * <p>Describes the granularity of the CloudWatch Logs for an application.</p>
@@ -2107,18 +2105,13 @@ export namespace MonitoringConfigurationDescription {
 }
 
 /**
- * <p>Describes parameters for how a Java-based Kinesis Data Analytics application
+ * <p>Describes parameters for how a Flink-based Kinesis Data Analytics application
  *       executes multiple tasks simultaneously.</p>
  */
 export interface ParallelismConfigurationDescription {
   /**
-   * <p>Describes whether the application uses the default parallelism for the Kinesis Data Analytics service. </p>
-   */
-  ConfigurationType?: ConfigurationType | string;
-
-  /**
-   * <p>Describes the initial number of parallel tasks that a Java-based Kinesis Data Analytics
-   *       application can perform. If <code>AutoScalingEnabled</code> is set to True, then Kinesis Data Analytics can increase the <code>CurrentParallelism</code> value in response to application
+   * <p>Describes the initial number of parallel tasks that a Flink-based Kinesis Data Analytics application can perform.
+   *       If <code>AutoScalingEnabled</code> is set to True, then Kinesis Data Analytics can increase the <code>CurrentParallelism</code> value in response to application
    *     load. The service can increase <code>CurrentParallelism</code> up to the maximum parallelism, which is <code>ParalellismPerKPU</code> times the maximum KPUs for the application.
    *     The maximum KPUs for an application is 32 by default, and can be increased by requesting a limit increase. If application load is reduced, the service can
    *     reduce the <code>CurrentParallelism</code> value down to the <code>Parallelism</code> setting.</p>
@@ -2126,13 +2119,8 @@ export interface ParallelismConfigurationDescription {
   Parallelism?: number;
 
   /**
-   * <p>Describes whether the Kinesis Data Analytics service can increase the parallelism of the application in response to increased throughput.</p>
-   */
-  AutoScalingEnabled?: boolean;
-
-  /**
-   * <p>Describes the current number of parallel tasks that a Java-based Kinesis Data Analytics
-   *       application can perform. If <code>AutoScalingEnabled</code> is set to True, Kinesis Data Analytics can increase this value in response to application
+   * <p>Describes the current number of parallel tasks that a Flink-based Kinesis Data Analytics application can perform.
+   *       If <code>AutoScalingEnabled</code> is set to True, Kinesis Data Analytics can increase this value in response to application
    *     load. The service can increase this value up to the maximum parallelism, which is <code>ParalellismPerKPU</code> times the maximum KPUs for the application.
    *     The maximum KPUs for an application is 32 by default, and can be increased by requesting a limit increase. If application load is reduced, the service can reduce
    *     the <code>CurrentParallelism</code> value down to the <code>Parallelism</code> setting.</p>
@@ -2140,8 +2128,18 @@ export interface ParallelismConfigurationDescription {
   CurrentParallelism?: number;
 
   /**
-   * <p>Describes the number of parallel tasks that a Java-based Kinesis Data Analytics
-   *       application can perform per Kinesis Processing Unit (KPU) used by the application.</p>
+   * <p>Describes whether the Kinesis Data Analytics service can increase the parallelism of the application in response to increased throughput.</p>
+   */
+  AutoScalingEnabled?: boolean;
+
+  /**
+   * <p>Describes whether the application uses the default parallelism for the Kinesis Data Analytics service. </p>
+   */
+  ConfigurationType?: ConfigurationType | string;
+
+  /**
+   * <p>Describes the number of parallel tasks that a Flink-based Kinesis Data Analytics application can perform per
+   *       Kinesis Processing Unit (KPU) used by the application.</p>
    */
   ParallelismPerKPU?: number;
 }
@@ -2153,20 +2151,19 @@ export namespace ParallelismConfigurationDescription {
 }
 
 /**
- * <p>Describes configuration parameters for a Java-based Amazon Kinesis Data Analytics
- *       application.</p>
+ * <p>Describes configuration parameters for a Flink-based Kinesis Data Analytics application.</p>
  */
 export interface FlinkApplicationConfigurationDescription {
-  /**
-   * <p>The job plan for an application. For more information about the job plan, see <a href="https://ci.apache.org/projects/flink/flink-docs-stable/internals/job_scheduling.html">Jobs and Scheduling</a> in the <a href="https://ci.apache.org/projects/flink/flink-docs-release-1.6/">Apache Flink
-   *         Documentation</a>. To retrieve the job plan for the application, use the <a>DescribeApplicationRequest$IncludeAdditionalDetails</a> parameter of the <a>DescribeApplication</a> operation.</p>
-   */
-  JobPlanDescription?: string;
-
   /**
    * <p>Describes parameters for how an application executes multiple tasks simultaneously.</p>
    */
   ParallelismConfigurationDescription?: ParallelismConfigurationDescription;
+
+  /**
+   * <p>Describes an application's checkpointing configuration. Checkpointing is the process of persisting application state
+   *       for fault tolerance.</p>
+   */
+  CheckpointConfigurationDescription?: CheckpointConfigurationDescription;
 
   /**
    * <p>Describes configuration parameters for Amazon CloudWatch logging for an
@@ -2175,9 +2172,10 @@ export interface FlinkApplicationConfigurationDescription {
   MonitoringConfigurationDescription?: MonitoringConfigurationDescription;
 
   /**
-   * <p>Describes an application's checkpointing configuration. Checkpointing is the process of persisting application state for fault tolerance.</p>
+   * <p>The job plan for an application. For more information about the job plan, see <a href="https://ci.apache.org/projects/flink/flink-docs-release-1.8/internals/job_scheduling.html">Jobs and Scheduling</a> in the <a href="https://ci.apache.org/projects/flink/flink-docs-release-1.8/">Apache Flink
+   *         Documentation</a>. To retrieve the job plan for the application, use the <a>DescribeApplicationRequest$IncludeAdditionalDetails</a> parameter of the <a>DescribeApplication</a> operation.</p>
    */
-  CheckpointConfigurationDescription?: CheckpointConfigurationDescription;
+  JobPlanDescription?: string;
 }
 
 export namespace FlinkApplicationConfigurationDescription {
@@ -2197,19 +2195,48 @@ export enum ApplicationRestoreType {
  */
 export interface ApplicationRestoreConfiguration {
   /**
-   * <p>The identifier of an existing snapshot of application state to use to restart an application.
-   *       The application uses this value if <code>RESTORE_FROM_CUSTOM_SNAPSHOT</code> is specified for the <code>ApplicationRestoreType</code>.</p>
-   */
-  SnapshotName?: string;
-
-  /**
    * <p>Specifies how the application should be restored.</p>
    */
   ApplicationRestoreType: ApplicationRestoreType | string | undefined;
+
+  /**
+   * <p>The identifier of an existing snapshot of application state to use to restart an application.
+   *       The application uses this value if <code>RESTORE_FROM_CUSTOM_SNAPSHOT</code> is specified for the
+   *       <code>ApplicationRestoreType</code>.</p>
+   */
+  SnapshotName?: string;
 }
 
 export namespace ApplicationRestoreConfiguration {
   export const filterSensitiveLog = (obj: ApplicationRestoreConfiguration): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes the starting parameters for a Flink-based Kinesis Data Analytics application.</p>
+ */
+export interface FlinkRunConfiguration {
+  /**
+   * <p>When restoring from a snapshot, specifies whether the runtime is allowed to skip a state that cannot
+   *        be mapped to the new program.
+   *      This will happen if the program is updated between snapshots to remove stateful parameters, and
+   *      state data in the snapshot no longer
+   *      corresponds to valid application data. For more information, see
+   *      <a href="https://ci.apache.org/projects/flink/flink-docs-release-1.8/ops/state/savepoints.html#allowing-non-restored-state">
+   *        Allowing Non-Restored State</a> in the <a href="https://ci.apache.org/projects/flink/flink-docs-release-1.8/">Apache Flink
+   *          documentation</a>.</p>
+   *          <note>
+   *             <p>This value defaults to <code>false</code>. If you update your application without
+   *      specifying this parameter, <code>AllowNonRestoredState</code> will be set to <code>false</code>,
+   *      even if it was previously set to <code>true</code>.</p>
+   *          </note>
+   */
+  AllowNonRestoredState?: boolean;
+}
+
+export namespace FlinkRunConfiguration {
+  export const filterSensitiveLog = (obj: FlinkRunConfiguration): any => ({
     ...obj,
   });
 }
@@ -2222,6 +2249,11 @@ export interface RunConfigurationDescription {
    * <p>Describes the restore behavior of a restarting application.</p>
    */
   ApplicationRestoreConfigurationDescription?: ApplicationRestoreConfiguration;
+
+  /**
+   * <p>Describes the starting parameters for a Flink-based Kinesis Data Analytics application.</p>
+   */
+  FlinkRunConfigurationDescription?: FlinkRunConfiguration;
 }
 
 export namespace RunConfigurationDescription {
@@ -2231,21 +2263,20 @@ export namespace RunConfigurationDescription {
 }
 
 /**
- * <p>Describes the inputs, outputs, and reference data sources for an SQL-based Kinesis Data
- *       Analytics application.</p>
+ * <p>Describes the inputs, outputs, and reference data sources for a SQL-based Kinesis Data Analytics application.</p>
  */
 export interface SqlApplicationConfigurationDescription {
-  /**
-   * <p>The array of <a>OutputDescription</a> objects describing the destination
-   *       streams used by the application.</p>
-   */
-  OutputDescriptions?: OutputDescription[];
-
   /**
    * <p>The array of <a>ReferenceDataSourceDescription</a> objects describing the
    *       reference data sources used by the application.</p>
    */
   ReferenceDataSourceDescriptions?: ReferenceDataSourceDescription[];
+
+  /**
+   * <p>The array of <a>OutputDescription</a> objects describing the destination
+   *       streams used by the application.</p>
+   */
+  OutputDescriptions?: OutputDescription[];
 
   /**
    * <p>The array of <a>InputDescription</a> objects describing the input streams used
@@ -2261,20 +2292,13 @@ export namespace SqlApplicationConfigurationDescription {
 }
 
 /**
- * <p>Describes details about the application code and starting parameters for an Amazon Kinesis
- *       Data Analytics application.</p>
+ * <p>Describes details about the application code and starting parameters for a Kinesis Data Analytics application.</p>
  */
 export interface ApplicationConfigurationDescription {
   /**
-   * <p>The details about a Java-based Kinesis Data Analytics application.</p>
+   * <p>The details about the application code for a Flink-based Kinesis Data Analytics application.</p>
    */
-  FlinkApplicationConfigurationDescription?: FlinkApplicationConfigurationDescription;
-
-  /**
-   * <p>Describes execution properties for a Java-based Kinesis Data Analytics
-   *       application.</p>
-   */
-  EnvironmentPropertyDescriptions?: EnvironmentPropertyDescriptions;
+  ApplicationCodeConfigurationDescription?: ApplicationCodeConfigurationDescription;
 
   /**
    * <p>The array of descriptions of VPC configurations available to the application.</p>
@@ -2282,15 +2306,14 @@ export interface ApplicationConfigurationDescription {
   VpcConfigurationDescriptions?: VpcConfigurationDescription[];
 
   /**
-   * <p>Describes whether snapshots are enabled for a Java-based Kinesis Data Analytics application.</p>
+   * <p>Describes whether snapshots are enabled for a Flink-based Kinesis Data Analytics application.</p>
    */
   ApplicationSnapshotConfigurationDescription?: ApplicationSnapshotConfigurationDescription;
 
   /**
-   * <p>The details about the application code for a Java-based Kinesis Data Analytics
-   *       application.</p>
+   * <p>The details about inputs, outputs, and reference data sources for a SQL-based Kinesis Data Analytics application.</p>
    */
-  ApplicationCodeConfigurationDescription?: ApplicationCodeConfigurationDescription;
+  SqlApplicationConfigurationDescription?: SqlApplicationConfigurationDescription;
 
   /**
    * <p>The details about the starting properties for a Kinesis Data Analytics application.</p>
@@ -2298,10 +2321,14 @@ export interface ApplicationConfigurationDescription {
   RunConfigurationDescription?: RunConfigurationDescription;
 
   /**
-   * <p>The details about inputs, outputs, and reference data sources for an SQL-based Kinesis
-   *       Data Analytics application.</p>
+   * <p>The details about a Flink-based Kinesis Data Analytics application.</p>
    */
-  SqlApplicationConfigurationDescription?: SqlApplicationConfigurationDescription;
+  FlinkApplicationConfigurationDescription?: FlinkApplicationConfigurationDescription;
+
+  /**
+   * <p>Describes execution properties for a Flink-based Kinesis Data Analytics application.</p>
+   */
+  EnvironmentPropertyDescriptions?: EnvironmentPropertyDescriptions;
 }
 
 export namespace ApplicationConfigurationDescription {
@@ -2311,11 +2338,11 @@ export namespace ApplicationConfigurationDescription {
 }
 
 /**
- * <p>Describes updates to whether snapshots are enabled for a Java-based Kinesis Data Analytics application.</p>
+ * <p>Describes updates to whether snapshots are enabled for a Flink-based Kinesis Data Analytics application.</p>
  */
 export interface ApplicationSnapshotConfigurationUpdate {
   /**
-   * <p>Describes updates to whether snapshots are enabled for a Java-based Kinesis Data Analytics application.</p>
+   * <p>Describes updates to whether snapshots are enabled for a Flink-based Kinesis Data Analytics application.</p>
    */
   SnapshotsEnabledUpdate: boolean | undefined;
 }
@@ -2327,8 +2354,7 @@ export namespace ApplicationSnapshotConfigurationUpdate {
 }
 
 /**
- * <p>Describes updates to the execution property groups for a Java-based Amazon
- *       Kinesis Data Analytics application.</p>
+ * <p>Describes updates to the execution property groups for a Flink-based Kinesis Data Analytics application.</p>
  */
 export interface EnvironmentPropertyUpdates {
   /**
@@ -2344,27 +2370,19 @@ export namespace EnvironmentPropertyUpdates {
 }
 
 /**
- * <p>Describes updates to the checkpointing parameters for a Java-based Amazon Kinesis
- *       Data Analytics application.</p>
+ * <p>Describes updates to the checkpointing parameters for a Flink-based Kinesis Data Analytics application.</p>
  */
 export interface CheckpointConfigurationUpdate {
   /**
-   * <p>Describes updates to whether checkpointing is enabled for an application.</p>
+   * <p>Describes updates to the minimum time in milliseconds after a checkpoint operation completes that a new checkpoint operation
+   *       can start.</p>
    *          <note>
    *             <p>If <code>CheckpointConfiguration.ConfigurationType</code> is <code>DEFAULT</code>,
-   *     the application will use a <code>CheckpointingEnabled</code> value of <code>true</code>, even if this value is set to another value using this API or in application code.</p>
+   *     the application will use a <code>MinPauseBetweenCheckpoints</code> value of 5000, even if this value is set using this API or
+   *       in application code.</p>
    *          </note>
    */
-  CheckpointingEnabledUpdate?: boolean;
-
-  /**
-   * <p>Describes updates to the interval in milliseconds between checkpoint operations.</p>
-   *          <note>
-   *             <p>If <code>CheckpointConfiguration.ConfigurationType</code> is <code>DEFAULT</code>,
-   *     the application will use a <code>CheckpointInterval</code> vaue of 60000, even if this value is set to another value using this API or in application code.</p>
-   *          </note>
-   */
-  CheckpointIntervalUpdate?: number;
+  MinPauseBetweenCheckpointsUpdate?: number;
 
   /**
    * <p>Describes updates to whether the application uses the default checkpointing behavior of
@@ -2372,7 +2390,8 @@ export interface CheckpointConfigurationUpdate {
    *       <code>CheckpointingEnabled</code>, <code>CheckpointInterval</code>, or <code>MinPauseBetweenCheckpoints</code> parameters.
    *       </p>
    *          <note>
-   *             <p>If this value is set to <code>DEFAULT</code>, the application will use the following values, even if they are set to other values using APIs or
+   *             <p>If this value is set to <code>DEFAULT</code>, the application will use the following values, even if they are
+   *       set to other values using APIs or
    *     application code:</p>
    *             <ul>
    *                <li>
@@ -2393,14 +2412,24 @@ export interface CheckpointConfigurationUpdate {
   ConfigurationTypeUpdate?: ConfigurationType | string;
 
   /**
-   * <p>Describes updates to the minimum time in milliseconds after a checkpoint operation completes that a new checkpoint operation
-   *       can start.</p>
+   * <p>Describes updates to the interval in milliseconds between checkpoint operations.</p>
    *          <note>
    *             <p>If <code>CheckpointConfiguration.ConfigurationType</code> is <code>DEFAULT</code>,
-   *     the application will use a <code>MinPauseBetweenCheckpoints</code> value of 5000, even if this value is set using this API or in application code.</p>
+   *     the application will use a <code>CheckpointInterval</code> vaue of 60000, even if this value is set to another value
+   *       using this API or in application code.</p>
    *          </note>
    */
-  MinPauseBetweenCheckpointsUpdate?: number;
+  CheckpointIntervalUpdate?: number;
+
+  /**
+   * <p>Describes updates to whether checkpointing is enabled for an application.</p>
+   *          <note>
+   *             <p>If <code>CheckpointConfiguration.ConfigurationType</code> is <code>DEFAULT</code>,
+   *     the application will use a <code>CheckpointingEnabled</code> value of <code>true</code>, even if this value is set to
+   *       another value using this API or in application code.</p>
+   *          </note>
+   */
+  CheckpointingEnabledUpdate?: boolean;
 }
 
 export namespace CheckpointConfigurationUpdate {
@@ -2410,18 +2439,19 @@ export namespace CheckpointConfigurationUpdate {
 }
 
 /**
- * <p>Describes updates to configuration parameters for Amazon CloudWatch logging for a Java-based Kinesis Data Analytics application.</p>
+ * <p>Describes updates to configuration parameters for Amazon CloudWatch logging for a Flink-based Kinesis Data Analytics application.</p>
  */
 export interface MonitoringConfigurationUpdate {
-  /**
-   * <p>Describes updates to the granularity of the CloudWatch Logs for an application.</p>
-   */
-  MetricsLevelUpdate?: MetricsLevel | string;
-
   /**
    * <p>Describes updates to the verbosity of the CloudWatch Logs for an application.</p>
    */
   LogLevelUpdate?: LogLevel | string;
+
+  /**
+   * <p>Describes updates to the granularity of the CloudWatch Logs for an application. The <code>Parallelism</code>
+   *       level is not recommended for applications with a Parallelism over 64 due to excessive costs.</p>
+   */
+  MetricsLevelUpdate?: MetricsLevel | string;
 
   /**
    * <p>Describes updates to whether to use the default CloudWatch logging configuration for
@@ -2438,24 +2468,9 @@ export namespace MonitoringConfigurationUpdate {
 }
 
 /**
- * <p>Describes updates to parameters for how a Java-based Kinesis Data Analytics
- *       application executes multiple tasks simultaneously.</p>
+ * <p>Describes updates to parameters for how a Flink-based Kinesis Data Analytics application executes multiple tasks simultaneously.</p>
  */
 export interface ParallelismConfigurationUpdate {
-  /**
-   * <p>Describes updates to whether the Kinesis Data Analytics service can increase the parallelism of the application in response to increased throughput.</p>
-   */
-  AutoScalingEnabledUpdate?: boolean;
-
-  /**
-   * <p>Describes updates to the initial number of parallel tasks an application can perform. If <code>AutoScalingEnabled</code> is set to True, then Kinesis
-   *       Data Analytics can increase the <code>CurrentParallelism</code> value in response to application
-   *     load. The service can increase <code>CurrentParallelism</code> up to the maximum parallelism, which is <code>ParalellismPerKPU</code> times the maximum KPUs for the application.
-   *     The maximum KPUs for an application is 32 by default, and can be increased by requesting a limit increase. If application load is reduced, the service will
-   *     reduce <code>CurrentParallelism</code> down to the <code>Parallelism</code> setting.</p>
-   */
-  ParallelismUpdate?: number;
-
   /**
    * <p>Describes updates to whether the application uses the default parallelism for the Kinesis Data Analytics service, or if a custom parallelism is used.
    *     You must set this property to <code>CUSTOM</code>
@@ -2467,6 +2482,20 @@ export interface ParallelismConfigurationUpdate {
    * <p>Describes updates to the number of parallel tasks an application can perform per Kinesis Processing Unit (KPU) used by the application.</p>
    */
   ParallelismPerKPUUpdate?: number;
+
+  /**
+   * <p>Describes updates to whether the Kinesis Data Analytics service can increase the parallelism of the application in response to increased throughput.</p>
+   */
+  AutoScalingEnabledUpdate?: boolean;
+
+  /**
+   * <p>Describes updates to the initial number of parallel tasks an application can perform. If <code>AutoScalingEnabled</code> is set to True, then
+   *       Kinesis Data Analytics can increase the <code>CurrentParallelism</code> value in response to application
+   *     load. The service can increase <code>CurrentParallelism</code> up to the maximum parallelism, which is <code>ParalellismPerKPU</code> times the maximum KPUs for the application.
+   *     The maximum KPUs for an application is 32 by default, and can be increased by requesting a limit increase. If application load is reduced, the service will
+   *     reduce <code>CurrentParallelism</code> down to the <code>Parallelism</code> setting.</p>
+   */
+  ParallelismUpdate?: number;
 }
 
 export namespace ParallelismConfigurationUpdate {
@@ -2476,15 +2505,9 @@ export namespace ParallelismConfigurationUpdate {
 }
 
 /**
- * <p>Describes updates to the configuration parameters for a Java-based Amazon Kinesis
- *       Data Analytics application.</p>
+ * <p>Describes updates to the configuration parameters for a Flink-based Kinesis Data Analytics application.</p>
  */
 export interface FlinkApplicationConfigurationUpdate {
-  /**
-   * <p>Describes updates to the parameters for how an application executes multiple tasks simultaneously.</p>
-   */
-  ParallelismConfigurationUpdate?: ParallelismConfigurationUpdate;
-
   /**
    * <p>Describes updates to the configuration parameters for Amazon CloudWatch logging for an
    *       application.</p>
@@ -2492,9 +2515,15 @@ export interface FlinkApplicationConfigurationUpdate {
   MonitoringConfigurationUpdate?: MonitoringConfigurationUpdate;
 
   /**
-   * <p>Describes updates to an application's checkpointing configuration. Checkpointing is the process of persisting application state for fault tolerance.</p>
+   * <p>Describes updates to an application's checkpointing configuration. Checkpointing is the process of persisting
+   *       application state for fault tolerance.</p>
    */
   CheckpointConfigurationUpdate?: CheckpointConfigurationUpdate;
+
+  /**
+   * <p>Describes updates to the parameters for how an application executes multiple tasks simultaneously.</p>
+   */
+  ParallelismConfigurationUpdate?: ParallelismConfigurationUpdate;
 }
 
 export namespace FlinkApplicationConfigurationUpdate {
@@ -2504,7 +2533,7 @@ export namespace FlinkApplicationConfigurationUpdate {
 }
 
 /**
- * <p>For an SQL-based Amazon Kinesis Data Analytics application, provides updates to the
+ * <p>For a SQL-based Kinesis Data Analytics application, provides updates to the
  *       parallelism count.</p>
  */
 export interface InputParallelismUpdate {
@@ -2521,7 +2550,7 @@ export namespace InputParallelismUpdate {
 }
 
 /**
- * <p>For an SQL-based Amazon Kinesis Data Analytics application, represents an update to the
+ * <p>For a SQL-based Kinesis Data Analytics application, represents an update to the
  *         <a>InputLambdaProcessor</a> that is used to preprocess the records in the
  *       stream.</p>
  */
@@ -2530,7 +2559,7 @@ export interface InputLambdaProcessorUpdate {
    * <p>The Amazon Resource Name (ARN) of the new AWS Lambda function that is used to preprocess
    *       the records in the stream.</p>
    *          <note>
-   *             <p>To specify an earlier version of the Lambda function than the latest, include the Lambda function version in the Lambda function ARN. For more information about Lambda ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-lambda">Example ARNs: AWS Lambda</a>
+   *             <p>To specify an earlier version of the Lambda function than the latest, include the Lambda function version in the Lambda function ARN. For more information about Lambda ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-lambda">Example ARNs: AWS Lambda</a>
    *             </p>
    *          </note>
    */
@@ -2544,7 +2573,7 @@ export namespace InputLambdaProcessorUpdate {
 }
 
 /**
- * <p>For an SQL-based Amazon Kinesis Data Analytics application, describes updates to an <a>InputProcessingConfiguration</a>.</p>
+ * <p>For a SQL-based Kinesis Data Analytics application, describes updates to an <a>InputProcessingConfiguration</a>.</p>
  */
 export interface InputProcessingConfigurationUpdate {
   /**
@@ -2560,7 +2589,7 @@ export namespace InputProcessingConfigurationUpdate {
 }
 
 /**
- * <p>Describes updates for an SQL-based Amazon Kinesis Data Analytics application's input
+ * <p>Describes updates for an SQL-based Kinesis Data Analytics application's input
  *       schema.</p>
  */
 export interface InputSchemaUpdate {
@@ -2571,14 +2600,14 @@ export interface InputSchemaUpdate {
   RecordColumnUpdates?: RecordColumn[];
 
   /**
-   * <p>Specifies the format of the records on the streaming source.</p>
-   */
-  RecordFormatUpdate?: RecordFormat;
-
-  /**
    * <p>Specifies the encoding of the records in the streaming source; for example, UTF-8.</p>
    */
   RecordEncodingUpdate?: string;
+
+  /**
+   * <p>Specifies the format of the records on the streaming source.</p>
+   */
+  RecordFormatUpdate?: RecordFormat;
 }
 
 export namespace InputSchemaUpdate {
@@ -2588,7 +2617,7 @@ export namespace InputSchemaUpdate {
 }
 
 /**
- * <p>For an SQL-based Amazon Kinesis Data Analytics application, when updating application
+ * <p>For a SQL-based Kinesis Data Analytics application, when updating application
  *       input configuration, provides information about a Kinesis Data Firehose delivery stream as the
  *       streaming source.</p>
  */
@@ -2606,8 +2635,8 @@ export namespace KinesisFirehoseInputUpdate {
 }
 
 /**
- * <p>When you update the input configuration for an SQL-based Amazon Kinesis Data Analytics
- *       application, provides information about an Amazon Kinesis stream as the streaming
+ * <p>When you update the input configuration for a SQL-based Kinesis Data Analytics application, provides information about a
+ *       Kinesis stream as the streaming
  *       source.</p>
  */
 export interface KinesisStreamsInputUpdate {
@@ -2624,10 +2653,16 @@ export namespace KinesisStreamsInputUpdate {
 }
 
 /**
- * <p>For an SQL-based Amazon Kinesis Data Analytics application, describes updates to a
+ * <p>For a SQL-based Kinesis Data Analytics application, describes updates to a
  *       specific input configuration (identified by the <code>InputId</code> of an application). </p>
  */
 export interface InputUpdate {
+  /**
+   * <p>If a Kinesis Data Firehose delivery stream is the streaming source to be
+   *       updated, provides an updated stream ARN.</p>
+   */
+  KinesisFirehoseInputUpdate?: KinesisFirehoseInputUpdate;
+
   /**
    * <p>Describes the data format on the streaming source, and
    *       how record elements on the streaming source map to columns of the in-application stream that is created.</p>
@@ -2635,10 +2670,9 @@ export interface InputUpdate {
   InputSchemaUpdate?: InputSchemaUpdate;
 
   /**
-   * <p>If a Kinesis Data Firehose delivery stream is the streaming source to be
-   *       updated, provides an updated stream ARN.</p>
+   * <p>The input ID of the application input to be updated.</p>
    */
-  KinesisFirehoseInputUpdate?: KinesisFirehoseInputUpdate;
+  InputId: string | undefined;
 
   /**
    * <p>The name prefix for in-application streams that Kinesis Data Analytics creates for the
@@ -2647,26 +2681,20 @@ export interface InputUpdate {
   NamePrefixUpdate?: string;
 
   /**
-   * <p>If a Kinesis data stream is the streaming source to be updated, provides an
-   *       updated stream Amazon Resource Name (ARN).</p>
-   */
-  KinesisStreamsInputUpdate?: KinesisStreamsInputUpdate;
-
-  /**
    * <p>Describes updates to an <a>InputProcessingConfiguration</a>.</p>
    */
   InputProcessingConfigurationUpdate?: InputProcessingConfigurationUpdate;
 
   /**
-   * <p>Describes the parallelism updates (the number of in-application streams Kinesis Data
-   *       Analytics creates for the specific streaming source).</p>
+   * <p>Describes the parallelism updates (the number of in-application streams Kinesis Data Analytics creates for the specific streaming source).</p>
    */
   InputParallelismUpdate?: InputParallelismUpdate;
 
   /**
-   * <p>The input ID of the application input to be updated.</p>
+   * <p>If a Kinesis data stream is the streaming source to be updated, provides an
+   *       updated stream Amazon Resource Name (ARN).</p>
    */
-  InputId: string | undefined;
+  KinesisStreamsInputUpdate?: KinesisStreamsInputUpdate;
 }
 
 export namespace InputUpdate {
@@ -2676,7 +2704,7 @@ export namespace InputUpdate {
 }
 
 /**
- * <p>For an SQL-based Amazon Kinesis Data Analytics application, when updating an output
+ * <p>For a SQL-based Kinesis Data Analytics application, when updating an output
  *       configuration using the <a>UpdateApplication</a> operation, provides information
  *       about a Kinesis Data Firehose delivery stream that is configured as the destination.</p>
  */
@@ -2694,7 +2722,7 @@ export namespace KinesisFirehoseOutputUpdate {
 }
 
 /**
- * <p>When you update an SQL-based Amazon Kinesis Data Analytics application's output
+ * <p>When you update a SQL-based Kinesis Data Analytics application's output
  *       configuration using the <a>UpdateApplication</a> operation, provides information
  *       about a Kinesis data stream that is configured as the destination.</p>
  */
@@ -2713,7 +2741,7 @@ export namespace KinesisStreamsOutputUpdate {
 }
 
 /**
- * <p>When you update an SQL-based Amazon Kinesis Data Analytics application's output
+ * <p>When you update an SQL-based Kinesis Data Analytics application's output
  *       configuration using the <a>UpdateApplication</a> operation, provides information
  *       about an AWS Lambda function that is configured as the destination.</p>
  */
@@ -2721,7 +2749,7 @@ export interface LambdaOutputUpdate {
   /**
    * <p>The Amazon Resource Name (ARN) of the destination AWS Lambda function.</p>
    *          <note>
-   *             <p>To specify an earlier version of the Lambda function than the latest, include the Lambda function version in the Lambda function ARN. For more information about Lambda ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-lambda">Example ARNs: AWS Lambda</a>
+   *             <p>To specify an earlier version of the Lambda function than the latest, include the Lambda function version in the Lambda function ARN. For more information about Lambda ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-lambda">Example ARNs: AWS Lambda</a>
    *             </p>
    *          </note>
    */
@@ -2735,19 +2763,16 @@ export namespace LambdaOutputUpdate {
 }
 
 /**
- * <p> For an SQL-based Amazon Kinesis Data Analytics application, describes updates to the
+ * <p> For a SQL-based Kinesis Data Analytics application, describes updates to the
  *       output configuration identified by the <code>OutputId</code>. </p>
  */
 export interface OutputUpdate {
   /**
-   * <p>Identifies the specific output configuration that you want to update.</p>
+   * <p>If you want to specify a different in-application stream
+   *       for this output configuration, use this field to
+   *       specify the new in-application stream name.</p>
    */
-  OutputId: string | undefined;
-
-  /**
-   * <p>Describes an AWS Lambda function as the destination for the output.</p>
-   */
-  LambdaOutputUpdate?: LambdaOutputUpdate;
+  NameUpdate?: string;
 
   /**
    * <p>Describes a Kinesis data stream as the destination for the output.</p>
@@ -2761,17 +2786,20 @@ export interface OutputUpdate {
   DestinationSchemaUpdate?: DestinationSchema;
 
   /**
+   * <p>Identifies the specific output configuration that you want to update.</p>
+   */
+  OutputId: string | undefined;
+
+  /**
    * <p>Describes a Kinesis Data Firehose delivery stream as the destination for the
    *       output.</p>
    */
   KinesisFirehoseOutputUpdate?: KinesisFirehoseOutputUpdate;
 
   /**
-   * <p>If you want to specify a different in-application stream
-   *       for this output configuration, use this field to
-   *       specify the new in-application stream name.</p>
+   * <p>Describes an AWS Lambda function as the destination for the output.</p>
    */
-  NameUpdate?: string;
+  LambdaOutputUpdate?: LambdaOutputUpdate;
 }
 
 export namespace OutputUpdate {
@@ -2781,19 +2809,19 @@ export namespace OutputUpdate {
 }
 
 /**
- * <p>For an SQL-based Amazon Kinesis Data Analytics application, describes the Amazon S3 bucket
+ * <p>For a SQL-based Kinesis Data Analytics application, describes the Amazon S3 bucket
  *       name and object key name for an in-application reference table. </p>
  */
 export interface S3ReferenceDataSourceUpdate {
   /**
-   * <p>The object key name.</p>
-   */
-  FileKeyUpdate?: string;
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the S3 bucket.</p>
    */
   BucketARNUpdate?: string;
+
+  /**
+   * <p>The object key name.</p>
+   */
+  FileKeyUpdate?: string;
 }
 
 export namespace S3ReferenceDataSourceUpdate {
@@ -2804,16 +2832,22 @@ export namespace S3ReferenceDataSourceUpdate {
 
 /**
  * <p>When you update a reference data source configuration for a
- *       SQL-based Amazon Kinesis Data Analytics application, this object provides all the updated values
+ *        SQL-based Kinesis Data Analytics application, this object provides all the updated values
  *       (such as the source bucket name and object key name), the in-application table name that is created,
  *       and updated mapping information that maps the data in the Amazon S3 object to the in-application
  *       reference table that is created.</p>
  */
 export interface ReferenceDataSourceUpdate {
   /**
-   * <p>Describes the format of the data in the streaming source, and how each data element maps to corresponding columns created in the in-application stream. </p>
+   * <p>The in-application table name that is created by this update.</p>
    */
-  ReferenceSchemaUpdate?: SourceSchema;
+  TableNameUpdate?: string;
+
+  /**
+   * <p>Describes the S3 bucket name, object key name, and IAM role that Kinesis Data Analytics can assume to read the
+   *       Amazon S3 object on your behalf and populate the in-application reference table.</p>
+   */
+  S3ReferenceDataSourceUpdate?: S3ReferenceDataSourceUpdate;
 
   /**
    * <p>The ID of the reference data source that is being updated. You can use the <a>DescribeApplication</a> operation to get this value.</p>
@@ -2821,14 +2855,10 @@ export interface ReferenceDataSourceUpdate {
   ReferenceId: string | undefined;
 
   /**
-   * <p>Describes the S3 bucket name, object key name, and IAM role that Kinesis Data Analytics can assume to read the Amazon S3 object on your behalf and populate the in-application reference table.</p>
+   * <p>Describes the format of the data in the streaming source, and how each data element maps to
+   *       corresponding columns created in the in-application stream. </p>
    */
-  S3ReferenceDataSourceUpdate?: S3ReferenceDataSourceUpdate;
-
-  /**
-   * <p>The in-application table name that is created by this update.</p>
-   */
-  TableNameUpdate?: string;
+  ReferenceSchemaUpdate?: SourceSchema;
 }
 
 export namespace ReferenceDataSourceUpdate {
@@ -2839,15 +2869,9 @@ export namespace ReferenceDataSourceUpdate {
 
 /**
  * <p>Describes updates to the input streams, destination streams, and reference data sources
- *       for an SQL-based Kinesis Data Analytics application.</p>
+ *       for a SQL-based Kinesis Data Analytics application.</p>
  */
 export interface SqlApplicationConfigurationUpdate {
-  /**
-   * <p>The array of <a>InputUpdate</a> objects describing the new input streams used
-   *       by the application.</p>
-   */
-  InputUpdates?: InputUpdate[];
-
   /**
    * <p>The array of <a>OutputUpdate</a> objects describing the new destination streams
    *       used by the application.</p>
@@ -2859,6 +2883,12 @@ export interface SqlApplicationConfigurationUpdate {
    *       reference data sources used by the application.</p>
    */
   ReferenceDataSourceUpdates?: ReferenceDataSourceUpdate[];
+
+  /**
+   * <p>The array of <a>InputUpdate</a> objects describing the new input streams used
+   *       by the application.</p>
+   */
+  InputUpdates?: InputUpdate[];
 }
 
 export namespace SqlApplicationConfigurationUpdate {
@@ -2877,15 +2907,17 @@ export interface VpcConfigurationUpdate {
   VpcConfigurationId: string | undefined;
 
   /**
-   * <p>Describes updates to the array of <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_Subnet.html">Subnet</a> IDs
+   * <p>Describes updates to the array of
+   *         <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SecurityGroup.html">SecurityGroup</a> IDs used by the VPC configuration.</p>
+   */
+  SecurityGroupIdUpdates?: string[];
+
+  /**
+   * <p>Describes updates to the array of <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_Subnet.html">Subnet</a>
+   *         IDs
    *         used by the VPC configuration.</p>
    */
   SubnetIdUpdates?: string[];
-
-  /**
-   * <p>Describes updates to the array of <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SecurityGroup.html">SecurityGroup</a> IDs used by the VPC configuration.</p>
-   */
-  SecurityGroupIdUpdates?: string[];
 }
 
 export namespace VpcConfigurationUpdate {
@@ -2899,10 +2931,26 @@ export namespace VpcConfigurationUpdate {
  */
 export interface ApplicationConfigurationUpdate {
   /**
-   * <p>Describes updates to a Java-based Kinesis Data Analytics application's code
+   * <p>Describes updates to the environment properties for a Flink-based Kinesis Data Analytics application.</p>
+   */
+  EnvironmentPropertyUpdates?: EnvironmentPropertyUpdates;
+
+  /**
+   * <p>Describes updates to a Flink-based Kinesis Data Analytics application's code
    *       configuration.</p>
    */
   ApplicationCodeConfigurationUpdate?: ApplicationCodeConfigurationUpdate;
+
+  /**
+   * <p>Describes updates to a SQL-based Kinesis Data Analytics application's
+   *       configuration.</p>
+   */
+  SqlApplicationConfigurationUpdate?: SqlApplicationConfigurationUpdate;
+
+  /**
+   * <p>Describes whether snapshots are enabled for a Flink-based Kinesis Data Analytics application.</p>
+   */
+  ApplicationSnapshotConfigurationUpdate?: ApplicationSnapshotConfigurationUpdate;
 
   /**
    * <p>Updates to the array of descriptions of VPC configurations available to the application.</p>
@@ -2910,23 +2958,7 @@ export interface ApplicationConfigurationUpdate {
   VpcConfigurationUpdates?: VpcConfigurationUpdate[];
 
   /**
-   * <p>Describes whether snapshots are enabled for a Java-based Kinesis Data Analytics application.</p>
-   */
-  ApplicationSnapshotConfigurationUpdate?: ApplicationSnapshotConfigurationUpdate;
-
-  /**
-   * <p>Describes updates to an SQL-based Kinesis Data Analytics application's
-   *       configuration.</p>
-   */
-  SqlApplicationConfigurationUpdate?: SqlApplicationConfigurationUpdate;
-
-  /**
-   * <p>Describes updates to the environment properties for a Java-based Kinesis Data Analytics application.</p>
-   */
-  EnvironmentPropertyUpdates?: EnvironmentPropertyUpdates;
-
-  /**
-   * <p>Describes updates to a Java-based Kinesis Data Analytics application's configuration.</p>
+   * <p>Describes updates to a Flink-based Kinesis Data Analytics application's configuration.</p>
    */
   FlinkApplicationConfigurationUpdate?: FlinkApplicationConfigurationUpdate;
 }
@@ -2938,7 +2970,9 @@ export namespace ApplicationConfigurationUpdate {
 }
 
 export enum ApplicationStatus {
+  AUTOSCALING = "AUTOSCALING",
   DELETING = "DELETING",
+  FORCE_STOPPING = "FORCE_STOPPING",
   READY = "READY",
   RUNNING = "RUNNING",
   STARTING = "STARTING",
@@ -2958,34 +2992,19 @@ export enum RuntimeEnvironment {
  */
 export interface ApplicationDetail {
   /**
+   * <p>The runtime environment for the application (<code>SQL-1.0</code>, <code>FLINK-1_6</code>, or <code>FLINK-1_8</code>).</p>
+   */
+  RuntimeEnvironment: RuntimeEnvironment | string | undefined;
+
+  /**
+   * <p>Specifies the IAM role that the application uses to access external resources.</p>
+   */
+  ServiceExecutionRole?: string;
+
+  /**
    * <p>The current timestamp when the application was last updated.</p>
    */
   LastUpdateTimestamp?: Date;
-
-  /**
-   * <p>The status of the application.</p>
-   */
-  ApplicationStatus: ApplicationStatus | string | undefined;
-
-  /**
-   * <p>The description of the application.</p>
-   */
-  ApplicationDescription?: string;
-
-  /**
-   * <p>Provides details about the application's SQL or Java code and starting parameters.</p>
-   */
-  ApplicationConfigurationDescription?: ApplicationConfigurationDescription;
-
-  /**
-   * <p>Describes the application Amazon CloudWatch logging options.</p>
-   */
-  CloudWatchLoggingOptionDescriptions?: CloudWatchLoggingOptionDescription[];
-
-  /**
-   * <p>The ARN of the application.</p>
-   */
-  ApplicationARN: string | undefined;
 
   /**
    * <p>Provides the current application version. Kinesis Data Analytics updates the
@@ -2994,14 +3013,9 @@ export interface ApplicationDetail {
   ApplicationVersionId: number | undefined;
 
   /**
-   * <p>Specifies the IAM role that the application uses to access external resources.</p>
+   * <p>The name of the application.</p>
    */
-  ServiceExecutionRole?: string;
-
-  /**
-   * <p>The runtime environment for the application (<code>SQL-1.0</code> or <code>FLINK-1_6</code>).</p>
-   */
-  RuntimeEnvironment: RuntimeEnvironment | string | undefined;
+  ApplicationName: string | undefined;
 
   /**
    * <p>The current timestamp when the application was created.</p>
@@ -3009,9 +3023,29 @@ export interface ApplicationDetail {
   CreateTimestamp?: Date;
 
   /**
-   * <p>The name of the application.</p>
+   * <p>The description of the application.</p>
    */
-  ApplicationName: string | undefined;
+  ApplicationDescription?: string;
+
+  /**
+   * <p>Describes the application Amazon CloudWatch logging options.</p>
+   */
+  CloudWatchLoggingOptionDescriptions?: CloudWatchLoggingOptionDescription[];
+
+  /**
+   * <p>The status of the application.</p>
+   */
+  ApplicationStatus: ApplicationStatus | string | undefined;
+
+  /**
+   * <p>Provides details about the application's Java, SQL, or Scala code and starting parameters.</p>
+   */
+  ApplicationConfigurationDescription?: ApplicationConfigurationDescription;
+
+  /**
+   * <p>The ARN of the application.</p>
+   */
+  ApplicationARN: string | undefined;
 }
 
 export namespace ApplicationDetail {
@@ -3030,16 +3064,6 @@ export interface ApplicationSummary {
   ApplicationStatus: ApplicationStatus | string | undefined;
 
   /**
-   * <p>The runtime environment for the application (<code>SQL-1.0</code> or <code>FLINK-1_6</code>).</p>
-   */
-  RuntimeEnvironment: RuntimeEnvironment | string | undefined;
-
-  /**
-   * <p>The name of the application.</p>
-   */
-  ApplicationName: string | undefined;
-
-  /**
    * <p>The ARN of the application.</p>
    */
   ApplicationARN: string | undefined;
@@ -3048,6 +3072,16 @@ export interface ApplicationSummary {
    * <p>Provides the current application version.</p>
    */
   ApplicationVersionId: number | undefined;
+
+  /**
+   * <p>The runtime environment for the application (<code>SQL-1.0</code>, <code>FLINK-1_6</code>, or <code>FLINK-1_8</code>).</p>
+   */
+  RuntimeEnvironment: RuntimeEnvironment | string | undefined;
+
+  /**
+   * <p>The name of the application.</p>
+   */
+  ApplicationName: string | undefined;
 }
 
 export namespace ApplicationSummary {
@@ -3061,15 +3095,15 @@ export namespace ApplicationSummary {
  */
 export interface CloudWatchLoggingOptionUpdate {
   /**
-   * <p>The ID of the CloudWatch logging option to update</p>
-   */
-  CloudWatchLoggingOptionId: string | undefined;
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the CloudWatch log to receive application
    *       messages.</p>
    */
   LogStreamARNUpdate?: string;
+
+  /**
+   * <p>The ID of the CloudWatch logging option to update</p>
+   */
+  CloudWatchLoggingOptionId: string | undefined;
 }
 
 export namespace CloudWatchLoggingOptionUpdate {
@@ -3079,9 +3113,13 @@ export namespace CloudWatchLoggingOptionUpdate {
 }
 
 /**
- * <p>A key-value pair (the value is optional) that you can define and assign to AWS resources. If you specify a tag that already exists, the tag value is replaced with the value that you specify in the request. Note that
- *         the maximum number of application tags includes system tags. The maximum number of user-defined application tags is 50.
- *       For more information, see <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/java/how-tagging.html">Using Tagging</a>.</p>
+ * <p>A key-value pair (the value is optional) that you can define and assign to AWS resources.
+ *         If you specify a tag that already exists, the tag value is replaced with the value that you
+ *         specify in the request. Note that
+ *         the maximum number of application tags includes system tags. The maximum number of user-defined
+ *         application tags is 50.
+ *       For more information, see
+ *         <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/java/how-tagging.html">Using Tagging</a>.</p>
  */
 export interface Tag {
   /**
@@ -3103,30 +3141,18 @@ export namespace Tag {
 
 export interface CreateApplicationRequest {
   /**
-   * <p>The name of your application (for example, <code>sample-app</code>).</p>
-   */
-  ApplicationName: string | undefined;
-
-  /**
-   * <p>The runtime environment for the application (<code>SQL-1.0</code> or <code>FLINK-1_6</code>).</p>
-   */
-  RuntimeEnvironment: RuntimeEnvironment | string | undefined;
-
-  /**
-   * <p>A summary description of the application.</p>
-   */
-  ApplicationDescription?: string;
-
-  /**
    * <p>Use this parameter to configure the application.</p>
    */
   ApplicationConfiguration?: ApplicationConfiguration;
 
   /**
-   * <p>The IAM role used by the application to access Kinesis data streams, Kinesis Data Firehose
-   *       delivery streams, Amazon S3 objects, and other external resources.</p>
+   * <p>A list of one or more tags to assign to the application. A tag is a key-value pair that identifies an
+   *         application. Note that the maximum number of application tags includes system tags. The maximum number of
+   *         user-defined application tags is 50.
+   *         For more information, see
+   *         <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/java/how-tagging.html">Using Tagging</a>.</p>
    */
-  ServiceExecutionRole: string | undefined;
+  Tags?: Tag[];
 
   /**
    * <p>Use this parameter to configure an Amazon CloudWatch log stream to monitor application
@@ -3136,10 +3162,25 @@ export interface CreateApplicationRequest {
   CloudWatchLoggingOptions?: CloudWatchLoggingOption[];
 
   /**
-   * <p>A list of one or more tags to assign to the application. A tag is a key-value pair that identifies an application. Note that the maximum number of application tags includes system tags. The maximum number of user-defined application tags is 50.
-   *         For more information, see <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/java/how-tagging.html">Using Tagging</a>.</p>
+   * <p>The name of your application (for example, <code>sample-app</code>).</p>
    */
-  Tags?: Tag[];
+  ApplicationName: string | undefined;
+
+  /**
+   * <p>The runtime environment for the application (<code>SQL-1.0</code>, <code>FLINK-1_6</code>, or <code>FLINK-1_8</code>).</p>
+   */
+  RuntimeEnvironment: RuntimeEnvironment | string | undefined;
+
+  /**
+   * <p>The IAM role used by the application to access Kinesis data streams, Kinesis Data Firehose
+   *       delivery streams, Amazon S3 objects, and other external resources.</p>
+   */
+  ServiceExecutionRole: string | undefined;
+
+  /**
+   * <p>A summary description of the application.</p>
+   */
+  ApplicationDescription?: string;
 }
 
 export namespace CreateApplicationRequest {
@@ -3178,7 +3219,8 @@ export namespace LimitExceededException {
 }
 
 /**
- * <p>Application created with too many tags, or too many tags added to an application. Note that the maximum number of application tags includes system tags. The maximum number of user-defined application tags is 50.</p>
+ * <p>Application created with too many tags, or too many tags added to an application. Note that the maximum
+ *         number of application tags includes system tags. The maximum number of user-defined application tags is 50.</p>
  */
 export interface TooManyTagsException extends __SmithyException, $MetadataBearer {
   name: "TooManyTagsException";
@@ -3219,7 +3261,8 @@ export namespace CreateApplicationSnapshotResponse {
 }
 
 /**
- * <p>The request was rejected because a specified parameter is not supported or a specified resource is not valid for this operation. </p>
+ * <p>The request was rejected because a specified parameter is not supported or a specified resource is not valid for this
+ *       operation. </p>
  */
 export interface UnsupportedOperationException extends __SmithyException, $MetadataBearer {
   name: "UnsupportedOperationException";
@@ -3266,16 +3309,16 @@ export interface DeleteApplicationCloudWatchLoggingOptionRequest {
   ApplicationName: string | undefined;
 
   /**
-   * <p>The <code>CloudWatchLoggingOptionId</code> of the Amazon CloudWatch logging option to
-   *       delete. You can get the <code>CloudWatchLoggingOptionId</code> by using the <a>DescribeApplication</a> operation. </p>
-   */
-  CloudWatchLoggingOptionId: string | undefined;
-
-  /**
    * <p>The version ID of the application. You can retrieve the application version ID using
    *     <a>DescribeApplication</a>.</p>
    */
   CurrentApplicationVersionId: number | undefined;
+
+  /**
+   * <p>The <code>CloudWatchLoggingOptionId</code> of the Amazon CloudWatch logging option to
+   *       delete. You can get the <code>CloudWatchLoggingOptionId</code> by using the <a>DescribeApplication</a> operation. </p>
+   */
+  CloudWatchLoggingOptionId: string | undefined;
 }
 
 export namespace DeleteApplicationCloudWatchLoggingOptionRequest {
@@ -3286,13 +3329,6 @@ export namespace DeleteApplicationCloudWatchLoggingOptionRequest {
 
 export interface DeleteApplicationCloudWatchLoggingOptionResponse {
   /**
-   * <p>The version ID of the application. Kinesis Data Analytics updates the
-   *         <code>ApplicationVersionId</code> each time you change the CloudWatch logging
-   *       options.</p>
-   */
-  ApplicationVersionId?: number;
-
-  /**
    * <p>The descriptions of the remaining CloudWatch logging options for the application.</p>
    */
   CloudWatchLoggingOptionDescriptions?: CloudWatchLoggingOptionDescription[];
@@ -3301,6 +3337,13 @@ export interface DeleteApplicationCloudWatchLoggingOptionResponse {
    * <p>The application's Amazon Resource Name (ARN).</p>
    */
   ApplicationARN?: string;
+
+  /**
+   * <p>The version ID of the application. Kinesis Data Analytics updates the
+   *         <code>ApplicationVersionId</code> each time you change the CloudWatch logging
+   *       options.</p>
+   */
+  ApplicationVersionId?: number;
 }
 
 export namespace DeleteApplicationCloudWatchLoggingOptionResponse {
@@ -3310,6 +3353,11 @@ export namespace DeleteApplicationCloudWatchLoggingOptionResponse {
 }
 
 export interface DeleteApplicationInputProcessingConfigurationRequest {
+  /**
+   * <p>The name of the application.</p>
+   */
+  ApplicationName: string | undefined;
+
   /**
    * <p>The ID of the input configuration from which to delete the input processing
    *       configuration. You can get a list of the input IDs for an application by using the <a>DescribeApplication</a> operation.</p>
@@ -3324,11 +3372,6 @@ export interface DeleteApplicationInputProcessingConfigurationRequest {
    *     </p>
    */
   CurrentApplicationVersionId: number | undefined;
-
-  /**
-   * <p>The name of the application.</p>
-   */
-  ApplicationName: string | undefined;
 }
 
 export namespace DeleteApplicationInputProcessingConfigurationRequest {
@@ -3339,14 +3382,14 @@ export namespace DeleteApplicationInputProcessingConfigurationRequest {
 
 export interface DeleteApplicationInputProcessingConfigurationResponse {
   /**
-   * <p>The current application version ID.</p>
-   */
-  ApplicationVersionId?: number;
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the application.</p>
    */
   ApplicationARN?: string;
+
+  /**
+   * <p>The current application version ID.</p>
+   */
+  ApplicationVersionId?: number;
 }
 
 export namespace DeleteApplicationInputProcessingConfigurationResponse {
@@ -3356,15 +3399,6 @@ export namespace DeleteApplicationInputProcessingConfigurationResponse {
 }
 
 export interface DeleteApplicationOutputRequest {
-  /**
-   * <p>The ID of the configuration to delete. Each output configuration that is added to the
-   *       application (either when the application is created or later) using the <a>AddApplicationOutput</a> operation has a unique ID. You need to provide the ID to
-   *       uniquely identify the output configuration that you want to delete from the application
-   *       configuration. You can use the <a>DescribeApplication</a> operation to get the
-   *       specific <code>OutputId</code>. </p>
-   */
-  OutputId: string | undefined;
-
   /**
    * <p>The application name.</p>
    */
@@ -3378,6 +3412,15 @@ export interface DeleteApplicationOutputRequest {
    *     </p>
    */
   CurrentApplicationVersionId: number | undefined;
+
+  /**
+   * <p>The ID of the configuration to delete. Each output configuration that is added to the
+   *       application (either when the application is created or later) using the <a>AddApplicationOutput</a> operation has a unique ID. You need to provide the ID to
+   *       uniquely identify the output configuration that you want to delete from the application
+   *       configuration. You can use the <a>DescribeApplication</a> operation to get the
+   *       specific <code>OutputId</code>. </p>
+   */
+  OutputId: string | undefined;
 }
 
 export namespace DeleteApplicationOutputRequest {
@@ -3388,14 +3431,14 @@ export namespace DeleteApplicationOutputRequest {
 
 export interface DeleteApplicationOutputResponse {
   /**
-   * <p>The current application version ID.</p>
-   */
-  ApplicationVersionId?: number;
-
-  /**
    * <p>The application Amazon Resource Name (ARN).</p>
    */
   ApplicationARN?: string;
+
+  /**
+   * <p>The current application version ID.</p>
+   */
+  ApplicationVersionId?: number;
 }
 
 export namespace DeleteApplicationOutputResponse {
@@ -3406,9 +3449,17 @@ export namespace DeleteApplicationOutputResponse {
 
 export interface DeleteApplicationReferenceDataSourceRequest {
   /**
+   * <p>The current application version.
+   *       You can use the <a>DescribeApplication</a> operation to get the current application version.
+   *       If the version specified
+   *       is not the current version, the <code>ConcurrentModificationException</code> is returned.</p>
+   */
+  CurrentApplicationVersionId: number | undefined;
+
+  /**
    * <p>The ID of the reference data source. When you add a reference data source to your
-   *       application using the <a>AddApplicationReferenceDataSource</a>, Kinesis Data
-   *       Analytics assigns an ID. You can use the <a>DescribeApplication</a> operation to
+   *       application using the <a>AddApplicationReferenceDataSource</a>, Kinesis Data Analytics assigns an ID.
+   *       You can use the <a>DescribeApplication</a> operation to
    *       get the reference ID. </p>
    */
   ReferenceId: string | undefined;
@@ -3417,14 +3468,6 @@ export interface DeleteApplicationReferenceDataSourceRequest {
    * <p>The name of an existing application.</p>
    */
   ApplicationName: string | undefined;
-
-  /**
-   * <p>The current application version.
-   *       You can use the <a>DescribeApplication</a> operation to get the current application version.
-   *       If the version specified
-   *       is not the current version, the <code>ConcurrentModificationException</code> is returned.</p>
-   */
-  CurrentApplicationVersionId: number | undefined;
 }
 
 export namespace DeleteApplicationReferenceDataSourceRequest {
@@ -3435,14 +3478,14 @@ export namespace DeleteApplicationReferenceDataSourceRequest {
 
 export interface DeleteApplicationReferenceDataSourceResponse {
   /**
-   * <p>The updated version ID of the application.</p>
-   */
-  ApplicationVersionId?: number;
-
-  /**
    * <p>The application Amazon Resource Name (ARN).</p>
    */
   ApplicationARN?: string;
+
+  /**
+   * <p>The updated version ID of the application.</p>
+   */
+  ApplicationVersionId?: number;
 }
 
 export namespace DeleteApplicationReferenceDataSourceResponse {
@@ -3453,10 +3496,9 @@ export namespace DeleteApplicationReferenceDataSourceResponse {
 
 export interface DeleteApplicationSnapshotRequest {
   /**
-   * <p>The creation timestamp of the application snapshot to delete. You can retrieve this value using
-   *       or .</p>
+   * <p>The identifier for the snapshot delete.</p>
    */
-  SnapshotCreationTimestamp: Date | undefined;
+  SnapshotName: string | undefined;
 
   /**
    * <p>The name of an existing application.</p>
@@ -3464,9 +3506,11 @@ export interface DeleteApplicationSnapshotRequest {
   ApplicationName: string | undefined;
 
   /**
-   * <p>The identifier for the snapshot delete.</p>
+   * <p>The creation timestamp of the application snapshot to delete. You can retrieve this value
+   *       using
+   *       or .</p>
    */
-  SnapshotName: string | undefined;
+  SnapshotCreationTimestamp: Date | undefined;
 }
 
 export namespace DeleteApplicationSnapshotRequest {
@@ -3485,7 +3529,8 @@ export namespace DeleteApplicationSnapshotResponse {
 
 export interface DeleteApplicationVpcConfigurationRequest {
   /**
-   * <p>The current application version ID. You can retrieve the application version ID using <a>DescribeApplication</a>.</p>
+   * <p>The current application version ID. You can retrieve the application version ID using
+   *         <a>DescribeApplication</a>.</p>
    */
   CurrentApplicationVersionId: number | undefined;
 
@@ -3508,14 +3553,14 @@ export namespace DeleteApplicationVpcConfigurationRequest {
 
 export interface DeleteApplicationVpcConfigurationResponse {
   /**
-   * <p>The ARN of the Kinesis Data Analytics application.</p>
-   */
-  ApplicationARN?: string;
-
-  /**
    * <p>The updated version ID of the application.</p>
    */
   ApplicationVersionId?: number;
+
+  /**
+   * <p>The ARN of the Kinesis Data Analytics application.</p>
+   */
+  ApplicationARN?: string;
 }
 
 export namespace DeleteApplicationVpcConfigurationResponse {
@@ -3526,14 +3571,14 @@ export namespace DeleteApplicationVpcConfigurationResponse {
 
 export interface DescribeApplicationRequest {
   /**
-   * <p>Displays verbose information about a Kinesis Data Analytics application, including the application's job plan.</p>
-   */
-  IncludeAdditionalDetails?: boolean;
-
-  /**
    * <p>The name of the application.</p>
    */
   ApplicationName: string | undefined;
+
+  /**
+   * <p>Displays verbose information about a Kinesis Data Analytics application, including the application's job plan.</p>
+   */
+  IncludeAdditionalDetails?: boolean;
 }
 
 export namespace DescribeApplicationRequest {
@@ -3563,7 +3608,8 @@ export interface DescribeApplicationSnapshotRequest {
   ApplicationName: string | undefined;
 
   /**
-   * <p>The identifier of an application snapshot. You can retrieve this value using .</p>
+   * <p>The identifier of an application snapshot. You can retrieve this value using
+   *       .</p>
    */
   SnapshotName: string | undefined;
 }
@@ -3586,14 +3632,9 @@ export enum SnapshotStatus {
  */
 export interface SnapshotDetails {
   /**
-   * <p>The timestamp of the application snapshot.</p>
+   * <p>The current application version ID when the snapshot was created.</p>
    */
-  SnapshotCreationTimestamp?: Date;
-
-  /**
-   * <p>The status of the application snapshot.</p>
-   */
-  SnapshotStatus: SnapshotStatus | string | undefined;
+  ApplicationVersionId: number | undefined;
 
   /**
    * <p>The identifier for the application snapshot.</p>
@@ -3601,9 +3642,14 @@ export interface SnapshotDetails {
   SnapshotName: string | undefined;
 
   /**
-   * <p>The current application version ID when the snapshot was created.</p>
+   * <p>The status of the application snapshot.</p>
    */
-  ApplicationVersionId: number | undefined;
+  SnapshotStatus: SnapshotStatus | string | undefined;
+
+  /**
+   * <p>The timestamp of the application snapshot.</p>
+   */
+  SnapshotCreationTimestamp?: Date;
 }
 
 export namespace SnapshotDetails {
@@ -3626,7 +3672,7 @@ export namespace DescribeApplicationSnapshotResponse {
 }
 
 /**
- * <p>For an SQL-based Amazon Kinesis Data Analytics application, provides a description of an
+ * <p>For a SQL-based Kinesis Data Analytics application, provides a description of an
  *       Amazon S3 data source, including the Amazon Resource Name (ARN) of the S3 bucket and the name
  *       of the Amazon S3 object that contains the data.</p>
  */
@@ -3650,31 +3696,32 @@ export namespace S3Configuration {
 
 export interface DiscoverInputSchemaRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the streaming source.</p>
-   */
-  ResourceARN?: string;
-
-  /**
    * <p>Specify this parameter to discover a schema from data in an Amazon S3
    *       object.</p>
    */
   S3Configuration?: S3Configuration;
 
   /**
-   * <p>The ARN of the role that is used to access the streaming source.</p>
-   */
-  ServiceExecutionRole: string | undefined;
-
-  /**
-   * <p>The <a>InputProcessingConfiguration</a> to use to preprocess the records before discovering the schema of the records.</p>
-   */
-  InputProcessingConfiguration?: InputProcessingConfiguration;
-
-  /**
    * <p>The point at which you want Kinesis Data Analytics to start reading records from the
    *       specified streaming source discovery purposes.</p>
    */
   InputStartingPositionConfiguration?: InputStartingPositionConfiguration;
+
+  /**
+   * <p>The <a>InputProcessingConfiguration</a> to use to preprocess the records
+   *       before discovering the schema of the records.</p>
+   */
+  InputProcessingConfiguration?: InputProcessingConfiguration;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the streaming source.</p>
+   */
+  ResourceARN?: string;
+
+  /**
+   * <p>The ARN of the role that is used to access the streaming source.</p>
+   */
+  ServiceExecutionRole: string | undefined;
 }
 
 export namespace DiscoverInputSchemaRequest {
@@ -3692,10 +3739,10 @@ export interface DiscoverInputSchemaResponse {
   InputSchema?: SourceSchema;
 
   /**
-   * <p>The stream data that was modified by the processor specified in the
-   *         <code>InputProcessingConfiguration</code> parameter.</p>
+   * <p>An array of elements, where each element corresponds to a row in a stream record
+   *       (a stream record can have more than one row).</p>
    */
-  ProcessedInputRecords?: string[];
+  ParsedInputRecords?: string[][];
 
   /**
    * <p>The raw stream data that was sampled to infer the schema.</p>
@@ -3703,9 +3750,10 @@ export interface DiscoverInputSchemaResponse {
   RawInputRecords?: string[];
 
   /**
-   * <p>An array of elements, where each element corresponds to a row in a stream record (a stream record can have more than one row).</p>
+   * <p>The stream data that was modified by the processor specified in the
+   *         <code>InputProcessingConfiguration</code> parameter.</p>
    */
-  ParsedInputRecords?: string[][];
+  ProcessedInputRecords?: string[];
 }
 
 export namespace DiscoverInputSchemaResponse {
@@ -3715,7 +3763,7 @@ export namespace DiscoverInputSchemaResponse {
 }
 
 /**
- * <p>Discovery failed to get a record from the streaming source because of the Amazon Kinesis
+ * <p>Discovery failed to get a record from the streaming source because of the Kinesis
  *       Streams <code>ProvisionedThroughputExceededException</code>. For more information, see <a href="http://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetRecords.html">GetRecords</a> in the Amazon Kinesis Streams API Reference.</p>
  */
 export interface ResourceProvisionedThroughputExceededException extends __SmithyException, $MetadataBearer {
@@ -3746,48 +3794,26 @@ export namespace ServiceUnavailableException {
 }
 
 /**
- * <p>The data format is not valid. Amazon Kinesis Data Analytics cannot detect the schema for
+ * <p>The data format is not valid. Kinesis Data Analytics cannot detect the schema for
  *       the given streaming source.</p>
  */
 export interface UnableToDetectSchemaException extends __SmithyException, $MetadataBearer {
   name: "UnableToDetectSchemaException";
   $fault: "client";
-  /**
-   * <p>Raw stream data that was sampled to infer the schema.</p>
-   */
-  RawInputRecords?: string[];
-
+  Message?: string;
   /**
    * <p>Stream data that was modified by the processor specified in the <code>InputProcessingConfiguration</code> parameter. </p>
    */
   ProcessedInputRecords?: string[];
 
-  Message?: string;
+  /**
+   * <p>Raw stream data that was sampled to infer the schema.</p>
+   */
+  RawInputRecords?: string[];
 }
 
 export namespace UnableToDetectSchemaException {
   export const filterSensitiveLog = (obj: UnableToDetectSchemaException): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes the starting parameters for an Apache Flink-based Kinesis Data Analytics application.</p>
- */
-export interface FlinkRunConfiguration {
-  /**
-   * <p>When restoring from a savepoint, specifies whether the runtime is allowed to skip a state that cannot be mapped to the new program.
-   *      This will happen if the program is updated between savepoints to remove stateful parameters, and state data in the savepoint no longer
-   *      corresponds to valid application data. For more information, see
-   *      <a href="https://ci.apache.org/projects/flink/flink-docs-release-1.8/ops/state/savepoints.html#allowing-non-restored-state">
-   *        Allowing Non-Restored State</a> in the <a href="https://ci.apache.org/projects/flink/flink-docs-release-1.8/">Apache Flink
-   *          documentation</a>.</p>
-   */
-  AllowNonRestoredState?: boolean;
-}
-
-export namespace FlinkRunConfiguration {
-  export const filterSensitiveLog = (obj: FlinkRunConfiguration): any => ({
     ...obj,
   });
 }
@@ -3836,20 +3862,21 @@ export namespace ListApplicationsResponse {
 
 export interface ListApplicationSnapshotsRequest {
   /**
-   * <p>The maximum number of application snapshots to list.</p>
+   * <p>The name of an existing application.</p>
    */
-  Limit?: number;
+  ApplicationName: string | undefined;
 
   /**
    * <p>Use this parameter if you receive a <code>NextToken</code> response in a previous request that indicates that there is more
-   *       output available. Set it to the value of the previous call's <code>NextToken</code> response to indicate where the output should continue from. </p>
+   *       output available. Set it to the value of the previous call's <code>NextToken</code> response to indicate where the output should
+   *       continue from. </p>
    */
   NextToken?: string;
 
   /**
-   * <p>The name of an existing application.</p>
+   * <p>The maximum number of application snapshots to list.</p>
    */
-  ApplicationName: string | undefined;
+  Limit?: number;
 }
 
 export namespace ListApplicationSnapshotsRequest {
@@ -3860,14 +3887,14 @@ export namespace ListApplicationSnapshotsRequest {
 
 export interface ListApplicationSnapshotsResponse {
   /**
-   * <p>A collection of objects containing information about the application snapshots.</p>
-   */
-  SnapshotSummaries?: SnapshotDetails[];
-
-  /**
    * <p>The token for the next set of results, or <code>null</code> if there are no additional results.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>A collection of objects containing information about the application snapshots.</p>
+   */
+  SnapshotSummaries?: SnapshotDetails[];
 }
 
 export namespace ListApplicationSnapshotsResponse {
@@ -3903,20 +3930,19 @@ export namespace ListTagsForResourceResponse {
 }
 
 /**
- * <p>Describes the starting parameters for an SQL-based Kinesis Data Analytics
- *       application.</p>
+ * <p>Describes the starting parameters for a SQL-based Kinesis Data Analytics application.</p>
  */
 export interface SqlRunConfiguration {
+  /**
+   * <p>The input source ID. You can get this ID by calling the <a>DescribeApplication</a> operation. </p>
+   */
+  InputId: string | undefined;
+
   /**
    * <p>The point at which you want the application to start processing records from the streaming
    *       source. </p>
    */
   InputStartingPositionConfiguration: InputStartingPositionConfiguration | undefined;
-
-  /**
-   * <p>The input source ID. You can get this ID by calling the <a>DescribeApplication</a> operation. </p>
-   */
-  InputId: string | undefined;
 }
 
 export namespace SqlRunConfiguration {
@@ -3926,24 +3952,24 @@ export namespace SqlRunConfiguration {
 }
 
 /**
- * <p>Describes the starting parameters for an Amazon Kinesis Data Analytics application.</p>
+ * <p>Describes the starting parameters for an Kinesis Data Analytics application.</p>
  */
 export interface RunConfiguration {
   /**
-   * <p>Describes the restore behavior of a restarting application.</p>
+   * <p>Describes the starting parameters for a SQL-based Kinesis Data Analytics application
+   *       application.</p>
    */
-  ApplicationRestoreConfiguration?: ApplicationRestoreConfiguration;
+  SqlRunConfigurations?: SqlRunConfiguration[];
 
   /**
-   * <p>Describes the starting parameters for an Apache Flink-based Kinesis Data Analytics application.</p>
+   * <p>Describes the starting parameters for a Flink-based Kinesis Data Analytics application.</p>
    */
   FlinkRunConfiguration?: FlinkRunConfiguration;
 
   /**
-   * <p>Describes the starting parameters for an SQL-based Kinesis Data Analytics
-   *       application.</p>
+   * <p>Describes the restore behavior of a restarting application.</p>
    */
-  SqlRunConfigurations?: SqlRunConfiguration[];
+  ApplicationRestoreConfiguration?: ApplicationRestoreConfiguration;
 }
 
 export namespace RunConfiguration {
@@ -3954,14 +3980,14 @@ export namespace RunConfiguration {
 
 export interface StartApplicationRequest {
   /**
-   * <p>The name of the application.</p>
-   */
-  ApplicationName: string | undefined;
-
-  /**
    * <p>Identifies the run configuration (start parameters) of a Kinesis Data Analytics application.</p>
    */
   RunConfiguration: RunConfiguration | undefined;
+
+  /**
+   * <p>The name of the application.</p>
+   */
+  ApplicationName: string | undefined;
 }
 
 export namespace StartApplicationRequest {
@@ -3979,6 +4005,16 @@ export namespace StartApplicationResponse {
 }
 
 export interface StopApplicationRequest {
+  /**
+   * <p>Set to <code>true</code> to force the application to stop. If you set <code>Force</code>
+   *           to <code>true</code>, Kinesis Data Analytics stops the application without taking a snapshot.</p>
+   *          <p>You can only force stop a Flink-based Kinesis Data Analytics application. You can't force stop a SQL-based Kinesis Data Analytics application.</p>
+   *          <p>The application must be in the
+   *           <code>STARTING</code>, <code>UPDATING</code>, <code>STOPPING</code>, <code>AUTOSCALING</code>, or
+   *           <code>RUNNING</code> state. </p>
+   */
+  Force?: boolean;
+
   /**
    * <p>The name of the running application to stop.</p>
    */
@@ -4001,14 +4037,14 @@ export namespace StopApplicationResponse {
 
 export interface TagResourceRequest {
   /**
-   * <p>The key-value tags to assign to the application.</p>
-   */
-  Tags: Tag[] | undefined;
-
-  /**
    * <p>The ARN of the application to assign the tags.</p>
    */
   ResourceARN: string | undefined;
+
+  /**
+   * <p>The key-value tags to assign to the application.</p>
+   */
+  Tags: Tag[] | undefined;
 }
 
 export namespace TagResourceRequest {
@@ -4027,14 +4063,14 @@ export namespace TagResourceResponse {
 
 export interface UntagResourceRequest {
   /**
-   * <p>The ARN of the Kinesis Analytics application from which to remove the tags.</p>
-   */
-  ResourceARN: string | undefined;
-
-  /**
    * <p>A list of keys of tags to remove from the specified application.</p>
    */
   TagKeys: string[] | undefined;
+
+  /**
+   * <p>The ARN of the Kinesis Data Analytics application from which to remove the tags.</p>
+   */
+  ResourceARN: string | undefined;
 }
 
 export namespace UntagResourceRequest {
@@ -4052,19 +4088,18 @@ export namespace UntagResourceResponse {
 }
 
 /**
- * <p>Describes the updates to the starting parameters for a Kinesis Data Analytics
- *       application.</p>
+ * <p>Describes the updates to the starting parameters for a Kinesis Data Analytics application.</p>
  */
 export interface RunConfigurationUpdate {
-  /**
-   * <p>Describes the starting parameters for an Apache Flink-based Kinesis Data Analytics application.</p>
-   */
-  FlinkRunConfiguration?: FlinkRunConfiguration;
-
   /**
    * <p>Describes updates to the restore behavior of a restarting application.</p>
    */
   ApplicationRestoreConfiguration?: ApplicationRestoreConfiguration;
+
+  /**
+   * <p>Describes the starting parameters for a Flink-based Kinesis Data Analytics application.</p>
+   */
+  FlinkRunConfiguration?: FlinkRunConfiguration;
 }
 
 export namespace RunConfigurationUpdate {
@@ -4082,14 +4117,9 @@ export interface UpdateApplicationRequest {
   CloudWatchLoggingOptionUpdates?: CloudWatchLoggingOptionUpdate[];
 
   /**
-   * <p>The current application version ID. You can retrieve the application version ID using <a>DescribeApplication</a>.</p>
+   * <p>Describes updates to the service execution role.</p>
    */
-  CurrentApplicationVersionId: number | undefined;
-
-  /**
-   * <p>Describes updates to the application's starting parameters.</p>
-   */
-  RunConfigurationUpdate?: RunConfigurationUpdate;
+  ServiceExecutionRoleUpdate?: string;
 
   /**
    * <p>The name of the application to update.</p>
@@ -4097,14 +4127,20 @@ export interface UpdateApplicationRequest {
   ApplicationName: string | undefined;
 
   /**
+   * <p>The current application version ID. You can retrieve the application version ID using
+   *       <a>DescribeApplication</a>.</p>
+   */
+  CurrentApplicationVersionId: number | undefined;
+
+  /**
    * <p>Describes application configuration updates.</p>
    */
   ApplicationConfigurationUpdate?: ApplicationConfigurationUpdate;
 
   /**
-   * <p>Describes updates to the service execution role.</p>
+   * <p>Describes updates to the application's starting parameters.</p>
    */
-  ServiceExecutionRoleUpdate?: string;
+  RunConfigurationUpdate?: RunConfigurationUpdate;
 }
 
 export namespace UpdateApplicationRequest {

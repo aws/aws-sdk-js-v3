@@ -29,7 +29,7 @@ export async function* listServersPaginate(
   let hasNext = true;
   let page: ListServersCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof Transfer) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -39,7 +39,7 @@ export async function* listServersPaginate(
       throw new Error("Invalid client, expected Transfer | TransferClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

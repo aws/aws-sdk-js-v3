@@ -25,6 +25,10 @@ import { BatchGetPartitionCommandInput, BatchGetPartitionCommandOutput } from ".
 import { BatchGetTriggersCommandInput, BatchGetTriggersCommandOutput } from "../commands/BatchGetTriggersCommand";
 import { BatchGetWorkflowsCommandInput, BatchGetWorkflowsCommandOutput } from "../commands/BatchGetWorkflowsCommand";
 import { BatchStopJobRunCommandInput, BatchStopJobRunCommandOutput } from "../commands/BatchStopJobRunCommand";
+import {
+  BatchUpdatePartitionCommandInput,
+  BatchUpdatePartitionCommandOutput,
+} from "../commands/BatchUpdatePartitionCommand";
 import { CancelMLTaskRunCommandInput, CancelMLTaskRunCommandOutput } from "../commands/CancelMLTaskRunCommand";
 import { CreateClassifierCommandInput, CreateClassifierCommandOutput } from "../commands/CreateClassifierCommand";
 import { CreateConnectionCommandInput, CreateConnectionCommandOutput } from "../commands/CreateConnectionCommand";
@@ -117,6 +121,10 @@ import { GetMLTransformCommandInput, GetMLTransformCommandOutput } from "../comm
 import { GetMLTransformsCommandInput, GetMLTransformsCommandOutput } from "../commands/GetMLTransformsCommand";
 import { GetMappingCommandInput, GetMappingCommandOutput } from "../commands/GetMappingCommand";
 import { GetPartitionCommandInput, GetPartitionCommandOutput } from "../commands/GetPartitionCommand";
+import {
+  GetPartitionIndexesCommandInput,
+  GetPartitionIndexesCommandOutput,
+} from "../commands/GetPartitionIndexesCommand";
 import { GetPartitionsCommandInput, GetPartitionsCommandOutput } from "../commands/GetPartitionsCommand";
 import { GetPlanCommandInput, GetPlanCommandOutput } from "../commands/GetPlanCommand";
 import {
@@ -266,6 +274,10 @@ import {
   BatchStopJobRunRequest,
   BatchStopJobRunResponse,
   BatchStopJobRunSuccessfulSubmission,
+  BatchUpdatePartitionFailureEntry,
+  BatchUpdatePartitionRequest,
+  BatchUpdatePartitionRequestEntry,
+  BatchUpdatePartitionResponse,
   BinaryColumnStatisticsData,
   BooleanColumnStatisticsData,
   CancelMLTaskRunRequest,
@@ -435,8 +447,6 @@ import {
   GetMLTaskRunsResponse,
   GetMLTransformRequest,
   GetMLTransformResponse,
-  GetMLTransformsRequest,
-  GetMLTransformsResponse,
   GetMappingRequest,
   GetMappingResponse,
   GlueEncryptionException,
@@ -458,14 +468,15 @@ import {
   LastCrawlInfo,
   Location,
   LongColumnStatisticsData,
-  MLTransform,
   MappingEntry,
+  MongoDBTarget,
   Node,
   NotificationProperty,
   OperationTimeoutException,
   Order,
   Partition,
   PartitionError,
+  PartitionIndex,
   PartitionInput,
   PartitionValueList,
   Permission,
@@ -493,9 +504,7 @@ import {
   TaskRunFilterCriteria,
   TaskRunProperties,
   TaskRunSortCriteria,
-  TransformFilterCriteria,
   TransformParameters,
-  TransformSortCriteria,
   Trigger,
   TriggerNodeDetails,
   UserDefinedFunctionInput,
@@ -509,9 +518,14 @@ import {
 import {
   ColumnStatisticsError,
   ConcurrentRunsExceededException,
+  ConflictException,
   CrawlerNotRunningException,
   CrawlerStoppingException,
   DevEndpointCustomLibraries,
+  GetMLTransformsRequest,
+  GetMLTransformsResponse,
+  GetPartitionIndexesRequest,
+  GetPartitionIndexesResponse,
   GetPartitionRequest,
   GetPartitionResponse,
   GetPartitionsRequest,
@@ -557,6 +571,7 @@ import {
   ImportCatalogToGlueRequest,
   ImportCatalogToGlueResponse,
   JobUpdate,
+  KeySchemaElement,
   ListCrawlersRequest,
   ListCrawlersResponse,
   ListDevEndpointsRequest,
@@ -569,8 +584,10 @@ import {
   ListTriggersResponse,
   ListWorkflowsRequest,
   ListWorkflowsResponse,
+  MLTransform,
   MLTransformNotReadyException,
   NoScheduleException,
+  PartitionIndexDescriptor,
   PropertyPredicate,
   PutDataCatalogEncryptionSettingsRequest,
   PutDataCatalogEncryptionSettingsResponse,
@@ -619,6 +636,8 @@ import {
   TableVersion,
   TagResourceRequest,
   TagResourceResponse,
+  TransformFilterCriteria,
+  TransformSortCriteria,
   TriggerUpdate,
   UntagResourceRequest,
   UntagResourceResponse,
@@ -822,6 +841,19 @@ export const serializeAws_json1_1BatchStopJobRunCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1BatchStopJobRunRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1BatchUpdatePartitionCommand = async (
+  input: BatchUpdatePartitionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSGlue.BatchUpdatePartition",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1BatchUpdatePartitionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1589,6 +1621,19 @@ export const serializeAws_json1_1GetPartitionCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetPartitionRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1GetPartitionIndexesCommand = async (
+  input: GetPartitionIndexesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSGlue.GetPartitionIndexes",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1GetPartitionIndexesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -3273,6 +3318,93 @@ const deserializeAws_json1_1BatchStopJobRunCommandError = async (
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
+    case "InternalServiceException":
+    case "com.amazonaws.glue#InternalServiceException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidInputException":
+    case "com.amazonaws.glue#InvalidInputException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "OperationTimeoutException":
+    case "com.amazonaws.glue#OperationTimeoutException":
+      response = {
+        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1BatchUpdatePartitionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchUpdatePartitionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1BatchUpdatePartitionCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1BatchUpdatePartitionResponse(data, context);
+  const response: BatchUpdatePartitionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1BatchUpdatePartitionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchUpdatePartitionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "EntityNotFoundException":
+    case "com.amazonaws.glue#EntityNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "GlueEncryptionException":
+    case "com.amazonaws.glue#GlueEncryptionException":
+      response = {
+        ...(await deserializeAws_json1_1GlueEncryptionExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "InternalServiceException":
     case "com.amazonaws.glue#InternalServiceException":
       response = {
@@ -8034,6 +8166,93 @@ const deserializeAws_json1_1GetPartitionCommandError = async (
     case "com.amazonaws.glue#GlueEncryptionException":
       response = {
         ...(await deserializeAws_json1_1GlueEncryptionExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServiceException":
+    case "com.amazonaws.glue#InternalServiceException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidInputException":
+    case "com.amazonaws.glue#InvalidInputException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "OperationTimeoutException":
+    case "com.amazonaws.glue#OperationTimeoutException":
+      response = {
+        ...(await deserializeAws_json1_1OperationTimeoutExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1GetPartitionIndexesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetPartitionIndexesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1GetPartitionIndexesCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1GetPartitionIndexesResponse(data, context);
+  const response: GetPartitionIndexesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1GetPartitionIndexesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetPartitionIndexesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.glue#ConflictException":
+      response = {
+        ...(await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "EntityNotFoundException":
+    case "com.amazonaws.glue#EntityNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -13300,6 +13519,21 @@ const deserializeAws_json1_1ConditionCheckFailureExceptionResponse = async (
   return contents;
 };
 
+const deserializeAws_json1_1ConflictExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ConflictException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1ConflictException(body, context);
+  const contents: ConflictException = {
+    name: "ConflictException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
 const deserializeAws_json1_1CrawlerNotRunningExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -13587,6 +13821,19 @@ const serializeAws_json1_1ActionList = (input: Action[], context: __SerdeContext
   return input.map((entry) => serializeAws_json1_1Action(entry, context));
 };
 
+const serializeAws_json1_1AdditionalPlanOptionsMap = (
+  input: { [key: string]: string },
+  context: __SerdeContext
+): any => {
+  return Object.entries(input).reduce(
+    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: value,
+    }),
+    {}
+  );
+};
+
 const serializeAws_json1_1BatchCreatePartitionRequest = (
   input: BatchCreatePartitionRequest,
   context: __SerdeContext
@@ -13738,6 +13985,41 @@ const serializeAws_json1_1BatchStopJobRunRequest = (input: BatchStopJobRunReques
       JobRunIds: serializeAws_json1_1BatchStopJobRunJobRunIdList(input.JobRunIds, context),
     }),
   };
+};
+
+const serializeAws_json1_1BatchUpdatePartitionRequest = (
+  input: BatchUpdatePartitionRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.CatalogId !== undefined && { CatalogId: input.CatalogId }),
+    ...(input.DatabaseName !== undefined && { DatabaseName: input.DatabaseName }),
+    ...(input.Entries !== undefined && {
+      Entries: serializeAws_json1_1BatchUpdatePartitionRequestEntryList(input.Entries, context),
+    }),
+    ...(input.TableName !== undefined && { TableName: input.TableName }),
+  };
+};
+
+const serializeAws_json1_1BatchUpdatePartitionRequestEntry = (
+  input: BatchUpdatePartitionRequestEntry,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.PartitionInput !== undefined && {
+      PartitionInput: serializeAws_json1_1PartitionInput(input.PartitionInput, context),
+    }),
+    ...(input.PartitionValueList !== undefined && {
+      PartitionValueList: serializeAws_json1_1BoundedPartitionValueList(input.PartitionValueList, context),
+    }),
+  };
+};
+
+const serializeAws_json1_1BatchUpdatePartitionRequestEntryList = (
+  input: BatchUpdatePartitionRequestEntry[],
+  context: __SerdeContext
+): any => {
+  return input.map((entry) => serializeAws_json1_1BatchUpdatePartitionRequestEntry(entry, context));
 };
 
 const serializeAws_json1_1BinaryColumnStatisticsData = (
@@ -13988,6 +14270,9 @@ const serializeAws_json1_1CrawlerTargets = (input: CrawlerTargets, context: __Se
     ...(input.JdbcTargets !== undefined && {
       JdbcTargets: serializeAws_json1_1JdbcTargetList(input.JdbcTargets, context),
     }),
+    ...(input.MongoDBTargets !== undefined && {
+      MongoDBTargets: serializeAws_json1_1MongoDBTargetList(input.MongoDBTargets, context),
+    }),
     ...(input.S3Targets !== undefined && { S3Targets: serializeAws_json1_1S3TargetList(input.S3Targets, context) }),
   };
 };
@@ -14207,6 +14492,9 @@ const serializeAws_json1_1CreateTableRequest = (input: CreateTableRequest, conte
   return {
     ...(input.CatalogId !== undefined && { CatalogId: input.CatalogId }),
     ...(input.DatabaseName !== undefined && { DatabaseName: input.DatabaseName }),
+    ...(input.PartitionIndexes !== undefined && {
+      PartitionIndexes: serializeAws_json1_1PartitionIndexList(input.PartitionIndexes, context),
+    }),
     ...(input.TableInput !== undefined && { TableInput: serializeAws_json1_1TableInput(input.TableInput, context) }),
   };
 };
@@ -14244,6 +14532,7 @@ const serializeAws_json1_1CreateWorkflowRequest = (input: CreateWorkflowRequest,
       DefaultRunProperties: serializeAws_json1_1WorkflowRunProperties(input.DefaultRunProperties, context),
     }),
     ...(input.Description !== undefined && { Description: input.Description }),
+    ...(input.MaxConcurrentRuns !== undefined && { MaxConcurrentRuns: input.MaxConcurrentRuns }),
     ...(input.Name !== undefined && { Name: input.Name }),
     ...(input.Tags !== undefined && { Tags: serializeAws_json1_1TagsMap(input.Tags, context) }),
   };
@@ -14825,6 +15114,18 @@ const serializeAws_json1_1GetMLTransformsRequest = (input: GetMLTransformsReques
   };
 };
 
+const serializeAws_json1_1GetPartitionIndexesRequest = (
+  input: GetPartitionIndexesRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.CatalogId !== undefined && { CatalogId: input.CatalogId }),
+    ...(input.DatabaseName !== undefined && { DatabaseName: input.DatabaseName }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.TableName !== undefined && { TableName: input.TableName }),
+  };
+};
+
 const serializeAws_json1_1GetPartitionRequest = (input: GetPartitionRequest, context: __SerdeContext): any => {
   return {
     ...(input.CatalogId !== undefined && { CatalogId: input.CatalogId }),
@@ -14850,6 +15151,9 @@ const serializeAws_json1_1GetPartitionsRequest = (input: GetPartitionsRequest, c
 
 const serializeAws_json1_1GetPlanRequest = (input: GetPlanRequest, context: __SerdeContext): any => {
   return {
+    ...(input.AdditionalPlanOptionsMap !== undefined && {
+      AdditionalPlanOptionsMap: serializeAws_json1_1AdditionalPlanOptionsMap(input.AdditionalPlanOptionsMap, context),
+    }),
     ...(input.Language !== undefined && { Language: input.Language }),
     ...(input.Location !== undefined && { Location: serializeAws_json1_1Location(input.Location, context) }),
     ...(input.Mapping !== undefined && { Mapping: serializeAws_json1_1MappingList(input.Mapping, context) }),
@@ -15098,6 +15402,10 @@ const serializeAws_json1_1JobUpdate = (input: JobUpdate, context: __SerdeContext
   };
 };
 
+const serializeAws_json1_1KeyList = (input: string[], context: __SerdeContext): any => {
+  return input.map((entry) => entry);
+};
+
 const serializeAws_json1_1ListCrawlersRequest = (input: ListCrawlersRequest, context: __SerdeContext): any => {
   return {
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
@@ -15207,6 +15515,18 @@ const serializeAws_json1_1MatchCriteria = (input: string[], context: __SerdeCont
   return input.map((entry) => entry);
 };
 
+const serializeAws_json1_1MongoDBTarget = (input: MongoDBTarget, context: __SerdeContext): any => {
+  return {
+    ...(input.ConnectionName !== undefined && { ConnectionName: input.ConnectionName }),
+    ...(input.Path !== undefined && { Path: input.Path }),
+    ...(input.ScanAll !== undefined && { ScanAll: input.ScanAll }),
+  };
+};
+
+const serializeAws_json1_1MongoDBTargetList = (input: MongoDBTarget[], context: __SerdeContext): any => {
+  return input.map((entry) => serializeAws_json1_1MongoDBTarget(entry, context));
+};
+
 const serializeAws_json1_1NameStringList = (input: string[], context: __SerdeContext): any => {
   return input.map((entry) => entry);
 };
@@ -15244,6 +15564,17 @@ const serializeAws_json1_1ParametersMap = (input: { [key: string]: string }, con
     }),
     {}
   );
+};
+
+const serializeAws_json1_1PartitionIndex = (input: PartitionIndex, context: __SerdeContext): any => {
+  return {
+    ...(input.IndexName !== undefined && { IndexName: input.IndexName }),
+    ...(input.Keys !== undefined && { Keys: serializeAws_json1_1KeyList(input.Keys, context) }),
+  };
+};
+
+const serializeAws_json1_1PartitionIndexList = (input: PartitionIndex[], context: __SerdeContext): any => {
+  return input.map((entry) => serializeAws_json1_1PartitionIndex(entry, context));
 };
 
 const serializeAws_json1_1PartitionInput = (input: PartitionInput, context: __SerdeContext): any => {
@@ -15408,6 +15739,7 @@ const serializeAws_json1_1S3EncryptionList = (input: S3Encryption[], context: __
 
 const serializeAws_json1_1S3Target = (input: S3Target, context: __SerdeContext): any => {
   return {
+    ...(input.ConnectionName !== undefined && { ConnectionName: input.ConnectionName }),
     ...(input.Exclusions !== undefined && { Exclusions: serializeAws_json1_1PathList(input.Exclusions, context) }),
     ...(input.Path !== undefined && { Path: input.Path }),
   };
@@ -16021,6 +16353,7 @@ const serializeAws_json1_1UpdateWorkflowRequest = (input: UpdateWorkflowRequest,
       DefaultRunProperties: serializeAws_json1_1WorkflowRunProperties(input.DefaultRunProperties, context),
     }),
     ...(input.Description !== undefined && { Description: input.Description }),
+    ...(input.MaxConcurrentRuns !== undefined && { MaxConcurrentRuns: input.MaxConcurrentRuns }),
     ...(input.Name !== undefined && { Name: input.Name }),
   };
 };
@@ -16320,6 +16653,41 @@ const deserializeAws_json1_1BatchStopJobRunSuccessfulSubmissionList = (
   return (output || []).map((entry: any) => deserializeAws_json1_1BatchStopJobRunSuccessfulSubmission(entry, context));
 };
 
+const deserializeAws_json1_1BatchUpdatePartitionFailureEntry = (
+  output: any,
+  context: __SerdeContext
+): BatchUpdatePartitionFailureEntry => {
+  return {
+    ErrorDetail:
+      output.ErrorDetail !== undefined && output.ErrorDetail !== null
+        ? deserializeAws_json1_1ErrorDetail(output.ErrorDetail, context)
+        : undefined,
+    PartitionValueList:
+      output.PartitionValueList !== undefined && output.PartitionValueList !== null
+        ? deserializeAws_json1_1BoundedPartitionValueList(output.PartitionValueList, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1BatchUpdatePartitionFailureList = (
+  output: any,
+  context: __SerdeContext
+): BatchUpdatePartitionFailureEntry[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1BatchUpdatePartitionFailureEntry(entry, context));
+};
+
+const deserializeAws_json1_1BatchUpdatePartitionResponse = (
+  output: any,
+  context: __SerdeContext
+): BatchUpdatePartitionResponse => {
+  return {
+    Errors:
+      output.Errors !== undefined && output.Errors !== null
+        ? deserializeAws_json1_1BatchUpdatePartitionFailureList(output.Errors, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1BinaryColumnStatisticsData = (
   output: any,
   context: __SerdeContext
@@ -16346,6 +16714,10 @@ const deserializeAws_json1_1BooleanColumnStatisticsData = (
     NumberOfTrues:
       output.NumberOfTrues !== undefined && output.NumberOfTrues !== null ? output.NumberOfTrues : undefined,
   } as any;
+};
+
+const deserializeAws_json1_1BoundedPartitionValueList = (output: any, context: __SerdeContext): string[] => {
+  return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_json1_1CancelMLTaskRunResponse = (
@@ -16610,6 +16982,12 @@ const deserializeAws_json1_1ConditionList = (output: any, context: __SerdeContex
   return (output || []).map((entry: any) => deserializeAws_json1_1Condition(entry, context));
 };
 
+const deserializeAws_json1_1ConflictException = (output: any, context: __SerdeContext): ConflictException => {
+  return {
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1ConfusionMatrix = (output: any, context: __SerdeContext): ConfusionMatrix => {
   return {
     NumFalseNegatives:
@@ -16847,6 +17225,10 @@ const deserializeAws_json1_1CrawlerTargets = (output: any, context: __SerdeConte
     JdbcTargets:
       output.JdbcTargets !== undefined && output.JdbcTargets !== null
         ? deserializeAws_json1_1JdbcTargetList(output.JdbcTargets, context)
+        : undefined,
+    MongoDBTargets:
+      output.MongoDBTargets !== undefined && output.MongoDBTargets !== null
+        ? deserializeAws_json1_1MongoDBTargetList(output.MongoDBTargets, context)
         : undefined,
     S3Targets:
       output.S3Targets !== undefined && output.S3Targets !== null
@@ -17854,6 +18236,19 @@ const deserializeAws_json1_1GetMLTransformsResponse = (
   } as any;
 };
 
+const deserializeAws_json1_1GetPartitionIndexesResponse = (
+  output: any,
+  context: __SerdeContext
+): GetPartitionIndexesResponse => {
+  return {
+    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    PartitionIndexDescriptorList:
+      output.PartitionIndexDescriptorList !== undefined && output.PartitionIndexDescriptorList !== null
+        ? deserializeAws_json1_1PartitionIndexDescriptorList(output.PartitionIndexDescriptorList, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1GetPartitionResponse = (output: any, context: __SerdeContext): GetPartitionResponse => {
   return {
     Partition:
@@ -18388,6 +18783,17 @@ const deserializeAws_json1_1JsonClassifier = (output: any, context: __SerdeConte
   } as any;
 };
 
+const deserializeAws_json1_1KeySchemaElement = (output: any, context: __SerdeContext): KeySchemaElement => {
+  return {
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+    Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1KeySchemaElementList = (output: any, context: __SerdeContext): KeySchemaElement[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1KeySchemaElement(entry, context));
+};
+
 const deserializeAws_json1_1LabelingSetGenerationTaskRunProperties = (
   output: any,
   context: __SerdeContext
@@ -18584,6 +18990,19 @@ const deserializeAws_json1_1MLTransformNotReadyException = (
   } as any;
 };
 
+const deserializeAws_json1_1MongoDBTarget = (output: any, context: __SerdeContext): MongoDBTarget => {
+  return {
+    ConnectionName:
+      output.ConnectionName !== undefined && output.ConnectionName !== null ? output.ConnectionName : undefined,
+    Path: output.Path !== undefined && output.Path !== null ? output.Path : undefined,
+    ScanAll: output.ScanAll !== undefined && output.ScanAll !== null ? output.ScanAll : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1MongoDBTargetList = (output: any, context: __SerdeContext): MongoDBTarget[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1MongoDBTarget(entry, context));
+};
+
 const deserializeAws_json1_1NameStringList = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
 };
@@ -18710,6 +19129,27 @@ const deserializeAws_json1_1PartitionError = (output: any, context: __SerdeConte
 
 const deserializeAws_json1_1PartitionErrors = (output: any, context: __SerdeContext): PartitionError[] => {
   return (output || []).map((entry: any) => deserializeAws_json1_1PartitionError(entry, context));
+};
+
+const deserializeAws_json1_1PartitionIndexDescriptor = (
+  output: any,
+  context: __SerdeContext
+): PartitionIndexDescriptor => {
+  return {
+    IndexName: output.IndexName !== undefined && output.IndexName !== null ? output.IndexName : undefined,
+    IndexStatus: output.IndexStatus !== undefined && output.IndexStatus !== null ? output.IndexStatus : undefined,
+    Keys:
+      output.Keys !== undefined && output.Keys !== null
+        ? deserializeAws_json1_1KeySchemaElementList(output.Keys, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1PartitionIndexDescriptorList = (
+  output: any,
+  context: __SerdeContext
+): PartitionIndexDescriptor[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1PartitionIndexDescriptor(entry, context));
 };
 
 const deserializeAws_json1_1PartitionList = (output: any, context: __SerdeContext): Partition[] => {
@@ -18875,6 +19315,8 @@ const deserializeAws_json1_1S3EncryptionList = (output: any, context: __SerdeCon
 
 const deserializeAws_json1_1S3Target = (output: any, context: __SerdeContext): S3Target => {
   return {
+    ConnectionName:
+      output.ConnectionName !== undefined && output.ConnectionName !== null ? output.ConnectionName : undefined,
     Exclusions:
       output.Exclusions !== undefined && output.Exclusions !== null
         ? deserializeAws_json1_1PathList(output.Exclusions, context)
@@ -19572,6 +20014,10 @@ const deserializeAws_json1_1Workflow = (output: any, context: __SerdeContext): W
       output.LastRun !== undefined && output.LastRun !== null
         ? deserializeAws_json1_1WorkflowRun(output.LastRun, context)
         : undefined,
+    MaxConcurrentRuns:
+      output.MaxConcurrentRuns !== undefined && output.MaxConcurrentRuns !== null
+        ? output.MaxConcurrentRuns
+        : undefined,
     Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
   } as any;
 };
@@ -19599,6 +20045,7 @@ const deserializeAws_json1_1WorkflowRun = (output: any, context: __SerdeContext)
       output.CompletedOn !== undefined && output.CompletedOn !== null
         ? new Date(Math.round(output.CompletedOn * 1000))
         : undefined,
+    ErrorMessage: output.ErrorMessage !== undefined && output.ErrorMessage !== null ? output.ErrorMessage : undefined,
     Graph:
       output.Graph !== undefined && output.Graph !== null
         ? deserializeAws_json1_1WorkflowGraph(output.Graph, context)

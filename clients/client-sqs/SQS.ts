@@ -72,6 +72,10 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 /**
  * <p>Welcome to the <i>Amazon Simple Queue Service API Reference</i>.</p>
  *         <p>Amazon Simple Queue Service (Amazon SQS) is a reliable, highly-scalable hosted queue for storing messages as they travel between applications or microservices. Amazon SQS moves data between distributed application components and helps you decouple these components.</p>
+ *         <p>For information on the permissions you need to use this API, see
+ *             <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-authentication-and-access-control.html">Identity and
+ *             access management</a> in the <i>Amazon Simple Queue Service Developer Guide.</i>
+ *          </p>
  *         <p>You can use <a href="http://aws.amazon.com/tools/#sdk">AWS SDKs</a> to access Amazon SQS using your favorite programming language. The SDKs perform tasks such as the following automatically:</p>
  *         <ul>
  *             <li>
@@ -106,7 +110,7 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  *                   </li>
  *                   <li>
  *                      <p>
- *                         <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-message-attributes.html">Amazon SQS Message Attributes</a>
+ *                         <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-message-metadata.html#sqs-message-attributes">Amazon SQS Message Attributes</a>
  *                      </p>
  *                   </li>
  *                   <li>
@@ -592,7 +596,13 @@ export class SQS extends SQSClient {
 
   /**
    * <p>Returns a list of your queues that have the <code>RedrivePolicy</code> queue attribute configured with a dead-letter queue.</p>
-   *
+   *          <p> The <code>ListDeadLetterSourceQueues</code> methods supports
+   *           pagination. Set parameter <code>MaxResults</code> in the request to specify the maximum number of
+   *           results to be returned in the response. If you do not set <code>MaxResults</code>,
+   *           the response includes a maximum of 1,000 results. If you set <code>MaxResults</code> and there are additional results to
+   *           display, the response includes a value for <code>NextToken</code>. Use
+   *           <code>NextToken</code> as a parameter in your next request to
+   *           <code>ListDeadLetterSourceQueues</code> to receive the next page of results.   </p>
    *
    *          <p>For more information about using dead-letter queues, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html">Using Amazon SQS Dead-Letter Queues</a>
    *           in the <i>Amazon Simple Queue Service Developer Guide</i>.</p>
@@ -627,8 +637,15 @@ export class SQS extends SQSClient {
   }
 
   /**
-   * <p>Returns a list of your queues. The maximum number of queues that can be returned is 1,000. If you specify a value for the optional
+   * <p>Returns a list of your queues in the current region. The response includes a maximum of 1,000 results. If you specify a value for the optional
    *           <code>QueueNamePrefix</code> parameter, only queues with a name that begins with the specified value are returned.</p>
+   *          <p> The <code>listQueues</code> methods supports
+   *           pagination. Set parameter <code>MaxResults</code> in the request to specify the maximum number of
+   *           results to be returned in the response. If you do not set <code>MaxResults</code>,
+   *           the response includes a maximum of 1,000 results. If you set <code>MaxResults</code> and there are additional results to
+   *           display, the response includes a value for <code>NextToken</code>. Use
+   *           <code>NextToken</code> as a parameter in your next request to
+   *           <code>listQueues</code> to receive the next page of results.  </p>
    *          <note>
    *             <p>Cross-account permissions don't apply to this action. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name">Grant Cross-Account Permissions to a Role and a User Name</a> in the <i>Amazon Simple Queue Service Developer Guide</i>.</p>
    *          </note>

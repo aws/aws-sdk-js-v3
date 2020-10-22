@@ -105,6 +105,10 @@ import {
   DescribeGameServerGroupCommandOutput,
 } from "../commands/DescribeGameServerGroupCommand";
 import {
+  DescribeGameServerInstancesCommandInput,
+  DescribeGameServerInstancesCommandOutput,
+} from "../commands/DescribeGameServerInstancesCommand";
+import {
   DescribeGameSessionDetailsCommandInput,
   DescribeGameSessionDetailsCommandOutput,
 } from "../commands/DescribeGameSessionDetailsCommand";
@@ -314,6 +318,8 @@ import {
   DescribeGameServerGroupInput,
   DescribeGameServerGroupOutput,
   DescribeGameServerInput,
+  DescribeGameServerInstancesInput,
+  DescribeGameServerInstancesOutput,
   DescribeGameServerOutput,
   DescribeGameSessionDetailsInput,
   DescribeGameSessionDetailsOutput,
@@ -357,6 +363,7 @@ import {
   GameServerGroup,
   GameServerGroupAction,
   GameServerGroupAutoScalingPolicy,
+  GameServerInstance,
   GameSession,
   GameSessionConnectionInfo,
   GameSessionDetail,
@@ -969,6 +976,19 @@ export const serializeAws_json1_1DescribeGameServerGroupCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeGameServerGroupInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DescribeGameServerInstancesCommand = async (
+  input: DescribeGameServerInstancesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "GameLift.DescribeGameServerInstances",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DescribeGameServerInstancesInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -4751,6 +4771,85 @@ const deserializeAws_json1_1DescribeGameServerGroupCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeGameServerGroupCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InternalServiceException":
+    case "com.amazonaws.gamelift#InternalServiceException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.gamelift#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.gamelift#NotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnauthorizedException":
+    case "com.amazonaws.gamelift#UnauthorizedException":
+      response = {
+        ...(await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1DescribeGameServerInstancesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeGameServerInstancesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DescribeGameServerInstancesCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeGameServerInstancesOutput(data, context);
+  const response: DescribeGameServerInstancesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DescribeGameServerInstancesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeGameServerInstancesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -9651,6 +9750,20 @@ const serializeAws_json1_1DescribeGameServerInput = (input: DescribeGameServerIn
   };
 };
 
+const serializeAws_json1_1DescribeGameServerInstancesInput = (
+  input: DescribeGameServerInstancesInput,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.GameServerGroupName !== undefined && { GameServerGroupName: input.GameServerGroupName }),
+    ...(input.InstanceIds !== undefined && {
+      InstanceIds: serializeAws_json1_1GameServerInstanceIds(input.InstanceIds, context),
+    }),
+    ...(input.Limit !== undefined && { Limit: input.Limit }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+  };
+};
+
 const serializeAws_json1_1DescribeGameSessionDetailsInput = (
   input: DescribeGameSessionDetailsInput,
   context: __SerdeContext
@@ -9855,6 +9968,10 @@ const serializeAws_json1_1GameServerGroupAutoScalingPolicy = (
       ),
     }),
   };
+};
+
+const serializeAws_json1_1GameServerInstanceIds = (input: string[], context: __SerdeContext): any => {
+  return input.map((entry) => entry);
 };
 
 const serializeAws_json1_1GameSessionQueueDestination = (
@@ -10106,12 +10223,10 @@ const serializeAws_json1_1QueueArnsList = (input: string[], context: __SerdeCont
 const serializeAws_json1_1RegisterGameServerInput = (input: RegisterGameServerInput, context: __SerdeContext): any => {
   return {
     ...(input.ConnectionInfo !== undefined && { ConnectionInfo: input.ConnectionInfo }),
-    ...(input.CustomSortKey !== undefined && { CustomSortKey: input.CustomSortKey }),
     ...(input.GameServerData !== undefined && { GameServerData: input.GameServerData }),
     ...(input.GameServerGroupName !== undefined && { GameServerGroupName: input.GameServerGroupName }),
     ...(input.GameServerId !== undefined && { GameServerId: input.GameServerId }),
     ...(input.InstanceId !== undefined && { InstanceId: input.InstanceId }),
-    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
   };
 };
 
@@ -10439,7 +10554,6 @@ const serializeAws_json1_1UpdateGameServerGroupInput = (
 
 const serializeAws_json1_1UpdateGameServerInput = (input: UpdateGameServerInput, context: __SerdeContext): any => {
   return {
-    ...(input.CustomSortKey !== undefined && { CustomSortKey: input.CustomSortKey }),
     ...(input.GameServerData !== undefined && { GameServerData: input.GameServerData }),
     ...(input.GameServerGroupName !== undefined && { GameServerGroupName: input.GameServerGroupName }),
     ...(input.GameServerId !== undefined && { GameServerId: input.GameServerId }),
@@ -10937,6 +11051,19 @@ const deserializeAws_json1_1DescribeGameServerGroupOutput = (
   } as any;
 };
 
+const deserializeAws_json1_1DescribeGameServerInstancesOutput = (
+  output: any,
+  context: __SerdeContext
+): DescribeGameServerInstancesOutput => {
+  return {
+    GameServerInstances:
+      output.GameServerInstances !== undefined && output.GameServerInstances !== null
+        ? deserializeAws_json1_1GameServerInstances(output.GameServerInstances, context)
+        : undefined,
+    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1DescribeGameServerOutput = (
   output: any,
   context: __SerdeContext
@@ -11304,8 +11431,6 @@ const deserializeAws_json1_1GameServer = (output: any, context: __SerdeContext):
     ClaimStatus: output.ClaimStatus !== undefined && output.ClaimStatus !== null ? output.ClaimStatus : undefined,
     ConnectionInfo:
       output.ConnectionInfo !== undefined && output.ConnectionInfo !== null ? output.ConnectionInfo : undefined,
-    CustomSortKey:
-      output.CustomSortKey !== undefined && output.CustomSortKey !== null ? output.CustomSortKey : undefined,
     GameServerData:
       output.GameServerData !== undefined && output.GameServerData !== null ? output.GameServerData : undefined,
     GameServerGroupArn:
@@ -11390,6 +11515,26 @@ const deserializeAws_json1_1GameServerGroupActions = (
 
 const deserializeAws_json1_1GameServerGroups = (output: any, context: __SerdeContext): GameServerGroup[] => {
   return (output || []).map((entry: any) => deserializeAws_json1_1GameServerGroup(entry, context));
+};
+
+const deserializeAws_json1_1GameServerInstance = (output: any, context: __SerdeContext): GameServerInstance => {
+  return {
+    GameServerGroupArn:
+      output.GameServerGroupArn !== undefined && output.GameServerGroupArn !== null
+        ? output.GameServerGroupArn
+        : undefined,
+    GameServerGroupName:
+      output.GameServerGroupName !== undefined && output.GameServerGroupName !== null
+        ? output.GameServerGroupName
+        : undefined,
+    InstanceId: output.InstanceId !== undefined && output.InstanceId !== null ? output.InstanceId : undefined,
+    InstanceStatus:
+      output.InstanceStatus !== undefined && output.InstanceStatus !== null ? output.InstanceStatus : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1GameServerInstances = (output: any, context: __SerdeContext): GameServerInstance[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1GameServerInstance(entry, context));
 };
 
 const deserializeAws_json1_1GameServers = (output: any, context: __SerdeContext): GameServer[] => {

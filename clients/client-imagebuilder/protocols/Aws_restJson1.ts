@@ -6369,11 +6369,10 @@ const serializeAws_restJson1AmiDistributionConfiguration = (
       launchPermission: serializeAws_restJson1LaunchPermissionConfiguration(input.launchPermission, context),
     }),
     ...(input.name !== undefined && { name: input.name }),
+    ...(input.targetAccountIds !== undefined && {
+      targetAccountIds: serializeAws_restJson1AccountList(input.targetAccountIds, context),
+    }),
   };
-};
-
-const serializeAws_restJson1ArnList = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
 };
 
 const serializeAws_restJson1ComponentConfiguration = (input: ComponentConfiguration, context: __SerdeContext): any => {
@@ -6398,7 +6397,10 @@ const serializeAws_restJson1Distribution = (input: Distribution, context: __Serd
       ),
     }),
     ...(input.licenseConfigurationArns !== undefined && {
-      licenseConfigurationArns: serializeAws_restJson1ArnList(input.licenseConfigurationArns, context),
+      licenseConfigurationArns: serializeAws_restJson1LicenseConfigurationArnList(
+        input.licenseConfigurationArns,
+        context
+      ),
     }),
     ...(input.region !== undefined && { region: input.region }),
   };
@@ -6483,6 +6485,10 @@ const serializeAws_restJson1LaunchPermissionConfiguration = (
   };
 };
 
+const serializeAws_restJson1LicenseConfigurationArnList = (input: string[], context: __SerdeContext): any => {
+  return input.map((entry) => entry);
+};
+
 const serializeAws_restJson1Logging = (input: Logging, context: __SerdeContext): any => {
   return {
     ...(input.s3Logs !== undefined && { s3Logs: serializeAws_restJson1S3Logs(input.s3Logs, context) }),
@@ -6543,6 +6549,7 @@ const deserializeAws_restJson1AccountList = (output: any, context: __SerdeContex
 
 const deserializeAws_restJson1Ami = (output: any, context: __SerdeContext): Ami => {
   return {
+    accountId: output.accountId !== undefined && output.accountId !== null ? output.accountId : undefined,
     description: output.description !== undefined && output.description !== null ? output.description : undefined,
     image: output.image !== undefined && output.image !== null ? output.image : undefined,
     name: output.name !== undefined && output.name !== null ? output.name : undefined,
@@ -6570,15 +6577,15 @@ const deserializeAws_restJson1AmiDistributionConfiguration = (
         ? deserializeAws_restJson1LaunchPermissionConfiguration(output.launchPermission, context)
         : undefined,
     name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    targetAccountIds:
+      output.targetAccountIds !== undefined && output.targetAccountIds !== null
+        ? deserializeAws_restJson1AccountList(output.targetAccountIds, context)
+        : undefined,
   } as any;
 };
 
 const deserializeAws_restJson1AmiList = (output: any, context: __SerdeContext): Ami[] => {
   return (output || []).map((entry: any) => deserializeAws_restJson1Ami(entry, context));
-};
-
-const deserializeAws_restJson1ArnList = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_restJson1Component = (output: any, context: __SerdeContext): Component => {
@@ -6683,7 +6690,7 @@ const deserializeAws_restJson1Distribution = (output: any, context: __SerdeConte
         : undefined,
     licenseConfigurationArns:
       output.licenseConfigurationArns !== undefined && output.licenseConfigurationArns !== null
-        ? deserializeAws_restJson1ArnList(output.licenseConfigurationArns, context)
+        ? deserializeAws_restJson1LicenseConfigurationArnList(output.licenseConfigurationArns, context)
         : undefined,
     region: output.region !== undefined && output.region !== null ? output.region : undefined,
   } as any;
@@ -7076,6 +7083,10 @@ const deserializeAws_restJson1LaunchPermissionConfiguration = (
         ? deserializeAws_restJson1AccountList(output.userIds, context)
         : undefined,
   } as any;
+};
+
+const deserializeAws_restJson1LicenseConfigurationArnList = (output: any, context: __SerdeContext): string[] => {
+  return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_restJson1Logging = (output: any, context: __SerdeContext): Logging => {

@@ -29,7 +29,7 @@ export async function* getGroupsPaginate(
   let hasNext = true;
   let page: GetGroupsCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     if (config.client instanceof XRay) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
     } else if (config.client instanceof XRayClient) {
@@ -38,7 +38,7 @@ export async function* getGroupsPaginate(
       throw new Error("Invalid client, expected XRay | XRayClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

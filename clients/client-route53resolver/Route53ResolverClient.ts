@@ -3,6 +3,10 @@ import {
   AssociateResolverEndpointIpAddressCommandOutput,
 } from "./commands/AssociateResolverEndpointIpAddressCommand";
 import {
+  AssociateResolverQueryLogConfigCommandInput,
+  AssociateResolverQueryLogConfigCommandOutput,
+} from "./commands/AssociateResolverQueryLogConfigCommand";
+import {
   AssociateResolverRuleCommandInput,
   AssociateResolverRuleCommandOutput,
 } from "./commands/AssociateResolverRuleCommand";
@@ -10,16 +14,28 @@ import {
   CreateResolverEndpointCommandInput,
   CreateResolverEndpointCommandOutput,
 } from "./commands/CreateResolverEndpointCommand";
+import {
+  CreateResolverQueryLogConfigCommandInput,
+  CreateResolverQueryLogConfigCommandOutput,
+} from "./commands/CreateResolverQueryLogConfigCommand";
 import { CreateResolverRuleCommandInput, CreateResolverRuleCommandOutput } from "./commands/CreateResolverRuleCommand";
 import {
   DeleteResolverEndpointCommandInput,
   DeleteResolverEndpointCommandOutput,
 } from "./commands/DeleteResolverEndpointCommand";
+import {
+  DeleteResolverQueryLogConfigCommandInput,
+  DeleteResolverQueryLogConfigCommandOutput,
+} from "./commands/DeleteResolverQueryLogConfigCommand";
 import { DeleteResolverRuleCommandInput, DeleteResolverRuleCommandOutput } from "./commands/DeleteResolverRuleCommand";
 import {
   DisassociateResolverEndpointIpAddressCommandInput,
   DisassociateResolverEndpointIpAddressCommandOutput,
 } from "./commands/DisassociateResolverEndpointIpAddressCommand";
+import {
+  DisassociateResolverQueryLogConfigCommandInput,
+  DisassociateResolverQueryLogConfigCommandOutput,
+} from "./commands/DisassociateResolverQueryLogConfigCommand";
 import {
   DisassociateResolverRuleCommandInput,
   DisassociateResolverRuleCommandOutput,
@@ -28,6 +44,18 @@ import {
   GetResolverEndpointCommandInput,
   GetResolverEndpointCommandOutput,
 } from "./commands/GetResolverEndpointCommand";
+import {
+  GetResolverQueryLogConfigAssociationCommandInput,
+  GetResolverQueryLogConfigAssociationCommandOutput,
+} from "./commands/GetResolverQueryLogConfigAssociationCommand";
+import {
+  GetResolverQueryLogConfigCommandInput,
+  GetResolverQueryLogConfigCommandOutput,
+} from "./commands/GetResolverQueryLogConfigCommand";
+import {
+  GetResolverQueryLogConfigPolicyCommandInput,
+  GetResolverQueryLogConfigPolicyCommandOutput,
+} from "./commands/GetResolverQueryLogConfigPolicyCommand";
 import {
   GetResolverRuleAssociationCommandInput,
   GetResolverRuleAssociationCommandOutput,
@@ -46,6 +74,14 @@ import {
   ListResolverEndpointsCommandOutput,
 } from "./commands/ListResolverEndpointsCommand";
 import {
+  ListResolverQueryLogConfigAssociationsCommandInput,
+  ListResolverQueryLogConfigAssociationsCommandOutput,
+} from "./commands/ListResolverQueryLogConfigAssociationsCommand";
+import {
+  ListResolverQueryLogConfigsCommandInput,
+  ListResolverQueryLogConfigsCommandOutput,
+} from "./commands/ListResolverQueryLogConfigsCommand";
+import {
   ListResolverRuleAssociationsCommandInput,
   ListResolverRuleAssociationsCommandOutput,
 } from "./commands/ListResolverRuleAssociationsCommand";
@@ -54,6 +90,10 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import {
+  PutResolverQueryLogConfigPolicyCommandInput,
+  PutResolverQueryLogConfigPolicyCommandOutput,
+} from "./commands/PutResolverQueryLogConfigPolicyCommand";
 import {
   PutResolverRulePolicyCommandInput,
   PutResolverRulePolicyCommandOutput,
@@ -116,22 +156,32 @@ import {
 
 export type ServiceInputTypes =
   | AssociateResolverEndpointIpAddressCommandInput
+  | AssociateResolverQueryLogConfigCommandInput
   | AssociateResolverRuleCommandInput
   | CreateResolverEndpointCommandInput
+  | CreateResolverQueryLogConfigCommandInput
   | CreateResolverRuleCommandInput
   | DeleteResolverEndpointCommandInput
+  | DeleteResolverQueryLogConfigCommandInput
   | DeleteResolverRuleCommandInput
   | DisassociateResolverEndpointIpAddressCommandInput
+  | DisassociateResolverQueryLogConfigCommandInput
   | DisassociateResolverRuleCommandInput
   | GetResolverEndpointCommandInput
+  | GetResolverQueryLogConfigAssociationCommandInput
+  | GetResolverQueryLogConfigCommandInput
+  | GetResolverQueryLogConfigPolicyCommandInput
   | GetResolverRuleAssociationCommandInput
   | GetResolverRuleCommandInput
   | GetResolverRulePolicyCommandInput
   | ListResolverEndpointIpAddressesCommandInput
   | ListResolverEndpointsCommandInput
+  | ListResolverQueryLogConfigAssociationsCommandInput
+  | ListResolverQueryLogConfigsCommandInput
   | ListResolverRuleAssociationsCommandInput
   | ListResolverRulesCommandInput
   | ListTagsForResourceCommandInput
+  | PutResolverQueryLogConfigPolicyCommandInput
   | PutResolverRulePolicyCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
@@ -140,22 +190,32 @@ export type ServiceInputTypes =
 
 export type ServiceOutputTypes =
   | AssociateResolverEndpointIpAddressCommandOutput
+  | AssociateResolverQueryLogConfigCommandOutput
   | AssociateResolverRuleCommandOutput
   | CreateResolverEndpointCommandOutput
+  | CreateResolverQueryLogConfigCommandOutput
   | CreateResolverRuleCommandOutput
   | DeleteResolverEndpointCommandOutput
+  | DeleteResolverQueryLogConfigCommandOutput
   | DeleteResolverRuleCommandOutput
   | DisassociateResolverEndpointIpAddressCommandOutput
+  | DisassociateResolverQueryLogConfigCommandOutput
   | DisassociateResolverRuleCommandOutput
   | GetResolverEndpointCommandOutput
+  | GetResolverQueryLogConfigAssociationCommandOutput
+  | GetResolverQueryLogConfigCommandOutput
+  | GetResolverQueryLogConfigPolicyCommandOutput
   | GetResolverRuleAssociationCommandOutput
   | GetResolverRuleCommandOutput
   | GetResolverRulePolicyCommandOutput
   | ListResolverEndpointIpAddressesCommandOutput
   | ListResolverEndpointsCommandOutput
+  | ListResolverQueryLogConfigAssociationsCommandOutput
+  | ListResolverQueryLogConfigsCommandOutput
   | ListResolverRuleAssociationsCommandOutput
   | ListResolverRulesCommandOutput
   | ListTagsForResourceCommandOutput
+  | PutResolverQueryLogConfigPolicyCommandOutput
   | PutResolverRulePolicyCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
@@ -275,49 +335,36 @@ export type Route53ResolverClientResolvedConfig = __SmithyResolvedConfiguration<
   HostHeaderResolvedConfig;
 
 /**
- * <p>Here's how you set up to query an Amazon Route 53 private hosted zone from your network:</p>
+ * <p>When you create a VPC using Amazon VPC, you automatically get DNS resolution within the VPC from Route 53 Resolver.
+ * 			By default, Resolver answers DNS queries for VPC domain names such as domain names for EC2 instances or ELB load balancers.
+ * 			Resolver performs recursive lookups against public name servers for all other domain names.</p>
  *
- * 		       <ol>
- *             <li>
- *                <p>Connect your network to a VPC using AWS Direct Connect or a VPN.</p>
- *             </li>
- *             <li>
- *                <p>Run the following AWS CLI command to create a Resolver endpoint:</p>
- * 				           <p>
- *                   <code>create-resolver-endpoint --name [endpoint_name] --direction INBOUND
- * 					--creator-request-id [unique_string] --security-group-ids [security_group_with_inbound_rules]
- * 					--ip-addresses SubnetId=[subnet_id] SubnetId=[subnet_id_in_different_AZ]</code>
- *                </p>
- * 				           <p>Note the resolver endpoint ID that appears in the response. You'll use it in step 3.</p>
- * 			         </li>
- *             <li>
- *                <p>Get the IP addresses for the Resolver endpoints:</p>
- * 				           <p>
- *                   <code>get-resolver-endpoint --resolver-endpoint-id [resolver_endpoint_id]</code>
- *                </p>
- * 			         </li>
- *             <li>
- *                <p>In your network configuration, define the IP addresses that you got in step 3 as DNS servers.</p>
- * 				           <p>You can now query instance names in your VPCs and the names of records in your private hosted zone.</p>
- * 			         </li>
- *          </ol>
+ * 		       <p>You can also configure DNS resolution between your VPC and your network over a Direct Connect or VPN connection:</p>
  *
- * 		       <p>You can also perform the following operations using the AWS CLI:</p>
- * 		       <ul>
- *             <li>
- *                <p>
- *                   <code>list-resolver-endpoints</code>: List all endpoints. The syntax includes options for pagination and filtering.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>update-resolver-endpoints</code>: Add IP addresses to an endpoint or remove IP addresses from an endpoint. </p>
- *             </li>
- *          </ul>
- *
- * 		       <p>To delete an endpoint, use the following AWS CLI command:</p>
  * 		       <p>
- *             <code>delete-resolver-endpoint --resolver-endpoint-id [resolver_endpoint_id]</code>
+ *             <b>Forward DNS queries from resolvers on your network to Route 53 Resolver</b>
  *          </p>
+ *
+ * 		       <p>DNS resolvers on your network can forward DNS queries to Resolver in a specified VPC. This allows your DNS resolvers
+ * 			to easily resolve domain names for AWS resources such as EC2 instances or records in a Route 53 private hosted zone.
+ * 			For more information, see
+ * 			<a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resolver.html#resolver-overview-forward-network-to-vpc">How DNS Resolvers
+ * 			on Your Network Forward DNS Queries to Route 53 Resolver</a> in the <i>Amazon Route 53 Developer Guide</i>.</p>
+ *
+ * 		       <p>
+ *             <b>Conditionally forward queries from a VPC to resolvers on your network</b>
+ *          </p>
+ *
+ * 		       <p>You can configure Resolver to forward queries that it receives from EC2 instances in your VPCs to DNS resolvers on your network.
+ * 			To forward selected queries, you create Resolver rules that specify the domain names for the DNS queries that you want to forward
+ * 			(such as example.com), and the IP addresses of the DNS resolvers on your network that you want to forward the queries to.
+ * 			If a query matches multiple rules (example.com, acme.example.com), Resolver chooses the rule with the most specific match
+ * 			(acme.example.com) and forwards the query to the IP addresses that you specified in that rule. For more information, see
+ * 			<a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resolver.html#resolver-overview-forward-vpc-to-network">How Route 53 Resolver
+ * 			Forwards DNS Queries from Your VPCs to Your Network</a> in the <i>Amazon Route 53 Developer Guide</i>.</p>
+ *
+ * 		       <p>Like Amazon VPC, Resolver is regional. In each region where you have VPCs, you can choose whether to forward queries from your VPCs
+ * 			to your network (outbound queries), from your network to your VPCs (inbound queries), or both.</p>
  */
 export class Route53ResolverClient extends __Client<
   __HttpHandlerOptions,

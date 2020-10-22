@@ -33,7 +33,7 @@ export async function* describeTargetGroupsPaginate(
   let hasNext = true;
   let page: DescribeTargetGroupsCommandOutput;
   while (hasNext) {
-    input["Marker"] = token;
+    input.Marker = token;
     if (config.client instanceof ElasticLoadBalancingV2) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
     } else if (config.client instanceof ElasticLoadBalancingV2Client) {
@@ -42,7 +42,7 @@ export async function* describeTargetGroupsPaginate(
       throw new Error("Invalid client, expected ElasticLoadBalancingV2 | ElasticLoadBalancingV2Client");
     }
     yield page;
-    token = page["NextMarker"];
+    token = page.NextMarker;
     hasNext = !!token;
   }
   // @ts-ignore

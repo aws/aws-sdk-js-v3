@@ -3,6 +3,7 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export enum ProviderType {
   BITBUCKET = "Bitbucket",
+  GITHUB = "GitHub",
   GITHUB_ENTERPRISE_SERVER = "GitHubEnterpriseServer",
 }
 
@@ -30,15 +31,9 @@ export namespace Tag {
 
 export interface CreateConnectionInput {
   /**
-   * <p>The Amazon Resource Name (ARN) of the host associated with the connection to be created.</p>
+   * <p>The key-value pair to use when tagging the resource.</p>
    */
-  HostArn?: string;
-
-  /**
-   * <p>The name of the external provider where your third-party code repository is configured.
-   *       The valid provider type is Bitbucket.</p>
-   */
-  ProviderType?: ProviderType | string;
+  Tags?: Tag[];
 
   /**
    * <p>The name of the connection to be created. The name must be unique in the calling AWS
@@ -47,9 +42,15 @@ export interface CreateConnectionInput {
   ConnectionName: string | undefined;
 
   /**
-   * <p>The key-value pair to use when tagging the resource.</p>
+   * <p>The name of the external provider where your third-party code repository is configured.
+   *       The valid provider type is Bitbucket.</p>
    */
-  Tags?: Tag[];
+  ProviderType?: ProviderType | string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the host associated with the connection to be created.</p>
+   */
+  HostArn?: string;
 }
 
 export namespace CreateConnectionInput {
@@ -60,11 +61,6 @@ export namespace CreateConnectionInput {
 
 export interface CreateConnectionOutput {
   /**
-   * <p>Specifies the tags applied to the resource.</p>
-   */
-  Tags?: Tag[];
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the connection to be created. The ARN is used as the
    *       connection reference when the connection is shared between AWS services.</p>
    *          <note>
@@ -72,6 +68,11 @@ export interface CreateConnectionOutput {
    *          </note>
    */
   ConnectionArn: string | undefined;
+
+  /**
+   * <p>Specifies the tags applied to the resource.</p>
+   */
+  Tags?: Tag[];
 }
 
 export namespace CreateConnectionOutput {
@@ -130,6 +131,17 @@ export namespace ResourceUnavailableException {
  */
 export interface VpcConfiguration {
   /**
+   * <p>The value of the Transport Layer Security (TLS) certificate associated with the infrastructure where your provider type is installed.</p>
+   */
+  TlsCertificate?: string;
+
+  /**
+   * <p>The ID of the subnet or subnets associated with the Amazon VPC connected to the
+   *       infrastructure where your provider type is installed.</p>
+   */
+  SubnetIds: string[] | undefined;
+
+  /**
    * <p>The ID of the security group or security groups associated with the Amazon VPC connected
    *       to the infrastructure where your provider type is installed.</p>
    */
@@ -140,17 +152,6 @@ export interface VpcConfiguration {
    *       installed.</p>
    */
   VpcId: string | undefined;
-
-  /**
-   * <p>The ID of the subnet or subnets associated with the Amazon VPC connected to the
-   *       infrastructure where your provider type is installed.</p>
-   */
-  SubnetIds: string[] | undefined;
-
-  /**
-   * <p>The value of the Transport Layer Security (TLS) certificate associated with the infrastructure where your provider type is installed.</p>
-   */
-  TlsCertificate?: string;
 }
 
 export namespace VpcConfiguration {
@@ -168,6 +169,12 @@ export interface CreateHostInput {
   ProviderType: ProviderType | string | undefined;
 
   /**
+   * <p>The name of the host to be created. The name must be unique in the calling AWS
+   *       account.</p>
+   */
+  Name: string | undefined;
+
+  /**
    * <p>The VPC configuration to be provisioned for the host. A VPC must be configured and the
    *       infrastructure to be represented by the host must already be connected to the VPC.</p>
    */
@@ -178,12 +185,6 @@ export interface CreateHostInput {
    *       created.</p>
    */
   ProviderEndpoint: string | undefined;
-
-  /**
-   * <p>The name of the host to be created. The name must be unique in the calling AWS
-   *       account.</p>
-   */
-  Name: string | undefined;
 }
 
 export namespace CreateHostInput {
@@ -285,6 +286,11 @@ export interface Connection {
   ConnectionArn?: string;
 
   /**
+   * <p>The name of the connection. Connection names must be unique in an AWS user account.</p>
+   */
+  ConnectionName?: string;
+
+  /**
    * <p>The Amazon Resource Name (ARN) of the host associated with the connection.</p>
    */
   HostArn?: string;
@@ -305,11 +311,6 @@ export interface Connection {
    *       For Bitbucket, this is the account ID of the owner of the Bitbucket repository.</p>
    */
   OwnerAccountId?: string;
-
-  /**
-   * <p>The name of the connection. Connection names must be unique in an AWS user account.</p>
-   */
-  ConnectionName?: string;
 }
 
 export namespace Connection {
@@ -351,9 +352,9 @@ export interface GetHostOutput {
   ProviderType?: ProviderType | string;
 
   /**
-   * <p>The VPC configuration of the requested host.</p>
+   * <p>The name of the requested host.</p>
    */
-  VpcConfiguration?: VpcConfiguration;
+  Name?: string;
 
   /**
    * <p>The endpoint of the infrastructure represented by the requested host.</p>
@@ -361,14 +362,14 @@ export interface GetHostOutput {
   ProviderEndpoint?: string;
 
   /**
+   * <p>The VPC configuration of the requested host.</p>
+   */
+  VpcConfiguration?: VpcConfiguration;
+
+  /**
    * <p>The status of the requested host.</p>
    */
   Status?: string;
-
-  /**
-   * <p>The name of the requested host.</p>
-   */
-  Name?: string;
 }
 
 export namespace GetHostOutput {
@@ -379,15 +380,16 @@ export namespace GetHostOutput {
 
 export interface ListConnectionsInput {
   /**
-   * <p>Filters the list of connections to those associated with a specified host.</p>
-   */
-  HostArnFilter?: string;
-
-  /**
    * <p>Filters the list of connections to those associated with a specified provider, such as
    *       Bitbucket.</p>
    */
   ProviderTypeFilter?: ProviderType | string;
+
+  /**
+   * <p>The maximum number of results to return in a single call. To retrieve the remaining
+   *       results, make another call with the returned <code>nextToken</code> value.</p>
+   */
+  MaxResults?: number;
 
   /**
    * <p>The token that was returned from the previous <code>ListConnections</code> call, which
@@ -396,10 +398,9 @@ export interface ListConnectionsInput {
   NextToken?: string;
 
   /**
-   * <p>The maximum number of results to return in a single call. To retrieve the remaining
-   *       results, make another call with the returned <code>nextToken</code> value.</p>
+   * <p>Filters the list of connections to those associated with a specified host.</p>
    */
-  MaxResults?: number;
+  HostArnFilter?: string;
 }
 
 export namespace ListConnectionsInput {
@@ -410,17 +411,17 @@ export namespace ListConnectionsInput {
 
 export interface ListConnectionsOutput {
   /**
+   * <p>A list of connections and the details for each connection, such as status, owner, and
+   *       provider type.</p>
+   */
+  Connections?: Connection[];
+
+  /**
    * <p>A token that can be used in the next <code>ListConnections</code> call. To view all
    *       items in the list, continue to call this operation with each subsequent token until no more
    *       <code>nextToken</code> values are returned.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>A list of connections and the details for each connection, such as status, owner, and
-   *       provider type.</p>
-   */
-  Connections?: Connection[];
 }
 
 export namespace ListConnectionsOutput {
@@ -431,16 +432,16 @@ export namespace ListConnectionsOutput {
 
 export interface ListHostsInput {
   /**
-   * <p>The token that was returned from the previous <code>ListHosts</code> call, which can be
-   *       used to return the next set of hosts in the list.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>The maximum number of results to return in a single call. To retrieve the remaining
    *       results, make another call with the returned <code>nextToken</code> value.</p>
    */
   MaxResults?: number;
+
+  /**
+   * <p>The token that was returned from the previous <code>ListHosts</code> call, which can be
+   *       used to return the next set of hosts in the list.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace ListHostsInput {
@@ -460,31 +461,6 @@ export namespace ListHostsInput {
  */
 export interface Host {
   /**
-   * <p>The VPC configuration provisioned for the host.</p>
-   */
-  VpcConfiguration?: VpcConfiguration;
-
-  /**
-   * <p>The name of the host.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>The endpoint of the infrastructure where your provider type is installed.</p>
-   */
-  ProviderEndpoint?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the host.</p>
-   */
-  HostArn?: string;
-
-  /**
-   * <p>The status of the host, such as PENDING, AVAILABLE, VPC_CONFIG_DELETING, VPC_CONFIG_INITIALIZING, and VPC_CONFIG_FAILED_INITIALIZATION.</p>
-   */
-  Status?: string;
-
-  /**
    * <p>The status description for the host.</p>
    */
   StatusMessage?: string;
@@ -495,6 +471,31 @@ export interface Host {
    *       provider type is GitHub Enterprise Server.</p>
    */
   ProviderType?: ProviderType | string;
+
+  /**
+   * <p>The name of the host.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the host.</p>
+   */
+  HostArn?: string;
+
+  /**
+   * <p>The VPC configuration provisioned for the host.</p>
+   */
+  VpcConfiguration?: VpcConfiguration;
+
+  /**
+   * <p>The status of the host, such as PENDING, AVAILABLE, VPC_CONFIG_DELETING, VPC_CONFIG_INITIALIZING, and VPC_CONFIG_FAILED_INITIALIZATION.</p>
+   */
+  Status?: string;
+
+  /**
+   * <p>The endpoint of the infrastructure where your provider type is installed.</p>
+   */
+  ProviderEndpoint?: string;
 }
 
 export namespace Host {
@@ -505,17 +506,17 @@ export namespace Host {
 
 export interface ListHostsOutput {
   /**
+   * <p>A list of hosts and the details for each host, such as status, endpoint, and provider
+   *       type.</p>
+   */
+  Hosts?: Host[];
+
+  /**
    * <p>A token that can be used in the next <code>ListHosts</code> call. To view all items in the
    *       list, continue to call this operation with each subsequent token until no more
    *       <code>nextToken</code> values are returned.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>A list of hosts and the details for each host, such as status, endpoint, and provider
-   *       type.</p>
-   */
-  Hosts?: Host[];
 }
 
 export namespace ListHostsOutput {
@@ -578,14 +579,14 @@ export namespace TagResourceOutput {
 
 export interface UntagResourceInput {
   /**
-   * <p>The list of keys for the tags to be removed from the resource.</p>
-   */
-  TagKeys: string[] | undefined;
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the resource to remove tags from.</p>
    */
   ResourceArn: string | undefined;
+
+  /**
+   * <p>The list of keys for the tags to be removed from the resource.</p>
+   */
+  TagKeys: string[] | undefined;
 }
 
 export namespace UntagResourceInput {

@@ -162,10 +162,9 @@ export class Kendra extends KendraClient {
 
   /**
    * <p>Creates a data source that you use to with an Amazon Kendra index. </p>
-   *          <p>You specify a name, connector type and description for your data source. You can choose
-   *       between an S3 connector, a SharePoint Online connector, and a database connector.</p>
-   *          <p>You also specify configuration information such as document metadata (author, source URI,
-   *       and so on) and user context information.</p>
+   *          <p>You specify a name, data source connector type and description for your data source. You
+   *       also specify configuration information such as document metadata (author, source URI, and so
+   *       on) and user context information.</p>
    *          <p>
    *             <code>CreateDataSource</code> is a synchronous operation. The operation returns 200 if the
    *       data source was successfully created. Otherwise, an exception is raised.</p>
@@ -605,6 +604,7 @@ export class Kendra extends KendraClient {
    *          </ul>
    *          <p>You can specify that the query return only one type of result using the
    *             <code>QueryResultTypeConfig</code> parameter.</p>
+   *          <p>Each query returns the 100 most relevant results. </p>
    */
   public query(args: QueryCommandInput, options?: __HttpHandlerOptions): Promise<QueryCommandOutput>;
   public query(args: QueryCommandInput, cb: (err: any, data?: QueryCommandOutput) => void): void;

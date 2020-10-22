@@ -1457,6 +1457,7 @@ const serializeAws_restJson1CanaryCodeInput = (input: CanaryCodeInput, context: 
 
 const serializeAws_restJson1CanaryRunConfigInput = (input: CanaryRunConfigInput, context: __SerdeContext): any => {
   return {
+    ...(input.ActiveTracing !== undefined && { ActiveTracing: input.ActiveTracing }),
     ...(input.MemoryInMB !== undefined && { MemoryInMB: input.MemoryInMB }),
     ...(input.TimeoutInSeconds !== undefined && { TimeoutInSeconds: input.TimeoutInSeconds }),
   };
@@ -1582,6 +1583,7 @@ const deserializeAws_restJson1CanaryRun = (output: any, context: __SerdeContext)
       output.ArtifactS3Location !== undefined && output.ArtifactS3Location !== null
         ? output.ArtifactS3Location
         : undefined,
+    Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
     Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
     Status:
       output.Status !== undefined && output.Status !== null
@@ -1596,6 +1598,8 @@ const deserializeAws_restJson1CanaryRun = (output: any, context: __SerdeContext)
 
 const deserializeAws_restJson1CanaryRunConfigOutput = (output: any, context: __SerdeContext): CanaryRunConfigOutput => {
   return {
+    ActiveTracing:
+      output.ActiveTracing !== undefined && output.ActiveTracing !== null ? output.ActiveTracing : undefined,
     MemoryInMB: output.MemoryInMB !== undefined && output.MemoryInMB !== null ? output.MemoryInMB : undefined,
     TimeoutInSeconds:
       output.TimeoutInSeconds !== undefined && output.TimeoutInSeconds !== null ? output.TimeoutInSeconds : undefined,

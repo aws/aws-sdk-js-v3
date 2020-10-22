@@ -108,9 +108,9 @@ export namespace InvalidParameterException {
 export interface LimitsExceededException extends __SmithyException, $MetadataBearer {
   name: "LimitsExceededException";
   $fault: "client";
+  message?: string;
   Limit?: number;
   Type?: string;
-  message?: string;
 }
 
 export namespace LimitsExceededException {
@@ -269,19 +269,14 @@ export namespace AssociateProactiveEngagementDetailsResponse {
  */
 export interface SummarizedCounter {
   /**
-   * <p>The number of counters for a specified time period.</p>
-   */
-  N?: number;
-
-  /**
    * <p>The unit of the counters.</p>
    */
   Unit?: string;
 
   /**
-   * <p>The average value of the counter for a specified time period.</p>
+   * <p>The total of counter values for a specified time period.</p>
    */
-  Average?: number;
+  Sum?: number;
 
   /**
    * <p>The maximum value of the counter for a specified time period.</p>
@@ -289,9 +284,14 @@ export interface SummarizedCounter {
   Max?: number;
 
   /**
-   * <p>The total of counter values for a specified time period.</p>
+   * <p>The average value of the counter for a specified time period.</p>
    */
-  Sum?: number;
+  Average?: number;
+
+  /**
+   * <p>The number of counters for a specified time period.</p>
+   */
+  N?: number;
 
   /**
    * <p>The counter name.</p>
@@ -354,9 +354,9 @@ export enum Unit {
  */
 export interface AttackProperty {
   /**
-   * <p>The total contributions made to this attack by all contributors, not just the five listed in the <code>TopContributors</code> list.</p>
+   * <p>The unit of the <code>Value</code> of the contributions.</p>
    */
-  Total?: number;
+  Unit?: Unit | string;
 
   /**
    * <p>The type of distributed denial of service (DDoS) event that was observed.
@@ -366,9 +366,9 @@ export interface AttackProperty {
   AttackLayer?: AttackLayer | string;
 
   /**
-   * <p>The unit of the <code>Value</code> of the contributions.</p>
+   * <p>The array of <a>Contributor</a> objects that includes the top five contributors to an attack. </p>
    */
-  Unit?: Unit | string;
+  TopContributors?: Contributor[];
 
   /**
    * <p>Defines the DDoS attack property information that is provided. The
@@ -378,9 +378,9 @@ export interface AttackProperty {
   AttackPropertyIdentifier?: AttackPropertyIdentifier | string;
 
   /**
-   * <p>The array of <a>Contributor</a> objects that includes the top five contributors to an attack. </p>
+   * <p>The total contributions made to this attack by all contributors, not just the five listed in the <code>TopContributors</code> list.</p>
    */
-  TopContributors?: Contributor[];
+  Total?: number;
 }
 
 export namespace AttackProperty {
@@ -410,14 +410,14 @@ export namespace Mitigation {
  */
 export interface SummarizedAttackVector {
   /**
-   * <p>The list of counters that describe the details of the attack.</p>
-   */
-  VectorCounters?: SummarizedCounter[];
-
-  /**
    * <p>The attack type, for example, SNMP reflection or SYN flood.</p>
    */
   VectorType: string | undefined;
+
+  /**
+   * <p>The list of counters that describe the details of the attack.</p>
+   */
+  VectorCounters?: SummarizedCounter[];
 }
 
 export namespace SummarizedAttackVector {
@@ -436,11 +436,6 @@ export enum SubResourceType {
  */
 export interface SubResourceSummary {
   /**
-   * <p>The counters that describe the details of the attack.</p>
-   */
-  Counters?: SummarizedCounter[];
-
-  /**
    * <p>The <code>SubResource</code> type.</p>
    */
   Type?: SubResourceType | string;
@@ -454,6 +449,11 @@ export interface SubResourceSummary {
    * <p>The unique identifier (ID) of the <code>SubResource</code>.</p>
    */
   Id?: string;
+
+  /**
+   * <p>The counters that describe the details of the attack.</p>
+   */
+  Counters?: SummarizedCounter[];
 }
 
 export namespace SubResourceSummary {
@@ -466,11 +466,6 @@ export namespace SubResourceSummary {
  * <p>The details of a DDoS attack.</p>
  */
 export interface AttackDetail {
-  /**
-   * <p>The time the attack started, in Unix time in seconds. For more information see <a href="http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types">timestamp</a>.</p>
-   */
-  StartTime?: Date;
-
   /**
    * <p>If applicable, additional detail about the resource being attacked, for example, IP
    *          address or URL.</p>
@@ -488,14 +483,19 @@ export interface AttackDetail {
   ResourceArn?: string;
 
   /**
+   * <p>The time the attack ended, in Unix time in seconds. For more information see <a href="http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types">timestamp</a>.</p>
+   */
+  EndTime?: Date;
+
+  /**
    * <p>The unique identifier (ID) of the attack.</p>
    */
   AttackId?: string;
 
   /**
-   * <p>The time the attack ended, in Unix time in seconds. For more information see <a href="http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types">timestamp</a>.</p>
+   * <p>List of mitigation actions taken for the attack.</p>
    */
-  EndTime?: Date;
+  Mitigations?: Mitigation[];
 
   /**
    * <p>List of counters that describe the attack for the specified time period.</p>
@@ -503,9 +503,9 @@ export interface AttackDetail {
   AttackCounters?: SummarizedCounter[];
 
   /**
-   * <p>List of mitigation actions taken for the attack.</p>
+   * <p>The time the attack started, in Unix time in seconds. For more information see <a href="http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types">timestamp</a>.</p>
    */
-  Mitigations?: Mitigation[];
+  StartTime?: Date;
 }
 
 export namespace AttackDetail {
@@ -596,6 +596,11 @@ export interface AttackSummary {
   AttackId?: string;
 
   /**
+   * <p>The end time of the attack, in Unix time in seconds. For more information see <a href="http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types">timestamp</a>.</p>
+   */
+  EndTime?: Date;
+
+  /**
    * <p>The list of attacks for a specified time period.</p>
    */
   AttackVectors?: AttackVectorDescription[];
@@ -609,11 +614,6 @@ export interface AttackSummary {
    * <p>The start time of the attack, in Unix time in seconds. For more information see <a href="http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types">timestamp</a>.</p>
    */
   StartTime?: Date;
-
-  /**
-   * <p>The end time of the attack, in Unix time in seconds. For more information see <a href="http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types">timestamp</a>.</p>
-   */
-  EndTime?: Date;
 }
 
 export namespace AttackSummary {
@@ -940,14 +940,14 @@ export namespace DescribeSubscriptionRequest {
  */
 export interface Limit {
   /**
-   * <p>The type of protection.</p>
-   */
-  Type?: string;
-
-  /**
    * <p>The maximum number of protections that can be created for the specified <code>Type</code>.</p>
    */
   Max?: number;
+
+  /**
+   * <p>The type of protection.</p>
+   */
+  Type?: string;
 }
 
 export namespace Limit {
@@ -972,15 +972,22 @@ export interface Subscription {
   StartTime?: Date;
 
   /**
-   * <p>Specifies how many protections of a given type you can create.</p>
-   */
-  Limits?: Limit[];
-
-  /**
    * <p>If <code>ENABLED</code>, the subscription will be automatically renewed at the end of the existing subscription period.</p>
    *          <p>When you initally create a subscription, <code>AutoRenew</code> is set to <code>ENABLED</code>. You can change this by submitting an <code>UpdateSubscription</code> request. If the <code>UpdateSubscription</code> request does not included a value for <code>AutoRenew</code>, the existing value for <code>AutoRenew</code> remains unchanged.</p>
    */
   AutoRenew?: AutoRenew | string;
+
+  /**
+   * <p>If <code>ENABLED</code>, the DDoS Response Team (DRT) will use email and phone to notify contacts about escalations to the DRT and to initiate proactive customer support.</p>
+   *          <p>If <code>PENDING</code>, you have requested proactive engagement and the request is pending. The status changes to <code>ENABLED</code> when your request is fully processed.</p>
+   *          <p>If <code>DISABLED</code>, the DRT will not proactively notify contacts about escalations or to initiate proactive customer support. </p>
+   */
+  ProactiveEngagementStatus?: ProactiveEngagementStatus | string;
+
+  /**
+   * <p>Specifies how many protections of a given type you can create.</p>
+   */
+  Limits?: Limit[];
 
   /**
    * <p>The date and time your subscription will end.</p>
@@ -991,13 +998,6 @@ export interface Subscription {
    * <p>The length, in seconds, of the AWS Shield Advanced subscription for the account.</p>
    */
   TimeCommitmentInSeconds?: number;
-
-  /**
-   * <p>If <code>ENABLED</code>, the DDoS Response Team (DRT) will use email and phone to notify contacts about escalations to the DRT and to initiate proactive customer support.</p>
-   *          <p>If <code>PENDING</code>, you have requested proactive engagement and the request is pending. The status changes to <code>ENABLED</code> when your request is fully processed.</p>
-   *          <p>If <code>DISABLED</code>, the DRT will not proactively notify contacts about escalations or to initiate proactive customer support. </p>
-   */
-  ProactiveEngagementStatus?: ProactiveEngagementStatus | string;
 }
 
 export namespace Subscription {
@@ -1145,14 +1145,14 @@ export namespace GetSubscriptionStateResponse {
  */
 export interface TimeRange {
   /**
-   * <p>The start time, in Unix time in seconds. For more information see <a href="http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types">timestamp</a>.</p>
-   */
-  FromInclusive?: Date;
-
-  /**
    * <p>The end time, in Unix time in seconds. For more information see <a href="http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types">timestamp</a>.</p>
    */
   ToExclusive?: Date;
+
+  /**
+   * <p>The start time, in Unix time in seconds. For more information see <a href="http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types">timestamp</a>.</p>
+   */
+  FromInclusive?: Date;
 }
 
 export namespace TimeRange {
@@ -1198,6 +1198,11 @@ export namespace ListAttacksRequest {
 
 export interface ListAttacksResponse {
   /**
+   * <p>The attack information for the specified time range.</p>
+   */
+  AttackSummaries?: AttackSummary[];
+
+  /**
    * <p>The token returned by a previous call to indicate that there is more data available.
    *          If not null, more results are available. Pass this value for the <code>NextMarker</code>
    *          parameter in a subsequent call to <code>ListAttacks</code> to retrieve the next set of
@@ -1205,11 +1210,6 @@ export interface ListAttacksResponse {
    *          <p>AWS WAF might return the list of <a>AttackSummary</a> objects in batches smaller than the number specified by MaxResults. If there are more <a>AttackSummary</a> objects to return, AWS WAF will always also return a <code>NextToken</code>.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>The attack information for the specified time range.</p>
-   */
-  AttackSummaries?: AttackSummary[];
 }
 
 export namespace ListAttacksResponse {
@@ -1255,15 +1255,15 @@ export namespace ListProtectionsRequest {
 
 export interface ListProtectionsResponse {
   /**
+   * <p>The array of enabled <a>Protection</a> objects.</p>
+   */
+  Protections?: Protection[];
+
+  /**
    * <p>If you specify a value for <code>MaxResults</code> and you have more Protections than the value of MaxResults, AWS Shield Advanced returns a NextToken value in the response that allows you to list another group of Protections. For the second and subsequent ListProtections requests, specify the value of NextToken from the previous response to get information about another batch of Protections.</p>
    *          <p>AWS WAF might return the list of <a>Protection</a> objects in batches smaller than the number specified by MaxResults. If there are more <a>Protection</a> objects to return, AWS WAF will always also return a <code>NextToken</code>.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>The array of enabled <a>Protection</a> objects.</p>
-   */
-  Protections?: Protection[];
 }
 
 export namespace ListProtectionsResponse {

@@ -33,7 +33,7 @@ export async function* describeEcsClustersPaginate(
   let hasNext = true;
   let page: DescribeEcsClustersCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof OpsWorks) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* describeEcsClustersPaginate(
       throw new Error("Invalid client, expected OpsWorks | OpsWorksClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

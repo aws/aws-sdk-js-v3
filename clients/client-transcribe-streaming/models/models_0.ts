@@ -11,6 +11,12 @@ export enum ItemType {
  */
 export interface Item {
   /**
+   * <p>The offset from the beginning of the audio stream to the beginning of the audio that
+   *       resulted in the item.</p>
+   */
+  StartTime?: number;
+
+  /**
    * <p>The type of the item. <code>PRONUNCIATION</code> indicates that the item is a word that
    *       was recognized in the input audio. <code>PUNCTUATION</code> indicates that the item was
    *       interpreted as a pause in the input audio.</p>
@@ -24,22 +30,21 @@ export interface Item {
   EndTime?: number;
 
   /**
-   * <p>The word or punctuation that was recognized in the input audio.</p>
-   */
-  Content?: string;
-
-  /**
-   * <p>The offset from the beginning of the audio stream to the beginning of the audio that
-   *       resulted in the item.</p>
-   */
-  StartTime?: number;
-
-  /**
    * <p>Indicates whether a word in the item matches a word in the vocabulary filter you've chosen
    *       for your real-time stream. If <code>true</code> then a word in the item matches your
    *       vocabulary filter.</p>
    */
   VocabularyFilterMatch?: boolean;
+
+  /**
+   * <p>If speaker identification is enabled, shows the speakers identified in the real-time stream.</p>
+   */
+  Speaker?: string;
+
+  /**
+   * <p>The word or punctuation that was recognized in the input audio.</p>
+   */
+  Content?: string;
 }
 
 export namespace Item {
@@ -207,6 +212,12 @@ export enum MediaEncoding {
  */
 export interface Result {
   /**
+   * <p>The offset in seconds from the beginning of the audio stream to the beginning of the
+   *       result.</p>
+   */
+  StartTime?: number;
+
+  /**
    * <p>Amazon Transcribe divides the incoming audio stream into segments at natural points in the audio.
    *       Transcription results are returned based on these segments. </p>
    *          <p>The <code>IsPartial</code> field is <code>true</code> to indicate that Amazon Transcribe has
@@ -216,27 +227,27 @@ export interface Result {
   IsPartial?: boolean;
 
   /**
-   * <p>The offset in seconds from the beginning of the audio stream to the end of the
-   *       result.</p>
-   */
-  EndTime?: number;
-
-  /**
-   * <p>The offset in seconds from the beginning of the audio stream to the beginning of the
-   *       result.</p>
-   */
-  StartTime?: number;
-
-  /**
    * <p>A list of possible transcriptions for the audio. Each alternative typically contains one
    *         <code>item</code> that contains the result of the transcription.</p>
    */
   Alternatives?: Alternative[];
 
   /**
+   * <p>When channel identification is enabled, Amazon Transcribe transcribes the speech from each audio channel separately.</p>
+   *          <p>You can use <code>ChannelId</code> to retrieve the transcription results for a single channel in your audio stream.</p>
+   */
+  ChannelId?: string;
+
+  /**
    * <p>A unique identifier for the result. </p>
    */
   ResultId?: string;
+
+  /**
+   * <p>The offset in seconds from the beginning of the audio stream to the end of the
+   *       result.</p>
+   */
+  EndTime?: number;
 }
 
 export namespace Result {
@@ -268,33 +279,27 @@ export enum VocabularyFilterMethod {
 
 export interface StartStreamTranscriptionRequest {
   /**
-   * <p>The name of the vocabulary filter you've created that is unique to your AWS accountf.
+   * <p>The name of the vocabulary filter you've created that is unique to your AWS account.
    *       Provide the name in this field to successfully use it in a stream.</p>
    */
   VocabularyFilterName?: string;
 
   /**
-   * <p>The encoding used for the input audio. </p>
+   * <p>When <code>true</code>, enables speaker identification in your real-time stream.</p>
+   */
+  ShowSpeakerLabel?: boolean;
+
+  /**
+   * <p>When <code>true</code>, instructs Amazon Transcribe to process each audio channel separately and then merge the transcription output of each channel into a single transcription.</p>
+   *          <p>Amazon Transcribe also produces a transcription of each item. An item includes the start time, end time, and any alternative transcriptions.</p>
+   *          <p>You can't set both <code>ShowSpeakerLabel</code> and <code>EnableChannelIdentification</code> in the same request. If you set both, your request returns a <code>BadRequestException</code>.</p>
+   */
+  EnableChannelIdentification?: boolean;
+
+  /**
+   * <p>The encoding used for the input audio. <code>pcm</code> is the only valid value.</p>
    */
   MediaEncoding: MediaEncoding | string | undefined;
-
-  /**
-   * <p>Indicates the source language used in the input audio stream.</p>
-   */
-  LanguageCode: LanguageCode | string | undefined;
-
-  /**
-   * <p>PCM-encoded stream of audio blobs. The audio stream is encoded as an HTTP2 data
-   *       frame.</p>
-   */
-  AudioStream: AsyncIterable<AudioStream> | undefined;
-
-  /**
-   * <p>A identifier for the transcription session. Use this parameter when you want to retry a
-   *       session. If you don't provide a session ID, Amazon Transcribe will generate one for you and return it in
-   *       the response.</p>
-   */
-  SessionId?: string;
 
   /**
    * <p>The name of the vocabulary to use when processing the transcription job.</p>
@@ -312,10 +317,33 @@ export interface StartStreamTranscriptionRequest {
   VocabularyFilterMethod?: VocabularyFilterMethod | string;
 
   /**
+   * <p>The number of channels that are in your audio stream.</p>
+   */
+  NumberOfChannels?: number;
+
+  /**
    * <p>The sample rate, in Hertz, of the input audio. We suggest that you use 8000 Hz for low
    *       quality audio and 16000 Hz for high quality audio.</p>
    */
   MediaSampleRateHertz: number | undefined;
+
+  /**
+   * <p>A identifier for the transcription session. Use this parameter when you want to retry a
+   *       session. If you don't provide a session ID, Amazon Transcribe will generate one for you and return it in
+   *       the response.</p>
+   */
+  SessionId?: string;
+
+  /**
+   * <p>Indicates the source language used in the input audio stream.</p>
+   */
+  LanguageCode: LanguageCode | string | undefined;
+
+  /**
+   * <p>PCM-encoded stream of audio blobs. The audio stream is encoded as an HTTP2 data
+   *       frame.</p>
+   */
+  AudioStream: AsyncIterable<AudioStream> | undefined;
 }
 
 export namespace StartStreamTranscriptionRequest {
@@ -382,65 +410,11 @@ export namespace TranscriptResultStream {
    */
   export interface TranscriptEventMember {
     TranscriptEvent: TranscriptEvent;
+    LimitExceededException?: never;
+    ConflictException?: never;
     BadRequestException?: never;
     InternalFailureException?: never;
-    ConflictException?: never;
     ServiceUnavailableException?: never;
-    LimitExceededException?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>A client error occurred when the stream was created. Check the parameters of the request
-   *       and try your request again.</p>
-   */
-  export interface BadRequestExceptionMember {
-    TranscriptEvent?: never;
-    BadRequestException: BadRequestException;
-    InternalFailureException?: never;
-    ConflictException?: never;
-    ServiceUnavailableException?: never;
-    LimitExceededException?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>A problem occurred while processing the audio. Amazon Transcribe terminated processing.</p>
-   */
-  export interface InternalFailureExceptionMember {
-    TranscriptEvent?: never;
-    BadRequestException?: never;
-    InternalFailureException: InternalFailureException;
-    ConflictException?: never;
-    ServiceUnavailableException?: never;
-    LimitExceededException?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>A new stream started with the same session ID. The current stream has been
-   *       terminated.</p>
-   */
-  export interface ConflictExceptionMember {
-    TranscriptEvent?: never;
-    BadRequestException?: never;
-    InternalFailureException?: never;
-    ConflictException: ConflictException;
-    ServiceUnavailableException?: never;
-    LimitExceededException?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>Service is currently unavailable. Try your request later.</p>
-   */
-  export interface ServiceUnavailableExceptionMember {
-    TranscriptEvent?: never;
-    BadRequestException?: never;
-    InternalFailureException?: never;
-    ConflictException?: never;
-    ServiceUnavailableException: ServiceUnavailableException;
-    LimitExceededException?: never;
     $unknown?: never;
   }
 
@@ -450,61 +424,115 @@ export namespace TranscriptResultStream {
    */
   export interface LimitExceededExceptionMember {
     TranscriptEvent?: never;
+    LimitExceededException: LimitExceededException;
+    ConflictException?: never;
     BadRequestException?: never;
     InternalFailureException?: never;
-    ConflictException?: never;
     ServiceUnavailableException?: never;
-    LimitExceededException: LimitExceededException;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A new stream started with the same session ID. The current stream has been
+   *       terminated.</p>
+   */
+  export interface ConflictExceptionMember {
+    TranscriptEvent?: never;
+    LimitExceededException?: never;
+    ConflictException: ConflictException;
+    BadRequestException?: never;
+    InternalFailureException?: never;
+    ServiceUnavailableException?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A client error occurred when the stream was created. Check the parameters of the request
+   *       and try your request again.</p>
+   */
+  export interface BadRequestExceptionMember {
+    TranscriptEvent?: never;
+    LimitExceededException?: never;
+    ConflictException?: never;
+    BadRequestException: BadRequestException;
+    InternalFailureException?: never;
+    ServiceUnavailableException?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A problem occurred while processing the audio. Amazon Transcribe terminated processing.</p>
+   */
+  export interface InternalFailureExceptionMember {
+    TranscriptEvent?: never;
+    LimitExceededException?: never;
+    ConflictException?: never;
+    BadRequestException?: never;
+    InternalFailureException: InternalFailureException;
+    ServiceUnavailableException?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Service is currently unavailable. Try your request later.</p>
+   */
+  export interface ServiceUnavailableExceptionMember {
+    TranscriptEvent?: never;
+    LimitExceededException?: never;
+    ConflictException?: never;
+    BadRequestException?: never;
+    InternalFailureException?: never;
+    ServiceUnavailableException: ServiceUnavailableException;
     $unknown?: never;
   }
 
   export interface $UnknownMember {
     TranscriptEvent?: never;
+    LimitExceededException?: never;
+    ConflictException?: never;
     BadRequestException?: never;
     InternalFailureException?: never;
-    ConflictException?: never;
     ServiceUnavailableException?: never;
-    LimitExceededException?: never;
     $unknown: [string, any];
   }
 
   export interface Visitor<T> {
     TranscriptEvent: (value: TranscriptEvent) => T;
+    LimitExceededException: (value: LimitExceededException) => T;
+    ConflictException: (value: ConflictException) => T;
     BadRequestException: (value: BadRequestException) => T;
     InternalFailureException: (value: InternalFailureException) => T;
-    ConflictException: (value: ConflictException) => T;
     ServiceUnavailableException: (value: ServiceUnavailableException) => T;
-    LimitExceededException: (value: LimitExceededException) => T;
     _: (name: string, value: any) => T;
   }
 
   export const visit = <T>(value: TranscriptResultStream, visitor: Visitor<T>): T => {
     if (value.TranscriptEvent !== undefined) return visitor.TranscriptEvent(value.TranscriptEvent);
+    if (value.LimitExceededException !== undefined) return visitor.LimitExceededException(value.LimitExceededException);
+    if (value.ConflictException !== undefined) return visitor.ConflictException(value.ConflictException);
     if (value.BadRequestException !== undefined) return visitor.BadRequestException(value.BadRequestException);
     if (value.InternalFailureException !== undefined)
       return visitor.InternalFailureException(value.InternalFailureException);
-    if (value.ConflictException !== undefined) return visitor.ConflictException(value.ConflictException);
     if (value.ServiceUnavailableException !== undefined)
       return visitor.ServiceUnavailableException(value.ServiceUnavailableException);
-    if (value.LimitExceededException !== undefined) return visitor.LimitExceededException(value.LimitExceededException);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 
   export const filterSensitiveLog = (obj: TranscriptResultStream): any => {
     if (obj.TranscriptEvent !== undefined)
       return { TranscriptEvent: TranscriptEvent.filterSensitiveLog(obj.TranscriptEvent) };
+    if (obj.LimitExceededException !== undefined)
+      return { LimitExceededException: LimitExceededException.filterSensitiveLog(obj.LimitExceededException) };
+    if (obj.ConflictException !== undefined)
+      return { ConflictException: ConflictException.filterSensitiveLog(obj.ConflictException) };
     if (obj.BadRequestException !== undefined)
       return { BadRequestException: BadRequestException.filterSensitiveLog(obj.BadRequestException) };
     if (obj.InternalFailureException !== undefined)
       return { InternalFailureException: InternalFailureException.filterSensitiveLog(obj.InternalFailureException) };
-    if (obj.ConflictException !== undefined)
-      return { ConflictException: ConflictException.filterSensitiveLog(obj.ConflictException) };
     if (obj.ServiceUnavailableException !== undefined)
       return {
         ServiceUnavailableException: ServiceUnavailableException.filterSensitiveLog(obj.ServiceUnavailableException),
       };
-    if (obj.LimitExceededException !== undefined)
-      return { LimitExceededException: LimitExceededException.filterSensitiveLog(obj.LimitExceededException) };
     if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
   };
 }
@@ -514,6 +542,11 @@ export interface StartStreamTranscriptionResponse {
    * <p>The name of the vocabulary filter used in your real-time stream.</p>
    */
   VocabularyFilterName?: string;
+
+  /**
+   * <p>The language code for the input audio stream.</p>
+   */
+  LanguageCode?: LanguageCode | string;
 
   /**
    * <p>The encoding used for the input audio stream.</p>
@@ -531,14 +564,14 @@ export interface StartStreamTranscriptionResponse {
   VocabularyFilterMethod?: VocabularyFilterMethod | string;
 
   /**
-   * <p>The language code for the input audio stream.</p>
+   * <p>Represents the stream of transcription events from Amazon Transcribe to your application.</p>
    */
-  LanguageCode?: LanguageCode | string;
+  TranscriptResultStream?: AsyncIterable<TranscriptResultStream>;
 
   /**
-   * <p>An identifier for the streaming transcription.</p>
+   * <p>An identifier for a specific transcription session.</p>
    */
-  RequestId?: string;
+  SessionId?: string;
 
   /**
    * <p>The sample rate for the input audio stream. Use 8000 Hz for low quality audio and 16000 Hz
@@ -547,14 +580,24 @@ export interface StartStreamTranscriptionResponse {
   MediaSampleRateHertz?: number;
 
   /**
-   * <p>An identifier for a specific transcription session.</p>
+   * <p>The number of channels identified in the stream.</p>
    */
-  SessionId?: string;
+  NumberOfChannels?: number;
 
   /**
-   * <p>Represents the stream of transcription events from Amazon Transcribe to your application.</p>
+   * <p>Shows whether channel identification has been enabled in the stream.</p>
    */
-  TranscriptResultStream?: AsyncIterable<TranscriptResultStream>;
+  EnableChannelIdentification?: boolean;
+
+  /**
+   * <p>Shows whether speaker identification was enabled in the stream.</p>
+   */
+  ShowSpeakerLabel?: boolean;
+
+  /**
+   * <p>An identifier for the streaming transcription.</p>
+   */
+  RequestId?: string;
 }
 
 export namespace StartStreamTranscriptionResponse {

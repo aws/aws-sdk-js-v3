@@ -85,14 +85,14 @@ export namespace DatabaseResource {
  */
 export interface DataLocationResource {
   /**
-   * <p>The identifier for the Data Catalog where the location is registered with AWS Lake Formation. By default, it is the account ID of the caller.</p>
-   */
-  CatalogId?: string;
-
-  /**
    * <p>The Amazon Resource Name (ARN) that uniquely identifies the data location resource.</p>
    */
   ResourceArn: string | undefined;
+
+  /**
+   * <p>The identifier for the Data Catalog where the location is registered with AWS Lake Formation. By default, it is the account ID of the caller.</p>
+   */
+  CatalogId?: string;
 }
 
 export namespace DataLocationResource {
@@ -117,16 +117,9 @@ export namespace TableWildcard {
  */
 export interface TableResource {
   /**
-   * <p>A wildcard object representing every table under a database.</p>
-   *
-   *          <p>At least one of <code>TableResource$Name</code> or <code>TableResource$TableWildcard</code> is required.</p>
+   * <p>The identifier for the Data Catalog. By default, it is the account ID of the caller.</p>
    */
-  TableWildcard?: TableWildcard;
-
-  /**
-   * <p>The name of the database for the table. Unique to a Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal. </p>
-   */
-  DatabaseName: string | undefined;
+  CatalogId?: string;
 
   /**
    * <p>The name of the table.</p>
@@ -134,9 +127,16 @@ export interface TableResource {
   Name?: string;
 
   /**
-   * <p>The identifier for the Data Catalog. By default, it is the account ID of the caller.</p>
+   * <p>The name of the database for the table. Unique to a Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal. </p>
    */
-  CatalogId?: string;
+  DatabaseName: string | undefined;
+
+  /**
+   * <p>A wildcard object representing every table under a database.</p>
+   *
+   *          <p>At least one of <code>TableResource$Name</code> or <code>TableResource$TableWildcard</code> is required.</p>
+   */
+  TableWildcard?: TableWildcard;
 }
 
 export namespace TableResource {
@@ -167,6 +167,11 @@ export namespace ColumnWildcard {
  */
 export interface TableWithColumnsResource {
   /**
+   * <p>The identifier for the Data Catalog. By default, it is the account ID of the caller.</p>
+   */
+  CatalogId?: string;
+
+  /**
    * <p>The name of the database for the table with columns resource. Unique to the Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal. </p>
    */
   DatabaseName: string | undefined;
@@ -177,19 +182,14 @@ export interface TableWithColumnsResource {
   ColumnNames?: string[];
 
   /**
-   * <p>A wildcard specified by a <code>ColumnWildcard</code> object. At least one of <code>ColumnNames</code> or <code>ColumnWildcard</code> is required.</p>
-   */
-  ColumnWildcard?: ColumnWildcard;
-
-  /**
    * <p>The name of the table resource. A table is a metadata definition that represents your data. You can Grant and Revoke table privileges to a principal. </p>
    */
   Name: string | undefined;
 
   /**
-   * <p>The identifier for the Data Catalog. By default, it is the account ID of the caller.</p>
+   * <p>A wildcard specified by a <code>ColumnWildcard</code> object. At least one of <code>ColumnNames</code> or <code>ColumnWildcard</code> is required.</p>
    */
-  CatalogId?: string;
+  ColumnWildcard?: ColumnWildcard;
 }
 
 export namespace TableWithColumnsResource {
@@ -203,24 +203,24 @@ export namespace TableWithColumnsResource {
  */
 export interface Resource {
   /**
-   * <p>The table with columns for the resource. A principal with permissions to this resource can select metadata from the columns of a table in the Data Catalog and the underlying data in Amazon S3.</p>
-   */
-  TableWithColumns?: TableWithColumnsResource;
-
-  /**
    * <p>The location of an Amazon S3 path where permissions are granted or revoked. </p>
    */
   DataLocation?: DataLocationResource;
 
   /**
-   * <p>The table for the resource. A table is a metadata definition that represents your data. You can Grant and Revoke table privileges to a principal. </p>
+   * <p>The table with columns for the resource. A principal with permissions to this resource can select metadata from the columns of a table in the Data Catalog and the underlying data in Amazon S3.</p>
    */
-  Table?: TableResource;
+  TableWithColumns?: TableWithColumnsResource;
 
   /**
    * <p>The database for the resource. Unique to the Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database permissions to a principal. </p>
    */
   Database?: DatabaseResource;
+
+  /**
+   * <p>The table for the resource. A table is a metadata definition that represents your data. You can Grant and Revoke table privileges to a principal. </p>
+   */
+  Table?: TableResource;
 
   /**
    * <p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your AWS Lake Formation environment. </p>
@@ -239,9 +239,9 @@ export namespace Resource {
  */
 export interface BatchPermissionsRequestEntry {
   /**
-   * <p>Indicates if the option to pass permissions is granted.</p>
+   * <p>A unique identifier for the batch permissions request entry.</p>
    */
-  PermissionsWithGrantOption?: (Permission | string)[];
+  Id: string | undefined;
 
   /**
    * <p>The principal to be granted a permission.</p>
@@ -249,9 +249,9 @@ export interface BatchPermissionsRequestEntry {
   Principal?: DataLakePrincipal;
 
   /**
-   * <p>A unique identifier for the batch permissions request entry.</p>
+   * <p>The permissions to be granted.</p>
    */
-  Id: string | undefined;
+  Permissions?: (Permission | string)[];
 
   /**
    * <p>The resource to which the principal is to be granted a permission.</p>
@@ -259,9 +259,9 @@ export interface BatchPermissionsRequestEntry {
   Resource?: Resource;
 
   /**
-   * <p>The permissions to be granted.</p>
+   * <p>Indicates if the option to pass permissions is granted.</p>
    */
-  Permissions?: (Permission | string)[];
+  PermissionsWithGrantOption?: (Permission | string)[];
 }
 
 export namespace BatchPermissionsRequestEntry {
@@ -485,14 +485,14 @@ export namespace DescribeResourceRequest {
  */
 export interface ResourceInfo {
   /**
-   * <p>The IAM role that registered a resource.</p>
-   */
-  RoleArn?: string;
-
-  /**
    * <p>The date and time the resource was last modified.</p>
    */
   LastModified?: Date;
+
+  /**
+   * <p>The IAM role that registered a resource.</p>
+   */
+  RoleArn?: string;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
@@ -568,16 +568,16 @@ export interface DataLakeSettings {
   CreateDatabaseDefaultPermissions?: PrincipalPermissions[];
 
   /**
-   * <p>A list of AWS Lake Formation principals. Supported principals are IAM users or IAM roles.</p>
-   */
-  DataLakeAdmins?: DataLakePrincipal[];
-
-  /**
    * <p>A list of the resource-owning account IDs that the caller's account can use to share their user access details (user ARNs). The user ARNs can be logged in the resource owner's AWS CloudTrail log.</p>
    *
    * 	        <p>You may want to specify this property when you are in a high-trust boundary, such as the same team or company. </p>
    */
   TrustedResourceOwners?: string[];
+
+  /**
+   * <p>A list of AWS Lake Formation principals. Supported principals are IAM users or IAM roles.</p>
+   */
+  DataLakeAdmins?: DataLakePrincipal[];
 }
 
 export namespace DataLakeSettings {
@@ -628,13 +628,41 @@ export namespace GetEffectivePermissionsForPathRequest {
 }
 
 /**
+ * <p>A structure containing the additional details to be returned in the <code>AdditionalDetails</code> attribute of <code>PrincipalResourcePermissions</code>.</p>
+ *
+ *          <p>If a catalog resource is shared through AWS Resource Access Manager (AWS RAM), then there will exist a corresponding RAM share resource ARN.</p>
+ */
+export interface DetailsMap {
+  /**
+   * <p>A share resource ARN for a catalog resource shared through AWS Resource Access Manager (AWS RAM).</p>
+   */
+  ResourceShare?: string[];
+}
+
+export namespace DetailsMap {
+  export const filterSensitiveLog = (obj: DetailsMap): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>The permissions granted or revoked on a resource.</p>
  */
 export interface PrincipalResourcePermissions {
   /**
-   * <p>The resource where permissions are to be granted or revoked.</p>
+   * <p>Indicates whether to grant the ability to grant permissions (as a subset of permissions granted).</p>
    */
-  Resource?: Resource;
+  PermissionsWithGrantOption?: (Permission | string)[];
+
+  /**
+   * <p>This attribute can be used to return any additional details of <code>PrincipalResourcePermissions</code>. Currently returns only as a RAM share resource ARN.</p>
+   */
+  AdditionalDetails?: DetailsMap;
+
+  /**
+   * <p>The Data Lake principal to be granted or revoked permissions.</p>
+   */
+  Principal?: DataLakePrincipal;
 
   /**
    * <p>The permissions to be granted or revoked on the resource.</p>
@@ -642,14 +670,9 @@ export interface PrincipalResourcePermissions {
   Permissions?: (Permission | string)[];
 
   /**
-   * <p>Indicates whether to grant the ability to grant permissions (as a subset of permissions granted).</p>
+   * <p>The resource where permissions are to be granted or revoked.</p>
    */
-  PermissionsWithGrantOption?: (Permission | string)[];
-
-  /**
-   * <p>The Data Lake principal to be granted or revoked permissions.</p>
-   */
-  Principal?: DataLakePrincipal;
+  Resource?: Resource;
 }
 
 export namespace PrincipalResourcePermissions {
@@ -660,14 +683,14 @@ export namespace PrincipalResourcePermissions {
 
 export interface GetEffectivePermissionsForPathResponse {
   /**
-   * <p>A list of the permissions for the specified table or database resource located at the path in Amazon S3.</p>
-   */
-  Permissions?: PrincipalResourcePermissions[];
-
-  /**
    * <p>A continuation token, if this is not the first call to retrieve this list.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>A list of the permissions for the specified table or database resource located at the path in Amazon S3.</p>
+   */
+  Permissions?: PrincipalResourcePermissions[];
 }
 
 export namespace GetEffectivePermissionsForPathResponse {
@@ -701,9 +724,9 @@ export interface GrantPermissionsRequest {
   Permissions: (Permission | string)[] | undefined;
 
   /**
-   * <p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your AWS Lake Formation environment. </p>
+   * <p>Indicates a list of the granted permissions that the principal may pass to other users. These permissions may only be a subset of the permissions granted in the <code>Privileges</code>.</p>
    */
-  CatalogId?: string;
+  PermissionsWithGrantOption?: (Permission | string)[];
 
   /**
    * <p>The principal to be granted the permissions on the resource. Supported principals are IAM users or IAM roles, and they are defined by their principal type and their ARN.</p>
@@ -712,9 +735,9 @@ export interface GrantPermissionsRequest {
   Principal: DataLakePrincipal | undefined;
 
   /**
-   * <p>Indicates a list of the granted permissions that the principal may pass to other users. These permissions may only be a subset of the permissions granted in the <code>Privileges</code>.</p>
+   * <p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your AWS Lake Formation environment. </p>
    */
-  PermissionsWithGrantOption?: (Permission | string)[];
+  CatalogId?: string;
 
   /**
    * <p>The resource to which permissions are to be granted. Resources in AWS Lake Formation are the Data Catalog, databases, and tables.</p>
@@ -750,6 +773,11 @@ export interface ListPermissionsRequest {
   NextToken?: string;
 
   /**
+   * <p>Specifies a principal to filter the permissions returned.</p>
+   */
+  Principal?: DataLakePrincipal;
+
+  /**
    * <p>Specifies a resource type to filter the permissions returned.</p>
    */
   ResourceType?: DataLakeResourceType | string;
@@ -758,11 +786,6 @@ export interface ListPermissionsRequest {
    * <p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your AWS Lake Formation environment. </p>
    */
   CatalogId?: string;
-
-  /**
-   * <p>Specifies a principal to filter the permissions returned.</p>
-   */
-  Principal?: DataLakePrincipal;
 
   /**
    * <p>The maximum number of results to return.</p>
@@ -825,14 +848,14 @@ export enum FieldNameString {
  */
 export interface FilterCondition {
   /**
-   * <p>The field to filter in the filter condition.</p>
-   */
-  Field?: FieldNameString | string;
-
-  /**
    * <p>The comparison operator used in the filter condition.</p>
    */
   ComparisonOperator?: ComparisonOperator | string;
+
+  /**
+   * <p>The field to filter in the filter condition.</p>
+   */
+  Field?: FieldNameString | string;
 
   /**
    * <p>A string with values used in evaluating the filter condition.</p>
@@ -853,14 +876,14 @@ export interface ListResourcesRequest {
   MaxResults?: number;
 
   /**
-   * <p>A continuation token, if this is not the first call to retrieve these resources.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>Any applicable row-level and/or column-level filtering conditions for the resources.</p>
    */
   FilterConditionList?: FilterCondition[];
+
+  /**
+   * <p>A continuation token, if this is not the first call to retrieve these resources.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace ListResourcesRequest {
@@ -871,14 +894,14 @@ export namespace ListResourcesRequest {
 
 export interface ListResourcesResponse {
   /**
-   * <p>A summary of the data lake resources.</p>
-   */
-  ResourceInfoList?: ResourceInfo[];
-
-  /**
    * <p>A continuation token, if this is not the first call to retrieve these resources.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>A summary of the data lake resources.</p>
+   */
+  ResourceInfoList?: ResourceInfo[];
 }
 
 export namespace ListResourcesResponse {
@@ -953,16 +976,6 @@ export interface RevokePermissionsRequest {
   CatalogId?: string;
 
   /**
-   * <p>The principal to be revoked permissions on the resource.</p>
-   */
-  Principal: DataLakePrincipal | undefined;
-
-  /**
-   * <p>Indicates a list of permissions for which to revoke the grant option allowing the principal to pass permissions to other principals.</p>
-   */
-  PermissionsWithGrantOption?: (Permission | string)[];
-
-  /**
    * <p>The permissions revoked to the principal on the resource. For information about permissions, see <a href="https://docs-aws.amazon.com/lake-formation/latest/dg/security-data-access.html">Security
    *       and Access Control to Metadata and Data</a>.</p>
    */
@@ -972,6 +985,16 @@ export interface RevokePermissionsRequest {
    * <p>The resource to which permissions are to be revoked.</p>
    */
   Resource: Resource | undefined;
+
+  /**
+   * <p>Indicates a list of permissions for which to revoke the grant option allowing the principal to pass permissions to other principals.</p>
+   */
+  PermissionsWithGrantOption?: (Permission | string)[];
+
+  /**
+   * <p>The principal to be revoked permissions on the resource.</p>
+   */
+  Principal: DataLakePrincipal | undefined;
 }
 
 export namespace RevokePermissionsRequest {

@@ -157,6 +157,10 @@ import {
   GetAWSOrganizationsAccessStatusCommandOutput,
 } from "../commands/GetAWSOrganizationsAccessStatusCommand";
 import {
+  GetProvisionedProductOutputsCommandInput,
+  GetProvisionedProductOutputsCommandOutput,
+} from "../commands/GetProvisionedProductOutputsCommand";
+import {
   ListAcceptedPortfolioSharesCommandInput,
   ListAcceptedPortfolioSharesCommandOutput,
 } from "../commands/ListAcceptedPortfolioSharesCommand";
@@ -365,6 +369,8 @@ import {
   FailedServiceActionAssociation,
   GetAWSOrganizationsAccessStatusInput,
   GetAWSOrganizationsAccessStatusOutput,
+  GetProvisionedProductOutputsInput,
+  GetProvisionedProductOutputsOutput,
   InvalidParametersException,
   InvalidStateException,
   LaunchPath,
@@ -1150,6 +1156,19 @@ export const serializeAws_json1_1GetAWSOrganizationsAccessStatusCommand = async 
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetAWSOrganizationsAccessStatusInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1GetProvisionedProductOutputsCommand = async (
+  input: GetProvisionedProductOutputsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWS242ServiceCatalogService.GetProvisionedProductOutputs",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1GetProvisionedProductOutputsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -3820,6 +3839,14 @@ const deserializeAws_json1_1DescribeProvisionedProductCommandError = async (
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
+    case "InvalidParametersException":
+    case "com.amazonaws.servicecatalog#InvalidParametersException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidParametersExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "ResourceNotFoundException":
     case "com.amazonaws.servicecatalog#ResourceNotFoundException":
       response = {
@@ -4895,6 +4922,69 @@ const deserializeAws_json1_1GetAWSOrganizationsAccessStatusCommandError = async 
     case "com.amazonaws.servicecatalog#OperationNotSupportedException":
       response = {
         ...(await deserializeAws_json1_1OperationNotSupportedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1GetProvisionedProductOutputsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetProvisionedProductOutputsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1GetProvisionedProductOutputsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1GetProvisionedProductOutputsOutput(data, context);
+  const response: GetProvisionedProductOutputsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1GetProvisionedProductOutputsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetProvisionedProductOutputsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InvalidParametersException":
+    case "com.amazonaws.servicecatalog#InvalidParametersException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidParametersExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -7523,6 +7613,7 @@ const serializeAws_json1_1DescribeProvisionedProductInput = (
   return {
     ...(input.AcceptLanguage !== undefined && { AcceptLanguage: input.AcceptLanguage }),
     ...(input.Id !== undefined && { Id: input.Id }),
+    ...(input.Name !== undefined && { Name: input.Name }),
   };
 };
 
@@ -7719,6 +7810,20 @@ const serializeAws_json1_1GetAWSOrganizationsAccessStatusInput = (
   context: __SerdeContext
 ): any => {
   return {};
+};
+
+const serializeAws_json1_1GetProvisionedProductOutputsInput = (
+  input: GetProvisionedProductOutputsInput,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AcceptLanguage !== undefined && { AcceptLanguage: input.AcceptLanguage }),
+    ...(input.OutputKeys !== undefined && { OutputKeys: serializeAws_json1_1OutputKeys(input.OutputKeys, context) }),
+    ...(input.PageSize !== undefined && { PageSize: input.PageSize }),
+    ...(input.PageToken !== undefined && { PageToken: input.PageToken }),
+    ...(input.ProvisionedProductId !== undefined && { ProvisionedProductId: input.ProvisionedProductId }),
+    ...(input.ProvisionedProductName !== undefined && { ProvisionedProductName: input.ProvisionedProductName }),
+  };
 };
 
 const serializeAws_json1_1ListAcceptedPortfolioSharesInput = (
@@ -7956,6 +8061,10 @@ const serializeAws_json1_1OrganizationNode = (input: OrganizationNode, context: 
     ...(input.Type !== undefined && { Type: input.Type }),
     ...(input.Value !== undefined && { Value: input.Value }),
   };
+};
+
+const serializeAws_json1_1OutputKeys = (input: string[], context: __SerdeContext): any => {
+  return input.map((entry) => entry);
 };
 
 const serializeAws_json1_1ProductViewFilters = (input: { [key: string]: string[] }, context: __SerdeContext): any => {
@@ -9106,6 +9215,20 @@ const deserializeAws_json1_1GetAWSOrganizationsAccessStatusOutput = (
   } as any;
 };
 
+const deserializeAws_json1_1GetProvisionedProductOutputsOutput = (
+  output: any,
+  context: __SerdeContext
+): GetProvisionedProductOutputsOutput => {
+  return {
+    NextPageToken:
+      output.NextPageToken !== undefined && output.NextPageToken !== null ? output.NextPageToken : undefined,
+    Outputs:
+      output.Outputs !== undefined && output.Outputs !== null
+        ? deserializeAws_json1_1RecordOutputs(output.Outputs, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1InvalidParametersException = (
   output: any,
   context: __SerdeContext
@@ -9551,13 +9674,26 @@ const deserializeAws_json1_1ProvisionedProductAttribute = (
     Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
     IdempotencyToken:
       output.IdempotencyToken !== undefined && output.IdempotencyToken !== null ? output.IdempotencyToken : undefined,
+    LastProvisioningRecordId:
+      output.LastProvisioningRecordId !== undefined && output.LastProvisioningRecordId !== null
+        ? output.LastProvisioningRecordId
+        : undefined,
     LastRecordId: output.LastRecordId !== undefined && output.LastRecordId !== null ? output.LastRecordId : undefined,
+    LastSuccessfulProvisioningRecordId:
+      output.LastSuccessfulProvisioningRecordId !== undefined && output.LastSuccessfulProvisioningRecordId !== null
+        ? output.LastSuccessfulProvisioningRecordId
+        : undefined,
     Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
     PhysicalId: output.PhysicalId !== undefined && output.PhysicalId !== null ? output.PhysicalId : undefined,
     ProductId: output.ProductId !== undefined && output.ProductId !== null ? output.ProductId : undefined,
+    ProductName: output.ProductName !== undefined && output.ProductName !== null ? output.ProductName : undefined,
     ProvisioningArtifactId:
       output.ProvisioningArtifactId !== undefined && output.ProvisioningArtifactId !== null
         ? output.ProvisioningArtifactId
+        : undefined,
+    ProvisioningArtifactName:
+      output.ProvisioningArtifactName !== undefined && output.ProvisioningArtifactName !== null
+        ? output.ProvisioningArtifactName
         : undefined,
     Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
     StatusMessage:
@@ -9591,7 +9727,15 @@ const deserializeAws_json1_1ProvisionedProductDetail = (
     Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
     IdempotencyToken:
       output.IdempotencyToken !== undefined && output.IdempotencyToken !== null ? output.IdempotencyToken : undefined,
+    LastProvisioningRecordId:
+      output.LastProvisioningRecordId !== undefined && output.LastProvisioningRecordId !== null
+        ? output.LastProvisioningRecordId
+        : undefined,
     LastRecordId: output.LastRecordId !== undefined && output.LastRecordId !== null ? output.LastRecordId : undefined,
+    LastSuccessfulProvisioningRecordId:
+      output.LastSuccessfulProvisioningRecordId !== undefined && output.LastSuccessfulProvisioningRecordId !== null
+        ? output.LastSuccessfulProvisioningRecordId
+        : undefined,
     Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
     ProductId: output.ProductId !== undefined && output.ProductId !== null ? output.ProductId : undefined,
     ProvisioningArtifactId:

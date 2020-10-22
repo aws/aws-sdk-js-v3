@@ -339,6 +339,7 @@ import {
   CodeMismatchException,
   CompromisedCredentialsActionsType,
   CompromisedCredentialsRiskConfigurationType,
+  ConcurrentModificationException,
   ConfirmDeviceRequest,
   ConfirmDeviceResponse,
   ConfirmForgotPasswordRequest,
@@ -509,6 +510,7 @@ import {
   StringAttributeConstraintsType,
   TagResourceRequest,
   TagResourceResponse,
+  TokenValidityUnitsType,
   TooManyFailedAttemptsException,
   TooManyRequestsException,
   UICustomizationType,
@@ -519,9 +521,6 @@ import {
   UntagResourceResponse,
   UpdateAuthEventFeedbackRequest,
   UpdateAuthEventFeedbackResponse,
-  UpdateDeviceStatusRequest,
-  UpdateDeviceStatusResponse,
-  UpdateGroupRequest,
   UserContextDataType,
   UserImportInProgressException,
   UserImportJobType,
@@ -544,8 +543,10 @@ import {
   VerifiedAttributeType,
 } from "../models/models_0";
 import {
-  ConcurrentModificationException,
   EnableSoftwareTokenMFAException,
+  UpdateDeviceStatusRequest,
+  UpdateDeviceStatusResponse,
+  UpdateGroupRequest,
   UpdateGroupResponse,
   UpdateIdentityProviderRequest,
   UpdateIdentityProviderResponse,
@@ -4937,6 +4938,14 @@ const deserializeAws_json1_1AssociateSoftwareTokenCommandError = async (
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
+    case "ConcurrentModificationException":
+    case "com.amazonaws.cognitoidentityprovider#ConcurrentModificationException":
+      response = {
+        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "InternalErrorException":
     case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
       response = {
@@ -13676,6 +13685,7 @@ const serializeAws_json1_1AnalyticsConfigurationType = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.ApplicationArn !== undefined && { ApplicationArn: input.ApplicationArn }),
     ...(input.ApplicationId !== undefined && { ApplicationId: input.ApplicationId }),
     ...(input.ExternalId !== undefined && { ExternalId: input.ExternalId }),
     ...(input.RoleArn !== undefined && { RoleArn: input.RoleArn }),
@@ -13924,6 +13934,7 @@ const serializeAws_json1_1CreateUserPoolClientRequest = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.AccessTokenValidity !== undefined && { AccessTokenValidity: input.AccessTokenValidity }),
     ...(input.AllowedOAuthFlows !== undefined && {
       AllowedOAuthFlows: serializeAws_json1_1OAuthFlowsType(input.AllowedOAuthFlows, context),
     }),
@@ -13945,6 +13956,7 @@ const serializeAws_json1_1CreateUserPoolClientRequest = (
       ExplicitAuthFlows: serializeAws_json1_1ExplicitAuthFlowsListType(input.ExplicitAuthFlows, context),
     }),
     ...(input.GenerateSecret !== undefined && { GenerateSecret: input.GenerateSecret }),
+    ...(input.IdTokenValidity !== undefined && { IdTokenValidity: input.IdTokenValidity }),
     ...(input.LogoutURLs !== undefined && {
       LogoutURLs: serializeAws_json1_1LogoutURLsListType(input.LogoutURLs, context),
     }),
@@ -13960,6 +13972,9 @@ const serializeAws_json1_1CreateUserPoolClientRequest = (
         input.SupportedIdentityProviders,
         context
       ),
+    }),
+    ...(input.TokenValidityUnits !== undefined && {
+      TokenValidityUnits: serializeAws_json1_1TokenValidityUnitsType(input.TokenValidityUnits, context),
     }),
     ...(input.UserPoolId !== undefined && { UserPoolId: input.UserPoolId }),
     ...(input.WriteAttributes !== undefined && {
@@ -14893,6 +14908,14 @@ const serializeAws_json1_1TagResourceRequest = (input: TagResourceRequest, conte
   };
 };
 
+const serializeAws_json1_1TokenValidityUnitsType = (input: TokenValidityUnitsType, context: __SerdeContext): any => {
+  return {
+    ...(input.AccessToken !== undefined && { AccessToken: input.AccessToken }),
+    ...(input.IdToken !== undefined && { IdToken: input.IdToken }),
+    ...(input.RefreshToken !== undefined && { RefreshToken: input.RefreshToken }),
+  };
+};
+
 const serializeAws_json1_1UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
   return {
     ...(input.ResourceArn !== undefined && { ResourceArn: input.ResourceArn }),
@@ -14987,6 +15010,7 @@ const serializeAws_json1_1UpdateUserPoolClientRequest = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.AccessTokenValidity !== undefined && { AccessTokenValidity: input.AccessTokenValidity }),
     ...(input.AllowedOAuthFlows !== undefined && {
       AllowedOAuthFlows: serializeAws_json1_1OAuthFlowsType(input.AllowedOAuthFlows, context),
     }),
@@ -15008,6 +15032,7 @@ const serializeAws_json1_1UpdateUserPoolClientRequest = (
     ...(input.ExplicitAuthFlows !== undefined && {
       ExplicitAuthFlows: serializeAws_json1_1ExplicitAuthFlowsListType(input.ExplicitAuthFlows, context),
     }),
+    ...(input.IdTokenValidity !== undefined && { IdTokenValidity: input.IdTokenValidity }),
     ...(input.LogoutURLs !== undefined && {
       LogoutURLs: serializeAws_json1_1LogoutURLsListType(input.LogoutURLs, context),
     }),
@@ -15023,6 +15048,9 @@ const serializeAws_json1_1UpdateUserPoolClientRequest = (
         input.SupportedIdentityProviders,
         context
       ),
+    }),
+    ...(input.TokenValidityUnits !== undefined && {
+      TokenValidityUnits: serializeAws_json1_1TokenValidityUnitsType(input.TokenValidityUnits, context),
     }),
     ...(input.UserPoolId !== undefined && { UserPoolId: input.UserPoolId }),
     ...(input.WriteAttributes !== undefined && {
@@ -15515,6 +15543,8 @@ const deserializeAws_json1_1AnalyticsConfigurationType = (
   context: __SerdeContext
 ): AnalyticsConfigurationType => {
   return {
+    ApplicationArn:
+      output.ApplicationArn !== undefined && output.ApplicationArn !== null ? output.ApplicationArn : undefined,
     ApplicationId:
       output.ApplicationId !== undefined && output.ApplicationId !== null ? output.ApplicationId : undefined,
     ExternalId: output.ExternalId !== undefined && output.ExternalId !== null ? output.ExternalId : undefined,
@@ -17000,6 +17030,14 @@ const deserializeAws_json1_1TagResourceResponse = (output: any, context: __Serde
   return {} as any;
 };
 
+const deserializeAws_json1_1TokenValidityUnitsType = (output: any, context: __SerdeContext): TokenValidityUnitsType => {
+  return {
+    AccessToken: output.AccessToken !== undefined && output.AccessToken !== null ? output.AccessToken : undefined,
+    IdToken: output.IdToken !== undefined && output.IdToken !== null ? output.IdToken : undefined,
+    RefreshToken: output.RefreshToken !== undefined && output.RefreshToken !== null ? output.RefreshToken : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1TooManyFailedAttemptsException = (
   output: any,
   context: __SerdeContext
@@ -17291,6 +17329,10 @@ const deserializeAws_json1_1UserPoolClientListType = (
 
 const deserializeAws_json1_1UserPoolClientType = (output: any, context: __SerdeContext): UserPoolClientType => {
   return {
+    AccessTokenValidity:
+      output.AccessTokenValidity !== undefined && output.AccessTokenValidity !== null
+        ? output.AccessTokenValidity
+        : undefined,
     AllowedOAuthFlows:
       output.AllowedOAuthFlows !== undefined && output.AllowedOAuthFlows !== null
         ? deserializeAws_json1_1OAuthFlowsType(output.AllowedOAuthFlows, context)
@@ -17326,6 +17368,8 @@ const deserializeAws_json1_1UserPoolClientType = (output: any, context: __SerdeC
       output.ExplicitAuthFlows !== undefined && output.ExplicitAuthFlows !== null
         ? deserializeAws_json1_1ExplicitAuthFlowsListType(output.ExplicitAuthFlows, context)
         : undefined,
+    IdTokenValidity:
+      output.IdTokenValidity !== undefined && output.IdTokenValidity !== null ? output.IdTokenValidity : undefined,
     LastModifiedDate:
       output.LastModifiedDate !== undefined && output.LastModifiedDate !== null
         ? new Date(Math.round(output.LastModifiedDate * 1000))
@@ -17349,6 +17393,10 @@ const deserializeAws_json1_1UserPoolClientType = (output: any, context: __SerdeC
     SupportedIdentityProviders:
       output.SupportedIdentityProviders !== undefined && output.SupportedIdentityProviders !== null
         ? deserializeAws_json1_1SupportedIdentityProvidersListType(output.SupportedIdentityProviders, context)
+        : undefined,
+    TokenValidityUnits:
+      output.TokenValidityUnits !== undefined && output.TokenValidityUnits !== null
+        ? deserializeAws_json1_1TokenValidityUnitsType(output.TokenValidityUnits, context)
         : undefined,
     UserPoolId: output.UserPoolId !== undefined && output.UserPoolId !== null ? output.UserPoolId : undefined,
     WriteAttributes:

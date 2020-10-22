@@ -10,6 +10,7 @@ export * from "./commands/CreateAssetModelCommand";
 export * from "./commands/CreateDashboardCommand";
 export * from "./commands/CreateGatewayCommand";
 export * from "./commands/CreatePortalCommand";
+export * from "./commands/CreatePresignedPortalUrlCommand";
 export * from "./commands/CreateProjectCommand";
 export * from "./commands/DeleteAccessPolicyCommand";
 export * from "./commands/DeleteAssetCommand";

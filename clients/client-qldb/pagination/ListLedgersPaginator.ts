@@ -29,7 +29,7 @@ export async function* listLedgersPaginate(
   let hasNext = true;
   let page: ListLedgersCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof QLDB) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -39,7 +39,7 @@ export async function* listLedgersPaginate(
       throw new Error("Invalid client, expected QLDB | QLDBClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

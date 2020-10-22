@@ -33,7 +33,7 @@ export async function* getResourceConfigHistoryPaginate(
   let hasNext = true;
   let page: GetResourceConfigHistoryCommandOutput;
   while (hasNext) {
-    input["nextToken"] = token;
+    input.nextToken = token;
     input["limit"] = config.pageSize;
     if (config.client instanceof ConfigService) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* getResourceConfigHistoryPaginate(
       throw new Error("Invalid client, expected ConfigService | ConfigServiceClient");
     }
     yield page;
-    token = page["nextToken"];
+    token = page.nextToken;
     hasNext = !!token;
   }
   // @ts-ignore

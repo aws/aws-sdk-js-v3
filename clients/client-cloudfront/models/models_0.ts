@@ -90,17 +90,17 @@ export namespace Signer {
  */
 export interface ActiveTrustedSigners {
   /**
+   * <p>A complex type that contains one <code>Signer</code> complex type for each trusted
+   * 			signer that is specified in the <code>TrustedSigners</code> complex type.</p>
+   */
+  Items?: Signer[];
+
+  /**
    * <p>Enabled is <code>true</code> if any of the AWS accounts listed in the
    * 			<code>TrustedSigners</code> complex type for this distribution have active CloudFront key
    * 			pairs. If not, <code>Enabled</code> is <code>false</code>.</p>
    */
   Enabled: boolean | undefined;
-
-  /**
-   * <p>A complex type that contains one <code>Signer</code> complex type for each trusted
-   * 			signer that is specified in the <code>TrustedSigners</code> complex type.</p>
-   */
-  Items?: Signer[];
 
   /**
    * <p>The number of trusted signers specified in the <code>TrustedSigners</code> complex type.</p>
@@ -207,18 +207,18 @@ export type Method = "DELETE" | "GET" | "HEAD" | "OPTIONS" | "PATCH" | "POST" | 
  */
 export interface CachedMethods {
   /**
+   * <p>A complex type that contains the HTTP methods that you want CloudFront to cache responses
+   * 			to.</p>
+   */
+  Items: (Method | string)[] | undefined;
+
+  /**
    * <p>The number of HTTP methods for which you want CloudFront to cache responses. Valid values are
    * 				<code>2</code> (for caching responses to <code>GET</code> and <code>HEAD</code> requests)
    * 			and <code>3</code> (for caching responses to <code>GET</code>, <code>HEAD</code>, and
    * 				<code>OPTIONS</code> requests).</p>
    */
   Quantity: number | undefined;
-
-  /**
-   * <p>A complex type that contains the HTTP methods that you want CloudFront to cache responses
-   * 			to.</p>
-   */
-  Items: (Method | string)[] | undefined;
 }
 
 export namespace CachedMethods {
@@ -258,6 +258,12 @@ export interface AllowedMethods {
   Quantity: number | undefined;
 
   /**
+   * <p>A complex type that contains the HTTP methods that you want CloudFront to process and forward
+   * 			to your origin.</p>
+   */
+  Items: (Method | string)[] | undefined;
+
+  /**
    * <p>A complex type that controls whether CloudFront caches the response to requests using the
    * 			specified HTTP methods. There are two choices:</p>
    * 		       <ul>
@@ -274,12 +280,6 @@ export interface AllowedMethods {
    * 			responses to be cached correctly. </p>
    */
   CachedMethods?: CachedMethods;
-
-  /**
-   * <p>A complex type that contains the HTTP methods that you want CloudFront to process and forward
-   * 			to your origin.</p>
-   */
-  Items: (Method | string)[] | undefined;
 }
 
 export namespace AllowedMethods {
@@ -310,14 +310,14 @@ export type ItemSelection = "all" | "none" | "whitelist";
  */
 export interface CookieNames {
   /**
-   * <p>The number of cookie names in the <code>Items</code> list.</p>
-   */
-  Quantity: number | undefined;
-
-  /**
    * <p>A list of cookie names.</p>
    */
   Items?: string[];
+
+  /**
+   * <p>The number of cookie names in the <code>Items</code> list.</p>
+   */
+  Quantity: number | undefined;
 }
 
 export namespace CookieNames {
@@ -330,31 +330,16 @@ export namespace CookieNames {
  * <p>This field is deprecated. We recommend that you use a cache policy or an origin
  * 			request policy instead of this field.</p>
  * 		       <p>If you want to include cookies in the cache key, use <code>CookiesConfig</code> in a
- * 			cache policy. See <code>CreateCachePolicy</code>.</p>
+ * 			cache policy. See <code>CachePolicy</code>.</p>
  * 		       <p>If you want to send cookies to the origin but not include them in the cache key, use
  * 			<code>CookiesConfig</code> in an origin request policy. See
- * 			<code>CreateOriginRequestPolicy</code>.</p>
+ * 			<code>OriginRequestPolicy</code>.</p>
  * 		       <p>A complex type that specifies whether you want CloudFront to forward cookies to the origin
  * 			and, if so, which ones. For more information about forwarding cookies to the origin, see
  * 			<a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Cookies.html">Caching Content
  * 				Based on Cookies</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
  */
 export interface CookiePreference {
-  /**
-   * <p>This field is deprecated. We recommend that you use a cache policy or an origin
-   * 			request policy instead of this field.</p>
-   * 		       <p>If you want to include cookies in the cache key, use a cache policy. For more information,
-   * 			see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy">Creating cache policies</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
-   * 		       <p>If you want to send cookies to the origin but not include them in the cache key, use origin
-   * 			request policy. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-origin-requests.html#origin-request-create-origin-request-policy">Creating origin request policies</a> in the
-   * 			<i>Amazon CloudFront Developer Guide</i>.</p>
-   * 		       <p>Specifies which cookies to forward to the origin for this cache behavior: all, none, or
-   * 			the list of cookies specified in the <code>WhitelistedNames</code> complex type.</p>
-   * 		       <p>Amazon S3 doesn't process cookies. When the cache behavior is forwarding requests to an
-   * 			Amazon S3 origin, specify none for the <code>Forward</code> element.</p>
-   */
-  Forward: ItemSelection | string | undefined;
-
   /**
    * <p>This field is deprecated. We recommend that you use a cache policy or an origin
    * 			request policy instead of this field.</p>
@@ -376,6 +361,21 @@ export interface CookiePreference {
    * 				CloudFront Limits</a> in the <i>AWS General Reference</i>.</p>
    */
   WhitelistedNames?: CookieNames;
+
+  /**
+   * <p>This field is deprecated. We recommend that you use a cache policy or an origin
+   * 			request policy instead of this field.</p>
+   * 		       <p>If you want to include cookies in the cache key, use a cache policy. For more information,
+   * 			see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy">Creating cache policies</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
+   * 		       <p>If you want to send cookies to the origin but not include them in the cache key, use origin
+   * 			request policy. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-origin-requests.html#origin-request-create-origin-request-policy">Creating origin request policies</a> in the
+   * 			<i>Amazon CloudFront Developer Guide</i>.</p>
+   * 		       <p>Specifies which cookies to forward to the origin for this cache behavior: all, none, or
+   * 			the list of cookies specified in the <code>WhitelistedNames</code> complex type.</p>
+   * 		       <p>Amazon S3 doesn't process cookies. When the cache behavior is forwarding requests to an
+   * 			Amazon S3 origin, specify none for the <code>Forward</code> element.</p>
+   */
+  Forward: ItemSelection | string | undefined;
 }
 
 export namespace CookiePreference {
@@ -389,14 +389,14 @@ export namespace CookiePreference {
  */
 export interface Headers {
   /**
-   * <p>A list of HTTP header names.</p>
-   */
-  Items?: string[];
-
-  /**
    * <p>The number of header names in the <code>Items</code> list.</p>
    */
   Quantity: number | undefined;
+
+  /**
+   * <p>A list of HTTP header names.</p>
+   */
+  Items?: string[];
 }
 
 export namespace Headers {
@@ -410,10 +410,10 @@ export namespace Headers {
  * 			request policy instead of this field.</p>
  * 		       <p>If you want to include query strings in the cache key, use
  * 			<code>QueryStringsConfig</code> in a cache policy. See
- * 			<code>CreateCachePolicy</code>.</p>
+ * 			<code>CachePolicy</code>.</p>
  * 		       <p>If you want to send query strings to the origin but not include them in the cache key,
  * 			use <code>QueryStringsConfig</code> in an origin request policy. See
- * 			<code>CreateOriginRequestPolicy</code>.</p>
+ * 			<code>OriginRequestPolicy</code>.</p>
  * 		       <p>A complex type that contains information about the query string parameters that you want
  * 			CloudFront to use for caching for a cache behavior.
  * 		</p>
@@ -473,19 +473,6 @@ export interface ForwardedValues {
    * 		       <p>If you want to send query strings to the origin but not include them in the cache key, use
    * 			an origin request policy. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-origin-requests.html#origin-request-create-origin-request-policy">Creating origin request policies</a> in the
    * 			<i>Amazon CloudFront Developer Guide</i>.</p>
-   * 		       <p>A complex type that contains information about the query string parameters that you
-   * 			want CloudFront to use for caching for this cache behavior.</p>
-   */
-  QueryStringCacheKeys?: QueryStringCacheKeys;
-
-  /**
-   * <p>This field is deprecated. We recommend that you use a cache policy or an origin
-   * 			request policy instead of this field.</p>
-   * 		       <p>If you want to include query strings in the cache key, use a cache policy. For more
-   * 			information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy">Creating cache policies</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
-   * 		       <p>If you want to send query strings to the origin but not include them in the cache key, use
-   * 			an origin request policy. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-origin-requests.html#origin-request-create-origin-request-policy">Creating origin request policies</a> in the
-   * 			<i>Amazon CloudFront Developer Guide</i>.</p>
    * 		       <p>Indicates whether you want CloudFront to forward query strings to the origin that is
    * 			associated with this cache behavior and cache based on the query string parameters. CloudFront
    * 			behavior depends on the value of <code>QueryString</code> and on the values that you specify
@@ -520,6 +507,19 @@ export interface ForwardedValues {
    * 			Caching Content Based on Request Headers</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
    */
   Headers?: Headers;
+
+  /**
+   * <p>This field is deprecated. We recommend that you use a cache policy or an origin
+   * 			request policy instead of this field.</p>
+   * 		       <p>If you want to include query strings in the cache key, use a cache policy. For more
+   * 			information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy">Creating cache policies</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
+   * 		       <p>If you want to send query strings to the origin but not include them in the cache key, use
+   * 			an origin request policy. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-origin-requests.html#origin-request-create-origin-request-policy">Creating origin request policies</a> in the
+   * 			<i>Amazon CloudFront Developer Guide</i>.</p>
+   * 		       <p>A complex type that contains information about the query string parameters that you
+   * 			want CloudFront to use for caching for this cache behavior.</p>
+   */
+  QueryStringCacheKeys?: QueryStringCacheKeys;
 }
 
 export namespace ForwardedValues {
@@ -540,6 +540,12 @@ export interface LambdaFunctionAssociation {
    * 				Include Body Option</a> in the Amazon CloudFront Developer Guide.</p>
    */
   IncludeBody?: boolean;
+
+  /**
+   * <p>The ARN of the Lambda function. You must specify the ARN of a function version; you can't specify a Lambda alias
+   * 			or $LATEST.</p>
+   */
+  LambdaFunctionARN: string | undefined;
 
   /**
    * <p>Specifies the event type that triggers a Lambda function invocation. You can specify the following values:</p>
@@ -569,12 +575,6 @@ export interface LambdaFunctionAssociation {
    *          </ul>
    */
   EventType: EventType | string | undefined;
-
-  /**
-   * <p>The ARN of the Lambda function. You must specify the ARN of a function version; you can't specify a Lambda alias
-   * 			or $LATEST.</p>
-   */
-  LambdaFunctionARN: string | undefined;
 }
 
 export namespace LambdaFunctionAssociation {
@@ -638,10 +638,12 @@ export namespace LambdaFunctionAssociations {
  */
 export interface TrustedSigners {
   /**
-   * <p>Specifies whether you want to require viewers to use signed URLs to access the files
-   * 			specified by <code>PathPattern</code> and <code>TargetOriginId</code>.</p>
+   * <p>
+   *             <b>Optional</b>: A complex type that contains trusted signers
+   * 			for this cache behavior. If <code>Quantity</code> is <code>0</code>, you can omit
+   * 				<code>Items</code>.</p>
    */
-  Enabled: boolean | undefined;
+  Items?: string[];
 
   /**
    * <p>The number of trusted signers for this cache behavior.</p>
@@ -649,12 +651,10 @@ export interface TrustedSigners {
   Quantity: number | undefined;
 
   /**
-   * <p>
-   *             <b>Optional</b>: A complex type that contains trusted signers
-   * 			for this cache behavior. If <code>Quantity</code> is <code>0</code>, you can omit
-   * 				<code>Items</code>.</p>
+   * <p>Specifies whether you want to require viewers to use signed URLs to access the files
+   * 			specified by <code>PathPattern</code> and <code>TargetOriginId</code>.</p>
    */
-  Items?: string[];
+  Enabled: boolean | undefined;
 }
 
 export namespace TrustedSigners {
@@ -686,24 +686,51 @@ export type ViewerProtocolPolicy = "allow-all" | "https-only" | "redirect-to-htt
  */
 export interface CacheBehavior {
   /**
-   * <p>This field is deprecated. We recommend that you use the <code>DefaultTTL</code> field in a
-   * 			cache policy instead of this field. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy">Creating cache policies</a> or <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html">Using the managed cache policies</a> in the
+   * <p>The pattern (for example, <code>images/*.jpg</code>) that specifies which requests to
+   * 			apply the behavior to. When CloudFront receives a viewer request, the requested path is compared
+   * 			with path patterns in the order in which cache behaviors are listed in the
+   * 			distribution.</p>
+   * 		       <note>
+   * 			         <p>You can optionally include a slash (<code>/</code>) at the beginning of the path
+   * 				pattern. For example, <code>/images/*.jpg</code>. CloudFront behavior is the same with or without
+   * 				the leading <code>/</code>.</p>
+   * 		       </note>
+   * 		       <p>The path pattern for the default cache behavior is <code>*</code> and cannot be
+   * 			changed. If the request for an object does not match the path pattern for any cache behaviors,
+   * 			CloudFront applies the behavior in the default cache behavior.</p>
+   * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesPathPattern">Path
+   * 				Pattern</a> in the <i> Amazon CloudFront Developer Guide</i>.</p>
+   */
+  PathPattern: string | undefined;
+
+  /**
+   * <p>Indicates whether you want to distribute media files in the Microsoft Smooth Streaming
+   * 			format using the origin that is associated with this cache behavior. If so, specify
+   * 				<code>true</code>; if not, specify <code>false</code>. If you specify <code>true</code> for
+   * 				<code>SmoothStreaming</code>, you can still distribute other content using this cache
+   * 			behavior if the content matches the value of <code>PathPattern</code>. </p>
+   */
+  SmoothStreaming?: boolean;
+
+  /**
+   * <p>This field is deprecated. We recommend that you use the <code>MaxTTL</code> field in a cache
+   * 			policy instead of this field. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy">Creating cache policies</a> or <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html">Using the managed cache policies</a> in the
    * 			<i>Amazon CloudFront Developer Guide</i>.</p>
-   * 		       <p>The default amount of time that you want objects to stay in CloudFront caches before CloudFront
+   * 		       <p>The maximum amount of time that you want objects to stay in CloudFront caches before CloudFront
    * 			forwards another request to your origin to determine whether the object has been updated. The
-   * 			value that you specify applies only when your origin does not add HTTP headers such as
+   * 			value that you specify applies only when your origin adds HTTP headers such as
    * 				<code>Cache-Control max-age</code>, <code>Cache-Control s-maxage</code>, and
    * 				<code>Expires</code> to objects. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html">Managing How Long Content Stays
    * 				in an Edge Cache (Expiration)</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
    */
-  DefaultTTL?: number;
+  MaxTTL?: number;
 
   /**
-   * <p>The unique identifier of the origin request policy that is attached to this cache behavior.
-   * 			For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-origin-requests.html#origin-request-create-origin-request-policy">Creating origin request policies</a> or <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-origin-request-policies.html">Using the managed origin request policies</a> in the
+   * <p>The unique identifier of the cache policy that is attached to this cache behavior. For more
+   * 			information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy">Creating cache policies</a> or <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html">Using the managed cache policies</a> in the
    * 			<i>Amazon CloudFront Developer Guide</i>.</p>
    */
-  OriginRequestPolicyId?: string;
+  CachePolicyId?: string;
 
   /**
    * <p>This field is deprecated. We recommend that you use a cache policy or an origin
@@ -720,34 +747,40 @@ export interface CacheBehavior {
   ForwardedValues?: ForwardedValues;
 
   /**
-   * <p>The value of <code>ID</code> for the field-level encryption configuration that you want CloudFront
-   * 			to use for encrypting specific fields of data for this cache behavior.</p>
+   * <p>A complex type that contains zero or more Lambda function associations for a cache
+   * 			behavior.</p>
    */
-  FieldLevelEncryptionId?: string;
+  LambdaFunctionAssociations?: LambdaFunctionAssociations;
 
   /**
-   * <p>Indicates whether you want to distribute media files in the Microsoft Smooth Streaming
-   * 			format using the origin that is associated with this cache behavior. If so, specify
-   * 				<code>true</code>; if not, specify <code>false</code>. If you specify <code>true</code> for
-   * 				<code>SmoothStreaming</code>, you can still distribute other content using this cache
-   * 			behavior if the content matches the value of <code>PathPattern</code>. </p>
-   */
-  SmoothStreaming?: boolean;
-
-  /**
-   * <p>This field is deprecated. We recommend that you use the <code>MinTTL</code> field in a cache
-   * 			policy instead of this field. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy">Creating cache policies</a> or <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html">Using the managed cache policies</a> in the
+   * <p>The unique identifier of the origin request policy that is attached to this cache behavior.
+   * 			For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-origin-requests.html#origin-request-create-origin-request-policy">Creating origin request policies</a> or <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-origin-request-policies.html">Using the managed origin request policies</a> in the
    * 			<i>Amazon CloudFront Developer Guide</i>.</p>
-   * 		       <p>The minimum amount of time that you want objects to stay in CloudFront caches before CloudFront
-   * 			forwards another request to your origin to determine whether the object has been updated. For
-   * 			more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html">
-   * 				Managing How Long Content Stays in an Edge Cache (Expiration)</a> in the <i>
-   * 				Amazon CloudFront Developer Guide</i>.</p>
-   * 		       <p>You must specify <code>0</code> for <code>MinTTL</code> if you configure CloudFront to
-   * 			forward all headers to your origin (under <code>Headers</code>, if you specify <code>1</code>
-   * 			for <code>Quantity</code> and <code>*</code> for <code>Name</code>).</p>
    */
-  MinTTL?: number;
+  OriginRequestPolicyId?: string;
+
+  /**
+   * <p>A complex type that controls which HTTP methods CloudFront processes and forwards to your
+   * 			Amazon S3 bucket or your custom origin. There are three choices:</p>
+   * 		       <ul>
+   *             <li>
+   * 				           <p>CloudFront forwards only <code>GET</code> and <code>HEAD</code> requests.</p>
+   * 			         </li>
+   *             <li>
+   * 				           <p>CloudFront forwards only <code>GET</code>, <code>HEAD</code>, and <code>OPTIONS</code>
+   * 					requests.</p>
+   * 			         </li>
+   *             <li>
+   * 				           <p>CloudFront forwards <code>GET, HEAD, OPTIONS, PUT, PATCH, POST</code>, and
+   * 						<code>DELETE</code> requests.</p>
+   * 			         </li>
+   *          </ul>
+   * 		       <p>If you pick the third choice, you may need to restrict access to your Amazon S3 bucket or
+   * 			to your custom origin so users can't perform operations that you don't want them to. For
+   * 			example, you might not want users to have permissions to delete objects from your
+   * 			origin.</p>
+   */
+  AllowedMethods?: AllowedMethods;
 
   /**
    * <p>The protocol that viewers can use to access the files in the origin specified by
@@ -785,17 +818,44 @@ export interface CacheBehavior {
   ViewerProtocolPolicy: ViewerProtocolPolicy | string | undefined;
 
   /**
-   * <p>This field is deprecated. We recommend that you use the <code>MaxTTL</code> field in a cache
+   * <p>Whether you want CloudFront to automatically compress certain files for this cache behavior.
+   * 			If so, specify true; if not, specify false. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/ServingCompressedFiles.html">Serving Compressed Files</a> in the
+   * 				<i>Amazon CloudFront Developer Guide</i>.</p>
+   */
+  Compress?: boolean;
+
+  /**
+   * <p>The value of <code>ID</code> for the origin that you want CloudFront to route requests to
+   * 			when they match this cache behavior.</p>
+   */
+  TargetOriginId: string | undefined;
+
+  /**
+   * <p>The value of <code>ID</code> for the field-level encryption configuration that you want CloudFront
+   * 			to use for encrypting specific fields of data for this cache behavior.</p>
+   */
+  FieldLevelEncryptionId?: string;
+
+  /**
+   * <p>This field is deprecated. We recommend that you use the <code>MinTTL</code> field in a cache
    * 			policy instead of this field. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy">Creating cache policies</a> or <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html">Using the managed cache policies</a> in the
    * 			<i>Amazon CloudFront Developer Guide</i>.</p>
-   * 		       <p>The maximum amount of time that you want objects to stay in CloudFront caches before CloudFront
-   * 			forwards another request to your origin to determine whether the object has been updated. The
-   * 			value that you specify applies only when your origin adds HTTP headers such as
-   * 				<code>Cache-Control max-age</code>, <code>Cache-Control s-maxage</code>, and
-   * 				<code>Expires</code> to objects. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html">Managing How Long Content Stays
-   * 				in an Edge Cache (Expiration)</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
+   * 		       <p>The minimum amount of time that you want objects to stay in CloudFront caches before CloudFront
+   * 			forwards another request to your origin to determine whether the object has been updated. For
+   * 			more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html">
+   * 				Managing How Long Content Stays in an Edge Cache (Expiration)</a> in the <i>
+   * 				Amazon CloudFront Developer Guide</i>.</p>
+   * 		       <p>You must specify <code>0</code> for <code>MinTTL</code> if you configure CloudFront to
+   * 			forward all headers to your origin (under <code>Headers</code>, if you specify <code>1</code>
+   * 			for <code>Quantity</code> and <code>*</code> for <code>Name</code>).</p>
    */
-  MaxTTL?: number;
+  MinTTL?: number;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the real-time log configuration that is attached to this
+   * 			cache behavior. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html">Real-time logs</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
+   */
+  RealtimeLogConfigArn?: string;
 
   /**
    * <p>A complex type that specifies the AWS accounts, if any, that you want to allow to
@@ -817,71 +877,17 @@ export interface CacheBehavior {
   TrustedSigners: TrustedSigners | undefined;
 
   /**
-   * <p>A complex type that controls which HTTP methods CloudFront processes and forwards to your
-   * 			Amazon S3 bucket or your custom origin. There are three choices:</p>
-   * 		       <ul>
-   *             <li>
-   * 				           <p>CloudFront forwards only <code>GET</code> and <code>HEAD</code> requests.</p>
-   * 			         </li>
-   *             <li>
-   * 				           <p>CloudFront forwards only <code>GET</code>, <code>HEAD</code>, and <code>OPTIONS</code>
-   * 					requests.</p>
-   * 			         </li>
-   *             <li>
-   * 				           <p>CloudFront forwards <code>GET, HEAD, OPTIONS, PUT, PATCH, POST</code>, and
-   * 						<code>DELETE</code> requests.</p>
-   * 			         </li>
-   *          </ul>
-   * 		       <p>If you pick the third choice, you may need to restrict access to your Amazon S3 bucket or
-   * 			to your custom origin so users can't perform operations that you don't want them to. For
-   * 			example, you might not want users to have permissions to delete objects from your
-   * 			origin.</p>
-   */
-  AllowedMethods?: AllowedMethods;
-
-  /**
-   * <p>The value of <code>ID</code> for the origin that you want CloudFront to route requests to
-   * 			when they match this cache behavior.</p>
-   */
-  TargetOriginId: string | undefined;
-
-  /**
-   * <p>Whether you want CloudFront to automatically compress certain files for this cache behavior.
-   * 			If so, specify true; if not, specify false. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/ServingCompressedFiles.html">Serving Compressed Files</a> in the
-   * 				<i>Amazon CloudFront Developer Guide</i>.</p>
-   */
-  Compress?: boolean;
-
-  /**
-   * <p>The unique identifier of the cache policy that is attached to this cache behavior. For more
-   * 			information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy">Creating cache policies</a> or <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html">Using the managed cache policies</a> in the
+   * <p>This field is deprecated. We recommend that you use the <code>DefaultTTL</code> field in a
+   * 			cache policy instead of this field. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy">Creating cache policies</a> or <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html">Using the managed cache policies</a> in the
    * 			<i>Amazon CloudFront Developer Guide</i>.</p>
+   * 		       <p>The default amount of time that you want objects to stay in CloudFront caches before CloudFront
+   * 			forwards another request to your origin to determine whether the object has been updated. The
+   * 			value that you specify applies only when your origin does not add HTTP headers such as
+   * 				<code>Cache-Control max-age</code>, <code>Cache-Control s-maxage</code>, and
+   * 				<code>Expires</code> to objects. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html">Managing How Long Content Stays
+   * 				in an Edge Cache (Expiration)</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
    */
-  CachePolicyId?: string;
-
-  /**
-   * <p>The pattern (for example, <code>images/*.jpg</code>) that specifies which requests to
-   * 			apply the behavior to. When CloudFront receives a viewer request, the requested path is compared
-   * 			with path patterns in the order in which cache behaviors are listed in the
-   * 			distribution.</p>
-   * 		       <note>
-   * 			         <p>You can optionally include a slash (<code>/</code>) at the beginning of the path
-   * 				pattern. For example, <code>/images/*.jpg</code>. CloudFront behavior is the same with or without
-   * 				the leading <code>/</code>.</p>
-   * 		       </note>
-   * 		       <p>The path pattern for the default cache behavior is <code>*</code> and cannot be
-   * 			changed. If the request for an object does not match the path pattern for any cache behaviors,
-   * 			CloudFront applies the behavior in the default cache behavior.</p>
-   * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesPathPattern">Path
-   * 				Pattern</a> in the <i> Amazon CloudFront Developer Guide</i>.</p>
-   */
-  PathPattern: string | undefined;
-
-  /**
-   * <p>A complex type that contains zero or more Lambda function associations for a cache
-   * 			behavior.</p>
-   */
-  LambdaFunctionAssociations?: LambdaFunctionAssociations;
+  DefaultTTL?: number;
 }
 
 export namespace CacheBehavior {
@@ -896,15 +902,15 @@ export namespace CacheBehavior {
  */
 export interface CacheBehaviors {
   /**
+   * <p>The number of cache behaviors for this distribution. </p>
+   */
+  Quantity: number | undefined;
+
+  /**
    * <p>Optional: A complex type that contains cache behaviors for this distribution. If
    * 				<code>Quantity</code> is <code>0</code>, you can omit <code>Items</code>.</p>
    */
   Items?: CacheBehavior[];
-
-  /**
-   * <p>The number of cache behaviors for this distribution. </p>
-   */
-  Quantity: number | undefined;
 }
 
 export namespace CacheBehaviors {
@@ -921,6 +927,11 @@ export type CachePolicyCookieBehavior = "all" | "allExcept" | "none" | "whitelis
  * 			the origin.</p>
  */
 export interface CachePolicyCookiesConfig {
+  /**
+   * <p>Contains a list of cookie names.</p>
+   */
+  Cookies?: CookieNames;
+
   /**
    * <p>Determines whether any cookies in viewer requests are included in the cache key and
    * 			automatically included in requests that CloudFront sends to the origin. Valid values
@@ -957,11 +968,6 @@ export interface CachePolicyCookiesConfig {
    *          </ul>
    */
   CookieBehavior: CachePolicyCookieBehavior | string | undefined;
-
-  /**
-   * <p>Contains a list of cookie names.</p>
-   */
-  Cookies?: CookieNames;
 }
 
 export namespace CachePolicyCookiesConfig {
@@ -1020,14 +1026,14 @@ export type CachePolicyQueryStringBehavior = "all" | "allExcept" | "none" | "whi
  */
 export interface QueryStringNames {
   /**
-   * <p>A list of query string names.</p>
-   */
-  Items?: string[];
-
-  /**
    * <p>The number of query string names in the <code>Items</code> list.</p>
    */
   Quantity: number | undefined;
+
+  /**
+   * <p>A list of query string names.</p>
+   */
+  Items?: string[];
 }
 
 export namespace QueryStringNames {
@@ -1042,25 +1048,6 @@ export namespace QueryStringNames {
  * 			CloudFront sends to the origin.</p>
  */
 export interface CachePolicyQueryStringsConfig {
-  /**
-   * <p>Contains the specific query strings in viewer requests that either <i>
-   *                <b>are</b>
-   *             </i> or <i>
-   *                <b>are
-   * 			not</b>
-   *             </i> included in the cache key and automatically included in
-   * 			requests that CloudFront sends to the origin. The behavior depends on whether the
-   * 			<code>QueryStringBehavior</code> field in the <code>CachePolicyQueryStringsConfig</code>
-   * 			type is set to <code>whitelist</code> (the listed query strings <i>
-   *                <b>are</b>
-   *             </i> included) or <code>allExcept</code> (the listed
-   * 			query strings <i>
-   *                <b>are not</b>
-   *             </i> included,
-   * 			but all other query strings are).</p>
-   */
-  QueryStrings?: QueryStringNames;
-
   /**
    * <p>Determines whether any URL query strings in viewer requests are included in the cache key
    * 			and automatically included in requests that CloudFront sends to the origin. Valid values
@@ -1097,6 +1084,25 @@ export interface CachePolicyQueryStringsConfig {
    *          </ul>
    */
   QueryStringBehavior: CachePolicyQueryStringBehavior | string | undefined;
+
+  /**
+   * <p>Contains the specific query strings in viewer requests that either <i>
+   *                <b>are</b>
+   *             </i> or <i>
+   *                <b>are
+   * 			not</b>
+   *             </i> included in the cache key and automatically included in
+   * 			requests that CloudFront sends to the origin. The behavior depends on whether the
+   * 			<code>QueryStringBehavior</code> field in the <code>CachePolicyQueryStringsConfig</code>
+   * 			type is set to <code>whitelist</code> (the listed query strings <i>
+   *                <b>are</b>
+   *             </i> included) or <code>allExcept</code> (the listed
+   * 			query strings <i>
+   *                <b>are not</b>
+   *             </i> included,
+   * 			but all other query strings are).</p>
+   */
+  QueryStrings?: QueryStringNames;
 }
 
 export namespace CachePolicyQueryStringsConfig {
@@ -1113,16 +1119,9 @@ export namespace CachePolicyQueryStringsConfig {
  * 			included in requests that CloudFront sends to the origin. CloudFront sends a request when it can’t
  * 			find an object in its cache that matches the request’s cache key. If you want to send
  * 			values to the origin but <i>not</i> include them in the cache key, use
- * 			<code>CreateOriginRequestPolicy</code>.</p>
+ * 			<code>OriginRequestPolicy</code>.</p>
  */
 export interface ParametersInCacheKeyAndForwardedToOrigin {
-  /**
-   * <p>An object that determines whether any cookies in viewer requests (and if so, which cookies)
-   * 			are included in the cache key and automatically included in requests that CloudFront sends to
-   * 			the origin.</p>
-   */
-  CookiesConfig: CachePolicyCookiesConfig | undefined;
-
   /**
    * <p>An object that determines whether any URL query strings in viewer requests (and if so, which
    * 			query strings) are included in the cache key and automatically included in requests that
@@ -1131,38 +1130,45 @@ export interface ParametersInCacheKeyAndForwardedToOrigin {
   QueryStringsConfig: CachePolicyQueryStringsConfig | undefined;
 
   /**
-   * <p>A flag that determines whether the <code>Accept-Encoding</code> HTTP header is
+   * <p>A flag that can affect whether the <code>Accept-Encoding</code> HTTP header is
    * 			included in the cache key and included in requests that CloudFront sends to the origin.</p>
-   * 		       <p>If this field is <code>true</code>
-   *             <i>and</i> the viewer request includes the
-   * 			<code>Accept-Encoding</code> header, then CloudFront normalizes the value of the viewer’s
-   * 			<code>Accept-Encoding</code> header to one of the following:</p>
+   * 		       <p>This field is related to the <code>EnableAcceptEncodingBrotli</code> field. If one or
+   * 			both of these fields is <code>true</code>
+   *             <i>and</i> the viewer request
+   * 			includes the <code>Accept-Encoding</code> header, then CloudFront does the following:</p>
    * 		       <ul>
    *             <li>
-   * 				           <p>
-   *                   <code>Accept-Encoding: gzip</code> (if <code>gzip</code> is in the viewer’s
-   * 					<code>Accept-Encoding</code> header)</p>
+   * 				           <p>Normalizes the value of the viewer’s <code>Accept-Encoding</code>
+   * 					header</p>
    * 			         </li>
    *             <li>
-   * 				           <p>
-   *                   <code>Accept-Encoding: identity</code> (if <code>gzip</code> is
-   * 					<i>not</i> in the viewer’s <code>Accept-Encoding</code>
-   * 					header)</p>
+   * 				           <p>Includes the normalized header in the cache key</p>
+   * 			         </li>
+   *             <li>
+   * 				           <p>Includes the normalized header in the request to the origin, if a request is necessary</p>
    * 			         </li>
    *          </ul>
-   * 		       <p>CloudFront includes the normalized header in the cache key and includes it in requests that CloudFront
-   * 			sends to the origin.</p>
-   * 		       <p>If this field is <code>false</code>, then CloudFront treats the <code>Accept-Encoding</code>
-   * 			header the same as any other HTTP header in the viewer request. By default, it’s not
-   * 			included in the cache key and it’s not included in origin requests. You can manually add
-   * 			<code>Accept-Encoding</code> to the headers whitelist like any other HTTP header.</p>
-   * 		       <p>When this field is <code>true</code>, you should not whitelist the
-   * 			<code>Accept-Encoding</code> header in the cache policy or in an origin request policy
-   * 			attached to the same cache behavior.</p>
    * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-policy-compressed-objects">Cache compressed objects</a> in the
-   * 			<i>Amazon CloudFront Developer Guide</i>.</p>
+   *             <i>Amazon CloudFront Developer Guide</i>.</p>
+   * 		       <p>If you set this value to <code>true</code>, and this cache behavior also has an origin
+   * 			request policy attached, do not include the <code>Accept-Encoding</code> header in the
+   * 			origin request policy. CloudFront always includes the <code>Accept-Encoding</code> header in
+   * 			origin requests when the value of this field is <code>true</code>, so including this
+   * 			header in an origin request policy has no effect.</p>
+   * 		       <p>If both of these fields are <code>false</code>, then CloudFront treats the
+   * 			<code>Accept-Encoding</code> header the same as any other HTTP header in the viewer
+   * 			request. By default, it’s not included in the cache key and it’s not included in origin
+   * 			requests. In this case, you can manually add <code>Accept-Encoding</code> to the headers
+   * 			whitelist like any other HTTP header.</p>
    */
   EnableAcceptEncodingGzip: boolean | undefined;
+
+  /**
+   * <p>An object that determines whether any cookies in viewer requests (and if so, which cookies)
+   * 			are included in the cache key and automatically included in requests that CloudFront sends to
+   * 			the origin.</p>
+   */
+  CookiesConfig: CachePolicyCookiesConfig | undefined;
 
   /**
    * <p>An object that determines whether any HTTP headers (and if so, which headers) are
@@ -1170,6 +1176,40 @@ export interface ParametersInCacheKeyAndForwardedToOrigin {
    * 			origin.</p>
    */
   HeadersConfig: CachePolicyHeadersConfig | undefined;
+
+  /**
+   * <p>A flag that can affect whether the <code>Accept-Encoding</code> HTTP header is
+   * 			included in the cache key and included in requests that CloudFront sends to the origin.</p>
+   * 		       <p>This field is related to the <code>EnableAcceptEncodingGzip</code> field. If one or
+   * 			both of these fields is <code>true</code>
+   *             <i>and</i> the viewer request
+   * 			includes the <code>Accept-Encoding</code> header, then CloudFront does the following:</p>
+   * 		       <ul>
+   *             <li>
+   * 				           <p>Normalizes the value of the viewer’s <code>Accept-Encoding</code>
+   * 					header</p>
+   * 			         </li>
+   *             <li>
+   * 				           <p>Includes the normalized header in the cache key</p>
+   * 			         </li>
+   *             <li>
+   * 				           <p>Includes the normalized header in the request to the origin, if a request is necessary</p>
+   * 			         </li>
+   *          </ul>
+   * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-policy-compressed-objects">Cache compressed objects</a> in the
+   *             <i>Amazon CloudFront Developer Guide</i>.</p>
+   *         <p>If you set this value to <code>true</code>, and this cache behavior also has an origin
+   * 			request policy attached, do not include the <code>Accept-Encoding</code> header in the
+   * 			origin request policy. CloudFront always includes the <code>Accept-Encoding</code> header in
+   * 			origin requests when the value of this field is <code>true</code>, so including this
+   * 			header in an origin request policy has no effect.</p>
+   * 		       <p>If both of these fields are <code>false</code>, then CloudFront treats the
+   * 			<code>Accept-Encoding</code> header the same as any other HTTP header in the viewer
+   * 			request. By default, it’s not included in the cache key and it’s not included in origin
+   * 			requests. In this case, you can manually add <code>Accept-Encoding</code> to the headers
+   * 			whitelist like any other HTTP header.</p>
+   */
+  EnableAcceptEncodingBrotli?: boolean;
 }
 
 export namespace ParametersInCacheKeyAndForwardedToOrigin {
@@ -1200,6 +1240,36 @@ export namespace ParametersInCacheKeyAndForwardedToOrigin {
  */
 export interface CachePolicyConfig {
   /**
+   * <p>The HTTP headers, cookies, and URL query strings to include in the cache key. The
+   * 			values included in the cache key are automatically included in requests that CloudFront sends
+   * 			to the origin.</p>
+   */
+  ParametersInCacheKeyAndForwardedToOrigin?: ParametersInCacheKeyAndForwardedToOrigin;
+
+  /**
+   * <p>A unique name to identify the cache policy.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The default amount of time, in seconds, that you want objects to stay in the CloudFront
+   * 			cache before CloudFront sends another request to the origin to see if the object has been
+   * 			updated. CloudFront uses this value as the object’s time to live (TTL) only when the origin
+   * 			does <i>not</i> send <code>Cache-Control</code> or <code>Expires</code>
+   * 			headers with the object. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html">Managing How Long Content Stays in an Edge Cache (Expiration)</a> in the
+   * 			<i>Amazon CloudFront Developer Guide</i>.</p>
+   * 		       <p>The default value for this field is 86400 seconds (one day). If the value of
+   * 			<code>MinTTL</code> is more than 86400 seconds, then the default value for this field is
+   * 			the same as the value of <code>MinTTL</code>.</p>
+   */
+  DefaultTTL?: number;
+
+  /**
+   * <p>A comment to describe the cache policy.</p>
+   */
+  Comment?: string;
+
+  /**
    * <p>The minimum amount of time, in seconds, that you want objects to stay in the CloudFront
    * 			cache before CloudFront sends another request to the origin to see if the object has been
    * 			updated. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html">Managing How Long Content Stays in an Edge Cache (Expiration)</a> in the
@@ -1218,36 +1288,6 @@ export interface CachePolicyConfig {
    * 			default value for this field is the same as the value of <code>DefaultTTL</code>.</p>
    */
   MaxTTL?: number;
-
-  /**
-   * <p>A comment to describe the cache policy.</p>
-   */
-  Comment?: string;
-
-  /**
-   * <p>A unique name to identify the cache policy.</p>
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>The HTTP headers, cookies, and URL query strings to include in the cache key. The
-   * 			values included in the cache key are automatically included in requests that CloudFront sends
-   * 			to the origin.</p>
-   */
-  ParametersInCacheKeyAndForwardedToOrigin?: ParametersInCacheKeyAndForwardedToOrigin;
-
-  /**
-   * <p>The default amount of time, in seconds, that you want objects to stay in the CloudFront
-   * 			cache before CloudFront sends another request to the origin to see if the object has been
-   * 			updated. CloudFront uses this value as the object’s time to live (TTL) only when the origin
-   * 			does <i>not</i> send <code>Cache-Control</code> or <code>Expires</code>
-   * 			headers with the object. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html">Managing How Long Content Stays in an Edge Cache (Expiration)</a> in the
-   * 			<i>Amazon CloudFront Developer Guide</i>.</p>
-   * 		       <p>The default value for this field is 86400 seconds (one day). If the value of
-   * 			<code>MinTTL</code> is more than 86400 seconds, then the default value for this field is
-   * 			the same as the value of <code>MinTTL</code>.</p>
-   */
-  DefaultTTL?: number;
 }
 
 export namespace CachePolicyConfig {
@@ -1279,11 +1319,6 @@ export namespace CachePolicyConfig {
  */
 export interface CachePolicy {
   /**
-   * <p>The date and time when the cache policy was last modified.</p>
-   */
-  LastModifiedTime: Date | undefined;
-
-  /**
    * <p>The unique identifier for the cache policy.</p>
    */
   Id: string | undefined;
@@ -1292,6 +1327,11 @@ export interface CachePolicy {
    * <p>The cache policy configuration.</p>
    */
   CachePolicyConfig: CachePolicyConfig | undefined;
+
+  /**
+   * <p>The date and time when the cache policy was last modified.</p>
+   */
+  LastModifiedTime: Date | undefined;
 }
 
 export namespace CachePolicy {
@@ -1339,15 +1379,15 @@ export type CachePolicyType = "custom" | "managed";
  */
 export interface CachePolicySummary {
   /**
+   * <p>The cache policy.</p>
+   */
+  CachePolicy: CachePolicy | undefined;
+
+  /**
    * <p>The type of cache policy, either <code>managed</code> (created by AWS) or
    * 			<code>custom</code> (created in this AWS account).</p>
    */
   Type: CachePolicyType | string | undefined;
-
-  /**
-   * <p>The cache policy.</p>
-   */
-  CachePolicy: CachePolicy | undefined;
 }
 
 export namespace CachePolicySummary {
@@ -1361,16 +1401,14 @@ export namespace CachePolicySummary {
  */
 export interface CachePolicyList {
   /**
-   * <p>If there are more items in the list than are in this response, this element is
-   * 			present. It contains the value that you should use in the <code>Marker</code> field of a
-   * 			subsequent request to continue listing cache policies where you left off.</p>
-   */
-  NextMarker?: string;
-
-  /**
    * <p>The total number of cache policies returned in the response.</p>
    */
   Quantity: number | undefined;
+
+  /**
+   * <p>Contains the cache policies in the list.</p>
+   */
+  Items?: CachePolicySummary[];
 
   /**
    * <p>The maximum number of cache policies requested.</p>
@@ -1378,9 +1416,11 @@ export interface CachePolicyList {
   MaxItems: number | undefined;
 
   /**
-   * <p>Contains the cache policies in the list.</p>
+   * <p>If there are more items in the list than are in this response, this element is
+   * 			present. It contains the value that you should use in the <code>Marker</code> field of a
+   * 			subsequent request to continue listing cache policies where you left off.</p>
    */
-  Items?: CachePolicySummary[];
+  NextMarker?: string;
 }
 
 export namespace CachePolicyList {
@@ -1421,9 +1461,9 @@ export namespace CreateCachePolicyRequest {
 
 export interface CreateCachePolicyResult {
   /**
-   * <p>The current version of the cache policy.</p>
+   * <p>A cache policy.</p>
    */
-  ETag?: string;
+  CachePolicy?: CachePolicy;
 
   /**
    * <p>The fully qualified URI of the cache policy just created.</p>
@@ -1431,9 +1471,9 @@ export interface CreateCachePolicyResult {
   Location?: string;
 
   /**
-   * <p>A cache policy.</p>
+   * <p>The current version of the cache policy.</p>
    */
-  CachePolicy?: CachePolicy;
+  ETag?: string;
 }
 
 export namespace CreateCachePolicyResult {
@@ -1564,11 +1604,6 @@ export namespace CloudFrontOriginAccessIdentityAlreadyExists {
  */
 export interface CloudFrontOriginAccessIdentityConfig {
   /**
-   * <p>Any comments you want to include about the origin access identity. </p>
-   */
-  Comment: string | undefined;
-
-  /**
    * <p>A unique value (for example, a date-time stamp) that ensures that the request can't be replayed.</p>
    * 		       <p>If the value of <code>CallerReference</code> is new (regardless of the content of the
    * 			<code>CloudFrontOriginAccessIdentityConfig</code> object), a new origin access identity is
@@ -1583,6 +1618,11 @@ export interface CloudFrontOriginAccessIdentityConfig {
    * 			CloudFront returns a <code>CloudFrontOriginAccessIdentityAlreadyExists</code> error. </p>
    */
   CallerReference: string | undefined;
+
+  /**
+   * <p>Any comments you want to include about the origin access identity. </p>
+   */
+  Comment: string | undefined;
 }
 
 export namespace CloudFrontOriginAccessIdentityConfig {
@@ -1616,10 +1656,10 @@ export namespace CreateCloudFrontOriginAccessIdentityRequest {
  */
 export interface CloudFrontOriginAccessIdentity {
   /**
-   * <p>The ID for the origin access identity, for example, <code>E74FTE3AJFJ256A</code>.
-   * 		</p>
+   * <p>The Amazon S3 canonical user ID for the origin access identity, used when giving the origin
+   * 			access identity read permission to an object in Amazon S3. </p>
    */
-  Id: string | undefined;
+  S3CanonicalUserId: string | undefined;
 
   /**
    * <p>The current configuration information for the identity. </p>
@@ -1627,10 +1667,10 @@ export interface CloudFrontOriginAccessIdentity {
   CloudFrontOriginAccessIdentityConfig?: CloudFrontOriginAccessIdentityConfig;
 
   /**
-   * <p>The Amazon S3 canonical user ID for the origin access identity, used when giving the origin
-   * 			access identity read permission to an object in Amazon S3. </p>
+   * <p>The ID for the origin access identity, for example, <code>E74FTE3AJFJ256A</code>.
+   * 		</p>
    */
-  S3CanonicalUserId: string | undefined;
+  Id: string | undefined;
 }
 
 export namespace CloudFrontOriginAccessIdentity {
@@ -1644,9 +1684,9 @@ export namespace CloudFrontOriginAccessIdentity {
  */
 export interface CreateCloudFrontOriginAccessIdentityResult {
   /**
-   * <p>The current version of the origin access identity created.</p>
+   * <p>The fully qualified URI of the new origin access identity just created.</p>
    */
-  ETag?: string;
+  Location?: string;
 
   /**
    * <p>The origin access identity's information.</p>
@@ -1654,9 +1694,9 @@ export interface CreateCloudFrontOriginAccessIdentityResult {
   CloudFrontOriginAccessIdentity?: CloudFrontOriginAccessIdentity;
 
   /**
-   * <p>The fully qualified URI of the new origin access identity just created.</p>
+   * <p>The current version of the origin access identity created.</p>
    */
-  Location?: string;
+  ETag?: string;
 }
 
 export namespace CreateCloudFrontOriginAccessIdentityResult {
@@ -1726,22 +1766,6 @@ export namespace CNAMEAlreadyExists {
  */
 export interface CustomErrorResponse {
   /**
-   * <p>The HTTP status code for which you want to specify a custom error page and/or a caching
-   * 			duration.</p>
-   */
-  ErrorCode: number | undefined;
-
-  /**
-   * <p>The minimum amount of time, in seconds, that you want CloudFront to cache the HTTP status
-   * 			code specified in <code>ErrorCode</code>. When this time period has elapsed, CloudFront queries your
-   * 			origin to see whether the problem that caused the error has been resolved and the requested
-   * 			object is now available.</p>
-   * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/custom-error-pages.html">Customizing
-   * 				Error Responses</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
-   */
-  ErrorCachingMinTTL?: number;
-
-  /**
    * <p>The HTTP status code that you want CloudFront to return to the viewer along with the custom
    * 			error page. There are a variety of reasons that you might want CloudFront to return a status code
    * 			different from the status code that your origin returned to CloudFront, for example:</p>
@@ -1765,6 +1789,12 @@ export interface CustomErrorResponse {
    * 			<code>ResponsePagePath</code>.</p>
    */
   ResponseCode?: string;
+
+  /**
+   * <p>The HTTP status code for which you want to specify a custom error page and/or a caching
+   * 			duration.</p>
+   */
+  ErrorCode: number | undefined;
 
   /**
    * <p>The path to the custom error page that you want CloudFront to return to a viewer when your
@@ -1792,6 +1822,16 @@ export interface CustomErrorResponse {
    * 			files that you want to return to viewers because the origin server is unavailable.</p>
    */
   ResponsePagePath?: string;
+
+  /**
+   * <p>The minimum amount of time, in seconds, that you want CloudFront to cache the HTTP status
+   * 			code specified in <code>ErrorCode</code>. When this time period has elapsed, CloudFront queries your
+   * 			origin to see whether the problem that caused the error has been resolved and the requested
+   * 			object is now available.</p>
+   * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/custom-error-pages.html">Customizing
+   * 				Error Responses</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
+   */
+  ErrorCachingMinTTL?: number;
 }
 
 export namespace CustomErrorResponse {
@@ -1816,18 +1856,18 @@ export namespace CustomErrorResponse {
  */
 export interface CustomErrorResponses {
   /**
-   * <p>The number of HTTP status codes for which you want to specify a custom error page
-   * 			and/or a caching duration. If <code>Quantity</code> is <code>0</code>, you can omit
-   * 				<code>Items</code>.</p>
-   */
-  Quantity: number | undefined;
-
-  /**
    * <p>A complex type that contains a <code>CustomErrorResponse</code> element for each HTTP
    * 			status code for which you want to specify a custom error page and/or a caching duration.
    * 		</p>
    */
   Items?: CustomErrorResponse[];
+
+  /**
+   * <p>The number of HTTP status codes for which you want to specify a custom error page
+   * 			and/or a caching duration. If <code>Quantity</code> is <code>0</code>, you can omit
+   * 				<code>Items</code>.</p>
+   */
+  Quantity: number | undefined;
 }
 
 export namespace CustomErrorResponses {
@@ -1844,134 +1884,11 @@ export namespace CustomErrorResponses {
  */
 export interface DefaultCacheBehavior {
   /**
-   * <p>The unique identifier of the cache policy that is attached to the default cache behavior.
-   * 			For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy">Creating cache policies</a> or <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html">Using the managed cache policies</a> in the
-   * 			<i>Amazon CloudFront Developer Guide</i>.</p>
-   */
-  CachePolicyId?: string;
-
-  /**
-   * <p>A complex type that specifies the AWS accounts, if any, that you want to allow to
-   * 			create signed URLs for private content.</p>
-   * 		       <p>If you want to require signed URLs in requests for objects in the target origin that
-   * 			match the <code>PathPattern</code> for this cache behavior, specify <code>true</code>
-   * 			for <code>Enabled</code>, and specify the applicable values for <code>Quantity</code>
-   * 			and <code>Items</code>. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html">Serving Private Content
-   * 			with Signed URLs and Signed Cookies</a> in the
-   * 			<i>Amazon CloudFront Developer Guide</i>.</p>
-   * 		       <p>If you don’t want to require signed URLs in requests for objects that match
-   * 				<code>PathPattern</code>, specify <code>false</code> for <code>Enabled</code> and
-   * 				<code>0</code> for <code>Quantity</code>. Omit <code>Items</code>.</p>
-   * 		       <p>To add, change, or remove one or more trusted signers, change <code>Enabled</code> to
-   * 			<code>true</code> (if it’s currently <code>false</code>), change <code>Quantity</code>
-   * 			as applicable, and specify all of the trusted signers that you want to include in the
-   * 			updated distribution.</p>
-   */
-  TrustedSigners: TrustedSigners | undefined;
-
-  /**
-   * <p>This field is deprecated. We recommend that you use the <code>MinTTL</code> field in a cache
-   * 			policy instead of this field. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy">Creating cache policies</a> or <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html">Using the managed cache policies</a> in the
-   * 			<i>Amazon CloudFront Developer Guide</i>.</p>
-   * 		       <p>The minimum amount of time that you want objects to stay in CloudFront caches before CloudFront
-   * 			forwards another request to your origin to determine whether the object has been updated. For
-   * 			more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html">Managing How Long Content Stays
-   * 				in an Edge Cache (Expiration)</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
-   * 		       <p>You must specify <code>0</code> for <code>MinTTL</code> if you configure CloudFront to
-   * 			forward all headers to your origin (under <code>Headers</code>, if you specify <code>1</code>
-   * 			for <code>Quantity</code> and <code>*</code> for <code>Name</code>).</p>
-   */
-  MinTTL?: number;
-
-  /**
-   * <p>This field is deprecated. We recommend that you use the <code>MaxTTL</code> field in a cache
-   * 			policy instead of this field. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy">Creating cache policies</a> or <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html">Using the managed cache policies</a> in the
-   * 			<i>Amazon CloudFront Developer Guide</i>.</p>
-   * 		       <p>The maximum amount of time that you want objects to stay in CloudFront caches before CloudFront
-   * 			forwards another request to your origin to determine whether the object has been updated. The
-   * 			value that you specify applies only when your origin adds HTTP headers such as
-   * 			<code>Cache-Control max-age</code>, <code>Cache-Control s-maxage</code>, and
-   * 			<code>Expires</code> to objects. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html">Managing How Long Content Stays
-   * 				in an Edge Cache (Expiration)</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
-   */
-  MaxTTL?: number;
-
-  /**
-   * <p>Whether you want CloudFront to automatically compress certain files for this cache behavior.
-   * 			If so, specify <code>true</code>; if not, specify <code>false</code>. For more information,
-   * 			see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/ServingCompressedFiles.html">Serving Compressed Files</a> in
-   * 			the <i>Amazon CloudFront Developer Guide</i>.</p>
-   */
-  Compress?: boolean;
-
-  /**
-   * <p>A complex type that controls which HTTP methods CloudFront processes and forwards to your
-   * 			Amazon S3 bucket or your custom origin. There are three choices:</p>
-   * 		       <ul>
-   *             <li>
-   * 				           <p>CloudFront forwards only <code>GET</code> and <code>HEAD</code> requests.</p>
-   * 			         </li>
-   *             <li>
-   * 				           <p>CloudFront forwards only <code>GET</code>, <code>HEAD</code>, and <code>OPTIONS</code>
-   * 					requests.</p>
-   * 			         </li>
-   *             <li>
-   * 				           <p>CloudFront forwards <code>GET, HEAD, OPTIONS, PUT, PATCH, POST</code>, and
-   * 						<code>DELETE</code> requests.</p>
-   * 			         </li>
-   *          </ul>
-   * 		       <p>If you pick the third choice, you may need to restrict access to your Amazon S3 bucket or
-   * 			to your custom origin so users can't perform operations that you don't want them to. For
-   * 			example, you might not want users to have permissions to delete objects from your
-   * 			origin.</p>
-   */
-  AllowedMethods?: AllowedMethods;
-
-  /**
-   * <p>A complex type that contains zero or more Lambda function associations for a cache
-   * 			behavior.</p>
-   */
-  LambdaFunctionAssociations?: LambdaFunctionAssociations;
-
-  /**
    * <p>The unique identifier of the origin request policy that is attached to the default cache
    * 			behavior. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-origin-requests.html#origin-request-create-origin-request-policy">Creating origin request policies</a> or <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-origin-request-policies.html">Using the managed origin request policies</a> in the
    * 			<i>Amazon CloudFront Developer Guide</i>.</p>
    */
   OriginRequestPolicyId?: string;
-
-  /**
-   * <p>The value of <code>ID</code> for the origin that you want CloudFront to route requests to when
-   * 			they use the default cache behavior.</p>
-   */
-  TargetOriginId: string | undefined;
-
-  /**
-   * <p>This field is deprecated. We recommend that you use a cache policy or an origin request
-   * 			policy instead of this field. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/working-with-policies.html">Working with policies</a> in the
-   * 			<i>Amazon CloudFront Developer Guide</i>.</p>
-   * 		       <p>If you want to include values in the cache key, use a cache policy. For more information,
-   * 			see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy">Creating cache policies</a> or <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html">Using the managed cache policies</a> in the
-   * 			<i>Amazon CloudFront Developer Guide</i>.</p>
-   * 		       <p>If you want to send values to the origin but not include them in the cache key, use an
-   * 			origin request policy. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-origin-requests.html#origin-request-create-origin-request-policy">Creating origin request policies</a> or <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-origin-request-policies.html">Using the managed origin request policies</a> in the
-   * 			<i>Amazon CloudFront Developer Guide</i>.</p>
-   * 		       <p>A complex type that specifies how CloudFront handles query strings, cookies, and HTTP headers.</p>
-   */
-  ForwardedValues?: ForwardedValues;
-
-  /**
-   * <p>This field is deprecated. We recommend that you use the <code>DefaultTTL</code> field in a
-   * 			cache policy instead of this field. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy">Creating cache policies</a> or <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html">Using the managed cache policies</a> in the
-   * 			<i>Amazon CloudFront Developer Guide</i>.</p>
-   * 		       <p>The default amount of time that you want objects to stay in CloudFront caches before CloudFront
-   * 			forwards another request to your origin to determine whether the object has been updated. The
-   * 			value that you specify applies only when your origin does not add HTTP headers such as
-   * 				<code>Cache-Control max-age</code>, <code>Cache-Control s-maxage</code>, and
-   * 				<code>Expires</code> to objects. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html">Managing How Long Content Stays
-   * 					in an Edge Cache (Expiration)</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
-   */
-  DefaultTTL?: number;
 
   /**
    * <p>The value of <code>ID</code> for the field-level encryption configuration that you want CloudFront
@@ -2016,6 +1933,32 @@ export interface DefaultCacheBehavior {
   ViewerProtocolPolicy: ViewerProtocolPolicy | string | undefined;
 
   /**
+   * <p>This field is deprecated. We recommend that you use the <code>DefaultTTL</code> field in a
+   * 			cache policy instead of this field. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy">Creating cache policies</a> or <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html">Using the managed cache policies</a> in the
+   * 			<i>Amazon CloudFront Developer Guide</i>.</p>
+   * 		       <p>The default amount of time that you want objects to stay in CloudFront caches before CloudFront
+   * 			forwards another request to your origin to determine whether the object has been updated. The
+   * 			value that you specify applies only when your origin does not add HTTP headers such as
+   * 				<code>Cache-Control max-age</code>, <code>Cache-Control s-maxage</code>, and
+   * 				<code>Expires</code> to objects. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html">Managing How Long Content Stays
+   * 					in an Edge Cache (Expiration)</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
+   */
+  DefaultTTL?: number;
+
+  /**
+   * <p>This field is deprecated. We recommend that you use the <code>MaxTTL</code> field in a cache
+   * 			policy instead of this field. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy">Creating cache policies</a> or <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html">Using the managed cache policies</a> in the
+   * 			<i>Amazon CloudFront Developer Guide</i>.</p>
+   * 		       <p>The maximum amount of time that you want objects to stay in CloudFront caches before CloudFront
+   * 			forwards another request to your origin to determine whether the object has been updated. The
+   * 			value that you specify applies only when your origin adds HTTP headers such as
+   * 			<code>Cache-Control max-age</code>, <code>Cache-Control s-maxage</code>, and
+   * 			<code>Expires</code> to objects. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html">Managing How Long Content Stays
+   * 				in an Edge Cache (Expiration)</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
+   */
+  MaxTTL?: number;
+
+  /**
    * <p>Indicates whether you want to distribute media files in the Microsoft Smooth Streaming
    * 			format using the origin that is associated with this cache behavior. If so, specify
    * 				<code>true</code>; if not, specify <code>false</code>. If you specify <code>true</code> for
@@ -2023,6 +1966,109 @@ export interface DefaultCacheBehavior {
    * 			behavior if the content matches the value of <code>PathPattern</code>. </p>
    */
   SmoothStreaming?: boolean;
+
+  /**
+   * <p>A complex type that specifies the AWS accounts, if any, that you want to allow to
+   * 			create signed URLs for private content.</p>
+   * 		       <p>If you want to require signed URLs in requests for objects in the target origin that
+   * 			match the <code>PathPattern</code> for this cache behavior, specify <code>true</code>
+   * 			for <code>Enabled</code>, and specify the applicable values for <code>Quantity</code>
+   * 			and <code>Items</code>. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html">Serving Private Content
+   * 			with Signed URLs and Signed Cookies</a> in the
+   * 			<i>Amazon CloudFront Developer Guide</i>.</p>
+   * 		       <p>If you don’t want to require signed URLs in requests for objects that match
+   * 				<code>PathPattern</code>, specify <code>false</code> for <code>Enabled</code> and
+   * 				<code>0</code> for <code>Quantity</code>. Omit <code>Items</code>.</p>
+   * 		       <p>To add, change, or remove one or more trusted signers, change <code>Enabled</code> to
+   * 			<code>true</code> (if it’s currently <code>false</code>), change <code>Quantity</code>
+   * 			as applicable, and specify all of the trusted signers that you want to include in the
+   * 			updated distribution.</p>
+   */
+  TrustedSigners: TrustedSigners | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the real-time log configuration that is attached to this
+   * 			cache behavior. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html">Real-time logs</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
+   */
+  RealtimeLogConfigArn?: string;
+
+  /**
+   * <p>This field is deprecated. We recommend that you use the <code>MinTTL</code> field in a cache
+   * 			policy instead of this field. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy">Creating cache policies</a> or <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html">Using the managed cache policies</a> in the
+   * 			<i>Amazon CloudFront Developer Guide</i>.</p>
+   * 		       <p>The minimum amount of time that you want objects to stay in CloudFront caches before CloudFront
+   * 			forwards another request to your origin to determine whether the object has been updated. For
+   * 			more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html">Managing How Long Content Stays
+   * 				in an Edge Cache (Expiration)</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
+   * 		       <p>You must specify <code>0</code> for <code>MinTTL</code> if you configure CloudFront to
+   * 			forward all headers to your origin (under <code>Headers</code>, if you specify <code>1</code>
+   * 			for <code>Quantity</code> and <code>*</code> for <code>Name</code>).</p>
+   */
+  MinTTL?: number;
+
+  /**
+   * <p>A complex type that contains zero or more Lambda function associations for a cache
+   * 			behavior.</p>
+   */
+  LambdaFunctionAssociations?: LambdaFunctionAssociations;
+
+  /**
+   * <p>The unique identifier of the cache policy that is attached to the default cache behavior.
+   * 			For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy">Creating cache policies</a> or <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html">Using the managed cache policies</a> in the
+   * 			<i>Amazon CloudFront Developer Guide</i>.</p>
+   */
+  CachePolicyId?: string;
+
+  /**
+   * <p>The value of <code>ID</code> for the origin that you want CloudFront to route requests to when
+   * 			they use the default cache behavior.</p>
+   */
+  TargetOriginId: string | undefined;
+
+  /**
+   * <p>This field is deprecated. We recommend that you use a cache policy or an origin request
+   * 			policy instead of this field. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/working-with-policies.html">Working with policies</a> in the
+   * 			<i>Amazon CloudFront Developer Guide</i>.</p>
+   * 		       <p>If you want to include values in the cache key, use a cache policy. For more information,
+   * 			see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy">Creating cache policies</a> or <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html">Using the managed cache policies</a> in the
+   * 			<i>Amazon CloudFront Developer Guide</i>.</p>
+   * 		       <p>If you want to send values to the origin but not include them in the cache key, use an
+   * 			origin request policy. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-origin-requests.html#origin-request-create-origin-request-policy">Creating origin request policies</a> or <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-origin-request-policies.html">Using the managed origin request policies</a> in the
+   * 			<i>Amazon CloudFront Developer Guide</i>.</p>
+   * 		       <p>A complex type that specifies how CloudFront handles query strings, cookies, and HTTP headers.</p>
+   */
+  ForwardedValues?: ForwardedValues;
+
+  /**
+   * <p>Whether you want CloudFront to automatically compress certain files for this cache behavior.
+   * 			If so, specify <code>true</code>; if not, specify <code>false</code>. For more information,
+   * 			see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/ServingCompressedFiles.html">Serving Compressed Files</a> in
+   * 			the <i>Amazon CloudFront Developer Guide</i>.</p>
+   */
+  Compress?: boolean;
+
+  /**
+   * <p>A complex type that controls which HTTP methods CloudFront processes and forwards to your
+   * 			Amazon S3 bucket or your custom origin. There are three choices:</p>
+   * 		       <ul>
+   *             <li>
+   * 				           <p>CloudFront forwards only <code>GET</code> and <code>HEAD</code> requests.</p>
+   * 			         </li>
+   *             <li>
+   * 				           <p>CloudFront forwards only <code>GET</code>, <code>HEAD</code>, and <code>OPTIONS</code>
+   * 					requests.</p>
+   * 			         </li>
+   *             <li>
+   * 				           <p>CloudFront forwards <code>GET, HEAD, OPTIONS, PUT, PATCH, POST</code>, and
+   * 						<code>DELETE</code> requests.</p>
+   * 			         </li>
+   *          </ul>
+   * 		       <p>If you pick the third choice, you may need to restrict access to your Amazon S3 bucket or
+   * 			to your custom origin so users can't perform operations that you don't want them to. For
+   * 			example, you might not want users to have permissions to delete objects from your
+   * 			origin.</p>
+   */
+  AllowedMethods?: AllowedMethods;
 }
 
 export namespace DefaultCacheBehavior {
@@ -2039,6 +2085,12 @@ export type HttpVersion = "http1.1" | "http2";
  */
 export interface LoggingConfig {
   /**
+   * <p>The Amazon S3 bucket to store the access logs in, for example,
+   * 				<code>myawslogbucket.s3.amazonaws.com</code>.</p>
+   */
+  Bucket: string | undefined;
+
+  /**
    * <p>Specifies whether you want CloudFront to include cookies in access logs, specify
    * 				<code>true</code> for <code>IncludeCookies</code>. If you choose to include cookies in logs,
    * 			CloudFront logs all cookies regardless of how you configure the cache behaviors for this
@@ -2047,12 +2099,6 @@ export interface LoggingConfig {
    * 				<code>IncludeCookies</code>.</p>
    */
   IncludeCookies: boolean | undefined;
-
-  /**
-   * <p>The Amazon S3 bucket to store the access logs in, for example,
-   * 				<code>myawslogbucket.s3.amazonaws.com</code>.</p>
-   */
-  Bucket: string | undefined;
 
   /**
    * <p>Specifies whether you want CloudFront to save access logs to an Amazon S3 bucket. If you don't
@@ -2169,14 +2215,14 @@ export interface OriginGroup {
   Id: string | undefined;
 
   /**
-   * <p>A complex type that contains information about the origins in an origin group.</p>
-   */
-  Members: OriginGroupMembers | undefined;
-
-  /**
    * <p>A complex type that contains information about the failover criteria for an origin group.</p>
    */
   FailoverCriteria: OriginGroupFailoverCriteria | undefined;
+
+  /**
+   * <p>A complex type that contains information about the origins in an origin group.</p>
+   */
+  Members: OriginGroupMembers | undefined;
 }
 
 export namespace OriginGroup {
@@ -2212,17 +2258,17 @@ export namespace OriginGroups {
  */
 export interface OriginCustomHeader {
   /**
-   * <p>The value for the header that you specified in the <code>HeaderName</code>
-   * 			field.</p>
-   */
-  HeaderValue: string | undefined;
-
-  /**
    * <p>The name of a header that you want CloudFront to send to your origin. For more information, see
    * 			<a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/forward-custom-headers.html">Adding Custom
    * 			Headers to Origin Requests</a> in the <i> Amazon CloudFront Developer Guide</i>.</p>
    */
   HeaderName: string | undefined;
+
+  /**
+   * <p>The value for the header that you specified in the <code>HeaderName</code>
+   * 			field.</p>
+   */
+  HeaderValue: string | undefined;
 }
 
 export namespace OriginCustomHeader {
@@ -2265,15 +2311,15 @@ export type SslProtocol = "SSLv3" | "TLSv1" | "TLSv1.1" | "TLSv1.2";
  */
 export interface OriginSslProtocols {
   /**
+   * <p>A list that contains allowed SSL/TLS protocols for this distribution.</p>
+   */
+  Items: (SslProtocol | string)[] | undefined;
+
+  /**
    * <p>The number of SSL/TLS protocols that you want to allow CloudFront to use when establishing an
    * 			HTTPS connection with this origin. </p>
    */
   Quantity: number | undefined;
-
-  /**
-   * <p>A list that contains allowed SSL/TLS protocols for this distribution.</p>
-   */
-  Items: (SslProtocol | string)[] | undefined;
 }
 
 export namespace OriginSslProtocols {
@@ -2289,6 +2335,27 @@ export namespace OriginSslProtocols {
  *             <i>is</i> a custom origin.</p>
  */
 export interface CustomOriginConfig {
+  /**
+   * <p>The HTTPS port that CloudFront uses to connect to the origin. Specify the HTTPS port that the
+   * 			origin listens on.</p>
+   */
+  HTTPSPort: number | undefined;
+
+  /**
+   * <p>The HTTP port that CloudFront uses to connect to the origin. Specify the HTTP port that the origin
+   * 			listens on.</p>
+   */
+  HTTPPort: number | undefined;
+
+  /**
+   * <p>Specifies how long, in seconds, CloudFront persists its connection to the origin. The minimum
+   * 			timeout is 1 second, the maximum is 60 seconds, and the default (if you don’t specify
+   * 			otherwise) is 5 seconds.</p>
+   * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginKeepaliveTimeout">Origin Keep-alive Timeout</a> in the
+   * 			<i>Amazon CloudFront Developer Guide</i>.</p>
+   */
+  OriginKeepaliveTimeout?: number;
+
   /**
    * <p>Specifies the protocol (HTTP or HTTPS) that CloudFront uses to connect to the origin. Valid values
    * 			are:</p>
@@ -2311,27 +2378,6 @@ export interface CustomOriginConfig {
    *          </ul>
    */
   OriginProtocolPolicy: OriginProtocolPolicy | string | undefined;
-
-  /**
-   * <p>The HTTP port that CloudFront uses to connect to the origin. Specify the HTTP port that the origin
-   * 			listens on.</p>
-   */
-  HTTPPort: number | undefined;
-
-  /**
-   * <p>The HTTPS port that CloudFront uses to connect to the origin. Specify the HTTPS port that the
-   * 			origin listens on.</p>
-   */
-  HTTPSPort: number | undefined;
-
-  /**
-   * <p>Specifies how long, in seconds, CloudFront persists its connection to the origin. The minimum
-   * 			timeout is 1 second, the maximum is 60 seconds, and the default (if you don’t specify
-   * 			otherwise) is 5 seconds.</p>
-   * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginKeepaliveTimeout">Origin Keep-alive Timeout</a> in the
-   * 			<i>Amazon CloudFront Developer Guide</i>.</p>
-   */
-  OriginKeepaliveTimeout?: number;
 
   /**
    * <p>Specifies the minimum SSL/TLS protocol that CloudFront uses when connecting to your origin over
@@ -2435,6 +2481,26 @@ export namespace S3OriginConfig {
  */
 export interface Origin {
   /**
+   * <p>The number of seconds that CloudFront waits when trying to establish a connection to the origin.
+   * 			The minimum timeout is 1 second, the maximum is 10 seconds, and the default (if you
+   * 			don’t specify otherwise) is 10 seconds.</p>
+   * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#origin-connection-timeout">Origin Connection Timeout</a> in the
+   * 			<i>Amazon CloudFront Developer Guide</i>.</p>
+   */
+  ConnectionTimeout?: number;
+
+  /**
+   * <p>The number of times that CloudFront attempts to connect to the origin. The minimum number
+   *             is 1, the maximum is 3, and the default (if you don’t specify otherwise) is 3.</p>
+   *         <p>For a custom origin (including an Amazon S3 bucket that’s configured with static
+   *             website hosting), this value also specifies the number of times that CloudFront attempts to
+   *             get a response from the origin, in the case of an <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginResponseTimeout">Origin Response Timeout</a>.</p>
+   *         <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#origin-connection-attempts">Origin Connection Attempts</a> in the
+   * 			<i>Amazon CloudFront Developer Guide</i>.</p>
+   */
+  ConnectionAttempts?: number;
+
+  /**
    * <p>The domain name for the origin.</p>
    * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesDomainName">Origin Domain Name</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
    */
@@ -2450,33 +2516,12 @@ export interface Origin {
   S3OriginConfig?: S3OriginConfig;
 
   /**
-   * <p>Use this type to specify an origin that is a content container or HTTP server,
-   * 			including an Amazon S3 bucket that is configured with static website hosting. To specify an
-   * 			Amazon S3 bucket that is <i>
-   *                <b>not</b>
-   *             </i> configured
-   * 			with static website hosting, use the <code>S3OriginConfig</code> type instead.</p>
-   */
-  CustomOriginConfig?: CustomOriginConfig;
-
-  /**
    * <p>An optional path that CloudFront appends to the origin domain name when CloudFront requests content from
    * 			the origin.</p>
    * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginPath">Origin Path</a> in the
    * 			<i>Amazon CloudFront Developer Guide</i>.</p>
    */
   OriginPath?: string;
-
-  /**
-   * <p>The number of times that CloudFront attempts to connect to the origin. The minimum number
-   *             is 1, the maximum is 3, and the default (if you don’t specify otherwise) is 3.</p>
-   *         <p>For a custom origin (including an Amazon S3 bucket that’s configured with static
-   *             website hosting), this value also specifies the number of times that CloudFront attempts to
-   *             get a response from the origin, in the case of an <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginResponseTimeout">Origin Response Timeout</a>.</p>
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#origin-connection-attempts">Origin Connection Attempts</a> in the
-   * 			<i>Amazon CloudFront Developer Guide</i>.</p>
-   */
-  ConnectionAttempts?: number;
 
   /**
    * <p>A unique identifier for the origin. This value must be unique within the
@@ -2495,13 +2540,14 @@ export interface Origin {
   CustomHeaders?: CustomHeaders;
 
   /**
-   * <p>The number of seconds that CloudFront waits when trying to establish a connection to the origin.
-   * 			The minimum timeout is 1 second, the maximum is 10 seconds, and the default (if you
-   * 			don’t specify otherwise) is 10 seconds.</p>
-   * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#origin-connection-timeout">Origin Connection Timeout</a> in the
-   * 			<i>Amazon CloudFront Developer Guide</i>.</p>
+   * <p>Use this type to specify an origin that is a content container or HTTP server,
+   * 			including an Amazon S3 bucket that is configured with static website hosting. To specify an
+   * 			Amazon S3 bucket that is <i>
+   *                <b>not</b>
+   *             </i> configured
+   * 			with static website hosting, use the <code>S3OriginConfig</code> type instead.</p>
    */
-  ConnectionTimeout?: number;
+  CustomOriginConfig?: CustomOriginConfig;
 }
 
 export namespace Origin {
@@ -2516,14 +2562,14 @@ export namespace Origin {
  */
 export interface Origins {
   /**
-   * <p>The number of origins or origin groups for this distribution.</p>
-   */
-  Quantity: number | undefined;
-
-  /**
    * <p>A complex type that contains origins or origin groups for this distribution.</p>
    */
   Items: Origin[] | undefined;
+
+  /**
+   * <p>The number of origins or origin groups for this distribution.</p>
+   */
+  Quantity: number | undefined;
 }
 
 export namespace Origins {
@@ -2541,28 +2587,6 @@ export type GeoRestrictionType = "blacklist" | "none" | "whitelist";
  * 			determines the location of your users using <code>MaxMind</code> GeoIP databases. </p>
  */
 export interface GeoRestriction {
-  /**
-   * <p>When geo restriction is <code>enabled</code>, this is the number of countries in your
-   * 				<code>whitelist</code> or <code>blacklist</code>. Otherwise, when it is not enabled,
-   * 				<code>Quantity</code> is <code>0</code>, and you can omit <code>Items</code>.</p>
-   */
-  Quantity: number | undefined;
-
-  /**
-   * <p> A complex type that contains a <code>Location</code> element for each country in which
-   * 			you want CloudFront either to distribute your content (<code>whitelist</code>) or not distribute
-   * 			your content (<code>blacklist</code>).</p>
-   * 		       <p>The <code>Location</code> element is a two-letter, uppercase country code for a country
-   * 			that you want to include in your <code>blacklist</code> or <code>whitelist</code>. Include one
-   * 				<code>Location</code> element for each country.</p>
-   * 		       <p>CloudFront and <code>MaxMind</code> both use <code>ISO 3166</code> country codes. For the
-   * 			current list of countries and the corresponding codes, see <code>ISO 3166-1-alpha-2</code>
-   * 			code on the <i>International Organization for Standardization</i> website. You
-   * 			can also refer to the country list on the CloudFront console, which includes both country names and
-   * 			codes.</p>
-   */
-  Items?: string[];
-
   /**
    * <p>The method that you want to use to restrict distribution of your content by
    * 			country:</p>
@@ -2585,6 +2609,28 @@ export interface GeoRestriction {
    *          </ul>
    */
   RestrictionType: GeoRestrictionType | string | undefined;
+
+  /**
+   * <p> A complex type that contains a <code>Location</code> element for each country in which
+   * 			you want CloudFront either to distribute your content (<code>whitelist</code>) or not distribute
+   * 			your content (<code>blacklist</code>).</p>
+   * 		       <p>The <code>Location</code> element is a two-letter, uppercase country code for a country
+   * 			that you want to include in your <code>blacklist</code> or <code>whitelist</code>. Include one
+   * 				<code>Location</code> element for each country.</p>
+   * 		       <p>CloudFront and <code>MaxMind</code> both use <code>ISO 3166</code> country codes. For the
+   * 			current list of countries and the corresponding codes, see <code>ISO 3166-1-alpha-2</code>
+   * 			code on the <i>International Organization for Standardization</i> website. You
+   * 			can also refer to the country list on the CloudFront console, which includes both country names and
+   * 			codes.</p>
+   */
+  Items?: string[];
+
+  /**
+   * <p>When geo restriction is <code>enabled</code>, this is the number of countries in your
+   * 				<code>whitelist</code> or <code>blacklist</code>. Otherwise, when it is not enabled,
+   * 				<code>Quantity</code> is <code>0</code>, and you can omit <code>Items</code>.</p>
+   */
+  Quantity: number | undefined;
 }
 
 export namespace GeoRestriction {
@@ -2619,7 +2665,7 @@ export type MinimumProtocolVersion =
   | "TLSv1.2_2019"
   | "TLSv1_2016";
 
-export type SSLSupportMethod = "sni-only" | "vip";
+export type SSLSupportMethod = "sni-only" | "static-ip" | "vip";
 
 /**
  * <p>A complex type that determines the distribution’s SSL/TLS configuration for communicating
@@ -2692,6 +2738,75 @@ export type SSLSupportMethod = "sni-only" | "vip";
  */
 export interface ViewerCertificate {
   /**
+   * <p>If the distribution uses <code>Aliases</code> (alternate domain names or CNAMEs) and
+   * 			the SSL/TLS certificate is stored in <a href="https://docs.aws.amazon.com/acm/latest/userguide/acm-overview.html">AWS Certificate Manager (ACM)</a>, provide the Amazon Resource
+   * 			Name (ARN) of the ACM certificate. CloudFront only supports ACM certificates in the US
+   * 			East (N. Virginia) Region (<code>us-east-1</code>).</p>
+   * 		       <p>If you specify an ACM certificate ARN, you must also specify values for
+   * 			<code>MinimumProtocolVerison</code> and <code>SSLSupportMethod</code>.
+   *       </p>
+   */
+  ACMCertificateArn?: string;
+
+  /**
+   * <p>If the distribution uses <code>Aliases</code> (alternate domain names or CNAMEs),
+   * 			specify the security policy that you want CloudFront to use for HTTPS connections with
+   * 			viewers. The security policy determines two settings:</p>
+   * 		       <ul>
+   *             <li>
+   * 				           <p>The minimum SSL/TLS protocol that CloudFront can use to communicate with
+   * 					viewers.</p>
+   * 			         </li>
+   *             <li>
+   * 				           <p>The ciphers that CloudFront can use to encrypt the content that it returns to
+   * 					viewers.</p>
+   * 			         </li>
+   *          </ul>
+   * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValues-security-policy">Security Policy</a> and <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/secure-connections-supported-viewer-protocols-ciphers.html#secure-connections-supported-ciphers">Supported Protocols and Ciphers Between Viewers and
+   * 			CloudFront</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
+   * 		       <note>
+   * 			         <p>On the CloudFront console, this setting is called <b>Security
+   * 				Policy</b>.</p>
+   * 		       </note>
+   * 		       <p>When you’re using SNI only (you set <code>SSLSupportMethod</code> to <code>sni-only</code>),
+   * 			you must specify <code>TLSv1</code> or higher.
+   *       </p>
+   * 		       <p>If the distribution uses the CloudFront domain name such as
+   * 			<code>d111111abcdef8.cloudfront.net</code> (you set
+   * 			<code>CloudFrontDefaultCertificate</code> to <code>true</code>), CloudFront automatically sets
+   * 			the security policy to <code>TLSv1</code> regardless of the value that you set
+   * 			here.</p>
+   */
+  MinimumProtocolVersion?: MinimumProtocolVersion | string;
+
+  /**
+   * <p>If the distribution uses the CloudFront domain name such as
+   * 			<code>d111111abcdef8.cloudfront.net</code>, set this field to <code>true</code>.</p>
+   * 		       <p>If the distribution uses <code>Aliases</code> (alternate domain names or CNAMEs), set
+   * 			this field to <code>false</code> and specify values for the following fields:</p>
+   * 		       <ul>
+   *             <li>
+   * 				           <p>
+   *                   <code>ACMCertificateArn</code> or <code>IAMCertificateId</code> (specify a value for one,
+   * 					not both)</p>
+   *
+   * 			         </li>
+   *             <li>
+   * 				           <p>
+   *                   <code>MinimumProtocolVersion</code>
+   *                </p>
+   * 			         </li>
+   *             <li>
+   * 				           <p>
+   *                   <code>SSLSupportMethod</code>
+   *
+   *                </p>
+   * 			         </li>
+   *          </ul>
+   */
+  CloudFrontDefaultCertificate?: boolean;
+
+  /**
    * <p>This field is deprecated. Use one of the following fields instead:</p>
    * 		       <ul>
    *             <li>
@@ -2730,7 +2845,13 @@ export interface ViewerCertificate {
    *                   <code>vip</code> – The distribution accepts HTTPS connections from all viewers including
    * 					those that don’t support SNI. This is not recommended, and results in additional
    * 					monthly charges from CloudFront.</p>
-   *
+   * 			         </li>
+   *             <li>
+   * 				           <p>
+   *                   <code>static-ip</code> - Do not specify this value unless your distribution
+   * 					has been enabled for this feature by the CloudFront team. If you have a use case
+   * 					that requires static IP addresses for a distribution, contact CloudFront through
+   * 					the <a href="https://console.aws.amazon.com/support/home">AWS Support Center</a>.</p>
    * 			         </li>
    *          </ul>
    * 		       <p>If the distribution uses the CloudFront domain name such as
@@ -2772,75 +2893,6 @@ export interface ViewerCertificate {
    *       </p>
    */
   IAMCertificateId?: string;
-
-  /**
-   * <p>If the distribution uses <code>Aliases</code> (alternate domain names or CNAMEs) and
-   * 			the SSL/TLS certificate is stored in <a href="https://docs.aws.amazon.com/acm/latest/userguide/acm-overview.html">AWS Certificate Manager (ACM)</a>, provide the Amazon Resource
-   * 			Name (ARN) of the ACM certificate. CloudFront only supports ACM certificates in the US
-   * 			East (N. Virginia) Region (<code>us-east-1</code>).</p>
-   * 		       <p>If you specify an ACM certificate ARN, you must also specify values for
-   * 			<code>MinimumProtocolVerison</code> and <code>SSLSupportMethod</code>.
-   *       </p>
-   */
-  ACMCertificateArn?: string;
-
-  /**
-   * <p>If the distribution uses the CloudFront domain name such as
-   * 			<code>d111111abcdef8.cloudfront.net</code>, set this field to <code>true</code>.</p>
-   * 		       <p>If the distribution uses <code>Aliases</code> (alternate domain names or CNAMEs), set
-   * 			this field to <code>false</code> and specify values for the following fields:</p>
-   * 		       <ul>
-   *             <li>
-   * 				           <p>
-   *                   <code>ACMCertificateArn</code> or <code>IAMCertificateId</code> (specify a value for one,
-   * 					not both)</p>
-   *
-   * 			         </li>
-   *             <li>
-   * 				           <p>
-   *                   <code>MinimumProtocolVersion</code>
-   *                </p>
-   * 			         </li>
-   *             <li>
-   * 				           <p>
-   *                   <code>SSLSupportMethod</code>
-   *
-   *                </p>
-   * 			         </li>
-   *          </ul>
-   */
-  CloudFrontDefaultCertificate?: boolean;
-
-  /**
-   * <p>If the distribution uses <code>Aliases</code> (alternate domain names or CNAMEs),
-   * 			specify the security policy that you want CloudFront to use for HTTPS connections with
-   * 			viewers. The security policy determines two settings:</p>
-   * 		       <ul>
-   *             <li>
-   * 				           <p>The minimum SSL/TLS protocol that CloudFront can use to communicate with
-   * 					viewers.</p>
-   * 			         </li>
-   *             <li>
-   * 				           <p>The ciphers that CloudFront can use to encrypt the content that it returns to
-   * 					viewers.</p>
-   * 			         </li>
-   *          </ul>
-   * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValues-security-policy">Security Policy</a> and <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/secure-connections-supported-viewer-protocols-ciphers.html#secure-connections-supported-ciphers">Supported Protocols and Ciphers Between Viewers and
-   * 			CloudFront</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
-   * 		       <note>
-   * 			         <p>On the CloudFront console, this setting is called <b>Security
-   * 				Policy</b>.</p>
-   * 		       </note>
-   * 		       <p>When you’re using SNI only (you set <code>SSLSupportMethod</code> to <code>sni-only</code>),
-   * 			you must specify <code>TLSv1</code> or higher.
-   *       </p>
-   * 		       <p>If the distribution uses the CloudFront domain name such as
-   * 			<code>d111111abcdef8.cloudfront.net</code> (you set
-   * 			<code>CloudFrontDefaultCertificate</code> to <code>true</code>), CloudFront automatically sets
-   * 			the security policy to <code>TLSv1</code> regardless of the value that you set
-   * 			here.</p>
-   */
-  MinimumProtocolVersion?: MinimumProtocolVersion | string;
 }
 
 export namespace ViewerCertificate {
@@ -2854,35 +2906,39 @@ export namespace ViewerCertificate {
  */
 export interface DistributionConfig {
   /**
-   * <p>A complex type that determines the distribution’s SSL/TLS configuration for
-   * 			communicating with viewers.</p>
+   * <p>A complex type that identifies ways in which you want to restrict distribution of your
+   * 			content.</p>
    */
-  ViewerCertificate?: ViewerCertificate;
+  Restrictions?: Restrictions;
 
   /**
-   * <p>A complex type that contains information about origins for this distribution.
-   * 		</p>
+   * <p>A unique identifier that specifies the AWS WAF web ACL, if any, to associate
+   * 			with this distribution. To specify a web ACL created using the latest version of AWS
+   * 			WAF, use the ACL ARN, for example
+   * 			<code>arn:aws:wafv2:us-east-1:123456789012:global/webacl/ExampleWebACL/473e64fd-f30b-4765-81a0-62ad96dd167a</code>.
+   * 			To specify a web ACL created using AWS WAF Classic, use the ACL ID, for example
+   * 			<code>473e64fd-f30b-4765-81a0-62ad96dd167a</code>.</p>
+   * 		       <p>AWS WAF is a web application firewall that lets you monitor the HTTP and HTTPS
+   * 			requests that are forwarded to CloudFront, and lets you control access to your content. Based on
+   * 			conditions that you specify, such as the IP addresses that requests originate from or the
+   * 			values of query strings, CloudFront responds to requests either with the requested content or with
+   * 			an HTTP 403 status code (Forbidden). You can also configure CloudFront to return a custom error page
+   * 			when a request is blocked. For more information about AWS WAF, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/what-is-aws-waf.html">AWS WAF
+   * 				Developer Guide</a>. </p>
    */
-  Origins: Origins | undefined;
+  WebACLId?: string;
 
   /**
-   * <p>A complex type that controls whether access logs are written for the
-   * 			distribution.</p>
-   * 		       <p>For more information about logging, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/AccessLogs.html">Access
-   * 				Logs</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
+   * <p>(Optional) Specify the maximum HTTP version that you want viewers to use to communicate
+   * 			with CloudFront. The default value for new web distributions is http2. Viewers that don't support
+   * 			HTTP/2 automatically use an earlier HTTP version.</p>
+   * 		       <p>For viewers and CloudFront to use HTTP/2, viewers must support TLS 1.2 or later, and must
+   * 			support Server Name Identification (SNI).</p>
+   * 		       <p>In general, configuring CloudFront to communicate with viewers using HTTP/2 reduces latency.
+   * 			You can improve performance by optimizing for HTTP/2. For more information, do an Internet
+   * 			search for "http/2 optimization." </p>
    */
-  Logging?: LoggingConfig;
-
-  /**
-   * <p>Any comments you want to include about the distribution.</p>
-   * 		       <p>If you don't want to specify a comment, include an empty <code>Comment</code>
-   * 			element.</p>
-   * 		       <p>To delete an existing comment, update the distribution configuration and include an
-   * 			empty <code>Comment</code> element.</p>
-   * 		       <p>To add or change a comment, update the distribution configuration and specify the new
-   * 			comment.</p>
-   */
-  Comment: string | undefined;
+  HttpVersion?: HttpVersion | string;
 
   /**
    * <p>The object that you want CloudFront to request from your origin (for example,
@@ -2903,63 +2959,6 @@ export interface DistributionConfig {
    * 				<i>Amazon CloudFront Developer Guide</i>.</p>
    */
   DefaultRootObject?: string;
-
-  /**
-   * <p>(Optional) Specify the maximum HTTP version that you want viewers to use to communicate
-   * 			with CloudFront. The default value for new web distributions is http2. Viewers that don't support
-   * 			HTTP/2 automatically use an earlier HTTP version.</p>
-   * 		       <p>For viewers and CloudFront to use HTTP/2, viewers must support TLS 1.2 or later, and must
-   * 			support Server Name Identification (SNI).</p>
-   * 		       <p>In general, configuring CloudFront to communicate with viewers using HTTP/2 reduces latency.
-   * 			You can improve performance by optimizing for HTTP/2. For more information, do an Internet
-   * 			search for "http/2 optimization." </p>
-   */
-  HttpVersion?: HttpVersion | string;
-
-  /**
-   * <p>The price class that corresponds with the maximum price that you want to pay for CloudFront
-   * 			service. If you specify <code>PriceClass_All</code>, CloudFront responds to requests for your
-   * 			objects from all CloudFront edge locations.</p>
-   * 		       <p>If you specify a price class other than <code>PriceClass_All</code>, CloudFront serves your
-   * 			objects from the CloudFront edge location that has the lowest latency among the edge locations in
-   * 			your price class. Viewers who are in or near regions that are excluded from your specified
-   * 			price class may encounter slower performance.</p>
-   * 		       <p>For more information about price classes, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PriceClass.html">Choosing the Price Class for a CloudFront Distribution</a> in the
-   * 			<i>Amazon CloudFront Developer Guide</i>. For information about CloudFront pricing, including how price
-   * 			classes (such as Price Class 100) map to CloudFront regions, see
-   * 			<a href="http://aws.amazon.com/cloudfront/pricing/">Amazon CloudFront Pricing</a>.
-   * 			For price class information, scroll down to see the table at the bottom of the page.</p>
-   */
-  PriceClass?: PriceClass | string;
-
-  /**
-   * <p>A complex type that contains zero or more <code>CacheBehavior</code> elements.
-   * 		</p>
-   */
-  CacheBehaviors?: CacheBehaviors;
-
-  /**
-   * <p>A unique identifier that specifies the AWS WAF web ACL, if any, to associate
-   * 			with this distribution. To specify a web ACL created using the latest version of AWS
-   * 			WAF, use the ACL ARN, for example
-   * 			<code>arn:aws:wafv2:us-east-1:123456789012:global/webacl/ExampleWebACL/473e64fd-f30b-4765-81a0-62ad96dd167a</code>.
-   * 			To specify a web ACL created using AWS WAF Classic, use the ACL ID, for example
-   * 			<code>473e64fd-f30b-4765-81a0-62ad96dd167a</code>.</p>
-   * 		       <p>AWS WAF is a web application firewall that lets you monitor the HTTP and HTTPS
-   * 			requests that are forwarded to CloudFront, and lets you control access to your content. Based on
-   * 			conditions that you specify, such as the IP addresses that requests originate from or the
-   * 			values of query strings, CloudFront responds to requests either with the requested content or with
-   * 			an HTTP 403 status code (Forbidden). You can also configure CloudFront to return a custom error page
-   * 			when a request is blocked. For more information about AWS WAF, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/what-is-aws-waf.html">AWS WAF
-   * 				Developer Guide</a>. </p>
-   */
-  WebACLId?: string;
-
-  /**
-   * <p>A complex type that contains information about CNAMEs (alternate domain names), if any,
-   * 			for this distribution.</p>
-   */
-  Aliases?: Aliases;
 
   /**
    * <p>A complex type that controls the following:</p>
@@ -2984,10 +2983,35 @@ export interface DistributionConfig {
   OriginGroups?: OriginGroups;
 
   /**
-   * <p>A complex type that identifies ways in which you want to restrict distribution of your
-   * 			content.</p>
+   * <p>A complex type that controls whether access logs are written for the
+   * 			distribution.</p>
+   * 		       <p>For more information about logging, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/AccessLogs.html">Access
+   * 				Logs</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
    */
-  Restrictions?: Restrictions;
+  Logging?: LoggingConfig;
+
+  /**
+   * <p>A complex type that contains zero or more <code>CacheBehavior</code> elements.
+   * 		</p>
+   */
+  CacheBehaviors?: CacheBehaviors;
+
+  /**
+   * <p>Any comments you want to include about the distribution.</p>
+   * 		       <p>If you don't want to specify a comment, include an empty <code>Comment</code>
+   * 			element.</p>
+   * 		       <p>To delete an existing comment, update the distribution configuration and include an
+   * 			empty <code>Comment</code> element.</p>
+   * 		       <p>To add or change a comment, update the distribution configuration and specify the new
+   * 			comment.</p>
+   */
+  Comment: string | undefined;
+
+  /**
+   * <p>A complex type that contains information about origins for this distribution.
+   * 		</p>
+   */
+  Origins: Origins | undefined;
 
   /**
    * <p>From this field, you can enable or disable the selected distribution.</p>
@@ -2995,22 +3019,10 @@ export interface DistributionConfig {
   Enabled: boolean | undefined;
 
   /**
-   * <p>A complex type that describes the default cache behavior if you don't specify a
-   * 				<code>CacheBehavior</code> element or if files don't match any of the values of
-   * 				<code>PathPattern</code> in <code>CacheBehavior</code> elements. You must create exactly one
-   * 			default cache behavior.</p>
+   * <p>A complex type that determines the distribution’s SSL/TLS configuration for
+   * 			communicating with viewers.</p>
    */
-  DefaultCacheBehavior: DefaultCacheBehavior | undefined;
-
-  /**
-   * <p>A unique value (for example, a date-time stamp) that ensures that the request can't be
-   * 			replayed.</p>
-   * 		       <p>If the value of <code>CallerReference</code> is new (regardless of the content of the
-   * 				<code>DistributionConfig</code> object), CloudFront creates a new distribution.</p>
-   * 		       <p>If <code>CallerReference</code> is a value that you already sent in a previous request to
-   * 			create a distribution, CloudFront returns a <code>DistributionAlreadyExists</code> error.</p>
-   */
-  CallerReference: string | undefined;
+  ViewerCertificate?: ViewerCertificate;
 
   /**
    * <p>If you want CloudFront to respond to IPv6 DNS requests with an IPv6 address for your
@@ -3045,6 +3057,46 @@ export interface DistributionConfig {
    * 			distribution regardless of the IP address format of the viewer request.</p>
    */
   IsIPV6Enabled?: boolean;
+
+  /**
+   * <p>The price class that corresponds with the maximum price that you want to pay for CloudFront
+   * 			service. If you specify <code>PriceClass_All</code>, CloudFront responds to requests for your
+   * 			objects from all CloudFront edge locations.</p>
+   * 		       <p>If you specify a price class other than <code>PriceClass_All</code>, CloudFront serves your
+   * 			objects from the CloudFront edge location that has the lowest latency among the edge locations in
+   * 			your price class. Viewers who are in or near regions that are excluded from your specified
+   * 			price class may encounter slower performance.</p>
+   * 		       <p>For more information about price classes, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PriceClass.html">Choosing the Price Class
+   * 			for a CloudFront Distribution</a> in the <i>Amazon CloudFront Developer Guide</i>. For
+   * 			information about CloudFront pricing, including how price classes (such as Price Class 100)
+   * 			map to CloudFront regions, see <a href="http://aws.amazon.com/cloudfront/pricing/">Amazon CloudFront
+   * 			Pricing</a>.</p>
+   */
+  PriceClass?: PriceClass | string;
+
+  /**
+   * <p>A complex type that describes the default cache behavior if you don't specify a
+   * 				<code>CacheBehavior</code> element or if files don't match any of the values of
+   * 				<code>PathPattern</code> in <code>CacheBehavior</code> elements. You must create exactly one
+   * 			default cache behavior.</p>
+   */
+  DefaultCacheBehavior: DefaultCacheBehavior | undefined;
+
+  /**
+   * <p>A unique value (for example, a date-time stamp) that ensures that the request can't be
+   * 			replayed.</p>
+   * 		       <p>If the value of <code>CallerReference</code> is new (regardless of the content of the
+   * 				<code>DistributionConfig</code> object), CloudFront creates a new distribution.</p>
+   * 		       <p>If <code>CallerReference</code> is a value that you already sent in a previous request to
+   * 			create a distribution, CloudFront returns a <code>DistributionAlreadyExists</code> error.</p>
+   */
+  CallerReference: string | undefined;
+
+  /**
+   * <p>A complex type that contains information about CNAMEs (alternate domain names), if any,
+   * 			for this distribution.</p>
+   */
+  Aliases?: Aliases;
 }
 
 export namespace DistributionConfig {
@@ -3079,25 +3131,11 @@ export namespace CreateDistributionRequest {
  */
 export interface Distribution {
   /**
-   * <p>The domain name corresponding to the distribution, for example, <code>d111111abcdef8.cloudfront.net</code>. </p>
+   * <p>This response element indicates the current status of the distribution. When the status
+   * 			is <code>Deployed</code>, the distribution's information is fully propagated to all CloudFront edge
+   * 			locations. </p>
    */
-  DomainName: string | undefined;
-
-  /**
-   * <p>The date and time the distribution was last modified. </p>
-   */
-  LastModifiedTime: Date | undefined;
-
-  /**
-   * <p>CloudFront automatically adds this element to the response only if you've set up the
-   * 			distribution to serve private content with signed URLs. The element lists the key pair IDs
-   * 			that CloudFront is aware of for each trusted signer. The <code>Signer</code> child element lists the
-   * 			AWS account number of the trusted signer (or an empty <code>Self</code> element if the
-   * 			signer is you). The <code>Signer</code> element also includes the IDs of any active key pairs
-   * 			associated with the trusted signer's AWS account. If no <code>KeyPairId</code> element
-   * 			appears for a <code>Signer</code>, that signer can't create working signed URLs.</p>
-   */
-  ActiveTrustedSigners: ActiveTrustedSigners | undefined;
+  Status: string | undefined;
 
   /**
    * <p>The number of invalidation batches currently in progress. </p>
@@ -3114,11 +3152,15 @@ export interface Distribution {
   AliasICPRecordals?: AliasICPRecordal[];
 
   /**
-   * <p>The ARN (Amazon Resource Name) for the distribution. For example:
-   * 				<code>arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5</code>, where
-   * 				<code>123456789012</code> is your AWS account ID.</p>
+   * <p>CloudFront automatically adds this element to the response only if you've set up the
+   * 			distribution to serve private content with signed URLs. The element lists the key pair IDs
+   * 			that CloudFront is aware of for each trusted signer. The <code>Signer</code> child element lists the
+   * 			AWS account number of the trusted signer (or an empty <code>Self</code> element if the
+   * 			signer is you). The <code>Signer</code> element also includes the IDs of any active key pairs
+   * 			associated with the trusted signer's AWS account. If no <code>KeyPairId</code> element
+   * 			appears for a <code>Signer</code>, that signer can't create working signed URLs.</p>
    */
-  ARN: string | undefined;
+  ActiveTrustedSigners: ActiveTrustedSigners | undefined;
 
   /**
    * <p>The identifier for the distribution. For example: <code>EDFDVBD632BHDS5</code>.
@@ -3127,11 +3169,16 @@ export interface Distribution {
   Id: string | undefined;
 
   /**
-   * <p>This response element indicates the current status of the distribution. When the status
-   * 			is <code>Deployed</code>, the distribution's information is fully propagated to all CloudFront edge
-   * 			locations. </p>
+   * <p>The domain name corresponding to the distribution, for example, <code>d111111abcdef8.cloudfront.net</code>. </p>
    */
-  Status: string | undefined;
+  DomainName: string | undefined;
+
+  /**
+   * <p>The ARN (Amazon Resource Name) for the distribution. For example:
+   * 				<code>arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5</code>, where
+   * 				<code>123456789012</code> is your AWS account ID.</p>
+   */
+  ARN: string | undefined;
 
   /**
    * <p>The current configuration information for the distribution. Send a <code>GET</code>
@@ -3139,6 +3186,11 @@ export interface Distribution {
    * 			resource.</p>
    */
   DistributionConfig: DistributionConfig | undefined;
+
+  /**
+   * <p>The date and time the distribution was last modified. </p>
+   */
+  LastModifiedTime: Date | undefined;
 }
 
 export namespace Distribution {
@@ -3155,6 +3207,11 @@ export namespace Distribution {
  */
 export interface CreateDistributionResult {
   /**
+   * <p>The fully qualified URI of the new distribution resource just created.</p>
+   */
+  Location?: string;
+
+  /**
    * <p>The distribution's information.</p>
    */
   Distribution?: Distribution;
@@ -3163,11 +3220,6 @@ export interface CreateDistributionResult {
    * <p>The current version of the distribution created.</p>
    */
   ETag?: string;
-
-  /**
-   * <p>The fully qualified URI of the new distribution resource just created.</p>
-   */
-  Location?: string;
 }
 
 export namespace CreateDistributionResult {
@@ -3901,14 +3953,14 @@ export namespace Tags {
  */
 export interface DistributionConfigWithTags {
   /**
-   * <p>A distribution configuration.</p>
-   */
-  DistributionConfig: DistributionConfig | undefined;
-
-  /**
    * <p>A complex type that contains zero or more <code>Tag</code> elements.</p>
    */
   Tags: Tags | undefined;
+
+  /**
+   * <p>A distribution configuration.</p>
+   */
+  DistributionConfig: DistributionConfig | undefined;
 }
 
 export namespace DistributionConfigWithTags {
@@ -3944,6 +3996,11 @@ export namespace CreateDistributionWithTagsRequest {
  */
 export interface CreateDistributionWithTagsResult {
   /**
+   * <p>The fully qualified URI of the new distribution resource just created.</p>
+   */
+  Location?: string;
+
+  /**
    * <p>The distribution's information. </p>
    */
   Distribution?: Distribution;
@@ -3952,11 +4009,6 @@ export interface CreateDistributionWithTagsResult {
    * <p>The current version of the distribution created.</p>
    */
   ETag?: string;
-
-  /**
-   * <p>The fully qualified URI of the new distribution resource just created.</p>
-   */
-  Location?: string;
 }
 
 export namespace CreateDistributionWithTagsResult {
@@ -3988,9 +4040,9 @@ export type Format = "URLEncoded";
  */
 export interface ContentTypeProfile {
   /**
-   * <p>The content type for a field-level encryption content type-profile mapping. </p>
+   * <p>The format for a field-level encryption content type-profile mapping. </p>
    */
-  ContentType: string | undefined;
+  Format: Format | string | undefined;
 
   /**
    * <p>The profile ID for a field-level encryption content type-profile mapping. </p>
@@ -3998,9 +4050,9 @@ export interface ContentTypeProfile {
   ProfileId?: string;
 
   /**
-   * <p>The format for a field-level encryption content type-profile mapping. </p>
+   * <p>The content type for a field-level encryption content type-profile mapping. </p>
    */
-  Format: Format | string | undefined;
+  ContentType: string | undefined;
 }
 
 export namespace ContentTypeProfile {
@@ -4014,14 +4066,14 @@ export namespace ContentTypeProfile {
  */
 export interface ContentTypeProfiles {
   /**
-   * <p>Items in a field-level encryption content type-profile mapping. </p>
-   */
-  Items?: ContentTypeProfile[];
-
-  /**
    * <p>The number of field-level encryption content type-profile mappings. </p>
    */
   Quantity: number | undefined;
+
+  /**
+   * <p>Items in a field-level encryption content type-profile mapping. </p>
+   */
+  Items?: ContentTypeProfile[];
 }
 
 export namespace ContentTypeProfiles {
@@ -4059,14 +4111,14 @@ export namespace ContentTypeProfileConfig {
  */
 export interface QueryArgProfile {
   /**
-   * <p>ID of profile to use for field-level encryption query argument-profile mapping</p>
-   */
-  ProfileId: string | undefined;
-
-  /**
    * <p>Query argument for field-level encryption query argument-profile mapping.</p>
    */
   QueryArg: string | undefined;
+
+  /**
+   * <p>ID of profile to use for field-level encryption query argument-profile mapping</p>
+   */
+  ProfileId: string | undefined;
 }
 
 export namespace QueryArgProfile {
@@ -4080,14 +4132,14 @@ export namespace QueryArgProfile {
  */
 export interface QueryArgProfiles {
   /**
-   * <p>Number of profiles for query argument-profile mapping for field-level encryption.</p>
-   */
-  Quantity: number | undefined;
-
-  /**
    * <p>Number of items for query argument-profile mapping for field-level encryption.</p>
    */
   Items?: QueryArgProfile[];
+
+  /**
+   * <p>Number of profiles for query argument-profile mapping for field-level encryption.</p>
+   */
+  Quantity: number | undefined;
 }
 
 export namespace QueryArgProfiles {
@@ -4123,6 +4175,12 @@ export namespace QueryArgProfileConfig {
  */
 export interface FieldLevelEncryptionConfig {
   /**
+   * <p>A complex data type that specifies when to forward content if a content type isn't recognized and profiles to use as by default
+   * 			in a request if a query argument doesn't specify a profile to use.</p>
+   */
+  ContentTypeProfileConfig?: ContentTypeProfileConfig;
+
+  /**
    * <p>A unique number that ensures the request can't be replayed.</p>
    */
   CallerReference: string | undefined;
@@ -4137,12 +4195,6 @@ export interface FieldLevelEncryptionConfig {
    * 			query argument in a request.</p>
    */
   QueryArgProfileConfig?: QueryArgProfileConfig;
-
-  /**
-   * <p>A complex data type that specifies when to forward content if a content type isn't recognized and profiles to use as by default
-   * 			in a request if a query argument doesn't specify a profile to use.</p>
-   */
-  ContentTypeProfileConfig?: ContentTypeProfileConfig;
 }
 
 export namespace FieldLevelEncryptionConfig {
@@ -4169,11 +4221,6 @@ export namespace CreateFieldLevelEncryptionConfigRequest {
  */
 export interface FieldLevelEncryption {
   /**
-   * <p>The last time the field-level encryption configuration was changed. </p>
-   */
-  LastModifiedTime: Date | undefined;
-
-  /**
    * <p>A complex data type that includes the profile configurations specified for field-level encryption. </p>
    */
   FieldLevelEncryptionConfig: FieldLevelEncryptionConfig | undefined;
@@ -4183,6 +4230,11 @@ export interface FieldLevelEncryption {
    * 		selected data fields to be encrypted by specific public keys.</p>
    */
   Id: string | undefined;
+
+  /**
+   * <p>The last time the field-level encryption configuration was changed. </p>
+   */
+  LastModifiedTime: Date | undefined;
 }
 
 export namespace FieldLevelEncryption {
@@ -4198,14 +4250,14 @@ export interface CreateFieldLevelEncryptionConfigResult {
   Location?: string;
 
   /**
-   * <p>The current version of the field level encryption configuration. For example: <code>E2QWRUHAPOMQZL</code>.</p>
-   */
-  ETag?: string;
-
-  /**
    * <p>Returned when you create a new field-level encryption configuration.</p>
    */
   FieldLevelEncryption?: FieldLevelEncryption;
+
+  /**
+   * <p>The current version of the field level encryption configuration. For example: <code>E2QWRUHAPOMQZL</code>.</p>
+   */
+  ETag?: string;
 }
 
 export namespace CreateFieldLevelEncryptionConfigResult {
@@ -4330,10 +4382,10 @@ export namespace FieldPatterns {
  */
 export interface EncryptionEntity {
   /**
-   * <p>The provider associated with the public key being used for encryption. This value must also be provided with the private key
-   * 		for applications to be able to decrypt data.</p>
+   * <p>The public key associated with a set of field-level encryption patterns, to be used when encrypting the fields that match
+   * 			the patterns. </p>
    */
-  ProviderId: string | undefined;
+  PublicKeyId: string | undefined;
 
   /**
    * <p>Field patterns in a field-level encryption content type profile specify the fields that you want to be encrypted. You can provide the
@@ -4343,10 +4395,10 @@ export interface EncryptionEntity {
   FieldPatterns: FieldPatterns | undefined;
 
   /**
-   * <p>The public key associated with a set of field-level encryption patterns, to be used when encrypting the fields that match
-   * 			the patterns. </p>
+   * <p>The provider associated with the public key being used for encryption. This value must also be provided with the private key
+   * 		for applications to be able to decrypt data.</p>
    */
-  PublicKeyId: string | undefined;
+  ProviderId: string | undefined;
 }
 
 export namespace EncryptionEntity {
@@ -4360,14 +4412,14 @@ export namespace EncryptionEntity {
  */
 export interface EncryptionEntities {
   /**
-   * <p>Number of field pattern items in a field-level encryption content type-profile mapping. </p>
-   */
-  Quantity: number | undefined;
-
-  /**
    * <p>An array of field patterns in a field-level encryption content type-profile mapping. </p>
    */
   Items?: EncryptionEntity[];
+
+  /**
+   * <p>Number of field pattern items in a field-level encryption content type-profile mapping. </p>
+   */
+  Quantity: number | undefined;
 }
 
 export namespace EncryptionEntities {
@@ -4381,15 +4433,15 @@ export namespace EncryptionEntities {
  */
 export interface FieldLevelEncryptionProfileConfig {
   /**
+   * <p>A unique number that ensures that the request can't be replayed.</p>
+   */
+  CallerReference: string | undefined;
+
+  /**
    * <p>A complex data type of encryption entities for the field-level encryption profile that include the public key ID, provider, and
    * 			field patterns for specifying which fields to encrypt with this key.</p>
    */
   EncryptionEntities: EncryptionEntities | undefined;
-
-  /**
-   * <p>A unique number that ensures that the request can't be replayed.</p>
-   */
-  CallerReference: string | undefined;
 
   /**
    * <p>Profile name for the field-level encryption profile.</p>
@@ -4426,9 +4478,10 @@ export namespace CreateFieldLevelEncryptionProfileRequest {
  */
 export interface FieldLevelEncryptionProfile {
   /**
-   * <p>A complex data type that includes the profile name and the encryption entities for the field-level encryption profile.</p>
+   * <p>The ID for a field-level encryption profile configuration which includes a set of profiles that specify certain
+   * 			selected data fields to be encrypted by specific public keys.</p>
    */
-  FieldLevelEncryptionProfileConfig: FieldLevelEncryptionProfileConfig | undefined;
+  Id: string | undefined;
 
   /**
    * <p>The last time the field-level encryption profile was updated.</p>
@@ -4436,10 +4489,9 @@ export interface FieldLevelEncryptionProfile {
   LastModifiedTime: Date | undefined;
 
   /**
-   * <p>The ID for a field-level encryption profile configuration which includes a set of profiles that specify certain
-   * 			selected data fields to be encrypted by specific public keys.</p>
+   * <p>A complex data type that includes the profile name and the encryption entities for the field-level encryption profile.</p>
    */
-  Id: string | undefined;
+  FieldLevelEncryptionProfileConfig: FieldLevelEncryptionProfileConfig | undefined;
 }
 
 export namespace FieldLevelEncryptionProfile {
@@ -4450,9 +4502,9 @@ export namespace FieldLevelEncryptionProfile {
 
 export interface CreateFieldLevelEncryptionProfileResult {
   /**
-   * <p>Returned when you create a new field-level encryption profile.</p>
+   * <p>The fully qualified URI of the new profile resource just created.</p>
    */
-  FieldLevelEncryptionProfile?: FieldLevelEncryptionProfile;
+  Location?: string;
 
   /**
    * <p>The current version of the field level encryption profile. For example: <code>E2QWRUHAPOMQZL</code>.</p>
@@ -4460,9 +4512,9 @@ export interface CreateFieldLevelEncryptionProfileResult {
   ETag?: string;
 
   /**
-   * <p>The fully qualified URI of the new profile resource just created.</p>
+   * <p>Returned when you create a new field-level encryption profile.</p>
    */
-  Location?: string;
+  FieldLevelEncryptionProfile?: FieldLevelEncryptionProfile;
 }
 
 export namespace CreateFieldLevelEncryptionProfileResult {
@@ -4568,14 +4620,14 @@ export namespace TooManyFieldLevelEncryptionProfiles {
  */
 export interface Paths {
   /**
-   * <p>A complex type that contains a list of the paths that you want to invalidate.</p>
-   */
-  Items?: string[];
-
-  /**
    * <p>The number of invalidation paths specified for the objects that you want to invalidate.</p>
    */
   Quantity: number | undefined;
+
+  /**
+   * <p>A complex type that contains a list of the paths that you want to invalidate.</p>
+   */
+  Items?: string[];
 }
 
 export namespace Paths {
@@ -4588,13 +4640,6 @@ export namespace Paths {
  * <p>An invalidation batch.</p>
  */
 export interface InvalidationBatch {
-  /**
-   * <p>A complex type that contains information about the objects that you want to invalidate.
-   * 			For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Invalidation.html#invalidation-specifying-objects">Specifying the Objects
-   * 				to Invalidate</a> in the <i>Amazon CloudFront Developer Guide</i>. </p>
-   */
-  Paths: Paths | undefined;
-
   /**
    * <p>A value that you specify to uniquely identify an invalidation request. CloudFront uses the
    * 			value to prevent you from accidentally resubmitting an identical request. Whenever you create
@@ -4611,6 +4656,13 @@ export interface InvalidationBatch {
    * 			CloudFront returns an <code>InvalidationBatchAlreadyExists</code> error.</p>
    */
   CallerReference: string | undefined;
+
+  /**
+   * <p>A complex type that contains information about the objects that you want to invalidate.
+   * 			For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Invalidation.html#invalidation-specifying-objects">Specifying the Objects
+   * 				to Invalidate</a> in the <i>Amazon CloudFront Developer Guide</i>. </p>
+   */
+  Paths: Paths | undefined;
 }
 
 export namespace InvalidationBatch {
@@ -4645,10 +4697,10 @@ export namespace CreateInvalidationRequest {
  */
 export interface Invalidation {
   /**
-   * <p>The identifier for the invalidation request. For example:
-   * 			<code>IDFDVBD632BHDS5</code>.</p>
+   * <p>The status of the invalidation request. When the invalidation batch is finished, the
+   * 			status is <code>Completed</code>.</p>
    */
-  Id: string | undefined;
+  Status: string | undefined;
 
   /**
    * <p>The current invalidation information for the batch request. </p>
@@ -4656,15 +4708,15 @@ export interface Invalidation {
   InvalidationBatch: InvalidationBatch | undefined;
 
   /**
+   * <p>The identifier for the invalidation request. For example:
+   * 			<code>IDFDVBD632BHDS5</code>.</p>
+   */
+  Id: string | undefined;
+
+  /**
    * <p>The date and time the invalidation request was first made. </p>
    */
   CreateTime: Date | undefined;
-
-  /**
-   * <p>The status of the invalidation request. When the invalidation batch is finished, the
-   * 			status is <code>Completed</code>.</p>
-   */
-  Status: string | undefined;
 }
 
 export namespace Invalidation {
@@ -4725,6 +4777,78 @@ export namespace TooManyInvalidationsInProgress {
   });
 }
 
+export enum RealtimeMetricsSubscriptionStatus {
+  Disabled = "Disabled",
+  Enabled = "Enabled",
+}
+
+/**
+ * <p>A subscription configuration for additional CloudWatch metrics.</p>
+ */
+export interface RealtimeMetricsSubscriptionConfig {
+  /**
+   * <p>A flag that indicates whether additional CloudWatch metrics are enabled for a given
+   * 			CloudFront distribution.</p>
+   */
+  RealtimeMetricsSubscriptionStatus: RealtimeMetricsSubscriptionStatus | string | undefined;
+}
+
+export namespace RealtimeMetricsSubscriptionConfig {
+  export const filterSensitiveLog = (obj: RealtimeMetricsSubscriptionConfig): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A monitoring subscription. This structure contains information about whether additional
+ * 			CloudWatch metrics are enabled for a given CloudFront distribution.</p>
+ */
+export interface MonitoringSubscription {
+  /**
+   * <p>A subscription configuration for additional CloudWatch metrics.</p>
+   */
+  RealtimeMetricsSubscriptionConfig?: RealtimeMetricsSubscriptionConfig;
+}
+
+export namespace MonitoringSubscription {
+  export const filterSensitiveLog = (obj: MonitoringSubscription): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateMonitoringSubscriptionRequest {
+  /**
+   * <p>A monitoring subscription. This structure contains information about whether additional
+   * 			CloudWatch metrics are enabled for a given CloudFront distribution.</p>
+   */
+  MonitoringSubscription: MonitoringSubscription | undefined;
+
+  /**
+   * <p>The ID of the distribution that you are enabling metrics for.</p>
+   */
+  DistributionId: string | undefined;
+}
+
+export namespace CreateMonitoringSubscriptionRequest {
+  export const filterSensitiveLog = (obj: CreateMonitoringSubscriptionRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateMonitoringSubscriptionResult {
+  /**
+   * <p>A monitoring subscription. This structure contains information about whether additional
+   * 			CloudWatch metrics are enabled for a given CloudFront distribution.</p>
+   */
+  MonitoringSubscription?: MonitoringSubscription;
+}
+
+export namespace CreateMonitoringSubscriptionResult {
+  export const filterSensitiveLog = (obj: CreateMonitoringSubscriptionResult): any => ({
+    ...obj,
+  });
+}
+
 export type OriginRequestPolicyCookieBehavior = "all" | "none" | "whitelist";
 
 /**
@@ -4779,6 +4903,11 @@ export type OriginRequestPolicyHeaderBehavior = "allViewer" | "allViewerAndWhite
  */
 export interface OriginRequestPolicyHeadersConfig {
   /**
+   * <p>Contains a list of HTTP header names.</p>
+   */
+  Headers?: Headers;
+
+  /**
    * <p>Determines whether any HTTP headers are included in requests that CloudFront sends to the origin.
    * 			Valid values are:</p>
    * 		       <ul>
@@ -4810,11 +4939,6 @@ export interface OriginRequestPolicyHeadersConfig {
    *          </ul>
    */
   HeaderBehavior: OriginRequestPolicyHeaderBehavior | string | undefined;
-
-  /**
-   * <p>Contains a list of HTTP header names.</p>
-   */
-  Headers?: Headers;
 }
 
 export namespace OriginRequestPolicyHeadersConfig {
@@ -4830,12 +4954,6 @@ export type OriginRequestPolicyQueryStringBehavior = "all" | "none" | "whitelist
  * 			query strings) are included in requests that CloudFront sends to the origin.</p>
  */
 export interface OriginRequestPolicyQueryStringsConfig {
-  /**
-   * <p>Contains a list of the query strings in viewer requests that are included in requests that
-   * 			CloudFront sends to the origin.</p>
-   */
-  QueryStrings?: QueryStringNames;
-
   /**
    * <p>Determines whether any URL query strings in viewer requests are included in requests that
    * 			CloudFront sends to the origin. Valid values are:</p>
@@ -4861,6 +4979,12 @@ export interface OriginRequestPolicyQueryStringsConfig {
    *          </ul>
    */
   QueryStringBehavior: OriginRequestPolicyQueryStringBehavior | string | undefined;
+
+  /**
+   * <p>Contains a list of the query strings in viewer requests that are included in requests that
+   * 			CloudFront sends to the origin.</p>
+   */
+  QueryStrings?: QueryStringNames;
 }
 
 export namespace OriginRequestPolicyQueryStringsConfig {
@@ -4891,13 +5015,18 @@ export namespace OriginRequestPolicyQueryStringsConfig {
  *          </ul>
  * 		       <p>CloudFront sends a request when it can’t find an object in its cache that matches the request. If
  * 			you want to send values to the origin and also include them in the cache key, use
- * 			<code>CreateCachePolicy</code>.</p>
+ * 			<code>CachePolicy</code>.</p>
  */
 export interface OriginRequestPolicyConfig {
   /**
-   * <p>The cookies from viewer requests to include in origin requests.</p>
+   * <p>The URL query strings from viewer requests to include in origin requests.</p>
    */
-  CookiesConfig: OriginRequestPolicyCookiesConfig | undefined;
+  QueryStringsConfig: OriginRequestPolicyQueryStringsConfig | undefined;
+
+  /**
+   * <p>A unique name to identify the origin request policy.</p>
+   */
+  Name: string | undefined;
 
   /**
    * <p>The HTTP headers to include in origin requests. These can include headers from viewer
@@ -4911,14 +5040,9 @@ export interface OriginRequestPolicyConfig {
   Comment?: string;
 
   /**
-   * <p>The URL query strings from viewer requests to include in origin requests.</p>
+   * <p>The cookies from viewer requests to include in origin requests.</p>
    */
-  QueryStringsConfig: OriginRequestPolicyQueryStringsConfig | undefined;
-
-  /**
-   * <p>A unique name to identify the origin request policy.</p>
-   */
-  Name: string | undefined;
+  CookiesConfig: OriginRequestPolicyCookiesConfig | undefined;
 }
 
 export namespace OriginRequestPolicyConfig {
@@ -4963,7 +5087,7 @@ export namespace CreateOriginRequestPolicyRequest {
  *          </ul>
  * 		       <p>CloudFront sends a request when it can’t find an object in its cache that matches the request. If
  * 			you want to send values to the origin and also include them in the cache key, use
- * 			<code>CreateCachePolicy</code>.</p>
+ * 			<code>CachePolicy</code>.</p>
  */
 export interface OriginRequestPolicy {
   /**
@@ -4990,6 +5114,11 @@ export namespace OriginRequestPolicy {
 
 export interface CreateOriginRequestPolicyResult {
   /**
+   * <p>The current version of the origin request policy.</p>
+   */
+  ETag?: string;
+
+  /**
    * <p>An origin request policy.</p>
    */
   OriginRequestPolicy?: OriginRequestPolicy;
@@ -4998,11 +5127,6 @@ export interface CreateOriginRequestPolicyResult {
    * <p>The fully qualified URI of the origin request policy just created.</p>
    */
   Location?: string;
-
-  /**
-   * <p>The current version of the origin request policy.</p>
-   */
-  ETag?: string;
 }
 
 export namespace CreateOriginRequestPolicyResult {
@@ -5101,6 +5225,11 @@ export namespace TooManyQueryStringsInOriginRequestPolicy {
  */
 export interface PublicKeyConfig {
   /**
+   * <p>A unique number that ensures that the request can't be replayed.</p>
+   */
+  CallerReference: string | undefined;
+
+  /**
    * <p>An optional comment about a public key.</p>
    */
   Comment?: string;
@@ -5114,11 +5243,6 @@ export interface PublicKeyConfig {
    * <p>The name for a public key you add to CloudFront to use with features like field-level encryption.</p>
    */
   Name: string | undefined;
-
-  /**
-   * <p>A unique number that ensures that the request can't be replayed.</p>
-   */
-  CallerReference: string | undefined;
 }
 
 export namespace PublicKeyConfig {
@@ -5145,11 +5269,6 @@ export namespace CreatePublicKeyRequest {
  */
 export interface PublicKey {
   /**
-   * <p>A complex data type for a public key you add to CloudFront to use with features like field-level encryption.</p>
-   */
-  PublicKeyConfig: PublicKeyConfig | undefined;
-
-  /**
    * <p>A time you added a public key to CloudFront.</p>
    */
   CreatedTime: Date | undefined;
@@ -5158,6 +5277,11 @@ export interface PublicKey {
    * <p>A unique ID assigned to a public key you've added to CloudFront.</p>
    */
   Id: string | undefined;
+
+  /**
+   * <p>A complex data type for a public key you add to CloudFront to use with features like field-level encryption.</p>
+   */
+  PublicKeyConfig: PublicKeyConfig | undefined;
 }
 
 export namespace PublicKey {
@@ -5173,14 +5297,14 @@ export interface CreatePublicKeyResult {
   Location?: string;
 
   /**
-   * <p>Returned when you add a public key.</p>
-   */
-  PublicKey?: PublicKey;
-
-  /**
    * <p>The current version of the public key. For example: <code>E2QWRUHAPOMQZL</code>.</p>
    */
   ETag?: string;
+
+  /**
+   * <p>Returned when you add a public key.</p>
+   */
+  PublicKey?: PublicKey;
 }
 
 export namespace CreatePublicKeyResult {
@@ -5220,16 +5344,182 @@ export namespace TooManyPublicKeys {
 }
 
 /**
+ * <p>Contains information about the Amazon Kinesis data stream where you are sending
+ * 			real-time log data.</p>
+ */
+export interface KinesisStreamConfig {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Kinesis data stream where you are sending real-time
+   * 			log data.</p>
+   */
+  StreamARN: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of an AWS Identity and Access Management (IAM) role that
+   * 			CloudFront can use to send real-time log data to your Kinesis data stream.</p>
+   * 		       <p>For more information the IAM role, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-iam-role">Real-time log configuration IAM role</a> in the
+   * 			<i>Amazon CloudFront Developer Guide</i>.</p>
+   */
+  RoleARN: string | undefined;
+}
+
+export namespace KinesisStreamConfig {
+  export const filterSensitiveLog = (obj: KinesisStreamConfig): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains information about the Amazon Kinesis data stream where you are sending real-time
+ * 			log data in a real-time log configuration.</p>
+ */
+export interface EndPoint {
+  /**
+   * <p>Contains information about the Amazon Kinesis data stream where you are sending
+   * 			real-time log data.</p>
+   */
+  KinesisStreamConfig?: KinesisStreamConfig;
+
+  /**
+   * <p>The type of data stream where you are sending real-time log data. The only valid value is
+   * 			<code>Kinesis</code>.</p>
+   */
+  StreamType: string | undefined;
+}
+
+export namespace EndPoint {
+  export const filterSensitiveLog = (obj: EndPoint): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateRealtimeLogConfigRequest {
+  /**
+   * <p>A unique name to identify this real-time log configuration.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The sampling rate for this real-time log configuration. The sampling rate determines the
+   * 			percentage of viewer requests that are represented in the real-time log data. You must
+   * 			provide an integer between 1 and 100, inclusive.</p>
+   */
+  SamplingRate: number | undefined;
+
+  /**
+   * <p>Contains information about the Amazon Kinesis data stream where you are sending real-time
+   * 			log data.</p>
+   */
+  EndPoints: EndPoint[] | undefined;
+
+  /**
+   * <p>A list of fields to include in each real-time log record.</p>
+   * 		       <p>For more information about fields, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-fields">Real-time log configuration fields</a> in the
+   * 			<i>Amazon CloudFront Developer Guide</i>.</p>
+   */
+  Fields: string[] | undefined;
+}
+
+export namespace CreateRealtimeLogConfigRequest {
+  export const filterSensitiveLog = (obj: CreateRealtimeLogConfigRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A real-time log configuration.</p>
+ */
+export interface RealtimeLogConfig {
+  /**
+   * <p>The unique name of this real-time log configuration.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The sampling rate for this real-time log configuration. The sampling rate determines the
+   * 			percentage of viewer requests that are represented in the real-time log data. The
+   * 			sampling rate is an integer between 1 and 100, inclusive.</p>
+   */
+  SamplingRate: number | undefined;
+
+  /**
+   * <p>A list of fields that are included in each real-time log record. In an API response, the
+   * 			fields are provided in the same order in which they are sent to the Amazon Kinesis data
+   * 			stream.</p>
+   * 		       <p>For more information about fields, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-fields">Real-time log configuration fields</a> in the
+   * 			<i>Amazon CloudFront Developer Guide</i>.</p>
+   */
+  Fields: string[] | undefined;
+
+  /**
+   * <p>Contains information about the Amazon Kinesis data stream where you are sending real-time
+   * 			log data for this real-time log configuration.</p>
+   */
+  EndPoints: EndPoint[] | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of this real-time log configuration.</p>
+   */
+  ARN: string | undefined;
+}
+
+export namespace RealtimeLogConfig {
+  export const filterSensitiveLog = (obj: RealtimeLogConfig): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateRealtimeLogConfigResult {
+  /**
+   * <p>A real-time log configuration.</p>
+   */
+  RealtimeLogConfig?: RealtimeLogConfig;
+}
+
+export namespace CreateRealtimeLogConfigResult {
+  export const filterSensitiveLog = (obj: CreateRealtimeLogConfigResult): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A real-time log configuration with this name already exists. You must provide a unique name.
+ * 			To modify an existing real-time log configuration, use
+ * 			<code>UpdateRealtimeLogConfig</code>.</p>
+ */
+export interface RealtimeLogConfigAlreadyExists extends __SmithyException, $MetadataBearer {
+  name: "RealtimeLogConfigAlreadyExists";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace RealtimeLogConfigAlreadyExists {
+  export const filterSensitiveLog = (obj: RealtimeLogConfigAlreadyExists): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>You have reached the maximum number of real-time log configurations for this AWS account.
+ * 			For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
+ * 			<i>Amazon CloudFront Developer Guide</i>.</p>
+ */
+export interface TooManyRealtimeLogConfigs extends __SmithyException, $MetadataBearer {
+  name: "TooManyRealtimeLogConfigs";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace TooManyRealtimeLogConfigs {
+  export const filterSensitiveLog = (obj: TooManyRealtimeLogConfigs): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>A complex type that controls whether access logs are written for this streaming distribution.</p>
  */
 export interface StreamingLoggingConfig {
-  /**
-   * <p>An optional string that you want CloudFront to prefix to the access log filenames for this streaming distribution, for example,
-   * 			<code>myprefix/</code>. If you want to enable logging, but you don't want to specify a prefix, you still must include
-   * 			an empty <code>Prefix</code> element in the <code>Logging</code> element.</p>
-   */
-  Prefix: string | undefined;
-
   /**
    * <p>The Amazon S3 bucket to store the access logs in, for example, <code>myawslogbucket.s3.amazonaws.com</code>.</p>
    */
@@ -5245,6 +5535,13 @@ export interface StreamingLoggingConfig {
    * 		</p>
    */
   Enabled: boolean | undefined;
+
+  /**
+   * <p>An optional string that you want CloudFront to prefix to the access log filenames for this streaming distribution, for example,
+   * 			<code>myprefix/</code>. If you want to enable logging, but you don't want to specify a prefix, you still must include
+   * 			an empty <code>Prefix</code> element in the <code>Logging</code> element.</p>
+   */
+  Prefix: string | undefined;
 }
 
 export namespace StreamingLoggingConfig {
@@ -5258,6 +5555,11 @@ export namespace StreamingLoggingConfig {
  * 			CloudFront to get your media files for distribution.</p>
  */
 export interface S3Origin {
+  /**
+   * <p>The DNS name of the Amazon S3 origin. </p>
+   */
+  DomainName: string | undefined;
+
   /**
    * <p>The CloudFront origin access identity to associate with the distribution. Use an origin
    * 			access identity to configure the distribution so that end users can only access objects in an
@@ -5274,11 +5576,6 @@ export interface S3Origin {
    * 				Amazon CloudFront Developer Guide</i>.</p>
    */
   OriginAccessIdentity: string | undefined;
-
-  /**
-   * <p>The DNS name of the Amazon S3 origin. </p>
-   */
-  DomainName: string | undefined;
 }
 
 export namespace S3Origin {
@@ -5291,6 +5588,29 @@ export namespace S3Origin {
  * <p>The RTMP distribution's configuration information.</p>
  */
 export interface StreamingDistributionConfig {
+  /**
+   * <p>A complex type that contains information about the Amazon S3 bucket from which you want
+   * 			CloudFront to get your media files for distribution. </p>
+   */
+  S3Origin: S3Origin | undefined;
+
+  /**
+   * <p>Any comments you want to include about the streaming distribution. </p>
+   */
+  Comment: string | undefined;
+
+  /**
+   * <p>A complex type that contains information about price class for this streaming
+   * 			distribution. </p>
+   */
+  PriceClass?: PriceClass | string;
+
+  /**
+   * <p>A complex type that controls whether access logs are written for the streaming
+   * 			distribution. </p>
+   */
+  Logging?: StreamingLoggingConfig;
+
   /**
    * <p>A complex type that contains information about CNAMEs (alternate domain names), if any,
    * 			for this streaming distribution. </p>
@@ -5321,29 +5641,6 @@ export interface StreamingDistributionConfig {
    * 			content.</p>
    */
   Enabled: boolean | undefined;
-
-  /**
-   * <p>A complex type that controls whether access logs are written for the streaming
-   * 			distribution. </p>
-   */
-  Logging?: StreamingLoggingConfig;
-
-  /**
-   * <p>A complex type that contains information about the Amazon S3 bucket from which you want
-   * 			CloudFront to get your media files for distribution. </p>
-   */
-  S3Origin: S3Origin | undefined;
-
-  /**
-   * <p>A complex type that contains information about price class for this streaming
-   * 			distribution. </p>
-   */
-  PriceClass?: PriceClass | string;
-
-  /**
-   * <p>Any comments you want to include about the streaming distribution. </p>
-   */
-  Comment: string | undefined;
 }
 
 export namespace StreamingDistributionConfig {
@@ -5374,33 +5671,6 @@ export namespace CreateStreamingDistributionRequest {
  */
 export interface StreamingDistribution {
   /**
-   * <p>The date and time that the distribution was last modified. </p>
-   */
-  LastModifiedTime?: Date;
-
-  /**
-   * <p>The current configuration information for the RTMP distribution.</p>
-   */
-  StreamingDistributionConfig: StreamingDistributionConfig | undefined;
-
-  /**
-   * <p>The domain name that corresponds to the streaming distribution, for example, <code>s5c39gqb8ow64r.cloudfront.net</code>. </p>
-   */
-  DomainName: string | undefined;
-
-  /**
-   * <p>The identifier for the RTMP distribution. For example:
-   * 			<code>EGTXBD79EXAMPLE</code>.</p>
-   */
-  Id: string | undefined;
-
-  /**
-   * <p>The current status of the RTMP distribution. When the status is <code>Deployed</code>,
-   * 			the distribution's information is propagated to all CloudFront edge locations.</p>
-   */
-  Status: string | undefined;
-
-  /**
    * <p>A complex type that lists the AWS accounts, if any, that you included in the
    * 				<code>TrustedSigners</code> complex type for this distribution. These are the accounts that
    * 			you want to allow to create signed URLs for private content.</p>
@@ -5415,11 +5685,38 @@ export interface StreamingDistribution {
   ActiveTrustedSigners: ActiveTrustedSigners | undefined;
 
   /**
+   * <p>The domain name that corresponds to the streaming distribution, for example, <code>s5c39gqb8ow64r.cloudfront.net</code>. </p>
+   */
+  DomainName: string | undefined;
+
+  /**
+   * <p>The current status of the RTMP distribution. When the status is <code>Deployed</code>,
+   * 			the distribution's information is propagated to all CloudFront edge locations.</p>
+   */
+  Status: string | undefined;
+
+  /**
+   * <p>The date and time that the distribution was last modified. </p>
+   */
+  LastModifiedTime?: Date;
+
+  /**
+   * <p>The identifier for the RTMP distribution. For example:
+   * 			<code>EGTXBD79EXAMPLE</code>.</p>
+   */
+  Id: string | undefined;
+
+  /**
    * <p>The ARN (Amazon Resource Name) for the distribution. For example:
    * 			<code>arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5</code>, where
    * 			<code>123456789012</code> is your AWS account ID.</p>
    */
   ARN: string | undefined;
+
+  /**
+   * <p>The current configuration information for the RTMP distribution.</p>
+   */
+  StreamingDistributionConfig: StreamingDistributionConfig | undefined;
 }
 
 export namespace StreamingDistribution {
@@ -5433,14 +5730,14 @@ export namespace StreamingDistribution {
  */
 export interface CreateStreamingDistributionResult {
   /**
-   * <p>The fully qualified URI of the new streaming distribution resource just created.</p>
-   */
-  Location?: string;
-
-  /**
    * <p>The streaming distribution's information.</p>
    */
   StreamingDistribution?: StreamingDistribution;
+
+  /**
+   * <p>The fully qualified URI of the new streaming distribution resource just created.</p>
+   */
+  Location?: string;
 
   /**
    * <p>The current version of the streaming distribution created.</p>
@@ -5543,14 +5840,14 @@ export namespace CreateStreamingDistributionWithTagsRequest {
  */
 export interface CreateStreamingDistributionWithTagsResult {
   /**
-   * <p>The streaming distribution's information. </p>
-   */
-  StreamingDistribution?: StreamingDistribution;
-
-  /**
    * <p>The fully qualified URI of the new streaming distribution resource just created.</p>
    */
   Location?: string;
+
+  /**
+   * <p>The streaming distribution's information. </p>
+   */
+  StreamingDistribution?: StreamingDistribution;
 
   /**
    * <p>The current version of the distribution created.</p>
@@ -5836,13 +6133,28 @@ export namespace FieldLevelEncryptionProfileInUse {
   });
 }
 
-export interface DeleteOriginRequestPolicyRequest {
+export interface DeleteMonitoringSubscriptionRequest {
   /**
-   * <p>The unique identifier for the origin request policy that you are deleting. To get the
-   * 			identifier, you can use <code>ListOriginRequestPolicies</code>.</p>
+   * <p>The ID of the distribution that you are disabling metrics for.</p>
    */
-  Id: string | undefined;
+  DistributionId: string | undefined;
+}
 
+export namespace DeleteMonitoringSubscriptionRequest {
+  export const filterSensitiveLog = (obj: DeleteMonitoringSubscriptionRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteMonitoringSubscriptionResult {}
+
+export namespace DeleteMonitoringSubscriptionResult {
+  export const filterSensitiveLog = (obj: DeleteMonitoringSubscriptionResult): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteOriginRequestPolicyRequest {
   /**
    * <p>The version of the origin request policy that you are deleting. The version is the origin
    * 			request policy’s <code>ETag</code> value, which you can get using
@@ -5850,6 +6162,12 @@ export interface DeleteOriginRequestPolicyRequest {
    * 			<code>GetOriginRequestPolicyConfig</code>.</p>
    */
   IfMatch?: string;
+
+  /**
+   * <p>The unique identifier for the origin request policy that you are deleting. To get the
+   * 			identifier, you can use <code>ListOriginRequestPolicies</code>.</p>
+   */
+  Id: string | undefined;
 }
 
 export namespace DeleteOriginRequestPolicyRequest {
@@ -5904,6 +6222,55 @@ export interface PublicKeyInUse extends __SmithyException, $MetadataBearer {
 
 export namespace PublicKeyInUse {
   export const filterSensitiveLog = (obj: PublicKeyInUse): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteRealtimeLogConfigRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the real-time log configuration to delete.</p>
+   */
+  ARN?: string;
+
+  /**
+   * <p>The name of the real-time log configuration to delete.</p>
+   */
+  Name?: string;
+}
+
+export namespace DeleteRealtimeLogConfigRequest {
+  export const filterSensitiveLog = (obj: DeleteRealtimeLogConfigRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The real-time log configuration does not exist.</p>
+ */
+export interface NoSuchRealtimeLogConfig extends __SmithyException, $MetadataBearer {
+  name: "NoSuchRealtimeLogConfig";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace NoSuchRealtimeLogConfig {
+  export const filterSensitiveLog = (obj: NoSuchRealtimeLogConfig): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Cannot delete the real-time log configuration because it is attached to one or more cache
+ * 			behaviors.</p>
+ */
+export interface RealtimeLogConfigInUse extends __SmithyException, $MetadataBearer {
+  name: "RealtimeLogConfigInUse";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace RealtimeLogConfigInUse {
+  export const filterSensitiveLog = (obj: RealtimeLogConfigInUse): any => ({
     ...obj,
   });
 }
@@ -5980,14 +6347,14 @@ export namespace GetCachePolicyRequest {
 
 export interface GetCachePolicyResult {
   /**
-   * <p>The current version of the cache policy.</p>
-   */
-  ETag?: string;
-
-  /**
    * <p>The cache policy.</p>
    */
   CachePolicy?: CachePolicy;
+
+  /**
+   * <p>The current version of the cache policy.</p>
+   */
+  ETag?: string;
 }
 
 export namespace GetCachePolicyResult {
@@ -6015,14 +6382,14 @@ export namespace GetCachePolicyConfigRequest {
 
 export interface GetCachePolicyConfigResult {
   /**
-   * <p>The current version of the cache policy.</p>
-   */
-  ETag?: string;
-
-  /**
    * <p>The cache policy configuration.</p>
    */
   CachePolicyConfig?: CachePolicyConfig;
+
+  /**
+   * <p>The current version of the cache policy.</p>
+   */
+  ETag?: string;
 }
 
 export namespace GetCachePolicyConfigResult {
@@ -6091,15 +6458,15 @@ export namespace GetCloudFrontOriginAccessIdentityConfigRequest {
  */
 export interface GetCloudFrontOriginAccessIdentityConfigResult {
   /**
-   * <p>The origin access identity's configuration information. </p>
-   */
-  CloudFrontOriginAccessIdentityConfig?: CloudFrontOriginAccessIdentityConfig;
-
-  /**
    * <p>The current version of the configuration. For example:
    * 			<code>E2QWRUHAPOMQZL</code>.</p>
    */
   ETag?: string;
+
+  /**
+   * <p>The origin access identity's configuration information. </p>
+   */
+  CloudFrontOriginAccessIdentityConfig?: CloudFrontOriginAccessIdentityConfig;
 }
 
 export namespace GetCloudFrontOriginAccessIdentityConfigResult {
@@ -6129,15 +6496,15 @@ export namespace GetDistributionRequest {
  */
 export interface GetDistributionResult {
   /**
+   * <p>The distribution's information.</p>
+   */
+  Distribution?: Distribution;
+
+  /**
    * <p>The current version of the distribution's information. For example:
    * 				<code>E2QWRUHAPOMQZL</code>.</p>
    */
   ETag?: string;
-
-  /**
-   * <p>The distribution's information.</p>
-   */
-  Distribution?: Distribution;
 }
 
 export namespace GetDistributionResult {
@@ -6234,14 +6601,14 @@ export namespace GetFieldLevelEncryptionConfigRequest {
 
 export interface GetFieldLevelEncryptionConfigResult {
   /**
-   * <p>The current version of the field level encryption configuration. For example: <code>E2QWRUHAPOMQZL</code>.</p>
-   */
-  ETag?: string;
-
-  /**
    * <p>Return the field-level encryption configuration information.</p>
    */
   FieldLevelEncryptionConfig?: FieldLevelEncryptionConfig;
+
+  /**
+   * <p>The current version of the field level encryption configuration. For example: <code>E2QWRUHAPOMQZL</code>.</p>
+   */
+  ETag?: string;
 }
 
 export namespace GetFieldLevelEncryptionConfigResult {
@@ -6265,14 +6632,14 @@ export namespace GetFieldLevelEncryptionProfileRequest {
 
 export interface GetFieldLevelEncryptionProfileResult {
   /**
-   * <p>Return the field-level encryption profile information.</p>
-   */
-  FieldLevelEncryptionProfile?: FieldLevelEncryptionProfile;
-
-  /**
    * <p>The current version of the field level encryption profile. For example: <code>E2QWRUHAPOMQZL</code>.</p>
    */
   ETag?: string;
+
+  /**
+   * <p>Return the field-level encryption profile information.</p>
+   */
+  FieldLevelEncryptionProfile?: FieldLevelEncryptionProfile;
 }
 
 export namespace GetFieldLevelEncryptionProfileResult {
@@ -6317,15 +6684,15 @@ export namespace GetFieldLevelEncryptionProfileConfigResult {
  */
 export interface GetInvalidationRequest {
   /**
+   * <p>The distribution's ID.</p>
+   */
+  DistributionId: string | undefined;
+
+  /**
    * <p>The identifier for the invalidation request, for example,
    * 			<code>IDFDVBD632BHDS5</code>.</p>
    */
   Id: string | undefined;
-
-  /**
-   * <p>The distribution's ID.</p>
-   */
-  DistributionId: string | undefined;
 }
 
 export namespace GetInvalidationRequest {
@@ -6361,6 +6728,33 @@ export interface NoSuchInvalidation extends __SmithyException, $MetadataBearer {
 
 export namespace NoSuchInvalidation {
   export const filterSensitiveLog = (obj: NoSuchInvalidation): any => ({
+    ...obj,
+  });
+}
+
+export interface GetMonitoringSubscriptionRequest {
+  /**
+   * <p>The ID of the distribution that you are getting metrics information for.</p>
+   */
+  DistributionId: string | undefined;
+}
+
+export namespace GetMonitoringSubscriptionRequest {
+  export const filterSensitiveLog = (obj: GetMonitoringSubscriptionRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface GetMonitoringSubscriptionResult {
+  /**
+   * <p>A monitoring subscription. This structure contains information about whether additional
+   * 			CloudWatch metrics are enabled for a given CloudFront distribution.</p>
+   */
+  MonitoringSubscription?: MonitoringSubscription;
+}
+
+export namespace GetMonitoringSubscriptionResult {
+  export const filterSensitiveLog = (obj: GetMonitoringSubscriptionResult): any => ({
     ...obj,
   });
 }
@@ -6419,14 +6813,14 @@ export namespace GetOriginRequestPolicyConfigRequest {
 
 export interface GetOriginRequestPolicyConfigResult {
   /**
-   * <p>The origin request policy configuration.</p>
-   */
-  OriginRequestPolicyConfig?: OriginRequestPolicyConfig;
-
-  /**
    * <p>The current version of the origin request policy.</p>
    */
   ETag?: string;
+
+  /**
+   * <p>The origin request policy configuration.</p>
+   */
+  OriginRequestPolicyConfig?: OriginRequestPolicyConfig;
 }
 
 export namespace GetOriginRequestPolicyConfigResult {
@@ -6450,14 +6844,14 @@ export namespace GetPublicKeyRequest {
 
 export interface GetPublicKeyResult {
   /**
-   * <p>Return the public key.</p>
-   */
-  PublicKey?: PublicKey;
-
-  /**
    * <p>The current version of the public key. For example: <code>E2QWRUHAPOMQZL</code>.</p>
    */
   ETag?: string;
+
+  /**
+   * <p>Return the public key.</p>
+   */
+  PublicKey?: PublicKey;
 }
 
 export namespace GetPublicKeyResult {
@@ -6497,6 +6891,37 @@ export namespace GetPublicKeyConfigResult {
   });
 }
 
+export interface GetRealtimeLogConfigRequest {
+  /**
+   * <p>The name of the real-time log configuration to get.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the real-time log configuration to get.</p>
+   */
+  ARN?: string;
+}
+
+export namespace GetRealtimeLogConfigRequest {
+  export const filterSensitiveLog = (obj: GetRealtimeLogConfigRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface GetRealtimeLogConfigResult {
+  /**
+   * <p>A real-time log configuration.</p>
+   */
+  RealtimeLogConfig?: RealtimeLogConfig;
+}
+
+export namespace GetRealtimeLogConfigResult {
+  export const filterSensitiveLog = (obj: GetRealtimeLogConfigResult): any => ({
+    ...obj,
+  });
+}
+
 /**
  * <p>The request to get a streaming distribution's information.</p>
  */
@@ -6518,15 +6943,15 @@ export namespace GetStreamingDistributionRequest {
  */
 export interface GetStreamingDistributionResult {
   /**
-   * <p>The streaming distribution's information.</p>
-   */
-  StreamingDistribution?: StreamingDistribution;
-
-  /**
    * <p>The current version of the streaming distribution's information. For example:
    * 				<code>E2QWRUHAPOMQZL</code>.</p>
    */
   ETag?: string;
+
+  /**
+   * <p>The streaming distribution's information.</p>
+   */
+  StreamingDistribution?: StreamingDistribution;
 }
 
 export namespace GetStreamingDistributionResult {
@@ -6575,14 +7000,6 @@ export namespace GetStreamingDistributionConfigResult {
 
 export interface ListCachePoliciesRequest {
   /**
-   * <p>Use this field when paginating results to indicate where to begin in your list of
-   * 			cache policies. The response includes cache policies in the list that occur after the
-   * 			marker. To get the next page of the list, set this field’s value to the value of
-   * 			<code>NextMarker</code> from the current page’s response.</p>
-   */
-  Marker?: string;
-
-  /**
    * <p>The maximum number of cache policies that you want in the response.</p>
    */
   MaxItems?: string;
@@ -6603,6 +7020,14 @@ export interface ListCachePoliciesRequest {
    *          </ul>
    */
   Type?: CachePolicyType | string;
+
+  /**
+   * <p>Use this field when paginating results to indicate where to begin in your list of
+   * 			cache policies. The response includes cache policies in the list that occur after the
+   * 			marker. To get the next page of the list, set this field’s value to the value of
+   * 			<code>NextMarker</code> from the current page’s response.</p>
+   */
+  Marker?: string;
 }
 
 export namespace ListCachePoliciesRequest {
@@ -6629,12 +7054,6 @@ export namespace ListCachePoliciesResult {
  */
 export interface ListCloudFrontOriginAccessIdentitiesRequest {
   /**
-   * <p>The maximum number of origin access identities you want in the response body.
-   * 		</p>
-   */
-  MaxItems?: string;
-
-  /**
    * <p>Use this when paginating results to indicate where to begin in your list of origin
    * 			access identities. The results include identities in the list that occur after the marker. To
    * 			get the next page of results, set the <code>Marker</code> to the value of the
@@ -6642,6 +7061,12 @@ export interface ListCloudFrontOriginAccessIdentitiesRequest {
    * 			identity on that page).</p>
    */
   Marker?: string;
+
+  /**
+   * <p>The maximum number of origin access identities you want in the response body.
+   * 		</p>
+   */
+  MaxItems?: string;
 }
 
 export namespace ListCloudFrontOriginAccessIdentitiesRequest {
@@ -6690,10 +7115,11 @@ export namespace CloudFrontOriginAccessIdentitySummary {
  */
 export interface CloudFrontOriginAccessIdentityList {
   /**
-   * <p>The maximum number of origin access identities you want in the response body.
-   * 		</p>
+   * <p>If <code>IsTruncated</code> is <code>true</code>, this element is present and contains
+   * 			the value you can use for the <code>Marker</code> request parameter to continue listing your
+   * 			origin access identities where they left off. </p>
    */
-  MaxItems: number | undefined;
+  NextMarker?: string;
 
   /**
    * <p>A complex type that contains one <code>CloudFrontOriginAccessIdentitySummary</code>
@@ -6710,13 +7136,10 @@ export interface CloudFrontOriginAccessIdentityList {
   IsTruncated: boolean | undefined;
 
   /**
-   * <p>Use this when paginating results to indicate where to begin in your list of origin
-   * 			access identities. The results include identities in the list that occur after the marker. To
-   * 			get the next page of results, set the <code>Marker</code> to the value of the
-   * 				<code>NextMarker</code> from the current page's response (which is also the ID of the last
-   * 			identity on that page). </p>
+   * <p>The maximum number of origin access identities you want in the response body.
+   * 		</p>
    */
-  Marker: string | undefined;
+  MaxItems: number | undefined;
 
   /**
    * <p>The number of CloudFront origin access identities that were created by the current AWS
@@ -6725,11 +7148,13 @@ export interface CloudFrontOriginAccessIdentityList {
   Quantity: number | undefined;
 
   /**
-   * <p>If <code>IsTruncated</code> is <code>true</code>, this element is present and contains
-   * 			the value you can use for the <code>Marker</code> request parameter to continue listing your
-   * 			origin access identities where they left off. </p>
+   * <p>Use this when paginating results to indicate where to begin in your list of origin
+   * 			access identities. The results include identities in the list that occur after the marker. To
+   * 			get the next page of results, set the <code>Marker</code> to the value of the
+   * 				<code>NextMarker</code> from the current page's response (which is also the ID of the last
+   * 			identity on that page). </p>
    */
-  NextMarker?: string;
+  Marker: string | undefined;
 }
 
 export namespace CloudFrontOriginAccessIdentityList {
@@ -6759,11 +7184,6 @@ export namespace ListCloudFrontOriginAccessIdentitiesResult {
  */
 export interface ListDistributionsRequest {
   /**
-   * <p>The maximum number of distributions you want in the response body.</p>
-   */
-  MaxItems?: string;
-
-  /**
    * <p>Use this when paginating results to indicate where to begin in your list of
    * 			distributions. The results include distributions in the list that occur after the marker. To
    * 			get the next page of results, set the <code>Marker</code> to the value of the
@@ -6771,6 +7191,11 @@ export interface ListDistributionsRequest {
    * 			distribution on that page).</p>
    */
   Marker?: string;
+
+  /**
+   * <p>The maximum number of distributions you want in the response body.</p>
+   */
+  MaxItems?: string;
 }
 
 export namespace ListDistributionsRequest {
@@ -6784,23 +7209,32 @@ export namespace ListDistributionsRequest {
  */
 export interface DistributionSummary {
   /**
-   * <p>The ARN (Amazon Resource Name) for the distribution. For example:
-   * 				<code>arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5</code>, where
-   * 				<code>123456789012</code> is your AWS account ID.</p>
+   * <p>The Web ACL Id (if any) associated with the distribution.</p>
    */
-  ARN: string | undefined;
+  WebACLId: string | undefined;
 
   /**
-   * <p>The identifier for the distribution. For example:
-   * 			<code>EDFDVBD632BHDS5</code>.</p>
+   * <p>A complex type that contains information about CNAMEs (alternate domain names), if any,
+   * 			for this distribution.</p>
    */
-  Id: string | undefined;
+  Aliases: Aliases | undefined;
 
   /**
-   * <p> A complex type that contains information about origin groups for this
+   * <p>The domain name that corresponds to the distribution, for example, <code>d111111abcdef8.cloudfront.net</code>.</p>
+   */
+  DomainName: string | undefined;
+
+  /**
+   * <p>A complex type that determines the distribution’s SSL/TLS configuration for
+   * 			communicating with viewers.</p>
+   */
+  ViewerCertificate: ViewerCertificate | undefined;
+
+  /**
+   * <p>Whether CloudFront responds to IPv6 DNS requests with an IPv6 address for your
    * 			distribution.</p>
    */
-  OriginGroups?: OriginGroups;
+  IsIPV6Enabled: boolean | undefined;
 
   /**
    * <p>A complex type that describes the default cache behavior if you don't specify a
@@ -6811,9 +7245,10 @@ export interface DistributionSummary {
   DefaultCacheBehavior: DefaultCacheBehavior | undefined;
 
   /**
-   * <p>Whether the distribution is enabled to accept user requests for content.</p>
+   * <p>The identifier for the distribution. For example:
+   * 			<code>EDFDVBD632BHDS5</code>.</p>
    */
-  Enabled: boolean | undefined;
+  Id: string | undefined;
 
   /**
    * <p>A complex type that contains zero or more <code>CustomErrorResponses</code>
@@ -6822,25 +7257,37 @@ export interface DistributionSummary {
   CustomErrorResponses: CustomErrorResponses | undefined;
 
   /**
-   * <p>The comment originally specified when this distribution was created.</p>
+   * <p>Whether the distribution is enabled to accept user requests for content.</p>
    */
-  Comment: string | undefined;
+  Enabled: boolean | undefined;
 
   /**
-   * <p>The date and time the distribution was last modified.</p>
+   * <p> A complex type that contains information about origin groups for this
+   * 			distribution.</p>
    */
-  LastModifiedTime: Date | undefined;
+  OriginGroups?: OriginGroups;
 
   /**
-   * <p>A complex type that contains information about origins for this distribution.</p>
+   * <p>The current status of the distribution. When the status is <code>Deployed</code>, the
+   * 			distribution's information is propagated to all CloudFront edge locations.</p>
    */
-  Origins: Origins | undefined;
+  Status: string | undefined;
 
   /**
    * <p>A complex type that contains zero or more <code>CacheBehavior</code>
    * 			elements.</p>
    */
   CacheBehaviors: CacheBehaviors | undefined;
+
+  /**
+   * <p>The comment originally specified when this distribution was created.</p>
+   */
+  Comment: string | undefined;
+
+  /**
+   * <p>A complex type that contains information about origins for this distribution.</p>
+   */
+  Origins: Origins | undefined;
 
   /**
    * <p>A complex type that contains information about price class for this streaming
@@ -6856,16 +7303,17 @@ export interface DistributionSummary {
   HttpVersion: HttpVersion | string | undefined;
 
   /**
-   * <p>Whether CloudFront responds to IPv6 DNS requests with an IPv6 address for your
-   * 			distribution.</p>
+   * <p>The ARN (Amazon Resource Name) for the distribution. For example:
+   * 				<code>arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5</code>, where
+   * 				<code>123456789012</code> is your AWS account ID.</p>
    */
-  IsIPV6Enabled: boolean | undefined;
+  ARN: string | undefined;
 
   /**
-   * <p>A complex type that determines the distribution’s SSL/TLS configuration for
-   * 			communicating with viewers.</p>
+   * <p>A complex type that identifies ways in which you want to restrict distribution of your
+   * 			content.</p>
    */
-  ViewerCertificate: ViewerCertificate | undefined;
+  Restrictions: Restrictions | undefined;
 
   /**
    * <p>AWS services in China customers must file for an Internet Content Provider (ICP) recordal if they want to serve content
@@ -6877,32 +7325,9 @@ export interface DistributionSummary {
   AliasICPRecordals?: AliasICPRecordal[];
 
   /**
-   * <p>The current status of the distribution. When the status is <code>Deployed</code>, the
-   * 			distribution's information is propagated to all CloudFront edge locations.</p>
+   * <p>The date and time the distribution was last modified.</p>
    */
-  Status: string | undefined;
-
-  /**
-   * <p>A complex type that identifies ways in which you want to restrict distribution of your
-   * 			content.</p>
-   */
-  Restrictions: Restrictions | undefined;
-
-  /**
-   * <p>The Web ACL Id (if any) associated with the distribution.</p>
-   */
-  WebACLId: string | undefined;
-
-  /**
-   * <p>The domain name that corresponds to the distribution, for example, <code>d111111abcdef8.cloudfront.net</code>.</p>
-   */
-  DomainName: string | undefined;
-
-  /**
-   * <p>A complex type that contains information about CNAMEs (alternate domain names), if any,
-   * 			for this distribution.</p>
-   */
-  Aliases: Aliases | undefined;
+  LastModifiedTime: Date | undefined;
 }
 
 export namespace DistributionSummary {
@@ -6916,9 +7341,17 @@ export namespace DistributionSummary {
  */
 export interface DistributionList {
   /**
-   * <p>The value you provided for the <code>MaxItems</code> request parameter.</p>
+   * <p>If <code>IsTruncated</code> is <code>true</code>, this element is present and contains
+   * 			the value you can use for the <code>Marker</code> request parameter to continue listing your
+   * 			distributions where they left off. </p>
    */
-  MaxItems: number | undefined;
+  NextMarker?: string;
+
+  /**
+   * <p>A complex type that contains one <code>DistributionSummary</code> element for each
+   * 			distribution that was created by the current AWS account.</p>
+   */
+  Items?: DistributionSummary[];
 
   /**
    * <p>A flag that indicates whether more distributions remain to be listed. If your results
@@ -6928,22 +7361,14 @@ export interface DistributionList {
   IsTruncated: boolean | undefined;
 
   /**
-   * <p>A complex type that contains one <code>DistributionSummary</code> element for each
-   * 			distribution that was created by the current AWS account.</p>
-   */
-  Items?: DistributionSummary[];
-
-  /**
-   * <p>If <code>IsTruncated</code> is <code>true</code>, this element is present and contains
-   * 			the value you can use for the <code>Marker</code> request parameter to continue listing your
-   * 			distributions where they left off. </p>
-   */
-  NextMarker?: string;
-
-  /**
    * <p>The value you provided for the <code>Marker</code> request parameter.</p>
    */
   Marker: string | undefined;
+
+  /**
+   * <p>The value you provided for the <code>MaxItems</code> request parameter.</p>
+   */
+  MaxItems: number | undefined;
 
   /**
    * <p>The number of distributions that were created by the current AWS account. </p>
@@ -6983,14 +7408,14 @@ export interface ListDistributionsByCachePolicyIdRequest {
   Marker?: string;
 
   /**
-   * <p>The maximum number of distribution IDs that you want in the response.</p>
-   */
-  MaxItems?: string;
-
-  /**
    * <p>The ID of the cache policy whose associated distribution IDs you want to list.</p>
    */
   CachePolicyId: string | undefined;
+
+  /**
+   * <p>The maximum number of distribution IDs that you want in the response.</p>
+   */
+  MaxItems?: string;
 }
 
 export namespace ListDistributionsByCachePolicyIdRequest {
@@ -7004,15 +7429,16 @@ export namespace ListDistributionsByCachePolicyIdRequest {
  */
 export interface DistributionIdList {
   /**
-   * <p>The total number of distribution IDs returned in the response.</p>
+   * <p>The maximum number of distribution IDs requested.</p>
    */
-  Quantity: number | undefined;
+  MaxItems: number | undefined;
 
   /**
-   * <p>Contains the value that you should use in the <code>Marker</code> field of a
-   * 			subsequent request to continue listing distribution IDs where you left off.</p>
+   * <p>A flag that indicates whether more distribution IDs remain to be listed. If your
+   * 			results were truncated, you can make a subsequent request using the <code>Marker</code>
+   * 			request field to retrieve more distribution IDs in the list.</p>
    */
-  NextMarker?: string;
+  IsTruncated: boolean | undefined;
 
   /**
    * <p>Contains the distribution IDs in the list.</p>
@@ -7025,16 +7451,15 @@ export interface DistributionIdList {
   Marker: string | undefined;
 
   /**
-   * <p>A flag that indicates whether more distribution IDs remain to be listed. If your
-   * 			results were truncated, you can make a subsequent request using the <code>Marker</code>
-   * 			request field to retrieve more distribution IDs in the list.</p>
+   * <p>The total number of distribution IDs returned in the response.</p>
    */
-  IsTruncated: boolean | undefined;
+  Quantity: number | undefined;
 
   /**
-   * <p>The maximum number of distribution IDs requested.</p>
+   * <p>Contains the value that you should use in the <code>Marker</code> field of a
+   * 			subsequent request to continue listing distribution IDs where you left off.</p>
    */
-  MaxItems: number | undefined;
+  NextMarker?: string;
 }
 
 export namespace DistributionIdList {
@@ -7058,14 +7483,6 @@ export namespace ListDistributionsByCachePolicyIdResult {
 
 export interface ListDistributionsByOriginRequestPolicyIdRequest {
   /**
-   * <p>Use this field when paginating results to indicate where to begin in your list of
-   * 			distribution IDs. The response includes distribution IDs in the list that occur after
-   * 			the marker. To get the next page of the list, set this field’s value to the value of
-   * 			<code>NextMarker</code> from the current page’s response.</p>
-   */
-  Marker?: string;
-
-  /**
    * <p>The ID of the origin request policy whose associated distribution IDs you want to
    * 			list.</p>
    */
@@ -7075,6 +7492,14 @@ export interface ListDistributionsByOriginRequestPolicyIdRequest {
    * <p>The maximum number of distribution IDs that you want in the response.</p>
    */
   MaxItems?: string;
+
+  /**
+   * <p>Use this field when paginating results to indicate where to begin in your list of
+   * 			distribution IDs. The response includes distribution IDs in the list that occur after
+   * 			the marker. To get the next page of the list, set this field’s value to the value of
+   * 			<code>NextMarker</code> from the current page’s response.</p>
+   */
+  Marker?: string;
 }
 
 export namespace ListDistributionsByOriginRequestPolicyIdRequest {
@@ -7096,596 +7521,35 @@ export namespace ListDistributionsByOriginRequestPolicyIdResult {
   });
 }
 
-/**
- * <p>The request to list distributions that are associated with a specified AWS WAF web
- * 			ACL. </p>
- */
-export interface ListDistributionsByWebACLIdRequest {
+export interface ListDistributionsByRealtimeLogConfigRequest {
   /**
-   * <p>Use <code>Marker</code> and <code>MaxItems</code> to control pagination of results. If
-   * 			you have more than <code>MaxItems</code> distributions that satisfy the request, the response
-   * 			includes a <code>NextMarker</code> element. To get the next page of results, submit another
-   * 			request. For the value of <code>Marker</code>, specify the value of <code>NextMarker</code>
-   * 			from the last response. (For the first request, omit <code>Marker</code>.) </p>
+   * <p>The Amazon Resource Name (ARN) of the real-time log configuration whose associated
+   * 			distributions you want to list.</p>
    */
-  Marker?: string;
-
-  /**
-   * <p>The ID of the AWS WAF web ACL that you want to list the associated distributions.
-   * 			If you specify "null" for the ID, the request returns a list of the distributions that aren't
-   * 			associated with a web ACL. </p>
-   */
-  WebACLId: string | undefined;
-
-  /**
-   * <p>The maximum number of distributions that you want CloudFront to return in the response body.
-   * 			The maximum and default values are both 100.</p>
-   */
-  MaxItems?: string;
-}
-
-export namespace ListDistributionsByWebACLIdRequest {
-  export const filterSensitiveLog = (obj: ListDistributionsByWebACLIdRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The response to a request to list the distributions that are associated with a
- * 			specified AWS WAF web ACL. </p>
- */
-export interface ListDistributionsByWebACLIdResult {
-  /**
-   * <p>The <code>DistributionList</code> type. </p>
-   */
-  DistributionList?: DistributionList;
-}
-
-export namespace ListDistributionsByWebACLIdResult {
-  export const filterSensitiveLog = (obj: ListDistributionsByWebACLIdResult): any => ({
-    ...obj,
-  });
-}
-
-export interface ListFieldLevelEncryptionConfigsRequest {
-  /**
-   * <p>Use this when paginating results to indicate where to begin in your list of configurations. The results include configurations in the list that
-   * 			occur after the marker. To get the next page of results, set the <code>Marker</code> to the value of the
-   * 			<code>NextMarker</code> from the current page's response (which is also the ID of the last configuration on that page). </p>
-   */
-  Marker?: string;
-
-  /**
-   * <p>The maximum number of field-level encryption configurations you want in the response body. </p>
-   */
-  MaxItems?: string;
-}
-
-export namespace ListFieldLevelEncryptionConfigsRequest {
-  export const filterSensitiveLog = (obj: ListFieldLevelEncryptionConfigsRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>A summary of a field-level encryption item.</p>
- */
-export interface FieldLevelEncryptionSummary {
-  /**
-   * <p>An optional comment about the field-level encryption item.</p>
-   */
-  Comment?: string;
-
-  /**
-   * <p>The unique ID of a field-level encryption item.</p>
-   */
-  Id: string | undefined;
-
-  /**
-   * <p>
-   * 			A summary of a content type-profile mapping.
-   * 		</p>
-   */
-  ContentTypeProfileConfig?: ContentTypeProfileConfig;
-
-  /**
-   * <p>
-   * 			A summary of a query argument-profile mapping.
-   * 		</p>
-   */
-  QueryArgProfileConfig?: QueryArgProfileConfig;
-
-  /**
-   * <p>The last time that the summary of field-level encryption items was modified.</p>
-   */
-  LastModifiedTime: Date | undefined;
-}
-
-export namespace FieldLevelEncryptionSummary {
-  export const filterSensitiveLog = (obj: FieldLevelEncryptionSummary): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>List of field-level encrpytion configurations.</p>
- */
-export interface FieldLevelEncryptionList {
-  /**
-   * <p>The maximum number of elements you want in the response body. </p>
-   */
-  MaxItems: number | undefined;
-
-  /**
-   * <p>The number of field-level encryption items.</p>
-   */
-  Quantity: number | undefined;
-
-  /**
-   * <p>An array of field-level encryption items.</p>
-   */
-  Items?: FieldLevelEncryptionSummary[];
-
-  /**
-   * <p>If there are more elements to be listed, this element is present and contains
-   * 			the value that you can use for the <code>Marker</code> request parameter to continue
-   * 			listing your configurations where you left off.</p>
-   */
-  NextMarker?: string;
-}
-
-export namespace FieldLevelEncryptionList {
-  export const filterSensitiveLog = (obj: FieldLevelEncryptionList): any => ({
-    ...obj,
-  });
-}
-
-export interface ListFieldLevelEncryptionConfigsResult {
-  /**
-   * <p>Returns a list of all field-level encryption configurations that have been created in CloudFront for this account.</p>
-   */
-  FieldLevelEncryptionList?: FieldLevelEncryptionList;
-}
-
-export namespace ListFieldLevelEncryptionConfigsResult {
-  export const filterSensitiveLog = (obj: ListFieldLevelEncryptionConfigsResult): any => ({
-    ...obj,
-  });
-}
-
-export interface ListFieldLevelEncryptionProfilesRequest {
-  /**
-   * <p>Use this when paginating results to indicate where to begin in your list of profiles. The results include profiles in the list that
-   * 			occur after the marker. To get the next page of results, set the <code>Marker</code> to the value of the
-   * 			<code>NextMarker</code> from the current page's response (which is also the ID of the last profile on that page). </p>
-   */
-  Marker?: string;
-
-  /**
-   * <p>The maximum number of field-level encryption profiles you want in the response body. </p>
-   */
-  MaxItems?: string;
-}
-
-export namespace ListFieldLevelEncryptionProfilesRequest {
-  export const filterSensitiveLog = (obj: ListFieldLevelEncryptionProfilesRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The field-level encryption profile summary.</p>
- */
-export interface FieldLevelEncryptionProfileSummary {
-  /**
-   * <p>ID for the field-level encryption profile summary.</p>
-   */
-  Id: string | undefined;
-
-  /**
-   * <p>A complex data type of encryption entities for the field-level encryption profile that include the public key ID, provider, and
-   * 			field patterns for specifying which fields to encrypt with this key.</p>
-   */
-  EncryptionEntities: EncryptionEntities | undefined;
-
-  /**
-   * <p>The time when the the field-level encryption profile summary was last updated.</p>
-   */
-  LastModifiedTime: Date | undefined;
-
-  /**
-   * <p>Name for the field-level encryption profile summary.</p>
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>An optional comment for the field-level encryption profile summary.</p>
-   */
-  Comment?: string;
-}
-
-export namespace FieldLevelEncryptionProfileSummary {
-  export const filterSensitiveLog = (obj: FieldLevelEncryptionProfileSummary): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>List of field-level encryption profiles.</p>
- */
-export interface FieldLevelEncryptionProfileList {
-  /**
-   * <p>If there are more elements to be listed, this element is present and contains
-   * 			the value that you can use for the <code>Marker</code> request parameter to continue
-   * 			listing your profiles where you left off.</p>
-   */
-  NextMarker?: string;
-
-  /**
-   * <p>The number of field-level encryption profiles.</p>
-   */
-  Quantity: number | undefined;
-
-  /**
-   * <p>The field-level encryption profile items.</p>
-   */
-  Items?: FieldLevelEncryptionProfileSummary[];
-
-  /**
-   * <p>The maximum number of field-level encryption profiles you want in the response body. </p>
-   */
-  MaxItems: number | undefined;
-}
-
-export namespace FieldLevelEncryptionProfileList {
-  export const filterSensitiveLog = (obj: FieldLevelEncryptionProfileList): any => ({
-    ...obj,
-  });
-}
-
-export interface ListFieldLevelEncryptionProfilesResult {
-  /**
-   * <p>Returns a list of the field-level encryption profiles that have been created in CloudFront for this account.</p>
-   */
-  FieldLevelEncryptionProfileList?: FieldLevelEncryptionProfileList;
-}
-
-export namespace ListFieldLevelEncryptionProfilesResult {
-  export const filterSensitiveLog = (obj: ListFieldLevelEncryptionProfilesResult): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The request to list invalidations. </p>
- */
-export interface ListInvalidationsRequest {
-  /**
-   * <p>The maximum number of invalidation batches that you want in the response
-   * 			body.</p>
-   */
-  MaxItems?: string;
-
-  /**
-   * <p>Use this parameter when paginating results to indicate where to begin in your list of
-   * 			invalidation batches. Because the results are returned in decreasing order from most recent to
-   * 			oldest, the most recent results are on the first page, the second page will contain earlier
-   * 			results, and so on. To get the next page of results, set <code>Marker</code> to the value of
-   * 			the <code>NextMarker</code> from the current page's response. This value is the same as the ID
-   * 			of the last invalidation batch on that page. </p>
-   */
-  Marker?: string;
-
-  /**
-   * <p>The distribution's ID.</p>
-   */
-  DistributionId: string | undefined;
-}
-
-export namespace ListInvalidationsRequest {
-  export const filterSensitiveLog = (obj: ListInvalidationsRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>A summary of an invalidation request.</p>
- */
-export interface InvalidationSummary {
-  /**
-   * <p>The status of an invalidation request.</p>
-   */
-  Status: string | undefined;
-
-  /**
-   * <p>The unique ID for an invalidation request.</p>
-   */
-  Id: string | undefined;
-
-  /**
-   * <p>The time that an invalidation request was created.</p>
-   */
-  CreateTime: Date | undefined;
-}
-
-export namespace InvalidationSummary {
-  export const filterSensitiveLog = (obj: InvalidationSummary): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The <code>InvalidationList</code> complex type describes the list of invalidation
- * 			objects. For more information about invalidation, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Invalidation.html">Invalidating Objects (Web Distributions Only)</a> in
- * 			the <i>Amazon CloudFront Developer Guide</i>.</p>
- */
-export interface InvalidationList {
-  /**
-   * <p>A flag that indicates whether more invalidation batch requests remain to be listed. If
-   * 			your results were truncated, you can make a follow-up pagination request using the
-   * 				<code>Marker</code> request parameter to retrieve more invalidation batches in the
-   * 			list.</p>
-   */
-  IsTruncated: boolean | undefined;
-
-  /**
-   * <p>The value that you provided for the <code>Marker</code> request parameter.</p>
-   */
-  Marker: string | undefined;
-
-  /**
-   * <p>A complex type that contains one <code>InvalidationSummary</code> element for each
-   * 			invalidation batch created by the current AWS account.</p>
-   */
-  Items?: InvalidationSummary[];
-
-  /**
-   * <p>The value that you provided for the <code>MaxItems</code> request parameter.</p>
-   */
-  MaxItems: number | undefined;
-
-  /**
-   * <p>The number of invalidation batches that were created by the current AWS account.
-   * 		</p>
-   */
-  Quantity: number | undefined;
-
-  /**
-   * <p>If <code>IsTruncated</code> is <code>true</code>, this element is present and contains
-   * 			the value that you can use for the <code>Marker</code> request parameter to continue listing
-   * 			your invalidation batches where they left off.</p>
-   */
-  NextMarker?: string;
-}
-
-export namespace InvalidationList {
-  export const filterSensitiveLog = (obj: InvalidationList): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The returned result of the corresponding request. </p>
- */
-export interface ListInvalidationsResult {
-  /**
-   * <p>Information about invalidation batches. </p>
-   */
-  InvalidationList?: InvalidationList;
-}
-
-export namespace ListInvalidationsResult {
-  export const filterSensitiveLog = (obj: ListInvalidationsResult): any => ({
-    ...obj,
-  });
-}
-
-export type OriginRequestPolicyType = "custom" | "managed";
-
-export interface ListOriginRequestPoliciesRequest {
-  /**
-   * <p>The maximum number of origin request policies that you want in the response.</p>
-   */
-  MaxItems?: string;
-
-  /**
-   * <p>A filter to return only the specified kinds of origin request policies. Valid values
-   * 			are:</p>
-   * 		       <ul>
-   *             <li>
-   * 				           <p>
-   *                   <code>managed</code> – Returns only the managed policies created by AWS.</p>
-   * 			         </li>
-   *             <li>
-   * 				           <p>
-   *                   <code>custom</code> – Returns only the custom policies created in your AWS
-   * 					account.</p>
-   * 			         </li>
-   *          </ul>
-   */
-  Type?: OriginRequestPolicyType | string;
+  RealtimeLogConfigArn?: string;
 
   /**
    * <p>Use this field when paginating results to indicate where to begin in your list of
-   * 			origin request policies. The response includes origin request policies in the list that
-   * 			occur after the marker. To get the next page of the list, set this field’s value to the
-   * 			value of <code>NextMarker</code> from the current page’s response.</p>
+   * 			distributions. The response includes distributions in the list that occur after the
+   * 			marker. To get the next page of the list, set this field’s value to the value of
+   * 			<code>NextMarker</code> from the current page’s response.</p>
    */
   Marker?: string;
-}
 
-export namespace ListOriginRequestPoliciesRequest {
-  export const filterSensitiveLog = (obj: ListOriginRequestPoliciesRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Contains an origin request policy.</p>
- */
-export interface OriginRequestPolicySummary {
   /**
-   * <p>The origin request policy.</p>
+   * <p>The name of the real-time log configuration whose associated distributions you want to
+   * 			list.</p>
    */
-  OriginRequestPolicy: OriginRequestPolicy | undefined;
+  RealtimeLogConfigName?: string;
 
   /**
-   * <p>The type of origin request policy, either <code>managed</code> (created by AWS) or
-   * 			<code>custom</code> (created in this AWS account).</p>
-   */
-  Type: OriginRequestPolicyType | string | undefined;
-}
-
-export namespace OriginRequestPolicySummary {
-  export const filterSensitiveLog = (obj: OriginRequestPolicySummary): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>A list of origin request policies.</p>
- */
-export interface OriginRequestPolicyList {
-  /**
-   * <p>The total number of origin request policies returned in the response.</p>
-   */
-  Quantity: number | undefined;
-
-  /**
-   * <p>If there are more items in the list than are in this response, this element is
-   * 			present. It contains the value that you should use in the <code>Marker</code> field of a
-   * 			subsequent request to continue listing origin request policies where you left
-   * 			off.</p>
-   */
-  NextMarker?: string;
-
-  /**
-   * <p>The maximum number of origin request policies requested.</p>
-   */
-  MaxItems: number | undefined;
-
-  /**
-   * <p>Contains the origin request policies in the list.</p>
-   */
-  Items?: OriginRequestPolicySummary[];
-}
-
-export namespace OriginRequestPolicyList {
-  export const filterSensitiveLog = (obj: OriginRequestPolicyList): any => ({
-    ...obj,
-  });
-}
-
-export interface ListOriginRequestPoliciesResult {
-  /**
-   * <p>A list of origin request policies.</p>
-   */
-  OriginRequestPolicyList?: OriginRequestPolicyList;
-}
-
-export namespace ListOriginRequestPoliciesResult {
-  export const filterSensitiveLog = (obj: ListOriginRequestPoliciesResult): any => ({
-    ...obj,
-  });
-}
-
-export interface ListPublicKeysRequest {
-  /**
-   * <p>The maximum number of public keys you want in the response body. </p>
+   * <p>The maximum number of distributions that you want in the response.</p>
    */
   MaxItems?: string;
-
-  /**
-   * <p>Use this when paginating results to indicate where to begin in your list of public keys. The results include public keys in the list that
-   * 			occur after the marker. To get the next page of results, set the <code>Marker</code> to the value of the
-   * 			<code>NextMarker</code> from the current page's response (which is also the ID of the last public key on that page). </p>
-   */
-  Marker?: string;
 }
 
-export namespace ListPublicKeysRequest {
-  export const filterSensitiveLog = (obj: ListPublicKeysRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>A complex data type for public key information.
- * 		</p>
- */
-export interface PublicKeySummary {
-  /**
-   * <p>
-   * 			Name for public key information summary.
-   * 		</p>
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>
-   * 			Creation time for public key information summary.
-   * 		</p>
-   */
-  CreatedTime: Date | undefined;
-
-  /**
-   * <p>
-   * 			Encoded key for public key information summary.
-   * 		</p>
-   */
-  EncodedKey: string | undefined;
-
-  /**
-   * <p>
-   * 			ID for public key information summary.
-   * 		</p>
-   */
-  Id: string | undefined;
-
-  /**
-   * <p>
-   * 			Comment for public key information summary.
-   * 		</p>
-   */
-  Comment?: string;
-}
-
-export namespace PublicKeySummary {
-  export const filterSensitiveLog = (obj: PublicKeySummary): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>A list of public keys you've added to CloudFront to use with features like field-level encryption.</p>
- */
-export interface PublicKeyList {
-  /**
-   * <p>If there are more elements to be listed, this element is present and contains
-   * 			the value that you can use for the <code>Marker</code> request parameter to continue
-   * 			listing your public keys where you left off.</p>
-   */
-  NextMarker?: string;
-
-  /**
-   * <p>The maximum number of public keys you want in the response body. </p>
-   */
-  MaxItems: number | undefined;
-
-  /**
-   * <p>An array of information about a public key you add to CloudFront to use with features like field-level encryption.</p>
-   */
-  Items?: PublicKeySummary[];
-
-  /**
-   * <p>The number of public keys you added to CloudFront to use with features like field-level
-   * 			encryption.</p>
-   */
-  Quantity: number | undefined;
-}
-
-export namespace PublicKeyList {
-  export const filterSensitiveLog = (obj: PublicKeyList): any => ({
+export namespace ListDistributionsByRealtimeLogConfigRequest {
+  export const filterSensitiveLog = (obj: ListDistributionsByRealtimeLogConfigRequest): any => ({
     ...obj,
   });
 }

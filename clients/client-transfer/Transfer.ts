@@ -17,6 +17,11 @@ import {
 } from "./commands/DeleteSshPublicKeyCommand";
 import { DeleteUserCommand, DeleteUserCommandInput, DeleteUserCommandOutput } from "./commands/DeleteUserCommand";
 import {
+  DescribeSecurityPolicyCommand,
+  DescribeSecurityPolicyCommandInput,
+  DescribeSecurityPolicyCommandOutput,
+} from "./commands/DescribeSecurityPolicyCommand";
+import {
   DescribeServerCommand,
   DescribeServerCommandInput,
   DescribeServerCommandOutput,
@@ -31,6 +36,11 @@ import {
   ImportSshPublicKeyCommandInput,
   ImportSshPublicKeyCommandOutput,
 } from "./commands/ImportSshPublicKeyCommand";
+import {
+  ListSecurityPoliciesCommand,
+  ListSecurityPoliciesCommandInput,
+  ListSecurityPoliciesCommandOutput,
+} from "./commands/ListSecurityPoliciesCommand";
 import { ListServersCommand, ListServersCommandInput, ListServersCommandOutput } from "./commands/ListServersCommand";
 import {
   ListTagsForResourceCommand,
@@ -61,14 +71,14 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
  * <p>AWS Transfer Family is a fully managed service that enables the transfer of files over the
- *       the File Transfer Protocol (FTP), File Transfer Protocol over SSL (FTPS), or Secure Shell
- *       (SSH) File Transfer Protocol (SFTP) directly into and out of Amazon Simple Storage Service
- *       (Amazon S3). AWS helps you seamlessly migrate your file transfer workflows to AWS Transfer
- *       Family by integrating with existing authentication systems, and providing DNS routing with
- *       Amazon Route 53 so nothing changes for your customers and partners, or their applications.
- *       With your data in Amazon S3, you can use it with AWS services for processing, analytics,
- *       machine learning, and archiving. Getting started with AWS Transfer Family is easy since there
- *       is no infrastructure to buy and set up.</p>
+ *       File Transfer Protocol (FTP), File Transfer Protocol over SSL (FTPS), or Secure Shell (SSH)
+ *       File Transfer Protocol (SFTP) directly into and out of Amazon Simple Storage Service (Amazon
+ *       S3). AWS helps you seamlessly migrate your file transfer workflows to AWS Transfer Family by
+ *       integrating with existing authentication systems, and providing DNS routing with Amazon Route
+ *       53 so nothing changes for your customers and partners, or their applications. With your data
+ *       in Amazon S3, you can use it with AWS services for processing, analytics, machine learning,
+ *       and archiving. Getting started with AWS Transfer Family is easy since there is no
+ *       infrastructure to buy and set up.</p>
  */
 export class Transfer extends TransferClient {
   /**
@@ -233,6 +243,41 @@ export class Transfer extends TransferClient {
   }
 
   /**
+   * <p>Describes the security policy that is attached to your file transfer protocol-enabled
+   *       server. The response contains a description of the security policy's properties. For more
+   *       information about security policies, see <a href="https://docs.aws.amazon.com/transfer/latest/userguide/security-policies.html">Working with security
+   *         policies</a>.</p>
+   */
+  public describeSecurityPolicy(
+    args: DescribeSecurityPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeSecurityPolicyCommandOutput>;
+  public describeSecurityPolicy(
+    args: DescribeSecurityPolicyCommandInput,
+    cb: (err: any, data?: DescribeSecurityPolicyCommandOutput) => void
+  ): void;
+  public describeSecurityPolicy(
+    args: DescribeSecurityPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeSecurityPolicyCommandOutput) => void
+  ): void;
+  public describeSecurityPolicy(
+    args: DescribeSecurityPolicyCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeSecurityPolicyCommandOutput) => void),
+    cb?: (err: any, data?: DescribeSecurityPolicyCommandOutput) => void
+  ): Promise<DescribeSecurityPolicyCommandOutput> | void {
+    const command = new DescribeSecurityPolicyCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Describes a file transfer protocol-enabled server that you specify by passing the
    *         <code>ServerId</code> parameter.</p>
    *
@@ -329,6 +374,39 @@ export class Transfer extends TransferClient {
     cb?: (err: any, data?: ImportSshPublicKeyCommandOutput) => void
   ): Promise<ImportSshPublicKeyCommandOutput> | void {
     const command = new ImportSshPublicKeyCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Lists the security policies that are attached to your file transfer protocol-enabled
+   *       servers.</p>
+   */
+  public listSecurityPolicies(
+    args: ListSecurityPoliciesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListSecurityPoliciesCommandOutput>;
+  public listSecurityPolicies(
+    args: ListSecurityPoliciesCommandInput,
+    cb: (err: any, data?: ListSecurityPoliciesCommandOutput) => void
+  ): void;
+  public listSecurityPolicies(
+    args: ListSecurityPoliciesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListSecurityPoliciesCommandOutput) => void
+  ): void;
+  public listSecurityPolicies(
+    args: ListSecurityPoliciesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListSecurityPoliciesCommandOutput) => void),
+    cb?: (err: any, data?: ListSecurityPoliciesCommandOutput) => void
+  ): Promise<ListSecurityPoliciesCommandOutput> | void {
+    const command = new ListSecurityPoliciesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -464,8 +542,12 @@ export class Transfer extends TransferClient {
    * <p>Changes the state of a file transfer protocol-enabled server from <code>ONLINE</code> to
    *         <code>OFFLINE</code>. An <code>OFFLINE</code> server cannot accept and process file transfer
    *       jobs. Information tied to your server, such as server and user properties, are not affected by
-   *       stopping your server. Stopping the server will not reduce or impact your file transfer
-   *       protocol endpoint billing.</p>
+   *       stopping your server.</p>
+   *
+   *          <note>
+   *             <p>Stopping the server will not reduce or impact your file transfer protocol endpoint
+   *         billing; you must delete the server to stop being billed.</p>
+   *          </note>
    *
    *          <p>The state of <code>STOPPING</code> indicates that the server is in an intermediate state,
    *       either not fully able to respond, or not fully offline. The values of <code>STOP_FAILED</code>

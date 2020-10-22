@@ -33,7 +33,7 @@ export async function* listBuildsForProjectPaginate(
   let hasNext = true;
   let page: ListBuildsForProjectCommandOutput;
   while (hasNext) {
-    input["nextToken"] = token;
+    input.nextToken = token;
     if (config.client instanceof CodeBuild) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
     } else if (config.client instanceof CodeBuildClient) {
@@ -42,7 +42,7 @@ export async function* listBuildsForProjectPaginate(
       throw new Error("Invalid client, expected CodeBuild | CodeBuildClient");
     }
     yield page;
-    token = page["nextToken"];
+    token = page.nextToken;
     hasNext = !!token;
   }
   // @ts-ignore

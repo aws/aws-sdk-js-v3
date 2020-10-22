@@ -37,19 +37,34 @@ export interface ActivityResponse {
   ApplicationId: string | undefined;
 
   /**
-   * <p>The current status of the activity. Possible values are: PENDING, INITIALIZING, RUNNING, PAUSED, CANCELLED, and COMPLETED.</p>
-   */
-  State?: string;
-
-  /**
    * <p>The actual time, in ISO 8601 format, when the activity was marked CANCELLED or COMPLETED.</p>
    */
   End?: string;
 
   /**
-   * <p>The total number of time zones that were completed.</p>
+   * <p>The unique identifier for the campaign that the activity applies to.</p>
    */
-  TimezonesCompletedCount?: number;
+  CampaignId: string | undefined;
+
+  /**
+   * <p>The actual start time, in ISO 8601 format, of the activity.</p>
+   */
+  Start?: string;
+
+  /**
+   * <p>The scheduled start time, in ISO 8601 format, for the activity.</p>
+   */
+  ScheduledStart?: string;
+
+  /**
+   * <p>The total number of endpoints that the campaign successfully delivered messages to.</p>
+   */
+  SuccessfulEndpointCount?: number;
+
+  /**
+   * <p>The total number of endpoints that the campaign attempted to deliver messages to.</p>
+   */
+  TotalEndpointCount?: number;
 
   /**
    * <p>The unique identifier for the activity.</p>
@@ -62,19 +77,9 @@ export interface ActivityResponse {
   TreatmentId?: string;
 
   /**
-   * <p>The total number of endpoints that the campaign successfully delivered messages to.</p>
+   * <p>The current status of the activity. Possible values are: PENDING, INITIALIZING, RUNNING, PAUSED, CANCELLED, and COMPLETED.</p>
    */
-  SuccessfulEndpointCount?: number;
-
-  /**
-   * <p>The scheduled start time, in ISO 8601 format, for the activity.</p>
-   */
-  ScheduledStart?: string;
-
-  /**
-   * <p>The total number of endpoints that the campaign attempted to deliver messages to.</p>
-   */
-  TotalEndpointCount?: number;
+  State?: string;
 
   /**
    * <p>Specifies whether the activity succeeded. Possible values are SUCCESS and FAIL.</p>
@@ -82,14 +87,9 @@ export interface ActivityResponse {
   Result?: string;
 
   /**
-   * <p>The actual start time, in ISO 8601 format, of the activity.</p>
+   * <p>The total number of time zones that were completed.</p>
    */
-  Start?: string;
-
-  /**
-   * <p>The unique identifier for the campaign that the activity applies to.</p>
-   */
-  CampaignId: string | undefined;
+  TimezonesCompletedCount?: number;
 }
 
 export namespace ActivityResponse {
@@ -129,14 +129,14 @@ export enum AttributeType {
  */
 export interface AttributeDimension {
   /**
-   * <p>The type of segment dimension to use. Valid values are: INCLUSIVE, endpoints that match the criteria are included in the segment; and, EXCLUSIVE, endpoints that match the criteria are excluded from the segment.</p>
-   */
-  AttributeType?: AttributeType | string;
-
-  /**
    * <p>The criteria values to use for the segment dimension. Depending on the value of the AttributeType property, endpoints are included or excluded from the segment if their attribute values match the criteria values.</p>
    */
   Values: string[] | undefined;
+
+  /**
+   * <p>The type of segment dimension to use. Valid values are: INCLUSIVE, endpoints that match the criteria are included in the segment; and, EXCLUSIVE, endpoints that match the criteria are excluded from the segment.</p>
+   */
+  AttributeType?: AttributeType | string;
 }
 
 export namespace AttributeDimension {
@@ -176,14 +176,14 @@ export namespace SetDimension {
  */
 export interface MetricDimension {
   /**
-   * <p>The operator to use when comparing metric values. Valid values are: GREATER_THAN, LESS_THAN, GREATER_THAN_OR_EQUAL, LESS_THAN_OR_EQUAL, and EQUAL.</p>
-   */
-  ComparisonOperator: string | undefined;
-
-  /**
    * <p>The value to compare.</p>
    */
   Value: number | undefined;
+
+  /**
+   * <p>The operator to use when comparing metric values. Valid values are: GREATER_THAN, LESS_THAN, GREATER_THAN_OR_EQUAL, LESS_THAN_OR_EQUAL, and EQUAL.</p>
+   */
+  ComparisonOperator: string | undefined;
 }
 
 export namespace MetricDimension {
@@ -197,6 +197,11 @@ export namespace MetricDimension {
  */
 export interface EventDimensions {
   /**
+   * <p>One or more custom attributes that your application reports to Amazon Pinpoint. You can use these attributes as selection criteria when you create an event filter.</p>
+   */
+  Attributes?: { [key: string]: AttributeDimension };
+
+  /**
    * <p>The name of the event that causes the campaign to be sent or the journey activity to be performed. This can be a standard event that Amazon Pinpoint generates, such as _email.delivered. For campaigns, this can also be a custom event that's specific to your application. For information about standard events, see <a href="https://docs.aws.amazon.com/pinpoint/latest/developerguide/event-streams.html">Streaming Amazon Pinpoint Events</a> in the <i>Amazon Pinpoint Developer Guide</i>.</p>
    */
   EventType?: SetDimension;
@@ -205,11 +210,6 @@ export interface EventDimensions {
    * <p>One or more custom metrics that your application reports to Amazon Pinpoint. You can use these metrics as selection criteria when you create an event filter.</p>
    */
   Metrics?: { [key: string]: MetricDimension };
-
-  /**
-   * <p>One or more custom attributes that your application reports to Amazon Pinpoint. You can use these attributes as selection criteria when you create an event filter.</p>
-   */
-  Attributes?: { [key: string]: AttributeDimension };
 }
 
 export namespace EventDimensions {
@@ -272,14 +272,14 @@ export enum RecencyType {
  */
 export interface RecencyDimension {
   /**
-   * <p>The duration to use when determining whether an endpoint is active or inactive.</p>
-   */
-  Duration: Duration | string | undefined;
-
-  /**
    * <p>The type of recency dimension to use for the segment. Valid values are: ACTIVE, endpoints that were active within the specified duration are included in the segment; and, INACTIVE, endpoints that weren't active within the specified duration are included in the segment.</p>
    */
   RecencyType: RecencyType | string | undefined;
+
+  /**
+   * <p>The duration to use when determining whether an endpoint is active or inactive.</p>
+   */
+  Duration: Duration | string | undefined;
 }
 
 export namespace RecencyDimension {
@@ -309,9 +309,9 @@ export namespace SegmentBehaviors {
  */
 export interface SegmentDemographics {
   /**
-   * <p>The device type criteria for the segment.</p>
+   * <p>The channel criteria for the segment.</p>
    */
-  DeviceType?: SetDimension;
+  Channel?: SetDimension;
 
   /**
    * <p>The app version criteria for the segment.</p>
@@ -319,14 +319,14 @@ export interface SegmentDemographics {
   AppVersion?: SetDimension;
 
   /**
-   * <p>The channel criteria for the segment.</p>
+   * <p>The device type criteria for the segment.</p>
    */
-  Channel?: SetDimension;
+  DeviceType?: SetDimension;
 
   /**
-   * <p>The device make criteria for the segment.</p>
+   * <p>The device platform criteria for the segment.</p>
    */
-  Make?: SetDimension;
+  Platform?: SetDimension;
 
   /**
    * <p>The device model criteria for the segment.</p>
@@ -334,9 +334,9 @@ export interface SegmentDemographics {
   Model?: SetDimension;
 
   /**
-   * <p>The device platform criteria for the segment.</p>
+   * <p>The device make criteria for the segment.</p>
    */
-  Platform?: SetDimension;
+  Make?: SetDimension;
 }
 
 export namespace SegmentDemographics {
@@ -371,14 +371,14 @@ export namespace GPSCoordinates {
  */
 export interface GPSPointDimension {
   /**
-   * <p>The GPS coordinates to measure distance from.</p>
-   */
-  Coordinates: GPSCoordinates | undefined;
-
-  /**
    * <p>The range, in kilometers, from the GPS coordinates.</p>
    */
   RangeInKilometers?: number;
+
+  /**
+   * <p>The GPS coordinates to measure distance from.</p>
+   */
+  Coordinates: GPSCoordinates | undefined;
 }
 
 export namespace GPSPointDimension {
@@ -392,14 +392,14 @@ export namespace GPSPointDimension {
  */
 export interface SegmentLocation {
   /**
-   * <p>The country or region code, in ISO 3166-1 alpha-2 format, for the segment.</p>
-   */
-  Country?: SetDimension;
-
-  /**
    * <p>The GPS location and range for the segment.</p>
    */
   GPSPoint?: GPSPointDimension;
+
+  /**
+   * <p>The country or region code, in ISO 3166-1 alpha-2 format, for the segment.</p>
+   */
+  Country?: SetDimension;
 }
 
 export namespace SegmentLocation {
@@ -412,21 +412,6 @@ export namespace SegmentLocation {
  * <p>Specifies the dimension settings for a segment.</p>
  */
 export interface SegmentDimensions {
-  /**
-   * <p>The behavior-based criteria, such as how recently users have used your app, for the segment.</p>
-   */
-  Behavior?: SegmentBehaviors;
-
-  /**
-   * <p>One or more custom attributes to use as criteria for the segment.</p>
-   */
-  Attributes?: { [key: string]: AttributeDimension };
-
-  /**
-   * <p>The demographic-based criteria, such as device platform, for the segment.</p>
-   */
-  Demographic?: SegmentDemographics;
-
   /**
    * <p>One or more custom metrics to use as criteria for the segment.</p>
    */
@@ -441,6 +426,21 @@ export interface SegmentDimensions {
    * <p>One or more custom user attributes to use as criteria for the segment.</p>
    */
   UserAttributes?: { [key: string]: AttributeDimension };
+
+  /**
+   * <p>One or more custom attributes to use as criteria for the segment.</p>
+   */
+  Attributes?: { [key: string]: AttributeDimension };
+
+  /**
+   * <p>The behavior-based criteria, such as how recently users have used your app, for the segment.</p>
+   */
+  Behavior?: SegmentBehaviors;
+
+  /**
+   * <p>The demographic-based criteria, such as device platform, for the segment.</p>
+   */
+  Demographic?: SegmentDemographics;
 }
 
 export namespace SegmentDimensions {
@@ -454,11 +454,6 @@ export namespace SegmentDimensions {
  */
 export interface SimpleCondition {
   /**
-   * <p>The dimension settings for the segment that's associated with the activity.</p>
-   */
-  SegmentDimensions?: SegmentDimensions;
-
-  /**
    * <p>The dimension settings for the event that's associated with the activity.</p>
    */
   EventCondition?: EventCondition;
@@ -467,6 +462,11 @@ export interface SimpleCondition {
    * <p>The segment that's associated with the activity.</p>
    */
   SegmentCondition?: SegmentCondition;
+
+  /**
+   * <p>The dimension settings for the segment that's associated with the activity.</p>
+   */
+  SegmentDimensions?: SegmentDimensions;
 }
 
 export namespace SimpleCondition {
@@ -485,14 +485,14 @@ export enum Operator {
  */
 export interface Condition {
   /**
-   * <p>Specifies how to handle multiple conditions for the activity. For example, if you specify two conditions for an activity, whether both or only one of the conditions must be met for the activity to be performed.</p>
-   */
-  Operator?: Operator | string;
-
-  /**
    * <p>The conditions to evaluate for the activity.</p>
    */
   Conditions?: SimpleCondition[];
+
+  /**
+   * <p>Specifies how to handle multiple conditions for the activity. For example, if you specify two conditions for an activity, whether both or only one of the conditions must be met for the activity to be performed.</p>
+   */
+  Operator?: Operator | string;
 }
 
 export namespace Condition {
@@ -523,13 +523,13 @@ export namespace WaitTime {
 }
 
 /**
- * <p>Specifies the settings for a yes/no split activity in a journey. This type of activity sends participants down one of two paths in a journey, based on conditions that you specify.</p>
+ * <p>Specifies the settings for a yes/no split activity in a journey. This type of activity sends participants down one of two paths in a journey, based on conditions that you specify.</p> <note><p>To create yes/no split activities that send participants down different paths based on push notification events (such as Open or Received events), your mobile app has to specify the User ID and Endpoint ID values. For more information, see <a href="https://docs.aws.amazon.com/pinpoint/latest/developerguide/integrate.html">Integrating Amazon Pinpoint with your application</a> in the <i>Amazon Pinpoint Developer Guide</i>.</p></note>
  */
 export interface ConditionalSplitActivity {
   /**
-   * <p>The conditions that define the paths for the activity, and the relationship between the conditions.</p>
+   * <p>The amount of time to wait before determining whether the conditions are met, or the date and time when Amazon Pinpoint determines whether the conditions are met.</p>
    */
-  Condition?: Condition;
+  EvaluationWaitTime?: WaitTime;
 
   /**
    * <p>The unique identifier for the activity to perform if the conditions aren't met.</p>
@@ -537,9 +537,9 @@ export interface ConditionalSplitActivity {
   FalseActivity?: string;
 
   /**
-   * <p>The amount of time to wait before determining whether the conditions are met, or the date and time when Amazon Pinpoint determines whether the conditions are met.</p>
+   * <p>The conditions that define the paths for the activity, and the relationship between the conditions.</p>
    */
-  EvaluationWaitTime?: WaitTime;
+  Condition?: Condition;
 
   /**
    * <p>The unique identifier for the activity to perform if the conditions are met.</p>
@@ -574,14 +574,9 @@ export namespace JourneyCustomMessage {
  */
 export interface CustomMessageActivity {
   /**
-   * <p>The types of endpoints to send the custom message to. Each valid value maps to a type of channel that you can associate with an endpoint by using the ChannelType property of an endpoint.</p>
+   * <p>The name of the custom message template to use for the message. If specified, this value must match the name of an existing message template.</p>
    */
-  EndpointTypes?: (__EndpointTypesElement | string)[];
-
-  /**
-   * <p>The unique identifier for the version of the message template to use for the message. If specified, this value must match the identifier for an existing template version. To retrieve a list of versions and version identifiers for a template, use the <link  linkend="templates-template-name-template-type-versions">Template Versions</link> resource.</p> <p>If you don't specify a value for this property, Amazon Pinpoint uses the <i>active version</i> of the template. The <i>active version</i> is typically the version of a template that's been most recently reviewed and approved for use, depending on your workflow. It isn't necessarily the latest version of a template.</p>
-   */
-  TemplateVersion?: string;
+  TemplateName?: string;
 
   /**
    * <p>The unique identifier for the next activity to perform, after Amazon Pinpoint calls the AWS Lambda function or web hook.</p>
@@ -589,14 +584,19 @@ export interface CustomMessageActivity {
   NextActivity?: string;
 
   /**
-   * <p>The destination to send the custom message to. This value can be one of the following:</p> <ul><li><p>The name or Amazon Resource Name (ARN) of an AWS Lambda function to invoke to handle delivery of the custom message.</p></li> <li><p>The URL for a web application or service that supports HTTPS and can receive the message. The URL has to be a full URL, including the HTTPS protocol.</p></li></ul>
+   * <p>The unique identifier for the version of the message template to use for the message. If specified, this value must match the identifier for an existing template version. To retrieve a list of versions and version identifiers for a template, use the <link  linkend="templates-template-name-template-type-versions">Template Versions</link> resource.</p> <p>If you don't specify a value for this property, Amazon Pinpoint uses the <i>active version</i> of the template. The <i>active version</i> is typically the version of a template that's been most recently reviewed and approved for use, depending on your workflow. It isn't necessarily the latest version of a template.</p>
    */
-  DeliveryUri?: string;
+  TemplateVersion?: string;
 
   /**
-   * <p>The name of the custom message template to use for the message. If specified, this value must match the name of an existing message template.</p>
+   * <p>The types of endpoints to send the custom message to. Each valid value maps to a type of channel that you can associate with an endpoint by using the ChannelType property of an endpoint.</p>
    */
-  TemplateName?: string;
+  EndpointTypes?: (__EndpointTypesElement | string)[];
+
+  /**
+   * <p>The destination to send the campaign or treatment to. This value can be one of the following:</p> <ul><li><p>The name or Amazon Resource Name (ARN) of an AWS Lambda function to invoke to handle delivery of the campaign or treatment.</p></li> <li><p>The URL for a web application or service that supports HTTPS and can receive the message. The URL has to be a full URL, including the HTTPS protocol.</p></li></ul>
+   */
+  DeliveryUri?: string;
 
   /**
    * <p>Specifies the message data included in a custom channel message that's sent to participants in a journey.</p>
@@ -631,24 +631,24 @@ export namespace JourneyEmailMessage {
  */
 export interface EmailMessageActivity {
   /**
-   * <p>The name of the email message template to use for the message. If specified, this value must match the name of an existing message template.</p>
-   */
-  TemplateName?: string;
-
-  /**
    * <p>Specifies the sender address for an email message that's sent to participants in the journey.</p>
    */
   MessageConfig?: JourneyEmailMessage;
 
   /**
-   * <p>The unique identifier for the version of the email template to use for the message. If specified, this value must match the identifier for an existing template version. To retrieve a list of versions and version identifiers for a template, use the <link  linkend="templates-template-name-template-type-versions">Template Versions</link> resource.</p> <p>If you don't specify a value for this property, Amazon Pinpoint uses the <i>active version</i> of the template. The <i>active version</i> is typically the version of a template that's been most recently reviewed and approved for use, depending on your workflow. It isn't necessarily the latest version of a template.</p>
+   * <p>The name of the email message template to use for the message. If specified, this value must match the name of an existing message template.</p>
    */
-  TemplateVersion?: string;
+  TemplateName?: string;
 
   /**
    * <p>The unique identifier for the next activity to perform, after the message is sent.</p>
    */
   NextActivity?: string;
+
+  /**
+   * <p>The unique identifier for the version of the email template to use for the message. If specified, this value must match the identifier for an existing template version. To retrieve a list of versions and version identifiers for a template, use the <link  linkend="templates-template-name-template-type-versions">Template Versions</link> resource.</p> <p>If you don't specify a value for this property, Amazon Pinpoint uses the <i>active version</i> of the template. The <i>active version</i> is typically the version of a template that's been most recently reviewed and approved for use, depending on your workflow. It isn't necessarily the latest version of a template.</p>
+   */
+  TemplateVersion?: string;
 }
 
 export namespace EmailMessageActivity {
@@ -662,14 +662,14 @@ export namespace EmailMessageActivity {
  */
 export interface HoldoutActivity {
   /**
-   * <p>The unique identifier for the next activity to perform, after performing the holdout activity.</p>
-   */
-  NextActivity?: string;
-
-  /**
    * <p>The percentage of participants who shouldn't continue the journey.</p> <p>To determine which participants are held out, Amazon Pinpoint applies a probability-based algorithm to the percentage that you specify. Therefore, the actual percentage of participants who are held out may not be equal to the percentage that you specify.</p>
    */
   Percentage: number | undefined;
+
+  /**
+   * <p>The unique identifier for the next activity to perform, after performing the holdout activity.</p>
+   */
+  NextActivity?: string;
 }
 
 export namespace HoldoutActivity {
@@ -700,7 +700,7 @@ export namespace MultiConditionalBranch {
 }
 
 /**
- * <p>Specifies the settings for a multivariate split activity in a journey. This type of activity sends participants down one of as many as five paths (including a default <i>Else</i> path) in a journey, based on conditions that you specify.</p>
+ * <p>Specifies the settings for a multivariate split activity in a journey. This type of activity sends participants down one of as many as five paths (including a default <i>Else</i> path) in a journey, based on conditions that you specify.</p> <note><p>To create multivariate split activities that send participants down different paths based on push notification events (such as Open or Received events), your mobile app has to specify the User ID and Endpoint ID values. For more information, see <a href="https://docs.aws.amazon.com/pinpoint/latest/developerguide/integrate.html">Integrating Amazon Pinpoint with your application</a> in the <i>Amazon Pinpoint Developer Guide</i>.</p></note>
  */
 export interface MultiConditionalSplitActivity {
   /**
@@ -751,11 +751,6 @@ export interface PushMessageActivity {
   MessageConfig?: JourneyPushMessage;
 
   /**
-   * <p>The name of the push notification template to use for the message. If specified, this value must match the name of an existing message template.</p>
-   */
-  TemplateName?: string;
-
-  /**
    * <p>The unique identifier for the next activity to perform, after the message is sent.</p>
    */
   NextActivity?: string;
@@ -764,6 +759,11 @@ export interface PushMessageActivity {
    * <p>The unique identifier for the version of the push notification template to use for the message. If specified, this value must match the identifier for an existing template version. To retrieve a list of versions and version identifiers for a template, use the <link  linkend="templates-template-name-template-type-versions">Template Versions</link> resource.</p> <p>If you don't specify a value for this property, Amazon Pinpoint uses the <i>active version</i> of the template. The <i>active version</i> is typically the version of a template that's been most recently reviewed and approved for use, depending on your workflow. It isn't necessarily the latest version of a template.</p>
    */
   TemplateVersion?: string;
+
+  /**
+   * <p>The name of the push notification template to use for the message. If specified, this value must match the name of an existing message template.</p>
+   */
+  TemplateName?: string;
 }
 
 export namespace PushMessageActivity {
@@ -819,7 +819,7 @@ export enum MessageType {
  */
 export interface JourneySMSMessage {
   /**
-   * <p>The sender ID to display as the sender of the message on a recipient's device. Support for sender IDs varies by country or region. For more information, see <a href="https://docs.aws.amazon.com.amazon.com/pinpoint/latest/userguide/channels-sms-countries.html">Supported Countries and Regions</a> in the Amazon Pinpoint User Guide.</p>
+   * <p>The sender ID to display as the sender of the message on a recipient's device. Support for sender IDs varies by country or region. For more information, see <a href="https://docs.aws.amazon.com/pinpoint/latest/userguide/channels-sms-countries.html">Supported Countries and Regions</a> in the Amazon Pinpoint User Guide.</p>
    */
   SenderId?: string;
 
@@ -840,24 +840,24 @@ export namespace JourneySMSMessage {
  */
 export interface SMSMessageActivity {
   /**
-   * <p>The unique identifier for the next activity to perform, after the message is sent.</p>
-   */
-  NextActivity?: string;
-
-  /**
-   * <p>Specifies the sender ID and message type for an SMS message that's sent to participants in a journey.</p>
-   */
-  MessageConfig?: JourneySMSMessage;
-
-  /**
    * <p>The unique identifier for the version of the SMS template to use for the message. If specified, this value must match the identifier for an existing template version. To retrieve a list of versions and version identifiers for a template, use the <link  linkend="templates-template-name-template-type-versions">Template Versions</link> resource.</p> <p>If you don't specify a value for this property, Amazon Pinpoint uses the <i>active version</i> of the template. The <i>active version</i> is typically the version of a template that's been most recently reviewed and approved for use, depending on your workflow. It isn't necessarily the latest version of a template.</p>
    */
   TemplateVersion?: string;
 
   /**
+   * <p>The unique identifier for the next activity to perform, after the message is sent.</p>
+   */
+  NextActivity?: string;
+
+  /**
    * <p>The name of the SMS message template to use for the message. If specified, this value must match the name of an existing message template.</p>
    */
   TemplateName?: string;
+
+  /**
+   * <p>Specifies the sender ID and message type for an SMS message that's sent to participants in a journey.</p>
+   */
+  MessageConfig?: JourneySMSMessage;
 }
 
 export namespace SMSMessageActivity {
@@ -871,14 +871,14 @@ export namespace SMSMessageActivity {
  */
 export interface WaitActivity {
   /**
-   * <p>The unique identifier for the next activity to perform, after performing the wait activity.</p>
-   */
-  NextActivity?: string;
-
-  /**
    * <p>The amount of time to wait or the date and time when the activity moves participants to the next activity in the journey.</p>
    */
   WaitTime?: WaitTime;
+
+  /**
+   * <p>The unique identifier for the next activity to perform, after performing the wait activity.</p>
+   */
+  NextActivity?: string;
 }
 
 export namespace WaitActivity {
@@ -892,34 +892,9 @@ export namespace WaitActivity {
  */
 export interface Activity {
   /**
-   * <p>The settings for an SMS activity. This type of activity sends a text message to participants.</p>
-   */
-  SMS?: SMSMessageActivity;
-
-  /**
-   * <p>The settings for a multivariate split activity. This type of activity sends participants down one of as many as five paths (including a default <i>Else</i> path) in a journey, based on conditions that you specify.</p>
-   */
-  MultiCondition?: MultiConditionalSplitActivity;
-
-  /**
-   * <p>The custom description of the activity.</p>
-   */
-  Description?: string;
-
-  /**
    * <p>The settings for a wait activity. This type of activity waits for a certain amount of time or until a specific date and time before moving participants to the next activity in a journey.</p>
    */
   Wait?: WaitActivity;
-
-  /**
-   * <p>The settings for a holdout activity. This type of activity stops a journey for a specified percentage of participants.</p>
-   */
-  Holdout?: HoldoutActivity;
-
-  /**
-   * <p>The settings for a custom message activity. This type of activity calls an AWS Lambda function or web hook that sends messages to participants.</p>
-   */
-  CUSTOM?: CustomMessageActivity;
 
   /**
    * <p>The settings for an email activity. This type of activity sends an email message to participants.</p>
@@ -927,9 +902,29 @@ export interface Activity {
   EMAIL?: EmailMessageActivity;
 
   /**
+   * <p>The custom description of the activity.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The settings for a multivariate split activity. This type of activity sends participants down one of as many as five paths (including a default <i>Else</i> path) in a journey, based on conditions that you specify.</p>
+   */
+  MultiCondition?: MultiConditionalSplitActivity;
+
+  /**
+   * <p>The settings for a random split activity. This type of activity randomly sends specified percentages of participants down one of as many as five paths in a journey, based on conditions that you specify.</p>
+   */
+  RandomSplit?: RandomSplitActivity;
+
+  /**
    * <p>The settings for a yes/no split activity. This type of activity sends participants down one of two paths in a journey, based on conditions that you specify.</p>
    */
   ConditionalSplit?: ConditionalSplitActivity;
+
+  /**
+   * <p>The settings for a holdout activity. This type of activity stops a journey for a specified percentage of participants.</p>
+   */
+  Holdout?: HoldoutActivity;
 
   /**
    * <p>The settings for a push notification activity. This type of activity sends a push notification to participants.</p>
@@ -937,9 +932,14 @@ export interface Activity {
   PUSH?: PushMessageActivity;
 
   /**
-   * <p>The settings for a random split activity. This type of activity randomly sends specified percentages of participants down one of as many as five paths in a journey, based on conditions that you specify.</p>
+   * <p>The settings for a custom message activity. This type of activity calls an AWS Lambda function or web hook that sends messages to participants.</p>
    */
-  RandomSplit?: RandomSplitActivity;
+  CUSTOM?: CustomMessageActivity;
+
+  /**
+   * <p>The settings for an SMS activity. This type of activity sends a text message to participants.</p>
+   */
+  SMS?: SMSMessageActivity;
 }
 
 export namespace Activity {
@@ -968,24 +968,14 @@ export enum ChannelType {
  */
 export interface AddressConfiguration {
   /**
-   * <p>A map of the message variables to merge with the variables specified by properties of the DefaultMessage object. The variables specified in this map take precedence over all other variables.</p>
+   * <p>The channel to use when sending the message.</p>
    */
-  Substitutions?: { [key: string]: string[] };
-
-  /**
-   * <p>An object that maps custom attributes to attributes for the address and is attached to the message. Attribute names are case sensitive.</p> <p>For a push notification, this payload is added to the data.pinpoint object. For an email or text message, this payload is added to email/SMS delivery receipt event attributes.</p>
-   */
-  Context?: { [key: string]: string };
+  ChannelType?: ChannelType | string;
 
   /**
    * <p>The message title to use instead of the default message title. This value overrides the default message title.</p>
    */
   TitleOverride?: string;
-
-  /**
-   * <p>The channel to use when sending the message.</p>
-   */
-  ChannelType?: ChannelType | string;
 
   /**
    * <p>The message body to use instead of the default message body. This value overrides the default message body.</p>
@@ -996,6 +986,16 @@ export interface AddressConfiguration {
    * <p>The raw, JSON-formatted string to use as the payload for the message. If specified, this value overrides all other values for the message.</p>
    */
   RawContent?: string;
+
+  /**
+   * <p>An object that maps custom attributes to attributes for the address and is attached to the message. Attribute names are case sensitive.</p> <p>For a push notification, this payload is added to the data.pinpoint object. For an email or text message, this payload is added to email/SMS delivery receipt event attributes.</p>
+   */
+  Context?: { [key: string]: string };
+
+  /**
+   * <p>A map of the message variables to merge with the variables specified by properties of the DefaultMessage object. The variables specified in this map take precedence over all other variables.</p>
+   */
+  Substitutions?: { [key: string]: string[] };
 }
 
 export namespace AddressConfiguration {
@@ -1009,6 +1009,11 @@ export namespace AddressConfiguration {
  */
 export interface ADMChannelRequest {
   /**
+   * <p>Specifies whether to enable the ADM channel for the application.</p>
+   */
+  Enabled?: boolean;
+
+  /**
    * <p>The Client ID that you received from Amazon to send messages by using ADM.</p>
    */
   ClientId: string | undefined;
@@ -1017,11 +1022,6 @@ export interface ADMChannelRequest {
    * <p>The Client Secret that you received from Amazon to send messages by using ADM.</p>
    */
   ClientSecret: string | undefined;
-
-  /**
-   * <p>Specifies whether to enable the ADM channel for the application.</p>
-   */
-  Enabled?: boolean;
 }
 
 export namespace ADMChannelRequest {
@@ -1035,19 +1035,34 @@ export namespace ADMChannelRequest {
  */
 export interface ADMChannelResponse {
   /**
+   * <p>Specifies whether the ADM channel is archived.</p>
+   */
+  IsArchived?: boolean;
+
+  /**
    * <p>The user who last modified the ADM channel.</p>
    */
   LastModifiedBy?: string;
 
   /**
-   * <p>The current version of the ADM channel.</p>
+   * <p>The date and time when the ADM channel was enabled.</p>
    */
-  Version?: number;
+  CreationDate?: string;
 
   /**
-   * <p>The unique identifier for the application that the ADM channel applies to.</p>
+   * <p>The date and time when the ADM channel was last modified.</p>
    */
-  ApplicationId?: string;
+  LastModifiedDate?: string;
+
+  /**
+   * <p>(Deprecated) An identifier for the ADM channel. This property is retained only for backward compatibility.</p>
+   */
+  Id?: string;
+
+  /**
+   * <p>The type of messaging or notification platform for the channel. For the ADM channel, this value is ADM.</p>
+   */
+  Platform: string | undefined;
 
   /**
    * <p>(Not used) This property is retained only for backward compatibility.</p>
@@ -1060,29 +1075,14 @@ export interface ADMChannelResponse {
   Enabled?: boolean;
 
   /**
-   * <p>The type of messaging or notification platform for the channel. For the ADM channel, this value is ADM.</p>
+   * <p>The unique identifier for the application that the ADM channel applies to.</p>
    */
-  Platform: string | undefined;
+  ApplicationId?: string;
 
   /**
-   * <p>(Deprecated) An identifier for the ADM channel. This property is retained only for backward compatibility.</p>
+   * <p>The current version of the ADM channel.</p>
    */
-  Id?: string;
-
-  /**
-   * <p>Specifies whether the ADM channel is archived.</p>
-   */
-  IsArchived?: boolean;
-
-  /**
-   * <p>The date and time when the ADM channel was last modified.</p>
-   */
-  LastModifiedDate?: string;
-
-  /**
-   * <p>The date and time when the ADM channel was enabled.</p>
-   */
-  CreationDate?: string;
+  Version?: number;
 }
 
 export namespace ADMChannelResponse {
@@ -1096,49 +1096,14 @@ export namespace ADMChannelResponse {
  */
 export interface ADMMessage {
   /**
-   * <p>The title to display above the notification message on the recipient's device.</p>
-   */
-  Title?: string;
-
-  /**
-   * <p>The sound to play when the recipient receives the push notification. You can use the default stream or specify the file name of a sound resource that's bundled in your app. On an Android platform, the sound file must reside in /res/raw/.</p>
-   */
-  Sound?: string;
-
-  /**
-   * <p>The raw, JSON-formatted string to use as the payload for the notification message. If specified, this value overrides all other content for the message.</p>
-   */
-  RawContent?: string;
-
-  /**
-   * <p>The body of the notification message.</p>
-   */
-  Body?: string;
-
-  /**
-   * <p>The URL to open in the recipient's default mobile browser, if a recipient taps the push notification and the value of the Action property is URL.</p>
-   */
-  Url?: string;
-
-  /**
-   * <p>An arbitrary string that indicates that multiple messages are logically the same and that Amazon Device Messaging (ADM) can drop previously enqueued messages in favor of this message.</p>
-   */
-  ConsolidationKey?: string;
-
-  /**
-   * <p>The icon image name of the asset saved in your app.</p>
-   */
-  IconReference?: string;
-
-  /**
-   * <p>The action to occur if the recipient taps the push notification. Valid values are:</p> <ul><li><p>OPEN_APP - Your app opens or it becomes the foreground app if it was sent to the background. This is the default action.</p></li> <li><p>DEEP_LINK - Your app opens and displays a designated user interface in the app. This action uses the deep-linking features of the Android platform.</p></li> <li><p>URL - The default mobile browser on the recipient's device opens and loads the web page at a URL that you specify.</p></li></ul>
-   */
-  Action?: Action | string;
-
-  /**
    * <p>The JSON data payload to use for the push notification, if the notification is a silent push notification. This payload is added to the data.pinpoint.jsonBody object of the notification.</p>
    */
   Data?: { [key: string]: string };
+
+  /**
+   * <p>The title to display above the notification message on the recipient's device.</p>
+   */
+  Title?: string;
 
   /**
    * <p>The amount of time, in seconds, that ADM should store the message if the recipient's device is offline. Amazon Pinpoint specifies this value in the expiresAfter parameter when it sends the notification message to ADM.</p>
@@ -1146,14 +1111,9 @@ export interface ADMMessage {
   ExpiresAfter?: string;
 
   /**
-   * <p>The URL of an image to display in the push notification.</p>
+   * <p>The URL to open in the recipient's default mobile browser, if a recipient taps the push notification and the value of the Action property is URL.</p>
    */
-  ImageUrl?: string;
-
-  /**
-   * <p>The URL of the small icon image to display in the status bar and the content view of the push notification.</p>
-   */
-  SmallImageIconUrl?: string;
+  Url?: string;
 
   /**
    * <p>The default message variables to use in the notification message. You can override the default variables with individual address variables.</p>
@@ -1161,9 +1121,14 @@ export interface ADMMessage {
   Substitutions?: { [key: string]: string[] };
 
   /**
-   * <p>Specifies whether the notification is a silent push notification, which is a push notification that doesn't display on a recipient's device. Silent push notifications can be used for cases such as updating an app's configuration or supporting phone home functionality.</p>
+   * <p>The sound to play when the recipient receives the push notification. You can use the default stream or specify the file name of a sound resource that's bundled in your app. On an Android platform, the sound file must reside in /res/raw/.</p>
    */
-  SilentPush?: boolean;
+  Sound?: string;
+
+  /**
+   * <p>The URL of an image to display in the push notification.</p>
+   */
+  ImageUrl?: string;
 
   /**
    * <p>The base64-encoded, MD5 checksum of the value specified by the Data property. ADM uses the MD5 value to verify the integrity of the data.</p>
@@ -1174,6 +1139,41 @@ export interface ADMMessage {
    * <p>The URL of the large icon image to display in the content view of the push notification.</p>
    */
   ImageIconUrl?: string;
+
+  /**
+   * <p>The URL of the small icon image to display in the status bar and the content view of the push notification.</p>
+   */
+  SmallImageIconUrl?: string;
+
+  /**
+   * <p>The action to occur if the recipient taps the push notification. Valid values are:</p> <ul><li><p>OPEN_APP - Your app opens or it becomes the foreground app if it was sent to the background. This is the default action.</p></li> <li><p>DEEP_LINK - Your app opens and displays a designated user interface in the app. This action uses the deep-linking features of the Android platform.</p></li> <li><p>URL - The default mobile browser on the recipient's device opens and loads the web page at a URL that you specify.</p></li></ul>
+   */
+  Action?: Action | string;
+
+  /**
+   * <p>An arbitrary string that indicates that multiple messages are logically the same and that Amazon Device Messaging (ADM) can drop previously enqueued messages in favor of this message.</p>
+   */
+  ConsolidationKey?: string;
+
+  /**
+   * <p>The body of the notification message.</p>
+   */
+  Body?: string;
+
+  /**
+   * <p>The raw, JSON-formatted string to use as the payload for the notification message. If specified, this value overrides all other content for the message.</p>
+   */
+  RawContent?: string;
+
+  /**
+   * <p>Specifies whether the notification is a silent push notification, which is a push notification that doesn't display on a recipient's device. Silent push notifications can be used for cases such as updating an app's configuration or supporting phone home functionality.</p>
+   */
+  SilentPush?: boolean;
+
+  /**
+   * <p>The icon image name of the asset saved in your app.</p>
+   */
+  IconReference?: string;
 }
 
 export namespace ADMMessage {
@@ -1187,19 +1187,9 @@ export namespace ADMMessage {
  */
 export interface AndroidPushNotificationTemplate {
   /**
-   * <p>The URL of the small icon image to display in the status bar and the content view of a push notification that's based on the message template.</p>
+   * <p>The title to use in a push notification that's based on the message template. This title appears above the notification message on a recipient's device.</p>
    */
-  SmallImageIconUrl?: string;
-
-  /**
-   * <p>The sound to play when a recipient receives a push notification that's based on the message template. You can use the default stream or specify the file name of a sound resource that's bundled in your app. On an Android platform, the sound file must reside in /res/raw/.</p>
-   */
-  Sound?: string;
-
-  /**
-   * <p>The raw, JSON-formatted string to use as the payload for a push notification that's based on the message template. If specified, this value overrides all other content for the message template.</p>
-   */
-  RawContent?: string;
+  Title?: string;
 
   /**
    * <p>The URL of an image to display in a push notification that's based on the message template.</p>
@@ -1207,14 +1197,14 @@ export interface AndroidPushNotificationTemplate {
   ImageUrl?: string;
 
   /**
-   * <p>The message body to use in a push notification that's based on the message template.</p>
+   * <p>The URL of the small icon image to display in the status bar and the content view of a push notification that's based on the message template.</p>
    */
-  Body?: string;
+  SmallImageIconUrl?: string;
 
   /**
-   * <p>The URL to open in a recipient's default mobile browser, if a recipient taps a push notification that's based on the message template and the value of the Action property is URL.</p>
+   * <p>The action to occur if a recipient taps a push notification that's based on the message template. Valid values are:</p> <ul><li><p>OPEN_APP - Your app opens or it becomes the foreground app if it was sent to the background. This is the default action.</p></li> <li><p>DEEP_LINK - Your app opens and displays a designated user interface in the app. This action uses the deep-linking features of the Android platform.</p></li> <li><p>URL - The default mobile browser on the recipient's device opens and loads the web page at a URL that you specify.</p></li></ul>
    */
-  Url?: string;
+  Action?: Action | string;
 
   /**
    * <p>The URL of the large icon image to display in the content view of a push notification that's based on the message template.</p>
@@ -1222,14 +1212,24 @@ export interface AndroidPushNotificationTemplate {
   ImageIconUrl?: string;
 
   /**
-   * <p>The title to use in a push notification that's based on the message template. This title appears above the notification message on a recipient's device.</p>
+   * <p>The raw, JSON-formatted string to use as the payload for a push notification that's based on the message template. If specified, this value overrides all other content for the message template.</p>
    */
-  Title?: string;
+  RawContent?: string;
 
   /**
-   * <p>The action to occur if a recipient taps a push notification that's based on the message template. Valid values are:</p> <ul><li><p>OPEN_APP - Your app opens or it becomes the foreground app if it was sent to the background. This is the default action.</p></li> <li><p>DEEP_LINK - Your app opens and displays a designated user interface in the app. This action uses the deep-linking features of the Android platform.</p></li> <li><p>URL - The default mobile browser on the recipient's device opens and loads the web page at a URL that you specify.</p></li></ul>
+   * <p>The URL to open in a recipient's default mobile browser, if a recipient taps a push notification that's based on the message template and the value of the Action property is URL.</p>
    */
-  Action?: Action | string;
+  Url?: string;
+
+  /**
+   * <p>The message body to use in a push notification that's based on the message template.</p>
+   */
+  Body?: string;
+
+  /**
+   * <p>The sound to play when a recipient receives a push notification that's based on the message template. You can use the default stream or specify the file name of a sound resource that's bundled in your app. On an Android platform, the sound file must reside in /res/raw/.</p>
+   */
+  Sound?: string;
 }
 
 export namespace AndroidPushNotificationTemplate {
@@ -1253,6 +1253,26 @@ export interface APNSChannelRequest {
   BundleId?: string;
 
   /**
+   * <p>The APNs client certificate that you received from Apple, if you want Amazon Pinpoint to communicate with APNs by using an APNs certificate.</p>
+   */
+  Certificate?: string;
+
+  /**
+   * <p>The identifier that's assigned to your Apple developer account team. This identifier is used for APNs tokens.</p>
+   */
+  TeamId?: string;
+
+  /**
+   * <p>The default authentication method that you want Amazon Pinpoint to use when authenticating with APNs, key or certificate.</p>
+   */
+  DefaultAuthenticationMethod?: string;
+
+  /**
+   * <p>The key identifier that's assigned to your APNs signing key, if you want Amazon Pinpoint to communicate with APNs by using APNs tokens.</p>
+   */
+  TokenKeyId?: string;
+
+  /**
    * <p>The authentication key to use for APNs tokens.</p>
    */
   TokenKey?: string;
@@ -1261,26 +1281,6 @@ export interface APNSChannelRequest {
    * <p>Specifies whether to enable the APNs channel for the application.</p>
    */
   Enabled?: boolean;
-
-  /**
-   * <p>The key identifier that's assigned to your APNs signing key, if you want Amazon Pinpoint to communicate with APNs by using APNs tokens.</p>
-   */
-  TokenKeyId?: string;
-
-  /**
-   * <p>The identifier that's assigned to your Apple developer account team. This identifier is used for APNs tokens.</p>
-   */
-  TeamId?: string;
-
-  /**
-   * <p>The APNs client certificate that you received from Apple, if you want Amazon Pinpoint to communicate with APNs by using an APNs certificate.</p>
-   */
-  Certificate?: string;
-
-  /**
-   * <p>The default authentication method that you want Amazon Pinpoint to use when authenticating with APNs, key or certificate.</p>
-   */
-  DefaultAuthenticationMethod?: string;
 }
 
 export namespace APNSChannelRequest {
@@ -1294,11 +1294,6 @@ export namespace APNSChannelRequest {
  */
 export interface APNSChannelResponse {
   /**
-   * <p>The unique identifier for the application that the APNs channel applies to.</p>
-   */
-  ApplicationId?: string;
-
-  /**
    * <p>(Not used) This property is retained only for backward compatibility.</p>
    */
   HasCredential?: boolean;
@@ -1309,9 +1304,9 @@ export interface APNSChannelResponse {
   DefaultAuthenticationMethod?: string;
 
   /**
-   * <p>The user who last modified the APNs channel.</p>
+   * <p>Specifies whether the APNs channel is enabled for the application.</p>
    */
-  LastModifiedBy?: string;
+  Enabled?: boolean;
 
   /**
    * <p>The type of messaging or notification platform for the channel. For the APNs channel, this value is APNS.</p>
@@ -1322,16 +1317,6 @@ export interface APNSChannelResponse {
    * <p>(Deprecated) An identifier for the APNs channel. This property is retained only for backward compatibility.</p>
    */
   Id?: string;
-
-  /**
-   * <p>The current version of the APNs channel.</p>
-   */
-  Version?: number;
-
-  /**
-   * <p>Specifies whether the APNs channel is configured to communicate with APNs by using APNs tokens. To provide an authentication key for APNs tokens, set the TokenKey property of the channel.</p>
-   */
-  HasTokenKey?: boolean;
 
   /**
    * <p>Specifies whether the APNs channel is archived.</p>
@@ -1349,9 +1334,24 @@ export interface APNSChannelResponse {
   LastModifiedDate?: string;
 
   /**
-   * <p>Specifies whether the APNs channel is enabled for the application.</p>
+   * <p>Specifies whether the APNs channel is configured to communicate with APNs by using APNs tokens. To provide an authentication key for APNs tokens, set the TokenKey property of the channel.</p>
    */
-  Enabled?: boolean;
+  HasTokenKey?: boolean;
+
+  /**
+   * <p>The user who last modified the APNs channel.</p>
+   */
+  LastModifiedBy?: string;
+
+  /**
+   * <p>The current version of the APNs channel.</p>
+   */
+  Version?: number;
+
+  /**
+   * <p>The unique identifier for the application that the APNs channel applies to.</p>
+   */
+  ApplicationId?: string;
 }
 
 export namespace APNSChannelResponse {
@@ -1365,9 +1365,39 @@ export namespace APNSChannelResponse {
  */
 export interface APNSMessage {
   /**
+   * <p>The key for the sound to play when the recipient receives the push notification. The value for this key is the name of a sound file in your app's main bundle or the Library/Sounds folder in your app's data container. If the sound file can't be found or you specify default for the value, the system plays the default alert sound.</p>
+   */
+  Sound?: string;
+
+  /**
    * <p>The JSON payload to use for a silent push notification. This payload is added to the data.pinpoint.jsonBody object of the notification.</p>
    */
   Data?: { [key: string]: string };
+
+  /**
+   * <p>The type of push notification to send. Valid values are:</p> <ul><li><p>alert - For a standard notification that's displayed on recipients' devices and prompts a recipient to interact with the notification.</p></li> <li><p>background - For a silent notification that delivers content in the background and isn't displayed on recipients' devices.</p></li> <li><p>complication - For a notification that contains update information for an app’s complication timeline.</p></li> <li><p>fileprovider - For a notification that signals changes to a File Provider extension.</p></li> <li><p>mdm - For a notification that tells managed devices to contact the MDM server.</p></li> <li><p>voip - For a notification that provides information about an incoming VoIP call.</p></li></ul> <p>Amazon Pinpoint specifies this value in the apns-push-type request header when it sends the notification message to APNs. If you don't specify a value for this property, Amazon Pinpoint sets the value to alert or background automatically, based on the value that you specify for the SilentPush or RawContent property of the message.</p> <p>For more information about the apns-push-type request header, see <a href="https://developer.apple.com/documentation/usernotifications/setting_up_a_remote_notification_server/sending_notification_requests_to_apns">Sending Notification Requests to APNs</a> on the Apple Developer website.</p>
+   */
+  APNSPushType?: string;
+
+  /**
+   * <p>The URL to open in the recipient's default mobile browser, if a recipient taps the push notification and the value of the Action property is URL.</p>
+   */
+  Url?: string;
+
+  /**
+   * <p>The body of the notification message.</p>
+   */
+  Body?: string;
+
+  /**
+   * <p>The raw, JSON-formatted string to use as the payload for the notification message. If specified, this value overrides all other content for the message.</p> <note><p>If you specify the raw content of an APNs push notification, the message payload has to include the content-available key. The value of the content-available key has to be an integer, and can only be 0 or 1. If you're sending a standard notification, set the value of content-available to 0. If you're sending a silent (background) notification, set the value of content-available to 1. Additionally, silent notification payloads can't include the alert, badge, or sound keys. For more information, see <a href="https://developer.apple.com/documentation/usernotifications/setting_up_a_remote_notification_server/generating_a_remote_notification">Generating a Remote Notification</a> and <a href="https://developer.apple.com/documentation/usernotifications/setting_up_a_remote_notification_server/pushing_background_updates_to_your_app">Pushing Background Updates to Your App</a> on the Apple Developer website.</p></note>
+   */
+  RawContent?: string;
+
+  /**
+   * <p>The action to occur if the recipient taps the push notification. Valid values are:</p> <ul><li><p>OPEN_APP - Your app opens or it becomes the foreground app if it was sent to the background. This is the default action.</p></li> <li><p>DEEP_LINK - Your app opens and displays a designated user interface in the app. This setting uses the deep-linking features of the iOS platform.</p></li> <li><p>URL - The default mobile browser on the recipient's device opens and loads the web page at a URL that you specify.</p></li></ul>
+   */
+  Action?: Action | string;
 
   /**
    * <p>The title to display above the notification message on the recipient's device.</p>
@@ -1380,44 +1410,14 @@ export interface APNSMessage {
   PreferredAuthenticationMethod?: string;
 
   /**
-   * <p>The URL of an image or video to display in the push notification.</p>
+   * <p>para>5 - Low priority, the notification might be delayed, delivered as part of a group, or throttled.</p>/listitem> <li><p>10 - High priority, the notification is sent immediately. This is the default value. A high priority notification should trigger an alert, play a sound, or badge your app's icon on the recipient's device.</p></li>/para> <p>Amazon Pinpoint specifies this value in the apns-priority request header when it sends the notification message to APNs.</p> <p>The equivalent values for Firebase Cloud Messaging (FCM), formerly Google Cloud Messaging (GCM), are normal, for 5, and high, for 10. If you specify an FCM value for this property, Amazon Pinpoint accepts and converts the value to the corresponding APNs value.</p>
    */
-  MediaUrl?: string;
+  Priority?: string;
 
   /**
-   * <p>The key for the sound to play when the recipient receives the push notification. The value for this key is the name of a sound file in your app's main bundle or the Library/Sounds folder in your app's data container. If the sound file can't be found or you specify default for the value, the system plays the default alert sound.</p>
+   * <p>The amount of time, in seconds, that APNs should store and attempt to deliver the push notification, if the service is unable to deliver the notification the first time. If this value is 0, APNs treats the notification as if it expires immediately and the service doesn't store or try to deliver the notification again.</p> <p>Amazon Pinpoint specifies this value in the apns-expiration request header when it sends the notification message to APNs.</p>
    */
-  Sound?: string;
-
-  /**
-   * <p>The key that indicates the notification type for the push notification. This key is a value that's defined by the identifier property of one of your app's registered categories.</p>
-   */
-  Category?: string;
-
-  /**
-   * <p>The body of the notification message.</p>
-   */
-  Body?: string;
-
-  /**
-   * <p>The type of push notification to send. Valid values are:</p> <ul><li><p>alert - For a standard notification that's displayed on recipients' devices and prompts a recipient to interact with the notification.</p></li> <li><p>background - For a silent notification that delivers content in the background and isn't displayed on recipients' devices.</p></li> <li><p>complication - For a notification that contains update information for an app’s complication timeline.</p></li> <li><p>fileprovider - For a notification that signals changes to a File Provider extension.</p></li> <li><p>mdm - For a notification that tells managed devices to contact the MDM server.</p></li> <li><p>voip - For a notification that provides information about an incoming VoIP call.</p></li></ul> <p>Amazon Pinpoint specifies this value in the apns-push-type request header when it sends the notification message to APNs. If you don't specify a value for this property, Amazon Pinpoint sets the value to alert or background automatically, based on the value that you specify for the SilentPush or RawContent property of the message.</p> <p>For more information about the apns-push-type request header, see <a href="https://developer.apple.com/documentation/usernotifications/setting_up_a_remote_notification_server/sending_notification_requests_to_apns">Sending Notification Requests to APNs</a> on the Apple Developer website.</p>
-   */
-  APNSPushType?: string;
-
-  /**
-   * <p>The raw, JSON-formatted string to use as the payload for the notification message. If specified, this value overrides all other content for the message.</p> <note><p>If you specify the raw content of an APNs push notification, the message payload has to include the content-available key. The value of the content-available key has to be an integer, and can only be 0 or 1. If you're sending a standard notification, set the value of content-available to 0. If you're sending a silent (background) notification, set the value of content-available to 1. Additionally, silent notification payloads can't include the alert, badge, or sound keys. For more information, see <a href="https://developer.apple.com/documentation/usernotifications/setting_up_a_remote_notification_server/generating_a_remote_notification">Generating a Remote Notification</a> and <a href="https://developer.apple.com/documentation/usernotifications/setting_up_a_remote_notification_server/pushing_background_updates_to_your_app">Pushing Background Updates to Your App</a> on the Apple Developer website.</p></note>
-   */
-  RawContent?: string;
-
-  /**
-   * <p>The default message variables to use in the notification message. You can override these default variables with individual address variables.</p>
-   */
-  Substitutions?: { [key: string]: string[] };
-
-  /**
-   * <p>Specifies whether the notification is a silent push notification. A silent (or background) push notification isn't displayed on recipients' devices. You can use silent push notifications to make small updates to your app, or to display messages in an in-app message center.</p> <p>Amazon Pinpoint uses this property to determine the correct value for the apns-push-type request header when it sends the notification message to APNs. If you specify a value of true for this property, Amazon Pinpoint sets the value for the apns-push-type header field to background.</p> <note><p>If you specify the raw content of an APNs push notification, the message payload has to include the content-available key. For silent (background) notifications, set the value of content-available to 1. Additionally, the message payload for a silent notification can't include the alert, badge, or sound keys. For more information, see <a href="https://developer.apple.com/documentation/usernotifications/setting_up_a_remote_notification_server/generating_a_remote_notification">Generating a Remote Notification</a> and <a href="https://developer.apple.com/documentation/usernotifications/setting_up_a_remote_notification_server/pushing_background_updates_to_your_app">Pushing Background Updates to Your App</a> on the Apple Developer website.</p> <p>Apple has indicated that they will throttle "excessive" background notifications based on current traffic volumes. To prevent your notifications being throttled, Apple recommends that you send no more than 3 silent push notifications to each recipient per hour.</p></note>
-   */
-  SilentPush?: boolean;
+  TimeToLive?: number;
 
   /**
    * <p>An arbitrary identifier that, if assigned to multiple messages, APNs uses to coalesce the messages into a single push notification instead of delivering each message individually. This value can't exceed 64 bytes.</p> <p>Amazon Pinpoint specifies this value in the apns-collapse-id request header when it sends the notification message to APNs.</p>
@@ -1425,34 +1425,34 @@ export interface APNSMessage {
   CollapseId?: string;
 
   /**
+   * <p>Specifies whether the notification is a silent push notification. A silent (or background) push notification isn't displayed on recipients' devices. You can use silent push notifications to make small updates to your app, or to display messages in an in-app message center.</p> <p>Amazon Pinpoint uses this property to determine the correct value for the apns-push-type request header when it sends the notification message to APNs. If you specify a value of true for this property, Amazon Pinpoint sets the value for the apns-push-type header field to background.</p> <note><p>If you specify the raw content of an APNs push notification, the message payload has to include the content-available key. For silent (background) notifications, set the value of content-available to 1. Additionally, the message payload for a silent notification can't include the alert, badge, or sound keys. For more information, see <a href="https://developer.apple.com/documentation/usernotifications/setting_up_a_remote_notification_server/generating_a_remote_notification">Generating a Remote Notification</a> and <a href="https://developer.apple.com/documentation/usernotifications/setting_up_a_remote_notification_server/pushing_background_updates_to_your_app">Pushing Background Updates to Your App</a> on the Apple Developer website.</p> <p>Apple has indicated that they will throttle "excessive" background notifications based on current traffic volumes. To prevent your notifications being throttled, Apple recommends that you send no more than 3 silent push notifications to each recipient per hour.</p></note>
+   */
+  SilentPush?: boolean;
+
+  /**
+   * <p>The URL of an image or video to display in the push notification.</p>
+   */
+  MediaUrl?: string;
+
+  /**
+   * <p>The key that indicates the notification type for the push notification. This key is a value that's defined by the identifier property of one of your app's registered categories.</p>
+   */
+  Category?: string;
+
+  /**
    * <p>The key that indicates whether and how to modify the badge of your app's icon when the recipient receives the push notification. If this key isn't included in the dictionary, the badge doesn't change. To remove the badge, set this value to 0.</p>
    */
   Badge?: number;
 
   /**
+   * <p>The default message variables to use in the notification message. You can override these default variables with individual address variables.</p>
+   */
+  Substitutions?: { [key: string]: string[] };
+
+  /**
    * <p>The key that represents your app-specific identifier for grouping notifications. If you provide a Notification Content app extension, you can use this value to group your notifications together.</p>
    */
   ThreadId?: string;
-
-  /**
-   * <p>para>5 - Low priority, the notification might be delayed, delivered as part of a group, or throttled.</p>/listitem> <li><p>10 - High priority, the notification is sent immediately. This is the default value. A high priority notification should trigger an alert, play a sound, or badge your app's icon on the recipient's device.</p></li>/para> <p>Amazon Pinpoint specifies this value in the apns-priority request header when it sends the notification message to APNs.</p> <p>The equivalent values for Firebase Cloud Messaging (FCM), formerly Google Cloud Messaging (GCM), are normal, for 5, and high, for 10. If you specify an FCM value for this property, Amazon Pinpoint accepts and converts the value to the corresponding APNs value.</p>
-   */
-  Priority?: string;
-
-  /**
-   * <p>The action to occur if the recipient taps the push notification. Valid values are:</p> <ul><li><p>OPEN_APP - Your app opens or it becomes the foreground app if it was sent to the background. This is the default action.</p></li> <li><p>DEEP_LINK - Your app opens and displays a designated user interface in the app. This setting uses the deep-linking features of the iOS platform.</p></li> <li><p>URL - The default mobile browser on the recipient's device opens and loads the web page at a URL that you specify.</p></li></ul>
-   */
-  Action?: Action | string;
-
-  /**
-   * <p>The URL to open in the recipient's default mobile browser, if a recipient taps the push notification and the value of the Action property is URL.</p>
-   */
-  Url?: string;
-
-  /**
-   * <p>The amount of time, in seconds, that APNs should store and attempt to deliver the push notification, if the service is unable to deliver the notification the first time. If this value is 0, APNs treats the notification as if it expires immediately and the service doesn't store or try to deliver the notification again.</p> <p>Amazon Pinpoint specifies this value in the apns-expiration request header when it sends the notification message to APNs.</p>
-   */
-  TimeToLive?: number;
 }
 
 export namespace APNSMessage {
@@ -1466,19 +1466,9 @@ export namespace APNSMessage {
  */
 export interface APNSPushNotificationTemplate {
   /**
-   * <p>The title to use in push notifications that are based on the message template. This title appears above the notification message on a recipient's device.</p>
-   */
-  Title?: string;
-
-  /**
    * <p>The key for the sound to play when the recipient receives a push notification that's based on the message template. The value for this key is the name of a sound file in your app's main bundle or the Library/Sounds folder in your app's data container. If the sound file can't be found or you specify default for the value, the system plays the default alert sound.</p>
    */
   Sound?: string;
-
-  /**
-   * <p>The URL of an image or video to display in push notifications that are based on the message template.</p>
-   */
-  MediaUrl?: string;
 
   /**
    * <p>The URL to open in the recipient's default mobile browser, if a recipient taps a push notification that's based on the message template and the value of the Action property is URL.</p>
@@ -1491,14 +1481,24 @@ export interface APNSPushNotificationTemplate {
   RawContent?: string;
 
   /**
+   * <p>The message body to use in push notifications that are based on the message template.</p>
+   */
+  Body?: string;
+
+  /**
    * <p>The action to occur if a recipient taps a push notification that's based on the message template. Valid values are:</p> <ul><li><p>OPEN_APP - Your app opens or it becomes the foreground app if it was sent to the background. This is the default action.</p></li> <li><p>DEEP_LINK - Your app opens and displays a designated user interface in the app. This setting uses the deep-linking features of the iOS platform.</p></li> <li><p>URL - The default mobile browser on the recipient's device opens and loads the web page at a URL that you specify.</p></li></ul>
    */
   Action?: Action | string;
 
   /**
-   * <p>The message body to use in push notifications that are based on the message template.</p>
+   * <p>The URL of an image or video to display in push notifications that are based on the message template.</p>
    */
-  Body?: string;
+  MediaUrl?: string;
+
+  /**
+   * <p>The title to use in push notifications that are based on the message template. This title appears above the notification message on a recipient's device.</p>
+   */
+  Title?: string;
 }
 
 export namespace APNSPushNotificationTemplate {
@@ -1512,9 +1512,9 @@ export namespace APNSPushNotificationTemplate {
  */
 export interface APNSSandboxChannelRequest {
   /**
-   * <p>The authentication key to use for APNs tokens.</p>
+   * <p>Specifies whether to enable the APNs sandbox channel for the application.</p>
    */
-  TokenKey?: string;
+  Enabled?: boolean;
 
   /**
    * <p>The default authentication method that you want Amazon Pinpoint to use when authenticating with the APNs sandbox environment, key or certificate.</p>
@@ -1522,24 +1522,14 @@ export interface APNSSandboxChannelRequest {
   DefaultAuthenticationMethod?: string;
 
   /**
-   * <p>Specifies whether to enable the APNs sandbox channel for the application.</p>
+   * <p>The authentication key to use for APNs tokens.</p>
    */
-  Enabled?: boolean;
+  TokenKey?: string;
 
   /**
-   * <p>The key identifier that's assigned to your APNs signing key, if you want Amazon Pinpoint to communicate with the APNs sandbox environment by using APNs tokens.</p>
+   * <p>The private key for the APNs client certificate that you want Amazon Pinpoint to use to communicate with the APNs sandbox environment.</p>
    */
-  TokenKeyId?: string;
-
-  /**
-   * <p>The identifier that's assigned to your Apple developer account team. This identifier is used for APNs tokens.</p>
-   */
-  TeamId?: string;
-
-  /**
-   * <p>The APNs client certificate that you received from Apple, if you want Amazon Pinpoint to communicate with the APNs sandbox environment by using an APNs certificate.</p>
-   */
-  Certificate?: string;
+  PrivateKey?: string;
 
   /**
    * <p>The bundle identifier that's assigned to your iOS app. This identifier is used for APNs tokens.</p>
@@ -1547,9 +1537,19 @@ export interface APNSSandboxChannelRequest {
   BundleId?: string;
 
   /**
-   * <p>The private key for the APNs client certificate that you want Amazon Pinpoint to use to communicate with the APNs sandbox environment.</p>
+   * <p>The identifier that's assigned to your Apple developer account team. This identifier is used for APNs tokens.</p>
    */
-  PrivateKey?: string;
+  TeamId?: string;
+
+  /**
+   * <p>The key identifier that's assigned to your APNs signing key, if you want Amazon Pinpoint to communicate with the APNs sandbox environment by using APNs tokens.</p>
+   */
+  TokenKeyId?: string;
+
+  /**
+   * <p>The APNs client certificate that you received from Apple, if you want Amazon Pinpoint to communicate with the APNs sandbox environment by using an APNs certificate.</p>
+   */
+  Certificate?: string;
 }
 
 export namespace APNSSandboxChannelRequest {
@@ -1563,9 +1563,9 @@ export namespace APNSSandboxChannelRequest {
  */
 export interface APNSSandboxChannelResponse {
   /**
-   * <p>Specifies whether the APNs sandbox channel is enabled for the application.</p>
+   * <p>The type of messaging or notification platform for the channel. For the APNs sandbox channel, this value is APNS_SANDBOX.</p>
    */
-  Enabled?: boolean;
+  Platform: string | undefined;
 
   /**
    * <p>(Deprecated) An identifier for the APNs sandbox channel. This property is retained only for backward compatibility.</p>
@@ -1573,14 +1573,24 @@ export interface APNSSandboxChannelResponse {
   Id?: string;
 
   /**
-   * <p>The default authentication method that Amazon Pinpoint uses to authenticate with the APNs sandbox environment for this channel, key or certificate.</p>
-   */
-  DefaultAuthenticationMethod?: string;
-
-  /**
    * <p>The current version of the APNs sandbox channel.</p>
    */
   Version?: number;
+
+  /**
+   * <p>The user who last modified the APNs sandbox channel.</p>
+   */
+  LastModifiedBy?: string;
+
+  /**
+   * <p>Specifies whether the APNs sandbox channel is configured to communicate with APNs by using APNs tokens. To provide an authentication key for APNs tokens, set the TokenKey property of the channel.</p>
+   */
+  HasTokenKey?: boolean;
+
+  /**
+   * <p>The unique identifier for the application that the APNs sandbox channel applies to.</p>
+   */
+  ApplicationId?: string;
 
   /**
    * <p>(Not used) This property is retained only for backward compatibility.</p>
@@ -1588,14 +1598,19 @@ export interface APNSSandboxChannelResponse {
   HasCredential?: boolean;
 
   /**
-   * <p>The type of messaging or notification platform for the channel. For the APNs sandbox channel, this value is APNS_SANDBOX.</p>
-   */
-  Platform: string | undefined;
-
-  /**
    * <p>Specifies whether the APNs sandbox channel is archived.</p>
    */
   IsArchived?: boolean;
+
+  /**
+   * <p>The default authentication method that Amazon Pinpoint uses to authenticate with the APNs sandbox environment for this channel, key or certificate.</p>
+   */
+  DefaultAuthenticationMethod?: string;
+
+  /**
+   * <p>Specifies whether the APNs sandbox channel is enabled for the application.</p>
+   */
+  Enabled?: boolean;
 
   /**
    * <p>The date and time when the APNs sandbox channel was last modified.</p>
@@ -1606,21 +1621,6 @@ export interface APNSSandboxChannelResponse {
    * <p>The date and time when the APNs sandbox channel was enabled.</p>
    */
   CreationDate?: string;
-
-  /**
-   * <p>Specifies whether the APNs sandbox channel is configured to communicate with APNs by using APNs tokens. To provide an authentication key for APNs tokens, set the TokenKey property of the channel.</p>
-   */
-  HasTokenKey?: boolean;
-
-  /**
-   * <p>The user who last modified the APNs sandbox channel.</p>
-   */
-  LastModifiedBy?: string;
-
-  /**
-   * <p>The unique identifier for the application that the APNs sandbox channel applies to.</p>
-   */
-  ApplicationId?: string;
 }
 
 export namespace APNSSandboxChannelResponse {
@@ -1633,26 +1633,6 @@ export namespace APNSSandboxChannelResponse {
  * <p>Specifies the status and settings of the APNs (Apple Push Notification service) VoIP channel for an application.</p>
  */
 export interface APNSVoipChannelRequest {
-  /**
-   * <p>The APNs client certificate that you received from Apple, if you want Amazon Pinpoint to communicate with APNs by using an APNs certificate.</p>
-   */
-  Certificate?: string;
-
-  /**
-   * <p>The default authentication method that you want Amazon Pinpoint to use when authenticating with APNs, key or certificate.</p>
-   */
-  DefaultAuthenticationMethod?: string;
-
-  /**
-   * <p>The authentication key to use for APNs tokens.</p>
-   */
-  TokenKey?: string;
-
-  /**
-   * <p>Specifies whether to enable the APNs VoIP channel for the application.</p>
-   */
-  Enabled?: boolean;
-
   /**
    * <p>The key identifier that's assigned to your APNs signing key, if you want Amazon Pinpoint to communicate with APNs by using APNs tokens.</p>
    */
@@ -1669,9 +1649,29 @@ export interface APNSVoipChannelRequest {
   PrivateKey?: string;
 
   /**
+   * <p>The APNs client certificate that you received from Apple, if you want Amazon Pinpoint to communicate with APNs by using an APNs certificate.</p>
+   */
+  Certificate?: string;
+
+  /**
    * <p>The identifier that's assigned to your Apple developer account team. This identifier is used for APNs tokens.</p>
    */
   TeamId?: string;
+
+  /**
+   * <p>The default authentication method that you want Amazon Pinpoint to use when authenticating with APNs, key or certificate.</p>
+   */
+  DefaultAuthenticationMethod?: string;
+
+  /**
+   * <p>Specifies whether to enable the APNs VoIP channel for the application.</p>
+   */
+  Enabled?: boolean;
+
+  /**
+   * <p>The authentication key to use for APNs tokens.</p>
+   */
+  TokenKey?: string;
 }
 
 export namespace APNSVoipChannelRequest {
@@ -1685,14 +1685,9 @@ export namespace APNSVoipChannelRequest {
  */
 export interface APNSVoipChannelResponse {
   /**
-   * <p>(Not used) This property is retained only for backward compatibility.</p>
+   * <p>Specifies whether the APNs VoIP channel is enabled for the application.</p>
    */
-  HasCredential?: boolean;
-
-  /**
-   * <p>The unique identifier for the application that the APNs VoIP channel applies to.</p>
-   */
-  ApplicationId?: string;
+  Enabled?: boolean;
 
   /**
    * <p>The default authentication method that Amazon Pinpoint uses to authenticate with APNs for this channel, key or certificate.</p>
@@ -1700,14 +1695,14 @@ export interface APNSVoipChannelResponse {
   DefaultAuthenticationMethod?: string;
 
   /**
-   * <p>The user who last modified the APNs VoIP channel.</p>
+   * <p>(Not used) This property is retained only for backward compatibility.</p>
    */
-  LastModifiedBy?: string;
+  HasCredential?: boolean;
 
   /**
-   * <p>Specifies whether the APNs VoIP channel is configured to communicate with APNs by using APNs tokens. To provide an authentication key for APNs tokens, set the TokenKey property of the channel.</p>
+   * <p>(Deprecated) An identifier for the APNs VoIP channel. This property is retained only for backward compatibility.</p>
    */
-  HasTokenKey?: boolean;
+  Id?: string;
 
   /**
    * <p>The type of messaging or notification platform for the channel. For the APNs VoIP channel, this value is APNS_VOIP.</p>
@@ -1715,14 +1710,14 @@ export interface APNSVoipChannelResponse {
   Platform: string | undefined;
 
   /**
+   * <p>The current version of the APNs VoIP channel.</p>
+   */
+  Version?: number;
+
+  /**
    * <p>Specifies whether the APNs VoIP channel is archived.</p>
    */
   IsArchived?: boolean;
-
-  /**
-   * <p>(Deprecated) An identifier for the APNs VoIP channel. This property is retained only for backward compatibility.</p>
-   */
-  Id?: string;
 
   /**
    * <p>The date and time when the APNs VoIP channel was enabled.</p>
@@ -1735,14 +1730,19 @@ export interface APNSVoipChannelResponse {
   LastModifiedDate?: string;
 
   /**
-   * <p>Specifies whether the APNs VoIP channel is enabled for the application.</p>
+   * <p>Specifies whether the APNs VoIP channel is configured to communicate with APNs by using APNs tokens. To provide an authentication key for APNs tokens, set the TokenKey property of the channel.</p>
    */
-  Enabled?: boolean;
+  HasTokenKey?: boolean;
 
   /**
-   * <p>The current version of the APNs VoIP channel.</p>
+   * <p>The unique identifier for the application that the APNs VoIP channel applies to.</p>
    */
-  Version?: number;
+  ApplicationId?: string;
+
+  /**
+   * <p>The user who last modified the APNs VoIP channel.</p>
+   */
+  LastModifiedBy?: string;
 }
 
 export namespace APNSVoipChannelResponse {
@@ -1761,19 +1761,19 @@ export interface APNSVoipSandboxChannelRequest {
   Enabled?: boolean;
 
   /**
-   * <p>The identifier that's assigned to your Apple developer account team. This identifier is used for APNs tokens.</p>
-   */
-  TeamId?: string;
-
-  /**
-   * <p>The key identifier that's assigned to your APNs signing key, if you want Amazon Pinpoint to communicate with the APNs sandbox environment by using APNs tokens.</p>
-   */
-  TokenKeyId?: string;
-
-  /**
    * <p>The private key for the APNs client certificate that you want Amazon Pinpoint to use to communicate with the APNs sandbox environment.</p>
    */
   PrivateKey?: string;
+
+  /**
+   * <p>The authentication key to use for APNs tokens.</p>
+   */
+  TokenKey?: string;
+
+  /**
+   * <p>The identifier that's assigned to your Apple developer account team. This identifier is used for APNs tokens.</p>
+   */
+  TeamId?: string;
 
   /**
    * <p>The bundle identifier that's assigned to your iOS app. This identifier is used for APNs tokens.</p>
@@ -1781,19 +1781,19 @@ export interface APNSVoipSandboxChannelRequest {
   BundleId?: string;
 
   /**
-   * <p>The default authentication method that you want Amazon Pinpoint to use when authenticating with the APNs sandbox environment for this channel, key or certificate.</p>
-   */
-  DefaultAuthenticationMethod?: string;
-
-  /**
    * <p>The APNs client certificate that you received from Apple, if you want Amazon Pinpoint to communicate with the APNs sandbox environment by using an APNs certificate.</p>
    */
   Certificate?: string;
 
   /**
-   * <p>The authentication key to use for APNs tokens.</p>
+   * <p>The default authentication method that you want Amazon Pinpoint to use when authenticating with the APNs sandbox environment for this channel, key or certificate.</p>
    */
-  TokenKey?: string;
+  DefaultAuthenticationMethod?: string;
+
+  /**
+   * <p>The key identifier that's assigned to your APNs signing key, if you want Amazon Pinpoint to communicate with the APNs sandbox environment by using APNs tokens.</p>
+   */
+  TokenKeyId?: string;
 }
 
 export namespace APNSVoipSandboxChannelRequest {
@@ -1807,21 +1807,6 @@ export namespace APNSVoipSandboxChannelRequest {
  */
 export interface APNSVoipSandboxChannelResponse {
   /**
-   * <p>Specifies whether the APNs VoIP sandbox channel is enabled for the application.</p>
-   */
-  Enabled?: boolean;
-
-  /**
-   * <p>The current version of the APNs VoIP sandbox channel.</p>
-   */
-  Version?: number;
-
-  /**
-   * <p>The type of messaging or notification platform for the channel. For the APNs VoIP sandbox channel, this value is APNS_VOIP_SANDBOX.</p>
-   */
-  Platform: string | undefined;
-
-  /**
    * <p>Specifies whether the APNs VoIP sandbox channel is configured to communicate with APNs by using APNs tokens. To provide an authentication key for APNs tokens, set the TokenKey property of the channel.</p>
    */
   HasTokenKey?: boolean;
@@ -1832,19 +1817,19 @@ export interface APNSVoipSandboxChannelResponse {
   Id?: string;
 
   /**
-   * <p>Specifies whether the APNs VoIP sandbox channel is archived.</p>
+   * <p>The type of messaging or notification platform for the channel. For the APNs VoIP sandbox channel, this value is APNS_VOIP_SANDBOX.</p>
    */
-  IsArchived?: boolean;
+  Platform: string | undefined;
 
   /**
-   * <p>The date and time when the APNs VoIP sandbox channel was enabled.</p>
+   * <p>The user who last modified the APNs VoIP sandbox channel.</p>
    */
-  CreationDate?: string;
+  LastModifiedBy?: string;
 
   /**
-   * <p>The date and time when the APNs VoIP sandbox channel was last modified.</p>
+   * <p>The current version of the APNs VoIP sandbox channel.</p>
    */
-  LastModifiedDate?: string;
+  Version?: number;
 
   /**
    * <p>The unique identifier for the application that the APNs VoIP sandbox channel applies to.</p>
@@ -1857,14 +1842,29 @@ export interface APNSVoipSandboxChannelResponse {
   HasCredential?: boolean;
 
   /**
-   * <p>The user who last modified the APNs VoIP sandbox channel.</p>
-   */
-  LastModifiedBy?: string;
-
-  /**
    * <p>The default authentication method that Amazon Pinpoint uses to authenticate with the APNs sandbox environment for this channel, key or certificate.</p>
    */
   DefaultAuthenticationMethod?: string;
+
+  /**
+   * <p>The date and time when the APNs VoIP sandbox channel was last modified.</p>
+   */
+  LastModifiedDate?: string;
+
+  /**
+   * <p>The date and time when the APNs VoIP sandbox channel was enabled.</p>
+   */
+  CreationDate?: string;
+
+  /**
+   * <p>Specifies whether the APNs VoIP sandbox channel is archived.</p>
+   */
+  IsArchived?: boolean;
+
+  /**
+   * <p>Specifies whether the APNs VoIP sandbox channel is enabled for the application.</p>
+   */
+  Enabled?: boolean;
 }
 
 export namespace APNSVoipSandboxChannelResponse {
@@ -1878,11 +1878,6 @@ export namespace APNSVoipSandboxChannelResponse {
  */
 export interface ResultRowValue {
   /**
-   * <p>The friendly name of the metric whose value is specified by the Value property.</p>
-   */
-  Key: string | undefined;
-
-  /**
    * <p>In a Values object, the value for the metric that the query retrieved data for. In a GroupedBys object, the value for the field that was used to group data in a result set that contains multiple results (Values objects).</p>
    */
   Value: string | undefined;
@@ -1891,6 +1886,11 @@ export interface ResultRowValue {
    * <p>The data type of the value specified by the Value property.</p>
    */
   Type: string | undefined;
+
+  /**
+   * <p>The friendly name of the metric whose value is specified by the Value property.</p>
+   */
+  Key: string | undefined;
 }
 
 export namespace ResultRowValue {
@@ -1904,14 +1904,14 @@ export namespace ResultRowValue {
  */
 export interface ResultRow {
   /**
-   * <p>An array of objects that provides pre-aggregated values for a standard metric that applies to an application, campaign, or journey.</p>
-   */
-  Values: ResultRowValue[] | undefined;
-
-  /**
    * <p>An array of objects that defines the field and field values that were used to group data in a result set that contains multiple results. This value is null if the data in a result set isn’t grouped.</p>
    */
   GroupedBys: ResultRowValue[] | undefined;
+
+  /**
+   * <p>An array of objects that provides pre-aggregated values for a standard metric that applies to an application, campaign, or journey.</p>
+   */
+  Values: ResultRowValue[] | undefined;
 }
 
 export namespace ResultRow {
@@ -1941,11 +1941,6 @@ export namespace BaseKpiResult {
  */
 export interface ApplicationDateRangeKpiResponse {
   /**
-   * <p>An array of objects that contains the results of the query. Each object contains the value for the metric and metadata about that value.</p>
-   */
-  KpiResult: BaseKpiResult | undefined;
-
-  /**
    * <p>The name of the metric, also referred to as a <i>key performance indicator (KPI)</i>, that the data was retrieved for. This value describes the associated metric and consists of two or more terms, which are comprised of lowercase alphanumeric characters, separated by a hyphen. For a list of possible values, see the <a href="https://docs.aws.amazon.com/pinpoint/latest/developerguide/analytics-standard-metrics.html">Amazon Pinpoint Developer Guide</a>.</p>
    */
   KpiName: string | undefined;
@@ -1956,9 +1951,14 @@ export interface ApplicationDateRangeKpiResponse {
   EndTime: Date | undefined;
 
   /**
-   * <p>The string to use in a subsequent request to get the next page of results in a paginated response. This value is null for the Application Metrics resource because the resource returns all results in a single page.</p>
+   * <p>The unique identifier for the application that the metric applies to.</p>
    */
-  NextToken?: string;
+  ApplicationId: string | undefined;
+
+  /**
+   * <p>An array of objects that contains the results of the query. Each object contains the value for the metric and metadata about that value.</p>
+   */
+  KpiResult: BaseKpiResult | undefined;
 
   /**
    * <p>The first date and time of the date range that was used to filter the query results, in extended ISO 8601 format. The date range is inclusive.</p>
@@ -1966,9 +1966,9 @@ export interface ApplicationDateRangeKpiResponse {
   StartTime: Date | undefined;
 
   /**
-   * <p>The unique identifier for the application that the metric applies to.</p>
+   * <p>The string to use in a subsequent request to get the next page of results in a paginated response. This value is null for the Application Metrics resource because the resource returns all results in a single page.</p>
    */
-  ApplicationId: string | undefined;
+  NextToken?: string;
 }
 
 export namespace ApplicationDateRangeKpiResponse {
@@ -1982,9 +1982,9 @@ export namespace ApplicationDateRangeKpiResponse {
  */
 export interface ApplicationResponse {
   /**
-   * <p>The display name of the application. This name is displayed as the <b>Project name</b> on the Amazon Pinpoint console.</p>
+   * <p>A string-to-string map of key-value pairs that identifies the tags that are associated with the application. Each tag consists of a required tag key and an associated tag value.</p>
    */
-  Name: string | undefined;
+  tags?: { [key: string]: string };
 
   /**
    * <p>The Amazon Resource Name (ARN) of the application.</p>
@@ -1992,14 +1992,14 @@ export interface ApplicationResponse {
   Arn: string | undefined;
 
   /**
-   * <p>A string-to-string map of key-value pairs that identifies the tags that are associated with the application. Each tag consists of a required tag key and an associated tag value.</p>
-   */
-  tags?: { [key: string]: string };
-
-  /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
    */
   Id: string | undefined;
+
+  /**
+   * <p>The display name of the application. This name is displayed as the <b>Project name</b> on the Amazon Pinpoint console.</p>
+   */
+  Name: string | undefined;
 }
 
 export namespace ApplicationResponse {
@@ -2018,9 +2018,9 @@ export enum Mode {
  */
 export interface CampaignHook {
   /**
-   * <p>The name or Amazon Resource Name (ARN) of the AWS Lambda function that Amazon Pinpoint invokes to customize a segment for a campaign.</p>
+   * <p>The web URL that Amazon Pinpoint calls to invoke the AWS Lambda function over HTTPS.</p>
    */
-  LambdaFunctionName?: string;
+  WebUrl?: string;
 
   /**
    * <p>The mode that Amazon Pinpoint uses to invoke the AWS Lambda function. Possible values are:</p> <ul><li><p>FILTER - Invoke the function to customize the segment that's used by a campaign.</p></li> <li><p>DELIVERY - (Deprecated) Previously, invoked the function to send a campaign through a custom channel. This functionality is not supported anymore. To send a campaign through a custom channel, use the CustomDeliveryConfiguration and CampaignCustomMessage objects of the campaign.</p></li></ul>
@@ -2028,9 +2028,9 @@ export interface CampaignHook {
   Mode?: Mode | string;
 
   /**
-   * <p>The web URL that Amazon Pinpoint calls to invoke the AWS Lambda function over HTTPS.</p>
+   * <p>The name or Amazon Resource Name (ARN) of the AWS Lambda function that Amazon Pinpoint invokes to customize a segment for a campaign.</p>
    */
-  WebUrl?: string;
+  LambdaFunctionName?: string;
 }
 
 export namespace CampaignHook {
@@ -2040,7 +2040,7 @@ export namespace CampaignHook {
 }
 
 /**
- * <p>For a campaign, specifies limits on the messages that the campaign can send. For an application, specifies the default limits for messages that campaigns and journeys in the application can send.</p>
+ * <p>For a campaign, specifies limits on the messages that the campaign can send. For an application, specifies the default limits for messages that campaigns in the application can send.</p>
  */
 export interface CampaignLimits {
   /**
@@ -2049,9 +2049,9 @@ export interface CampaignLimits {
   Daily?: number;
 
   /**
-   * <p>The maximum number of messages that a campaign can send to a single endpoint during the course of the campaign. If a campaign recurs, this setting applies to all runs of the campaign. The maximum value is 100.</p>
+   * <p>The maximum number of messages that a campaign can send each second. For an application, this value specifies the default limit for the number of messages that campaigns can send each second. The minimum value is 50. The maximum value is 20,000.</p>
    */
-  Total?: number;
+  MessagesPerSecond?: number;
 
   /**
    * <p>The maximum amount of time, in seconds, that a campaign can attempt to deliver a message after the scheduled start time for the campaign. The minimum value is 60 seconds.</p>
@@ -2059,9 +2059,9 @@ export interface CampaignLimits {
   MaximumDuration?: number;
 
   /**
-   * <p>The maximum number of messages that a campaign can send each second. For an application, this value specifies the default limit for the number of messages that campaigns and journeys can send each second. The minimum value is 50. The maximum value is 20,000.</p>
+   * <p>The maximum number of messages that a campaign can send to a single endpoint during the course of the campaign. If a campaign recurs, this setting applies to all runs of the campaign. The maximum value is 100.</p>
    */
-  MessagesPerSecond?: number;
+  Total?: number;
 }
 
 export namespace CampaignLimits {
@@ -2096,9 +2096,9 @@ export namespace QuietTime {
  */
 export interface ApplicationSettingsResource {
   /**
-   * <p>The default quiet time for campaigns and journeys in the application. Quiet time is a specific time range when messages aren't sent to endpoints, if all the following conditions are met:</p> <ul><li><p>The EndpointDemographic.Timezone property of the endpoint is set to a valid value.</p></li> <li><p>The current time in the endpoint's time zone is later than or equal to the time specified by the QuietTime.Start property for the application (or a campaign or journey that has custom quiet time settings).</p></li> <li><p>The current time in the endpoint's time zone is earlier than or equal to the time specified by the QuietTime.End property for the application (or a campaign or journey that has custom quiet time settings).</p></li></ul> <p>If any of the preceding conditions isn't met, the endpoint will receive messages from a campaign or journey, even if quiet time is enabled.</p>
+   * <p>The date and time, in ISO 8601 format, when the application's settings were last modified.</p>
    */
-  QuietTime?: QuietTime;
+  LastModifiedDate?: string;
 
   /**
    * <p>The settings for the AWS Lambda function to invoke by default as a code hook for campaigns in the application. You can use this hook to customize segments that are used by campaigns in the application.</p>
@@ -2106,19 +2106,19 @@ export interface ApplicationSettingsResource {
   CampaignHook?: CampaignHook;
 
   /**
-   * <p>The default sending limits for campaigns and journeys in the application.</p>
-   */
-  Limits?: CampaignLimits;
-
-  /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
    */
   ApplicationId: string | undefined;
 
   /**
-   * <p>The date and time, in ISO 8601 format, when the application's settings were last modified.</p>
+   * <p>The default quiet time for campaigns in the application. Quiet time is a specific time range when messages aren't sent to endpoints, if all the following conditions are met:</p> <ul><li><p>The EndpointDemographic.Timezone property of the endpoint is set to a valid value.</p></li> <li><p>The current time in the endpoint's time zone is later than or equal to the time specified by the QuietTime.Start property for the application (or a campaign or journey that has custom quiet time settings).</p></li> <li><p>The current time in the endpoint's time zone is earlier than or equal to the time specified by the QuietTime.End property for the application (or a campaign or journey that has custom quiet time settings).</p></li></ul> <p>If any of the preceding conditions isn't met, the endpoint will receive messages from a campaign or journey, even if quiet time is enabled.</p>
    */
-  LastModifiedDate?: string;
+  QuietTime?: QuietTime;
+
+  /**
+   * <p>The default sending limits for campaigns in the application.</p>
+   */
+  Limits?: CampaignLimits;
 }
 
 export namespace ApplicationSettingsResource {
@@ -2132,14 +2132,14 @@ export namespace ApplicationSettingsResource {
  */
 export interface ApplicationsResponse {
   /**
-   * <p>An array of responses, one for each application that was returned.</p>
-   */
-  Item?: ApplicationResponse[];
-
-  /**
    * <p>The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>An array of responses, one for each application that was returned.</p>
+   */
+  Item?: ApplicationResponse[];
 }
 
 export namespace ApplicationsResponse {
@@ -2153,9 +2153,9 @@ export namespace ApplicationsResponse {
  */
 export interface AttributesResource {
   /**
-   * <p>The unique identifier for the application.</p>
+   * <p>The type of attribute or attributes that were removed from the endpoints. Valid values are:</p> <ul><li><p>endpoint-custom-attributes - Custom attributes that describe endpoints.</p></li> <li><p>endpoint-metric-attributes - Custom metrics that your app reports to Amazon Pinpoint for endpoints.</p></li> <li><p>endpoint-user-attributes - Custom attributes that describe users.</p></li></ul>
    */
-  ApplicationId: string | undefined;
+  AttributeType: string | undefined;
 
   /**
    * <p>An array that specifies the names of the attributes that were removed from the endpoints.</p>
@@ -2163,9 +2163,9 @@ export interface AttributesResource {
   Attributes?: string[];
 
   /**
-   * <p>The type of attribute or attributes that were removed from the endpoints. Valid values are:</p> <ul><li><p>endpoint-custom-attributes - Custom attributes that describe endpoints.</p></li> <li><p>endpoint-metric-attributes - Custom metrics that your app reports to Amazon Pinpoint for endpoints.</p></li> <li><p>endpoint-user-attributes - Custom attributes that describe users.</p></li></ul>
+   * <p>The unique identifier for the application.</p>
    */
-  AttributeType: string | undefined;
+  ApplicationId: string | undefined;
 }
 
 export namespace AttributesResource {
@@ -2181,14 +2181,14 @@ export interface BadRequestException extends __SmithyException, $MetadataBearer 
   name: "BadRequestException";
   $fault: "client";
   /**
-   * <p>The message that's returned from the API.</p>
-   */
-  Message?: string;
-
-  /**
    * <p>The unique identifier for the request or response.</p>
    */
   RequestID?: string;
+
+  /**
+   * <p>The message that's returned from the API.</p>
+   */
+  Message?: string;
 }
 
 export namespace BadRequestException {
@@ -2202,9 +2202,9 @@ export namespace BadRequestException {
  */
 export interface BaiduChannelRequest {
   /**
-   * <p>The secret key that you received from the Baidu Cloud Push service to communicate with the service.</p>
+   * <p>Specifies whether to enable the Baidu channel for the application.</p>
    */
-  SecretKey: string | undefined;
+  Enabled?: boolean;
 
   /**
    * <p>The API key that you received from the Baidu Cloud Push service to communicate with the service.</p>
@@ -2212,9 +2212,9 @@ export interface BaiduChannelRequest {
   ApiKey: string | undefined;
 
   /**
-   * <p>Specifies whether to enable the Baidu channel for the application.</p>
+   * <p>The secret key that you received from the Baidu Cloud Push service to communicate with the service.</p>
    */
-  Enabled?: boolean;
+  SecretKey: string | undefined;
 }
 
 export namespace BaiduChannelRequest {
@@ -2228,14 +2228,9 @@ export namespace BaiduChannelRequest {
  */
 export interface BaiduChannelResponse {
   /**
-   * <p>Specifies whether the Baidu channel is enabled for the application.</p>
+   * <p>The type of messaging or notification platform for the channel. For the Baidu channel, this value is BAIDU.</p>
    */
-  Enabled?: boolean;
-
-  /**
-   * <p>The current version of the Baidu channel.</p>
-   */
-  Version?: number;
+  Platform: string | undefined;
 
   /**
    * <p>(Deprecated) An identifier for the Baidu channel. This property is retained only for backward compatibility.</p>
@@ -2243,34 +2238,14 @@ export interface BaiduChannelResponse {
   Id?: string;
 
   /**
-   * <p>The type of messaging or notification platform for the channel. For the Baidu channel, this value is BAIDU.</p>
+   * <p>The user who last modified the Baidu channel.</p>
    */
-  Platform: string | undefined;
+  LastModifiedBy?: string;
 
   /**
-   * <p>Specifies whether the Baidu channel is archived.</p>
+   * <p>The current version of the Baidu channel.</p>
    */
-  IsArchived?: boolean;
-
-  /**
-   * <p>The API key that you received from the Baidu Cloud Push service to communicate with the service.</p>
-   */
-  Credential: string | undefined;
-
-  /**
-   * <p>The date and time when the Baidu channel was enabled.</p>
-   */
-  CreationDate?: string;
-
-  /**
-   * <p>The date and time when the Baidu channel was last modified.</p>
-   */
-  LastModifiedDate?: string;
-
-  /**
-   * <p>(Not used) This property is retained only for backward compatibility.</p>
-   */
-  HasCredential?: boolean;
+  Version?: number;
 
   /**
    * <p>The unique identifier for the application that the Baidu channel applies to.</p>
@@ -2278,9 +2253,34 @@ export interface BaiduChannelResponse {
   ApplicationId?: string;
 
   /**
-   * <p>The user who last modified the Baidu channel.</p>
+   * <p>(Not used) This property is retained only for backward compatibility.</p>
    */
-  LastModifiedBy?: string;
+  HasCredential?: boolean;
+
+  /**
+   * <p>The API key that you received from the Baidu Cloud Push service to communicate with the service.</p>
+   */
+  Credential: string | undefined;
+
+  /**
+   * <p>Specifies whether the Baidu channel is archived.</p>
+   */
+  IsArchived?: boolean;
+
+  /**
+   * <p>Specifies whether the Baidu channel is enabled for the application.</p>
+   */
+  Enabled?: boolean;
+
+  /**
+   * <p>The date and time when the Baidu channel was last modified.</p>
+   */
+  LastModifiedDate?: string;
+
+  /**
+   * <p>The date and time when the Baidu channel was enabled.</p>
+   */
+  CreationDate?: string;
 }
 
 export namespace BaiduChannelResponse {
@@ -2294,19 +2294,9 @@ export namespace BaiduChannelResponse {
  */
 export interface BaiduMessage {
   /**
-   * <p>The raw, JSON-formatted string to use as the payload for the notification message. If specified, this value overrides all other content for the message.</p>
+   * <p>The body of the notification message.</p>
    */
-  RawContent?: string;
-
-  /**
-   * <p>The icon image name of the asset saved in your app.</p>
-   */
-  IconReference?: string;
-
-  /**
-   * <p>The amount of time, in seconds, that the Baidu Cloud Push service should store the message if the recipient's device is offline. The default value and maximum supported time is 604,800 seconds (7 days).</p>
-   */
-  TimeToLive?: number;
+  Body?: string;
 
   /**
    * <p>The action to occur if the recipient taps the push notification. Valid values are:</p> <ul><li><p>OPEN_APP - Your app opens or it becomes the foreground app if it was sent to the background. This is the default action.</p></li> <li><p>DEEP_LINK - Your app opens and displays a designated user interface in the app. This action uses the deep-linking features of the Android platform.</p></li> <li><p>URL - The default mobile browser on the recipient's device opens and loads the web page at a URL that you specify.</p></li></ul>
@@ -2314,39 +2304,19 @@ export interface BaiduMessage {
   Action?: Action | string;
 
   /**
+   * <p>The raw, JSON-formatted string to use as the payload for the notification message. If specified, this value overrides all other content for the message.</p>
+   */
+  RawContent?: string;
+
+  /**
    * <p>The sound to play when the recipient receives the push notification. You can use the default stream or specify the file name of a sound resource that's bundled in your app. On an Android platform, the sound file must reside in /res/raw/.</p>
    */
   Sound?: string;
 
   /**
-   * <p>The URL of the small icon image to display in the status bar and the content view of the push notification.</p>
+   * <p>Specifies whether the notification is a silent push notification, which is a push notification that doesn't display on a recipient's device. Silent push notifications can be used for cases such as updating an app's configuration or supporting phone home functionality.</p>
    */
-  SmallImageIconUrl?: string;
-
-  /**
-   * <p>The URL to open in the recipient's default mobile browser, if a recipient taps the push notification and the value of the Action property is URL.</p>
-   */
-  Url?: string;
-
-  /**
-   * <p>The URL of an image to display in the push notification.</p>
-   */
-  ImageUrl?: string;
-
-  /**
-   * <p>The default message variables to use in the notification message. You can override the default variables with individual address variables.</p>
-   */
-  Substitutions?: { [key: string]: string[] };
-
-  /**
-   * <p>The JSON data payload to use for the push notification, if the notification is a silent push notification. This payload is added to the data.pinpoint.jsonBody object of the notification.</p>
-   */
-  Data?: { [key: string]: string };
-
-  /**
-   * <p>The title to display above the notification message on the recipient's device.</p>
-   */
-  Title?: string;
+  SilentPush?: boolean;
 
   /**
    * <p>The URL of the large icon image to display in the content view of the push notification.</p>
@@ -2354,14 +2324,44 @@ export interface BaiduMessage {
   ImageIconUrl?: string;
 
   /**
-   * <p>The body of the notification message.</p>
+   * <p>The default message variables to use in the notification message. You can override the default variables with individual address variables.</p>
    */
-  Body?: string;
+  Substitutions?: { [key: string]: string[] };
 
   /**
-   * <p>Specifies whether the notification is a silent push notification, which is a push notification that doesn't display on a recipient's device. Silent push notifications can be used for cases such as updating an app's configuration or supporting phone home functionality.</p>
+   * <p>The URL of an image to display in the push notification.</p>
    */
-  SilentPush?: boolean;
+  ImageUrl?: string;
+
+  /**
+   * <p>The JSON data payload to use for the push notification, if the notification is a silent push notification. This payload is added to the data.pinpoint.jsonBody object of the notification.</p>
+   */
+  Data?: { [key: string]: string };
+
+  /**
+   * <p>The icon image name of the asset saved in your app.</p>
+   */
+  IconReference?: string;
+
+  /**
+   * <p>The URL to open in the recipient's default mobile browser, if a recipient taps the push notification and the value of the Action property is URL.</p>
+   */
+  Url?: string;
+
+  /**
+   * <p>The URL of the small icon image to display in the status bar and the content view of the push notification.</p>
+   */
+  SmallImageIconUrl?: string;
+
+  /**
+   * <p>The title to display above the notification message on the recipient's device.</p>
+   */
+  Title?: string;
+
+  /**
+   * <p>The amount of time, in seconds, that the Baidu Cloud Push service should store the message if the recipient's device is offline. The default value and maximum supported time is 604,800 seconds (7 days).</p>
+   */
+  TimeToLive?: number;
 }
 
 export namespace BaiduMessage {
@@ -2391,9 +2391,9 @@ export namespace CampaignCustomMessage {
  */
 export interface CampaignDateRangeKpiResponse {
   /**
-   * <p>The unique identifier for the application that the metric applies to.</p>
+   * <p>The first date and time of the date range that was used to filter the query results, in extended ISO 8601 format. The date range is inclusive.</p>
    */
-  ApplicationId: string | undefined;
+  StartTime: Date | undefined;
 
   /**
    * <p>The string to use in a subsequent request to get the next page of results in a paginated response. This value is null for the Campaign Metrics resource because the resource returns all results in a single page.</p>
@@ -2401,9 +2401,9 @@ export interface CampaignDateRangeKpiResponse {
   NextToken?: string;
 
   /**
-   * <p>The first date and time of the date range that was used to filter the query results, in extended ISO 8601 format. The date range is inclusive.</p>
+   * <p>The name of the metric, also referred to as a <i>key performance indicator (KPI)</i>, that the data was retrieved for. This value describes the associated metric and consists of two or more terms, which are comprised of lowercase alphanumeric characters, separated by a hyphen. For a list of possible values, see the <a href="https://docs.aws.amazon.com/pinpoint/latest/developerguide/analytics-standard-metrics.html">Amazon Pinpoint Developer Guide</a>.</p>
    */
-  StartTime: Date | undefined;
+  KpiName: string | undefined;
 
   /**
    * <p>An array of objects that contains the results of the query. Each object contains the value for the metric and metadata about that value.</p>
@@ -2416,14 +2416,14 @@ export interface CampaignDateRangeKpiResponse {
   CampaignId: string | undefined;
 
   /**
+   * <p>The unique identifier for the application that the metric applies to.</p>
+   */
+  ApplicationId: string | undefined;
+
+  /**
    * <p>The last date and time of the date range that was used to filter the query results, in extended ISO 8601 format. The date range is inclusive.</p>
    */
   EndTime: Date | undefined;
-
-  /**
-   * <p>The name of the metric, also referred to as a <i>key performance indicator (KPI)</i>, that the data was retrieved for. This value describes the associated metric and consists of two or more terms, which are comprised of lowercase alphanumeric characters, separated by a hyphen. For a list of possible values, see the <a href="https://docs.aws.amazon.com/pinpoint/latest/developerguide/analytics-standard-metrics.html">Amazon Pinpoint Developer Guide</a>.</p>
-   */
-  KpiName: string | undefined;
 }
 
 export namespace CampaignDateRangeKpiResponse {
@@ -2437,14 +2437,9 @@ export namespace CampaignDateRangeKpiResponse {
  */
 export interface CampaignEmailMessage {
   /**
-   * <p>The verified email address to send the email from. The default address is the FromAddress specified for the email channel for the application.</p>
+   * <p>The subject line, or title, of the email.</p>
    */
-  FromAddress?: string;
-
-  /**
-   * <p>The body of the email for recipients whose email clients don't render HTML content.</p>
-   */
-  Body?: string;
+  Title?: string;
 
   /**
    * <p>The body of the email, in HTML format, for recipients whose email clients render HTML content.</p>
@@ -2452,9 +2447,14 @@ export interface CampaignEmailMessage {
   HtmlBody?: string;
 
   /**
-   * <p>The subject line, or title, of the email.</p>
+   * <p>The body of the email for recipients whose email clients don't render HTML content.</p>
    */
-  Title?: string;
+  Body?: string;
+
+  /**
+   * <p>The verified email address to send the email from. The default address is the FromAddress specified for the email channel for the application.</p>
+   */
+  FromAddress?: string;
 }
 
 export namespace CampaignEmailMessage {
@@ -2494,14 +2494,14 @@ export namespace CampaignEventFilter {
  */
 export interface CustomDeliveryConfiguration {
   /**
-   * <p>The destination to send the campaign or treatment to. This value can be one of the following:</p> <ul><li><p>The name or Amazon Resource Name (ARN) of an AWS Lambda function to invoke to handle delivery of the campaign or treatment.</p></li> <li><p>The URL for a web application or service that supports HTTPS and can receive the message. The URL has to be a full URL, including the HTTPS protocol.</p></li></ul>
-   */
-  DeliveryUri: string | undefined;
-
-  /**
    * <p>The types of endpoints to send the campaign or treatment to. Each valid value maps to a type of channel that you can associate with an endpoint by using the ChannelType property of an endpoint.</p>
    */
   EndpointTypes?: (__EndpointTypesElement | string)[];
+
+  /**
+   * <p>The destination to send the campaign or treatment to. This value can be one of the following:</p> <ul><li><p>The name or Amazon Resource Name (ARN) of an AWS Lambda function to invoke to handle delivery of the campaign or treatment.</p></li> <li><p>The URL for a web application or service that supports HTTPS and can receive the message. The URL has to be a full URL, including the HTTPS protocol.</p></li></ul>
+   */
+  DeliveryUri: string | undefined;
 }
 
 export namespace CustomDeliveryConfiguration {
@@ -2515,49 +2515,9 @@ export namespace CustomDeliveryConfiguration {
  */
 export interface Message {
   /**
-   * <p>The body of the notification message. The maximum number of characters is 200.</p>
-   */
-  Body?: string;
-
-  /**
-   * <p>The URL of the image or video to display in the push notification.</p>
-   */
-  MediaUrl?: string;
-
-  /**
-   * <p>The raw, JSON-formatted string to use as the payload for the notification message. If specified, this value overrides all other content for the message.</p>
-   */
-  RawContent?: string;
-
-  /**
    * <p>The URL of an image to display in the push notification.</p>
    */
   ImageUrl?: string;
-
-  /**
-   * <p>The JSON payload to use for a silent push notification.</p>
-   */
-  JsonBody?: string;
-
-  /**
-   * <p>The URL to open in a recipient's default mobile browser, if a recipient taps the push notification and the value of the Action property is URL.</p>
-   */
-  Url?: string;
-
-  /**
-   * <p>Specifies whether the notification is a silent push notification, which is a push notification that doesn't display on a recipient's device. Silent push notifications can be used for cases such as updating an app's configuration, displaying messages in an in-app message center, or supporting phone home functionality.</p>
-   */
-  SilentPush?: boolean;
-
-  /**
-   * <p>The URL of the image to display as the push-notification icon, such as the icon for the app.</p>
-   */
-  ImageIconUrl?: string;
-
-  /**
-   * <p>The URL of the image to display as the small, push-notification icon, such as a small version of the icon for the app.</p>
-   */
-  ImageSmallIconUrl?: string;
 
   /**
    * <p>The title to display above the notification message on a recipient's device.</p>
@@ -2565,14 +2525,54 @@ export interface Message {
   Title?: string;
 
   /**
-   * <p>The number of seconds that the push-notification service should keep the message, if the service is unable to deliver the notification the first time. This value is converted to an expiration value when it's sent to a push-notification service. If this value is 0, the service treats the notification as if it expires immediately and the service doesn't store or try to deliver the notification again.</p> <p>This value doesn't apply to messages that are sent through the Amazon Device Messaging (ADM) service.</p>
+   * <p>The body of the notification message. The maximum number of characters is 200.</p>
    */
-  TimeToLive?: number;
+  Body?: string;
 
   /**
    * <p>The action to occur if a recipient taps the push notification. Valid values are:</p> <ul><li><p>OPEN_APP - Your app opens or it becomes the foreground app if it was sent to the background. This is the default action.</p></li> <li><p>DEEP_LINK - Your app opens and displays a designated user interface in the app. This setting uses the deep-linking features of iOS and Android.</p></li> <li><p>URL - The default mobile browser on the recipient's device opens and loads the web page at a URL that you specify.</p></li></ul>
    */
   Action?: Action | string;
+
+  /**
+   * <p>The URL of the image to display as the push-notification icon, such as the icon for the app.</p>
+   */
+  ImageIconUrl?: string;
+
+  /**
+   * <p>The number of seconds that the push-notification service should keep the message, if the service is unable to deliver the notification the first time. This value is converted to an expiration value when it's sent to a push-notification service. If this value is 0, the service treats the notification as if it expires immediately and the service doesn't store or try to deliver the notification again.</p> <p>This value doesn't apply to messages that are sent through the Amazon Device Messaging (ADM) service.</p>
+   */
+  TimeToLive?: number;
+
+  /**
+   * <p>The URL of the image to display as the small, push-notification icon, such as a small version of the icon for the app.</p>
+   */
+  ImageSmallIconUrl?: string;
+
+  /**
+   * <p>Specifies whether the notification is a silent push notification, which is a push notification that doesn't display on a recipient's device. Silent push notifications can be used for cases such as updating an app's configuration, displaying messages in an in-app message center, or supporting phone home functionality.</p>
+   */
+  SilentPush?: boolean;
+
+  /**
+   * <p>The URL to open in a recipient's default mobile browser, if a recipient taps the push notification and the value of the Action property is URL.</p>
+   */
+  Url?: string;
+
+  /**
+   * <p>The raw, JSON-formatted string to use as the payload for the notification message. If specified, this value overrides all other content for the message.</p>
+   */
+  RawContent?: string;
+
+  /**
+   * <p>The JSON payload to use for a silent push notification.</p>
+   */
+  JsonBody?: string;
+
+  /**
+   * <p>The URL of the image or video to display in the push notification.</p>
+   */
+  MediaUrl?: string;
 }
 
 export namespace Message {
@@ -2586,11 +2586,6 @@ export namespace Message {
  */
 export interface CampaignSmsMessage {
   /**
-   * <p>The sender ID to display on recipients' devices when they receive the SMS message.</p>
-   */
-  SenderId?: string;
-
-  /**
    * <p>The SMS message type. Valid values are TRANSACTIONAL (for messages that are critical or time-sensitive, such as a one-time passwords) and PROMOTIONAL (for messsages that aren't critical or time-sensitive, such as marketing messages).</p>
    */
   MessageType?: MessageType | string;
@@ -2599,6 +2594,11 @@ export interface CampaignSmsMessage {
    * <p>The body of the SMS message.</p>
    */
   Body?: string;
+
+  /**
+   * <p>The sender ID to display on recipients' devices when they receive the SMS message.</p>
+   */
+  SenderId?: string;
 }
 
 export namespace CampaignSmsMessage {
@@ -2612,9 +2612,29 @@ export namespace CampaignSmsMessage {
  */
 export interface MessageConfiguration {
   /**
+   * <p>The message that the campaign sends through the SMS channel. If specified, this message overrides the default message.</p>
+   */
+  SMSMessage?: CampaignSmsMessage;
+
+  /**
+   * <p>The message that the campaign sends through the email channel. If specified, this message overrides the default message.</p>
+   */
+  EmailMessage?: CampaignEmailMessage;
+
+  /**
    * <p>The message that the campaign sends through the GCM channel, which enables Amazon Pinpoint to send push notifications through the Firebase Cloud Messaging (FCM), formerly Google Cloud Messaging (GCM), service. If specified, this message overrides the default message.</p>
    */
   GCMMessage?: Message;
+
+  /**
+   * <p>The default message that the campaign sends through all the channels that are configured for the campaign.</p>
+   */
+  DefaultMessage?: Message;
+
+  /**
+   * <p>The message that the campaign sends through the ADM (Amazon Device Messaging) channel. If specified, this message overrides the default message.</p>
+   */
+  ADMMessage?: Message;
 
   /**
    * <p>The message that the campaign sends through the APNs (Apple Push Notification service) channel. If specified, this message overrides the default message.</p>
@@ -2627,29 +2647,9 @@ export interface MessageConfiguration {
   BaiduMessage?: Message;
 
   /**
-   * <p>The message that the campaign sends through the SMS channel. If specified, this message overrides the default message.</p>
-   */
-  SMSMessage?: CampaignSmsMessage;
-
-  /**
-   * <p>The message that the campaign sends through the email channel. If specified, this message overrides the default message.</p>
-   */
-  EmailMessage?: CampaignEmailMessage;
-
-  /**
    * <p>The message that the campaign sends through a custom channel, as specified by the delivery configuration (CustomDeliveryConfiguration) settings for the campaign. If specified, this message overrides the default message.</p>
    */
   CustomMessage?: CampaignCustomMessage;
-
-  /**
-   * <p>The message that the campaign sends through the ADM (Amazon Device Messaging) channel. If specified, this message overrides the default message.</p>
-   */
-  ADMMessage?: Message;
-
-  /**
-   * <p>The default message that the campaign sends through all the channels that are configured for the campaign.</p>
-   */
-  DefaultMessage?: Message;
 }
 
 export namespace MessageConfiguration {
@@ -2672,24 +2672,9 @@ export enum Frequency {
  */
 export interface Schedule {
   /**
-   * <p>Specifies how often the campaign is sent or whether the campaign is sent in response to a specific event.</p>
+   * <p>The scheduled time when the campaign began or will begin. Valid values are: IMMEDIATE, to start the campaign immediately; or, a specific time in ISO 8601 format.</p>
    */
-  Frequency?: Frequency | string;
-
-  /**
-   * <p>The type of event that causes the campaign to be sent, if the value of the Frequency property is EVENT.</p>
-   */
-  EventFilter?: CampaignEventFilter;
-
-  /**
-   * <p>Specifies whether the start and end times for the campaign schedule use each recipient's local time. To base the schedule on each recipient's local time, set this value to true.</p>
-   */
-  IsLocalTime?: boolean;
-
-  /**
-   * <p>The default quiet time for the campaign. Quiet time is a specific time range when a campaign doesn't send messages to endpoints, if all the following conditions are met:</p> <ul><li><p>The EndpointDemographic.Timezone property of the endpoint is set to a valid value.</p></li> <li><p>The current time in the endpoint's time zone is later than or equal to the time specified by the QuietTime.Start property for the campaign.</p></li> <li><p>The current time in the endpoint's time zone is earlier than or equal to the time specified by the QuietTime.End property for the campaign.</p></li></ul> <p>If any of the preceding conditions isn't met, the endpoint will receive messages from the campaign, even if quiet time is enabled.</p>
-   */
-  QuietTime?: QuietTime;
+  StartTime: string | undefined;
 
   /**
    * <p>The starting UTC offset for the campaign schedule, if the value of the IsLocalTime property is true. Valid values are: UTC, UTC+01, UTC+02, UTC+03, UTC+03:30, UTC+04, UTC+04:30, UTC+05,
@@ -2700,14 +2685,29 @@ export interface Schedule {
   Timezone?: string;
 
   /**
+   * <p>The default quiet time for the campaign. Quiet time is a specific time range when a campaign doesn't send messages to endpoints, if all the following conditions are met:</p> <ul><li><p>The EndpointDemographic.Timezone property of the endpoint is set to a valid value.</p></li> <li><p>The current time in the endpoint's time zone is later than or equal to the time specified by the QuietTime.Start property for the campaign.</p></li> <li><p>The current time in the endpoint's time zone is earlier than or equal to the time specified by the QuietTime.End property for the campaign.</p></li></ul> <p>If any of the preceding conditions isn't met, the endpoint will receive messages from the campaign, even if quiet time is enabled.</p>
+   */
+  QuietTime?: QuietTime;
+
+  /**
    * <p>The scheduled time, in ISO 8601 format, when the campaign ended or will end.</p>
    */
   EndTime?: string;
 
   /**
-   * <p>The scheduled time when the campaign began or will begin. Valid values are: IMMEDIATE, to start the campaign immediately; or, a specific time in ISO 8601 format.</p>
+   * <p>Specifies whether the start and end times for the campaign schedule use each recipient's local time. To base the schedule on each recipient's local time, set this value to true.</p>
    */
-  StartTime: string | undefined;
+  IsLocalTime?: boolean;
+
+  /**
+   * <p>The type of event that causes the campaign to be sent, if the value of the Frequency property is EVENT.</p>
+   */
+  EventFilter?: CampaignEventFilter;
+
+  /**
+   * <p>Specifies how often the campaign is sent or whether the campaign is sent in response to a specific event.</p>
+   */
+  Frequency?: Frequency | string;
 }
 
 export namespace Schedule {
@@ -2720,6 +2720,7 @@ export enum CampaignStatus {
   COMPLETED = "COMPLETED",
   DELETED = "DELETED",
   EXECUTING = "EXECUTING",
+  INVALID = "INVALID",
   PAUSED = "PAUSED",
   PENDING_NEXT_RUN = "PENDING_NEXT_RUN",
   SCHEDULED = "SCHEDULED",
@@ -2746,14 +2747,14 @@ export namespace CampaignState {
  */
 export interface Template {
   /**
-   * <p>The unique identifier for the version of the message template to use for the message. If specified, this value must match the identifier for an existing template version. To retrieve a list of versions and version identifiers for a template, use the <link  linkend="templates-template-name-template-type-versions">Template Versions</link> resource.</p> <p>If you don't specify a value for this property, Amazon Pinpoint uses the <i>active version</i> of the template. The <i>active version</i> is typically the version of a template that's been most recently reviewed and approved for use, depending on your workflow. It isn't necessarily the latest version of a template.</p>
-   */
-  Version?: string;
-
-  /**
    * <p>The name of the message template to use for the message. If specified, this value must match the name of an existing message template.</p>
    */
   Name?: string;
+
+  /**
+   * <p>The unique identifier for the version of the message template to use for the message. If specified, this value must match the identifier for an existing template version. To retrieve a list of versions and version identifiers for a template, use the <link  linkend="templates-template-name-template-type-versions">Template Versions</link> resource.</p> <p>If you don't specify a value for this property, Amazon Pinpoint uses the <i>active version</i> of the template. The <i>active version</i> is typically the version of a template that's been most recently reviewed and approved for use, depending on your workflow. It isn't necessarily the latest version of a template.</p>
+   */
+  Version?: string;
 }
 
 export namespace Template {
@@ -2767,24 +2768,24 @@ export namespace Template {
  */
 export interface TemplateConfiguration {
   /**
-   * <p>The SMS template to use for the message.</p>
-   */
-  SMSTemplate?: Template;
-
-  /**
    * <p>The email template to use for the message.</p>
    */
   EmailTemplate?: Template;
 
   /**
-   * <p>The push notification template to use for the message.</p>
+   * <p>The SMS template to use for the message.</p>
    */
-  PushTemplate?: Template;
+  SMSTemplate?: Template;
 
   /**
    * <p>The voice template to use for the message. This object isn't supported for campaigns.</p>
    */
   VoiceTemplate?: Template;
+
+  /**
+   * <p>The push notification template to use for the message.</p>
+   */
+  PushTemplate?: Template;
 }
 
 export namespace TemplateConfiguration {
@@ -2798,14 +2799,9 @@ export namespace TemplateConfiguration {
  */
 export interface TreatmentResource {
   /**
-   * <p>The message template to use for the treatment.</p>
+   * <p>The current status of the treatment.</p>
    */
-  TemplateConfiguration?: TemplateConfiguration;
-
-  /**
-   * <p>The schedule settings for the treatment.</p>
-   */
-  Schedule?: Schedule;
+  State?: CampaignState;
 
   /**
    * <p>The custom name of the treatment.</p>
@@ -2813,14 +2809,19 @@ export interface TreatmentResource {
   TreatmentName?: string;
 
   /**
+   * <p>The schedule settings for the treatment.</p>
+   */
+  Schedule?: Schedule;
+
+  /**
+   * <p>The unique identifier for the treatment.</p>
+   */
+  Id: string | undefined;
+
+  /**
    * <p>The allocated percentage of users (segment members) that the treatment is sent to.</p>
    */
   SizePercent: number | undefined;
-
-  /**
-   * <p>The current status of the treatment.</p>
-   */
-  State?: CampaignState;
 
   /**
    * <p>The message configuration settings for the treatment.</p>
@@ -2828,19 +2829,19 @@ export interface TreatmentResource {
   MessageConfiguration?: MessageConfiguration;
 
   /**
-   * <p>The custom description of the treatment.</p>
-   */
-  TreatmentDescription?: string;
-
-  /**
    * <p>The delivery configuration settings for sending the treatment through a custom channel. This object is required if the MessageConfiguration object for the treatment specifies a CustomMessage object.</p>
    */
   CustomDeliveryConfiguration?: CustomDeliveryConfiguration;
 
   /**
-   * <p>The unique identifier for the treatment.</p>
+   * <p>The custom description of the treatment.</p>
    */
-  Id: string | undefined;
+  TreatmentDescription?: string;
+
+  /**
+   * <p>The message template to use for the treatment.</p>
+   */
+  TemplateConfiguration?: TemplateConfiguration;
 }
 
 export namespace TreatmentResource {
@@ -2854,11 +2855,6 @@ export namespace TreatmentResource {
  */
 export interface CampaignResponse {
   /**
-   * <p>The current status of the campaign.</p>
-   */
-  State?: CampaignState;
-
-  /**
    * <p>The messaging limits for the campaign.</p>
    */
   Limits?: CampaignLimits;
@@ -2869,9 +2865,29 @@ export interface CampaignResponse {
   TreatmentDescription?: string;
 
   /**
-   * <p>The version number of the campaign.</p>
+   * <p>The message configuration settings for the campaign.</p>
    */
-  Version?: number;
+  MessageConfiguration?: MessageConfiguration;
+
+  /**
+   * <p>An array of responses, one for each treatment that you defined for the campaign, in addition to the default treatment.</p>
+   */
+  AdditionalTreatments?: TreatmentResource[];
+
+  /**
+   * <p>The current status of the campaign's default treatment. This value exists only for campaigns that have more than one treatment.</p>
+   */
+  DefaultState?: CampaignState;
+
+  /**
+   * <p>The custom name of the default treatment for the campaign, if the campaign has multiple treatments. A <i>treatment</i> is a variation of a campaign that's used for A/B testing.</p>
+   */
+  TreatmentName?: string;
+
+  /**
+   * <p>The name of the campaign.</p>
+   */
+  Name?: string;
 
   /**
    * <p>The unique identifier for the application that the campaign applies to.</p>
@@ -2879,29 +2895,24 @@ export interface CampaignResponse {
   ApplicationId: string | undefined;
 
   /**
-   * <p>The unique identifier for the segment that's associated with the campaign.</p>
+   * <p>Specifies whether the campaign is paused. A paused campaign doesn't run unless you resume it by changing this value to false.</p>
    */
-  SegmentId: string | undefined;
+  IsPaused?: boolean;
 
   /**
-   * <p>The date, in ISO 8601 format, when the campaign was last modified.</p>
+   * <p>The version number of the campaign.</p>
    */
-  LastModifiedDate: string | undefined;
+  Version?: number;
 
   /**
-   * <p>The date, in ISO 8601 format, when the campaign was created.</p>
+   * <p>The settings for the AWS Lambda function to use as a code hook for the campaign. You can use this hook to customize the segment that's used by the campaign.</p>
    */
-  CreationDate: string | undefined;
+  Hook?: CampaignHook;
 
   /**
-   * <p>The delivery configuration settings for sending the campaign through a custom channel.</p>
+   * <p>The custom description of the campaign.</p>
    */
-  CustomDeliveryConfiguration?: CustomDeliveryConfiguration;
-
-  /**
-   * <p>The custom name of the default treatment for the campaign, if the campaign has multiple treatments. A <i>treatment</i> is a variation of a campaign that's used for A/B testing.</p>
-   */
-  TreatmentName?: string;
+  Description?: string;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the campaign.</p>
@@ -2914,49 +2925,14 @@ export interface CampaignResponse {
   Id: string | undefined;
 
   /**
-   * <p>The version number of the segment that's associated with the campaign.</p>
-   */
-  SegmentVersion: number | undefined;
-
-  /**
-   * <p>The custom description of the campaign.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The schedule settings for the campaign.</p>
-   */
-  Schedule?: Schedule;
-
-  /**
-   * <p>The settings for the AWS Lambda function to use as a code hook for the campaign. You can use this hook to customize the segment that's used by the campaign.</p>
-   */
-  Hook?: CampaignHook;
-
-  /**
-   * <p>The allocated percentage of users (segment members) who shouldn't receive messages from the campaign.</p>
-   */
-  HoldoutPercent?: number;
-
-  /**
-   * <p>An array of responses, one for each treatment that you defined for the campaign, in addition to the default treatment.</p>
-   */
-  AdditionalTreatments?: TreatmentResource[];
-
-  /**
    * <p>A string-to-string map of key-value pairs that identifies the tags that are associated with the campaign. Each tag consists of a required tag key and an associated tag value.</p>
    */
   tags?: { [key: string]: string };
 
   /**
-   * <p>The message configuration settings for the campaign.</p>
+   * <p>The version number of the segment that's associated with the campaign.</p>
    */
-  MessageConfiguration?: MessageConfiguration;
-
-  /**
-   * <p>Specifies whether the campaign is paused. A paused campaign doesn't run unless you resume it by changing this value to false.</p>
-   */
-  IsPaused?: boolean;
+  SegmentVersion: number | undefined;
 
   /**
    * <p>The message template that’s used for the campaign.</p>
@@ -2964,14 +2940,39 @@ export interface CampaignResponse {
   TemplateConfiguration?: TemplateConfiguration;
 
   /**
-   * <p>The current status of the campaign's default treatment. This value exists only for campaigns that have more than one treatment.</p>
+   * <p>The allocated percentage of users (segment members) who shouldn't receive messages from the campaign.</p>
    */
-  DefaultState?: CampaignState;
+  HoldoutPercent?: number;
 
   /**
-   * <p>The name of the campaign.</p>
+   * <p>The delivery configuration settings for sending the campaign through a custom channel.</p>
    */
-  Name?: string;
+  CustomDeliveryConfiguration?: CustomDeliveryConfiguration;
+
+  /**
+   * <p>The current status of the campaign.</p>
+   */
+  State?: CampaignState;
+
+  /**
+   * <p>The date, in ISO 8601 format, when the campaign was last modified.</p>
+   */
+  LastModifiedDate: string | undefined;
+
+  /**
+   * <p>The date, in ISO 8601 format, when the campaign was created.</p>
+   */
+  CreationDate: string | undefined;
+
+  /**
+   * <p>The unique identifier for the segment that's associated with the campaign.</p>
+   */
+  SegmentId: string | undefined;
+
+  /**
+   * <p>The schedule settings for the campaign.</p>
+   */
+  Schedule?: Schedule;
 }
 
 export namespace CampaignResponse {
@@ -2985,14 +2986,14 @@ export namespace CampaignResponse {
  */
 export interface CampaignsResponse {
   /**
-   * <p>An array of responses, one for each campaign that's associated with the application.</p>
-   */
-  Item: CampaignResponse[] | undefined;
-
-  /**
    * <p>The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>An array of responses, one for each campaign that's associated with the application.</p>
+   */
+  Item: CampaignResponse[] | undefined;
 }
 
 export namespace CampaignsResponse {
@@ -3006,34 +3007,19 @@ export namespace CampaignsResponse {
  */
 export interface ChannelResponse {
   /**
-   * <p>Specifies whether the channel is enabled for the application.</p>
-   */
-  Enabled?: boolean;
-
-  /**
    * <p>The current version of the channel.</p>
    */
   Version?: number;
 
   /**
-   * <p>The unique identifier for the application.</p>
+   * <p>(Deprecated) An identifier for the channel. This property is retained only for backward compatibility.</p>
    */
-  ApplicationId?: string;
+  Id?: string;
 
   /**
-   * <p>The date and time, in ISO 8601 format, when the channel was last modified.</p>
+   * <p>Specifies whether the channel is enabled for the application.</p>
    */
-  LastModifiedDate?: string;
-
-  /**
-   * <p>The date and time, in ISO 8601 format, when the channel was enabled.</p>
-   */
-  CreationDate?: string;
-
-  /**
-   * <p>Specifies whether the channel is archived.</p>
-   */
-  IsArchived?: boolean;
+  Enabled?: boolean;
 
   /**
    * <p>The user who last modified the channel.</p>
@@ -3046,9 +3032,24 @@ export interface ChannelResponse {
   HasCredential?: boolean;
 
   /**
-   * <p>(Deprecated) An identifier for the channel. This property is retained only for backward compatibility.</p>
+   * <p>The date and time, in ISO 8601 format, when the channel was last modified.</p>
    */
-  Id?: string;
+  LastModifiedDate?: string;
+
+  /**
+   * <p>The unique identifier for the application.</p>
+   */
+  ApplicationId?: string;
+
+  /**
+   * <p>The date and time, in ISO 8601 format, when the channel was enabled.</p>
+   */
+  CreationDate?: string;
+
+  /**
+   * <p>Specifies whether the channel is archived.</p>
+   */
+  IsArchived?: boolean;
 }
 
 export namespace ChannelResponse {
@@ -3074,18 +3075,41 @@ export namespace ChannelsResponse {
 }
 
 /**
+ * <p>Provides information about an API request or response.</p>
+ */
+export interface ConflictException extends __SmithyException, $MetadataBearer {
+  name: "ConflictException";
+  $fault: "client";
+  /**
+   * <p>The unique identifier for the request or response.</p>
+   */
+  RequestID?: string;
+
+  /**
+   * <p>The message that's returned from the API.</p>
+   */
+  Message?: string;
+}
+
+export namespace ConflictException {
+  export const filterSensitiveLog = (obj: ConflictException): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>Specifies the display name of an application and the tags to associate with the application.</p>
  */
 export interface CreateApplicationRequest {
   /**
-   * <p>The display name of the application. This name is displayed as the <b>Project name</b> on the Amazon Pinpoint console.</p>
-   */
-  Name: string | undefined;
-
-  /**
    * <p>A string-to-string map of key-value pairs that defines the tags to associate with the application. Each tag consists of a required tag key and an associated tag value.</p>
    */
   tags?: { [key: string]: string };
+
+  /**
+   * <p>The display name of the application. This name is displayed as the <b>Project name</b> on the Amazon Pinpoint console.</p>
+   */
+  Name: string | undefined;
 }
 
 export namespace CreateApplicationRequest {
@@ -3150,14 +3174,14 @@ export interface InternalServerErrorException extends __SmithyException, $Metada
   name: "InternalServerErrorException";
   $fault: "server";
   /**
-   * <p>The unique identifier for the request or response.</p>
-   */
-  RequestID?: string;
-
-  /**
    * <p>The message that's returned from the API.</p>
    */
   Message?: string;
+
+  /**
+   * <p>The unique identifier for the request or response.</p>
+   */
+  RequestID?: string;
 }
 
 export namespace InternalServerErrorException {
@@ -3173,14 +3197,14 @@ export interface MethodNotAllowedException extends __SmithyException, $MetadataB
   name: "MethodNotAllowedException";
   $fault: "client";
   /**
-   * <p>The unique identifier for the request or response.</p>
-   */
-  RequestID?: string;
-
-  /**
    * <p>The message that's returned from the API.</p>
    */
   Message?: string;
+
+  /**
+   * <p>The unique identifier for the request or response.</p>
+   */
+  RequestID?: string;
 }
 
 export namespace MethodNotAllowedException {
@@ -3263,9 +3287,14 @@ export namespace TooManyRequestsException {
  */
 export interface WriteTreatmentResource {
   /**
-   * <p>The allocated percentage of users (segment members) to send the treatment to.</p>
+   * <p>A custom description of the treatment.</p>
    */
-  SizePercent: number | undefined;
+  TreatmentDescription?: string;
+
+  /**
+   * <p>The message template to use for the treatment.</p>
+   */
+  TemplateConfiguration?: TemplateConfiguration;
 
   /**
    * <p>The schedule settings for the treatment.</p>
@@ -3273,9 +3302,14 @@ export interface WriteTreatmentResource {
   Schedule?: Schedule;
 
   /**
-   * <p>A custom description of the treatment.</p>
+   * <p>A custom name for the treatment.</p>
    */
-  TreatmentDescription?: string;
+  TreatmentName?: string;
+
+  /**
+   * <p>The allocated percentage of users (segment members) to send the treatment to.</p>
+   */
+  SizePercent: number | undefined;
 
   /**
    * <p>The delivery configuration settings for sending the treatment through a custom channel. This object is required if the MessageConfiguration object for the treatment specifies a CustomMessage object.</p>
@@ -3286,16 +3320,6 @@ export interface WriteTreatmentResource {
    * <p>The message configuration settings for the treatment.</p>
    */
   MessageConfiguration?: MessageConfiguration;
-
-  /**
-   * <p>A custom name for the treatment.</p>
-   */
-  TreatmentName?: string;
-
-  /**
-   * <p>The message template to use for the treatment.</p>
-   */
-  TemplateConfiguration?: TemplateConfiguration;
 }
 
 export namespace WriteTreatmentResource {
@@ -3314,49 +3338,19 @@ export interface WriteCampaignRequest {
   Limits?: CampaignLimits;
 
   /**
-   * <p>A custom description of the default treatment for the campaign.</p>
-   */
-  TreatmentDescription?: string;
-
-  /**
-   * <p>The delivery configuration settings for sending the campaign through a custom channel. This object is required if the MessageConfiguration object for the campaign specifies a CustomMessage object.</p>
-   */
-  CustomDeliveryConfiguration?: CustomDeliveryConfiguration;
-
-  /**
-   * <p>The unique identifier for the segment to associate with the campaign.</p>
-   */
-  SegmentId?: string;
-
-  /**
-   * <p>The settings for the AWS Lambda function to invoke as a code hook for the campaign. You can use this hook to customize the segment that's used by the campaign.</p>
-   */
-  Hook?: CampaignHook;
-
-  /**
-   * <p>A custom name of the default treatment for the campaign, if the campaign has multiple treatments. A <i>treatment</i> is a variation of a campaign that's used for A/B testing.</p>
-   */
-  TreatmentName?: string;
-
-  /**
-   * <p>A custom description of the campaign.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The allocated percentage of users (segment members) who shouldn't receive messages from the campaign.</p>
-   */
-  HoldoutPercent?: number;
-
-  /**
-   * <p>The schedule settings for the campaign.</p>
-   */
-  Schedule?: Schedule;
-
-  /**
    * <p>An array of requests that defines additional treatments for the campaign, in addition to the default treatment for the campaign.</p>
    */
   AdditionalTreatments?: WriteTreatmentResource[];
+
+  /**
+   * <p>Specifies whether to pause the campaign. A paused campaign doesn't run unless you resume it by changing this value to false.</p>
+   */
+  IsPaused?: boolean;
+
+  /**
+   * <p>A custom name for the campaign.</p>
+   */
+  Name?: string;
 
   /**
    * <p>A string-to-string map of key-value pairs that defines the tags to associate with the campaign. Each tag consists of a required tag key and an associated tag value.</p>
@@ -3369,9 +3363,19 @@ export interface WriteCampaignRequest {
   MessageConfiguration?: MessageConfiguration;
 
   /**
-   * <p>Specifies whether to pause the campaign. A paused campaign doesn't run unless you resume it by changing this value to false.</p>
+   * <p>A custom description of the campaign.</p>
    */
-  IsPaused?: boolean;
+  Description?: string;
+
+  /**
+   * <p>The settings for the AWS Lambda function to invoke as a code hook for the campaign. You can use this hook to customize the segment that's used by the campaign.</p>
+   */
+  Hook?: CampaignHook;
+
+  /**
+   * <p>The version of the segment to associate with the campaign.</p>
+   */
+  SegmentVersion?: number;
 
   /**
    * <p>The message template to use for the campaign.</p>
@@ -3379,14 +3383,34 @@ export interface WriteCampaignRequest {
   TemplateConfiguration?: TemplateConfiguration;
 
   /**
-   * <p>A custom name for the campaign.</p>
+   * <p>A custom name of the default treatment for the campaign, if the campaign has multiple treatments. A <i>treatment</i> is a variation of a campaign that's used for A/B testing.</p>
    */
-  Name?: string;
+  TreatmentName?: string;
 
   /**
-   * <p>The version of the segment to associate with the campaign.</p>
+   * <p>The schedule settings for the campaign.</p>
    */
-  SegmentVersion?: number;
+  Schedule?: Schedule;
+
+  /**
+   * <p>The allocated percentage of users (segment members) who shouldn't receive messages from the campaign.</p>
+   */
+  HoldoutPercent?: number;
+
+  /**
+   * <p>The delivery configuration settings for sending the campaign through a custom channel. This object is required if the MessageConfiguration object for the campaign specifies a CustomMessage object.</p>
+   */
+  CustomDeliveryConfiguration?: CustomDeliveryConfiguration;
+
+  /**
+   * <p>A custom description of the default treatment for the campaign.</p>
+   */
+  TreatmentDescription?: string;
+
+  /**
+   * <p>The unique identifier for the segment to associate with the campaign.</p>
+   */
+  SegmentId?: string;
 }
 
 export namespace WriteCampaignRequest {
@@ -3397,14 +3421,14 @@ export namespace WriteCampaignRequest {
 
 export interface CreateCampaignRequest {
   /**
-   * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
-   */
-  ApplicationId: string | undefined;
-
-  /**
    * <p>Specifies the configuration and other settings for a campaign.</p>
    */
   WriteCampaignRequest: WriteCampaignRequest | undefined;
+
+  /**
+   * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
+   */
+  ApplicationId: string | undefined;
 }
 
 export namespace CreateCampaignRequest {
@@ -3436,24 +3460,9 @@ export interface EmailTemplateRequest {
   RecommenderId?: string;
 
   /**
-   * <p>The message body, in plain text format, to use in email messages that are based on the message template. We recommend using plain text format for email clients that don't render HTML content and clients that are connected to high-latency networks, such as mobile devices.</p>
-   */
-  TextPart?: string;
-
-  /**
-   * <p>A JSON object that specifies the default values to use for message variables in the message template. This object is a set of key-value pairs. Each key defines a message variable in the template. The corresponding value defines the default value for that variable. When you create a message that's based on the template, you can override these defaults with message-specific and address-specific variables and values.</p>
-   */
-  DefaultSubstitutions?: string;
-
-  /**
    * <p>A string-to-string map of key-value pairs that defines the tags to associate with the message template. Each tag consists of a required tag key and an associated tag value.</p>
    */
   tags?: { [key: string]: string };
-
-  /**
-   * <p>A custom description of the message template.</p>
-   */
-  TemplateDescription?: string;
 
   /**
    * <p>The subject line, or title, to use in email messages that are based on the message template.</p>
@@ -3464,6 +3473,21 @@ export interface EmailTemplateRequest {
    * <p>The message body, in HTML format, to use in email messages that are based on the message template. We recommend using HTML format for email clients that render HTML content. You can include links, formatted text, and more in an HTML message.</p>
    */
   HtmlPart?: string;
+
+  /**
+   * <p>A JSON object that specifies the default values to use for message variables in the message template. This object is a set of key-value pairs. Each key defines a message variable in the template. The corresponding value defines the default value for that variable. When you create a message that's based on the template, you can override these defaults with message-specific and address-specific variables and values.</p>
+   */
+  DefaultSubstitutions?: string;
+
+  /**
+   * <p>A custom description of the message template.</p>
+   */
+  TemplateDescription?: string;
+
+  /**
+   * <p>The message body, in plain text format, to use in email messages that are based on the message template. We recommend using plain text format for email clients that don't render HTML content and clients that are connected to high-latency networks, such as mobile devices.</p>
+   */
+  TextPart?: string;
 }
 
 export namespace EmailTemplateRequest {
@@ -3474,14 +3498,14 @@ export namespace EmailTemplateRequest {
 
 export interface CreateEmailTemplateRequest {
   /**
-   * <p>The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.</p>
-   */
-  TemplateName: string | undefined;
-
-  /**
    * <p>Specifies the content and settings for a message template that can be used in messages that are sent through the email channel.</p>
    */
   EmailTemplateRequest: EmailTemplateRequest | undefined;
+
+  /**
+   * <p>The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.</p>
+   */
+  TemplateName: string | undefined;
 }
 
 export namespace CreateEmailTemplateRequest {
@@ -3495,9 +3519,9 @@ export namespace CreateEmailTemplateRequest {
  */
 export interface CreateTemplateMessageBody {
   /**
-   * <p>The unique identifier for the request to create the message template.</p>
+   * <p>The Amazon Resource Name (ARN) of the message template that was created.</p>
    */
-  RequestID?: string;
+  Arn?: string;
 
   /**
    * <p>The message that's returned from the API for the request to create the message template.</p>
@@ -3505,9 +3529,9 @@ export interface CreateTemplateMessageBody {
   Message?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the message template that was created.</p>
+   * <p>The unique identifier for the request to create the message template.</p>
    */
-  Arn?: string;
+  RequestID?: string;
 }
 
 export namespace CreateTemplateMessageBody {
@@ -3534,16 +3558,6 @@ export namespace CreateEmailTemplateResponse {
  */
 export interface ExportJobRequest {
   /**
-   * <p>The URL of the location in an Amazon Simple Storage Service (Amazon S3) bucket where you want to export endpoint definitions to. This location is typically a folder that contains multiple files. The URL should be in the following format: s3://<replaceable>bucket-name</replaceable>/<replaceable>folder-name</replaceable>/.</p>
-   */
-  S3UrlPrefix: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that authorizes Amazon Pinpoint to access the Amazon S3 location where you want to export endpoint definitions to.</p>
-   */
-  RoleArn: string | undefined;
-
-  /**
    * <p>The version of the segment to export endpoint definitions from, if specified.</p>
    */
   SegmentVersion?: number;
@@ -3552,6 +3566,16 @@ export interface ExportJobRequest {
    * <p>The identifier for the segment to export endpoint definitions from. If you don't specify this value, Amazon Pinpoint exports definitions for all the endpoints that are associated with the application.</p>
    */
   SegmentId?: string;
+
+  /**
+   * <p>The URL of the location in an Amazon Simple Storage Service (Amazon S3) bucket where you want to export endpoint definitions to. This location is typically a folder that contains multiple files. The URL should be in the following format: s3://<replaceable>bucket-name</replaceable>/<replaceable>folder-name</replaceable>/.</p>
+   */
+  S3UrlPrefix: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that authorizes Amazon Pinpoint to access the Amazon S3 location where you want to export endpoint definitions to.</p>
+   */
+  RoleArn: string | undefined;
 }
 
 export namespace ExportJobRequest {
@@ -3583,24 +3607,24 @@ export namespace CreateExportJobRequest {
  */
 export interface ExportJobResource {
   /**
-   * <p>The version of the segment that the endpoint definitions were exported from.</p>
-   */
-  SegmentVersion?: number;
-
-  /**
-   * <p>The identifier for the segment that the endpoint definitions were exported from. If this value isn't present, Amazon Pinpoint exported definitions for all the endpoints that are associated with the application.</p>
-   */
-  SegmentId?: string;
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that authorized Amazon Pinpoint to access the Amazon S3 location where the endpoint definitions were exported to.</p>
    */
   RoleArn: string | undefined;
 
   /**
+   * <p>The version of the segment that the endpoint definitions were exported from.</p>
+   */
+  SegmentVersion?: number;
+
+  /**
    * <p>The URL of the location in an Amazon Simple Storage Service (Amazon S3) bucket where the endpoint definitions were exported to. This location is typically a folder that contains multiple files. The URL should be in the following format: s3://<replaceable>bucket-name</replaceable>/<replaceable>folder-name</replaceable>/.</p>
    */
   S3UrlPrefix: string | undefined;
+
+  /**
+   * <p>The identifier for the segment that the endpoint definitions were exported from. If this value isn't present, Amazon Pinpoint exported definitions for all the endpoints that are associated with the application.</p>
+   */
+  SegmentId?: string;
 }
 
 export namespace ExportJobResource {
@@ -3626,29 +3650,24 @@ export enum JobStatus {
  */
 export interface ExportJobResponse {
   /**
-   * <p>The resource settings that apply to the export job.</p>
-   */
-  Definition: ExportJobResource | undefined;
-
-  /**
-   * <p>The total number of pieces that must be processed to complete the export job. Each piece consists of an approximately equal portion of the endpoint definitions that are part of the export job.</p>
-   */
-  TotalPieces?: number;
-
-  /**
    * <p>The unique identifier for the export job.</p>
    */
   Id: string | undefined;
 
   /**
+   * <p>The resource settings that apply to the export job.</p>
+   */
+  Definition: ExportJobResource | undefined;
+
+  /**
+   * <p>The unique identifier for the application that's associated with the export job.</p>
+   */
+  ApplicationId: string | undefined;
+
+  /**
    * <p>The number of pieces that were processed successfully (completed) by the export job, as of the time of the request.</p>
    */
   CompletedPieces?: number;
-
-  /**
-   * <p>The date, in ISO 8601 format, when the export job was created.</p>
-   */
-  CreationDate: string | undefined;
 
   /**
    * <p>The job type. This value is EXPORT for export jobs.</p>
@@ -3661,14 +3680,9 @@ export interface ExportJobResponse {
   CompletionDate?: string;
 
   /**
-   * <p>The unique identifier for the application that's associated with the export job.</p>
+   * <p>An array of entries, one for each of the first 100 entries that weren't processed successfully (failed) by the export job, if any.</p>
    */
-  ApplicationId: string | undefined;
-
-  /**
-   * <p>The number of pieces that weren't processed successfully (failed) by the export job, as of the time of the request.</p>
-   */
-  FailedPieces?: number;
+  Failures?: string[];
 
   /**
    * <p>The total number of endpoint definitions that weren't processed successfully (failed) by the export job, typically because an error, such as a syntax error, occurred.</p>
@@ -3676,19 +3690,29 @@ export interface ExportJobResponse {
   TotalFailures?: number;
 
   /**
-   * <p>The total number of endpoint definitions that were processed by the export job.</p>
+   * <p>The number of pieces that weren't processed successfully (failed) by the export job, as of the time of the request.</p>
    */
-  TotalProcessed?: number;
-
-  /**
-   * <p>An array of entries, one for each of the first 100 entries that weren't processed successfully (failed) by the export job, if any.</p>
-   */
-  Failures?: string[];
+  FailedPieces?: number;
 
   /**
    * <p>The status of the export job. The job status is FAILED if Amazon Pinpoint wasn't able to process one or more pieces in the job.</p>
    */
   JobStatus: JobStatus | string | undefined;
+
+  /**
+   * <p>The total number of endpoint definitions that were processed by the export job.</p>
+   */
+  TotalProcessed?: number;
+
+  /**
+   * <p>The total number of pieces that must be processed to complete the export job. Each piece consists of an approximately equal portion of the endpoint definitions that are part of the export job.</p>
+   */
+  TotalPieces?: number;
+
+  /**
+   * <p>The date, in ISO 8601 format, when the export job was created.</p>
+   */
+  CreationDate: string | undefined;
 }
 
 export namespace ExportJobResponse {
@@ -3720,9 +3744,9 @@ export enum Format {
  */
 export interface ImportJobRequest {
   /**
-   * <p>Specifies whether to create a segment that contains the endpoints, when the endpoint definitions are imported.</p>
+   * <p>The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that authorizes Amazon Pinpoint to access the Amazon S3 location to import endpoint definitions from.</p>
    */
-  DefineSegment?: boolean;
+  RoleArn: string | undefined;
 
   /**
    * <p>Specifies whether to register the endpoints with Amazon Pinpoint, when the endpoint definitions are imported.</p>
@@ -3730,9 +3754,9 @@ export interface ImportJobRequest {
   RegisterEndpoints?: boolean;
 
   /**
-   * <p>The identifier for the segment to update or add the imported endpoint definitions to, if the import job is meant to update an existing segment.</p>
+   * <p>Specifies whether to create a segment that contains the endpoints, when the endpoint definitions are imported.</p>
    */
-  SegmentId?: string;
+  DefineSegment?: boolean;
 
   /**
    * <p>The URL of the Amazon Simple Storage Service (Amazon S3) bucket that contains the endpoint definitions to import. This location can be a folder or a single file. If the location is a folder, Amazon Pinpoint imports endpoint definitions from the files in this location, including any subfolders that the folder contains.</p> <p>The URL should be in the following format: s3://<replaceable>bucket-name</replaceable>/<replaceable>folder-name</replaceable>/<replaceable>file-name</replaceable>. The location can end with the key for an individual object or a prefix that qualifies multiple objects.</p>
@@ -3740,24 +3764,24 @@ export interface ImportJobRequest {
   S3Url: string | undefined;
 
   /**
-   * <p>A custom name for the segment that's created by the import job, if the value of the DefineSegment property is true.</p>
-   */
-  SegmentName?: string;
-
-  /**
    * <p>(Deprecated) Your AWS account ID, which you assigned to an external ID key in an IAM trust policy. Amazon Pinpoint previously used this value to assume an IAM role when importing endpoint definitions, but we removed this requirement. We don't recommend use of external IDs for IAM roles that are assumed by Amazon Pinpoint.</p>
    */
   ExternalId?: string;
 
   /**
+   * <p>A custom name for the segment that's created by the import job, if the value of the DefineSegment property is true.</p>
+   */
+  SegmentName?: string;
+
+  /**
+   * <p>The identifier for the segment to update or add the imported endpoint definitions to, if the import job is meant to update an existing segment.</p>
+   */
+  SegmentId?: string;
+
+  /**
    * <p>The format of the files that contain the endpoint definitions to import. Valid values are: CSV, for comma-separated values format; and, JSON, for newline-delimited JSON format. If the Amazon S3 location stores multiple files that use different formats, Amazon Pinpoint imports data only from the files that use the specified format.</p>
    */
   Format: Format | string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that authorizes Amazon Pinpoint to access the Amazon S3 location to import endpoint definitions from.</p>
-   */
-  RoleArn: string | undefined;
 }
 
 export namespace ImportJobRequest {
@@ -3789,14 +3813,14 @@ export namespace CreateImportJobRequest {
  */
 export interface ImportJobResource {
   /**
-   * <p>Specifies whether the import job registers the endpoints with Amazon Pinpoint, when the endpoint definitions are imported.</p>
-   */
-  RegisterEndpoints?: boolean;
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that authorizes Amazon Pinpoint to access the Amazon S3 location to import endpoint definitions from.</p>
    */
   RoleArn: string | undefined;
+
+  /**
+   * <p>Specifies whether the import job registers the endpoints with Amazon Pinpoint, when the endpoint definitions are imported.</p>
+   */
+  RegisterEndpoints?: boolean;
 
   /**
    * <p>Specifies whether the import job creates a segment that contains the endpoints, when the endpoint definitions are imported.</p>
@@ -3804,9 +3828,9 @@ export interface ImportJobResource {
   DefineSegment?: boolean;
 
   /**
-   * <p>The format of the files that contain the endpoint definitions to import. Valid values are: CSV, for comma-separated values format; and, JSON, for newline-delimited JSON format.</p> <p>If the files are stored in an Amazon S3 location and that location contains multiple files that use different formats, Amazon Pinpoint imports data only from the files that use the specified format.</p>
+   * <p>(Deprecated) Your AWS account ID, which you assigned to an external ID key in an IAM trust policy. Amazon Pinpoint previously used this value to assume an IAM role when importing endpoint definitions, but we removed this requirement. We don't recommend use of external IDs for IAM roles that are assumed by Amazon Pinpoint.</p>
    */
-  Format: Format | string | undefined;
+  ExternalId?: string;
 
   /**
    * <p>The custom name for the segment that's created by the import job, if the value of the DefineSegment property is true.</p>
@@ -3824,9 +3848,9 @@ export interface ImportJobResource {
   SegmentId?: string;
 
   /**
-   * <p>(Deprecated) Your AWS account ID, which you assigned to an external ID key in an IAM trust policy. Amazon Pinpoint previously used this value to assume an IAM role when importing endpoint definitions, but we removed this requirement. We don't recommend use of external IDs for IAM roles that are assumed by Amazon Pinpoint.</p>
+   * <p>The format of the files that contain the endpoint definitions to import. Valid values are: CSV, for comma-separated values format; and, JSON, for newline-delimited JSON format.</p> <p>If the files are stored in an Amazon S3 location and that location contains multiple files that use different formats, Amazon Pinpoint imports data only from the files that use the specified format.</p>
    */
-  ExternalId?: string;
+  Format: Format | string | undefined;
 }
 
 export namespace ImportJobResource {
@@ -3840,14 +3864,14 @@ export namespace ImportJobResource {
  */
 export interface ImportJobResponse {
   /**
-   * <p>The number of pieces that weren't processed successfully (failed) by the import job, as of the time of the request.</p>
+   * <p>The job type. This value is IMPORT for import jobs.</p>
    */
-  FailedPieces?: number;
+  Type: string | undefined;
 
   /**
-   * <p>The total number of endpoint definitions that weren't processed successfully (failed) by the import job, typically because an error, such as a syntax error, occurred.</p>
+   * <p>The date, in ISO 8601 format, when the import job was completed.</p>
    */
-  TotalFailures?: number;
+  CompletionDate?: string;
 
   /**
    * <p>The status of the import job. The job status is FAILED if Amazon Pinpoint wasn't able to process one or more pieces in the job.</p>
@@ -3855,14 +3879,19 @@ export interface ImportJobResponse {
   JobStatus: JobStatus | string | undefined;
 
   /**
-   * <p>An array of entries, one for each of the first 100 entries that weren't processed successfully (failed) by the import job, if any.</p>
+   * <p>The total number of pieces that must be processed to complete the import job. Each piece consists of an approximately equal portion of the endpoint definitions that are part of the import job.</p>
    */
-  Failures?: string[];
+  TotalPieces?: number;
 
   /**
-   * <p>The resource settings that apply to the import job.</p>
+   * <p>The number of pieces that weren't processed successfully (failed) by the import job, as of the time of the request.</p>
    */
-  Definition: ImportJobResource | undefined;
+  FailedPieces?: number;
+
+  /**
+   * <p>The date, in ISO 8601 format, when the import job was created.</p>
+   */
+  CreationDate: string | undefined;
 
   /**
    * <p>The unique identifier for the import job.</p>
@@ -3875,14 +3904,19 @@ export interface ImportJobResponse {
   TotalProcessed?: number;
 
   /**
-   * <p>The date, in ISO 8601 format, when the import job was completed.</p>
+   * <p>The resource settings that apply to the import job.</p>
    */
-  CompletionDate?: string;
+  Definition: ImportJobResource | undefined;
 
   /**
-   * <p>The date, in ISO 8601 format, when the import job was created.</p>
+   * <p>The number of pieces that were processed successfully (completed) by the import job, as of the time of the request.</p>
    */
-  CreationDate: string | undefined;
+  CompletedPieces?: number;
+
+  /**
+   * <p>An array of entries, one for each of the first 100 entries that weren't processed successfully (failed) by the import job, if any.</p>
+   */
+  Failures?: string[];
 
   /**
    * <p>The unique identifier for the application that's associated with the import job.</p>
@@ -3890,19 +3924,9 @@ export interface ImportJobResponse {
   ApplicationId: string | undefined;
 
   /**
-   * <p>The job type. This value is IMPORT for import jobs.</p>
+   * <p>The total number of endpoint definitions that weren't processed successfully (failed) by the import job, typically because an error, such as a syntax error, occurred.</p>
    */
-  Type: string | undefined;
-
-  /**
-   * <p>The total number of pieces that must be processed to complete the import job. Each piece consists of an approximately equal portion of the endpoint definitions that are part of the import job.</p>
-   */
-  TotalPieces?: number;
-
-  /**
-   * <p>The number of pieces that were processed successfully (completed) by the import job, as of the time of the request.</p>
-   */
-  CompletedPieces?: number;
+  TotalFailures?: number;
 }
 
 export namespace ImportJobResponse {
@@ -3934,14 +3958,14 @@ export interface JourneyLimits {
   DailyCap?: number;
 
   /**
-   * <p>The maximum number of messages that the journey can send each second.</p>
-   */
-  MessagesPerSecond?: number;
-
-  /**
    * <p>The maximum number of times that a participant can enter the journey. The maximum value is 100. To allow participants to enter the journey an unlimited number of times, set this value to 0.</p>
    */
   EndpointReentryCap?: number;
+
+  /**
+   * <p>The maximum number of messages that the journey can send each second.</p>
+   */
+  MessagesPerSecond?: number;
 }
 
 export namespace JourneyLimits {
@@ -3960,11 +3984,6 @@ export interface JourneySchedule {
   EndTime?: Date;
 
   /**
-   * <p>The scheduled time, in ISO 8601 format, when the journey began or will begin.</p>
-   */
-  StartTime?: Date;
-
-  /**
    * <p>The starting UTC offset for the journey schedule, if the value of the journey's LocalTime property is true. Valid values are: UTC,
    *                   UTC+01, UTC+02, UTC+03, UTC+03:30, UTC+04, UTC+04:30, UTC+05, UTC+05:30,
    *                   UTC+05:45, UTC+06, UTC+06:30, UTC+07, UTC+08, UTC+08:45, UTC+09, UTC+09:30,
@@ -3973,10 +3992,54 @@ export interface JourneySchedule {
    *                   UTC-09:30, UTC-10, and UTC-11.</p>
    */
   Timezone?: string;
+
+  /**
+   * <p>The scheduled time, in ISO 8601 format, when the journey began or will begin.</p>
+   */
+  StartTime?: Date;
 }
 
 export namespace JourneySchedule {
   export const filterSensitiveLog = (obj: JourneySchedule): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Specifies the settings for an event that causes a campaign to be sent or a journey activity to be performed.</p>
+ */
+export interface EventFilter {
+  /**
+   * <p>The dimensions for the event filter to use for the campaign or the journey activity.</p>
+   */
+  Dimensions: EventDimensions | undefined;
+
+  /**
+   * <p>The type of event that causes the campaign to be sent or the journey activity to be performed. Valid values are: SYSTEM, sends the campaign or performs the activity when a system event occurs; and, ENDPOINT, sends the campaign or performs the activity when an endpoint event (<link  linkend="apps-application-id-events">Events resource</link>) occurs.</p>
+   */
+  FilterType: FilterType | string | undefined;
+}
+
+export namespace EventFilter {
+  export const filterSensitiveLog = (obj: EventFilter): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Specifies the settings for an event that causes a journey activity to start.</p>
+ */
+export interface EventStartCondition {
+  /**
+   * <p>Specifies the settings for an event that causes a campaign to be sent or a journey activity to be performed.</p>
+   */
+  EventFilter?: EventFilter;
+
+  SegmentId?: string;
+}
+
+export namespace EventStartCondition {
+  export const filterSensitiveLog = (obj: EventStartCondition): any => ({
     ...obj,
   });
 }
@@ -3989,6 +4052,11 @@ export interface StartCondition {
    * <p>The custom description of the condition.</p>
    */
   Description?: string;
+
+  /**
+   * <p>Specifies the settings for an event that causes a journey activity to start.</p>
+   */
+  EventStartCondition?: EventStartCondition;
 
   /**
    * <p>The segment that's associated with the first activity in the journey. This segment determines which users are participants in the journey.</p>
@@ -4015,34 +4083,19 @@ export enum State {
  */
 export interface WriteJourneyRequest {
   /**
+   * <p>Specifies whether the journey's scheduled start and end times use each participant's local time. To base the schedule on each participant's local time, set this value to true.</p>
+   */
+  LocalTime?: boolean;
+
+  /**
+   * <p>The schedule settings for the journey.</p>
+   */
+  Schedule?: JourneySchedule;
+
+  /**
    * <p>The segment that defines which users are participants in the journey.</p>
    */
   StartCondition?: StartCondition;
-
-  /**
-   * <p>The status of the journey. Valid values are:</p> <ul><li><p>DRAFT - Saves the journey and doesn't publish it.</p></li> <li><p>ACTIVE - Saves and publishes the journey. Depending on the journey's schedule, the journey starts running immediately or at the scheduled start time. If a journey's status is ACTIVE, you can't add, change, or remove activities from it.</p></li></ul> <p>The CANCELLED, COMPLETED, and CLOSED values are not supported in requests to create or update a journey. To cancel a journey, use the <link  linkend="apps-application-id-journeys-journey-id-state">Journey State</link> resource.</p>
-   */
-  State?: State | string;
-
-  /**
-   * <p>The name of the journey. A journey name can contain a maximum of 150 characters. The characters can be alphanumeric characters or symbols, such as underscores (_) or hyphens (-). A journey name can't contain any spaces.</p>
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>The unique identifier for the first activity in the journey. The identifier for this activity can contain a maximum of 128 characters. The characters must be alphanumeric characters.</p>
-   */
-  StartActivity?: string;
-
-  /**
-   * <p>The frequency with which Amazon Pinpoint evaluates segment and event data for the journey, as a duration in ISO 8601 format.</p>
-   */
-  RefreshFrequency?: string;
-
-  /**
-   * <p>The date, in ISO 8601 format, when the journey was created.</p>
-   */
-  CreationDate?: string;
 
   /**
    * <p>A map that contains a set of Activity objects, one object for each activity in the journey. For each Activity object, the key is the unique identifier (string) for an activity and the value is the settings for the activity. An activity identifier can contain a maximum of 100 characters. The characters must be alphanumeric characters.</p>
@@ -4055,9 +4108,29 @@ export interface WriteJourneyRequest {
   LastModifiedDate?: string;
 
   /**
+   * <p>The date, in ISO 8601 format, when the journey was created.</p>
+   */
+  CreationDate?: string;
+
+  /**
+   * <p>The status of the journey. Valid values are:</p> <ul><li><p>DRAFT - Saves the journey and doesn't publish it.</p></li> <li><p>ACTIVE - Saves and publishes the journey. Depending on the journey's schedule, the journey starts running immediately or at the scheduled start time. If a journey's status is ACTIVE, you can't add, change, or remove activities from it.</p></li></ul> <p>The CANCELLED, COMPLETED, and CLOSED values are not supported in requests to create or update a journey. To cancel a journey, use the <link  linkend="apps-application-id-journeys-journey-id-state">Journey State</link> resource.</p>
+   */
+  State?: State | string;
+
+  /**
+   * <p>The unique identifier for the first activity in the journey. The identifier for this activity can contain a maximum of 128 characters. The characters must be alphanumeric characters.</p>
+   */
+  StartActivity?: string;
+
+  /**
    * <p>The quiet time settings for the journey. Quiet time is a specific time range when a journey doesn't send messages to participants, if all the following conditions are met:</p> <ul><li><p>The EndpointDemographic.Timezone property of the endpoint for the participant is set to a valid value.</p></li> <li><p>The current time in the participant's time zone is later than or equal to the time specified by the QuietTime.Start property for the journey.</p></li> <li><p>The current time in the participant's time zone is earlier than or equal to the time specified by the QuietTime.End property for the journey.</p></li></ul> <p>If any of the preceding conditions isn't met, the participant will receive messages from the journey, even if quiet time is enabled.</p>
    */
   QuietTime?: QuietTime;
+
+  /**
+   * <p>The name of the journey. A journey name can contain a maximum of 150 characters. The characters can be alphanumeric characters or symbols, such as underscores (_) or hyphens (-). A journey name can't contain any spaces.</p>
+   */
+  Name: string | undefined;
 
   /**
    * <p>The messaging and entry limits for the journey.</p>
@@ -4065,14 +4138,9 @@ export interface WriteJourneyRequest {
   Limits?: JourneyLimits;
 
   /**
-   * <p>Specifies whether the journey's scheduled start and end times use each participant's local time. To base the schedule on each participant's local time, set this value to true.</p>
+   * <p>The frequency with which Amazon Pinpoint evaluates segment and event data for the journey, as a duration in ISO 8601 format.</p>
    */
-  LocalTime?: boolean;
-
-  /**
-   * <p>The schedule settings for the journey.</p>
-   */
-  Schedule?: JourneySchedule;
+  RefreshFrequency?: string;
 }
 
 export namespace WriteJourneyRequest {
@@ -4104,64 +4172,14 @@ export namespace CreateJourneyRequest {
  */
 export interface JourneyResponse {
   /**
-   * <p>The current status of the journey. Possible values are:</p> <ul><li><p>DRAFT - The journey is being developed and hasn't been published yet.</p></li> <li><p>ACTIVE - The journey has been developed and published. Depending on the journey's schedule, the journey may currently be running or scheduled to start running at a later time. If a journey's status is ACTIVE, you can't add, change, or remove activities from it.</p></li> <li><p>COMPLETED - The journey has been published and has finished running. All participants have entered the journey and no participants are waiting to complete the journey or any activities in the journey.</p></li> <li><p>CANCELLED - The journey has been stopped. If a journey's status is CANCELLED, you can't add, change, or remove activities or segment settings from the journey.</p></li> <li><p>CLOSED - The journey has been published and has started running. It may have also passed its scheduled end time, or passed its scheduled start time and a refresh frequency hasn't been specified for it. If a journey's status is CLOSED, you can't add participants to it, and no existing participants can enter the journey for the first time. However, any existing participants who are currently waiting to start an activity may continue the journey.</p></li></ul>
-   */
-  State?: State | string;
-
-  /**
    * <p>The messaging and entry limits for the journey.</p>
    */
   Limits?: JourneyLimits;
 
   /**
-   * <p>The segment that defines which users are participants in the journey.</p>
+   * <p>The name of the journey.</p>
    */
-  StartCondition?: StartCondition;
-
-  /**
-   * <p>The date, in ISO 8601 format, when the journey was created.</p>
-   */
-  CreationDate?: string;
-
-  /**
-   * <p>The date, in ISO 8601 format, when the journey was last modified.</p>
-   */
-  LastModifiedDate?: string;
-
-  /**
-   * <p>A map that contains a set of Activity objects, one object for each activity in the journey. For each Activity object, the key is the unique identifier (string) for an activity and the value is the settings for the activity.</p>
-   */
-  Activities?: { [key: string]: Activity };
-
-  /**
-   * <p>The unique identifier for the application that the journey applies to.</p>
-   */
-  ApplicationId: string | undefined;
-
-  /**
-   * <p>The unique identifier for the journey.</p>
-   */
-  Id: string | undefined;
-
-  /**
-   * <p>Specifies whether the journey's scheduled start and end times use each participant's local time. If this value is true, the schedule uses each participant's local time.</p>
-   */
-  LocalTime?: boolean;
-
-  /**
-   * <p>The schedule settings for the journey.</p>
-   */
-  Schedule?: JourneySchedule;
-
-  /**
-   * <p>The quiet time settings for the journey. Quiet time is a specific time range when a journey doesn't send messages to participants, if all the following conditions are met:</p> <ul><li><p>The EndpointDemographic.Timezone property of the endpoint for the participant is set to a valid value.</p></li> <li><p>The current time in the participant's time zone is later than or equal to the time specified by the QuietTime.Start property for the journey.</p></li> <li><p>The current time in the participant's time zone is earlier than or equal to the time specified by the QuietTime.End property for the journey.</p></li></ul> <p>If any of the preceding conditions isn't met, the participant will receive messages from the journey, even if quiet time is enabled.</p>
-   */
-  QuietTime?: QuietTime;
-
-  /**
-   * <p>This object is not used or supported.</p>
-   */
-  tags?: { [key: string]: string };
+  Name: string | undefined;
 
   /**
    * <p>The unique identifier for the first activity in the journey.</p>
@@ -4174,9 +4192,59 @@ export interface JourneyResponse {
   RefreshFrequency?: string;
 
   /**
-   * <p>The name of the journey.</p>
+   * <p>The unique identifier for the application that the journey applies to.</p>
    */
-  Name: string | undefined;
+  ApplicationId: string | undefined;
+
+  /**
+   * <p>The segment that defines which users are participants in the journey.</p>
+   */
+  StartCondition?: StartCondition;
+
+  /**
+   * <p>The unique identifier for the journey.</p>
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>Specifies whether the journey's scheduled start and end times use each participant's local time. If this value is true, the schedule uses each participant's local time.</p>
+   */
+  LocalTime?: boolean;
+
+  /**
+   * <p>The quiet time settings for the journey. Quiet time is a specific time range when a journey doesn't send messages to participants, if all the following conditions are met:</p> <ul><li><p>The EndpointDemographic.Timezone property of the endpoint for the participant is set to a valid value.</p></li> <li><p>The current time in the participant's time zone is later than or equal to the time specified by the QuietTime.Start property for the journey.</p></li> <li><p>The current time in the participant's time zone is earlier than or equal to the time specified by the QuietTime.End property for the journey.</p></li></ul> <p>If any of the preceding conditions isn't met, the participant will receive messages from the journey, even if quiet time is enabled.</p>
+   */
+  QuietTime?: QuietTime;
+
+  /**
+   * <p>This object is not used or supported.</p>
+   */
+  tags?: { [key: string]: string };
+
+  /**
+   * <p>The current status of the journey. Possible values are:</p> <ul><li><p>DRAFT - The journey is being developed and hasn't been published yet.</p></li> <li><p>ACTIVE - The journey has been developed and published. Depending on the journey's schedule, the journey may currently be running or scheduled to start running at a later time. If a journey's status is ACTIVE, you can't add, change, or remove activities from it.</p></li> <li><p>COMPLETED - The journey has been published and has finished running. All participants have entered the journey and no participants are waiting to complete the journey or any activities in the journey.</p></li> <li><p>CANCELLED - The journey has been stopped. If a journey's status is CANCELLED, you can't add, change, or remove activities or segment settings from the journey.</p></li> <li><p>CLOSED - The journey has been published and has started running. It may have also passed its scheduled end time, or passed its scheduled start time and a refresh frequency hasn't been specified for it. If a journey's status is CLOSED, you can't add participants to it, and no existing participants can enter the journey for the first time. However, any existing participants who are currently waiting to start an activity may continue the journey.</p></li></ul>
+   */
+  State?: State | string;
+
+  /**
+   * <p>The date, in ISO 8601 format, when the journey was created.</p>
+   */
+  CreationDate?: string;
+
+  /**
+   * <p>A map that contains a set of Activity objects, one object for each activity in the journey. For each Activity object, the key is the unique identifier (string) for an activity and the value is the settings for the activity.</p>
+   */
+  Activities?: { [key: string]: Activity };
+
+  /**
+   * <p>The date, in ISO 8601 format, when the journey was last modified.</p>
+   */
+  LastModifiedDate?: string;
+
+  /**
+   * <p>The schedule settings for the journey.</p>
+   */
+  Schedule?: JourneySchedule;
 }
 
 export namespace JourneyResponse {
@@ -4203,19 +4271,9 @@ export namespace CreateJourneyResponse {
  */
 export interface DefaultPushNotificationTemplate {
   /**
-   * <p>The URL to open in a recipient's default mobile browser, if a recipient taps a push notification that's based on the message template and the value of the Action property is URL.</p>
+   * <p>The action to occur if a recipient taps a push notification that's based on the message template. Valid values are:</p> <ul><li><p>OPEN_APP - Your app opens or it becomes the foreground app if it was sent to the background. This is the default action.</p></li> <li><p>DEEP_LINK - Your app opens and displays a designated user interface in the app. This setting uses the deep-linking features of the iOS and Android platforms.</p></li> <li><p>URL - The default mobile browser on the recipient's device opens and loads the web page at a URL that you specify.</p></li></ul>
    */
-  Url?: string;
-
-  /**
-   * <p>The sound to play when a recipient receives a push notification that's based on the message template. You can use the default stream or specify the file name of a sound resource that's bundled in your app. On an Android platform, the sound file must reside in /res/raw/.</p> <p>For an iOS platform, this value is the key for the name of a sound file in your app's main bundle or the Library/Sounds folder in your app's data container. If the sound file can't be found or you specify default for the value, the system plays the default alert sound.</p>
-   */
-  Sound?: string;
-
-  /**
-   * <p>The title to use in push notifications that are based on the message template. This title appears above the notification message on a recipient's device.</p>
-   */
-  Title?: string;
+  Action?: Action | string;
 
   /**
    * <p>The message body to use in push notifications that are based on the message template.</p>
@@ -4223,9 +4281,19 @@ export interface DefaultPushNotificationTemplate {
   Body?: string;
 
   /**
-   * <p>The action to occur if a recipient taps a push notification that's based on the message template. Valid values are:</p> <ul><li><p>OPEN_APP - Your app opens or it becomes the foreground app if it was sent to the background. This is the default action.</p></li> <li><p>DEEP_LINK - Your app opens and displays a designated user interface in the app. This setting uses the deep-linking features of the iOS and Android platforms.</p></li> <li><p>URL - The default mobile browser on the recipient's device opens and loads the web page at a URL that you specify.</p></li></ul>
+   * <p>The URL to open in a recipient's default mobile browser, if a recipient taps a push notification that's based on the message template and the value of the Action property is URL.</p>
    */
-  Action?: Action | string;
+  Url?: string;
+
+  /**
+   * <p>The title to use in push notifications that are based on the message template. This title appears above the notification message on a recipient's device.</p>
+   */
+  Title?: string;
+
+  /**
+   * <p>The sound to play when a recipient receives a push notification that's based on the message template. You can use the default stream or specify the file name of a sound resource that's bundled in your app. On an Android platform, the sound file must reside in /res/raw/.</p> <p>For an iOS platform, this value is the key for the name of a sound file in your app's main bundle or the Library/Sounds folder in your app's data container. If the sound file can't be found or you specify default for the value, the system plays the default alert sound.</p>
+   */
+  Sound?: string;
 }
 
 export namespace DefaultPushNotificationTemplate {
@@ -4239,9 +4307,9 @@ export namespace DefaultPushNotificationTemplate {
  */
 export interface PushNotificationTemplateRequest {
   /**
-   * <p>The unique identifier for the recommender model to use for the message template. Amazon Pinpoint uses this value to determine how to retrieve and process data from a recommender model when it sends messages that use the template, if the template contains message variables for recommendation data.</p>
+   * <p>A string-to-string map of key-value pairs that defines the tags to associate with the message template. Each tag consists of a required tag key and an associated tag value.</p>
    */
-  RecommenderId?: string;
+  tags?: { [key: string]: string };
 
   /**
    * <p>The message template to use for the GCM channel, which is used to send notifications through the Firebase Cloud Messaging (FCM), formerly Google Cloud Messaging (GCM), service. This message template overrides the default template for push notification channels (DefaultPushNotificationTemplate).</p>
@@ -4249,24 +4317,9 @@ export interface PushNotificationTemplateRequest {
   GCM?: AndroidPushNotificationTemplate;
 
   /**
-   * <p>The message template to use for the APNs (Apple Push Notification service) channel. This message template overrides the default template for push notification channels (DefaultPushNotificationTemplate).</p>
+   * <p>The unique identifier for the recommender model to use for the message template. Amazon Pinpoint uses this value to determine how to retrieve and process data from a recommender model when it sends messages that use the template, if the template contains message variables for recommendation data.</p>
    */
-  APNS?: APNSPushNotificationTemplate;
-
-  /**
-   * <p>A JSON object that specifies the default values to use for message variables in the message template. This object is a set of key-value pairs. Each key defines a message variable in the template. The corresponding value defines the default value for that variable. When you create a message that's based on the template, you can override these defaults with message-specific and address-specific variables and values.</p>
-   */
-  DefaultSubstitutions?: string;
-
-  /**
-   * <p>A string-to-string map of key-value pairs that defines the tags to associate with the message template. Each tag consists of a required tag key and an associated tag value.</p>
-   */
-  tags?: { [key: string]: string };
-
-  /**
-   * <p>The message template to use for the Baidu (Baidu Cloud Push) channel. This message template overrides the default template for push notification channels (DefaultPushNotificationTemplate).</p>
-   */
-  Baidu?: AndroidPushNotificationTemplate;
+  RecommenderId?: string;
 
   /**
    * <p>The default message template to use for push notification channels.</p>
@@ -4282,6 +4335,21 @@ export interface PushNotificationTemplateRequest {
    * <p>A custom description of the message template.</p>
    */
   TemplateDescription?: string;
+
+  /**
+   * <p>The message template to use for the Baidu (Baidu Cloud Push) channel. This message template overrides the default template for push notification channels (DefaultPushNotificationTemplate).</p>
+   */
+  Baidu?: AndroidPushNotificationTemplate;
+
+  /**
+   * <p>The message template to use for the APNs (Apple Push Notification service) channel. This message template overrides the default template for push notification channels (DefaultPushNotificationTemplate).</p>
+   */
+  APNS?: APNSPushNotificationTemplate;
+
+  /**
+   * <p>A JSON object that specifies the default values to use for message variables in the message template. This object is a set of key-value pairs. Each key defines a message variable in the template. The corresponding value defines the default value for that variable. When you create a message that's based on the template, you can override these defaults with message-specific and address-specific variables and values.</p>
+   */
+  DefaultSubstitutions?: string;
 }
 
 export namespace PushNotificationTemplateRequest {
@@ -4292,14 +4360,14 @@ export namespace PushNotificationTemplateRequest {
 
 export interface CreatePushTemplateRequest {
   /**
-   * <p>Specifies the content and settings for a message template that can be used in messages that are sent through a push notification channel.</p>
-   */
-  PushNotificationTemplateRequest: PushNotificationTemplateRequest | undefined;
-
-  /**
    * <p>The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.</p>
    */
   TemplateName: string | undefined;
+
+  /**
+   * <p>Specifies the content and settings for a message template that can be used in messages that are sent through a push notification channel.</p>
+   */
+  PushNotificationTemplateRequest: PushNotificationTemplateRequest | undefined;
 }
 
 export namespace CreatePushTemplateRequest {
@@ -4326,9 +4394,9 @@ export namespace CreatePushTemplateResponse {
  */
 export interface CreateRecommenderConfigurationShape {
   /**
-   * <p>The Amazon Resource Name (ARN) of the recommender model to retrieve recommendation data from. This value must match the ARN of an Amazon Personalize campaign.</p>
+   * <p>A custom display name for the standard endpoint or user attribute (RecommendationItems) that temporarily stores recommended items for each endpoint or user, depending on the value for the RecommendationProviderIdType property. This value is required if the configuration doesn't invoke an AWS Lambda function (RecommendationTransformerUri) to perform additional processing of recommendation data.</p> <p>This name appears in the <b>Attribute finder</b> of the template editor on the Amazon Pinpoint console. The name can contain up to 25 characters. The characters can be letters, numbers, spaces, underscores (_), or hyphens (-). These restrictions don't apply to attribute values.</p>
    */
-  RecommendationProviderUri: string | undefined;
+  RecommendationsDisplayName?: string;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that authorizes Amazon Pinpoint to retrieve recommendation data from the recommender model.</p>
@@ -4336,19 +4404,19 @@ export interface CreateRecommenderConfigurationShape {
   RecommendationProviderRoleArn: string | undefined;
 
   /**
+   * <p>A custom description of the configuration for the recommender model. The description can contain up to 128 characters. The characters can be letters, numbers, spaces, or the following symbols: _ ; () , ‐.</p>
+   */
+  Description?: string;
+
+  /**
    * <p>The type of Amazon Pinpoint ID to associate with unique user IDs in the recommender model. This value enables the model to use attribute and event data that’s specific to a particular endpoint or user in an Amazon Pinpoint application. Valid values are:</p> <ul><li><p>PINPOINT_ENDPOINT_ID - Associate each user in the model with a particular endpoint in Amazon Pinpoint. The data is correlated based on endpoint IDs in Amazon Pinpoint. This is the default value.</p></li> <li><p>PINPOINT_USER_ID - Associate each user in the model with a particular user and endpoint in Amazon Pinpoint. The data is correlated based on user IDs in Amazon Pinpoint. If you specify this value, an endpoint definition in Amazon Pinpoint has to specify both a user ID (UserId) and an endpoint ID. Otherwise, messages won’t be sent to the user's endpoint.</p></li></ul>
    */
   RecommendationProviderIdType?: string;
 
   /**
-   * <p>The number of recommended items to retrieve from the model for each endpoint or user, depending on the value for the RecommendationProviderIdType property. This number determines how many recommended items are available for use in message variables. The minimum value is 1. The maximum value is 5. The default value is 5.</p> <p>To use multiple recommended items and custom attributes with message variables, you have to use an AWS Lambda function (RecommendationTransformerUri) to perform additional processing of recommendation data.</p>
+   * <p>A custom name of the configuration for the recommender model. The name must start with a letter or number and it can contain up to 128 characters. The characters can be letters, numbers, spaces, underscores (_), or hyphens (-).</p>
    */
-  RecommendationsPerMessage?: number;
-
-  /**
-   * <p>A custom display name for the standard endpoint or user attribute (RecommendationItems) that temporarily stores recommended items for each endpoint or user, depending on the value for the RecommendationProviderIdType property. This value is required if the configuration doesn't invoke an AWS Lambda function (RecommendationTransformerUri) to perform additional processing of recommendation data.</p> <p>This name appears in the <b>Attribute finder</b> of the template editor on the Amazon Pinpoint console. The name can contain up to 25 characters. The characters can be letters, numbers, spaces, underscores (_), or hyphens (-). These restrictions don't apply to attribute values.</p>
-   */
-  RecommendationsDisplayName?: string;
+  Name?: string;
 
   /**
    * <p>The name or Amazon Resource Name (ARN) of the AWS Lambda function to invoke for additional processing of recommendation data that's retrieved from the recommender model.</p>
@@ -4361,14 +4429,14 @@ export interface CreateRecommenderConfigurationShape {
   Attributes?: { [key: string]: string };
 
   /**
-   * <p>A custom name of the configuration for the recommender model. The name must start with a letter or number and it can contain up to 128 characters. The characters can be letters, numbers, spaces, underscores (_), or hyphens (-).</p>
+   * <p>The number of recommended items to retrieve from the model for each endpoint or user, depending on the value for the RecommendationProviderIdType property. This number determines how many recommended items are available for use in message variables. The minimum value is 1. The maximum value is 5. The default value is 5.</p> <p>To use multiple recommended items and custom attributes with message variables, you have to use an AWS Lambda function (RecommendationTransformerUri) to perform additional processing of recommendation data.</p>
    */
-  Name?: string;
+  RecommendationsPerMessage?: number;
 
   /**
-   * <p>A custom description of the configuration for the recommender model. The description can contain up to 128 characters. The characters can be letters, numbers, spaces, or the following symbols: _ ; () , ‐.</p>
+   * <p>The Amazon Resource Name (ARN) of the recommender model to retrieve recommendation data from. This value must match the ARN of an Amazon Personalize campaign.</p>
    */
-  Description?: string;
+  RecommendationProviderUri: string | undefined;
 }
 
 export namespace CreateRecommenderConfigurationShape {
@@ -4405,34 +4473,14 @@ export interface RecommenderConfigurationResponse {
   RecommendationProviderIdType?: string;
 
   /**
-   * <p>The date, in extended ISO 8601 format, when the configuration was created for the recommender model.</p>
-   */
-  CreationDate: string | undefined;
-
-  /**
    * <p>The date, in extended ISO 8601 format, when the configuration for the recommender model was last modified.</p>
    */
   LastModifiedDate: string | undefined;
 
   /**
-   * <p>The custom description of the configuration for the recommender model.</p>
+   * <p>The date, in extended ISO 8601 format, when the configuration was created for the recommender model.</p>
    */
-  Description?: string;
-
-  /**
-   * <p>The unique identifier for the recommender model configuration.</p>
-   */
-  Id: string | undefined;
-
-  /**
-   * <p>The name or Amazon Resource Name (ARN) of the AWS Lambda function that Amazon Pinpoint invokes to perform additional processing of recommendation data that it retrieves from the recommender model.</p>
-   */
-  RecommendationTransformerUri?: string;
-
-  /**
-   * <p>The custom name of the configuration for the recommender model.</p>
-   */
-  Name?: string;
+  CreationDate: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that authorizes Amazon Pinpoint to retrieve recommendation data from the recommender model.</p>
@@ -4445,14 +4493,34 @@ export interface RecommenderConfigurationResponse {
   RecommendationsPerMessage?: number;
 
   /**
-   * <p>A map that defines 1-10 custom endpoint or user attributes, depending on the value for the RecommendationProviderIdType property. Each of these attributes temporarily stores a recommended item that's retrieved from the recommender model and sent to an AWS Lambda function for additional processing. Each attribute can be used as a message variable in a message template.</p> <p>This value is null if the configuration doesn't invoke an AWS Lambda function (RecommendationTransformerUri) to perform additional processing of recommendation data.</p>
+   * <p>The name or Amazon Resource Name (ARN) of the AWS Lambda function that Amazon Pinpoint invokes to perform additional processing of recommendation data that it retrieves from the recommender model.</p>
    */
-  Attributes?: { [key: string]: string };
+  RecommendationTransformerUri?: string;
 
   /**
    * <p>The custom display name for the standard endpoint or user attribute (RecommendationItems) that temporarily stores recommended items for each endpoint or user, depending on the value for the RecommendationProviderIdType property. This name appears in the <b>Attribute finder</b> of the template editor on the Amazon Pinpoint console.</p> <p>This value is null if the configuration doesn't invoke an AWS Lambda function (RecommendationTransformerUri) to perform additional processing of recommendation data.</p>
    */
   RecommendationsDisplayName?: string;
+
+  /**
+   * <p>A map that defines 1-10 custom endpoint or user attributes, depending on the value for the RecommendationProviderIdType property. Each of these attributes temporarily stores a recommended item that's retrieved from the recommender model and sent to an AWS Lambda function for additional processing. Each attribute can be used as a message variable in a message template.</p> <p>This value is null if the configuration doesn't invoke an AWS Lambda function (RecommendationTransformerUri) to perform additional processing of recommendation data.</p>
+   */
+  Attributes?: { [key: string]: string };
+
+  /**
+   * <p>The custom name of the configuration for the recommender model.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The unique identifier for the recommender model configuration.</p>
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The custom description of the configuration for the recommender model.</p>
+   */
+  Description?: string;
 }
 
 export namespace RecommenderConfigurationResponse {
@@ -4517,9 +4585,9 @@ export interface SegmentGroup {
   SourceSegments?: SegmentReference[];
 
   /**
-   * <p>An array that defines the dimensions for the segment.</p>
+   * <p>Specifies how to handle multiple base segments for the segment. For example, if you specify three base segments for the segment, whether the resulting segment is based on all, any, or none of the base segments.</p>
    */
-  Dimensions?: SegmentDimensions[];
+  SourceType?: SourceType | string;
 
   /**
    * <p>Specifies how to handle multiple dimensions for the segment. For example, if you specify three dimensions for the segment, whether the resulting segment includes endpoints that match all, any, or none of the dimensions.</p>
@@ -4527,9 +4595,9 @@ export interface SegmentGroup {
   Type?: Type | string;
 
   /**
-   * <p>Specifies how to handle multiple base segments for the segment. For example, if you specify three base segments for the segment, whether the resulting segment is based on all, any, or none of the base segments.</p>
+   * <p>An array that defines the dimensions for the segment.</p>
    */
-  SourceType?: SourceType | string;
+  Dimensions?: SegmentDimensions[];
 }
 
 export namespace SegmentGroup {
@@ -4549,14 +4617,14 @@ export enum Include {
  */
 export interface SegmentGroupList {
   /**
-   * <p>Specifies how to handle multiple segment groups for the segment. For example, if the segment includes three segment groups, whether the resulting segment includes endpoints that match all, any, or none of the segment groups.</p>
-   */
-  Include?: Include | string;
-
-  /**
    * <p>An array that defines the set of segment criteria to evaluate when handling segment groups for the segment.</p>
    */
   Groups?: SegmentGroup[];
+
+  /**
+   * <p>Specifies how to handle multiple segment groups for the segment. For example, if the segment includes three segment groups, whether the resulting segment includes endpoints that match all, any, or none of the segment groups.</p>
+   */
+  Include?: Include | string;
 }
 
 export namespace SegmentGroupList {
@@ -4570,14 +4638,9 @@ export namespace SegmentGroupList {
  */
 export interface WriteSegmentRequest {
   /**
-   * <p>The criteria that define the dimensions for the segment.</p>
+   * <p>The segment group to use and the dimensions to apply to the group's base segments in order to build the segment. A segment group can consist of zero or more base segments. Your request can include only one segment group.</p>
    */
-  Dimensions?: SegmentDimensions;
-
-  /**
-   * <p>A string-to-string map of key-value pairs that defines the tags to associate with the segment. Each tag consists of a required tag key and an associated tag value.</p>
-   */
-  tags?: { [key: string]: string };
+  SegmentGroups?: SegmentGroupList;
 
   /**
    * <p>The name of the segment.</p>
@@ -4585,9 +4648,14 @@ export interface WriteSegmentRequest {
   Name?: string;
 
   /**
-   * <p>The segment group to use and the dimensions to apply to the group's base segments in order to build the segment. A segment group can consist of zero or more base segments. Your request can include only one segment group.</p>
+   * <p>A string-to-string map of key-value pairs that defines the tags to associate with the segment. Each tag consists of a required tag key and an associated tag value.</p>
    */
-  SegmentGroups?: SegmentGroupList;
+  tags?: { [key: string]: string };
+
+  /**
+   * <p>The criteria that define the dimensions for the segment.</p>
+   */
+  Dimensions?: SegmentDimensions;
 }
 
 export namespace WriteSegmentRequest {
@@ -4598,14 +4666,14 @@ export namespace WriteSegmentRequest {
 
 export interface CreateSegmentRequest {
   /**
-   * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
-   */
-  ApplicationId: string | undefined;
-
-  /**
    * <p>Specifies the configuration, dimension, and other settings for a segment. A WriteSegmentRequest object can include a Dimensions object or a SegmentGroups object, but not both.</p>
    */
   WriteSegmentRequest: WriteSegmentRequest | undefined;
+
+  /**
+   * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
+   */
+  ApplicationId: string | undefined;
 }
 
 export namespace CreateSegmentRequest {
@@ -4624,9 +4692,9 @@ export interface SegmentImportResource {
   ExternalId: string | undefined;
 
   /**
-   * <p>The number of channel types in the endpoint definitions that were imported to create the segment.</p>
+   * <p>The number of endpoint definitions that were imported successfully to create the segment.</p>
    */
-  ChannelCounts?: { [key: string]: number };
+  Size: number | undefined;
 
   /**
    * <p>The URL of the Amazon Simple Storage Service (Amazon S3) bucket that the endpoint definitions were imported from to create the segment.</p>
@@ -4634,19 +4702,19 @@ export interface SegmentImportResource {
   S3Url: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that authorized Amazon Pinpoint to access the Amazon S3 location to import endpoint definitions from.</p>
-   */
-  RoleArn: string | undefined;
-
-  /**
-   * <p>The number of endpoint definitions that were imported successfully to create the segment.</p>
-   */
-  Size: number | undefined;
-
-  /**
    * <p>The format of the files that were imported to create the segment. Valid values are: CSV, for comma-separated values format; and, JSON, for newline-delimited JSON format.</p>
    */
   Format: Format | string | undefined;
+
+  /**
+   * <p>The number of channel types in the endpoint definitions that were imported to create the segment.</p>
+   */
+  ChannelCounts?: { [key: string]: number };
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that authorized Amazon Pinpoint to access the Amazon S3 location to import endpoint definitions from.</p>
+   */
+  RoleArn: string | undefined;
 }
 
 export namespace SegmentImportResource {
@@ -4665,6 +4733,26 @@ export enum SegmentType {
  */
 export interface SegmentResponse {
   /**
+   * <p>A list of one or more segment groups that apply to the segment. Each segment group consists of zero or more base segments and the dimensions that are applied to those base segments.</p>
+   */
+  SegmentGroups?: SegmentGroupList;
+
+  /**
+   * <p>The name of the segment.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The settings for the import job that's associated with the segment.</p>
+   */
+  ImportDefinition?: SegmentImportResource;
+
+  /**
+   * <p>The dimension settings for the segment.</p>
+   */
+  Dimensions?: SegmentDimensions;
+
+  /**
    * <p>A string-to-string map of key-value pairs that identifies the tags that are associated with the segment. Each tag consists of a required tag key and an associated tag value.</p>
    */
   tags?: { [key: string]: string };
@@ -4675,9 +4763,19 @@ export interface SegmentResponse {
   ApplicationId: string | undefined;
 
   /**
-   * <p>The settings for the import job that's associated with the segment.</p>
+   * <p>The Amazon Resource Name (ARN) of the segment.</p>
    */
-  ImportDefinition?: SegmentImportResource;
+  Arn: string | undefined;
+
+  /**
+   * <p>The version number of the segment.</p>
+   */
+  Version?: number;
+
+  /**
+   * <p>The unique identifier for the segment.</p>
+   */
+  Id: string | undefined;
 
   /**
    * <p>The segment type. Valid values are:</p> <ul><li><p>DIMENSIONAL - A dynamic segment, which is a segment that uses selection criteria that you specify and is based on endpoint data that's reported by your app. Dynamic segments can change over time.</p></li> <li><p>IMPORT - A static segment, which is a segment that uses selection criteria that you specify and is based on endpoint definitions that you import from a file. Imported segments are static; they don't change over time.</p></li></ul>
@@ -4693,36 +4791,6 @@ export interface SegmentResponse {
    * <p>The date and time when the segment was last modified.</p>
    */
   LastModifiedDate?: string;
-
-  /**
-   * <p>A list of one or more segment groups that apply to the segment. Each segment group consists of zero or more base segments and the dimensions that are applied to those base segments.</p>
-   */
-  SegmentGroups?: SegmentGroupList;
-
-  /**
-   * <p>The unique identifier for the segment.</p>
-   */
-  Id: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the segment.</p>
-   */
-  Arn: string | undefined;
-
-  /**
-   * <p>The version number of the segment.</p>
-   */
-  Version?: number;
-
-  /**
-   * <p>The dimension settings for the segment.</p>
-   */
-  Dimensions?: SegmentDimensions;
-
-  /**
-   * <p>The name of the segment.</p>
-   */
-  Name?: string;
 }
 
 export namespace SegmentResponse {
@@ -4749,6 +4817,21 @@ export namespace CreateSegmentResponse {
  */
 export interface SMSTemplateRequest {
   /**
+   * <p>A custom description of the message template.</p>
+   */
+  TemplateDescription?: string;
+
+  /**
+   * <p>A string-to-string map of key-value pairs that defines the tags to associate with the message template. Each tag consists of a required tag key and an associated tag value.</p>
+   */
+  tags?: { [key: string]: string };
+
+  /**
+   * <p>The unique identifier for the recommender model to use for the message template. Amazon Pinpoint uses this value to determine how to retrieve and process data from a recommender model when it sends messages that use the template, if the template contains message variables for recommendation data.</p>
+   */
+  RecommenderId?: string;
+
+  /**
    * <p>The message body to use in text messages that are based on the message template.</p>
    */
   Body?: string;
@@ -4757,21 +4840,6 @@ export interface SMSTemplateRequest {
    * <p>A JSON object that specifies the default values to use for message variables in the message template. This object is a set of key-value pairs. Each key defines a message variable in the template. The corresponding value defines the default value for that variable. When you create a message that's based on the template, you can override these defaults with message-specific and address-specific variables and values.</p>
    */
   DefaultSubstitutions?: string;
-
-  /**
-   * <p>The unique identifier for the recommender model to use for the message template. Amazon Pinpoint uses this value to determine how to retrieve and process data from a recommender model when it sends messages that use the template, if the template contains message variables for recommendation data.</p>
-   */
-  RecommenderId?: string;
-
-  /**
-   * <p>A string-to-string map of key-value pairs that defines the tags to associate with the message template. Each tag consists of a required tag key and an associated tag value.</p>
-   */
-  tags?: { [key: string]: string };
-
-  /**
-   * <p>A custom description of the message template.</p>
-   */
-  TemplateDescription?: string;
 }
 
 export namespace SMSTemplateRequest {
@@ -4782,14 +4850,14 @@ export namespace SMSTemplateRequest {
 
 export interface CreateSmsTemplateRequest {
   /**
-   * <p>The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.</p>
-   */
-  TemplateName: string | undefined;
-
-  /**
    * <p>Specifies the content and settings for a message template that can be used in text messages that are sent through the SMS channel.</p>
    */
   SMSTemplateRequest: SMSTemplateRequest | undefined;
+
+  /**
+   * <p>The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.</p>
+   */
+  TemplateName: string | undefined;
 }
 
 export namespace CreateSmsTemplateRequest {
@@ -4816,24 +4884,9 @@ export namespace CreateSmsTemplateResponse {
  */
 export interface VoiceTemplateRequest {
   /**
-   * <p>A JSON object that specifies the default values to use for message variables in the message template. This object is a set of key-value pairs. Each key defines a message variable in the template. The corresponding value defines the default value for that variable. When you create a message that's based on the template, you can override these defaults with message-specific and address-specific variables and values.</p>
+   * <p>A custom description of the message template.</p>
    */
-  DefaultSubstitutions?: string;
-
-  /**
-   * <p>The name of the voice to use when delivering messages that are based on the message template. For a list of supported voices, see the <a href="https://docs.aws.amazon.com/polly/latest/dg/what-is.html">Amazon Polly Developer Guide</a>.</p>
-   */
-  VoiceId?: string;
-
-  /**
-   * <p>The text of the script to use in messages that are based on the message template, in plain text format.</p>
-   */
-  Body?: string;
-
-  /**
-   * <p>A string-to-string map of key-value pairs that defines the tags to associate with the message template. Each tag consists of a required tag key and an associated tag value.</p>
-   */
-  tags?: { [key: string]: string };
+  TemplateDescription?: string;
 
   /**
    * <p>The code for the language to use when synthesizing the text of the script in messages that are based on the message template. For a list of supported languages and the code for each one, see the <a href="https://docs.aws.amazon.com/polly/latest/dg/what-is.html">Amazon Polly Developer Guide</a>.</p>
@@ -4841,9 +4894,24 @@ export interface VoiceTemplateRequest {
   LanguageCode?: string;
 
   /**
-   * <p>A custom description of the message template.</p>
+   * <p>The name of the voice to use when delivering messages that are based on the message template. For a list of supported voices, see the <a href="https://docs.aws.amazon.com/polly/latest/dg/what-is.html">Amazon Polly Developer Guide</a>.</p>
    */
-  TemplateDescription?: string;
+  VoiceId?: string;
+
+  /**
+   * <p>A string-to-string map of key-value pairs that defines the tags to associate with the message template. Each tag consists of a required tag key and an associated tag value.</p>
+   */
+  tags?: { [key: string]: string };
+
+  /**
+   * <p>The text of the script to use in messages that are based on the message template, in plain text format.</p>
+   */
+  Body?: string;
+
+  /**
+   * <p>A JSON object that specifies the default values to use for message variables in the message template. This object is a set of key-value pairs. Each key defines a message variable in the template. The corresponding value defines the default value for that variable. When you create a message that's based on the template, you can override these defaults with message-specific and address-specific variables and values.</p>
+   */
+  DefaultSubstitutions?: string;
 }
 
 export namespace VoiceTemplateRequest {
@@ -4888,14 +4956,14 @@ export namespace CreateVoiceTemplateResponse {
  */
 export interface DefaultMessage {
   /**
-   * <p>The default message variables to use in the message. You can override these default variables with individual address variables.</p>
-   */
-  Substitutions?: { [key: string]: string[] };
-
-  /**
    * <p>The default body of the message.</p>
    */
   Body?: string;
+
+  /**
+   * <p>The default message variables to use in the message. You can override these default variables with individual address variables.</p>
+   */
+  Substitutions?: { [key: string]: string[] };
 }
 
 export namespace DefaultMessage {
@@ -4909,14 +4977,9 @@ export namespace DefaultMessage {
  */
 export interface DefaultPushNotificationMessage {
   /**
-   * <p>Specifies whether the default notification is a silent push notification, which is a push notification that doesn't display on a recipient's device. Silent push notifications can be used for cases such as updating an app's configuration or delivering messages to an in-app notification center.</p>
+   * <p>The default action to occur if a recipient taps the push notification. Valid values are:</p> <ul><li><p>OPEN_APP - Your app opens or it becomes the foreground app if it was sent to the background. This is the default action.</p></li> <li><p>DEEP_LINK - Your app opens and displays a designated user interface in the app. This setting uses the deep-linking features of the iOS and Android platforms.</p></li> <li><p>URL - The default mobile browser on the recipient's device opens and loads the web page at a URL that you specify.</p></li></ul>
    */
-  SilentPush?: boolean;
-
-  /**
-   * <p>The default URL to open in a recipient's default mobile browser, if a recipient taps the push notification and the value of the Action property is URL.</p>
-   */
-  Url?: string;
+  Action?: Action | string;
 
   /**
    * <p>The default body of the notification message.</p>
@@ -4929,9 +4992,9 @@ export interface DefaultPushNotificationMessage {
   Substitutions?: { [key: string]: string[] };
 
   /**
-   * <p>The default action to occur if a recipient taps the push notification. Valid values are:</p> <ul><li><p>OPEN_APP - Your app opens or it becomes the foreground app if it was sent to the background. This is the default action.</p></li> <li><p>DEEP_LINK - Your app opens and displays a designated user interface in the app. This setting uses the deep-linking features of the iOS and Android platforms.</p></li> <li><p>URL - The default mobile browser on the recipient's device opens and loads the web page at a URL that you specify.</p></li></ul>
+   * <p>The default title to display above the notification message on a recipient's device.</p>
    */
-  Action?: Action | string;
+  Title?: string;
 
   /**
    * <p>The JSON data payload to use for the default push notification, if the notification is a silent push notification. This payload is added to the data.pinpoint.jsonBody object of the notification.</p>
@@ -4939,9 +5002,14 @@ export interface DefaultPushNotificationMessage {
   Data?: { [key: string]: string };
 
   /**
-   * <p>The default title to display above the notification message on a recipient's device.</p>
+   * <p>The default URL to open in a recipient's default mobile browser, if a recipient taps the push notification and the value of the Action property is URL.</p>
    */
-  Title?: string;
+  Url?: string;
+
+  /**
+   * <p>Specifies whether the default notification is a silent push notification, which is a push notification that doesn't display on a recipient's device. Silent push notifications can be used for cases such as updating an app's configuration or delivering messages to an in-app notification center.</p>
+   */
+  SilentPush?: boolean;
 }
 
 export namespace DefaultPushNotificationMessage {
@@ -5181,9 +5249,9 @@ export namespace DeleteEmailChannelRequest {
  */
 export interface EmailChannelResponse {
   /**
-   * <p>The user who last modified the email channel.</p>
+   * <p>The current version of the email channel.</p>
    */
-  LastModifiedBy?: string;
+  Version?: number;
 
   /**
    * <p>The date and time, in ISO 8601 format, when the email channel was enabled.</p>
@@ -5191,59 +5259,9 @@ export interface EmailChannelResponse {
   CreationDate?: string;
 
   /**
-   * <p>The date and time, in ISO 8601 format, when the email channel was last modified.</p>
+   * <p>The verified email address that email is sent from when you send email through the channel.</p>
    */
-  LastModifiedDate?: string;
-
-  /**
-   * <p>The ARN of the AWS Identity and Access Management (IAM) role that Amazon Pinpoint uses to submit email-related event data for the channel.</p>
-   */
-  RoleArn?: string;
-
-  /**
-   * <p>The maximum number of emails that can be sent through the channel each second.</p>
-   */
-  MessagesPerSecond?: number;
-
-  /**
-   * <p>Specifies whether the email channel is enabled for the application.</p>
-   */
-  Enabled?: boolean;
-
-  /**
-   * <p>(Deprecated) An identifier for the email channel. This property is retained only for backward compatibility.</p>
-   */
-  Id?: string;
-
-  /**
-   * <p>The type of messaging or notification platform for the channel. For the email channel, this value is EMAIL.</p>
-   */
-  Platform: string | undefined;
-
-  /**
-   * <p>(Not used) This property is retained only for backward compatibility.</p>
-   */
-  HasCredential?: boolean;
-
-  /**
-   * <p>The <a href="https://docs.aws.amazon.com/ses/latest/APIReference/API_ConfigurationSet.html">Amazon SES configuration set</a> that's applied to messages that are sent through the channel.</p>
-   */
-  ConfigurationSet?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the identity, verified with Amazon Simple Email Service (Amazon SES), that's used when you send email through the channel.</p>
-   */
-  Identity?: string;
-
-  /**
-   * <p>Specifies whether the email channel is archived.</p>
-   */
-  IsArchived?: boolean;
-
-  /**
-   * <p>The current version of the email channel.</p>
-   */
-  Version?: number;
+  FromAddress?: string;
 
   /**
    * <p>The unique identifier for the application that the email channel applies to.</p>
@@ -5251,9 +5269,59 @@ export interface EmailChannelResponse {
   ApplicationId?: string;
 
   /**
-   * <p>The verified email address that email is sent from when you send email through the channel.</p>
+   * <p>The date and time, in ISO 8601 format, when the email channel was last modified.</p>
    */
-  FromAddress?: string;
+  LastModifiedDate?: string;
+
+  /**
+   * <p>Specifies whether the email channel is enabled for the application.</p>
+   */
+  Enabled?: boolean;
+
+  /**
+   * <p>The type of messaging or notification platform for the channel. For the email channel, this value is EMAIL.</p>
+   */
+  Platform: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the identity, verified with Amazon Simple Email Service (Amazon SES), that's used when you send email through the channel.</p>
+   */
+  Identity?: string;
+
+  /**
+   * <p>(Deprecated) An identifier for the email channel. This property is retained only for backward compatibility.</p>
+   */
+  Id?: string;
+
+  /**
+   * <p>The maximum number of emails that can be sent through the channel each second.</p>
+   */
+  MessagesPerSecond?: number;
+
+  /**
+   * <p>The <a href="https://docs.aws.amazon.com/ses/latest/APIReference/API_ConfigurationSet.html">Amazon SES configuration set</a> that's applied to messages that are sent through the channel.</p>
+   */
+  ConfigurationSet?: string;
+
+  /**
+   * <p>Specifies whether the email channel is archived.</p>
+   */
+  IsArchived?: boolean;
+
+  /**
+   * <p>The ARN of the AWS Identity and Access Management (IAM) role that Amazon Pinpoint uses to submit email-related event data for the channel.</p>
+   */
+  RoleArn?: string;
+
+  /**
+   * <p>(Not used) This property is retained only for backward compatibility.</p>
+   */
+  HasCredential?: boolean;
+
+  /**
+   * <p>The user who last modified the email channel.</p>
+   */
+  LastModifiedBy?: string;
 }
 
 export namespace EmailChannelResponse {
@@ -5277,14 +5345,14 @@ export namespace DeleteEmailChannelResponse {
 
 export interface DeleteEmailTemplateRequest {
   /**
-   * <p>The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.</p>
-   */
-  TemplateName: string | undefined;
-
-  /**
    * <p>The unique identifier for the version of the message template to update, retrieve information about, or delete. To retrieve identifiers and other information for all the versions of a template, use the <link  linkend="templates-template-name-template-type-versions">Template Versions</link> resource.</p> <p>If specified, this value must match the identifier for an existing template version. If specified for an update operation, this value must match the identifier for the latest existing version of the template. This restriction helps ensure that race conditions don't occur.</p> <p>If you don't specify a value for this parameter, Amazon Pinpoint does the following:</p> <ul><li><p>For a get operation, retrieves information about the active version of the template.</p></li> <li><p>For an update operation, saves the updates to (overwrites) the latest existing version of the template, if the create-new-version parameter isn't used or is set to false.</p></li> <li><p>For a delete operation, deletes the template, including all versions of the template.</p></li></ul>
    */
   Version?: string;
+
+  /**
+   * <p>The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.</p>
+   */
+  TemplateName: string | undefined;
 }
 
 export namespace DeleteEmailTemplateRequest {
@@ -5298,14 +5366,14 @@ export namespace DeleteEmailTemplateRequest {
  */
 export interface MessageBody {
   /**
-   * <p>The unique identifier for the request or response.</p>
-   */
-  RequestID?: string;
-
-  /**
    * <p>The message that's returned from the API.</p>
    */
   Message?: string;
+
+  /**
+   * <p>The unique identifier for the request or response.</p>
+   */
+  RequestID?: string;
 }
 
 export namespace MessageBody {
@@ -5329,14 +5397,14 @@ export namespace DeleteEmailTemplateResponse {
 
 export interface DeleteEndpointRequest {
   /**
-   * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
-   */
-  ApplicationId: string | undefined;
-
-  /**
    * <p>The unique identifier for the endpoint.</p>
    */
   EndpointId: string | undefined;
+
+  /**
+   * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
+   */
+  ApplicationId: string | undefined;
 }
 
 export namespace DeleteEndpointRequest {
@@ -5349,26 +5417,6 @@ export namespace DeleteEndpointRequest {
  * <p>Specifies demographic information about an endpoint, such as the applicable time zone and platform.</p>
  */
 export interface EndpointDemographic {
-  /**
-   * <p>The version of the app that's associated with the endpoint.</p>
-   */
-  AppVersion?: string;
-
-  /**
-   * <p>The manufacturer of the endpoint device, such as apple or samsung.</p>
-   */
-  Make?: string;
-
-  /**
-   * <p>The model version of the endpoint device.</p>
-   */
-  ModelVersion?: string;
-
-  /**
-   * <p>The time zone of the endpoint, specified as a tz database name value, such as America/Los_Angeles.</p>
-   */
-  Timezone?: string;
-
   /**
    * <p>The platform of the endpoint device, such as ios.</p>
    */
@@ -5385,9 +5433,29 @@ export interface EndpointDemographic {
   PlatformVersion?: string;
 
   /**
+   * <p>The version of the app that's associated with the endpoint.</p>
+   */
+  AppVersion?: string;
+
+  /**
+   * <p>The time zone of the endpoint, specified as a tz database name value, such as America/Los_Angeles.</p>
+   */
+  Timezone?: string;
+
+  /**
    * <p>The locale of the endpoint, in the following format: the ISO 639-1 alpha-2 code, followed by an underscore (_), followed by an ISO 3166-1 alpha-2 value.</p>
    */
   Locale?: string;
+
+  /**
+   * <p>The model version of the endpoint device.</p>
+   */
+  ModelVersion?: string;
+
+  /**
+   * <p>The manufacturer of the endpoint device, such as apple or samsung.</p>
+   */
+  Make?: string;
 }
 
 export namespace EndpointDemographic {
@@ -5401,11 +5469,6 @@ export namespace EndpointDemographic {
  */
 export interface EndpointLocation {
   /**
-   * <p>The longitude coordinate of the endpoint location, rounded to one decimal place.</p>
-   */
-  Longitude?: number;
-
-  /**
    * <p>The two-character code, in ISO 3166-1 alpha-2 format, for the country or region where the endpoint is located. For example, US for the United States.</p>
    */
   Country?: string;
@@ -5416,9 +5479,9 @@ export interface EndpointLocation {
   PostalCode?: string;
 
   /**
-   * <p>The name of the region where the endpoint is located. For locations in the United States, this value is the name of a state.</p>
+   * <p>The name of the city where the endpoint is located.</p>
    */
-  Region?: string;
+  City?: string;
 
   /**
    * <p>The latitude coordinate of the endpoint location, rounded to one decimal place.</p>
@@ -5426,9 +5489,14 @@ export interface EndpointLocation {
   Latitude?: number;
 
   /**
-   * <p>The name of the city where the endpoint is located.</p>
+   * <p>The name of the region where the endpoint is located. For locations in the United States, this value is the name of a state.</p>
    */
-  City?: string;
+  Region?: string;
+
+  /**
+   * <p>The longitude coordinate of the endpoint location, rounded to one decimal place.</p>
+   */
+  Longitude?: number;
 }
 
 export namespace EndpointLocation {
@@ -5442,14 +5510,14 @@ export namespace EndpointLocation {
  */
 export interface EndpointUser {
   /**
-   * <p>One or more custom attributes that describe the user by associating a name with an array of values. For example, the value of an attribute named Interests might be: ["Science", "Music", "Travel"]. You can use these attributes as filter criteria when you create segments. Attribute names are case sensitive.</p> <p>An attribute name can contain up to 50 characters. An attribute value can contain up to 100 characters. When you define the name of a custom attribute, avoid using the following characters: number sign (#), colon (:), question mark (?), backslash (\), and slash (/). The Amazon Pinpoint console can't display attribute names that contain these characters. This restriction doesn't apply to attribute values.</p>
-   */
-  UserAttributes?: { [key: string]: string[] };
-
-  /**
    * <p>The unique identifier for the user.</p>
    */
   UserId?: string;
+
+  /**
+   * <p>One or more custom attributes that describe the user by associating a name with an array of values. For example, the value of an attribute named Interests might be: ["Science", "Music", "Travel"]. You can use these attributes as filter criteria when you create segments. Attribute names are case sensitive.</p> <p>An attribute name can contain up to 50 characters. An attribute value can contain up to 100 characters. When you define the name of a custom attribute, avoid using the following characters: number sign (#), colon (:), question mark (?), backslash (\), and slash (/). The Amazon Pinpoint console can't display attribute names that contain these characters. This restriction doesn't apply to attribute values.</p>
+   */
+  UserAttributes?: { [key: string]: string[] };
 }
 
 export namespace EndpointUser {
@@ -5463,44 +5531,9 @@ export namespace EndpointUser {
  */
 export interface EndpointResponse {
   /**
-   * <p>One or more custom user attributes that your app reports to Amazon Pinpoint for the user who's associated with the endpoint.</p>
-   */
-  User?: EndpointUser;
-
-  /**
-   * <p>The date and time, in ISO 8601 format, when the endpoint was created.</p>
-   */
-  CreationDate?: string;
-
-  /**
    * <p>The destination address for messages or push notifications that you send to the endpoint. The address varies by channel. For example, the address for a push-notification channel is typically the token provided by a push notification service, such as an Apple Push Notification service (APNs) device token or a Firebase Cloud Messaging (FCM) registration token. The address for the SMS channel is a phone number in E.164 format, such as +12065550100. The address for the email channel is an email address.</p>
    */
   Address?: string;
-
-  /**
-   * <p>The date and time, in ISO 8601 format, when the endpoint was last updated.</p>
-   */
-  EffectiveDate?: string;
-
-  /**
-   * <p>The unique identifier that you assigned to the endpoint. The identifier should be a globally unique identifier (GUID) to ensure that it doesn't conflict with other endpoint identifiers that are associated with the application.</p>
-   */
-  Id?: string;
-
-  /**
-   * <p>The geographic information for the endpoint.</p>
-   */
-  Location?: EndpointLocation;
-
-  /**
-   * <p>The unique identifier for the most recent request to update the endpoint.</p>
-   */
-  RequestId?: string;
-
-  /**
-   * <p>Specifies whether messages or push notifications are sent to the endpoint. Possible values are: ACTIVE, messages are sent to the endpoint; and, INACTIVE, messages aren’t sent to the endpoint.</p> <p>Amazon Pinpoint automatically sets this value to ACTIVE when you create an endpoint or update an existing endpoint. Amazon Pinpoint automatically sets this value to INACTIVE if you update another endpoint that has the same address specified by the Address property.</p>
-   */
-  EndpointStatus?: string;
 
   /**
    * <p>A number from 0-99 that represents the cohort that the endpoint is assigned to. Endpoints are grouped into cohorts randomly, and each cohort contains approximately 1 percent of the endpoints for an application. Amazon Pinpoint assigns cohorts to the holdout or treatment allocations for campaigns.</p>
@@ -5508,9 +5541,24 @@ export interface EndpointResponse {
   CohortId?: string;
 
   /**
-   * <p>The channel that's used when sending messages or push notifications to the endpoint.</p>
+   * <p>One or more custom user attributes that your app reports to Amazon Pinpoint for the user who's associated with the endpoint.</p>
    */
-  ChannelType?: ChannelType | string;
+  User?: EndpointUser;
+
+  /**
+   * <p>The date and time, in ISO 8601 format, when the endpoint was last updated.</p>
+   */
+  EffectiveDate?: string;
+
+  /**
+   * <p>The geographic information for the endpoint.</p>
+   */
+  Location?: EndpointLocation;
+
+  /**
+   * <p>Specifies whether the user who's associated with the endpoint has opted out of receiving messages and push notifications from you. Possible values are: ALL, the user has opted out and doesn't want to receive any messages or push notifications; and, NONE, the user hasn't opted out and wants to receive all messages and push notifications.</p>
+   */
+  OptOut?: string;
 
   /**
    * <p>The unique identifier for the application that's associated with the endpoint.</p>
@@ -5518,14 +5566,34 @@ export interface EndpointResponse {
   ApplicationId?: string;
 
   /**
+   * <p>Specifies whether messages or push notifications are sent to the endpoint. Possible values are: ACTIVE, messages are sent to the endpoint; and, INACTIVE, messages aren’t sent to the endpoint.</p> <p>Amazon Pinpoint automatically sets this value to ACTIVE when you create an endpoint or update an existing endpoint. Amazon Pinpoint automatically sets this value to INACTIVE if you update another endpoint that has the same address specified by the Address property.</p>
+   */
+  EndpointStatus?: string;
+
+  /**
+   * <p>The channel that's used when sending messages or push notifications to the endpoint.</p>
+   */
+  ChannelType?: ChannelType | string;
+
+  /**
+   * <p>The unique identifier for the most recent request to update the endpoint.</p>
+   */
+  RequestId?: string;
+
+  /**
+   * <p>The unique identifier that you assigned to the endpoint. The identifier should be a globally unique identifier (GUID) to ensure that it doesn't conflict with other endpoint identifiers that are associated with the application.</p>
+   */
+  Id?: string;
+
+  /**
    * <p>The demographic information for the endpoint, such as the time zone and platform.</p>
    */
   Demographic?: EndpointDemographic;
 
   /**
-   * <p>One or more custom attributes that describe the endpoint by associating a name with an array of values. For example, the value of a custom attribute named Interests might be: ["Science", "Music", "Travel"]. You can use these attributes as filter criteria when you create segments.</p>
+   * <p>The date and time, in ISO 8601 format, when the endpoint was created.</p>
    */
-  Attributes?: { [key: string]: string[] };
+  CreationDate?: string;
 
   /**
    * <p>One or more custom metrics that your app reports to Amazon Pinpoint for the endpoint.</p>
@@ -5533,9 +5601,9 @@ export interface EndpointResponse {
   Metrics?: { [key: string]: number };
 
   /**
-   * <p>Specifies whether the user who's associated with the endpoint has opted out of receiving messages and push notifications from you. Possible values are: ALL, the user has opted out and doesn't want to receive any messages or push notifications; and, NONE, the user hasn't opted out and wants to receive all messages and push notifications.</p>
+   * <p>One or more custom attributes that describe the endpoint by associating a name with an array of values. For example, the value of a custom attribute named Interests might be: ["Science", "Music", "Travel"]. You can use these attributes as filter criteria when you create segments.</p>
    */
-  OptOut?: string;
+  Attributes?: { [key: string]: string[] };
 }
 
 export namespace EndpointResponse {
@@ -5575,9 +5643,21 @@ export namespace DeleteEventStreamRequest {
  */
 export interface EventStream {
   /**
-   * <p>The date, in ISO 8601 format, when the event stream was last modified.</p>
+   * <p>The AWS Identity and Access Management (IAM) role that authorizes Amazon Pinpoint to publish event data to the stream in your AWS account.</p>
    */
-  LastModifiedDate?: string;
+  RoleArn: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon Kinesis data stream or Amazon Kinesis Data Firehose delivery stream to publish event data to.</p> <p>For a Kinesis data stream, the ARN format is: arn:aws:kinesis:<replaceable>region</replaceable>:<replaceable>account-id</replaceable>:stream/<replaceable>stream_name</replaceable>
+   *                </p> <p>For a Kinesis Data Firehose delivery stream, the ARN format is: arn:aws:firehose:<replaceable>region</replaceable>:<replaceable>account-id</replaceable>:deliverystream/<replaceable>stream_name</replaceable>
+   *                </p>
+   */
+  DestinationStreamArn: string | undefined;
+
+  /**
+   * <p>The unique identifier for the application to publish event data for.</p>
+   */
+  ApplicationId: string | undefined;
 
   /**
    * <p>(Deprecated) Your AWS account ID, which you assigned to an external ID key in an IAM trust policy. Amazon Pinpoint previously used this value to assume an IAM role when publishing event data, but we removed this requirement. We don't recommend use of external IDs for IAM roles that are assumed by Amazon Pinpoint.</p>
@@ -5590,21 +5670,9 @@ export interface EventStream {
   LastUpdatedBy?: string;
 
   /**
-   * <p>The unique identifier for the application to publish event data for.</p>
+   * <p>The date, in ISO 8601 format, when the event stream was last modified.</p>
    */
-  ApplicationId: string | undefined;
-
-  /**
-   * <p>The AWS Identity and Access Management (IAM) role that authorizes Amazon Pinpoint to publish event data to the stream in your AWS account.</p>
-   */
-  RoleArn: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon Kinesis data stream or Amazon Kinesis Data Firehose delivery stream to publish event data to.</p> <p>For a Kinesis data stream, the ARN format is: arn:aws:kinesis:<replaceable>region</replaceable>:<replaceable>account-id</replaceable>:stream/<replaceable>stream_name</replaceable>
-   *                </p> <p>For a Kinesis Data Firehose delivery stream, the ARN format is: arn:aws:firehose:<replaceable>region</replaceable>:<replaceable>account-id</replaceable>:deliverystream/<replaceable>stream_name</replaceable>
-   *                </p>
-   */
-  DestinationStreamArn: string | undefined;
+  LastModifiedDate?: string;
 }
 
 export namespace EventStream {
@@ -5644,14 +5712,9 @@ export namespace DeleteGcmChannelRequest {
  */
 export interface GCMChannelResponse {
   /**
-   * <p>(Deprecated) An identifier for the GCM channel. This property is retained only for backward compatibility.</p>
+   * <p>Specifies whether the GCM channel is archived.</p>
    */
-  Id?: string;
-
-  /**
-   * <p>The type of messaging or notification platform for the channel. For the GCM channel, this value is GCM.</p>
-   */
-  Platform: string | undefined;
+  IsArchived?: boolean;
 
   /**
    * <p>The user who last modified the GCM channel.</p>
@@ -5659,29 +5722,14 @@ export interface GCMChannelResponse {
   LastModifiedBy?: string;
 
   /**
-   * <p>The current version of the GCM channel.</p>
+   * <p>(Deprecated) An identifier for the GCM channel. This property is retained only for backward compatibility.</p>
    */
-  Version?: number;
-
-  /**
-   * <p>The unique identifier for the application that the GCM channel applies to.</p>
-   */
-  ApplicationId?: string;
-
-  /**
-   * <p>(Not used) This property is retained only for backward compatibility.</p>
-   */
-  HasCredential?: boolean;
+  Id?: string;
 
   /**
    * <p>The Web API Key, also referred to as an <i>API_KEY</i> or <i>server key</i>, that you received from Google to communicate with Google services.</p>
    */
   Credential: string | undefined;
-
-  /**
-   * <p>Specifies whether the GCM channel is enabled for the application.</p>
-   */
-  Enabled?: boolean;
 
   /**
    * <p>The date and time when the GCM channel was last modified.</p>
@@ -5694,9 +5742,29 @@ export interface GCMChannelResponse {
   CreationDate?: string;
 
   /**
-   * <p>Specifies whether the GCM channel is archived.</p>
+   * <p>Specifies whether the GCM channel is enabled for the application.</p>
    */
-  IsArchived?: boolean;
+  Enabled?: boolean;
+
+  /**
+   * <p>The type of messaging or notification platform for the channel. For the GCM channel, this value is GCM.</p>
+   */
+  Platform: string | undefined;
+
+  /**
+   * <p>(Not used) This property is retained only for backward compatibility.</p>
+   */
+  HasCredential?: boolean;
+
+  /**
+   * <p>The current version of the GCM channel.</p>
+   */
+  Version?: number;
+
+  /**
+   * <p>The unique identifier for the application that the GCM channel applies to.</p>
+   */
+  ApplicationId?: string;
 }
 
 export namespace GCMChannelResponse {
@@ -5751,14 +5819,14 @@ export namespace DeleteJourneyResponse {
 
 export interface DeletePushTemplateRequest {
   /**
-   * <p>The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.</p>
-   */
-  TemplateName: string | undefined;
-
-  /**
    * <p>The unique identifier for the version of the message template to update, retrieve information about, or delete. To retrieve identifiers and other information for all the versions of a template, use the <link  linkend="templates-template-name-template-type-versions">Template Versions</link> resource.</p> <p>If specified, this value must match the identifier for an existing template version. If specified for an update operation, this value must match the identifier for the latest existing version of the template. This restriction helps ensure that race conditions don't occur.</p> <p>If you don't specify a value for this parameter, Amazon Pinpoint does the following:</p> <ul><li><p>For a get operation, retrieves information about the active version of the template.</p></li> <li><p>For an update operation, saves the updates to (overwrites) the latest existing version of the template, if the create-new-version parameter isn't used or is set to false.</p></li> <li><p>For a delete operation, deletes the template, including all versions of the template.</p></li></ul>
    */
   Version?: string;
+
+  /**
+   * <p>The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.</p>
+   */
+  TemplateName: string | undefined;
 }
 
 export namespace DeletePushTemplateRequest {
@@ -5808,14 +5876,14 @@ export namespace DeleteRecommenderConfigurationResponse {
 
 export interface DeleteSegmentRequest {
   /**
-   * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
-   */
-  ApplicationId: string | undefined;
-
-  /**
    * <p>The unique identifier for the segment.</p>
    */
   SegmentId: string | undefined;
+
+  /**
+   * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
+   */
+  ApplicationId: string | undefined;
 }
 
 export namespace DeleteSegmentRequest {
@@ -5870,9 +5938,9 @@ export interface SMSChannelResponse {
   ShortCode?: string;
 
   /**
-   * <p>The type of messaging or notification platform for the channel. For the SMS channel, this value is SMS.</p>
+   * <p>The current version of the SMS channel.</p>
    */
-  Platform: string | undefined;
+  Version?: number;
 
   /**
    * <p>(Deprecated) An identifier for the SMS channel. This property is retained only for backward compatibility.</p>
@@ -5880,24 +5948,9 @@ export interface SMSChannelResponse {
   Id?: string;
 
   /**
-   * <p>The user who last modified the SMS channel.</p>
+   * <p>The maximum number of transactional messages that you can send through the SMS channel each second.</p>
    */
-  LastModifiedBy?: string;
-
-  /**
-   * <p>The maximum number of promotional messages that you can send through the SMS channel each second.</p>
-   */
-  PromotionalMessagesPerSecond?: number;
-
-  /**
-   * <p>Specifies whether the SMS channel is archived.</p>
-   */
-  IsArchived?: boolean;
-
-  /**
-   * <p>(Not used) This property is retained only for backward compatibility.</p>
-   */
-  HasCredential?: boolean;
+  TransactionalMessagesPerSecond?: number;
 
   /**
    * <p>The identity that displays on recipients' devices when they receive messages from the SMS channel.</p>
@@ -5905,24 +5958,39 @@ export interface SMSChannelResponse {
   SenderId?: string;
 
   /**
-   * <p>Specifies whether the SMS channel is enabled for the application.</p>
-   */
-  Enabled?: boolean;
-
-  /**
-   * <p>The maximum number of transactional messages that you can send through the SMS channel each second.</p>
-   */
-  TransactionalMessagesPerSecond?: number;
-
-  /**
    * <p>The unique identifier for the application that the SMS channel applies to.</p>
    */
   ApplicationId?: string;
 
   /**
-   * <p>The current version of the SMS channel.</p>
+   * <p>Specifies whether the SMS channel is archived.</p>
    */
-  Version?: number;
+  IsArchived?: boolean;
+
+  /**
+   * <p>The maximum number of promotional messages that you can send through the SMS channel each second.</p>
+   */
+  PromotionalMessagesPerSecond?: number;
+
+  /**
+   * <p>Specifies whether the SMS channel is enabled for the application.</p>
+   */
+  Enabled?: boolean;
+
+  /**
+   * <p>The type of messaging or notification platform for the channel. For the SMS channel, this value is SMS.</p>
+   */
+  Platform: string | undefined;
+
+  /**
+   * <p>(Not used) This property is retained only for backward compatibility.</p>
+   */
+  HasCredential?: boolean;
+
+  /**
+   * <p>The user who last modified the SMS channel.</p>
+   */
+  LastModifiedBy?: string;
 }
 
 export namespace SMSChannelResponse {
@@ -6040,14 +6108,24 @@ export namespace DeleteVoiceChannelRequest {
  */
 export interface VoiceChannelResponse {
   /**
+   * <p>Specifies whether the voice channel is enabled for the application.</p>
+   */
+  Enabled?: boolean;
+
+  /**
+   * <p>The current version of the voice channel.</p>
+   */
+  Version?: number;
+
+  /**
    * <p>The unique identifier for the application that the voice channel applies to.</p>
    */
   ApplicationId?: string;
 
   /**
-   * <p>(Not used) This property is retained only for backward compatibility.</p>
+   * <p>The user who last modified the voice channel.</p>
    */
-  HasCredential?: boolean;
+  LastModifiedBy?: string;
 
   /**
    * <p>The date and time, in ISO 8601 format, when the voice channel was enabled.</p>
@@ -6058,11 +6136,6 @@ export interface VoiceChannelResponse {
    * <p>The date and time, in ISO 8601 format, when the voice channel was last modified.</p>
    */
   LastModifiedDate?: string;
-
-  /**
-   * <p>Specifies whether the voice channel is enabled for the application.</p>
-   */
-  Enabled?: boolean;
 
   /**
    * <p>Specifies whether the voice channel is archived.</p>
@@ -6080,14 +6153,9 @@ export interface VoiceChannelResponse {
   Id?: string;
 
   /**
-   * <p>The user who last modified the voice channel.</p>
+   * <p>(Not used) This property is retained only for backward compatibility.</p>
    */
-  LastModifiedBy?: string;
-
-  /**
-   * <p>The current version of the voice channel.</p>
-   */
-  Version?: number;
+  HasCredential?: boolean;
 }
 
 export namespace VoiceChannelResponse {
@@ -6192,6 +6260,11 @@ export namespace SimpleEmailPart {
  */
 export interface SimpleEmail {
   /**
+   * <p>The body of the email message, in HTML format. We recommend using HTML format for email clients that render HTML content. You can include links, formatted text, and more in an HTML message.</p>
+   */
+  HtmlPart?: SimpleEmailPart;
+
+  /**
    * <p>The subject line, or title, of the email.</p>
    */
   Subject?: SimpleEmailPart;
@@ -6200,11 +6273,6 @@ export interface SimpleEmail {
    * <p>The body of the email message, in plain text format. We recommend using plain text format for email clients that don't render HTML content and clients that are connected to high-latency networks, such as mobile devices.</p>
    */
   TextPart?: SimpleEmailPart;
-
-  /**
-   * <p>The body of the email message, in HTML format. We recommend using HTML format for email clients that render HTML content. You can include links, formatted text, and more in an HTML message.</p>
-   */
-  HtmlPart?: SimpleEmailPart;
 }
 
 export namespace SimpleEmail {
@@ -6218,19 +6286,19 @@ export namespace SimpleEmail {
  */
 export interface EmailMessage {
   /**
+   * <p>The email message, represented as a raw MIME message.</p>
+   */
+  RawEmail?: RawEmail;
+
+  /**
    * <p>The default message variables to use in the email message. You can override the default variables with individual address variables.</p>
    */
   Substitutions?: { [key: string]: string[] };
 
   /**
-   * <p>The email address to forward bounces and complaints to, if feedback forwarding is enabled.</p>
+   * <p>The email message, composed of a subject, a text part, and an HTML part.</p>
    */
-  FeedbackForwardingAddress?: string;
-
-  /**
-   * <p>The verified email address to send the email message from. The default value is the FromAddress specified for the email channel.</p>
-   */
-  FromAddress?: string;
+  SimpleEmail?: SimpleEmail;
 
   /**
    * <p>The reply-to email address(es) for the email message. If a recipient replies to the email, each reply-to address receives the reply.</p>
@@ -6243,14 +6311,14 @@ export interface EmailMessage {
   Body?: string;
 
   /**
-   * <p>The email message, composed of a subject, a text part, and an HTML part.</p>
+   * <p>The verified email address to send the email message from. The default value is the FromAddress specified for the email channel.</p>
    */
-  SimpleEmail?: SimpleEmail;
+  FromAddress?: string;
 
   /**
-   * <p>The email message, represented as a raw MIME message.</p>
+   * <p>The email address to forward bounces and complaints to, if feedback forwarding is enabled.</p>
    */
-  RawEmail?: RawEmail;
+  FeedbackForwardingAddress?: string;
 }
 
 export namespace EmailMessage {
@@ -6264,9 +6332,9 @@ export namespace EmailMessage {
  */
 export interface GCMMessage {
   /**
-   * <p>The default message variables to use in the notification message. You can override the default variables with individual address variables.</p>
+   * <p>The URL of the small icon image to display in the status bar and the content view of the push notification.</p>
    */
-  Substitutions?: { [key: string]: string[] };
+  SmallImageIconUrl?: string;
 
   /**
    * <p>The URL of an image to display in the push notification.</p>
@@ -6274,9 +6342,9 @@ export interface GCMMessage {
   ImageUrl?: string;
 
   /**
-   * <p>Specifies whether the notification is a silent push notification, which is a push notification that doesn't display on a recipient's device. Silent push notifications can be used for cases such as updating an app's configuration or supporting phone home functionality.</p>
+   * <p>The default message variables to use in the notification message. You can override the default variables with individual address variables.</p>
    */
-  SilentPush?: boolean;
+  Substitutions?: { [key: string]: string[] };
 
   /**
    * <p>The amount of time, in seconds, that FCM should store and attempt to deliver the push notification, if the service is unable to deliver the notification the first time. If you don't specify this value, FCM defaults to the maximum value, which is 2,419,200 seconds (28 days).</p> <p>Amazon Pinpoint specifies this value in the FCM time_to_live parameter when it sends the notification message to FCM.</p>
@@ -6284,14 +6352,9 @@ export interface GCMMessage {
   TimeToLive?: number;
 
   /**
-   * <p>The URL to open in the recipient's default mobile browser, if a recipient taps the push notification and the value of the Action property is URL.</p>
+   * <p>The URL of the large icon image to display in the content view of the push notification.</p>
    */
-  Url?: string;
-
-  /**
-   * <p>The icon image name of the asset saved in your app.</p>
-   */
-  IconReference?: string;
+  ImageIconUrl?: string;
 
   /**
    * <p>The package name of the application where registration tokens must match in order for the recipient to receive the message.</p>
@@ -6299,19 +6362,19 @@ export interface GCMMessage {
   RestrictedPackageName?: string;
 
   /**
+   * <p>The URL to open in the recipient's default mobile browser, if a recipient taps the push notification and the value of the Action property is URL.</p>
+   */
+  Url?: string;
+
+  /**
+   * <p>The sound to play when the recipient receives the push notification. You can use the default stream or specify the file name of a sound resource that's bundled in your app. On an Android platform, the sound file must reside in /res/raw/.</p>
+   */
+  Sound?: string;
+
+  /**
    * <p>The title to display above the notification message on the recipient's device.</p>
    */
   Title?: string;
-
-  /**
-   * <p>The URL of the small icon image to display in the status bar and the content view of the push notification.</p>
-   */
-  SmallImageIconUrl?: string;
-
-  /**
-   * <p>The JSON data payload to use for the push notification, if the notification is a silent push notification. This payload is added to the data.pinpoint.jsonBody object of the notification.</p>
-   */
-  Data?: { [key: string]: string };
 
   /**
    * <p>The action to occur if the recipient taps the push notification. Valid values are:</p> <ul><li><p>OPEN_APP - Your app opens or it becomes the foreground app if it was sent to the background. This is the default action.</p></li> <li><p>DEEP_LINK - Your app opens and displays a designated user interface in the app. This action uses the deep-linking features of the Android platform.</p></li> <li><p>URL - The default mobile browser on the recipient's device opens and loads the web page at a URL that you specify.</p></li></ul>
@@ -6319,14 +6382,14 @@ export interface GCMMessage {
   Action?: Action | string;
 
   /**
-   * <p>para>normal - The notification might be delayed. Delivery is optimized for battery usage on the recipient's device. Use this value unless immediate delivery is required.</p>/listitem> <li><p>high - The notification is sent immediately and might wake a sleeping device.</p></li>/para> <p>Amazon Pinpoint specifies this value in the FCM priority parameter when it sends the notification message to FCM.</p> <p>The equivalent values for Apple Push Notification service (APNs) are 5, for normal, and 10, for high. If you specify an APNs value for this property, Amazon Pinpoint accepts and converts the value to the corresponding FCM value.</p>
+   * <p>The JSON data payload to use for the push notification, if the notification is a silent push notification. This payload is added to the data.pinpoint.jsonBody object of the notification.</p>
    */
-  Priority?: string;
+  Data?: { [key: string]: string };
 
   /**
-   * <p>The sound to play when the recipient receives the push notification. You can use the default stream or specify the file name of a sound resource that's bundled in your app. On an Android platform, the sound file must reside in /res/raw/.</p>
+   * <p>The icon image name of the asset saved in your app.</p>
    */
-  Sound?: string;
+  IconReference?: string;
 
   /**
    * <p>The raw, JSON-formatted string to use as the payload for the notification message. If specified, this value overrides all other content for the message.</p>
@@ -6344,9 +6407,14 @@ export interface GCMMessage {
   CollapseKey?: string;
 
   /**
-   * <p>The URL of the large icon image to display in the content view of the push notification.</p>
+   * <p>Specifies whether the notification is a silent push notification, which is a push notification that doesn't display on a recipient's device. Silent push notifications can be used for cases such as updating an app's configuration or supporting phone home functionality.</p>
    */
-  ImageIconUrl?: string;
+  SilentPush?: boolean;
+
+  /**
+   * <p>para>normal - The notification might be delayed. Delivery is optimized for battery usage on the recipient's device. Use this value unless immediate delivery is required.</p>/listitem> <li><p>high - The notification is sent immediately and might wake a sleeping device.</p></li>/para> <p>Amazon Pinpoint specifies this value in the FCM priority parameter when it sends the notification message to FCM.</p> <p>The equivalent values for Apple Push Notification service (APNs) are 5, for normal, and 10, for high. If you specify an APNs value for this property, Amazon Pinpoint accepts and converts the value to the corresponding FCM value.</p>
+   */
+  Priority?: string;
 }
 
 export namespace GCMMessage {
@@ -6360,9 +6428,9 @@ export namespace GCMMessage {
  */
 export interface SMSMessage {
   /**
-   * <p>The number to send the SMS message from. This value should be one of the dedicated long or short codes that's assigned to your AWS account. If you don't specify a long or short code, Amazon Pinpoint assigns a random long code to the SMS message and sends the message from that code.</p>
+   * <p>The body of the SMS message.</p>
    */
-  OriginationNumber?: string;
+  Body?: string;
 
   /**
    * <p>The SMS program name that you provided to AWS Support when you requested your dedicated number.</p>
@@ -6370,14 +6438,14 @@ export interface SMSMessage {
   Keyword?: string;
 
   /**
-   * <p>The sender ID to display as the sender of the message on a recipient's device. Support for sender IDs varies by country or region.</p>
+   * <p>The number to send the SMS message from. This value should be one of the dedicated long or short codes that's assigned to your AWS account. If you don't specify a long or short code, Amazon Pinpoint assigns a random long code to the SMS message and sends the message from that code.</p>
    */
-  SenderId?: string;
+  OriginationNumber?: string;
 
   /**
-   * <p>The SMS message type. Valid values are TRANSACTIONAL (for messages that are critical or time-sensitive, such as a one-time passwords) and PROMOTIONAL (for messsages that aren't critical or time-sensitive, such as marketing messages).</p>
+   * <p>This field is reserved for future use.</p>
    */
-  MessageType?: MessageType | string;
+  MediaUrl?: string;
 
   /**
    * <p>The message variables to use in the SMS message. You can override the default variables with individual address variables.</p>
@@ -6385,14 +6453,14 @@ export interface SMSMessage {
   Substitutions?: { [key: string]: string[] };
 
   /**
-   * <p>The URL of an image or video to display in the SMS message.</p>
+   * <p>The SMS message type. Valid values are TRANSACTIONAL (for messages that are critical or time-sensitive, such as a one-time passwords) and PROMOTIONAL (for messsages that aren't critical or time-sensitive, such as marketing messages).</p>
    */
-  MediaUrl?: string;
+  MessageType?: MessageType | string;
 
   /**
-   * <p>The body of the SMS message.</p>
+   * <p>The sender ID to display as the sender of the message on a recipient's device. Support for sender IDs varies by country or region.</p>
    */
-  Body?: string;
+  SenderId?: string;
 }
 
 export namespace SMSMessage {
@@ -6411,14 +6479,14 @@ export interface VoiceMessage {
   OriginationNumber?: string;
 
   /**
-   * <p>The text of the script to use for the voice message.</p>
-   */
-  Body?: string;
-
-  /**
    * <p>The code for the language to use when synthesizing the text of the message script. For a list of supported languages and the code for each one, see the <a href="https://docs.aws.amazon.com/polly/latest/dg/what-is.html">Amazon Polly Developer Guide</a>.</p>
    */
   LanguageCode?: string;
+
+  /**
+   * <p>The default message variables to use in the voice message. You can override the default variables with individual address variables.</p>
+   */
+  Substitutions?: { [key: string]: string[] };
 
   /**
    * <p>The name of the voice to use when delivering the message. For a list of supported voices, see the <a href="https://docs.aws.amazon.com/polly/latest/dg/what-is.html">Amazon Polly Developer Guide</a>.</p>
@@ -6426,9 +6494,9 @@ export interface VoiceMessage {
   VoiceId?: string;
 
   /**
-   * <p>The default message variables to use in the voice message. You can override the default variables with individual address variables.</p>
+   * <p>The text of the script to use for the voice message.</p>
    */
-  Substitutions?: { [key: string]: string[] };
+  Body?: string;
 }
 
 export namespace VoiceMessage {
@@ -6442,24 +6510,14 @@ export namespace VoiceMessage {
  */
 export interface DirectMessageConfiguration {
   /**
-   * <p>The default message for the voice channel. This message overrides the default message (DefaultMessage).</p>
-   */
-  VoiceMessage?: VoiceMessage;
-
-  /**
    * <p>The default push notification message for the Baidu (Baidu Cloud Push) channel. This message overrides the default push notification message (DefaultPushNotificationMessage).</p>
    */
   BaiduMessage?: BaiduMessage;
 
   /**
-   * <p>The default message for the email channel. This message overrides the default message (DefaultMessage).</p>
+   * <p>The default message for all channels.</p>
    */
-  EmailMessage?: EmailMessage;
-
-  /**
-   * <p>The default push notification message for all push notification channels.</p>
-   */
-  DefaultPushNotificationMessage?: DefaultPushNotificationMessage;
+  DefaultMessage?: DefaultMessage;
 
   /**
    * <p>The default push notification message for the APNs (Apple Push Notification service) channel. This message overrides the default push notification message (DefaultPushNotificationMessage).</p>
@@ -6467,14 +6525,14 @@ export interface DirectMessageConfiguration {
   APNSMessage?: APNSMessage;
 
   /**
-   * <p>The default message for the SMS channel. This message overrides the default message (DefaultMessage).</p>
+   * <p>The default message for the email channel. This message overrides the default message (DefaultMessage).</p>
    */
-  SMSMessage?: SMSMessage;
+  EmailMessage?: EmailMessage;
 
   /**
-   * <p>The default message for all channels.</p>
+   * <p>The default message for the voice channel. This message overrides the default message (DefaultMessage).</p>
    */
-  DefaultMessage?: DefaultMessage;
+  VoiceMessage?: VoiceMessage;
 
   /**
    * <p>The default push notification message for the GCM channel, which is used to send notifications through the Firebase Cloud Messaging (FCM), formerly Google Cloud Messaging (GCM), service. This message overrides the default push notification message (DefaultPushNotificationMessage).</p>
@@ -6485,6 +6543,16 @@ export interface DirectMessageConfiguration {
    * <p>The default push notification message for the ADM (Amazon Device Messaging) channel. This message overrides the default push notification message (DefaultPushNotificationMessage).</p>
    */
   ADMMessage?: ADMMessage;
+
+  /**
+   * <p>The default message for the SMS channel. This message overrides the default message (DefaultMessage).</p>
+   */
+  SMSMessage?: SMSMessage;
+
+  /**
+   * <p>The default push notification message for all push notification channels.</p>
+   */
+  DefaultPushNotificationMessage?: DefaultPushNotificationMessage;
 }
 
 export namespace DirectMessageConfiguration {
@@ -6498,14 +6566,9 @@ export namespace DirectMessageConfiguration {
  */
 export interface EmailChannelRequest {
   /**
-   * <p>The ARN of the AWS Identity and Access Management (IAM) role that you want Amazon Pinpoint to use when it submits email-related event data for the channel.</p>
+   * <p>Specifies whether to enable the email channel for the application.</p>
    */
-  RoleArn?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the identity, verified with Amazon Simple Email Service (Amazon SES), that you want to use when you send email through the channel.</p>
-   */
-  Identity: string | undefined;
+  Enabled?: boolean;
 
   /**
    * <p>The <a href="https://docs.aws.amazon.com/ses/latest/APIReference/API_ConfigurationSet.html">Amazon SES configuration set</a> that you want to apply to messages that you send through the channel.</p>
@@ -6513,14 +6576,19 @@ export interface EmailChannelRequest {
   ConfigurationSet?: string;
 
   /**
-   * <p>Specifies whether to enable the email channel for the application.</p>
-   */
-  Enabled?: boolean;
-
-  /**
    * <p>The verified email address that you want to send email from when you send email through the channel.</p>
    */
   FromAddress: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the identity, verified with Amazon Simple Email Service (Amazon SES), that you want to use when you send email through the channel.</p>
+   */
+  Identity: string | undefined;
+
+  /**
+   * <p>The ARN of the AWS Identity and Access Management (IAM) role that you want Amazon Pinpoint to use when it submits email-related event data for the channel.</p>
+   */
+  RoleArn?: string;
 }
 
 export namespace EmailChannelRequest {
@@ -6541,19 +6609,54 @@ export enum TemplateType {
  */
 export interface EmailTemplateResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the message template.</p>
-   */
-  Arn?: string;
-
-  /**
    * <p>The message body, in HTML format, that's used in email messages that are based on the message template.</p>
    */
   HtmlPart?: string;
 
   /**
+   * <p>The Amazon Resource Name (ARN) of the message template.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>A string-to-string map of key-value pairs that identifies the tags that are associated with the message template. Each tag consists of a required tag key and an associated tag value.</p>
+   */
+  tags?: { [key: string]: string };
+
+  /**
+   * <p>The JSON object that specifies the default values that are used for message variables in the message template. This object is a set of key-value pairs. Each key defines a message variable in the template. The corresponding value defines the default value for that variable.</p>
+   */
+  DefaultSubstitutions?: string;
+
+  /**
    * <p>The custom description of the message template.</p>
    */
   TemplateDescription?: string;
+
+  /**
+   * <p>The subject line, or title, that's used in email messages that are based on the message template.</p>
+   */
+  Subject?: string;
+
+  /**
+   * <p>The unique identifier, as an integer, for the active version of the message template, or the version of the template that you specified by using the version parameter in your request.</p>
+   */
+  Version?: string;
+
+  /**
+   * <p>The message body, in plain text format, that's used in email messages that are based on the message template.</p>
+   */
+  TextPart?: string;
+
+  /**
+   * <p>The type of channel that the message template is designed for. For an email template, this value is EMAIL.</p>
+   */
+  TemplateType: TemplateType | string | undefined;
+
+  /**
+   * <p>The name of the message template.</p>
+   */
+  TemplateName: string | undefined;
 
   /**
    * <p>The date, in ISO 8601 format, when the message template was created.</p>
@@ -6566,44 +6669,9 @@ export interface EmailTemplateResponse {
   LastModifiedDate: string | undefined;
 
   /**
-   * <p>The message body, in plain text format, that's used in email messages that are based on the message template.</p>
-   */
-  TextPart?: string;
-
-  /**
-   * <p>The JSON object that specifies the default values that are used for message variables in the message template. This object is a set of key-value pairs. Each key defines a message variable in the template. The corresponding value defines the default value for that variable.</p>
-   */
-  DefaultSubstitutions?: string;
-
-  /**
-   * <p>The name of the message template.</p>
-   */
-  TemplateName: string | undefined;
-
-  /**
    * <p>The unique identifier for the recommender model that's used by the message template.</p>
    */
   RecommenderId?: string;
-
-  /**
-   * <p>The unique identifier, as an integer, for the active version of the message template, or the version of the template that you specified by using the version parameter in your request.</p>
-   */
-  Version?: string;
-
-  /**
-   * <p>The type of channel that the message template is designed for. For an email template, this value is EMAIL.</p>
-   */
-  TemplateType: TemplateType | string | undefined;
-
-  /**
-   * <p>The subject line, or title, that's used in email messages that are based on the message template.</p>
-   */
-  Subject?: string;
-
-  /**
-   * <p>A string-to-string map of key-value pairs that identifies the tags that are associated with the message template. Each tag consists of a required tag key and an associated tag value.</p>
-   */
-  tags?: { [key: string]: string };
 }
 
 export namespace EmailTemplateResponse {
@@ -6617,39 +6685,14 @@ export namespace EmailTemplateResponse {
  */
 export interface EndpointBatchItem {
   /**
-   * <p>Specifies whether the user who's associated with the endpoint has opted out of receiving messages and push notifications from you. Possible values are: ALL, the user has opted out and doesn't want to receive any messages or push notifications; and, NONE, the user hasn't opted out and wants to receive all messages and push notifications.</p>
+   * <p>Specifies whether to send messages or push notifications to the endpoint. Valid values are: ACTIVE, messages are sent to the endpoint; and, INACTIVE, messages aren’t sent to the endpoint.</p> <p>Amazon Pinpoint automatically sets this value to ACTIVE when you create an endpoint or update an existing endpoint. Amazon Pinpoint automatically sets this value to INACTIVE if you update another endpoint that has the same address specified by the Address property.</p>
    */
-  OptOut?: string;
+  EndpointStatus?: string;
 
   /**
    * <p>The channel to use when sending messages or push notifications to the endpoint.</p>
    */
   ChannelType?: ChannelType | string;
-
-  /**
-   * <p>The unique identifier for the request to create or update the endpoint.</p>
-   */
-  RequestId?: string;
-
-  /**
-   * <p>The unique identifier for the endpoint in the context of the batch.</p>
-   */
-  Id?: string;
-
-  /**
-   * <p>One or more custom attributes that describe the endpoint by associating a name with an array of values. For example, the value of a custom attribute named Interests might be: ["Science", "Music", "Travel"]. You can use these attributes as filter criteria when you create segments. Attribute names are case sensitive.</p> <p>An attribute name can contain up to 50 characters. An attribute value can contain up to 100 characters. When you define the name of a custom attribute, avoid using the following characters: number sign (#), colon (:), question mark (?), backslash (\), and slash (/). The Amazon Pinpoint console can't display attribute names that contain these characters. This restriction doesn't apply to attribute values.</p>
-   */
-  Attributes?: { [key: string]: string[] };
-
-  /**
-   * <p>The demographic information for the endpoint, such as the time zone and platform.</p>
-   */
-  Demographic?: EndpointDemographic;
-
-  /**
-   * <p>The destination address for messages or push notifications that you send to the endpoint. The address varies by channel. For a push-notification channel, use the token provided by the push notification service, such as an Apple Push Notification service (APNs) device token or a Firebase Cloud Messaging (FCM) registration token. For the SMS channel, use a phone number in E.164 format, such as +12065550100. For the email channel, use an email address.</p>
-   */
-  Address?: string;
 
   /**
    * <p>One or more custom metrics that your app reports to Amazon Pinpoint for the endpoint.</p>
@@ -6662,11 +6705,6 @@ export interface EndpointBatchItem {
   User?: EndpointUser;
 
   /**
-   * <p>Specifies whether to send messages or push notifications to the endpoint. Valid values are: ACTIVE, messages are sent to the endpoint; and, INACTIVE, messages aren’t sent to the endpoint.</p> <p>Amazon Pinpoint automatically sets this value to ACTIVE when you create an endpoint or update an existing endpoint. Amazon Pinpoint automatically sets this value to INACTIVE if you update another endpoint that has the same address specified by the Address property.</p>
-   */
-  EndpointStatus?: string;
-
-  /**
    * <p>The date and time, in ISO 8601 format, when the endpoint was created or updated.</p>
    */
   EffectiveDate?: string;
@@ -6675,6 +6713,36 @@ export interface EndpointBatchItem {
    * <p>The geographic information for the endpoint.</p>
    */
   Location?: EndpointLocation;
+
+  /**
+   * <p>One or more custom attributes that describe the endpoint by associating a name with an array of values. For example, the value of a custom attribute named Interests might be: ["Science", "Music", "Travel"]. You can use these attributes as filter criteria when you create segments. Attribute names are case sensitive.</p> <p>An attribute name can contain up to 50 characters. An attribute value can contain up to 100 characters. When you define the name of a custom attribute, avoid using the following characters: number sign (#), colon (:), question mark (?), backslash (\), and slash (/). The Amazon Pinpoint console can't display attribute names that contain these characters. This restriction doesn't apply to attribute values.</p>
+   */
+  Attributes?: { [key: string]: string[] };
+
+  /**
+   * <p>The destination address for messages or push notifications that you send to the endpoint. The address varies by channel. For a push-notification channel, use the token provided by the push notification service, such as an Apple Push Notification service (APNs) device token or a Firebase Cloud Messaging (FCM) registration token. For the SMS channel, use a phone number in E.164 format, such as +12065550100. For the email channel, use an email address.</p>
+   */
+  Address?: string;
+
+  /**
+   * <p>The unique identifier for the endpoint in the context of the batch.</p>
+   */
+  Id?: string;
+
+  /**
+   * <p>Specifies whether the user who's associated with the endpoint has opted out of receiving messages and push notifications from you. Possible values are: ALL, the user has opted out and doesn't want to receive any messages or push notifications; and, NONE, the user hasn't opted out and wants to receive all messages and push notifications.</p>
+   */
+  OptOut?: string;
+
+  /**
+   * <p>The demographic information for the endpoint, such as the time zone and platform.</p>
+   */
+  Demographic?: EndpointDemographic;
+
+  /**
+   * <p>The unique identifier for the request to create or update the endpoint.</p>
+   */
+  RequestId?: string;
 }
 
 export namespace EndpointBatchItem {
@@ -6704,14 +6772,14 @@ export namespace EndpointBatchRequest {
  */
 export interface EndpointItemResponse {
   /**
-   * <p>The custom message that's returned in the response as a result of processing the endpoint data.</p>
-   */
-  Message?: string;
-
-  /**
    * <p>The status code that's returned in the response as a result of processing the endpoint data.</p>
    */
   StatusCode?: number;
+
+  /**
+   * <p>The custom message that's returned in the response as a result of processing the endpoint data.</p>
+   */
+  Message?: string;
 }
 
 export namespace EndpointItemResponse {
@@ -6725,6 +6793,26 @@ export namespace EndpointItemResponse {
  */
 export interface EndpointMessageResult {
   /**
+   * <p>The endpoint address that the message was delivered to.</p>
+   */
+  Address?: string;
+
+  /**
+   * <p>For push notifications that are sent through the GCM channel, specifies whether the endpoint's device registration token was updated as part of delivering the message.</p>
+   */
+  UpdatedToken?: string;
+
+  /**
+   * <p>The unique identifier for the message that was sent.</p>
+   */
+  MessageId?: string;
+
+  /**
+   * <p>The status message for delivering the message.</p>
+   */
+  StatusMessage?: string;
+
+  /**
    * <p>The downstream service status code for delivering the message.</p>
    */
   StatusCode: number | undefined;
@@ -6733,26 +6821,6 @@ export interface EndpointMessageResult {
    * <p>The delivery status of the message. Possible values are:</p> <ul> <li><p>DUPLICATE - The endpoint address is a duplicate of another endpoint address. Amazon Pinpoint won't attempt to send the message again.</p></li> <li><p>OPT_OUT - The user who's associated with the endpoint has opted out of receiving messages from you. Amazon Pinpoint won't attempt to send the message again.</p></li> <li><p>PERMANENT_FAILURE - An error occurred when delivering the message to the endpoint. Amazon Pinpoint won't attempt to send the message again.</p></li>    <li><p>SUCCESSFUL - The message was successfully delivered to the endpoint.</p></li> <li><p>TEMPORARY_FAILURE - A temporary error occurred. Amazon Pinpoint won't attempt to send the message again.</p></li> <li><p>THROTTLED - Amazon Pinpoint throttled the operation to send the message to the endpoint.</p></li> <li><p>TIMEOUT - The message couldn't be sent within the timeout period.</p></li> <li><p>UNKNOWN_FAILURE - An unknown error occurred.</p></li></ul>
    */
   DeliveryStatus: DeliveryStatus | string | undefined;
-
-  /**
-   * <p>The endpoint address that the message was delivered to.</p>
-   */
-  Address?: string;
-
-  /**
-   * <p>The status message for delivering the message.</p>
-   */
-  StatusMessage?: string;
-
-  /**
-   * <p>The unique identifier for the message that was sent.</p>
-   */
-  MessageId?: string;
-
-  /**
-   * <p>For push notifications that are sent through the GCM channel, specifies whether the endpoint's device registration token was updated as part of delivering the message.</p>
-   */
-  UpdatedToken?: string;
 }
 
 export namespace EndpointMessageResult {
@@ -6766,29 +6834,34 @@ export namespace EndpointMessageResult {
  */
 export interface EndpointRequest {
   /**
-   * <p>The destination address for messages or push notifications that you send to the endpoint. The address varies by channel. For a push-notification channel, use the token provided by the push notification service, such as an Apple Push Notification service (APNs) device token or a Firebase Cloud Messaging (FCM) registration token. For the SMS channel, use a phone number in E.164 format, such as +12065550100. For the email channel, use an email address.</p>
-   */
-  Address?: string;
-
-  /**
    * <p>One or more custom attributes that describe the endpoint by associating a name with an array of values. For example, the value of a custom attribute named Interests might be: ["Science", "Music", "Travel"]. You can use these attributes as filter criteria when you create segments. Attribute names are case sensitive.</p> <p>An attribute name can contain up to 50 characters. An attribute value can contain up to 100 characters. When you define the name of a custom attribute, avoid using the following characters: number sign (#), colon (:), question mark (?), backslash (\), and slash (/). The Amazon Pinpoint console can't display attribute names that contain these characters. This restriction doesn't apply to attribute values.</p>
    */
   Attributes?: { [key: string]: string[] };
 
   /**
+   * <p>One or more custom attributes that describe the user who's associated with the endpoint.</p>
+   */
+  User?: EndpointUser;
+
+  /**
+   * <p>The destination address for messages or push notifications that you send to the endpoint. The address varies by channel. For a push-notification channel, use the token provided by the push notification service, such as an Apple Push Notification service (APNs) device token or a Firebase Cloud Messaging (FCM) registration token. For the SMS channel, use a phone number in E.164 format, such as +12065550100. For the email channel, use an email address.</p>
+   */
+  Address?: string;
+
+  /**
+   * <p>One or more custom metrics that your app reports to Amazon Pinpoint for the endpoint.</p>
+   */
+  Metrics?: { [key: string]: number };
+
+  /**
+   * <p>Specifies whether to send messages or push notifications to the endpoint. Valid values are: ACTIVE, messages are sent to the endpoint; and, INACTIVE, messages aren’t sent to the endpoint.</p> <p>Amazon Pinpoint automatically sets this value to ACTIVE when you create an endpoint or update an existing endpoint. Amazon Pinpoint automatically sets this value to INACTIVE if you update another endpoint that has the same address specified by the Address property.</p>
+   */
+  EndpointStatus?: string;
+
+  /**
    * <p>The demographic information for the endpoint, such as the time zone and platform.</p>
    */
   Demographic?: EndpointDemographic;
-
-  /**
-   * <p>Specifies whether the user who's associated with the endpoint has opted out of receiving messages and push notifications from you. Possible values are: ALL, the user has opted out and doesn't want to receive any messages or push notifications; and, NONE, the user hasn't opted out and wants to receive all messages and push notifications.</p>
-   */
-  OptOut?: string;
-
-  /**
-   * <p>The channel to use when sending messages or push notifications to the endpoint.</p>
-   */
-  ChannelType?: ChannelType | string;
 
   /**
    * <p>The unique identifier for the most recent request to update the endpoint.</p>
@@ -6801,24 +6874,19 @@ export interface EndpointRequest {
   EffectiveDate?: string;
 
   /**
-   * <p>Specifies whether to send messages or push notifications to the endpoint. Valid values are: ACTIVE, messages are sent to the endpoint; and, INACTIVE, messages aren’t sent to the endpoint.</p> <p>Amazon Pinpoint automatically sets this value to ACTIVE when you create an endpoint or update an existing endpoint. Amazon Pinpoint automatically sets this value to INACTIVE if you update another endpoint that has the same address specified by the Address property.</p>
-   */
-  EndpointStatus?: string;
-
-  /**
    * <p>The geographic information for the endpoint.</p>
    */
   Location?: EndpointLocation;
 
   /**
-   * <p>One or more custom metrics that your app reports to Amazon Pinpoint for the endpoint.</p>
+   * <p>Specifies whether the user who's associated with the endpoint has opted out of receiving messages and push notifications from you. Possible values are: ALL, the user has opted out and doesn't want to receive any messages or push notifications; and, NONE, the user hasn't opted out and wants to receive all messages and push notifications.</p>
    */
-  Metrics?: { [key: string]: number };
+  OptOut?: string;
 
   /**
-   * <p>One or more custom attributes that describe the user who's associated with the endpoint.</p>
+   * <p>The channel to use when sending messages or push notifications to the endpoint.</p>
    */
-  User?: EndpointUser;
+  ChannelType?: ChannelType | string;
 }
 
 export namespace EndpointRequest {
@@ -6837,9 +6905,9 @@ export interface EndpointSendConfiguration {
   Substitutions?: { [key: string]: string[] };
 
   /**
-   * <p>The title or subject line of the message. If specified, this value overrides the default message title or subject line.</p>
+   * <p>The raw, JSON-formatted string to use as the payload for the message. If specified, this value overrides all other values for the message.</p>
    */
-  TitleOverride?: string;
+  RawContent?: string;
 
   /**
    * <p>A map of custom attributes to attach to the message for the address. Attribute names are case sensitive.</p> <p>For a push notification, this payload is added to the data.pinpoint object. For an email or text message, this payload is added to email/SMS delivery receipt event attributes.</p>
@@ -6852,9 +6920,9 @@ export interface EndpointSendConfiguration {
   BodyOverride?: string;
 
   /**
-   * <p>The raw, JSON-formatted string to use as the payload for the message. If specified, this value overrides all other values for the message.</p>
+   * <p>The title or subject line of the message. If specified, this value overrides the default message title or subject line.</p>
    */
-  RawContent?: string;
+  TitleOverride?: string;
 }
 
 export namespace EndpointSendConfiguration {
@@ -6868,11 +6936,6 @@ export namespace EndpointSendConfiguration {
  */
 export interface Session {
   /**
-   * <p>The duration of the session, in milliseconds.</p>
-   */
-  Duration?: number;
-
-  /**
    * <p>The date and time when the session ended.</p>
    */
   StopTimestamp?: string;
@@ -6881,6 +6944,11 @@ export interface Session {
    * <p>The date and time when the session began.</p>
    */
   StartTimestamp: string | undefined;
+
+  /**
+   * <p>The duration of the session, in milliseconds.</p>
+   */
+  Duration?: number;
 
   /**
    * <p>The unique identifier for the session.</p>
@@ -6899,19 +6967,9 @@ export namespace Session {
  */
 export interface Event {
   /**
-   * <p>Information about the session in which the event occurred.</p>
-   */
-  Session?: Session;
-
-  /**
    * <p>The title of the app that's recording the event.</p>
    */
   AppTitle?: string;
-
-  /**
-   * <p>One or more custom metrics that are associated with the event.</p>
-   */
-  Metrics?: { [key: string]: number };
 
   /**
    * <p>The package name of the app that's recording the event.</p>
@@ -6919,9 +6977,29 @@ export interface Event {
   AppPackageName?: string;
 
   /**
-   * <p>The date and time, in ISO 8601 format, when the event occurred.</p>
+   * <p>One or more custom metrics that are associated with the event.</p>
    */
-  Timestamp: string | undefined;
+  Metrics?: { [key: string]: number };
+
+  /**
+   * <p>The name of the event.</p>
+   */
+  EventType: string | undefined;
+
+  /**
+   * <p>The name of the SDK that's being used to record the event.</p>
+   */
+  SdkName?: string;
+
+  /**
+   * <p>Information about the session in which the event occurred.</p>
+   */
+  Session?: Session;
+
+  /**
+   * <p>The version of the SDK that's running on the client device.</p>
+   */
+  ClientSdkVersion?: string;
 
   /**
    * <p>One or more custom attributes that are associated with the event.</p>
@@ -6934,19 +7012,9 @@ export interface Event {
   AppVersionCode?: string;
 
   /**
-   * <p>The version of the SDK that's running on the client device.</p>
+   * <p>The date and time, in ISO 8601 format, when the event occurred.</p>
    */
-  ClientSdkVersion?: string;
-
-  /**
-   * <p>The name of the SDK that's being used to record the event.</p>
-   */
-  SdkName?: string;
-
-  /**
-   * <p>The name of the event.</p>
-   */
-  EventType: string | undefined;
+  Timestamp: string | undefined;
 }
 
 export namespace Event {
@@ -6981,34 +7049,9 @@ export namespace EventItemResponse {
  */
 export interface PublicEndpoint {
   /**
-   * <p>Specifies whether the user who's associated with the endpoint has opted out of receiving messages and push notifications from you. Possible values are: ALL, the user has opted out and doesn't want to receive any messages or push notifications; and, NONE, the user hasn't opted out and wants to receive all messages and push notifications.</p>
-   */
-  OptOut?: string;
-
-  /**
-   * <p>The channel that's used when sending messages or push notifications to the endpoint.</p>
-   */
-  ChannelType?: ChannelType | string;
-
-  /**
-   * <p>A unique identifier that's generated each time the endpoint is updated.</p>
-   */
-  RequestId?: string;
-
-  /**
-   * <p>The date and time, in ISO 8601 format, when the endpoint was last updated.</p>
-   */
-  EffectiveDate?: string;
-
-  /**
    * <p>Specifies whether to send messages or push notifications to the endpoint. Valid values are: ACTIVE, messages are sent to the endpoint; and, INACTIVE, messages aren’t sent to the endpoint.</p> <p>Amazon Pinpoint automatically sets this value to ACTIVE when you create an endpoint or update an existing endpoint. Amazon Pinpoint automatically sets this value to INACTIVE if you update another endpoint that has the same address specified by the Address property.</p>
    */
   EndpointStatus?: string;
-
-  /**
-   * <p>The geographic information for the endpoint.</p>
-   */
-  Location?: EndpointLocation;
 
   /**
    * <p>The demographic information for the endpoint, such as the time zone and platform.</p>
@@ -7016,14 +7059,19 @@ export interface PublicEndpoint {
   Demographic?: EndpointDemographic;
 
   /**
+   * <p>A unique identifier that's generated each time the endpoint is updated.</p>
+   */
+  RequestId?: string;
+
+  /**
+   * <p>One or more custom user attributes that your app reports to Amazon Pinpoint for the user who's associated with the endpoint.</p>
+   */
+  User?: EndpointUser;
+
+  /**
    * <p>The unique identifier for the recipient, such as a device token, email address, or mobile phone number.</p>
    */
   Address?: string;
-
-  /**
-   * <p>One or more custom attributes that describe the endpoint by associating a name with an array of values. You can use these attributes as filter criteria when you create segments.</p>
-   */
-  Attributes?: { [key: string]: string[] };
 
   /**
    * <p>One or more custom metrics that your app reports to Amazon Pinpoint for the endpoint.</p>
@@ -7031,9 +7079,29 @@ export interface PublicEndpoint {
   Metrics?: { [key: string]: number };
 
   /**
-   * <p>One or more custom user attributes that your app reports to Amazon Pinpoint for the user who's associated with the endpoint.</p>
+   * <p>One or more custom attributes that describe the endpoint by associating a name with an array of values. You can use these attributes as filter criteria when you create segments.</p>
    */
-  User?: EndpointUser;
+  Attributes?: { [key: string]: string[] };
+
+  /**
+   * <p>The geographic information for the endpoint.</p>
+   */
+  Location?: EndpointLocation;
+
+  /**
+   * <p>The date and time, in ISO 8601 format, when the endpoint was last updated.</p>
+   */
+  EffectiveDate?: string;
+
+  /**
+   * <p>The channel that's used when sending messages or push notifications to the endpoint.</p>
+   */
+  ChannelType?: ChannelType | string;
+
+  /**
+   * <p>Specifies whether the user who's associated with the endpoint has opted out of receiving messages and push notifications from you. Possible values are: ALL, the user has opted out and doesn't want to receive any messages or push notifications; and, NONE, the user hasn't opted out and wants to receive all messages and push notifications.</p>
+   */
+  OptOut?: string;
 }
 
 export namespace PublicEndpoint {
@@ -7047,14 +7115,14 @@ export namespace PublicEndpoint {
  */
 export interface EventsBatch {
   /**
-   * <p>A set of properties that are associated with the event.</p>
-   */
-  Events: { [key: string]: Event } | undefined;
-
-  /**
    * <p>A set of properties and attributes that are associated with the endpoint.</p>
    */
   Endpoint: PublicEndpoint | undefined;
+
+  /**
+   * <p>A set of properties that are associated with the event.</p>
+   */
+  Events: { [key: string]: Event } | undefined;
 }
 
 export namespace EventsBatch {
@@ -7084,14 +7152,14 @@ export namespace EventsRequest {
  */
 export interface ItemResponse {
   /**
-   * <p>A multipart response object that contains a key and a value for each event in the request. In each object, the event ID is the key and an EventItemResponse object is the value.</p>
-   */
-  EventsItemResponse?: { [key: string]: EventItemResponse };
-
-  /**
    * <p>The response that was received after the endpoint data was accepted.</p>
    */
   EndpointItemResponse?: EndpointItemResponse;
+
+  /**
+   * <p>A multipart response object that contains a key and a value for each event in the request. In each object, the event ID is the key and an EventItemResponse object is the value.</p>
+   */
+  EventsItemResponse?: { [key: string]: EventItemResponse };
 }
 
 export namespace ItemResponse {
@@ -7121,14 +7189,14 @@ export namespace EventsResponse {
  */
 export interface ExportJobsResponse {
   /**
-   * <p>The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>An array of responses, one for each export job that's associated with the application (Export Jobs resource) or segment (Segment Export Jobs resource).</p>
    */
   Item: ExportJobResponse[] | undefined;
+
+  /**
+   * <p>The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace ExportJobsResponse {
@@ -7142,14 +7210,14 @@ export namespace ExportJobsResponse {
  */
 export interface GCMChannelRequest {
   /**
-   * <p>Specifies whether to enable the GCM channel for the application.</p>
-   */
-  Enabled?: boolean;
-
-  /**
    * <p>The Web API Key, also referred to as an <i>API_KEY</i> or <i>server key</i>, that you received from Google to communicate with Google services.</p>
    */
   ApiKey: string | undefined;
+
+  /**
+   * <p>Specifies whether to enable the GCM channel for the application.</p>
+   */
+  Enabled?: boolean;
 }
 
 export namespace GCMChannelRequest {
@@ -7316,9 +7384,9 @@ export namespace GetAppResponse {
 
 export interface GetApplicationDateRangeKpiRequest {
   /**
-   * <p>The first date and time to retrieve data for, as part of an inclusive date range that filters the query results. This value should be in extended ISO 8601 format and use Coordinated Universal Time (UTC), for example: 2019-07-19T20:00:00Z for 8:00 PM UTC July 19, 2019. This value should also be fewer than 90 days from the current day.</p>
+   * <p>The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.</p>
    */
-  StartTime?: Date;
+  PageSize?: string;
 
   /**
    * <p>The last date and time to retrieve data for, as part of an inclusive date range that filters the query results. This value should be in extended ISO 8601 format and use Coordinated Universal Time (UTC), for example: 2019-07-26T20:00:00Z for 8:00 PM UTC July 26, 2019.</p>
@@ -7326,9 +7394,9 @@ export interface GetApplicationDateRangeKpiRequest {
   EndTime?: Date;
 
   /**
-   * <p>The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.</p>
+   * <p>The first date and time to retrieve data for, as part of an inclusive date range that filters the query results. This value should be in extended ISO 8601 format and use Coordinated Universal Time (UTC), for example: 2019-07-19T20:00:00Z for 8:00 PM UTC July 19, 2019. This value should also be fewer than 90 days from the current day.</p>
    */
-  PageSize?: string;
+  StartTime?: Date;
 
   /**
    * <p>The  string that specifies which page of results to return in a paginated response. This parameter is not supported for application, campaign, and journey metrics.</p>
@@ -7336,14 +7404,14 @@ export interface GetApplicationDateRangeKpiRequest {
   NextToken?: string;
 
   /**
-   * <p>The name of the metric, also referred to as a <i>key performance indicator (KPI)</i>, to retrieve data for. This value describes the associated metric and consists of two or more terms, which are comprised of lowercase alphanumeric characters, separated by a hyphen. Examples are email-open-rate and successful-delivery-rate. For a list of valid values, see the <a href="https://docs.aws.amazon.com/pinpoint/latest/developerguide/analytics-standard-metrics.html">Amazon Pinpoint Developer Guide</a>.</p>
-   */
-  KpiName: string | undefined;
-
-  /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
    */
   ApplicationId: string | undefined;
+
+  /**
+   * <p>The name of the metric, also referred to as a <i>key performance indicator (KPI)</i>, to retrieve data for. This value describes the associated metric and consists of two or more terms, which are comprised of lowercase alphanumeric characters, separated by a hyphen. Examples are email-open-rate and successful-delivery-rate. For a list of valid values, see the <a href="https://docs.aws.amazon.com/pinpoint/latest/developerguide/analytics-standard-metrics.html">Amazon Pinpoint Developer Guide</a>.</p>
+   */
+  KpiName: string | undefined;
 }
 
 export namespace GetApplicationDateRangeKpiRequest {
@@ -7486,9 +7554,9 @@ export interface GetCampaignActivitiesRequest {
   ApplicationId: string | undefined;
 
   /**
-   * <p>The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.</p>
+   * <p>The NextToken string that specifies which page of results to return in a paginated response.</p>
    */
-  PageSize?: string;
+  Token?: string;
 
   /**
    * <p>The unique identifier for the campaign.</p>
@@ -7496,9 +7564,9 @@ export interface GetCampaignActivitiesRequest {
   CampaignId: string | undefined;
 
   /**
-   * <p>The NextToken string that specifies which page of results to return in a paginated response.</p>
+   * <p>The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.</p>
    */
-  Token?: string;
+  PageSize?: string;
 }
 
 export namespace GetCampaignActivitiesRequest {
@@ -7522,14 +7590,9 @@ export namespace GetCampaignActivitiesResponse {
 
 export interface GetCampaignDateRangeKpiRequest {
   /**
-   * <p>The name of the metric, also referred to as a <i>key performance indicator (KPI)</i>, to retrieve data for. This value describes the associated metric and consists of two or more terms, which are comprised of lowercase alphanumeric characters, separated by a hyphen. Examples are email-open-rate and successful-delivery-rate. For a list of valid values, see the <a href="https://docs.aws.amazon.com/pinpoint/latest/developerguide/analytics-standard-metrics.html">Amazon Pinpoint Developer Guide</a>.</p>
+   * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
    */
-  KpiName: string | undefined;
-
-  /**
-   * <p>The unique identifier for the campaign.</p>
-   */
-  CampaignId: string | undefined;
+  ApplicationId: string | undefined;
 
   /**
    * <p>The  string that specifies which page of results to return in a paginated response. This parameter is not supported for application, campaign, and journey metrics.</p>
@@ -7552,9 +7615,14 @@ export interface GetCampaignDateRangeKpiRequest {
   PageSize?: string;
 
   /**
-   * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
+   * <p>The unique identifier for the campaign.</p>
    */
-  ApplicationId: string | undefined;
+  CampaignId: string | undefined;
+
+  /**
+   * <p>The name of the metric, also referred to as a <i>key performance indicator (KPI)</i>, to retrieve data for. This value describes the associated metric and consists of two or more terms, which are comprised of lowercase alphanumeric characters, separated by a hyphen. Examples are email-open-rate and successful-delivery-rate. For a list of valid values, see the <a href="https://docs.aws.amazon.com/pinpoint/latest/developerguide/analytics-standard-metrics.html">Amazon Pinpoint Developer Guide</a>.</p>
+   */
+  KpiName: string | undefined;
 }
 
 export namespace GetCampaignDateRangeKpiRequest {
@@ -7619,14 +7687,14 @@ export interface GetCampaignVersionRequest {
   ApplicationId: string | undefined;
 
   /**
-   * <p>The unique version number (Version property) for the campaign version.</p>
-   */
-  Version: string | undefined;
-
-  /**
    * <p>The unique identifier for the campaign.</p>
    */
   CampaignId: string | undefined;
+
+  /**
+   * <p>The unique version number (Version property) for the campaign version.</p>
+   */
+  Version: string | undefined;
 }
 
 export namespace GetCampaignVersionRequest {
@@ -7655,9 +7723,9 @@ export interface GetCampaignVersionsRequest {
   PageSize?: string;
 
   /**
-   * <p>The unique identifier for the campaign.</p>
+   * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
    */
-  CampaignId: string | undefined;
+  ApplicationId: string | undefined;
 
   /**
    * <p>The NextToken string that specifies which page of results to return in a paginated response.</p>
@@ -7665,9 +7733,9 @@ export interface GetCampaignVersionsRequest {
   Token?: string;
 
   /**
-   * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
+   * <p>The unique identifier for the campaign.</p>
    */
-  ApplicationId: string | undefined;
+  CampaignId: string | undefined;
 }
 
 export namespace GetCampaignVersionsRequest {
@@ -7774,14 +7842,14 @@ export namespace GetEmailTemplateResponse {
 
 export interface GetEndpointRequest {
   /**
-   * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
-   */
-  ApplicationId: string | undefined;
-
-  /**
    * <p>The unique identifier for the endpoint.</p>
    */
   EndpointId: string | undefined;
+
+  /**
+   * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
+   */
+  ApplicationId: string | undefined;
 }
 
 export namespace GetEndpointRequest {
@@ -7867,14 +7935,14 @@ export interface GetExportJobsRequest {
   ApplicationId: string | undefined;
 
   /**
-   * <p>The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.</p>
-   */
-  PageSize?: string;
-
-  /**
    * <p>The NextToken string that specifies which page of results to return in a paginated response.</p>
    */
   Token?: string;
+
+  /**
+   * <p>The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.</p>
+   */
+  PageSize?: string;
 }
 
 export namespace GetExportJobsRequest {
@@ -7924,14 +7992,14 @@ export namespace GetGcmChannelResponse {
 
 export interface GetImportJobRequest {
   /**
-   * <p>The unique identifier for the job.</p>
-   */
-  JobId: string | undefined;
-
-  /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
    */
   ApplicationId: string | undefined;
+
+  /**
+   * <p>The unique identifier for the job.</p>
+   */
+  JobId: string | undefined;
 }
 
 export namespace GetImportJobRequest {
@@ -7981,14 +8049,14 @@ export namespace GetImportJobsRequest {
  */
 export interface ImportJobsResponse {
   /**
-   * <p>An array of responses, one for each import job that's associated with the application (Import Jobs resource) or segment (Segment Import Jobs resource).</p>
-   */
-  Item: ImportJobResponse[] | undefined;
-
-  /**
    * <p>The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>An array of responses, one for each import job that's associated with the application (Import Jobs resource) or segment (Segment Import Jobs resource).</p>
+   */
+  Item: ImportJobResponse[] | undefined;
 }
 
 export namespace ImportJobsResponse {
@@ -8037,108 +8105,6 @@ export interface GetJourneyResponse {
 
 export namespace GetJourneyResponse {
   export const filterSensitiveLog = (obj: GetJourneyResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface GetJourneyDateRangeKpiRequest {
-  /**
-   * <p>The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.</p>
-   */
-  PageSize?: string;
-
-  /**
-   * <p>The last date and time to retrieve data for, as part of an inclusive date range that filters the query results. This value should be in extended ISO 8601 format and use Coordinated Universal Time (UTC), for example: 2019-07-26T20:00:00Z for 8:00 PM UTC July 26, 2019.</p>
-   */
-  EndTime?: Date;
-
-  /**
-   * <p>The unique identifier for the journey.</p>
-   */
-  JourneyId: string | undefined;
-
-  /**
-   * <p>The first date and time to retrieve data for, as part of an inclusive date range that filters the query results. This value should be in extended ISO 8601 format and use Coordinated Universal Time (UTC), for example: 2019-07-19T20:00:00Z for 8:00 PM UTC July 19, 2019. This value should also be fewer than 90 days from the current day.</p>
-   */
-  StartTime?: Date;
-
-  /**
-   * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
-   */
-  ApplicationId: string | undefined;
-
-  /**
-   * <p>The  string that specifies which page of results to return in a paginated response. This parameter is not supported for application, campaign, and journey metrics.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The name of the metric, also referred to as a <i>key performance indicator (KPI)</i>, to retrieve data for. This value describes the associated metric and consists of two or more terms, which are comprised of lowercase alphanumeric characters, separated by a hyphen. Examples are email-open-rate and successful-delivery-rate. For a list of valid values, see the <a href="https://docs.aws.amazon.com/pinpoint/latest/developerguide/analytics-standard-metrics.html">Amazon Pinpoint Developer Guide</a>.</p>
-   */
-  KpiName: string | undefined;
-}
-
-export namespace GetJourneyDateRangeKpiRequest {
-  export const filterSensitiveLog = (obj: GetJourneyDateRangeKpiRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Provides the results of a query that retrieved the data for a standard engagement metric that applies to a journey, and provides information about that query.</p>
- */
-export interface JourneyDateRangeKpiResponse {
-  /**
-   * <p>The name of the metric, also referred to as a <i>key performance indicator (KPI)</i>, that the data was retrieved for. This value describes the associated metric and consists of two or more terms, which are comprised of lowercase alphanumeric characters, separated by a hyphen. For a list of possible values, see the <a href="https://docs.aws.amazon.com/pinpoint/latest/developerguide/analytics-standard-metrics.html">Amazon Pinpoint Developer Guide</a>.</p>
-   */
-  KpiName: string | undefined;
-
-  /**
-   * <p>The unique identifier for the journey that the metric applies to.</p>
-   */
-  JourneyId: string | undefined;
-
-  /**
-   * <p>The unique identifier for the application that the metric applies to.</p>
-   */
-  ApplicationId: string | undefined;
-
-  /**
-   * <p>An array of objects that contains the results of the query. Each object contains the value for the metric and metadata about that value.</p>
-   */
-  KpiResult: BaseKpiResult | undefined;
-
-  /**
-   * <p>The last date and time of the date range that was used to filter the query results, in extended ISO 8601 format. The date range is inclusive.</p>
-   */
-  EndTime: Date | undefined;
-
-  /**
-   * <p>The string to use in a subsequent request to get the next page of results in a paginated response. This value is null for the Journey Engagement Metrics resource because the resource returns all results in a single page.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The first date and time of the date range that was used to filter the query results, in extended ISO 8601 format. The date range is inclusive.</p>
-   */
-  StartTime: Date | undefined;
-}
-
-export namespace JourneyDateRangeKpiResponse {
-  export const filterSensitiveLog = (obj: JourneyDateRangeKpiResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface GetJourneyDateRangeKpiResponse {
-  /**
-   * <p>Provides the results of a query that retrieved the data for a standard engagement metric that applies to a journey, and provides information about that query.</p>
-   */
-  JourneyDateRangeKpiResponse: JourneyDateRangeKpiResponse | undefined;
-}
-
-export namespace GetJourneyDateRangeKpiResponse {
-  export const filterSensitiveLog = (obj: GetJourneyDateRangeKpiResponse): any => ({
     ...obj,
   });
 }

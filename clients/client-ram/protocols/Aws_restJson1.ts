@@ -245,8 +245,8 @@ export const serializeAws_restJson1DeleteResourceShareCommand = async (
   };
   let resolvedPath = "/deleteresourceshare";
   const query: any = {
-    ...(input.clientToken !== undefined && { clientToken: input.clientToken }),
     ...(input.resourceShareArn !== undefined && { resourceShareArn: input.resourceShareArn }),
+    ...(input.clientToken !== undefined && { clientToken: input.clientToken }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();

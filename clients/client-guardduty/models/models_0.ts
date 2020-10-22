@@ -3,11 +3,6 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export interface AcceptInvitationRequest {
   /**
-   * <p>The unique ID of the detector of the GuardDuty member account.</p>
-   */
-  DetectorId: string | undefined;
-
-  /**
    * <p>The value that is used to validate the master account to the member account.</p>
    */
   InvitationId: string | undefined;
@@ -16,6 +11,11 @@ export interface AcceptInvitationRequest {
    * <p>The account ID of the master GuardDuty account whose invitation you're accepting.</p>
    */
   MasterId: string | undefined;
+
+  /**
+   * <p>The unique ID of the detector of the GuardDuty member account.</p>
+   */
+  DetectorId: string | undefined;
 }
 
 export namespace AcceptInvitationRequest {
@@ -39,14 +39,14 @@ export interface BadRequestException extends __SmithyException, $MetadataBearer 
   name: "BadRequestException";
   $fault: "client";
   /**
-   * <p>The error type.</p>
-   */
-  Type?: string;
-
-  /**
    * <p>The error message.</p>
    */
   Message?: string;
+
+  /**
+   * <p>The error type.</p>
+   */
+  Type?: string;
 }
 
 export namespace BadRequestException {
@@ -83,16 +83,16 @@ export namespace InternalServerErrorException {
  */
 export interface AccessControlList {
   /**
-   * <p>A value that indicates whether public read access for the bucket is enabled through an
-   *       Access Control List (ACL).</p>
-   */
-  AllowsPublicReadAccess?: boolean;
-
-  /**
    * <p>A value that indicates whether public write access for the bucket is enabled through an
    *       Access Control List (ACL).</p>
    */
   AllowsPublicWriteAccess?: boolean;
+
+  /**
+   * <p>A value that indicates whether public read access for the bucket is enabled through an
+   *       Access Control List (ACL).</p>
+   */
+  AllowsPublicReadAccess?: boolean;
 }
 
 export namespace AccessControlList {
@@ -106,14 +106,14 @@ export namespace AccessControlList {
  */
 export interface AccessKeyDetails {
   /**
-   * <p>The name of the user.</p>
-   */
-  UserName?: string;
-
-  /**
    * <p>The type of the user.</p>
    */
   UserType?: string;
+
+  /**
+   * <p>The name of the user.</p>
+   */
+  UserName?: string;
 
   /**
    * <p>The principal ID of the user.</p>
@@ -160,6 +160,11 @@ export namespace AccountDetail {
  */
 export interface BlockPublicAccess {
   /**
+   * <p>Indicates if S3 Block Public Access is set to <code>IgnorePublicAcls</code>.</p>
+   */
+  IgnorePublicAcls?: boolean;
+
+  /**
    * <p>Indicates if S3 Block Public Access is set to <code>BlockPublicPolicy</code>.</p>
    */
   BlockPublicPolicy?: boolean;
@@ -173,11 +178,6 @@ export interface BlockPublicAccess {
    * <p>Indicates if S3 Block Public Access is set to <code>BlockPublicAcls</code>.</p>
    */
   BlockPublicAcls?: boolean;
-
-  /**
-   * <p>Indicates if S3 Block Public Access is set to <code>IgnorePublicAcls</code>.</p>
-   */
-  IgnorePublicAcls?: boolean;
 }
 
 export namespace BlockPublicAccess {
@@ -281,9 +281,9 @@ export namespace GeoLocation {
  */
 export interface Organization {
   /**
-   * <p>The name of the internet provider.</p>
+   * <p>The organization that registered this ASN.</p>
    */
-  Org?: string;
+  AsnOrg?: string;
 
   /**
    * <p>The ISP information for the internet provider.</p>
@@ -291,9 +291,9 @@ export interface Organization {
   Isp?: string;
 
   /**
-   * <p>The organization that registered this ASN.</p>
+   * <p>The name of the internet provider.</p>
    */
-  AsnOrg?: string;
+  Org?: string;
 
   /**
    * <p>The Autonomous System Number (ASN) of the internet provider of the remote IP
@@ -313,9 +313,9 @@ export namespace Organization {
  */
 export interface RemoteIpDetails {
   /**
-   * <p>The location information of the remote IP address.</p>
+   * <p>The ISP organization information of the remote IP address.</p>
    */
-  GeoLocation?: GeoLocation;
+  Organization?: Organization;
 
   /**
    * <p>The IPv4 remote address of the connection.</p>
@@ -323,14 +323,14 @@ export interface RemoteIpDetails {
   IpAddressV4?: string;
 
   /**
-   * <p>The ISP organization information of the remote IP address.</p>
-   */
-  Organization?: Organization;
-
-  /**
    * <p>The country code of the remote IP address.</p>
    */
   Country?: Country;
+
+  /**
+   * <p>The location information of the remote IP address.</p>
+   */
+  GeoLocation?: GeoLocation;
 
   /**
    * <p>The city information of the remote IP address.</p>
@@ -345,13 +345,13 @@ export namespace RemoteIpDetails {
 }
 
 /**
- * <p>Contains information about the API operation.</p>
+ * <p>Contains information about the API action.</p>
  */
 export interface AwsApiCallAction {
   /**
-   * <p>The remote IP information of the connection.</p>
+   * <p>The AWS API name.</p>
    */
-  RemoteIpDetails?: RemoteIpDetails;
+  Api?: string;
 
   /**
    * <p>The AWS service name whose API was invoked.</p>
@@ -359,19 +359,24 @@ export interface AwsApiCallAction {
   ServiceName?: string;
 
   /**
+   * <p>The error code of the failed AWS API action.</p>
+   */
+  ErrorCode?: string;
+
+  /**
    * <p>The AWS API caller type.</p>
    */
   CallerType?: string;
 
   /**
-   * <p>The AWS API name.</p>
-   */
-  Api?: string;
-
-  /**
    * <p>The domain information for the AWS API call.</p>
    */
   DomainDetails?: DomainDetails;
+
+  /**
+   * <p>The remote IP information of the connection that initiated the AWS API call.</p>
+   */
+  RemoteIpDetails?: RemoteIpDetails;
 }
 
 export namespace AwsApiCallAction {
@@ -438,14 +443,14 @@ export namespace LocalPortDetails {
  */
 export interface RemotePortDetails {
   /**
-   * <p>The port name of the remote connection.</p>
-   */
-  PortName?: string;
-
-  /**
    * <p>The port number of the remote connection.</p>
    */
   Port?: number;
+
+  /**
+   * <p>The port name of the remote connection.</p>
+   */
+  PortName?: string;
 }
 
 export namespace RemotePortDetails {
@@ -459,16 +464,6 @@ export namespace RemotePortDetails {
  */
 export interface NetworkConnectionAction {
   /**
-   * <p>Indicates whether EC2 blocked the network connection to your instance.</p>
-   */
-  Blocked?: boolean;
-
-  /**
-   * <p>The local IP information of the connection.</p>
-   */
-  LocalIpDetails?: LocalIpDetails;
-
-  /**
    * <p>The network connection protocol.</p>
    */
   Protocol?: string;
@@ -479,19 +474,29 @@ export interface NetworkConnectionAction {
   ConnectionDirection?: string;
 
   /**
-   * <p>The local port information of the connection.</p>
-   */
-  LocalPortDetails?: LocalPortDetails;
-
-  /**
    * <p>The remote port information of the connection.</p>
    */
   RemotePortDetails?: RemotePortDetails;
 
   /**
+   * <p>Indicates whether EC2 blocked the network connection to your instance.</p>
+   */
+  Blocked?: boolean;
+
+  /**
    * <p>The remote IP information of the connection.</p>
    */
   RemoteIpDetails?: RemoteIpDetails;
+
+  /**
+   * <p>The local IP information of the connection.</p>
+   */
+  LocalIpDetails?: LocalIpDetails;
+
+  /**
+   * <p>The local port information of the connection.</p>
+   */
+  LocalPortDetails?: LocalPortDetails;
 }
 
 export namespace NetworkConnectionAction {
@@ -505,14 +510,14 @@ export namespace NetworkConnectionAction {
  */
 export interface PortProbeDetail {
   /**
-   * <p>The local port information of the connection.</p>
-   */
-  LocalPortDetails?: LocalPortDetails;
-
-  /**
    * <p>The local IP information of the connection.</p>
    */
   LocalIpDetails?: LocalIpDetails;
+
+  /**
+   * <p>The local port information of the connection.</p>
+   */
+  LocalPortDetails?: LocalPortDetails;
 
   /**
    * <p>The remote IP information of the connection.</p>
@@ -552,6 +557,16 @@ export namespace PortProbeAction {
  */
 export interface Action {
   /**
+   * <p>The GuardDuty finding activity type.</p>
+   */
+  ActionType?: string;
+
+  /**
+   * <p>Information about the PORT_PROBE action described in this finding.</p>
+   */
+  PortProbeAction?: PortProbeAction;
+
+  /**
    * <p>Information about the AWS_API_CALL action described in this finding.</p>
    */
   AwsApiCallAction?: AwsApiCallAction;
@@ -560,16 +575,6 @@ export interface Action {
    * <p>Information about the NETWORK_CONNECTION action described in this finding.</p>
    */
   NetworkConnectionAction?: NetworkConnectionAction;
-
-  /**
-   * <p>Information about the PORT_PROBE action described in this finding.</p>
-   */
-  PortProbeAction?: PortProbeAction;
-
-  /**
-   * <p>The GuardDuty finding activity type.</p>
-   */
-  ActionType?: string;
 
   /**
    * <p>Information about the DNS_REQUEST action described in this finding.</p>
@@ -612,15 +617,15 @@ export namespace AdminAccount {
 
 export interface ArchiveFindingsRequest {
   /**
+   * <p>The IDs of the findings that you want to archive.</p>
+   */
+  FindingIds: string[] | undefined;
+
+  /**
    * <p>The ID of the detector that specifies the GuardDuty service whose findings you want to
    *       archive.</p>
    */
   DetectorId: string | undefined;
-
-  /**
-   * <p>The IDs of the findings that you want to archive.</p>
-   */
-  FindingIds: string[] | undefined;
 }
 
 export namespace ArchiveFindingsRequest {
@@ -665,6 +670,12 @@ export namespace BucketPolicy {
  */
 export interface BucketLevelPermissions {
   /**
+   * <p>Contains information on which account level S3 Block Public Access settings are applied to
+   *       the S3 bucket.</p>
+   */
+  BlockPublicAccess?: BlockPublicAccess;
+
+  /**
    * <p>Contains information on how Access Control Policies are applied to the bucket.</p>
    */
   AccessControlList?: AccessControlList;
@@ -673,12 +684,6 @@ export interface BucketLevelPermissions {
    * <p>Contains information on the bucket policies for the S3 bucket.</p>
    */
   BucketPolicy?: BucketPolicy;
-
-  /**
-   * <p>Contains information on which account level S3 Block Public Access settings are applied to
-   *       the S3 bucket.</p>
-   */
-  BlockPublicAccess?: BlockPublicAccess;
 }
 
 export namespace BucketLevelPermissions {
@@ -713,22 +718,48 @@ export namespace CloudTrailConfigurationResult {
  */
 export interface Condition {
   /**
-   * <p>Represents a <i>greater than or equal</i> condition to be applied to a
-   *       single field when querying for findings.</p>
+   * <p>Represents a <i>less than or equal</i> condition to be applied to a single
+   *       field when querying for findings.</p>
    */
-  Gte?: number;
+  Lte?: number;
+
+  /**
+   * <p>Represents the <i>equal</i> condition to be applied to a single field when
+   *       querying for findings.</p>
+   */
+  Eq?: string[];
+
+  /**
+   * <p>Represents a <i>greater than</i> condition to be applied to a single field
+   *       when querying for findings.</p>
+   */
+  Gt?: number;
 
   /**
    * <p>Represents a <i>less than</i> condition to be applied to a single field when
    *       querying for findings.</p>
    */
-  Lt?: number;
+  LessThan?: number;
 
   /**
    * <p>Represents a <i>greater than or equal</i> condition to be applied to a
    *       single field when querying for findings.</p>
    */
   GreaterThanOrEqual?: number;
+
+  /**
+   * <p>Represents a <i>not equal</i>
+   *             <b></b> condition to be applied
+   *       to a single field when querying for findings.</p>
+   */
+  NotEquals?: string[];
+
+  /**
+   * <p>Represents an <i>equal</i>
+   *             <b></b> condition to be applied to
+   *       a single field when querying for findings.</p>
+   */
+  Equals?: string[];
 
   /**
    * <p>Represents the <i>not equal</i> condition to be applied to a single field
@@ -743,36 +774,10 @@ export interface Condition {
   LessThanOrEqual?: number;
 
   /**
-   * <p>Represents the <i>equal</i> condition to be applied to a single field when
+   * <p>Represents a <i>less than</i> condition to be applied to a single field when
    *       querying for findings.</p>
    */
-  Eq?: string[];
-
-  /**
-   * <p>Represents an <i>equal</i>
-   *             <b></b> condition to be applied to
-   *       a single field when querying for findings.</p>
-   */
-  Equals?: string[];
-
-  /**
-   * <p>Represents a <i>greater than</i> condition to be applied to a single field
-   *       when querying for findings.</p>
-   */
-  Gt?: number;
-
-  /**
-   * <p>Represents a <i>not equal</i>
-   *             <b></b> condition to be applied
-   *       to a single field when querying for findings.</p>
-   */
-  NotEquals?: string[];
-
-  /**
-   * <p>Represents a <i>less than or equal</i> condition to be applied to a single
-   *       field when querying for findings.</p>
-   */
-  Lte?: number;
+  Lt?: number;
 
   /**
    * <p>Represents a <i>greater than</i> condition to be applied to a single field
@@ -781,10 +786,10 @@ export interface Condition {
   GreaterThan?: number;
 
   /**
-   * <p>Represents a <i>less than</i> condition to be applied to a single field when
-   *       querying for findings.</p>
+   * <p>Represents a <i>greater than or equal</i> condition to be applied to a
+   *       single field when querying for findings.</p>
    */
-  LessThan?: number;
+  Gte?: number;
 }
 
 export namespace Condition {
@@ -833,9 +838,9 @@ export enum FindingPublishingFrequency {
 
 export interface CreateDetectorRequest {
   /**
-   * <p>An object that describes which data sources will be enabled for the detector.</p>
+   * <p>An enum value that specifies how frequently updated findings are exported.</p>
    */
-  DataSources?: DataSourceConfigurations;
+  FindingPublishingFrequency?: FindingPublishingFrequency | string;
 
   /**
    * <p>The idempotency token for the create request.</p>
@@ -848,9 +853,9 @@ export interface CreateDetectorRequest {
   Tags?: { [key: string]: string };
 
   /**
-   * <p>An enum value that specifies how frequently updated findings are exported.</p>
+   * <p>An object that describes which data sources will be enabled for the detector.</p>
    */
-  FindingPublishingFrequency?: FindingPublishingFrequency | string;
+  DataSources?: DataSourceConfigurations;
 
   /**
    * <p>A Boolean value that specifies whether the detector is to be enabled.</p>
@@ -900,6 +905,26 @@ export namespace FindingCriteria {
 }
 
 export interface CreateFilterRequest {
+  /**
+   * <p>Specifies the action that is to be applied to the findings that match the filter.</p>
+   */
+  Action?: FilterAction | string;
+
+  /**
+   * <p>The tags to be added to a new filter resource.</p>
+   */
+  Tags?: { [key: string]: string };
+
+  /**
+   * <p>The name of the filter.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The description of the filter.</p>
+   */
+  Description?: string;
+
   /**
    * <p>The unique ID of the detector of the GuardDuty account that you want to create a filter
    *       for.</p>
@@ -1075,26 +1100,6 @@ export interface CreateFilterRequest {
   FindingCriteria: FindingCriteria | undefined;
 
   /**
-   * <p>The description of the filter.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>Specifies the action that is to be applied to the findings that match the filter.</p>
-   */
-  Action?: FilterAction | string;
-
-  /**
-   * <p>The name of the filter.</p>
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>The tags to be added to a new filter resource.</p>
-   */
-  Tags?: { [key: string]: string };
-
-  /**
    * <p>Specifies the position of the filter in the list of current filters. Also specifies the
    *       order in which this filter is applied to the findings.</p>
    */
@@ -1131,15 +1136,10 @@ export enum IpSetFormat {
 
 export interface CreateIPSetRequest {
   /**
-   * <p>The format of the file that contains the IPSet.</p>
+   * <p>The unique ID of the detector of the GuardDuty account that you want to create an IPSet
+   *       for.</p>
    */
-  Format: IpSetFormat | string | undefined;
-
-  /**
-   * <p>A Boolean value that indicates whether GuardDuty is to start using the uploaded
-   *       IPSet.</p>
-   */
-  Activate: boolean | undefined;
+  DetectorId: string | undefined;
 
   /**
    * <p>The URI of the file that contains the IPSet. For example:
@@ -1148,10 +1148,9 @@ export interface CreateIPSetRequest {
   Location: string | undefined;
 
   /**
-   * <p>The unique ID of the detector of the GuardDuty account that you want to create an IPSet
-   *       for.</p>
+   * <p>The idempotency token for the create request.</p>
    */
-  DetectorId: string | undefined;
+  ClientToken?: string;
 
   /**
    * <p>The user-friendly name to identify the IPSet.</p>
@@ -1160,9 +1159,15 @@ export interface CreateIPSetRequest {
   Name: string | undefined;
 
   /**
-   * <p>The idempotency token for the create request.</p>
+   * <p>A Boolean value that indicates whether GuardDuty is to start using the uploaded
+   *       IPSet.</p>
    */
-  ClientToken?: string;
+  Activate: boolean | undefined;
+
+  /**
+   * <p>The format of the file that contains the IPSet.</p>
+   */
+  Format: IpSetFormat | string | undefined;
 
   /**
    * <p>The tags to be added to a new IP set resource.</p>
@@ -1191,16 +1196,16 @@ export namespace CreateIPSetResponse {
 
 export interface CreateMembersRequest {
   /**
-   * <p>A list of account ID and email address pairs of the accounts that you want to associate
-   *       with the master GuardDuty account.</p>
-   */
-  AccountDetails: AccountDetail[] | undefined;
-
-  /**
    * <p>The unique ID of the detector of the GuardDuty account that you want to associate member
    *       accounts with.</p>
    */
   DetectorId: string | undefined;
+
+  /**
+   * <p>A list of account ID and email address pairs of the accounts that you want to associate
+   *       with the master GuardDuty account.</p>
+   */
+  AccountDetails: AccountDetail[] | undefined;
 }
 
 export namespace CreateMembersRequest {
@@ -1214,14 +1219,14 @@ export namespace CreateMembersRequest {
  */
 export interface UnprocessedAccount {
   /**
-   * <p>A reason why the account hasn't been processed.</p>
-   */
-  Result: string | undefined;
-
-  /**
    * <p>The AWS account ID.</p>
    */
   AccountId: string | undefined;
+
+  /**
+   * <p>A reason why the account hasn't been processed.</p>
+   */
+  Result: string | undefined;
 }
 
 export namespace UnprocessedAccount {
@@ -1250,14 +1255,14 @@ export namespace CreateMembersResponse {
  */
 export interface DestinationProperties {
   /**
-   * <p>The ARN of the resource to publish to.</p>
-   */
-  DestinationArn?: string;
-
-  /**
    * <p>The ARN of the KMS key to use for encryption.</p>
    */
   KmsKeyArn?: string;
+
+  /**
+   * <p>The ARN of the resource to publish to.</p>
+   */
+  DestinationArn?: string;
 }
 
 export namespace DestinationProperties {
@@ -1272,26 +1277,26 @@ export enum DestinationType {
 
 export interface CreatePublishingDestinationRequest {
   /**
+   * <p>The idempotency token for the request.</p>
+   */
+  ClientToken?: string;
+
+  /**
    * <p>The type of resource for the publishing destination. Currently only Amazon S3 buckets are
    *       supported.</p>
    */
   DestinationType: DestinationType | string | undefined;
 
   /**
-   * <p>The ID of the GuardDuty detector associated with the publishing destination.</p>
-   */
-  DetectorId: string | undefined;
-
-  /**
-   * <p>The idempotency token for the request.</p>
-   */
-  ClientToken?: string;
-
-  /**
    * <p>The properties of the publishing destination, including the ARNs for the destination and
    *       the KMS key used for encryption.</p>
    */
   DestinationProperties: DestinationProperties | undefined;
+
+  /**
+   * <p>The ID of the GuardDuty detector associated with the publishing destination.</p>
+   */
+  DetectorId: string | undefined;
 }
 
 export namespace CreatePublishingDestinationRequest {
@@ -1350,31 +1355,10 @@ export enum ThreatIntelSetFormat {
 
 export interface CreateThreatIntelSetRequest {
   /**
-   * <p>The idempotency token for the create request.</p>
-   */
-  ClientToken?: string;
-
-  /**
-   * <p>The URI of the file that contains the ThreatIntelSet. For example:
-   *       https://s3.us-west-2.amazonaws.com/my-bucket/my-object-key.</p>
-   */
-  Location: string | undefined;
-
-  /**
-   * <p>The tags to be added to a new threat list resource.</p>
-   */
-  Tags?: { [key: string]: string };
-
-  /**
    * <p>A user-friendly ThreatIntelSet name displayed in all findings that are generated by
    *       activity that involves IP addresses included in this ThreatIntelSet.</p>
    */
   Name: string | undefined;
-
-  /**
-   * <p>The format of the file that contains the ThreatIntelSet.</p>
-   */
-  Format: ThreatIntelSetFormat | string | undefined;
 
   /**
    * <p>The unique ID of the detector of the GuardDuty account that you want to create a
@@ -1387,6 +1371,27 @@ export interface CreateThreatIntelSetRequest {
    *       ThreatIntelSet.</p>
    */
   Activate: boolean | undefined;
+
+  /**
+   * <p>The idempotency token for the create request.</p>
+   */
+  ClientToken?: string;
+
+  /**
+   * <p>The tags to be added to a new threat list resource.</p>
+   */
+  Tags?: { [key: string]: string };
+
+  /**
+   * <p>The URI of the file that contains the ThreatIntelSet. For example:
+   *       https://s3.us-west-2.amazonaws.com/my-bucket/my-object-key.</p>
+   */
+  Location: string | undefined;
+
+  /**
+   * <p>The format of the file that contains the ThreatIntelSet.</p>
+   */
+  Format: ThreatIntelSetFormat | string | undefined;
 }
 
 export namespace CreateThreatIntelSetRequest {
@@ -1469,14 +1474,10 @@ export namespace S3LogsConfigurationResult {
  */
 export interface DataSourceConfigurationsResult {
   /**
-   * <p>An object that contains information on the status of CloudTrail as a data source.</p>
+   * <p>An object that contains information on the status of S3 Data event logs as a data
+   *       source.</p>
    */
-  CloudTrail: CloudTrailConfigurationResult | undefined;
-
-  /**
-   * <p>An object that contains information on the status of DNS logs as a data source.</p>
-   */
-  DNSLogs: DNSLogsConfigurationResult | undefined;
+  S3Logs: S3LogsConfigurationResult | undefined;
 
   /**
    * <p>An object that contains information on the status of VPC flow logs as a data
@@ -1485,10 +1486,14 @@ export interface DataSourceConfigurationsResult {
   FlowLogs: FlowLogsConfigurationResult | undefined;
 
   /**
-   * <p>An object that contains information on the status of S3 Data event logs as a data
-   *       source.</p>
+   * <p>An object that contains information on the status of CloudTrail as a data source.</p>
    */
-  S3Logs: S3LogsConfigurationResult | undefined;
+  CloudTrail: CloudTrailConfigurationResult | undefined;
+
+  /**
+   * <p>An object that contains information on the status of DNS logs as a data source.</p>
+   */
+  DNSLogs: DNSLogsConfigurationResult | undefined;
 }
 
 export namespace DataSourceConfigurationsResult {
@@ -1527,20 +1532,20 @@ export namespace DeclineInvitationsResponse {
 
 /**
  * <p>Contains information on the server side encryption method used in the S3 bucket. See
- *         <a href="https://docs.aws.amazon.com/AmazonS3/atest/dev/serv-side-encryption.html">S3
+ *       <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/serv-side-encryption.html">S3
  *         Server-Side Encryption</a> for more information.</p>
  */
 export interface DefaultServerSideEncryption {
+  /**
+   * <p>The type of encryption used for objects within the S3 bucket.</p>
+   */
+  EncryptionType?: string;
+
   /**
    * <p>The Amazon Resource Name (ARN) of the KMS encryption key. Only available if the bucket
    *         <code>EncryptionType</code> is <code>aws:kms</code>.</p>
    */
   KmsMasterKeyArn?: string;
-
-  /**
-   * <p>The type of encryption used for objects within the S3 bucket.</p>
-   */
-  EncryptionType?: string;
 }
 
 export namespace DefaultServerSideEncryption {
@@ -1572,14 +1577,14 @@ export namespace DeleteDetectorResponse {
 
 export interface DeleteFilterRequest {
   /**
-   * <p>The unique ID of the detector that the filter is associated with.</p>
-   */
-  DetectorId: string | undefined;
-
-  /**
    * <p>The name of the filter that you want to delete.</p>
    */
   FilterName: string | undefined;
+
+  /**
+   * <p>The unique ID of the detector that the filter is associated with.</p>
+   */
+  DetectorId: string | undefined;
 }
 
 export namespace DeleteFilterRequest {
@@ -1652,15 +1657,15 @@ export namespace DeleteIPSetResponse {
 
 export interface DeleteMembersRequest {
   /**
+   * <p>A list of account IDs of the GuardDuty member accounts that you want to delete.</p>
+   */
+  AccountIds: string[] | undefined;
+
+  /**
    * <p>The unique ID of the detector of the GuardDuty account whose members you want to
    *       delete.</p>
    */
   DetectorId: string | undefined;
-
-  /**
-   * <p>A list of account IDs of the GuardDuty member accounts that you want to delete.</p>
-   */
-  AccountIds: string[] | undefined;
 }
 
 export namespace DeleteMembersRequest {
@@ -1710,14 +1715,14 @@ export namespace DeletePublishingDestinationResponse {
 
 export interface DeleteThreatIntelSetRequest {
   /**
-   * <p>The unique ID of the detector that the threatIntelSet is associated with.</p>
-   */
-  DetectorId: string | undefined;
-
-  /**
    * <p>The unique ID of the threatIntelSet that you want to delete.</p>
    */
   ThreatIntelSetId: string | undefined;
+
+  /**
+   * <p>The unique ID of the detector that the threatIntelSet is associated with.</p>
+   */
+  DetectorId: string | undefined;
 }
 
 export namespace DeleteThreatIntelSetRequest {
@@ -1785,10 +1790,10 @@ export namespace OrganizationDataSourceConfigurationsResult {
 
 export interface DescribeOrganizationConfigurationResponse {
   /**
-   * <p>Indicates whether GuardDuty is automatically enabled for accounts added to the
-   *       organization.</p>
+   * <p>Indicates whether the maximum number of allowed member accounts are already associated
+   *       with the delegated administrator master account.</p>
    */
-  AutoEnable: boolean | undefined;
+  MemberAccountLimitReached: boolean | undefined;
 
   /**
    * <p>An object that describes which data sources are enabled automatically for member
@@ -1797,10 +1802,10 @@ export interface DescribeOrganizationConfigurationResponse {
   DataSources?: OrganizationDataSourceConfigurationsResult;
 
   /**
-   * <p>Indicates whether the maximum number of allowed member accounts are already associated
-   *       with the delegated administrator master account.</p>
+   * <p>Indicates whether GuardDuty is automatically enabled for accounts added to the
+   *       organization.</p>
    */
-  MemberAccountLimitReached: boolean | undefined;
+  AutoEnable: boolean | undefined;
 }
 
 export namespace DescribeOrganizationConfigurationResponse {
@@ -1811,15 +1816,15 @@ export namespace DescribeOrganizationConfigurationResponse {
 
 export interface DescribePublishingDestinationRequest {
   /**
-   * <p>The ID of the publishing destination to retrieve.</p>
-   */
-  DestinationId: string | undefined;
-
-  /**
    * <p>The unique ID of the detector associated with the publishing destination to
    *       retrieve.</p>
    */
   DetectorId: string | undefined;
+
+  /**
+   * <p>The ID of the publishing destination to retrieve.</p>
+   */
+  DestinationId: string | undefined;
 }
 
 export namespace DescribePublishingDestinationRequest {
@@ -1837,9 +1842,15 @@ export enum PublishingStatus {
 
 export interface DescribePublishingDestinationResponse {
   /**
-   * <p>The ID of the publishing destination.</p>
+   * <p>A <code>DestinationProperties</code> object that includes the <code>DestinationArn</code>
+   *       and <code>KmsKeyArn</code> of the publishing destination.</p>
    */
-  DestinationId: string | undefined;
+  DestinationProperties: DestinationProperties | undefined;
+
+  /**
+   * <p>The status of the publishing destination.</p>
+   */
+  Status: PublishingStatus | string | undefined;
 
   /**
    * <p>The time, in epoch millisecond format, at which GuardDuty was first unable to publish
@@ -1848,21 +1859,15 @@ export interface DescribePublishingDestinationResponse {
   PublishingFailureStartTimestamp: number | undefined;
 
   /**
-   * <p>The status of the publishing destination.</p>
-   */
-  Status: PublishingStatus | string | undefined;
-
-  /**
-   * <p>A <code>DestinationProperties</code> object that includes the <code>DestinationArn</code>
-   *       and <code>KmsKeyArn</code> of the publishing destination.</p>
-   */
-  DestinationProperties: DestinationProperties | undefined;
-
-  /**
    * <p>The type of publishing destination. Currently, only Amazon S3 buckets are
    *       supported.</p>
    */
   DestinationType: DestinationType | string | undefined;
+
+  /**
+   * <p>The ID of the publishing destination.</p>
+   */
+  DestinationId: string | undefined;
 }
 
 export namespace DescribePublishingDestinationResponse {
@@ -1877,6 +1882,11 @@ export namespace DescribePublishingDestinationResponse {
  */
 export interface Destination {
   /**
+   * <p>The unique ID of the publishing destination.</p>
+   */
+  DestinationId: string | undefined;
+
+  /**
    * <p>The status of the publishing destination.</p>
    */
   Status: PublishingStatus | string | undefined;
@@ -1886,11 +1896,6 @@ export interface Destination {
    *       buckets are supported.</p>
    */
   DestinationType: DestinationType | string | undefined;
-
-  /**
-   * <p>The unique ID of the publishing destination.</p>
-   */
-  DestinationId: string | undefined;
 }
 
 export namespace Destination {
@@ -1949,16 +1954,16 @@ export namespace DisassociateFromMasterAccountResponse {
 
 export interface DisassociateMembersRequest {
   /**
-   * <p>A list of account IDs of the GuardDuty member accounts that you want to disassociate from
-   *       the master account.</p>
-   */
-  AccountIds: string[] | undefined;
-
-  /**
    * <p>The unique ID of the detector of the GuardDuty account whose members you want to
    *       disassociate from the master account.</p>
    */
   DetectorId: string | undefined;
+
+  /**
+   * <p>A list of account IDs of the GuardDuty member accounts that you want to disassociate from
+   *       the master account.</p>
+   */
+  AccountIds: string[] | undefined;
 }
 
 export namespace DisassociateMembersRequest {
@@ -2073,14 +2078,14 @@ export namespace IamInstanceProfile {
  */
 export interface PrivateIpAddressDetails {
   /**
-   * <p>The private DNS name of the EC2 instance.</p>
-   */
-  PrivateDnsName?: string;
-
-  /**
    * <p>The private IP address of the EC2 instance.</p>
    */
   PrivateIpAddress?: string;
+
+  /**
+   * <p>The private DNS name of the EC2 instance.</p>
+   */
+  PrivateDnsName?: string;
 }
 
 export namespace PrivateIpAddressDetails {
@@ -2115,9 +2120,29 @@ export namespace SecurityGroup {
  */
 export interface NetworkInterface {
   /**
-   * <p>The subnet ID of the EC2 instance.</p>
+   * <p>Other private IP address information of the EC2 instance.</p>
    */
-  SubnetId?: string;
+  PrivateIpAddresses?: PrivateIpAddressDetails[];
+
+  /**
+   * <p>The ID of the network interface.</p>
+   */
+  NetworkInterfaceId?: string;
+
+  /**
+   * <p>The public IP address of the EC2 instance.</p>
+   */
+  PublicIp?: string;
+
+  /**
+   * <p>The private IP address of the EC2 instance.</p>
+   */
+  PrivateIpAddress?: string;
+
+  /**
+   * <p>The private DNS name of the EC2 instance.</p>
+   */
+  PrivateDnsName?: string;
 
   /**
    * <p>The public DNS name of the EC2 instance.</p>
@@ -2130,39 +2155,19 @@ export interface NetworkInterface {
   VpcId?: string;
 
   /**
-   * <p>The private IP address of the EC2 instance.</p>
+   * <p>The security groups associated with the EC2 instance.</p>
    */
-  PrivateIpAddress?: string;
+  SecurityGroups?: SecurityGroup[];
 
   /**
-   * <p>The ID of the network interface.</p>
+   * <p>The subnet ID of the EC2 instance.</p>
    */
-  NetworkInterfaceId?: string;
+  SubnetId?: string;
 
   /**
    * <p>A list of IPv6 addresses for the EC2 instance.</p>
    */
   Ipv6Addresses?: string[];
-
-  /**
-   * <p>The private DNS name of the EC2 instance.</p>
-   */
-  PrivateDnsName?: string;
-
-  /**
-   * <p>The public IP address of the EC2 instance.</p>
-   */
-  PublicIp?: string;
-
-  /**
-   * <p>Other private IP address information of the EC2 instance.</p>
-   */
-  PrivateIpAddresses?: PrivateIpAddressDetails[];
-
-  /**
-   * <p>The security groups associated with the EC2 instance.</p>
-   */
-  SecurityGroups?: SecurityGroup[];
 }
 
 export namespace NetworkInterface {
@@ -2197,14 +2202,14 @@ export namespace ProductCode {
  */
 export interface Tag {
   /**
-   * <p>The EC2 instance tag value.</p>
-   */
-  Value?: string;
-
-  /**
    * <p>The EC2 instance tag key.</p>
    */
   Key?: string;
+
+  /**
+   * <p>The EC2 instance tag value.</p>
+   */
+  Value?: string;
 }
 
 export namespace Tag {
@@ -2218,19 +2223,44 @@ export namespace Tag {
  */
 export interface InstanceDetails {
   /**
+   * <p>The ID of the EC2 instance.</p>
+   */
+  InstanceId?: string;
+
+  /**
+   * <p>The platform of the EC2 instance.</p>
+   */
+  Platform?: string;
+
+  /**
+   * <p>The type of the EC2 instance.</p>
+   */
+  InstanceType?: string;
+
+  /**
+   * <p>The launch time of the EC2 instance.</p>
+   */
+  LaunchTime?: string;
+
+  /**
+   * <p>The Availability Zone of the EC2 instance.</p>
+   */
+  AvailabilityZone?: string;
+
+  /**
    * <p>The product code of the EC2 instance.</p>
    */
   ProductCodes?: ProductCode[];
 
   /**
-   * <p>The image description of the EC2 instance.</p>
+   * <p>The state of the EC2 instance.</p>
    */
-  ImageDescription?: string;
+  InstanceState?: string;
 
   /**
-   * <p>The profile information of the EC2 instance.</p>
+   * <p>The elastic network interface information of the EC2 instance.</p>
    */
-  IamInstanceProfile?: IamInstanceProfile;
+  NetworkInterfaces?: NetworkInterface[];
 
   /**
    * <p>The Amazon Resource Name (ARN) of the AWS Outpost. Only applicable to AWS Outposts
@@ -2239,9 +2269,14 @@ export interface InstanceDetails {
   OutpostArn?: string;
 
   /**
-   * <p>The Availability Zone of the EC2 instance.</p>
+   * <p>The image ID of the EC2 instance.</p>
    */
-  AvailabilityZone?: string;
+  ImageId?: string;
+
+  /**
+   * <p>The profile information of the EC2 instance.</p>
+   */
+  IamInstanceProfile?: IamInstanceProfile;
 
   /**
    * <p>The tags of the EC2 instance.</p>
@@ -2249,39 +2284,9 @@ export interface InstanceDetails {
   Tags?: Tag[];
 
   /**
-   * <p>The type of the EC2 instance.</p>
+   * <p>The image description of the EC2 instance.</p>
    */
-  InstanceType?: string;
-
-  /**
-   * <p>The platform of the EC2 instance.</p>
-   */
-  Platform?: string;
-
-  /**
-   * <p>The launch time of the EC2 instance.</p>
-   */
-  LaunchTime?: string;
-
-  /**
-   * <p>The state of the EC2 instance.</p>
-   */
-  InstanceState?: string;
-
-  /**
-   * <p>The image ID of the EC2 instance.</p>
-   */
-  ImageId?: string;
-
-  /**
-   * <p>The elastic network interface information of the EC2 instance.</p>
-   */
-  NetworkInterfaces?: NetworkInterface[];
-
-  /**
-   * <p>The ID of the EC2 instance.</p>
-   */
-  InstanceId?: string;
+  ImageDescription?: string;
 }
 
 export namespace InstanceDetails {
@@ -2335,15 +2340,15 @@ export namespace PermissionConfiguration {
  */
 export interface PublicAccess {
   /**
-   * <p>Contains information about how permissions are configured for the S3 bucket.</p>
-   */
-  PermissionConfiguration?: PermissionConfiguration;
-
-  /**
    * <p>Describes the effective permission on this bucket after factoring all attached
    *       policies.</p>
    */
   EffectivePermission?: string;
+
+  /**
+   * <p>Contains information about how permissions are configured for the S3 bucket.</p>
+   */
+  PermissionConfiguration?: PermissionConfiguration;
 }
 
 export namespace PublicAccess {
@@ -2357,6 +2362,21 @@ export namespace PublicAccess {
  */
 export interface S3BucketDetail {
   /**
+   * <p>Describes whether the bucket is a source or destination bucket.</p>
+   */
+  Type?: string;
+
+  /**
+   * <p>All tags attached to the S3 bucket</p>
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>The name of the S3 bucket.</p>
+   */
+  Name?: string;
+
+  /**
    * <p>The Amazon Resource Name (ARN) of the S3 bucket.</p>
    */
   Arn?: string;
@@ -2367,9 +2387,9 @@ export interface S3BucketDetail {
   CreatedAt?: Date;
 
   /**
-   * <p>Describes the public access policies that apply to the S3 bucket.</p>
+   * <p>Describes the server side encryption method used in the S3 bucket.</p>
    */
-  PublicAccess?: PublicAccess;
+  DefaultServerSideEncryption?: DefaultServerSideEncryption;
 
   /**
    * <p>The owner of the S3 bucket.</p>
@@ -2377,24 +2397,9 @@ export interface S3BucketDetail {
   Owner?: Owner;
 
   /**
-   * <p>Describes the server side encryption method used in the S3 bucket.</p>
+   * <p>Describes the public access policies that apply to the S3 bucket.</p>
    */
-  DefaultServerSideEncryption?: DefaultServerSideEncryption;
-
-  /**
-   * <p>The name of the S3 bucket.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>Describes whether the bucket is a source or destination bucket.</p>
-   */
-  Type?: string;
-
-  /**
-   * <p>All tags attached to the S3 bucket</p>
-   */
-  Tags?: Tag[];
+  PublicAccess?: PublicAccess;
 }
 
 export namespace S3BucketDetail {
@@ -2409,9 +2414,10 @@ export namespace S3BucketDetail {
  */
 export interface Resource {
   /**
-   * <p>The type of AWS resource.</p>
+   * <p>The information about the EC2 instance associated with the activity that prompted
+   *       GuardDuty to generate a finding.</p>
    */
-  ResourceType?: string;
+  InstanceDetails?: InstanceDetails;
 
   /**
    * <p>Contains information on the S3 bucket.</p>
@@ -2425,10 +2431,9 @@ export interface Resource {
   AccessKeyDetails?: AccessKeyDetails;
 
   /**
-   * <p>The information about the EC2 instance associated with the activity that prompted
-   *       GuardDuty to generate a finding.</p>
+   * <p>The type of AWS resource.</p>
    */
-  InstanceDetails?: InstanceDetails;
+  ResourceType?: string;
 }
 
 export namespace Resource {
@@ -2442,30 +2447,21 @@ export namespace Resource {
  */
 export interface Service {
   /**
-   * <p>The detector ID for the GuardDuty service.</p>
+   * <p>Information about the activity that is described in a finding.</p>
    */
-  DetectorId?: string;
-
-  /**
-   * <p>The name of the AWS service (GuardDuty) that generated a finding.</p>
-   */
-  ServiceName?: string;
-
-  /**
-   * <p>The total count of the occurrences of this finding type.</p>
-   */
-  Count?: number;
-
-  /**
-   * <p>An evidence object associated with the service.</p>
-   */
-  Evidence?: Evidence;
+  Action?: Action;
 
   /**
    * <p>The last-seen timestamp of the activity that prompted GuardDuty to generate this
    *       finding.</p>
    */
   EventLastSeen?: string;
+
+  /**
+   * <p>The first-seen timestamp of the activity that prompted GuardDuty to generate this
+   *       finding.</p>
+   */
+  EventFirstSeen?: string;
 
   /**
    * <p>The resource role information for this finding.</p>
@@ -2478,20 +2474,29 @@ export interface Service {
   UserFeedback?: string;
 
   /**
-   * <p>Information about the activity that is described in a finding.</p>
+   * <p>An evidence object associated with the service.</p>
    */
-  Action?: Action;
+  Evidence?: Evidence;
+
+  /**
+   * <p>The total count of the occurrences of this finding type.</p>
+   */
+  Count?: number;
+
+  /**
+   * <p>The detector ID for the GuardDuty service.</p>
+   */
+  DetectorId?: string;
+
+  /**
+   * <p>The name of the AWS service (GuardDuty) that generated a finding.</p>
+   */
+  ServiceName?: string;
 
   /**
    * <p>Indicates whether this finding is archived.</p>
    */
   Archived?: boolean;
-
-  /**
-   * <p>The first-seen timestamp of the activity that prompted GuardDuty to generate this
-   *       finding.</p>
-   */
-  EventFirstSeen?: string;
 }
 
 export namespace Service {
@@ -2506,19 +2511,9 @@ export namespace Service {
  */
 export interface Finding {
   /**
-   * <p>The type of finding.</p>
+   * <p>The time and date when the finding was last updated.</p>
    */
-  Type: string | undefined;
-
-  /**
-   * <p>Contains additional information about the generated finding.</p>
-   */
-  Service?: Service;
-
-  /**
-   * <p>The ID of the account in which the finding was generated.</p>
-   */
-  AccountId: string | undefined;
+  UpdatedAt: string | undefined;
 
   /**
    * <p>The confidence score for the finding.</p>
@@ -2526,9 +2521,50 @@ export interface Finding {
   Confidence?: number;
 
   /**
-   * <p>The version of the schema used for the finding.</p>
+   * <p>Contains information about the AWS resource associated with the activity that prompted
+   *       GuardDuty to generate a finding.</p>
    */
-  SchemaVersion: string | undefined;
+  Resource: Resource | undefined;
+
+  /**
+   * <p>The Region where the finding was generated.</p>
+   */
+  Region: string | undefined;
+
+  /**
+   * <p>The type of finding.</p>
+   */
+  Type: string | undefined;
+
+  /**
+   * <p>The ARN of the finding.</p>
+   */
+  Arn: string | undefined;
+
+  /**
+   * <p>The ID of the account in which the finding was generated.</p>
+   */
+  AccountId: string | undefined;
+
+  /**
+   * <p>The description of the finding.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The ID of the finding.</p>
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The time and date when the finding was created.</p>
+   */
+  CreatedAt: string | undefined;
+
+  /**
+   * <p>The partition associated with the finding.</p>
+   */
+  Partition?: string;
 
   /**
    * <p>The severity of the finding.</p>
@@ -2541,45 +2577,14 @@ export interface Finding {
   Title?: string;
 
   /**
-   * <p>The Region where the finding was generated.</p>
+   * <p>The version of the schema used for the finding.</p>
    */
-  Region: string | undefined;
+  SchemaVersion: string | undefined;
 
   /**
-   * <p>The time and date when the finding was last updated.</p>
+   * <p>Contains additional information about the generated finding.</p>
    */
-  UpdatedAt: string | undefined;
-
-  /**
-   * <p>Contains information about the AWS resource associated with the activity that prompted
-   *       GuardDuty to generate a finding.</p>
-   */
-  Resource: Resource | undefined;
-
-  /**
-   * <p>The partition associated with the finding.</p>
-   */
-  Partition?: string;
-
-  /**
-   * <p>The ARN of the finding.</p>
-   */
-  Arn: string | undefined;
-
-  /**
-   * <p>The time and date when the finding was created.</p>
-   */
-  CreatedAt: string | undefined;
-
-  /**
-   * <p>The description of the finding.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The ID of the finding.</p>
-   */
-  Id: string | undefined;
+  Service?: Service;
 }
 
 export namespace Finding {
@@ -2623,14 +2628,9 @@ export namespace GetDetectorRequest {
 
 export interface GetDetectorResponse {
   /**
-   * <p>The last-updated timestamp for the detector.</p>
+   * <p>The detector status.</p>
    */
-  UpdatedAt?: string;
-
-  /**
-   * <p>The timestamp of when the detector was created.</p>
-   */
-  CreatedAt?: string;
+  Status: DetectorStatus | string | undefined;
 
   /**
    * <p>The tags of the detector resource.</p>
@@ -2638,24 +2638,29 @@ export interface GetDetectorResponse {
   Tags?: { [key: string]: string };
 
   /**
+   * <p>The timestamp of when the detector was created.</p>
+   */
+  CreatedAt?: string;
+
+  /**
    * <p>An object that describes which data sources are enabled for the detector.</p>
    */
   DataSources?: DataSourceConfigurationsResult;
 
   /**
-   * <p>The GuardDuty service role.</p>
+   * <p>The last-updated timestamp for the detector.</p>
    */
-  ServiceRole: string | undefined;
-
-  /**
-   * <p>The detector status.</p>
-   */
-  Status: DetectorStatus | string | undefined;
+  UpdatedAt?: string;
 
   /**
    * <p>The publishing frequency of the finding.</p>
    */
   FindingPublishingFrequency?: FindingPublishingFrequency | string;
+
+  /**
+   * <p>The GuardDuty service role.</p>
+   */
+  ServiceRole: string | undefined;
 }
 
 export namespace GetDetectorResponse {
@@ -2666,14 +2671,14 @@ export namespace GetDetectorResponse {
 
 export interface GetFilterRequest {
   /**
-   * <p>The name of the filter you want to get.</p>
-   */
-  FilterName: string | undefined;
-
-  /**
    * <p>The unique ID of the detector that the filter is associated with.</p>
    */
   DetectorId: string | undefined;
+
+  /**
+   * <p>The name of the filter you want to get.</p>
+   */
+  FilterName: string | undefined;
 }
 
 export namespace GetFilterRequest {
@@ -2689,6 +2694,11 @@ export interface GetFilterResponse {
   FindingCriteria: FindingCriteria | undefined;
 
   /**
+   * <p>The name of the filter.</p>
+   */
+  Name: string | undefined;
+
+  /**
    * <p>The description of the filter.</p>
    */
   Description?: string;
@@ -2697,11 +2707,6 @@ export interface GetFilterResponse {
    * <p>Specifies the action that is to be applied to the findings that match the filter.</p>
    */
   Action: FilterAction | string | undefined;
-
-  /**
-   * <p>The name of the filter.</p>
-   */
-  Name: string | undefined;
 
   /**
    * <p>The tags of the filter resource.</p>
@@ -2749,14 +2754,14 @@ export namespace SortCriteria {
 
 export interface GetFindingsRequest {
   /**
-   * <p>Represents the criteria used for sorting findings.</p>
-   */
-  SortCriteria?: SortCriteria;
-
-  /**
    * <p>The IDs of the findings that you want to retrieve.</p>
    */
   FindingIds: string[] | undefined;
+
+  /**
+   * <p>Represents the criteria used for sorting findings.</p>
+   */
+  SortCriteria?: SortCriteria;
 
   /**
    * <p>The ID of the detector that specifies the GuardDuty service whose findings you want to
@@ -2786,15 +2791,15 @@ export namespace GetFindingsResponse {
 
 export interface GetFindingsStatisticsRequest {
   /**
+   * <p>The types of finding statistics to retrieve.</p>
+   */
+  FindingStatisticTypes: (FindingStatisticType | string)[] | undefined;
+
+  /**
    * <p>The ID of the detector that specifies the GuardDuty service whose findings' statistics you
    *       want to retrieve.</p>
    */
   DetectorId: string | undefined;
-
-  /**
-   * <p>The types of finding statistics to retrieve.</p>
-   */
-  FindingStatisticTypes: (FindingStatisticType | string)[] | undefined;
 
   /**
    * <p>Represents the criteria that is used for querying findings.</p>
@@ -2872,15 +2877,9 @@ export enum IpSetStatus {
 
 export interface GetIPSetResponse {
   /**
-   * <p>The URI of the file that contains the IPSet. For example:
-   *       https://s3.us-west-2.amazonaws.com/my-bucket/my-object-key.</p>
+   * <p>The format of the file that contains the IPSet.</p>
    */
-  Location: string | undefined;
-
-  /**
-   * <p>The status of IPSet file that was uploaded.</p>
-   */
-  Status: IpSetStatus | string | undefined;
+  Format: IpSetFormat | string | undefined;
 
   /**
    * <p>The tags of the IPSet resource.</p>
@@ -2888,14 +2887,20 @@ export interface GetIPSetResponse {
   Tags?: { [key: string]: string };
 
   /**
+   * <p>The status of IPSet file that was uploaded.</p>
+   */
+  Status: IpSetStatus | string | undefined;
+
+  /**
    * <p>The user-friendly name for the IPSet.</p>
    */
   Name: string | undefined;
 
   /**
-   * <p>The format of the file that contains the IPSet.</p>
+   * <p>The URI of the file that contains the IPSet. For example:
+   *       https://s3.us-west-2.amazonaws.com/my-bucket/my-object-key.</p>
    */
-  Format: IpSetFormat | string | undefined;
+  Location: string | undefined;
 }
 
 export namespace GetIPSetResponse {
@@ -2922,14 +2927,9 @@ export namespace GetMasterAccountRequest {
  */
 export interface Master {
   /**
-   * <p>The ID of the account used as the master account.</p>
+   * <p>The value used to validate the master account to the member account.</p>
    */
-  AccountId?: string;
-
-  /**
-   * <p>The timestamp when the invitation was sent.</p>
-   */
-  InvitedAt?: string;
+  InvitationId?: string;
 
   /**
    * <p>The status of the relationship between the master and member accounts.</p>
@@ -2937,9 +2937,14 @@ export interface Master {
   RelationshipStatus?: string;
 
   /**
-   * <p>The value used to validate the master account to the member account.</p>
+   * <p>The timestamp when the invitation was sent.</p>
    */
-  InvitationId?: string;
+  InvitedAt?: string;
+
+  /**
+   * <p>The ID of the account used as the master account.</p>
+   */
+  AccountId?: string;
 }
 
 export namespace Master {
@@ -2984,14 +2989,14 @@ export namespace GetMemberDetectorsRequest {
  */
 export interface MemberDataSourceConfiguration {
   /**
-   * <p>Contains information on the status of data sources for the account.</p>
-   */
-  DataSources: DataSourceConfigurationsResult | undefined;
-
-  /**
    * <p>The account ID for the member account.</p>
    */
   AccountId: string | undefined;
+
+  /**
+   * <p>Contains information on the status of data sources for the account.</p>
+   */
+  DataSources: DataSourceConfigurationsResult | undefined;
 }
 
 export namespace MemberDataSourceConfiguration {
@@ -3002,15 +3007,15 @@ export namespace MemberDataSourceConfiguration {
 
 export interface GetMemberDetectorsResponse {
   /**
+   * <p>An object that describes which data sources are enabled for a member account.</p>
+   */
+  MemberDataSourceConfigurations: MemberDataSourceConfiguration[] | undefined;
+
+  /**
    * <p>A list of member account IDs that were unable to be processed along with an explanation
    *       for why they were not processed.</p>
    */
   UnprocessedAccounts: UnprocessedAccount[] | undefined;
-
-  /**
-   * <p>An object that describes which data sources are enabled for a member account.</p>
-   */
-  MemberDataSourceConfigurations: MemberDataSourceConfiguration[] | undefined;
 }
 
 export namespace GetMemberDetectorsResponse {
@@ -3043,9 +3048,9 @@ export namespace GetMembersRequest {
  */
 export interface Member {
   /**
-   * <p>The status of the relationship between the member and the master.</p>
+   * <p>The last-updated timestamp of the member.</p>
    */
-  RelationshipStatus: string | undefined;
+  UpdatedAt: string | undefined;
 
   /**
    * <p>The master account ID.</p>
@@ -3058,9 +3063,9 @@ export interface Member {
   AccountId: string | undefined;
 
   /**
-   * <p>The last-updated timestamp of the member.</p>
+   * <p>The email address of the member account.</p>
    */
-  UpdatedAt: string | undefined;
+  Email: string | undefined;
 
   /**
    * <p>The detector ID of the member account.</p>
@@ -3068,14 +3073,14 @@ export interface Member {
   DetectorId?: string;
 
   /**
+   * <p>The status of the relationship between the member and the master.</p>
+   */
+  RelationshipStatus: string | undefined;
+
+  /**
    * <p>The timestamp when the invitation was sent.</p>
    */
   InvitedAt?: string;
-
-  /**
-   * <p>The email address of the member account.</p>
-   */
-  Email: string | undefined;
 }
 
 export namespace Member {
@@ -3086,15 +3091,15 @@ export namespace Member {
 
 export interface GetMembersResponse {
   /**
-   * <p>A list of members.</p>
-   */
-  Members: Member[] | undefined;
-
-  /**
    * <p>A list of objects that contain the unprocessed account and a result string that explains
    *       why it was unprocessed.</p>
    */
   UnprocessedAccounts: UnprocessedAccount[] | undefined;
+
+  /**
+   * <p>A list of members.</p>
+   */
+  Members: Member[] | undefined;
 }
 
 export namespace GetMembersResponse {
@@ -3133,20 +3138,14 @@ export enum ThreatIntelSetStatus {
 
 export interface GetThreatIntelSetResponse {
   /**
-   * <p>A user-friendly ThreatIntelSet name displayed in all findings that are generated by
-   *       activity that involves IP addresses included in this ThreatIntelSet.</p>
+   * <p>The tags of the threat list resource.</p>
    */
-  Name: string | undefined;
+  Tags?: { [key: string]: string };
 
   /**
    * <p>The format of the threatIntelSet.</p>
    */
   Format: ThreatIntelSetFormat | string | undefined;
-
-  /**
-   * <p>The status of threatIntelSet file uploaded.</p>
-   */
-  Status: ThreatIntelSetStatus | string | undefined;
 
   /**
    * <p>The URI of the file that contains the ThreatIntelSet. For example:
@@ -3155,9 +3154,15 @@ export interface GetThreatIntelSetResponse {
   Location: string | undefined;
 
   /**
-   * <p>The tags of the threat list resource.</p>
+   * <p>A user-friendly ThreatIntelSet name displayed in all findings that are generated by
+   *       activity that involves IP addresses included in this ThreatIntelSet.</p>
    */
-  Tags?: { [key: string]: string };
+  Name: string | undefined;
+
+  /**
+   * <p>The status of threatIntelSet file uploaded.</p>
+   */
+  Status: ThreatIntelSetStatus | string | undefined;
 }
 
 export namespace GetThreatIntelSetResponse {
@@ -3171,9 +3176,10 @@ export namespace GetThreatIntelSetResponse {
  */
 export interface UsageCriteria {
   /**
-   * <p>The data sources to aggregate usage statistics from.</p>
+   * <p>The resources to aggregate usage statistics from. Only accepts exact resource
+   *       names.</p>
    */
-  DataSources: (DataSource | string)[] | undefined;
+  Resources?: string[];
 
   /**
    * <p>The account IDs to aggregate usage statistics from.</p>
@@ -3181,10 +3187,9 @@ export interface UsageCriteria {
   AccountIds?: string[];
 
   /**
-   * <p>The resources to aggregate usage statistics from. Only accepts exact resource
-   *       names.</p>
+   * <p>The data sources to aggregate usage statistics from.</p>
    */
-  Resources?: string[];
+  DataSources: (DataSource | string)[] | undefined;
 }
 
 export namespace UsageCriteria {
@@ -3202,14 +3207,14 @@ export enum UsageStatisticType {
 
 export interface GetUsageStatisticsRequest {
   /**
-   * <p>Represents the criteria used for querying usage.</p>
-   */
-  UsageCriteria: UsageCriteria | undefined;
-
-  /**
    * <p>The type of usage statistics to retrieve.</p>
    */
   UsageStatisticType: UsageStatisticType | string | undefined;
+
+  /**
+   * <p>The maximum number of results to return in the response.</p>
+   */
+  MaxResults?: number;
 
   /**
    * <p>The ID of the detector that specifies the GuardDuty service whose usage statistics you
@@ -3218,15 +3223,9 @@ export interface GetUsageStatisticsRequest {
   DetectorId: string | undefined;
 
   /**
-   * <p>The currency unit you would like to view your usage statistics in. Current valid values
-   *       are USD.</p>
+   * <p>Represents the criteria used for querying usage.</p>
    */
-  Unit?: string;
-
-  /**
-   * <p>The maximum number of results to return in the response.</p>
-   */
-  MaxResults?: number;
+  UsageCriteria: UsageCriteria | undefined;
 
   /**
    * <p>A token to use for paginating results that are returned in the response. Set the value of
@@ -3235,6 +3234,12 @@ export interface GetUsageStatisticsRequest {
    *       page.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The currency unit you would like to view your usage statistics in. Current valid values
+   *       are USD.</p>
+   */
+  Unit?: string;
 }
 
 export namespace GetUsageStatisticsRequest {
@@ -3269,14 +3274,14 @@ export namespace Total {
  */
 export interface UsageAccountResult {
   /**
-   * <p>The Account ID that generated usage.</p>
-   */
-  AccountId?: string;
-
-  /**
    * <p>Represents the total of usage for the Account ID.</p>
    */
   Total?: Total;
+
+  /**
+   * <p>The Account ID that generated usage.</p>
+   */
+  AccountId?: string;
 }
 
 export namespace UsageAccountResult {
@@ -3311,14 +3316,14 @@ export namespace UsageDataSourceResult {
  */
 export interface UsageResourceResult {
   /**
-   * <p>Represents the sum total of usage for the specified resource type.</p>
-   */
-  Total?: Total;
-
-  /**
    * <p>The AWS resource that generated usage.</p>
    */
   Resource?: string;
+
+  /**
+   * <p>Represents the sum total of usage for the specified resource type.</p>
+   */
+  Total?: Total;
 }
 
 export namespace UsageResourceResult {
@@ -3333,25 +3338,25 @@ export namespace UsageResourceResult {
  */
 export interface UsageStatistics {
   /**
+   * <p>The usage statistic sum organized by resource.</p>
+   */
+  SumByResource?: UsageResourceResult[];
+
+  /**
    * <p>Lists the top 50 resources that have generated the most GuardDuty usage, in order from
    *       most to least expensive.</p>
    */
   TopResources?: UsageResourceResult[];
 
   /**
-   * <p>The usage statistic sum organized by on data source.</p>
-   */
-  SumByDataSource?: UsageDataSourceResult[];
-
-  /**
-   * <p>The usage statistic sum organized by resource.</p>
-   */
-  SumByResource?: UsageResourceResult[];
-
-  /**
    * <p>The usage statistic sum organized by account ID.</p>
    */
   SumByAccount?: UsageAccountResult[];
+
+  /**
+   * <p>The usage statistic sum organized by on data source.</p>
+   */
+  SumByDataSource?: UsageDataSourceResult[];
 }
 
 export namespace UsageStatistics {
@@ -3362,16 +3367,16 @@ export namespace UsageStatistics {
 
 export interface GetUsageStatisticsResponse {
   /**
-   * <p>The pagination parameter to be used on the next list operation to retrieve more
-   *       items.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>The usage statistics object. If a UsageStatisticType was provided, the objects
    *       representing other types will be null.</p>
    */
   UsageStatistics?: UsageStatistics;
+
+  /**
+   * <p>The pagination parameter to be used on the next list operation to retrieve more
+   *       items.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace GetUsageStatisticsResponse {
@@ -3382,9 +3387,10 @@ export namespace GetUsageStatisticsResponse {
 
 export interface InviteMembersRequest {
   /**
-   * <p>A Boolean value that specifies whether you want to disable email notification to the accounts that you are inviting to GuardDuty as members.</p>
+   * <p>A list of account IDs of the accounts that you want to invite to GuardDuty as
+   *       members.</p>
    */
-  DisableEmailNotification?: boolean;
+  AccountIds: string[] | undefined;
 
   /**
    * <p>The invitation message that you want to send to the accounts that you're inviting to
@@ -3393,10 +3399,9 @@ export interface InviteMembersRequest {
   Message?: string;
 
   /**
-   * <p>A list of account IDs of the accounts that you want to invite to GuardDuty as
-   *       members.</p>
+   * <p>A Boolean value that specifies whether you want to disable email notification to the accounts that you are inviting to GuardDuty as members.</p>
    */
-  AccountIds: string[] | undefined;
+  DisableEmailNotification?: boolean;
 
   /**
    * <p>The unique ID of the detector of the GuardDuty account that you want to invite members
@@ -3449,15 +3454,15 @@ export namespace ListDetectorsRequest {
 
 export interface ListDetectorsResponse {
   /**
-   * <p>A list of detector IDs.</p>
-   */
-  DetectorIds: string[] | undefined;
-
-  /**
    * <p>The pagination parameter to be used on the next list operation to retrieve more
    *       items.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>A list of detector IDs.</p>
+   */
+  DetectorIds: string[] | undefined;
 }
 
 export namespace ListDetectorsResponse {
@@ -3495,15 +3500,15 @@ export namespace ListFiltersRequest {
 
 export interface ListFiltersResponse {
   /**
-   * <p>A list of filter names.</p>
-   */
-  FilterNames: string[] | undefined;
-
-  /**
    * <p>The pagination parameter to be used on the next list operation to retrieve more
    *       items.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>A list of filter names.</p>
+   */
+  FilterNames: string[] | undefined;
 }
 
 export namespace ListFiltersResponse {
@@ -3513,6 +3518,19 @@ export namespace ListFiltersResponse {
 }
 
 export interface ListFindingsRequest {
+  /**
+   * <p>You can use this parameter when paginating results. Set the value of this parameter to
+   *       null on your first call to the list action. For subsequent calls to the action, fill nextToken
+   *       in the request with the value of NextToken from the previous response to continue listing
+   *       data.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>Represents the criteria used for sorting findings.</p>
+   */
+  SortCriteria?: SortCriteria;
+
   /**
    * <p>The ID of the detector that specifies the GuardDuty service whose findings you want to
    *       list.</p>
@@ -3524,14 +3542,6 @@ export interface ListFindingsRequest {
    *       response. The default value is 50. The maximum value is 50.</p>
    */
   MaxResults?: number;
-
-  /**
-   * <p>You can use this parameter when paginating results. Set the value of this parameter to
-   *       null on your first call to the list action. For subsequent calls to the action, fill nextToken
-   *       in the request with the value of NextToken from the previous response to continue listing
-   *       data.</p>
-   */
-  NextToken?: string;
 
   /**
    * <p>Represents the criteria used for querying findings. Valid values include:</p>
@@ -3690,11 +3700,6 @@ export interface ListFindingsRequest {
    *          </ul>
    */
   FindingCriteria?: FindingCriteria;
-
-  /**
-   * <p>Represents the criteria used for sorting findings.</p>
-   */
-  SortCriteria?: SortCriteria;
 }
 
 export namespace ListFindingsRequest {
@@ -3749,14 +3754,14 @@ export namespace ListInvitationsRequest {
  */
 export interface Invitation {
   /**
+   * <p>The status of the relationship between the inviter and invitee accounts.</p>
+   */
+  RelationshipStatus?: string;
+
+  /**
    * <p>The timestamp when the invitation was sent.</p>
    */
   InvitedAt?: string;
-
-  /**
-   * <p>The ID of the account that the invitation was sent from.</p>
-   */
-  AccountId?: string;
 
   /**
    * <p>The ID of the invitation. This value is used to validate the inviter account to the member
@@ -3765,9 +3770,9 @@ export interface Invitation {
   InvitationId?: string;
 
   /**
-   * <p>The status of the relationship between the inviter and invitee accounts.</p>
+   * <p>The ID of the account that the invitation was sent from.</p>
    */
-  RelationshipStatus?: string;
+  AccountId?: string;
 }
 
 export namespace Invitation {
@@ -3802,18 +3807,18 @@ export interface ListIPSetsRequest {
   DetectorId: string | undefined;
 
   /**
+   * <p>You can use this parameter to indicate the maximum number of items you want in the
+   *       response. The default value is 50. The maximum value is 50.</p>
+   */
+  MaxResults?: number;
+
+  /**
    * <p>You can use this parameter when paginating results. Set the value of this parameter to
    *       null on your first call to the list action. For subsequent calls to the action, fill nextToken
    *       in the request with the value of NextToken from the previous response to continue listing
    *       data.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>You can use this parameter to indicate the maximum number of items you want in the
-   *       response. The default value is 50. The maximum value is 50.</p>
-   */
-  MaxResults?: number;
 }
 
 export namespace ListIPSetsRequest {
@@ -3843,17 +3848,6 @@ export namespace ListIPSetsResponse {
 
 export interface ListMembersRequest {
   /**
-   * <p>You can use this parameter to indicate the maximum number of items you want in the
-   *       response. The default value is 50. The maximum value is 50.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The unique ID of the detector the member is associated with.</p>
-   */
-  DetectorId: string | undefined;
-
-  /**
    * <p>You can use this parameter when paginating results. Set the value of this parameter to
    *       null on your first call to the list action. For subsequent calls to the action, fill nextToken
    *       in the request with the value of NextToken from the previous response to continue listing
@@ -3866,6 +3860,17 @@ export interface ListMembersRequest {
    *       members who haven't been invited yet or have been disassociated).</p>
    */
   OnlyAssociated?: string;
+
+  /**
+   * <p>You can use this parameter to indicate the maximum number of items you want in the
+   *       response. The default value is 50. The maximum value is 50.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The unique ID of the detector the member is associated with.</p>
+   */
+  DetectorId: string | undefined;
 }
 
 export namespace ListMembersRequest {
@@ -3876,15 +3881,15 @@ export namespace ListMembersRequest {
 
 export interface ListMembersResponse {
   /**
+   * <p>A list of members.</p>
+   */
+  Members?: Member[];
+
+  /**
    * <p>The pagination parameter to be used on the next list operation to retrieve more
    *       items.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>A list of members.</p>
-   */
-  Members?: Member[];
 }
 
 export namespace ListMembersResponse {
@@ -3895,17 +3900,17 @@ export namespace ListMembersResponse {
 
 export interface ListOrganizationAdminAccountsRequest {
   /**
-   * <p>The maximum number of results to return in the response.</p>
-   */
-  MaxResults?: number;
-
-  /**
    * <p>A token to use for paginating results that are returned in the response. Set the value of
    *       this parameter to null for the first request to a list action. For subsequent calls, use the
    *         <code>NextToken</code> value returned from the previous request to continue listing results
    *       after the first page.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return in the response.</p>
+   */
+  MaxResults?: number;
 }
 
 export namespace ListOrganizationAdminAccountsRequest {
@@ -3916,16 +3921,16 @@ export namespace ListOrganizationAdminAccountsRequest {
 
 export interface ListOrganizationAdminAccountsResponse {
   /**
-   * <p>The pagination parameter to be used on the next list operation to retrieve more
-   *       items.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>An AdminAccounts object that includes a list of accounts configured as GuardDuty delegated
    *       administrators.</p>
    */
   AdminAccounts?: AdminAccount[];
+
+  /**
+   * <p>The pagination parameter to be used on the next list operation to retrieve more
+   *       items.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace ListOrganizationAdminAccountsResponse {
@@ -3936,9 +3941,12 @@ export namespace ListOrganizationAdminAccountsResponse {
 
 export interface ListPublishingDestinationsRequest {
   /**
-   * <p>The ID of the detector to retrieve publishing destinations for.</p>
+   * <p>A token to use for paginating results that are returned in the response. Set the value of
+   *       this parameter to null for the first request to a list action. For subsequent calls, use the
+   *         <code>NextToken</code> value returned from the previous request to continue listing results
+   *       after the first page.</p>
    */
-  DetectorId: string | undefined;
+  NextToken?: string;
 
   /**
    * <p>The maximum number of results to return in the response.</p>
@@ -3946,12 +3954,9 @@ export interface ListPublishingDestinationsRequest {
   MaxResults?: number;
 
   /**
-   * <p>A token to use for paginating results that are returned in the response. Set the value of
-   *       this parameter to null for the first request to a list action. For subsequent calls, use the
-   *         <code>NextToken</code> value returned from the previous request to continue listing results
-   *       after the first page.</p>
+   * <p>The ID of the detector to retrieve publishing destinations for.</p>
    */
-  NextToken?: string;
+  DetectorId: string | undefined;
 }
 
 export namespace ListPublishingDestinationsRequest {
@@ -3962,18 +3967,18 @@ export namespace ListPublishingDestinationsRequest {
 
 export interface ListPublishingDestinationsResponse {
   /**
-   * <p>A <code>Destinations</code> object that includes information about each publishing
-   *       destination returned.</p>
-   */
-  Destinations: Destination[] | undefined;
-
-  /**
    * <p>A token to use for paginating results that are returned in the response. Set the value of
    *       this parameter to null for the first request to a list action. For subsequent calls, use the
    *         <code>NextToken</code> value returned from the previous request to continue listing results
    *       after the first page.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>A <code>Destinations</code> object that includes information about each publishing
+   *       destination returned.</p>
+   */
+  Destinations: Destination[] | undefined;
 }
 
 export namespace ListPublishingDestinationsResponse {
@@ -4010,12 +4015,10 @@ export namespace ListTagsForResourceResponse {
 
 export interface ListThreatIntelSetsRequest {
   /**
-   * <p>You can use this parameter to paginate results in the response. Set the value of this
-   *       parameter to null on your first call to the list action. For subsequent calls to the action,
-   *       fill nextToken in the request with the value of NextToken from the previous response to
-   *       continue listing data.</p>
+   * <p>You can use this parameter to indicate the maximum number of items that you want in the
+   *       response. The default value is 50. The maximum value is 50.</p>
    */
-  NextToken?: string;
+  MaxResults?: number;
 
   /**
    * <p>The unique ID of the detector that the threatIntelSet is associated with.</p>
@@ -4023,10 +4026,12 @@ export interface ListThreatIntelSetsRequest {
   DetectorId: string | undefined;
 
   /**
-   * <p>You can use this parameter to indicate the maximum number of items that you want in the
-   *       response. The default value is 50. The maximum value is 50.</p>
+   * <p>You can use this parameter to paginate results in the response. Set the value of this
+   *       parameter to null on your first call to the list action. For subsequent calls to the action,
+   *       fill nextToken in the request with the value of NextToken from the previous response to
+   *       continue listing data.</p>
    */
-  MaxResults?: number;
+  NextToken?: string;
 }
 
 export namespace ListThreatIntelSetsRequest {
@@ -4056,15 +4061,15 @@ export namespace ListThreatIntelSetsResponse {
 
 export interface StartMonitoringMembersRequest {
   /**
-   * <p>A list of account IDs of the GuardDuty member accounts to start monitoring.</p>
-   */
-  AccountIds: string[] | undefined;
-
-  /**
    * <p>The unique ID of the detector of the GuardDuty master account associated with the member
    *       accounts to monitor.</p>
    */
   DetectorId: string | undefined;
+
+  /**
+   * <p>A list of account IDs of the GuardDuty member accounts to start monitoring.</p>
+   */
+  AccountIds: string[] | undefined;
 }
 
 export namespace StartMonitoringMembersRequest {
@@ -4122,14 +4127,14 @@ export namespace StopMonitoringMembersResponse {
 
 export interface TagResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) for the GuardDuty resource to apply a tag to.</p>
-   */
-  ResourceArn: string | undefined;
-
-  /**
    * <p>The tags to be added to a resource.</p>
    */
   Tags: { [key: string]: string } | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the GuardDuty resource to apply a tag to.</p>
+   */
+  ResourceArn: string | undefined;
 }
 
 export namespace TagResourceRequest {
@@ -4174,14 +4179,14 @@ export namespace UnarchiveFindingsResponse {
 
 export interface UntagResourceRequest {
   /**
-   * <p>The tag keys to remove from the resource.</p>
-   */
-  TagKeys: string[] | undefined;
-
-  /**
    * <p>The Amazon Resource Name (ARN) for the resource to remove tags from.</p>
    */
   ResourceArn: string | undefined;
+
+  /**
+   * <p>The tag keys to remove from the resource.</p>
+   */
+  TagKeys: string[] | undefined;
 }
 
 export namespace UntagResourceRequest {
@@ -4200,9 +4205,9 @@ export namespace UntagResourceResponse {
 
 export interface UpdateDetectorRequest {
   /**
-   * <p>An object that describes which data sources will be updated.</p>
+   * <p>Specifies whether the detector is enabled or not enabled.</p>
    */
-  DataSources?: DataSourceConfigurations;
+  Enable?: boolean;
 
   /**
    * <p>The unique ID of the detector to update.</p>
@@ -4210,9 +4215,9 @@ export interface UpdateDetectorRequest {
   DetectorId: string | undefined;
 
   /**
-   * <p>Specifies whether the detector is enabled or not enabled.</p>
+   * <p>An object that describes which data sources will be updated.</p>
    */
-  Enable?: boolean;
+  DataSources?: DataSourceConfigurations;
 
   /**
    * <p>An enum value that specifies how frequently findings are exported, such as to CloudWatch
@@ -4237,15 +4242,9 @@ export namespace UpdateDetectorResponse {
 
 export interface UpdateFilterRequest {
   /**
-   * <p>Represents the criteria to be used in the filter for querying findings.</p>
+   * <p>The description of the filter.</p>
    */
-  FindingCriteria?: FindingCriteria;
-
-  /**
-   * <p>Specifies the position of the filter in the list of current filters. Also specifies the
-   *       order in which this filter is applied to the findings.</p>
-   */
-  Rank?: number;
+  Description?: string;
 
   /**
    * <p>The unique ID of the detector that specifies the GuardDuty service where you want to
@@ -4259,9 +4258,15 @@ export interface UpdateFilterRequest {
   Action?: FilterAction | string;
 
   /**
-   * <p>The description of the filter.</p>
+   * <p>Represents the criteria to be used in the filter for querying findings.</p>
    */
-  Description?: string;
+  FindingCriteria?: FindingCriteria;
+
+  /**
+   * <p>Specifies the position of the filter in the list of current filters. Also specifies the
+   *       order in which this filter is applied to the findings.</p>
+   */
+  Rank?: number;
 
   /**
    * <p>The name of the filter.</p>
@@ -4290,14 +4295,14 @@ export namespace UpdateFilterResponse {
 
 export interface UpdateFindingsFeedbackRequest {
   /**
+   * <p>Additional feedback about the GuardDuty findings.</p>
+   */
+  Comments?: string;
+
+  /**
    * <p>The ID of the detector associated with the findings to update feedback for.</p>
    */
   DetectorId: string | undefined;
-
-  /**
-   * <p>The IDs of the findings that you want to mark as useful or not useful.</p>
-   */
-  FindingIds: string[] | undefined;
 
   /**
    * <p>The feedback for the finding.</p>
@@ -4305,9 +4310,9 @@ export interface UpdateFindingsFeedbackRequest {
   Feedback: Feedback | string | undefined;
 
   /**
-   * <p>Additional feedback about the GuardDuty findings.</p>
+   * <p>The IDs of the findings that you want to mark as useful or not useful.</p>
    */
-  Comments?: string;
+  FindingIds: string[] | undefined;
 }
 
 export namespace UpdateFindingsFeedbackRequest {
@@ -4326,9 +4331,9 @@ export namespace UpdateFindingsFeedbackResponse {
 
 export interface UpdateIPSetRequest {
   /**
-   * <p>The unique ID that specifies the IPSet that you want to update.</p>
+   * <p>The updated Boolean value that specifies whether the IPSet is active or not.</p>
    */
-  Name?: string;
+  Activate?: boolean;
 
   /**
    * <p>The unique ID that specifies the IPSet that you want to update.</p>
@@ -4336,20 +4341,20 @@ export interface UpdateIPSetRequest {
   IpSetId: string | undefined;
 
   /**
-   * <p>The updated Boolean value that specifies whether the IPSet is active or not.</p>
+   * <p>The updated URI of the file that contains the IPSet. For example:
+   *       https://s3.us-west-2.amazonaws.com/my-bucket/my-object-key.</p>
    */
-  Activate?: boolean;
+  Location?: string;
+
+  /**
+   * <p>The unique ID that specifies the IPSet that you want to update.</p>
+   */
+  Name?: string;
 
   /**
    * <p>The detectorID that specifies the GuardDuty service whose IPSet you want to update.</p>
    */
   DetectorId: string | undefined;
-
-  /**
-   * <p>The updated URI of the file that contains the IPSet. For example:
-   *       https://s3.us-west-2.amazonaws.com/my-bucket/my-object-key.</p>
-   */
-  Location?: string;
 }
 
 export namespace UpdateIPSetRequest {
@@ -4368,11 +4373,6 @@ export namespace UpdateIPSetResponse {
 
 export interface UpdateMemberDetectorsRequest {
   /**
-   * <p>A list of member account IDs to be updated.</p>
-   */
-  AccountIds: string[] | undefined;
-
-  /**
    * <p>The detector ID of the master account.</p>
    */
   DetectorId: string | undefined;
@@ -4381,6 +4381,11 @@ export interface UpdateMemberDetectorsRequest {
    * <p>An object describes which data sources will be updated.</p>
    */
   DataSources?: DataSourceConfigurations;
+
+  /**
+   * <p>A list of member account IDs to be updated.</p>
+   */
+  AccountIds: string[] | undefined;
 }
 
 export namespace UpdateMemberDetectorsRequest {
@@ -4441,9 +4446,9 @@ export namespace OrganizationDataSourceConfigurations {
 
 export interface UpdateOrganizationConfigurationRequest {
   /**
-   * <p>The ID of the detector to update the delegated administrator for.</p>
+   * <p>An object describes which data sources will be updated.</p>
    */
-  DetectorId: string | undefined;
+  DataSources?: OrganizationDataSourceConfigurations;
 
   /**
    * <p>Indicates whether to automatically enable member accounts in the organization.</p>
@@ -4451,9 +4456,9 @@ export interface UpdateOrganizationConfigurationRequest {
   AutoEnable: boolean | undefined;
 
   /**
-   * <p>An object describes which data sources will be updated.</p>
+   * <p>The ID of the detector to update the delegated administrator for.</p>
    */
-  DataSources?: OrganizationDataSourceConfigurations;
+  DetectorId: string | undefined;
 }
 
 export namespace UpdateOrganizationConfigurationRequest {
@@ -4472,6 +4477,11 @@ export namespace UpdateOrganizationConfigurationResponse {
 
 export interface UpdatePublishingDestinationRequest {
   /**
+   * <p>The ID of the detector associated with the publishing destinations to update.</p>
+   */
+  DetectorId: string | undefined;
+
+  /**
    * <p>A <code>DestinationProperties</code> object that includes the <code>DestinationArn</code>
    *       and <code>KmsKeyArn</code> of the publishing destination.</p>
    */
@@ -4481,11 +4491,6 @@ export interface UpdatePublishingDestinationRequest {
    * <p>The ID of the publishing destination to update.</p>
    */
   DestinationId: string | undefined;
-
-  /**
-   * <p>The ID of the detector associated with the publishing destinations to update.</p>
-   */
-  DetectorId: string | undefined;
 }
 
 export namespace UpdatePublishingDestinationRequest {
@@ -4504,12 +4509,6 @@ export namespace UpdatePublishingDestinationResponse {
 
 export interface UpdateThreatIntelSetRequest {
   /**
-   * <p>The updated Boolean value that specifies whether the ThreateIntelSet is active or
-   *       not.</p>
-   */
-  Activate?: boolean;
-
-  /**
    * <p>The unique ID that specifies the ThreatIntelSet that you want to update.</p>
    */
   ThreatIntelSetId: string | undefined;
@@ -4520,16 +4519,22 @@ export interface UpdateThreatIntelSetRequest {
   Name?: string;
 
   /**
-   * <p>The detectorID that specifies the GuardDuty service whose ThreatIntelSet you want to
-   *       update.</p>
-   */
-  DetectorId: string | undefined;
-
-  /**
    * <p>The updated URI of the file that contains the ThreateIntelSet. For example:
    *       https://s3.us-west-2.amazonaws.com/my-bucket/my-object-key.</p>
    */
   Location?: string;
+
+  /**
+   * <p>The updated Boolean value that specifies whether the ThreateIntelSet is active or
+   *       not.</p>
+   */
+  Activate?: boolean;
+
+  /**
+   * <p>The detectorID that specifies the GuardDuty service whose ThreatIntelSet you want to
+   *       update.</p>
+   */
+  DetectorId: string | undefined;
 }
 
 export namespace UpdateThreatIntelSetRequest {

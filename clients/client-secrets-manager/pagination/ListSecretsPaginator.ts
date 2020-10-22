@@ -29,7 +29,7 @@ export async function* listSecretsPaginate(
   let hasNext = true;
   let page: ListSecretsCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof SecretsManager) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -39,7 +39,7 @@ export async function* listSecretsPaginate(
       throw new Error("Invalid client, expected SecretsManager | SecretsManagerClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

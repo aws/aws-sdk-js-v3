@@ -1,6 +1,7 @@
 export * from "./SavingsplansClient";
 export * from "./Savingsplans";
 export * from "./commands/CreateSavingsPlanCommand";
+export * from "./commands/DeleteQueuedSavingsPlanCommand";
 export * from "./commands/DescribeSavingsPlanRatesCommand";
 export * from "./commands/DescribeSavingsPlansCommand";
 export * from "./commands/DescribeSavingsPlansOfferingRatesCommand";

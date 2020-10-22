@@ -1,9 +1,27 @@
+import { CreateBudgetActionCommandInput, CreateBudgetActionCommandOutput } from "../commands/CreateBudgetActionCommand";
 import { CreateBudgetCommandInput, CreateBudgetCommandOutput } from "../commands/CreateBudgetCommand";
 import { CreateNotificationCommandInput, CreateNotificationCommandOutput } from "../commands/CreateNotificationCommand";
 import { CreateSubscriberCommandInput, CreateSubscriberCommandOutput } from "../commands/CreateSubscriberCommand";
+import { DeleteBudgetActionCommandInput, DeleteBudgetActionCommandOutput } from "../commands/DeleteBudgetActionCommand";
 import { DeleteBudgetCommandInput, DeleteBudgetCommandOutput } from "../commands/DeleteBudgetCommand";
 import { DeleteNotificationCommandInput, DeleteNotificationCommandOutput } from "../commands/DeleteNotificationCommand";
 import { DeleteSubscriberCommandInput, DeleteSubscriberCommandOutput } from "../commands/DeleteSubscriberCommand";
+import {
+  DescribeBudgetActionCommandInput,
+  DescribeBudgetActionCommandOutput,
+} from "../commands/DescribeBudgetActionCommand";
+import {
+  DescribeBudgetActionHistoriesCommandInput,
+  DescribeBudgetActionHistoriesCommandOutput,
+} from "../commands/DescribeBudgetActionHistoriesCommand";
+import {
+  DescribeBudgetActionsForAccountCommandInput,
+  DescribeBudgetActionsForAccountCommandOutput,
+} from "../commands/DescribeBudgetActionsForAccountCommand";
+import {
+  DescribeBudgetActionsForBudgetCommandInput,
+  DescribeBudgetActionsForBudgetCommandOutput,
+} from "../commands/DescribeBudgetActionsForBudgetCommand";
 import { DescribeBudgetCommandInput, DescribeBudgetCommandOutput } from "../commands/DescribeBudgetCommand";
 import {
   DescribeBudgetPerformanceHistoryCommandInput,
@@ -18,16 +36,27 @@ import {
   DescribeSubscribersForNotificationCommandInput,
   DescribeSubscribersForNotificationCommandOutput,
 } from "../commands/DescribeSubscribersForNotificationCommand";
+import {
+  ExecuteBudgetActionCommandInput,
+  ExecuteBudgetActionCommandOutput,
+} from "../commands/ExecuteBudgetActionCommand";
+import { UpdateBudgetActionCommandInput, UpdateBudgetActionCommandOutput } from "../commands/UpdateBudgetActionCommand";
 import { UpdateBudgetCommandInput, UpdateBudgetCommandOutput } from "../commands/UpdateBudgetCommand";
 import { UpdateNotificationCommandInput, UpdateNotificationCommandOutput } from "../commands/UpdateNotificationCommand";
 import { UpdateSubscriberCommandInput, UpdateSubscriberCommandOutput } from "../commands/UpdateSubscriberCommand";
 import {
   AccessDeniedException,
+  Action,
+  ActionHistory,
+  ActionHistoryDetails,
+  ActionThreshold,
   Budget,
   BudgetPerformanceHistory,
   BudgetedAndActualAmounts,
   CalculatedSpend,
   CostTypes,
+  CreateBudgetActionRequest,
+  CreateBudgetActionResponse,
   CreateBudgetRequest,
   CreateBudgetResponse,
   CreateNotificationRequest,
@@ -35,12 +64,23 @@ import {
   CreateSubscriberRequest,
   CreateSubscriberResponse,
   CreationLimitExceededException,
+  Definition,
+  DeleteBudgetActionRequest,
+  DeleteBudgetActionResponse,
   DeleteBudgetRequest,
   DeleteBudgetResponse,
   DeleteNotificationRequest,
   DeleteNotificationResponse,
   DeleteSubscriberRequest,
   DeleteSubscriberResponse,
+  DescribeBudgetActionHistoriesRequest,
+  DescribeBudgetActionHistoriesResponse,
+  DescribeBudgetActionRequest,
+  DescribeBudgetActionResponse,
+  DescribeBudgetActionsForAccountRequest,
+  DescribeBudgetActionsForAccountResponse,
+  DescribeBudgetActionsForBudgetRequest,
+  DescribeBudgetActionsForBudgetResponse,
   DescribeBudgetPerformanceHistoryRequest,
   DescribeBudgetPerformanceHistoryResponse,
   DescribeBudgetRequest,
@@ -52,16 +92,24 @@ import {
   DescribeSubscribersForNotificationRequest,
   DescribeSubscribersForNotificationResponse,
   DuplicateRecordException,
+  ExecuteBudgetActionRequest,
+  ExecuteBudgetActionResponse,
   ExpiredNextTokenException,
+  IamActionDefinition,
   InternalErrorException,
   InvalidNextTokenException,
   InvalidParameterException,
   NotFoundException,
   Notification,
   NotificationWithSubscribers,
+  ResourceLockedException,
+  ScpActionDefinition,
   Spend,
+  SsmActionDefinition,
   Subscriber,
   TimePeriod,
+  UpdateBudgetActionRequest,
+  UpdateBudgetActionResponse,
   UpdateBudgetRequest,
   UpdateBudgetResponse,
   UpdateNotificationRequest,
@@ -89,6 +137,19 @@ export const serializeAws_json1_1CreateBudgetCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateBudgetRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1CreateBudgetActionCommand = async (
+  input: CreateBudgetActionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSBudgetServiceGateway.CreateBudgetAction",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1CreateBudgetActionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -131,6 +192,19 @@ export const serializeAws_json1_1DeleteBudgetCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1DeleteBudgetActionCommand = async (
+  input: DeleteBudgetActionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSBudgetServiceGateway.DeleteBudgetAction",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DeleteBudgetActionRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1DeleteNotificationCommand = async (
   input: DeleteNotificationCommandInput,
   context: __SerdeContext
@@ -167,6 +241,58 @@ export const serializeAws_json1_1DescribeBudgetCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeBudgetRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DescribeBudgetActionCommand = async (
+  input: DescribeBudgetActionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSBudgetServiceGateway.DescribeBudgetAction",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DescribeBudgetActionRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DescribeBudgetActionHistoriesCommand = async (
+  input: DescribeBudgetActionHistoriesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSBudgetServiceGateway.DescribeBudgetActionHistories",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DescribeBudgetActionHistoriesRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DescribeBudgetActionsForAccountCommand = async (
+  input: DescribeBudgetActionsForAccountCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSBudgetServiceGateway.DescribeBudgetActionsForAccount",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DescribeBudgetActionsForAccountRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DescribeBudgetActionsForBudgetCommand = async (
+  input: DescribeBudgetActionsForBudgetCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSBudgetServiceGateway.DescribeBudgetActionsForBudget",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DescribeBudgetActionsForBudgetRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -222,6 +348,19 @@ export const serializeAws_json1_1DescribeSubscribersForNotificationCommand = asy
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1ExecuteBudgetActionCommand = async (
+  input: ExecuteBudgetActionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSBudgetServiceGateway.ExecuteBudgetAction",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ExecuteBudgetActionRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1UpdateBudgetCommand = async (
   input: UpdateBudgetCommandInput,
   context: __SerdeContext
@@ -232,6 +371,19 @@ export const serializeAws_json1_1UpdateBudgetCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateBudgetRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1UpdateBudgetActionCommand = async (
+  input: UpdateBudgetActionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSBudgetServiceGateway.UpdateBudgetAction",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1UpdateBudgetActionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -327,6 +479,101 @@ const deserializeAws_json1_1CreateBudgetCommandError = async (
     case "com.amazonaws.budgets#InvalidParameterException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1CreateBudgetActionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateBudgetActionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1CreateBudgetActionCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1CreateBudgetActionResponse(data, context);
+  const response: CreateBudgetActionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1CreateBudgetActionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateBudgetActionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.budgets#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "CreationLimitExceededException":
+    case "com.amazonaws.budgets#CreationLimitExceededException":
+      response = {
+        ...(await deserializeAws_json1_1CreationLimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "DuplicateRecordException":
+    case "com.amazonaws.budgets#DuplicateRecordException":
+      response = {
+        ...(await deserializeAws_json1_1DuplicateRecordExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalErrorException":
+    case "com.amazonaws.budgets#InternalErrorException":
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterException":
+    case "com.amazonaws.budgets#InvalidParameterException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.budgets#NotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -617,6 +864,93 @@ const deserializeAws_json1_1DeleteBudgetCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1DeleteBudgetActionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteBudgetActionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DeleteBudgetActionCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DeleteBudgetActionResponse(data, context);
+  const response: DeleteBudgetActionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DeleteBudgetActionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteBudgetActionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.budgets#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalErrorException":
+    case "com.amazonaws.budgets#InternalErrorException":
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterException":
+    case "com.amazonaws.budgets#InvalidParameterException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.budgets#NotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceLockedException":
+    case "com.amazonaws.budgets#ResourceLockedException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceLockedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1DeleteNotificationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -817,6 +1151,338 @@ const deserializeAws_json1_1DescribeBudgetCommandError = async (
     case "com.amazonaws.budgets#InternalErrorException":
       response = {
         ...(await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterException":
+    case "com.amazonaws.budgets#InvalidParameterException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.budgets#NotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1DescribeBudgetActionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeBudgetActionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DescribeBudgetActionCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeBudgetActionResponse(data, context);
+  const response: DescribeBudgetActionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DescribeBudgetActionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeBudgetActionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.budgets#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalErrorException":
+    case "com.amazonaws.budgets#InternalErrorException":
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterException":
+    case "com.amazonaws.budgets#InvalidParameterException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.budgets#NotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1DescribeBudgetActionHistoriesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeBudgetActionHistoriesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DescribeBudgetActionHistoriesCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeBudgetActionHistoriesResponse(data, context);
+  const response: DescribeBudgetActionHistoriesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DescribeBudgetActionHistoriesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeBudgetActionHistoriesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.budgets#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalErrorException":
+    case "com.amazonaws.budgets#InternalErrorException":
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidNextTokenException":
+    case "com.amazonaws.budgets#InvalidNextTokenException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterException":
+    case "com.amazonaws.budgets#InvalidParameterException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.budgets#NotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1DescribeBudgetActionsForAccountCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeBudgetActionsForAccountCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DescribeBudgetActionsForAccountCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeBudgetActionsForAccountResponse(data, context);
+  const response: DescribeBudgetActionsForAccountCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DescribeBudgetActionsForAccountCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeBudgetActionsForAccountCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.budgets#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalErrorException":
+    case "com.amazonaws.budgets#InternalErrorException":
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidNextTokenException":
+    case "com.amazonaws.budgets#InvalidNextTokenException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterException":
+    case "com.amazonaws.budgets#InvalidParameterException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1DescribeBudgetActionsForBudgetCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeBudgetActionsForBudgetCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DescribeBudgetActionsForBudgetCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeBudgetActionsForBudgetResponse(data, context);
+  const response: DescribeBudgetActionsForBudgetCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DescribeBudgetActionsForBudgetCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeBudgetActionsForBudgetCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.budgets#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalErrorException":
+    case "com.amazonaws.budgets#InternalErrorException":
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidNextTokenException":
+    case "com.amazonaws.budgets#InvalidNextTokenException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -1234,6 +1900,93 @@ const deserializeAws_json1_1DescribeSubscribersForNotificationCommandError = asy
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1ExecuteBudgetActionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ExecuteBudgetActionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ExecuteBudgetActionCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ExecuteBudgetActionResponse(data, context);
+  const response: ExecuteBudgetActionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ExecuteBudgetActionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ExecuteBudgetActionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.budgets#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalErrorException":
+    case "com.amazonaws.budgets#InternalErrorException":
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterException":
+    case "com.amazonaws.budgets#InvalidParameterException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.budgets#NotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceLockedException":
+    case "com.amazonaws.budgets#ResourceLockedException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceLockedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1UpdateBudgetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -1292,6 +2045,93 @@ const deserializeAws_json1_1UpdateBudgetCommandError = async (
     case "com.amazonaws.budgets#NotFoundException":
       response = {
         ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1UpdateBudgetActionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateBudgetActionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1UpdateBudgetActionCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1UpdateBudgetActionResponse(data, context);
+  const response: UpdateBudgetActionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1UpdateBudgetActionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateBudgetActionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.budgets#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalErrorException":
+    case "com.amazonaws.budgets#InternalErrorException":
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterException":
+    case "com.amazonaws.budgets#InvalidParameterException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.budgets#NotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceLockedException":
+    case "com.amazonaws.budgets#ResourceLockedException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceLockedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -1607,6 +2447,28 @@ const deserializeAws_json1_1NotFoundExceptionResponse = async (
   return contents;
 };
 
+const deserializeAws_json1_1ResourceLockedExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ResourceLockedException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1ResourceLockedException(body, context);
+  const contents: ResourceLockedException = {
+    name: "ResourceLockedException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
+const serializeAws_json1_1ActionThreshold = (input: ActionThreshold, context: __SerdeContext): any => {
+  return {
+    ...(input.ActionThresholdType !== undefined && { ActionThresholdType: input.ActionThresholdType }),
+    ...(input.ActionThresholdValue !== undefined && { ActionThresholdValue: input.ActionThresholdValue }),
+  };
+};
+
 const serializeAws_json1_1Budget = (input: Budget, context: __SerdeContext): any => {
   return {
     ...(input.BudgetLimit !== undefined && { BudgetLimit: serializeAws_json1_1Spend(input.BudgetLimit, context) }),
@@ -1663,6 +2525,27 @@ const serializeAws_json1_1CostTypes = (input: CostTypes, context: __SerdeContext
   };
 };
 
+const serializeAws_json1_1CreateBudgetActionRequest = (
+  input: CreateBudgetActionRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AccountId !== undefined && { AccountId: input.AccountId }),
+    ...(input.ActionThreshold !== undefined && {
+      ActionThreshold: serializeAws_json1_1ActionThreshold(input.ActionThreshold, context),
+    }),
+    ...(input.ActionType !== undefined && { ActionType: input.ActionType }),
+    ...(input.ApprovalModel !== undefined && { ApprovalModel: input.ApprovalModel }),
+    ...(input.BudgetName !== undefined && { BudgetName: input.BudgetName }),
+    ...(input.Definition !== undefined && { Definition: serializeAws_json1_1Definition(input.Definition, context) }),
+    ...(input.ExecutionRoleArn !== undefined && { ExecutionRoleArn: input.ExecutionRoleArn }),
+    ...(input.NotificationType !== undefined && { NotificationType: input.NotificationType }),
+    ...(input.Subscribers !== undefined && {
+      Subscribers: serializeAws_json1_1Subscribers(input.Subscribers, context),
+    }),
+  };
+};
+
 const serializeAws_json1_1CreateBudgetRequest = (input: CreateBudgetRequest, context: __SerdeContext): any => {
   return {
     ...(input.AccountId !== undefined && { AccountId: input.AccountId }),
@@ -1703,6 +2586,31 @@ const serializeAws_json1_1CreateSubscriberRequest = (input: CreateSubscriberRequ
   };
 };
 
+const serializeAws_json1_1Definition = (input: Definition, context: __SerdeContext): any => {
+  return {
+    ...(input.IamActionDefinition !== undefined && {
+      IamActionDefinition: serializeAws_json1_1IamActionDefinition(input.IamActionDefinition, context),
+    }),
+    ...(input.ScpActionDefinition !== undefined && {
+      ScpActionDefinition: serializeAws_json1_1ScpActionDefinition(input.ScpActionDefinition, context),
+    }),
+    ...(input.SsmActionDefinition !== undefined && {
+      SsmActionDefinition: serializeAws_json1_1SsmActionDefinition(input.SsmActionDefinition, context),
+    }),
+  };
+};
+
+const serializeAws_json1_1DeleteBudgetActionRequest = (
+  input: DeleteBudgetActionRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AccountId !== undefined && { AccountId: input.AccountId }),
+    ...(input.ActionId !== undefined && { ActionId: input.ActionId }),
+    ...(input.BudgetName !== undefined && { BudgetName: input.BudgetName }),
+  };
+};
+
 const serializeAws_json1_1DeleteBudgetRequest = (input: DeleteBudgetRequest, context: __SerdeContext): any => {
   return {
     ...(input.AccountId !== undefined && { AccountId: input.AccountId }),
@@ -1731,6 +2639,54 @@ const serializeAws_json1_1DeleteSubscriberRequest = (input: DeleteSubscriberRequ
       Notification: serializeAws_json1_1Notification(input.Notification, context),
     }),
     ...(input.Subscriber !== undefined && { Subscriber: serializeAws_json1_1Subscriber(input.Subscriber, context) }),
+  };
+};
+
+const serializeAws_json1_1DescribeBudgetActionHistoriesRequest = (
+  input: DescribeBudgetActionHistoriesRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AccountId !== undefined && { AccountId: input.AccountId }),
+    ...(input.ActionId !== undefined && { ActionId: input.ActionId }),
+    ...(input.BudgetName !== undefined && { BudgetName: input.BudgetName }),
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.TimePeriod !== undefined && { TimePeriod: serializeAws_json1_1TimePeriod(input.TimePeriod, context) }),
+  };
+};
+
+const serializeAws_json1_1DescribeBudgetActionRequest = (
+  input: DescribeBudgetActionRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AccountId !== undefined && { AccountId: input.AccountId }),
+    ...(input.ActionId !== undefined && { ActionId: input.ActionId }),
+    ...(input.BudgetName !== undefined && { BudgetName: input.BudgetName }),
+  };
+};
+
+const serializeAws_json1_1DescribeBudgetActionsForAccountRequest = (
+  input: DescribeBudgetActionsForAccountRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AccountId !== undefined && { AccountId: input.AccountId }),
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+  };
+};
+
+const serializeAws_json1_1DescribeBudgetActionsForBudgetRequest = (
+  input: DescribeBudgetActionsForBudgetRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AccountId !== undefined && { AccountId: input.AccountId }),
+    ...(input.BudgetName !== undefined && { BudgetName: input.BudgetName }),
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
   };
 };
 
@@ -1793,6 +2749,35 @@ const serializeAws_json1_1DimensionValues = (input: string[], context: __SerdeCo
   return input.map((entry) => entry);
 };
 
+const serializeAws_json1_1ExecuteBudgetActionRequest = (
+  input: ExecuteBudgetActionRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AccountId !== undefined && { AccountId: input.AccountId }),
+    ...(input.ActionId !== undefined && { ActionId: input.ActionId }),
+    ...(input.BudgetName !== undefined && { BudgetName: input.BudgetName }),
+    ...(input.ExecutionType !== undefined && { ExecutionType: input.ExecutionType }),
+  };
+};
+
+const serializeAws_json1_1Groups = (input: string[], context: __SerdeContext): any => {
+  return input.map((entry) => entry);
+};
+
+const serializeAws_json1_1IamActionDefinition = (input: IamActionDefinition, context: __SerdeContext): any => {
+  return {
+    ...(input.Groups !== undefined && { Groups: serializeAws_json1_1Groups(input.Groups, context) }),
+    ...(input.PolicyArn !== undefined && { PolicyArn: input.PolicyArn }),
+    ...(input.Roles !== undefined && { Roles: serializeAws_json1_1Roles(input.Roles, context) }),
+    ...(input.Users !== undefined && { Users: serializeAws_json1_1Users(input.Users, context) }),
+  };
+};
+
+const serializeAws_json1_1InstanceIds = (input: string[], context: __SerdeContext): any => {
+  return input.map((entry) => entry);
+};
+
 const serializeAws_json1_1Notification = (input: Notification, context: __SerdeContext): any => {
   return {
     ...(input.ComparisonOperator !== undefined && { ComparisonOperator: input.ComparisonOperator }),
@@ -1834,10 +2819,31 @@ const serializeAws_json1_1PlannedBudgetLimits = (input: { [key: string]: Spend }
   );
 };
 
+const serializeAws_json1_1Roles = (input: string[], context: __SerdeContext): any => {
+  return input.map((entry) => entry);
+};
+
+const serializeAws_json1_1ScpActionDefinition = (input: ScpActionDefinition, context: __SerdeContext): any => {
+  return {
+    ...(input.PolicyId !== undefined && { PolicyId: input.PolicyId }),
+    ...(input.TargetIds !== undefined && { TargetIds: serializeAws_json1_1TargetIds(input.TargetIds, context) }),
+  };
+};
+
 const serializeAws_json1_1Spend = (input: Spend, context: __SerdeContext): any => {
   return {
     ...(input.Amount !== undefined && { Amount: input.Amount }),
     ...(input.Unit !== undefined && { Unit: input.Unit }),
+  };
+};
+
+const serializeAws_json1_1SsmActionDefinition = (input: SsmActionDefinition, context: __SerdeContext): any => {
+  return {
+    ...(input.ActionSubType !== undefined && { ActionSubType: input.ActionSubType }),
+    ...(input.InstanceIds !== undefined && {
+      InstanceIds: serializeAws_json1_1InstanceIds(input.InstanceIds, context),
+    }),
+    ...(input.Region !== undefined && { Region: input.Region }),
   };
 };
 
@@ -1852,10 +2858,35 @@ const serializeAws_json1_1Subscribers = (input: Subscriber[], context: __SerdeCo
   return input.map((entry) => serializeAws_json1_1Subscriber(entry, context));
 };
 
+const serializeAws_json1_1TargetIds = (input: string[], context: __SerdeContext): any => {
+  return input.map((entry) => entry);
+};
+
 const serializeAws_json1_1TimePeriod = (input: TimePeriod, context: __SerdeContext): any => {
   return {
     ...(input.End !== undefined && { End: Math.round(input.End.getTime() / 1000) }),
     ...(input.Start !== undefined && { Start: Math.round(input.Start.getTime() / 1000) }),
+  };
+};
+
+const serializeAws_json1_1UpdateBudgetActionRequest = (
+  input: UpdateBudgetActionRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AccountId !== undefined && { AccountId: input.AccountId }),
+    ...(input.ActionId !== undefined && { ActionId: input.ActionId }),
+    ...(input.ActionThreshold !== undefined && {
+      ActionThreshold: serializeAws_json1_1ActionThreshold(input.ActionThreshold, context),
+    }),
+    ...(input.ApprovalModel !== undefined && { ApprovalModel: input.ApprovalModel }),
+    ...(input.BudgetName !== undefined && { BudgetName: input.BudgetName }),
+    ...(input.Definition !== undefined && { Definition: serializeAws_json1_1Definition(input.Definition, context) }),
+    ...(input.ExecutionRoleArn !== undefined && { ExecutionRoleArn: input.ExecutionRoleArn }),
+    ...(input.NotificationType !== undefined && { NotificationType: input.NotificationType }),
+    ...(input.Subscribers !== undefined && {
+      Subscribers: serializeAws_json1_1Subscribers(input.Subscribers, context),
+    }),
   };
 };
 
@@ -1898,9 +2929,86 @@ const serializeAws_json1_1UpdateSubscriberRequest = (input: UpdateSubscriberRequ
   };
 };
 
+const serializeAws_json1_1Users = (input: string[], context: __SerdeContext): any => {
+  return input.map((entry) => entry);
+};
+
 const deserializeAws_json1_1AccessDeniedException = (output: any, context: __SerdeContext): AccessDeniedException => {
   return {
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1Action = (output: any, context: __SerdeContext): Action => {
+  return {
+    ActionId: output.ActionId !== undefined && output.ActionId !== null ? output.ActionId : undefined,
+    ActionThreshold:
+      output.ActionThreshold !== undefined && output.ActionThreshold !== null
+        ? deserializeAws_json1_1ActionThreshold(output.ActionThreshold, context)
+        : undefined,
+    ActionType: output.ActionType !== undefined && output.ActionType !== null ? output.ActionType : undefined,
+    ApprovalModel:
+      output.ApprovalModel !== undefined && output.ApprovalModel !== null ? output.ApprovalModel : undefined,
+    BudgetName: output.BudgetName !== undefined && output.BudgetName !== null ? output.BudgetName : undefined,
+    Definition:
+      output.Definition !== undefined && output.Definition !== null
+        ? deserializeAws_json1_1Definition(output.Definition, context)
+        : undefined,
+    ExecutionRoleArn:
+      output.ExecutionRoleArn !== undefined && output.ExecutionRoleArn !== null ? output.ExecutionRoleArn : undefined,
+    NotificationType:
+      output.NotificationType !== undefined && output.NotificationType !== null ? output.NotificationType : undefined,
+    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
+    Subscribers:
+      output.Subscribers !== undefined && output.Subscribers !== null
+        ? deserializeAws_json1_1Subscribers(output.Subscribers, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ActionHistories = (output: any, context: __SerdeContext): ActionHistory[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1ActionHistory(entry, context));
+};
+
+const deserializeAws_json1_1ActionHistory = (output: any, context: __SerdeContext): ActionHistory => {
+  return {
+    ActionHistoryDetails:
+      output.ActionHistoryDetails !== undefined && output.ActionHistoryDetails !== null
+        ? deserializeAws_json1_1ActionHistoryDetails(output.ActionHistoryDetails, context)
+        : undefined,
+    EventType: output.EventType !== undefined && output.EventType !== null ? output.EventType : undefined,
+    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
+    Timestamp:
+      output.Timestamp !== undefined && output.Timestamp !== null
+        ? new Date(Math.round(output.Timestamp * 1000))
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ActionHistoryDetails = (output: any, context: __SerdeContext): ActionHistoryDetails => {
+  return {
+    Action:
+      output.Action !== undefined && output.Action !== null
+        ? deserializeAws_json1_1Action(output.Action, context)
+        : undefined,
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1Actions = (output: any, context: __SerdeContext): Action[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1Action(entry, context));
+};
+
+const deserializeAws_json1_1ActionThreshold = (output: any, context: __SerdeContext): ActionThreshold => {
+  return {
+    ActionThresholdType:
+      output.ActionThresholdType !== undefined && output.ActionThresholdType !== null
+        ? output.ActionThresholdType
+        : undefined,
+    ActionThresholdValue:
+      output.ActionThresholdValue !== undefined && output.ActionThresholdValue !== null
+        ? output.ActionThresholdValue
+        : undefined,
   } as any;
 };
 
@@ -2045,6 +3153,17 @@ const deserializeAws_json1_1CostTypes = (output: any, context: __SerdeContext): 
   } as any;
 };
 
+const deserializeAws_json1_1CreateBudgetActionResponse = (
+  output: any,
+  context: __SerdeContext
+): CreateBudgetActionResponse => {
+  return {
+    AccountId: output.AccountId !== undefined && output.AccountId !== null ? output.AccountId : undefined,
+    ActionId: output.ActionId !== undefined && output.ActionId !== null ? output.ActionId : undefined,
+    BudgetName: output.BudgetName !== undefined && output.BudgetName !== null ? output.BudgetName : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1CreateBudgetResponse = (output: any, context: __SerdeContext): CreateBudgetResponse => {
   return {} as any;
 };
@@ -2072,6 +3191,37 @@ const deserializeAws_json1_1CreationLimitExceededException = (
   } as any;
 };
 
+const deserializeAws_json1_1Definition = (output: any, context: __SerdeContext): Definition => {
+  return {
+    IamActionDefinition:
+      output.IamActionDefinition !== undefined && output.IamActionDefinition !== null
+        ? deserializeAws_json1_1IamActionDefinition(output.IamActionDefinition, context)
+        : undefined,
+    ScpActionDefinition:
+      output.ScpActionDefinition !== undefined && output.ScpActionDefinition !== null
+        ? deserializeAws_json1_1ScpActionDefinition(output.ScpActionDefinition, context)
+        : undefined,
+    SsmActionDefinition:
+      output.SsmActionDefinition !== undefined && output.SsmActionDefinition !== null
+        ? deserializeAws_json1_1SsmActionDefinition(output.SsmActionDefinition, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1DeleteBudgetActionResponse = (
+  output: any,
+  context: __SerdeContext
+): DeleteBudgetActionResponse => {
+  return {
+    AccountId: output.AccountId !== undefined && output.AccountId !== null ? output.AccountId : undefined,
+    Action:
+      output.Action !== undefined && output.Action !== null
+        ? deserializeAws_json1_1Action(output.Action, context)
+        : undefined,
+    BudgetName: output.BudgetName !== undefined && output.BudgetName !== null ? output.BudgetName : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1DeleteBudgetResponse = (output: any, context: __SerdeContext): DeleteBudgetResponse => {
   return {} as any;
 };
@@ -2088,6 +3238,59 @@ const deserializeAws_json1_1DeleteSubscriberResponse = (
   context: __SerdeContext
 ): DeleteSubscriberResponse => {
   return {} as any;
+};
+
+const deserializeAws_json1_1DescribeBudgetActionHistoriesResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeBudgetActionHistoriesResponse => {
+  return {
+    ActionHistories:
+      output.ActionHistories !== undefined && output.ActionHistories !== null
+        ? deserializeAws_json1_1ActionHistories(output.ActionHistories, context)
+        : undefined,
+    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1DescribeBudgetActionResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeBudgetActionResponse => {
+  return {
+    AccountId: output.AccountId !== undefined && output.AccountId !== null ? output.AccountId : undefined,
+    Action:
+      output.Action !== undefined && output.Action !== null
+        ? deserializeAws_json1_1Action(output.Action, context)
+        : undefined,
+    BudgetName: output.BudgetName !== undefined && output.BudgetName !== null ? output.BudgetName : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1DescribeBudgetActionsForAccountResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeBudgetActionsForAccountResponse => {
+  return {
+    Actions:
+      output.Actions !== undefined && output.Actions !== null
+        ? deserializeAws_json1_1Actions(output.Actions, context)
+        : undefined,
+    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1DescribeBudgetActionsForBudgetResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeBudgetActionsForBudgetResponse => {
+  return {
+    Actions:
+      output.Actions !== undefined && output.Actions !== null
+        ? deserializeAws_json1_1Actions(output.Actions, context)
+        : undefined,
+    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+  } as any;
 };
 
 const deserializeAws_json1_1DescribeBudgetPerformanceHistoryResponse = (
@@ -2164,6 +3367,19 @@ const deserializeAws_json1_1DuplicateRecordException = (
   } as any;
 };
 
+const deserializeAws_json1_1ExecuteBudgetActionResponse = (
+  output: any,
+  context: __SerdeContext
+): ExecuteBudgetActionResponse => {
+  return {
+    AccountId: output.AccountId !== undefined && output.AccountId !== null ? output.AccountId : undefined,
+    ActionId: output.ActionId !== undefined && output.ActionId !== null ? output.ActionId : undefined,
+    BudgetName: output.BudgetName !== undefined && output.BudgetName !== null ? output.BudgetName : undefined,
+    ExecutionType:
+      output.ExecutionType !== undefined && output.ExecutionType !== null ? output.ExecutionType : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1ExpiredNextTokenException = (
   output: any,
   context: __SerdeContext
@@ -2171,6 +3387,32 @@ const deserializeAws_json1_1ExpiredNextTokenException = (
   return {
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
+};
+
+const deserializeAws_json1_1Groups = (output: any, context: __SerdeContext): string[] => {
+  return (output || []).map((entry: any) => entry);
+};
+
+const deserializeAws_json1_1IamActionDefinition = (output: any, context: __SerdeContext): IamActionDefinition => {
+  return {
+    Groups:
+      output.Groups !== undefined && output.Groups !== null
+        ? deserializeAws_json1_1Groups(output.Groups, context)
+        : undefined,
+    PolicyArn: output.PolicyArn !== undefined && output.PolicyArn !== null ? output.PolicyArn : undefined,
+    Roles:
+      output.Roles !== undefined && output.Roles !== null
+        ? deserializeAws_json1_1Roles(output.Roles, context)
+        : undefined,
+    Users:
+      output.Users !== undefined && output.Users !== null
+        ? deserializeAws_json1_1Users(output.Users, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1InstanceIds = (output: any, context: __SerdeContext): string[] => {
+  return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_json1_1InternalErrorException = (output: any, context: __SerdeContext): InternalErrorException => {
@@ -2235,10 +3477,45 @@ const deserializeAws_json1_1PlannedBudgetLimits = (output: any, context: __Serde
   );
 };
 
+const deserializeAws_json1_1ResourceLockedException = (
+  output: any,
+  context: __SerdeContext
+): ResourceLockedException => {
+  return {
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1Roles = (output: any, context: __SerdeContext): string[] => {
+  return (output || []).map((entry: any) => entry);
+};
+
+const deserializeAws_json1_1ScpActionDefinition = (output: any, context: __SerdeContext): ScpActionDefinition => {
+  return {
+    PolicyId: output.PolicyId !== undefined && output.PolicyId !== null ? output.PolicyId : undefined,
+    TargetIds:
+      output.TargetIds !== undefined && output.TargetIds !== null
+        ? deserializeAws_json1_1TargetIds(output.TargetIds, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1Spend = (output: any, context: __SerdeContext): Spend => {
   return {
     Amount: output.Amount !== undefined && output.Amount !== null ? output.Amount : undefined,
     Unit: output.Unit !== undefined && output.Unit !== null ? output.Unit : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1SsmActionDefinition = (output: any, context: __SerdeContext): SsmActionDefinition => {
+  return {
+    ActionSubType:
+      output.ActionSubType !== undefined && output.ActionSubType !== null ? output.ActionSubType : undefined,
+    InstanceIds:
+      output.InstanceIds !== undefined && output.InstanceIds !== null
+        ? deserializeAws_json1_1InstanceIds(output.InstanceIds, context)
+        : undefined,
+    Region: output.Region !== undefined && output.Region !== null ? output.Region : undefined,
   } as any;
 };
 
@@ -2254,10 +3531,32 @@ const deserializeAws_json1_1Subscribers = (output: any, context: __SerdeContext)
   return (output || []).map((entry: any) => deserializeAws_json1_1Subscriber(entry, context));
 };
 
+const deserializeAws_json1_1TargetIds = (output: any, context: __SerdeContext): string[] => {
+  return (output || []).map((entry: any) => entry);
+};
+
 const deserializeAws_json1_1TimePeriod = (output: any, context: __SerdeContext): TimePeriod => {
   return {
     End: output.End !== undefined && output.End !== null ? new Date(Math.round(output.End * 1000)) : undefined,
     Start: output.Start !== undefined && output.Start !== null ? new Date(Math.round(output.Start * 1000)) : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1UpdateBudgetActionResponse = (
+  output: any,
+  context: __SerdeContext
+): UpdateBudgetActionResponse => {
+  return {
+    AccountId: output.AccountId !== undefined && output.AccountId !== null ? output.AccountId : undefined,
+    BudgetName: output.BudgetName !== undefined && output.BudgetName !== null ? output.BudgetName : undefined,
+    NewAction:
+      output.NewAction !== undefined && output.NewAction !== null
+        ? deserializeAws_json1_1Action(output.NewAction, context)
+        : undefined,
+    OldAction:
+      output.OldAction !== undefined && output.OldAction !== null
+        ? deserializeAws_json1_1Action(output.OldAction, context)
+        : undefined,
   } as any;
 };
 
@@ -2277,6 +3576,10 @@ const deserializeAws_json1_1UpdateSubscriberResponse = (
   context: __SerdeContext
 ): UpdateSubscriberResponse => {
   return {} as any;
+};
+
+const deserializeAws_json1_1Users = (output: any, context: __SerdeContext): string[] => {
+  return (output || []).map((entry: any) => entry);
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

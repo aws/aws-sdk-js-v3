@@ -192,11 +192,15 @@ import {
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- * <p>EC2 Image Builder is a fully managed AWS service that makes it easier to automate the creation, management, and deployment of customized, secure, and up-to-date “golden” server images that are pre-installed and pre-configured with software and settings to meet specific IT standards.</p>
+ * <p>EC2 Image Builder is a fully managed AWS service that makes it easier to automate the
+ *       creation, management, and deployment of customized, secure, and up-to-date “golden” server
+ *       images that are pre-installed and pre-configured with software and settings to meet specific
+ *       IT standards.</p>
  */
 export class Imagebuilder extends ImagebuilderClient {
   /**
-   * <p>CancelImageCreation cancels the creation of Image. This operation can only be used on images in a non-terminal state.</p>
+   * <p>CancelImageCreation cancels the creation of Image. This operation can only be used on
+   *       images in a non-terminal state.</p>
    */
   public cancelImageCreation(
     args: CancelImageCreationCommandInput,
@@ -228,7 +232,8 @@ export class Imagebuilder extends ImagebuilderClient {
   }
 
   /**
-   * <p>Creates a new component that can be used to build, validate, test, and assess your image.</p>
+   * <p>Creates a new component that can be used to build, validate, test, and assess your
+   *       image.</p>
    */
   public createComponent(
     args: CreateComponentCommandInput,
@@ -260,7 +265,8 @@ export class Imagebuilder extends ImagebuilderClient {
   }
 
   /**
-   * <p>Creates a new distribution configuration. Distribution configurations define and configure the outputs of your pipeline. </p>
+   * <p>Creates a new distribution configuration. Distribution configurations define and configure
+   *       the outputs of your pipeline. </p>
    */
   public createDistributionConfiguration(
     args: CreateDistributionConfigurationCommandInput,
@@ -292,7 +298,8 @@ export class Imagebuilder extends ImagebuilderClient {
   }
 
   /**
-   * <p> Creates a new image. This request will create a new image along with all of the configured output resources defined in the distribution configuration. </p>
+   * <p> Creates a new image. This request will create a new image along with all of the
+   *       configured output resources defined in the distribution configuration. </p>
    */
   public createImage(args: CreateImageCommandInput, options?: __HttpHandlerOptions): Promise<CreateImageCommandOutput>;
   public createImage(args: CreateImageCommandInput, cb: (err: any, data?: CreateImageCommandOutput) => void): void;
@@ -318,7 +325,8 @@ export class Imagebuilder extends ImagebuilderClient {
   }
 
   /**
-   * <p> Creates a new image pipeline. Image pipelines enable you to automate the creation and distribution of images. </p>
+   * <p> Creates a new image pipeline. Image pipelines enable you to automate the creation and
+   *       distribution of images. </p>
    */
   public createImagePipeline(
     args: CreateImagePipelineCommandInput,
@@ -350,7 +358,8 @@ export class Imagebuilder extends ImagebuilderClient {
   }
 
   /**
-   * <p> Creates a new image recipe. Image recipes define how images are configured, tested, and assessed. </p>
+   * <p> Creates a new image recipe. Image recipes define how images are configured, tested, and
+   *       assessed. </p>
    */
   public createImageRecipe(
     args: CreateImageRecipeCommandInput,
@@ -382,7 +391,8 @@ export class Imagebuilder extends ImagebuilderClient {
   }
 
   /**
-   * <p> Creates a new infrastructure configuration. An infrastructure configuration defines the environment in which your image will be built and tested. </p>
+   * <p> Creates a new infrastructure configuration. An infrastructure configuration defines the
+   *       environment in which your image will be built and tested. </p>
    */
   public createInfrastructureConfiguration(
     args: CreateInfrastructureConfigurationCommandInput,
@@ -1225,7 +1235,9 @@ export class Imagebuilder extends ImagebuilderClient {
   }
 
   /**
-   * <p> Applies a policy to a component. We recommend that you call the RAM API <a href="https://docs.aws.amazon.com/ram/latest/APIReference/API_CreateResourceShare.html">CreateResourceShare</a> to share resources. If you call the Image Builder API <code>PutComponentPolicy</code>, you must also call the RAM API <a href="https://docs.aws.amazon.com/ram/latest/APIReference/API_PromoteResourceShareCreatedFromPolicy.html">PromoteResourceShareCreatedFromPolicy</a> in order for the resource to be visible to all principals with whom the resource is shared. </p>
+   * <p> Applies a policy to a component. We recommend that you call the RAM API <a href="https://docs.aws.amazon.com/ram/latest/APIReference/API_CreateResourceShare.html">CreateResourceShare</a> to share resources. If you call the Image Builder API
+   *         <code>PutComponentPolicy</code>, you must also call the RAM API <a href="https://docs.aws.amazon.com/ram/latest/APIReference/API_PromoteResourceShareCreatedFromPolicy.html">PromoteResourceShareCreatedFromPolicy</a> in order for the resource to be visible to
+   *       all principals with whom the resource is shared. </p>
    */
   public putComponentPolicy(
     args: PutComponentPolicyCommandInput,
@@ -1257,7 +1269,9 @@ export class Imagebuilder extends ImagebuilderClient {
   }
 
   /**
-   * <p>Applies a policy to an image. We recommend that you call the RAM API <a href="https://docs.aws.amazon.com/ram/latest/APIReference/API_CreateResourceShare.html">CreateResourceShare</a> to share resources. If you call the Image Builder API <code>PutImagePolicy</code>, you must also call the RAM API <a href="https://docs.aws.amazon.com/ram/latest/APIReference/API_PromoteResourceShareCreatedFromPolicy.html">PromoteResourceShareCreatedFromPolicy</a> in order for the resource to be visible to all principals with whom the resource is shared. </p>
+   * <p>Applies a policy to an image. We recommend that you call the RAM API <a href="https://docs.aws.amazon.com/ram/latest/APIReference/API_CreateResourceShare.html">CreateResourceShare</a> to share resources. If you call the Image Builder API
+   *         <code>PutImagePolicy</code>, you must also call the RAM API <a href="https://docs.aws.amazon.com/ram/latest/APIReference/API_PromoteResourceShareCreatedFromPolicy.html">PromoteResourceShareCreatedFromPolicy</a> in order for the resource to be visible to
+   *       all principals with whom the resource is shared. </p>
    */
   public putImagePolicy(
     args: PutImagePolicyCommandInput,
@@ -1289,7 +1303,9 @@ export class Imagebuilder extends ImagebuilderClient {
   }
 
   /**
-   * <p> Applies a policy to an image recipe. We recommend that you call the RAM API <a href="https://docs.aws.amazon.com/ram/latest/APIReference/API_CreateResourceShare.html">CreateResourceShare</a> to share resources. If you call the Image Builder API <code>PutImageRecipePolicy</code>, you must also call the RAM API <a href="https://docs.aws.amazon.com/ram/latest/APIReference/API_PromoteResourceShareCreatedFromPolicy.html">PromoteResourceShareCreatedFromPolicy</a> in order for the resource to be visible to all principals with whom the resource is shared. </p>
+   * <p> Applies a policy to an image recipe. We recommend that you call the RAM API <a href="https://docs.aws.amazon.com/ram/latest/APIReference/API_CreateResourceShare.html">CreateResourceShare</a> to share resources. If you call the Image Builder API
+   *         <code>PutImageRecipePolicy</code>, you must also call the RAM API <a href="https://docs.aws.amazon.com/ram/latest/APIReference/API_PromoteResourceShareCreatedFromPolicy.html">PromoteResourceShareCreatedFromPolicy</a> in order for the resource to be visible to
+   *       all principals with whom the resource is shared. </p>
    */
   public putImageRecipePolicy(
     args: PutImageRecipePolicyCommandInput,
@@ -1411,7 +1427,8 @@ export class Imagebuilder extends ImagebuilderClient {
   }
 
   /**
-   * <p> Updates a new distribution configuration. Distribution configurations define and configure the outputs of your pipeline. </p>
+   * <p> Updates a new distribution configuration. Distribution configurations define and
+   *       configure the outputs of your pipeline. </p>
    */
   public updateDistributionConfiguration(
     args: UpdateDistributionConfigurationCommandInput,
@@ -1443,7 +1460,8 @@ export class Imagebuilder extends ImagebuilderClient {
   }
 
   /**
-   * <p> Updates a new image pipeline. Image pipelines enable you to automate the creation and distribution of images. </p>
+   * <p> Updates a new image pipeline. Image pipelines enable you to automate the creation and
+   *       distribution of images. </p>
    */
   public updateImagePipeline(
     args: UpdateImagePipelineCommandInput,
@@ -1475,7 +1493,8 @@ export class Imagebuilder extends ImagebuilderClient {
   }
 
   /**
-   * <p> Updates a new infrastructure configuration. An infrastructure configuration defines the environment in which your image will be built and tested. </p>
+   * <p> Updates a new infrastructure configuration. An infrastructure configuration defines the
+   *       environment in which your image will be built and tested. </p>
    */
   public updateInfrastructureConfiguration(
     args: UpdateInfrastructureConfigurationCommandInput,

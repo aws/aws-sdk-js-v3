@@ -327,19 +327,25 @@ export class Lambda extends LambdaClient {
    *             <li>
    *                <p>
    *                   <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html">Using AWS Lambda with Amazon
-   *             DynamoDB</a>
+   *           DynamoDB</a>
    *                </p>
    *             </li>
    *             <li>
    *                <p>
    *                   <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html">Using AWS Lambda with Amazon
-   *             Kinesis</a>
+   *           Kinesis</a>
    *                </p>
    *             </li>
    *             <li>
    *                <p>
    *                   <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html">Using AWS Lambda with Amazon
    *           SQS</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html">Using AWS Lambda with Amazon
+   *           MSK</a>
    *                </p>
    *             </li>
    *          </ul>
@@ -355,11 +361,11 @@ export class Lambda extends LambdaClient {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>MaximumRecordAgeInSeconds</code> - Discard records older than the specified age.</p>
+   *                   <code>MaximumRecordAgeInSeconds</code> - Discard records older than the specified age. Default -1 (infinite). Minimum 60. Maximum 604800.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>MaximumRetryAttempts</code> - Discard records after the specified number of retries.</p>
+   *                   <code>MaximumRetryAttempts</code> - Discard records after the specified number of retries. Default -1 (infinite). Minimum 0. Maximum 10000. When infinite, failed records will be retried until the record expires.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -484,7 +490,7 @@ export class Lambda extends LambdaClient {
 
   /**
    * <p>Deletes an <a href="https://docs.aws.amazon.com/lambda/latest/dg/intro-invocation-modes.html">event source
-   *         mapping</a>. You can get the identifier of a mapping from the output of <a>ListEventSourceMappings</a>.</p>
+   *       mapping</a>. You can get the identifier of a mapping from the output of <a>ListEventSourceMappings</a>.</p>
    *          <p>When you delete an event source mapping, it enters a <code>Deleting</code> state and might not be completely
    *       deleted for several seconds.</p>
    */
@@ -745,7 +751,7 @@ export class Lambda extends LambdaClient {
 
   /**
    * <p>Returns details about an event source mapping. You can get the identifier of a mapping from the output of
-   *         <a>ListEventSourceMappings</a>.</p>
+   *       <a>ListEventSourceMappings</a>.</p>
    */
   public getEventSourceMapping(
     args: GetEventSourceMappingCommandInput,
@@ -1781,11 +1787,11 @@ export class Lambda extends LambdaClient {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>MaximumRecordAgeInSeconds</code> - Discard records older than the specified age.</p>
+   *                   <code>MaximumRecordAgeInSeconds</code> - Discard records older than the specified age. Default -1 (infinite). Minimum 60. Maximum 604800.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>MaximumRetryAttempts</code> - Discard records after the specified number of retries.</p>
+   *                   <code>MaximumRetryAttempts</code> - Discard records after the specified number of retries. Default -1 (infinite). Minimum 0. Maximum 10000. When infinite, failed records will be retried until the record expires.</p>
    *             </li>
    *             <li>
    *                <p>

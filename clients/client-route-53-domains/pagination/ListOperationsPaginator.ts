@@ -33,7 +33,7 @@ export async function* listOperationsPaginate(
   let hasNext = true;
   let page: ListOperationsCommandOutput;
   while (hasNext) {
-    input["Marker"] = token;
+    input.Marker = token;
     input["MaxItems"] = config.pageSize;
     if (config.client instanceof Route53Domains) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* listOperationsPaginate(
       throw new Error("Invalid client, expected Route53Domains | Route53DomainsClient");
     }
     yield page;
-    token = page["NextPageMarker"];
+    token = page.NextPageMarker;
     hasNext = !!token;
   }
   // @ts-ignore

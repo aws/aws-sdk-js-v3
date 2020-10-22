@@ -3,10 +3,18 @@ import { CancelJobCommandInput, CancelJobCommandOutput } from "./commands/Cancel
 import { CreateAddressCommandInput, CreateAddressCommandOutput } from "./commands/CreateAddressCommand";
 import { CreateClusterCommandInput, CreateClusterCommandOutput } from "./commands/CreateClusterCommand";
 import { CreateJobCommandInput, CreateJobCommandOutput } from "./commands/CreateJobCommand";
+import {
+  CreateReturnShippingLabelCommandInput,
+  CreateReturnShippingLabelCommandOutput,
+} from "./commands/CreateReturnShippingLabelCommand";
 import { DescribeAddressCommandInput, DescribeAddressCommandOutput } from "./commands/DescribeAddressCommand";
 import { DescribeAddressesCommandInput, DescribeAddressesCommandOutput } from "./commands/DescribeAddressesCommand";
 import { DescribeClusterCommandInput, DescribeClusterCommandOutput } from "./commands/DescribeClusterCommand";
 import { DescribeJobCommandInput, DescribeJobCommandOutput } from "./commands/DescribeJobCommand";
+import {
+  DescribeReturnShippingLabelCommandInput,
+  DescribeReturnShippingLabelCommandOutput,
+} from "./commands/DescribeReturnShippingLabelCommand";
 import { GetJobManifestCommandInput, GetJobManifestCommandOutput } from "./commands/GetJobManifestCommand";
 import { GetJobUnlockCodeCommandInput, GetJobUnlockCodeCommandOutput } from "./commands/GetJobUnlockCodeCommand";
 import { GetSnowballUsageCommandInput, GetSnowballUsageCommandOutput } from "./commands/GetSnowballUsageCommand";
@@ -20,6 +28,10 @@ import {
 import { ListJobsCommandInput, ListJobsCommandOutput } from "./commands/ListJobsCommand";
 import { UpdateClusterCommandInput, UpdateClusterCommandOutput } from "./commands/UpdateClusterCommand";
 import { UpdateJobCommandInput, UpdateJobCommandOutput } from "./commands/UpdateJobCommand";
+import {
+  UpdateJobShipmentStateCommandInput,
+  UpdateJobShipmentStateCommandOutput,
+} from "./commands/UpdateJobShipmentStateCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -75,10 +87,12 @@ export type ServiceInputTypes =
   | CreateAddressCommandInput
   | CreateClusterCommandInput
   | CreateJobCommandInput
+  | CreateReturnShippingLabelCommandInput
   | DescribeAddressCommandInput
   | DescribeAddressesCommandInput
   | DescribeClusterCommandInput
   | DescribeJobCommandInput
+  | DescribeReturnShippingLabelCommandInput
   | GetJobManifestCommandInput
   | GetJobUnlockCodeCommandInput
   | GetSnowballUsageCommandInput
@@ -88,7 +102,8 @@ export type ServiceInputTypes =
   | ListCompatibleImagesCommandInput
   | ListJobsCommandInput
   | UpdateClusterCommandInput
-  | UpdateJobCommandInput;
+  | UpdateJobCommandInput
+  | UpdateJobShipmentStateCommandInput;
 
 export type ServiceOutputTypes =
   | CancelClusterCommandOutput
@@ -96,10 +111,12 @@ export type ServiceOutputTypes =
   | CreateAddressCommandOutput
   | CreateClusterCommandOutput
   | CreateJobCommandOutput
+  | CreateReturnShippingLabelCommandOutput
   | DescribeAddressCommandOutput
   | DescribeAddressesCommandOutput
   | DescribeClusterCommandOutput
   | DescribeJobCommandOutput
+  | DescribeReturnShippingLabelCommandOutput
   | GetJobManifestCommandOutput
   | GetJobUnlockCodeCommandOutput
   | GetSnowballUsageCommandOutput
@@ -109,7 +126,8 @@ export type ServiceOutputTypes =
   | ListCompatibleImagesCommandOutput
   | ListJobsCommandOutput
   | UpdateClusterCommandOutput
-  | UpdateJobCommandOutput;
+  | UpdateJobCommandOutput
+  | UpdateJobShipmentStateCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
@@ -224,12 +242,12 @@ export type SnowballClientResolvedConfig = __SmithyResolvedConfiguration<__HttpH
   HostHeaderResolvedConfig;
 
 /**
- * <p>AWS Snowball is a petabyte-scale data transport solution that uses secure devices to
+ * <p>AWS Snow Family is a petabyte-scale data transport solution that uses secure devices to
  *       transfer large amounts of data between your on-premises data centers and Amazon Simple Storage
- *       Service (Amazon S3). The Snowball commands described here provide access to the same
- *       functionality that is available in the AWS Snowball Management Console, which enables you to
- *       create and manage jobs for Snowball. To transfer data locally with a Snowball device, you'll
- *       need to use the Snowball client or the Amazon S3 API adapter for Snowball. For more
+ *       Service (Amazon S3). The Snow commands described here provide access to the same
+ *       functionality that is available in the AWS Snow Family Management Console, which enables you to
+ *       create and manage jobs for a Snow device. To transfer data locally with a Snow device, you'll
+ *       need to use the Snowball Edge client or the Amazon S3 API Interface for Snowball or AWS OpsHub for Snow Family. For more
  *       information, see the <a href="https://docs.aws.amazon.com/AWSImportExport/latest/ug/api-reference.html">User Guide</a>.</p>
  */
 export class SnowballClient extends __Client<

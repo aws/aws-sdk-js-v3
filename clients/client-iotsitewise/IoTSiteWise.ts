@@ -46,6 +46,11 @@ import {
   CreatePortalCommandOutput,
 } from "./commands/CreatePortalCommand";
 import {
+  CreatePresignedPortalUrlCommand,
+  CreatePresignedPortalUrlCommandInput,
+  CreatePresignedPortalUrlCommandOutput,
+} from "./commands/CreatePresignedPortalUrlCommand";
+import {
   CreateProjectCommand,
   CreateProjectCommandInput,
   CreateProjectCommandOutput,
@@ -254,7 +259,7 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 export class IoTSiteWise extends IoTSiteWiseClient {
   /**
    * <p>Associates a child asset with the given parent asset through a hierarchy defined in the
-   *       parent asset's model. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/add-associated-assets.html">Associating Assets</a> in the
+   *       parent asset's model. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/add-associated-assets.html">Associating assets</a> in the
    *         <i>AWS IoT SiteWise User Guide</i>.</p>
    */
   public associateAssets(
@@ -352,8 +357,8 @@ export class IoTSiteWise extends IoTSiteWiseClient {
 
   /**
    * <p>Sends a list of asset property values to AWS IoT SiteWise. Each value is a timestamp-quality-value
-   *       (TQV) data point. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/ingest-api.html">Ingesting
-   *         Data Using the API</a> in the <i>AWS IoT SiteWise User Guide</i>.</p>
+   *       (TQV) data point. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/ingest-api.html">Ingesting data using the API</a> in the
+   *         <i>AWS IoT SiteWise User Guide</i>.</p>
    *          <p>To identify an asset property, you must specify one of the following:</p>
    *          <ul>
    *             <li>
@@ -373,6 +378,9 @@ export class IoTSiteWise extends IoTSiteWiseClient {
    *         TQV has a different quality. For example, if you store a TQV <code>{T1, GOOD, V1}</code>,
    *         then storing <code>{T1, GOOD, V2}</code> replaces the existing TQV.</p>
    *          </important>
+   *          <p>AWS IoT SiteWise authorizes access to each <code>BatchPutAssetPropertyValue</code> entry individually.
+   *       For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/security_iam_service-with-iam.html#security_iam_service-with-iam-id-based-policies-batchputassetpropertyvalue-action">BatchPutAssetPropertyValue authorization</a> in the
+   *       <i>AWS IoT SiteWise User Guide</i>.</p>
    */
   public batchPutAssetPropertyValue(
     args: BatchPutAssetPropertyValueCommandInput,
@@ -404,8 +412,8 @@ export class IoTSiteWise extends IoTSiteWiseClient {
   }
 
   /**
-   * <p>Creates an access policy that grants the specified AWS Single Sign-On user or group access to the
-   *       specified AWS IoT SiteWise Monitor portal or project resource.</p>
+   * <p>Creates an access policy that grants the specified identity (AWS SSO user, AWS SSO group, or
+   *       IAM user) access to the specified AWS IoT SiteWise Monitor portal or project resource.</p>
    */
   public createAccessPolicy(
     args: CreateAccessPolicyCommandInput,
@@ -437,7 +445,7 @@ export class IoTSiteWise extends IoTSiteWiseClient {
   }
 
   /**
-   * <p>Creates an asset from an existing asset model. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/create-assets.html">Creating Assets</a> in the
+   * <p>Creates an asset from an existing asset model. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/create-assets.html">Creating assets</a> in the
    *         <i>AWS IoT SiteWise User Guide</i>.</p>
    */
   public createAsset(args: CreateAssetCommandInput, options?: __HttpHandlerOptions): Promise<CreateAssetCommandOutput>;
@@ -467,7 +475,7 @@ export class IoTSiteWise extends IoTSiteWiseClient {
    * <p>Creates an asset model from specified property and hierarchy definitions. You create
    *       assets from asset models. With asset models, you can easily create assets of the same type
    *       that have standardized definitions. Each asset created from a model inherits the asset model's
-   *       property and hierarchy definitions. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/define-models.html">Defining Asset Models</a> in the
+   *       property and hierarchy definitions. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/define-models.html">Defining asset models</a> in the
    *         <i>AWS IoT SiteWise User Guide</i>.</p>
    */
   public createAssetModel(
@@ -566,14 +574,12 @@ export class IoTSiteWise extends IoTSiteWiseClient {
   }
 
   /**
-   * <p>Creates a portal, which can contain projects and dashboards. Before you can create a
-   *       portal, you must configure AWS Single Sign-On in the current Region. AWS IoT SiteWise Monitor uses AWS SSO to manage
-   *       user permissions. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/monitor-get-started.html#mon-gs-sso">Enabling AWS SSO</a> in the
-   *         <i>AWS IoT SiteWise User Guide</i>.</p>
+   * <p>Creates a portal, which can contain projects and dashboards. AWS IoT SiteWise Monitor uses AWS SSO or IAM
+   *       to authenticate portal users and manage user permissions.</p>
    *          <note>
-   *             <p>Before you can sign in to a new portal, you must add at least one AWS SSO user or group to
-   *         that portal. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/administer-portals.html#portal-change-admins">Adding or Removing Portal
-   *           Administrators</a> in the <i>AWS IoT SiteWise User Guide</i>.</p>
+   *             <p>Before you can sign in to a new portal, you must add at least one identity to that
+   *         portal. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/administer-portals.html#portal-change-admins">Adding or removing portal
+   *           administrators</a> in the <i>AWS IoT SiteWise User Guide</i>.</p>
    *          </note>
    */
   public createPortal(
@@ -592,6 +598,41 @@ export class IoTSiteWise extends IoTSiteWiseClient {
     cb?: (err: any, data?: CreatePortalCommandOutput) => void
   ): Promise<CreatePortalCommandOutput> | void {
     const command = new CreatePortalCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates a pre-signed URL to a portal. Use this operation to create URLs to portals that
+   *       use AWS Identity and Access Management (IAM) to authenticate users. An IAM user with access to a portal can call this API
+   *       to get a URL to that portal. The URL contains a session token that lets the IAM user access
+   *       the portal.</p>
+   */
+  public createPresignedPortalUrl(
+    args: CreatePresignedPortalUrlCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreatePresignedPortalUrlCommandOutput>;
+  public createPresignedPortalUrl(
+    args: CreatePresignedPortalUrlCommandInput,
+    cb: (err: any, data?: CreatePresignedPortalUrlCommandOutput) => void
+  ): void;
+  public createPresignedPortalUrl(
+    args: CreatePresignedPortalUrlCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreatePresignedPortalUrlCommandOutput) => void
+  ): void;
+  public createPresignedPortalUrl(
+    args: CreatePresignedPortalUrlCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreatePresignedPortalUrlCommandOutput) => void),
+    cb?: (err: any, data?: CreatePresignedPortalUrlCommandOutput) => void
+  ): Promise<CreatePresignedPortalUrlCommandOutput> | void {
+    const command = new CreatePresignedPortalUrlCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -635,8 +676,8 @@ export class IoTSiteWise extends IoTSiteWiseClient {
   }
 
   /**
-   * <p>Deletes an access policy that grants the specified AWS Single Sign-On identity access to the
-   *       specified AWS IoT SiteWise Monitor resource. You can use this operation to revoke access to an AWS IoT SiteWise Monitor
+   * <p>Deletes an access policy that grants the specified identity access to the specified
+   *       AWS IoT SiteWise Monitor resource. You can use this operation to revoke access to an AWS IoT SiteWise Monitor
    *       resource.</p>
    */
   public deleteAccessPolicy(
@@ -669,8 +710,8 @@ export class IoTSiteWise extends IoTSiteWiseClient {
   }
 
   /**
-   * <p>Deletes an asset. This action can't be undone. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/delete-assets-and-models.html">Deleting Assets and Models</a> in the
-   *         <i>AWS IoT SiteWise User Guide</i>.
+   * <p>Deletes an asset. This action can't be undone. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/delete-assets-and-models.html">Deleting assets and
+   *         models</a> in the <i>AWS IoT SiteWise User Guide</i>.
    *       </p>
    *          <note>
    *             <p>You can't delete an asset that's associated to another asset. For more information, see
@@ -704,7 +745,7 @@ export class IoTSiteWise extends IoTSiteWiseClient {
    * <p>Deletes an asset model. This action can't be undone. You must delete all assets created
    *       from an asset model before you can delete the model. Also, you can't delete an asset model if
    *       a parent asset model exists that contains a property formula expression that depends on the
-   *       asset model that you want to delete. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/delete-assets-and-models.html">Deleting Assets and Models</a> in the
+   *       asset model that you want to delete. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/delete-assets-and-models.html">Deleting assets and models</a> in the
    *         <i>AWS IoT SiteWise User Guide</i>.</p>
    */
   public deleteAssetModel(
@@ -770,8 +811,7 @@ export class IoTSiteWise extends IoTSiteWiseClient {
 
   /**
    * <p>Deletes a gateway from AWS IoT SiteWise. When you delete a gateway, some of the gateway's files remain
-   *       in your gateway's file system. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/data-retention.html">Data retention</a> in the
-   *         <i>AWS IoT SiteWise User Guide</i>.</p>
+   *       in your gateway's file system.</p>
    */
   public deleteGateway(
     args: DeleteGatewayCommandInput,
@@ -864,8 +904,8 @@ export class IoTSiteWise extends IoTSiteWiseClient {
   }
 
   /**
-   * <p>Describes an access policy, which specifies an AWS SSO user or group's access to an
-   *       AWS IoT SiteWise Monitor portal or project.</p>
+   * <p>Describes an access policy, which specifies an identity's access to an AWS IoT SiteWise Monitor portal or
+   *       project.</p>
    */
   public describeAccessPolicy(
     args: DescribeAccessPolicyCommandInput,
@@ -961,7 +1001,14 @@ export class IoTSiteWise extends IoTSiteWiseClient {
   }
 
   /**
-   * <p>Retrieves information about an asset's property.</p>
+   * <p>Retrieves information about an asset property.</p>
+   *          <note>
+   *             <p>When you call this operation for an attribute property, this response includes the
+   *         default attribute value that you define in the asset model. If you update the default value
+   *         in the model, this operation's response includes the new default value.</p>
+   *          </note>
+   *          <p>This operation doesn't return the value of the asset property. To get the value of an
+   *       asset property, use <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_GetAssetPropertyValue.html">GetAssetPropertyValue</a>.</p>
    */
   public describeAssetProperty(
     args: DescribeAssetPropertyCommandInput,
@@ -1224,8 +1271,8 @@ export class IoTSiteWise extends IoTSiteWiseClient {
   }
 
   /**
-   * <p>Gets aggregated values for an asset property. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/query-industrial-data.html#aggregates">Querying Aggregated Property
-   *         Values</a> in the <i>AWS IoT SiteWise User Guide</i>.</p>
+   * <p>Gets aggregated values for an asset property. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/query-industrial-data.html#aggregates">Querying
+   *         aggregates</a> in the <i>AWS IoT SiteWise User Guide</i>.</p>
    *          <p>To identify an asset property, you must specify one of the following:</p>
    *          <ul>
    *             <li>
@@ -1267,8 +1314,8 @@ export class IoTSiteWise extends IoTSiteWiseClient {
   }
 
   /**
-   * <p>Gets an asset property's current value. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/query-industrial-data.html#current-values">Querying Current Property
-   *         Values</a> in the <i>AWS IoT SiteWise User Guide</i>.</p>
+   * <p>Gets an asset property's current value. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/query-industrial-data.html#current-values">Querying
+   *         current values</a> in the <i>AWS IoT SiteWise User Guide</i>.</p>
    *          <p>To identify an asset property, you must specify one of the following:</p>
    *          <ul>
    *             <li>
@@ -1310,8 +1357,8 @@ export class IoTSiteWise extends IoTSiteWiseClient {
   }
 
   /**
-   * <p>Gets the history of an asset property's values. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/query-industrial-data.html#historical-values">Querying Historical Property
-   *         Values</a> in the <i>AWS IoT SiteWise User Guide</i>.</p>
+   * <p>Gets the history of an asset property's values. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/query-industrial-data.html#historical-values">Querying
+   *         historical values</a> in the <i>AWS IoT SiteWise User Guide</i>.</p>
    *          <p>To identify an asset property, you must specify one of the following:</p>
    *          <ul>
    *             <li>
@@ -1353,8 +1400,8 @@ export class IoTSiteWise extends IoTSiteWiseClient {
   }
 
   /**
-   * <p>Retrieves a paginated list of access policies for an AWS SSO identity (a user or group) or
-   *       an AWS IoT SiteWise Monitor resource (a portal or project).</p>
+   * <p>Retrieves a paginated list of access policies for an identity (an AWS SSO user, an AWS SSO
+   *       group, or an IAM user) or an AWS IoT SiteWise Monitor resource (a portal or project).</p>
    */
   public listAccessPolicies(
     args: ListAccessPoliciesCommandInput,
@@ -1429,9 +1476,8 @@ export class IoTSiteWise extends IoTSiteWiseClient {
    *             </li>
    *          </ul>
    *          <p>You can't use this operation to list all assets. To retrieve summaries for all of your
-   *       assets, use <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_ListAssetModels.html">ListAssetModels</a> to get
-   *       all of your asset model IDs. Then, use ListAssets to get all assets for each asset
-   *       model.</p>
+   *       assets, use <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_ListAssetModels.html">ListAssetModels</a> to get all of your asset model IDs. Then, use ListAssets to get all
+   *       assets for each asset model.</p>
    */
   public listAssets(args: ListAssetsCommandInput, options?: __HttpHandlerOptions): Promise<ListAssetsCommandOutput>;
   public listAssets(args: ListAssetsCommandInput, cb: (err: any, data?: ListAssetsCommandOutput) => void): void;
@@ -1457,8 +1503,16 @@ export class IoTSiteWise extends IoTSiteWiseClient {
   }
 
   /**
-   * <p>Retrieves a paginated list of the assets associated to a parent asset
-   *         (<code>assetId</code>) by a given hierarchy (<code>hierarchyId</code>).</p>
+   * <p>Retrieves a paginated list of associated assets.</p>
+   *          <p>You can use this operation to do the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>List child assets associated to a parent asset by a hierarchy that you specify.</p>
+   *             </li>
+   *             <li>
+   *                <p>List an asset's parent asset.</p>
+   *             </li>
+   *          </ul>
    */
   public listAssociatedAssets(
     args: ListAssociatedAssetsCommandInput,
@@ -1761,8 +1815,8 @@ export class IoTSiteWise extends IoTSiteWiseClient {
   }
 
   /**
-   * <p>Updates an existing access policy that specifies an AWS SSO user or group's access to an
-   *       AWS IoT SiteWise Monitor portal or project resource.</p>
+   * <p>Updates an existing access policy that specifies an identity's access to an AWS IoT SiteWise Monitor
+   *       portal or project resource.</p>
    */
   public updateAccessPolicy(
     args: UpdateAccessPolicyCommandInput,
@@ -1794,7 +1848,7 @@ export class IoTSiteWise extends IoTSiteWiseClient {
   }
 
   /**
-   * <p>Updates an asset's name. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/update-assets-and-models.html">Updating Assets and Models</a> in the
+   * <p>Updates an asset's name. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/update-assets-and-models.html">Updating assets and models</a> in the
    *         <i>AWS IoT SiteWise User Guide</i>.</p>
    */
   public updateAsset(args: UpdateAssetCommandInput, options?: __HttpHandlerOptions): Promise<UpdateAssetCommandOutput>;
@@ -1823,16 +1877,16 @@ export class IoTSiteWise extends IoTSiteWiseClient {
   /**
    * <p>Updates an asset model and all of the assets that were created from the model. Each asset
    *       created from the model inherits the updated asset model's property and hierarchy definitions.
-   *       For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/update-assets-and-models.html">Updating
-   *         Assets and Models</a> in the <i>AWS IoT SiteWise User Guide</i>.</p>
+   *       For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/update-assets-and-models.html">Updating assets and models</a> in the
+   *         <i>AWS IoT SiteWise User Guide</i>.</p>
    *          <important>
    *             <p>This operation overwrites the existing model with the provided model. To avoid deleting
    *         your asset model's properties or hierarchies, you must include their IDs and definitions in
    *         the updated asset model payload. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_DescribeAssetModel.html">DescribeAssetModel</a>.</p>
-   *             <p>If you remove a property from an asset model or update a property's formula expression,
-   *         AWS IoT SiteWise deletes all previous data for that property. If you remove a hierarchy definition from
-   *         an asset model, AWS IoT SiteWise disassociates every asset associated with that hierarchy. You can't
-   *         change the type or data type of an existing property.</p>
+   *             <p>If you remove a property from an asset model, AWS IoT SiteWise deletes all previous data for that
+   *         property. If you remove a hierarchy definition from an asset model, AWS IoT SiteWise disassociates every
+   *         asset associated with that hierarchy. You can't change the type or data type of an existing
+   *         property.</p>
    *          </important>
    */
   public updateAssetModel(

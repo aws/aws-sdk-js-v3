@@ -46,6 +46,10 @@ import {
   ConfirmTopicRuleDestinationCommandInput,
   ConfirmTopicRuleDestinationCommandOutput,
 } from "../commands/ConfirmTopicRuleDestinationCommand";
+import {
+  CreateAuditSuppressionCommandInput,
+  CreateAuditSuppressionCommandOutput,
+} from "../commands/CreateAuditSuppressionCommand";
 import { CreateAuthorizerCommandInput, CreateAuthorizerCommandOutput } from "../commands/CreateAuthorizerCommand";
 import { CreateBillingGroupCommandInput, CreateBillingGroupCommandOutput } from "../commands/CreateBillingGroupCommand";
 import {
@@ -110,6 +114,10 @@ import {
   DeleteAccountAuditConfigurationCommandInput,
   DeleteAccountAuditConfigurationCommandOutput,
 } from "../commands/DeleteAccountAuditConfigurationCommand";
+import {
+  DeleteAuditSuppressionCommandInput,
+  DeleteAuditSuppressionCommandOutput,
+} from "../commands/DeleteAuditSuppressionCommand";
 import { DeleteAuthorizerCommandInput, DeleteAuthorizerCommandOutput } from "../commands/DeleteAuthorizerCommand";
 import { DeleteBillingGroupCommandInput, DeleteBillingGroupCommandOutput } from "../commands/DeleteBillingGroupCommand";
 import {
@@ -185,6 +193,10 @@ import {
   DescribeAuditMitigationActionsTaskCommandInput,
   DescribeAuditMitigationActionsTaskCommandOutput,
 } from "../commands/DescribeAuditMitigationActionsTaskCommand";
+import {
+  DescribeAuditSuppressionCommandInput,
+  DescribeAuditSuppressionCommandOutput,
+} from "../commands/DescribeAuditSuppressionCommand";
 import { DescribeAuditTaskCommandInput, DescribeAuditTaskCommandOutput } from "../commands/DescribeAuditTaskCommand";
 import { DescribeAuthorizerCommandInput, DescribeAuthorizerCommandOutput } from "../commands/DescribeAuthorizerCommand";
 import {
@@ -309,6 +321,10 @@ import {
   ListAuditMitigationActionsTasksCommandInput,
   ListAuditMitigationActionsTasksCommandOutput,
 } from "../commands/ListAuditMitigationActionsTasksCommand";
+import {
+  ListAuditSuppressionsCommandInput,
+  ListAuditSuppressionsCommandOutput,
+} from "../commands/ListAuditSuppressionsCommand";
 import { ListAuditTasksCommandInput, ListAuditTasksCommandOutput } from "../commands/ListAuditTasksCommand";
 import { ListAuthorizersCommandInput, ListAuthorizersCommandOutput } from "../commands/ListAuthorizersCommand";
 import { ListBillingGroupsCommandInput, ListBillingGroupsCommandOutput } from "../commands/ListBillingGroupsCommand";
@@ -502,6 +518,10 @@ import {
   UpdateAccountAuditConfigurationCommandInput,
   UpdateAccountAuditConfigurationCommandOutput,
 } from "../commands/UpdateAccountAuditConfigurationCommand";
+import {
+  UpdateAuditSuppressionCommandInput,
+  UpdateAuditSuppressionCommandOutput,
+} from "../commands/UpdateAuditSuppressionCommand";
 import { UpdateAuthorizerCommandInput, UpdateAuthorizerCommandOutput } from "../commands/UpdateAuthorizerCommand";
 import { UpdateBillingGroupCommandInput, UpdateBillingGroupCommandOutput } from "../commands/UpdateBillingGroupCommand";
 import {
@@ -580,6 +600,7 @@ import {
   AuditMitigationActionsTaskTarget,
   AuditNotificationTarget,
   AuditNotificationType,
+  AuditSuppression,
   AuditTaskMetadata,
   AuthInfo,
   AuthResult,
@@ -595,12 +616,9 @@ import {
   AwsJobTimeoutConfig,
   Behavior,
   BehaviorCriteria,
-  BillingGroupMetadata,
   BillingGroupProperties,
-  CACertificateDescription,
   CertificateStateException,
   CertificateValidationException,
-  CertificateValidity,
   CloudwatchAlarmAction,
   CloudwatchLogsAction,
   CloudwatchMetricAction,
@@ -683,6 +701,9 @@ import {
   ThingTypeProperties,
   ThrottlingException,
   TimeoutConfig,
+  TimestreamAction,
+  TimestreamDimension,
+  TimestreamTimestamp,
   TopicRuleDestination,
   TopicRuleDestinationConfiguration,
   TopicRulePayload,
@@ -695,10 +716,13 @@ import {
   _Stream,
 } from "../models/models_0";
 import {
+  BillingGroupMetadata,
   CACertificate,
+  CACertificateDescription,
   Certificate,
   CertificateConflictException,
   CertificateDescription,
+  CertificateValidity,
   Configuration,
   DomainConfigurationSummary,
   EffectivePolicy,
@@ -754,15 +778,13 @@ import {
   ThingIndexingConfiguration,
   ThingTypeDefinition,
   ThingTypeMetadata,
-  TlsContext,
   TopicRule,
   TopicRuleDestinationSummary,
   TopicRuleListItem,
-  TransferConflictException,
   TransferData,
   ViolationEvent,
 } from "../models/models_1";
-import { ValidationError } from "../models/models_2";
+import { TlsContext, TransferConflictException, ValidationError } from "../models/models_2";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   SmithyException as __SmithyException,
@@ -1164,15 +1186,6 @@ export const serializeAws_restJson1CancelJobExecutionCommand = async (
     "Content-Type": "application/json",
   };
   let resolvedPath = "/things/{thingName}/jobs/{jobId}/cancel";
-  if (input.jobId !== undefined) {
-    const labelValue: string = input.jobId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: jobId.");
-    }
-    resolvedPath = resolvedPath.replace("{jobId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: jobId.");
-  }
   if (input.thingName !== undefined) {
     const labelValue: string = input.thingName;
     if (labelValue.length <= 0) {
@@ -1181,6 +1194,15 @@ export const serializeAws_restJson1CancelJobExecutionCommand = async (
     resolvedPath = resolvedPath.replace("{thingName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: thingName.");
+  }
+  if (input.jobId !== undefined) {
+    const labelValue: string = input.jobId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: jobId.");
+    }
+    resolvedPath = resolvedPath.replace("{jobId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: jobId.");
   }
   const query: any = {
     ...(input.force !== undefined && { force: input.force.toString() }),
@@ -1257,6 +1279,37 @@ export const serializeAws_restJson1ConfirmTopicRuleDestinationCommand = async (
     hostname,
     port,
     method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1CreateAuditSuppressionCommand = async (
+  input: CreateAuditSuppressionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+  };
+  let resolvedPath = "/audit/suppressions/create";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.checkName !== undefined && { checkName: input.checkName }),
+    clientRequestToken: input.clientRequestToken ?? generateIdempotencyToken(),
+    ...(input.description !== undefined && { description: input.description }),
+    ...(input.expirationDate !== undefined && { expirationDate: Math.round(input.expirationDate.getTime() / 1000) }),
+    ...(input.resourceIdentifier !== undefined && {
+      resourceIdentifier: serializeAws_restJson1ResourceIdentifier(input.resourceIdentifier, context),
+    }),
+    ...(input.suppressIndefinitely !== undefined && { suppressIndefinitely: input.suppressIndefinitely }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
     headers,
     path: resolvedPath,
     body,
@@ -2196,6 +2249,33 @@ export const serializeAws_restJson1DeleteAccountAuditConfigurationCommand = asyn
   });
 };
 
+export const serializeAws_restJson1DeleteAuditSuppressionCommand = async (
+  input: DeleteAuditSuppressionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+  };
+  let resolvedPath = "/audit/suppressions/delete";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.checkName !== undefined && { checkName: input.checkName }),
+    ...(input.resourceIdentifier !== undefined && {
+      resourceIdentifier: serializeAws_restJson1ResourceIdentifier(input.resourceIdentifier, context),
+    }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1DeleteAuthorizerCommand = async (
   input: DeleteAuthorizerCommandInput,
   context: __SerdeContext
@@ -2552,8 +2632,8 @@ export const serializeAws_restJson1DeleteOTAUpdateCommand = async (
     throw new Error("No value provided for input HTTP label: otaUpdateId.");
   }
   const query: any = {
-    ...(input.deleteStream !== undefined && { deleteStream: input.deleteStream.toString() }),
     ...(input.forceDeleteAWSJob !== undefined && { forceDeleteAWSJob: input.forceDeleteAWSJob.toString() }),
+    ...(input.deleteStream !== undefined && { deleteStream: input.deleteStream.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -2607,15 +2687,6 @@ export const serializeAws_restJson1DeletePolicyVersionCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/policies/{policyName}/version/{policyVersionId}";
-  if (input.policyVersionId !== undefined) {
-    const labelValue: string = input.policyVersionId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: policyVersionId.");
-    }
-    resolvedPath = resolvedPath.replace("{policyVersionId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: policyVersionId.");
-  }
   if (input.policyName !== undefined) {
     const labelValue: string = input.policyName;
     if (labelValue.length <= 0) {
@@ -2624,6 +2695,15 @@ export const serializeAws_restJson1DeletePolicyVersionCommand = async (
     resolvedPath = resolvedPath.replace("{policyName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: policyName.");
+  }
+  if (input.policyVersionId !== undefined) {
+    const labelValue: string = input.policyVersionId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: policyVersionId.");
+    }
+    resolvedPath = resolvedPath.replace("{policyVersionId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: policyVersionId.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -3026,8 +3106,8 @@ export const serializeAws_restJson1DeleteV2LoggingLevelCommand = async (
   };
   let resolvedPath = "/v2LoggingLevel";
   const query: any = {
-    ...(input.targetType !== undefined && { targetType: input.targetType }),
     ...(input.targetName !== undefined && { targetName: input.targetName }),
+    ...(input.targetType !== undefined && { targetType: input.targetType }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -3152,6 +3232,33 @@ export const serializeAws_restJson1DescribeAuditMitigationActionsTaskCommand = a
     hostname,
     port,
     method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1DescribeAuditSuppressionCommand = async (
+  input: DescribeAuditSuppressionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+  };
+  let resolvedPath = "/audit/suppressions/describe";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.checkName !== undefined && { checkName: input.checkName }),
+    ...(input.resourceIdentifier !== undefined && {
+      resourceIdentifier: serializeAws_restJson1ResourceIdentifier(input.resourceIdentifier, context),
+    }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
     headers,
     path: resolvedPath,
     body,
@@ -3505,15 +3612,6 @@ export const serializeAws_restJson1DescribeJobExecutionCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/things/{thingName}/jobs/{jobId}";
-  if (input.jobId !== undefined) {
-    const labelValue: string = input.jobId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: jobId.");
-    }
-    resolvedPath = resolvedPath.replace("{jobId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: jobId.");
-  }
   if (input.thingName !== undefined) {
     const labelValue: string = input.thingName;
     if (labelValue.length <= 0) {
@@ -3522,6 +3620,15 @@ export const serializeAws_restJson1DescribeJobExecutionCommand = async (
     resolvedPath = resolvedPath.replace("{thingName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: thingName.");
+  }
+  if (input.jobId !== undefined) {
+    const labelValue: string = input.jobId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: jobId.");
+    }
+    resolvedPath = resolvedPath.replace("{jobId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: jobId.");
   }
   const query: any = {
     ...(input.executionNumber !== undefined && { executionNumber: input.executionNumber.toString() }),
@@ -4294,15 +4401,6 @@ export const serializeAws_restJson1GetPolicyVersionCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/policies/{policyName}/version/{policyVersionId}";
-  if (input.policyVersionId !== undefined) {
-    const labelValue: string = input.policyVersionId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: policyVersionId.");
-    }
-    resolvedPath = resolvedPath.replace("{policyVersionId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: policyVersionId.");
-  }
   if (input.policyName !== undefined) {
     const labelValue: string = input.policyName;
     if (labelValue.length <= 0) {
@@ -4311,6 +4409,15 @@ export const serializeAws_restJson1GetPolicyVersionCommand = async (
     resolvedPath = resolvedPath.replace("{policyName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: policyName.");
+  }
+  if (input.policyVersionId !== undefined) {
+    const labelValue: string = input.policyVersionId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: policyVersionId.");
+    }
+    resolvedPath = resolvedPath.replace("{policyVersionId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: policyVersionId.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -4471,10 +4578,10 @@ export const serializeAws_restJson1ListActiveViolationsCommand = async (
   };
   let resolvedPath = "/active-violations";
   const query: any = {
-    ...(input.thingName !== undefined && { thingName: input.thingName }),
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.securityProfileName !== undefined && { securityProfileName: input.securityProfileName }),
+    ...(input.thingName !== undefined && { thingName: input.thingName }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -4508,8 +4615,8 @@ export const serializeAws_restJson1ListAttachedPoliciesCommand = async (
     throw new Error("No value provided for input HTTP label: target.");
   }
   const query: any = {
-    ...(input.marker !== undefined && { marker: input.marker }),
     ...(input.recursive !== undefined && { recursive: input.recursive.toString() }),
+    ...(input.marker !== undefined && { marker: input.marker }),
     ...(input.pageSize !== undefined && { pageSize: input.pageSize.toString() }),
   };
   let body: any;
@@ -4538,6 +4645,7 @@ export const serializeAws_restJson1ListAuditFindingsCommand = async (
   body = JSON.stringify({
     ...(input.checkName !== undefined && { checkName: input.checkName }),
     ...(input.endTime !== undefined && { endTime: Math.round(input.endTime.getTime() / 1000) }),
+    ...(input.listSuppressedFindings !== undefined && { listSuppressedFindings: input.listSuppressedFindings }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
     ...(input.resourceIdentifier !== undefined && {
@@ -4567,11 +4675,11 @@ export const serializeAws_restJson1ListAuditMitigationActionsExecutionsCommand =
   };
   let resolvedPath = "/audit/mitigationactions/executions";
   const query: any = {
-    ...(input.findingId !== undefined && { findingId: input.findingId }),
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.taskId !== undefined && { taskId: input.taskId }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
     ...(input.actionStatus !== undefined && { actionStatus: input.actionStatus }),
+    ...(input.findingId !== undefined && { findingId: input.findingId }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -4596,13 +4704,13 @@ export const serializeAws_restJson1ListAuditMitigationActionsTasksCommand = asyn
   };
   let resolvedPath = "/audit/mitigationactions/tasks";
   const query: any = {
-    ...(input.auditTaskId !== undefined && { auditTaskId: input.auditTaskId }),
-    ...(input.taskStatus !== undefined && { taskStatus: input.taskStatus }),
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.startTime !== undefined && { startTime: (input.startTime.toISOString().split(".")[0] + "Z").toString() }),
+    ...(input.auditTaskId !== undefined && { auditTaskId: input.auditTaskId }),
     ...(input.findingId !== undefined && { findingId: input.findingId }),
+    ...(input.taskStatus !== undefined && { taskStatus: input.taskStatus }),
     ...(input.endTime !== undefined && { endTime: (input.endTime.toISOString().split(".")[0] + "Z").toString() }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -4618,6 +4726,36 @@ export const serializeAws_restJson1ListAuditMitigationActionsTasksCommand = asyn
   });
 };
 
+export const serializeAws_restJson1ListAuditSuppressionsCommand = async (
+  input: ListAuditSuppressionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+  };
+  let resolvedPath = "/audit/suppressions/list";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.ascendingOrder !== undefined && { ascendingOrder: input.ascendingOrder }),
+    ...(input.checkName !== undefined && { checkName: input.checkName }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.resourceIdentifier !== undefined && {
+      resourceIdentifier: serializeAws_restJson1ResourceIdentifier(input.resourceIdentifier, context),
+    }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1ListAuditTasksCommand = async (
   input: ListAuditTasksCommandInput,
   context: __SerdeContext
@@ -4627,12 +4765,12 @@ export const serializeAws_restJson1ListAuditTasksCommand = async (
   };
   let resolvedPath = "/audit/tasks";
   const query: any = {
-    ...(input.taskType !== undefined && { taskType: input.taskType }),
-    ...(input.endTime !== undefined && { endTime: (input.endTime.toISOString().split(".")[0] + "Z").toString() }),
-    ...(input.startTime !== undefined && { startTime: (input.startTime.toISOString().split(".")[0] + "Z").toString() }),
-    ...(input.taskStatus !== undefined && { taskStatus: input.taskStatus }),
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
+    ...(input.startTime !== undefined && { startTime: (input.startTime.toISOString().split(".")[0] + "Z").toString() }),
+    ...(input.endTime !== undefined && { endTime: (input.endTime.toISOString().split(".")[0] + "Z").toString() }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.taskType !== undefined && { taskType: input.taskType }),
+    ...(input.taskStatus !== undefined && { taskStatus: input.taskStatus }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -4657,10 +4795,10 @@ export const serializeAws_restJson1ListAuthorizersCommand = async (
   };
   let resolvedPath = "/authorizers";
   const query: any = {
-    ...(input.status !== undefined && { status: input.status }),
     ...(input.marker !== undefined && { marker: input.marker }),
-    ...(input.pageSize !== undefined && { pageSize: input.pageSize.toString() }),
     ...(input.ascendingOrder !== undefined && { isAscendingOrder: input.ascendingOrder.toString() }),
+    ...(input.status !== undefined && { status: input.status }),
+    ...(input.pageSize !== undefined && { pageSize: input.pageSize.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -4685,9 +4823,9 @@ export const serializeAws_restJson1ListBillingGroupsCommand = async (
   };
   let resolvedPath = "/billing-groups";
   const query: any = {
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.namePrefixFilter !== undefined && { namePrefixFilter: input.namePrefixFilter }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -4712,9 +4850,9 @@ export const serializeAws_restJson1ListCACertificatesCommand = async (
   };
   let resolvedPath = "/cacertificates";
   const query: any = {
+    ...(input.pageSize !== undefined && { pageSize: input.pageSize.toString() }),
     ...(input.ascendingOrder !== undefined && { isAscendingOrder: input.ascendingOrder.toString() }),
     ...(input.marker !== undefined && { marker: input.marker }),
-    ...(input.pageSize !== undefined && { pageSize: input.pageSize.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -4739,9 +4877,9 @@ export const serializeAws_restJson1ListCertificatesCommand = async (
   };
   let resolvedPath = "/certificates";
   const query: any = {
+    ...(input.marker !== undefined && { marker: input.marker }),
     ...(input.ascendingOrder !== undefined && { isAscendingOrder: input.ascendingOrder.toString() }),
     ...(input.pageSize !== undefined && { pageSize: input.pageSize.toString() }),
-    ...(input.marker !== undefined && { marker: input.marker }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -4775,9 +4913,9 @@ export const serializeAws_restJson1ListCertificatesByCACommand = async (
     throw new Error("No value provided for input HTTP label: caCertificateId.");
   }
   const query: any = {
-    ...(input.pageSize !== undefined && { pageSize: input.pageSize.toString() }),
     ...(input.marker !== undefined && { marker: input.marker }),
     ...(input.ascendingOrder !== undefined && { isAscendingOrder: input.ascendingOrder.toString() }),
+    ...(input.pageSize !== undefined && { pageSize: input.pageSize.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -4828,9 +4966,9 @@ export const serializeAws_restJson1ListDomainConfigurationsCommand = async (
   };
   let resolvedPath = "/domainConfigurations";
   const query: any = {
-    ...(input.marker !== undefined && { marker: input.marker }),
-    ...(input.serviceType !== undefined && { serviceType: input.serviceType }),
     ...(input.pageSize !== undefined && { pageSize: input.pageSize.toString() }),
+    ...(input.serviceType !== undefined && { serviceType: input.serviceType }),
+    ...(input.marker !== undefined && { marker: input.marker }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -4890,9 +5028,9 @@ export const serializeAws_restJson1ListJobExecutionsForJobCommand = async (
     throw new Error("No value provided for input HTTP label: jobId.");
   }
   const query: any = {
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.status !== undefined && { status: input.status }),
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -4953,12 +5091,12 @@ export const serializeAws_restJson1ListJobsCommand = async (
   };
   let resolvedPath = "/jobs";
   const query: any = {
-    ...(input.status !== undefined && { status: input.status }),
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
-    ...(input.targetSelection !== undefined && { targetSelection: input.targetSelection }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
-    ...(input.thingGroupName !== undefined && { thingGroupName: input.thingGroupName }),
     ...(input.thingGroupId !== undefined && { thingGroupId: input.thingGroupId }),
+    ...(input.status !== undefined && { status: input.status }),
+    ...(input.thingGroupName !== undefined && { thingGroupName: input.thingGroupName }),
+    ...(input.targetSelection !== undefined && { targetSelection: input.targetSelection }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -4983,9 +5121,9 @@ export const serializeAws_restJson1ListMitigationActionsCommand = async (
   };
   let resolvedPath = "/mitigationactions/actions";
   const query: any = {
-    ...(input.actionType !== undefined && { actionType: input.actionType }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.actionType !== undefined && { actionType: input.actionType }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -5010,9 +5148,9 @@ export const serializeAws_restJson1ListOTAUpdatesCommand = async (
   };
   let resolvedPath = "/otaUpdates";
   const query: any = {
-    ...(input.otaUpdateStatus !== undefined && { otaUpdateStatus: input.otaUpdateStatus }),
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.otaUpdateStatus !== undefined && { otaUpdateStatus: input.otaUpdateStatus }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -5037,9 +5175,9 @@ export const serializeAws_restJson1ListOutgoingCertificatesCommand = async (
   };
   let resolvedPath = "/certificates-out-going";
   const query: any = {
-    ...(input.ascendingOrder !== undefined && { isAscendingOrder: input.ascendingOrder.toString() }),
-    ...(input.marker !== undefined && { marker: input.marker }),
     ...(input.pageSize !== undefined && { pageSize: input.pageSize.toString() }),
+    ...(input.marker !== undefined && { marker: input.marker }),
+    ...(input.ascendingOrder !== undefined && { isAscendingOrder: input.ascendingOrder.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -5064,9 +5202,9 @@ export const serializeAws_restJson1ListPoliciesCommand = async (
   };
   let resolvedPath = "/policies";
   const query: any = {
-    ...(input.pageSize !== undefined && { pageSize: input.pageSize.toString() }),
-    ...(input.marker !== undefined && { marker: input.marker }),
     ...(input.ascendingOrder !== undefined && { isAscendingOrder: input.ascendingOrder.toString() }),
+    ...(input.marker !== undefined && { marker: input.marker }),
+    ...(input.pageSize !== undefined && { pageSize: input.pageSize.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -5092,9 +5230,9 @@ export const serializeAws_restJson1ListPolicyPrincipalsCommand = async (
   };
   let resolvedPath = "/policy-principals";
   const query: any = {
-    ...(input.pageSize !== undefined && { pageSize: input.pageSize.toString() }),
     ...(input.ascendingOrder !== undefined && { isAscendingOrder: input.ascendingOrder.toString() }),
     ...(input.marker !== undefined && { marker: input.marker }),
+    ...(input.pageSize !== undefined && { pageSize: input.pageSize.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -5151,8 +5289,8 @@ export const serializeAws_restJson1ListPrincipalPoliciesCommand = async (
   let resolvedPath = "/principal-policies";
   const query: any = {
     ...(input.marker !== undefined && { marker: input.marker }),
-    ...(input.pageSize !== undefined && { pageSize: input.pageSize.toString() }),
     ...(input.ascendingOrder !== undefined && { isAscendingOrder: input.ascendingOrder.toString() }),
+    ...(input.pageSize !== undefined && { pageSize: input.pageSize.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -5178,8 +5316,8 @@ export const serializeAws_restJson1ListPrincipalThingsCommand = async (
   };
   let resolvedPath = "/principals/things";
   const query: any = {
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -5239,8 +5377,8 @@ export const serializeAws_restJson1ListProvisioningTemplateVersionsCommand = asy
     throw new Error("No value provided for input HTTP label: templateName.");
   }
   const query: any = {
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -5265,9 +5403,9 @@ export const serializeAws_restJson1ListRoleAliasesCommand = async (
   };
   let resolvedPath = "/role-aliases";
   const query: any = {
+    ...(input.marker !== undefined && { marker: input.marker }),
     ...(input.ascendingOrder !== undefined && { isAscendingOrder: input.ascendingOrder.toString() }),
     ...(input.pageSize !== undefined && { pageSize: input.pageSize.toString() }),
-    ...(input.marker !== undefined && { marker: input.marker }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -5292,8 +5430,8 @@ export const serializeAws_restJson1ListScheduledAuditsCommand = async (
   };
   let resolvedPath = "/audit/scheduledaudits";
   const query: any = {
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -5318,9 +5456,9 @@ export const serializeAws_restJson1ListSecurityProfilesCommand = async (
   };
   let resolvedPath = "/security-profiles";
   const query: any = {
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.dimensionName !== undefined && { dimensionName: input.dimensionName }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -5345,10 +5483,10 @@ export const serializeAws_restJson1ListSecurityProfilesForTargetCommand = async 
   };
   let resolvedPath = "/security-profiles-for-target";
   const query: any = {
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
-    ...(input.recursive !== undefined && { recursive: input.recursive.toString() }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.recursive !== undefined && { recursive: input.recursive.toString() }),
     ...(input.securityProfileTargetArn !== undefined && { securityProfileTargetArn: input.securityProfileTargetArn }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -5435,8 +5573,8 @@ export const serializeAws_restJson1ListTargetsForPolicyCommand = async (
     throw new Error("No value provided for input HTTP label: policyName.");
   }
   const query: any = {
-    ...(input.pageSize !== undefined && { pageSize: input.pageSize.toString() }),
     ...(input.marker !== undefined && { marker: input.marker }),
+    ...(input.pageSize !== undefined && { pageSize: input.pageSize.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -5470,8 +5608,8 @@ export const serializeAws_restJson1ListTargetsForSecurityProfileCommand = async 
     throw new Error("No value provided for input HTTP label: securityProfileName.");
   }
   const query: any = {
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -5534,8 +5672,8 @@ export const serializeAws_restJson1ListThingGroupsForThingCommand = async (
     throw new Error("No value provided for input HTTP label: thingName.");
   }
   const query: any = {
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -5599,9 +5737,9 @@ export const serializeAws_restJson1ListThingRegistrationTaskReportsCommand = asy
     throw new Error("No value provided for input HTTP label: taskId.");
   }
   const query: any = {
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
     ...(input.reportType !== undefined && { reportType: input.reportType }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -5653,10 +5791,10 @@ export const serializeAws_restJson1ListThingsCommand = async (
   };
   let resolvedPath = "/things";
   const query: any = {
-    ...(input.attributeValue !== undefined && { attributeValue: input.attributeValue }),
     ...(input.thingTypeName !== undefined && { thingTypeName: input.thingTypeName }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.attributeValue !== undefined && { attributeValue: input.attributeValue }),
     ...(input.attributeName !== undefined && { attributeName: input.attributeName }),
   };
   let body: any;
@@ -5726,9 +5864,9 @@ export const serializeAws_restJson1ListThingsInThingGroupCommand = async (
     throw new Error("No value provided for input HTTP label: thingGroupName.");
   }
   const query: any = {
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
     ...(input.recursive !== undefined && { recursive: input.recursive.toString() }),
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -5753,9 +5891,9 @@ export const serializeAws_restJson1ListThingTypesCommand = async (
   };
   let resolvedPath = "/thing-types";
   const query: any = {
-    ...(input.thingTypeName !== undefined && { thingTypeName: input.thingTypeName }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
+    ...(input.thingTypeName !== undefined && { thingTypeName: input.thingTypeName }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -5780,8 +5918,8 @@ export const serializeAws_restJson1ListTopicRuleDestinationsCommand = async (
   };
   let resolvedPath = "/destinations";
   const query: any = {
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -5806,9 +5944,9 @@ export const serializeAws_restJson1ListTopicRulesCommand = async (
   };
   let resolvedPath = "/rules";
   const query: any = {
+    ...(input.ruleDisabled !== undefined && { ruleDisabled: input.ruleDisabled.toString() }),
     ...(input.topic !== undefined && { topic: input.topic }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
-    ...(input.ruleDisabled !== undefined && { ruleDisabled: input.ruleDisabled.toString() }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
   };
   let body: any;
@@ -5834,9 +5972,9 @@ export const serializeAws_restJson1ListV2LoggingLevelsCommand = async (
   };
   let resolvedPath = "/v2LoggingLevel";
   const query: any = {
+    ...(input.targetType !== undefined && { targetType: input.targetType }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
-    ...(input.targetType !== undefined && { targetType: input.targetType }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -5861,12 +5999,12 @@ export const serializeAws_restJson1ListViolationEventsCommand = async (
   };
   let resolvedPath = "/violation-events";
   const query: any = {
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
-    ...(input.endTime !== undefined && { endTime: (input.endTime.toISOString().split(".")[0] + "Z").toString() }),
-    ...(input.securityProfileName !== undefined && { securityProfileName: input.securityProfileName }),
     ...(input.thingName !== undefined && { thingName: input.thingName }),
+    ...(input.securityProfileName !== undefined && { securityProfileName: input.securityProfileName }),
     ...(input.startTime !== undefined && { startTime: (input.startTime.toISOString().split(".")[0] + "Z").toString() }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
+    ...(input.endTime !== undefined && { endTime: (input.endTime.toISOString().split(".")[0] + "Z").toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -6612,6 +6750,36 @@ export const serializeAws_restJson1UpdateAccountAuditConfigurationCommand = asyn
   });
 };
 
+export const serializeAws_restJson1UpdateAuditSuppressionCommand = async (
+  input: UpdateAuditSuppressionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+  };
+  let resolvedPath = "/audit/suppressions/update";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.checkName !== undefined && { checkName: input.checkName }),
+    ...(input.description !== undefined && { description: input.description }),
+    ...(input.expirationDate !== undefined && { expirationDate: Math.round(input.expirationDate.getTime() / 1000) }),
+    ...(input.resourceIdentifier !== undefined && {
+      resourceIdentifier: serializeAws_restJson1ResourceIdentifier(input.resourceIdentifier, context),
+    }),
+    ...(input.suppressIndefinitely !== undefined && { suppressIndefinitely: input.suppressIndefinitely }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PATCH",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1UpdateAuthorizerCommand = async (
   input: UpdateAuthorizerCommandInput,
   context: __SerdeContext
@@ -6704,10 +6872,10 @@ export const serializeAws_restJson1UpdateCACertificateCommand = async (
     throw new Error("No value provided for input HTTP label: certificateId.");
   }
   const query: any = {
-    ...(input.newStatus !== undefined && { newStatus: input.newStatus }),
     ...(input.newAutoRegistrationStatus !== undefined && {
       newAutoRegistrationStatus: input.newAutoRegistrationStatus,
     }),
+    ...(input.newStatus !== undefined && { newStatus: input.newStatus }),
   };
   let body: any;
   body = JSON.stringify({
@@ -8690,6 +8858,89 @@ const deserializeAws_restJson1ConfirmTopicRuleDestinationCommandError = async (
     case "com.amazonaws.iot#UnauthorizedException":
       response = {
         ...(await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1CreateAuditSuppressionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateAuditSuppressionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1CreateAuditSuppressionCommandError(output, context);
+  }
+  const contents: CreateAuditSuppressionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1CreateAuditSuppressionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateAuditSuppressionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalFailureException":
+    case "com.amazonaws.iot#InternalFailureException":
+      response = {
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.iot#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "LimitExceededException":
+    case "com.amazonaws.iot#LimitExceededException":
+      response = {
+        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceAlreadyExistsException":
+    case "com.amazonaws.iot#ResourceAlreadyExistsException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceAlreadyExistsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.iot#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -11266,6 +11517,73 @@ const deserializeAws_restJson1DeleteAccountAuditConfigurationCommandError = asyn
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1DeleteAuditSuppressionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteAuditSuppressionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DeleteAuditSuppressionCommandError(output, context);
+  }
+  const contents: DeleteAuditSuppressionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DeleteAuditSuppressionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteAuditSuppressionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalFailureException":
+    case "com.amazonaws.iot#InternalFailureException":
+      response = {
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.iot#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.iot#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1DeleteAuthorizerCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -12443,6 +12761,14 @@ const deserializeAws_restJson1DeleteProvisioningTemplateCommandError = async (
   let errorCode: string = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "ConflictingResourceUpdateException":
+    case "com.amazonaws.iot#ConflictingResourceUpdateException":
+      response = {
+        ...(await deserializeAws_restJson1ConflictingResourceUpdateExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "DeleteConflictException":
     case "com.amazonaws.iot#DeleteConflictException":
       response = {
@@ -12534,6 +12860,14 @@ const deserializeAws_restJson1DeleteProvisioningTemplateVersionCommandError = as
   let errorCode: string = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "ConflictingResourceUpdateException":
+    case "com.amazonaws.iot#ConflictingResourceUpdateException":
+      response = {
+        ...(await deserializeAws_restJson1ConflictingResourceUpdateExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "DeleteConflictException":
     case "com.amazonaws.iot#DeleteConflictException":
       response = {
@@ -13884,6 +14218,101 @@ const deserializeAws_restJson1DescribeAuditMitigationActionsTaskCommandError = a
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1DescribeAuditSuppressionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeAuditSuppressionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DescribeAuditSuppressionCommandError(output, context);
+  }
+  const contents: DescribeAuditSuppressionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    checkName: undefined,
+    description: undefined,
+    expirationDate: undefined,
+    resourceIdentifier: undefined,
+    suppressIndefinitely: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.checkName !== undefined && data.checkName !== null) {
+    contents.checkName = data.checkName;
+  }
+  if (data.description !== undefined && data.description !== null) {
+    contents.description = data.description;
+  }
+  if (data.expirationDate !== undefined && data.expirationDate !== null) {
+    contents.expirationDate = new Date(Math.round(data.expirationDate * 1000));
+  }
+  if (data.resourceIdentifier !== undefined && data.resourceIdentifier !== null) {
+    contents.resourceIdentifier = deserializeAws_restJson1ResourceIdentifier(data.resourceIdentifier, context);
+  }
+  if (data.suppressIndefinitely !== undefined && data.suppressIndefinitely !== null) {
+    contents.suppressIndefinitely = data.suppressIndefinitely;
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DescribeAuditSuppressionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeAuditSuppressionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalFailureException":
+    case "com.amazonaws.iot#InternalFailureException":
+      response = {
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.iot#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.iot#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.iot#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1DescribeAuditTaskCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -14589,6 +15018,7 @@ export const deserializeAws_restJson1DescribeDomainConfigurationCommand = async 
     domainConfigurationStatus: undefined,
     domainName: undefined,
     domainType: undefined,
+    lastStatusChangeDate: undefined,
     serverCertificates: undefined,
     serviceType: undefined,
   };
@@ -14610,6 +15040,9 @@ export const deserializeAws_restJson1DescribeDomainConfigurationCommand = async 
   }
   if (data.domainType !== undefined && data.domainType !== null) {
     contents.domainType = data.domainType;
+  }
+  if (data.lastStatusChangeDate !== undefined && data.lastStatusChangeDate !== null) {
+    contents.lastStatusChangeDate = new Date(Math.round(data.lastStatusChangeDate * 1000));
   }
   if (data.serverCertificates !== undefined && data.serverCertificates !== null) {
     contents.serverCertificates = deserializeAws_restJson1ServerCertificates(data.serverCertificates, context);
@@ -18590,6 +19023,81 @@ const deserializeAws_restJson1ListAuditMitigationActionsTasksCommandError = asyn
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAuditMitigationActionsTasksCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalFailureException":
+    case "com.amazonaws.iot#InternalFailureException":
+      response = {
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.iot#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.iot#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1ListAuditSuppressionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAuditSuppressionsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListAuditSuppressionsCommandError(output, context);
+  }
+  const contents: ListAuditSuppressionsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    nextToken: undefined,
+    suppressions: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.nextToken !== undefined && data.nextToken !== null) {
+    contents.nextToken = data.nextToken;
+  }
+  if (data.suppressions !== undefined && data.suppressions !== null) {
+    contents.suppressions = deserializeAws_restJson1AuditSuppressionList(data.suppressions, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1ListAuditSuppressionsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAuditSuppressionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -23606,6 +24114,14 @@ const deserializeAws_restJson1SetV2LoggingLevelCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "LimitExceededException":
+    case "com.amazonaws.iot#LimitExceededException":
+      response = {
+        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "NotConfiguredException":
     case "com.amazonaws.iot#NotConfiguredException":
       response = {
@@ -24563,6 +25079,81 @@ const deserializeAws_restJson1UpdateAccountAuditConfigurationCommandError = asyn
     case "com.amazonaws.iot#InvalidRequestException":
       response = {
         ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.iot#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1UpdateAuditSuppressionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateAuditSuppressionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1UpdateAuditSuppressionCommandError(output, context);
+  }
+  const contents: UpdateAuditSuppressionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1UpdateAuditSuppressionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateAuditSuppressionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalFailureException":
+    case "com.amazonaws.iot#InternalFailureException":
+      response = {
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.iot#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.iot#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -27068,6 +27659,9 @@ const serializeAws_restJson1Action = (input: Action, context: __SerdeContext): a
     ...(input.stepFunctions !== undefined && {
       stepFunctions: serializeAws_restJson1StepFunctionsAction(input.stepFunctions, context),
     }),
+    ...(input.timestream !== undefined && {
+      timestream: serializeAws_restJson1TimestreamAction(input.timestream, context),
+    }),
   };
 };
 
@@ -28176,6 +28770,38 @@ const serializeAws_restJson1TimeoutConfig = (input: TimeoutConfig, context: __Se
   };
 };
 
+const serializeAws_restJson1TimestreamAction = (input: TimestreamAction, context: __SerdeContext): any => {
+  return {
+    ...(input.databaseName !== undefined && { databaseName: input.databaseName }),
+    ...(input.dimensions !== undefined && {
+      dimensions: serializeAws_restJson1TimestreamDimensionList(input.dimensions, context),
+    }),
+    ...(input.roleArn !== undefined && { roleArn: input.roleArn }),
+    ...(input.tableName !== undefined && { tableName: input.tableName }),
+    ...(input.timestamp !== undefined && {
+      timestamp: serializeAws_restJson1TimestreamTimestamp(input.timestamp, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1TimestreamDimension = (input: TimestreamDimension, context: __SerdeContext): any => {
+  return {
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.value !== undefined && { value: input.value }),
+  };
+};
+
+const serializeAws_restJson1TimestreamDimensionList = (input: TimestreamDimension[], context: __SerdeContext): any => {
+  return input.map((entry) => serializeAws_restJson1TimestreamDimension(entry, context));
+};
+
+const serializeAws_restJson1TimestreamTimestamp = (input: TimestreamTimestamp, context: __SerdeContext): any => {
+  return {
+    ...(input.unit !== undefined && { unit: input.unit }),
+    ...(input.value !== undefined && { value: input.value }),
+  };
+};
+
 const serializeAws_restJson1TlsContext = (input: TlsContext, context: __SerdeContext): any => {
   return {
     ...(input.serverName !== undefined && { serverName: input.serverName }),
@@ -28325,6 +28951,10 @@ const deserializeAws_restJson1Action = (output: any, context: __SerdeContext): A
     stepFunctions:
       output.stepFunctions !== undefined && output.stepFunctions !== null
         ? deserializeAws_restJson1StepFunctionsAction(output.stepFunctions, context)
+        : undefined,
+    timestream:
+      output.timestream !== undefined && output.timestream !== null
+        ? deserializeAws_restJson1TimestreamAction(output.timestream, context)
         : undefined,
   } as any;
 };
@@ -28534,6 +29164,10 @@ const deserializeAws_restJson1AuditCheckDetails = (output: any, context: __Serde
       output.nonCompliantResourcesCount !== undefined && output.nonCompliantResourcesCount !== null
         ? output.nonCompliantResourcesCount
         : undefined,
+    suppressedNonCompliantResourcesCount:
+      output.suppressedNonCompliantResourcesCount !== undefined && output.suppressedNonCompliantResourcesCount !== null
+        ? output.suppressedNonCompliantResourcesCount
+        : undefined,
     totalResourcesCount:
       output.totalResourcesCount !== undefined && output.totalResourcesCount !== null
         ? output.totalResourcesCount
@@ -28588,6 +29222,7 @@ const deserializeAws_restJson1AuditFinding = (output: any, context: __SerdeConte
       output.findingTime !== undefined && output.findingTime !== null
         ? new Date(Math.round(output.findingTime * 1000))
         : undefined,
+    isSuppressed: output.isSuppressed !== undefined && output.isSuppressed !== null ? output.isSuppressed : undefined,
     nonCompliantResource:
       output.nonCompliantResource !== undefined && output.nonCompliantResource !== null
         ? deserializeAws_restJson1NonCompliantResource(output.nonCompliantResource, context)
@@ -28720,6 +29355,29 @@ const deserializeAws_restJson1AuditNotificationTargetConfigurations = (
     }),
     {}
   );
+};
+
+const deserializeAws_restJson1AuditSuppression = (output: any, context: __SerdeContext): AuditSuppression => {
+  return {
+    checkName: output.checkName !== undefined && output.checkName !== null ? output.checkName : undefined,
+    description: output.description !== undefined && output.description !== null ? output.description : undefined,
+    expirationDate:
+      output.expirationDate !== undefined && output.expirationDate !== null
+        ? new Date(Math.round(output.expirationDate * 1000))
+        : undefined,
+    resourceIdentifier:
+      output.resourceIdentifier !== undefined && output.resourceIdentifier !== null
+        ? deserializeAws_restJson1ResourceIdentifier(output.resourceIdentifier, context)
+        : undefined,
+    suppressIndefinitely:
+      output.suppressIndefinitely !== undefined && output.suppressIndefinitely !== null
+        ? output.suppressIndefinitely
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AuditSuppressionList = (output: any, context: __SerdeContext): AuditSuppression[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1AuditSuppression(entry, context));
 };
 
 const deserializeAws_restJson1AuditTaskMetadata = (output: any, context: __SerdeContext): AuditTaskMetadata => {
@@ -30922,6 +31580,43 @@ const deserializeAws_restJson1TimeoutConfig = (output: any, context: __SerdeCont
       output.inProgressTimeoutInMinutes !== undefined && output.inProgressTimeoutInMinutes !== null
         ? output.inProgressTimeoutInMinutes
         : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1TimestreamAction = (output: any, context: __SerdeContext): TimestreamAction => {
+  return {
+    databaseName: output.databaseName !== undefined && output.databaseName !== null ? output.databaseName : undefined,
+    dimensions:
+      output.dimensions !== undefined && output.dimensions !== null
+        ? deserializeAws_restJson1TimestreamDimensionList(output.dimensions, context)
+        : undefined,
+    roleArn: output.roleArn !== undefined && output.roleArn !== null ? output.roleArn : undefined,
+    tableName: output.tableName !== undefined && output.tableName !== null ? output.tableName : undefined,
+    timestamp:
+      output.timestamp !== undefined && output.timestamp !== null
+        ? deserializeAws_restJson1TimestreamTimestamp(output.timestamp, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1TimestreamDimension = (output: any, context: __SerdeContext): TimestreamDimension => {
+  return {
+    name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    value: output.value !== undefined && output.value !== null ? output.value : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1TimestreamDimensionList = (
+  output: any,
+  context: __SerdeContext
+): TimestreamDimension[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1TimestreamDimension(entry, context));
+};
+
+const deserializeAws_restJson1TimestreamTimestamp = (output: any, context: __SerdeContext): TimestreamTimestamp => {
+  return {
+    unit: output.unit !== undefined && output.unit !== null ? output.unit : undefined,
+    value: output.value !== undefined && output.value !== null ? output.value : undefined,
   } as any;
 };
 

@@ -65,11 +65,6 @@ export interface GenerateDataSetRequest {
   destinationS3Prefix?: string;
 
   /**
-   * The name (friendly name, not ARN) of the destination S3 bucket.
-   */
-  destinationS3BucketName: string | undefined;
-
-  /**
    * <p>The desired data set type.</p>
    *         <p>
    *             <ul>
@@ -163,6 +158,11 @@ export interface GenerateDataSetRequest {
   dataSetType: DataSetType | string | undefined;
 
   /**
+   * The name (friendly name, not ARN) of the destination S3 bucket.
+   */
+  destinationS3BucketName: string | undefined;
+
+  /**
    * The Amazon Resource Name (ARN) of the Role with an attached permissions policy to interact with the provided
    *         AWS services.
    */
@@ -217,15 +217,24 @@ export type SupportDataSetType = "customer_support_contacts_data" | "test_custom
  */
 export interface StartSupportDataExportRequest {
   /**
+   * Amazon Resource Name (ARN) for the SNS Topic that will be notified when the data set has been published or if an
+   *         error has occurred.
+   */
+  snsTopicArn: string | undefined;
+
+  /**
    * The start date from which to retrieve the data set in UTC.  This parameter only affects the customer_support_contacts_data data set type.
    */
   fromDate: Date | undefined;
 
   /**
-   * Amazon Resource Name (ARN) for the SNS Topic that will be notified when the data set has been published or if an
-   *         error has occurred.
+   * (Optional) The desired S3 prefix for the published data set, similar to a directory path in standard file systems.
+   *         For example, if given the bucket name "mybucket" and the prefix "myprefix/mydatasets", the output file
+   *         "outputfile" would be published to "s3://mybucket/myprefix/mydatasets/outputfile".
+   *         If the prefix directory structure does not exist, it will be created.
+   *         If no prefix is provided, the data set will be published to the S3 bucket root.
    */
-  snsTopicArn: string | undefined;
+  destinationS3Prefix?: string;
 
   /**
    * <p>
@@ -250,24 +259,15 @@ export interface StartSupportDataExportRequest {
   customerDefinedValues?: { [key: string]: string };
 
   /**
-   * (Optional) The desired S3 prefix for the published data set, similar to a directory path in standard file systems.
-   *         For example, if given the bucket name "mybucket" and the prefix "myprefix/mydatasets", the output file
-   *         "outputfile" would be published to "s3://mybucket/myprefix/mydatasets/outputfile".
-   *         If the prefix directory structure does not exist, it will be created.
-   *         If no prefix is provided, the data set will be published to the S3 bucket root.
+   * The Amazon Resource Name (ARN) of the Role with an attached permissions policy to interact with the provided
+   *         AWS services.
    */
-  destinationS3Prefix?: string;
+  roleNameArn: string | undefined;
 
   /**
    * The name (friendly name, not ARN) of the destination S3 bucket.
    */
   destinationS3BucketName: string | undefined;
-
-  /**
-   * The Amazon Resource Name (ARN) of the Role with an attached permissions policy to interact with the provided
-   *         AWS services.
-   */
-  roleNameArn: string | undefined;
 }
 
 export namespace StartSupportDataExportRequest {

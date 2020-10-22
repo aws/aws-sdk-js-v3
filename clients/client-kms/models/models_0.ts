@@ -389,20 +389,20 @@ export enum ConnectionStateType {
 
 export interface CreateAliasRequest {
   /**
-   * <p>Specifies the alias name. This value must begin with <code>alias/</code> followed by a
-   *       name, such as <code>alias/ExampleAlias</code>. The alias name cannot begin with
-   *         <code>alias/aws/</code>. The <code>alias/aws/</code> prefix is reserved for AWS managed
-   *       CMKs.</p>
-   */
-  AliasName: string | undefined;
-
-  /**
    * <p>Identifies the CMK to which the alias refers. Specify the key ID or the Amazon Resource
    *       Name (ARN) of the CMK. You cannot specify another alias. For help finding the key ID and ARN,
    *       see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/viewing-keys.html#find-cmk-id-arn">Finding the Key ID and
    *         ARN</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
    */
   TargetKeyId: string | undefined;
+
+  /**
+   * <p>Specifies the alias name. This value must begin with <code>alias/</code> followed by a
+   *       name, such as <code>alias/ExampleAlias</code>. The alias name cannot begin with
+   *         <code>alias/aws/</code>. The <code>alias/aws/</code> prefix is reserved for AWS managed
+   *       CMKs.</p>
+   */
+  AliasName: string | undefined;
 }
 
 export namespace CreateAliasRequest {
@@ -444,23 +444,10 @@ export namespace LimitExceededException {
 
 export interface CreateCustomKeyStoreRequest {
   /**
-   * <p>Identifies the AWS CloudHSM cluster for the custom key store. Enter the cluster ID of any active
-   *       AWS CloudHSM cluster that is not already associated with a custom key store. To find the cluster ID,
-   *       use the <a href="https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_DescribeClusters.html">DescribeClusters</a> operation.</p>
-   */
-  CloudHsmClusterId: string | undefined;
-
-  /**
    * <p>Specifies a friendly name for the custom key store. The name must be unique in your AWS
    *       account.</p>
    */
   CustomKeyStoreName: string | undefined;
-
-  /**
-   * <p>Enter the content of the trust anchor certificate for the cluster. This is the content of
-   *       the <code>customerCA.crt</code> file that you created when you <a href="https://docs.aws.amazon.com/cloudhsm/latest/userguide/initialize-cluster.html">initialized the cluster</a>.</p>
-   */
-  TrustAnchorCertificate: string | undefined;
 
   /**
    * <p>Enter the password of the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-store-concepts.html#concept-kmsuser">
@@ -472,6 +459,19 @@ export interface CreateCustomKeyStoreRequest {
    *       the password in the AWS CloudHSM cluster.</p>
    */
   KeyStorePassword: string | undefined;
+
+  /**
+   * <p>Identifies the AWS CloudHSM cluster for the custom key store. Enter the cluster ID of any active
+   *       AWS CloudHSM cluster that is not already associated with a custom key store. To find the cluster ID,
+   *       use the <a href="https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_DescribeClusters.html">DescribeClusters</a> operation.</p>
+   */
+  CloudHsmClusterId: string | undefined;
+
+  /**
+   * <p>Enter the content of the trust anchor certificate for the cluster. This is the content of
+   *       the <code>customerCA.crt</code> file that you created when you <a href="https://docs.aws.amazon.com/cloudhsm/latest/userguide/initialize-cluster.html">initialized the cluster</a>.</p>
+   */
+  TrustAnchorCertificate: string | undefined;
 }
 
 export namespace CreateCustomKeyStoreRequest {
@@ -591,54 +591,6 @@ export enum GrantOperation {
 
 export interface CreateGrantRequest {
   /**
-   * <p>A list of grant tokens.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token">Grant Tokens</a> in the
-   *     <i>AWS Key Management Service Developer Guide</i>.</p>
-   */
-  GrantTokens?: string[];
-
-  /**
-   * <p>A list of operations that the grant permits.</p>
-   */
-  Operations: (GrantOperation | string)[] | undefined;
-
-  /**
-   * <p>The principal that is given permission to perform the operations that the grant
-   *       permits.</p>
-   *          <p>To specify the principal, use the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> of an AWS
-   *       principal. Valid AWS principals include AWS accounts (root), IAM users, IAM roles, federated
-   *       users, and assumed role users. For examples of the ARN syntax to use for specifying a
-   *       principal, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-iam">AWS Identity and Access
-   *         Management (IAM)</a> in the Example ARNs section of the <i>AWS General
-   *         Reference</i>.</p>
-   */
-  GranteePrincipal: string | undefined;
-
-  /**
-   * <p>The principal that is given permission to retire the grant by using <a>RetireGrant</a> operation.</p>
-   *          <p>To specify the principal, use the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> of an AWS
-   *       principal. Valid AWS principals include AWS accounts (root), IAM users, federated users, and
-   *       assumed role users. For examples of the ARN syntax to use for specifying a principal, see
-   *         <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-iam">AWS Identity and Access Management (IAM)</a> in the Example ARNs section of the
-   *         <i>AWS General Reference</i>.</p>
-   */
-  RetiringPrincipal?: string;
-
-  /**
-   * <p>A friendly name for identifying the grant. Use this value to prevent the unintended
-   *       creation of duplicate grants when retrying this request.</p>
-   *          <p>When this value is absent, all <code>CreateGrant</code> requests result in a new grant
-   *       with a unique <code>GrantId</code> even if all the supplied parameters are identical. This can
-   *       result in unintended duplicates when you retry the <code>CreateGrant</code> request.</p>
-   *          <p>When this value is present, you can retry a <code>CreateGrant</code> request with
-   *       identical parameters; if the grant already exists, the original <code>GrantId</code> is
-   *       returned without creating a new grant. Note that the returned grant token is unique with every
-   *         <code>CreateGrant</code> request, even when a duplicate <code>GrantId</code> is returned.
-   *       All grant tokens obtained in this way can be used interchangeably.</p>
-   */
-  Name?: string;
-
-  /**
    * <p>The unique identifier for the customer master key (CMK) that the grant applies to.</p>
    *
    *          <p>Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To specify a CMK in a
@@ -659,6 +611,33 @@ export interface CreateGrantRequest {
   KeyId: string | undefined;
 
   /**
+   * <p>A list of operations that the grant permits.</p>
+   */
+  Operations: (GrantOperation | string)[] | undefined;
+
+  /**
+   * <p>The principal that is given permission to retire the grant by using <a>RetireGrant</a> operation.</p>
+   *          <p>To specify the principal, use the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> of an AWS
+   *       principal. Valid AWS principals include AWS accounts (root), IAM users, federated users, and
+   *       assumed role users. For examples of the ARN syntax to use for specifying a principal, see
+   *         <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-iam">AWS Identity and Access Management (IAM)</a> in the Example ARNs section of the
+   *         <i>AWS General Reference</i>.</p>
+   */
+  RetiringPrincipal?: string;
+
+  /**
+   * <p>The principal that is given permission to perform the operations that the grant
+   *       permits.</p>
+   *          <p>To specify the principal, use the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> of an AWS
+   *       principal. Valid AWS principals include AWS accounts (root), IAM users, IAM roles, federated
+   *       users, and assumed role users. For examples of the ARN syntax to use for specifying a
+   *       principal, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-iam">AWS Identity and Access
+   *         Management (IAM)</a> in the Example ARNs section of the <i>AWS General
+   *         Reference</i>.</p>
+   */
+  GranteePrincipal: string | undefined;
+
+  /**
    * <p>Allows a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations">cryptographic operation</a> only when the encryption context matches or includes the encryption
    *       context specified in this structure. For more information about encryption context, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">Encryption
    *         Context</a> in the <i>
@@ -666,6 +645,27 @@ export interface CreateGrantRequest {
    *             </i>.</p>
    */
   Constraints?: GrantConstraints;
+
+  /**
+   * <p>A friendly name for identifying the grant. Use this value to prevent the unintended
+   *       creation of duplicate grants when retrying this request.</p>
+   *          <p>When this value is absent, all <code>CreateGrant</code> requests result in a new grant
+   *       with a unique <code>GrantId</code> even if all the supplied parameters are identical. This can
+   *       result in unintended duplicates when you retry the <code>CreateGrant</code> request.</p>
+   *          <p>When this value is present, you can retry a <code>CreateGrant</code> request with
+   *       identical parameters; if the grant already exists, the original <code>GrantId</code> is
+   *       returned without creating a new grant. Note that the returned grant token is unique with every
+   *         <code>CreateGrant</code> request, even when a duplicate <code>GrantId</code> is returned.
+   *       All grant tokens obtained in this way can be used interchangeably.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>A list of grant tokens.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token">Grant Tokens</a> in the
+   *     <i>AWS Key Management Service Developer Guide</i>.</p>
+   */
+  GrantTokens?: string[];
 }
 
 export namespace CreateGrantRequest {
@@ -774,6 +774,26 @@ export namespace Tag {
 
 export interface CreateKeyRequest {
   /**
+   * <p>Determines the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations">cryptographic operations</a> for which you can use the CMK. The default value
+   *       is <code>ENCRYPT_DECRYPT</code>. This parameter is required only for asymmetric CMKs. You
+   *       can't change the <code>KeyUsage</code> value after the CMK is created.</p>
+   *          <p>Select only one valid value.</p>
+   *          <ul>
+   *             <li>
+   *                <p>For symmetric CMKs, omit the parameter or specify <code>ENCRYPT_DECRYPT</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For asymmetric CMKs with RSA key material, specify <code>ENCRYPT_DECRYPT</code> or
+   *             <code>SIGN_VERIFY</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For asymmetric CMKs with ECC key material, specify <code>SIGN_VERIFY</code>.</p>
+   *             </li>
+   *          </ul>
+   */
+  KeyUsage?: KeyUsageType | string;
+
+  /**
    * <p>The source of the key material for the CMK. You cannot change the origin after you create
    *       the CMK. The default is <code>AWS_KMS</code>, which means AWS KMS creates the key
    *       material.</p>
@@ -789,32 +809,52 @@ export interface CreateKeyRequest {
   Origin?: OriginType | string;
 
   /**
-   * <p>The key policy to attach to the CMK.</p>
-   *          <p>If you provide a key policy, it must meet the following criteria:</p>
-   *          <ul>
-   *             <li>
-   *                <p>If you don't set <code>BypassPolicyLockoutSafetyCheck</code> to true, the key policy
-   *           must allow the principal that is making the <code>CreateKey</code> request to make a
-   *           subsequent <a>PutKeyPolicy</a> request on the CMK. This reduces the risk that
-   *           the CMK becomes unmanageable. For more information, refer to the scenario in the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam">Default Key Policy</a> section of the <i>
-   *                      <i>AWS Key Management Service Developer Guide</i>
-   *                   </i>.</p>
-   *             </li>
-   *             <li>
-   *                <p>Each statement in the key policy must contain one or more principals. The principals
-   *           in the key policy must exist and be visible to AWS KMS. When you create a new AWS principal
-   *           (for example, an IAM user or role), you might need to enforce a delay before including the
-   *           new principal in a key policy because the new principal might not be immediately visible
-   *           to AWS KMS. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/troubleshoot_general.html#troubleshoot_general_eventual-consistency">Changes that I make are not always immediately visible</a> in the <i>AWS
-   *             Identity and Access Management User Guide</i>.</p>
-   *             </li>
-   *          </ul>
-   *          <p>If you do not provide a key policy, AWS KMS attaches a default key policy to the CMK. For
-   *       more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default">Default Key Policy</a> in the
-   *       <i>AWS Key Management Service Developer Guide</i>.</p>
-   *          <p>The key policy size quota is 32 kilobytes (32768 bytes).</p>
+   * <p>A description of the CMK.</p>
+   *          <p>Use a description that helps you decide whether the CMK is appropriate for a task.</p>
    */
-  Policy?: string;
+  Description?: string;
+
+  /**
+   * <p>One or more tags. Each tag consists of a tag key and a tag value. Both the tag key and the
+   *       tag value are required, but the tag value can be an empty (null) string.</p>
+   *          <p>When you add tags to an AWS resource, AWS generates a cost allocation
+   *               report with usage and costs aggregated by tags. For information about adding, changing, deleting and listing tags for CMKs,
+   *               see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/tagging-keys.html">Tagging Keys</a>.</p>
+   *          <p>Use this parameter to tag the CMK when it is created. To add tags to an
+   *       existing CMK, use the <a>TagResource</a> operation.</p>
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>A flag to indicate whether to bypass the key policy lockout safety check.</p>
+   *          <important>
+   *             <p>Setting this value to true increases the risk that the CMK becomes unmanageable. Do not
+   *         set this value to true indiscriminately.</p>
+   *             <p>For more information, refer to the scenario in the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam">Default Key Policy</a> section in the <i>
+   *                   <i>AWS Key Management Service Developer Guide</i>
+   *                </i>.</p>
+   *          </important>
+   *          <p>Use this parameter only when you include a policy in the request and you intend to prevent
+   *       the principal that is making the request from making a subsequent <a>PutKeyPolicy</a> request on the CMK.</p>
+   *          <p>The default value is false.</p>
+   */
+  BypassPolicyLockoutSafetyCheck?: boolean;
+
+  /**
+   * <p>Creates the CMK in the specified <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom key store</a> and the key material in its associated
+   *       AWS CloudHSM cluster. To create a CMK in a custom key store, you must also specify the
+   *         <code>Origin</code> parameter with a value of <code>AWS_CLOUDHSM</code>. The AWS CloudHSM cluster
+   *       that is associated with the custom key store must have at least two active HSMs, each in a
+   *       different Availability Zone in the Region.</p>
+   *          <p>This parameter is valid only for symmetric CMKs. You cannot create an asymmetric CMK in a
+   *       custom key store.</p>
+   *          <p>To find the ID of a custom key store, use the <a>DescribeCustomKeyStores</a> operation.</p>
+   *          <p>The response includes the custom key store ID and the ID of the AWS CloudHSM cluster.</p>
+   *          <p>This operation is part of the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">Custom Key Store feature</a> feature in AWS KMS, which
+   * combines the convenience and extensive integration of AWS KMS with the isolation and control of a
+   * single-tenant key store.</p>
+   */
+  CustomKeyStoreId?: string;
 
   /**
    * <p>Specifies the type of CMK to create. The default value, <code>SYMMETRIC_DEFAULT</code>,
@@ -900,72 +940,32 @@ export interface CreateKeyRequest {
   CustomerMasterKeySpec?: CustomerMasterKeySpec | string;
 
   /**
-   * <p>A description of the CMK.</p>
-   *          <p>Use a description that helps you decide whether the CMK is appropriate for a task.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>A flag to indicate whether to bypass the key policy lockout safety check.</p>
-   *          <important>
-   *             <p>Setting this value to true increases the risk that the CMK becomes unmanageable. Do not
-   *         set this value to true indiscriminately.</p>
-   *             <p>For more information, refer to the scenario in the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam">Default Key Policy</a> section in the <i>
-   *                   <i>AWS Key Management Service Developer Guide</i>
-   *                </i>.</p>
-   *          </important>
-   *          <p>Use this parameter only when you include a policy in the request and you intend to prevent
-   *       the principal that is making the request from making a subsequent <a>PutKeyPolicy</a> request on the CMK.</p>
-   *          <p>The default value is false.</p>
-   */
-  BypassPolicyLockoutSafetyCheck?: boolean;
-
-  /**
-   * <p>Determines the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations">cryptographic operations</a> for which you can use the CMK. The default value
-   *       is <code>ENCRYPT_DECRYPT</code>. This parameter is required only for asymmetric CMKs. You
-   *       can't change the <code>KeyUsage</code> value after the CMK is created.</p>
-   *          <p>Select only one valid value.</p>
+   * <p>The key policy to attach to the CMK.</p>
+   *          <p>If you provide a key policy, it must meet the following criteria:</p>
    *          <ul>
    *             <li>
-   *                <p>For symmetric CMKs, omit the parameter or specify <code>ENCRYPT_DECRYPT</code>.</p>
+   *                <p>If you don't set <code>BypassPolicyLockoutSafetyCheck</code> to true, the key policy
+   *           must allow the principal that is making the <code>CreateKey</code> request to make a
+   *           subsequent <a>PutKeyPolicy</a> request on the CMK. This reduces the risk that
+   *           the CMK becomes unmanageable. For more information, refer to the scenario in the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam">Default Key Policy</a> section of the <i>
+   *                      <i>AWS Key Management Service Developer Guide</i>
+   *                   </i>.</p>
    *             </li>
    *             <li>
-   *                <p>For asymmetric CMKs with RSA key material, specify <code>ENCRYPT_DECRYPT</code> or
-   *             <code>SIGN_VERIFY</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>For asymmetric CMKs with ECC key material, specify <code>SIGN_VERIFY</code>.</p>
+   *                <p>Each statement in the key policy must contain one or more principals. The principals
+   *           in the key policy must exist and be visible to AWS KMS. When you create a new AWS principal
+   *           (for example, an IAM user or role), you might need to enforce a delay before including the
+   *           new principal in a key policy because the new principal might not be immediately visible
+   *           to AWS KMS. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/troubleshoot_general.html#troubleshoot_general_eventual-consistency">Changes that I make are not always immediately visible</a> in the <i>AWS
+   *             Identity and Access Management User Guide</i>.</p>
    *             </li>
    *          </ul>
+   *          <p>If you do not provide a key policy, AWS KMS attaches a default key policy to the CMK. For
+   *       more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default">Default Key Policy</a> in the
+   *       <i>AWS Key Management Service Developer Guide</i>.</p>
+   *          <p>The key policy size quota is 32 kilobytes (32768 bytes).</p>
    */
-  KeyUsage?: KeyUsageType | string;
-
-  /**
-   * <p>Creates the CMK in the specified <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom key store</a> and the key material in its associated
-   *       AWS CloudHSM cluster. To create a CMK in a custom key store, you must also specify the
-   *         <code>Origin</code> parameter with a value of <code>AWS_CLOUDHSM</code>. The AWS CloudHSM cluster
-   *       that is associated with the custom key store must have at least two active HSMs, each in a
-   *       different Availability Zone in the Region.</p>
-   *          <p>This parameter is valid only for symmetric CMKs. You cannot create an asymmetric CMK in a
-   *       custom key store.</p>
-   *          <p>To find the ID of a custom key store, use the <a>DescribeCustomKeyStores</a> operation.</p>
-   *          <p>The response includes the custom key store ID and the ID of the AWS CloudHSM cluster.</p>
-   *          <p>This operation is part of the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">Custom Key Store feature</a> feature in AWS KMS, which
-   * combines the convenience and extensive integration of AWS KMS with the isolation and control of a
-   * single-tenant key store.</p>
-   */
-  CustomKeyStoreId?: string;
-
-  /**
-   * <p>One or more tags. Each tag consists of a tag key and a tag value. Both the tag key and the
-   *       tag value are required, but the tag value can be an empty (null) string.</p>
-   *          <p>When you add tags to an AWS resource, AWS generates a cost allocation
-   *               report with usage and costs aggregated by tags. For information about adding, changing, deleting and listing tags for CMKs,
-   *               see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/tagging-keys.html">Tagging Keys</a>.</p>
-   *          <p>Use this parameter to tag the CMK when it is created. To add tags to an
-   *       existing CMK, use the <a>TagResource</a> operation.</p>
-   */
-  Tags?: Tag[];
+  Policy?: string;
 }
 
 export namespace CreateKeyRequest {
@@ -1016,15 +1016,16 @@ export enum SigningAlgorithmSpec {
  */
 export interface KeyMetadata {
   /**
-   * <p>Specifies whether the CMK's key material expires. This value is present only when
-   *         <code>Origin</code> is <code>EXTERNAL</code>, otherwise this value is omitted.</p>
+   * <p>The current status of the CMK.</p>
+   *          <p>For more information about how key state affects the use of a CMK, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key state: Effect on your CMK</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
    */
-  ExpirationModel?: ExpirationModelType | string;
+  KeyState?: KeyState | string;
 
   /**
-   * <p>The globally unique identifier for the CMK.</p>
+   * <p>The date and time after which AWS KMS deletes the CMK. This value is present only when
+   *         <code>KeyState</code> is <code>PendingDeletion</code>.</p>
    */
-  KeyId: string | undefined;
+  DeletionDate?: Date;
 
   /**
    * <p>The date and time when the CMK was created.</p>
@@ -1032,48 +1033,18 @@ export interface KeyMetadata {
   CreationDate?: Date;
 
   /**
-   * <p>The cluster ID of the AWS CloudHSM cluster that contains the key material for the CMK. When you
-   *       create a CMK in a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom key store</a>, AWS KMS creates the key material for the CMK in the
-   *       associated AWS CloudHSM cluster. This value is present only when the CMK is created in a custom key
-   *       store.</p>
+   * <p>The globally unique identifier for the CMK.</p>
    */
-  CloudHsmClusterId?: string;
+  KeyId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the CMK. For examples, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kms">AWS Key Management Service
-   *         (AWS KMS)</a> in the Example ARNs section of the <i>AWS General
-   *         Reference</i>.</p>
+   * <p>The source of the CMK's key material. When this value is <code>AWS_KMS</code>, AWS KMS
+   *       created the key material. When this value is <code>EXTERNAL</code>, the key material was
+   *       imported from your existing key management infrastructure or the CMK lacks key material. When
+   *       this value is <code>AWS_CLOUDHSM</code>, the key material was created in the AWS CloudHSM cluster
+   *       associated with a custom key store.</p>
    */
-  Arn?: string;
-
-  /**
-   * <p>The manager of the CMK. CMKs in your AWS account are either customer managed or AWS
-   *       managed. For more information about the difference, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#master_keys">Customer Master Keys</a> in the
-   *       <i>AWS Key Management Service Developer Guide</i>.</p>
-   */
-  KeyManager?: KeyManagerType | string;
-
-  /**
-   * <p>The current status of the CMK.</p>
-   *          <p>For more information about how key state affects the use of a CMK, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key state: Effect on your CMK</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
-   */
-  KeyState?: KeyState | string;
-
-  /**
-   * <p>The <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations">cryptographic operations</a> for which you can use the CMK.</p>
-   */
-  KeyUsage?: KeyUsageType | string;
-
-  /**
-   * <p>A unique identifier for the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom key store</a> that contains the CMK. This value is present
-   *       only when the CMK is created in a custom key store.</p>
-   */
-  CustomKeyStoreId?: string;
-
-  /**
-   * <p>The twelve-digit account ID of the AWS account that owns the CMK.</p>
-   */
-  AWSAccountId?: string;
+  Origin?: OriginType | string;
 
   /**
    * <p>The description of the CMK.</p>
@@ -1081,26 +1052,9 @@ export interface KeyMetadata {
   Description?: string;
 
   /**
-   * <p>The encryption algorithms that the CMK supports. You cannot use the CMK with other
-   *       encryption algorithms within AWS KMS.</p>
-   *          <p>This field appears only when the <code>KeyUsage</code> of the CMK is
-   *         <code>ENCRYPT_DECRYPT</code>.</p>
+   * <p>The twelve-digit account ID of the AWS account that owns the CMK.</p>
    */
-  EncryptionAlgorithms?: (EncryptionAlgorithmSpec | string)[];
-
-  /**
-   * <p>The time at which the imported key material expires. When the key material expires, AWS KMS
-   *       deletes the key material and the CMK becomes unusable. This value is present only for CMKs
-   *       whose <code>Origin</code> is <code>EXTERNAL</code> and whose <code>ExpirationModel</code> is
-   *         <code>KEY_MATERIAL_EXPIRES</code>, otherwise this value is omitted.</p>
-   */
-  ValidTo?: Date;
-
-  /**
-   * <p>Specifies whether the CMK is enabled. When <code>KeyState</code> is <code>Enabled</code>
-   *       this value is true, otherwise it is false.</p>
-   */
-  Enabled?: boolean;
+  AWSAccountId?: string;
 
   /**
    * <p>The signing algorithms that the CMK supports. You cannot use the CMK with other
@@ -1116,19 +1070,65 @@ export interface KeyMetadata {
   CustomerMasterKeySpec?: CustomerMasterKeySpec | string;
 
   /**
-   * <p>The source of the CMK's key material. When this value is <code>AWS_KMS</code>, AWS KMS
-   *       created the key material. When this value is <code>EXTERNAL</code>, the key material was
-   *       imported from your existing key management infrastructure or the CMK lacks key material. When
-   *       this value is <code>AWS_CLOUDHSM</code>, the key material was created in the AWS CloudHSM cluster
-   *       associated with a custom key store.</p>
+   * <p>The time at which the imported key material expires. When the key material expires, AWS KMS
+   *       deletes the key material and the CMK becomes unusable. This value is present only for CMKs
+   *       whose <code>Origin</code> is <code>EXTERNAL</code> and whose <code>ExpirationModel</code> is
+   *         <code>KEY_MATERIAL_EXPIRES</code>, otherwise this value is omitted.</p>
    */
-  Origin?: OriginType | string;
+  ValidTo?: Date;
 
   /**
-   * <p>The date and time after which AWS KMS deletes the CMK. This value is present only when
-   *         <code>KeyState</code> is <code>PendingDeletion</code>.</p>
+   * <p>The cluster ID of the AWS CloudHSM cluster that contains the key material for the CMK. When you
+   *       create a CMK in a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom key store</a>, AWS KMS creates the key material for the CMK in the
+   *       associated AWS CloudHSM cluster. This value is present only when the CMK is created in a custom key
+   *       store.</p>
    */
-  DeletionDate?: Date;
+  CloudHsmClusterId?: string;
+
+  /**
+   * <p>The <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations">cryptographic operations</a> for which you can use the CMK.</p>
+   */
+  KeyUsage?: KeyUsageType | string;
+
+  /**
+   * <p>The encryption algorithms that the CMK supports. You cannot use the CMK with other
+   *       encryption algorithms within AWS KMS.</p>
+   *          <p>This field appears only when the <code>KeyUsage</code> of the CMK is
+   *         <code>ENCRYPT_DECRYPT</code>.</p>
+   */
+  EncryptionAlgorithms?: (EncryptionAlgorithmSpec | string)[];
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the CMK. For examples, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kms">AWS Key Management Service
+   *         (AWS KMS)</a> in the Example ARNs section of the <i>AWS General
+   *         Reference</i>.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>Specifies whether the CMK's key material expires. This value is present only when
+   *         <code>Origin</code> is <code>EXTERNAL</code>, otherwise this value is omitted.</p>
+   */
+  ExpirationModel?: ExpirationModelType | string;
+
+  /**
+   * <p>The manager of the CMK. CMKs in your AWS account are either customer managed or AWS
+   *       managed. For more information about the difference, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#master_keys">Customer Master Keys</a> in the
+   *       <i>AWS Key Management Service Developer Guide</i>.</p>
+   */
+  KeyManager?: KeyManagerType | string;
+
+  /**
+   * <p>Specifies whether the CMK is enabled. When <code>KeyState</code> is <code>Enabled</code>
+   *       this value is true, otherwise it is false.</p>
+   */
+  Enabled?: boolean;
+
+  /**
+   * <p>A unique identifier for the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom key store</a> that contains the CMK. This value is present
+   *       only when the CMK is created in a custom key store.</p>
+   */
+  CustomKeyStoreId?: string;
 }
 
 export namespace KeyMetadata {
@@ -1219,16 +1219,6 @@ export namespace CustomKeyStoreHasCMKsException {
  */
 export interface CustomKeyStoresListEntry {
   /**
-   * <p>The date and time when the custom key store was created.</p>
-   */
-  CreationDate?: Date;
-
-  /**
-   * <p>The user-specified friendly name for the custom key store.</p>
-   */
-  CustomKeyStoreName?: string;
-
-  /**
    * <p>Describes the connection error. This field appears in the response only when the <code>ConnectionState</code> is <code>FAILED</code>. For help resolving these errors, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/fix-keystore.html#fix-keystore-failed">How to Fix a Connection Failure</a> in <i>AWS Key Management Service Developer Guide</i>.</p>
    *          <p>Valid values are:</p>
    *          <ul>
@@ -1293,18 +1283,6 @@ export interface CustomKeyStoresListEntry {
   ConnectionErrorCode?: ConnectionErrorCodeType | string;
 
   /**
-   * <p>A unique identifier for the custom key store.</p>
-   */
-  CustomKeyStoreId?: string;
-
-  /**
-   * <p>The trust anchor certificate of the associated AWS CloudHSM cluster. When you <a href="https://docs.aws.amazon.com/cloudhsm/latest/userguide/initialize-cluster.html#sign-csr">initialize the
-   *         cluster</a>, you create this certificate and save it in the <code>customerCA.crt</code>
-   *       file.</p>
-   */
-  TrustAnchorCertificate?: string;
-
-  /**
    * <p>Indicates whether the custom key store is connected to its AWS CloudHSM cluster.</p>
    *          <p>You can create and use CMKs in your custom key stores only when its connection state is
    *         <code>CONNECTED</code>.</p>
@@ -1319,10 +1297,32 @@ export interface CustomKeyStoresListEntry {
   ConnectionState?: ConnectionStateType | string;
 
   /**
+   * <p>The trust anchor certificate of the associated AWS CloudHSM cluster. When you <a href="https://docs.aws.amazon.com/cloudhsm/latest/userguide/initialize-cluster.html#sign-csr">initialize the
+   *         cluster</a>, you create this certificate and save it in the <code>customerCA.crt</code>
+   *       file.</p>
+   */
+  TrustAnchorCertificate?: string;
+
+  /**
+   * <p>The user-specified friendly name for the custom key store.</p>
+   */
+  CustomKeyStoreName?: string;
+
+  /**
+   * <p>The date and time when the custom key store was created.</p>
+   */
+  CreationDate?: Date;
+
+  /**
    * <p>A unique identifier for the AWS CloudHSM cluster that is associated with the custom key
    *       store.</p>
    */
   CloudHsmClusterId?: string;
+
+  /**
+   * <p>A unique identifier for the custom key store.</p>
+   */
+  CustomKeyStoreId?: string;
 }
 
 export namespace CustomKeyStoresListEntry {
@@ -1347,6 +1347,38 @@ export enum DataKeySpec {
 }
 
 export interface DecryptRequest {
+  /**
+   * <p>Specifies the encryption algorithm that will be used to decrypt the ciphertext. Specify
+   *       the same algorithm that was used to encrypt the data. If you specify a different algorithm,
+   *       the <code>Decrypt</code> operation fails.</p>
+   *          <p>This parameter is required only when the ciphertext was encrypted under an asymmetric CMK.
+   *       The default value, <code>SYMMETRIC_DEFAULT</code>, represents the only supported algorithm
+   *       that is valid for symmetric CMKs.</p>
+   */
+  EncryptionAlgorithm?: EncryptionAlgorithmSpec | string;
+
+  /**
+   * <p>Specifies the encryption context to use when decrypting the data.
+   *       An encryption context is valid only for <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations">cryptographic operations</a> with a symmetric CMK. The standard asymmetric encryption algorithms that AWS KMS uses do not support an encryption context.</p>
+   *          <p>An <i>encryption context</i> is a collection of non-secret key-value pairs that represents additional authenticated data. When you use an encryption context to encrypt data, you must specify the same (an exact case-sensitive match) encryption context to decrypt the data. An encryption context is optional when encrypting with a symmetric CMK, but it is highly recommended.</p>
+   *          <p>For more information, see
+   *         <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">Encryption
+   *         Context</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
+   */
+  EncryptionContext?: { [key: string]: string };
+
+  /**
+   * <p>A list of grant tokens.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token">Grant Tokens</a> in the
+   *     <i>AWS Key Management Service Developer Guide</i>.</p>
+   */
+  GrantTokens?: string[];
+
+  /**
+   * <p>Ciphertext to be decrypted. The blob includes metadata.</p>
+   */
+  CiphertextBlob: Uint8Array | undefined;
+
   /**
    * <p>Specifies the customer master key (CMK) that AWS KMS will use to decrypt the ciphertext.
    *       Enter a key ID of the CMK that was used to encrypt the ciphertext.</p>
@@ -1379,38 +1411,6 @@ export interface DecryptRequest {
    *          <p>To get the key ID and key ARN for a CMK, use <a>ListKeys</a> or <a>DescribeKey</a>. To get the alias name and alias ARN, use <a>ListAliases</a>.</p>
    */
   KeyId?: string;
-
-  /**
-   * <p>Specifies the encryption algorithm that will be used to decrypt the ciphertext. Specify
-   *       the same algorithm that was used to encrypt the data. If you specify a different algorithm,
-   *       the <code>Decrypt</code> operation fails.</p>
-   *          <p>This parameter is required only when the ciphertext was encrypted under an asymmetric CMK.
-   *       The default value, <code>SYMMETRIC_DEFAULT</code>, represents the only supported algorithm
-   *       that is valid for symmetric CMKs.</p>
-   */
-  EncryptionAlgorithm?: EncryptionAlgorithmSpec | string;
-
-  /**
-   * <p>A list of grant tokens.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token">Grant Tokens</a> in the
-   *     <i>AWS Key Management Service Developer Guide</i>.</p>
-   */
-  GrantTokens?: string[];
-
-  /**
-   * <p>Ciphertext to be decrypted. The blob includes metadata.</p>
-   */
-  CiphertextBlob: Uint8Array | undefined;
-
-  /**
-   * <p>Specifies the encryption context to use when decrypting the data.
-   *       An encryption context is valid only for <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations">cryptographic operations</a> with a symmetric CMK. The standard asymmetric encryption algorithms that AWS KMS uses do not support an encryption context.</p>
-   *          <p>An <i>encryption context</i> is a collection of non-secret key-value pairs that represents additional authenticated data. When you use an encryption context to encrypt data, you must specify the same (an exact case-sensitive match) encryption context to decrypt the data. An encryption context is optional when encrypting with a symmetric CMK, but it is highly recommended.</p>
-   *          <p>For more information, see
-   *         <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">Encryption
-   *         Context</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
-   */
-  EncryptionContext?: { [key: string]: string };
 }
 
 export namespace DecryptRequest {
@@ -1421,14 +1421,14 @@ export namespace DecryptRequest {
 
 export interface DecryptResponse {
   /**
-   * <p>The encryption algorithm that was used to decrypt the ciphertext.</p>
-   */
-  EncryptionAlgorithm?: EncryptionAlgorithmSpec | string;
-
-  /**
    * <p>Decrypted plaintext data. When you use the HTTP API or the AWS CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
    */
   Plaintext?: Uint8Array;
+
+  /**
+   * <p>The encryption algorithm that was used to decrypt the ciphertext.</p>
+   */
+  EncryptionAlgorithm?: EncryptionAlgorithmSpec | string;
 
   /**
    * <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">key ARN</a>) of the CMK that was used to decrypt the ciphertext.</p>
@@ -1592,14 +1592,11 @@ export namespace DeleteImportedKeyMaterialRequest {
 
 export interface DescribeCustomKeyStoresRequest {
   /**
-   * <p>Gets only information about the specified custom key store. Enter the friendly name of the
-   *       custom key store.</p>
-   *          <p>By default, this operation gets information about all custom key stores in the account and
-   *       region. To limit the output to a particular custom key store, you can use either the
-   *         <code>CustomKeyStoreId</code> or <code>CustomKeyStoreName</code> parameter, but not
-   *       both.</p>
+   * <p>Use this parameter to specify the maximum number of items to return. When this
+   *     value is present, AWS KMS does not return more than the specified number of items, but it might
+   *     return fewer.</p>
    */
-  CustomKeyStoreName?: string;
+  Limit?: number;
 
   /**
    * <p>Use this parameter in a subsequent request after you receive a response with
@@ -1609,11 +1606,14 @@ export interface DescribeCustomKeyStoresRequest {
   Marker?: string;
 
   /**
-   * <p>Use this parameter to specify the maximum number of items to return. When this
-   *     value is present, AWS KMS does not return more than the specified number of items, but it might
-   *     return fewer.</p>
+   * <p>Gets only information about the specified custom key store. Enter the friendly name of the
+   *       custom key store.</p>
+   *          <p>By default, this operation gets information about all custom key stores in the account and
+   *       region. To limit the output to a particular custom key store, you can use either the
+   *         <code>CustomKeyStoreId</code> or <code>CustomKeyStoreName</code> parameter, but not
+   *       both.</p>
    */
-  Limit?: number;
+  CustomKeyStoreName?: string;
 
   /**
    * <p>Gets only information about the specified custom key store. Enter the key store ID.</p>
@@ -1660,13 +1660,6 @@ export namespace DescribeCustomKeyStoresResponse {
 
 export interface DescribeKeyRequest {
   /**
-   * <p>A list of grant tokens.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token">Grant Tokens</a> in the
-   *     <i>AWS Key Management Service Developer Guide</i>.</p>
-   */
-  GrantTokens?: string[];
-
-  /**
    * <p>Describes the specified customer master key (CMK). </p>
    *          <p>If you specify a predefined AWS alias (an AWS alias with no key ID), KMS associates the
    *       alias with an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#master_keys">AWS
@@ -1695,6 +1688,13 @@ export interface DescribeKeyRequest {
    *          <p>To get the key ID and key ARN for a CMK, use <a>ListKeys</a> or <a>DescribeKey</a>. To get the alias name and alias ARN, use <a>ListAliases</a>.</p>
    */
   KeyId: string | undefined;
+
+  /**
+   * <p>A list of grant tokens.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token">Grant Tokens</a> in the
+   *     <i>AWS Key Management Service Developer Guide</i>.</p>
+   */
+  GrantTokens?: string[];
 }
 
 export namespace DescribeKeyRequest {
@@ -1846,11 +1846,35 @@ export namespace EnableKeyRotationRequest {
 
 export interface EncryptRequest {
   /**
+   * <p>Data to be encrypted.</p>
+   */
+  Plaintext: Uint8Array | undefined;
+
+  /**
+   * <p>Specifies the encryption context that will be used to encrypt the data.
+   *       An encryption context is valid only for <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations">cryptographic operations</a> with a symmetric CMK. The standard asymmetric encryption algorithms that AWS KMS uses do not support an encryption context. </p>
+   *          <p>An <i>encryption context</i> is a collection of non-secret key-value pairs that represents additional authenticated data. When you use an encryption context to encrypt data, you must specify the same (an exact case-sensitive match) encryption context to decrypt the data. An encryption context is optional when encrypting with a symmetric CMK, but it is highly recommended.</p>
+   *          <p>For more information, see
+   *         <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">Encryption
+   *         Context</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
+   */
+  EncryptionContext?: { [key: string]: string };
+
+  /**
    * <p>A list of grant tokens.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token">Grant Tokens</a> in the
    *     <i>AWS Key Management Service Developer Guide</i>.</p>
    */
   GrantTokens?: string[];
+
+  /**
+   * <p>Specifies the encryption algorithm that AWS KMS will use to encrypt the plaintext message.
+   *       The algorithm must be compatible with the CMK that you specify.</p>
+   *          <p>This parameter is required only for asymmetric CMKs. The default value,
+   *         <code>SYMMETRIC_DEFAULT</code>, is the algorithm used for symmetric CMKs. If you are using
+   *       an asymmetric CMK, we recommend RSAES_OAEP_SHA_256.</p>
+   */
+  EncryptionAlgorithm?: EncryptionAlgorithmSpec | string;
 
   /**
    * <p>A unique identifier for the customer master key (CMK).</p>
@@ -1877,30 +1901,6 @@ export interface EncryptRequest {
    *          <p>To get the key ID and key ARN for a CMK, use <a>ListKeys</a> or <a>DescribeKey</a>. To get the alias name and alias ARN, use <a>ListAliases</a>.</p>
    */
   KeyId: string | undefined;
-
-  /**
-   * <p>Specifies the encryption algorithm that AWS KMS will use to encrypt the plaintext message.
-   *       The algorithm must be compatible with the CMK that you specify.</p>
-   *          <p>This parameter is required only for asymmetric CMKs. The default value,
-   *         <code>SYMMETRIC_DEFAULT</code>, is the algorithm used for symmetric CMKs. If you are using
-   *       an asymmetric CMK, we recommend RSAES_OAEP_SHA_256.</p>
-   */
-  EncryptionAlgorithm?: EncryptionAlgorithmSpec | string;
-
-  /**
-   * <p>Specifies the encryption context that will be used to encrypt the data.
-   *       An encryption context is valid only for <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations">cryptographic operations</a> with a symmetric CMK. The standard asymmetric encryption algorithms that AWS KMS uses do not support an encryption context. </p>
-   *          <p>An <i>encryption context</i> is a collection of non-secret key-value pairs that represents additional authenticated data. When you use an encryption context to encrypt data, you must specify the same (an exact case-sensitive match) encryption context to decrypt the data. An encryption context is optional when encrypting with a symmetric CMK, but it is highly recommended.</p>
-   *          <p>For more information, see
-   *         <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">Encryption
-   *         Context</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
-   */
-  EncryptionContext?: { [key: string]: string };
-
-  /**
-   * <p>Data to be encrypted.</p>
-   */
-  Plaintext: Uint8Array | undefined;
 }
 
 export namespace EncryptRequest {
@@ -1912,9 +1912,9 @@ export namespace EncryptRequest {
 
 export interface EncryptResponse {
   /**
-   * <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">key ARN</a>) of the CMK that was used to encrypt the plaintext.</p>
+   * <p>The encryption algorithm that was used to encrypt the plaintext.</p>
    */
-  KeyId?: string;
+  EncryptionAlgorithm?: EncryptionAlgorithmSpec | string;
 
   /**
    * <p>The encrypted plaintext. When you use the HTTP API or the AWS CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
@@ -1922,9 +1922,9 @@ export interface EncryptResponse {
   CiphertextBlob?: Uint8Array;
 
   /**
-   * <p>The encryption algorithm that was used to encrypt the plaintext.</p>
+   * <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">key ARN</a>) of the CMK that was used to encrypt the plaintext.</p>
    */
-  EncryptionAlgorithm?: EncryptionAlgorithmSpec | string;
+  KeyId?: string;
 }
 
 export namespace EncryptResponse {
@@ -1960,13 +1960,11 @@ export interface GenerateDataKeyRequest {
   NumberOfBytes?: number;
 
   /**
-   * <p>Specifies the encryption context that will be used when encrypting the data key.</p>
-   *          <p>An <i>encryption context</i> is a collection of non-secret key-value pairs that represents additional authenticated data. When you use an encryption context to encrypt data, you must specify the same (an exact case-sensitive match) encryption context to decrypt the data. An encryption context is optional when encrypting with a symmetric CMK, but it is highly recommended.</p>
-   *          <p>For more information, see
-   *         <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">Encryption
-   *         Context</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
+   * <p>A list of grant tokens.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token">Grant Tokens</a> in the
+   *     <i>AWS Key Management Service Developer Guide</i>.</p>
    */
-  EncryptionContext?: { [key: string]: string };
+  GrantTokens?: string[];
 
   /**
    * <p>Identifies the symmetric CMK that encrypts the data key.</p>
@@ -1996,19 +1994,21 @@ export interface GenerateDataKeyRequest {
   KeyId: string | undefined;
 
   /**
-   * <p>A list of grant tokens.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token">Grant Tokens</a> in the
-   *     <i>AWS Key Management Service Developer Guide</i>.</p>
-   */
-  GrantTokens?: string[];
-
-  /**
    * <p>Specifies the length of the data key. Use <code>AES_128</code> to generate a 128-bit
    *       symmetric key, or <code>AES_256</code> to generate a 256-bit symmetric key.</p>
    *          <p>You must specify either the <code>KeySpec</code> or the <code>NumberOfBytes</code>
    *       parameter (but not both) in every <code>GenerateDataKey</code> request.</p>
    */
   KeySpec?: DataKeySpec | string;
+
+  /**
+   * <p>Specifies the encryption context that will be used when encrypting the data key.</p>
+   *          <p>An <i>encryption context</i> is a collection of non-secret key-value pairs that represents additional authenticated data. When you use an encryption context to encrypt data, you must specify the same (an exact case-sensitive match) encryption context to decrypt the data. An encryption context is optional when encrypting with a symmetric CMK, but it is highly recommended.</p>
+   *          <p>For more information, see
+   *         <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">Encryption
+   *         Context</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
+   */
+  EncryptionContext?: { [key: string]: string };
 }
 
 export namespace GenerateDataKeyRequest {
@@ -2044,6 +2044,13 @@ export namespace GenerateDataKeyResponse {
 
 export interface GenerateDataKeyPairRequest {
   /**
+   * <p>A list of grant tokens.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token">Grant Tokens</a> in the
+   *     <i>AWS Key Management Service Developer Guide</i>.</p>
+   */
+  GrantTokens?: string[];
+
+  /**
    * <p>Specifies the encryption context that will be used when encrypting the private key in the
    *       data key pair.</p>
    *          <p>An <i>encryption context</i> is a collection of non-secret key-value pairs that represents additional authenticated data. When you use an encryption context to encrypt data, you must specify the same (an exact case-sensitive match) encryption context to decrypt the data. An encryption context is optional when encrypting with a symmetric CMK, but it is highly recommended.</p>
@@ -2054,11 +2061,10 @@ export interface GenerateDataKeyPairRequest {
   EncryptionContext?: { [key: string]: string };
 
   /**
-   * <p>A list of grant tokens.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token">Grant Tokens</a> in the
-   *     <i>AWS Key Management Service Developer Guide</i>.</p>
+   * <p>Determines the type of data key pair that is generated. </p>
+   *          <p>The AWS KMS rule that restricts the use of asymmetric RSA CMKs to encrypt and decrypt or to sign and verify (but not both), and the rule that permits you to use ECC CMKs only to sign and verify, are not effective outside of AWS KMS.</p>
    */
-  GrantTokens?: string[];
+  KeyPairSpec: DataKeyPairSpec | string | undefined;
 
   /**
    * <p>Specifies the symmetric CMK that encrypts the private key in the data key pair. You cannot
@@ -2087,12 +2093,6 @@ export interface GenerateDataKeyPairRequest {
    *          <p>To get the key ID and key ARN for a CMK, use <a>ListKeys</a> or <a>DescribeKey</a>. To get the alias name and alias ARN, use <a>ListAliases</a>.</p>
    */
   KeyId: string | undefined;
-
-  /**
-   * <p>Determines the type of data key pair that is generated. </p>
-   *          <p>The AWS KMS rule that restricts the use of asymmetric RSA CMKs to encrypt and decrypt or to sign and verify (but not both), and the rule that permits you to use ECC CMKs only to sign and verify, are not effective outside of AWS KMS.</p>
-   */
-  KeyPairSpec: DataKeyPairSpec | string | undefined;
 }
 
 export namespace GenerateDataKeyPairRequest {
@@ -2103,14 +2103,9 @@ export namespace GenerateDataKeyPairRequest {
 
 export interface GenerateDataKeyPairResponse {
   /**
-   * <p>The encrypted copy of the private key. When you use the HTTP API or the AWS CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
+   * <p>The public key (in plaintext).</p>
    */
-  PrivateKeyCiphertextBlob?: Uint8Array;
-
-  /**
-   * <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">key ARN</a>) of the CMK that encrypted the private key.</p>
-   */
-  KeyId?: string;
+  PublicKey?: Uint8Array;
 
   /**
    * <p>The type of data key pair that was generated.</p>
@@ -2123,9 +2118,14 @@ export interface GenerateDataKeyPairResponse {
   PrivateKeyPlaintext?: Uint8Array;
 
   /**
-   * <p>The public key (in plaintext).</p>
+   * <p>The encrypted copy of the private key. When you use the HTTP API or the AWS CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
    */
-  PublicKey?: Uint8Array;
+  PrivateKeyCiphertextBlob?: Uint8Array;
+
+  /**
+   * <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">key ARN</a>) of the CMK that encrypted the private key.</p>
+   */
+  KeyId?: string;
 }
 
 export namespace GenerateDataKeyPairResponse {
@@ -2136,6 +2136,12 @@ export namespace GenerateDataKeyPairResponse {
 }
 
 export interface GenerateDataKeyPairWithoutPlaintextRequest {
+  /**
+   * <p>Determines the type of data key pair that is generated.</p>
+   *          <p>The AWS KMS rule that restricts the use of asymmetric RSA CMKs to encrypt and decrypt or to sign and verify (but not both), and the rule that permits you to use ECC CMKs only to sign and verify, are not effective outside of AWS KMS.</p>
+   */
+  KeyPairSpec: DataKeyPairSpec | string | undefined;
+
   /**
    * <p>Specifies the CMK that encrypts the private key in the data key pair. You must specify a
    *       symmetric CMK. You cannot use an asymmetric CMK or a CMK in a custom key store. To get the
@@ -2165,10 +2171,11 @@ export interface GenerateDataKeyPairWithoutPlaintextRequest {
   KeyId: string | undefined;
 
   /**
-   * <p>Determines the type of data key pair that is generated.</p>
-   *          <p>The AWS KMS rule that restricts the use of asymmetric RSA CMKs to encrypt and decrypt or to sign and verify (but not both), and the rule that permits you to use ECC CMKs only to sign and verify, are not effective outside of AWS KMS.</p>
+   * <p>A list of grant tokens.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token">Grant Tokens</a> in the
+   *     <i>AWS Key Management Service Developer Guide</i>.</p>
    */
-  KeyPairSpec: DataKeyPairSpec | string | undefined;
+  GrantTokens?: string[];
 
   /**
    * <p>Specifies the encryption context that will be used when encrypting the private key in the
@@ -2179,13 +2186,6 @@ export interface GenerateDataKeyPairWithoutPlaintextRequest {
    *         Context</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
    */
   EncryptionContext?: { [key: string]: string };
-
-  /**
-   * <p>A list of grant tokens.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token">Grant Tokens</a> in the
-   *     <i>AWS Key Management Service Developer Guide</i>.</p>
-   */
-  GrantTokens?: string[];
 }
 
 export namespace GenerateDataKeyPairWithoutPlaintextRequest {
@@ -2224,15 +2224,6 @@ export namespace GenerateDataKeyPairWithoutPlaintextResponse {
 
 export interface GenerateDataKeyWithoutPlaintextRequest {
   /**
-   * <p>Specifies the encryption context that will be used when encrypting the data key.</p>
-   *          <p>An <i>encryption context</i> is a collection of non-secret key-value pairs that represents additional authenticated data. When you use an encryption context to encrypt data, you must specify the same (an exact case-sensitive match) encryption context to decrypt the data. An encryption context is optional when encrypting with a symmetric CMK, but it is highly recommended.</p>
-   *          <p>For more information, see
-   *         <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">Encryption
-   *         Context</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
-   */
-  EncryptionContext?: { [key: string]: string };
-
-  /**
    * <p>The identifier of the symmetric customer master key (CMK) that encrypts the data
    *       key.</p>
    *          <p>To specify a CMK, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. When using an alias name, prefix it with <code>"alias/"</code>. To specify a CMK in a different AWS account, you must use the key ARN or alias ARN.</p>
@@ -2260,6 +2251,13 @@ export interface GenerateDataKeyWithoutPlaintextRequest {
   KeyId: string | undefined;
 
   /**
+   * <p>The length of the data key in bytes. For example, use the value 64 to generate a 512-bit
+   *       data key (64 bytes is 512 bits). For common key lengths (128-bit and 256-bit symmetric keys),
+   *       we recommend that you use the <code>KeySpec</code> field instead of this one.</p>
+   */
+  NumberOfBytes?: number;
+
+  /**
    * <p>A list of grant tokens.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token">Grant Tokens</a> in the
    *     <i>AWS Key Management Service Developer Guide</i>.</p>
@@ -2273,11 +2271,13 @@ export interface GenerateDataKeyWithoutPlaintextRequest {
   KeySpec?: DataKeySpec | string;
 
   /**
-   * <p>The length of the data key in bytes. For example, use the value 64 to generate a 512-bit
-   *       data key (64 bytes is 512 bits). For common key lengths (128-bit and 256-bit symmetric keys),
-   *       we recommend that you use the <code>KeySpec</code> field instead of this one.</p>
+   * <p>Specifies the encryption context that will be used when encrypting the data key.</p>
+   *          <p>An <i>encryption context</i> is a collection of non-secret key-value pairs that represents additional authenticated data. When you use an encryption context to encrypt data, you must specify the same (an exact case-sensitive match) encryption context to decrypt the data. An encryption context is optional when encrypting with a symmetric CMK, but it is highly recommended.</p>
+   *          <p>For more information, see
+   *         <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">Encryption
+   *         Context</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
    */
-  NumberOfBytes?: number;
+  EncryptionContext?: { [key: string]: string };
 }
 
 export namespace GenerateDataKeyWithoutPlaintextRequest {
@@ -2339,12 +2339,6 @@ export namespace GenerateRandomResponse {
 
 export interface GetKeyPolicyRequest {
   /**
-   * <p>Specifies the name of the key policy. The only valid name is <code>default</code>. To get
-   *       the names of key policies, use <a>ListKeyPolicies</a>.</p>
-   */
-  PolicyName: string | undefined;
-
-  /**
    * <p>A unique identifier for the customer master key (CMK).</p>
    *          <p>Specify the key ID or the Amazon Resource Name (ARN) of the CMK.</p>
    *          <p>For example:</p>
@@ -2361,6 +2355,12 @@ export interface GetKeyPolicyRequest {
    *          <p>To get the key ID and key ARN for a CMK, use <a>ListKeys</a> or <a>DescribeKey</a>.</p>
    */
   KeyId: string | undefined;
+
+  /**
+   * <p>Specifies the name of the key policy. The only valid name is <code>default</code>. To get
+   *       the names of key policies, use <a>ListKeyPolicies</a>.</p>
+   */
+  PolicyName: string | undefined;
 }
 
 export namespace GetKeyPolicyRequest {
@@ -2467,13 +2467,6 @@ export namespace GetParametersForImportRequest {
 
 export interface GetParametersForImportResponse {
   /**
-   * <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">key ARN</a>) of the CMK to use in a subsequent <a>ImportKeyMaterial</a>
-   *       request. This is the same CMK specified in the <code>GetParametersForImport</code>
-   *       request.</p>
-   */
-  KeyId?: string;
-
-  /**
    * <p>The import token to send in a subsequent <a>ImportKeyMaterial</a>
    *       request.</p>
    */
@@ -2490,6 +2483,13 @@ export interface GetParametersForImportResponse {
    *       another <code>GetParametersForImport</code> request to get new ones.</p>
    */
   ParametersValidTo?: Date;
+
+  /**
+   * <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">key ARN</a>) of the CMK to use in a subsequent <a>ImportKeyMaterial</a>
+   *       request. This is the same CMK specified in the <code>GetParametersForImport</code>
+   *       request.</p>
+   */
+  KeyId?: string;
 }
 
 export namespace GetParametersForImportResponse {
@@ -2543,12 +2543,18 @@ export namespace GetPublicKeyRequest {
 
 export interface GetPublicKeyResponse {
   /**
-   * <p>The permitted use of the public key. Valid values are <code>ENCRYPT_DECRYPT</code> or
-   *         <code>SIGN_VERIFY</code>. </p>
-   *          <p>This information is critical. If a public key with <code>SIGN_VERIFY</code> key usage
-   *       encrypts data outside of AWS KMS, the ciphertext cannot be decrypted. </p>
+   * <p>The encryption algorithms that AWS KMS supports for this key. </p>
+   *          <p>This information is critical. If a public key encrypts data outside of AWS KMS by using an
+   *       unsupported encryption algorithm, the ciphertext cannot be decrypted. </p>
+   *          <p>This field appears in the response only when the <code>KeyUsage</code> of the public key
+   *       is <code>ENCRYPT_DECRYPT</code>.</p>
    */
-  KeyUsage?: KeyUsageType | string;
+  EncryptionAlgorithms?: (EncryptionAlgorithmSpec | string)[];
+
+  /**
+   * <p>The type of the of the public key that was downloaded.</p>
+   */
+  CustomerMasterKeySpec?: CustomerMasterKeySpec | string;
 
   /**
    * <p>The exported public key. </p>
@@ -2557,11 +2563,6 @@ export interface GetPublicKeyResponse {
    *          <p></p>
    */
   PublicKey?: Uint8Array;
-
-  /**
-   * <p>The type of the of the public key that was downloaded.</p>
-   */
-  CustomerMasterKeySpec?: CustomerMasterKeySpec | string;
 
   /**
    * <p>The signing algorithms that AWS KMS supports for this key.</p>
@@ -2576,13 +2577,12 @@ export interface GetPublicKeyResponse {
   KeyId?: string;
 
   /**
-   * <p>The encryption algorithms that AWS KMS supports for this key. </p>
-   *          <p>This information is critical. If a public key encrypts data outside of AWS KMS by using an
-   *       unsupported encryption algorithm, the ciphertext cannot be decrypted. </p>
-   *          <p>This field appears in the response only when the <code>KeyUsage</code> of the public key
-   *       is <code>ENCRYPT_DECRYPT</code>.</p>
+   * <p>The permitted use of the public key. Valid values are <code>ENCRYPT_DECRYPT</code> or
+   *         <code>SIGN_VERIFY</code>. </p>
+   *          <p>This information is critical. If a public key with <code>SIGN_VERIFY</code> key usage
+   *       encrypts data outside of AWS KMS, the ciphertext cannot be decrypted. </p>
    */
-  EncryptionAlgorithms?: (EncryptionAlgorithmSpec | string)[];
+  KeyUsage?: KeyUsageType | string;
 }
 
 export namespace GetPublicKeyResponse {
@@ -2596,9 +2596,29 @@ export namespace GetPublicKeyResponse {
  */
 export interface GrantListEntry {
   /**
+   * <p>The unique identifier for the customer master key (CMK) to which the grant applies.</p>
+   */
+  KeyId?: string;
+
+  /**
+   * <p>The unique identifier for the grant.</p>
+   */
+  GrantId?: string;
+
+  /**
+   * <p>The list of operations permitted by the grant.</p>
+   */
+  Operations?: (GrantOperation | string)[];
+
+  /**
    * <p>The AWS account under which the grant was issued.</p>
    */
   IssuingAccount?: string;
+
+  /**
+   * <p>The friendly name that identifies the grant. If a name was provided in the <a>CreateGrant</a> request, that name is returned. Otherwise this value is null.</p>
+   */
+  Name?: string;
 
   /**
    * <p>The identity that gets the permissions in the grant.</p>
@@ -2611,14 +2631,9 @@ export interface GrantListEntry {
   GranteePrincipal?: string;
 
   /**
-   * <p>The list of operations permitted by the grant.</p>
+   * <p>The date and time when the grant was created.</p>
    */
-  Operations?: (GrantOperation | string)[];
-
-  /**
-   * <p>The friendly name that identifies the grant. If a name was provided in the <a>CreateGrant</a> request, that name is returned. Otherwise this value is null.</p>
-   */
-  Name?: string;
+  CreationDate?: Date;
 
   /**
    * <p>The principal that can retire the grant.</p>
@@ -2626,25 +2641,10 @@ export interface GrantListEntry {
   RetiringPrincipal?: string;
 
   /**
-   * <p>The unique identifier for the customer master key (CMK) to which the grant applies.</p>
-   */
-  KeyId?: string;
-
-  /**
-   * <p>The unique identifier for the grant.</p>
-   */
-  GrantId?: string;
-
-  /**
    * <p>A list of key-value pairs that must be present in the encryption context of certain
    *       subsequent operations that the grant allows.</p>
    */
   Constraints?: GrantConstraints;
-
-  /**
-   * <p>The date and time when the grant was created.</p>
-   */
-  CreationDate?: Date;
 }
 
 export namespace GrantListEntry {
@@ -2654,6 +2654,14 @@ export namespace GrantListEntry {
 }
 
 export interface ImportKeyMaterialRequest {
+  /**
+   * <p>The time at which the imported key material expires. When the key material expires, AWS KMS
+   *       deletes the key material and the CMK becomes unusable. You must omit this parameter when the
+   *         <code>ExpirationModel</code> parameter is set to <code>KEY_MATERIAL_DOES_NOT_EXPIRE</code>.
+   *       Otherwise it is required.</p>
+   */
+  ValidTo?: Date;
+
   /**
    * <p>The import token that you received in the response to a previous <a>GetParametersForImport</a> request. It must be from the same response that contained
    *       the public key that you used to encrypt the key material.</p>
@@ -2695,14 +2703,6 @@ export interface ImportKeyMaterialRequest {
    *       omit the <code>ValidTo</code> parameter.</p>
    */
   ExpirationModel?: ExpirationModelType | string;
-
-  /**
-   * <p>The time at which the imported key material expires. When the key material expires, AWS KMS
-   *       deletes the key material and the CMK becomes unusable. You must omit this parameter when the
-   *         <code>ExpirationModel</code> parameter is set to <code>KEY_MATERIAL_DOES_NOT_EXPIRE</code>.
-   *       Otherwise it is required.</p>
-   */
-  ValidTo?: Date;
 }
 
 export namespace ImportKeyMaterialRequest {
@@ -2823,15 +2823,6 @@ export namespace KMSInvalidSignatureException {
 
 export interface ListAliasesRequest {
   /**
-   * <p>Lists only aliases that refer to the specified CMK. The value of this parameter can be the
-   *       ID or Amazon Resource Name (ARN) of a CMK in the caller's account and region. You cannot use
-   *       an alias name or alias ARN in this value.</p>
-   *          <p>This parameter is optional. If you omit it, <code>ListAliases</code> returns all aliases
-   *       in the account and region.</p>
-   */
-  KeyId?: string;
-
-  /**
    * <p>Use this parameter in a subsequent request after you receive a response with
    *     truncated results. Set it to the value of <code>NextMarker</code> from the truncated response
    *     you just received.</p>
@@ -2846,6 +2837,15 @@ export interface ListAliasesRequest {
    *     and 100, inclusive. If you do not include a value, it defaults to 50.</p>
    */
   Limit?: number;
+
+  /**
+   * <p>Lists only aliases that refer to the specified CMK. The value of this parameter can be the
+   *       ID or Amazon Resource Name (ARN) of a CMK in the caller's account and region. You cannot use
+   *       an alias name or alias ARN in this value.</p>
+   *          <p>This parameter is optional. If you omit it, <code>ListAliases</code> returns all aliases
+   *       in the account and region.</p>
+   */
+  KeyId?: string;
 }
 
 export namespace ListAliasesRequest {
@@ -2855,12 +2855,6 @@ export namespace ListAliasesRequest {
 }
 
 export interface ListAliasesResponse {
-  /**
-   * <p>When <code>Truncated</code> is true, this element is present and contains the
-   *     value to use for the <code>Marker</code> parameter in a subsequent request.</p>
-   */
-  NextMarker?: string;
-
   /**
    * <p>A list of aliases.</p>
    */
@@ -2873,6 +2867,12 @@ export interface ListAliasesResponse {
    *     subsequent request.</p>
    */
   Truncated?: boolean;
+
+  /**
+   * <p>When <code>Truncated</code> is true, this element is present and contains the
+   *     value to use for the <code>Marker</code> parameter in a subsequent request.</p>
+   */
+  NextMarker?: string;
 }
 
 export namespace ListAliasesResponse {
@@ -2926,15 +2926,15 @@ export namespace ListGrantsRequest {
 
 export interface ListGrantsResponse {
   /**
-   * <p>A list of grants.</p>
-   */
-  Grants?: GrantListEntry[];
-
-  /**
    * <p>When <code>Truncated</code> is true, this element is present and contains the
    *     value to use for the <code>Marker</code> parameter in a subsequent request.</p>
    */
   NextMarker?: string;
+
+  /**
+   * <p>A list of grants.</p>
+   */
+  Grants?: GrantListEntry[];
 
   /**
    * <p>A flag that indicates whether there are more items in the list. When this
@@ -2953,14 +2953,11 @@ export namespace ListGrantsResponse {
 
 export interface ListKeyPoliciesRequest {
   /**
-   * <p>Use this parameter to specify the maximum number of items to return. When this
-   *     value is present, AWS KMS does not return more than the specified number of items, but it might
-   *     return fewer.</p>
-   *          <p>This value is optional. If you include a value, it must be between
-   *     1 and 1000, inclusive. If you do not include a value, it defaults to 100.</p>
-   *          <p>Only one policy can be attached to a key.</p>
+   * <p>Use this parameter in a subsequent request after you receive a response with
+   *     truncated results. Set it to the value of <code>NextMarker</code> from the truncated response
+   *     you just received.</p>
    */
-  Limit?: number;
+  Marker?: string;
 
   /**
    * <p>A unique identifier for the customer master key (CMK).</p>
@@ -2981,11 +2978,14 @@ export interface ListKeyPoliciesRequest {
   KeyId: string | undefined;
 
   /**
-   * <p>Use this parameter in a subsequent request after you receive a response with
-   *     truncated results. Set it to the value of <code>NextMarker</code> from the truncated response
-   *     you just received.</p>
+   * <p>Use this parameter to specify the maximum number of items to return. When this
+   *     value is present, AWS KMS does not return more than the specified number of items, but it might
+   *     return fewer.</p>
+   *          <p>This value is optional. If you include a value, it must be between
+   *     1 and 1000, inclusive. If you do not include a value, it defaults to 100.</p>
+   *          <p>Only one policy can be attached to a key.</p>
    */
-  Marker?: string;
+  Limit?: number;
 }
 
 export namespace ListKeyPoliciesRequest {
@@ -2995,6 +2995,12 @@ export namespace ListKeyPoliciesRequest {
 }
 
 export interface ListKeyPoliciesResponse {
+  /**
+   * <p>When <code>Truncated</code> is true, this element is present and contains the
+   *     value to use for the <code>Marker</code> parameter in a subsequent request.</p>
+   */
+  NextMarker?: string;
+
   /**
    * <p>A list of key policy names. The only valid value is <code>default</code>.</p>
    */
@@ -3007,12 +3013,6 @@ export interface ListKeyPoliciesResponse {
    *     subsequent request.</p>
    */
   Truncated?: boolean;
-
-  /**
-   * <p>When <code>Truncated</code> is true, this element is present and contains the
-   *     value to use for the <code>Marker</code> parameter in a subsequent request.</p>
-   */
-  NextMarker?: string;
 }
 
 export namespace ListKeyPoliciesResponse {
@@ -3047,18 +3047,18 @@ export namespace ListKeysRequest {
 
 export interface ListKeysResponse {
   /**
-   * <p>When <code>Truncated</code> is true, this element is present and contains the
-   *     value to use for the <code>Marker</code> parameter in a subsequent request.</p>
-   */
-  NextMarker?: string;
-
-  /**
    * <p>A flag that indicates whether there are more items in the list. When this
    *     value is true, the list in this response is truncated. To get more items, pass the value of
    *     the <code>NextMarker</code> element in thisresponse to the <code>Marker</code> parameter in a
    *     subsequent request.</p>
    */
   Truncated?: boolean;
+
+  /**
+   * <p>When <code>Truncated</code> is true, this element is present and contains the
+   *     value to use for the <code>Marker</code> parameter in a subsequent request.</p>
+   */
+  NextMarker?: string;
 
   /**
    * <p>A list of customer master keys (CMKs).</p>
@@ -3073,6 +3073,15 @@ export namespace ListKeysResponse {
 }
 
 export interface ListResourceTagsRequest {
+  /**
+   * <p>Use this parameter in a subsequent request after you receive a response with
+   *     truncated results. Set it to the value of <code>NextMarker</code> from the truncated response
+   *     you just received.</p>
+   *          <p>Do not attempt to construct this value. Use only the value of <code>NextMarker</code> from
+   *       the truncated response you just received.</p>
+   */
+  Marker?: string;
+
   /**
    * <p>Use this parameter to specify the maximum number of items to return. When this
    *     value is present, AWS KMS does not return more than the specified number of items, but it might
@@ -3099,15 +3108,6 @@ export interface ListResourceTagsRequest {
    *          <p>To get the key ID and key ARN for a CMK, use <a>ListKeys</a> or <a>DescribeKey</a>.</p>
    */
   KeyId: string | undefined;
-
-  /**
-   * <p>Use this parameter in a subsequent request after you receive a response with
-   *     truncated results. Set it to the value of <code>NextMarker</code> from the truncated response
-   *     you just received.</p>
-   *          <p>Do not attempt to construct this value. Use only the value of <code>NextMarker</code> from
-   *       the truncated response you just received.</p>
-   */
-  Marker?: string;
 }
 
 export namespace ListResourceTagsRequest {
@@ -3118,19 +3118,19 @@ export namespace ListResourceTagsRequest {
 
 export interface ListResourceTagsResponse {
   /**
-   * <p>When <code>Truncated</code> is true, this element is present and contains the
-   *     value to use for the <code>Marker</code> parameter in a subsequent request.</p>
-   *          <p>Do not assume or infer any information from this value.</p>
-   */
-  NextMarker?: string;
-
-  /**
    * <p>A flag that indicates whether there are more items in the list. When this
    *     value is true, the list in this response is truncated. To get more items, pass the value of
    *     the <code>NextMarker</code> element in thisresponse to the <code>Marker</code> parameter in a
    *     subsequent request.</p>
    */
   Truncated?: boolean;
+
+  /**
+   * <p>When <code>Truncated</code> is true, this element is present and contains the
+   *     value to use for the <code>Marker</code> parameter in a subsequent request.</p>
+   *          <p>Do not assume or infer any information from this value.</p>
+   */
+  NextMarker?: string;
 
   /**
    * <p>A list of tags. Each tag consists of a tag key and a tag value.</p>
@@ -3146,6 +3146,13 @@ export namespace ListResourceTagsResponse {
 
 export interface ListRetirableGrantsRequest {
   /**
+   * <p>Use this parameter in a subsequent request after you receive a response with
+   *     truncated results. Set it to the value of <code>NextMarker</code> from the truncated response
+   *     you just received.</p>
+   */
+  Marker?: string;
+
+  /**
    * <p>Use this parameter to specify the maximum number of items to return. When this
    *     value is present, AWS KMS does not return more than the specified number of items, but it might
    *     return fewer.</p>
@@ -3153,13 +3160,6 @@ export interface ListRetirableGrantsRequest {
    *     and 100, inclusive. If you do not include a value, it defaults to 50.</p>
    */
   Limit?: number;
-
-  /**
-   * <p>Use this parameter in a subsequent request after you receive a response with
-   *     truncated results. Set it to the value of <code>NextMarker</code> from the truncated response
-   *     you just received.</p>
-   */
-  Marker?: string;
 
   /**
    * <p>The retiring principal for which to list grants.</p>
@@ -3216,6 +3216,11 @@ export interface PutKeyPolicyRequest {
   BypassPolicyLockoutSafetyCheck?: boolean;
 
   /**
+   * <p>The name of the key policy. The only valid value is <code>default</code>.</p>
+   */
+  PolicyName: string | undefined;
+
+  /**
    * <p>The key policy to attach to the CMK.</p>
    *          <p>The key policy must meet the following criteria:</p>
    *          <ul>
@@ -3237,11 +3242,6 @@ export interface PutKeyPolicyRequest {
    *          <p>The key policy cannot exceed 32 kilobytes (32768 bytes). For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/resource-limits.html">Resource Quotas</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
    */
   Policy: string | undefined;
-
-  /**
-   * <p>The name of the key policy. The only valid value is <code>default</code>.</p>
-   */
-  PolicyName: string | undefined;
 }
 
 export namespace PutKeyPolicyRequest {
@@ -3252,9 +3252,74 @@ export namespace PutKeyPolicyRequest {
 
 export interface ReEncryptRequest {
   /**
+   * <p>A list of grant tokens.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token">Grant Tokens</a> in the
+   *     <i>AWS Key Management Service Developer Guide</i>.</p>
+   */
+  GrantTokens?: string[];
+
+  /**
+   * <p>A unique identifier for the CMK that is used to reencrypt the data. Specify a symmetric or
+   *       asymmetric CMK with a <code>KeyUsage</code> value of <code>ENCRYPT_DECRYPT</code>. To find the
+   *         <code>KeyUsage</code> value of a CMK, use the <a>DescribeKey</a>
+   *       operation.</p>
+   *          <p>To specify a CMK, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. When using an alias name, prefix it with <code>"alias/"</code>. To specify a CMK in a different AWS account, you must use the key ARN or alias ARN.</p>
+   *          <p>For example:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Alias name: <code>alias/ExampleAlias</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Alias ARN: <code>arn:aws:kms:us-east-2:111122223333:alias/ExampleAlias</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *          <p>To get the key ID and key ARN for a CMK, use <a>ListKeys</a> or <a>DescribeKey</a>. To get the alias name and alias ARN, use <a>ListAliases</a>.</p>
+   */
+  DestinationKeyId: string | undefined;
+
+  /**
    * <p>Ciphertext of the data to reencrypt.</p>
    */
   CiphertextBlob: Uint8Array | undefined;
+
+  /**
+   * <p>Specifies the encryption algorithm that AWS KMS will use to reecrypt the data after it has
+   *       decrypted it. The default value, <code>SYMMETRIC_DEFAULT</code>, represents the encryption
+   *       algorithm used for symmetric CMKs.</p>
+   *          <p>This parameter is required only when the destination CMK is an asymmetric CMK.</p>
+   */
+  DestinationEncryptionAlgorithm?: EncryptionAlgorithmSpec | string;
+
+  /**
+   * <p>Specifies the encryption context to use to decrypt the ciphertext. Enter the same
+   *       encryption context that was used to encrypt the ciphertext.</p>
+   *          <p>An <i>encryption context</i> is a collection of non-secret key-value pairs that represents additional authenticated data. When you use an encryption context to encrypt data, you must specify the same (an exact case-sensitive match) encryption context to decrypt the data. An encryption context is optional when encrypting with a symmetric CMK, but it is highly recommended.</p>
+   *          <p>For more information, see
+   *         <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">Encryption
+   *         Context</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
+   */
+  SourceEncryptionContext?: { [key: string]: string };
+
+  /**
+   * <p>Specifies the encryption algorithm that AWS KMS will use to decrypt the ciphertext before it
+   *       is reencrypted. The default value, <code>SYMMETRIC_DEFAULT</code>, represents the algorithm
+   *       used for symmetric CMKs.</p>
+   *          <p>Specify the same algorithm that was used to encrypt the ciphertext. If you specify a
+   *       different algorithm, the decrypt attempt fails.</p>
+   *          <p>This parameter is required only when the ciphertext was encrypted under an asymmetric
+   *       CMK.</p>
+   */
+  SourceEncryptionAlgorithm?: EncryptionAlgorithmSpec | string;
 
   /**
    * <p>Specifies that encryption context to use when the reencrypting the data.</p>
@@ -3302,71 +3367,6 @@ export interface ReEncryptRequest {
    *          <p>To get the key ID and key ARN for a CMK, use <a>ListKeys</a> or <a>DescribeKey</a>. To get the alias name and alias ARN, use <a>ListAliases</a>.</p>
    */
   SourceKeyId?: string;
-
-  /**
-   * <p>A list of grant tokens.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token">Grant Tokens</a> in the
-   *     <i>AWS Key Management Service Developer Guide</i>.</p>
-   */
-  GrantTokens?: string[];
-
-  /**
-   * <p>Specifies the encryption algorithm that AWS KMS will use to reecrypt the data after it has
-   *       decrypted it. The default value, <code>SYMMETRIC_DEFAULT</code>, represents the encryption
-   *       algorithm used for symmetric CMKs.</p>
-   *          <p>This parameter is required only when the destination CMK is an asymmetric CMK.</p>
-   */
-  DestinationEncryptionAlgorithm?: EncryptionAlgorithmSpec | string;
-
-  /**
-   * <p>Specifies the encryption context to use to decrypt the ciphertext. Enter the same
-   *       encryption context that was used to encrypt the ciphertext.</p>
-   *          <p>An <i>encryption context</i> is a collection of non-secret key-value pairs that represents additional authenticated data. When you use an encryption context to encrypt data, you must specify the same (an exact case-sensitive match) encryption context to decrypt the data. An encryption context is optional when encrypting with a symmetric CMK, but it is highly recommended.</p>
-   *          <p>For more information, see
-   *         <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">Encryption
-   *         Context</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
-   */
-  SourceEncryptionContext?: { [key: string]: string };
-
-  /**
-   * <p>Specifies the encryption algorithm that AWS KMS will use to decrypt the ciphertext before it
-   *       is reencrypted. The default value, <code>SYMMETRIC_DEFAULT</code>, represents the algorithm
-   *       used for symmetric CMKs.</p>
-   *          <p>Specify the same algorithm that was used to encrypt the ciphertext. If you specify a
-   *       different algorithm, the decrypt attempt fails.</p>
-   *          <p>This parameter is required only when the ciphertext was encrypted under an asymmetric
-   *       CMK.</p>
-   */
-  SourceEncryptionAlgorithm?: EncryptionAlgorithmSpec | string;
-
-  /**
-   * <p>A unique identifier for the CMK that is used to reencrypt the data. Specify a symmetric or
-   *       asymmetric CMK with a <code>KeyUsage</code> value of <code>ENCRYPT_DECRYPT</code>. To find the
-   *         <code>KeyUsage</code> value of a CMK, use the <a>DescribeKey</a>
-   *       operation.</p>
-   *          <p>To specify a CMK, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. When using an alias name, prefix it with <code>"alias/"</code>. To specify a CMK in a different AWS account, you must use the key ARN or alias ARN.</p>
-   *          <p>For example:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>Alias name: <code>alias/ExampleAlias</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>Alias ARN: <code>arn:aws:kms:us-east-2:111122223333:alias/ExampleAlias</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   *          <p>To get the key ID and key ARN for a CMK, use <a>ListKeys</a> or <a>DescribeKey</a>. To get the alias name and alias ARN, use <a>ListAliases</a>.</p>
-   */
-  DestinationKeyId: string | undefined;
 }
 
 export namespace ReEncryptRequest {
@@ -3376,6 +3376,11 @@ export namespace ReEncryptRequest {
 }
 
 export interface ReEncryptResponse {
+  /**
+   * <p>The encryption algorithm that was used to reencrypt the data.</p>
+   */
+  DestinationEncryptionAlgorithm?: EncryptionAlgorithmSpec | string;
+
   /**
    * <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">key ARN</a>) of the CMK that was used to reencrypt the data.</p>
    */
@@ -3387,20 +3392,15 @@ export interface ReEncryptResponse {
   SourceKeyId?: string;
 
   /**
-   * <p>The reencrypted data. When you use the HTTP API or the AWS CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
-   */
-  CiphertextBlob?: Uint8Array;
-
-  /**
-   * <p>The encryption algorithm that was used to reencrypt the data.</p>
-   */
-  DestinationEncryptionAlgorithm?: EncryptionAlgorithmSpec | string;
-
-  /**
    * <p>The encryption algorithm that was used to decrypt the ciphertext before it was
    *       reencrypted.</p>
    */
   SourceEncryptionAlgorithm?: EncryptionAlgorithmSpec | string;
+
+  /**
+   * <p>The reencrypted data. When you use the HTTP API or the AWS CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
+   */
+  CiphertextBlob?: Uint8Array;
 }
 
 export namespace ReEncryptResponse {
@@ -3410,18 +3410,6 @@ export namespace ReEncryptResponse {
 }
 
 export interface RetireGrantRequest {
-  /**
-   * <p>Token that identifies the grant to be retired.</p>
-   */
-  GrantToken?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the CMK associated with the grant. </p>
-   *          <p>For example: <code>arn:aws:kms:us-east-2:444455556666:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>
-   *          </p>
-   */
-  KeyId?: string;
-
   /**
    * <p>Unique identifier of the grant to retire. The grant ID is returned in the response to a
    *         <code>CreateGrant</code> operation.</p>
@@ -3433,6 +3421,18 @@ export interface RetireGrantRequest {
    *          </ul>
    */
   GrantId?: string;
+
+  /**
+   * <p>Token that identifies the grant to be retired.</p>
+   */
+  GrantToken?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the CMK associated with the grant. </p>
+   *          <p>For example: <code>arn:aws:kms:us-east-2:444455556666:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>
+   *          </p>
+   */
+  KeyId?: string;
 }
 
 export namespace RetireGrantRequest {
@@ -3476,6 +3476,14 @@ export namespace RevokeGrantRequest {
 
 export interface ScheduleKeyDeletionRequest {
   /**
+   * <p>The waiting period, specified in number of days. After the waiting period ends, AWS KMS
+   *       deletes the customer master key (CMK).</p>
+   *          <p>This value is optional. If you include a value, it must be between 7 and 30, inclusive. If
+   *       you do not include a value, it defaults to 30.</p>
+   */
+  PendingWindowInDays?: number;
+
+  /**
    * <p>The unique identifier of the customer master key (CMK) to delete.</p>
    *
    *          <p>Specify the key ID or the Amazon Resource Name (ARN) of the CMK.</p>
@@ -3493,14 +3501,6 @@ export interface ScheduleKeyDeletionRequest {
    *          <p>To get the key ID and key ARN for a CMK, use <a>ListKeys</a> or <a>DescribeKey</a>.</p>
    */
   KeyId: string | undefined;
-
-  /**
-   * <p>The waiting period, specified in number of days. After the waiting period ends, AWS KMS
-   *       deletes the customer master key (CMK).</p>
-   *          <p>This value is optional. If you include a value, it must be between 7 and 30, inclusive. If
-   *       you do not include a value, it defaults to 30.</p>
-   */
-  PendingWindowInDays?: number;
 }
 
 export namespace ScheduleKeyDeletionRequest {
@@ -3528,6 +3528,28 @@ export namespace ScheduleKeyDeletionResponse {
 }
 
 export interface SignRequest {
+  /**
+   * <p>Specifies the message or message digest to sign. Messages can be 0-4096 bytes. To sign a
+   *       larger message, provide the message digest.</p>
+   *          <p>If you provide a message, AWS KMS generates a hash digest of the message and then signs
+   *       it.</p>
+   */
+  Message: Uint8Array | undefined;
+
+  /**
+   * <p>Tells AWS KMS whether the value of the <code>Message</code> parameter is a message or
+   *       message digest. The default value, RAW, indicates a message. To indicate a message digest,
+   *       enter <code>DIGEST</code>.</p>
+   */
+  MessageType?: MessageType | string;
+
+  /**
+   * <p>A list of grant tokens.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token">Grant Tokens</a> in the
+   *     <i>AWS Key Management Service Developer Guide</i>.</p>
+   */
+  GrantTokens?: string[];
+
   /**
    * <p>Identifies an asymmetric CMK. AWS KMS uses the private key in the asymmetric CMK to sign the
    *       message. The <code>KeyUsage</code> type of the CMK must be <code>SIGN_VERIFY</code>. To find
@@ -3563,28 +3585,6 @@ export interface SignRequest {
    *       CMK.</p>
    */
   SigningAlgorithm: SigningAlgorithmSpec | string | undefined;
-
-  /**
-   * <p>A list of grant tokens.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token">Grant Tokens</a> in the
-   *     <i>AWS Key Management Service Developer Guide</i>.</p>
-   */
-  GrantTokens?: string[];
-
-  /**
-   * <p>Tells AWS KMS whether the value of the <code>Message</code> parameter is a message or
-   *       message digest. The default value, RAW, indicates a message. To indicate a message digest,
-   *       enter <code>DIGEST</code>.</p>
-   */
-  MessageType?: MessageType | string;
-
-  /**
-   * <p>Specifies the message or message digest to sign. Messages can be 0-4096 bytes. To sign a
-   *       larger message, provide the message digest.</p>
-   *          <p>If you provide a message, AWS KMS generates a hash digest of the message and then signs
-   *       it.</p>
-   */
-  Message: Uint8Array | undefined;
 }
 
 export namespace SignRequest {
@@ -3596,9 +3596,10 @@ export namespace SignRequest {
 
 export interface SignResponse {
   /**
-   * <p>The signing algorithm that was used to sign the message.</p>
+   * <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">key ARN</a>) of the asymmetric CMK that was used to sign the
+   *       message.</p>
    */
-  SigningAlgorithm?: SigningAlgorithmSpec | string;
+  KeyId?: string;
 
   /**
    * <p>The cryptographic signature that was generated for the message. </p>
@@ -3621,10 +3622,9 @@ export interface SignResponse {
   Signature?: Uint8Array;
 
   /**
-   * <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">key ARN</a>) of the asymmetric CMK that was used to sign the
-   *       message.</p>
+   * <p>The signing algorithm that was used to sign the message.</p>
    */
-  KeyId?: string;
+  SigningAlgorithm?: SigningAlgorithmSpec | string;
 }
 
 export namespace SignResponse {
@@ -3634,6 +3634,11 @@ export namespace SignResponse {
 }
 
 export interface TagResourceRequest {
+  /**
+   * <p>One or more tags. Each tag consists of a tag key and a tag value.</p>
+   */
+  Tags: Tag[] | undefined;
+
   /**
    * <p>A unique identifier for the CMK you are tagging.</p>
    *          <p>Specify the key ID or the Amazon Resource Name (ARN) of the CMK.</p>
@@ -3651,11 +3656,6 @@ export interface TagResourceRequest {
    *          <p>To get the key ID and key ARN for a CMK, use <a>ListKeys</a> or <a>DescribeKey</a>.</p>
    */
   KeyId: string | undefined;
-
-  /**
-   * <p>One or more tags. Each tag consists of a tag key and a tag value.</p>
-   */
-  Tags: Tag[] | undefined;
 }
 
 export namespace TagResourceRequest {
@@ -3665,6 +3665,11 @@ export namespace TagResourceRequest {
 }
 
 export interface UntagResourceRequest {
+  /**
+   * <p>One or more tag keys. Specify only the tag keys, not the tag values.</p>
+   */
+  TagKeys: string[] | undefined;
+
   /**
    * <p>A unique identifier for the CMK from which you are removing tags.</p>
    *
@@ -3683,11 +3688,6 @@ export interface UntagResourceRequest {
    *          <p>To get the key ID and key ARN for a CMK, use <a>ListKeys</a> or <a>DescribeKey</a>.</p>
    */
   KeyId: string | undefined;
-
-  /**
-   * <p>One or more tag keys. Specify only the tag keys, not the tag values.</p>
-   */
-  TagKeys: string[] | undefined;
 }
 
 export namespace UntagResourceRequest {
@@ -3697,6 +3697,13 @@ export namespace UntagResourceRequest {
 }
 
 export interface UpdateAliasRequest {
+  /**
+   * <p>Identifies the alias that is changing its CMK. This value must begin with
+   *         <code>alias/</code> followed by the alias name, such as <code>alias/ExampleAlias</code>. You
+   *       cannot use UpdateAlias to change the alias name.</p>
+   */
+  AliasName: string | undefined;
+
   /**
    * <p>Identifies the CMK to associate with the alias. When the update operation completes, the
    *       alias will point to this CMK. </p>
@@ -3720,13 +3727,6 @@ export interface UpdateAliasRequest {
    *       is mapped to the correct CMK, use <a>ListAliases</a>.</p>
    */
   TargetKeyId: string | undefined;
-
-  /**
-   * <p>Identifies the alias that is changing its CMK. This value must begin with
-   *         <code>alias/</code> followed by the alias name, such as <code>alias/ExampleAlias</code>. You
-   *       cannot use UpdateAlias to change the alias name.</p>
-   */
-  AliasName: string | undefined;
 }
 
 export namespace UpdateAliasRequest {
@@ -3737,15 +3737,12 @@ export namespace UpdateAliasRequest {
 
 export interface UpdateCustomKeyStoreRequest {
   /**
-   * <p>Associates the custom key store with a related AWS CloudHSM cluster. </p>
-   *          <p>Enter the cluster ID of the cluster that you used to create the custom key store or a
-   *       cluster that shares a backup history and has the same cluster certificate as the original
-   *       cluster. You cannot use this parameter to associate a custom key store with an unrelated
-   *       cluster. In addition, the replacement cluster must <a href="https://docs.aws.amazon.com/kms/latest/developerguide/create-keystore.html#before-keystore">fulfill the requirements</a> for
-   *       a cluster associated with a custom key store. To view the cluster certificate of a cluster,
-   *       use the <a href="https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_DescribeClusters.html">DescribeClusters</a> operation.</p>
+   * <p>Enter the current password of the <code>kmsuser</code> crypto user (CU) in the AWS CloudHSM
+   *       cluster that is associated with the custom key store.</p>
+   *          <p>This parameter tells AWS KMS the current password of the <code>kmsuser</code> crypto user
+   *       (CU). It does not set or change the password of any users in the AWS CloudHSM cluster.</p>
    */
-  CloudHsmClusterId?: string;
+  KeyStorePassword?: string;
 
   /**
    * <p>Identifies the custom key store that you want to update. Enter the ID of the custom key
@@ -3760,12 +3757,15 @@ export interface UpdateCustomKeyStoreRequest {
   NewCustomKeyStoreName?: string;
 
   /**
-   * <p>Enter the current password of the <code>kmsuser</code> crypto user (CU) in the AWS CloudHSM
-   *       cluster that is associated with the custom key store.</p>
-   *          <p>This parameter tells AWS KMS the current password of the <code>kmsuser</code> crypto user
-   *       (CU). It does not set or change the password of any users in the AWS CloudHSM cluster.</p>
+   * <p>Associates the custom key store with a related AWS CloudHSM cluster. </p>
+   *          <p>Enter the cluster ID of the cluster that you used to create the custom key store or a
+   *       cluster that shares a backup history and has the same cluster certificate as the original
+   *       cluster. You cannot use this parameter to associate a custom key store with an unrelated
+   *       cluster. In addition, the replacement cluster must <a href="https://docs.aws.amazon.com/kms/latest/developerguide/create-keystore.html#before-keystore">fulfill the requirements</a> for
+   *       a cluster associated with a custom key store. To view the cluster certificate of a cluster,
+   *       use the <a href="https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_DescribeClusters.html">DescribeClusters</a> operation.</p>
    */
-  KeyStorePassword?: string;
+  CloudHsmClusterId?: string;
 }
 
 export namespace UpdateCustomKeyStoreRequest {
@@ -3785,11 +3785,6 @@ export namespace UpdateCustomKeyStoreResponse {
 
 export interface UpdateKeyDescriptionRequest {
   /**
-   * <p>New description for the CMK.</p>
-   */
-  Description: string | undefined;
-
-  /**
    * <p>A unique identifier for the customer master key (CMK).</p>
    *          <p>Specify the key ID or the Amazon Resource Name (ARN) of the CMK.</p>
    *          <p>For example:</p>
@@ -3806,6 +3801,11 @@ export interface UpdateKeyDescriptionRequest {
    *          <p>To get the key ID and key ARN for a CMK, use <a>ListKeys</a> or <a>DescribeKey</a>.</p>
    */
   KeyId: string | undefined;
+
+  /**
+   * <p>New description for the CMK.</p>
+   */
+  Description: string | undefined;
 }
 
 export namespace UpdateKeyDescriptionRequest {
@@ -3815,6 +3815,13 @@ export namespace UpdateKeyDescriptionRequest {
 }
 
 export interface VerifyRequest {
+  /**
+   * <p>A list of grant tokens.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token">Grant Tokens</a> in the
+   *     <i>AWS Key Management Service Developer Guide</i>.</p>
+   */
+  GrantTokens?: string[];
+
   /**
    * <p>Tells AWS KMS whether the value of the <code>Message</code> parameter is a message or
    *       message digest. The default value, RAW, indicates a message. To indicate a message digest,
@@ -3828,6 +3835,17 @@ export interface VerifyRequest {
   MessageType?: MessageType | string;
 
   /**
+   * <p>The signing algorithm that was used to sign the message. If you submit a different
+   *       algorithm, the signature verification fails.</p>
+   */
+  SigningAlgorithm: SigningAlgorithmSpec | string | undefined;
+
+  /**
+   * <p>The signature that the <code>Sign</code> operation generated.</p>
+   */
+  Signature: Uint8Array | undefined;
+
+  /**
    * <p>Specifies the message that was signed. You can submit a raw message of up to 4096 bytes,
    *       or a hash digest of the message. If you submit a digest, use the <code>MessageType</code>
    *       parameter with a value of <code>DIGEST</code>.</p>
@@ -3836,19 +3854,6 @@ export interface VerifyRequest {
    *       message.</p>
    */
   Message: Uint8Array | undefined;
-
-  /**
-   * <p>The signing algorithm that was used to sign the message. If you submit a different
-   *       algorithm, the signature verification fails.</p>
-   */
-  SigningAlgorithm: SigningAlgorithmSpec | string | undefined;
-
-  /**
-   * <p>A list of grant tokens.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token">Grant Tokens</a> in the
-   *     <i>AWS Key Management Service Developer Guide</i>.</p>
-   */
-  GrantTokens?: string[];
 
   /**
    * <p>Identifies the asymmetric CMK that will be used to verify the signature. This must be the
@@ -3878,11 +3883,6 @@ export interface VerifyRequest {
    *          <p>To get the key ID and key ARN for a CMK, use <a>ListKeys</a> or <a>DescribeKey</a>. To get the alias name and alias ARN, use <a>ListAliases</a>.</p>
    */
   KeyId: string | undefined;
-
-  /**
-   * <p>The signature that the <code>Sign</code> operation generated.</p>
-   */
-  Signature: Uint8Array | undefined;
 }
 
 export namespace VerifyRequest {
@@ -3893,11 +3893,6 @@ export namespace VerifyRequest {
 }
 
 export interface VerifyResponse {
-  /**
-   * <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">key ARN</a>) of the asymmetric CMK that was used to verify the signature.</p>
-   */
-  KeyId?: string;
-
   /**
    * <p>The signing algorithm that was used to verify the signature.</p>
    */
@@ -3911,6 +3906,11 @@ export interface VerifyResponse {
    *       operation fails with a <code>KMSInvalidSignatureException</code> exception. </p>
    */
   SignatureValid?: boolean;
+
+  /**
+   * <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">key ARN</a>) of the asymmetric CMK that was used to verify the signature.</p>
+   */
+  KeyId?: string;
 }
 
 export namespace VerifyResponse {

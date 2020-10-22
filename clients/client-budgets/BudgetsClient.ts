@@ -1,9 +1,27 @@
+import { CreateBudgetActionCommandInput, CreateBudgetActionCommandOutput } from "./commands/CreateBudgetActionCommand";
 import { CreateBudgetCommandInput, CreateBudgetCommandOutput } from "./commands/CreateBudgetCommand";
 import { CreateNotificationCommandInput, CreateNotificationCommandOutput } from "./commands/CreateNotificationCommand";
 import { CreateSubscriberCommandInput, CreateSubscriberCommandOutput } from "./commands/CreateSubscriberCommand";
+import { DeleteBudgetActionCommandInput, DeleteBudgetActionCommandOutput } from "./commands/DeleteBudgetActionCommand";
 import { DeleteBudgetCommandInput, DeleteBudgetCommandOutput } from "./commands/DeleteBudgetCommand";
 import { DeleteNotificationCommandInput, DeleteNotificationCommandOutput } from "./commands/DeleteNotificationCommand";
 import { DeleteSubscriberCommandInput, DeleteSubscriberCommandOutput } from "./commands/DeleteSubscriberCommand";
+import {
+  DescribeBudgetActionCommandInput,
+  DescribeBudgetActionCommandOutput,
+} from "./commands/DescribeBudgetActionCommand";
+import {
+  DescribeBudgetActionHistoriesCommandInput,
+  DescribeBudgetActionHistoriesCommandOutput,
+} from "./commands/DescribeBudgetActionHistoriesCommand";
+import {
+  DescribeBudgetActionsForAccountCommandInput,
+  DescribeBudgetActionsForAccountCommandOutput,
+} from "./commands/DescribeBudgetActionsForAccountCommand";
+import {
+  DescribeBudgetActionsForBudgetCommandInput,
+  DescribeBudgetActionsForBudgetCommandOutput,
+} from "./commands/DescribeBudgetActionsForBudgetCommand";
 import { DescribeBudgetCommandInput, DescribeBudgetCommandOutput } from "./commands/DescribeBudgetCommand";
 import {
   DescribeBudgetPerformanceHistoryCommandInput,
@@ -18,6 +36,11 @@ import {
   DescribeSubscribersForNotificationCommandInput,
   DescribeSubscribersForNotificationCommandOutput,
 } from "./commands/DescribeSubscribersForNotificationCommand";
+import {
+  ExecuteBudgetActionCommandInput,
+  ExecuteBudgetActionCommandOutput,
+} from "./commands/ExecuteBudgetActionCommand";
+import { UpdateBudgetActionCommandInput, UpdateBudgetActionCommandOutput } from "./commands/UpdateBudgetActionCommand";
 import { UpdateBudgetCommandInput, UpdateBudgetCommandOutput } from "./commands/UpdateBudgetCommand";
 import { UpdateNotificationCommandInput, UpdateNotificationCommandOutput } from "./commands/UpdateNotificationCommand";
 import { UpdateSubscriberCommandInput, UpdateSubscriberCommandOutput } from "./commands/UpdateSubscriberCommand";
@@ -71,33 +94,49 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
+  | CreateBudgetActionCommandInput
   | CreateBudgetCommandInput
   | CreateNotificationCommandInput
   | CreateSubscriberCommandInput
+  | DeleteBudgetActionCommandInput
   | DeleteBudgetCommandInput
   | DeleteNotificationCommandInput
   | DeleteSubscriberCommandInput
+  | DescribeBudgetActionCommandInput
+  | DescribeBudgetActionHistoriesCommandInput
+  | DescribeBudgetActionsForAccountCommandInput
+  | DescribeBudgetActionsForBudgetCommandInput
   | DescribeBudgetCommandInput
   | DescribeBudgetPerformanceHistoryCommandInput
   | DescribeBudgetsCommandInput
   | DescribeNotificationsForBudgetCommandInput
   | DescribeSubscribersForNotificationCommandInput
+  | ExecuteBudgetActionCommandInput
+  | UpdateBudgetActionCommandInput
   | UpdateBudgetCommandInput
   | UpdateNotificationCommandInput
   | UpdateSubscriberCommandInput;
 
 export type ServiceOutputTypes =
+  | CreateBudgetActionCommandOutput
   | CreateBudgetCommandOutput
   | CreateNotificationCommandOutput
   | CreateSubscriberCommandOutput
+  | DeleteBudgetActionCommandOutput
   | DeleteBudgetCommandOutput
   | DeleteNotificationCommandOutput
   | DeleteSubscriberCommandOutput
+  | DescribeBudgetActionCommandOutput
+  | DescribeBudgetActionHistoriesCommandOutput
+  | DescribeBudgetActionsForAccountCommandOutput
+  | DescribeBudgetActionsForBudgetCommandOutput
   | DescribeBudgetCommandOutput
   | DescribeBudgetPerformanceHistoryCommandOutput
   | DescribeBudgetsCommandOutput
   | DescribeNotificationsForBudgetCommandOutput
   | DescribeSubscribersForNotificationCommandOutput
+  | ExecuteBudgetActionCommandOutput
+  | UpdateBudgetActionCommandOutput
   | UpdateBudgetCommandOutput
   | UpdateNotificationCommandOutput
   | UpdateSubscriberCommandOutput;

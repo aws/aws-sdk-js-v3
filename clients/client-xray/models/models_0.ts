@@ -6,11 +6,6 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
  */
 export interface Alias {
   /**
-   * <p>The canonical name of the alias.</p>
-   */
-  Name?: string;
-
-  /**
    * <p>The type of the alias.</p>
    */
   Type?: string;
@@ -19,6 +14,11 @@ export interface Alias {
    * <p>A list of names for the alias, including the canonical name.</p>
    */
   Names?: string[];
+
+  /**
+   * <p>The canonical name of the alias.</p>
+   */
+  Name?: string;
 }
 
 export namespace Alias {
@@ -28,15 +28,9 @@ export namespace Alias {
 }
 
 /**
- * <p>Value of a segment annotation. Has one of three value types: Number, Boolean or
- *       String.</p>
+ * <p>Value of a segment annotation. Has one of three value types: Number, Boolean, or String.</p>
  */
 export interface AnnotationValue {
-  /**
-   * <p>Value for a Number annotation.</p>
-   */
-  NumberValue?: number;
-
   /**
    * <p>Value for a Boolean annotation.</p>
    */
@@ -46,6 +40,11 @@ export interface AnnotationValue {
    * <p>Value for a String annotation.</p>
    */
   StringValue?: string;
+
+  /**
+   * <p>Value for a Number annotation.</p>
+   */
+  NumberValue?: number;
 }
 
 export namespace AnnotationValue {
@@ -71,12 +70,12 @@ export interface ServiceId {
   /**
    * <p></p>
    */
-  Name?: string;
+  Names?: string[];
 
   /**
    * <p></p>
    */
-  Names?: string[];
+  Name?: string;
 }
 
 export namespace ServiceId {
@@ -90,14 +89,14 @@ export namespace ServiceId {
  */
 export interface ValueWithServiceIds {
   /**
-   * <p>Services to which the annotation applies.</p>
-   */
-  ServiceIds?: ServiceId[];
-
-  /**
    * <p>Values of the annotation.</p>
    */
   AnnotationValue?: AnnotationValue;
+
+  /**
+   * <p>Services to which the annotation applies.</p>
+   */
+  ServiceIds?: ServiceId[];
 }
 
 export namespace ValueWithServiceIds {
@@ -107,11 +106,11 @@ export namespace ValueWithServiceIds {
 }
 
 /**
- * <p>A list of availability zones corresponding to the segments in a trace.</p>
+ * <p>A list of Availability Zones corresponding to the segments in a trace.</p>
  */
 export interface AvailabilityZoneDetail {
   /**
-   * <p>The name of a corresponding availability zone.</p>
+   * <p>The name of a corresponding Availability Zone.</p>
    */
   Name?: string;
 }
@@ -175,6 +174,12 @@ export interface Trace {
    *       subsegments.</p>
    */
   Id?: string;
+
+  /**
+   * <p>LimitExceeded is set to true when the trace has exceeded one of the defined quotas. For
+   *       more information about quotas, see <a href="https://docs.aws.amazon.com/general/latest/gr/xray.html">AWS X-Ray endpoints and quotas</a>.</p>
+   */
+  LimitExceeded?: boolean;
 
   /**
    * <p>Segment documents for the segments and subsegments that comprise the trace.</p>
@@ -247,12 +252,123 @@ export namespace ThrottledException {
   });
 }
 
+/**
+ * <p>The structure containing configurations related to insights.</p>
+ */
+export interface InsightsConfiguration {
+  /**
+   * <p>Set the NotificationsEnabled value to true to enable insights notifications. Notifications can only be
+   *             enabled on a group with InsightsEnabled set to true.</p>
+   */
+  NotificationsEnabled?: boolean;
+
+  /**
+   * <p>Set the InsightsEnabled value to true to enable insights or false to disable
+   *             insights.</p>
+   */
+  InsightsEnabled?: boolean;
+}
+
+export namespace InsightsConfiguration {
+  export const filterSensitiveLog = (obj: InsightsConfiguration): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A map that contains tag keys and tag values to attach to an AWS X-Ray group or sampling
+ *       rule. For more information about ways to use tags, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging AWS resources</a>
+ *       in the <i>AWS General Reference</i>.</p>
+ *          <p>The following restrictions apply to tags:</p>
+ *          <ul>
+ *             <li>
+ *                <p>Maximum number of user-applied tags per resource: 50</p>
+ *             </li>
+ *             <li>
+ *                <p>Tag keys and values are case sensitive.</p>
+ *             </li>
+ *             <li>
+ *                <p>Don't use <code>aws:</code> as a prefix for keys; it's reserved for AWS use. You
+ *           cannot edit or delete system tags.</p>
+ *             </li>
+ *          </ul>
+ */
+export interface Tag {
+  /**
+   * <p>An optional tag value, such as <code>Production</code> or <code>test-only</code>. The value can be
+   *       a maximum of 255 characters, and contain only Unicode letters, numbers, or separators, or the following
+   *       special characters: <code>+ - = . _ : /</code>
+   *          </p>
+   */
+  Value: string | undefined;
+
+  /**
+   * <p>A tag key, such as <code>Stage</code> or <code>Name</code>. A tag key cannot be empty. The
+   *       key can be a maximum of 128 characters, and can contain only Unicode letters, numbers, or separators,
+   *       or the following special characters: <code>+ - = . _ : /</code>
+   *          </p>
+   */
+  Key: string | undefined;
+}
+
+export namespace Tag {
+  export const filterSensitiveLog = (obj: Tag): any => ({
+    ...obj,
+  });
+}
+
 export interface CreateGroupRequest {
   /**
    * <p>The case-sensitive name of the new group. Default is a reserved name and names must
    *             be unique.</p>
    */
   GroupName: string | undefined;
+
+  /**
+   * <p>A map that contains one or more tag keys and tag values to attach to an X-Ray group.
+   *             For more information about ways to use tags, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging AWS
+   *                 resources</a> in the <i>AWS General Reference</i>.</p>
+   *         <p>The following restrictions apply to tags:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>Maximum number of user-applied tags per resource: 50</p>
+   *             </li>
+   *             <li>
+   *                 <p>Maximum tag key length: 128 Unicode characters</p>
+   *             </li>
+   *             <li>
+   *                 <p>Maximum tag value length: 256 Unicode characters</p>
+   *             </li>
+   *             <li>
+   *                 <p>Valid values for key and value: a-z, A-Z, 0-9, space, and the following characters: _ . :
+   *                     / = + - and @</p>
+   *             </li>
+   *             <li>
+   *                 <p>Tag keys and values are case sensitive.</p>
+   *             </li>
+   *             <li>
+   *                 <p>Don't use <code>aws:</code> as a prefix for keys; it's reserved for AWS
+   *                     use.</p>
+   *             </li>
+   *          </ul>
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>The structure containing configurations related to insights.</p>
+   *             <ul>
+   *             <li>
+   *                     <p>The InsightsEnabled boolean can be set to true to enable insights for the
+   *                     new group or false to disable insights for the new group.</p>
+   *                 </li>
+   *             <li>
+   *                     <p>The NotifcationsEnabled boolean can be set to true to enable insights
+   *                     notifications for the new group. Notifications may only be enabled on a group
+   *                     with InsightsEnabled set to true.</p>
+   *                 </li>
+   *          </ul>
+   */
+  InsightsConfiguration?: InsightsConfiguration;
 
   /**
    * <p>The filter expression defining criteria by which to group traces.</p>
@@ -271,7 +387,27 @@ export namespace CreateGroupRequest {
  */
 export interface Group {
   /**
-   * <p>The ARN of the group generated based on the GroupName.</p>
+   * <p>The structure containing configurations related to insights.</p>
+   *         <ul>
+   *             <li>
+   *                 <p>The InsightsEnabled boolean can be set to true to enable insights for the
+   *                     group or false to disable insights for the group.</p>
+   *             </li>
+   *             <li>
+   *                 <p>The NotifcationsEnabled  boolean can be set to true to enable insights
+   *                     notifications through Amazon EventBridge for the group.</p>
+   *             </li>
+   *          </ul>
+   */
+  InsightsConfiguration?: InsightsConfiguration;
+
+  /**
+   * <p>The filter expression defining the parameters to include traces.</p>
+   */
+  FilterExpression?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the group generated based on the GroupName.</p>
    */
   GroupARN?: string;
 
@@ -279,11 +415,6 @@ export interface Group {
    * <p>The unique case-sensitive name of the group.</p>
    */
   GroupName?: string;
-
-  /**
-   * <p>The filter expression defining the parameters to include traces.</p>
-   */
-  FilterExpression?: string;
 }
 
 export namespace Group {
@@ -294,9 +425,9 @@ export namespace Group {
 
 export interface CreateGroupResult {
   /**
-   * <p>The group that was created. Contains the name of the group that was created, the
-   *             ARN of the group that was generated based on the group name, and the filter expression
-   *             that was assigned to the group.</p>
+   * <p>The group that was created. Contains the name of the group that was created, the Amazon Resource Name
+   *             (ARN) of the group that was generated based on the group name, the filter expression, and the insight
+   *             configuration that was assigned to the group.</p>
    */
   Group?: Group;
 }
@@ -314,58 +445,6 @@ export namespace CreateGroupResult {
  */
 export interface SamplingRule {
   /**
-   * <p>The percentage of matching requests to instrument, after the reservoir is
-   *       exhausted.</p>
-   */
-  FixedRate: number | undefined;
-
-  /**
-   * <p>Matches the <code>origin</code> that the service uses to identify its type in segments.</p>
-   */
-  ServiceType: string | undefined;
-
-  /**
-   * <p>Matches attributes derived from the request.</p>
-   */
-  Attributes?: { [key: string]: string };
-
-  /**
-   * <p>The version of the sampling rule format (<code>1</code>).</p>
-   */
-  Version: number | undefined;
-
-  /**
-   * <p>Matches the HTTP method of a request.</p>
-   */
-  HTTPMethod: string | undefined;
-
-  /**
-   * <p>Matches the <code>name</code> that the service uses to identify itself in segments.</p>
-   */
-  ServiceName: string | undefined;
-
-  /**
-   * <p>A fixed number of matching requests to instrument per second, prior to applying the
-   *       fixed rate. The reservoir is not used directly by services, but applies to all services using the rule collectively.</p>
-   */
-  ReservoirSize: number | undefined;
-
-  /**
-   * <p>The ARN of the sampling rule. Specify a rule by either name or ARN, but not both.</p>
-   */
-  RuleARN?: string;
-
-  /**
-   * <p>Matches the hostname from a request URL.</p>
-   */
-  Host: string | undefined;
-
-  /**
-   * <p>Matches the ARN of the AWS resource on which the service runs.</p>
-   */
-  ResourceARN: string | undefined;
-
-  /**
    * <p>The priority of the sampling rule.</p>
    */
   Priority: number | undefined;
@@ -376,9 +455,61 @@ export interface SamplingRule {
   URLPath: string | undefined;
 
   /**
+   * <p>Matches the hostname from a request URL.</p>
+   */
+  Host: string | undefined;
+
+  /**
+   * <p>Matches the <code>name</code> that the service uses to identify itself in segments.</p>
+   */
+  ServiceName: string | undefined;
+
+  /**
+   * <p>Matches attributes derived from the request.</p>
+   */
+  Attributes?: { [key: string]: string };
+
+  /**
+   * <p>The percentage of matching requests to instrument, after the reservoir is
+   *       exhausted.</p>
+   */
+  FixedRate: number | undefined;
+
+  /**
    * <p>The name of the sampling rule. Specify a rule by either name or ARN, but not both.</p>
    */
   RuleName?: string;
+
+  /**
+   * <p>Matches the ARN of the AWS resource on which the service runs.</p>
+   */
+  ResourceARN: string | undefined;
+
+  /**
+   * <p>The ARN of the sampling rule. Specify a rule by either name or ARN, but not both.</p>
+   */
+  RuleARN?: string;
+
+  /**
+   * <p>The version of the sampling rule format (<code>1</code>).</p>
+   */
+  Version: number | undefined;
+
+  /**
+   * <p>A fixed number of matching requests to instrument per second, prior to applying the
+   *       fixed rate. The reservoir is not used directly by services, but applies to all services using the rule collectively.</p>
+   */
+  ReservoirSize: number | undefined;
+
+  /**
+   * <p>Matches the <code>origin</code> that the service uses to identify its type in segments.</p>
+   */
+  ServiceType: string | undefined;
+
+  /**
+   * <p>Matches the HTTP method of a request.</p>
+   */
+  HTTPMethod: string | undefined;
 }
 
 export namespace SamplingRule {
@@ -392,6 +523,36 @@ export interface CreateSamplingRuleRequest {
    * <p>The rule definition.</p>
    */
   SamplingRule: SamplingRule | undefined;
+
+  /**
+   * <p>A map that contains one or more tag keys and tag values to attach to an X-Ray sampling
+   *          rule. For more information about ways to use tags, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging AWS
+   *             resources</a> in the <i>AWS General Reference</i>.</p>
+   *          <p>The following restrictions apply to tags:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Maximum number of user-applied tags per resource: 50</p>
+   *             </li>
+   *             <li>
+   *                <p>Maximum tag key length: 128 Unicode characters</p>
+   *             </li>
+   *             <li>
+   *                <p>Maximum tag value length: 256 Unicode characters</p>
+   *             </li>
+   *             <li>
+   *                <p>Valid values for key and value: a-z, A-Z, 0-9, space, and the following characters: _ . :
+   *                / = + - and @</p>
+   *             </li>
+   *             <li>
+   *                <p>Tag keys and values are case sensitive.</p>
+   *             </li>
+   *             <li>
+   *                <p>Don't use <code>aws:</code> as a prefix for keys; it's reserved for AWS
+   *                use.</p>
+   *             </li>
+   *          </ul>
+   */
+  Tags?: Tag[];
 }
 
 export namespace CreateSamplingRuleRequest {
@@ -410,14 +571,14 @@ export interface SamplingRuleRecord {
   SamplingRule?: SamplingRule;
 
   /**
-   * <p>When the rule was created.</p>
-   */
-  CreatedAt?: Date;
-
-  /**
    * <p>When the rule was last modified.</p>
    */
   ModifiedAt?: Date;
+
+  /**
+   * <p>When the rule was created.</p>
+   */
+  CreatedAt?: Date;
 }
 
 export namespace SamplingRuleRecord {
@@ -539,15 +700,15 @@ export interface EncryptionConfig {
   KeyId?: string;
 
   /**
-   * <p>The encryption status. While the status is <code>UPDATING</code>, X-Ray may encrypt data with a combination of the new and old settings.</p>
-   */
-  Status?: EncryptionStatus | string;
-
-  /**
    * <p>The type of encryption. Set to <code>KMS</code> for encryption with CMKs. Set to <code>NONE</code> for
    *       default encryption.</p>
    */
   Type?: EncryptionType | string;
+
+  /**
+   * <p>The encryption status. While the status is <code>UPDATING</code>, X-Ray may encrypt data with a combination of the new and old settings.</p>
+   */
+  Status?: EncryptionStatus | string;
 }
 
 export namespace EncryptionConfig {
@@ -571,14 +732,14 @@ export namespace GetEncryptionConfigResult {
 
 export interface GetGroupRequest {
   /**
-   * <p>The case-sensitive name of the group.</p>
-   */
-  GroupName?: string;
-
-  /**
    * <p>The ARN of the group that was generated on creation.</p>
    */
   GroupARN?: string;
+
+  /**
+   * <p>The case-sensitive name of the group.</p>
+   */
+  GroupName?: string;
 }
 
 export namespace GetGroupRequest {
@@ -590,7 +751,7 @@ export namespace GetGroupRequest {
 export interface GetGroupResult {
   /**
    * <p>The group that was requested. Contains the name of the group, the ARN of the group,
-   *             and the filter expression that assigned to the group.</p>
+   *             the filter expression, and the insight configuration assigned to the group.</p>
    */
   Group?: Group;
 }
@@ -619,14 +780,29 @@ export namespace GetGroupsRequest {
  */
 export interface GroupSummary {
   /**
+   * <p>The ARN of the group generated based on the GroupName.</p>
+   */
+  GroupARN?: string;
+
+  /**
    * <p>The filter expression defining the parameters to include traces.</p>
    */
   FilterExpression?: string;
 
   /**
-   * <p>The ARN of the group generated based on the GroupName.</p>
+   * <p>The structure containing configurations related to insights.</p>
+   *         <ul>
+   *             <li>
+   *                 <p>The InsightsEnabled boolean can be set to true to enable insights for the
+   *                     group or false to disable insights for the group.</p>
+   *             </li>
+   *             <li>
+   *                 <p>The NotificationsEnabled boolean can be set to true to enable insights notifications.
+   *                     Notifications can only be enabled on a group with InsightsEnabled set to true.</p>
+   *             </li>
+   *          </ul>
    */
-  GroupARN?: string;
+  InsightsConfiguration?: InsightsConfiguration;
 
   /**
    * <p>The unique case-sensitive name of the group.</p>
@@ -642,14 +818,14 @@ export namespace GroupSummary {
 
 export interface GetGroupsResult {
   /**
-   * <p>The collection of all active groups.</p>
-   */
-  Groups?: GroupSummary[];
-
-  /**
    * <p>Pagination token.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The collection of all active groups.</p>
+   */
+  Groups?: GroupSummary[];
 }
 
 export namespace GetGroupsResult {
@@ -703,8 +879,7 @@ export namespace GetSamplingStatisticSummariesRequest {
 }
 
 /**
- * <p>Aggregated request sampling data for a sampling rule across all services for a 10
- *       second window.</p>
+ * <p>Aggregated request sampling data for a sampling rule across all services for a 10-second window.</p>
  */
 export interface SamplingStatisticSummary {
   /**
@@ -718,9 +893,9 @@ export interface SamplingStatisticSummary {
   SampledCount?: number;
 
   /**
-   * <p>The start time of the reporting window.</p>
+   * <p>The number of requests that matched the rule.</p>
    */
-  Timestamp?: Date;
+  RequestCount?: number;
 
   /**
    * <p>The number of requests recorded with borrowed reservoir quota.</p>
@@ -728,9 +903,9 @@ export interface SamplingStatisticSummary {
   BorrowCount?: number;
 
   /**
-   * <p>The number of requests that matched the rule.</p>
+   * <p>The start time of the reporting window.</p>
    */
-  RequestCount?: number;
+  Timestamp?: Date;
 }
 
 export namespace SamplingStatisticSummary {
@@ -741,15 +916,15 @@ export namespace SamplingStatisticSummary {
 
 export interface GetSamplingStatisticSummariesResult {
   /**
+   * <p>Pagination token.</p>
+   */
+  NextToken?: string;
+
+  /**
    * <p>Information about the number of requests instrumented for each sampling
    *          rule.</p>
    */
   SamplingStatisticSummaries?: SamplingStatisticSummary[];
-
-  /**
-   * <p>Pagination token.</p>
-   */
-  NextToken?: string;
 }
 
 export namespace GetSamplingStatisticSummariesResult {
@@ -765,24 +940,19 @@ export namespace GetSamplingStatisticSummariesResult {
  */
 export interface SamplingStatisticsDocument {
   /**
-   * <p>The number of requests recorded.</p>
-   */
-  SampledCount: number | undefined;
-
-  /**
    * <p>The number of requests that matched the rule.</p>
    */
   RequestCount: number | undefined;
 
   /**
-   * <p>The name of the sampling rule.</p>
+   * <p>A unique identifier for the service in hexadecimal.</p>
    */
-  RuleName: string | undefined;
+  ClientID: string | undefined;
 
   /**
-   * <p>The number of requests recorded with borrowed reservoir quota.</p>
+   * <p>The number of requests recorded.</p>
    */
-  BorrowCount?: number;
+  SampledCount: number | undefined;
 
   /**
    * <p>The current time.</p>
@@ -790,9 +960,14 @@ export interface SamplingStatisticsDocument {
   Timestamp: Date | undefined;
 
   /**
-   * <p>A unique identifier for the service in hexadecimal.</p>
+   * <p>The number of requests recorded with borrowed reservoir quota.</p>
    */
-  ClientID: string | undefined;
+  BorrowCount?: number;
+
+  /**
+   * <p>The name of the sampling rule.</p>
+   */
+  RuleName: string | undefined;
 }
 
 export namespace SamplingStatisticsDocument {
@@ -815,26 +990,14 @@ export namespace GetSamplingTargetsRequest {
 }
 
 /**
- * <p>Temporary changes to a sampling rule configuration. To meet the global sampling target
- *       for a rule, X-Ray calculates a new reservoir for each service based on the recent sampling
- *       results of all services that called <a>GetSamplingTargets</a>.</p>
+ * <p>Temporary changes to a sampling rule configuration. To meet the global sampling target for a rule, X-Ray
+ *       calculates a new reservoir for each service based on the recent sampling results of all services that called <a>GetSamplingTargets</a>.</p>
  */
 export interface SamplingTargetDocument {
   /**
-   * <p>The name of the sampling rule.</p>
+   * <p>The number of requests per second that X-Ray allocated for this service.</p>
    */
-  RuleName?: string;
-
-  /**
-   * <p>When the reservoir quota expires.</p>
-   */
-  ReservoirQuotaTTL?: Date;
-
-  /**
-   * <p>The percentage of matching requests to instrument, after the reservoir is
-   *       exhausted.</p>
-   */
-  FixedRate?: number;
+  ReservoirQuota?: number;
 
   /**
    * <p>The number of seconds for the service to wait before getting sampling targets
@@ -843,9 +1006,20 @@ export interface SamplingTargetDocument {
   Interval?: number;
 
   /**
-   * <p>The number of requests per second that X-Ray allocated this service.</p>
+   * <p>The name of the sampling rule.</p>
    */
-  ReservoirQuota?: number;
+  RuleName?: string;
+
+  /**
+   * <p>The percentage of matching requests to instrument, after the reservoir is
+   *       exhausted.</p>
+   */
+  FixedRate?: number;
+
+  /**
+   * <p>When the reservoir quota expires.</p>
+   */
+  ReservoirQuotaTTL?: Date;
 }
 
 export namespace SamplingTargetDocument {
@@ -890,15 +1064,15 @@ export interface GetSamplingTargetsResult {
   LastRuleModification?: Date;
 
   /**
+   * <p>Updated rules that the service should use to sample requests.</p>
+   */
+  SamplingTargetDocuments?: SamplingTargetDocument[];
+
+  /**
    * <p>Information about <a>SamplingStatisticsDocument</a> that X-Ray could not
    *          process.</p>
    */
   UnprocessedStatistics?: UnprocessedStatistics[];
-
-  /**
-   * <p>Updated rules that the service should use to sample requests.</p>
-   */
-  SamplingTargetDocuments?: SamplingTargetDocument[];
 }
 
 export namespace GetSamplingTargetsResult {
@@ -909,7 +1083,7 @@ export namespace GetSamplingTargetsResult {
 
 export interface GetServiceGraphRequest {
   /**
-   * <p>The name of a group to generate a graph based on.</p>
+   * <p>The name of a group based on which you want to generate a graph.</p>
    */
   GroupName?: string;
 
@@ -919,14 +1093,14 @@ export interface GetServiceGraphRequest {
   EndTime: Date | undefined;
 
   /**
-   * <p>The ARN of a group to generate a graph based on.</p>
-   */
-  GroupARN?: string;
-
-  /**
    * <p>Pagination token.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of a group based on which you want to generate a graph.</p>
+   */
+  GroupARN?: string;
 
   /**
    * <p>The start of the time frame for which to generate a graph.</p>
@@ -946,14 +1120,14 @@ export namespace GetServiceGraphRequest {
  */
 export interface HistogramEntry {
   /**
-   * <p>The prevalence of the entry.</p>
-   */
-  Count?: number;
-
-  /**
    * <p>The value of the entry.</p>
    */
   Value?: number;
+
+  /**
+   * <p>The prevalence of the entry.</p>
+   */
+  Count?: number;
 }
 
 export namespace HistogramEntry {
@@ -972,15 +1146,15 @@ export interface ErrorStatistics {
   TotalCount?: number;
 
   /**
+   * <p>The number of requests that failed with a 419 throttling status code.</p>
+   */
+  ThrottleCount?: number;
+
+  /**
    * <p>The number of requests that failed with untracked 4xx Client Error status
    *       codes.</p>
    */
   OtherCount?: number;
-
-  /**
-   * <p>The number of requests that failed with a 419 throttling status code.</p>
-   */
-  ThrottleCount?: number;
 }
 
 export namespace ErrorStatistics {
@@ -994,15 +1168,15 @@ export namespace ErrorStatistics {
  */
 export interface FaultStatistics {
   /**
-   * <p>The total number of requests that failed with a 5xx Server Error status code.</p>
-   */
-  TotalCount?: number;
-
-  /**
    * <p>The number of requests that failed with untracked 5xx Server Error status
    *       codes.</p>
    */
   OtherCount?: number;
+
+  /**
+   * <p>The total number of requests that failed with a 5xx Server Error status code.</p>
+   */
+  TotalCount?: number;
 }
 
 export namespace FaultStatistics {
@@ -1021,9 +1195,9 @@ export interface EdgeStatistics {
   OkCount?: number;
 
   /**
-   * <p>Information about requests that failed with a 5xx Server Error status code.</p>
+   * <p>Information about requests that failed with a 4xx Client Error status code.</p>
    */
-  FaultStatistics?: FaultStatistics;
+  ErrorStatistics?: ErrorStatistics;
 
   /**
    * <p>The aggregate response time of completed requests.</p>
@@ -1036,9 +1210,9 @@ export interface EdgeStatistics {
   TotalCount?: number;
 
   /**
-   * <p>Information about requests that failed with a 4xx Client Error status code.</p>
+   * <p>Information about requests that failed with a 5xx Server Error status code.</p>
    */
-  ErrorStatistics?: ErrorStatistics;
+  FaultStatistics?: FaultStatistics;
 }
 
 export namespace EdgeStatistics {
@@ -1052,14 +1226,9 @@ export namespace EdgeStatistics {
  */
 export interface Edge {
   /**
-   * <p>The end time of the last segment on the edge.</p>
+   * <p>A histogram that maps the spread of client response times on an edge.</p>
    */
-  EndTime?: Date;
-
-  /**
-   * <p>Aliases for the edge.</p>
-   */
-  Aliases?: Alias[];
+  ResponseTimeHistogram?: HistogramEntry[];
 
   /**
    * <p>The start time of the first segment on the edge.</p>
@@ -1077,9 +1246,14 @@ export interface Edge {
   SummaryStatistics?: EdgeStatistics;
 
   /**
-   * <p>A histogram that maps the spread of client response times on an edge.</p>
+   * <p>The end time of the last segment on the edge.</p>
    */
-  ResponseTimeHistogram?: HistogramEntry[];
+  EndTime?: Date;
+
+  /**
+   * <p>Aliases for the edge.</p>
+   */
+  Aliases?: Alias[];
 }
 
 export namespace Edge {
@@ -1098,6 +1272,16 @@ export interface ServiceStatistics {
   TotalResponseTime?: number;
 
   /**
+   * <p>Information about requests that failed with a 5xx Server Error status code.</p>
+   */
+  FaultStatistics?: FaultStatistics;
+
+  /**
+   * <p>The number of requests that completed with a 2xx Success status code.</p>
+   */
+  OkCount?: number;
+
+  /**
    * <p>The total number of completed requests.</p>
    */
   TotalCount?: number;
@@ -1106,16 +1290,6 @@ export interface ServiceStatistics {
    * <p>Information about requests that failed with a 4xx Client Error status code.</p>
    */
   ErrorStatistics?: ErrorStatistics;
-
-  /**
-   * <p>The number of requests that completed with a 2xx Success status code.</p>
-   */
-  OkCount?: number;
-
-  /**
-   * <p>Information about requests that failed with a 5xx Server Error status code.</p>
-   */
-  FaultStatistics?: FaultStatistics;
 }
 
 export namespace ServiceStatistics {
@@ -1125,39 +1299,14 @@ export namespace ServiceStatistics {
 }
 
 /**
- * <p>Information about an application that processed requests, users that made requests, or
- *       downstream services, resources and applications that an application used.</p>
+ * <p>Information about an application that processed requests, users that made requests, or downstream services,
+ *       resources, and applications that an application used.</p>
  */
 export interface Service {
-  /**
-   * <p>Aggregated statistics for the service.</p>
-   */
-  SummaryStatistics?: ServiceStatistics;
-
-  /**
-   * <p>The service's state.</p>
-   */
-  State?: string;
-
-  /**
-   * <p>The start time of the first segment that the service generated.</p>
-   */
-  StartTime?: Date;
-
-  /**
-   * <p>A histogram that maps the spread of service response times.</p>
-   */
-  ResponseTimeHistogram?: HistogramEntry[];
-
   /**
    * <p>Identifier of the AWS account in which the service runs.</p>
    */
   AccountId?: string;
-
-  /**
-   * <p>The canonical name of the service.</p>
-   */
-  Name?: string;
 
   /**
    * <p>The end time of the last segment that the service generated.</p>
@@ -1170,33 +1319,12 @@ export interface Service {
   Edges?: Edge[];
 
   /**
-   * <p>A histogram that maps the spread of service durations.</p>
-   */
-  DurationHistogram?: HistogramEntry[];
-
-  /**
-   * <p>Identifier for the service. Unique within the service map.</p>
-   */
-  ReferenceId?: number;
-
-  /**
-   * <p>Indicates that the service was the first service to process a request.</p>
-   */
-  Root?: boolean;
-
-  /**
-   * <p>A list of names for the service, including the canonical name.</p>
-   */
-  Names?: string[];
-
-  /**
    * <p>The type of service.</p>
    *          <ul>
    *             <li>
-   *                <p>AWS Resource - The type of an AWS resource. For example,
-   *             <code>AWS::EC2::Instance</code> for a application running on Amazon EC2 or
-   *             <code>AWS::DynamoDB::Table</code> for an Amazon DynamoDB table that the application
-   *           used.</p>
+   *                <p>AWS Resource - The type of an AWS resource. For example, <code>AWS::EC2::Instance</code> for an
+   *           application running on Amazon EC2 or <code>AWS::DynamoDB::Table</code> for an Amazon DynamoDB table that the
+   *           application used.</p>
    *             </li>
    *             <li>
    *                <p>AWS Service - The type of an AWS service. For example, <code>AWS::DynamoDB</code>
@@ -1214,6 +1342,51 @@ export interface Service {
    *          </ul>
    */
   Type?: string;
+
+  /**
+   * <p>Identifier for the service. Unique within the service map.</p>
+   */
+  ReferenceId?: number;
+
+  /**
+   * <p>The service's state.</p>
+   */
+  State?: string;
+
+  /**
+   * <p>The start time of the first segment that the service generated.</p>
+   */
+  StartTime?: Date;
+
+  /**
+   * <p>A histogram that maps the spread of service durations.</p>
+   */
+  DurationHistogram?: HistogramEntry[];
+
+  /**
+   * <p>The canonical name of the service.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>A list of names for the service, including the canonical name.</p>
+   */
+  Names?: string[];
+
+  /**
+   * <p>A histogram that maps the spread of service response times.</p>
+   */
+  ResponseTimeHistogram?: HistogramEntry[];
+
+  /**
+   * <p>Indicates that the service was the first service to process a request.</p>
+   */
+  Root?: boolean;
+
+  /**
+   * <p>Aggregated statistics for the service.</p>
+   */
+  SummaryStatistics?: ServiceStatistics;
 }
 
 export namespace Service {
@@ -1236,9 +1409,10 @@ export interface GetServiceGraphResult {
   NextToken?: string;
 
   /**
-   * <p>The end of the time frame for which the graph was generated.</p>
+   * <p>The services that have processed a traced request during the specified time
+   *       frame.</p>
    */
-  EndTime?: Date;
+  Services?: Service[];
 
   /**
    * <p>The start of the time frame for which the graph was generated.</p>
@@ -1246,10 +1420,9 @@ export interface GetServiceGraphResult {
   StartTime?: Date;
 
   /**
-   * <p>The services that have processed a traced request during the specified time
-   *       frame.</p>
+   * <p>The end of the time frame for which the graph was generated.</p>
    */
-  Services?: Service[];
+  EndTime?: Date;
 }
 
 export namespace GetServiceGraphResult {
@@ -1260,9 +1433,31 @@ export namespace GetServiceGraphResult {
 
 export interface GetTimeSeriesServiceStatisticsRequest {
   /**
+   * <p>A filter expression defining entities that will be aggregated for statistics.
+   *             Supports ID, service, and edge functions. If no selector expression is specified, edge
+   *             statistics are returned. </p>
+   */
+  EntitySelectorExpression?: string;
+
+  /**
    * <p>The case-sensitive name of the group for which to pull statistics from.</p>
    */
   GroupName?: string;
+
+  /**
+   * <p>The end of the time frame for which to aggregate statistics.</p>
+   */
+  EndTime: Date | undefined;
+
+  /**
+   * <p>The start of the time frame for which to aggregate statistics.</p>
+   */
+  StartTime: Date | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the group for which to pull statistics from.</p>
+   */
+  GroupARN?: string;
 
   /**
    * <p>Pagination token.</p>
@@ -1273,28 +1468,6 @@ export interface GetTimeSeriesServiceStatisticsRequest {
    * <p>Aggregation period in seconds.</p>
    */
   Period?: number;
-
-  /**
-   * <p>The ARN of the group for which to pull statistics from.</p>
-   */
-  GroupARN?: string;
-
-  /**
-   * <p>The start of the time frame for which to aggregate statistics.</p>
-   */
-  StartTime: Date | undefined;
-
-  /**
-   * <p>The end of the time frame for which to aggregate statistics.</p>
-   */
-  EndTime: Date | undefined;
-
-  /**
-   * <p>A filter expression defining entities that will be aggregated for statistics.
-   *             Supports ID, service, and edge functions. If no selector expression is specified, edge
-   *             statistics are returned. </p>
-   */
-  EntitySelectorExpression?: string;
 }
 
 export namespace GetTimeSeriesServiceStatisticsRequest {
@@ -1313,11 +1486,6 @@ export interface TimeSeriesServiceStatistics {
   ServiceSummaryStatistics?: ServiceStatistics;
 
   /**
-   * <p>Timestamp of the window for which statistics are aggregated.</p>
-   */
-  Timestamp?: Date;
-
-  /**
    * <p>Response statistics for an edge.</p>
    */
   EdgeSummaryStatistics?: EdgeStatistics;
@@ -1326,6 +1494,11 @@ export interface TimeSeriesServiceStatistics {
    * <p>The response time histogram for the selected entities.</p>
    */
   ResponseTimeHistogram?: HistogramEntry[];
+
+  /**
+   * <p>Timestamp of the window for which statistics are aggregated.</p>
+   */
+  Timestamp?: Date;
 }
 
 export namespace TimeSeriesServiceStatistics {
@@ -1336,9 +1509,10 @@ export namespace TimeSeriesServiceStatistics {
 
 export interface GetTimeSeriesServiceStatisticsResult {
   /**
-   * <p>Pagination token.</p>
+   * <p>A flag indicating whether or not a group's filter expression has been consistent, or if a returned
+   *             aggregation might show statistics from an older version of the group's filter expression.</p>
    */
-  NextToken?: string;
+  ContainsOldGroupVersions?: boolean;
 
   /**
    * <p>The collection of statistics.</p>
@@ -1346,11 +1520,9 @@ export interface GetTimeSeriesServiceStatisticsResult {
   TimeSeriesServiceStatistics?: TimeSeriesServiceStatistics[];
 
   /**
-   * <p>A flag indicating whether or not a group's filter expression has been consistent,
-   *             or if a returned aggregation may show statistics from an older version of the group's
-   *             filter expression.</p>
+   * <p>Pagination token.</p>
    */
-  ContainsOldGroupVersions?: boolean;
+  NextToken?: string;
 }
 
 export namespace GetTimeSeriesServiceStatisticsResult {
@@ -1433,22 +1605,26 @@ export interface GetTraceSummariesRequest {
   EndTime: Date | undefined;
 
   /**
+   * <p>A parameter to indicate whether to enable sampling on trace summaries. Input parameters are Name and
+   *             Value.</p>
+   */
+  SamplingStrategy?: SamplingStrategy;
+
+  /**
    * <p>Set to <code>true</code> to get summaries for only a subset of available
    *       traces.</p>
    */
   Sampling?: boolean;
 
   /**
-   * <p>A paramater to indicate whether to enable sampling on trace summaries. Input
-   *         parameters are Name and Value.</p>
+   * <p>The start of the time frame for which to retrieve traces.</p>
    */
-  SamplingStrategy?: SamplingStrategy;
+  StartTime: Date | undefined;
 
   /**
-   * <p>Specify the pagination token returned by a previous request to retrieve the next page
-   *       of results.</p>
+   * <p>A parameter to indicate whether to query trace summaries by TraceId or Event time.</p>
    */
-  NextToken?: string;
+  TimeRangeType?: TimeRangeType | string;
 
   /**
    * <p>Specify a filter expression to retrieve trace summaries for services or requests that
@@ -1457,14 +1633,10 @@ export interface GetTraceSummariesRequest {
   FilterExpression?: string;
 
   /**
-   * <p>A parameter to indicate whether to query trace summaries by TraceId or Event time.</p>
+   * <p>Specify the pagination token returned by a previous request to retrieve the next page
+   *       of results.</p>
    */
-  TimeRangeType?: TimeRangeType | string;
-
-  /**
-   * <p>The start of the time frame for which to retrieve traces.</p>
-   */
-  StartTime: Date | undefined;
+  NextToken?: string;
 }
 
 export namespace GetTraceSummariesRequest {
@@ -1478,14 +1650,14 @@ export namespace GetTraceSummariesRequest {
  */
 export interface RootCauseException {
   /**
-   * <p>The message of the exception.</p>
-   */
-  Message?: string;
-
-  /**
    * <p>The name of the exception.</p>
    */
   Name?: string;
+
+  /**
+   * <p>The message of the exception.</p>
+   */
+  Message?: string;
 }
 
 export namespace RootCauseException {
@@ -1505,14 +1677,14 @@ export interface ErrorRootCauseEntity {
   Exceptions?: RootCauseException[];
 
   /**
-   * <p>A flag that denotes a remote subsegment.</p>
-   */
-  Remote?: boolean;
-
-  /**
    * <p>The name of the entity.</p>
    */
   Name?: string;
+
+  /**
+   * <p>A flag that denotes a remote subsegment.</p>
+   */
+  Remote?: boolean;
 }
 
 export namespace ErrorRootCauseEntity {
@@ -1526,21 +1698,6 @@ export namespace ErrorRootCauseEntity {
  */
 export interface ErrorRootCauseService {
   /**
-   * <p>The service name.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>A Boolean value indicating if the service is inferred from the trace.</p>
-   */
-  Inferred?: boolean;
-
-  /**
-   * <p>A collection of associated service names.</p>
-   */
-  Names?: string[];
-
-  /**
    * <p>The account ID associated to the service.</p>
    */
   AccountId?: string;
@@ -1551,9 +1708,24 @@ export interface ErrorRootCauseService {
   EntityPath?: ErrorRootCauseEntity[];
 
   /**
+   * <p>The service name.</p>
+   */
+  Name?: string;
+
+  /**
    * <p>The type associated to the service.</p>
    */
   Type?: string;
+
+  /**
+   * <p>A collection of associated service names.</p>
+   */
+  Names?: string[];
+
+  /**
+   * <p>A Boolean value indicating if the service is inferred from the trace.</p>
+   */
+  Inferred?: boolean;
 }
 
 export namespace ErrorRootCauseService {
@@ -1616,6 +1788,21 @@ export namespace FaultRootCauseEntity {
  */
 export interface FaultRootCauseService {
   /**
+   * <p>The service name.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The type associated to the service.</p>
+   */
+  Type?: string;
+
+  /**
+   * <p>A collection of associated service names.</p>
+   */
+  Names?: string[];
+
+  /**
    * <p>A Boolean value indicating if the service is inferred from the trace.</p>
    */
   Inferred?: boolean;
@@ -1626,24 +1813,9 @@ export interface FaultRootCauseService {
   AccountId?: string;
 
   /**
-   * <p>A collection of associated service names.</p>
-   */
-  Names?: string[];
-
-  /**
-   * <p>The service name.</p>
-   */
-  Name?: string;
-
-  /**
    * <p>The path of root cause entities found on the service. </p>
    */
   EntityPath?: FaultRootCauseEntity[];
-
-  /**
-   * <p>The type associated to the service.</p>
-   */
-  Type?: string;
 }
 
 export namespace FaultRootCauseService {
@@ -1657,15 +1829,15 @@ export namespace FaultRootCauseService {
  */
 export interface FaultRootCause {
   /**
+   * <p>A flag that denotes that the root cause impacts the trace client.</p>
+   */
+  ClientImpacting?: boolean;
+
+  /**
    * <p>A list of corresponding services. A service identifies a segment and it contains a
    *       name, account ID, type, and inferred flag.</p>
    */
   Services?: FaultRootCauseService[];
-
-  /**
-   * <p>A flag that denotes that the root cause impacts the trace client.</p>
-   */
-  ClientImpacting?: boolean;
 }
 
 export namespace FaultRootCause {
@@ -1684,14 +1856,9 @@ export interface Http {
   HttpURL?: string;
 
   /**
-   * <p>The request method.</p>
+   * <p>The response status.</p>
    */
-  HttpMethod?: string;
-
-  /**
-   * <p>The IP address of the requestor.</p>
-   */
-  ClientIp?: string;
+  HttpStatus?: number;
 
   /**
    * <p>The request's user agent string.</p>
@@ -1699,9 +1866,14 @@ export interface Http {
   UserAgent?: string;
 
   /**
-   * <p>The response status.</p>
+   * <p>The IP address of the requestor.</p>
    */
-  HttpStatus?: number;
+  ClientIp?: string;
+
+  /**
+   * <p>The request method.</p>
+   */
+  HttpMethod?: string;
 }
 
 export namespace Http {
@@ -1748,11 +1920,6 @@ export namespace ResourceARNDetail {
  */
 export interface ResponseTimeRootCauseEntity {
   /**
-   * <p>The types and messages of the exceptions.</p>
-   */
-  Coverage?: number;
-
-  /**
    * <p>The name of the entity.</p>
    */
   Name?: string;
@@ -1761,6 +1928,11 @@ export interface ResponseTimeRootCauseEntity {
    * <p>A flag that denotes a remote subsegment.</p>
    */
   Remote?: boolean;
+
+  /**
+   * <p>The type and messages of the exceptions.</p>
+   */
+  Coverage?: number;
 }
 
 export namespace ResponseTimeRootCauseEntity {
@@ -1774,9 +1946,19 @@ export namespace ResponseTimeRootCauseEntity {
  */
 export interface ResponseTimeRootCauseService {
   /**
-   * <p>The service name.</p>
+   * <p>The path of root cause entities found on the service. </p>
    */
-  Name?: string;
+  EntityPath?: ResponseTimeRootCauseEntity[];
+
+  /**
+   * <p>A Boolean value indicating if the service is inferred from the trace.</p>
+   */
+  Inferred?: boolean;
+
+  /**
+   * <p>The account ID associated to the service.</p>
+   */
+  AccountId?: string;
 
   /**
    * <p>The type associated to the service.</p>
@@ -1789,19 +1971,9 @@ export interface ResponseTimeRootCauseService {
   Names?: string[];
 
   /**
-   * <p>The account ID associated to the service.</p>
+   * <p>The service name.</p>
    */
-  AccountId?: string;
-
-  /**
-   * <p>A Boolean value indicating if the service is inferred from the trace.</p>
-   */
-  Inferred?: boolean;
-
-  /**
-   * <p>The path of root cause entities found on the service. </p>
-   */
-  EntityPath?: ResponseTimeRootCauseEntity[];
+  Name?: string;
 }
 
 export namespace ResponseTimeRootCauseService {
@@ -1815,15 +1987,15 @@ export namespace ResponseTimeRootCauseService {
  */
 export interface ResponseTimeRootCause {
   /**
+   * <p>A flag that denotes that the root cause impacts the trace client.</p>
+   */
+  ClientImpacting?: boolean;
+
+  /**
    * <p>A list of corresponding services. A service identifies a segment and contains a name,
    *       account ID, type, and inferred flag.</p>
    */
   Services?: ResponseTimeRootCauseService[];
-
-  /**
-   * <p>A flag that denotes that the root cause impacts the trace client.</p>
-   */
-  ClientImpacting?: boolean;
 }
 
 export namespace ResponseTimeRootCause {
@@ -1837,14 +2009,14 @@ export namespace ResponseTimeRootCause {
  */
 export interface TraceUser {
   /**
-   * <p>The user's name.</p>
-   */
-  UserName?: string;
-
-  /**
    * <p>Services that the user's request hit.</p>
    */
   ServiceIds?: ServiceId[];
+
+  /**
+   * <p>The user's name.</p>
+   */
+  UserName?: string;
 }
 
 export namespace TraceUser {
@@ -1858,42 +2030,14 @@ export namespace TraceUser {
  */
 export interface TraceSummary {
   /**
-   * <p>The root of a trace.</p>
+   * <p>One or more of the segment documents is in progress.</p>
    */
-  EntryPoint?: ServiceId;
+  IsPartial?: boolean;
 
   /**
-   * <p>A collection of FaultRootCause structures corresponding to the the trace
-   *       segments.</p>
+   * <p>One or more of the segment documents has a 429 throttling error.</p>
    */
-  FaultRootCauses?: FaultRootCause[];
-
-  /**
-   * <p>Information about the HTTP request served by the trace.</p>
-   */
-  Http?: Http;
-
-  /**
-   * <p>A list of availability zones for any zone corresponding to the trace
-   *       segments.</p>
-   */
-  AvailabilityZones?: AvailabilityZoneDetail[];
-
-  /**
-   * <p>A list of EC2 instance IDs for any instance corresponding to the trace
-   *       segments.</p>
-   */
-  InstanceIds?: InstanceIdDetail[];
-
-  /**
-   * <p>The root segment document has a 400 series error.</p>
-   */
-  HasError?: boolean;
-
-  /**
-   * <p>The matched time stamp of a defined event.</p>
-   */
-  MatchedEventTime?: Date;
+  HasThrottle?: boolean;
 
   /**
    * <p>The unique identifier for the request that generated the trace's segments and
@@ -1902,9 +2046,9 @@ export interface TraceSummary {
   Id?: string;
 
   /**
-   * <p>A list of resource ARNs for any resource corresponding to the trace segments.</p>
+   * <p>Service IDs from the trace's segment documents.</p>
    */
-  ResourceARNs?: ResourceARNDetail[];
+  ServiceIds?: ServiceId[];
 
   /**
    * <p>The root segment document has a 500 series error.</p>
@@ -1912,26 +2056,15 @@ export interface TraceSummary {
   HasFault?: boolean;
 
   /**
-   * <p>Annotations from the trace's segment documents.</p>
+   * <p>The root segment document has a 400 series error.</p>
    */
-  Annotations?: { [key: string]: ValueWithServiceIds[] };
+  HasError?: boolean;
 
   /**
-   * <p>A collection of ErrorRootCause structures corresponding to the trace
+   * <p>A list of EC2 instance IDs for any instance corresponding to the trace
    *       segments.</p>
    */
-  ErrorRootCauses?: ErrorRootCause[];
-
-  /**
-   * <p>One or more of the segment documents is in progress.</p>
-   */
-  IsPartial?: boolean;
-
-  /**
-   * <p>The length of time in seconds between the start time of the root segment and the end
-   *       time of the last segment that completed.</p>
-   */
-  Duration?: number;
+  InstanceIds?: InstanceIdDetail[];
 
   /**
    * <p>The length of time in seconds between the start and end times of the root segment. If
@@ -1942,9 +2075,25 @@ export interface TraceSummary {
   ResponseTime?: number;
 
   /**
-   * <p>Service IDs from the trace's segment documents.</p>
+   * <p>A collection of FaultRootCause structures corresponding to the trace segments.</p>
    */
-  ServiceIds?: ServiceId[];
+  FaultRootCauses?: FaultRootCause[];
+
+  /**
+   * <p>The root of a trace.</p>
+   */
+  EntryPoint?: ServiceId;
+
+  /**
+   * <p>A collection of ErrorRootCause structures corresponding to the trace
+   *       segments.</p>
+   */
+  ErrorRootCauses?: ErrorRootCause[];
+
+  /**
+   * <p>The revision number of a trace.</p>
+   */
+  Revision?: number;
 
   /**
    * <p>A collection of ResponseTimeRootCause structures corresponding to the trace
@@ -1953,19 +2102,40 @@ export interface TraceSummary {
   ResponseTimeRootCauses?: ResponseTimeRootCause[];
 
   /**
-   * <p>The revision number of a trace.</p>
+   * <p>A list of resource ARNs for any resource corresponding to the trace segments.</p>
    */
-  Revision?: number;
+  ResourceARNs?: ResourceARNDetail[];
 
   /**
-   * <p>One or more of the segment documents has a 429 throttling error.</p>
+   * <p>Information about the HTTP request served by the trace.</p>
    */
-  HasThrottle?: boolean;
+  Http?: Http;
+
+  /**
+   * <p>Annotations from the trace's segment documents.</p>
+   */
+  Annotations?: { [key: string]: ValueWithServiceIds[] };
 
   /**
    * <p>Users from the trace's segment documents.</p>
    */
   Users?: TraceUser[];
+
+  /**
+   * <p>A list of Availability Zones for any zone corresponding to the trace segments.</p>
+   */
+  AvailabilityZones?: AvailabilityZoneDetail[];
+
+  /**
+   * <p>The matched time stamp of a defined event.</p>
+   */
+  MatchedEventTime?: Date;
+
+  /**
+   * <p>The length of time in seconds between the start time of the root segment and the end
+   *       time of the last segment that completed.</p>
+   */
+  Duration?: number;
 }
 
 export namespace TraceSummary {
@@ -1987,17 +2157,16 @@ export interface GetTraceSummariesResult {
   ApproximateTime?: Date;
 
   /**
-   * <p>If the requested time frame contained more than one page of results, you can use this
-   *       token to retrieve the next page. The first page contains the most most recent results, closest
-   *       to the end of the time frame.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>The total number of traces processed, including traces that did not match the specified
    *       filter expression.</p>
    */
   TracesProcessedCount?: number;
+
+  /**
+   * <p>If the requested time frame contained more than one page of results, you can use this token to retrieve the
+   *       next page. The first page contains the most recent results, closest to the end of the time frame.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace GetTraceSummariesResult {
@@ -2006,7 +2175,68 @@ export namespace GetTraceSummariesResult {
   });
 }
 
+export interface ListTagsForResourceRequest {
+  /**
+   * <p>The Amazon Resource Number (ARN) of an X-Ray group or sampling rule.</p>
+   */
+  ResourceARN: string | undefined;
+
+  /**
+   * <p>A pagination token. If multiple pages of results are returned, use the <code>NextToken</code> value returned with
+   *     the current page of results as the value of this parameter to get the next page of results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListTagsForResourceRequest {
+  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListTagsForResourceResponse {
+  /**
+   * <p>A pagination token. If multiple pages of results are returned, use the <code>NextToken</code> value returned with
+   *       the current page of results to get the next page of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>A list of tags, as key and value pairs, that is associated with the specified X-Ray group or sampling rule.</p>
+   */
+  Tags?: Tag[];
+}
+
+export namespace ListTagsForResourceResponse {
+  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The resource was not found. Verify that the name or Amazon Resource Name (ARN) of the resource is
+ *       correct.</p>
+ */
+export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
+  name: "ResourceNotFoundException";
+  $fault: "client";
+  Message?: string;
+  ResourceName?: string;
+}
+
+export namespace ResourceNotFoundException {
+  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
+    ...obj,
+  });
+}
+
 export interface PutEncryptionConfigRequest {
+  /**
+   * <p>The type of encryption. Set to <code>KMS</code> to use your own key for encryption. Set
+   *       to <code>NONE</code> for default encryption.</p>
+   */
+  Type: EncryptionType | string | undefined;
+
   /**
    * <p>An AWS KMS customer master key (CMK) in one of the following formats:</p>
    *          <ul>
@@ -2031,12 +2261,6 @@ export interface PutEncryptionConfigRequest {
    *          <p>Omit this key if you set <code>Type</code> to <code>NONE</code>.</p>
    */
   KeyId?: string;
-
-  /**
-   * <p>The type of encryption. Set to <code>KMS</code> to use your own key for encryption. Set
-   *       to <code>NONE</code> for default encryption.</p>
-   */
-  Type: EncryptionType | string | undefined;
 }
 
 export namespace PutEncryptionConfigRequest {
@@ -2070,12 +2294,17 @@ export interface BackendConnectionErrors {
   /**
    * <p></p>
    */
+  HTTPCode4XXCount?: number;
+
+  /**
+   * <p></p>
+   */
   ConnectionRefusedCount?: number;
 
   /**
    * <p></p>
    */
-  HTTPCode4XXCount?: number;
+  TimeoutCount?: number;
 
   /**
    * <p></p>
@@ -2086,11 +2315,6 @@ export interface BackendConnectionErrors {
    * <p></p>
    */
   OtherCount?: number;
-
-  /**
-   * <p></p>
-   */
-  TimeoutCount?: number;
 }
 
 export namespace BackendConnectionErrors {
@@ -2111,16 +2335,6 @@ export interface TelemetryRecord {
   /**
    * <p></p>
    */
-  SegmentsReceivedCount?: number;
-
-  /**
-   * <p></p>
-   */
-  SegmentsSentCount?: number;
-
-  /**
-   * <p></p>
-   */
   SegmentsRejectedCount?: number;
 
   /**
@@ -2132,6 +2346,16 @@ export interface TelemetryRecord {
    * <p></p>
    */
   SegmentsSpilloverCount?: number;
+
+  /**
+   * <p></p>
+   */
+  SegmentsReceivedCount?: number;
+
+  /**
+   * <p></p>
+   */
+  SegmentsSentCount?: number;
 }
 
 export namespace TelemetryRecord {
@@ -2149,17 +2373,17 @@ export interface PutTelemetryRecordsRequest {
   /**
    * <p></p>
    */
+  ResourceARN?: string;
+
+  /**
+   * <p></p>
+   */
   EC2InstanceId?: string;
 
   /**
    * <p></p>
    */
   Hostname?: string;
-
-  /**
-   * <p></p>
-   */
-  ResourceARN?: string;
 }
 
 export namespace PutTelemetryRecordsRequest {
@@ -2229,16 +2453,124 @@ export namespace PutTraceSegmentsResult {
   });
 }
 
+export interface TagResourceRequest {
+  /**
+   * <p>The Amazon Resource Number (ARN) of an X-Ray group or sampling rule.</p>
+   */
+  ResourceARN: string | undefined;
+
+  /**
+   * <p>A map that contains one or more tag keys and tag values to attach to an X-Ray group or
+   *       sampling rule. For more information about ways to use tags, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging AWS resources</a>
+   *       in the <i>AWS General Reference</i>.</p>
+   *          <p>The following restrictions apply to tags:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Maximum number of user-applied tags per resource: 50</p>
+   *             </li>
+   *             <li>
+   *                <p>Maximum tag key length: 128 Unicode characters</p>
+   *             </li>
+   *             <li>
+   *                <p>Maximum tag value length: 256 Unicode characters</p>
+   *             </li>
+   *             <li>
+   *                <p>Valid values for key and value: a-z, A-Z, 0-9, space, and the following characters: _ . :
+   *           / = + - and @</p>
+   *             </li>
+   *             <li>
+   *                <p>Tag keys and values are case sensitive.</p>
+   *             </li>
+   *             <li>
+   *                <p>Don't use <code>aws:</code> as a prefix for keys; it's reserved for AWS use. You
+   *           cannot edit or delete system tags.</p>
+   *             </li>
+   *          </ul>
+   */
+  Tags: Tag[] | undefined;
+}
+
+export namespace TagResourceRequest {
+  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface TagResourceResponse {}
+
+export namespace TagResourceResponse {
+  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>You have exceeded the maximum number of tags you can apply to this resource.</p>
+ */
+export interface TooManyTagsException extends __SmithyException, $MetadataBearer {
+  name: "TooManyTagsException";
+  $fault: "client";
+  Message?: string;
+  ResourceName?: string;
+}
+
+export namespace TooManyTagsException {
+  export const filterSensitiveLog = (obj: TooManyTagsException): any => ({
+    ...obj,
+  });
+}
+
+export interface UntagResourceRequest {
+  /**
+   * <p>Keys for one or more tags that you want to remove from an X-Ray group or sampling rule.</p>
+   */
+  TagKeys: string[] | undefined;
+
+  /**
+   * <p>The Amazon Resource Number (ARN) of an X-Ray group or sampling rule.</p>
+   */
+  ResourceARN: string | undefined;
+}
+
+export namespace UntagResourceRequest {
+  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UntagResourceResponse {}
+
+export namespace UntagResourceResponse {
+  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface UpdateGroupRequest {
+  /**
+   * <p>The updated filter expression defining criteria by which to group traces.</p>
+   */
+  FilterExpression?: string;
+
   /**
    * <p>The case-sensitive name of the group.</p>
    */
   GroupName?: string;
 
   /**
-   * <p>The updated filter expression defining criteria by which to group traces.</p>
+   * <p>The structure containing configurations related to insights.</p>
+   *         <ul>
+   *             <li>
+   *                 <p>The InsightsEnabled boolean can be set to true to enable insights for the
+   *                     group or false to disable insights for the group.</p>
+   *             </li>
+   *             <li>
+   *                 <p>The NotifcationsEnabled boolean can be set to true to enable insights notifications for the group.
+   *                     Notifications can only be enabled on a group with InsightsEnabled set to true.</p>
+   *             </li>
+   *          </ul>
    */
-  FilterExpression?: string;
+  InsightsConfiguration?: InsightsConfiguration;
 
   /**
    * <p>The ARN that was generated upon creation.</p>
@@ -2255,8 +2587,8 @@ export namespace UpdateGroupRequest {
 export interface UpdateGroupResult {
   /**
    * <p>The group that was updated. Contains the name of the group that was updated, the
-   *             ARN of the group that was updated, and the updated filter expression assigned to the
-   *             group.</p>
+   *             ARN of the group that was updated, the updated filter expression, and the updated insight
+   *             configuration assigned to the group.</p>
    */
   Group?: Group;
 }
@@ -2272,20 +2604,9 @@ export namespace UpdateGroupResult {
  */
 export interface SamplingRuleUpdate {
   /**
-   * <p>A fixed number of matching requests to instrument per second, prior to applying the
-   *       fixed rate. The reservoir is not used directly by services, but applies to all services using the rule collectively.</p>
-   */
-  ReservoirSize?: number;
-
-  /**
    * <p>Matches the <code>name</code> that the service uses to identify itself in segments.</p>
    */
   ServiceName?: string;
-
-  /**
-   * <p>Matches attributes derived from the request.</p>
-   */
-  Attributes?: { [key: string]: string };
 
   /**
    * <p>The ARN of the sampling rule. Specify a rule by either name or ARN, but not both.</p>
@@ -2293,34 +2614,25 @@ export interface SamplingRuleUpdate {
   RuleARN?: string;
 
   /**
-   * <p>Matches the <code>origin</code> that the service uses to identify its type in segments.</p>
+   * <p>Matches attributes derived from the request.</p>
    */
-  ServiceType?: string;
+  Attributes?: { [key: string]: string };
 
   /**
-   * <p>Matches the hostname from a request URL.</p>
+   * <p>A fixed number of matching requests to instrument per second, prior to applying the
+   *       fixed rate. The reservoir is not used directly by services, but applies to all services using the rule collectively.</p>
    */
-  Host?: string;
-
-  /**
-   * <p>The priority of the sampling rule.</p>
-   */
-  Priority?: number;
-
-  /**
-   * <p>Matches the ARN of the AWS resource on which the service runs.</p>
-   */
-  ResourceARN?: string;
-
-  /**
-   * <p>Matches the path from a request URL.</p>
-   */
-  URLPath?: string;
+  ReservoirSize?: number;
 
   /**
    * <p>The name of the sampling rule. Specify a rule by either name or ARN, but not both.</p>
    */
   RuleName?: string;
+
+  /**
+   * <p>Matches the HTTP method of a request.</p>
+   */
+  HTTPMethod?: string;
 
   /**
    * <p>The percentage of matching requests to instrument, after the reservoir is
@@ -2329,9 +2641,29 @@ export interface SamplingRuleUpdate {
   FixedRate?: number;
 
   /**
-   * <p>Matches the HTTP method of a request.</p>
+   * <p>Matches the path from a request URL.</p>
    */
-  HTTPMethod?: string;
+  URLPath?: string;
+
+  /**
+   * <p>Matches the ARN of the AWS resource on which the service runs.</p>
+   */
+  ResourceARN?: string;
+
+  /**
+   * <p>The priority of the sampling rule.</p>
+   */
+  Priority?: number;
+
+  /**
+   * <p>Matches the hostname from a request URL.</p>
+   */
+  Host?: string;
+
+  /**
+   * <p>Matches the <code>origin</code> that the service uses to identify its type in segments.</p>
+   */
+  ServiceType?: string;
 }
 
 export namespace SamplingRuleUpdate {

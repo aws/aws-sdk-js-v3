@@ -1,5 +1,5 @@
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
-import { DeleteNotebookInstanceLifecycleConfigInput } from "../models/models_0";
+import { DeleteNotebookInstanceLifecycleConfigInput } from "../models/models_1";
 import {
   deserializeAws_json1_1DeleteNotebookInstanceLifecycleConfigCommand,
   serializeAws_json1_1DeleteNotebookInstanceLifecycleConfigCommand,

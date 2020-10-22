@@ -33,7 +33,7 @@ export async function* listResourcesForTagOptionPaginate(
   let hasNext = true;
   let page: ListResourcesForTagOptionCommandOutput;
   while (hasNext) {
-    input["PageToken"] = token;
+    input.PageToken = token;
     input["PageSize"] = config.pageSize;
     if (config.client instanceof ServiceCatalog) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* listResourcesForTagOptionPaginate(
       throw new Error("Invalid client, expected ServiceCatalog | ServiceCatalogClient");
     }
     yield page;
-    token = page["PageToken"];
+    token = page.PageToken;
     hasNext = !!token;
   }
   // @ts-ignore

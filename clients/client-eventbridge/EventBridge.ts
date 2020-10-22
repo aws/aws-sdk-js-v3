@@ -1113,6 +1113,9 @@ export class EventBridge extends EventBridgeClient {
    *             <li>
    *                 <p>Amazon API Gateway REST APIs</p>
    *             </li>
+   *             <li>
+   *                 <p>Redshift Clusters to invoke Data API ExecuteStatement on</p>
+   *             </li>
    *          </ul>
    *
    *

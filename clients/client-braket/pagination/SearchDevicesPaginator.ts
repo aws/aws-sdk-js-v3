@@ -33,7 +33,7 @@ export async function* searchDevicesPaginate(
   let hasNext = true;
   let page: SearchDevicesCommandOutput;
   while (hasNext) {
-    input["nextToken"] = token;
+    input.nextToken = token;
     input["maxResults"] = config.pageSize;
     if (config.client instanceof Braket) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* searchDevicesPaginate(
       throw new Error("Invalid client, expected Braket | BraketClient");
     }
     yield page;
-    token = page["nextToken"];
+    token = page.nextToken;
     hasNext = !!token;
   }
   // @ts-ignore

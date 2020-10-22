@@ -65,17 +65,17 @@ export interface AcceleratorType {
 
   /**
    * <p>
-   *             The name of the Elastic Inference Accelerator type.
-   *         </p>
-   */
-  acceleratorTypeName?: string;
-
-  /**
-   * <p>
    *             The memory information of the Elastic Inference Accelerator type.
    *         </p>
    */
   memoryInfo?: MemoryInfo;
+
+  /**
+   * <p>
+   *             The name of the Elastic Inference Accelerator type.
+   *         </p>
+   */
+  acceleratorTypeName?: string;
 }
 
 export namespace AcceleratorType {
@@ -247,21 +247,21 @@ export namespace Filter {
 export interface DescribeAcceleratorsRequest {
   /**
    * <p>
-   *             One or more filters. Filter names and values are case-sensitive. Valid filter names are:
-   *             accelerator-types: can provide a list of accelerator type names to filter for.
-   *             instance-id: can provide a list of EC2 instance ids to filter for.
-   *         </p>
-   */
-  filters?: Filter[];
-
-  /**
-   * <p>
    *             The total number of items to return in the command's output. If the total number of items available is more than the value specified, a NextToken is provided in the command's output.
    *             To resume pagination, provide the NextToken value in the starting-token argument of a subsequent command.
    *             Do not use the NextToken response element directly outside of the AWS CLI.
    *         </p>
    */
   maxResults?: number;
+
+  /**
+   * <p>
+   *             One or more filters. Filter names and values are case-sensitive. Valid filter names are:
+   *             accelerator-types: can provide a list of accelerator type names to filter for.
+   *             instance-id: can provide a list of EC2 instance ids to filter for.
+   *         </p>
+   */
+  filters?: Filter[];
 
   /**
    * <p>
@@ -326,13 +326,6 @@ export interface ElasticInferenceAccelerator {
 
   /**
    * <p>
-   *             The ID of the Elastic Inference Accelerator.
-   *         </p>
-   */
-  acceleratorId?: string;
-
-  /**
-   * <p>
    *             The ARN of the resource that the Elastic Inference Accelerator is attached to.
    *         </p>
    */
@@ -344,6 +337,13 @@ export interface ElasticInferenceAccelerator {
    *         </p>
    */
   acceleratorHealth?: ElasticInferenceAcceleratorHealth;
+
+  /**
+   * <p>
+   *             The ID of the Elastic Inference Accelerator.
+   *         </p>
+   */
+  acceleratorId?: string;
 }
 
 export namespace ElasticInferenceAccelerator {
@@ -460,17 +460,17 @@ export namespace TagResourceResult {
 export interface UntagResourceRequest {
   /**
    * <p>
-   *             The list of tags to remove from the Elastic Inference Accelerator.
-   *         </p>
-   */
-  tagKeys: string[] | undefined;
-
-  /**
-   * <p>
    *             The ARN of the Elastic Inference Accelerator to untag.
    *         </p>
    */
   resourceArn: string | undefined;
+
+  /**
+   * <p>
+   *             The list of tags to remove from the Elastic Inference Accelerator.
+   *         </p>
+   */
+  tagKeys: string[] | undefined;
 }
 
 export namespace UntagResourceRequest {

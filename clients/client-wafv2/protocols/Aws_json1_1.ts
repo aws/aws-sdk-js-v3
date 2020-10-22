@@ -5131,6 +5131,7 @@ const serializeAws_json1_1LoggingConfiguration = (input: LoggingConfiguration, c
     ...(input.LogDestinationConfigs !== undefined && {
       LogDestinationConfigs: serializeAws_json1_1LogDestinationConfigs(input.LogDestinationConfigs, context),
     }),
+    ...(input.ManagedByFirewallManager !== undefined && { ManagedByFirewallManager: input.ManagedByFirewallManager }),
     ...(input.RedactedFields !== undefined && {
       RedactedFields: serializeAws_json1_1RedactedFields(input.RedactedFields, context),
     }),
@@ -6095,6 +6096,10 @@ const deserializeAws_json1_1LoggingConfiguration = (output: any, context: __Serd
     LogDestinationConfigs:
       output.LogDestinationConfigs !== undefined && output.LogDestinationConfigs !== null
         ? deserializeAws_json1_1LogDestinationConfigs(output.LogDestinationConfigs, context)
+        : undefined,
+    ManagedByFirewallManager:
+      output.ManagedByFirewallManager !== undefined && output.ManagedByFirewallManager !== null
+        ? output.ManagedByFirewallManager
         : undefined,
     RedactedFields:
       output.RedactedFields !== undefined && output.RedactedFields !== null

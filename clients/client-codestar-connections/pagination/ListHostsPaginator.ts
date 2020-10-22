@@ -29,7 +29,7 @@ export async function* listHostsPaginate(
   let hasNext = true;
   let page: ListHostsCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof CodeStarConnections) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -39,7 +39,7 @@ export async function* listHostsPaginate(
       throw new Error("Invalid client, expected CodeStarConnections | CodeStarConnectionsClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

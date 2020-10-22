@@ -5,6 +5,11 @@ import {
   AssociateRepositoryCommandOutput,
 } from "./commands/AssociateRepositoryCommand";
 import {
+  CreateCodeReviewCommand,
+  CreateCodeReviewCommandInput,
+  CreateCodeReviewCommandOutput,
+} from "./commands/CreateCodeReviewCommand";
+import {
   DescribeCodeReviewCommand,
   DescribeCodeReviewCommandInput,
   DescribeCodeReviewCommandOutput,
@@ -76,7 +81,7 @@ export class CodeGuruReviewer extends CodeGuruReviewerClient {
    *          <p>If you associate a CodeCommit repository, it must be in the same
    *          AWS Region and AWS account where its CodeGuru Reviewer code reviews are configured.</p>
    *
-   *          <p> Bitbucket and GitHub Enterprise Server repositories are managed by AWS CodeStar
+   *          <p>Bitbucket and GitHub Enterprise Server repositories are managed by AWS CodeStar
    *          Connections to connect to CodeGuru Reviewer. For more information, see <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/reviewer-ug/step-one.html#select-repository-source-provider">Connect to a repository source provider</a> in
    *          the <i>Amazon CodeGuru Reviewer User Guide.</i>
    *          </p>
@@ -109,6 +114,40 @@ export class CodeGuruReviewer extends CodeGuruReviewerClient {
     cb?: (err: any, data?: AssociateRepositoryCommandOutput) => void
   ): Promise<AssociateRepositoryCommandOutput> | void {
     const command = new AssociateRepositoryCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>
+   *          Use to create a code review for a repository analysis.
+   *       </p>
+   */
+  public createCodeReview(
+    args: CreateCodeReviewCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateCodeReviewCommandOutput>;
+  public createCodeReview(
+    args: CreateCodeReviewCommandInput,
+    cb: (err: any, data?: CreateCodeReviewCommandOutput) => void
+  ): void;
+  public createCodeReview(
+    args: CreateCodeReviewCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateCodeReviewCommandOutput) => void
+  ): void;
+  public createCodeReview(
+    args: CreateCodeReviewCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateCodeReviewCommandOutput) => void),
+    cb?: (err: any, data?: CreateCodeReviewCommandOutput) => void
+  ): Promise<CreateCodeReviewCommandOutput> | void {
+    const command = new CreateCodeReviewCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

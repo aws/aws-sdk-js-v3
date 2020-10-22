@@ -1,5 +1,10 @@
 import { BudgetsClient } from "./BudgetsClient";
 import {
+  CreateBudgetActionCommand,
+  CreateBudgetActionCommandInput,
+  CreateBudgetActionCommandOutput,
+} from "./commands/CreateBudgetActionCommand";
+import {
   CreateBudgetCommand,
   CreateBudgetCommandInput,
   CreateBudgetCommandOutput,
@@ -15,6 +20,11 @@ import {
   CreateSubscriberCommandOutput,
 } from "./commands/CreateSubscriberCommand";
 import {
+  DeleteBudgetActionCommand,
+  DeleteBudgetActionCommandInput,
+  DeleteBudgetActionCommandOutput,
+} from "./commands/DeleteBudgetActionCommand";
+import {
   DeleteBudgetCommand,
   DeleteBudgetCommandInput,
   DeleteBudgetCommandOutput,
@@ -29,6 +39,26 @@ import {
   DeleteSubscriberCommandInput,
   DeleteSubscriberCommandOutput,
 } from "./commands/DeleteSubscriberCommand";
+import {
+  DescribeBudgetActionCommand,
+  DescribeBudgetActionCommandInput,
+  DescribeBudgetActionCommandOutput,
+} from "./commands/DescribeBudgetActionCommand";
+import {
+  DescribeBudgetActionHistoriesCommand,
+  DescribeBudgetActionHistoriesCommandInput,
+  DescribeBudgetActionHistoriesCommandOutput,
+} from "./commands/DescribeBudgetActionHistoriesCommand";
+import {
+  DescribeBudgetActionsForAccountCommand,
+  DescribeBudgetActionsForAccountCommandInput,
+  DescribeBudgetActionsForAccountCommandOutput,
+} from "./commands/DescribeBudgetActionsForAccountCommand";
+import {
+  DescribeBudgetActionsForBudgetCommand,
+  DescribeBudgetActionsForBudgetCommandInput,
+  DescribeBudgetActionsForBudgetCommandOutput,
+} from "./commands/DescribeBudgetActionsForBudgetCommand";
 import {
   DescribeBudgetCommand,
   DescribeBudgetCommandInput,
@@ -54,6 +84,16 @@ import {
   DescribeSubscribersForNotificationCommandInput,
   DescribeSubscribersForNotificationCommandOutput,
 } from "./commands/DescribeSubscribersForNotificationCommand";
+import {
+  ExecuteBudgetActionCommand,
+  ExecuteBudgetActionCommandInput,
+  ExecuteBudgetActionCommandOutput,
+} from "./commands/ExecuteBudgetActionCommand";
+import {
+  UpdateBudgetActionCommand,
+  UpdateBudgetActionCommandInput,
+  UpdateBudgetActionCommandOutput,
+} from "./commands/UpdateBudgetActionCommand";
 import {
   UpdateBudgetCommand,
   UpdateBudgetCommandInput,
@@ -139,6 +179,40 @@ export class Budgets extends BudgetsClient {
     cb?: (err: any, data?: CreateBudgetCommandOutput) => void
   ): Promise<CreateBudgetCommandOutput> | void {
     const command = new CreateBudgetCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>
+   *          Creates a budget action.
+   *       </p>
+   */
+  public createBudgetAction(
+    args: CreateBudgetActionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateBudgetActionCommandOutput>;
+  public createBudgetAction(
+    args: CreateBudgetActionCommandInput,
+    cb: (err: any, data?: CreateBudgetActionCommandOutput) => void
+  ): void;
+  public createBudgetAction(
+    args: CreateBudgetActionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateBudgetActionCommandOutput) => void
+  ): void;
+  public createBudgetAction(
+    args: CreateBudgetActionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateBudgetActionCommandOutput) => void),
+    cb?: (err: any, data?: CreateBudgetActionCommandOutput) => void
+  ): Promise<CreateBudgetActionCommandOutput> | void {
+    const command = new CreateBudgetActionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -246,6 +320,40 @@ export class Budgets extends BudgetsClient {
   }
 
   /**
+   * <p>
+   *          Deletes a budget action.
+   *       </p>
+   */
+  public deleteBudgetAction(
+    args: DeleteBudgetActionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteBudgetActionCommandOutput>;
+  public deleteBudgetAction(
+    args: DeleteBudgetActionCommandInput,
+    cb: (err: any, data?: DeleteBudgetActionCommandOutput) => void
+  ): void;
+  public deleteBudgetAction(
+    args: DeleteBudgetActionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteBudgetActionCommandOutput) => void
+  ): void;
+  public deleteBudgetAction(
+    args: DeleteBudgetActionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteBudgetActionCommandOutput) => void),
+    cb?: (err: any, data?: DeleteBudgetActionCommandOutput) => void
+  ): Promise<DeleteBudgetActionCommandOutput> | void {
+    const command = new DeleteBudgetActionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Deletes a notification.</p>
    * 		       <important>
    * 			         <p>Deleting a notification also deletes the subscribers that are associated with the notification.</p>
@@ -340,6 +448,142 @@ export class Budgets extends BudgetsClient {
     cb?: (err: any, data?: DescribeBudgetCommandOutput) => void
   ): Promise<DescribeBudgetCommandOutput> | void {
     const command = new DescribeBudgetCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>
+   *          Describes a budget action detail.
+   *       </p>
+   */
+  public describeBudgetAction(
+    args: DescribeBudgetActionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeBudgetActionCommandOutput>;
+  public describeBudgetAction(
+    args: DescribeBudgetActionCommandInput,
+    cb: (err: any, data?: DescribeBudgetActionCommandOutput) => void
+  ): void;
+  public describeBudgetAction(
+    args: DescribeBudgetActionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeBudgetActionCommandOutput) => void
+  ): void;
+  public describeBudgetAction(
+    args: DescribeBudgetActionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeBudgetActionCommandOutput) => void),
+    cb?: (err: any, data?: DescribeBudgetActionCommandOutput) => void
+  ): Promise<DescribeBudgetActionCommandOutput> | void {
+    const command = new DescribeBudgetActionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>
+   *          Describes a budget action history detail.
+   *       </p>
+   */
+  public describeBudgetActionHistories(
+    args: DescribeBudgetActionHistoriesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeBudgetActionHistoriesCommandOutput>;
+  public describeBudgetActionHistories(
+    args: DescribeBudgetActionHistoriesCommandInput,
+    cb: (err: any, data?: DescribeBudgetActionHistoriesCommandOutput) => void
+  ): void;
+  public describeBudgetActionHistories(
+    args: DescribeBudgetActionHistoriesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeBudgetActionHistoriesCommandOutput) => void
+  ): void;
+  public describeBudgetActionHistories(
+    args: DescribeBudgetActionHistoriesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeBudgetActionHistoriesCommandOutput) => void),
+    cb?: (err: any, data?: DescribeBudgetActionHistoriesCommandOutput) => void
+  ): Promise<DescribeBudgetActionHistoriesCommandOutput> | void {
+    const command = new DescribeBudgetActionHistoriesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>
+   *          Describes all of the budget actions for an account.
+   *       </p>
+   */
+  public describeBudgetActionsForAccount(
+    args: DescribeBudgetActionsForAccountCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeBudgetActionsForAccountCommandOutput>;
+  public describeBudgetActionsForAccount(
+    args: DescribeBudgetActionsForAccountCommandInput,
+    cb: (err: any, data?: DescribeBudgetActionsForAccountCommandOutput) => void
+  ): void;
+  public describeBudgetActionsForAccount(
+    args: DescribeBudgetActionsForAccountCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeBudgetActionsForAccountCommandOutput) => void
+  ): void;
+  public describeBudgetActionsForAccount(
+    args: DescribeBudgetActionsForAccountCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeBudgetActionsForAccountCommandOutput) => void),
+    cb?: (err: any, data?: DescribeBudgetActionsForAccountCommandOutput) => void
+  ): Promise<DescribeBudgetActionsForAccountCommandOutput> | void {
+    const command = new DescribeBudgetActionsForAccountCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>
+   *          Describes all of the budget actions for a budget.
+   *       </p>
+   */
+  public describeBudgetActionsForBudget(
+    args: DescribeBudgetActionsForBudgetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeBudgetActionsForBudgetCommandOutput>;
+  public describeBudgetActionsForBudget(
+    args: DescribeBudgetActionsForBudgetCommandInput,
+    cb: (err: any, data?: DescribeBudgetActionsForBudgetCommandOutput) => void
+  ): void;
+  public describeBudgetActionsForBudget(
+    args: DescribeBudgetActionsForBudgetCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeBudgetActionsForBudgetCommandOutput) => void
+  ): void;
+  public describeBudgetActionsForBudget(
+    args: DescribeBudgetActionsForBudgetCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeBudgetActionsForBudgetCommandOutput) => void),
+    cb?: (err: any, data?: DescribeBudgetActionsForBudgetCommandOutput) => void
+  ): Promise<DescribeBudgetActionsForBudgetCommandOutput> | void {
+    const command = new DescribeBudgetActionsForBudgetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -482,6 +726,40 @@ export class Budgets extends BudgetsClient {
   }
 
   /**
+   * <p>
+   *          Executes a budget action.
+   *       </p>
+   */
+  public executeBudgetAction(
+    args: ExecuteBudgetActionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ExecuteBudgetActionCommandOutput>;
+  public executeBudgetAction(
+    args: ExecuteBudgetActionCommandInput,
+    cb: (err: any, data?: ExecuteBudgetActionCommandOutput) => void
+  ): void;
+  public executeBudgetAction(
+    args: ExecuteBudgetActionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ExecuteBudgetActionCommandOutput) => void
+  ): void;
+  public executeBudgetAction(
+    args: ExecuteBudgetActionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ExecuteBudgetActionCommandOutput) => void),
+    cb?: (err: any, data?: ExecuteBudgetActionCommandOutput) => void
+  ): Promise<ExecuteBudgetActionCommandOutput> | void {
+    const command = new ExecuteBudgetActionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Updates a budget. You can change every part of a budget except for the <code>budgetName</code> and the <code>calculatedSpend</code>. When you modify a budget, the <code>calculatedSpend</code> drops to zero until AWS has new usage data to use for forecasting.</p>
    * 		       <important>
    * 			         <p>Only one of <code>BudgetLimit</code> or <code>PlannedBudgetLimits</code> can be present in the syntax at one time. Use the syntax that matches your case. The Request Syntax section shows the <code>BudgetLimit</code> syntax. For <code>PlannedBudgetLimits</code>, see the <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_UpdateBudget.html#API_UpdateBudget_Examples">Examples</a> section. </p>
@@ -503,6 +781,40 @@ export class Budgets extends BudgetsClient {
     cb?: (err: any, data?: UpdateBudgetCommandOutput) => void
   ): Promise<UpdateBudgetCommandOutput> | void {
     const command = new UpdateBudgetCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>
+   *          Updates a budget action.
+   *       </p>
+   */
+  public updateBudgetAction(
+    args: UpdateBudgetActionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateBudgetActionCommandOutput>;
+  public updateBudgetAction(
+    args: UpdateBudgetActionCommandInput,
+    cb: (err: any, data?: UpdateBudgetActionCommandOutput) => void
+  ): void;
+  public updateBudgetAction(
+    args: UpdateBudgetActionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateBudgetActionCommandOutput) => void
+  ): void;
+  public updateBudgetAction(
+    args: UpdateBudgetActionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateBudgetActionCommandOutput) => void),
+    cb?: (err: any, data?: UpdateBudgetActionCommandOutput) => void
+  ): Promise<UpdateBudgetActionCommandOutput> | void {
+    const command = new UpdateBudgetActionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

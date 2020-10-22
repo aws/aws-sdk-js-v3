@@ -60,6 +60,11 @@ import {
   DescribeSchemaCommandOutput,
 } from "./commands/DescribeSchemaCommand";
 import {
+  ExportSchemaCommand,
+  ExportSchemaCommandInput,
+  ExportSchemaCommandOutput,
+} from "./commands/ExportSchemaCommand";
+import {
   GetCodeBindingSourceCommand,
   GetCodeBindingSourceCommandInput,
   GetCodeBindingSourceCommandOutput,
@@ -515,6 +520,32 @@ export class Schemas extends SchemasClient {
     cb?: (err: any, data?: DescribeSchemaCommandOutput) => void
   ): Promise<DescribeSchemaCommandOutput> | void {
     const command = new DescribeSchemaCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  public exportSchema(
+    args: ExportSchemaCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ExportSchemaCommandOutput>;
+  public exportSchema(args: ExportSchemaCommandInput, cb: (err: any, data?: ExportSchemaCommandOutput) => void): void;
+  public exportSchema(
+    args: ExportSchemaCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ExportSchemaCommandOutput) => void
+  ): void;
+  public exportSchema(
+    args: ExportSchemaCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ExportSchemaCommandOutput) => void),
+    cb?: (err: any, data?: ExportSchemaCommandOutput) => void
+  ): Promise<ExportSchemaCommandOutput> | void {
+    const command = new ExportSchemaCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

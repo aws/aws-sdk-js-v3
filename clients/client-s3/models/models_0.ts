@@ -39,10 +39,9 @@ export type RequestPayer = "requester";
 
 export interface AbortMultipartUploadRequest {
   /**
-   * <p>The bucket name to which the upload was taking place. </p>
-   *          <p>When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this operation using an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html">Using Access Points</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
+   * <p>Upload ID that identifies the multipart upload.</p>
    */
-  Bucket: string | undefined;
+  UploadId: string | undefined;
 
   /**
    * <p>Confirms that the requester knows that they will be charged for the request. Bucket
@@ -53,14 +52,21 @@ export interface AbortMultipartUploadRequest {
   RequestPayer?: RequestPayer | string;
 
   /**
-   * <p>Upload ID that identifies the multipart upload.</p>
+   * <p>The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP <code>403 (Access Denied)</code> error.</p>
    */
-  UploadId: string | undefined;
+  ExpectedBucketOwner?: string;
 
   /**
    * <p>Key of the object for which the multipart upload was initiated.</p>
    */
   Key: string | undefined;
+
+  /**
+   * <p>The bucket name to which the upload was taking place. </p>
+   *          <p>When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this operation with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html">Using Access Points</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
+   *          <p>When using this API with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com. When using this operation using S3 on Outposts through the AWS SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html">Using S3 on Outposts</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
+   */
+  Bucket: string | undefined;
 }
 
 export namespace AbortMultipartUploadRequest {
@@ -110,16 +116,6 @@ export type Type = "AmazonCustomerByEmail" | "CanonicalUser" | "Group";
  */
 export interface Grantee {
   /**
-   * <p>The canonical user ID of the grantee.</p>
-   */
-  ID?: string;
-
-  /**
-   * <p>Screen name of the grantee.</p>
-   */
-  DisplayName?: string;
-
-  /**
    * <p>Email address of the grantee.</p>
    *          <note>
    *             <p>Using email addresses to specify a grantee is only supported in the following AWS Regions: </p>
@@ -155,9 +151,19 @@ export interface Grantee {
   EmailAddress?: string;
 
   /**
+   * <p>Screen name of the grantee.</p>
+   */
+  DisplayName?: string;
+
+  /**
    * <p>URI of the grantee group.</p>
    */
   URI?: string;
+
+  /**
+   * <p>The canonical user ID of the grantee.</p>
+   */
+  ID?: string;
 
   /**
    * <p>Type of grantee</p>
@@ -178,14 +184,14 @@ export type Permission = "FULL_CONTROL" | "READ" | "READ_ACP" | "WRITE" | "WRITE
  */
 export interface Grant {
   /**
-   * <p>Specifies the permission given to the grantee.</p>
-   */
-  Permission?: Permission | string;
-
-  /**
    * <p>The person being granted permissions.</p>
    */
   Grantee?: Grantee;
+
+  /**
+   * <p>Specifies the permission given to the grantee.</p>
+   */
+  Permission?: Permission | string;
 }
 
 export namespace Grant {
@@ -259,24 +265,21 @@ export type ServerSideEncryption = "AES256" | "aws:kms";
 
 export interface CompleteMultipartUploadOutput {
   /**
-   * <p>The object key of the newly created object.</p>
+   * <p>If the object expiration is configured, this will contain the expiration date (expiry-date) and rule ID (rule-id). The value of rule-id is URL encoded.</p>
    */
-  Key?: string;
+  Expiration?: string;
 
   /**
-   * <p>Version ID of the newly created object, in case the bucket has versioning turned on.</p>
+   * <p>The name of the bucket that contains the newly created object.</p>
+   *          <p>When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this operation with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html">Using Access Points</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
+   *          <p>When using this API with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com. When using this operation using S3 on Outposts through the AWS SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html">Using S3 on Outposts</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
    */
-  VersionId?: string;
+  Bucket?: string;
 
   /**
-   * <p>The URI that identifies the newly created object.</p>
+   * <p>If you specified server-side encryption either with an Amazon S3-managed encryption key or an AWS KMS customer master key (CMK) in your initiate multipart upload request, the response includes this header. It confirms the encryption algorithm that Amazon S3 used to encrypt the object.</p>
    */
-  Location?: string;
-
-  /**
-   * <p>If present, indicates that the requester was successfully charged for the request.</p>
-   */
-  RequestCharged?: RequestCharged | string;
+  ServerSideEncryption?: ServerSideEncryption | string;
 
   /**
    * <p>If present, specifies the ID of the AWS Key Management Service (AWS KMS) symmetric customer managed customer master key
@@ -285,24 +288,29 @@ export interface CompleteMultipartUploadOutput {
   SSEKMSKeyId?: string;
 
   /**
-   * <p>If you specified server-side encryption either with an Amazon S3-managed encryption key or an AWS KMS customer master key (CMK) in your initiate multipart upload request, the response includes this header. It confirms the encryption algorithm that Amazon S3 used to encrypt the object.</p>
+   * <p>The URI that identifies the newly created object.</p>
    */
-  ServerSideEncryption?: ServerSideEncryption | string;
+  Location?: string;
 
   /**
-   * <p>If the object expiration is configured, this will contain the expiration date (expiry-date) and rule ID (rule-id). The value of rule-id is URL encoded.</p>
+   * <p>Version ID of the newly created object, in case the bucket has versioning turned on.</p>
    */
-  Expiration?: string;
+  VersionId?: string;
+
+  /**
+   * <p>If present, indicates that the requester was successfully charged for the request.</p>
+   */
+  RequestCharged?: RequestCharged | string;
+
+  /**
+   * <p>The object key of the newly created object.</p>
+   */
+  Key?: string;
 
   /**
    * <p>Entity tag that identifies the newly created object's data. Objects with different object data will have different entity tags. The entity tag is an opaque string. The entity tag may or may not be an MD5 digest of the object data. If the entity tag is not an MD5 digest of the object data, it will contain one or more nonhexadecimal characters and/or will consist of less than 32 or more than 32 hexadecimal digits.</p>
    */
   ETag?: string;
-
-  /**
-   * <p>The name of the bucket that contains the newly created object.</p>
-   */
-  Bucket?: string;
 }
 
 export namespace CompleteMultipartUploadOutput {
@@ -351,9 +359,9 @@ export namespace CompletedMultipartUpload {
 
 export interface CompleteMultipartUploadRequest {
   /**
-   * <p>ID for the initiated multipart upload.</p>
+   * <p>The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP <code>403 (Access Denied)</code> error.</p>
    */
-  UploadId: string | undefined;
+  ExpectedBucketOwner?: string;
 
   /**
    * <p>Confirms that the requester knows that they will be charged for the request. Bucket
@@ -364,9 +372,9 @@ export interface CompleteMultipartUploadRequest {
   RequestPayer?: RequestPayer | string;
 
   /**
-   * <p>The container for the multipart upload request information.</p>
+   * <p>Object key for which the multipart upload was initiated.</p>
    */
-  MultipartUpload?: CompletedMultipartUpload;
+  Key: string | undefined;
 
   /**
    * <p>Name of the bucket to which the multipart upload was initiated.</p>
@@ -374,9 +382,14 @@ export interface CompleteMultipartUploadRequest {
   Bucket: string | undefined;
 
   /**
-   * <p>Object key for which the multipart upload was initiated.</p>
+   * <p>ID for the initiated multipart upload.</p>
    */
-  Key: string | undefined;
+  UploadId: string | undefined;
+
+  /**
+   * <p>The container for the multipart upload request information.</p>
+   */
+  MultipartUpload?: CompletedMultipartUpload;
 }
 
 export namespace CompleteMultipartUploadRequest {
@@ -390,14 +403,14 @@ export namespace CompleteMultipartUploadRequest {
  */
 export interface CopyObjectResult {
   /**
-   * <p>Returns the date that the object was last modified.</p>
-   */
-  LastModified?: Date;
-
-  /**
    * <p>Returns the ETag of the new object. The ETag reflects only changes to the contents of an object, not its metadata. The source and destination ETag is identical for a successfully copied object.</p>
    */
   ETag?: string;
+
+  /**
+   * <p>Returns the date that the object was last modified.</p>
+   */
+  LastModified?: Date;
 }
 
 export namespace CopyObjectResult {
@@ -408,11 +421,6 @@ export namespace CopyObjectResult {
 
 export interface CopyObjectOutput {
   /**
-   * <p>If server-side encryption with a customer-provided encryption key was requested, the response will include this header confirming the encryption algorithm used.</p>
-   */
-  SSECustomerAlgorithm?: string;
-
-  /**
    * <p>If server-side encryption with a customer-provided encryption key was requested, the response
    *          will include this header to provide round-trip message integrity verification of the
    *          customer-provided encryption key.</p>
@@ -420,21 +428,24 @@ export interface CopyObjectOutput {
   SSECustomerKeyMD5?: string;
 
   /**
-   * <p>If present, specifies the ID of the AWS Key Management Service (AWS KMS) symmetric customer managed customer master key
-   *          (CMK) that was used for the object.</p>
+   * <p>If the object expiration is configured, the response includes this header.</p>
    */
-  SSEKMSKeyId?: string;
+  Expiration?: string;
+
+  /**
+   * <p>Version ID of the newly created copy.</p>
+   */
+  VersionId?: string;
+
+  /**
+   * <p>If server-side encryption with a customer-provided encryption key was requested, the response will include this header confirming the encryption algorithm used.</p>
+   */
+  SSECustomerAlgorithm?: string;
 
   /**
    * <p>Version of the copied object in the destination bucket.</p>
    */
   CopySourceVersionId?: string;
-
-  /**
-   * <p>The server-side encryption algorithm used when storing this object in Amazon S3 (for example,
-   *          AES256, aws:kms).</p>
-   */
-  ServerSideEncryption?: ServerSideEncryption | string;
 
   /**
    * <p>Container for all response elements.</p>
@@ -447,26 +458,28 @@ export interface CopyObjectOutput {
   SSEKMSEncryptionContext?: string;
 
   /**
+   * <p>The server-side encryption algorithm used when storing this object in Amazon S3 (for example,
+   *          AES256, aws:kms).</p>
+   */
+  ServerSideEncryption?: ServerSideEncryption | string;
+
+  /**
    * <p>If present, indicates that the requester was successfully charged for the request.</p>
    */
   RequestCharged?: RequestCharged | string;
 
   /**
-   * <p>Version ID of the newly created copy.</p>
+   * <p>If present, specifies the ID of the AWS Key Management Service (AWS KMS) symmetric customer managed customer master key
+   *          (CMK) that was used for the object.</p>
    */
-  VersionId?: string;
-
-  /**
-   * <p>If the object expiration is configured, the response includes this header.</p>
-   */
-  Expiration?: string;
+  SSEKMSKeyId?: string;
 }
 
 export namespace CopyObjectOutput {
   export const filterSensitiveLog = (obj: CopyObjectOutput): any => ({
     ...obj,
-    ...(obj.SSEKMSKeyId && { SSEKMSKeyId: SENSITIVE_STRING }),
     ...(obj.SSEKMSEncryptionContext && { SSEKMSEncryptionContext: SENSITIVE_STRING }),
+    ...(obj.SSEKMSKeyId && { SSEKMSKeyId: SENSITIVE_STRING }),
   });
 }
 
@@ -490,6 +503,7 @@ export type StorageClass =
   | "GLACIER"
   | "INTELLIGENT_TIERING"
   | "ONEZONE_IA"
+  | "OUTPOSTS"
   | "REDUCED_REDUNDANCY"
   | "STANDARD"
   | "STANDARD_IA";
@@ -498,57 +512,37 @@ export type TaggingDirective = "COPY" | "REPLACE";
 
 export interface CopyObjectRequest {
   /**
-   * <p>Allows grantee to read the object ACL.</p>
+   * <p>The tag-set for the object destination object this value must be used in conjunction with the
+   *             <code>TaggingDirective</code>. The tag-set must be encoded as URL Query
+   *          parameters.</p>
    */
-  GrantReadACP?: string;
+  Tagging?: string;
 
   /**
-   * <p>The key of the destination object.</p>
+   * <p>Specifies the AWS KMS Encryption Context to use for object encryption. The value of this header is a base64-encoded UTF-8 string holding JSON with the encryption context key-value pairs.</p>
    */
-  Key: string | undefined;
+  SSEKMSEncryptionContext?: string;
 
   /**
-   * <p>Specifies whether you want to apply a Legal Hold to the copied object.</p>
+   * <p>The canned ACL to apply to the object.</p>
+   *          <p>This action is not supported by Amazon S3 on Outposts.</p>
    */
-  ObjectLockLegalHoldStatus?: ObjectLockLegalHoldStatus | string;
+  ACL?: ObjectCannedACL | string;
 
   /**
-   * <p>Specifies the AWS KMS key ID to use for object encryption. All GET and PUT requests for an
-   *          object protected by AWS KMS will fail if not made via SSL or using SigV4. For information
-   *          about configuring using any of the officially supported AWS SDKs and AWS CLI, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingAWSSDK.html#specify-signature-version">Specifying the Signature Version in Request Authentication</a>
-   *          in the <i>Amazon S3 Developer Guide</i>.</p>
+   * <p>The date and time at which the object is no longer cacheable.</p>
    */
-  SSEKMSKeyId?: string;
+  Expires?: Date;
 
   /**
-   * <p>Specifies the algorithm to use when decrypting the source object (for example, AES256).</p>
+   * <p>The account id of the expected destination bucket owner. If the destination bucket is owned by a different account, the request will fail with an HTTP <code>403 (Access Denied)</code> error.</p>
    */
-  CopySourceSSECustomerAlgorithm?: string;
+  ExpectedBucketOwner?: string;
 
   /**
-   * <p>Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field.</p>
+   * <p>Copies the object if it has been modified since the specified time.</p>
    */
-  ContentEncoding?: string;
-
-  /**
-   * <p>Allows grantee to read the object data and its metadata.</p>
-   */
-  GrantRead?: string;
-
-  /**
-   * <p>Copies the object if it hasn't been modified since the specified time.</p>
-   */
-  CopySourceIfUnmodifiedSince?: Date;
-
-  /**
-   * <p>Specifies whether the object tag-set are copied from the source object or replaced with tag-set provided in the request.</p>
-   */
-  TaggingDirective?: TaggingDirective | string;
-
-  /**
-   * <p>The language the content is in.</p>
-   */
-  ContentLanguage?: string;
+  CopySourceIfModifiedSince?: Date;
 
   /**
    * <p>Specifies presentational information for the object.</p>
@@ -556,22 +550,83 @@ export interface CopyObjectRequest {
   ContentDisposition?: string;
 
   /**
-   * <p>Copies the object if its entity tag (ETag) matches the specified tag.</p>
-   */
-  CopySourceIfMatch?: string;
-
-  /**
-   * <p>A standard MIME type describing the format of the object data.</p>
-   */
-  ContentType?: string;
-
-  /**
    * <p>Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This
    *          value is used to store the object and then it is discarded; Amazon S3 does not store the
    *          encryption key. The key must be appropriate for use with the algorithm specified in the
-   *             <code>x-amz-server-side​-encryption​-customer-algorithm</code> header.</p>
+   *             <code>x-amz-server-side-encryption-customer-algorithm</code> header.</p>
    */
   SSECustomerKey?: string;
+
+  /**
+   * <p>If the bucket is configured as a website, redirects requests for this object to another object in the same bucket or to an external URL. Amazon S3 stores the value of this header in the object metadata.</p>
+   */
+  WebsiteRedirectLocation?: string;
+
+  /**
+   * <p>The date and time when you want the copied object's Object Lock to expire.</p>
+   */
+  ObjectLockRetainUntilDate?: Date;
+
+  /**
+   * <p>The language the content is in.</p>
+   */
+  ContentLanguage?: string;
+
+  /**
+   * <p>Allows grantee to read the object data and its metadata.</p>
+   *          <p>This action is not supported by Amazon S3 on Outposts.</p>
+   */
+  GrantRead?: string;
+
+  /**
+   * <p>Specifies whether you want to apply a Legal Hold to the copied object.</p>
+   */
+  ObjectLockLegalHoldStatus?: ObjectLockLegalHoldStatus | string;
+
+  /**
+   * <p>The key of the destination object.</p>
+   */
+  Key: string | undefined;
+
+  /**
+   * <p>Allows grantee to write the ACL for the applicable object.</p>
+   *          <p>This action is not supported by Amazon S3 on Outposts.</p>
+   */
+  GrantWriteACP?: string;
+
+  /**
+   * <p>Specifies the source object for the copy operation. You specify the value in one of two formats, depending on whether you want
+   *         to access the source object through an <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/access-points.html">access point</a>:</p>
+   *         <ul>
+   *             <li>
+   *                <p>For objects not accessed through an access point, specify the name of the source bucket and the key of the source object, separated by a slash (/).
+   *               For example, to copy the object <code>reports/january.pdf</code> from the bucket <code>awsexamplebucket</code>, use <code>awsexamplebucket/reports/january.pdf</code>. The value must be URL encoded.</p>
+   *            </li>
+   *             <li>
+   *               <p>For objects accessed through access points, specify the Amazon Resource Name (ARN) of the object as accessed through the access point, in the format <code>arn:aws:s3:<Region>:<account-id>:accesspoint/<access-point-name>/object/<key></code>. For example, to copy the object <code>reports/january.pdf</code> through access point <code>my-access-point</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3:us-west-2:123456789012:accesspoint/my-access-point/object/reports/january.pdf</code>. The value must be URL encoded.</p>
+   *                <note>
+   *                   <p>Amazon S3 supports copy operations using access points only when the source and destination buckets are in the same AWS Region.</p>
+   *                </note>
+   *               <p>Alternatively, for objects accessed through Amazon S3 on Outposts, specify the ARN of the object as accessed in the format <code>arn:aws:s3-outposts:<Region>:<account-id>:outpost/<outpost-id>/object/<key></code>. For example, to copy the object <code>reports/january.pdf</code> through outpost <code>my-outpost</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/object/reports/january.pdf</code>. The value must be URL encoded.  </p>
+   *            </li>
+   *          </ul>
+   *          <p>To copy a specific version of an object, append <code>?versionId=<version-id></code>
+   *          to the value (for example,
+   *             <code>awsexamplebucket/reports/january.pdf?versionId=QUpfdndhfd8438MNFDN93jdnJFkdmqnh893</code>).
+   *          If you don't specify a version ID, Amazon S3 copies the latest version of the source
+   *          object.</p>
+   */
+  CopySource: string | undefined;
+
+  /**
+   * <p>Specifies the algorithm to use when decrypting the source object (for example, AES256).</p>
+   */
+  CopySourceSSECustomerAlgorithm?: string;
+
+  /**
+   * <p>Specifies the customer-provided encryption key for Amazon S3 to use to decrypt the source object. The encryption key provided in this header must be one that was used when the source object was created.</p>
+   */
+  CopySourceSSECustomerKey?: string;
 
   /**
    * <p>Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses
@@ -581,14 +636,15 @@ export interface CopyObjectRequest {
   CopySourceSSECustomerKeyMD5?: string;
 
   /**
-   * <p>The name of the destination bucket.</p>
+   * <p>Specifies caching behavior along the request/reply chain.</p>
    */
-  Bucket: string | undefined;
+  CacheControl?: string;
 
   /**
-   * <p>Specifies the algorithm to use to when encrypting the object (for example, AES256).</p>
+   * <p>Allows grantee to read the object ACL.</p>
+   *          <p>This action is not supported by Amazon S3 on Outposts.</p>
    */
-  SSECustomerAlgorithm?: string;
+  GrantReadACP?: string;
 
   /**
    * <p>Confirms that the requester knows that they will be charged for the request. Bucket
@@ -599,36 +655,9 @@ export interface CopyObjectRequest {
   RequestPayer?: RequestPayer | string;
 
   /**
-   * <p>The date and time when you want the copied object's Object Lock to expire.</p>
+   * <p>A map of metadata to store with the object in S3.</p>
    */
-  ObjectLockRetainUntilDate?: Date;
-
-  /**
-   * <p>The date and time at which the object is no longer cacheable.</p>
-   */
-  Expires?: Date;
-
-  /**
-   * <p>The tag-set for the object destination object this value must be used in conjunction with the
-   *             <code>TaggingDirective</code>. The tag-set must be encoded as URL Query
-   *          parameters.</p>
-   */
-  Tagging?: string;
-
-  /**
-   * <p>If the bucket is configured as a website, redirects requests for this object to another object in the same bucket or to an external URL. Amazon S3 stores the value of this header in the object metadata.</p>
-   */
-  WebsiteRedirectLocation?: string;
-
-  /**
-   * <p>Allows grantee to write the ACL for the applicable object.</p>
-   */
-  GrantWriteACP?: string;
-
-  /**
-   * <p>Specifies caching behavior along the request/reply chain.</p>
-   */
-  CacheControl?: string;
+  Metadata?: { [key: string]: string };
 
   /**
    * <p>Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses
@@ -638,49 +667,59 @@ export interface CopyObjectRequest {
   SSECustomerKeyMD5?: string;
 
   /**
-   * <p>The name of the source bucket and key name of the source object, separated by a slash (/). Must be URL-encoded.</p>
+   * <p>Specifies whether the object tag-set are copied from the source object or replaced with tag-set provided in the request.</p>
    */
-  CopySource: string | undefined;
+  TaggingDirective?: TaggingDirective | string;
 
   /**
-   * <p>Specifies the customer-provided encryption key for Amazon S3 to use to decrypt the source object. The encryption key provided in this header must be one that was used when the source object was created.</p>
+   * <p>Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field.</p>
    */
-  CopySourceSSECustomerKey?: string;
+  ContentEncoding?: string;
 
   /**
-   * <p>The type of storage to use for the object. Defaults to 'STANDARD'.</p>
+   * <p>Copies the object if it hasn't been modified since the specified time.</p>
    */
-  StorageClass?: StorageClass | string;
+  CopySourceIfUnmodifiedSince?: Date;
 
   /**
-   * <p>Copies the object if it has been modified since the specified time.</p>
+   * <p>A standard MIME type describing the format of the object data.</p>
    */
-  CopySourceIfModifiedSince?: Date;
+  ContentType?: string;
 
   /**
-   * <p>The canned ACL to apply to the object.</p>
+   * <p>Specifies the algorithm to use to when encrypting the object (for example, AES256).</p>
    */
-  ACL?: ObjectCannedACL | string;
+  SSECustomerAlgorithm?: string;
 
   /**
-   * <p>Gives the grantee READ, READ_ACP, and WRITE_ACP permissions on the object.</p>
+   * <p>Copies the object if its entity tag (ETag) matches the specified tag.</p>
    */
-  GrantFullControl?: string;
+  CopySourceIfMatch?: string;
 
   /**
-   * <p>Copies the object if its entity tag (ETag) is different than the specified ETag.</p>
+   * <p>The name of the destination bucket.</p>
+   *          <p>When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this operation with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html">Using Access Points</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
+   *          <p>When using this API with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com. When using this operation using S3 on Outposts through the AWS SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html">Using S3 on Outposts</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
    */
-  CopySourceIfNoneMatch?: string;
+  Bucket: string | undefined;
 
   /**
-   * <p>A map of metadata to store with the object in S3.</p>
+   * <p>The Object Lock mode that you want to apply to the copied object.</p>
    */
-  Metadata?: { [key: string]: string };
+  ObjectLockMode?: ObjectLockMode | string;
 
   /**
-   * <p>Specifies the AWS KMS Encryption Context to use for object encryption. The value of this header is a base64-encoded UTF-8 string holding JSON with the encryption context key-value pairs.</p>
+   * <p>Specifies the AWS KMS key ID to use for object encryption. All GET and PUT requests for an
+   *          object protected by AWS KMS will fail if not made via SSL or using SigV4. For information
+   *          about configuring using any of the officially supported AWS SDKs and AWS CLI, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingAWSSDK.html#specify-signature-version">Specifying the Signature Version in Request Authentication</a>
+   *          in the <i>Amazon S3 Developer Guide</i>.</p>
    */
-  SSEKMSEncryptionContext?: string;
+  SSEKMSKeyId?: string;
+
+  /**
+   * <p>The account id of the expected source bucket owner. If the source bucket is owned by a different account, the request will fail with an HTTP <code>403 (Access Denied)</code> error.</p>
+   */
+  ExpectedSourceBucketOwner?: string;
 
   /**
    * <p>The server-side encryption algorithm used when storing this object in Amazon S3 (for example,
@@ -694,18 +733,34 @@ export interface CopyObjectRequest {
   MetadataDirective?: MetadataDirective | string;
 
   /**
-   * <p>The Object Lock mode that you want to apply to the copied object.</p>
+   * <p>Gives the grantee READ, READ_ACP, and WRITE_ACP permissions on the object.</p>
+   *          <p>This action is not supported by Amazon S3 on Outposts.</p>
    */
-  ObjectLockMode?: ObjectLockMode | string;
+  GrantFullControl?: string;
+
+  /**
+   * <p>Copies the object if its entity tag (ETag) is different than the specified ETag.</p>
+   */
+  CopySourceIfNoneMatch?: string;
+
+  /**
+   * <p>By default, Amazon S3 uses the STANDARD Storage Class to store newly created objects.
+   *       The STANDARD storage class provides high durability and high availability. Depending on
+   *       performance needs, you can specify a different Storage Class. Amazon S3 on Outposts only
+   *       uses the OUTPOSTS Storage Class. For more information, see
+   *       <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html">Storage Classes</a> in the
+   *       <i>Amazon S3 Service Developer Guide</i>.</p>
+   */
+  StorageClass?: StorageClass | string;
 }
 
 export namespace CopyObjectRequest {
   export const filterSensitiveLog = (obj: CopyObjectRequest): any => ({
     ...obj,
-    ...(obj.SSEKMSKeyId && { SSEKMSKeyId: SENSITIVE_STRING }),
+    ...(obj.SSEKMSEncryptionContext && { SSEKMSEncryptionContext: SENSITIVE_STRING }),
     ...(obj.SSECustomerKey && { SSECustomerKey: SENSITIVE_STRING }),
     ...(obj.CopySourceSSECustomerKey && { CopySourceSSECustomerKey: SENSITIVE_STRING }),
-    ...(obj.SSEKMSEncryptionContext && { SSEKMSEncryptionContext: SENSITIVE_STRING }),
+    ...(obj.SSEKMSKeyId && { SSEKMSKeyId: SENSITIVE_STRING }),
   });
 }
 
@@ -725,7 +780,8 @@ export namespace ObjectNotInActiveTierError {
 }
 
 /**
- * <p>The requested bucket name is not available. The bucket namespace is shared by all users of the system. Please select a different name and try again.</p>
+ * <p>The requested bucket name is not available. The bucket namespace is shared by all users of the
+ *          system. Select a different name and try again.</p>
  */
 export interface BucketAlreadyExists extends __SmithyException, $MetadataBearer {
   name: "BucketAlreadyExists";
@@ -774,14 +830,28 @@ export type BucketCannedACL = "authenticated-read" | "private" | "public-read" |
 
 export type BucketLocationConstraint =
   | "EU"
+  | "af-south-1"
+  | "ap-east-1"
   | "ap-northeast-1"
+  | "ap-northeast-2"
+  | "ap-northeast-3"
   | "ap-south-1"
   | "ap-southeast-1"
   | "ap-southeast-2"
+  | "ca-central-1"
   | "cn-north-1"
+  | "cn-northwest-1"
   | "eu-central-1"
+  | "eu-north-1"
+  | "eu-south-1"
   | "eu-west-1"
+  | "eu-west-2"
+  | "eu-west-3"
+  | "me-south-1"
   | "sa-east-1"
+  | "us-east-2"
+  | "us-gov-east-1"
+  | "us-gov-west-1"
   | "us-west-1"
   | "us-west-2";
 
@@ -804,24 +874,9 @@ export namespace CreateBucketConfiguration {
 
 export interface CreateBucketRequest {
   /**
-   * <p>Allows grantee to create, overwrite, and delete any object in the bucket.</p>
+   * <p>Allows grantee to read the bucket ACL.</p>
    */
-  GrantWrite?: string;
-
-  /**
-   * <p>Specifies whether you want S3 Object Lock to be enabled for the new bucket.</p>
-   */
-  ObjectLockEnabledForBucket?: boolean;
-
-  /**
-   * <p>The canned ACL to apply to the bucket.</p>
-   */
-  ACL?: BucketCannedACL | string;
-
-  /**
-   * <p>Allows grantee to write the ACL for the applicable bucket.</p>
-   */
-  GrantWriteACP?: string;
+  GrantReadACP?: string;
 
   /**
    * <p>Allows grantee to list the objects in the bucket.</p>
@@ -829,14 +884,19 @@ export interface CreateBucketRequest {
   GrantRead?: string;
 
   /**
-   * <p>The configuration information for the bucket.</p>
+   * <p>The canned ACL to apply to the bucket.</p>
    */
-  CreateBucketConfiguration?: CreateBucketConfiguration;
+  ACL?: BucketCannedACL | string;
 
   /**
-   * <p>Allows grantee to read the bucket ACL.</p>
+   * <p>Allows grantee to create, overwrite, and delete any object in the bucket.</p>
    */
-  GrantReadACP?: string;
+  GrantWrite?: string;
+
+  /**
+   * <p>The name of the bucket to create.</p>
+   */
+  Bucket: string | undefined;
 
   /**
    * <p>Allows grantee the read, write, read ACP, and write ACP permissions on the bucket.</p>
@@ -844,9 +904,19 @@ export interface CreateBucketRequest {
   GrantFullControl?: string;
 
   /**
-   * <p>The name of the bucket to create.</p>
+   * <p>Specifies whether you want S3 Object Lock to be enabled for the new bucket.</p>
    */
-  Bucket: string | undefined;
+  ObjectLockEnabledForBucket?: boolean;
+
+  /**
+   * <p>Allows grantee to write the ACL for the applicable bucket.</p>
+   */
+  GrantWriteACP?: string;
+
+  /**
+   * <p>The configuration information for the bucket.</p>
+   */
+  CreateBucketConfiguration?: CreateBucketConfiguration;
 }
 
 export namespace CreateBucketRequest {
@@ -857,34 +927,9 @@ export namespace CreateBucketRequest {
 
 export interface CreateMultipartUploadOutput {
   /**
-   * <p>If server-side encryption with a customer-provided encryption key was requested, the response
-   *          will include this header to provide round-trip message integrity verification of the
-   *          customer-provided encryption key.</p>
-   */
-  SSECustomerKeyMD5?: string;
-
-  /**
-   * <p>Name of the bucket to which the multipart upload was initiated. </p>
-   *          <p>When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this operation using an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html">Using Access Points</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
-   */
-  Bucket?: string;
-
-  /**
    * <p>If present, specifies the AWS KMS Encryption Context to use for object encryption. The value of this header is a base64-encoded UTF-8 string holding JSON with the encryption context key-value pairs.</p>
    */
   SSEKMSEncryptionContext?: string;
-
-  /**
-   * <p>If server-side encryption with a customer-provided encryption key was requested, the response will include this header confirming the encryption algorithm used.</p>
-   */
-  SSECustomerAlgorithm?: string;
-
-  /**
-   * <p>This header is returned along with the <code>x-amz-abort-date</code> header. It identifies the
-   *          applicable lifecycle configuration rule that defines the action to abort incomplete
-   *          multipart uploads.</p>
-   */
-  AbortRuleId?: string;
 
   /**
    * <p>The server-side encryption algorithm used when storing this object in Amazon S3 (for example,
@@ -893,9 +938,9 @@ export interface CreateMultipartUploadOutput {
   ServerSideEncryption?: ServerSideEncryption | string;
 
   /**
-   * <p>ID for the initiated multipart upload.</p>
+   * <p>Object key for which the multipart upload was initiated.</p>
    */
-  UploadId?: string;
+  Key?: string;
 
   /**
    * <p>If present, indicates that the requester was successfully charged for the request.</p>
@@ -912,15 +957,41 @@ export interface CreateMultipartUploadOutput {
   AbortDate?: Date;
 
   /**
-   * <p>Object key for which the multipart upload was initiated.</p>
+   * <p>If server-side encryption with a customer-provided encryption key was requested, the response will include this header confirming the encryption algorithm used.</p>
    */
-  Key?: string;
+  SSECustomerAlgorithm?: string;
+
+  /**
+   * <p>The name of the bucket to which the multipart upload was initiated. </p>
+   *          <p>When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this operation with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html">Using Access Points</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
+   *          <p>When using this API with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com. When using this operation using S3 on Outposts through the AWS SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html">Using S3 on Outposts</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
+   */
+  Bucket?: string;
 
   /**
    * <p>If present, specifies the ID of the AWS Key Management Service (AWS KMS) symmetric customer managed customer master key
    *          (CMK) that was used for the object.</p>
    */
   SSEKMSKeyId?: string;
+
+  /**
+   * <p>This header is returned along with the <code>x-amz-abort-date</code> header. It identifies the
+   *          applicable lifecycle configuration rule that defines the action to abort incomplete
+   *          multipart uploads.</p>
+   */
+  AbortRuleId?: string;
+
+  /**
+   * <p>If server-side encryption with a customer-provided encryption key was requested, the response
+   *          will include this header to provide round-trip message integrity verification of the
+   *          customer-provided encryption key.</p>
+   */
+  SSECustomerKeyMD5?: string;
+
+  /**
+   * <p>ID for the initiated multipart upload.</p>
+   */
+  UploadId?: string;
 }
 
 export namespace CreateMultipartUploadOutput {
@@ -933,40 +1004,22 @@ export namespace CreateMultipartUploadOutput {
 
 export interface CreateMultipartUploadRequest {
   /**
-   * <p>The server-side encryption algorithm used when storing this object in Amazon S3 (for example,
-   *          AES256, aws:kms).</p>
+   * <p>A map of metadata to store with the object in S3.</p>
    */
-  ServerSideEncryption?: ServerSideEncryption | string;
+  Metadata?: { [key: string]: string };
 
   /**
-   * <p>If the bucket is configured as a website, redirects requests for this object to another object in the same bucket or to an external URL. Amazon S3 stores the value of this header in the object metadata.</p>
+   * <p>The name of the bucket to which to initiate the upload</p>
+   *          <p>When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this operation with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html">Using Access Points</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
+   *          <p>When using this API with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com. When using this operation using S3 on Outposts through the AWS SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html">Using S3 on Outposts</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
    */
-  WebsiteRedirectLocation?: string;
+  Bucket: string | undefined;
 
   /**
-   * <p>Allows grantee to write the ACL for the applicable object.</p>
+   * <p>Gives the grantee READ, READ_ACP, and WRITE_ACP permissions on the object.</p>
+   *          <p>This action is not supported by Amazon S3 on Outposts.</p>
    */
-  GrantWriteACP?: string;
-
-  /**
-   * <p>The tag-set for the object. The tag-set must be encoded as URL Query parameters.</p>
-   */
-  Tagging?: string;
-
-  /**
-   * <p>The canned ACL to apply to the object.</p>
-   */
-  ACL?: ObjectCannedACL | string;
-
-  /**
-   * <p>The date and time at which the object is no longer cacheable.</p>
-   */
-  Expires?: Date;
-
-  /**
-   * <p>Specifies the algorithm to use to when encrypting the object (for example, AES256).</p>
-   */
-  SSECustomerAlgorithm?: string;
+  GrantFullControl?: string;
 
   /**
    * <p>Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses
@@ -976,34 +1029,14 @@ export interface CreateMultipartUploadRequest {
   SSECustomerKeyMD5?: string;
 
   /**
-   * <p>Allows grantee to read the object ACL.</p>
+   * <p>Specifies the algorithm to use to when encrypting the object (for example, AES256).</p>
    */
-  GrantReadACP?: string;
+  SSECustomerAlgorithm?: string;
 
   /**
    * <p>Object key for which the multipart upload is to be initiated.</p>
    */
   Key: string | undefined;
-
-  /**
-   * <p>Specifies whether you want to apply a Legal Hold to the uploaded object.</p>
-   */
-  ObjectLockLegalHoldStatus?: ObjectLockLegalHoldStatus | string;
-
-  /**
-   * <p>Specifies caching behavior along the request/reply chain.</p>
-   */
-  CacheControl?: string;
-
-  /**
-   * <p>A standard MIME type describing the format of the object data.</p>
-   */
-  ContentType?: string;
-
-  /**
-   * <p>Specifies the Object Lock mode that you want to apply to the uploaded object.</p>
-   */
-  ObjectLockMode?: ObjectLockMode | string;
 
   /**
    * <p>Specifies the ID of the symmetric customer managed AWS KMS CMK to use for object encryption. All GET and PUT requests for an
@@ -1014,14 +1047,9 @@ export interface CreateMultipartUploadRequest {
   SSEKMSKeyId?: string;
 
   /**
-   * <p>The language the content is in.</p>
+   * <p>Specifies whether you want to apply a Legal Hold to the uploaded object.</p>
    */
-  ContentLanguage?: string;
-
-  /**
-   * <p>Allows grantee to read the object data and its metadata.</p>
-   */
-  GrantRead?: string;
+  ObjectLockLegalHoldStatus?: ObjectLockLegalHoldStatus | string;
 
   /**
    * <p>Confirms that the requester knows that they will be charged for the request. Bucket
@@ -1032,14 +1060,87 @@ export interface CreateMultipartUploadRequest {
   RequestPayer?: RequestPayer | string;
 
   /**
+   * <p>Allows grantee to read the object data and its metadata.</p>
+   *          <p>This action is not supported by Amazon S3 on Outposts.</p>
+   */
+  GrantRead?: string;
+
+  /**
+   * <p>Allows grantee to write the ACL for the applicable object.</p>
+   *          <p>This action is not supported by Amazon S3 on Outposts.</p>
+   */
+  GrantWriteACP?: string;
+
+  /**
+   * <p>If the bucket is configured as a website, redirects requests for this object to another object in the same bucket or to an external URL. Amazon S3 stores the value of this header in the object metadata.</p>
+   */
+  WebsiteRedirectLocation?: string;
+
+  /**
+   * <p>A standard MIME type describing the format of the object data.</p>
+   */
+  ContentType?: string;
+
+  /**
+   * <p>The language the content is in.</p>
+   */
+  ContentLanguage?: string;
+
+  /**
+   * <p>Specifies caching behavior along the request/reply chain.</p>
+   */
+  CacheControl?: string;
+
+  /**
+   * <p>Allows grantee to read the object ACL.</p>
+   *          <p>This action is not supported by Amazon S3 on Outposts.</p>
+   */
+  GrantReadACP?: string;
+
+  /**
+   * <p>The tag-set for the object. The tag-set must be encoded as URL Query parameters.</p>
+   */
+  Tagging?: string;
+
+  /**
+   * <p>Specifies the AWS KMS Encryption Context to use for object encryption. The value of this header is a base64-encoded UTF-8 string holding JSON with the encryption context key-value pairs.</p>
+   */
+  SSEKMSEncryptionContext?: string;
+
+  /**
+   * <p>The canned ACL to apply to the object.</p>
+   *          <p>This action is not supported by Amazon S3 on Outposts.</p>
+   */
+  ACL?: ObjectCannedACL | string;
+
+  /**
+   * <p>Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This
+   *          value is used to store the object and then it is discarded; Amazon S3 does not store the
+   *          encryption key. The key must be appropriate for use with the algorithm specified in the
+   *             <code>x-amz-server-side-encryption-customer-algorithm</code> header.</p>
+   */
+  SSECustomerKey?: string;
+
+  /**
+   * <p>The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP <code>403 (Access Denied)</code> error.</p>
+   */
+  ExpectedBucketOwner?: string;
+
+  /**
+   * <p>The date and time at which the object is no longer cacheable.</p>
+   */
+  Expires?: Date;
+
+  /**
    * <p>Specifies the date and time when you want the Object Lock to expire.</p>
    */
   ObjectLockRetainUntilDate?: Date;
 
   /**
-   * <p>The name of the bucket to which to initiate the upload</p>
+   * <p>The server-side encryption algorithm used when storing this object in Amazon S3 (for example,
+   *          AES256, aws:kms).</p>
    */
-  Bucket: string | undefined;
+  ServerSideEncryption?: ServerSideEncryption | string;
 
   /**
    * <p>Specifies presentational information for the object.</p>
@@ -1047,49 +1148,41 @@ export interface CreateMultipartUploadRequest {
   ContentDisposition?: string;
 
   /**
-   * <p>Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This
-   *          value is used to store the object and then it is discarded; Amazon S3 does not store the
-   *          encryption key. The key must be appropriate for use with the algorithm specified in the
-   *             <code>x-amz-server-side​-encryption​-customer-algorithm</code> header.</p>
+   * <p>Specifies the Object Lock mode that you want to apply to the uploaded object.</p>
    */
-  SSECustomerKey?: string;
+  ObjectLockMode?: ObjectLockMode | string;
+
+  /**
+   * <p>By default, Amazon S3 uses the STANDARD Storage Class to store newly created objects.
+   *       The STANDARD storage class provides high durability and high availability. Depending on
+   *       performance needs, you can specify a different Storage Class. Amazon S3 on Outposts only
+   *       uses the OUTPOSTS Storage Class. For more information, see
+   *       <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html">Storage Classes</a> in the
+   *       <i>Amazon S3 Service Developer Guide</i>.</p>
+   */
+  StorageClass?: StorageClass | string;
 
   /**
    * <p>Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field.</p>
    */
   ContentEncoding?: string;
-
-  /**
-   * <p>The type of storage to use for the object. Defaults to 'STANDARD'.</p>
-   */
-  StorageClass?: StorageClass | string;
-
-  /**
-   * <p>A map of metadata to store with the object in S3.</p>
-   */
-  Metadata?: { [key: string]: string };
-
-  /**
-   * <p>Gives the grantee READ, READ_ACP, and WRITE_ACP permissions on the object.</p>
-   */
-  GrantFullControl?: string;
-
-  /**
-   * <p>Specifies the AWS KMS Encryption Context to use for object encryption. The value of this header is a base64-encoded UTF-8 string holding JSON with the encryption context key-value pairs.</p>
-   */
-  SSEKMSEncryptionContext?: string;
 }
 
 export namespace CreateMultipartUploadRequest {
   export const filterSensitiveLog = (obj: CreateMultipartUploadRequest): any => ({
     ...obj,
     ...(obj.SSEKMSKeyId && { SSEKMSKeyId: SENSITIVE_STRING }),
-    ...(obj.SSECustomerKey && { SSECustomerKey: SENSITIVE_STRING }),
     ...(obj.SSEKMSEncryptionContext && { SSEKMSEncryptionContext: SENSITIVE_STRING }),
+    ...(obj.SSECustomerKey && { SSECustomerKey: SENSITIVE_STRING }),
   });
 }
 
 export interface DeleteBucketRequest {
+  /**
+   * <p>The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP <code>403 (Access Denied)</code> error.</p>
+   */
+  ExpectedBucketOwner?: string;
+
   /**
    * <p>Specifies the bucket being deleted.</p>
    */
@@ -1104,14 +1197,19 @@ export namespace DeleteBucketRequest {
 
 export interface DeleteBucketAnalyticsConfigurationRequest {
   /**
-   * <p>The name of the bucket from which an analytics configuration is deleted.</p>
-   */
-  Bucket: string | undefined;
-
-  /**
    * <p>The ID that identifies the analytics configuration.</p>
    */
   Id: string | undefined;
+
+  /**
+   * <p>The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP <code>403 (Access Denied)</code> error.</p>
+   */
+  ExpectedBucketOwner?: string;
+
+  /**
+   * <p>The name of the bucket from which an analytics configuration is deleted.</p>
+   */
+  Bucket: string | undefined;
 }
 
 export namespace DeleteBucketAnalyticsConfigurationRequest {
@@ -1121,6 +1219,11 @@ export namespace DeleteBucketAnalyticsConfigurationRequest {
 }
 
 export interface DeleteBucketCorsRequest {
+  /**
+   * <p>The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP <code>403 (Access Denied)</code> error.</p>
+   */
+  ExpectedBucketOwner?: string;
+
   /**
    * <p>Specifies the bucket whose <code>cors</code> configuration is being deleted.</p>
    */
@@ -1138,6 +1241,11 @@ export interface DeleteBucketEncryptionRequest {
    * <p>The name of the bucket containing the server-side encryption configuration to delete.</p>
    */
   Bucket: string | undefined;
+
+  /**
+   * <p>The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP <code>403 (Access Denied)</code> error.</p>
+   */
+  ExpectedBucketOwner?: string;
 }
 
 export namespace DeleteBucketEncryptionRequest {
@@ -1148,14 +1256,19 @@ export namespace DeleteBucketEncryptionRequest {
 
 export interface DeleteBucketInventoryConfigurationRequest {
   /**
-   * <p>The ID used to identify the inventory configuration.</p>
+   * <p>The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP <code>403 (Access Denied)</code> error.</p>
    */
-  Id: string | undefined;
+  ExpectedBucketOwner?: string;
 
   /**
    * <p>The name of the bucket containing the inventory configuration to delete.</p>
    */
   Bucket: string | undefined;
+
+  /**
+   * <p>The ID used to identify the inventory configuration.</p>
+   */
+  Id: string | undefined;
 }
 
 export namespace DeleteBucketInventoryConfigurationRequest {
@@ -1169,6 +1282,11 @@ export interface DeleteBucketLifecycleRequest {
    * <p>The bucket name of the lifecycle to delete.</p>
    */
   Bucket: string | undefined;
+
+  /**
+   * <p>The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP <code>403 (Access Denied)</code> error.</p>
+   */
+  ExpectedBucketOwner?: string;
 }
 
 export namespace DeleteBucketLifecycleRequest {
@@ -1179,18 +1297,37 @@ export namespace DeleteBucketLifecycleRequest {
 
 export interface DeleteBucketMetricsConfigurationRequest {
   /**
-   * <p>The name of the bucket containing the metrics configuration to delete.</p>
+   * <p>The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP <code>403 (Access Denied)</code> error.</p>
    */
-  Bucket: string | undefined;
+  ExpectedBucketOwner?: string;
 
   /**
    * <p>The ID used to identify the metrics configuration.</p>
    */
   Id: string | undefined;
+
+  /**
+   * <p>The name of the bucket containing the metrics configuration to delete.</p>
+   */
+  Bucket: string | undefined;
 }
 
 export namespace DeleteBucketMetricsConfigurationRequest {
   export const filterSensitiveLog = (obj: DeleteBucketMetricsConfigurationRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteBucketOwnershipControlsRequest {
+  ExpectedBucketOwner?: string;
+  /**
+   * <p>The Amazon S3 bucket whose <code>OwnershipControls</code> you want to delete. </p>
+   */
+  Bucket: string | undefined;
+}
+
+export namespace DeleteBucketOwnershipControlsRequest {
+  export const filterSensitiveLog = (obj: DeleteBucketOwnershipControlsRequest): any => ({
     ...obj,
   });
 }
@@ -1200,6 +1337,11 @@ export interface DeleteBucketPolicyRequest {
    * <p>The bucket name.</p>
    */
   Bucket: string | undefined;
+
+  /**
+   * <p>The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP <code>403 (Access Denied)</code> error.</p>
+   */
+  ExpectedBucketOwner?: string;
 }
 
 export namespace DeleteBucketPolicyRequest {
@@ -1215,6 +1357,11 @@ export interface DeleteBucketReplicationRequest {
    *     </p>
    */
   Bucket: string | undefined;
+
+  /**
+   * <p>The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP <code>403 (Access Denied)</code> error.</p>
+   */
+  ExpectedBucketOwner?: string;
 }
 
 export namespace DeleteBucketReplicationRequest {
@@ -1224,6 +1371,11 @@ export namespace DeleteBucketReplicationRequest {
 }
 
 export interface DeleteBucketTaggingRequest {
+  /**
+   * <p>The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP <code>403 (Access Denied)</code> error.</p>
+   */
+  ExpectedBucketOwner?: string;
+
   /**
    * <p>The bucket that has the tag set to be removed.</p>
    */
@@ -1238,6 +1390,11 @@ export namespace DeleteBucketTaggingRequest {
 
 export interface DeleteBucketWebsiteRequest {
   /**
+   * <p>The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP <code>403 (Access Denied)</code> error.</p>
+   */
+  ExpectedBucketOwner?: string;
+
+  /**
    * <p>The bucket name for which you want to remove the website configuration. </p>
    */
   Bucket: string | undefined;
@@ -1251,9 +1408,9 @@ export namespace DeleteBucketWebsiteRequest {
 
 export interface DeleteObjectOutput {
   /**
-   * <p>Returns the version ID of the delete marker created as a result of the DELETE operation.</p>
+   * <p>Specifies whether the versioned object that was permanently deleted was (true) or was not (false) a delete marker.</p>
    */
-  VersionId?: string;
+  DeleteMarker?: boolean;
 
   /**
    * <p>If present, indicates that the requester was successfully charged for the request.</p>
@@ -1261,9 +1418,9 @@ export interface DeleteObjectOutput {
   RequestCharged?: RequestCharged | string;
 
   /**
-   * <p>Specifies whether the versioned object that was permanently deleted was (true) or was not (false) a delete marker.</p>
+   * <p>Returns the version ID of the delete marker created as a result of the DELETE operation.</p>
    */
-  DeleteMarker?: boolean;
+  VersionId?: string;
 }
 
 export namespace DeleteObjectOutput {
@@ -1273,6 +1430,25 @@ export namespace DeleteObjectOutput {
 }
 
 export interface DeleteObjectRequest {
+  /**
+   * <p>The bucket name of the bucket containing the object. </p>
+   *          <p>When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this operation with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html">Using Access Points</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
+   *          <p>When using this API with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com. When using this operation using S3 on Outposts through the AWS SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html">Using S3 on Outposts</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
+   */
+  Bucket: string | undefined;
+
+  /**
+   * <p>The concatenation of the authentication device's serial number, a space, and the value that is
+   *          displayed on your authentication device. Required to permanently delete a versioned object
+   *          if versioning is configured with MFA delete enabled.</p>
+   */
+  MFA?: string;
+
+  /**
+   * <p>The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP <code>403 (Access Denied)</code> error.</p>
+   */
+  ExpectedBucketOwner?: string;
+
   /**
    * <p>VersionId used to reference a specific version of the object.</p>
    */
@@ -1284,30 +1460,17 @@ export interface DeleteObjectRequest {
   Key: string | undefined;
 
   /**
+   * <p>Indicates whether S3 Object Lock should bypass Governance-mode restrictions to process this operation.</p>
+   */
+  BypassGovernanceRetention?: boolean;
+
+  /**
    * <p>Confirms that the requester knows that they will be charged for the request. Bucket
    *          owners need not specify this parameter in their requests. For information about downloading
    *          objects from requester pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in Requestor Pays Buckets</a> in the
    *             <i>Amazon S3 Developer Guide</i>.</p>
    */
   RequestPayer?: RequestPayer | string;
-
-  /**
-   * <p>The concatenation of the authentication device's serial number, a space, and the value that is
-   *          displayed on your authentication device. Required to permanently delete a versioned object
-   *          if versioning is configured with MFA delete enabled.</p>
-   */
-  MFA?: string;
-
-  /**
-   * <p>Indicates whether S3 Object Lock should bypass Governance-mode restrictions to process this operation.</p>
-   */
-  BypassGovernanceRetention?: boolean;
-
-  /**
-   * <p>The bucket name of the bucket containing the object. </p>
-   *          <p>When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this operation using an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html">Using Access Points</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
-   */
-  Bucket: string | undefined;
 }
 
 export namespace DeleteObjectRequest {
@@ -1321,24 +1484,24 @@ export namespace DeleteObjectRequest {
  */
 export interface DeletedObject {
   /**
-   * <p>The name of the deleted object.</p>
-   */
-  Key?: string;
-
-  /**
-   * <p>The version ID of the delete marker created as a result of the DELETE operation. If you delete a specific object version, the value returned by this header is the version ID of the object version deleted.</p>
-   */
-  DeleteMarkerVersionId?: string;
-
-  /**
    * <p>Specifies whether the versioned object that was permanently deleted was (true) or was not (false) a delete marker. In a simple DELETE, this header indicates whether (true) or not (false) a delete marker was created.</p>
    */
   DeleteMarker?: boolean;
 
   /**
+   * <p>The name of the deleted object.</p>
+   */
+  Key?: string;
+
+  /**
    * <p>The version ID of the deleted object.</p>
    */
   VersionId?: string;
+
+  /**
+   * <p>The version ID of the delete marker created as a result of the DELETE operation. If you delete a specific object version, the value returned by this header is the version ID of the object version deleted.</p>
+   */
+  DeleteMarkerVersionId?: string;
 }
 
 export namespace DeletedObject {
@@ -1352,9 +1515,9 @@ export namespace DeletedObject {
  */
 export interface _Error {
   /**
-   * <p>The error key.</p>
+   * <p>The error message contains a generic description of the error condition in English. It is intended for a human audience. Simple programs display the message directly to the end user if they encounter an error condition they don't know how or don't care to handle. Sophisticated programs with more exhaustive error handling and proper internationalization are more likely to ignore the error message.</p>
    */
-  Key?: string;
+  Message?: string;
 
   /**
    * <p>The error code is a string that uniquely identifies an error condition. It is meant to be read and understood by programs that detect and handle errors by type. </p>
@@ -3178,9 +3341,9 @@ export interface _Error {
   Code?: string;
 
   /**
-   * <p>The error message contains a generic description of the error condition in English. It is intended for a human audience. Simple programs display the message directly to the end user if they encounter an error condition they don't know how or don't care to handle. Sophisticated programs with more exhaustive error handling and proper internationalization are more likely to ignore the error message.</p>
+   * <p>The error key.</p>
    */
-  Message?: string;
+  Key?: string;
 
   /**
    * <p>The version ID of the error.</p>
@@ -3196,6 +3359,11 @@ export namespace _Error {
 
 export interface DeleteObjectsOutput {
   /**
+   * <p>Container for a failed delete operation that describes the object that Amazon S3 attempted to delete and the error it encountered.</p>
+   */
+  Errors?: _Error[];
+
+  /**
    * <p>Container element for a successful delete. It identifies the object that was successfully deleted.</p>
    */
   Deleted?: DeletedObject[];
@@ -3204,11 +3372,6 @@ export interface DeleteObjectsOutput {
    * <p>If present, indicates that the requester was successfully charged for the request.</p>
    */
   RequestCharged?: RequestCharged | string;
-
-  /**
-   * <p>Container for a failed delete operation that describes the object that Amazon S3 attempted to delete and the error it encountered.</p>
-   */
-  Errors?: _Error[];
 }
 
 export namespace DeleteObjectsOutput {
@@ -3261,6 +3424,30 @@ export namespace Delete {
 
 export interface DeleteObjectsRequest {
   /**
+   * <p>The concatenation of the authentication device's serial number, a space, and the value that is
+   *          displayed on your authentication device. Required to permanently delete a versioned object
+   *          if versioning is configured with MFA delete enabled.</p>
+   */
+  MFA?: string;
+
+  /**
+   * <p>Specifies whether you want to delete this object even if it has a Governance-type Object Lock in place. You must have sufficient permissions to perform this operation.</p>
+   */
+  BypassGovernanceRetention?: boolean;
+
+  /**
+   * <p>The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP <code>403 (Access Denied)</code> error.</p>
+   */
+  ExpectedBucketOwner?: string;
+
+  /**
+   * <p>The bucket name containing the objects to delete. </p>
+   *          <p>When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this operation with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html">Using Access Points</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
+   *          <p>When using this API with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com. When using this operation using S3 on Outposts through the AWS SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html">Using S3 on Outposts</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
+   */
+  Bucket: string | undefined;
+
+  /**
    * <p>Confirms that the requester knows that they will be charged for the request. Bucket
    *          owners need not specify this parameter in their requests. For information about downloading
    *          objects from requester pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in Requestor Pays Buckets</a> in the
@@ -3269,27 +3456,9 @@ export interface DeleteObjectsRequest {
   RequestPayer?: RequestPayer | string;
 
   /**
-   * <p>Specifies whether you want to delete this object even if it has a Governance-type Object Lock in place. You must have sufficient permissions to perform this operation.</p>
-   */
-  BypassGovernanceRetention?: boolean;
-
-  /**
    * <p>Container for the request.</p>
    */
   Delete: Delete | undefined;
-
-  /**
-   * <p>The bucket name containing the objects to delete. </p>
-   *          <p>When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this operation using an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html">Using Access Points</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
-   */
-  Bucket: string | undefined;
-
-  /**
-   * <p>The concatenation of the authentication device's serial number, a space, and the value that is
-   *          displayed on your authentication device. Required to permanently delete a versioned object
-   *          if versioning is configured with MFA delete enabled.</p>
-   */
-  MFA?: string;
 }
 
 export namespace DeleteObjectsRequest {
@@ -3313,20 +3482,26 @@ export namespace DeleteObjectTaggingOutput {
 
 export interface DeleteObjectTaggingRequest {
   /**
-   * <p>The versionId of the object that the tag-set will be removed from.</p>
+   * <p>The bucket name containing the objects from which to remove the tags. </p>
+   *          <p>When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this operation with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html">Using Access Points</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
+   *          <p>When using this API with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com. When using this operation using S3 on Outposts through the AWS SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html">Using S3 on Outposts</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
    */
-  VersionId?: string;
+  Bucket: string | undefined;
 
   /**
-   * <p>Name of the tag.</p>
+   * <p>Name of the object key.</p>
    */
   Key: string | undefined;
 
   /**
-   * <p>The bucket name containing the objects from which to remove the tags. </p>
-   *          <p>When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this operation using an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html">Using Access Points</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
+   * <p>The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP <code>403 (Access Denied)</code> error.</p>
    */
-  Bucket: string | undefined;
+  ExpectedBucketOwner?: string;
+
+  /**
+   * <p>The versionId of the object that the tag-set will be removed from.</p>
+   */
+  VersionId?: string;
 }
 
 export namespace DeleteObjectTaggingRequest {
@@ -3336,6 +3511,11 @@ export namespace DeleteObjectTaggingRequest {
 }
 
 export interface DeletePublicAccessBlockRequest {
+  /**
+   * <p>The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP <code>403 (Access Denied)</code> error.</p>
+   */
+  ExpectedBucketOwner?: string;
+
   /**
    * <p>The Amazon S3 bucket whose <code>PublicAccessBlock</code> configuration you want to
    *       delete. </p>
@@ -3364,7 +3544,12 @@ export namespace GetBucketAccelerateConfigurationOutput {
 
 export interface GetBucketAccelerateConfigurationRequest {
   /**
-   * <p>Name of the bucket for which the accelerate configuration is retrieved.</p>
+   * <p>The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP <code>403 (Access Denied)</code> error.</p>
+   */
+  ExpectedBucketOwner?: string;
+
+  /**
+   * <p>The name of the bucket for which the accelerate configuration is retrieved.</p>
    */
   Bucket: string | undefined;
 }
@@ -3377,14 +3562,14 @@ export namespace GetBucketAccelerateConfigurationRequest {
 
 export interface GetBucketAclOutput {
   /**
-   * <p>A list of grants.</p>
-   */
-  Grants?: Grant[];
-
-  /**
    * <p>Container for the bucket owner's display name and ID.</p>
    */
   Owner?: Owner;
+
+  /**
+   * <p>A list of grants.</p>
+   */
+  Grants?: Grant[];
 }
 
 export namespace GetBucketAclOutput {
@@ -3394,6 +3579,11 @@ export namespace GetBucketAclOutput {
 }
 
 export interface GetBucketAclRequest {
+  /**
+   * <p>The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP <code>403 (Access Denied)</code> error.</p>
+   */
+  ExpectedBucketOwner?: string;
+
   /**
    * <p>Specifies the S3 bucket whose ACL is being requested.</p>
    */
@@ -3411,14 +3601,14 @@ export namespace GetBucketAclRequest {
  */
 export interface Tag {
   /**
-   * <p>Name of the tag.</p>
-   */
-  Key: string | undefined;
-
-  /**
    * <p>Value of the tag.</p>
    */
   Value: string | undefined;
+
+  /**
+   * <p>Name of the object key.</p>
+   */
+  Key: string | undefined;
 }
 
 export namespace Tag {
@@ -3432,14 +3622,14 @@ export namespace Tag {
  */
 export interface AnalyticsAndOperator {
   /**
-   * <p>The list of tags to use when evaluating an AND predicate.</p>
-   */
-  Tags?: Tag[];
-
-  /**
    * <p>The prefix to use when evaluating an AND predicate: The prefix that an object must have to be included in the metrics results.</p>
    */
   Prefix?: string;
+
+  /**
+   * <p>The list of tags to use when evaluating an AND predicate.</p>
+   */
+  Tags?: Tag[];
 }
 
 export namespace AnalyticsAndOperator {
@@ -3453,11 +3643,6 @@ export namespace AnalyticsAndOperator {
  */
 export interface AnalyticsFilter {
   /**
-   * <p>A conjunction (logical AND) of predicates, which is used in evaluating an analytics filter. The operator must have at least two predicates.</p>
-   */
-  And?: AnalyticsAndOperator;
-
-  /**
    * <p>The prefix to use when evaluating an analytics filter.</p>
    */
   Prefix?: string;
@@ -3466,6 +3651,11 @@ export interface AnalyticsFilter {
    * <p>The tag to use when evaluating an analytics filter.</p>
    */
   Tag?: Tag;
+
+  /**
+   * <p>A conjunction (logical AND) of predicates, which is used in evaluating an analytics filter. The operator must have at least two predicates.</p>
+   */
+  And?: AnalyticsAndOperator;
 }
 
 export namespace AnalyticsFilter {
@@ -3481,19 +3671,9 @@ export type AnalyticsS3ExportFileFormat = "CSV";
  */
 export interface AnalyticsS3BucketDestination {
   /**
-   * <p>Specifies the file format used when exporting data to Amazon S3.</p>
-   */
-  Format: AnalyticsS3ExportFileFormat | string | undefined;
-
-  /**
    * <p>The prefix to use when exporting data. The prefix is prepended to all results.</p>
    */
   Prefix?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the bucket to which data is exported.</p>
-   */
-  Bucket: string | undefined;
 
   /**
    * <p>The account ID that owns the destination S3 bucket.
@@ -3506,6 +3686,16 @@ export interface AnalyticsS3BucketDestination {
    *          </note>
    */
   BucketAccountId?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the bucket to which data is exported.</p>
+   */
+  Bucket: string | undefined;
+
+  /**
+   * <p>Specifies the file format used when exporting data to Amazon S3.</p>
+   */
+  Format: AnalyticsS3ExportFileFormat | string | undefined;
 }
 
 export namespace AnalyticsS3BucketDestination {
@@ -3537,14 +3727,14 @@ export type StorageClassAnalysisSchemaVersion = "V_1";
  */
 export interface StorageClassAnalysisDataExport {
   /**
-   * <p>The place to store the data for an analysis.</p>
-   */
-  Destination: AnalyticsExportDestination | undefined;
-
-  /**
    * <p>The version of the output schema to use when exporting data. Must be <code>V_1</code>.</p>
    */
   OutputSchemaVersion: StorageClassAnalysisSchemaVersion | string | undefined;
+
+  /**
+   * <p>The place to store the data for an analysis.</p>
+   */
+  Destination: AnalyticsExportDestination | undefined;
 }
 
 export namespace StorageClassAnalysisDataExport {
@@ -3613,6 +3803,11 @@ export namespace GetBucketAnalyticsConfigurationOutput {
 
 export interface GetBucketAnalyticsConfigurationRequest {
   /**
+   * <p>The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP <code>403 (Access Denied)</code> error.</p>
+   */
+  ExpectedBucketOwner?: string;
+
+  /**
    * <p>The name of the bucket from which an analytics configuration is retrieved.</p>
    */
   Bucket: string | undefined;
@@ -3634,16 +3829,6 @@ export namespace GetBucketAnalyticsConfigurationRequest {
  */
 export interface CORSRule {
   /**
-   * <p>The time in seconds that your browser is to cache the preflight response for the specified resource.</p>
-   */
-  MaxAgeSeconds?: number;
-
-  /**
-   * <p>One or more origins you want customers to be able to access the bucket from.</p>
-   */
-  AllowedOrigins: string[] | undefined;
-
-  /**
    * <p>Headers that are specified in the <code>Access-Control-Request-Headers</code>
    *       header. These headers are allowed in a preflight OPTIONS request. In response to
    *       any preflight OPTIONS request, Amazon S3 returns any requested headers that are
@@ -3652,16 +3837,26 @@ export interface CORSRule {
   AllowedHeaders?: string[];
 
   /**
-   * <p>An HTTP method that you allow the origin to execute. Valid values are
-   *       <code>GET</code>, <code>PUT</code>, <code>HEAD</code>, <code>POST</code>, and
-   *       <code>DELETE</code>.</p>
+   * <p>One or more origins you want customers to be able to access the bucket from.</p>
    */
-  AllowedMethods: string[] | undefined;
+  AllowedOrigins: string[] | undefined;
+
+  /**
+   * <p>The time in seconds that your browser is to cache the preflight response for the specified resource.</p>
+   */
+  MaxAgeSeconds?: number;
 
   /**
    * <p>One or more headers in the response that you want customers to be able to access from their applications (for example, from a JavaScript <code>XMLHttpRequest</code> object).</p>
    */
   ExposeHeaders?: string[];
+
+  /**
+   * <p>An HTTP method that you allow the origin to execute. Valid values are
+   *       <code>GET</code>, <code>PUT</code>, <code>HEAD</code>, <code>POST</code>, and
+   *       <code>DELETE</code>.</p>
+   */
+  AllowedMethods: string[] | undefined;
 }
 
 export namespace CORSRule {
@@ -3688,6 +3883,11 @@ export interface GetBucketCorsRequest {
    * <p>The bucket name for which to get the cors configuration.</p>
    */
   Bucket: string | undefined;
+
+  /**
+   * <p>The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP <code>403 (Access Denied)</code> error.</p>
+   */
+  ExpectedBucketOwner?: string;
 }
 
 export namespace GetBucketCorsRequest {
@@ -3700,6 +3900,11 @@ export namespace GetBucketCorsRequest {
  * <p>Describes the default server-side encryption to apply to new objects in the bucket. If a PUT Object request doesn't specify any server-side encryption, this default encryption will be applied. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTencryption.html">PUT Bucket encryption</a> in the <i>Amazon Simple Storage Service API Reference</i>.</p>
  */
 export interface ServerSideEncryptionByDefault {
+  /**
+   * <p>Server-side encryption algorithm to use for the default encryption.</p>
+   */
+  SSEAlgorithm: ServerSideEncryption | string | undefined;
+
   /**
    * <p>AWS Key Management Service (KMS) customer master key ID to use for the default encryption. This parameter is allowed if and only if <code>SSEAlgorithm</code> is set to <code>aws:kms</code>.</p>
    *          <p>You can specify the key ID or the Amazon Resource Name (ARN) of the CMK. However, if you are using encryption with cross-account operations, you must use a fully qualified CMK ARN. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html#bucket-encryption-update-bucket-policy">Using encryption for cross-account operations</a>. </p>
@@ -3721,11 +3926,6 @@ export interface ServerSideEncryptionByDefault {
    *          </important>
    */
   KMSMasterKeyID?: string;
-
-  /**
-   * <p>Server-side encryption algorithm to use for the default encryption.</p>
-   */
-  SSEAlgorithm: ServerSideEncryption | string | undefined;
 }
 
 export namespace ServerSideEncryptionByDefault {
@@ -3793,6 +3993,11 @@ export namespace GetBucketEncryptionOutput {
 
 export interface GetBucketEncryptionRequest {
   /**
+   * <p>The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP <code>403 (Access Denied)</code> error.</p>
+   */
+  ExpectedBucketOwner?: string;
+
+  /**
    * <p>The name of the bucket from which the server-side encryption configuration is retrieved.</p>
    */
   Bucket: string | undefined;
@@ -3838,14 +4043,14 @@ export namespace SSES3 {
  */
 export interface InventoryEncryption {
   /**
-   * <p>Specifies the use of SSE-S3 to encrypt delivered inventory reports.</p>
-   */
-  SSES3?: SSES3;
-
-  /**
    * <p>Specifies the use of SSE-KMS to encrypt delivered inventory reports.</p>
    */
   SSEKMS?: SSEKMS;
+
+  /**
+   * <p>Specifies the use of SSE-S3 to encrypt delivered inventory reports.</p>
+   */
+  SSES3?: SSES3;
 }
 
 export namespace InventoryEncryption {
@@ -3863,6 +4068,21 @@ export type InventoryFormat = "CSV" | "ORC" | "Parquet";
  */
 export interface InventoryS3BucketDestination {
   /**
+   * <p>Specifies the output format of the inventory results.</p>
+   */
+  Format: InventoryFormat | string | undefined;
+
+  /**
+   * <p>Contains the type of server-side encryption used to encrypt the inventory results.</p>
+   */
+  Encryption?: InventoryEncryption;
+
+  /**
+   * <p>The prefix that is prepended to all inventory results.</p>
+   */
+  Prefix?: string;
+
+  /**
    * <p>The Amazon Resource Name (ARN) of the bucket where inventory results will be published.</p>
    */
   Bucket: string | undefined;
@@ -3878,21 +4098,6 @@ export interface InventoryS3BucketDestination {
    *          </note>
    */
   AccountId?: string;
-
-  /**
-   * <p>Contains the type of server-side encryption used to encrypt the inventory results.</p>
-   */
-  Encryption?: InventoryEncryption;
-
-  /**
-   * <p>The prefix that is prepended to all inventory results.</p>
-   */
-  Prefix?: string;
-
-  /**
-   * <p>Specifies the output format of the inventory results.</p>
-   */
-  Format: InventoryFormat | string | undefined;
 }
 
 export namespace InventoryS3BucketDestination {
@@ -3977,6 +4182,26 @@ export namespace InventorySchedule {
  */
 export interface InventoryConfiguration {
   /**
+   * <p>Object versions to include in the inventory list. If set to <code>All</code>, the list includes all the object versions, which adds the version-related fields <code>VersionId</code>, <code>IsLatest</code>, and <code>DeleteMarker</code> to the list. If set to <code>Current</code>, the list does not contain these version-related fields.</p>
+   */
+  IncludedObjectVersions: InventoryIncludedObjectVersions | string | undefined;
+
+  /**
+   * <p>Specifies whether the inventory is enabled or disabled. If set to <code>True</code>, an inventory list is generated. If set to <code>False</code>, no inventory list is generated.</p>
+   */
+  IsEnabled: boolean | undefined;
+
+  /**
+   * <p>Specifies the schedule for generating inventory results.</p>
+   */
+  Schedule: InventorySchedule | undefined;
+
+  /**
+   * <p>Specifies an inventory filter. The inventory only includes objects that meet the filter's criteria.</p>
+   */
+  Filter?: InventoryFilter;
+
+  /**
    * <p>Contains the optional fields that are included in the inventory results.</p>
    */
   OptionalFields?: (InventoryOptionalField | string)[];
@@ -3990,26 +4215,6 @@ export interface InventoryConfiguration {
    * <p>The ID used to identify the inventory configuration.</p>
    */
   Id: string | undefined;
-
-  /**
-   * <p>Specifies an inventory filter. The inventory only includes objects that meet the filter's criteria.</p>
-   */
-  Filter?: InventoryFilter;
-
-  /**
-   * <p>Specifies the schedule for generating inventory results.</p>
-   */
-  Schedule: InventorySchedule | undefined;
-
-  /**
-   * <p>Specifies whether the inventory is enabled or disabled. If set to <code>True</code>, an inventory list is generated. If set to <code>False</code>, no inventory list is generated.</p>
-   */
-  IsEnabled: boolean | undefined;
-
-  /**
-   * <p>Object versions to include in the inventory list. If set to <code>All</code>, the list includes all the object versions, which adds the version-related fields <code>VersionId</code>, <code>IsLatest</code>, and <code>DeleteMarker</code> to the list. If set to <code>Current</code>, the list does not contain these version-related fields.</p>
-   */
-  IncludedObjectVersions: InventoryIncludedObjectVersions | string | undefined;
 }
 
 export namespace InventoryConfiguration {
@@ -4037,14 +4242,19 @@ export namespace GetBucketInventoryConfigurationOutput {
 
 export interface GetBucketInventoryConfigurationRequest {
   /**
-   * <p>The ID used to identify the inventory configuration.</p>
+   * <p>The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP <code>403 (Access Denied)</code> error.</p>
    */
-  Id: string | undefined;
+  ExpectedBucketOwner?: string;
 
   /**
    * <p>The name of the bucket containing the inventory configuration to retrieve.</p>
    */
   Bucket: string | undefined;
+
+  /**
+   * <p>The ID used to identify the inventory configuration.</p>
+   */
+  Id: string | undefined;
 }
 
 export namespace GetBucketInventoryConfigurationRequest {
@@ -4058,9 +4268,9 @@ export namespace GetBucketInventoryConfigurationRequest {
  */
 export interface LifecycleExpiration {
   /**
-   * <p>Indicates at what date the object is to be moved or deleted. Should be in GMT ISO 8601 Format.</p>
+   * <p>Indicates the lifetime, in days, of the objects that are subject to the rule. The value must be a non-zero positive integer.</p>
    */
-  Date?: Date;
+  Days?: number;
 
   /**
    * <p>Indicates whether Amazon S3 will remove a delete marker with no noncurrent versions. If set to true, the delete marker will be expired; if set to false the policy takes no action. This cannot be specified with Days or Date in a Lifecycle Expiration Policy.</p>
@@ -4068,9 +4278,9 @@ export interface LifecycleExpiration {
   ExpiredObjectDeleteMarker?: boolean;
 
   /**
-   * <p>Indicates the lifetime, in days, of the objects that are subject to the rule. The value must be a non-zero positive integer.</p>
+   * <p>Indicates at what date the object is to be moved or deleted. Should be in GMT ISO 8601 Format.</p>
    */
-  Days?: number;
+  Date?: Date;
 }
 
 export namespace LifecycleExpiration {
@@ -4084,14 +4294,14 @@ export namespace LifecycleExpiration {
  */
 export interface LifecycleRuleAndOperator {
   /**
-   * <p>All of these tags must exist in the object's tag set in order for the rule to apply.</p>
-   */
-  Tags?: Tag[];
-
-  /**
    * <p>Prefix identifying one or more objects to which the rule applies.</p>
    */
   Prefix?: string;
+
+  /**
+   * <p>All of these tags must exist in the object's tag set in order for the rule to apply.</p>
+   */
+  Tags?: Tag[];
 }
 
 export namespace LifecycleRuleAndOperator {
@@ -4158,14 +4368,14 @@ export type TransitionStorageClass = "DEEP_ARCHIVE" | "GLACIER" | "INTELLIGENT_T
  */
 export interface NoncurrentVersionTransition {
   /**
-   * <p>Specifies the number of days an object is noncurrent before Amazon S3 can perform the associated action.  For information about the noncurrent days calculations, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/intro-lifecycle-rules.html#non-current-days-calculations">How Amazon S3 Calculates How Long an Object Has Been Noncurrent</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
-   */
-  NoncurrentDays?: number;
-
-  /**
    * <p>The class of storage used to store the object.</p>
    */
   StorageClass?: TransitionStorageClass | string;
+
+  /**
+   * <p>Specifies the number of days an object is noncurrent before Amazon S3 can perform the associated action.  For information about the noncurrent days calculations, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/intro-lifecycle-rules.html#non-current-days-calculations">How Amazon S3 Calculates How Long an Object Has Been Noncurrent</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
+   */
+  NoncurrentDays?: number;
 }
 
 export namespace NoncurrentVersionTransition {
@@ -4181,14 +4391,14 @@ export type ExpirationStatus = "Disabled" | "Enabled";
  */
 export interface Transition {
   /**
-   * <p>Indicates when objects are transitioned to the specified storage class. The date value must be in ISO 8601 format. The time is always midnight UTC.</p>
-   */
-  Date?: Date;
-
-  /**
    * <p>Indicates the number of days after creation when objects are transitioned to the specified storage class. The value must be a positive integer.</p>
    */
   Days?: number;
+
+  /**
+   * <p>Indicates when objects are transitioned to the specified storage class. The date value must be in ISO 8601 format. The time is always midnight UTC.</p>
+   */
+  Date?: Date;
 
   /**
    * <p>The storage class to which you want the object to transition.</p>
@@ -4207,23 +4417,6 @@ export namespace Transition {
  */
 export interface LifecycleRule {
   /**
-   * <p>Unique identifier for the rule. The value cannot be longer than 255 characters.</p>
-   */
-  ID?: string;
-
-  /**
-   * <p>If 'Enabled', the rule is currently being applied. If 'Disabled', the rule is not currently being applied.</p>
-   */
-  Status: ExpirationStatus | string | undefined;
-
-  /**
-   * <p>Specifies the days since the initiation of an incomplete multipart upload that Amazon S3 will wait before permanently removing all parts of the upload. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuoverview.html#mpu-abort-incomplete-mpu-lifecycle-config">
-   *       Aborting Incomplete Multipart Uploads Using a Bucket Lifecycle Policy</a>
-   *       in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
-   */
-  AbortIncompleteMultipartUpload?: AbortIncompleteMultipartUpload;
-
-  /**
    * <p> Specifies the transition rule for the lifecycle rule that describes when noncurrent
    *          objects transition to a specific storage class. If your bucket is versioning-enabled (or
    *          versioning is suspended), you can set this action to request that Amazon S3 transition
@@ -4233,15 +4426,39 @@ export interface LifecycleRule {
   NoncurrentVersionTransitions?: NoncurrentVersionTransition[];
 
   /**
+   * <p>Specifies the expiration for the lifecycle of the object in the form of date, days and, whether the object has a delete marker.</p>
+   */
+  Expiration?: LifecycleExpiration;
+
+  /**
+   * <p>Unique identifier for the rule. The value cannot be longer than 255 characters.</p>
+   */
+  ID?: string;
+
+  /**
+   * <p>Specifies when an Amazon S3 object transitions to a specified storage class.</p>
+   */
+  Transitions?: Transition[];
+
+  /**
    * <p>Prefix identifying one or more objects to which the rule applies. This is
    *          No longer used; use <code>Filter</code> instead.</p>
    */
   Prefix?: string;
 
   /**
-   * <p>Specifies when an Amazon S3 object transitions to a specified storage class.</p>
+   * <p>Specifies when noncurrent object versions expire. Upon expiration, Amazon S3 permanently deletes the noncurrent object versions.
+   *
+   * You set this lifecycle configuration action on a bucket that has versioning enabled (or suspended) to request that Amazon S3 delete noncurrent object versions at a specific period in the object's lifetime.</p>
    */
-  Transitions?: Transition[];
+  NoncurrentVersionExpiration?: NoncurrentVersionExpiration;
+
+  /**
+   * <p>Specifies the days since the initiation of an incomplete multipart upload that Amazon S3 will wait before permanently removing all parts of the upload. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuoverview.html#mpu-abort-incomplete-mpu-lifecycle-config">
+   *       Aborting Incomplete Multipart Uploads Using a Bucket Lifecycle Policy</a>
+   *       in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
+   */
+  AbortIncompleteMultipartUpload?: AbortIncompleteMultipartUpload;
 
   /**
    * <p>The <code>Filter</code> is used to identify objects that a Lifecycle Rule applies to. A
@@ -4251,16 +4468,9 @@ export interface LifecycleRule {
   Filter?: LifecycleRuleFilter;
 
   /**
-   * <p>Specifies the expiration for the lifecycle of the object in the form of date, days and, whether the object has a delete marker.</p>
+   * <p>If 'Enabled', the rule is currently being applied. If 'Disabled', the rule is not currently being applied.</p>
    */
-  Expiration?: LifecycleExpiration;
-
-  /**
-   * <p>Specifies when noncurrent object versions expire. Upon expiration, Amazon S3 permanently deletes the noncurrent object versions.
-   *
-   * You set this lifecycle configuration action on a bucket that has versioning enabled (or suspended) to request that Amazon S3 delete noncurrent object versions at a specific period in the object's lifetime.</p>
-   */
-  NoncurrentVersionExpiration?: NoncurrentVersionExpiration;
+  Status: ExpirationStatus | string | undefined;
 }
 
 export namespace LifecycleRule {
@@ -4287,6 +4497,11 @@ export interface GetBucketLifecycleConfigurationRequest {
    * <p>The name of the bucket for which to get the lifecycle information.</p>
    */
   Bucket: string | undefined;
+
+  /**
+   * <p>The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP <code>403 (Access Denied)</code> error.</p>
+   */
+  ExpectedBucketOwner?: string;
 }
 
 export namespace GetBucketLifecycleConfigurationRequest {
@@ -4312,6 +4527,11 @@ export namespace GetBucketLocationOutput {
 
 export interface GetBucketLocationRequest {
   /**
+   * <p>The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP <code>403 (Access Denied)</code> error.</p>
+   */
+  ExpectedBucketOwner?: string;
+
+  /**
    * <p>The name of the bucket for which to get the location.</p>
    */
   Bucket: string | undefined;
@@ -4335,7 +4555,7 @@ export interface TargetGrant {
   Grantee?: Grantee;
 
   /**
-   * <p>Logging permissions assigned to the Grantee for the bucket.</p>
+   * <p>Logging permissions assigned to the grantee for the bucket.</p>
    */
   Permission?: BucketLogsPermission | string;
 }
@@ -4353,6 +4573,11 @@ export namespace TargetGrant {
  */
 export interface LoggingEnabled {
   /**
+   * <p>Container for granting information.</p>
+   */
+  TargetGrants?: TargetGrant[];
+
+  /**
    * <p>Specifies the bucket where you want Amazon S3 to store server access logs. You can have your
    *          logs delivered to any bucket that you own, including the same bucket that is being logged.
    *          You can also configure multiple buckets to deliver their logs to the same target bucket. In
@@ -4367,11 +4592,6 @@ export interface LoggingEnabled {
    *       came from which bucket.</p>
    */
   TargetPrefix: string | undefined;
-
-  /**
-   * <p>Container for granting information.</p>
-   */
-  TargetGrants?: TargetGrant[];
 }
 
 export namespace LoggingEnabled {
@@ -4400,6 +4620,11 @@ export interface GetBucketLoggingRequest {
    * <p>The bucket name for which to get the logging information.</p>
    */
   Bucket: string | undefined;
+
+  /**
+   * <p>The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP <code>403 (Access Denied)</code> error.</p>
+   */
+  ExpectedBucketOwner?: string;
 }
 
 export namespace GetBucketLoggingRequest {
@@ -4438,14 +4663,14 @@ export namespace MetricsAndOperator {
  */
 export interface MetricsFilter {
   /**
-   * <p>The prefix used when evaluating a metrics filter.</p>
-   */
-  Prefix?: string;
-
-  /**
    * <p>A conjunction (logical AND) of predicates, which is used in evaluating a metrics filter. The operator must have at least two predicates, and an object must match all of the predicates in order for the filter to apply.</p>
    */
   And?: MetricsAndOperator;
+
+  /**
+   * <p>The prefix used when evaluating a metrics filter.</p>
+   */
+  Prefix?: string;
 
   /**
    * <p>The tag used when evaluating a metrics filter.</p>
@@ -4467,14 +4692,14 @@ export namespace MetricsFilter {
  */
 export interface MetricsConfiguration {
   /**
-   * <p>Specifies a metrics configuration filter. The metrics configuration will only include objects that meet the filter's criteria. A filter must be a prefix, a tag, or a conjunction (MetricsAndOperator).</p>
-   */
-  Filter?: MetricsFilter;
-
-  /**
    * <p>The ID used to identify the metrics configuration.</p>
    */
   Id: string | undefined;
+
+  /**
+   * <p>Specifies a metrics configuration filter. The metrics configuration will only include objects that meet the filter's criteria. A filter must be a prefix, a tag, or a conjunction (MetricsAndOperator).</p>
+   */
+  Filter?: MetricsFilter;
 }
 
 export namespace MetricsConfiguration {
@@ -4498,6 +4723,11 @@ export namespace GetBucketMetricsConfigurationOutput {
 
 export interface GetBucketMetricsConfigurationRequest {
   /**
+   * <p>The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP <code>403 (Access Denied)</code> error.</p>
+   */
+  ExpectedBucketOwner?: string;
+
+  /**
    * <p>The name of the bucket containing the metrics configuration to retrieve.</p>
    */
   Bucket: string | undefined;
@@ -4516,7 +4746,12 @@ export namespace GetBucketMetricsConfigurationRequest {
 
 export interface GetBucketNotificationConfigurationRequest {
   /**
-   * <p>Name of the bucket for which to get the notification configuration.</p>
+   * <p>The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP <code>403 (Access Denied)</code> error.</p>
+   */
+  ExpectedBucketOwner?: string;
+
+  /**
+   * <p>The name of the bucket for which to get the notification configuration.</p>
    */
   Bucket: string | undefined;
 }
@@ -4613,17 +4848,6 @@ export namespace NotificationConfigurationFilter {
  */
 export interface LambdaFunctionConfiguration {
   /**
-   * <p>The Amazon Resource Name (ARN) of the AWS Lambda function that Amazon S3 invokes when the specified event type occurs.</p>
-   */
-  LambdaFunctionArn: string | undefined;
-
-  /**
-   * <p>An optional unique identifier for configurations in a notification configuration. If you don't
-   *       provide one, Amazon S3 will assign an ID.</p>
-   */
-  Id?: string;
-
-  /**
    * <p>The Amazon S3 bucket event for which to invoke the AWS Lambda function.
    *          For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html">Supported Event Types</a> in the
    *          <i>Amazon Simple Storage Service Developer Guide</i>.</p>
@@ -4637,6 +4861,17 @@ export interface LambdaFunctionConfiguration {
    *         Guide</i>.</p>
    */
   Filter?: NotificationConfigurationFilter;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the AWS Lambda function that Amazon S3 invokes when the specified event type occurs.</p>
+   */
+  LambdaFunctionArn: string | undefined;
+
+  /**
+   * <p>An optional unique identifier for configurations in a notification configuration. If you don't
+   *       provide one, Amazon S3 will assign an ID.</p>
+   */
+  Id?: string;
 }
 
 export namespace LambdaFunctionConfiguration {
@@ -4651,21 +4886,15 @@ export namespace LambdaFunctionConfiguration {
  */
 export interface QueueConfiguration {
   /**
-   * <p>An optional unique identifier for configurations in a notification configuration. If you don't
-   *       provide one, Amazon S3 will assign an ID.</p>
-   */
-  Id?: string;
-
-  /**
    * <p>A collection of bucket events for which to send notifications</p>
    */
   Events: (Event | string)[] | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon SQS queue to which Amazon S3 publishes a
-   *       message when it detects events of the specified type.</p>
+   * <p>An optional unique identifier for configurations in a notification configuration. If you don't
+   *       provide one, Amazon S3 will assign an ID.</p>
    */
-  QueueArn: string | undefined;
+  Id?: string;
 
   /**
    * <p>Specifies object key name filtering rules. For information about key name filtering, see
@@ -4674,6 +4903,12 @@ export interface QueueConfiguration {
    *         Guide</i>.</p>
    */
   Filter?: NotificationConfigurationFilter;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon SQS queue to which Amazon S3 publishes a
+   *       message when it detects events of the specified type.</p>
+   */
+  QueueArn: string | undefined;
 }
 
 export namespace QueueConfiguration {
@@ -4688,16 +4923,11 @@ export namespace QueueConfiguration {
  */
 export interface TopicConfiguration {
   /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon SNS topic to which Amazon S3 publishes a
-   *       message when it detects events of the specified type.</p>
+   * <p>The Amazon S3 bucket event about which to send notifications. For more
+   *          information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html">Supported Event
+   *             Types</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
    */
-  TopicArn: string | undefined;
-
-  /**
-   * <p>An optional unique identifier for configurations in a notification configuration. If you don't
-   *       provide one, Amazon S3 will assign an ID.</p>
-   */
-  Id?: string;
+  Events: (Event | string)[] | undefined;
 
   /**
    * <p>Specifies object key name filtering rules. For information about key name filtering, see
@@ -4708,11 +4938,16 @@ export interface TopicConfiguration {
   Filter?: NotificationConfigurationFilter;
 
   /**
-   * <p>The Amazon S3 bucket event about which to send notifications. For more
-   *          information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html">Supported Event
-   *             Types</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
+   * <p>The Amazon Resource Name (ARN) of the Amazon SNS topic to which Amazon S3 publishes a
+   *       message when it detects events of the specified type.</p>
    */
-  Events: (Event | string)[] | undefined;
+  TopicArn: string | undefined;
+
+  /**
+   * <p>An optional unique identifier for configurations in a notification configuration. If you don't
+   *       provide one, Amazon S3 will assign an ID.</p>
+   */
+  Id?: string;
 }
 
 export namespace TopicConfiguration {
@@ -4727,9 +4962,9 @@ export namespace TopicConfiguration {
  */
 export interface NotificationConfiguration {
   /**
-   * <p>Describes the AWS Lambda functions to invoke and the events for which to invoke them.</p>
+   * <p>The topic to which notifications are sent and the events for which notifications are generated.</p>
    */
-  LambdaFunctionConfigurations?: LambdaFunctionConfiguration[];
+  TopicConfigurations?: TopicConfiguration[];
 
   /**
    * <p>The Amazon Simple Queue Service queues to publish messages to and the events for which to publish messages.</p>
@@ -4737,13 +4972,82 @@ export interface NotificationConfiguration {
   QueueConfigurations?: QueueConfiguration[];
 
   /**
-   * <p>The topic to which notifications are sent and the events for which notifications are generated.</p>
+   * <p>Describes the AWS Lambda functions to invoke and the events for which to invoke them.</p>
    */
-  TopicConfigurations?: TopicConfiguration[];
+  LambdaFunctionConfigurations?: LambdaFunctionConfiguration[];
 }
 
 export namespace NotificationConfiguration {
   export const filterSensitiveLog = (obj: NotificationConfiguration): any => ({
+    ...obj,
+  });
+}
+
+export type ObjectOwnership = "BucketOwnerPreferred" | "ObjectWriter";
+
+/**
+ * <p>The container element for an ownership control rule.</p>
+ */
+export interface OwnershipControlsRule {
+  /**
+   * <p>The container element for object ownership for a bucket's ownership controls.</p>
+   *          <p>BucketOwnerPreferred - Objects uploaded to the bucket change ownership to the bucket
+   *          owner if the objects are uploaded with the <code>bucket-owner-full-control</code> canned
+   *          ACL.</p>
+   *          <p>ObjectWriter - The uploading account will own the object if the object is uploaded with
+   *          the <code>bucket-owner-full-control</code> canned ACL.</p>
+   */
+  ObjectOwnership: ObjectOwnership | string | undefined;
+}
+
+export namespace OwnershipControlsRule {
+  export const filterSensitiveLog = (obj: OwnershipControlsRule): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The container element for a bucket's ownership controls.</p>
+ */
+export interface OwnershipControls {
+  /**
+   * <p>The container element for an ownership control rule.</p>
+   */
+  Rules: OwnershipControlsRule[] | undefined;
+}
+
+export namespace OwnershipControls {
+  export const filterSensitiveLog = (obj: OwnershipControls): any => ({
+    ...obj,
+  });
+}
+
+export interface GetBucketOwnershipControlsOutput {
+  /**
+   * <p>The <code>OwnershipControls</code> (BucketOwnerPreferred or ObjectWriter) currently in
+   *          effect for this Amazon S3 bucket.</p>
+   */
+  OwnershipControls?: OwnershipControls;
+}
+
+export namespace GetBucketOwnershipControlsOutput {
+  export const filterSensitiveLog = (obj: GetBucketOwnershipControlsOutput): any => ({
+    ...obj,
+  });
+}
+
+export interface GetBucketOwnershipControlsRequest {
+  /**
+   * <p>The name of the Amazon S3 bucket whose <code>OwnershipControls</code> you want to retrieve.
+   *       </p>
+   */
+  Bucket: string | undefined;
+
+  ExpectedBucketOwner?: string;
+}
+
+export namespace GetBucketOwnershipControlsRequest {
+  export const filterSensitiveLog = (obj: GetBucketOwnershipControlsRequest): any => ({
     ...obj,
   });
 }
@@ -4766,6 +5070,11 @@ export interface GetBucketPolicyRequest {
    * <p>The bucket name for which to get the bucket policy.</p>
    */
   Bucket: string | undefined;
+
+  /**
+   * <p>The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP <code>403 (Access Denied)</code> error.</p>
+   */
+  ExpectedBucketOwner?: string;
 }
 
 export namespace GetBucketPolicyRequest {
@@ -4805,6 +5114,11 @@ export namespace GetBucketPolicyStatusOutput {
 }
 
 export interface GetBucketPolicyStatusRequest {
+  /**
+   * <p>The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP <code>403 (Access Denied)</code> error.</p>
+   */
+  ExpectedBucketOwner?: string;
+
   /**
    * <p>The name of the Amazon S3 bucket whose policy status you want to retrieve.</p>
    */
@@ -4894,17 +5208,17 @@ export type MetricsStatus = "Disabled" | "Enabled";
 export interface Metrics {
   /**
    * <p>
-   *     A container specifying the time threshold for emitting the <code>s3:Replication:OperationMissedThreshold</code> event.
-   *   </p>
-   */
-  EventThreshold: ReplicationTimeValue | undefined;
-
-  /**
-   * <p>
    *     Specifies whether the replication metrics are enabled.
    *   </p>
    */
   Status: MetricsStatus | string | undefined;
+
+  /**
+   * <p>
+   *     A container specifying the time threshold for emitting the <code>s3:Replication:OperationMissedThreshold</code> event.
+   *   </p>
+   */
+  EventThreshold: ReplicationTimeValue | undefined;
 }
 
 export namespace Metrics {
@@ -4923,17 +5237,17 @@ export type ReplicationTimeStatus = "Disabled" | "Enabled";
  */
 export interface ReplicationTime {
   /**
+   * <p> A container specifying the time by which replication should be complete for all objects and
+   *          operations on objects. </p>
+   */
+  Time: ReplicationTimeValue | undefined;
+
+  /**
    * <p>
    *     Specifies whether the replication time is enabled.
    *   </p>
    */
   Status: ReplicationTimeStatus | string | undefined;
-
-  /**
-   * <p> A container specifying the time by which replication should be complete for all objects and
-   *          operations on objects. </p>
-   */
-  Time: ReplicationTimeValue | undefined;
 }
 
 export namespace ReplicationTime {
@@ -4947,6 +5261,27 @@ export namespace ReplicationTime {
  *       and S3 Replication Time Control (S3 RTC).</p>
  */
 export interface Destination {
+  /**
+   * <p>A container that provides information about encryption. If
+   *         <code>SourceSelectionCriteria</code> is specified, you must specify this element.</p>
+   */
+  EncryptionConfiguration?: EncryptionConfiguration;
+
+  /**
+   * <p> The Amazon Resource Name (ARN) of the bucket where you want Amazon S3 to store the results.</p>
+   */
+  Bucket: string | undefined;
+
+  /**
+   * <p>Destination bucket owner account ID. In a cross-account scenario, if you direct Amazon S3
+   *          to change replica ownership to the AWS account that owns the destination bucket by
+   *          specifying the <code>AccessControlTranslation</code> property, this is the account ID of
+   *          the destination bucket owner. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-change-owner.html">Replication Additional
+   *             Configuration: Changing the Replica Owner</a> in the <i>Amazon Simple Storage
+   *             Service Developer Guide</i>.</p>
+   */
+  Account?: string;
+
   /**
    * <p>
    *        The storage class to use when replicating objects, such as S3 Standard or reduced redundancy. By default, Amazon S3 uses the storage class of the source object to create the object replica.
@@ -4966,38 +5301,17 @@ export interface Destination {
   Metrics?: Metrics;
 
   /**
+   * <p>Specify this only in a cross-account scenario (where source and destination bucket owners are not the same), and you want to change replica ownership to the AWS account that owns the destination bucket. If this is not specified in the replication configuration, the replicas are owned by same AWS account that owns the source object.</p>
+   */
+  AccessControlTranslation?: AccessControlTranslation;
+
+  /**
    * <p>
    *      A container specifying S3 Replication Time Control (S3 RTC), including whether S3 RTC is enabled and the time when all objects and operations on objects must be replicated.
    *      Must be specified together with a <code>Metrics</code> block.
    *   </p>
    */
   ReplicationTime?: ReplicationTime;
-
-  /**
-   * <p>Destination bucket owner account ID. In a cross-account scenario, if you direct Amazon S3
-   *          to change replica ownership to the AWS account that owns the destination bucket by
-   *          specifying the <code>AccessControlTranslation</code> property, this is the account ID of
-   *          the destination bucket owner. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-change-owner.html">Replication Additional
-   *             Configuration: Changing the Replica Owner</a> in the <i>Amazon Simple Storage
-   *             Service Developer Guide</i>.</p>
-   */
-  Account?: string;
-
-  /**
-   * <p>A container that provides information about encryption. If
-   *         <code>SourceSelectionCriteria</code> is specified, you must specify this element.</p>
-   */
-  EncryptionConfiguration?: EncryptionConfiguration;
-
-  /**
-   * <p> The Amazon Resource Name (ARN) of the bucket where you want Amazon S3 to store the results.</p>
-   */
-  Bucket: string | undefined;
-
-  /**
-   * <p>Specify this only in a cross-account scenario (where source and destination bucket owners are not the same), and you want to change replica ownership to the AWS account that owns the destination bucket. If this is not specified in the replication configuration, the replicas are owned by same AWS account that owns the source object.</p>
-   */
-  AccessControlTranslation?: AccessControlTranslation;
 }
 
 export namespace Destination {
@@ -5043,15 +5357,15 @@ export namespace ExistingObjectReplication {
  */
 export interface ReplicationRuleAndOperator {
   /**
-   * <p>An array of tags containing key and value pairs.</p>
-   */
-  Tags?: Tag[];
-
-  /**
    * <p>An object key name prefix that identifies the subset of objects to which the rule
    *          applies.</p>
    */
   Prefix?: string;
+
+  /**
+   * <p>An array of tags containing key and value pairs.</p>
+   */
+  Tags?: Tag[];
 }
 
 export namespace ReplicationRuleAndOperator {
@@ -5066,6 +5380,18 @@ export namespace ReplicationRuleAndOperator {
  *         <code>And</code> child element.</p>
  */
 export interface ReplicationRuleFilter {
+  /**
+   * <p>A container for specifying a tag key and value. </p>
+   *          <p>The rule applies only to objects that have the tag in their tag set.</p>
+   */
+  Tag?: Tag;
+
+  /**
+   * <p>An object key name prefix that identifies the subset of objects to which the rule
+   *          applies.</p>
+   */
+  Prefix?: string;
+
   /**
    * <p>A container for specifying rule filters. The filters determine the subset of objects to
    *       which the rule applies. This element is required only if you specify more than one filter. For
@@ -5082,18 +5408,6 @@ export interface ReplicationRuleFilter {
    *          </ul>
    */
   And?: ReplicationRuleAndOperator;
-
-  /**
-   * <p>An object key name prefix that identifies the subset of objects to which the rule
-   *          applies.</p>
-   */
-  Prefix?: string;
-
-  /**
-   * <p>A container for specifying a tag key and value. </p>
-   *          <p>The rule applies only to objects that have the tag in their tag set.</p>
-   */
-  Tag?: Tag;
 }
 
 export namespace ReplicationRuleFilter {
@@ -5149,9 +5463,43 @@ export type ReplicationRuleStatus = "Disabled" | "Enabled";
  */
 export interface ReplicationRule {
   /**
-   * <p>Specifies whether the rule is enabled.</p>
+   * <p>An object key name prefix that identifies the object or objects to which the rule applies.
+   *          The maximum prefix length is 1,024 characters. To include all objects in a bucket, specify
+   *          an empty string. </p>
    */
-  Status: ReplicationRuleStatus | string | undefined;
+  Prefix?: string;
+
+  /**
+   * <p>A unique identifier for the rule. The maximum value is 255 characters.</p>
+   */
+  ID?: string;
+
+  /**
+   * <p>A container that describes additional filters for identifying the source objects that you
+   *       want to replicate. You can choose to enable or disable the replication of these objects.
+   *       Currently, Amazon S3 supports only the filter that you can specify for objects created with
+   *       server-side encryption using a customer master key (CMK) stored in AWS Key Management Service (SSE-KMS).</p>
+   */
+  SourceSelectionCriteria?: SourceSelectionCriteria;
+
+  /**
+   * <p>Specifies whether Amazon S3 replicates the delete markers. If you specify a <code>Filter</code>, you must specify this element. However, in the latest version of replication configuration (when <code>Filter</code> is specified), Amazon S3 doesn't replicate delete markers. Therefore, the <code>DeleteMarkerReplication</code> element can contain only <Status>Disabled</Status>. For an example configuration, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-add-config.html#replication-config-min-rule-config">Basic Rule Configuration</a>.
+   *      </p>
+   *
+   *          <note>
+   *             <p> If you don't specify the <code>Filter</code> element, Amazon S3 assumes that the replication
+   *             configuration is the earlier version, V1. In the earlier version, Amazon S3 handled
+   *             replication of delete markers differently. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-add-config.html#replication-backward-compat-considerations">Backward Compatibility</a>.</p>
+   *          </note>
+   */
+  DeleteMarkerReplication?: DeleteMarkerReplication;
+
+  /**
+   * <p>A filter that identifies the subset of objects to which the replication rule applies. A
+   *         <code>Filter</code> must specify exactly one <code>Prefix</code>, <code>Tag</code>, or an
+   *         <code>And</code> child element.</p>
+   */
+  Filter?: ReplicationRuleFilter;
 
   /**
    * <p>The priority associated with the rule. If you specify multiple rules in a replication
@@ -5173,37 +5521,9 @@ export interface ReplicationRule {
   Priority?: number;
 
   /**
-   * <p>A container for information about the replication destination
-   *      and its configurations including enabling the S3 Replication Time Control (S3 RTC).</p>
+   * <p>Specifies whether the rule is enabled.</p>
    */
-  Destination: Destination | undefined;
-
-  /**
-   * <p>A unique identifier for the rule. The maximum value is 255 characters.</p>
-   */
-  ID?: string;
-
-  /**
-   * <p>A container that describes additional filters for identifying the source objects that you
-   *       want to replicate. You can choose to enable or disable the replication of these objects.
-   *       Currently, Amazon S3 supports only the filter that you can specify for objects created with
-   *       server-side encryption using a customer master key (CMK) stored in AWS Key Management Service (SSE-KMS).</p>
-   */
-  SourceSelectionCriteria?: SourceSelectionCriteria;
-
-  /**
-   * <p>An object key name prefix that identifies the object or objects to which the rule applies.
-   *          The maximum prefix length is 1,024 characters. To include all objects in a bucket, specify
-   *          an empty string. </p>
-   */
-  Prefix?: string;
-
-  /**
-   * <p>A filter that identifies the subset of objects to which the replication rule applies. A
-   *         <code>Filter</code> must specify exactly one <code>Prefix</code>, <code>Tag</code>, or an
-   *         <code>And</code> child element.</p>
-   */
-  Filter?: ReplicationRuleFilter;
+  Status: ReplicationRuleStatus | string | undefined;
 
   /**
    * <p></p>
@@ -5211,16 +5531,10 @@ export interface ReplicationRule {
   ExistingObjectReplication?: ExistingObjectReplication;
 
   /**
-   * <p>Specifies whether Amazon S3 replicates the delete markers. If you specify a <code>Filter</code>, you must specify this element. However, in the latest version of replication configuration (when <code>Filter</code> is specified), Amazon S3 doesn't replicate delete markers. Therefore, the <code>DeleteMarkerReplication</code> element can contain only <Status>Disabled</Status>. For an example configuration, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-add-config.html#replication-config-min-rule-config">Basic Rule Configuration</a>.
-   *      </p>
-   *
-   *          <note>
-   *             <p> If you don't specify the <code>Filter</code> element, Amazon S3 assumes that the replication
-   *             configuration is the earlier version, V1. In the earlier version, Amazon S3 handled
-   *             replication of delete markers differently. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-add-config.html#replication-backward-compat-considerations">Backward Compatibility</a>.</p>
-   *          </note>
+   * <p>A container for information about the replication destination
+   *      and its configurations including enabling the S3 Replication Time Control (S3 RTC).</p>
    */
-  DeleteMarkerReplication?: DeleteMarkerReplication;
+  Destination: Destination | undefined;
 }
 
 export namespace ReplicationRule {
@@ -5269,6 +5583,11 @@ export namespace GetBucketReplicationOutput {
 
 export interface GetBucketReplicationRequest {
   /**
+   * <p>The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP <code>403 (Access Denied)</code> error.</p>
+   */
+  ExpectedBucketOwner?: string;
+
+  /**
    * <p>The bucket name for which to get the replication information.</p>
    */
   Bucket: string | undefined;
@@ -5300,6 +5619,11 @@ export interface GetBucketRequestPaymentRequest {
    * <p>The name of the bucket for which to get the payment request configuration</p>
    */
   Bucket: string | undefined;
+
+  /**
+   * <p>The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP <code>403 (Access Denied)</code> error.</p>
+   */
+  ExpectedBucketOwner?: string;
 }
 
 export namespace GetBucketRequestPaymentRequest {
@@ -5323,6 +5647,11 @@ export namespace GetBucketTaggingOutput {
 
 export interface GetBucketTaggingRequest {
   /**
+   * <p>The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP <code>403 (Access Denied)</code> error.</p>
+   */
+  ExpectedBucketOwner?: string;
+
+  /**
    * <p>The name of the bucket for which to get the tagging information.</p>
    */
   Bucket: string | undefined;
@@ -5340,14 +5669,14 @@ export type BucketVersioningStatus = "Enabled" | "Suspended";
 
 export interface GetBucketVersioningOutput {
   /**
-   * <p>Specifies whether MFA delete is enabled in the bucket versioning configuration. This element is only returned if the bucket has been configured with MFA delete. If the bucket has never been so configured, this element is not returned.</p>
-   */
-  MFADelete?: MFADeleteStatus | string;
-
-  /**
    * <p>The versioning state of the bucket.</p>
    */
   Status?: BucketVersioningStatus | string;
+
+  /**
+   * <p>Specifies whether MFA delete is enabled in the bucket versioning configuration. This element is only returned if the bucket has been configured with MFA delete. If the bucket has never been so configured, this element is not returned.</p>
+   */
+  MFADelete?: MFADeleteStatus | string;
 }
 
 export namespace GetBucketVersioningOutput {
@@ -5357,6 +5686,11 @@ export namespace GetBucketVersioningOutput {
 }
 
 export interface GetBucketVersioningRequest {
+  /**
+   * <p>The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP <code>403 (Access Denied)</code> error.</p>
+   */
+  ExpectedBucketOwner?: string;
+
   /**
    * <p>The name of the bucket for which to get the versioning information.</p>
    */
@@ -5459,14 +5793,9 @@ export namespace Condition {
  */
 export interface Redirect {
   /**
-   * <p>Protocol to use when redirecting requests. The default is the protocol that is used in the original request.</p>
+   * <p>The HTTP redirect code to use on the response. Not required if one of the siblings is present.</p>
    */
-  Protocol?: Protocol | string;
-
-  /**
-   * <p>The specific object key to use in the redirect request. For example, redirect request to <code>error.html</code>. Not required if one of the siblings is present. Can be present only if <code>ReplaceKeyPrefixWith</code> is not provided.</p>
-   */
-  ReplaceKeyWith?: string;
+  HttpRedirectCode?: string;
 
   /**
    * <p>The object key prefix to use in the redirect request. For example, to redirect requests for all pages with prefix <code>docs/</code> (objects in the <code>docs/</code> folder) to <code>documents/</code>, you can set a condition block with <code>KeyPrefixEquals</code> set to <code>docs/</code> and in the Redirect set <code>ReplaceKeyPrefixWith</code> to <code>/documents</code>. Not required if one of the siblings is present. Can be present only if <code>ReplaceKeyWith</code> is not provided.</p>
@@ -5474,14 +5803,19 @@ export interface Redirect {
   ReplaceKeyPrefixWith?: string;
 
   /**
+   * <p>Protocol to use when redirecting requests. The default is the protocol that is used in the original request.</p>
+   */
+  Protocol?: Protocol | string;
+
+  /**
    * <p>The host name to use in the redirect request.</p>
    */
   HostName?: string;
 
   /**
-   * <p>The HTTP redirect code to use on the response. Not required if one of the siblings is present.</p>
+   * <p>The specific object key to use in the redirect request. For example, redirect request to <code>error.html</code>. Not required if one of the siblings is present. Can be present only if <code>ReplaceKeyPrefixWith</code> is not provided.</p>
    */
-  HttpRedirectCode?: string;
+  ReplaceKeyWith?: string;
 }
 
 export namespace Redirect {
@@ -5491,20 +5825,22 @@ export namespace Redirect {
 }
 
 /**
- * <p>Specifies the redirect behavior and when a redirect is applied.</p>
+ * <p>Specifies the redirect behavior and when a redirect is applied. For more information
+ *          about routing rules, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html#advanced-conditional-redirects">Configuring advanced conditional redirects</a> in the
+ *             <i>Amazon Simple Storage Service Developer Guide</i>.</p>
  */
 export interface RoutingRule {
-  /**
-   * <p>A container for describing a condition that must be met for the specified redirect to apply. For example, 1. If request is for pages in the <code>/docs</code> folder, redirect to the <code>/documents</code> folder. 2. If request results in HTTP error 4xx, redirect request to another host where you might process the error.</p>
-   */
-  Condition?: Condition;
-
   /**
    * <p>Container for redirect information. You can redirect requests to another host, to another
    *       page, or with another protocol. In the event of an error, you can specify a different error
    *       code to return.</p>
    */
   Redirect: Redirect | undefined;
+
+  /**
+   * <p>A container for describing a condition that must be met for the specified redirect to apply. For example, 1. If request is for pages in the <code>/docs</code> folder, redirect to the <code>/documents</code> folder. 2. If request results in HTTP error 4xx, redirect request to another host where you might process the error.</p>
+   */
+  Condition?: Condition;
 }
 
 export namespace RoutingRule {
@@ -5515,24 +5851,24 @@ export namespace RoutingRule {
 
 export interface GetBucketWebsiteOutput {
   /**
-   * <p>Specifies the redirect behavior of all requests to a website endpoint of an Amazon S3 bucket.</p>
-   */
-  RedirectAllRequestsTo?: RedirectAllRequestsTo;
-
-  /**
    * <p>The object key name of the website error document to use for 4XX class errors.</p>
    */
   ErrorDocument?: ErrorDocument;
 
   /**
-   * <p>The name of the index document for the website (for example <code>index.html</code>).</p>
+   * <p>Specifies the redirect behavior of all requests to a website endpoint of an Amazon S3 bucket.</p>
    */
-  IndexDocument?: IndexDocument;
+  RedirectAllRequestsTo?: RedirectAllRequestsTo;
 
   /**
    * <p>Rules that define when a redirect is applied and the redirect behavior.</p>
    */
   RoutingRules?: RoutingRule[];
+
+  /**
+   * <p>The name of the index document for the website (for example <code>index.html</code>).</p>
+   */
+  IndexDocument?: IndexDocument;
 }
 
 export namespace GetBucketWebsiteOutput {
@@ -5542,6 +5878,11 @@ export namespace GetBucketWebsiteOutput {
 }
 
 export interface GetBucketWebsiteRequest {
+  /**
+   * <p>The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP <code>403 (Access Denied)</code> error.</p>
+   */
+  ExpectedBucketOwner?: string;
+
   /**
    * <p>The bucket name for which to get the website configuration.</p>
    */
@@ -5558,14 +5899,75 @@ export type ReplicationStatus = "COMPLETE" | "FAILED" | "PENDING" | "REPLICA";
 
 export interface GetObjectOutput {
   /**
-   * <p>If server-side encryption with a customer-provided encryption key was requested, the response will include this header confirming the encryption algorithm used.</p>
+   * <p>The Object Lock mode currently in place for this object.</p>
    */
-  SSECustomerAlgorithm?: string;
+  ObjectLockMode?: ObjectLockMode | string;
 
   /**
-   * <p>If present, indicates that the requester was successfully charged for the request.</p>
+   * <p>The language the content is in.</p>
    */
-  RequestCharged?: RequestCharged | string;
+  ContentLanguage?: string;
+
+  /**
+   * <p>Specifies presentational information for the object.</p>
+   */
+  ContentDisposition?: string;
+
+  /**
+   * <p>Specifies caching behavior along the request/reply chain.</p>
+   */
+  CacheControl?: string;
+
+  /**
+   * <p>A standard MIME type describing the format of the object data.</p>
+   */
+  ContentType?: string;
+
+  /**
+   * <p>The portion of the object returned in the response.</p>
+   */
+  ContentRange?: string;
+
+  /**
+   * <p>If present, specifies the ID of the AWS Key Management Service (AWS KMS) symmetric customer managed customer master key
+   *          (CMK) that was used for the object.</p>
+   */
+  SSEKMSKeyId?: string;
+
+  /**
+   * <p>Size of the body in bytes.</p>
+   */
+  ContentLength?: number;
+
+  /**
+   * <p>The date and time when this object's Object Lock will expire.</p>
+   */
+  ObjectLockRetainUntilDate?: Date;
+
+  /**
+   * <p>Indicates whether this object has an active legal hold. This field is only returned if you have permission to view an object's legal hold status. </p>
+   */
+  ObjectLockLegalHoldStatus?: ObjectLockLegalHoldStatus | string;
+
+  /**
+   * <p>A map of metadata to store with the object in S3.</p>
+   */
+  Metadata?: { [key: string]: string };
+
+  /**
+   * <p>Specifies whether the object retrieved was (true) or was not (false) a Delete Marker. If false, this response header does not appear in the response.</p>
+   */
+  DeleteMarker?: boolean;
+
+  /**
+   * <p>Provides storage class information of the object. Amazon S3 returns this header for all objects except for S3 Standard storage class objects.</p>
+   */
+  StorageClass?: StorageClass | string;
+
+  /**
+   * <p>Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field.</p>
+   */
+  ContentEncoding?: string;
 
   /**
    * <p>Provides information about object restoration operation and expiration time of the restored object copy.</p>
@@ -5573,9 +5975,9 @@ export interface GetObjectOutput {
   Restore?: string;
 
   /**
-   * <p>Last modified date of the object</p>
+   * <p>If the bucket is configured as a website, redirects requests for this object to another object in the same bucket or to an external URL. Amazon S3 stores the value of this header in the object metadata.</p>
    */
-  LastModified?: Date;
+  WebsiteRedirectLocation?: string;
 
   /**
    * <p>The server-side encryption algorithm used when storing this object in Amazon S3 (for example,
@@ -5589,25 +5991,9 @@ export interface GetObjectOutput {
   PartsCount?: number;
 
   /**
-   * <p>The portion of the object returned in the response.</p>
+   * <p>If server-side encryption with a customer-provided encryption key was requested, the response will include this header confirming the encryption algorithm used.</p>
    */
-  ContentRange?: string;
-
-  /**
-   * <p>Object data.</p>
-   */
-  Body?: Readable | ReadableStream | Blob;
-
-  /**
-   * <p>If present, specifies the ID of the AWS Key Management Service (AWS KMS) symmetric customer managed customer master key
-   *          (CMK) that was used for the object.</p>
-   */
-  SSEKMSKeyId?: string;
-
-  /**
-   * <p>The Object Lock mode currently in place for this object.</p>
-   */
-  ObjectLockMode?: ObjectLockMode | string;
+  SSECustomerAlgorithm?: string;
 
   /**
    * <p>Indicates that a range of bytes was specified.</p>
@@ -5615,29 +6001,26 @@ export interface GetObjectOutput {
   AcceptRanges?: string;
 
   /**
-   * <p>Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field.</p>
+   * <p>Version of the object.</p>
    */
-  ContentEncoding?: string;
+  VersionId?: string;
 
   /**
-   * <p>Provides storage class information of the object. Amazon S3 returns this header for all objects except for S3 Standard storage class objects.</p>
+   * <p>Object data.</p>
    */
-  StorageClass?: StorageClass | string;
+  Body?: Readable | ReadableStream | Blob;
 
   /**
-   * <p>A map of metadata to store with the object in S3.</p>
+   * <p>The date and time at which the object is no longer cacheable.</p>
    */
-  Metadata?: { [key: string]: string };
+  Expires?: Date;
 
   /**
-   * <p>The number of tags, if any, on the object.</p>
+   * <p>If the object expiration is configured (see PUT Bucket lifecycle), the response includes this
+   *          header. It includes the expiry-date and rule-id key-value pairs providing object expiration
+   *          information. The value of the rule-id is URL encoded.</p>
    */
-  TagCount?: number;
-
-  /**
-   * <p>Specifies whether the object retrieved was (true) or was not (false) a Delete Marker. If false, this response header does not appear in the response.</p>
-   */
-  DeleteMarker?: boolean;
+  Expiration?: string;
 
   /**
    * <p>This is set to the number of metadata entries not returned in <code>x-amz-meta</code> headers.
@@ -5648,54 +6031,14 @@ export interface GetObjectOutput {
   MissingMeta?: number;
 
   /**
-   * <p>The date and time when this object's Object Lock will expire.</p>
+   * <p>Amazon S3 can return this if your request involves a bucket that is either a source or destination in a replication rule.</p>
    */
-  ObjectLockRetainUntilDate?: Date;
+  ReplicationStatus?: ReplicationStatus | string;
 
   /**
-   * <p>The language the content is in.</p>
+   * <p>The number of tags, if any, on the object.</p>
    */
-  ContentLanguage?: string;
-
-  /**
-   * <p>The date and time at which the object is no longer cacheable.</p>
-   */
-  Expires?: Date;
-
-  /**
-   * <p>Size of the body in bytes.</p>
-   */
-  ContentLength?: number;
-
-  /**
-   * <p>Specifies presentational information for the object.</p>
-   */
-  ContentDisposition?: string;
-
-  /**
-   * <p>Version of the object.</p>
-   */
-  VersionId?: string;
-
-  /**
-   * <p>Indicates whether this object has an active legal hold. This field is only returned if you have permission to view an object's legal hold status. </p>
-   */
-  ObjectLockLegalHoldStatus?: ObjectLockLegalHoldStatus | string;
-
-  /**
-   * <p>A standard MIME type describing the format of the object data.</p>
-   */
-  ContentType?: string;
-
-  /**
-   * <p>Specifies caching behavior along the request/reply chain.</p>
-   */
-  CacheControl?: string;
-
-  /**
-   * <p>If the bucket is configured as a website, redirects requests for this object to another object in the same bucket or to an external URL. Amazon S3 stores the value of this header in the object metadata.</p>
-   */
-  WebsiteRedirectLocation?: string;
+  TagCount?: number;
 
   /**
    * <p>If server-side encryption with a customer-provided encryption key was requested, the response
@@ -5705,22 +6048,20 @@ export interface GetObjectOutput {
   SSECustomerKeyMD5?: string;
 
   /**
+   * <p>Last modified date of the object</p>
+   */
+  LastModified?: Date;
+
+  /**
    * <p>An ETag is an opaque identifier assigned by a web server to a specific version of a resource
    *          found at a URL.</p>
    */
   ETag?: string;
 
   /**
-   * <p>Amazon S3 can return this if your request involves a bucket that is either a source or destination in a replication rule.</p>
+   * <p>If present, indicates that the requester was successfully charged for the request.</p>
    */
-  ReplicationStatus?: ReplicationStatus | string;
-
-  /**
-   * <p>If the object expiration is configured (see PUT Bucket lifecycle), the response includes this
-   *          header. It includes the expiry-date and rule-id key-value pairs providing object expiration
-   *          information. The value of the rule-id is URL encoded.</p>
-   */
-  Expiration?: string;
+  RequestCharged?: RequestCharged | string;
 }
 
 export namespace GetObjectOutput {
@@ -5732,12 +6073,29 @@ export namespace GetObjectOutput {
 
 export interface GetObjectRequest {
   /**
-   * <p>Confirms that the requester knows that they will be charged for the request. Bucket
-   *          owners need not specify this parameter in their requests. For information about downloading
-   *          objects from requester pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in Requestor Pays Buckets</a> in the
-   *             <i>Amazon S3 Developer Guide</i>.</p>
+   * <p>Sets the <code>Content-Encoding</code> header of the response.</p>
    */
-  RequestPayer?: RequestPayer | string;
+  ResponseContentEncoding?: string;
+
+  /**
+   * <p>Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This
+   *          value is used to store the object and then it is discarded; Amazon S3 does not store the
+   *          encryption key. The key must be appropriate for use with the algorithm specified in the
+   *             <code>x-amz-server-side-encryption-customer-algorithm</code> header.</p>
+   */
+  SSECustomerKey?: string;
+
+  /**
+   * <p>The bucket name containing the object. </p>
+   *          <p>When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this operation with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html">Using Access Points</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
+   *          <p>When using this API with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com. When using this operation using S3 on Outposts through the AWS SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html">Using S3 on Outposts</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
+   */
+  Bucket: string | undefined;
+
+  /**
+   * <p>Specifies the algorithm to use to when encrypting the object (for example, AES256).</p>
+   */
+  SSECustomerAlgorithm?: string;
 
   /**
    * <p>Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses
@@ -5747,10 +6105,57 @@ export interface GetObjectRequest {
   SSECustomerKeyMD5?: string;
 
   /**
-   * <p>The bucket name containing the object. </p>
-   *          <p>When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this operation using an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html">Using Access Points</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
+   * <p>Confirms that the requester knows that they will be charged for the request. Bucket
+   *          owners need not specify this parameter in their requests. For information about downloading
+   *          objects from requester pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in Requestor Pays Buckets</a> in the
+   *             <i>Amazon S3 Developer Guide</i>.</p>
    */
-  Bucket: string | undefined;
+  RequestPayer?: RequestPayer | string;
+
+  /**
+   * <p>Key of the object to get.</p>
+   */
+  Key: string | undefined;
+
+  /**
+   * <p>Sets the <code>Cache-Control</code> header of the response.</p>
+   */
+  ResponseCacheControl?: string;
+
+  /**
+   * <p>Sets the <code>Content-Language</code> header of the response.</p>
+   */
+  ResponseContentLanguage?: string;
+
+  /**
+   * <p>The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP <code>403 (Access Denied)</code> error.</p>
+   */
+  ExpectedBucketOwner?: string;
+
+  /**
+   * <p>Sets the <code>Content-Disposition</code> header of the response</p>
+   */
+  ResponseContentDisposition?: string;
+
+  /**
+   * <p>Return the object only if it has not been modified since the specified time, otherwise return a 412 (precondition failed).</p>
+   */
+  IfUnmodifiedSince?: Date;
+
+  /**
+   * <p>Part number of the object being read. This is a positive integer between 1 and 10,000. Effectively performs a 'ranged' GET request for the part specified. Useful for downloading just a part of an object.</p>
+   */
+  PartNumber?: number;
+
+  /**
+   * <p>Return the object only if it has been modified since the specified time, otherwise return a 304 (not modified).</p>
+   */
+  IfModifiedSince?: Date;
+
+  /**
+   * <p>VersionId used to reference a specific version of the object.</p>
+   */
+  VersionId?: string;
 
   /**
    * <p>Return the object only if its entity tag (ETag) is different from the one specified, otherwise return a 304 (not modified).</p>
@@ -5763,12 +6168,9 @@ export interface GetObjectRequest {
   IfMatch?: string;
 
   /**
-   * <p>Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This
-   *          value is used to store the object and then it is discarded; Amazon S3 does not store the
-   *          encryption key. The key must be appropriate for use with the algorithm specified in the
-   *             <code>x-amz-server-side​-encryption​-customer-algorithm</code> header.</p>
+   * <p>Sets the <code>Expires</code> header of the response.</p>
    */
-  SSECustomerKey?: string;
+  ResponseExpires?: Date;
 
   /**
    * <p>Downloads the specified range bytes of an object. For more information about the HTTP Range
@@ -5780,64 +6182,9 @@ export interface GetObjectRequest {
   Range?: string;
 
   /**
-   * <p>Sets the <code>Content-Disposition</code> header of the response</p>
-   */
-  ResponseContentDisposition?: string;
-
-  /**
-   * <p>Sets the <code>Content-Language</code> header of the response.</p>
-   */
-  ResponseContentLanguage?: string;
-
-  /**
-   * <p>VersionId used to reference a specific version of the object.</p>
-   */
-  VersionId?: string;
-
-  /**
-   * <p>Sets the <code>Content-Encoding</code> header of the response.</p>
-   */
-  ResponseContentEncoding?: string;
-
-  /**
-   * <p>Key of the object to get.</p>
-   */
-  Key: string | undefined;
-
-  /**
-   * <p>Specifies the algorithm to use to when encrypting the object (for example, AES256).</p>
-   */
-  SSECustomerAlgorithm?: string;
-
-  /**
-   * <p>Return the object only if it has been modified since the specified time, otherwise return a 304 (not modified).</p>
-   */
-  IfModifiedSince?: Date;
-
-  /**
-   * <p>Sets the <code>Cache-Control</code> header of the response.</p>
-   */
-  ResponseCacheControl?: string;
-
-  /**
-   * <p>Sets the <code>Expires</code> header of the response.</p>
-   */
-  ResponseExpires?: Date;
-
-  /**
    * <p>Sets the <code>Content-Type</code> header of the response.</p>
    */
   ResponseContentType?: string;
-
-  /**
-   * <p>Return the object only if it has not been modified since the specified time, otherwise return a 412 (precondition failed).</p>
-   */
-  IfUnmodifiedSince?: Date;
-
-  /**
-   * <p>Part number of the object being read. This is a positive integer between 1 and 10,000. Effectively performs a 'ranged' GET request for the part specified. Useful for downloading just a part of an object.</p>
-   */
-  PartNumber?: number;
 }
 
 export namespace GetObjectRequest {
@@ -5863,9 +6210,9 @@ export namespace NoSuchKey {
 
 export interface GetObjectAclOutput {
   /**
-   * <p>If present, indicates that the requester was successfully charged for the request.</p>
+   * <p>A list of grants.</p>
    */
-  RequestCharged?: RequestCharged | string;
+  Grants?: Grant[];
 
   /**
    * <p>
@@ -5874,9 +6221,9 @@ export interface GetObjectAclOutput {
   Owner?: Owner;
 
   /**
-   * <p>A list of grants.</p>
+   * <p>If present, indicates that the requester was successfully charged for the request.</p>
    */
-  Grants?: Grant[];
+  RequestCharged?: RequestCharged | string;
 }
 
 export namespace GetObjectAclOutput {
@@ -5887,9 +6234,20 @@ export namespace GetObjectAclOutput {
 
 export interface GetObjectAclRequest {
   /**
-   * <p>VersionId used to reference a specific version of the object.</p>
+   * <p>The key of the object for which to get the ACL information.</p>
    */
-  VersionId?: string;
+  Key: string | undefined;
+
+  /**
+   * <p>The bucket name that contains the object for which to get the ACL information. </p>
+   *          <p>When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this operation with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html">Using Access Points</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
+   */
+  Bucket: string | undefined;
+
+  /**
+   * <p>The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP <code>403 (Access Denied)</code> error.</p>
+   */
+  ExpectedBucketOwner?: string;
 
   /**
    * <p>Confirms that the requester knows that they will be charged for the request. Bucket
@@ -5900,15 +6258,9 @@ export interface GetObjectAclRequest {
   RequestPayer?: RequestPayer | string;
 
   /**
-   * <p>The key of the object for which to get the ACL information.</p>
+   * <p>VersionId used to reference a specific version of the object.</p>
    */
-  Key: string | undefined;
-
-  /**
-   * <p>The bucket name that contains the object for which to get the ACL information. </p>
-   *          <p>When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this operation using an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html">Using Access Points</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
-   */
-  Bucket: string | undefined;
+  VersionId?: string;
 }
 
 export namespace GetObjectAclRequest {
@@ -5954,9 +6306,14 @@ export interface GetObjectLegalHoldRequest {
   Key: string | undefined;
 
   /**
+   * <p>The version ID of the object whose Legal Hold status you want to retrieve.</p>
+   */
+  VersionId?: string;
+
+  /**
    * <p>The bucket name containing the object whose Legal
    *        Hold status you want to retrieve.  </p>
-   *          <p>When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this operation using an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html">Using Access Points</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
+   *          <p>When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this operation with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html">Using Access Points</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
    */
   Bucket: string | undefined;
 
@@ -5969,9 +6326,9 @@ export interface GetObjectLegalHoldRequest {
   RequestPayer?: RequestPayer | string;
 
   /**
-   * <p>The version ID of the object whose Legal Hold status you want to retrieve.</p>
+   * <p>The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP <code>403 (Access Denied)</code> error.</p>
    */
-  VersionId?: string;
+  ExpectedBucketOwner?: string;
 }
 
 export namespace GetObjectLegalHoldRequest {
@@ -5989,14 +6346,14 @@ export type ObjectLockRetentionMode = "COMPLIANCE" | "GOVERNANCE";
  */
 export interface DefaultRetention {
   /**
-   * <p>The default Object Lock retention mode you want to apply to new objects placed in the specified bucket.</p>
-   */
-  Mode?: ObjectLockRetentionMode | string;
-
-  /**
    * <p>The number of days that you want to specify for the default retention period.</p>
    */
   Days?: number;
+
+  /**
+   * <p>The default Object Lock retention mode you want to apply to new objects placed in the specified bucket.</p>
+   */
+  Mode?: ObjectLockRetentionMode | string;
 
   /**
    * <p>The number of years that you want to specify for the default retention period.</p>
@@ -6063,8 +6420,14 @@ export namespace GetObjectLockConfigurationOutput {
 export interface GetObjectLockConfigurationRequest {
   /**
    * <p>The bucket whose Object Lock configuration you want to retrieve.</p>
+   *          <p>When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this operation with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html">Using Access Points</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
    */
   Bucket: string | undefined;
+
+  /**
+   * <p>The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP <code>403 (Access Denied)</code> error.</p>
+   */
+  ExpectedBucketOwner?: string;
 }
 
 export namespace GetObjectLockConfigurationRequest {
@@ -6109,6 +6472,21 @@ export namespace GetObjectRetentionOutput {
 
 export interface GetObjectRetentionRequest {
   /**
+   * <p>The version ID for the object whose retention settings you want to retrieve.</p>
+   */
+  VersionId?: string;
+
+  /**
+   * <p>The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP <code>403 (Access Denied)</code> error.</p>
+   */
+  ExpectedBucketOwner?: string;
+
+  /**
+   * <p>The key name for the object whose retention settings you want to retrieve.</p>
+   */
+  Key: string | undefined;
+
+  /**
    * <p>Confirms that the requester knows that they will be charged for the request. Bucket
    *          owners need not specify this parameter in their requests. For information about downloading
    *          objects from requester pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in Requestor Pays Buckets</a> in the
@@ -6117,20 +6495,10 @@ export interface GetObjectRetentionRequest {
   RequestPayer?: RequestPayer | string;
 
   /**
-   * <p>The version ID for the object whose retention settings you want to retrieve.</p>
-   */
-  VersionId?: string;
-
-  /**
    * <p>The bucket name containing the object whose retention settings you want to retrieve. </p>
-   *          <p>When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this operation using an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html">Using Access Points</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
+   *          <p>When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this operation with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html">Using Access Points</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
    */
   Bucket: string | undefined;
-
-  /**
-   * <p>The key name for the object whose retention settings you want to retrieve.</p>
-   */
-  Key: string | undefined;
 }
 
 export namespace GetObjectRetentionRequest {
@@ -6159,15 +6527,21 @@ export namespace GetObjectTaggingOutput {
 
 export interface GetObjectTaggingRequest {
   /**
+   * <p>The bucket name containing the object for which to get the tagging information. </p>
+   *          <p>When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this operation with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html">Using Access Points</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
+   *          <p>When using this API with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com. When using this operation using S3 on Outposts through the AWS SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html">Using S3 on Outposts</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
+   */
+  Bucket: string | undefined;
+
+  /**
    * <p>The versionId of the object for which to get the tagging information.</p>
    */
   VersionId?: string;
 
   /**
-   * <p>The bucket name containing the object for which to get the tagging information. </p>
-   *          <p>When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this operation using an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html">Using Access Points</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
+   * <p>The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP <code>403 (Access Denied)</code> error.</p>
    */
-  Bucket: string | undefined;
+  ExpectedBucketOwner?: string;
 
   /**
    * <p>Object key for which to get the tagging information.</p>
@@ -6183,14 +6557,14 @@ export namespace GetObjectTaggingRequest {
 
 export interface GetObjectTorrentOutput {
   /**
-   * <p>If present, indicates that the requester was successfully charged for the request.</p>
-   */
-  RequestCharged?: RequestCharged | string;
-
-  /**
    * <p>A Bencoded dictionary as defined by the BitTorrent specification</p>
    */
   Body?: Readable | ReadableStream | Blob;
+
+  /**
+   * <p>If present, indicates that the requester was successfully charged for the request.</p>
+   */
+  RequestCharged?: RequestCharged | string;
 }
 
 export namespace GetObjectTorrentOutput {
@@ -6200,11 +6574,6 @@ export namespace GetObjectTorrentOutput {
 }
 
 export interface GetObjectTorrentRequest {
-  /**
-   * <p>The object key for which to get the information.</p>
-   */
-  Key: string | undefined;
-
   /**
    * <p>Confirms that the requester knows that they will be charged for the request. Bucket
    *          owners need not specify this parameter in their requests. For information about downloading
@@ -6217,6 +6586,16 @@ export interface GetObjectTorrentRequest {
    * <p>The name of the bucket containing the object for which to get the torrent files.</p>
    */
   Bucket: string | undefined;
+
+  /**
+   * <p>The object key for which to get the information.</p>
+   */
+  Key: string | undefined;
+
+  /**
+   * <p>The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP <code>403 (Access Denied)</code> error.</p>
+   */
+  ExpectedBucketOwner?: string;
 }
 
 export namespace GetObjectTorrentRequest {
@@ -6232,14 +6611,12 @@ export namespace GetObjectTorrentRequest {
  */
 export interface PublicAccessBlockConfiguration {
   /**
-   * <p>Specifies whether Amazon S3 should restrict public bucket policies for this bucket.
-   *       Setting this element to <code>TRUE</code> restricts access to this bucket to only AWS services
-   *       and authorized users within this account if the bucket has a public policy.</p>
-   *          <p>Enabling this setting doesn't affect previously stored bucket policies, except that public
-   *       and cross-account access within any public bucket policy, including non-public delegation to
-   *       specific accounts, is blocked.</p>
+   * <p>Specifies whether Amazon S3 should block public bucket policies for this bucket. Setting
+   *       this element to <code>TRUE</code> causes Amazon S3 to reject calls to PUT Bucket policy if the
+   *       specified bucket policy allows public access. </p>
+   *          <p>Enabling this setting doesn't affect existing bucket policies.</p>
    */
-  RestrictPublicBuckets?: boolean;
+  BlockPublicPolicy?: boolean;
 
   /**
    * <p>Specifies whether Amazon S3 should block public access control lists (ACLs) for this
@@ -6261,6 +6638,16 @@ export interface PublicAccessBlockConfiguration {
   BlockPublicAcls?: boolean;
 
   /**
+   * <p>Specifies whether Amazon S3 should restrict public bucket policies for this bucket.
+   *       Setting this element to <code>TRUE</code> restricts access to this bucket to only AWS services
+   *       and authorized users within this account if the bucket has a public policy.</p>
+   *          <p>Enabling this setting doesn't affect previously stored bucket policies, except that public
+   *       and cross-account access within any public bucket policy, including non-public delegation to
+   *       specific accounts, is blocked.</p>
+   */
+  RestrictPublicBuckets?: boolean;
+
+  /**
    * <p>Specifies whether Amazon S3 should ignore public ACLs for this bucket and objects in this
    *       bucket. Setting this element to <code>TRUE</code> causes Amazon S3 to ignore all public ACLs
    *       on this bucket and objects in this bucket.</p>
@@ -6268,14 +6655,6 @@ export interface PublicAccessBlockConfiguration {
    *       prevent new public ACLs from being set.</p>
    */
   IgnorePublicAcls?: boolean;
-
-  /**
-   * <p>Specifies whether Amazon S3 should block public bucket policies for this bucket. Setting
-   *       this element to <code>TRUE</code> causes Amazon S3 to reject calls to PUT Bucket policy if the
-   *       specified bucket policy allows public access. </p>
-   *          <p>Enabling this setting doesn't affect existing bucket policies.</p>
-   */
-  BlockPublicPolicy?: boolean;
 }
 
 export namespace PublicAccessBlockConfiguration {
@@ -6300,6 +6679,11 @@ export namespace GetPublicAccessBlockOutput {
 
 export interface GetPublicAccessBlockRequest {
   /**
+   * <p>The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP <code>403 (Access Denied)</code> error.</p>
+   */
+  ExpectedBucketOwner?: string;
+
+  /**
    * <p>The name of the Amazon S3 bucket whose <code>PublicAccessBlock</code> configuration you
    *       want to retrieve. </p>
    */
@@ -6314,7 +6698,14 @@ export namespace GetPublicAccessBlockRequest {
 
 export interface HeadBucketRequest {
   /**
+   * <p>The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP <code>403 (Access Denied)</code> error.</p>
+   */
+  ExpectedBucketOwner?: string;
+
+  /**
    * <p>The bucket name.</p>
+   *          <p>When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this operation with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html">Using Access Points</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
+   *          <p>When using this API with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com. When using this operation using S3 on Outposts through the AWS SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html">Using S3 on Outposts</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
    */
   Bucket: string | undefined;
 }
@@ -6341,14 +6732,52 @@ export namespace NoSuchBucket {
 
 export interface HeadObjectOutput {
   /**
-   * <p>If server-side encryption with a customer-provided encryption key was requested, the response will include this header confirming the encryption algorithm used.</p>
+   * <p>Specifies caching behavior along the request/reply chain.</p>
    */
-  SSECustomerAlgorithm?: string;
+  CacheControl?: string;
 
   /**
-   * <p>Last modified date of the object</p>
+   * <p>Size of the body in bytes.</p>
    */
-  LastModified?: Date;
+  ContentLength?: number;
+
+  /**
+   * <p>The date and time when the Object Lock retention period expires. This header is only returned if the requester has the <code>s3:GetObjectRetention</code> permission.</p>
+   */
+  ObjectLockRetainUntilDate?: Date;
+
+  /**
+   * <p>A standard MIME type describing the format of the object data.</p>
+   */
+  ContentType?: string;
+
+  /**
+   * <p>An ETag is an opaque identifier assigned by a web server to a specific version of a resource
+   *          found at a URL.</p>
+   */
+  ETag?: string;
+
+  /**
+   * <p>Specifies presentational information for the object.</p>
+   */
+  ContentDisposition?: string;
+
+  /**
+   * <p>The language the content is in.</p>
+   */
+  ContentLanguage?: string;
+
+  /**
+   * <p>If the object expiration is configured (see PUT Bucket lifecycle), the response includes this
+   *          header. It includes the expiry-date and rule-id key-value pairs providing object expiration
+   *          information. The value of the rule-id is URL encoded.</p>
+   */
+  Expiration?: string;
+
+  /**
+   * <p>The date and time at which the object is no longer cacheable.</p>
+   */
+  Expires?: Date;
 
   /**
    * <p>If server-side encryption with a customer-provided encryption key was requested, the response
@@ -6356,11 +6785,6 @@ export interface HeadObjectOutput {
    *          customer-provided encryption key.</p>
    */
   SSECustomerKeyMD5?: string;
-
-  /**
-   * <p>The count of parts this object has.</p>
-   */
-  PartsCount?: number;
 
   /**
    * <p>Amazon S3 can return this header if your request involves a bucket that is either a source or destination in a replication rule.</p>
@@ -6395,12 +6819,59 @@ export interface HeadObjectOutput {
   ReplicationStatus?: ReplicationStatus | string;
 
   /**
-   * <p>A map of metadata to store with the object in S3.</p>
+   * <p>Specifies whether a legal hold is in effect for this object. This header is only returned if the requester has the <code>s3:GetObjectLegalHold</code> permission. This header is not returned if the specified version of this object has never had a legal hold applied. For more information about S3 Object Lock, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html">Object Lock</a>.</p>
    */
-  Metadata?: { [key: string]: string };
+  ObjectLockLegalHoldStatus?: ObjectLockLegalHoldStatus | string;
 
   /**
-   * <p>If the object is an archived object (an object whose storage class is GLACIER), the response includes this header if either the archive restoration is in progress (see <a>RestoreObject</a> or an archive copy is already restored.</p>
+   * <p>If the bucket is configured as a website, redirects requests for this object to another object in the same bucket or to an external URL. Amazon S3 stores the value of this header in the object metadata.</p>
+   */
+  WebsiteRedirectLocation?: string;
+
+  /**
+   * <p>If the object is stored using server-side encryption either with an AWS KMS customer master
+   *          key (CMK) or an Amazon S3-managed encryption key, the response includes this header with
+   *          the value of the server-side encryption algorithm used when storing this object in Amazon
+   *          S3 (for example, AES256, aws:kms).</p>
+   */
+  ServerSideEncryption?: ServerSideEncryption | string;
+
+  /**
+   * <p>Version of the object.</p>
+   */
+  VersionId?: string;
+
+  /**
+   * <p>If server-side encryption with a customer-provided encryption key was requested, the response will include this header confirming the encryption algorithm used.</p>
+   */
+  SSECustomerAlgorithm?: string;
+
+  /**
+   * <p>The count of parts this object has.</p>
+   */
+  PartsCount?: number;
+
+  /**
+   * <p>If present, indicates that the requester was successfully charged for the request.</p>
+   */
+  RequestCharged?: RequestCharged | string;
+
+  /**
+   * <p>Last modified date of the object</p>
+   */
+  LastModified?: Date;
+
+  /**
+   * <p>This is set to the number of metadata entries not returned in <code>x-amz-meta</code> headers.
+   *          This can happen if you create metadata using an API like SOAP that supports more flexible
+   *          metadata than the REST API. For example, using SOAP, you can create metadata whose values
+   *          are not legal HTTP headers.</p>
+   */
+  MissingMeta?: number;
+
+  /**
+   * <p>If the object is an archived object (an object whose storage class is GLACIER),
+   *       the response includes this header if either the archive restoration is in progress (see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_RestoreObject.html">RestoreObject</a> or an archive copy is already restored.</p>
    *
    *          <p> If an archive copy is already restored, the header value indicates when Amazon S3 is scheduled to delete the object copy. For example:</p>
    *
@@ -6420,57 +6891,16 @@ export interface HeadObjectOutput {
   ContentEncoding?: string;
 
   /**
-   * <p>If present, indicates that the requester was successfully charged for the request.</p>
+   * <p>Provides storage class information of the object. Amazon S3 returns this header for all objects except for S3 Standard storage class objects.</p>
+   *
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html">Storage Classes</a>.</p>
    */
-  RequestCharged?: RequestCharged | string;
+  StorageClass?: StorageClass | string;
 
   /**
-   * <p>Version of the object.</p>
+   * <p>A map of metadata to store with the object in S3.</p>
    */
-  VersionId?: string;
-
-  /**
-   * <p>Specifies caching behavior along the request/reply chain.</p>
-   */
-  CacheControl?: string;
-
-  /**
-   * <p>The date and time when the Object Lock retention period expires. This header is only returned if the requester has the <code>s3:GetObjectRetention</code> permission.</p>
-   */
-  ObjectLockRetainUntilDate?: Date;
-
-  /**
-   * <p>If the bucket is configured as a website, redirects requests for this object to another object in the same bucket or to an external URL. Amazon S3 stores the value of this header in the object metadata.</p>
-   */
-  WebsiteRedirectLocation?: string;
-
-  /**
-   * <p>Size of the body in bytes.</p>
-   */
-  ContentLength?: number;
-
-  /**
-   * <p>The date and time at which the object is no longer cacheable.</p>
-   */
-  Expires?: Date;
-
-  /**
-   * <p>Specifies whether a legal hold is in effect for this object. This header is only returned if the requester has the <code>s3:GetObjectLegalHold</code> permission. This header is not returned if the specified version of this object has never had a legal hold applied. For more information about S3 Object Lock, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html">Object Lock</a>.</p>
-   */
-  ObjectLockLegalHoldStatus?: ObjectLockLegalHoldStatus | string;
-
-  /**
-   * <p>This is set to the number of metadata entries not returned in <code>x-amz-meta</code> headers.
-   *          This can happen if you create metadata using an API like SOAP that supports more flexible
-   *          metadata than the REST API. For example, using SOAP, you can create metadata whose values
-   *          are not legal HTTP headers.</p>
-   */
-  MissingMeta?: number;
-
-  /**
-   * <p>Specifies presentational information for the object.</p>
-   */
-  ContentDisposition?: string;
+  Metadata?: { [key: string]: string };
 
   /**
    * <p>Specifies whether the object retrieved was (true) or was not (false) a Delete Marker. If false, this response header does not appear in the response.</p>
@@ -6478,44 +6908,9 @@ export interface HeadObjectOutput {
   DeleteMarker?: boolean;
 
   /**
-   * <p>The language the content is in.</p>
-   */
-  ContentLanguage?: string;
-
-  /**
-   * <p>An ETag is an opaque identifier assigned by a web server to a specific version of a resource
-   *          found at a URL.</p>
-   */
-  ETag?: string;
-
-  /**
-   * <p>If the object expiration is configured (see PUT Bucket lifecycle), the response includes this
-   *          header. It includes the expiry-date and rule-id key-value pairs providing object expiration
-   *          information. The value of the rule-id is URL encoded.</p>
-   */
-  Expiration?: string;
-
-  /**
-   * <p>Indicates that a range of bytes was specified.</p>
-   */
-  AcceptRanges?: string;
-
-  /**
    * <p>The Object Lock mode, if any, that's in effect for this object. This header is only returned if the requester has the <code>s3:GetObjectRetention</code> permission. For more information about S3 Object Lock, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html">Object Lock</a>. </p>
    */
   ObjectLockMode?: ObjectLockMode | string;
-
-  /**
-   * <p>A standard MIME type describing the format of the object data.</p>
-   */
-  ContentType?: string;
-
-  /**
-   * <p>Provides storage class information of the object. Amazon S3 returns this header for all objects except for S3 Standard storage class objects.</p>
-   *
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html">Storage Classes</a>.</p>
-   */
-  StorageClass?: StorageClass | string;
 
   /**
    * <p>If present, specifies the ID of the AWS Key Management Service (AWS KMS) symmetric customer managed customer master key
@@ -6524,12 +6919,9 @@ export interface HeadObjectOutput {
   SSEKMSKeyId?: string;
 
   /**
-   * <p>If the object is stored using server-side encryption either with an AWS KMS customer master
-   *          key (CMK) or an Amazon S3-managed encryption key, the response includes this header with
-   *          the value of the server-side encryption algorithm used when storing this object in Amazon
-   *          S3 (for example, AES256, aws:kms).</p>
+   * <p>Indicates that a range of bytes was specified.</p>
    */
-  ServerSideEncryption?: ServerSideEncryption | string;
+  AcceptRanges?: string;
 }
 
 export namespace HeadObjectOutput {
@@ -6541,6 +6933,53 @@ export namespace HeadObjectOutput {
 
 export interface HeadObjectRequest {
   /**
+   * <p>Specifies the algorithm to use to when encrypting the object (for example, AES256).</p>
+   */
+  SSECustomerAlgorithm?: string;
+
+  /**
+   * <p>Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This
+   *          value is used to store the object and then it is discarded; Amazon S3 does not store the
+   *          encryption key. The key must be appropriate for use with the algorithm specified in the
+   *             <code>x-amz-server-side-encryption-customer-algorithm</code> header.</p>
+   */
+  SSECustomerKey?: string;
+
+  /**
+   * <p>Downloads the specified range bytes of an object. For more information about the HTTP Range
+   *      header, see <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35">http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35</a>.</p>
+   *          <note>
+   *             <p>Amazon S3 doesn't support retrieving multiple ranges of data per <code>GET</code> request.</p>
+   *          </note>
+   */
+  Range?: string;
+
+  /**
+   * <p>Return the object only if its entity tag (ETag) is different from the one specified, otherwise return a 304 (not modified).</p>
+   */
+  IfNoneMatch?: string;
+
+  /**
+   * <p>Part number of the object being read. This is a positive integer between 1 and 10,000. Effectively performs a 'ranged' HEAD request for the part specified. Useful querying about the size of the part and the number of parts in this object.</p>
+   */
+  PartNumber?: number;
+
+  /**
+   * <p>Return the object only if it has not been modified since the specified time, otherwise return a 412 (precondition failed).</p>
+   */
+  IfUnmodifiedSince?: Date;
+
+  /**
+   * <p>Return the object only if it has been modified since the specified time, otherwise return a 304 (not modified).</p>
+   */
+  IfModifiedSince?: Date;
+
+  /**
+   * <p>The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP <code>403 (Access Denied)</code> error.</p>
+   */
+  ExpectedBucketOwner?: string;
+
+  /**
    * <p>Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses
    *          this header for a message integrity check to ensure that the encryption key was transmitted
    *          without error.</p>
@@ -6549,8 +6988,25 @@ export interface HeadObjectRequest {
 
   /**
    * <p>The name of the bucket containing the object.</p>
+   *          <p>When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this operation with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html">Using Access Points</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
+   *          <p>When using this API with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com. When using this operation using S3 on Outposts through the AWS SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html">Using S3 on Outposts</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
    */
   Bucket: string | undefined;
+
+  /**
+   * <p>Return the object only if its entity tag (ETag) is the same as the one specified, otherwise return a 412 (precondition failed).</p>
+   */
+  IfMatch?: string;
+
+  /**
+   * <p>The object key.</p>
+   */
+  Key: string | undefined;
+
+  /**
+   * <p>VersionId used to reference a specific version of the object.</p>
+   */
+  VersionId?: string;
 
   /**
    * <p>Confirms that the requester knows that they will be charged for the request. Bucket
@@ -6559,63 +7015,6 @@ export interface HeadObjectRequest {
    *             <i>Amazon S3 Developer Guide</i>.</p>
    */
   RequestPayer?: RequestPayer | string;
-
-  /**
-   * <p>Downloads the specified range bytes of an object. For more information about the HTTP Range
-   *          header, see <a href="">http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35</a>.</p>
-   *          <note>
-   *             <p>Amazon S3 doesn't support retrieving multiple ranges of data per <code>GET</code> request.</p>
-   *          </note>
-   */
-  Range?: string;
-
-  /**
-   * <p>Return the object only if it has not been modified since the specified time, otherwise return a 412 (precondition failed).</p>
-   */
-  IfUnmodifiedSince?: Date;
-
-  /**
-   * <p>Part number of the object being read. This is a positive integer between 1 and 10,000. Effectively performs a 'ranged' HEAD request for the part specified. Useful querying about the size of the part and the number of parts in this object.</p>
-   */
-  PartNumber?: number;
-
-  /**
-   * <p>Return the object only if its entity tag (ETag) is different from the one specified, otherwise return a 304 (not modified).</p>
-   */
-  IfNoneMatch?: string;
-
-  /**
-   * <p>The object key.</p>
-   */
-  Key: string | undefined;
-
-  /**
-   * <p>Return the object only if it has been modified since the specified time, otherwise return a 304 (not modified).</p>
-   */
-  IfModifiedSince?: Date;
-
-  /**
-   * <p>Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This
-   *          value is used to store the object and then it is discarded; Amazon S3 does not store the
-   *          encryption key. The key must be appropriate for use with the algorithm specified in the
-   *             <code>x-amz-server-side​-encryption​-customer-algorithm</code> header.</p>
-   */
-  SSECustomerKey?: string;
-
-  /**
-   * <p>VersionId used to reference a specific version of the object.</p>
-   */
-  VersionId?: string;
-
-  /**
-   * <p>Return the object only if its entity tag (ETag) is the same as the one specified, otherwise return a 412 (precondition failed).</p>
-   */
-  IfMatch?: string;
-
-  /**
-   * <p>Specifies the algorithm to use to when encrypting the object (for example, AES256).</p>
-   */
-  SSECustomerAlgorithm?: string;
 }
 
 export namespace HeadObjectRequest {
@@ -6627,9 +7026,9 @@ export namespace HeadObjectRequest {
 
 export interface ListBucketAnalyticsConfigurationsOutput {
   /**
-   * <p>The marker that is used as a starting point for this analytics configuration list response. This value is present if it was sent in the request.</p>
+   * <p>The list of analytics configurations for a bucket.</p>
    */
-  ContinuationToken?: string;
+  AnalyticsConfigurationList?: AnalyticsConfiguration[];
 
   /**
    * <p>
@@ -6641,14 +7040,14 @@ export interface ListBucketAnalyticsConfigurationsOutput {
   NextContinuationToken?: string;
 
   /**
-   * <p>The list of analytics configurations for a bucket.</p>
-   */
-  AnalyticsConfigurationList?: AnalyticsConfiguration[];
-
-  /**
    * <p>Indicates whether the returned list of analytics configurations is complete. A value of true indicates that the list is not complete and the NextContinuationToken will be provided for a subsequent request.</p>
    */
   IsTruncated?: boolean;
+
+  /**
+   * <p>The marker that is used as a starting point for this analytics configuration list response. This value is present if it was sent in the request.</p>
+   */
+  ContinuationToken?: string;
 }
 
 export namespace ListBucketAnalyticsConfigurationsOutput {
@@ -6659,14 +7058,19 @@ export namespace ListBucketAnalyticsConfigurationsOutput {
 
 export interface ListBucketAnalyticsConfigurationsRequest {
   /**
-   * <p>The name of the bucket from which analytics configurations are retrieved.</p>
+   * <p>The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP <code>403 (Access Denied)</code> error.</p>
    */
-  Bucket: string | undefined;
+  ExpectedBucketOwner?: string;
 
   /**
    * <p>The ContinuationToken that represents a placeholder from where this request should begin.</p>
    */
   ContinuationToken?: string;
+
+  /**
+   * <p>The name of the bucket from which analytics configurations are retrieved.</p>
+   */
+  Bucket: string | undefined;
 }
 
 export namespace ListBucketAnalyticsConfigurationsRequest {
@@ -6690,14 +7094,14 @@ export interface ListBucketInventoryConfigurationsOutput {
   NextContinuationToken?: string;
 
   /**
-   * <p>If sent in the request, the marker that is used as a starting point for this inventory configuration list response.</p>
-   */
-  ContinuationToken?: string;
-
-  /**
    * <p>Tells whether the returned list of inventory configurations is complete. A value of true indicates that the list is not complete and the NextContinuationToken is provided for a subsequent request.</p>
    */
   IsTruncated?: boolean;
+
+  /**
+   * <p>If sent in the request, the marker that is used as a starting point for this inventory configuration list response.</p>
+   */
+  ContinuationToken?: string;
 }
 
 export namespace ListBucketInventoryConfigurationsOutput {
@@ -6713,14 +7117,19 @@ export namespace ListBucketInventoryConfigurationsOutput {
 
 export interface ListBucketInventoryConfigurationsRequest {
   /**
-   * <p>The marker used to continue an inventory configuration listing that has been truncated. Use the NextContinuationToken from a previously truncated list response to continue the listing. The continuation token is an opaque value that Amazon S3 understands.</p>
-   */
-  ContinuationToken?: string;
-
-  /**
    * <p>The name of the bucket containing the inventory configurations to retrieve.</p>
    */
   Bucket: string | undefined;
+
+  /**
+   * <p>The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP <code>403 (Access Denied)</code> error.</p>
+   */
+  ExpectedBucketOwner?: string;
+
+  /**
+   * <p>The marker used to continue an inventory configuration listing that has been truncated. Use the NextContinuationToken from a previously truncated list response to continue the listing. The continuation token is an opaque value that Amazon S3 understands.</p>
+   */
+  ContinuationToken?: string;
 }
 
 export namespace ListBucketInventoryConfigurationsRequest {
@@ -6731,16 +7140,16 @@ export namespace ListBucketInventoryConfigurationsRequest {
 
 export interface ListBucketMetricsConfigurationsOutput {
   /**
-   * <p>The list of metrics configurations for a bucket.</p>
-   */
-  MetricsConfigurationList?: MetricsConfiguration[];
-
-  /**
    * <p>The marker used to continue a metrics configuration listing that has been truncated. Use the
    *             <code>NextContinuationToken</code> from a previously truncated list response to continue
    *          the listing. The continuation token is an opaque value that Amazon S3 understands.</p>
    */
   NextContinuationToken?: string;
+
+  /**
+   * <p>The list of metrics configurations for a bucket.</p>
+   */
+  MetricsConfigurationList?: MetricsConfiguration[];
 
   /**
    * <p>The marker that is used as a starting point for this metrics configuration list response. This value is present if it was sent in the request.</p>
@@ -6764,6 +7173,11 @@ export interface ListBucketMetricsConfigurationsRequest {
    * <p>The marker that is used to continue a metrics configuration listing that has been truncated. Use the NextContinuationToken from a previously truncated list response to continue the listing. The continuation token is an opaque value that Amazon S3 understands.</p>
    */
   ContinuationToken?: string;
+
+  /**
+   * <p>The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP <code>403 (Access Denied)</code> error.</p>
+   */
+  ExpectedBucketOwner?: string;
 
   /**
    * <p>The name of the bucket containing the metrics configurations to retrieve.</p>
@@ -6801,14 +7215,14 @@ export namespace Bucket {
 
 export interface ListBucketsOutput {
   /**
-   * <p>The list of buckets owned by the requestor.</p>
-   */
-  Buckets?: Bucket[];
-
-  /**
    * <p>The owner of the buckets listed.</p>
    */
   Owner?: Owner;
+
+  /**
+   * <p>The list of buckets owned by the requestor.</p>
+   */
+  Buckets?: Bucket[];
 }
 
 export namespace ListBucketsOutput {
@@ -6865,9 +7279,9 @@ export namespace Initiator {
  */
 export interface MultipartUpload {
   /**
-   * <p>Key of the object for which the multipart upload was initiated.</p>
+   * <p>Identifies who initiated the multipart upload.</p>
    */
-  Key?: string;
+  Initiator?: Initiator;
 
   /**
    * <p>Upload ID that identifies the multipart upload.</p>
@@ -6875,9 +7289,9 @@ export interface MultipartUpload {
   UploadId?: string;
 
   /**
-   * <p>Date and time at which the multipart upload was initiated.</p>
+   * <p>Key of the object for which the multipart upload was initiated.</p>
    */
-  Initiated?: Date;
+  Key?: string;
 
   /**
    * <p>Specifies the owner of the object that is part of the multipart upload. </p>
@@ -6885,14 +7299,14 @@ export interface MultipartUpload {
   Owner?: Owner;
 
   /**
-   * <p>Identifies who initiated the multipart upload.</p>
-   */
-  Initiator?: Initiator;
-
-  /**
    * <p>The class of storage used to store the object.</p>
    */
   StorageClass?: StorageClass | string;
+
+  /**
+   * <p>Date and time at which the multipart upload was initiated.</p>
+   */
+  Initiated?: Date;
 }
 
 export namespace MultipartUpload {
@@ -6903,9 +7317,19 @@ export namespace MultipartUpload {
 
 export interface ListMultipartUploadsOutput {
   /**
-   * <p>When a prefix is provided in the request, this field contains the specified prefix. The result contains only keys starting with the specified prefix.</p>
+   * <p>Contains the delimiter you specified in the request. If you don't specify a delimiter in your request, this element is absent from the response.</p>
    */
-  Prefix?: string;
+  Delimiter?: string;
+
+  /**
+   * <p>The key at or after which the listing began.</p>
+   */
+  KeyMarker?: string;
+
+  /**
+   * <p>Maximum number of multipart uploads that could have been included in the response.</p>
+   */
+  MaxUploads?: number;
 
   /**
    * <p>Encoding type used by Amazon S3 to encode object keys in the response.</p>
@@ -6917,20 +7341,15 @@ export interface ListMultipartUploadsOutput {
   EncodingType?: EncodingType | string;
 
   /**
+   * <p>Indicates whether the returned list of multipart uploads is truncated. A value of true indicates that the list was truncated. The list can be truncated if the number of multipart uploads exceeds the limit allowed or specified by max uploads.</p>
+   */
+  IsTruncated?: boolean;
+
+  /**
    * <p>Container for elements related to a particular multipart upload. A response can contain
    *          zero or more <code>Upload</code> elements.</p>
    */
   Uploads?: MultipartUpload[];
-
-  /**
-   * <p>Name of the bucket to which the multipart upload was initiated.</p>
-   */
-  Bucket?: string;
-
-  /**
-   * <p>Maximum number of multipart uploads that could have been included in the response.</p>
-   */
-  MaxUploads?: number;
 
   /**
    * <p>When a list is truncated, this element specifies the value that should be used for the
@@ -6939,9 +7358,9 @@ export interface ListMultipartUploadsOutput {
   NextUploadIdMarker?: string;
 
   /**
-   * <p>Indicates whether the returned list of multipart uploads is truncated. A value of true indicates that the list was truncated. The list can be truncated if the number of multipart uploads exceeds the limit allowed or specified by max uploads.</p>
+   * <p>Upload ID after which listing began.</p>
    */
-  IsTruncated?: boolean;
+  UploadIdMarker?: string;
 
   /**
    * <p>If you specify a delimiter in the request, then the result returns each distinct key
@@ -6951,24 +7370,19 @@ export interface ListMultipartUploadsOutput {
   CommonPrefixes?: CommonPrefix[];
 
   /**
+   * <p>When a prefix is provided in the request, this field contains the specified prefix. The result contains only keys starting with the specified prefix.</p>
+   */
+  Prefix?: string;
+
+  /**
    * <p>When a list is truncated, this element specifies the value that should be used for the key-marker request parameter in a subsequent request.</p>
    */
   NextKeyMarker?: string;
 
   /**
-   * <p>The key at or after which the listing began.</p>
+   * <p>The name of the bucket to which the multipart upload was initiated.</p>
    */
-  KeyMarker?: string;
-
-  /**
-   * <p>Contains the delimiter you specified in the request. If you don't specify a delimiter in your request, this element is absent from the response.</p>
-   */
-  Delimiter?: string;
-
-  /**
-   * <p>Upload ID after which listing began.</p>
-   */
-  UploadIdMarker?: string;
+  Bucket?: string;
 }
 
 export namespace ListMultipartUploadsOutput {
@@ -6979,20 +7393,36 @@ export namespace ListMultipartUploadsOutput {
 
 export interface ListMultipartUploadsRequest {
   /**
+   * <p>Together with key-marker, specifies the multipart upload after which listing should begin. If
+   *          key-marker is not specified, the upload-id-marker parameter is ignored. Otherwise, any
+   *          multipart uploads for a key equal to the key-marker might be included in the list only if
+   *          they have an upload ID lexicographically greater than the specified
+   *             <code>upload-id-marker</code>.</p>
+   */
+  UploadIdMarker?: string;
+
+  /**
+   * <p>The name of the bucket to which the multipart upload was initiated. </p>
+   *          <p>When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this operation with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html">Using Access Points</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
+   *          <p>When using this API with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com. When using this operation using S3 on Outposts through the AWS SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html">Using S3 on Outposts</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
+   */
+  Bucket: string | undefined;
+
+  /**
+   * <p>Lists in-progress uploads only for those keys that begin with the specified prefix. You can use prefixes to separate a bucket into different grouping of keys. (You can think of using prefix to make groups in the same way you'd use a folder in a file system.)</p>
+   */
+  Prefix?: string;
+
+  /**
    * <p>Character you use to group keys.</p>
    *          <p>All keys that contain the same string between the prefix, if specified, and the first occurrence of the delimiter after the prefix are grouped under a single result element, <code>CommonPrefixes</code>. If you don't specify the prefix parameter, then the substring starts at the beginning of the key. The keys that are grouped under <code>CommonPrefixes</code> result element are not returned elsewhere in the response.</p>
    */
   Delimiter?: string;
 
   /**
-   * <p>Requests Amazon S3 to encode the object keys in the response and specifies the encoding method to use. An object key may contain any Unicode character; however, XML 1.0 parser cannot parse some characters, such as characters with an ASCII value from 0 to 10. For characters that are not supported in XML 1.0, you can add this parameter to request that Amazon S3 encode the keys in the response.</p>
+   * <p>Sets the maximum number of multipart uploads, from 1 to 1,000, to return in the response body. 1,000 is the maximum number of uploads that can be returned in a response.</p>
    */
-  EncodingType?: EncodingType | string;
-
-  /**
-   * <p>Lists in-progress uploads only for those keys that begin with the specified prefix. You can use prefixes to separate a bucket into different grouping of keys. (You can think of using prefix to make groups in the same way you'd use a folder in a file system.)</p>
-   */
-  Prefix?: string;
+  MaxUploads?: number;
 
   /**
    * <p>Together with upload-id-marker, this parameter specifies the multipart upload after which listing should begin.</p>
@@ -7003,24 +7433,14 @@ export interface ListMultipartUploadsRequest {
   KeyMarker?: string;
 
   /**
-   * <p>Together with key-marker, specifies the multipart upload after which listing should begin. If
-   *          key-marker is not specified, the upload-id-marker parameter is ignored. Otherwise, any
-   *          multipart uploads for a key equal to the key-marker might be included in the list only if
-   *          they have an upload ID lexicographically greater than the specified
-   *             <code>upload-id-marker</code>.</p>
+   * <p>The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP <code>403 (Access Denied)</code> error.</p>
    */
-  UploadIdMarker?: string;
+  ExpectedBucketOwner?: string;
 
   /**
-   * <p>Name of the bucket to which the multipart upload was initiated. </p>
-   *          <p>When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this operation using an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html">Using Access Points</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
+   * <p>Requests Amazon S3 to encode the object keys in the response and specifies the encoding method to use. An object key may contain any Unicode character; however, XML 1.0 parser cannot parse some characters, such as characters with an ASCII value from 0 to 10. For characters that are not supported in XML 1.0, you can add this parameter to request that Amazon S3 encode the keys in the response.</p>
    */
-  Bucket: string | undefined;
-
-  /**
-   * <p>Sets the maximum number of multipart uploads, from 1 to 1,000, to return in the response body. 1,000 is the maximum number of uploads that can be returned in a response.</p>
-   */
-  MaxUploads?: number;
+  EncodingType?: EncodingType | string;
 }
 
 export namespace ListMultipartUploadsRequest {
@@ -7034,6 +7454,7 @@ export type ObjectStorageClass =
   | "GLACIER"
   | "INTELLIGENT_TIERING"
   | "ONEZONE_IA"
+  | "OUTPOSTS"
   | "REDUCED_REDUNDANCY"
   | "STANDARD"
   | "STANDARD_IA";
@@ -7042,6 +7463,35 @@ export type ObjectStorageClass =
  * <p>An object consists of data and its descriptive metadata.</p>
  */
 export interface _Object {
+  /**
+   * <p>Size in bytes of the object</p>
+   */
+  Size?: number;
+
+  /**
+   * <p>The entity tag is a hash of the object. The ETag reflects changes only to the
+   *               contents of an object, not its metadata. The ETag may or may not be an MD5 digest of
+   *               the object data. Whether or not it is depends on how the object was created and how it
+   *               is encrypted as described below:</p>
+   *             <ul>
+   *             <li>
+   *                 <p>Objects created by the PUT Object, POST Object, or Copy operation, or through
+   *                   the AWS Management Console, and are encrypted by SSE-S3 or plaintext, have ETags
+   *                   that are an MD5 digest of their object data.</p>
+   *               </li>
+   *             <li>
+   *                 <p>Objects created by the PUT Object, POST Object, or Copy operation, or through
+   *                   the AWS Management Console, and are encrypted by SSE-C or SSE-KMS, have
+   *                   ETags that are not an MD5 digest of their object data.</p>
+   *               </li>
+   *             <li>
+   *                 <p>If an object is created by either the Multipart Upload or Part Copy operation,
+   *                   the ETag is not an MD5 digest, regardless of the method of encryption.</p>
+   *               </li>
+   *          </ul>
+   */
+  ETag?: string;
+
   /**
    * <p>The owner of the object</p>
    */
@@ -7053,25 +7503,14 @@ export interface _Object {
   StorageClass?: ObjectStorageClass | string;
 
   /**
-   * <p>The date the Object was Last Modified</p>
-   */
-  LastModified?: Date;
-
-  /**
-   * <p>The entity tag is an MD5 hash of the object. ETag reflects only changes
-   *          to the contents of an object, not its metadata.</p>
-   */
-  ETag?: string;
-
-  /**
-   * <p>Size in bytes of the object</p>
-   */
-  Size?: number;
-
-  /**
    * <p>The name that you assign to an object. You use the object key to retrieve the object.</p>
    */
   Key?: string;
+
+  /**
+   * <p>The date the Object was Last Modified</p>
+   */
+  LastModified?: Date;
 }
 
 export namespace _Object {
@@ -7081,6 +7520,41 @@ export namespace _Object {
 }
 
 export interface ListObjectsOutput {
+  /**
+   * <p>The maximum number of keys returned in the response body.</p>
+   */
+  MaxKeys?: number;
+
+  /**
+   * <p>Metadata about each object returned.</p>
+   */
+  Contents?: _Object[];
+
+  /**
+   * <p>Causes keys that contain the same string between the prefix and the first occurrence of
+   *          the delimiter to be rolled up into a single result element in the
+   *             <code>CommonPrefixes</code> collection. These rolled-up keys are not returned elsewhere
+   *          in the response. Each rolled-up result counts as only one return against the
+   *             <code>MaxKeys</code> value.</p>
+   */
+  Delimiter?: string;
+
+  /**
+   * <p>The bucket name.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>A flag that indicates whether Amazon S3 returned all of the results that satisfied the search
+   *          criteria.</p>
+   */
+  IsTruncated?: boolean;
+
+  /**
+   * <p>When response is truncated (the IsTruncated element value in the response is true), you can use the key name in this field as marker in the subsequent request to get next set of objects. Amazon S3 lists objects in alphabetical order Note: This element is returned only if you have delimiter request parameter specified. If response does not include the NextMarker and it is truncated, you can use the value of the last Key in the response as the marker in the subsequent request to get the next set of object keys.</p>
+   */
+  NextMarker?: string;
+
   /**
    * <p>Keys that begin with the indicated prefix.</p>
    */
@@ -7092,30 +7566,9 @@ export interface ListObjectsOutput {
   Marker?: string;
 
   /**
-   * <p>Bucket name.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>When response is truncated (the IsTruncated element value in the response is true), you can use the key name in this field as marker in the subsequent request to get next set of objects. Amazon S3 lists objects in alphabetical order Note: This element is returned only if you have delimiter request parameter specified. If response does not include the NextMaker and it is truncated, you can use the value of the last Key in the response as the marker in the subsequent request to get the next set of object keys.</p>
-   */
-  NextMarker?: string;
-
-  /**
-   * <p>A flag that indicates whether Amazon S3 returned all of the results that satisfied the search
-   *          criteria.</p>
-   */
-  IsTruncated?: boolean;
-
-  /**
    * <p>Encoding type used by Amazon S3 to encode object keys in the response.</p>
    */
   EncodingType?: EncodingType | string;
-
-  /**
-   * <p>Metadata about each object returned.</p>
-   */
-  Contents?: _Object[];
 
   /**
    * <p>All of the keys rolled up in a common prefix count as a single return when calculating the number of returns. </p>
@@ -7129,20 +7582,6 @@ export interface ListObjectsOutput {
    *          <p>For example, if the prefix is notes/ and the delimiter is a slash (/) as in notes/summer/july, the common prefix is notes/summer/. All of the keys that roll up into a common prefix count as a single return when calculating the number of returns.</p>
    */
   CommonPrefixes?: CommonPrefix[];
-
-  /**
-   * <p>The maximum number of keys returned in the response body.</p>
-   */
-  MaxKeys?: number;
-
-  /**
-   * <p>Causes keys that contain the same string between the prefix and the first occurrence of
-   *          the delimiter to be rolled up into a single result element in the
-   *             <code>CommonPrefixes</code> collection. These rolled-up keys are not returned elsewhere
-   *          in the response. Each rolled-up result counts as only one return against the
-   *             <code>MaxKeys</code> value.</p>
-   */
-  Delimiter?: string;
 }
 
 export namespace ListObjectsOutput {
@@ -7153,9 +7592,14 @@ export namespace ListObjectsOutput {
 
 export interface ListObjectsRequest {
   /**
-   * <p>Confirms that the requester knows that she or he will be charged for the list objects request. Bucket owners need not specify this parameter in their requests.</p>
+   * <p>Sets the maximum number of keys returned in the response. By default the API returns up to 1,000 key names. The response might contain fewer keys but will never contain more. </p>
    */
-  RequestPayer?: RequestPayer | string;
+  MaxKeys?: number;
+
+  /**
+   * <p>The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP <code>403 (Access Denied)</code> error.</p>
+   */
+  ExpectedBucketOwner?: string;
 
   /**
    * <p>Specifies the key to start with when listing objects in a bucket.</p>
@@ -7168,24 +7612,26 @@ export interface ListObjectsRequest {
   Prefix?: string;
 
   /**
+   * <p>A delimiter is a character you use to group keys.</p>
+   */
+  Delimiter?: string;
+
+  /**
    * <p>The name of the bucket containing the objects.</p>
+   *          <p>When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this operation with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html">Using Access Points</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
+   *          <p>When using this API with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com. When using this operation using S3 on Outposts through the AWS SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html">Using S3 on Outposts</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
    */
   Bucket: string | undefined;
+
+  /**
+   * <p>Confirms that the requester knows that she or he will be charged for the list objects request. Bucket owners need not specify this parameter in their requests.</p>
+   */
+  RequestPayer?: RequestPayer | string;
 
   /**
    * <p>Requests Amazon S3 to encode the object keys in the response and specifies the encoding method to use. An object key may contain any Unicode character; however, XML 1.0 parser cannot parse some characters, such as characters with an ASCII value from 0 to 10. For characters that are not supported in XML 1.0, you can add this parameter to request that Amazon S3 encode the keys in the response.</p>
    */
   EncodingType?: EncodingType | string;
-
-  /**
-   * <p>Sets the maximum number of keys returned in the response. By default the API returns up to 1,000 key names. The response might contain fewer keys but will never contain more. </p>
-   */
-  MaxKeys?: number;
-
-  /**
-   * <p>A delimiter is a character you use to group keys.</p>
-   */
-  Delimiter?: string;
 }
 
 export namespace ListObjectsRequest {
@@ -7196,15 +7642,45 @@ export namespace ListObjectsRequest {
 
 export interface ListObjectsV2Output {
   /**
-   * <p>If StartAfter was sent with the request, it is included in the response.</p>
+   * <p>Causes keys that contain the same string between the prefix and the first occurrence of the
+   *          delimiter to be rolled up into a single result element in the CommonPrefixes collection.
+   *          These rolled-up keys are not returned elsewhere in the response. Each rolled-up result
+   *          counts as only one return against the <code>MaxKeys</code> value.</p>
    */
-  StartAfter?: string;
+  Delimiter?: string;
+
+  /**
+   * <p>Set to false if all of the results were returned. Set to true if more keys are available to return. If the number of results exceeds that specified by MaxKeys, all of the results might not be returned.</p>
+   */
+  IsTruncated?: boolean;
+
+  /**
+   * <p>The bucket name.</p>
+   *          <p>When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this operation with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html">Using Access Points</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
+   *          <p>When using this API with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com. When using this operation using S3 on Outposts through the AWS SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html">Using S3 on Outposts</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>Encoding type used by Amazon S3 to encode object key names in the XML response.</p>
+   *
+   *          <p>If you specify the encoding-type request parameter, Amazon S3 includes this element in the response, and returns encoded key name values in the following response elements:</p>
+   *
+   *          <p>
+   *             <code>Delimiter, Prefix, Key,</code> and <code>StartAfter</code>.</p>
+   */
+  EncodingType?: EncodingType | string;
 
   /**
    * <p>
-   *       Keys that begin with the indicated prefix.</p>
+   *       If ContinuationToken was sent with the request, it is included in the response.</p>
    */
-  Prefix?: string;
+  ContinuationToken?: string;
+
+  /**
+   * <p>Metadata about each object returned.</p>
+   */
+  Contents?: _Object[];
 
   /**
    * <p>All of the keys rolled up into a common prefix count as a single return when calculating the number of returns.</p>
@@ -7222,48 +7698,9 @@ export interface ListObjectsV2Output {
   CommonPrefixes?: CommonPrefix[];
 
   /**
-   * <p>Sets the maximum number of keys returned in the response. By default the API returns up to 1,000 key names. The response might contain fewer keys but will never contain more.</p>
+   * <p>If StartAfter was sent with the request, it is included in the response.</p>
    */
-  MaxKeys?: number;
-
-  /**
-   * <p>Causes keys that contain the same string between the prefix and the first occurrence of the
-   *          delimiter to be rolled up into a single result element in the CommonPrefixes collection.
-   *          These rolled-up keys are not returned elsewhere in the response. Each rolled-up result
-   *          counts as only one return against the <code>MaxKeys</code> value.</p>
-   */
-  Delimiter?: string;
-
-  /**
-   * <p>KeyCount is the number of keys returned with this request. KeyCount will always be less than equals to MaxKeys field. Say you ask for 50 keys, your result will include less than equals 50 keys </p>
-   */
-  KeyCount?: number;
-
-  /**
-   * <p>Set to false if all of the results were returned. Set to true if more keys are available to return. If the number of results exceeds that specified by MaxKeys, all of the results might not be returned.</p>
-   */
-  IsTruncated?: boolean;
-
-  /**
-   * <p>Metadata about each object returned.</p>
-   */
-  Contents?: _Object[];
-
-  /**
-   * <p>
-   *       If ContinuationToken was sent with the request, it is included in the response.</p>
-   */
-  ContinuationToken?: string;
-
-  /**
-   * <p>Encoding type used by Amazon S3 to encode object key names in the XML response.</p>
-   *
-   *          <p>If you specify the encoding-type request parameter, Amazon S3 includes this element in the response, and returns encoded key name values in the following response elements:</p>
-   *
-   *          <p>
-   *             <code>Delimiter, Prefix, Key,</code> and <code>StartAfter</code>.</p>
-   */
-  EncodingType?: EncodingType | string;
+  StartAfter?: string;
 
   /**
    * <p>
@@ -7275,10 +7712,20 @@ export interface ListObjectsV2Output {
   NextContinuationToken?: string;
 
   /**
-   * <p>Bucket name.  </p>
-   *          <p>When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this operation using an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html">Using Access Points</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
+   * <p>Sets the maximum number of keys returned in the response. By default the API returns up to 1,000 key names. The response might contain fewer keys but will never contain more.</p>
    */
-  Name?: string;
+  MaxKeys?: number;
+
+  /**
+   * <p>KeyCount is the number of keys returned with this request. KeyCount will always be less than equals to MaxKeys field. Say you ask for 50 keys, your result will include less than equals 50 keys </p>
+   */
+  KeyCount?: number;
+
+  /**
+   * <p>
+   *       Keys that begin with the indicated prefix.</p>
+   */
+  Prefix?: string;
 }
 
 export namespace ListObjectsV2Output {
@@ -7289,19 +7736,14 @@ export namespace ListObjectsV2Output {
 
 export interface ListObjectsV2Request {
   /**
-   * <p>Confirms that the requester knows that she or he will be charged for the list objects request in V2 style. Bucket owners need not specify this parameter in their requests.</p>
+   * <p>ContinuationToken indicates Amazon S3 that the list is being continued on this bucket with a token. ContinuationToken is obfuscated and is not a real key.</p>
    */
-  RequestPayer?: RequestPayer | string;
+  ContinuationToken?: string;
 
   /**
-   * <p>Sets the maximum number of keys returned in the response. By default the API returns up to 1,000 key names. The response might contain fewer keys but will never contain more.</p>
+   * <p>The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP <code>403 (Access Denied)</code> error.</p>
    */
-  MaxKeys?: number;
-
-  /**
-   * <p>StartAfter is where you want Amazon S3 to start listing from. Amazon S3 starts listing after this specified key. StartAfter can be any key in the bucket.</p>
-   */
-  StartAfter?: string;
+  ExpectedBucketOwner?: string;
 
   /**
    * <p>The owner field is not present in listV2 by default, if you want to return owner field with
@@ -7310,9 +7752,31 @@ export interface ListObjectsV2Request {
   FetchOwner?: boolean;
 
   /**
+   * <p>Encoding type used by Amazon S3 to encode object keys in the response.</p>
+   */
+  EncodingType?: EncodingType | string;
+
+  /**
+   * <p>Confirms that the requester knows that she or he will be charged for the list objects request in V2 style. Bucket owners need not specify this parameter in their requests.</p>
+   */
+  RequestPayer?: RequestPayer | string;
+
+  /**
    * <p>Limits the response to keys that begin with the specified prefix.</p>
    */
   Prefix?: string;
+
+  /**
+   * <p>StartAfter is where you want Amazon S3 to start listing from. Amazon S3 starts listing after this specified key. StartAfter can be any key in the bucket.</p>
+   */
+  StartAfter?: string;
+
+  /**
+   * <p>Bucket name to list.  </p>
+   *          <p>When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this operation with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html">Using Access Points</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
+   *          <p>When using this API with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com. When using this operation using S3 on Outposts through the AWS SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html">Using S3 on Outposts</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
+   */
+  Bucket: string | undefined;
 
   /**
    * <p>A delimiter is a character you use to group keys.</p>
@@ -7320,20 +7784,9 @@ export interface ListObjectsV2Request {
   Delimiter?: string;
 
   /**
-   * <p>Bucket name to list.  </p>
-   *          <p>When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this operation using an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html">Using Access Points</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
+   * <p>Sets the maximum number of keys returned in the response. By default the API returns up to 1,000 key names. The response might contain fewer keys but will never contain more.</p>
    */
-  Bucket: string | undefined;
-
-  /**
-   * <p>ContinuationToken indicates Amazon S3 that the list is being continued on this bucket with a token. ContinuationToken is obfuscated and is not a real key.</p>
-   */
-  ContinuationToken?: string;
-
-  /**
-   * <p>Encoding type used by Amazon S3 to encode object keys in the response.</p>
-   */
-  EncodingType?: EncodingType | string;
+  MaxKeys?: number;
 }
 
 export namespace ListObjectsV2Request {
@@ -7357,9 +7810,9 @@ export interface DeleteMarkerEntry {
   LastModified?: Date;
 
   /**
-   * <p>The account that created the delete marker.></p>
+   * <p>The object key.</p>
    */
-  Owner?: Owner;
+  Key?: string;
 
   /**
    * <p>Specifies whether the object is (true) or is not (false) the latest version of an object.</p>
@@ -7367,9 +7820,9 @@ export interface DeleteMarkerEntry {
   IsLatest?: boolean;
 
   /**
-   * <p>The object key.</p>
+   * <p>The account that created the delete marker.></p>
    */
-  Key?: string;
+  Owner?: Owner;
 }
 
 export namespace DeleteMarkerEntry {
@@ -7385,31 +7838,6 @@ export type ObjectVersionStorageClass = "STANDARD";
  */
 export interface ObjectVersion {
   /**
-   * <p>The class of storage used to store the object.</p>
-   */
-  StorageClass?: ObjectVersionStorageClass | string;
-
-  /**
-   * <p>Specifies whether the object is (true) or is not (false) the latest version of an object.</p>
-   */
-  IsLatest?: boolean;
-
-  /**
-   * <p>Specifies the owner of the object.</p>
-   */
-  Owner?: Owner;
-
-  /**
-   * <p>The entity tag is an MD5 hash of that version of the object.</p>
-   */
-  ETag?: string;
-
-  /**
-   * <p>Version ID of an object.</p>
-   */
-  VersionId?: string;
-
-  /**
    * <p>Size in bytes of the object.</p>
    */
   Size?: number;
@@ -7420,9 +7848,34 @@ export interface ObjectVersion {
   Key?: string;
 
   /**
+   * <p>The class of storage used to store the object.</p>
+   */
+  StorageClass?: ObjectVersionStorageClass | string;
+
+  /**
+   * <p>Specifies the owner of the object.</p>
+   */
+  Owner?: Owner;
+
+  /**
+   * <p>Specifies whether the object is (true) or is not (false) the latest version of an object.</p>
+   */
+  IsLatest?: boolean;
+
+  /**
+   * <p>The entity tag is an MD5 hash of that version of the object.</p>
+   */
+  ETag?: string;
+
+  /**
    * <p>Date and time the object was last modified.</p>
    */
   LastModified?: Date;
+
+  /**
+   * <p>Version ID of an object.</p>
+   */
+  VersionId?: string;
 }
 
 export namespace ObjectVersion {
@@ -7433,40 +7886,18 @@ export namespace ObjectVersion {
 
 export interface ListObjectVersionsOutput {
   /**
-   * <p>Container for an object that is a delete marker.</p>
-   */
-  DeleteMarkers?: DeleteMarkerEntry[];
-
-  /**
-   * <p>All of the keys rolled up into a common prefix count as a single return when calculating the number of returns.</p>
-   */
-  CommonPrefixes?: CommonPrefix[];
-
-  /**
-   * <p>Selects objects that start with the value supplied by this parameter.</p>
-   */
-  Prefix?: string;
-
-  /**
-   * <p>When the number of responses exceeds the value of <code>MaxKeys</code>,
-   *             <code>NextKeyMarker</code> specifies the first key not returned that satisfies the
-   *          search criteria. Use this value for the key-marker request parameter in a subsequent
-   *          request.</p>
-   */
-  NextKeyMarker?: string;
-
-  /**
-   * <p>Bucket name.</p>
+   * <p>The bucket name.</p>
    */
   Name?: string;
 
   /**
-   * <p>A flag that indicates whether Amazon S3 returned all of the results that satisfied the search
-   *          criteria. If your results were truncated, you can make a follow-up paginated request using
-   *          the NextKeyMarker and NextVersionIdMarker response parameters as a starting place in
-   *          another request to return the rest of the results.</p>
+   * <p>The delimiter grouping the included keys. A delimiter is a character that you specify to
+   *          group keys. All keys that contain the same string between the prefix and the first
+   *          occurrence of the delimiter are grouped under a single result element in
+   *             <code>CommonPrefixes</code>. These groups are counted as one result against the max-keys
+   *          limitation. These keys are not returned elsewhere in the response.</p>
    */
-  IsTruncated?: boolean;
+  Delimiter?: string;
 
   /**
    * <p>
@@ -7480,11 +7911,6 @@ export interface ListObjectVersionsOutput {
   EncodingType?: EncodingType | string;
 
   /**
-   * <p>Marks the last version of the key returned in a truncated response.</p>
-   */
-  VersionIdMarker?: string;
-
-  /**
    * <p>When the number of responses exceeds the value of <code>MaxKeys</code>,
    *             <code>NextVersionIdMarker</code> specifies the first object version not returned that
    *          satisfies the search criteria. Use this value for the version-id-marker request parameter
@@ -7493,28 +7919,55 @@ export interface ListObjectVersionsOutput {
   NextVersionIdMarker?: string;
 
   /**
+   * <p>When the number of responses exceeds the value of <code>MaxKeys</code>,
+   *             <code>NextKeyMarker</code> specifies the first key not returned that satisfies the
+   *          search criteria. Use this value for the key-marker request parameter in a subsequent
+   *          request.</p>
+   */
+  NextKeyMarker?: string;
+
+  /**
+   * <p>All of the keys rolled up into a common prefix count as a single return when calculating the number of returns.</p>
+   */
+  CommonPrefixes?: CommonPrefix[];
+
+  /**
+   * <p>Marks the last version of the key returned in a truncated response.</p>
+   */
+  VersionIdMarker?: string;
+
+  /**
+   * <p>A flag that indicates whether Amazon S3 returned all of the results that satisfied the search
+   *          criteria. If your results were truncated, you can make a follow-up paginated request using
+   *          the NextKeyMarker and NextVersionIdMarker response parameters as a starting place in
+   *          another request to return the rest of the results.</p>
+   */
+  IsTruncated?: boolean;
+
+  /**
    * <p>Specifies the maximum number of objects to return.</p>
    */
   MaxKeys?: number;
 
   /**
-   * <p>The delimiter grouping the included keys. A delimiter is a character that you specify to
-   *          group keys. All keys that contain the same string between the prefix and the first
-   *          occurrence of the delimiter are grouped under a single result element in
-   *             <code>CommonPrefixes</code>. These groups are counted as one result against the max-keys
-   *          limitation. These keys are not returned elsewhere in the response.</p>
+   * <p>Selects objects that start with the value supplied by this parameter.</p>
    */
-  Delimiter?: string;
-
-  /**
-   * <p>Marks the last key returned in a truncated response.</p>
-   */
-  KeyMarker?: string;
+  Prefix?: string;
 
   /**
    * <p>Container for version information.</p>
    */
   Versions?: ObjectVersion[];
+
+  /**
+   * <p>Container for an object that is a delete marker.</p>
+   */
+  DeleteMarkers?: DeleteMarkerEntry[];
+
+  /**
+   * <p>Marks the last key returned in a truncated response.</p>
+   */
+  KeyMarker?: string;
 }
 
 export namespace ListObjectVersionsOutput {
@@ -7524,16 +7977,6 @@ export namespace ListObjectVersionsOutput {
 }
 
 export interface ListObjectVersionsRequest {
-  /**
-   * <p>Use this parameter to select only those keys that begin with the specified prefix. You can use prefixes to separate a bucket into different groupings of keys. (You can think of using prefix to make groups in the same way you'd use a folder in a file system.) You can use prefix with delimiter to roll up numerous objects into a single result under CommonPrefixes. </p>
-   */
-  Prefix?: string;
-
-  /**
-   * <p>Requests Amazon S3 to encode the object keys in the response and specifies the encoding method to use. An object key may contain any Unicode character; however, XML 1.0 parser cannot parse some characters, such as characters with an ASCII value from 0 to 10. For characters that are not supported in XML 1.0, you can add this parameter to request that Amazon S3 encode the keys in the response.</p>
-   */
-  EncodingType?: EncodingType | string;
-
   /**
    * <p>Specifies the key to start with when listing objects in a bucket.</p>
    */
@@ -7545,20 +7988,34 @@ export interface ListObjectVersionsRequest {
   MaxKeys?: number;
 
   /**
-   * <p>Specifies the object version you want to start listing from.</p>
+   * <p>The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP <code>403 (Access Denied)</code> error.</p>
    */
-  VersionIdMarker?: string;
-
-  /**
-   * <p>The bucket  name that contains the objects.  </p>
-   *          <p>When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this operation using an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html">Using Access Points</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
-   */
-  Bucket: string | undefined;
+  ExpectedBucketOwner?: string;
 
   /**
    * <p>A delimiter is a character that you specify to group keys. All keys that contain the same string between the <code>prefix</code> and the first occurrence of the delimiter are grouped under a single result element in CommonPrefixes. These groups are counted as one result against the max-keys limitation. These keys are not returned elsewhere in the response.</p>
    */
   Delimiter?: string;
+
+  /**
+   * <p>Specifies the object version you want to start listing from.</p>
+   */
+  VersionIdMarker?: string;
+
+  /**
+   * <p>The bucket name that contains the objects.  </p>
+   */
+  Bucket: string | undefined;
+
+  /**
+   * <p>Use this parameter to select only those keys that begin with the specified prefix. You can use prefixes to separate a bucket into different groupings of keys. (You can think of using prefix to make groups in the same way you'd use a folder in a file system.) You can use prefix with delimiter to roll up numerous objects into a single result under CommonPrefixes. </p>
+   */
+  Prefix?: string;
+
+  /**
+   * <p>Requests Amazon S3 to encode the object keys in the response and specifies the encoding method to use. An object key may contain any Unicode character; however, XML 1.0 parser cannot parse some characters, such as characters with an ASCII value from 0 to 10. For characters that are not supported in XML 1.0, you can add this parameter to request that Amazon S3 encode the keys in the response.</p>
+   */
+  EncodingType?: EncodingType | string;
 }
 
 export namespace ListObjectVersionsRequest {
@@ -7572,14 +8029,9 @@ export namespace ListObjectVersionsRequest {
  */
 export interface Part {
   /**
-   * <p>Entity tag returned when the part was uploaded.</p>
+   * <p>Size in bytes of the uploaded part data.</p>
    */
-  ETag?: string;
-
-  /**
-   * <p>Part number identifying the part. This is a positive integer between 1 and 10,000.</p>
-   */
-  PartNumber?: number;
+  Size?: number;
 
   /**
    * <p>Date and time at which the part was uploaded.</p>
@@ -7587,9 +8039,14 @@ export interface Part {
   LastModified?: Date;
 
   /**
-   * <p>Size in bytes of the uploaded part data.</p>
+   * <p>Part number identifying the part. This is a positive integer between 1 and 10,000.</p>
    */
-  Size?: number;
+  PartNumber?: number;
+
+  /**
+   * <p>Entity tag returned when the part was uploaded.</p>
+   */
+  ETag?: string;
 }
 
 export namespace Part {
@@ -7600,12 +8057,16 @@ export namespace Part {
 
 export interface ListPartsOutput {
   /**
-   * <p>Container element that identifies who initiated the multipart upload. If the initiator is an
-   *          AWS account, this element provides the same information as the <code>Owner</code> element.
-   *          If the initiator is an IAM User, this element provides the user ARN and display
-   *          name.</p>
+   * <p>Class of storage (STANDARD or REDUCED_REDUNDANCY) used to store the uploaded object.</p>
    */
-  Initiator?: Initiator;
+  StorageClass?: StorageClass | string;
+
+  /**
+   * <p>This header is returned along with the <code>x-amz-abort-date</code> header. It identifies
+   *          applicable lifecycle configuration rule that defines the action to abort incomplete
+   *          multipart uploads.</p>
+   */
+  AbortRuleId?: string;
 
   /**
    * <p>
@@ -7616,7 +8077,7 @@ export interface ListPartsOutput {
   /**
    * <p>When a list is truncated, this element specifies the last part in the list, as well as the value to use for the part-number-marker request parameter in a subsequent request.</p>
    */
-  PartNumberMarker?: number;
+  NextPartNumberMarker?: number;
 
   /**
    * <p>Object key for which the multipart upload was initiated.</p>
@@ -7624,37 +8085,27 @@ export interface ListPartsOutput {
   Key?: string;
 
   /**
+   * <p>When a list is truncated, this element specifies the last part in the list, as well as the value to use for the part-number-marker request parameter in a subsequent request.</p>
+   */
+  PartNumberMarker?: number;
+
+  /**
+   * <p>Container element that identifies who initiated the multipart upload. If the initiator is an
+   *          AWS account, this element provides the same information as the <code>Owner</code> element.
+   *          If the initiator is an IAM User, this element provides the user ARN and display
+   *          name.</p>
+   */
+  Initiator?: Initiator;
+
+  /**
+   * <p>If present, indicates that the requester was successfully charged for the request.</p>
+   */
+  RequestCharged?: RequestCharged | string;
+
+  /**
    * <p>Maximum number of parts that were allowed in the response.</p>
    */
   MaxParts?: number;
-
-  /**
-   * <p> Container for elements related to a particular part. A response can contain zero or
-   *          more <code>Part</code> elements.</p>
-   */
-  Parts?: Part[];
-
-  /**
-   * <p>Upload ID identifying the multipart upload whose parts are being listed.</p>
-   */
-  UploadId?: string;
-
-  /**
-   * <p>Name of the bucket to which the multipart upload was initiated.</p>
-   */
-  Bucket?: string;
-
-  /**
-   * <p>This header is returned along with the <code>x-amz-abort-date</code> header. It identifies
-   *          applicable lifecycle configuration rule that defines the action to abort incomplete
-   *          multipart uploads.</p>
-   */
-  AbortRuleId?: string;
-
-  /**
-   * <p>Class of storage (STANDARD or REDUCED_REDUNDANCY) used to store the uploaded object.</p>
-   */
-  StorageClass?: StorageClass | string;
 
   /**
    * <p>If the bucket has a lifecycle rule configured with an action to abort incomplete multipart uploads and the prefix in the lifecycle rule matches the object name in the request, then the response includes this header indicating when the initiated multipart upload will become eligible for abort operation. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuoverview.html#mpu-abort-incomplete-mpu-lifecycle-config">Aborting Incomplete Multipart Uploads Using a Bucket Lifecycle Policy</a>.</p>
@@ -7665,20 +8116,26 @@ export interface ListPartsOutput {
   AbortDate?: Date;
 
   /**
-   * <p>When a list is truncated, this element specifies the last part in the list, as well as the value to use for the part-number-marker request parameter in a subsequent request.</p>
+   * <p> Container for elements related to a particular part. A response can contain zero or
+   *          more <code>Part</code> elements.</p>
    */
-  NextPartNumberMarker?: number;
+  Parts?: Part[];
 
   /**
-   * <p>If present, indicates that the requester was successfully charged for the request.</p>
+   * <p>The name of the bucket to which the multipart upload was initiated.</p>
    */
-  RequestCharged?: RequestCharged | string;
+  Bucket?: string;
 
   /**
    * <p>
    *       Indicates whether the returned list of parts is truncated. A true value indicates that the list was truncated. A list can be truncated if the number of parts exceeds the limit returned in the MaxParts element.</p>
    */
   IsTruncated?: boolean;
+
+  /**
+   * <p>Upload ID identifying the multipart upload whose parts are being listed.</p>
+   */
+  UploadId?: string;
 }
 
 export namespace ListPartsOutput {
@@ -7689,26 +8146,6 @@ export namespace ListPartsOutput {
 
 export interface ListPartsRequest {
   /**
-   * <p>Specifies the part after which listing should begin. Only parts with higher part numbers will be listed.</p>
-   */
-  PartNumberMarker?: number;
-
-  /**
-   * <p>Sets the maximum number of parts to return.</p>
-   */
-  MaxParts?: number;
-
-  /**
-   * <p>Upload ID identifying the multipart upload whose parts are being listed.</p>
-   */
-  UploadId: string | undefined;
-
-  /**
-   * <p>Object key for which the multipart upload was initiated.</p>
-   */
-  Key: string | undefined;
-
-  /**
    * <p>Confirms that the requester knows that they will be charged for the request. Bucket
    *          owners need not specify this parameter in their requests. For information about downloading
    *          objects from requester pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in Requestor Pays Buckets</a> in the
@@ -7717,10 +8154,36 @@ export interface ListPartsRequest {
   RequestPayer?: RequestPayer | string;
 
   /**
-   * <p>Name of the bucket to which the parts are being uploaded. </p>
-   *          <p>When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this operation using an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html">Using Access Points</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
+   * <p>Upload ID identifying the multipart upload whose parts are being listed.</p>
+   */
+  UploadId: string | undefined;
+
+  /**
+   * <p>The name of the bucket to which the parts are being uploaded. </p>
+   *          <p>When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this operation with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html">Using Access Points</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
+   *          <p>When using this API with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com. When using this operation using S3 on Outposts through the AWS SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html">Using S3 on Outposts</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
    */
   Bucket: string | undefined;
+
+  /**
+   * <p>Sets the maximum number of parts to return.</p>
+   */
+  MaxParts?: number;
+
+  /**
+   * <p>Specifies the part after which listing should begin. Only parts with higher part numbers will be listed.</p>
+   */
+  PartNumberMarker?: number;
+
+  /**
+   * <p>Object key for which the multipart upload was initiated.</p>
+   */
+  Key: string | undefined;
+
+  /**
+   * <p>The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP <code>403 (Access Denied)</code> error.</p>
+   */
+  ExpectedBucketOwner?: string;
 }
 
 export namespace ListPartsRequest {
@@ -7731,9 +8194,14 @@ export namespace ListPartsRequest {
 
 export interface PutBucketAccelerateConfigurationRequest {
   /**
-   * <p>Name of the bucket for which the accelerate configuration is set.</p>
+   * <p>The name of the bucket for which the accelerate configuration is set.</p>
    */
   Bucket: string | undefined;
+
+  /**
+   * <p>The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP <code>403 (Access Denied)</code> error.</p>
+   */
+  ExpectedBucketOwner?: string;
 
   /**
    * <p>Container for setting the transfer acceleration state.</p>
@@ -7749,19 +8217,24 @@ export namespace PutBucketAccelerateConfigurationRequest {
 
 export interface PutBucketAclRequest {
   /**
-   * <p>Contains the elements that set the ACL permissions for an object per grantee.</p>
+   * <p>Allows grantee the read, write, read ACP, and write ACP permissions on the bucket.</p>
    */
-  AccessControlPolicy?: AccessControlPolicy;
+  GrantFullControl?: string;
 
   /**
-   * <p>Allows grantee to list the objects in the bucket.</p>
+   * <p>The bucket to which to apply the ACL.</p>
    */
-  GrantRead?: string;
+  Bucket: string | undefined;
 
   /**
    * <p>Allows grantee to read the bucket ACL.</p>
    */
   GrantReadACP?: string;
+
+  /**
+   * <p>Allows grantee to create, overwrite, and delete any object in the bucket.</p>
+   */
+  GrantWrite?: string;
 
   /**
    * <p>The base64-encoded 128-bit MD5 digest of the data. This header must be used as a message integrity
@@ -7777,24 +8250,24 @@ export interface PutBucketAclRequest {
   ACL?: BucketCannedACL | string;
 
   /**
-   * <p>Allows grantee to create, overwrite, and delete any object in the bucket.</p>
-   */
-  GrantWrite?: string;
-
-  /**
-   * <p>The bucket to which to apply the ACL.</p>
-   */
-  Bucket: string | undefined;
-
-  /**
-   * <p>Allows grantee the read, write, read ACP, and write ACP permissions on the bucket.</p>
-   */
-  GrantFullControl?: string;
-
-  /**
    * <p>Allows grantee to write the ACL for the applicable bucket.</p>
    */
   GrantWriteACP?: string;
+
+  /**
+   * <p>Contains the elements that set the ACL permissions for an object per grantee.</p>
+   */
+  AccessControlPolicy?: AccessControlPolicy;
+
+  /**
+   * <p>Allows grantee to list the objects in the bucket.</p>
+   */
+  GrantRead?: string;
+
+  /**
+   * <p>The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP <code>403 (Access Denied)</code> error.</p>
+   */
+  ExpectedBucketOwner?: string;
 }
 
 export namespace PutBucketAclRequest {
@@ -7810,14 +8283,19 @@ export interface PutBucketAnalyticsConfigurationRequest {
   Id: string | undefined;
 
   /**
+   * <p>The name of the bucket to which an analytics configuration is stored.</p>
+   */
+  Bucket: string | undefined;
+
+  /**
    * <p>The configuration and any analyses for the analytics filter.</p>
    */
   AnalyticsConfiguration: AnalyticsConfiguration | undefined;
 
   /**
-   * <p>The name of the bucket to which an analytics configuration is stored.</p>
+   * <p>The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP <code>403 (Access Denied)</code> error.</p>
    */
-  Bucket: string | undefined;
+  ExpectedBucketOwner?: string;
 }
 
 export namespace PutBucketAnalyticsConfigurationRequest {
@@ -7846,11 +8324,9 @@ export namespace CORSConfiguration {
 
 export interface PutBucketCorsRequest {
   /**
-   * <p>Describes the cross-origin access configuration for objects in an Amazon S3 bucket. For more
-   *          information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html">Enabling Cross-Origin Resource
-   *             Sharing</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
+   * <p>Specifies the bucket impacted by the <code>cors</code>configuration.</p>
    */
-  CORSConfiguration: CORSConfiguration | undefined;
+  Bucket: string | undefined;
 
   /**
    * <p>The base64-encoded 128-bit MD5 digest of the data. This header must be used as a message integrity
@@ -7861,9 +8337,16 @@ export interface PutBucketCorsRequest {
   ContentMD5?: string;
 
   /**
-   * <p>Specifies the bucket impacted by the <code>cors</code>configuration.</p>
+   * <p>Describes the cross-origin access configuration for objects in an Amazon S3 bucket. For more
+   *          information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html">Enabling Cross-Origin Resource
+   *             Sharing</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
    */
-  Bucket: string | undefined;
+  CORSConfiguration: CORSConfiguration | undefined;
+
+  /**
+   * <p>The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP <code>403 (Access Denied)</code> error.</p>
+   */
+  ExpectedBucketOwner?: string;
 }
 
 export namespace PutBucketCorsRequest {
@@ -7874,9 +8357,9 @@ export namespace PutBucketCorsRequest {
 
 export interface PutBucketEncryptionRequest {
   /**
-   * <p>Specifies the default server-side-encryption configuration.</p>
+   * <p>The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP <code>403 (Access Denied)</code> error.</p>
    */
-  ServerSideEncryptionConfiguration: ServerSideEncryptionConfiguration | undefined;
+  ExpectedBucketOwner?: string;
 
   /**
    * <p>The base64-encoded 128-bit MD5 digest of the server-side encryption configuration. This
@@ -7888,6 +8371,11 @@ export interface PutBucketEncryptionRequest {
    * <p>Specifies default encryption for a bucket using server-side encryption with Amazon S3-managed keys (SSE-S3) or customer master keys stored in AWS KMS (SSE-KMS). For information about the Amazon S3 default encryption feature, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html">Amazon S3 Default Bucket Encryption</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
    */
   Bucket: string | undefined;
+
+  /**
+   * <p>Specifies the default server-side-encryption configuration.</p>
+   */
+  ServerSideEncryptionConfiguration: ServerSideEncryptionConfiguration | undefined;
 }
 
 export namespace PutBucketEncryptionRequest {
@@ -7903,11 +8391,6 @@ export namespace PutBucketEncryptionRequest {
 
 export interface PutBucketInventoryConfigurationRequest {
   /**
-   * <p>Specifies the inventory configuration.</p>
-   */
-  InventoryConfiguration: InventoryConfiguration | undefined;
-
-  /**
    * <p>The name of the bucket where the inventory configuration will be stored.</p>
    */
   Bucket: string | undefined;
@@ -7916,6 +8399,16 @@ export interface PutBucketInventoryConfigurationRequest {
    * <p>The ID used to identify the inventory configuration.</p>
    */
   Id: string | undefined;
+
+  /**
+   * <p>Specifies the inventory configuration.</p>
+   */
+  InventoryConfiguration: InventoryConfiguration | undefined;
+
+  /**
+   * <p>The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP <code>403 (Access Denied)</code> error.</p>
+   */
+  ExpectedBucketOwner?: string;
 }
 
 export namespace PutBucketInventoryConfigurationRequest {
@@ -7947,14 +8440,19 @@ export namespace BucketLifecycleConfiguration {
 
 export interface PutBucketLifecycleConfigurationRequest {
   /**
+   * <p>Container for lifecycle rules. You can add as many as 1,000 rules.</p>
+   */
+  LifecycleConfiguration?: BucketLifecycleConfiguration;
+
+  /**
    * <p>The name of the bucket for which to set the configuration.</p>
    */
   Bucket: string | undefined;
 
   /**
-   * <p>Container for lifecycle rules. You can add as many as 1,000 rules.</p>
+   * <p>The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP <code>403 (Access Denied)</code> error.</p>
    */
-  LifecycleConfiguration?: BucketLifecycleConfiguration;
+  ExpectedBucketOwner?: string;
 }
 
 export namespace PutBucketLifecycleConfigurationRequest {
@@ -7983,6 +8481,16 @@ export namespace BucketLoggingStatus {
 
 export interface PutBucketLoggingRequest {
   /**
+   * <p>The name of the bucket for which to set the logging parameters.</p>
+   */
+  Bucket: string | undefined;
+
+  /**
+   * <p>The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP <code>403 (Access Denied)</code> error.</p>
+   */
+  ExpectedBucketOwner?: string;
+
+  /**
    * <p>Container for logging status information.</p>
    */
   BucketLoggingStatus: BucketLoggingStatus | undefined;
@@ -7991,11 +8499,6 @@ export interface PutBucketLoggingRequest {
    * <p>The MD5 hash of the <code>PutBucketLogging</code> request body.</p>
    */
   ContentMD5?: string;
-
-  /**
-   * <p>The name of the bucket for which to set the logging parameters.</p>
-   */
-  Bucket: string | undefined;
 }
 
 export namespace PutBucketLoggingRequest {
@@ -8005,6 +8508,11 @@ export namespace PutBucketLoggingRequest {
 }
 
 export interface PutBucketMetricsConfigurationRequest {
+  /**
+   * <p>The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP <code>403 (Access Denied)</code> error.</p>
+   */
+  ExpectedBucketOwner?: string;
+
   /**
    * <p>The name of the bucket for which the metrics configuration is set.</p>
    */
@@ -8029,6 +8537,11 @@ export namespace PutBucketMetricsConfigurationRequest {
 
 export interface PutBucketNotificationConfigurationRequest {
   /**
+   * <p>The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP <code>403 (Access Denied)</code> error.</p>
+   */
+  ExpectedBucketOwner?: string;
+
+  /**
    * <p>A container for specifying the notification configuration of the bucket. If this element is
    *       empty, notifications are turned off for the bucket.</p>
    */
@@ -8046,11 +8559,42 @@ export namespace PutBucketNotificationConfigurationRequest {
   });
 }
 
-export interface PutBucketPolicyRequest {
+export interface PutBucketOwnershipControlsRequest {
   /**
-   * <p>The name of the bucket.</p>
+   * <p>The name of the Amazon S3 bucket whose <code>OwnershipControls</code> you want to set.</p>
    */
   Bucket: string | undefined;
+
+  /**
+   * <p>The MD5 hash of the <code>OwnershipControls</code> request body. </p>
+   */
+  ContentMD5?: string;
+
+  /**
+   * <p>The <code>OwnershipControls</code> (BucketOwnerPreferred or ObjectWriter) that you want
+   *          to apply to this Amazon S3 bucket.</p>
+   */
+  OwnershipControls: OwnershipControls | undefined;
+
+  ExpectedBucketOwner?: string;
+}
+
+export namespace PutBucketOwnershipControlsRequest {
+  export const filterSensitiveLog = (obj: PutBucketOwnershipControlsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface PutBucketPolicyRequest {
+  /**
+   * <p>The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP <code>403 (Access Denied)</code> error.</p>
+   */
+  ExpectedBucketOwner?: string;
+
+  /**
+   * <p>The MD5 hash of the request body.</p>
+   */
+  ContentMD5?: string;
 
   /**
    * <p>The bucket policy as a JSON document.</p>
@@ -8058,14 +8602,14 @@ export interface PutBucketPolicyRequest {
   Policy: string | undefined;
 
   /**
+   * <p>The name of the bucket.</p>
+   */
+  Bucket: string | undefined;
+
+  /**
    * <p>Set this parameter to true to confirm that you want to remove your permissions to change this bucket policy in the future.</p>
    */
   ConfirmRemoveSelfBucketAccess?: boolean;
-
-  /**
-   * <p>The MD5 hash of the request body.</p>
-   */
-  ContentMD5?: string;
 }
 
 export namespace PutBucketPolicyRequest {
@@ -8076,9 +8620,9 @@ export namespace PutBucketPolicyRequest {
 
 export interface PutBucketReplicationRequest {
   /**
-   * <p>The name of the bucket</p>
+   * <p></p>
    */
-  Bucket: string | undefined;
+  Token?: string;
 
   /**
    * <p>A container for replication rules. You can add up to 1,000 rules. The maximum size of a
@@ -8087,14 +8631,19 @@ export interface PutBucketReplicationRequest {
   ReplicationConfiguration: ReplicationConfiguration | undefined;
 
   /**
+   * <p>The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP <code>403 (Access Denied)</code> error.</p>
+   */
+  ExpectedBucketOwner?: string;
+
+  /**
    * <p>The base64-encoded 128-bit MD5 digest of the data. You must use this header as a message integrity check to verify that the request body was not corrupted in transit. For more information, see <a href="http://www.ietf.org/rfc/rfc1864.txt">RFC 1864</a>.</p>
    */
   ContentMD5?: string;
 
   /**
-   * <p></p>
+   * <p>The name of the bucket</p>
    */
-  Token?: string;
+  Bucket: string | undefined;
 }
 
 export namespace PutBucketReplicationRequest {
@@ -8121,6 +8670,11 @@ export namespace RequestPaymentConfiguration {
 
 export interface PutBucketRequestPaymentRequest {
   /**
+   * <p>The bucket name.</p>
+   */
+  Bucket: string | undefined;
+
+  /**
    * <p>Container for Payer.</p>
    */
   RequestPaymentConfiguration: RequestPaymentConfiguration | undefined;
@@ -8131,9 +8685,9 @@ export interface PutBucketRequestPaymentRequest {
   ContentMD5?: string;
 
   /**
-   * <p>The bucket name.</p>
+   * <p>The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP <code>403 (Access Denied)</code> error.</p>
    */
-  Bucket: string | undefined;
+  ExpectedBucketOwner?: string;
 }
 
 export namespace PutBucketRequestPaymentRequest {
@@ -8160,9 +8714,9 @@ export namespace Tagging {
 
 export interface PutBucketTaggingRequest {
   /**
-   * <p>The base64-encoded 128-bit MD5 digest of the data. You must use this header as a message integrity check to verify that the request body was not corrupted in transit. For more information, see <a href="http://www.ietf.org/rfc/rfc1864.txt">RFC 1864</a>.</p>
+   * <p>The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP <code>403 (Access Denied)</code> error.</p>
    */
-  ContentMD5?: string;
+  ExpectedBucketOwner?: string;
 
   /**
    * <p>The bucket name.</p>
@@ -8173,6 +8727,11 @@ export interface PutBucketTaggingRequest {
    * <p>Container for the <code>TagSet</code> and <code>Tag</code> elements.</p>
    */
   Tagging: Tagging | undefined;
+
+  /**
+   * <p>The base64-encoded 128-bit MD5 digest of the data. You must use this header as a message integrity check to verify that the request body was not corrupted in transit. For more information, see <a href="http://www.ietf.org/rfc/rfc1864.txt">RFC 1864</a>.</p>
+   */
+  ContentMD5?: string;
 }
 
 export namespace PutBucketTaggingRequest {
@@ -8189,14 +8748,14 @@ export type MFADelete = "Disabled" | "Enabled";
  */
 export interface VersioningConfiguration {
   /**
-   * <p>Specifies whether MFA delete is enabled in the bucket versioning configuration. This element is only returned if the bucket has been configured with MFA delete. If the bucket has never been so configured, this element is not returned.</p>
-   */
-  MFADelete?: MFADelete | string;
-
-  /**
    * <p>The versioning state of the bucket.</p>
    */
   Status?: BucketVersioningStatus | string;
+
+  /**
+   * <p>Specifies whether MFA delete is enabled in the bucket versioning configuration. This element is only returned if the bucket has been configured with MFA delete. If the bucket has never been so configured, this element is not returned.</p>
+   */
+  MFADelete?: MFADelete | string;
 }
 
 export namespace VersioningConfiguration {
@@ -8207,9 +8766,9 @@ export namespace VersioningConfiguration {
 
 export interface PutBucketVersioningRequest {
   /**
-   * <p>The concatenation of the authentication device's serial number, a space, and the value that is displayed on your authentication device.</p>
+   * <p>>The base64-encoded 128-bit MD5 digest of the data. You must use this header as a message integrity check to verify that the request body was not corrupted in transit. For more information, see <a href="http://www.ietf.org/rfc/rfc1864.txt">RFC 1864</a>.</p>
    */
-  MFA?: string;
+  ContentMD5?: string;
 
   /**
    * <p>The bucket name.</p>
@@ -8217,14 +8776,19 @@ export interface PutBucketVersioningRequest {
   Bucket: string | undefined;
 
   /**
-   * <p>>The base64-encoded 128-bit MD5 digest of the data. You must use this header as a message integrity check to verify that the request body was not corrupted in transit. For more information, see <a href="http://www.ietf.org/rfc/rfc1864.txt">RFC 1864</a>.</p>
+   * <p>The concatenation of the authentication device's serial number, a space, and the value that is displayed on your authentication device.</p>
    */
-  ContentMD5?: string;
+  MFA?: string;
 
   /**
    * <p>Container for setting the versioning state.</p>
    */
   VersioningConfiguration: VersioningConfiguration | undefined;
+
+  /**
+   * <p>The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP <code>403 (Access Denied)</code> error.</p>
+   */
+  ExpectedBucketOwner?: string;
 }
 
 export namespace PutBucketVersioningRequest {
@@ -8238,14 +8802,9 @@ export namespace PutBucketVersioningRequest {
  */
 export interface WebsiteConfiguration {
   /**
-   * <p>Rules that define when a redirect is applied and the redirect behavior.</p>
+   * <p>The name of the error document for the website.</p>
    */
-  RoutingRules?: RoutingRule[];
-
-  /**
-   * <p>The name of the index document for the website.</p>
-   */
-  IndexDocument?: IndexDocument;
+  ErrorDocument?: ErrorDocument;
 
   /**
    * <p>The redirect behavior for every request to this bucket's website endpoint.</p>
@@ -8256,9 +8815,14 @@ export interface WebsiteConfiguration {
   RedirectAllRequestsTo?: RedirectAllRequestsTo;
 
   /**
-   * <p>The name of the error document for the website.</p>
+   * <p>The name of the index document for the website.</p>
    */
-  ErrorDocument?: ErrorDocument;
+  IndexDocument?: IndexDocument;
+
+  /**
+   * <p>Rules that define when a redirect is applied and the redirect behavior.</p>
+   */
+  RoutingRules?: RoutingRule[];
 }
 
 export namespace WebsiteConfiguration {
@@ -8269,9 +8833,14 @@ export namespace WebsiteConfiguration {
 
 export interface PutBucketWebsiteRequest {
   /**
-   * <p>The bucket name.</p>
+   * <p>Container for the request.</p>
    */
-  Bucket: string | undefined;
+  WebsiteConfiguration: WebsiteConfiguration | undefined;
+
+  /**
+   * <p>The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP <code>403 (Access Denied)</code> error.</p>
+   */
+  ExpectedBucketOwner?: string;
 
   /**
    * <p>The base64-encoded 128-bit MD5 digest of the data. You must use this header as a message integrity check to verify that the request body was not corrupted in transit. For more information, see <a href="http://www.ietf.org/rfc/rfc1864.txt">RFC 1864</a>.</p>
@@ -8279,9 +8848,9 @@ export interface PutBucketWebsiteRequest {
   ContentMD5?: string;
 
   /**
-   * <p>Container for the request.</p>
+   * <p>The bucket name.</p>
    */
-  WebsiteConfiguration: WebsiteConfiguration | undefined;
+  Bucket: string | undefined;
 }
 
 export namespace PutBucketWebsiteRequest {
@@ -8291,6 +8860,34 @@ export namespace PutBucketWebsiteRequest {
 }
 
 export interface PutObjectOutput {
+  /**
+   * <p>If present, specifies the AWS KMS Encryption Context to use for object encryption. The value of this header is a base64-encoded UTF-8 string holding JSON with the encryption context key-value pairs.</p>
+   */
+  SSEKMSEncryptionContext?: string;
+
+  /**
+   * <p>
+   *       If the expiration is configured for the object (see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketLifecycleConfiguration.html">PutBucketLifecycleConfiguration</a>), the response includes this header. It includes the expiry-date and rule-id key-value pairs that provide information about object expiration. The value of the rule-id is URL encoded.</p>
+   */
+  Expiration?: string;
+
+  /**
+   * <p>If server-side encryption with a customer-provided encryption key was requested, the response
+   *          will include this header to provide round-trip message integrity verification of the
+   *          customer-provided encryption key.</p>
+   */
+  SSECustomerKeyMD5?: string;
+
+  /**
+   * <p>Entity tag for the uploaded object.</p>
+   */
+  ETag?: string;
+
+  /**
+   * <p>If server-side encryption with a customer-provided encryption key was requested, the response will include this header confirming the encryption algorithm used.</p>
+   */
+  SSECustomerAlgorithm?: string;
+
   /**
    * <p>Version of the object.</p>
    */
@@ -8309,67 +8906,69 @@ export interface PutObjectOutput {
   SSEKMSKeyId?: string;
 
   /**
-   * <p>If server-side encryption with a customer-provided encryption key was requested, the response will include this header confirming the encryption algorithm used.</p>
-   */
-  SSECustomerAlgorithm?: string;
-
-  /**
-   * <p>If server-side encryption with a customer-provided encryption key was requested, the response
-   *          will include this header to provide round-trip message integrity verification of the
-   *          customer-provided encryption key.</p>
-   */
-  SSECustomerKeyMD5?: string;
-
-  /**
-   * <p>If present, specifies the AWS KMS Encryption Context to use for object encryption. The value of this header is a base64-encoded UTF-8 string holding JSON with the encryption context key-value pairs.</p>
-   */
-  SSEKMSEncryptionContext?: string;
-
-  /**
    * <p>If you specified server-side encryption either with an AWS KMS customer master key (CMK) or Amazon S3-managed encryption key in your PUT request, the response includes this header. It confirms the encryption algorithm that Amazon S3 used to encrypt the object.</p>
    */
   ServerSideEncryption?: ServerSideEncryption | string;
-
-  /**
-   * <p>Entity tag for the uploaded object.</p>
-   */
-  ETag?: string;
-
-  /**
-   * <p>
-   *       If the expiration is configured for the object (see <a>PutBucketLifecycleConfiguration</a>), the response includes this header. It includes the expiry-date and rule-id key-value pairs that provide information about object expiration. The value of the rule-id is URL encoded.</p>
-   */
-  Expiration?: string;
 }
 
 export namespace PutObjectOutput {
   export const filterSensitiveLog = (obj: PutObjectOutput): any => ({
     ...obj,
-    ...(obj.SSEKMSKeyId && { SSEKMSKeyId: SENSITIVE_STRING }),
     ...(obj.SSEKMSEncryptionContext && { SSEKMSEncryptionContext: SENSITIVE_STRING }),
+    ...(obj.SSEKMSKeyId && { SSEKMSKeyId: SENSITIVE_STRING }),
   });
 }
 
 export interface PutObjectRequest {
   /**
-   * <p>Object data.</p>
+   * <p>The bucket name to which the PUT operation was initiated. </p>
+   *          <p>When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this operation with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html">Using Access Points</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
+   *          <p>When using this API with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com. When using this operation using S3 on Outposts through the AWS SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html">Using S3 on Outposts</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
    */
-  Body?: Readable | ReadableStream | Blob;
+  Bucket: string | undefined;
 
   /**
-   * <p>If you don't specify, S3 Standard is the default storage class. Amazon S3 supports other storage classes.</p>
+   * <p>Gives the grantee READ, READ_ACP, and WRITE_ACP permissions on the object.</p>
+   *          <p>This action is not supported by Amazon S3 on Outposts.</p>
    */
-  StorageClass?: StorageClass | string;
+  GrantFullControl?: string;
 
   /**
-   * <p>The tag-set for the object. The tag-set must be encoded as URL Query parameters. (For example, "Key1=Value1")</p>
+   * <p>A map of metadata to store with the object in S3.</p>
    */
-  Tagging?: string;
+  Metadata?: { [key: string]: string };
 
   /**
-   * <p>Specifies the AWS KMS Encryption Context to use for object encryption. The value of this header is a base64-encoded UTF-8 string holding JSON with the encryption context key-value pairs.</p>
+   * <p>Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field. For more information, see <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11">http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11</a>.</p>
    */
-  SSEKMSEncryptionContext?: string;
+  ContentEncoding?: string;
+
+  /**
+   * <p>Confirms that the requester knows that they will be charged for the request. Bucket
+   *          owners need not specify this parameter in their requests. For information about downloading
+   *          objects from requester pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in Requestor Pays Buckets</a> in the
+   *             <i>Amazon S3 Developer Guide</i>.</p>
+   */
+  RequestPayer?: RequestPayer | string;
+
+  /**
+   * <p>Allows grantee to read the object ACL.</p>
+   *          <p>This action is not supported by Amazon S3 on Outposts.</p>
+   */
+  GrantReadACP?: string;
+
+  /**
+   * <p>Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses
+   *          this header for a message integrity check to ensure that the encryption key was transmitted
+   *          without error.</p>
+   */
+  SSECustomerKeyMD5?: string;
+
+  /**
+   * <p>
+   *       Can be used to specify caching behavior along the request/reply chain. For more information, see <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9">http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9</a>.</p>
+   */
+  CacheControl?: string;
 
   /**
    * <p>If the bucket is configured as a website, redirects requests for this object to another object
@@ -8393,59 +8992,9 @@ export interface PutObjectRequest {
   WebsiteRedirectLocation?: string;
 
   /**
-   * <p>The server-side encryption algorithm used when storing this object in Amazon S3 (for example,
-   *          AES256, aws:kms).</p>
+   * <p>Object key for which the PUT operation was initiated.</p>
    */
-  ServerSideEncryption?: ServerSideEncryption | string;
-
-  /**
-   * <p>The date and time at which the object is no longer cacheable. For more information, see <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.21">http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.21</a>.</p>
-   */
-  Expires?: Date;
-
-  /**
-   * <p>Allows grantee to write the ACL for the applicable object.</p>
-   */
-  GrantWriteACP?: string;
-
-  /**
-   * <p>Specifies the algorithm to use to when encrypting the object (for example, AES256).</p>
-   */
-  SSECustomerAlgorithm?: string;
-
-  /**
-   * <p>Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This
-   *          value is used to store the object and then it is discarded; Amazon S3 does not store the
-   *          encryption key. The key must be appropriate for use with the algorithm specified in the
-   *             <code>x-amz-server-side​-encryption​-customer-algorithm</code> header.</p>
-   */
-  SSECustomerKey?: string;
-
-  /**
-   * <p>The base64-encoded 128-bit MD5 digest of the message (without the headers) according to RFC 1864. This header can be used as a message integrity check to verify that the data is the same data that was originally sent. Although it is optional, we recommend using the Content-MD5 mechanism as an end-to-end integrity check. For more information about REST request authentication, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/RESTAuthentication.html">REST Authentication</a>.</p>
-   */
-  ContentMD5?: string;
-
-  /**
-   * <p>Gives the grantee READ, READ_ACP, and WRITE_ACP permissions on the object.</p>
-   */
-  GrantFullControl?: string;
-
-  /**
-   * <p>Specifies presentational information for the object. For more information, see <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1">http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1</a>.</p>
-   */
-  ContentDisposition?: string;
-
-  /**
-   * <p>Bucket name to which the PUT operation was initiated. </p>
-   *          <p>When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this operation using an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html">Using Access Points</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
-   */
-  Bucket: string | undefined;
-
-  /**
-   * <p>Allows grantee to read the object ACL.</p>
-   */
-  GrantReadACP?: string;
+  Key: string | undefined;
 
   /**
    * <p>Specifies whether a legal hold will be applied to this object. For more information about S3 Object Lock, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html">Object Lock</a>.</p>
@@ -8453,33 +9002,10 @@ export interface PutObjectRequest {
   ObjectLockLegalHoldStatus?: ObjectLockLegalHoldStatus | string;
 
   /**
-   * <p>Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field. For more information, see <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11">http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11</a>.</p>
+   * <p>Allows grantee to write the ACL for the applicable object.</p>
+   *          <p>This action is not supported by Amazon S3 on Outposts.</p>
    */
-  ContentEncoding?: string;
-
-  /**
-   * <p>A map of metadata to store with the object in S3.</p>
-   */
-  Metadata?: { [key: string]: string };
-
-  /**
-   * <p>Confirms that the requester knows that they will be charged for the request. Bucket
-   *          owners need not specify this parameter in their requests. For information about downloading
-   *          objects from requester pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in Requestor Pays Buckets</a> in the
-   *             <i>Amazon S3 Developer Guide</i>.</p>
-   */
-  RequestPayer?: RequestPayer | string;
-
-  /**
-   * <p>The date and time when you want this object's Object Lock to expire.</p>
-   */
-  ObjectLockRetainUntilDate?: Date;
-
-  /**
-   * <p>
-   *       Can be used to specify caching behavior along the request/reply chain. For more information, see <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9">http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9</a>.</p>
-   */
-  CacheControl?: string;
+  GrantWriteACP?: string;
 
   /**
    * <p>Size of the body in bytes. This parameter is useful when the size of the body cannot be determined automatically.  For more information, see <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.13">http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.13</a>.</p>
@@ -8487,11 +9013,78 @@ export interface PutObjectRequest {
   ContentLength?: number;
 
   /**
-   * <p>Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses
-   *          this header for a message integrity check to ensure that the encryption key was transmitted
-   *          without error.</p>
+   * <p>The date and time when you want this object's Object Lock to expire.</p>
    */
-  SSECustomerKeyMD5?: string;
+  ObjectLockRetainUntilDate?: Date;
+
+  /**
+   * <p>Specifies the algorithm to use to when encrypting the object (for example, AES256).</p>
+   */
+  SSECustomerAlgorithm?: string;
+
+  /**
+   * <p>Specifies presentational information for the object. For more information, see <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1">http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1</a>.</p>
+   */
+  ContentDisposition?: string;
+
+  /**
+   * <p>Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This
+   *          value is used to store the object and then it is discarded; Amazon S3 does not store the
+   *          encryption key. The key must be appropriate for use with the algorithm specified in the
+   *             <code>x-amz-server-side-encryption-customer-algorithm</code> header.</p>
+   */
+  SSECustomerKey?: string;
+
+  /**
+   * <p>Specifies the AWS KMS Encryption Context to use for object encryption. The value of this header is a base64-encoded UTF-8 string holding JSON with the encryption context key-value pairs.</p>
+   */
+  SSEKMSEncryptionContext?: string;
+
+  /**
+   * <p>The tag-set for the object. The tag-set must be encoded as URL Query parameters. (For example, "Key1=Value1")</p>
+   */
+  Tagging?: string;
+
+  /**
+   * <p>The date and time at which the object is no longer cacheable. For more information, see <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.21">http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.21</a>.</p>
+   */
+  Expires?: Date;
+
+  /**
+   * <p>By default, Amazon S3 uses the STANDARD Storage Class to store newly created objects.
+   *       The STANDARD storage class provides high durability and high availability. Depending on
+   *       performance needs, you can specify a different Storage Class. Amazon S3 on Outposts only
+   *       uses the OUTPOSTS Storage Class. For more information, see
+   *       <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html">Storage Classes</a> in the
+   *       <i>Amazon S3 Service Developer Guide</i>.</p>
+   */
+  StorageClass?: StorageClass | string;
+
+  /**
+   * <p>The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP <code>403 (Access Denied)</code> error.</p>
+   */
+  ExpectedBucketOwner?: string;
+
+  /**
+   * <p>Object data.</p>
+   */
+  Body?: Readable | ReadableStream | Blob;
+
+  /**
+   * <p>The base64-encoded 128-bit MD5 digest of the message (without the headers) according to RFC 1864. This header can be used as a message integrity check to verify that the data is the same data that was originally sent. Although it is optional, we recommend using the Content-MD5 mechanism as an end-to-end integrity check. For more information about REST request authentication, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/RESTAuthentication.html">REST Authentication</a>.</p>
+   */
+  ContentMD5?: string;
+
+  /**
+   * <p>The server-side encryption algorithm used when storing this object in Amazon S3 (for example,
+   *          AES256, aws:kms).</p>
+   */
+  ServerSideEncryption?: ServerSideEncryption | string;
+
+  /**
+   * <p>The Object Lock mode that you want to apply to this object.</p>
+   */
+  ObjectLockMode?: ObjectLockMode | string;
 
   /**
    * <p>If <code>x-amz-server-side-encryption</code> is present and has the value of
@@ -8506,22 +9099,19 @@ export interface PutObjectRequest {
   SSEKMSKeyId?: string;
 
   /**
-   * <p>The Object Lock mode that you want to apply to this object.</p>
-   */
-  ObjectLockMode?: ObjectLockMode | string;
-
-  /**
-   * <p>Object key for which the PUT operation was initiated.</p>
-   */
-  Key: string | undefined;
-
-  /**
    * <p>The language the content is in.</p>
    */
   ContentLanguage?: string;
 
   /**
+   * <p>Allows grantee to read the object data and its metadata.</p>
+   *          <p>This action is not supported by Amazon S3 on Outposts.</p>
+   */
+  GrantRead?: string;
+
+  /**
    * <p>The canned ACL to apply to the object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#CannedACL">Canned ACL</a>.</p>
+   *          <p>This action is not supported by Amazon S3 on Outposts.</p>
    */
   ACL?: ObjectCannedACL | string;
 
@@ -8529,18 +9119,13 @@ export interface PutObjectRequest {
    * <p>A standard MIME type describing the format of the contents. For more information, see <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17">http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17</a>.</p>
    */
   ContentType?: string;
-
-  /**
-   * <p>Allows grantee to read the object data and its metadata.</p>
-   */
-  GrantRead?: string;
 }
 
 export namespace PutObjectRequest {
   export const filterSensitiveLog = (obj: PutObjectRequest): any => ({
     ...obj,
-    ...(obj.SSEKMSEncryptionContext && { SSEKMSEncryptionContext: SENSITIVE_STRING }),
     ...(obj.SSECustomerKey && { SSECustomerKey: SENSITIVE_STRING }),
+    ...(obj.SSEKMSEncryptionContext && { SSEKMSEncryptionContext: SENSITIVE_STRING }),
     ...(obj.SSEKMSKeyId && { SSEKMSKeyId: SENSITIVE_STRING }),
   });
 }
@@ -8560,34 +9145,6 @@ export namespace PutObjectAclOutput {
 
 export interface PutObjectAclRequest {
   /**
-   * <p>The base64-encoded 128-bit MD5 digest of the data. This header must be used as a message integrity
-   *          check to verify that the request body was not corrupted in transit. For more information, go to
-   *          <a href="http://www.ietf.org/rfc/rfc1864.txt">RFC 1864.></a>
-   *          </p>
-   */
-  ContentMD5?: string;
-
-  /**
-   * <p>Allows grantee to read the bucket ACL.</p>
-   */
-  GrantReadACP?: string;
-
-  /**
-   * <p>VersionId used to reference a specific version of the object.</p>
-   */
-  VersionId?: string;
-
-  /**
-   * <p>Key for which the PUT operation was initiated.</p>
-   */
-  Key: string | undefined;
-
-  /**
-   * <p>Allows grantee the read, write, read ACP, and write ACP permissions on the bucket.</p>
-   */
-  GrantFullControl?: string;
-
-  /**
    * <p>Confirms that the requester knows that they will be charged for the request. Bucket
    *          owners need not specify this parameter in their requests. For information about downloading
    *          objects from requester pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in Requestor Pays Buckets</a> in the
@@ -8596,25 +9153,46 @@ export interface PutObjectAclRequest {
   RequestPayer?: RequestPayer | string;
 
   /**
+   * <p>The canned ACL to apply to the object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#CannedACL">Canned
+   *             ACL</a>.</p>
+   */
+  ACL?: ObjectCannedACL | string;
+
+  /**
+   * <p>The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP <code>403 (Access Denied)</code> error.</p>
+   */
+  ExpectedBucketOwner?: string;
+
+  /**
+   * <p>The base64-encoded 128-bit MD5 digest of the data. This header must be used as a message integrity
+   *          check to verify that the request body was not corrupted in transit. For more information, go to
+   *          <a href="http://www.ietf.org/rfc/rfc1864.txt">RFC 1864.></a>
+   *          </p>
+   */
+  ContentMD5?: string;
+
+  /**
    * <p>Contains the elements that set the ACL permissions for an object per grantee.</p>
    */
   AccessControlPolicy?: AccessControlPolicy;
 
   /**
+   * <p>Allows grantee the read, write, read ACP, and write ACP permissions on the bucket.</p>
+   *          <p>This action is not supported by Amazon S3 on Outposts.</p>
+   */
+  GrantFullControl?: string;
+
+  /**
+   * <p>Allows grantee to read the bucket ACL.</p>
+   *          <p>This action is not supported by Amazon S3 on Outposts.</p>
+   */
+  GrantReadACP?: string;
+
+  /**
    * <p>Allows grantee to list the objects in the bucket.</p>
+   *          <p>This action is not supported by Amazon S3 on Outposts.</p>
    */
   GrantRead?: string;
-
-  /**
-   * <p>Allows grantee to write the ACL for the applicable bucket.</p>
-   */
-  GrantWriteACP?: string;
-
-  /**
-   * <p>The bucket name that contains the object to which you want to attach the ACL. </p>
-   *          <p>When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this operation using an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html">Using Access Points</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
-   */
-  Bucket: string | undefined;
 
   /**
    * <p>Allows grantee to create, overwrite, and delete any object in the bucket.</p>
@@ -8622,10 +9200,28 @@ export interface PutObjectAclRequest {
   GrantWrite?: string;
 
   /**
-   * <p>The canned ACL to apply to the object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#CannedACL">Canned
-   *             ACL</a>.</p>
+   * <p>Key for which the PUT operation was initiated.</p>
+   *          <p>When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this operation with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html">Using Access Points</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
+   *          <p>When using this API with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com. When using this operation using S3 on Outposts through the AWS SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html">Using S3 on Outposts</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
    */
-  ACL?: ObjectCannedACL | string;
+  Key: string | undefined;
+
+  /**
+   * <p>Allows grantee to write the ACL for the applicable bucket.</p>
+   *          <p>This action is not supported by Amazon S3 on Outposts.</p>
+   */
+  GrantWriteACP?: string;
+
+  /**
+   * <p>VersionId used to reference a specific version of the object.</p>
+   */
+  VersionId?: string;
+
+  /**
+   * <p>The bucket name that contains the object to which you want to attach the ACL. </p>
+   *          <p>When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this operation with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html">Using Access Points</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
+   */
+  Bucket: string | undefined;
 }
 
 export namespace PutObjectAclRequest {
@@ -8649,14 +9245,30 @@ export namespace PutObjectLegalHoldOutput {
 
 export interface PutObjectLegalHoldRequest {
   /**
-   * <p>The version ID of the object that you want to place a Legal Hold on.</p>
+   * <p>The bucket name containing the object that you want to place a Legal Hold on. </p>
+   *          <p>When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this operation with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html">Using Access Points</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
    */
-  VersionId?: string;
+  Bucket: string | undefined;
 
   /**
    * <p>The MD5 hash for the request body.</p>
    */
   ContentMD5?: string;
+
+  /**
+   * <p>Container element for the Legal Hold configuration you want to apply to the specified object.</p>
+   */
+  LegalHold?: ObjectLockLegalHold;
+
+  /**
+   * <p>The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP <code>403 (Access Denied)</code> error.</p>
+   */
+  ExpectedBucketOwner?: string;
+
+  /**
+   * <p>The version ID of the object that you want to place a Legal Hold on.</p>
+   */
+  VersionId?: string;
 
   /**
    * <p>The key name for the object that you want to place a Legal Hold on.</p>
@@ -8670,17 +9282,6 @@ export interface PutObjectLegalHoldRequest {
    *             <i>Amazon S3 Developer Guide</i>.</p>
    */
   RequestPayer?: RequestPayer | string;
-
-  /**
-   * <p>Container element for the Legal Hold configuration you want to apply to the specified object.</p>
-   */
-  LegalHold?: ObjectLockLegalHold;
-
-  /**
-   * <p>The bucket name containing the object that you want to place a Legal Hold on. </p>
-   *          <p>When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this operation using an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html">Using Access Points</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
-   */
-  Bucket: string | undefined;
 }
 
 export namespace PutObjectLegalHoldRequest {
@@ -8704,6 +9305,24 @@ export namespace PutObjectLockConfigurationOutput {
 
 export interface PutObjectLockConfigurationRequest {
   /**
+   * <p>A token to allow Object Lock to be enabled for an existing bucket.</p>
+   */
+  Token?: string;
+
+  /**
+   * <p>Confirms that the requester knows that they will be charged for the request. Bucket
+   *          owners need not specify this parameter in their requests. For information about downloading
+   *          objects from requester pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in Requestor Pays Buckets</a> in the
+   *             <i>Amazon S3 Developer Guide</i>.</p>
+   */
+  RequestPayer?: RequestPayer | string;
+
+  /**
+   * <p>The Object Lock configuration that you want to apply to the specified bucket.</p>
+   */
+  ObjectLockConfiguration?: ObjectLockConfiguration;
+
+  /**
    * <p>The bucket whose Object Lock configuration you want to create or replace.</p>
    */
   Bucket: string | undefined;
@@ -8714,22 +9333,9 @@ export interface PutObjectLockConfigurationRequest {
   ContentMD5?: string;
 
   /**
-   * <p>A token to allow Object Lock to be enabled for an existing bucket.</p>
+   * <p>The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP <code>403 (Access Denied)</code> error.</p>
    */
-  Token?: string;
-
-  /**
-   * <p>The Object Lock configuration that you want to apply to the specified bucket.</p>
-   */
-  ObjectLockConfiguration?: ObjectLockConfiguration;
-
-  /**
-   * <p>Confirms that the requester knows that they will be charged for the request. Bucket
-   *          owners need not specify this parameter in their requests. For information about downloading
-   *          objects from requester pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in Requestor Pays Buckets</a> in the
-   *             <i>Amazon S3 Developer Guide</i>.</p>
-   */
-  RequestPayer?: RequestPayer | string;
+  ExpectedBucketOwner?: string;
 }
 
 export namespace PutObjectLockConfigurationRequest {
@@ -8753,20 +9359,25 @@ export namespace PutObjectRetentionOutput {
 
 export interface PutObjectRetentionRequest {
   /**
-   * <p>The version ID for the object that you want to apply this Object Retention configuration to.</p>
+   * <p>The key name for the object that you want to apply this Object Retention configuration to.</p>
    */
-  VersionId?: string;
-
-  /**
-   * <p>The MD5 hash for the request body.</p>
-   */
-  ContentMD5?: string;
+  Key: string | undefined;
 
   /**
    * <p>The bucket name that contains the object you want to apply this Object Retention configuration to. </p>
-   *          <p>When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this operation using an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html">Using Access Points</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
+   *          <p>When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this operation with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html">Using Access Points</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
    */
   Bucket: string | undefined;
+
+  /**
+   * <p>The container element for the Object Retention configuration.</p>
+   */
+  Retention?: ObjectLockRetention;
+
+  /**
+   * <p>The version ID for the object that you want to apply this Object Retention configuration to.</p>
+   */
+  VersionId?: string;
 
   /**
    * <p>Confirms that the requester knows that they will be charged for the request. Bucket
@@ -8777,19 +9388,19 @@ export interface PutObjectRetentionRequest {
   RequestPayer?: RequestPayer | string;
 
   /**
+   * <p>The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP <code>403 (Access Denied)</code> error.</p>
+   */
+  ExpectedBucketOwner?: string;
+
+  /**
    * <p>Indicates whether this operation should bypass Governance-mode restrictions.</p>
    */
   BypassGovernanceRetention?: boolean;
 
   /**
-   * <p>The key name for the object that you want to apply this Object Retention configuration to.</p>
+   * <p>The MD5 hash for the request body.</p>
    */
-  Key: string | undefined;
-
-  /**
-   * <p>The container element for the Object Retention configuration.</p>
-   */
-  Retention?: ObjectLockRetention;
+  ContentMD5?: string;
 }
 
 export namespace PutObjectRetentionRequest {
@@ -8813,15 +9424,26 @@ export namespace PutObjectTaggingOutput {
 
 export interface PutObjectTaggingRequest {
   /**
+   * <p>The bucket name containing the object. </p>
+   *          <p>When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this operation with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html">Using Access Points</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
+   *          <p>When using this API with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com. When using this operation using S3 on Outposts through the AWS SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html">Using S3 on Outposts</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
+   */
+  Bucket: string | undefined;
+
+  /**
+   * <p>Name of the object key.</p>
+   */
+  Key: string | undefined;
+
+  /**
    * <p>The versionId of the object that the tag-set will be added to.</p>
    */
   VersionId?: string;
 
   /**
-   * <p>The bucket name containing the object. </p>
-   *          <p>When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this operation using an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html">Using Access Points</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
+   * <p>The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP <code>403 (Access Denied)</code> error.</p>
    */
-  Bucket: string | undefined;
+  ExpectedBucketOwner?: string;
 
   /**
    * <p>Container for the <code>TagSet</code> and <code>Tag</code> elements</p>
@@ -8832,11 +9454,6 @@ export interface PutObjectTaggingRequest {
    * <p>The MD5 hash for the request body.</p>
    */
   ContentMD5?: string;
-
-  /**
-   * <p>Name of the tag.</p>
-   */
-  Key: string | undefined;
 }
 
 export namespace PutObjectTaggingRequest {
@@ -8847,6 +9464,19 @@ export namespace PutObjectTaggingRequest {
 
 export interface PutPublicAccessBlockRequest {
   /**
+   * <p>The <code>PublicAccessBlock</code> configuration that you want to apply to this Amazon S3
+   *       bucket. You can enable the configuration options in any combination. For more information
+   *       about when Amazon S3 considers a bucket or object public, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status">The Meaning of "Public"</a> in the <i>Amazon Simple Storage Service Developer
+   *         Guide</i>.</p>
+   */
+  PublicAccessBlockConfiguration: PublicAccessBlockConfiguration | undefined;
+
+  /**
+   * <p>The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP <code>403 (Access Denied)</code> error.</p>
+   */
+  ExpectedBucketOwner?: string;
+
+  /**
    * <p>The name of the Amazon S3 bucket whose <code>PublicAccessBlock</code> configuration you
    *       want to set.</p>
    */
@@ -8856,14 +9486,6 @@ export interface PutPublicAccessBlockRequest {
    * <p>The MD5 hash of the <code>PutPublicAccessBlock</code> request body. </p>
    */
   ContentMD5?: string;
-
-  /**
-   * <p>The <code>PublicAccessBlock</code> configuration that you want to apply to this Amazon S3
-   *       bucket. You can enable the configuration options in any combination. For more information
-   *       about when Amazon S3 considers a bucket or object public, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status">The Meaning of "Public"</a> in the <i>Amazon Simple Storage Service Developer
-   *         Guide</i>.</p>
-   */
-  PublicAccessBlockConfiguration: PublicAccessBlockConfiguration | undefined;
 }
 
 export namespace PutPublicAccessBlockRequest {
@@ -8888,14 +9510,14 @@ export namespace ObjectAlreadyInActiveTierError {
 
 export interface RestoreObjectOutput {
   /**
-   * <p>Indicates the path in the provided S3 output location where Select results will be restored to.</p>
-   */
-  RestoreOutputPath?: string;
-
-  /**
    * <p>If present, indicates that the requester was successfully charged for the request.</p>
    */
   RequestCharged?: RequestCharged | string;
+
+  /**
+   * <p>Indicates the path in the provided S3 output location where Select results will be restored to.</p>
+   */
+  RestoreOutputPath?: string;
 }
 
 export namespace RestoreObjectOutput {
@@ -8927,16 +9549,16 @@ export namespace GlacierJobParameters {
  */
 export interface Encryption {
   /**
-   * <p>If the encryption type is <code>aws:kms</code>, this optional value can be used to specify the
-   *          encryption context for the restore results.</p>
-   */
-  KMSContext?: string;
-
-  /**
    * <p>If the encryption type is <code>aws:kms</code>, this optional value specifies the ID of the symmetric customer managed AWS KMS CMK
    *      to use for encryption of job results. Amazon S3 only supports symmetric CMKs. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">Using Symmetric and Asymmetric Keys</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
    */
   KMSKeyId?: string;
+
+  /**
+   * <p>If the encryption type is <code>aws:kms</code>, this optional value can be used to specify the
+   *          encryption context for the restore results.</p>
+   */
+  KMSContext?: string;
 
   /**
    * <p>The server-side encryption algorithm used when storing job results in Amazon S3 (for example,
@@ -8957,14 +9579,14 @@ export namespace Encryption {
  */
 export interface MetadataEntry {
   /**
-   * <p>Name of the Object.</p>
-   */
-  Name?: string;
-
-  /**
    * <p>Value of the Object.</p>
    */
   Value?: string;
+
+  /**
+   * <p>Name of the Object.</p>
+   */
+  Name?: string;
 }
 
 export namespace MetadataEntry {
@@ -8978,9 +9600,9 @@ export namespace MetadataEntry {
  */
 export interface S3Location {
   /**
-   * <p>A list of metadata to store with the restore results in S3.</p>
+   * <p>The name of the bucket where the restore results will be placed.</p>
    */
-  UserMetadata?: MetadataEntry[];
+  BucketName: string | undefined;
 
   /**
    * <p>The class of storage used to store the restore results.</p>
@@ -8993,9 +9615,9 @@ export interface S3Location {
   CannedACL?: ObjectCannedACL | string;
 
   /**
-   * <p>Contains the type of server-side encryption used.</p>
+   * <p>A list of metadata to store with the restore results in S3.</p>
    */
-  Encryption?: Encryption;
+  UserMetadata?: MetadataEntry[];
 
   /**
    * <p>The prefix that is prepended to the restore results for this request.</p>
@@ -9003,19 +9625,19 @@ export interface S3Location {
   Prefix: string | undefined;
 
   /**
-   * <p>The name of the bucket where the restore results will be placed.</p>
+   * <p>The tag-set that is applied to the restore results.</p>
    */
-  BucketName: string | undefined;
+  Tagging?: Tagging;
+
+  /**
+   * <p>Contains the type of server-side encryption used.</p>
+   */
+  Encryption?: Encryption;
 
   /**
    * <p>A list of grants that control access to the staged results.</p>
    */
   AccessControlList?: Grant[];
-
-  /**
-   * <p>The tag-set that is applied to the restore results.</p>
-   */
-  Tagging?: Tagging;
 }
 
 export namespace S3Location {
@@ -9058,6 +9680,16 @@ export enum FileHeaderInfo {
  */
 export interface CSVInput {
   /**
+   * <p>A single character used to separate individual fields in a record. You can specify an arbitrary delimiter.</p>
+   */
+  FieldDelimiter?: string;
+
+  /**
+   * <p>Specifies that CSV field values may contain quoted record delimiters and such records should be allowed. Default value is FALSE. Setting this value to TRUE may lower performance.</p>
+   */
+  AllowQuotedRecordDelimiter?: boolean;
+
+  /**
    * <p>Describes the first line of input. Valid values are:</p>
    *          <ul>
    *             <li>
@@ -9082,21 +9714,6 @@ export interface CSVInput {
   FileHeaderInfo?: FileHeaderInfo | string;
 
   /**
-   * <p>A single character used to indicate that a row should be ignored when the character is present at the start of that row. You can specify any character to indicate a comment line.</p>
-   */
-  Comments?: string;
-
-  /**
-   * <p>Specifies that CSV field values may contain quoted record delimiters and such records should be allowed. Default value is FALSE. Setting this value to TRUE may lower performance.</p>
-   */
-  AllowQuotedRecordDelimiter?: boolean;
-
-  /**
-   * <p>A single character used to separate individual fields in a record. You can specify an arbitrary delimiter.</p>
-   */
-  FieldDelimiter?: string;
-
-  /**
    * <p>A single character used for escaping when the field delimiter is part of the value.
    *       For example, if the value is <code>a, b</code>, Amazon S3 wraps this
    *       field value in quotation marks, as follows: <code>" a , b
@@ -9118,6 +9735,11 @@ export interface CSVInput {
    * <p>A single character used to separate individual records in the input. Instead of the default value, you can specify an arbitrary delimiter.</p>
    */
   RecordDelimiter?: string;
+
+  /**
+   * <p>A single character used to indicate that a row should be ignored when the character is present at the start of that row. You can specify any character to indicate a comment line.</p>
+   */
+  Comments?: string;
 }
 
 export namespace CSVInput {
@@ -9163,6 +9785,11 @@ export namespace ParquetInput {
  */
 export interface InputSerialization {
   /**
+   * <p>Specifies JSON as object's input serialization format.</p>
+   */
+  JSON?: JSONInput;
+
+  /**
    * <p>Specifies object's compression format. Valid values: NONE, GZIP, BZIP2. Default Value: NONE.</p>
    */
   CompressionType?: CompressionType | string;
@@ -9176,11 +9803,6 @@ export interface InputSerialization {
    * <p>Describes the serialization of a CSV-encoded object.</p>
    */
   CSV?: CSVInput;
-
-  /**
-   * <p>Specifies JSON as object's input serialization format.</p>
-   */
-  JSON?: JSONInput;
 }
 
 export namespace InputSerialization {
@@ -9199,22 +9821,9 @@ export enum QuoteFields {
  */
 export interface CSVOutput {
   /**
-   * <p>The single character used for escaping the quote character inside an already escaped
-   *       value.</p>
+   * <p>The value used to separate individual fields in a record. You can specify an arbitrary delimiter.</p>
    */
-  QuoteEscapeCharacter?: string;
-
-  /**
-   * <p>A single character used for escaping when the field delimiter is part of the value. For example, if the value is <code>a, b</code>, Amazon S3 wraps this
-   *       field value in quotation marks, as follows: <code>" a , b
-   *          "</code>.</p>
-   */
-  QuoteCharacter?: string;
-
-  /**
-   * <p>A single character used to separate individual records in the output. Instead of the default value, you can specify an arbitrary delimiter.</p>
-   */
-  RecordDelimiter?: string;
+  FieldDelimiter?: string;
 
   /**
    * <p>Indicates whether to use quotation marks around output fields. </p>
@@ -9232,9 +9841,22 @@ export interface CSVOutput {
   QuoteFields?: QuoteFields | string;
 
   /**
-   * <p>The value used to separate individual fields in a record. You can specify an arbitrary delimiter.</p>
+   * <p>A single character used for escaping when the field delimiter is part of the value. For example, if the value is <code>a, b</code>, Amazon S3 wraps this
+   *       field value in quotation marks, as follows: <code>" a , b
+   *          "</code>.</p>
    */
-  FieldDelimiter?: string;
+  QuoteCharacter?: string;
+
+  /**
+   * <p>A single character used to separate individual records in the output. Instead of the default value, you can specify an arbitrary delimiter.</p>
+   */
+  RecordDelimiter?: string;
+
+  /**
+   * <p>The single character used for escaping the quote character inside an already escaped
+   *       value.</p>
+   */
+  QuoteEscapeCharacter?: string;
 }
 
 export namespace CSVOutput {
@@ -9248,7 +9870,8 @@ export namespace CSVOutput {
  */
 export interface JSONOutput {
   /**
-   * <p>The value used to separate individual records in the output. If no value is specified, Amazon S3 uses a newline character ('\n').</p>
+   * <p>The value used to separate individual records in the output. If no value is specified, Amazon S3
+   *      uses a newline character ('\n').</p>
    */
   RecordDelimiter?: string;
 }
@@ -9264,14 +9887,14 @@ export namespace JSONOutput {
  */
 export interface OutputSerialization {
   /**
-   * <p>Describes the serialization of CSV-encoded Select results.</p>
-   */
-  CSV?: CSVOutput;
-
-  /**
    * <p>Specifies JSON as request's output serialization format.</p>
    */
   JSON?: JSONOutput;
+
+  /**
+   * <p>Describes the serialization of CSV-encoded Select results.</p>
+   */
+  CSV?: CSVOutput;
 }
 
 export namespace OutputSerialization {
@@ -9285,16 +9908,6 @@ export namespace OutputSerialization {
  */
 export interface SelectParameters {
   /**
-   * <p>The expression that is used to query the object.</p>
-   */
-  Expression: string | undefined;
-
-  /**
-   * <p>Describes the serialization format of the object.</p>
-   */
-  InputSerialization: InputSerialization | undefined;
-
-  /**
    * <p>The type of the provided expression (for example, SQL).</p>
    */
   ExpressionType: ExpressionType | string | undefined;
@@ -9303,165 +9916,20 @@ export interface SelectParameters {
    * <p>Describes how the results of the Select job are serialized.</p>
    */
   OutputSerialization: OutputSerialization | undefined;
+
+  /**
+   * <p>The expression that is used to query the object.</p>
+   */
+  Expression: string | undefined;
+
+  /**
+   * <p>Describes the serialization format of the object.</p>
+   */
+  InputSerialization: InputSerialization | undefined;
 }
 
 export namespace SelectParameters {
   export const filterSensitiveLog = (obj: SelectParameters): any => ({
-    ...obj,
-  });
-}
-
-export enum RestoreRequestType {
-  SELECT = "SELECT",
-}
-
-/**
- * <p>Container for restore job parameters.</p>
- */
-export interface RestoreRequest {
-  /**
-   * <p>The optional description for the job.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>S3 Glacier related parameters pertaining to this job. Do not use with restores that specify
-   *             <code>OutputLocation</code>.</p>
-   */
-  GlacierJobParameters?: GlacierJobParameters;
-
-  /**
-   * <p>S3 Glacier retrieval tier at which the restore will be processed.</p>
-   */
-  Tier?: Tier | string;
-
-  /**
-   * <p>Lifetime of the active copy in days. Do not use with restores that specify
-   *             <code>OutputLocation</code>.</p>
-   */
-  Days?: number;
-
-  /**
-   * <p>Describes the location where the restore job's output is stored.</p>
-   */
-  OutputLocation?: OutputLocation;
-
-  /**
-   * <p>Describes the parameters for Select job types.</p>
-   */
-  SelectParameters?: SelectParameters;
-
-  /**
-   * <p>Type of restore request.</p>
-   */
-  Type?: RestoreRequestType | string;
-}
-
-export namespace RestoreRequest {
-  export const filterSensitiveLog = (obj: RestoreRequest): any => ({
-    ...obj,
-    ...(obj.OutputLocation && { OutputLocation: OutputLocation.filterSensitiveLog(obj.OutputLocation) }),
-  });
-}
-
-export interface RestoreObjectRequest {
-  /**
-   * <p>VersionId used to reference a specific version of the object.</p>
-   */
-  VersionId?: string;
-
-  /**
-   * <p>Container for restore job parameters.</p>
-   */
-  RestoreRequest?: RestoreRequest;
-
-  /**
-   * <p>The bucket name or containing the object to restore. </p>
-   *          <p>When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this operation using an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html">Using Access Points</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
-   */
-  Bucket: string | undefined;
-
-  /**
-   * <p>Confirms that the requester knows that they will be charged for the request. Bucket
-   *          owners need not specify this parameter in their requests. For information about downloading
-   *          objects from requester pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in Requestor Pays Buckets</a> in the
-   *             <i>Amazon S3 Developer Guide</i>.</p>
-   */
-  RequestPayer?: RequestPayer | string;
-
-  /**
-   * <p>Object key for which the operation was initiated.</p>
-   */
-  Key: string | undefined;
-}
-
-export namespace RestoreObjectRequest {
-  export const filterSensitiveLog = (obj: RestoreObjectRequest): any => ({
-    ...obj,
-    ...(obj.RestoreRequest && { RestoreRequest: RestoreRequest.filterSensitiveLog(obj.RestoreRequest) }),
-  });
-}
-
-/**
- * <p></p>
- */
-export interface ContinuationEvent {}
-
-export namespace ContinuationEvent {
-  export const filterSensitiveLog = (obj: ContinuationEvent): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>A message that indicates the request is complete and no more messages will be sent. You should not assume that the request is complete until the client receives an <code>EndEvent</code>.</p>
- */
-export interface EndEvent {}
-
-export namespace EndEvent {
-  export const filterSensitiveLog = (obj: EndEvent): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>This data type contains information about progress of an operation.</p>
- */
-export interface Progress {
-  /**
-   * <p>The current number of object bytes scanned.</p>
-   */
-  BytesScanned?: number;
-
-  /**
-   * <p>The current number of uncompressed object bytes processed.</p>
-   */
-  BytesProcessed?: number;
-
-  /**
-   * <p>The current number of bytes of records payload data returned.</p>
-   */
-  BytesReturned?: number;
-}
-
-export namespace Progress {
-  export const filterSensitiveLog = (obj: Progress): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>This data type contains information about the progress event of an operation.</p>
- */
-export interface ProgressEvent {
-  /**
-   * <p>The Progress event details.</p>
-   */
-  Details?: Progress;
-}
-
-export namespace ProgressEvent {
-  export const filterSensitiveLog = (obj: ProgressEvent): any => ({
     ...obj,
   });
 }

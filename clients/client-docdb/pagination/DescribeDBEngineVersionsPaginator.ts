@@ -33,7 +33,7 @@ export async function* describeDBEngineVersionsPaginate(
   let hasNext = true;
   let page: DescribeDBEngineVersionsCommandOutput;
   while (hasNext) {
-    input["Marker"] = token;
+    input.Marker = token;
     input["MaxRecords"] = config.pageSize;
     if (config.client instanceof DocDB) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* describeDBEngineVersionsPaginate(
       throw new Error("Invalid client, expected DocDB | DocDBClient");
     }
     yield page;
-    token = page["Marker"];
+    token = page.Marker;
     hasNext = !!token;
   }
   // @ts-ignore

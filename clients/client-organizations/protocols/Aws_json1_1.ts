@@ -3995,6 +3995,14 @@ const deserializeAws_json1_1InviteAccountToOrganizationCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "ConstraintViolationException":
+    case "com.amazonaws.organizations#ConstraintViolationException":
+      response = {
+        ...(await deserializeAws_json1_1ConstraintViolationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "DuplicateHandshakeException":
     case "com.amazonaws.organizations#DuplicateHandshakeException":
       response = {
@@ -7247,6 +7255,7 @@ const serializeAws_json1_1CreateAccountRequest = (input: CreateAccountRequest, c
     ...(input.Email !== undefined && { Email: input.Email }),
     ...(input.IamUserAccessToBilling !== undefined && { IamUserAccessToBilling: input.IamUserAccessToBilling }),
     ...(input.RoleName !== undefined && { RoleName: input.RoleName }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
   };
 };
 
@@ -7266,6 +7275,7 @@ const serializeAws_json1_1CreateGovCloudAccountRequest = (
     ...(input.Email !== undefined && { Email: input.Email }),
     ...(input.IamUserAccessToBilling !== undefined && { IamUserAccessToBilling: input.IamUserAccessToBilling }),
     ...(input.RoleName !== undefined && { RoleName: input.RoleName }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
   };
 };
 
@@ -7276,6 +7286,7 @@ const serializeAws_json1_1CreateOrganizationalUnitRequest = (
   return {
     ...(input.Name !== undefined && { Name: input.Name }),
     ...(input.ParentId !== undefined && { ParentId: input.ParentId }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
   };
 };
 
@@ -7293,6 +7304,7 @@ const serializeAws_json1_1CreatePolicyRequest = (input: CreatePolicyRequest, con
     ...(input.Content !== undefined && { Content: input.Content }),
     ...(input.Description !== undefined && { Description: input.Description }),
     ...(input.Name !== undefined && { Name: input.Name }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
     ...(input.Type !== undefined && { Type: input.Type }),
   };
 };
@@ -7446,6 +7458,7 @@ const serializeAws_json1_1InviteAccountToOrganizationRequest = (
 ): any => {
   return {
     ...(input.Notes !== undefined && { Notes: input.Notes }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
     ...(input.Target !== undefined && { Target: serializeAws_json1_1HandshakeParty(input.Target, context) }),
   };
 };

@@ -113,15 +113,6 @@ export const serializeAws_restJson1CreateApplicationVersionCommand = async (
     "Content-Type": "application/json",
   };
   let resolvedPath = "/applications/{ApplicationId}/versions/{SemanticVersion}";
-  if (input.SemanticVersion !== undefined) {
-    const labelValue: string = input.SemanticVersion;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: SemanticVersion.");
-    }
-    resolvedPath = resolvedPath.replace("{SemanticVersion}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: SemanticVersion.");
-  }
   if (input.ApplicationId !== undefined) {
     const labelValue: string = input.ApplicationId;
     if (labelValue.length <= 0) {
@@ -130,6 +121,15 @@ export const serializeAws_restJson1CreateApplicationVersionCommand = async (
     resolvedPath = resolvedPath.replace("{ApplicationId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ApplicationId.");
+  }
+  if (input.SemanticVersion !== undefined) {
+    const labelValue: string = input.SemanticVersion;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: SemanticVersion.");
+    }
+    resolvedPath = resolvedPath.replace("{SemanticVersion}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: SemanticVersion.");
   }
   let body: any;
   body = JSON.stringify({
@@ -388,9 +388,9 @@ export const serializeAws_restJson1ListApplicationDependenciesCommand = async (
     throw new Error("No value provided for input HTTP label: ApplicationId.");
   }
   const query: any = {
-    ...(input.MaxItems !== undefined && { maxItems: input.MaxItems.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
     ...(input.SemanticVersion !== undefined && { semanticVersion: input.SemanticVersion }),
+    ...(input.MaxItems !== undefined && { maxItems: input.MaxItems.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();

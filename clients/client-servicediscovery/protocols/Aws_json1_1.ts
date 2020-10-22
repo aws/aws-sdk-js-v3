@@ -2403,6 +2403,9 @@ const serializeAws_json1_1DiscoverInstancesRequest = (
     ...(input.HealthStatus !== undefined && { HealthStatus: input.HealthStatus }),
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
     ...(input.NamespaceName !== undefined && { NamespaceName: input.NamespaceName }),
+    ...(input.OptionalParameters !== undefined && {
+      OptionalParameters: serializeAws_json1_1Attributes(input.OptionalParameters, context),
+    }),
     ...(input.QueryParameters !== undefined && {
       QueryParameters: serializeAws_json1_1Attributes(input.QueryParameters, context),
     }),

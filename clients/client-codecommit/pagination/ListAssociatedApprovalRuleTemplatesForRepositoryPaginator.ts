@@ -33,7 +33,7 @@ export async function* listAssociatedApprovalRuleTemplatesForRepositoryPaginate(
   let hasNext = true;
   let page: ListAssociatedApprovalRuleTemplatesForRepositoryCommandOutput;
   while (hasNext) {
-    input["nextToken"] = token;
+    input.nextToken = token;
     input["maxResults"] = config.pageSize;
     if (config.client instanceof CodeCommit) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* listAssociatedApprovalRuleTemplatesForRepositoryPaginate(
       throw new Error("Invalid client, expected CodeCommit | CodeCommitClient");
     }
     yield page;
-    token = page["nextToken"];
+    token = page.nextToken;
     hasNext = !!token;
   }
   // @ts-ignore

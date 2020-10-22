@@ -23,6 +23,10 @@ import {
 import { GetTraceGraphCommandInput, GetTraceGraphCommandOutput } from "../commands/GetTraceGraphCommand";
 import { GetTraceSummariesCommandInput, GetTraceSummariesCommandOutput } from "../commands/GetTraceSummariesCommand";
 import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "../commands/ListTagsForResourceCommand";
+import {
   PutEncryptionConfigCommandInput,
   PutEncryptionConfigCommandOutput,
 } from "../commands/PutEncryptionConfigCommand";
@@ -31,6 +35,8 @@ import {
   PutTelemetryRecordsCommandOutput,
 } from "../commands/PutTelemetryRecordsCommand";
 import { PutTraceSegmentsCommandInput, PutTraceSegmentsCommandOutput } from "../commands/PutTraceSegmentsCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import { UpdateGroupCommandInput, UpdateGroupCommandOutput } from "../commands/UpdateGroupCommand";
 import { UpdateSamplingRuleCommandInput, UpdateSamplingRuleCommandOutput } from "../commands/UpdateSamplingRuleCommand";
 import {
@@ -53,9 +59,11 @@ import {
   GroupSummary,
   HistogramEntry,
   Http,
+  InsightsConfiguration,
   InstanceIdDetail,
   InvalidRequestException,
   ResourceARNDetail,
+  ResourceNotFoundException,
   ResponseTimeRootCause,
   ResponseTimeRootCauseEntity,
   ResponseTimeRootCauseService,
@@ -72,9 +80,11 @@ import {
   Service,
   ServiceId,
   ServiceStatistics,
+  Tag,
   TelemetryRecord,
   ThrottledException,
   TimeSeriesServiceStatistics,
+  TooManyTagsException,
   Trace,
   TraceSummary,
   TraceUser,
@@ -128,6 +138,10 @@ export const serializeAws_restJson1CreateGroupCommand = async (
   body = JSON.stringify({
     ...(input.FilterExpression !== undefined && { FilterExpression: input.FilterExpression }),
     ...(input.GroupName !== undefined && { GroupName: input.GroupName }),
+    ...(input.InsightsConfiguration !== undefined && {
+      InsightsConfiguration: serializeAws_restJson1InsightsConfiguration(input.InsightsConfiguration, context),
+    }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -154,6 +168,7 @@ export const serializeAws_restJson1CreateSamplingRuleCommand = async (
     ...(input.SamplingRule !== undefined && {
       SamplingRule: serializeAws_restJson1SamplingRule(input.SamplingRule, context),
     }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -480,6 +495,31 @@ export const serializeAws_restJson1GetTraceSummariesCommand = async (
   });
 };
 
+export const serializeAws_restJson1ListTagsForResourceCommand = async (
+  input: ListTagsForResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+  };
+  let resolvedPath = "/ListTagsForResource";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.ResourceARN !== undefined && { ResourceARN: input.ResourceARN }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1PutEncryptionConfigCommand = async (
   input: PutEncryptionConfigCommandInput,
   context: __SerdeContext
@@ -560,6 +600,56 @@ export const serializeAws_restJson1PutTraceSegmentsCommand = async (
   });
 };
 
+export const serializeAws_restJson1TagResourceCommand = async (
+  input: TagResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+  };
+  let resolvedPath = "/TagResource";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.ResourceARN !== undefined && { ResourceARN: input.ResourceARN }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1UntagResourceCommand = async (
+  input: UntagResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+  };
+  let resolvedPath = "/UntagResource";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.ResourceARN !== undefined && { ResourceARN: input.ResourceARN }),
+    ...(input.TagKeys !== undefined && { TagKeys: serializeAws_restJson1TagKeyList(input.TagKeys, context) }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1UpdateGroupCommand = async (
   input: UpdateGroupCommandInput,
   context: __SerdeContext
@@ -573,6 +663,9 @@ export const serializeAws_restJson1UpdateGroupCommand = async (
     ...(input.FilterExpression !== undefined && { FilterExpression: input.FilterExpression }),
     ...(input.GroupARN !== undefined && { GroupARN: input.GroupARN }),
     ...(input.GroupName !== undefined && { GroupName: input.GroupName }),
+    ...(input.InsightsConfiguration !== undefined && {
+      InsightsConfiguration: serializeAws_restJson1InsightsConfiguration(input.InsightsConfiguration, context),
+    }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1641,6 +1734,81 @@ const deserializeAws_restJson1GetTraceSummariesCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1ListTagsForResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTagsForResourceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListTagsForResourceCommandError(output, context);
+  }
+  const contents: ListTagsForResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    NextToken: undefined,
+    Tags: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.NextToken !== undefined && data.NextToken !== null) {
+    contents.NextToken = data.NextToken;
+  }
+  if (data.Tags !== undefined && data.Tags !== null) {
+    contents.Tags = deserializeAws_restJson1TagList(data.Tags, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1ListTagsForResourceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTagsForResourceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidRequestException":
+    case "com.amazonaws.xray#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.xray#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottledException":
+    case "com.amazonaws.xray#ThrottledException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottledExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1PutEncryptionConfigCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -1829,6 +1997,148 @@ const deserializeAws_restJson1PutTraceSegmentsCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1TagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TagResourceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1TagResourceCommandError(output, context);
+  }
+  const contents: TagResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1TagResourceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TagResourceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidRequestException":
+    case "com.amazonaws.xray#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.xray#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottledException":
+    case "com.amazonaws.xray#ThrottledException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottledExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "TooManyTagsException":
+    case "com.amazonaws.xray#TooManyTagsException":
+      response = {
+        ...(await deserializeAws_restJson1TooManyTagsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1UntagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UntagResourceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1UntagResourceCommandError(output, context);
+  }
+  const contents: UntagResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1UntagResourceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UntagResourceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidRequestException":
+    case "com.amazonaws.xray#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.xray#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottledException":
+    case "com.amazonaws.xray#ThrottledException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottledExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1UpdateGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -1972,6 +2282,27 @@ const deserializeAws_restJson1InvalidRequestExceptionResponse = async (
   return contents;
 };
 
+const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ResourceNotFoundException> => {
+  const contents: ResourceNotFoundException = {
+    name: "ResourceNotFoundException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    Message: undefined,
+    ResourceName: undefined,
+  };
+  const data: any = parsedOutput.body;
+  if (data.Message !== undefined && data.Message !== null) {
+    contents.Message = data.Message;
+  }
+  if (data.ResourceName !== undefined && data.ResourceName !== null) {
+    contents.ResourceName = data.ResourceName;
+  }
+  return contents;
+};
+
 const deserializeAws_restJson1RuleLimitExceededExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -2006,6 +2337,27 @@ const deserializeAws_restJson1ThrottledExceptionResponse = async (
   return contents;
 };
 
+const deserializeAws_restJson1TooManyTagsExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<TooManyTagsException> => {
+  const contents: TooManyTagsException = {
+    name: "TooManyTagsException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    Message: undefined,
+    ResourceName: undefined,
+  };
+  const data: any = parsedOutput.body;
+  if (data.Message !== undefined && data.Message !== null) {
+    contents.Message = data.Message;
+  }
+  if (data.ResourceName !== undefined && data.ResourceName !== null) {
+    contents.ResourceName = data.ResourceName;
+  }
+  return contents;
+};
+
 const serializeAws_restJson1AttributeMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
   return Object.entries(input).reduce(
     (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
@@ -2027,6 +2379,13 @@ const serializeAws_restJson1BackendConnectionErrors = (
     ...(input.OtherCount !== undefined && { OtherCount: input.OtherCount }),
     ...(input.TimeoutCount !== undefined && { TimeoutCount: input.TimeoutCount }),
     ...(input.UnknownHostCount !== undefined && { UnknownHostCount: input.UnknownHostCount }),
+  };
+};
+
+const serializeAws_restJson1InsightsConfiguration = (input: InsightsConfiguration, context: __SerdeContext): any => {
+  return {
+    ...(input.InsightsEnabled !== undefined && { InsightsEnabled: input.InsightsEnabled }),
+    ...(input.NotificationsEnabled !== undefined && { NotificationsEnabled: input.NotificationsEnabled }),
   };
 };
 
@@ -2095,6 +2454,21 @@ const serializeAws_restJson1SamplingStrategy = (input: SamplingStrategy, context
     ...(input.Name !== undefined && { Name: input.Name }),
     ...(input.Value !== undefined && { Value: input.Value }),
   };
+};
+
+const serializeAws_restJson1Tag = (input: Tag, context: __SerdeContext): any => {
+  return {
+    ...(input.Key !== undefined && { Key: input.Key }),
+    ...(input.Value !== undefined && { Value: input.Value }),
+  };
+};
+
+const serializeAws_restJson1TagKeyList = (input: string[], context: __SerdeContext): any => {
+  return input.map((entry) => entry);
+};
+
+const serializeAws_restJson1TagList = (input: Tag[], context: __SerdeContext): any => {
+  return input.map((entry) => serializeAws_restJson1Tag(entry, context));
 };
 
 const serializeAws_restJson1TelemetryRecord = (input: TelemetryRecord, context: __SerdeContext): any => {
@@ -2372,6 +2746,10 @@ const deserializeAws_restJson1Group = (output: any, context: __SerdeContext): Gr
       output.FilterExpression !== undefined && output.FilterExpression !== null ? output.FilterExpression : undefined,
     GroupARN: output.GroupARN !== undefined && output.GroupARN !== null ? output.GroupARN : undefined,
     GroupName: output.GroupName !== undefined && output.GroupName !== null ? output.GroupName : undefined,
+    InsightsConfiguration:
+      output.InsightsConfiguration !== undefined && output.InsightsConfiguration !== null
+        ? deserializeAws_restJson1InsightsConfiguration(output.InsightsConfiguration, context)
+        : undefined,
   } as any;
 };
 
@@ -2381,6 +2759,10 @@ const deserializeAws_restJson1GroupSummary = (output: any, context: __SerdeConte
       output.FilterExpression !== undefined && output.FilterExpression !== null ? output.FilterExpression : undefined,
     GroupARN: output.GroupARN !== undefined && output.GroupARN !== null ? output.GroupARN : undefined,
     GroupName: output.GroupName !== undefined && output.GroupName !== null ? output.GroupName : undefined,
+    InsightsConfiguration:
+      output.InsightsConfiguration !== undefined && output.InsightsConfiguration !== null
+        ? deserializeAws_restJson1InsightsConfiguration(output.InsightsConfiguration, context)
+        : undefined,
   } as any;
 };
 
@@ -2406,6 +2788,17 @@ const deserializeAws_restJson1Http = (output: any, context: __SerdeContext): Htt
     HttpStatus: output.HttpStatus !== undefined && output.HttpStatus !== null ? output.HttpStatus : undefined,
     HttpURL: output.HttpURL !== undefined && output.HttpURL !== null ? output.HttpURL : undefined,
     UserAgent: output.UserAgent !== undefined && output.UserAgent !== null ? output.UserAgent : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1InsightsConfiguration = (output: any, context: __SerdeContext): InsightsConfiguration => {
+  return {
+    InsightsEnabled:
+      output.InsightsEnabled !== undefined && output.InsightsEnabled !== null ? output.InsightsEnabled : undefined,
+    NotificationsEnabled:
+      output.NotificationsEnabled !== undefined && output.NotificationsEnabled !== null
+        ? output.NotificationsEnabled
+        : undefined,
   } as any;
 };
 
@@ -2676,6 +3069,17 @@ const deserializeAws_restJson1ServiceStatistics = (output: any, context: __Serde
   } as any;
 };
 
+const deserializeAws_restJson1Tag = (output: any, context: __SerdeContext): Tag => {
+  return {
+    Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
+    Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1TagList = (output: any, context: __SerdeContext): Tag[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1Tag(entry, context));
+};
+
 const deserializeAws_restJson1TimeSeriesServiceStatistics = (
   output: any,
   context: __SerdeContext
@@ -2711,6 +3115,8 @@ const deserializeAws_restJson1Trace = (output: any, context: __SerdeContext): Tr
   return {
     Duration: output.Duration !== undefined && output.Duration !== null ? output.Duration : undefined,
     Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
+    LimitExceeded:
+      output.LimitExceeded !== undefined && output.LimitExceeded !== null ? output.LimitExceeded : undefined,
     Segments:
       output.Segments !== undefined && output.Segments !== null
         ? deserializeAws_restJson1SegmentList(output.Segments, context)

@@ -33,7 +33,7 @@ export async function* listPlacementsPaginate(
   let hasNext = true;
   let page: ListPlacementsCommandOutput;
   while (hasNext) {
-    input["nextToken"] = token;
+    input.nextToken = token;
     input["maxResults"] = config.pageSize;
     if (config.client instanceof IoT1ClickProjects) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* listPlacementsPaginate(
       throw new Error("Invalid client, expected IoT1ClickProjects | IoT1ClickProjectsClient");
     }
     yield page;
-    token = page["nextToken"];
+    token = page.nextToken;
     hasNext = !!token;
   }
   // @ts-ignore

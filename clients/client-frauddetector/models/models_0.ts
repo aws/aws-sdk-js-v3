@@ -42,9 +42,16 @@ export namespace Tag {
  */
 export interface VariableEntry {
   /**
-   * <p>The name of the variable.</p>
+   * <p>The data type of the variable.</p>
    */
-  name?: string;
+  dataType?: string;
+
+  /**
+   * <p>The type of the variable. For more information see <a href="https://docs.aws.amazon.com/frauddetector/latest/ug/create-a-variable.html#variable-types">Variable types</a>.</p>
+   *          <p>Valid Values: <code>AUTH_CODE | AVS | BILLING_ADDRESS_L1 | BILLING_ADDRESS_L2 | BILLING_CITY | BILLING_COUNTRY | BILLING_NAME | BILLING_PHONE | BILLING_STATE | BILLING_ZIP | CARD_BIN | CATEGORICAL | CURRENCY_CODE | EMAIL_ADDRESS | FINGERPRINT | FRAUD_LABEL | FREE_FORM_TEXT | IP_ADDRESS | NUMERIC | ORDER_ID | PAYMENT_TYPE | PHONE_NUMBER | PRICE | PRODUCT_CATEGORY | SHIPPING_ADDRESS_L1 | SHIPPING_ADDRESS_L2 | SHIPPING_CITY | SHIPPING_COUNTRY | SHIPPING_NAME | SHIPPING_PHONE | SHIPPING_STATE | SHIPPING_ZIP | USERAGENT </code>
+   *          </p>
+   */
+  variableType?: string;
 
   /**
    * <p>The description of the variable.</p>
@@ -52,26 +59,19 @@ export interface VariableEntry {
   description?: string;
 
   /**
-   * <p>The data source of the variable.</p>
-   */
-  dataSource?: string;
-
-  /**
-   * <p>The type of the variable. For more information see <a href="https://docs.aws.amazon.com/frauddetector/latest/ug/create-a-variable.html#variable-types">Variable types</a>.</p>
-   *          <p>Valid Values: <code>AUTH_CODE | AVS | BILLING_ADDRESS_L1 | BILLING_ADDRESS_L2 | BILLING_CITY | BILLING_COUNTRY | BILLING_NAME | BILLING_PHONE | BILLING_STATE | BILLING_ZIP | CARD_BIN | CATEGORICAL | CURRENCY_CODE | EMAIL_ADDRESS | FINGERPRINT | FRAUD_LABEL | FREE_FORM_TEXT | IP_ADDRESS | NUMERIC | ORDER_ID | PAYMENT_TYPE | PHONE_NUMBER | PRICE | PRODUCT_CATEGORY | SHIPPING_ADDRESS_L1 | SHIPPING_ADDRESS_L2 | SHIPPING_CITY | SHIPPING_COUNTRY | SHIPPING_NAME | SHIPPING_PHONE | SHIPPING_STATE | SHIPPING_ZIP | USERAGENT | SHIPPING_ZIP | USERAGENT</code>
-   *          </p>
-   */
-  variableType?: string;
-
-  /**
    * <p>The default value of the variable.</p>
    */
   defaultValue?: string;
 
   /**
-   * <p>The data type of the variable.</p>
+   * <p>The name of the variable.</p>
    */
-  dataType?: string;
+  name?: string;
+
+  /**
+   * <p>The data source of the variable.</p>
+   */
+  dataSource?: string;
 }
 
 export namespace VariableEntry {
@@ -103,14 +103,14 @@ export namespace BatchCreateVariableRequest {
  */
 export interface BatchCreateVariableError {
   /**
-   * <p>The error code. </p>
-   */
-  code?: number;
-
-  /**
    * <p>The name.</p>
    */
   name?: string;
+
+  /**
+   * <p>The error code. </p>
+   */
+  code?: number;
 
   /**
    * <p>The error message.</p>
@@ -200,14 +200,14 @@ export namespace BatchGetVariableRequest {
  */
 export interface BatchGetVariableError {
   /**
-   * <p>The error name. </p>
-   */
-  name?: string;
-
-  /**
    * <p>The error code. </p>
    */
   code?: number;
+
+  /**
+   * <p>The error name. </p>
+   */
+  name?: string;
 
   /**
    * <p>The error message.</p>
@@ -239,16 +239,6 @@ export enum DataType {
  */
 export interface Variable {
   /**
-   * <p>The default value of the variable.</p>
-   */
-  defaultValue?: string;
-
-  /**
-   * <p>The data type of the variable. For more information see <a href="https://docs.aws.amazon.com/frauddetector/latest/ug/create-a-variable.html#variable-types">Variable types</a>.</p>
-   */
-  dataType?: DataType | string;
-
-  /**
    * <p>The ARN of the variable.</p>
    */
   arn?: string;
@@ -259,9 +249,26 @@ export interface Variable {
   dataSource?: DataSource | string;
 
   /**
+   * <p>The variable type of the variable.</p>
+   *          <p>Valid Values: <code>AUTH_CODE | AVS | BILLING_ADDRESS_L1 | BILLING_ADDRESS_L2 | BILLING_CITY | BILLING_COUNTRY | BILLING_NAME | BILLING_PHONE | BILLING_STATE | BILLING_ZIP | CARD_BIN | CATEGORICAL | CURRENCY_CODE | EMAIL_ADDRESS | FINGERPRINT | FRAUD_LABEL | FREE_FORM_TEXT | IP_ADDRESS | NUMERIC | ORDER_ID | PAYMENT_TYPE | PHONE_NUMBER | PRICE | PRODUCT_CATEGORY | SHIPPING_ADDRESS_L1 | SHIPPING_ADDRESS_L2 | SHIPPING_CITY | SHIPPING_COUNTRY | SHIPPING_NAME | SHIPPING_PHONE | SHIPPING_STATE | SHIPPING_ZIP | USERAGENT </code>
+   *          </p>
+   */
+  variableType?: string;
+
+  /**
+   * <p>The default value of the variable.</p>
+   */
+  defaultValue?: string;
+
+  /**
    * <p>The time when variable was last updated.</p>
    */
   lastUpdatedTime?: string;
+
+  /**
+   * <p>The data type of the variable. For more information see <a href="https://docs.aws.amazon.com/frauddetector/latest/ug/create-a-variable.html#variable-types">Variable types</a>.</p>
+   */
+  dataType?: DataType | string;
 
   /**
    * <p>The name of the variable.</p>
@@ -269,21 +276,14 @@ export interface Variable {
   name?: string;
 
   /**
-   * <p>The variable type of the variable.</p>
-   *          <p>Valid Values: <code>AUTH_CODE | AVS | BILLING_ADDRESS_L1 | BILLING_ADDRESS_L2 | BILLING_CITY | BILLING_COUNTRY | BILLING_NAME | BILLING_PHONE | BILLING_STATE | BILLING_ZIP | CARD_BIN | CATEGORICAL | CURRENCY_CODE | EMAIL_ADDRESS | FINGERPRINT | FRAUD_LABEL | FREE_FORM_TEXT | IP_ADDRESS | NUMERIC | ORDER_ID | PAYMENT_TYPE | PHONE_NUMBER | PRICE | PRODUCT_CATEGORY | SHIPPING_ADDRESS_L1 | SHIPPING_ADDRESS_L2 | SHIPPING_CITY | SHIPPING_COUNTRY | SHIPPING_NAME | SHIPPING_PHONE | SHIPPING_STATE | SHIPPING_ZIP | USERAGENT | SHIPPING_ZIP | USERAGENT</code>
-   *          </p>
+   * <p>The description of the variable. </p>
    */
-  variableType?: string;
+  description?: string;
 
   /**
    * <p>The time when the variable was created.</p>
    */
   createdTime?: string;
-
-  /**
-   * <p>The description of the variable. </p>
-   */
-  description?: string;
 }
 
 export namespace Variable {
@@ -319,9 +319,9 @@ export enum ModelTypeEnum {
  */
 export interface ModelVersion {
   /**
-   * <p>The model ID.</p>
+   * <p>The model type.</p>
    */
-  modelId: string | undefined;
+  modelType: ModelTypeEnum | string | undefined;
 
   /**
    * <p>The model version number.</p>
@@ -329,14 +329,14 @@ export interface ModelVersion {
   modelVersionNumber: string | undefined;
 
   /**
+   * <p>The model ID.</p>
+   */
+  modelId: string | undefined;
+
+  /**
    * <p>The model version ARN.</p>
    */
   arn?: string;
-
-  /**
-   * <p>The model type.</p>
-   */
-  modelType: ModelTypeEnum | string | undefined;
 }
 
 export namespace ModelVersion {
@@ -355,6 +355,11 @@ export enum RuleExecutionMode {
  */
 export interface Rule {
   /**
+   * <p>The rule version.</p>
+   */
+  ruleVersion: string | undefined;
+
+  /**
    * <p>The detector for which the rule is associated.</p>
    */
   detectorId: string | undefined;
@@ -363,11 +368,6 @@ export interface Rule {
    * <p>The rule ID.</p>
    */
   ruleId: string | undefined;
-
-  /**
-   * <p>The rule version.</p>
-   */
-  ruleVersion: string | undefined;
 }
 
 export namespace Rule {
@@ -378,9 +378,18 @@ export namespace Rule {
 
 export interface CreateDetectorVersionRequest {
   /**
-   * <p>The description of the detector version.</p>
+   * <p>The rule execution mode for the rules included in the detector version.</p>
+   * 	        <p>You can define and edit the rule mode at the detector version level, when it is in draft status.</p>
+   * 	        <p>If you specify <code>FIRST_MATCHED</code>, Amazon Fraud Detector evaluates rules sequentially, first to last, stopping at the first matched rule. Amazon Fraud dectector then provides the outcomes for that single rule.</p>
+   * 	        <p>If you specifiy <code>ALL_MATCHED</code>, Amazon Fraud Detector evaluates all rules and returns the outcomes for all matched rules. </p>
+   *          <p>The default behavior is <code>FIRST_MATCHED</code>.</p>
    */
-  description?: string;
+  ruleExecutionMode?: RuleExecutionMode | string;
+
+  /**
+   * <p>The model versions to include in the detector version.</p>
+   */
+  modelVersions?: ModelVersion[];
 
   /**
    * <p>A collection of key and value pairs.</p>
@@ -393,28 +402,19 @@ export interface CreateDetectorVersionRequest {
   externalModelEndpoints?: string[];
 
   /**
-   * <p>The model versions to include in the detector version.</p>
+   * <p>The description of the detector version.</p>
    */
-  modelVersions?: ModelVersion[];
-
-  /**
-   * <p>The ID of the detector under which you want to create a new version.</p>
-   */
-  detectorId: string | undefined;
-
-  /**
-   * <p>The rule execution mode for the rules included in the detector version.</p>
-   * 	        <p>You can define and edit the rule mode at the detector version level, when it is in draft status.</p>
-   * 	        <p>If you specify <code>FIRST_MATCHED</code>, Amazon Fraud Detector evaluates rules sequentially, first to last, stopping at the first matched rule. Amazon Fraud dectector then provides the outcomes for that single rule.</p>
-   * 	        <p>If you specifiy <code>ALL_MATCHED</code>, Amazon Fraud Detector evaluates all rules and returns the outcomes for all matched rules. </p>
-   *          <p>The default behavior is <code>FIRST_MATCHED</code>.</p>
-   */
-  ruleExecutionMode?: RuleExecutionMode | string;
+  description?: string;
 
   /**
    * <p>The rules to include in the detector version.</p>
    */
   rules: Rule[] | undefined;
+
+  /**
+   * <p>The ID of the detector under which you want to create a new version.</p>
+   */
+  detectorId: string | undefined;
 }
 
 export namespace CreateDetectorVersionRequest {
@@ -431,11 +431,6 @@ export enum DetectorVersionStatus {
 
 export interface CreateDetectorVersionResult {
   /**
-   * <p>The status of the detector version.</p>
-   */
-  status?: DetectorVersionStatus | string;
-
-  /**
    * <p>The ID for the created version's parent detector.</p>
    */
   detectorId?: string;
@@ -444,6 +439,11 @@ export interface CreateDetectorVersionResult {
    * <p>The ID for the created detector. </p>
    */
   detectorVersionId?: string;
+
+  /**
+   * <p>The status of the detector version.</p>
+   */
+  status?: DetectorVersionStatus | string;
 }
 
 export namespace CreateDetectorVersionResult {
@@ -469,9 +469,19 @@ export namespace ResourceNotFoundException {
 
 export interface CreateModelRequest {
   /**
+   * <p>The model type. </p>
+   */
+  modelType: ModelTypeEnum | string | undefined;
+
+  /**
    * <p>A collection of key and value pairs.</p>
    */
   tags?: Tag[];
+
+  /**
+   * <p>The model description. </p>
+   */
+  description?: string;
 
   /**
    * <p>The name of the event type.</p>
@@ -482,16 +492,6 @@ export interface CreateModelRequest {
    * <p>The model ID.</p>
    */
   modelId: string | undefined;
-
-  /**
-   * <p>The model type. </p>
-   */
-  modelType: ModelTypeEnum | string | undefined;
-
-  /**
-   * <p>The model description. </p>
-   */
-  description?: string;
 }
 
 export namespace CreateModelRequest {
@@ -513,14 +513,14 @@ export namespace CreateModelResult {
  */
 export interface ExternalEventsDetail {
   /**
-   * <p>The ARN of the role that provides Amazon Fraud Detector access to the data location.</p>
-   */
-  dataAccessRoleArn: string | undefined;
-
-  /**
    * <p>The Amazon S3 bucket location for the data.</p>
    */
   dataLocation: string | undefined;
+
+  /**
+   * <p>The ARN of the role that provides Amazon Fraud Detector access to the data location.</p>
+   */
+  dataAccessRoleArn: string | undefined;
 }
 
 export namespace ExternalEventsDetail {
@@ -573,16 +573,6 @@ export enum TrainingDataSourceEnum {
 
 export interface CreateModelVersionRequest {
   /**
-   * <p>The model type.</p>
-   */
-  modelType: ModelTypeEnum | string | undefined;
-
-  /**
-   * <p>The training data source location in Amazon S3. </p>
-   */
-  trainingDataSource: TrainingDataSourceEnum | string | undefined;
-
-  /**
    * <p>A collection of key and value pairs.</p>
    */
   tags?: Tag[];
@@ -598,9 +588,19 @@ export interface CreateModelVersionRequest {
   trainingDataSchema: TrainingDataSchema | undefined;
 
   /**
+   * <p>The training data source location in Amazon S3. </p>
+   */
+  trainingDataSource: TrainingDataSourceEnum | string | undefined;
+
+  /**
    * <p>Details for the external events data used for model version training. Required if <code>trainingDataSource</code> is <code>EXTERNAL_EVENTS</code>.</p>
    */
   externalEventsDetail?: ExternalEventsDetail;
+
+  /**
+   * <p>The model type.</p>
+   */
+  modelType: ModelTypeEnum | string | undefined;
 }
 
 export namespace CreateModelVersionRequest {
@@ -611,6 +611,16 @@ export namespace CreateModelVersionRequest {
 
 export interface CreateModelVersionResult {
   /**
+   * <p>The model type.</p>
+   */
+  modelType?: ModelTypeEnum | string;
+
+  /**
+   * <p>The model version number of the model version created.</p>
+   */
+  modelVersionNumber?: string;
+
+  /**
    * <p>The model ID.</p>
    */
   modelId?: string;
@@ -619,16 +629,6 @@ export interface CreateModelVersionResult {
    * <p>The model version status. </p>
    */
   status?: string;
-
-  /**
-   * <p>The model version number of the model version created.</p>
-   */
-  modelVersionNumber?: string;
-
-  /**
-   * <p>The model type.</p>
-   */
-  modelType?: ModelTypeEnum | string;
 }
 
 export namespace CreateModelVersionResult {
@@ -643,29 +643,14 @@ export enum Language {
 
 export interface CreateRuleRequest {
   /**
-   * <p>The language of the rule.</p>
+   * <p>The detector ID for the rule's parent detector.</p>
    */
-  language: Language | string | undefined;
-
-  /**
-   * <p>The rule description.</p>
-   */
-  description?: string;
-
-  /**
-   * <p>A collection of key and value pairs.</p>
-   */
-  tags?: Tag[];
+  detectorId: string | undefined;
 
   /**
    * <p>The outcome or outcomes returned when the rule expression matches.</p>
    */
   outcomes: string[] | undefined;
-
-  /**
-   * <p>The detector ID for the rule's parent detector.</p>
-   */
-  detectorId: string | undefined;
 
   /**
    * <p>The rule ID.</p>
@@ -676,6 +661,21 @@ export interface CreateRuleRequest {
    * <p>The rule expression.</p>
    */
   expression: string | undefined;
+
+  /**
+   * <p>A collection of key and value pairs.</p>
+   */
+  tags?: Tag[];
+
+  /**
+   * <p>The rule description.</p>
+   */
+  description?: string;
+
+  /**
+   * <p>The language of the rule.</p>
+   */
+  language: Language | string | undefined;
 }
 
 export namespace CreateRuleRequest {
@@ -700,22 +700,9 @@ export namespace CreateRuleResult {
 
 export interface CreateVariableRequest {
   /**
-   * <p>The default value for the variable when no value is received.</p>
+   * <p>The description.</p>
    */
-  defaultValue: string | undefined;
-
-  /**
-   * <p>The source of the data.</p>
-   */
-  dataSource: DataSource | string | undefined;
-
-  /**
-   * <p>The variable type. For more information see <a href="https://docs.aws.amazon.com/frauddetector/latest/ug/create-a-variable.html#variable-types">Variable types</a>.
-   * 				</p>
-   *          <p>Valid Values: <code>AUTH_CODE | AVS | BILLING_ADDRESS_L1 | BILLING_ADDRESS_L2 | BILLING_CITY | BILLING_COUNTRY | BILLING_NAME | BILLING_PHONE | BILLING_STATE | BILLING_ZIP | CARD_BIN | CATEGORICAL | CURRENCY_CODE | EMAIL_ADDRESS | FINGERPRINT | FRAUD_LABEL | FREE_FORM_TEXT | IP_ADDRESS | NUMERIC | ORDER_ID | PAYMENT_TYPE | PHONE_NUMBER | PRICE | PRODUCT_CATEGORY | SHIPPING_ADDRESS_L1 | SHIPPING_ADDRESS_L2 | SHIPPING_CITY | SHIPPING_COUNTRY | SHIPPING_NAME | SHIPPING_PHONE | SHIPPING_STATE | SHIPPING_ZIP | USERAGENT | SHIPPING_ZIP | USERAGENT</code>
-   *          </p>
-   */
-  variableType?: string;
+  description?: string;
 
   /**
    * <p>A collection of key and value pairs.</p>
@@ -723,19 +710,32 @@ export interface CreateVariableRequest {
   tags?: Tag[];
 
   /**
-   * <p>The data type.</p>
-   */
-  dataType: DataType | string | undefined;
-
-  /**
    * <p>The name of the variable.</p>
    */
   name: string | undefined;
 
   /**
-   * <p>The description.</p>
+   * <p>The variable type. For more information see <a href="https://docs.aws.amazon.com/frauddetector/latest/ug/create-a-variable.html#variable-types">Variable types</a>.
+   * 				</p>
+   *          <p>Valid Values: <code>AUTH_CODE | AVS | BILLING_ADDRESS_L1 | BILLING_ADDRESS_L2 | BILLING_CITY | BILLING_COUNTRY | BILLING_NAME | BILLING_PHONE | BILLING_STATE | BILLING_ZIP | CARD_BIN | CATEGORICAL | CURRENCY_CODE | EMAIL_ADDRESS | FINGERPRINT | FRAUD_LABEL | FREE_FORM_TEXT | IP_ADDRESS | NUMERIC | ORDER_ID | PAYMENT_TYPE | PHONE_NUMBER | PRICE | PRODUCT_CATEGORY | SHIPPING_ADDRESS_L1 | SHIPPING_ADDRESS_L2 | SHIPPING_CITY | SHIPPING_COUNTRY | SHIPPING_NAME | SHIPPING_PHONE | SHIPPING_STATE | SHIPPING_ZIP | USERAGENT</code>
+   *          </p>
    */
-  description?: string;
+  variableType?: string;
+
+  /**
+   * <p>The source of the data.</p>
+   */
+  dataSource: DataSource | string | undefined;
+
+  /**
+   * <p>The default value for the variable when no value is received.</p>
+   */
+  defaultValue: string | undefined;
+
+  /**
+   * <p>The data type.</p>
+   */
+  dataType: DataType | string | undefined;
 }
 
 export namespace CreateVariableRequest {
@@ -827,14 +827,14 @@ export namespace DeleteDetectorVersionResult {
 
 export interface DeleteEventRequest {
   /**
-   * <p>The ID of the event to delete.</p>
-   */
-  eventId: string | undefined;
-
-  /**
    * <p>The name of the event type.</p>
    */
   eventTypeName: string | undefined;
+
+  /**
+   * <p>The ID of the event to delete.</p>
+   */
+  eventId: string | undefined;
 }
 
 export namespace DeleteEventRequest {
@@ -879,14 +879,14 @@ export interface DescribeDetectorRequest {
   detectorId: string | undefined;
 
   /**
-   * <p>The maximum number of results to return for the request.</p>
-   */
-  maxResults?: number;
-
-  /**
    * <p>The next token from the previous response.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return for the request.</p>
+   */
+  maxResults?: number;
 }
 
 export namespace DescribeDetectorRequest {
@@ -900,11 +900,6 @@ export namespace DescribeDetectorRequest {
  */
 export interface DetectorVersionSummary {
   /**
-   * <p>The detector version status. </p>
-   */
-  status?: DetectorVersionStatus | string;
-
-  /**
    * <p>The detector version ID. </p>
    */
   detectorVersionId?: string;
@@ -913,6 +908,11 @@ export interface DetectorVersionSummary {
    * <p>Timestamp of when the detector version was last updated.</p>
    */
   lastUpdatedTime?: string;
+
+  /**
+   * <p>The detector version status. </p>
+   */
+  status?: DetectorVersionStatus | string;
 
   /**
    * <p>The detector version description. </p>
@@ -928,9 +928,9 @@ export namespace DetectorVersionSummary {
 
 export interface DescribeDetectorResult {
   /**
-   * <p>The status and description for each detector version.</p>
+   * <p>The next token to be used for subsequent requests.</p>
    */
-  detectorVersionSummaries?: DetectorVersionSummary[];
+  nextToken?: string;
 
   /**
    * <p>The detector ARN.</p>
@@ -943,9 +943,9 @@ export interface DescribeDetectorResult {
   detectorId?: string;
 
   /**
-   * <p>The next token to be used for subsequent requests.</p>
+   * <p>The status and description for each detector version.</p>
    */
-  nextToken?: string;
+  detectorVersionSummaries?: DetectorVersionSummary[];
 }
 
 export namespace DescribeDetectorResult {
@@ -956,9 +956,9 @@ export namespace DescribeDetectorResult {
 
 export interface DescribeModelVersionsRequest {
   /**
-   * <p>The maximum number of results to return.</p>
+   * <p>The next token from the previous results.</p>
    */
-  maxResults?: number;
+  nextToken?: string;
 
   /**
    * <p>The model version number.</p>
@@ -971,14 +971,14 @@ export interface DescribeModelVersionsRequest {
   modelType?: ModelTypeEnum | string;
 
   /**
+   * <p>The maximum number of results to return.</p>
+   */
+  maxResults?: number;
+
+  /**
    * <p>The model ID.</p>
    */
   modelId?: string;
-
-  /**
-   * <p>The next token from the previous results.</p>
-   */
-  nextToken?: string;
 }
 
 export namespace DescribeModelVersionsRequest {
@@ -992,9 +992,9 @@ export namespace DescribeModelVersionsRequest {
  */
 export interface FieldValidationMessage {
   /**
-   * <p>The message type.</p>
+   * <p>The message ID.</p>
    */
-  type?: string;
+  identifier?: string;
 
   /**
    * <p>The field name.</p>
@@ -1002,19 +1002,19 @@ export interface FieldValidationMessage {
   fieldName?: string;
 
   /**
-   * <p>The message ID.</p>
+   * <p>The message type.</p>
    */
-  identifier?: string;
-
-  /**
-   * <p>The message content.</p>
-   */
-  content?: string;
+  type?: string;
 
   /**
    * <p>The message title.</p>
    */
   title?: string;
+
+  /**
+   * <p>The message content.</p>
+   */
+  content?: string;
 }
 
 export namespace FieldValidationMessage {
@@ -1028,14 +1028,14 @@ export namespace FieldValidationMessage {
  */
 export interface FileValidationMessage {
   /**
-   * <p>The message content.</p>
-   */
-  content?: string;
-
-  /**
    * <p>The message type.</p>
    */
   type?: string;
+
+  /**
+   * <p>The message content.</p>
+   */
+  content?: string;
 
   /**
    * <p>The message title.</p>
@@ -1085,14 +1085,14 @@ export interface MetricDataPoint {
   fpr?: number;
 
   /**
-   * <p>The true positive rate. This is the percentage of total fraud the model detects. Also known as capture rate.</p>
-   */
-  tpr?: number;
-
-  /**
    * <p>The percentage of fraud events correctly predicted as fraudulent as compared to all events predicted as fraudulent.</p>
    */
   precision?: number;
+
+  /**
+   * <p>The true positive rate. This is the percentage of total fraud the model detects. Also known as capture rate.</p>
+   */
+  tpr?: number;
 }
 
 export namespace MetricDataPoint {
@@ -1127,14 +1127,14 @@ export namespace TrainingMetrics {
  */
 export interface TrainingResult {
   /**
-   * <p>The validation metrics.</p>
-   */
-  dataValidationMetrics?: DataValidationMetrics;
-
-  /**
    * <p>The training metric details.</p>
    */
   trainingMetrics?: TrainingMetrics;
+
+  /**
+   * <p>The validation metrics.</p>
+   */
+  dataValidationMetrics?: DataValidationMetrics;
 }
 
 export namespace TrainingResult {
@@ -1148,14 +1148,9 @@ export namespace TrainingResult {
  */
 export interface ModelVersionDetail {
   /**
-   * <p>The model version number.</p>
+   * <p>The event details.</p>
    */
-  modelVersionNumber?: string;
-
-  /**
-   * <p>The timestamp when the model was created.</p>
-   */
-  createdTime?: string;
+  externalEventsDetail?: ExternalEventsDetail;
 
   /**
    * <p>The status of the model version.</p>
@@ -1163,24 +1158,9 @@ export interface ModelVersionDetail {
   status?: string;
 
   /**
-   * <p>The model type.</p>
-   */
-  modelType?: ModelTypeEnum | string;
-
-  /**
-   * <p>The timestamp when the model was last updated.</p>
-   */
-  lastUpdatedTime?: string;
-
-  /**
    * <p>The model version ARN.</p>
    */
   arn?: string;
-
-  /**
-   * <p>The model version training data source.</p>
-   */
-  trainingDataSource?: TrainingDataSourceEnum | string;
 
   /**
    * <p>The training results.</p>
@@ -1188,19 +1168,39 @@ export interface ModelVersionDetail {
   trainingResult?: TrainingResult;
 
   /**
-   * <p>The event details.</p>
+   * <p>The model version training data source.</p>
    */
-  externalEventsDetail?: ExternalEventsDetail;
+  trainingDataSource?: TrainingDataSourceEnum | string;
 
   /**
-   * <p>The model ID.</p>
+   * <p>The timestamp when the model was created.</p>
    */
-  modelId?: string;
+  createdTime?: string;
+
+  /**
+   * <p>The model version number.</p>
+   */
+  modelVersionNumber?: string;
+
+  /**
+   * <p>The timestamp when the model was last updated.</p>
+   */
+  lastUpdatedTime?: string;
+
+  /**
+   * <p>The model type.</p>
+   */
+  modelType?: ModelTypeEnum | string;
 
   /**
    * <p>The training data schema.</p>
    */
   trainingDataSchema?: TrainingDataSchema;
+
+  /**
+   * <p>The model ID.</p>
+   */
+  modelId?: string;
 }
 
 export namespace ModelVersionDetail {
@@ -1211,14 +1211,14 @@ export namespace ModelVersionDetail {
 
 export interface DescribeModelVersionsResult {
   /**
-   * <p>The next token.</p>
-   */
-  nextToken?: string;
-
-  /**
    * <p>The model version details.</p>
    */
   modelVersionDetails?: ModelVersionDetail[];
+
+  /**
+   * <p>The next token.</p>
+   */
+  nextToken?: string;
 }
 
 export namespace DescribeModelVersionsResult {
@@ -1229,14 +1229,14 @@ export namespace DescribeModelVersionsResult {
 
 export interface GetDetectorsRequest {
   /**
-   * <p>The maximum number of objects to return for the request.</p>
-   */
-  maxResults?: number;
-
-  /**
    * <p>The detector ID.</p>
    */
   detectorId?: string;
+
+  /**
+   * <p>The maximum number of objects to return for the request.</p>
+   */
+  maxResults?: number;
 
   /**
    * <p>The next token for the subsequent request.</p>
@@ -1255,19 +1255,9 @@ export namespace GetDetectorsRequest {
  */
 export interface Detector {
   /**
-   * <p>Timestamp of when the detector was created.</p>
-   */
-  createdTime?: string;
-
-  /**
    * <p>The name of the event type.</p>
    */
   eventTypeName?: string;
-
-  /**
-   * <p>The detector description.</p>
-   */
-  description?: string;
 
   /**
    * <p>The detector ID.</p>
@@ -1275,14 +1265,24 @@ export interface Detector {
   detectorId?: string;
 
   /**
-   * <p>The detector ARN.</p>
+   * <p>The detector description.</p>
    */
-  arn?: string;
+  description?: string;
+
+  /**
+   * <p>Timestamp of when the detector was created.</p>
+   */
+  createdTime?: string;
 
   /**
    * <p>Timestamp of when the detector was last updated.</p>
    */
   lastUpdatedTime?: string;
+
+  /**
+   * <p>The detector ARN.</p>
+   */
+  arn?: string;
 }
 
 export namespace Detector {
@@ -1329,9 +1329,29 @@ export namespace GetDetectorVersionRequest {
 
 export interface GetDetectorVersionResult {
   /**
-   * <p>The Amazon SageMaker model endpoints included in the detector version.</p>
+   * <p>The detector version ARN.</p>
    */
-  externalModelEndpoints?: string[];
+  arn?: string;
+
+  /**
+   * <p>The rules included in the detector version.</p>
+   */
+  rules?: Rule[];
+
+  /**
+   * <p>The model versions included in the detector version. </p>
+   */
+  modelVersions?: ModelVersion[];
+
+  /**
+   * <p>The detector version ID.</p>
+   */
+  detectorVersionId?: string;
+
+  /**
+   * <p>The detector ID.</p>
+   */
+  detectorId?: string;
 
   /**
    * <p>The execution mode of the rule in the dectector</p>
@@ -1343,9 +1363,9 @@ export interface GetDetectorVersionResult {
   ruleExecutionMode?: RuleExecutionMode | string;
 
   /**
-   * <p>The detector version ID.</p>
+   * <p>The timestamp when the detector version was created. </p>
    */
-  detectorVersionId?: string;
+  createdTime?: string;
 
   /**
    * <p>The detector version description.</p>
@@ -1353,9 +1373,9 @@ export interface GetDetectorVersionResult {
   description?: string;
 
   /**
-   * <p>The detector version ARN.</p>
+   * <p>The Amazon SageMaker model endpoints included in the detector version.</p>
    */
-  arn?: string;
+  externalModelEndpoints?: string[];
 
   /**
    * <p>The status of the detector version.</p>
@@ -1363,30 +1383,10 @@ export interface GetDetectorVersionResult {
   status?: DetectorVersionStatus | string;
 
   /**
-   * <p>The rules included in the detector version.</p>
-   */
-  rules?: Rule[];
-
-  /**
    * <p>The timestamp when the detector version was last updated.
    *         </p>
    */
   lastUpdatedTime?: string;
-
-  /**
-   * <p>The timestamp when the detector version was created. </p>
-   */
-  createdTime?: string;
-
-  /**
-   * <p>The model versions included in the detector version. </p>
-   */
-  modelVersions?: ModelVersion[];
-
-  /**
-   * <p>The detector ID.</p>
-   */
-  detectorId?: string;
 }
 
 export namespace GetDetectorVersionResult {
@@ -1423,9 +1423,9 @@ export namespace GetEntityTypesRequest {
  */
 export interface EntityType {
   /**
-   * <p>The entity type ARN.</p>
+   * <p>Timestamp of when the entity type was created.</p>
    */
-  arn?: string;
+  createdTime?: string;
 
   /**
    * <p>Timestamp of when the entity type was last updated.</p>
@@ -1433,19 +1433,19 @@ export interface EntityType {
   lastUpdatedTime?: string;
 
   /**
-   * <p>The entity type description.</p>
-   */
-  description?: string;
-
-  /**
    * <p>The entity type name.</p>
    */
   name?: string;
 
   /**
-   * <p>Timestamp of when the entity type was created.</p>
+   * <p>The entity type description.</p>
    */
-  createdTime?: string;
+  description?: string;
+
+  /**
+   * <p>The entity type ARN.</p>
+   */
+  arn?: string;
 }
 
 export namespace EntityType {
@@ -1477,14 +1477,14 @@ export namespace GetEntityTypesResult {
  */
 export interface Entity {
   /**
-   * <p>The entity ID. If you do not know the <code>entityId</code>, you can pass <code>unknown</code>, which is areserved string literal.</p>
-   */
-  entityId: string | undefined;
-
-  /**
    * <p>The entity type.</p>
    */
   entityType: string | undefined;
+
+  /**
+   * <p>The entity ID. If you do not know the <code>entityId</code>, you can pass <code>unknown</code>, which is areserved string literal.</p>
+   */
+  entityId: string | undefined;
 }
 
 export namespace Entity {
@@ -1516,14 +1516,9 @@ export namespace ModelEndpointDataBlob {
 
 export interface GetEventPredictionRequest {
   /**
-   * <p>The unique ID used to identify the event.</p>
+   * <p>Timestamp that defines when the event under evaluation occurred.</p>
    */
-  eventId: string | undefined;
-
-  /**
-   * <p>Names of the event type's variables you defined in Amazon Fraud Detector to represent data elements and their corresponding values for the event you are sending for evaluation.</p>
-   */
-  eventVariables: { [key: string]: string } | undefined;
+  eventTimestamp: string | undefined;
 
   /**
    * <p>The detector version ID.</p>
@@ -1531,19 +1526,24 @@ export interface GetEventPredictionRequest {
   detectorVersionId?: string;
 
   /**
+   * <p>Names of the event type's variables you defined in Amazon Fraud Detector to represent data elements and their corresponding values for the event you are sending for evaluation.</p>
+   */
+  eventVariables: { [key: string]: string } | undefined;
+
+  /**
    * <p>The Amazon SageMaker model endpoint input data blobs.</p>
    */
   externalModelEndpointDataBlobs?: { [key: string]: ModelEndpointDataBlob };
 
   /**
+   * <p>The unique ID used to identify the event.</p>
+   */
+  eventId: string | undefined;
+
+  /**
    * <p>The event type associated with the detector specified for the prediction.</p>
    */
   eventTypeName: string | undefined;
-
-  /**
-   * <p>Timestamp that defines when the event under evaluation occurred.</p>
-   */
-  eventTimestamp: string | undefined;
 
   /**
    * <p>The detector ID.</p>
@@ -1569,14 +1569,14 @@ export namespace GetEventPredictionRequest {
  */
 export interface ModelScores {
   /**
-   * <p>The model's fraud prediction scores.</p>
-   */
-  scores?: { [key: string]: number };
-
-  /**
    * <p>The model version.</p>
    */
   modelVersion?: ModelVersion;
+
+  /**
+   * <p>The model's fraud prediction scores.</p>
+   */
+  scores?: { [key: string]: number };
 }
 
 export namespace ModelScores {
@@ -1608,14 +1608,14 @@ export namespace RuleResult {
 
 export interface GetEventPredictionResult {
   /**
-   * <p>The model scores. Amazon Fraud Detector generates model scores between 0 and 1000, where 0 is low fraud risk and 1000 is high fraud risk. Model scores are directly related to the false positive rate (FPR). For example, a score of 600 corresponds to an estimated 10% false positive rate whereas a score of 900 corresponds to an estimated 2% false positive rate.</p>
-   */
-  modelScores?: ModelScores[];
-
-  /**
    * <p>The results.</p>
    */
   ruleResults?: RuleResult[];
+
+  /**
+   * <p>The model scores. Amazon Fraud Detector generates model scores between 0 and 1000, where 0 is low fraud risk and 1000 is high fraud risk. Model scores are directly related to the false positive rate (FPR). For example, a score of 600 corresponds to an estimated 10% false positive rate whereas a score of 900 corresponds to an estimated 2% false positive rate.</p>
+   */
+  modelScores?: ModelScores[];
 }
 
 export namespace GetEventPredictionResult {
@@ -1652,34 +1652,14 @@ export namespace GetEventTypesRequest {
  */
 export interface EventType {
   /**
-   * <p>The event type description.</p>
-   */
-  description?: string;
-
-  /**
-   * <p>The event type name.</p>
-   */
-  name?: string;
-
-  /**
    * <p>Timestamp of when the event type was created.</p>
    */
   createdTime?: string;
 
   /**
-   * <p>The event type entity types.</p>
+   * <p>The event type description.</p>
    */
-  entityTypes?: string[];
-
-  /**
-   * <p>The event type labels.</p>
-   */
-  labels?: string[];
-
-  /**
-   * <p>The entity type ARN.</p>
-   */
-  arn?: string;
+  description?: string;
 
   /**
    * <p>Timestamp of when the event type was last updated.</p>
@@ -1687,9 +1667,29 @@ export interface EventType {
   lastUpdatedTime?: string;
 
   /**
+   * <p>The event type entity types.</p>
+   */
+  entityTypes?: string[];
+
+  /**
    * <p>The event type event variables.</p>
    */
   eventVariables?: string[];
+
+  /**
+   * <p>The event type labels.</p>
+   */
+  labels?: string[];
+
+  /**
+   * <p>The event type name.</p>
+   */
+  name?: string;
+
+  /**
+   * <p>The entity type ARN.</p>
+   */
+  arn?: string;
 }
 
 export namespace EventType {
@@ -1718,11 +1718,6 @@ export namespace GetEventTypesResult {
 
 export interface GetExternalModelsRequest {
   /**
-   * <p>The maximum number of objects to return for the request.</p>
-   */
-  maxResults?: number;
-
-  /**
    * <p>The Amazon SageMaker model endpoint.</p>
    */
   modelEndpoint?: string;
@@ -1731,6 +1726,11 @@ export interface GetExternalModelsRequest {
    * <p>The next page token for the request.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>The maximum number of objects to return for the request.</p>
+   */
+  maxResults?: number;
 }
 
 export namespace GetExternalModelsRequest {
@@ -1749,11 +1749,9 @@ export enum ModelInputDataFormat {
  */
 export interface ModelInputConfiguration {
   /**
-   * <p> Template for constructing the CSV input-data sent to SageMaker. At event-evaluation,
-   *             the placeholders for variable-names in the template will be replaced with the variable
-   *             values before being sent to SageMaker. </p>
+   * <p>The event type name.</p>
    */
-  csvInputTemplate?: string;
+  eventTypeName?: string;
 
   /**
    * <p> The format of the model input configuration. The format differs depending on if it is
@@ -1769,9 +1767,11 @@ export interface ModelInputConfiguration {
   jsonInputTemplate?: string;
 
   /**
-   * <p>The event type name.</p>
+   * <p> Template for constructing the CSV input-data sent to SageMaker. At event-evaluation,
+   *             the placeholders for variable-names in the template will be replaced with the variable
+   *             values before being sent to SageMaker. </p>
    */
-  eventTypeName?: string;
+  csvInputTemplate?: string;
 
   /**
    * <p>The event variables.</p>
@@ -1809,14 +1809,14 @@ export interface ModelOutputConfiguration {
   csvIndexToVariableMap?: { [key: string]: string };
 
   /**
-   * <p>A map of JSON keys in response from SageMaker to the Amazon Fraud Detector variables. </p>
-   */
-  jsonKeyToVariableMap?: { [key: string]: string };
-
-  /**
    * <p>The format of the model output configuration.</p>
    */
   format: ModelOutputDataFormat | string | undefined;
+
+  /**
+   * <p>A map of JSON keys in response from SageMaker to the Amazon Fraud Detector variables. </p>
+   */
+  jsonKeyToVariableMap?: { [key: string]: string };
 }
 
 export namespace ModelOutputConfiguration {
@@ -1830,9 +1830,34 @@ export namespace ModelOutputConfiguration {
  */
 export interface ExternalModel {
   /**
+   * <p>The output configuration.</p>
+   */
+  outputConfiguration?: ModelOutputConfiguration;
+
+  /**
+   * <p>Timestamp of when the model was last created.</p>
+   */
+  createdTime?: string;
+
+  /**
+   * <p>Timestamp of when the model was last updated.</p>
+   */
+  lastUpdatedTime?: string;
+
+  /**
+   * <p>The Amazon Fraud Detector status for the external model endpoint</p>
+   */
+  modelEndpointStatus?: ModelEndpointStatus | string;
+
+  /**
    * <p>The model ARN.</p>
    */
   arn?: string;
+
+  /**
+   * <p>The role used to invoke the model. </p>
+   */
+  invokeModelEndpointRoleArn?: string;
 
   /**
    * <p>The Amazon SageMaker model endpoints.</p>
@@ -1845,34 +1870,9 @@ export interface ExternalModel {
   inputConfiguration?: ModelInputConfiguration;
 
   /**
-   * <p>Timestamp of when the model was last updated.</p>
-   */
-  lastUpdatedTime?: string;
-
-  /**
-   * <p>The role used to invoke the model. </p>
-   */
-  invokeModelEndpointRoleArn?: string;
-
-  /**
    * <p>The source of the model.</p>
    */
   modelSource?: ModelSource | string;
-
-  /**
-   * <p>The Amazon Fraud Detector status for the external model endpoint</p>
-   */
-  modelEndpointStatus?: ModelEndpointStatus | string;
-
-  /**
-   * <p>Timestamp of when the model was last created.</p>
-   */
-  createdTime?: string;
-
-  /**
-   * <p>The output configuration.</p>
-   */
-  outputConfiguration?: ModelOutputConfiguration;
 }
 
 export namespace ExternalModel {
@@ -1883,14 +1883,14 @@ export namespace ExternalModel {
 
 export interface GetExternalModelsResult {
   /**
-   * <p>The next page token to be used in subsequent requests.</p>
-   */
-  nextToken?: string;
-
-  /**
    * <p>Gets the Amazon SageMaker models.</p>
    */
   externalModels?: ExternalModel[];
+
+  /**
+   * <p>The next page token to be used in subsequent requests.</p>
+   */
+  nextToken?: string;
 }
 
 export namespace GetExternalModelsResult {
@@ -1935,14 +1935,14 @@ export interface GetLabelsRequest {
   name?: string;
 
   /**
-   * <p>The maximum number of objects to return for the request.</p>
-   */
-  maxResults?: number;
-
-  /**
    * <p>The next token for the subsequent request.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>The maximum number of objects to return for the request.</p>
+   */
+  maxResults?: number;
 }
 
 export namespace GetLabelsRequest {
@@ -1956,14 +1956,9 @@ export namespace GetLabelsRequest {
  */
 export interface Label {
   /**
-   * <p>Timestamp of when the label was last updated.</p>
+   * <p>Timestamp of when the event type was created.</p>
    */
-  lastUpdatedTime?: string;
-
-  /**
-   * <p>The label ARN.</p>
-   */
-  arn?: string;
+  createdTime?: string;
 
   /**
    * <p>The label description.</p>
@@ -1971,14 +1966,19 @@ export interface Label {
   description?: string;
 
   /**
+   * <p>Timestamp of when the label was last updated.</p>
+   */
+  lastUpdatedTime?: string;
+
+  /**
    * <p>The label name.</p>
    */
   name?: string;
 
   /**
-   * <p>Timestamp of when the event type was created.</p>
+   * <p>The label ARN.</p>
    */
-  createdTime?: string;
+  arn?: string;
 }
 
 export namespace Label {
@@ -2007,14 +2007,14 @@ export namespace GetLabelsResult {
 
 export interface GetModelsRequest {
   /**
+   * <p>The model ID.</p>
+   */
+  modelId?: string;
+
+  /**
    * <p>The model type.</p>
    */
   modelType?: ModelTypeEnum | string;
-
-  /**
-   * <p>The next token for the subsequent request.</p>
-   */
-  nextToken?: string;
 
   /**
    * <p>The maximum number of objects to return for the request. </p>
@@ -2022,9 +2022,9 @@ export interface GetModelsRequest {
   maxResults?: number;
 
   /**
-   * <p>The model ID.</p>
+   * <p>The next token for the subsequent request.</p>
    */
-  modelId?: string;
+  nextToken?: string;
 }
 
 export namespace GetModelsRequest {
@@ -2038,9 +2038,14 @@ export namespace GetModelsRequest {
  */
 export interface Model {
   /**
-   * <p>The model description.</p>
+   * <p>The ARN of the model.</p>
    */
-  description?: string;
+  arn?: string;
+
+  /**
+   * <p>The model type.</p>
+   */
+  modelType?: ModelTypeEnum | string;
 
   /**
    * <p>The name of the event type.</p>
@@ -2053,24 +2058,19 @@ export interface Model {
   lastUpdatedTime?: string;
 
   /**
-   * <p>The model type.</p>
+   * <p>The model description.</p>
    */
-  modelType?: ModelTypeEnum | string;
-
-  /**
-   * <p>The ARN of the model.</p>
-   */
-  arn?: string;
-
-  /**
-   * <p>The model ID.</p>
-   */
-  modelId?: string;
+  description?: string;
 
   /**
    * <p>Timestamp of when the model was created.</p>
    */
   createdTime?: string;
+
+  /**
+   * <p>The model ID.</p>
+   */
+  modelId?: string;
 }
 
 export namespace Model {
@@ -2099,6 +2099,11 @@ export namespace GetModelsResult {
 
 export interface GetModelVersionRequest {
   /**
+   * <p>The model version number.</p>
+   */
+  modelVersionNumber: string | undefined;
+
+  /**
    * <p>The model ID.</p>
    */
   modelId: string | undefined;
@@ -2107,11 +2112,6 @@ export interface GetModelVersionRequest {
    * <p>The model type.</p>
    */
   modelType: ModelTypeEnum | string | undefined;
-
-  /**
-   * <p>The model version number.</p>
-   */
-  modelVersionNumber: string | undefined;
 }
 
 export namespace GetModelVersionRequest {
@@ -2122,19 +2122,9 @@ export namespace GetModelVersionRequest {
 
 export interface GetModelVersionResult {
   /**
-   * <p>The model version ARN.</p>
+   * <p>The model version number.</p>
    */
-  arn?: string;
-
-  /**
-   * <p>The training data source.</p>
-   */
-  trainingDataSource?: TrainingDataSourceEnum | string;
-
-  /**
-   * <p>The training data schema.</p>
-   */
-  trainingDataSchema?: TrainingDataSchema;
+  modelVersionNumber?: string;
 
   /**
    * <p>The model version status.</p>
@@ -2147,9 +2137,14 @@ export interface GetModelVersionResult {
   modelId?: string;
 
   /**
-   * <p>The model version number.</p>
+   * <p>The training data schema.</p>
    */
-  modelVersionNumber?: string;
+  trainingDataSchema?: TrainingDataSchema;
+
+  /**
+   * <p>The training data source.</p>
+   */
+  trainingDataSource?: TrainingDataSourceEnum | string;
 
   /**
    * <p>The event details.</p>
@@ -2160,6 +2155,11 @@ export interface GetModelVersionResult {
    * <p>The model type.</p>
    */
   modelType?: ModelTypeEnum | string;
+
+  /**
+   * <p>The model version ARN.</p>
+   */
+  arn?: string;
 }
 
 export namespace GetModelVersionResult {
@@ -2196,19 +2196,14 @@ export namespace GetOutcomesRequest {
  */
 export interface Outcome {
   /**
+   * <p>The outcome ARN.</p>
+   */
+  arn?: string;
+
+  /**
    * <p>The timestamp when the outcome was last updated.</p>
    */
   lastUpdatedTime?: string;
-
-  /**
-   * <p>The timestamp when the outcome was created.</p>
-   */
-  createdTime?: string;
-
-  /**
-   * <p>The outcome description.</p>
-   */
-  description?: string;
 
   /**
    * <p>The outcome name.</p>
@@ -2216,9 +2211,14 @@ export interface Outcome {
   name?: string;
 
   /**
-   * <p>The outcome ARN.</p>
+   * <p>The outcome description.</p>
    */
-  arn?: string;
+  description?: string;
+
+  /**
+   * <p>The timestamp when the outcome was created.</p>
+   */
+  createdTime?: string;
 }
 
 export namespace Outcome {
@@ -2247,14 +2247,14 @@ export namespace GetOutcomesResult {
 
 export interface GetRulesRequest {
   /**
+   * <p>The next page token.</p>
+   */
+  nextToken?: string;
+
+  /**
    * <p>The maximum number of rules to return for the request.</p>
    */
   maxResults?: number;
-
-  /**
-   * <p>The detector ID.</p>
-   */
-  detectorId: string | undefined;
 
   /**
    * <p>The rule version.</p>
@@ -2262,14 +2262,14 @@ export interface GetRulesRequest {
   ruleVersion?: string;
 
   /**
-   * <p>The next page token.</p>
-   */
-  nextToken?: string;
-
-  /**
    * <p>The rule ID.</p>
    */
   ruleId?: string;
+
+  /**
+   * <p>The detector ID.</p>
+   */
+  detectorId: string | undefined;
 }
 
 export namespace GetRulesRequest {
@@ -2283,19 +2283,9 @@ export namespace GetRulesRequest {
  */
 export interface RuleDetail {
   /**
-   * <p>The rule language.</p>
+   * <p>The rule version.</p>
    */
-  language?: Language | string;
-
-  /**
-   * <p>The rule description.</p>
-   */
-  description?: string;
-
-  /**
-   * <p>The timestamp of when the rule was created.</p>
-   */
-  createdTime?: string;
+  ruleVersion?: string;
 
   /**
    * <p>The rule ID.</p>
@@ -2318,19 +2308,29 @@ export interface RuleDetail {
   outcomes?: string[];
 
   /**
-   * <p>The rule ARN.</p>
+   * <p>The rule language.</p>
    */
-  arn?: string;
-
-  /**
-   * <p>The rule version.</p>
-   */
-  ruleVersion?: string;
+  language?: Language | string;
 
   /**
    * <p>Timestamp of the last time the rule was updated.</p>
    */
   lastUpdatedTime?: string;
+
+  /**
+   * <p>The rule description.</p>
+   */
+  description?: string;
+
+  /**
+   * <p>The timestamp of when the rule was created.</p>
+   */
+  createdTime?: string;
+
+  /**
+   * <p>The rule ARN.</p>
+   */
+  arn?: string;
 }
 
 export namespace RuleDetail {
@@ -2366,14 +2366,14 @@ export interface GetVariablesRequest {
   name?: string;
 
   /**
-   * <p>The max size per page determined for the get variable request. </p>
-   */
-  maxResults?: number;
-
-  /**
    * <p>The next page token of the get variable request. </p>
    */
   nextToken?: string;
+
+  /**
+   * <p>The max size per page determined for the get variable request. </p>
+   */
+  maxResults?: number;
 }
 
 export namespace GetVariablesRequest {
@@ -2402,6 +2402,11 @@ export namespace GetVariablesResult {
 
 export interface ListTagsForResourceRequest {
   /**
+   * <p>The ARN that specifies the resource whose tags you want to list.</p>
+   */
+  resourceARN: string | undefined;
+
+  /**
    * <p>The next token from the previous results.</p>
    */
   nextToken?: string;
@@ -2410,11 +2415,6 @@ export interface ListTagsForResourceRequest {
    * <p>The maximum number of objects to return for the request. </p>
    */
   maxResults?: number;
-
-  /**
-   * <p>The ARN that specifies the resource whose tags you want to list.</p>
-   */
-  resourceARN: string | undefined;
 }
 
 export namespace ListTagsForResourceRequest {
@@ -2443,16 +2443,6 @@ export namespace ListTagsForResourceResult {
 
 export interface PutDetectorRequest {
   /**
-   * <p>A collection of key and value pairs.</p>
-   */
-  tags?: Tag[];
-
-  /**
-   * <p>The description of the detector.</p>
-   */
-  description?: string;
-
-  /**
    * <p>The name of the event type.</p>
    */
   eventTypeName: string | undefined;
@@ -2461,6 +2451,16 @@ export interface PutDetectorRequest {
    * <p>The detector ID. </p>
    */
   detectorId: string | undefined;
+
+  /**
+   * <p>The description of the detector.</p>
+   */
+  description?: string;
+
+  /**
+   * <p>A collection of key and value pairs.</p>
+   */
+  tags?: Tag[];
 }
 
 export namespace PutDetectorRequest {
@@ -2479,9 +2479,9 @@ export namespace PutDetectorResult {
 
 export interface PutEntityTypeRequest {
   /**
-   * <p>The name of the entity type.</p>
+   * <p>A collection of key and value pairs.</p>
    */
-  name: string | undefined;
+  tags?: Tag[];
 
   /**
    * <p>The description.</p>
@@ -2489,9 +2489,9 @@ export interface PutEntityTypeRequest {
   description?: string;
 
   /**
-   * <p>A collection of key and value pairs.</p>
+   * <p>The name of the entity type.</p>
    */
-  tags?: Tag[];
+  name: string | undefined;
 }
 
 export namespace PutEntityTypeRequest {
@@ -2510,19 +2510,9 @@ export namespace PutEntityTypeResult {
 
 export interface PutEventTypeRequest {
   /**
-   * <p>The event type labels.</p>
+   * <p>The name.</p>
    */
-  labels?: string[];
-
-  /**
-   * <p>The event type variables.</p>
-   */
-  eventVariables: string[] | undefined;
-
-  /**
-   * <p>A collection of key and value pairs.</p>
-   */
-  tags?: Tag[];
+  name: string | undefined;
 
   /**
    * <p>The entity type for the event type. Example entity types: customer, merchant, account.</p>
@@ -2535,9 +2525,19 @@ export interface PutEventTypeRequest {
   description?: string;
 
   /**
-   * <p>The name.</p>
+   * <p>A collection of key and value pairs.</p>
    */
-  name: string | undefined;
+  tags?: Tag[];
+
+  /**
+   * <p>The event type labels.</p>
+   */
+  labels?: string[];
+
+  /**
+   * <p>The event type variables.</p>
+   */
+  eventVariables: string[] | undefined;
 }
 
 export namespace PutEventTypeRequest {
@@ -2556,14 +2556,9 @@ export namespace PutEventTypeResult {
 
 export interface PutExternalModelRequest {
   /**
-   * <p>The IAM role used to invoke the model endpoint.</p>
+   * <p>A collection of key and value pairs.</p>
    */
-  invokeModelEndpointRoleArn: string | undefined;
-
-  /**
-   * <p>The model endpoint’s status in Amazon Fraud Detector.</p>
-   */
-  modelEndpointStatus: ModelEndpointStatus | string | undefined;
+  tags?: Tag[];
 
   /**
    * <p>The model endpoint input configuration.</p>
@@ -2576,19 +2571,24 @@ export interface PutExternalModelRequest {
   modelEndpoint: string | undefined;
 
   /**
-   * <p>A collection of key and value pairs.</p>
+   * <p>The IAM role used to invoke the model endpoint.</p>
    */
-  tags?: Tag[];
+  invokeModelEndpointRoleArn: string | undefined;
 
   /**
-   * <p>The source of the model.</p>
+   * <p>The model endpoint’s status in Amazon Fraud Detector.</p>
    */
-  modelSource: ModelSource | string | undefined;
+  modelEndpointStatus: ModelEndpointStatus | string | undefined;
 
   /**
    * <p>The model endpoint output configuration.</p>
    */
   outputConfiguration: ModelOutputConfiguration | undefined;
+
+  /**
+   * <p>The source of the model.</p>
+   */
+  modelSource: ModelSource | string | undefined;
 }
 
 export namespace PutExternalModelRequest {
@@ -2659,6 +2659,11 @@ export namespace PutLabelResult {
 
 export interface PutOutcomeRequest {
   /**
+   * <p>The name of the outcome.</p>
+   */
+  name: string | undefined;
+
+  /**
    * <p>The outcome description.</p>
    */
   description?: string;
@@ -2667,11 +2672,6 @@ export interface PutOutcomeRequest {
    * <p>A collection of key and value pairs.</p>
    */
   tags?: Tag[];
-
-  /**
-   * <p>The name of the outcome.</p>
-   */
-  name: string | undefined;
 }
 
 export namespace PutOutcomeRequest {
@@ -2690,14 +2690,14 @@ export namespace PutOutcomeResult {
 
 export interface TagResourceRequest {
   /**
-   * <p>The resource ARN.</p>
-   */
-  resourceARN: string | undefined;
-
-  /**
    * <p>The tags to assign to the resource.</p>
    */
   tags: Tag[] | undefined;
+
+  /**
+   * <p>The resource ARN.</p>
+   */
+  resourceARN: string | undefined;
 }
 
 export namespace TagResourceRequest {
@@ -2716,14 +2716,14 @@ export namespace TagResourceResult {
 
 export interface UntagResourceRequest {
   /**
-   * <p>The ARN of the resource from which to remove the tag.</p>
-   */
-  resourceARN: string | undefined;
-
-  /**
    * <p>The resource ARN.</p>
    */
   tagKeys: string[] | undefined;
+
+  /**
+   * <p>The ARN of the resource from which to remove the tag.</p>
+   */
+  resourceARN: string | undefined;
 }
 
 export namespace UntagResourceRequest {
@@ -2742,6 +2742,16 @@ export namespace UntagResourceResult {
 
 export interface UpdateDetectorVersionRequest {
   /**
+   * <p>The rules to include in the detector version.</p>
+   */
+  rules: Rule[] | undefined;
+
+  /**
+   * <p>The parent detector ID for the detector version you want to update.</p>
+   */
+  detectorId: string | undefined;
+
+  /**
    * <p>The detector version ID. </p>
    */
   detectorVersionId: string | undefined;
@@ -2750,21 +2760,6 @@ export interface UpdateDetectorVersionRequest {
    * <p>The model versions to include in the detector version.</p>
    */
   modelVersions?: ModelVersion[];
-
-  /**
-   * <p>The parent detector ID for the detector version you want to update.</p>
-   */
-  detectorId: string | undefined;
-
-  /**
-   * <p>The detector version description. </p>
-   */
-  description?: string;
-
-  /**
-   * <p>The rules to include in the detector version.</p>
-   */
-  rules: Rule[] | undefined;
 
   /**
    * <p>The Amazon SageMaker model endpoints to include in the detector version.</p>
@@ -2778,6 +2773,11 @@ export interface UpdateDetectorVersionRequest {
    *          <p>The default behavior is <code>FIRST_MATCHED</code>.</p>
    */
   ruleExecutionMode?: RuleExecutionMode | string;
+
+  /**
+   * <p>The detector version description. </p>
+   */
+  description?: string;
 }
 
 export namespace UpdateDetectorVersionRequest {
@@ -2796,9 +2796,9 @@ export namespace UpdateDetectorVersionResult {
 
 export interface UpdateDetectorVersionMetadataRequest {
   /**
-   * <p>The detector version ID. </p>
+   * <p>The description.</p>
    */
-  detectorVersionId: string | undefined;
+  description: string | undefined;
 
   /**
    * <p>The detector ID.</p>
@@ -2806,9 +2806,9 @@ export interface UpdateDetectorVersionMetadataRequest {
   detectorId: string | undefined;
 
   /**
-   * <p>The description.</p>
+   * <p>The detector version ID. </p>
    */
-  description: string | undefined;
+  detectorVersionId: string | undefined;
 }
 
 export namespace UpdateDetectorVersionMetadataRequest {
@@ -2827,14 +2827,14 @@ export namespace UpdateDetectorVersionMetadataResult {
 
 export interface UpdateDetectorVersionStatusRequest {
   /**
-   * <p>The detector ID. </p>
-   */
-  detectorId: string | undefined;
-
-  /**
    * <p>The new status.</p>
    */
   status: DetectorVersionStatus | string | undefined;
+
+  /**
+   * <p>The detector ID. </p>
+   */
+  detectorId: string | undefined;
 
   /**
    * <p>The detector version ID. </p>
@@ -2858,6 +2858,11 @@ export namespace UpdateDetectorVersionStatusResult {
 
 export interface UpdateModelRequest {
   /**
+   * <p>The new model description.</p>
+   */
+  description?: string;
+
+  /**
    * <p>The model type.</p>
    */
   modelType: ModelTypeEnum | string | undefined;
@@ -2866,11 +2871,6 @@ export interface UpdateModelRequest {
    * <p>The model ID.</p>
    */
   modelId: string | undefined;
-
-  /**
-   * <p>The new model description.</p>
-   */
-  description?: string;
 }
 
 export namespace UpdateModelRequest {
@@ -2889,6 +2889,11 @@ export namespace UpdateModelResult {
 
 export interface UpdateModelVersionRequest {
   /**
+   * <p>The model ID.</p>
+   */
+  modelId: string | undefined;
+
+  /**
    * <p>A collection of key and value pairs.</p>
    */
   tags?: Tag[];
@@ -2899,19 +2904,14 @@ export interface UpdateModelVersionRequest {
   majorVersionNumber: string | undefined;
 
   /**
-   * <p>The model ID.</p>
+   * <p>The event details.</p>
    */
-  modelId: string | undefined;
+  externalEventsDetail?: ExternalEventsDetail;
 
   /**
    * <p>The model type.</p>
    */
   modelType: ModelTypeEnum | string | undefined;
-
-  /**
-   * <p>The event details.</p>
-   */
-  externalEventsDetail?: ExternalEventsDetail;
 }
 
 export namespace UpdateModelVersionRequest {
@@ -2922,9 +2922,9 @@ export namespace UpdateModelVersionRequest {
 
 export interface UpdateModelVersionResult {
   /**
-   * <p>The model type.</p>
+   * <p>The model ID.</p>
    */
-  modelType?: ModelTypeEnum | string;
+  modelId?: string;
 
   /**
    * <p>The status of the updated model version.</p>
@@ -2932,9 +2932,9 @@ export interface UpdateModelVersionResult {
   status?: string;
 
   /**
-   * <p>The model ID.</p>
+   * <p>The model type.</p>
    */
-  modelId?: string;
+  modelType?: ModelTypeEnum | string;
 
   /**
    * <p>The model version number of the model version updated.</p>
@@ -2955,9 +2955,9 @@ export enum ModelVersionStatus {
 
 export interface UpdateModelVersionStatusRequest {
   /**
-   * <p>The model ID of the model version to update.</p>
+   * <p>The model type.</p>
    */
-  modelId: string | undefined;
+  modelType: ModelTypeEnum | string | undefined;
 
   /**
    * <p>The model version number.</p>
@@ -2965,14 +2965,14 @@ export interface UpdateModelVersionStatusRequest {
   modelVersionNumber: string | undefined;
 
   /**
-   * <p>The model type.</p>
-   */
-  modelType: ModelTypeEnum | string | undefined;
-
-  /**
    * <p>The model version status.</p>
    */
   status: ModelVersionStatus | string | undefined;
+
+  /**
+   * <p>The model ID of the model version to update.</p>
+   */
+  modelId: string | undefined;
 }
 
 export namespace UpdateModelVersionStatusRequest {
@@ -2991,14 +2991,14 @@ export namespace UpdateModelVersionStatusResult {
 
 export interface UpdateRuleMetadataRequest {
   /**
-   * <p>The rule to update.</p>
-   */
-  rule: Rule | undefined;
-
-  /**
    * <p>The rule description.</p>
    */
   description: string | undefined;
+
+  /**
+   * <p>The rule to update.</p>
+   */
+  rule: Rule | undefined;
 }
 
 export namespace UpdateRuleMetadataRequest {
@@ -3017,9 +3017,9 @@ export namespace UpdateRuleMetadataResult {
 
 export interface UpdateRuleVersionRequest {
   /**
-   * <p>The tags to assign to the rule version.</p>
+   * <p>The outcomes.</p>
    */
-  tags?: Tag[];
+  outcomes: string[] | undefined;
 
   /**
    * <p>The language.</p>
@@ -3027,14 +3027,14 @@ export interface UpdateRuleVersionRequest {
   language: Language | string | undefined;
 
   /**
-   * <p>The outcomes.</p>
+   * <p>The tags to assign to the rule version.</p>
    */
-  outcomes: string[] | undefined;
+  tags?: Tag[];
 
   /**
-   * <p>The rule expression.</p>
+   * <p>The rule to update.</p>
    */
-  expression: string | undefined;
+  rule: Rule | undefined;
 
   /**
    * <p>The description.</p>
@@ -3042,9 +3042,9 @@ export interface UpdateRuleVersionRequest {
   description?: string;
 
   /**
-   * <p>The rule to update.</p>
+   * <p>The rule expression.</p>
    */
-  rule: Rule | undefined;
+  expression: string | undefined;
 }
 
 export namespace UpdateRuleVersionRequest {
@@ -3069,14 +3069,9 @@ export namespace UpdateRuleVersionResult {
 
 export interface UpdateVariableRequest {
   /**
-   * <p>The variable type. For more information see <a href="https://docs.aws.amazon.com/frauddetector/latest/ug/create-a-variable.html#variable-types">Variable types</a>.</p>
+   * <p>The new default value of the variable.</p>
    */
-  variableType?: string;
-
-  /**
-   * <p>The new description.</p>
-   */
-  description?: string;
+  defaultValue?: string;
 
   /**
    * <p>The name of the variable.</p>
@@ -3084,9 +3079,14 @@ export interface UpdateVariableRequest {
   name: string | undefined;
 
   /**
-   * <p>The new default value of the variable.</p>
+   * <p>The new description.</p>
    */
-  defaultValue?: string;
+  description?: string;
+
+  /**
+   * <p>The variable type. For more information see <a href="https://docs.aws.amazon.com/frauddetector/latest/ug/create-a-variable.html#variable-types">Variable types</a>.</p>
+   */
+  variableType?: string;
 }
 
 export namespace UpdateVariableRequest {

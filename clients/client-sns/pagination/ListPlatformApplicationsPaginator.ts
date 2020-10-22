@@ -33,7 +33,7 @@ export async function* listPlatformApplicationsPaginate(
   let hasNext = true;
   let page: ListPlatformApplicationsCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     if (config.client instanceof SNS) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
     } else if (config.client instanceof SNSClient) {
@@ -42,7 +42,7 @@ export async function* listPlatformApplicationsPaginate(
       throw new Error("Invalid client, expected SNS | SNSClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

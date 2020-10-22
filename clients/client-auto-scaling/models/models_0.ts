@@ -43,34 +43,14 @@ export interface Activity {
   StartTime: Date | undefined;
 
   /**
-   * <p>The end time of the activity.</p>
-   */
-  EndTime?: Date;
-
-  /**
-   * <p>A friendly, more verbose description of the activity status.</p>
-   */
-  StatusMessage?: string;
-
-  /**
-   * <p>The current status of the activity.</p>
-   */
-  StatusCode: ScalingActivityStatusCode | string | undefined;
-
-  /**
-   * <p>The details about the activity.</p>
-   */
-  Details?: string;
-
-  /**
-   * <p>A value between 0 and 100 that indicates the progress of the activity.</p>
-   */
-  Progress?: number;
-
-  /**
    * <p>The reason the activity began.</p>
    */
   Cause: string | undefined;
+
+  /**
+   * <p>The ID of the activity.</p>
+   */
+  ActivityId: string | undefined;
 
   /**
    * <p>A friendly, more verbose description of the activity.</p>
@@ -83,9 +63,29 @@ export interface Activity {
   AutoScalingGroupName: string | undefined;
 
   /**
-   * <p>The ID of the activity.</p>
+   * <p>The current status of the activity.</p>
    */
-  ActivityId: string | undefined;
+  StatusCode: ScalingActivityStatusCode | string | undefined;
+
+  /**
+   * <p>The end time of the activity.</p>
+   */
+  EndTime?: Date;
+
+  /**
+   * <p>A value between 0 and 100 that indicates the progress of the activity.</p>
+   */
+  Progress?: number;
+
+  /**
+   * <p>The details about the activity.</p>
+   */
+  Details?: string;
+
+  /**
+   * <p>A friendly, more verbose description of the activity status.</p>
+   */
+  StatusMessage?: string;
 }
 
 export namespace Activity {
@@ -96,18 +96,18 @@ export namespace Activity {
 
 export interface ActivitiesType {
   /**
-   * <p>The scaling activities. Activities are sorted by start time. Activities still in
-   *             progress are described first.</p>
-   */
-  Activities: Activity[] | undefined;
-
-  /**
    * <p>A string that indicates that the response contains more items than can be returned in
    *             a single response. To receive additional items, specify this string for the
    *                 <code>NextToken</code> value when requesting the next set of items. This value is
    *             null when there are no more items to return.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The scaling activities. Activities are sorted by start time. Activities still in
+   *             progress are described first.</p>
+   */
+  Activities: Activity[] | undefined;
 }
 
 export namespace ActivitiesType {
@@ -151,14 +151,14 @@ export namespace AdjustmentType {
  */
 export interface Alarm {
   /**
-   * <p>The Amazon Resource Name (ARN) of the alarm.</p>
-   */
-  AlarmARN?: string;
-
-  /**
    * <p>The name of the alarm.</p>
    */
   AlarmName?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the alarm.</p>
+   */
+  AlarmARN?: string;
 }
 
 export namespace Alarm {
@@ -247,14 +247,14 @@ export namespace AttachLoadBalancersResultType {
 
 export interface AttachLoadBalancersType {
   /**
-   * <p>The names of the load balancers. You can specify up to 10 load balancers.</p>
-   */
-  LoadBalancerNames: string[] | undefined;
-
-  /**
    * <p>The name of the Auto Scaling group.</p>
    */
   AutoScalingGroupName: string | undefined;
+
+  /**
+   * <p>The names of the load balancers. You can specify up to 10 load balancers.</p>
+   */
+  LoadBalancerNames: string[] | undefined;
 }
 
 export namespace AttachLoadBalancersType {
@@ -273,15 +273,15 @@ export namespace AttachLoadBalancerTargetGroupsResultType {
 
 export interface AttachLoadBalancerTargetGroupsType {
   /**
-   * <p>The name of the Auto Scaling group.</p>
-   */
-  AutoScalingGroupName: string | undefined;
-
-  /**
    * <p>The Amazon Resource Names (ARN) of the target groups. You can specify up to 10 target
    *             groups.</p>
    */
   TargetGroupARNs: string[] | undefined;
+
+  /**
+   * <p>The name of the Auto Scaling group.</p>
+   */
+  AutoScalingGroupName: string | undefined;
 }
 
 export namespace AttachLoadBalancerTargetGroupsType {
@@ -300,14 +300,14 @@ export interface FailedScheduledUpdateGroupActionRequest {
   ErrorCode?: string;
 
   /**
-   * <p>The name of the scheduled action.</p>
-   */
-  ScheduledActionName: string | undefined;
-
-  /**
    * <p>The error message accompanying the error code.</p>
    */
   ErrorMessage?: string;
+
+  /**
+   * <p>The name of the scheduled action.</p>
+   */
+  ScheduledActionName: string | undefined;
 }
 
 export namespace FailedScheduledUpdateGroupActionRequest {
@@ -332,15 +332,15 @@ export namespace BatchDeleteScheduledActionAnswer {
 
 export interface BatchDeleteScheduledActionType {
   /**
+   * <p>The name of the Auto Scaling group.</p>
+   */
+  AutoScalingGroupName: string | undefined;
+
+  /**
    * <p>The names of the scheduled actions to delete. The maximum number allowed is 50.
    *         </p>
    */
   ScheduledActionNames: string[] | undefined;
-
-  /**
-   * <p>The name of the Auto Scaling group.</p>
-   */
-  AutoScalingGroupName: string | undefined;
 }
 
 export namespace BatchDeleteScheduledActionType {
@@ -370,6 +370,17 @@ export namespace BatchPutScheduledUpdateGroupActionAnswer {
  */
 export interface ScheduledUpdateGroupActionRequest {
   /**
+   * <p>The date and time for the recurring schedule to end. Amazon EC2 Auto Scaling does not perform the
+   *             action after this time.</p>
+   */
+  EndTime?: Date;
+
+  /**
+   * <p>The maximum size of the Auto Scaling group.</p>
+   */
+  MaxSize?: number;
+
+  /**
    * <p>The recurring schedule for the action, in Unix cron syntax format. This format
    *             consists of five fields separated by white spaces: [Minute] [Hour] [Day_of_Month]
    *             [Month_of_Year] [Day_of_Week]. The value must be in quotes (for example, <code>"30 0 1
@@ -381,9 +392,10 @@ export interface ScheduledUpdateGroupActionRequest {
   Recurrence?: string;
 
   /**
-   * <p>The minimum size of the Auto Scaling group.</p>
+   * <p>The desired capacity is the initial capacity of the Auto Scaling group after the scheduled
+   *             action runs and the capacity it attempts to maintain.</p>
    */
-  MinSize?: number;
+  DesiredCapacity?: number;
 
   /**
    * <p>The name of the scaling action.</p>
@@ -391,15 +403,9 @@ export interface ScheduledUpdateGroupActionRequest {
   ScheduledActionName: string | undefined;
 
   /**
-   * <p>The maximum size of the Auto Scaling group.</p>
+   * <p>The minimum size of the Auto Scaling group.</p>
    */
-  MaxSize?: number;
-
-  /**
-   * <p>The date and time for the recurring schedule to end. Amazon EC2 Auto Scaling does not perform the
-   *             action after this time.</p>
-   */
-  EndTime?: Date;
+  MinSize?: number;
 
   /**
    * <p>The date and time for the action to start, in YYYY-MM-DDThh:mm:ssZ format in UTC/GMT
@@ -411,12 +417,6 @@ export interface ScheduledUpdateGroupActionRequest {
    *             message.</p>
    */
   StartTime?: Date;
-
-  /**
-   * <p>The desired capacity is the initial capacity of the Auto Scaling group after the scheduled
-   *             action runs and the capacity it attempts to maintain.</p>
-   */
-  DesiredCapacity?: number;
 }
 
 export namespace ScheduledUpdateGroupActionRequest {
@@ -500,21 +500,21 @@ export namespace CompleteLifecycleActionAnswer {
 
 export interface CompleteLifecycleActionType {
   /**
+   * <p>The name of the Auto Scaling group.</p>
+   */
+  AutoScalingGroupName: string | undefined;
+
+  /**
+   * <p>The ID of the instance.</p>
+   */
+  InstanceId?: string;
+
+  /**
    * <p>A universally unique identifier (UUID) that identifies a specific lifecycle action
    *             associated with an instance. Amazon EC2 Auto Scaling sends this token to the notification target you
    *             specified when you created the lifecycle hook.</p>
    */
   LifecycleActionToken?: string;
-
-  /**
-   * <p>The name of the lifecycle hook.</p>
-   */
-  LifecycleHookName: string | undefined;
-
-  /**
-   * <p>The name of the Auto Scaling group.</p>
-   */
-  AutoScalingGroupName: string | undefined;
 
   /**
    * <p>The action for the group to take. This parameter can be either <code>CONTINUE</code>
@@ -523,9 +523,9 @@ export interface CompleteLifecycleActionType {
   LifecycleActionResult: string | undefined;
 
   /**
-   * <p>The ID of the instance.</p>
+   * <p>The name of the lifecycle hook.</p>
    */
-  InstanceId?: string;
+  LifecycleHookName: string | undefined;
 }
 
 export namespace CompleteLifecycleActionType {
@@ -613,11 +613,44 @@ export namespace LaunchTemplateSpecification {
  */
 export interface LifecycleHookSpecification {
   /**
+   * <p>The name of the lifecycle hook.</p>
+   */
+  LifecycleHookName: string | undefined;
+
+  /**
+   * <p>The maximum time, in seconds, that can elapse before the lifecycle hook times
+   *             out.</p>
+   *         <p>If the lifecycle hook times out, Amazon EC2 Auto Scaling performs the action that you specified in
+   *             the <code>DefaultResult</code> parameter. You can prevent the lifecycle hook from timing
+   *             out by calling <a>RecordLifecycleActionHeartbeat</a>.</p>
+   */
+  HeartbeatTimeout?: number;
+
+  /**
    * <p>The ARN of the target that Amazon EC2 Auto Scaling sends notifications to when an instance is in the
    *             transition state for the lifecycle hook. The notification target can be either an SQS
    *             queue or an SNS topic.</p>
    */
   NotificationTargetARN?: string;
+
+  /**
+   * <p>Defines the action the Auto Scaling group should take when the lifecycle hook timeout elapses
+   *             or if an unexpected failure occurs. The valid values are <code>CONTINUE</code> and
+   *                 <code>ABANDON</code>. The default value is <code>ABANDON</code>.</p>
+   */
+  DefaultResult?: string;
+
+  /**
+   * <p>The ARN of the IAM role that allows the Auto Scaling group to publish to the specified
+   *             notification target, for example, an Amazon SNS topic or an Amazon SQS queue.</p>
+   */
+  RoleARN?: string;
+
+  /**
+   * <p>Additional information that you want to include any time Amazon EC2 Auto Scaling sends a message to
+   *             the notification target.</p>
+   */
+  NotificationMetadata?: string;
 
   /**
    * <p>The state of the EC2 instance to which you want to attach the lifecycle hook. The
@@ -632,39 +665,6 @@ export interface LifecycleHookSpecification {
    *          </ul>
    */
   LifecycleTransition: string | undefined;
-
-  /**
-   * <p>Additional information that you want to include any time Amazon EC2 Auto Scaling sends a message to
-   *             the notification target.</p>
-   */
-  NotificationMetadata?: string;
-
-  /**
-   * <p>The ARN of the IAM role that allows the Auto Scaling group to publish to the specified
-   *             notification target, for example, an Amazon SNS topic or an Amazon SQS queue.</p>
-   */
-  RoleARN?: string;
-
-  /**
-   * <p>Defines the action the Auto Scaling group should take when the lifecycle hook timeout elapses
-   *             or if an unexpected failure occurs. The valid values are <code>CONTINUE</code> and
-   *                 <code>ABANDON</code>. The default value is <code>ABANDON</code>.</p>
-   */
-  DefaultResult?: string;
-
-  /**
-   * <p>The name of the lifecycle hook.</p>
-   */
-  LifecycleHookName: string | undefined;
-
-  /**
-   * <p>The maximum time, in seconds, that can elapse before the lifecycle hook times
-   *             out.</p>
-   *         <p>If the lifecycle hook times out, Amazon EC2 Auto Scaling performs the action that you specified in
-   *             the <code>DefaultResult</code> parameter. You can prevent the lifecycle hook from timing
-   *             out by calling <a>RecordLifecycleActionHeartbeat</a>.</p>
-   */
-  HeartbeatTimeout?: number;
 }
 
 export namespace LifecycleHookSpecification {
@@ -688,19 +688,13 @@ export namespace LifecycleHookSpecification {
  */
 export interface InstancesDistribution {
   /**
-   * <p>Indicates how to allocate instances across Spot Instance pools.</p>
-   *         <p>If the allocation strategy is <code>lowest-price</code>, the Auto Scaling group launches
-   *             instances using the Spot pools with the lowest price, and evenly allocates your
-   *             instances across the number of Spot pools that you specify. If the allocation strategy
-   *             is <code>capacity-optimized</code>, the Auto Scaling group launches instances using Spot pools
-   *             that are optimally chosen based on the available Spot capacity.</p>
-   *         <p>The default Spot allocation strategy for calls that you make through the API, the AWS
-   *             CLI, or the AWS SDKs is <code>lowest-price</code>. The default Spot allocation strategy
-   *             for the AWS Management Console is <code>capacity-optimized</code>.</p>
-   *         <p>Valid values: <code>lowest-price</code> | <code>capacity-optimized</code>
-   *         </p>
+   * <p>The number of Spot Instance pools across which to allocate your Spot Instances. The
+   *             Spot pools are determined from the different instance types in the Overrides array of
+   *                 <a>LaunchTemplate</a>. Default if not set is 2.</p>
+   *         <p>Used only when the Spot allocation strategy is <code>lowest-price</code>.</p>
+   *         <p>Valid Range: Minimum value of 1. Maximum value of 20.</p>
    */
-  SpotAllocationStrategy?: string;
+  SpotInstancePools?: number;
 
   /**
    * <p>The maximum price per unit hour that you are willing to pay for a Spot Instance. If
@@ -726,6 +720,32 @@ export interface InstancesDistribution {
   OnDemandBaseCapacity?: number;
 
   /**
+   * <p>Indicates how to allocate instances across Spot Instance pools.</p>
+   *         <p>If the allocation strategy is <code>lowest-price</code>, the Auto Scaling group launches
+   *             instances using the Spot pools with the lowest price, and evenly allocates your
+   *             instances across the number of Spot pools that you specify. If the allocation strategy
+   *             is <code>capacity-optimized</code>, the Auto Scaling group launches instances using Spot pools
+   *             that are optimally chosen based on the available Spot capacity.</p>
+   *         <p>The default Spot allocation strategy for calls that you make through the API, the AWS
+   *             CLI, or the AWS SDKs is <code>lowest-price</code>. The default Spot allocation strategy
+   *             for the AWS Management Console is <code>capacity-optimized</code>.</p>
+   *         <p>Valid values: <code>lowest-price</code> | <code>capacity-optimized</code>
+   *         </p>
+   */
+  SpotAllocationStrategy?: string;
+
+  /**
+   * <p>Indicates how to allocate instance types to fulfill On-Demand capacity.</p>
+   *         <p>The only valid value is <code>prioritized</code>, which is also the default value.
+   *             This strategy uses the order of instance type overrides for the <a>LaunchTemplate</a> to define the launch priority of each instance type. The
+   *             first instance type in the array is prioritized higher than the last. If all your
+   *             On-Demand capacity cannot be fulfilled using your highest priority instance, then the
+   *             Auto Scaling groups launches the remaining capacity using the second priority instance type, and
+   *             so on.</p>
+   */
+  OnDemandAllocationStrategy?: string;
+
+  /**
    * <p>Controls the percentages of On-Demand Instances and Spot Instances for your additional
    *             capacity beyond <code>OnDemandBaseCapacity</code>.</p>
    *         <p>Default if not set is 100. If you leave it set to 100, the percentages are 100% for
@@ -739,26 +759,6 @@ export interface InstancesDistribution {
    *         <p>Valid Range: Minimum value of 0. Maximum value of 100.</p>
    */
   OnDemandPercentageAboveBaseCapacity?: number;
-
-  /**
-   * <p>The number of Spot Instance pools across which to allocate your Spot Instances. The
-   *             Spot pools are determined from the different instance types in the Overrides array of
-   *                 <a>LaunchTemplate</a>. Default if not set is 2.</p>
-   *         <p>Used only when the Spot allocation strategy is <code>lowest-price</code>.</p>
-   *         <p>Valid Range: Minimum value of 1. Maximum value of 20.</p>
-   */
-  SpotInstancePools?: number;
-
-  /**
-   * <p>Indicates how to allocate instance types to fulfill On-Demand capacity.</p>
-   *         <p>The only valid value is <code>prioritized</code>, which is also the default value.
-   *             This strategy uses the order of instance type overrides for the <a>LaunchTemplate</a> to define the launch priority of each instance type. The
-   *             first instance type in the array is prioritized higher than the last. If all your
-   *             On-Demand capacity cannot be fulfilled using your highest priority instance, then the
-   *             Auto Scaling groups launches the remaining capacity using the second priority instance type, and
-   *             so on.</p>
-   */
-  OnDemandAllocationStrategy?: string;
 }
 
 export namespace InstancesDistribution {
@@ -815,6 +815,12 @@ export namespace LaunchTemplateOverrides {
  */
 export interface LaunchTemplate {
   /**
+   * <p>The launch template to use. You must specify either the launch template ID or launch
+   *             template name in the request.</p>
+   */
+  LaunchTemplateSpecification?: LaunchTemplateSpecification;
+
+  /**
    * <p>Any parameters that you specify override the same parameters in the launch template.
    *             Currently, the only supported override is instance type. You can specify between 1 and
    *             20 instance types.</p>
@@ -822,12 +828,6 @@ export interface LaunchTemplate {
    *             to launch instances. </p>
    */
   Overrides?: LaunchTemplateOverrides[];
-
-  /**
-   * <p>The launch template to use. You must specify either the launch template ID or launch
-   *             template name in the request.</p>
-   */
-  LaunchTemplateSpecification?: LaunchTemplateSpecification;
 }
 
 export namespace LaunchTemplate {
@@ -849,17 +849,17 @@ export namespace LaunchTemplate {
  */
 export interface MixedInstancesPolicy {
   /**
-   * <p>The launch template and instance types (overrides).</p>
-   *         <p>Required when creating a mixed instances policy.</p>
-   */
-  LaunchTemplate?: LaunchTemplate;
-
-  /**
    * <p>The instances distribution to use.</p>
    *         <p>If you leave this parameter unspecified, the value for each parameter in
    *                 <code>InstancesDistribution</code> uses a default value.</p>
    */
   InstancesDistribution?: InstancesDistribution;
+
+  /**
+   * <p>The launch template and instance types (overrides).</p>
+   *         <p>Required when creating a mixed instances policy.</p>
+   */
+  LaunchTemplate?: LaunchTemplate;
 }
 
 export namespace MixedInstancesPolicy {
@@ -873,6 +873,22 @@ export namespace MixedInstancesPolicy {
  */
 export interface Tag {
   /**
+   * <p>The name of the group.</p>
+   */
+  ResourceId?: string;
+
+  /**
+   * <p>The tag key.</p>
+   */
+  Key: string | undefined;
+
+  /**
+   * <p>Determines whether the tag is added to new instances as they are launched in the
+   *             group.</p>
+   */
+  PropagateAtLaunch?: boolean;
+
+  /**
    * <p>The tag value.</p>
    */
   Value?: string;
@@ -882,22 +898,6 @@ export interface Tag {
    *             <code>auto-scaling-group</code>.</p>
    */
   ResourceType?: string;
-
-  /**
-   * <p>Determines whether the tag is added to new instances as they are launched in the
-   *             group.</p>
-   */
-  PropagateAtLaunch?: boolean;
-
-  /**
-   * <p>The tag key.</p>
-   */
-  Key: string | undefined;
-
-  /**
-   * <p>The name of the group.</p>
-   */
-  ResourceId?: string;
 }
 
 export namespace Tag {
@@ -908,106 +908,6 @@ export namespace Tag {
 
 export interface CreateAutoScalingGroupType {
   /**
-   * <p>The minimum size of the group.</p>
-   */
-  MinSize: number | undefined;
-
-  /**
-   * <p>The name of the placement group into which to launch your instances, if any. A
-   *             placement group is a logical grouping of instances within a single Availability Zone.
-   *             You cannot specify multiple Availability Zones and a placement group. For more
-   *             information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html">Placement Groups</a> in the
-   *                 <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
-   */
-  PlacementGroup?: string;
-
-  /**
-   * <p>Parameters used to specify the launch template and version to use when an instance is
-   *             launched.</p>
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_LaunchTemplateSpecification.html">LaunchTemplateSpecification</a> in the <i>Amazon EC2 Auto Scaling API
-   *                 Reference</i>.</p>
-   *         <p>You can alternatively associate a launch template to the Auto Scaling group by using the
-   *                 <code>MixedInstancesPolicy</code> parameter.</p>
-   *         <p>You must specify one of the following parameters in your request:
-   *                 <code>LaunchConfigurationName</code>, <code>LaunchTemplate</code>,
-   *                 <code>InstanceId</code>, or <code>MixedInstancesPolicy</code>.</p>
-   */
-  LaunchTemplate?: LaunchTemplateSpecification;
-
-  /**
-   * <p>One or more tags. You can tag your Auto Scaling group and propagate the tags to the Amazon EC2
-   *             instances it launches.</p>
-   *         <p>Tags are not propagated to Amazon EBS volumes. To add tags to Amazon EBS volumes, specify the
-   *             tags in a launch template but use caution. If the launch template specifies an instance
-   *             tag with a key that is also specified for the Auto Scaling group, Amazon EC2 Auto Scaling overrides the value
-   *             of that instance tag with the value specified by the Auto Scaling group.</p>
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-tagging.html">Tagging Auto Scaling Groups and
-   *                 Instances</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
-   */
-  Tags?: Tag[];
-
-  /**
-   * <p>One or more termination policies used to select the instance to terminate. These
-   *             policies are executed in the order that they are listed.</p>
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-termination.html">Controlling Which
-   *                 Instances Auto Scaling Terminates During Scale In</a> in the
-   *                 <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
-   */
-  TerminationPolicies?: string[];
-
-  /**
-   * <p>The service to use for the health checks. The valid values are <code>EC2</code> and
-   *                 <code>ELB</code>. The default value is <code>EC2</code>. If you configure an Auto Scaling
-   *             group to use ELB health checks, it considers the instance unhealthy if it fails either
-   *             the EC2 status checks or the load balancer health checks.</p>
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/healthcheck.html">Health Checks for Auto Scaling
-   *                 Instances</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
-   */
-  HealthCheckType?: string;
-
-  /**
-   * <p>The amount of time, in seconds, after a scaling activity completes before another
-   *             scaling activity can start. The default value is <code>300</code>.</p>
-   *         <p>This setting applies when using simple scaling policies, but not when using other
-   *             scaling policies or scheduled scaling. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/Cooldown.html">Scaling Cooldowns
-   *                 for Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
-   */
-  DefaultCooldown?: number;
-
-  /**
-   * <p>The desired capacity is the initial capacity of the Auto Scaling group at the time of its
-   *             creation and the capacity it attempts to maintain. It can scale beyond this capacity if
-   *             you configure automatic scaling.</p>
-   *         <p>This number must be greater than or equal to the minimum size of the group and less
-   *             than or equal to the maximum size of the group. If you do not specify a desired
-   *             capacity, the default is the minimum size of the group.</p>
-   */
-  DesiredCapacity?: number;
-
-  /**
-   * <p>The amount of time, in seconds, that Amazon EC2 Auto Scaling waits before checking the health status
-   *             of an EC2 instance that has come into service. During this time, any health check
-   *             failures for the instance are ignored. The default value is <code>0</code>.</p>
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/healthcheck.html#health-check-grace-period">Health
-   *                 Check Grace Period</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
-   *         <p>Required if you are adding an <code>ELB</code> health check.</p>
-   */
-  HealthCheckGracePeriod?: number;
-
-  /**
-   * <p>Indicates whether newly launched instances are protected from termination by Amazon EC2 Auto Scaling
-   *             when scaling in.</p>
-   *         <p>For more information about preventing instances from terminating on scale in, see
-   *                 <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-termination.html#instance-protection">Instance Protection</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
-   */
-  NewInstancesProtectedFromScaleIn?: boolean;
-
-  /**
-   * <p>The name of the Auto Scaling group. This name must be unique per Region per account.</p>
-   */
-  AutoScalingGroupName: string | undefined;
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the service-linked role that the Auto Scaling group uses to
    *             call other AWS services on your behalf. By default, Amazon EC2 Auto Scaling uses a service-linked role
    *             named AWSServiceRoleForAutoScaling, which it creates if it does not exist. For more
@@ -1017,22 +917,16 @@ export interface CreateAutoScalingGroupType {
   ServiceLinkedRoleARN?: string;
 
   /**
-   * <p>One or more Availability Zones for the group. This parameter is optional if you
-   *             specify one or more subnets for <code>VPCZoneIdentifier</code>.</p>
-   *         <p>Conditional: If your account supports EC2-Classic and VPC, this parameter is required
-   *             to launch instances into EC2-Classic.</p>
+   * <p>The maximum size of the group.</p>
+   *         <note>
+   *             <p>With a mixed instances policy that uses instance weighting, Amazon EC2 Auto Scaling may need to
+   *                 go above <code>MaxSize</code> to meet your capacity requirements. In this event,
+   *                 Amazon EC2 Auto Scaling will never go above <code>MaxSize</code> by more than your largest instance
+   *                 weight (weights that define how many units each instance contributes to the desired
+   *                 capacity of the group).</p>
+   *         </note>
    */
-  AvailabilityZones?: string[];
-
-  /**
-   * <p>The name of the launch configuration to use when an instance is launched. To get the
-   *             launch configuration name, use the <a>DescribeLaunchConfigurations</a> API
-   *             operation. New launch configurations can be created with the <a>CreateLaunchConfiguration</a> API.</p>
-   *         <p>You must specify one of the following parameters in your request:
-   *                 <code>LaunchConfigurationName</code>, <code>LaunchTemplate</code>,
-   *                 <code>InstanceId</code>, or <code>MixedInstancesPolicy</code>.</p>
-   */
-  LaunchConfigurationName?: string;
+  MaxSize: number | undefined;
 
   /**
    * <p>A list of Classic Load Balancers associated with this Auto Scaling group. For Application Load
@@ -1049,16 +943,51 @@ export interface CreateAutoScalingGroupType {
   LifecycleHookSpecificationList?: LifecycleHookSpecification[];
 
   /**
-   * <p>The maximum size of the group.</p>
-   *         <note>
-   *             <p>With a mixed instances policy that uses instance weighting, Amazon EC2 Auto Scaling may need to
-   *                 go above <code>MaxSize</code> to meet your capacity requirements. In this event,
-   *                 Amazon EC2 Auto Scaling will never go above <code>MaxSize</code> by more than your largest instance
-   *                 weight (weights that define how many units each instance contributes to the desired
-   *                 capacity of the group).</p>
-   *         </note>
+   * <p>One or more Availability Zones for the group. This parameter is optional if you
+   *             specify one or more subnets for <code>VPCZoneIdentifier</code>.</p>
+   *         <p>Conditional: If your account supports EC2-Classic and VPC, this parameter is required
+   *             to launch instances into EC2-Classic.</p>
    */
-  MaxSize: number | undefined;
+  AvailabilityZones?: string[];
+
+  /**
+   * <p>Indicates whether newly launched instances are protected from termination by Amazon EC2 Auto Scaling
+   *             when scaling in.</p>
+   *         <p>For more information about preventing instances from terminating on scale in, see
+   *                 <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-termination.html#instance-protection">Instance Protection</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+   */
+  NewInstancesProtectedFromScaleIn?: boolean;
+
+  /**
+   * <p>The ID of the instance used to create a launch configuration for the group. To get the
+   *             instance ID, use the Amazon EC2 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstances.html">DescribeInstances</a> API operation.</p>
+   *         <p>When you specify an ID of an instance, Amazon EC2 Auto Scaling creates a new launch configuration and
+   *             associates it with the group. This launch configuration derives its attributes from the
+   *             specified instance, except for the block device mapping.</p>
+   *         <p>You must specify one of the following parameters in your request:
+   *                 <code>LaunchConfigurationName</code>, <code>LaunchTemplate</code>,
+   *                 <code>InstanceId</code>, or <code>MixedInstancesPolicy</code>.</p>
+   */
+  InstanceId?: string;
+
+  /**
+   * <p>The Amazon Resource Names (ARN) of the target groups to associate with the Auto Scaling group.
+   *             Instances are registered as targets in a target group, and traffic is routed to the
+   *             target group.</p>
+   *         <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-load-balancer.html">Using a Load Balancer
+   *                 with an Auto Scaling Group</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+   */
+  TargetGroupARNs?: string[];
+
+  /**
+   * <p>A comma-separated list of subnet IDs for your virtual private cloud (VPC).</p>
+   *         <p>If you specify <code>VPCZoneIdentifier</code> with <code>AvailabilityZones</code>, the
+   *             subnets that you specify for this parameter must reside in those Availability
+   *             Zones.</p>
+   *         <p>Conditional: If your account supports EC2-Classic and VPC, this parameter is required
+   *             to launch instances into a VPC.</p>
+   */
+  VPCZoneIdentifier?: string;
 
   /**
    * <p>The maximum amount of time, in seconds, that an instance can be in service. The
@@ -1072,6 +1001,76 @@ export interface CreateAutoScalingGroupType {
    *         <p>Valid Range: Minimum value of 0.</p>
    */
   MaxInstanceLifetime?: number;
+
+  /**
+   * <p>The name of the launch configuration to use when an instance is launched. To get the
+   *             launch configuration name, use the <a>DescribeLaunchConfigurations</a> API
+   *             operation. New launch configurations can be created with the <a>CreateLaunchConfiguration</a> API.</p>
+   *         <p>You must specify one of the following parameters in your request:
+   *                 <code>LaunchConfigurationName</code>, <code>LaunchTemplate</code>,
+   *                 <code>InstanceId</code>, or <code>MixedInstancesPolicy</code>.</p>
+   */
+  LaunchConfigurationName?: string;
+
+  /**
+   * <p>One or more termination policies used to select the instance to terminate. These
+   *             policies are executed in the order that they are listed.</p>
+   *         <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-termination.html">Controlling Which
+   *                 Instances Auto Scaling Terminates During Scale In</a> in the
+   *                 <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+   */
+  TerminationPolicies?: string[];
+
+  /**
+   * <p>The amount of time, in seconds, after a scaling activity completes before another
+   *             scaling activity can start. The default value is <code>300</code>.</p>
+   *         <p>This setting applies when using simple scaling policies, but not when using other
+   *             scaling policies or scheduled scaling. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/Cooldown.html">Scaling Cooldowns
+   *                 for Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+   */
+  DefaultCooldown?: number;
+
+  /**
+   * <p>The service to use for the health checks. The valid values are <code>EC2</code> and
+   *                 <code>ELB</code>. The default value is <code>EC2</code>. If you configure an Auto Scaling
+   *             group to use ELB health checks, it considers the instance unhealthy if it fails either
+   *             the EC2 status checks or the load balancer health checks.</p>
+   *         <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/healthcheck.html">Health Checks for Auto Scaling
+   *                 Instances</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+   */
+  HealthCheckType?: string;
+
+  /**
+   * <p>The name of the Auto Scaling group. This name must be unique per Region per account.</p>
+   */
+  AutoScalingGroupName: string | undefined;
+
+  /**
+   * <p>The minimum size of the group.</p>
+   */
+  MinSize: number | undefined;
+
+  /**
+   * <p>One or more tags. You can tag your Auto Scaling group and propagate the tags to the Amazon EC2
+   *             instances it launches.</p>
+   *         <p>Tags are not propagated to Amazon EBS volumes. To add tags to Amazon EBS volumes, specify the
+   *             tags in a launch template but use caution. If the launch template specifies an instance
+   *             tag with a key that is also specified for the Auto Scaling group, Amazon EC2 Auto Scaling overrides the value
+   *             of that instance tag with the value specified by the Auto Scaling group.</p>
+   *         <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-tagging.html">Tagging Auto Scaling Groups and
+   *                 Instances</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>The amount of time, in seconds, that Amazon EC2 Auto Scaling waits before checking the health status
+   *             of an EC2 instance that has come into service. During this time, any health check
+   *             failures for the instance are ignored. The default value is <code>0</code>.</p>
+   *         <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/healthcheck.html#health-check-grace-period">Health
+   *                 Check Grace Period</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+   *         <p>Required if you are adding an <code>ELB</code> health check.</p>
+   */
+  HealthCheckGracePeriod?: number;
 
   /**
    * <p>An embedded object that specifies a mixed instances policy. The required parameters
@@ -1094,35 +1093,36 @@ export interface CreateAutoScalingGroupType {
   MixedInstancesPolicy?: MixedInstancesPolicy;
 
   /**
-   * <p>A comma-separated list of subnet IDs for your virtual private cloud (VPC).</p>
-   *         <p>If you specify <code>VPCZoneIdentifier</code> with <code>AvailabilityZones</code>, the
-   *             subnets that you specify for this parameter must reside in those Availability
-   *             Zones.</p>
-   *         <p>Conditional: If your account supports EC2-Classic and VPC, this parameter is required
-   *             to launch instances into a VPC.</p>
+   * <p>The name of the placement group into which to launch your instances, if any. A
+   *             placement group is a logical grouping of instances within a single Availability Zone.
+   *             You cannot specify multiple Availability Zones and a placement group. For more
+   *             information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html">Placement Groups</a> in the
+   *                 <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
    */
-  VPCZoneIdentifier?: string;
+  PlacementGroup?: string;
 
   /**
-   * <p>The ID of the instance used to create a launch configuration for the group. To get the
-   *             instance ID, use the Amazon EC2 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstances.html">DescribeInstances</a> API operation.</p>
-   *         <p>When you specify an ID of an instance, Amazon EC2 Auto Scaling creates a new launch configuration and
-   *             associates it with the group. This launch configuration derives its attributes from the
-   *             specified instance, except for the block device mapping.</p>
+   * <p>The desired capacity is the initial capacity of the Auto Scaling group at the time of its
+   *             creation and the capacity it attempts to maintain. It can scale beyond this capacity if
+   *             you configure automatic scaling.</p>
+   *         <p>This number must be greater than or equal to the minimum size of the group and less
+   *             than or equal to the maximum size of the group. If you do not specify a desired
+   *             capacity, the default is the minimum size of the group.</p>
+   */
+  DesiredCapacity?: number;
+
+  /**
+   * <p>Parameters used to specify the launch template and version to use when an instance is
+   *             launched.</p>
+   *         <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_LaunchTemplateSpecification.html">LaunchTemplateSpecification</a> in the <i>Amazon EC2 Auto Scaling API
+   *                 Reference</i>.</p>
+   *         <p>You can alternatively associate a launch template to the Auto Scaling group by using the
+   *                 <code>MixedInstancesPolicy</code> parameter.</p>
    *         <p>You must specify one of the following parameters in your request:
    *                 <code>LaunchConfigurationName</code>, <code>LaunchTemplate</code>,
    *                 <code>InstanceId</code>, or <code>MixedInstancesPolicy</code>.</p>
    */
-  InstanceId?: string;
-
-  /**
-   * <p>The Amazon Resource Names (ARN) of the target groups to associate with the Auto Scaling group.
-   *             Instances are registered as targets in a target group, and traffic is routed to the
-   *             target group.</p>
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-load-balancer.html">Using a Load Balancer
-   *                 with an Auto Scaling Group</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
-   */
-  TargetGroupARNs?: string[];
+  LaunchTemplate?: LaunchTemplateSpecification;
 }
 
 export namespace CreateAutoScalingGroupType {
@@ -1137,10 +1137,18 @@ export namespace CreateAutoScalingGroupType {
  */
 export interface Ebs {
   /**
-   * <p>Indicates whether the volume is deleted on instance termination. For Amazon EC2 Auto Scaling, the
-   *             default value is <code>true</code>.</p>
+   * <p>The volume size, in Gibibytes (GiB).</p>
+   *         <p>This can be a number from 1-1,024 for <code>standard</code>, 4-16,384 for
+   *                 <code>io1</code>, 1-16,384 for <code>gp2</code>, and 500-16,384 for <code>st1</code>
+   *             and <code>sc1</code>. If you specify a snapshot, the volume size must be equal to or
+   *             larger than the snapshot size.</p>
+   *         <p>Default: If you create a volume from a snapshot and you don't specify a volume size,
+   *             the default is the snapshot size.</p>
+   *         <p>You must specify either a <code>VolumeSize</code> or a <code>SnapshotId</code>. If you
+   *             specify both <code>SnapshotId</code> and <code>VolumeSize</code>, the volume size must
+   *             be equal or greater than the size of the snapshot.</p>
    */
-  DeleteOnTermination?: boolean;
+  VolumeSize?: number;
 
   /**
    * <p>Specifies whether the volume should be encrypted. Encrypted EBS volumes can only be
@@ -1169,31 +1177,10 @@ export interface Ebs {
   Encrypted?: boolean;
 
   /**
-   * <p>The volume size, in Gibibytes (GiB).</p>
-   *         <p>This can be a number from 1-1,024 for <code>standard</code>, 4-16,384 for
-   *                 <code>io1</code>, 1-16,384 for <code>gp2</code>, and 500-16,384 for <code>st1</code>
-   *             and <code>sc1</code>. If you specify a snapshot, the volume size must be equal to or
-   *             larger than the snapshot size.</p>
-   *         <p>Default: If you create a volume from a snapshot and you don't specify a volume size,
-   *             the default is the snapshot size.</p>
-   *         <p>You must specify either a <code>VolumeSize</code> or a <code>SnapshotId</code>. If you
-   *             specify both <code>SnapshotId</code> and <code>VolumeSize</code>, the volume size must
-   *             be equal or greater than the size of the snapshot.</p>
+   * <p>Indicates whether the volume is deleted on instance termination. For Amazon EC2 Auto Scaling, the
+   *             default value is <code>true</code>.</p>
    */
-  VolumeSize?: number;
-
-  /**
-   * <p>The volume type, which can be <code>standard</code> for Magnetic, <code>io1</code> for
-   *             Provisioned IOPS SSD, <code>gp2</code> for General Purpose SSD, <code>st1</code> for
-   *             Throughput Optimized HDD, or <code>sc1</code> for Cold HDD. For more information, see
-   *                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html">Amazon
-   *                 EBS Volume Types</a> in the <i>Amazon EC2 User Guide for Linux
-   *                 Instances</i>.</p>
-   *         <p>Valid Values: <code>standard</code> | <code>io1</code> | <code>gp2</code> |
-   *                 <code>st1</code> | <code>sc1</code>
-   *          </p>
-   */
-  VolumeType?: string;
+  DeleteOnTermination?: boolean;
 
   /**
    * <p>The snapshot ID of the volume to use.</p>
@@ -1210,6 +1197,19 @@ export interface Ebs {
    *             volumes.) </p>
    */
   Iops?: number;
+
+  /**
+   * <p>The volume type, which can be <code>standard</code> for Magnetic, <code>io1</code> for
+   *             Provisioned IOPS SSD, <code>gp2</code> for General Purpose SSD, <code>st1</code> for
+   *             Throughput Optimized HDD, or <code>sc1</code> for Cold HDD. For more information, see
+   *                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html">Amazon
+   *                 EBS Volume Types</a> in the <i>Amazon EC2 User Guide for Linux
+   *                 Instances</i>.</p>
+   *         <p>Valid Values: <code>standard</code> | <code>io1</code> | <code>gp2</code> |
+   *                 <code>st1</code> | <code>sc1</code>
+   *          </p>
+   */
+  VolumeType?: string;
 }
 
 export namespace Ebs {
@@ -1223,13 +1223,6 @@ export namespace Ebs {
  */
 export interface BlockDeviceMapping {
   /**
-   * <p>The name of the virtual device (for example, <code>ephemeral0</code>).</p>
-   *         <p>You can specify either <code>VirtualName</code> or <code>Ebs</code>, but not
-   *             both.</p>
-   */
-  VirtualName?: string;
-
-  /**
    * <p>Setting this value to <code>true</code> suppresses the specified device included in
    *             the block device mapping of the AMI.</p>
    *         <p>If <code>NoDevice</code> is <code>true</code> for the root device, instances might
@@ -1239,12 +1232,11 @@ export interface BlockDeviceMapping {
   NoDevice?: boolean;
 
   /**
-   * <p>Parameters used to automatically set up EBS volumes when an instance is
-   *             launched.</p>
+   * <p>The name of the virtual device (for example, <code>ephemeral0</code>).</p>
    *         <p>You can specify either <code>VirtualName</code> or <code>Ebs</code>, but not
    *             both.</p>
    */
-  Ebs?: Ebs;
+  VirtualName?: string;
 
   /**
    * <p>The device name exposed to the EC2 instance (for example, <code>/dev/sdh</code> or
@@ -1253,6 +1245,14 @@ export interface BlockDeviceMapping {
    *                 Instances</i>.</p>
    */
   DeviceName: string | undefined;
+
+  /**
+   * <p>Parameters used to automatically set up EBS volumes when an instance is
+   *             launched.</p>
+   *         <p>You can specify either <code>VirtualName</code> or <code>Ebs</code>, but not
+   *             both.</p>
+   */
+  Ebs?: Ebs;
 }
 
 export namespace BlockDeviceMapping {
@@ -1294,21 +1294,6 @@ export enum InstanceMetadataHttpTokensState {
  */
 export interface InstanceMetadataOptions {
   /**
-   * <p>The state of token usage for your instance metadata requests. If the parameter is not
-   *             specified in the request, the default state is <code>optional</code>.</p>
-   *         <p>If the state is <code>optional</code>, you can choose to retrieve instance metadata
-   *             with or without a signed token header on your request. If you retrieve the IAM role
-   *             credentials without a token, the version 1.0 role credentials are returned. If you
-   *             retrieve the IAM role credentials using a valid signed token, the version 2.0 role
-   *             credentials are returned.</p>
-   *         <p>If the state is <code>required</code>, you must send a signed token header with any
-   *             instance metadata retrieval requests. In this state, retrieving the IAM role credentials
-   *             always returns the version 2.0 credentials; the version 1.0 credentials are not
-   *             available.</p>
-   */
-  HttpTokens?: InstanceMetadataHttpTokensState | string;
-
-  /**
    * <p>The desired HTTP PUT response hop limit for instance metadata requests. The larger the
    *             number, the further instance metadata requests can travel.</p>
    *         <p>Default: 1</p>
@@ -1325,6 +1310,21 @@ export interface InstanceMetadataOptions {
    *         </note>
    */
   HttpEndpoint?: InstanceMetadataEndpointState | string;
+
+  /**
+   * <p>The state of token usage for your instance metadata requests. If the parameter is not
+   *             specified in the request, the default state is <code>optional</code>.</p>
+   *         <p>If the state is <code>optional</code>, you can choose to retrieve instance metadata
+   *             with or without a signed token header on your request. If you retrieve the IAM role
+   *             credentials without a token, the version 1.0 role credentials are returned. If you
+   *             retrieve the IAM role credentials using a valid signed token, the version 2.0 role
+   *             credentials are returned.</p>
+   *         <p>If the state is <code>required</code>, you must send a signed token header with any
+   *             instance metadata retrieval requests. In this state, retrieving the IAM role credentials
+   *             always returns the version 2.0 credentials; the version 1.0 credentials are not
+   *             available.</p>
+   */
+  HttpTokens?: InstanceMetadataHttpTokensState | string;
 }
 
 export namespace InstanceMetadataOptions {
@@ -1334,60 +1334,6 @@ export namespace InstanceMetadataOptions {
 }
 
 export interface CreateLaunchConfigurationType {
-  /**
-   * <p>The name or the Amazon Resource Name (ARN) of the instance profile associated with the
-   *             IAM role for the instance. The instance profile contains the IAM role.</p>
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/us-iam-role.html">IAM Role for Applications That Run
-   *                 on Amazon EC2 Instances</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
-   */
-  IamInstanceProfile?: string;
-
-  /**
-   * <p>The ID of the RAM disk to select.</p>
-   */
-  RamdiskId?: string;
-
-  /**
-   * <p>A block device mapping, which specifies the block devices for the instance. You can
-   *             specify virtual devices and EBS volumes. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html">Block Device
-   *                 Mapping</a> in the <i>Amazon EC2 User Guide for Linux
-   *                 Instances</i>.</p>
-   */
-  BlockDeviceMappings?: BlockDeviceMapping[];
-
-  /**
-   * <p>The ID of the kernel associated with the AMI.</p>
-   */
-  KernelId?: string;
-
-  /**
-   * <p>The metadata options for the instances. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html">Instance Metadata and User Data</a> in the
-   *             <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
-   */
-  MetadataOptions?: InstanceMetadataOptions;
-
-  /**
-   * <p>Specifies whether the launch configuration is optimized for EBS I/O
-   *             (<code>true</code>) or not (<code>false</code>). The optimization provides dedicated
-   *             throughput to Amazon EBS and an optimized configuration stack to provide optimal I/O
-   *             performance. This optimization is not available with all instance types. Additional fees
-   *             are incurred when you enable EBS optimization for an instance type that is not
-   *             EBS-optimized by default. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html">Amazon EBS-Optimized
-   *                 Instances</a> in the <i>Amazon EC2 User Guide for Linux
-   *                 Instances</i>.</p>
-   *         <p>The default value is <code>false</code>.</p>
-   */
-  EbsOptimized?: boolean;
-
-  /**
-   * <p>The ID of a ClassicLink-enabled VPC to link your EC2-Classic instances to. For more
-   *             information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html">ClassicLink</a> in the
-   *                 <i>Amazon EC2 User Guide for Linux Instances</i> and <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-in-vpc.html#as-ClassicLink">Linking EC2-Classic
-   *                 Instances to a VPC</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
-   *         <p>This parameter can only be used if you are launching EC2-Classic instances.</p>
-   */
-  ClassicLinkVPCId?: string;
-
   /**
    * <p>The ID of the instance to use to create the launch configuration. The new launch
    *             configuration derives attributes from the instance, except for the block device
@@ -1401,6 +1347,17 @@ export interface CreateLaunchConfigurationType {
    *                 <code>ImageId</code> and <code>InstanceType</code>.</p>
    */
   InstanceId?: string;
+
+  /**
+   * <p>Specifies the instance type of the EC2 instance.</p>
+   *         <p>For information about available instance types, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#AvailableInstanceTypes">Available
+   *                 Instance Types</a> in the <i>Amazon EC2 User Guide for Linux
+   *                 Instances.</i>
+   *          </p>
+   *         <p>If you do not specify <code>InstanceId</code>, you must specify
+   *                 <code>InstanceType</code>.</p>
+   */
+  InstanceType?: string;
 
   /**
    * <p>For Auto Scaling groups that are running in a virtual private cloud (VPC), specifies whether
@@ -1421,14 +1378,30 @@ export interface CreateLaunchConfigurationType {
   AssociatePublicIpAddress?: boolean;
 
   /**
-   * <p>The IDs of one or more security groups for the specified ClassicLink-enabled VPC. For
-   *             more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html">ClassicLink</a> in the
-   *                 <i>Amazon EC2 User Guide for Linux Instances</i> and <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-in-vpc.html#as-ClassicLink">Linking EC2-Classic
-   *                 Instances to a VPC</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
-   *         <p>If you specify the <code>ClassicLinkVPCId</code> parameter, you must specify this
-   *             parameter.</p>
+   * <p>Specifies whether the launch configuration is optimized for EBS I/O
+   *             (<code>true</code>) or not (<code>false</code>). The optimization provides dedicated
+   *             throughput to Amazon EBS and an optimized configuration stack to provide optimal I/O
+   *             performance. This optimization is not available with all instance types. Additional fees
+   *             are incurred when you enable EBS optimization for an instance type that is not
+   *             EBS-optimized by default. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html">Amazon EBS-Optimized
+   *                 Instances</a> in the <i>Amazon EC2 User Guide for Linux
+   *                 Instances</i>.</p>
+   *         <p>The default value is <code>false</code>.</p>
    */
-  ClassicLinkVPCSecurityGroups?: string[];
+  EbsOptimized?: boolean;
+
+  /**
+   * <p>Controls whether instances in this group are launched with detailed
+   *             (<code>true</code>) or basic (<code>false</code>) monitoring.</p>
+   *         <p>The default value is <code>true</code> (enabled).</p>
+   *         <important>
+   *             <p>When detailed monitoring is enabled, Amazon CloudWatch generates metrics every minute and
+   *                 your account is charged a fee. When you disable detailed monitoring, CloudWatch generates
+   *                 metrics every 5 minutes. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/latest/userguide/as-instance-monitoring.html#enable-as-instance-metrics">Configure Monitoring for Auto Scaling Instances</a> in the
+   *                     <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+   *         </important>
+   */
+  InstanceMonitoring?: InstanceMonitoring;
 
   /**
    * <p>The tenancy of the instance. An instance with <code>dedicated</code> tenancy runs on
@@ -1446,24 +1419,6 @@ export interface CreateLaunchConfigurationType {
   PlacementTenancy?: string;
 
   /**
-   * <p>A list that contains the security groups to assign to the instances in the Auto Scaling
-   *             group.</p>
-   *         <p>[EC2-VPC] Specify the security group IDs. For more information, see <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html">Security Groups for Your VPC</a> in the <i>Amazon Virtual Private Cloud
-   *                 User Guide</i>.</p>
-   *         <p>[EC2-Classic] Specify either the security group names or the security group IDs. For
-   *             more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html">Amazon EC2 Security
-   *                 Groups</a> in the <i>Amazon EC2 User Guide for Linux
-   *             Instances</i>.</p>
-   */
-  SecurityGroups?: string[];
-
-  /**
-   * <p>The name of the launch configuration. This name must be unique per Region per
-   *             account.</p>
-   */
-  LaunchConfigurationName: string | undefined;
-
-  /**
    * <p>The maximum hourly price to be paid for any Spot Instance launched to fulfill the
    *             request. Spot Instances are launched when the price you specify exceeds the current Spot
    *             price. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-launch-spot-instances.html">Launching Spot
@@ -1478,17 +1433,21 @@ export interface CreateLaunchConfigurationType {
   SpotPrice?: string;
 
   /**
-   * <p>The Base64-encoded user data to make available to the launched EC2 instances. For more
-   *             information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html">Instance Metadata and User
-   *                 Data</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
+   * <p>The ID of the RAM disk to select.</p>
    */
-  UserData?: string;
+  RamdiskId?: string;
 
   /**
-   * <p>The name of the key pair. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html">Amazon EC2 Key Pairs</a> in the
-   *                 <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
+   * <p>The metadata options for the instances. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html">Instance Metadata and User Data</a> in the
+   *             <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
    */
-  KeyName?: string;
+  MetadataOptions?: InstanceMetadataOptions;
+
+  /**
+   * <p>The name of the launch configuration. This name must be unique per Region per
+   *             account.</p>
+   */
+  LaunchConfigurationName: string | undefined;
 
   /**
    * <p>The ID of the Amazon Machine Image (AMI) that was assigned during registration. For
@@ -1500,28 +1459,69 @@ export interface CreateLaunchConfigurationType {
   ImageId?: string;
 
   /**
-   * <p>Controls whether instances in this group are launched with detailed
-   *             (<code>true</code>) or basic (<code>false</code>) monitoring.</p>
-   *         <p>The default value is <code>true</code> (enabled).</p>
-   *         <important>
-   *             <p>When detailed monitoring is enabled, Amazon CloudWatch generates metrics every minute and
-   *                 your account is charged a fee. When you disable detailed monitoring, CloudWatch generates
-   *                 metrics every 5 minutes. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/latest/userguide/as-instance-monitoring.html#enable-as-instance-metrics">Configure Monitoring for Auto Scaling Instances</a> in the
-   *                     <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
-   *         </important>
+   * <p>A block device mapping, which specifies the block devices for the instance. You can
+   *             specify virtual devices and EBS volumes. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html">Block Device
+   *                 Mapping</a> in the <i>Amazon EC2 User Guide for Linux
+   *                 Instances</i>.</p>
    */
-  InstanceMonitoring?: InstanceMonitoring;
+  BlockDeviceMappings?: BlockDeviceMapping[];
 
   /**
-   * <p>Specifies the instance type of the EC2 instance.</p>
-   *         <p>For information about available instance types, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#AvailableInstanceTypes">Available
-   *                 Instance Types</a> in the <i>Amazon EC2 User Guide for Linux
-   *                 Instances.</i>
-   *          </p>
-   *         <p>If you do not specify <code>InstanceId</code>, you must specify
-   *                 <code>InstanceType</code>.</p>
+   * <p>The name or the Amazon Resource Name (ARN) of the instance profile associated with the
+   *             IAM role for the instance. The instance profile contains the IAM role.</p>
+   *         <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/us-iam-role.html">IAM Role for Applications That Run
+   *                 on Amazon EC2 Instances</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
    */
-  InstanceType?: string;
+  IamInstanceProfile?: string;
+
+  /**
+   * <p>The ID of a ClassicLink-enabled VPC to link your EC2-Classic instances to. For more
+   *             information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html">ClassicLink</a> in the
+   *                 <i>Amazon EC2 User Guide for Linux Instances</i> and <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-in-vpc.html#as-ClassicLink">Linking EC2-Classic
+   *                 Instances to a VPC</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+   *         <p>This parameter can only be used if you are launching EC2-Classic instances.</p>
+   */
+  ClassicLinkVPCId?: string;
+
+  /**
+   * <p>The name of the key pair. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html">Amazon EC2 Key Pairs</a> in the
+   *                 <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
+   */
+  KeyName?: string;
+
+  /**
+   * <p>The Base64-encoded user data to make available to the launched EC2 instances. For more
+   *             information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html">Instance Metadata and User
+   *                 Data</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
+   */
+  UserData?: string;
+
+  /**
+   * <p>The ID of the kernel associated with the AMI.</p>
+   */
+  KernelId?: string;
+
+  /**
+   * <p>The IDs of one or more security groups for the specified ClassicLink-enabled VPC. For
+   *             more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html">ClassicLink</a> in the
+   *                 <i>Amazon EC2 User Guide for Linux Instances</i> and <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-in-vpc.html#as-ClassicLink">Linking EC2-Classic
+   *                 Instances to a VPC</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+   *         <p>If you specify the <code>ClassicLinkVPCId</code> parameter, you must specify this
+   *             parameter.</p>
+   */
+  ClassicLinkVPCSecurityGroups?: string[];
+
+  /**
+   * <p>A list that contains the security groups to assign to the instances in the Auto Scaling
+   *             group.</p>
+   *         <p>[EC2-VPC] Specify the security group IDs. For more information, see <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html">Security Groups for Your VPC</a> in the <i>Amazon Virtual Private Cloud
+   *                 User Guide</i>.</p>
+   *         <p>[EC2-Classic] Specify either the security group names or the security group IDs. For
+   *             more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html">Amazon EC2 Security
+   *                 Groups</a> in the <i>Amazon EC2 User Guide for Linux
+   *             Instances</i>.</p>
+   */
+  SecurityGroups?: string[];
 }
 
 export namespace CreateLaunchConfigurationType {
@@ -1563,16 +1563,16 @@ export namespace ResourceInUseFault {
 
 export interface DeleteAutoScalingGroupType {
   /**
-   * <p>The name of the Auto Scaling group.</p>
-   */
-  AutoScalingGroupName: string | undefined;
-
-  /**
    * <p>Specifies that the group is to be deleted along with all instances associated with the
    *             group, without waiting for all instances to be terminated. This parameter also deletes
    *             any lifecycle actions associated with the group.</p>
    */
   ForceDelete?: boolean;
+
+  /**
+   * <p>The name of the Auto Scaling group.</p>
+   */
+  AutoScalingGroupName: string | undefined;
 }
 
 export namespace DeleteAutoScalingGroupType {
@@ -1623,14 +1623,14 @@ export namespace DeleteLifecycleHookAnswer {
 
 export interface DeleteLifecycleHookType {
   /**
-   * <p>The name of the lifecycle hook.</p>
-   */
-  LifecycleHookName: string | undefined;
-
-  /**
    * <p>The name of the Auto Scaling group.</p>
    */
   AutoScalingGroupName: string | undefined;
+
+  /**
+   * <p>The name of the lifecycle hook.</p>
+   */
+  LifecycleHookName: string | undefined;
 }
 
 export namespace DeleteLifecycleHookType {
@@ -1660,14 +1660,14 @@ export namespace DeleteNotificationConfigurationType {
 
 export interface DeletePolicyType {
   /**
-   * <p>The name of the Auto Scaling group.</p>
-   */
-  AutoScalingGroupName?: string;
-
-  /**
    * <p>The name or Amazon Resource Name (ARN) of the policy.</p>
    */
   PolicyName: string | undefined;
+
+  /**
+   * <p>The name of the Auto Scaling group.</p>
+   */
+  AutoScalingGroupName?: string;
 }
 
 export namespace DeletePolicyType {
@@ -1678,14 +1678,14 @@ export namespace DeletePolicyType {
 
 export interface DeleteScheduledActionType {
   /**
-   * <p>The name of the Auto Scaling group.</p>
-   */
-  AutoScalingGroupName: string | undefined;
-
-  /**
    * <p>The name of the action to delete.</p>
    */
   ScheduledActionName: string | undefined;
+
+  /**
+   * <p>The name of the Auto Scaling group.</p>
+   */
+  AutoScalingGroupName: string | undefined;
 }
 
 export namespace DeleteScheduledActionType {
@@ -1709,14 +1709,15 @@ export namespace DeleteTagsType {
 
 export interface DescribeAccountLimitsAnswer {
   /**
-   * <p>The current number of groups for your AWS account.</p>
-   */
-  NumberOfAutoScalingGroups?: number;
-
-  /**
    * <p>The current number of launch configurations for your AWS account.</p>
    */
   NumberOfLaunchConfigurations?: number;
+
+  /**
+   * <p>The maximum number of launch configurations allowed for your AWS account. The default
+   *             is 200 launch configurations per AWS Region.</p>
+   */
+  MaxNumberOfLaunchConfigurations?: number;
 
   /**
    * <p>The maximum number of groups allowed for your AWS account. The default is 200 groups
@@ -1725,10 +1726,9 @@ export interface DescribeAccountLimitsAnswer {
   MaxNumberOfAutoScalingGroups?: number;
 
   /**
-   * <p>The maximum number of launch configurations allowed for your AWS account. The default
-   *             is 200 launch configurations per AWS Region.</p>
+   * <p>The current number of groups for your AWS account.</p>
    */
-  MaxNumberOfLaunchConfigurations?: number;
+  NumberOfAutoScalingGroups?: number;
 }
 
 export namespace DescribeAccountLimitsAnswer {
@@ -1758,18 +1758,18 @@ export interface AutoScalingGroupNamesType {
   MaxRecords?: number;
 
   /**
+   * <p>The token for the next set of items to return. (You received this token from a
+   *             previous call.)</p>
+   */
+  NextToken?: string;
+
+  /**
    * <p>The names of the Auto Scaling groups. Each name can be a maximum of 1600 characters. By
    *             default, you can only specify up to 50 names. You can optionally increase this limit
    *             using the <code>MaxRecords</code> parameter.</p>
    *         <p>If you omit this parameter, all Auto Scaling groups are described.</p>
    */
   AutoScalingGroupNames?: string[];
-
-  /**
-   * <p>The token for the next set of items to return. (You received this token from a
-   *             previous call.)</p>
-   */
-  NextToken?: string;
 }
 
 export namespace AutoScalingGroupNamesType {
@@ -1887,10 +1887,19 @@ export enum LifecycleState {
  */
 export interface Instance {
   /**
-   * <p>Indicates whether the instance is protected from termination by Amazon EC2 Auto Scaling when scaling
-   *             in.</p>
+   * <p>The launch template for the instance.</p>
    */
-  ProtectedFromScaleIn: boolean | undefined;
+  LaunchTemplate?: LaunchTemplateSpecification;
+
+  /**
+   * <p>The launch configuration associated with the instance.</p>
+   */
+  LaunchConfigurationName?: string;
+
+  /**
+   * <p>The instance type of the EC2 instance.</p>
+   */
+  InstanceType?: string;
 
   /**
    * <p>The last reported health status of the instance. "Healthy" means that the instance is
@@ -1900,25 +1909,16 @@ export interface Instance {
   HealthStatus: string | undefined;
 
   /**
-   * <p>The ID of the instance.</p>
+   * <p>Indicates whether the instance is protected from termination by Amazon EC2 Auto Scaling when scaling
+   *             in.</p>
    */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The launch template for the instance.</p>
-   */
-  LaunchTemplate?: LaunchTemplateSpecification;
+  ProtectedFromScaleIn: boolean | undefined;
 
   /**
    * <p>A description of the current lifecycle state. The <code>Quarantined</code> state is
    *             not used.</p>
    */
   LifecycleState: LifecycleState | string | undefined;
-
-  /**
-   * <p>The Availability Zone in which the instance is running.</p>
-   */
-  AvailabilityZone: string | undefined;
 
   /**
    * <p>The number of capacity units contributed by the instance based on its instance
@@ -1928,14 +1928,14 @@ export interface Instance {
   WeightedCapacity?: string;
 
   /**
-   * <p>The instance type of the EC2 instance.</p>
+   * <p>The ID of the instance.</p>
    */
-  InstanceType?: string;
+  InstanceId: string | undefined;
 
   /**
-   * <p>The launch configuration associated with the instance.</p>
+   * <p>The Availability Zone in which the instance is running.</p>
    */
-  LaunchConfigurationName?: string;
+  AvailabilityZone: string | undefined;
 }
 
 export namespace Instance {
@@ -1971,17 +1971,6 @@ export namespace SuspendedProcess {
  */
 export interface TagDescription {
   /**
-   * <p>Determines whether the tag is added to new instances as they are launched in the
-   *             group.</p>
-   */
-  PropagateAtLaunch?: boolean;
-
-  /**
-   * <p>The tag key.</p>
-   */
-  Key?: string;
-
-  /**
    * <p>The name of the group.</p>
    */
   ResourceId?: string;
@@ -1996,6 +1985,17 @@ export interface TagDescription {
    *             <code>auto-scaling-group</code>.</p>
    */
   ResourceType?: string;
+
+  /**
+   * <p>The tag key.</p>
+   */
+  Key?: string;
+
+  /**
+   * <p>Determines whether the tag is added to new instances as they are launched in the
+   *             group.</p>
+   */
+  PropagateAtLaunch?: boolean;
 }
 
 export namespace TagDescription {
@@ -2009,19 +2009,25 @@ export namespace TagDescription {
  */
 export interface AutoScalingGroup {
   /**
-   * <p>The tags for the group.</p>
+   * <p>The date and time the group was created.</p>
    */
-  Tags?: TagDescription[];
+  CreatedTime: Date | undefined;
 
   /**
-   * <p>The metrics enabled for the group.</p>
+   * <p>The name of the associated launch configuration.</p>
    */
-  EnabledMetrics?: EnabledMetric[];
+  LaunchConfigurationName?: string;
 
   /**
-   * <p>One or more subnet IDs, if applicable, separated by commas.</p>
+   * <p>One or more load balancers associated with the group.</p>
    */
-  VPCZoneIdentifier?: string;
+  LoadBalancerNames?: string[];
+
+  /**
+   * <p>The maximum amount of time, in seconds, that an instance can be in service.</p>
+   *         <p>Valid Range: Minimum value of 0.</p>
+   */
+  MaxInstanceLifetime?: number;
 
   /**
    * <p>The mixed instances policy for the group.</p>
@@ -2029,18 +2035,30 @@ export interface AutoScalingGroup {
   MixedInstancesPolicy?: MixedInstancesPolicy;
 
   /**
-   * <p>The service to use for the health checks. The valid values are <code>EC2</code> and
-   *                 <code>ELB</code>. If you configure an Auto Scaling group to use ELB health checks, it
-   *             considers the instance unhealthy if it fails either the EC2 status checks or the load
-   *             balancer health checks.</p>
+   * <p>The Amazon Resource Names (ARN) of the target groups for your load balancer.</p>
    */
-  HealthCheckType: string | undefined;
+  TargetGroupARNs?: string[];
 
   /**
-   * <p>The maximum amount of time, in seconds, that an instance can be in service.</p>
-   *         <p>Valid Range: Minimum value of 0.</p>
+   * <p>The EC2 instances associated with the group.</p>
    */
-  MaxInstanceLifetime?: number;
+  Instances?: Instance[];
+
+  /**
+   * <p>The duration of the default cooldown period, in seconds.</p>
+   */
+  DefaultCooldown: number | undefined;
+
+  /**
+   * <p>The tags for the group.</p>
+   */
+  Tags?: TagDescription[];
+
+  /**
+   * <p>The amount of time, in seconds, that Amazon EC2 Auto Scaling waits before checking the health status
+   *             of an EC2 instance that has come into service.</p>
+   */
+  HealthCheckGracePeriod?: number;
 
   /**
    * <p>The suspended processes associated with the group.</p>
@@ -2053,21 +2071,9 @@ export interface AutoScalingGroup {
   AvailabilityZones: string[] | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the service-linked role that the Auto Scaling group uses to
-   *             call other AWS services on your behalf.</p>
+   * <p>The Amazon Resource Name (ARN) of the Auto Scaling group.</p>
    */
-  ServiceLinkedRoleARN?: string;
-
-  /**
-   * <p>Indicates whether newly launched instances are protected from termination by Amazon EC2 Auto Scaling
-   *             when scaling in.</p>
-   */
-  NewInstancesProtectedFromScaleIn?: boolean;
-
-  /**
-   * <p>The date and time the group was created.</p>
-   */
-  CreatedTime: Date | undefined;
+  AutoScalingGroupARN?: string;
 
   /**
    * <p>The maximum size of the group.</p>
@@ -2075,54 +2081,9 @@ export interface AutoScalingGroup {
   MaxSize: number | undefined;
 
   /**
-   * <p>The launch template for the group.</p>
+   * <p>One or more subnet IDs, if applicable, separated by commas.</p>
    */
-  LaunchTemplate?: LaunchTemplateSpecification;
-
-  /**
-   * <p>The name of the placement group into which to launch your instances, if any.</p>
-   */
-  PlacementGroup?: string;
-
-  /**
-   * <p>The desired size of the group.</p>
-   */
-  DesiredCapacity: number | undefined;
-
-  /**
-   * <p>The minimum size of the group.</p>
-   */
-  MinSize: number | undefined;
-
-  /**
-   * <p>The name of the Auto Scaling group.</p>
-   */
-  AutoScalingGroupName: string | undefined;
-
-  /**
-   * <p>The termination policies for the group.</p>
-   */
-  TerminationPolicies?: string[];
-
-  /**
-   * <p>The Amazon Resource Names (ARN) of the target groups for your load balancer.</p>
-   */
-  TargetGroupARNs?: string[];
-
-  /**
-   * <p>The name of the associated launch configuration.</p>
-   */
-  LaunchConfigurationName?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the Auto Scaling group.</p>
-   */
-  AutoScalingGroupARN?: string;
-
-  /**
-   * <p>One or more load balancers associated with the group.</p>
-   */
-  LoadBalancerNames?: string[];
+  VPCZoneIdentifier?: string;
 
   /**
    * <p>The current state of the group when the <a>DeleteAutoScalingGroup</a>
@@ -2131,20 +2092,59 @@ export interface AutoScalingGroup {
   Status?: string;
 
   /**
-   * <p>The amount of time, in seconds, that Amazon EC2 Auto Scaling waits before checking the health status
-   *             of an EC2 instance that has come into service.</p>
+   * <p>The name of the placement group into which to launch your instances, if any.</p>
    */
-  HealthCheckGracePeriod?: number;
+  PlacementGroup?: string;
 
   /**
-   * <p>The duration of the default cooldown period, in seconds.</p>
+   * <p>The launch template for the group.</p>
    */
-  DefaultCooldown: number | undefined;
+  LaunchTemplate?: LaunchTemplateSpecification;
 
   /**
-   * <p>The EC2 instances associated with the group.</p>
+   * <p>The termination policies for the group.</p>
    */
-  Instances?: Instance[];
+  TerminationPolicies?: string[];
+
+  /**
+   * <p>The service to use for the health checks. The valid values are <code>EC2</code> and
+   *                 <code>ELB</code>. If you configure an Auto Scaling group to use ELB health checks, it
+   *             considers the instance unhealthy if it fails either the EC2 status checks or the load
+   *             balancer health checks.</p>
+   */
+  HealthCheckType: string | undefined;
+
+  /**
+   * <p>The desired size of the group.</p>
+   */
+  DesiredCapacity: number | undefined;
+
+  /**
+   * <p>Indicates whether newly launched instances are protected from termination by Amazon EC2 Auto Scaling
+   *             when scaling in.</p>
+   */
+  NewInstancesProtectedFromScaleIn?: boolean;
+
+  /**
+   * <p>The name of the Auto Scaling group.</p>
+   */
+  AutoScalingGroupName: string | undefined;
+
+  /**
+   * <p>The minimum size of the group.</p>
+   */
+  MinSize: number | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the service-linked role that the Auto Scaling group uses to
+   *             call other AWS services on your behalf.</p>
+   */
+  ServiceLinkedRoleARN?: string;
+
+  /**
+   * <p>The metrics enabled for the group.</p>
+   */
+  EnabledMetrics?: EnabledMetric[];
 }
 
 export namespace AutoScalingGroup {
@@ -2155,17 +2155,17 @@ export namespace AutoScalingGroup {
 
 export interface AutoScalingGroupsType {
   /**
+   * <p>The groups.</p>
+   */
+  AutoScalingGroups: AutoScalingGroup[] | undefined;
+
+  /**
    * <p>A string that indicates that the response contains more items than can be returned in
    *             a single response. To receive additional items, specify this string for the
    *                 <code>NextToken</code> value when requesting the next set of items. This value is
    *             null when there are no more items to return.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>The groups.</p>
-   */
-  AutoScalingGroups: AutoScalingGroup[] | undefined;
 }
 
 export namespace AutoScalingGroupsType {
@@ -2197,10 +2197,25 @@ export namespace InvalidNextToken {
  */
 export interface AutoScalingInstanceDetails {
   /**
-   * <p>Indicates whether the instance is protected from termination by Amazon EC2 Auto Scaling when scaling
-   *             in.</p>
+   * <p>The launch template for the instance.</p>
    */
-  ProtectedFromScaleIn: boolean | undefined;
+  LaunchTemplate?: LaunchTemplateSpecification;
+
+  /**
+   * <p>The launch configuration used to launch the instance. This value is not available if
+   *             you attached the instance to the Auto Scaling group.</p>
+   */
+  LaunchConfigurationName?: string;
+
+  /**
+   * <p>The instance type of the EC2 instance.</p>
+   */
+  InstanceType?: string;
+
+  /**
+   * <p>The name of the Auto Scaling group for the instance.</p>
+   */
+  AutoScalingGroupName: string | undefined;
 
   /**
    * <p>The last reported health status of this instance. "Healthy" means that the instance is
@@ -2210,29 +2225,15 @@ export interface AutoScalingInstanceDetails {
   HealthStatus: string | undefined;
 
   /**
-   * <p>The ID of the instance.</p>
+   * <p>Indicates whether the instance is protected from termination by Amazon EC2 Auto Scaling when scaling
+   *             in.</p>
    */
-  InstanceId: string | undefined;
+  ProtectedFromScaleIn: boolean | undefined;
 
   /**
    * <p>The lifecycle state for the instance.</p>
    */
   LifecycleState: string | undefined;
-
-  /**
-   * <p>The launch template for the instance.</p>
-   */
-  LaunchTemplate?: LaunchTemplateSpecification;
-
-  /**
-   * <p>The name of the Auto Scaling group for the instance.</p>
-   */
-  AutoScalingGroupName: string | undefined;
-
-  /**
-   * <p>The Availability Zone for the instance.</p>
-   */
-  AvailabilityZone: string | undefined;
 
   /**
    * <p>The number of capacity units contributed by the instance based on its instance
@@ -2242,15 +2243,14 @@ export interface AutoScalingInstanceDetails {
   WeightedCapacity?: string;
 
   /**
-   * <p>The instance type of the EC2 instance.</p>
+   * <p>The Availability Zone for the instance.</p>
    */
-  InstanceType?: string;
+  AvailabilityZone: string | undefined;
 
   /**
-   * <p>The launch configuration used to launch the instance. This value is not available if
-   *             you attached the instance to the Auto Scaling group.</p>
+   * <p>The ID of the instance.</p>
    */
-  LaunchConfigurationName?: string;
+  InstanceId: string | undefined;
 }
 
 export namespace AutoScalingInstanceDetails {
@@ -2261,17 +2261,17 @@ export namespace AutoScalingInstanceDetails {
 
 export interface AutoScalingInstancesType {
   /**
-   * <p>The instances.</p>
-   */
-  AutoScalingInstances?: AutoScalingInstanceDetails[];
-
-  /**
    * <p>A string that indicates that the response contains more items than can be returned in
    *             a single response. To receive additional items, specify this string for the
    *                 <code>NextToken</code> value when requesting the next set of items. This value is
    *             null when there are no more items to return.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The instances.</p>
+   */
+  AutoScalingInstances?: AutoScalingInstanceDetails[];
 }
 
 export namespace AutoScalingInstancesType {
@@ -2334,11 +2334,6 @@ export enum InstanceRefreshStatus {
  */
 export interface InstanceRefresh {
   /**
-   * <p>The date and time at which the instance refresh ended.</p>
-   */
-  EndTime?: Date;
-
-  /**
    * <p>The percentage of the instance refresh that is complete. For each instance
    *             replacement, Amazon EC2 Auto Scaling tracks the instance's health status and warm-up time. When the
    *             instance's health status changes to healthy and the specified warm-up time passes, the
@@ -2347,20 +2342,24 @@ export interface InstanceRefresh {
   PercentageComplete?: number;
 
   /**
-   * <p>The number of instances remaining to update before the instance refresh is
-   *             complete.</p>
+   * <p>The date and time at which the instance refresh ended.</p>
    */
-  InstancesToUpdate?: number;
+  EndTime?: Date;
 
   /**
-   * <p>The instance refresh ID.</p>
+   * <p>The name of the Auto Scaling group.</p>
    */
-  InstanceRefreshId?: string;
+  AutoScalingGroupName?: string;
 
   /**
    * <p>The date and time at which the instance refresh began.</p>
    */
   StartTime?: Date;
+
+  /**
+   * <p>Provides more details about the current status of the instance refresh. </p>
+   */
+  StatusReason?: string;
 
   /**
    * <p>The current status for the instance refresh operation:</p>
@@ -2398,14 +2397,15 @@ export interface InstanceRefresh {
   Status?: InstanceRefreshStatus | string;
 
   /**
-   * <p>Provides more details about the current status of the instance refresh. </p>
+   * <p>The instance refresh ID.</p>
    */
-  StatusReason?: string;
+  InstanceRefreshId?: string;
 
   /**
-   * <p>The name of the Auto Scaling group.</p>
+   * <p>The number of instances remaining to update before the instance refresh is
+   *             complete.</p>
    */
-  AutoScalingGroupName?: string;
+  InstancesToUpdate?: number;
 }
 
 export namespace InstanceRefresh {
@@ -2437,26 +2437,26 @@ export namespace DescribeInstanceRefreshesAnswer {
 
 export interface DescribeInstanceRefreshesType {
   /**
-   * <p>The name of the Auto Scaling group.</p>
-   */
-  AutoScalingGroupName: string | undefined;
-
-  /**
    * <p>The maximum number of items to return with this call. The default value is
    *                 <code>50</code> and the maximum value is <code>100</code>.</p>
    */
   MaxRecords?: number;
 
   /**
-   * <p>The token for the next set of items to return. (You received this token from a
-   *             previous call.)</p>
+   * <p>The name of the Auto Scaling group.</p>
    */
-  NextToken?: string;
+  AutoScalingGroupName: string | undefined;
 
   /**
    * <p>One or more instance refresh IDs.</p>
    */
   InstanceRefreshIds?: string[];
+
+  /**
+   * <p>The token for the next set of items to return. (You received this token from a
+   *             previous call.)</p>
+   */
+  NextToken?: string;
 }
 
 export namespace DescribeInstanceRefreshesType {
@@ -2473,16 +2473,16 @@ export interface LaunchConfigurationNamesType {
   NextToken?: string;
 
   /**
-   * <p>The launch configuration names. If you omit this parameter, all launch configurations
-   *             are described.</p>
-   */
-  LaunchConfigurationNames?: string[];
-
-  /**
    * <p>The maximum number of items to return with this call. The default value is
    *                 <code>50</code> and the maximum value is <code>100</code>.</p>
    */
   MaxRecords?: number;
+
+  /**
+   * <p>The launch configuration names. If you omit this parameter, all launch configurations
+   *             are described.</p>
+   */
+  LaunchConfigurationNames?: string[];
 }
 
 export namespace LaunchConfigurationNamesType {
@@ -2496,6 +2496,69 @@ export namespace LaunchConfigurationNamesType {
  */
 export interface LaunchConfiguration {
   /**
+   * <p>The name or the Amazon Resource Name (ARN) of the instance profile associated with the
+   *             IAM role for the instance. The instance profile contains the IAM role.</p>
+   *         <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/us-iam-role.html">IAM Role for Applications That Run
+   *                 on Amazon EC2 Instances</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+   */
+  IamInstanceProfile?: string;
+
+  /**
+   * <p>A block device mapping, which specifies the block devices for the instance.</p>
+   *         <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html">Block Device
+   *                 Mapping</a> in the <i>Amazon EC2 User Guide for Linux
+   *                 Instances</i>.</p>
+   */
+  BlockDeviceMappings?: BlockDeviceMapping[];
+
+  /**
+   * <p>The metadata options for the instances. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html">Instance Metadata and User Data</a> in the
+   *             <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
+   */
+  MetadataOptions?: InstanceMetadataOptions;
+
+  /**
+   * <p>The ID of the RAM disk associated with the AMI.</p>
+   */
+  RamdiskId?: string;
+
+  /**
+   * <p>The ID of the kernel associated with the AMI.</p>
+   */
+  KernelId?: string;
+
+  /**
+   * <p>The maximum hourly price to be paid for any Spot Instance launched to fulfill the
+   *             request. Spot Instances are launched when the price you specify exceeds the current Spot
+   *             price.</p>
+   *         <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-launch-spot-instances.html">Launching Spot
+   *                 Instances in Your Auto Scaling Group</a> in the
+   *             <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+   */
+  SpotPrice?: string;
+
+  /**
+   * <p>The Base64-encoded user data to make available to the launched EC2 instances.</p>
+   *         <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html">Instance Metadata and User
+   *                 Data</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
+   */
+  UserData?: string;
+
+  /**
+   * <p>The name of the key pair.</p>
+   *         <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html">Amazon EC2 Key Pairs</a> in the
+   *                 <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
+   */
+  KeyName?: string;
+
+  /**
+   * <p>The ID of the Amazon Machine Image (AMI) to use to launch your EC2 instances.</p>
+   *         <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/finding-an-ami.html">Finding an AMI</a> in the
+   *                 <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
+   */
+  ImageId: string | undefined;
+
+  /**
    * <p>The instance type for the instances.</p>
    *         <p>For information about available instance types, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#AvailableInstanceTypes">Available
    *                 Instance Types</a> in the <i>Amazon EC2 User Guide for Linux
@@ -2503,6 +2566,27 @@ export interface LaunchConfiguration {
    *          </p>
    */
   InstanceType: string | undefined;
+
+  /**
+   * <p>Controls whether instances in this group are launched with detailed
+   *             (<code>true</code>) or basic (<code>false</code>) monitoring.</p>
+   *         <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/latest/userguide/as-instance-monitoring.html#enable-as-instance-metrics">Configure Monitoring for Auto Scaling Instances</a> in the
+   *                 <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+   */
+  InstanceMonitoring?: InstanceMonitoring;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the launch configuration.</p>
+   */
+  LaunchConfigurationARN?: string;
+
+  /**
+   * <p>For Auto Scaling groups that are running in a VPC, specifies whether to assign a public IP
+   *             address to the group's instances.</p>
+   *         <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-in-vpc.html">Launching Auto Scaling Instances in a
+   *                 VPC</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+   */
+  AssociatePublicIpAddress?: boolean;
 
   /**
    * <p>The IDs of one or more security groups for the VPC specified in
@@ -2523,25 +2607,22 @@ export interface LaunchConfiguration {
   SecurityGroups?: string[];
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the launch configuration.</p>
+   * <p>The creation date and time for the launch configuration.</p>
    */
-  LaunchConfigurationARN?: string;
+  CreatedTime: Date | undefined;
 
   /**
-   * <p>For Auto Scaling groups that are running in a VPC, specifies whether to assign a public IP
-   *             address to the group's instances.</p>
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-in-vpc.html">Launching Auto Scaling Instances in a
-   *                 VPC</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+   * <p>The name of the launch configuration.</p>
    */
-  AssociatePublicIpAddress?: boolean;
+  LaunchConfigurationName: string | undefined;
 
   /**
-   * <p>Controls whether instances in this group are launched with detailed
-   *             (<code>true</code>) or basic (<code>false</code>) monitoring.</p>
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/latest/userguide/as-instance-monitoring.html#enable-as-instance-metrics">Configure Monitoring for Auto Scaling Instances</a> in the
-   *                 <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+   * <p>The ID of a ClassicLink-enabled VPC to link your EC2-Classic instances to.</p>
+   *         <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html">ClassicLink</a> in the
+   *                 <i>Amazon EC2 User Guide for Linux Instances</i> and <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-in-vpc.html#as-ClassicLink">Linking EC2-Classic
+   *                 Instances to a VPC</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
    */
-  InstanceMonitoring?: InstanceMonitoring;
+  ClassicLinkVPCId?: string;
 
   /**
    * <p>The tenancy of the instance, either <code>default</code> or <code>dedicated</code>. An
@@ -2553,66 +2634,6 @@ export interface LaunchConfiguration {
   PlacementTenancy?: string;
 
   /**
-   * <p>The metadata options for the instances. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html">Instance Metadata and User Data</a> in the
-   *             <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
-   */
-  MetadataOptions?: InstanceMetadataOptions;
-
-  /**
-   * <p>The name of the launch configuration.</p>
-   */
-  LaunchConfigurationName: string | undefined;
-
-  /**
-   * <p>The maximum hourly price to be paid for any Spot Instance launched to fulfill the
-   *             request. Spot Instances are launched when the price you specify exceeds the current Spot
-   *             price.</p>
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-launch-spot-instances.html">Launching Spot
-   *                 Instances in Your Auto Scaling Group</a> in the
-   *             <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
-   */
-  SpotPrice?: string;
-
-  /**
-   * <p>The ID of the RAM disk associated with the AMI.</p>
-   */
-  RamdiskId?: string;
-
-  /**
-   * <p>The name of the key pair.</p>
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html">Amazon EC2 Key Pairs</a> in the
-   *                 <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
-   */
-  KeyName?: string;
-
-  /**
-   * <p>The ID of the Amazon Machine Image (AMI) to use to launch your EC2 instances.</p>
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/finding-an-ami.html">Finding an AMI</a> in the
-   *                 <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
-   */
-  ImageId: string | undefined;
-
-  /**
-   * <p>The name or the Amazon Resource Name (ARN) of the instance profile associated with the
-   *             IAM role for the instance. The instance profile contains the IAM role.</p>
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/us-iam-role.html">IAM Role for Applications That Run
-   *                 on Amazon EC2 Instances</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
-   */
-  IamInstanceProfile?: string;
-
-  /**
-   * <p>The Base64-encoded user data to make available to the launched EC2 instances.</p>
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html">Instance Metadata and User
-   *                 Data</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
-   */
-  UserData?: string;
-
-  /**
-   * <p>The ID of the kernel associated with the AMI.</p>
-   */
-  KernelId?: string;
-
-  /**
    * <p>Specifies whether the launch configuration is optimized for EBS I/O
    *             (<code>true</code>) or not (<code>false</code>).</p>
    *         <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html">Amazon EBS-Optimized
@@ -2620,27 +2641,6 @@ export interface LaunchConfiguration {
    *                 Instances</i>.</p>
    */
   EbsOptimized?: boolean;
-
-  /**
-   * <p>A block device mapping, which specifies the block devices for the instance.</p>
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html">Block Device
-   *                 Mapping</a> in the <i>Amazon EC2 User Guide for Linux
-   *                 Instances</i>.</p>
-   */
-  BlockDeviceMappings?: BlockDeviceMapping[];
-
-  /**
-   * <p>The creation date and time for the launch configuration.</p>
-   */
-  CreatedTime: Date | undefined;
-
-  /**
-   * <p>The ID of a ClassicLink-enabled VPC to link your EC2-Classic instances to.</p>
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html">ClassicLink</a> in the
-   *                 <i>Amazon EC2 User Guide for Linux Instances</i> and <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-in-vpc.html#as-ClassicLink">Linking EC2-Classic
-   *                 Instances to a VPC</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
-   */
-  ClassicLinkVPCId?: string;
 }
 
 export namespace LaunchConfiguration {
@@ -2677,13 +2677,6 @@ export namespace LaunchConfigurationsType {
  */
 export interface LifecycleHook {
   /**
-   * <p>The ARN of the target that Amazon EC2 Auto Scaling sends notifications to when an instance is in the
-   *             transition state for the lifecycle hook. The notification target can be either an SQS
-   *             queue or an SNS topic.</p>
-   */
-  NotificationTargetARN?: string;
-
-  /**
    * <p>The ARN of the IAM role that allows the Auto Scaling group to publish to the specified
    *             notification target.</p>
    */
@@ -2695,6 +2688,11 @@ export interface LifecycleHook {
   LifecycleHookName?: string;
 
   /**
+   * <p>The name of the Auto Scaling group for the lifecycle hook.</p>
+   */
+  AutoScalingGroupName?: string;
+
+  /**
    * <p>Defines the action the Auto Scaling group should take when the lifecycle hook timeout elapses
    *             or if an unexpected failure occurs. The possible values are <code>CONTINUE</code> and
    *                 <code>ABANDON</code>.</p>
@@ -2702,17 +2700,11 @@ export interface LifecycleHook {
   DefaultResult?: string;
 
   /**
-   * <p>Additional information that is included any time Amazon EC2 Auto Scaling sends a message to the
-   *             notification target.</p>
+   * <p>The ARN of the target that Amazon EC2 Auto Scaling sends notifications to when an instance is in the
+   *             transition state for the lifecycle hook. The notification target can be either an SQS
+   *             queue or an SNS topic.</p>
    */
-  NotificationMetadata?: string;
-
-  /**
-   * <p>The maximum time, in seconds, that can elapse before the lifecycle hook times out. If
-   *             the lifecycle hook times out, Amazon EC2 Auto Scaling performs the action that you specified in the
-   *                 <code>DefaultResult</code> parameter.</p>
-   */
-  HeartbeatTimeout?: number;
+  NotificationTargetARN?: string;
 
   /**
    * <p>The maximum time, in seconds, that an instance can remain in a
@@ -2721,6 +2713,13 @@ export interface LifecycleHook {
    *             smaller.</p>
    */
   GlobalTimeout?: number;
+
+  /**
+   * <p>The maximum time, in seconds, that can elapse before the lifecycle hook times out. If
+   *             the lifecycle hook times out, Amazon EC2 Auto Scaling performs the action that you specified in the
+   *                 <code>DefaultResult</code> parameter.</p>
+   */
+  HeartbeatTimeout?: number;
 
   /**
    * <p>The state of the EC2 instance to which to attach the lifecycle hook. The following are
@@ -2737,9 +2736,10 @@ export interface LifecycleHook {
   LifecycleTransition?: string;
 
   /**
-   * <p>The name of the Auto Scaling group for the lifecycle hook.</p>
+   * <p>Additional information that is included any time Amazon EC2 Auto Scaling sends a message to the
+   *             notification target.</p>
    */
-  AutoScalingGroupName?: string;
+  NotificationMetadata?: string;
 }
 
 export namespace LifecycleHook {
@@ -2763,15 +2763,15 @@ export namespace DescribeLifecycleHooksAnswer {
 
 export interface DescribeLifecycleHooksType {
   /**
-   * <p>The name of the Auto Scaling group.</p>
-   */
-  AutoScalingGroupName: string | undefined;
-
-  /**
    * <p>The names of one or more lifecycle hooks. If you omit this parameter, all lifecycle
    *             hooks are described.</p>
    */
   LifecycleHookNames?: string[];
+
+  /**
+   * <p>The name of the Auto Scaling group.</p>
+   */
+  AutoScalingGroupName: string | undefined;
 }
 
 export namespace DescribeLifecycleHooksType {
@@ -2795,15 +2795,15 @@ export namespace DescribeLifecycleHookTypesAnswer {
 
 export interface DescribeLoadBalancersRequest {
   /**
+   * <p>The name of the Auto Scaling group.</p>
+   */
+  AutoScalingGroupName: string | undefined;
+
+  /**
    * <p>The token for the next set of items to return. (You received this token from a
    *             previous call.)</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>The name of the Auto Scaling group.</p>
-   */
-  AutoScalingGroupName: string | undefined;
 
   /**
    * <p>The maximum number of items to return with this call. The default value is
@@ -2900,6 +2900,12 @@ export namespace DescribeLoadBalancersResponse {
 
 export interface DescribeLoadBalancerTargetGroupsRequest {
   /**
+   * <p>The maximum number of items to return with this call. The default value is
+   *                 <code>100</code> and the maximum value is <code>100</code>.</p>
+   */
+  MaxRecords?: number;
+
+  /**
    * <p>The token for the next set of items to return. (You received this token from a
    *             previous call.)</p>
    */
@@ -2909,12 +2915,6 @@ export interface DescribeLoadBalancerTargetGroupsRequest {
    * <p>The name of the Auto Scaling group.</p>
    */
   AutoScalingGroupName: string | undefined;
-
-  /**
-   * <p>The maximum number of items to return with this call. The default value is
-   *                 <code>100</code> and the maximum value is <code>100</code>.</p>
-   */
-  MaxRecords?: number;
 }
 
 export namespace DescribeLoadBalancerTargetGroupsRequest {
@@ -2933,6 +2933,11 @@ export namespace DescribeLoadBalancerTargetGroupsRequest {
  *             group remains in the <code>Added</code> state.</p>
  */
 export interface LoadBalancerTargetGroupState {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the target group.</p>
+   */
+  LoadBalancerTargetGroupARN?: string;
+
   /**
    * <p>The state of the target group.</p>
    *         <ul>
@@ -2965,11 +2970,6 @@ export interface LoadBalancerTargetGroupState {
    *          </ul>
    */
   State?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the target group.</p>
-   */
-  LoadBalancerTargetGroupARN?: string;
 }
 
 export namespace LoadBalancerTargetGroupState {
@@ -2980,17 +2980,17 @@ export namespace LoadBalancerTargetGroupState {
 
 export interface DescribeLoadBalancerTargetGroupsResponse {
   /**
-   * <p>Information about the target groups.</p>
-   */
-  LoadBalancerTargetGroups?: LoadBalancerTargetGroupState[];
-
-  /**
    * <p>A string that indicates that the response contains more items than can be returned in
    *             a single response. To receive additional items, specify this string for the
    *                 <code>NextToken</code> value when requesting the next set of items. This value is
    *             null when there are no more items to return.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>Information about the target groups.</p>
+   */
+  LoadBalancerTargetGroups?: LoadBalancerTargetGroupState[];
 }
 
 export namespace DescribeLoadBalancerTargetGroupsResponse {
@@ -3100,14 +3100,14 @@ export namespace MetricCollectionType {
 
 export interface DescribeMetricCollectionTypesAnswer {
   /**
-   * <p>One or more metrics.</p>
-   */
-  Metrics?: MetricCollectionType[];
-
-  /**
    * <p>The granularities for the metrics.</p>
    */
   Granularities?: MetricGranularityType[];
+
+  /**
+   * <p>One or more metrics.</p>
+   */
+  Metrics?: MetricCollectionType[];
 }
 
 export namespace DescribeMetricCollectionTypesAnswer {
@@ -3124,6 +3124,12 @@ export interface NotificationConfiguration {
    * <p>The name of the Auto Scaling group.</p>
    */
   AutoScalingGroupName?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon Simple Notification Service (Amazon SNS)
+   *             topic.</p>
+   */
+  TopicARN?: string;
 
   /**
    * <p>One of the following event notification types:</p>
@@ -3156,12 +3162,6 @@ export interface NotificationConfiguration {
    *          </ul>
    */
   NotificationType?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon Simple Notification Service (Amazon SNS)
-   *             topic.</p>
-   */
-  TopicARN?: string;
 }
 
 export namespace NotificationConfiguration {
@@ -3193,12 +3193,6 @@ export namespace DescribeNotificationConfigurationsAnswer {
 
 export interface DescribeNotificationConfigurationsType {
   /**
-   * <p>The token for the next set of items to return. (You received this token from a
-   *             previous call.)</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>The maximum number of items to return with this call. The default value is
    *                 <code>50</code> and the maximum value is <code>100</code>.</p>
    */
@@ -3208,6 +3202,12 @@ export interface DescribeNotificationConfigurationsType {
    * <p>The name of the Auto Scaling group.</p>
    */
   AutoScalingGroupNames?: string[];
+
+  /**
+   * <p>The token for the next set of items to return. (You received this token from a
+   *             previous call.)</p>
+   */
+  NextToken?: string;
 }
 
 export namespace DescribeNotificationConfigurationsType {
@@ -3224,11 +3224,6 @@ export interface DescribePoliciesType {
   NextToken?: string;
 
   /**
-   * <p>The name of the Auto Scaling group.</p>
-   */
-  AutoScalingGroupName?: string;
-
-  /**
    * <p>The names of one or more policies. If you omit this parameter, all policies are
    *             described. If a group name is provided, the results are limited to that group. This list
    *             is limited to 50 items. If you specify an unknown policy name, it is ignored with no
@@ -3237,16 +3232,21 @@ export interface DescribePoliciesType {
   PolicyNames?: string[];
 
   /**
+   * <p>One or more policy types. The valid values are <code>SimpleScaling</code>,
+   *                 <code>StepScaling</code>, and <code>TargetTrackingScaling</code>.</p>
+   */
+  PolicyTypes?: string[];
+
+  /**
    * <p>The maximum number of items to be returned with each call. The default value is
    *                 <code>50</code> and the maximum value is <code>100</code>.</p>
    */
   MaxRecords?: number;
 
   /**
-   * <p>One or more policy types. The valid values are <code>SimpleScaling</code>,
-   *                 <code>StepScaling</code>, and <code>TargetTrackingScaling</code>.</p>
+   * <p>The name of the Auto Scaling group.</p>
    */
-  PolicyTypes?: string[];
+  AutoScalingGroupName?: string;
 }
 
 export namespace DescribePoliciesType {
@@ -3294,13 +3294,11 @@ export namespace DescribePoliciesType {
  */
 export interface StepAdjustment {
   /**
-   * <p>The lower bound for the difference between the alarm threshold and the CloudWatch metric. If
-   *             the metric value is above the breach threshold, the lower bound is inclusive (the metric
-   *             must be greater than or equal to the threshold plus the lower bound). Otherwise, it is
-   *             exclusive (the metric must be greater than the threshold plus the lower bound). A null
-   *             value indicates negative infinity.</p>
+   * <p>The amount by which to scale, based on the specified adjustment type. A positive value
+   *             adds to the current capacity while a negative number removes from the current
+   *             capacity.</p>
    */
-  MetricIntervalLowerBound?: number;
+  ScalingAdjustment: number | undefined;
 
   /**
    * <p>The upper bound for the difference between the alarm threshold and the CloudWatch metric. If
@@ -3313,11 +3311,13 @@ export interface StepAdjustment {
   MetricIntervalUpperBound?: number;
 
   /**
-   * <p>The amount by which to scale, based on the specified adjustment type. A positive value
-   *             adds to the current capacity while a negative number removes from the current
-   *             capacity.</p>
+   * <p>The lower bound for the difference between the alarm threshold and the CloudWatch metric. If
+   *             the metric value is above the breach threshold, the lower bound is inclusive (the metric
+   *             must be greater than or equal to the threshold plus the lower bound). Otherwise, it is
+   *             exclusive (the metric must be greater than the threshold plus the lower bound). A null
+   *             value indicates negative infinity.</p>
    */
-  ScalingAdjustment: number | undefined;
+  MetricIntervalLowerBound?: number;
 }
 
 export namespace StepAdjustment {
@@ -3331,14 +3331,14 @@ export namespace StepAdjustment {
  */
 export interface MetricDimension {
   /**
-   * <p>The name of the dimension.</p>
-   */
-  Name: string | undefined;
-
-  /**
    * <p>The value of the dimension.</p>
    */
   Value: string | undefined;
+
+  /**
+   * <p>The name of the dimension.</p>
+   */
+  Name: string | undefined;
 }
 
 export namespace MetricDimension {
@@ -3379,9 +3379,14 @@ export enum MetricStatistic {
  */
 export interface CustomizedMetricSpecification {
   /**
-   * <p>The namespace of the metric.</p>
+   * <p>The statistic of the metric.</p>
    */
-  Namespace: string | undefined;
+  Statistic: MetricStatistic | string | undefined;
+
+  /**
+   * <p>The name of the metric.</p>
+   */
+  MetricName: string | undefined;
 
   /**
    * <p>The dimensions of the metric.</p>
@@ -3391,19 +3396,14 @@ export interface CustomizedMetricSpecification {
   Dimensions?: MetricDimension[];
 
   /**
+   * <p>The namespace of the metric.</p>
+   */
+  Namespace: string | undefined;
+
+  /**
    * <p>The unit of the metric.</p>
    */
   Unit?: string;
-
-  /**
-   * <p>The statistic of the metric.</p>
-   */
-  Statistic: MetricStatistic | string | undefined;
-
-  /**
-   * <p>The name of the metric.</p>
-   */
-  MetricName: string | undefined;
 }
 
 export namespace CustomizedMetricSpecification {
@@ -3424,33 +3424,6 @@ export enum MetricType {
  *             Amazon EC2 Auto Scaling.</p>
  */
 export interface PredefinedMetricSpecification {
-  /**
-   * <p>The metric type. The following predefined metrics are available:</p>
-   *         <ul>
-   *             <li>
-   *                 <p>
-   *                   <code>ASGAverageCPUUtilization</code> - Average CPU utilization of the Auto Scaling
-   *                     group.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>ASGAverageNetworkIn</code> - Average number of bytes received on all
-   *                     network interfaces by the Auto Scaling group.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>ASGAverageNetworkOut</code> - Average number of bytes sent out on all
-   *                     network interfaces by the Auto Scaling group.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>ALBRequestCountPerTarget</code> - Number of requests completed per
-   *                     target in an Application Load Balancer target group.</p>
-   *             </li>
-   *          </ul>
-   */
-  PredefinedMetricType: MetricType | string | undefined;
-
   /**
    * <p>Identifies the resource associated with the metric type. You can't specify a resource
    *             label unless the metric type is <code>ALBRequestCountPerTarget</code> and there is a
@@ -3477,6 +3450,33 @@ export interface PredefinedMetricSpecification {
    *             use the <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DescribeTargetGroups.html">DescribeTargetGroups</a> API operation.</p>
    */
   ResourceLabel?: string;
+
+  /**
+   * <p>The metric type. The following predefined metrics are available:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>ASGAverageCPUUtilization</code> - Average CPU utilization of the Auto Scaling
+   *                     group.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>ASGAverageNetworkIn</code> - Average number of bytes received on all
+   *                     network interfaces by the Auto Scaling group.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>ASGAverageNetworkOut</code> - Average number of bytes sent out on all
+   *                     network interfaces by the Auto Scaling group.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>ALBRequestCountPerTarget</code> - Number of requests completed per
+   *                     target in an Application Load Balancer target group.</p>
+   *             </li>
+   *          </ul>
+   */
+  PredefinedMetricType: MetricType | string | undefined;
 }
 
 export namespace PredefinedMetricSpecification {
@@ -3490,6 +3490,12 @@ export namespace PredefinedMetricSpecification {
  */
 export interface TargetTrackingConfiguration {
   /**
+   * <p>A customized metric. You must specify either a predefined metric or a customized
+   *             metric.</p>
+   */
+  CustomizedMetricSpecification?: CustomizedMetricSpecification;
+
+  /**
    * <p>Indicates whether scaling in by the target tracking scaling policy is disabled. If
    *             scaling in is disabled, the target tracking scaling policy doesn't remove instances from
    *             the Auto Scaling group. Otherwise, the target tracking scaling policy can remove instances from
@@ -3498,21 +3504,15 @@ export interface TargetTrackingConfiguration {
   DisableScaleIn?: boolean;
 
   /**
+   * <p>The target value for the metric.</p>
+   */
+  TargetValue: number | undefined;
+
+  /**
    * <p>A predefined metric. You must specify either a predefined metric or a customized
    *             metric.</p>
    */
   PredefinedMetricSpecification?: PredefinedMetricSpecification;
-
-  /**
-   * <p>A customized metric. You must specify either a predefined metric or a customized
-   *             metric.</p>
-   */
-  CustomizedMetricSpecification?: CustomizedMetricSpecification;
-
-  /**
-   * <p>The target value for the metric.</p>
-   */
-  TargetValue: number | undefined;
 }
 
 export namespace TargetTrackingConfiguration {
@@ -3526,9 +3526,39 @@ export namespace TargetTrackingConfiguration {
  */
 export interface ScalingPolicy {
   /**
-   * <p>The CloudWatch alarms related to the policy.</p>
+   * <p>The amount by which to scale, based on the specified adjustment type. A positive value
+   *             adds to the current capacity while a negative number removes from the current
+   *             capacity.</p>
    */
-  Alarms?: Alarm[];
+  ScalingAdjustment?: number;
+
+  /**
+   * <p>The estimated time, in seconds, until a newly launched instance can contribute to the
+   *             CloudWatch metrics.</p>
+   */
+  EstimatedInstanceWarmup?: number;
+
+  /**
+   * <p>The aggregation type for the CloudWatch metrics. The valid values are <code>Minimum</code>,
+   *                 <code>Maximum</code>, and <code>Average</code>.</p>
+   */
+  MetricAggregationType?: string;
+
+  /**
+   * <p>A set of adjustments that enable you to scale based on the size of the alarm
+   *             breach.</p>
+   */
+  StepAdjustments?: StepAdjustment[];
+
+  /**
+   * <p>The name of the Auto Scaling group.</p>
+   */
+  AutoScalingGroupName?: string;
+
+  /**
+   * <p>The duration of the policy's cooldown period, in seconds.</p>
+   */
+  Cooldown?: number;
 
   /**
    * <p>One of the following policy types: </p>
@@ -3555,67 +3585,20 @@ export interface ScalingPolicy {
   PolicyType?: string;
 
   /**
-   * <p>A set of adjustments that enable you to scale based on the size of the alarm
-   *             breach.</p>
-   */
-  StepAdjustments?: StepAdjustment[];
-
-  /**
-   * <p>The aggregation type for the CloudWatch metrics. The valid values are <code>Minimum</code>,
-   *                 <code>Maximum</code>, and <code>Average</code>.</p>
-   */
-  MetricAggregationType?: string;
-
-  /**
-   * <p>The duration of the policy's cooldown period, in seconds.</p>
-   */
-  Cooldown?: number;
-
-  /**
-   * <p>The name of the Auto Scaling group.</p>
-   */
-  AutoScalingGroupName?: string;
-
-  /**
-   * <p>A target tracking scaling policy.</p>
-   */
-  TargetTrackingConfiguration?: TargetTrackingConfiguration;
-
-  /**
-   * <p>The estimated time, in seconds, until a newly launched instance can contribute to the
-   *             CloudWatch metrics.</p>
-   */
-  EstimatedInstanceWarmup?: number;
-
-  /**
-   * <p>Specifies how the scaling adjustment is interpreted (for example, an absolute number
-   *             or a percentage). The valid values are <code>ChangeInCapacity</code>,
-   *                 <code>ExactCapacity</code>, and <code>PercentChangeInCapacity</code>.</p>
-   */
-  AdjustmentType?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the policy.</p>
-   */
-  PolicyARN?: string;
-
-  /**
    * <p>The name of the scaling policy.</p>
    */
   PolicyName?: string;
 
   /**
-   * <p>The amount by which to scale, based on the specified adjustment type. A positive value
-   *             adds to the current capacity while a negative number removes from the current
-   *             capacity.</p>
+   * <p>Available for backward compatibility. Use <code>MinAdjustmentMagnitude</code>
+   *             instead.</p>
    */
-  ScalingAdjustment?: number;
+  MinAdjustmentStep?: number;
 
   /**
-   * <p>The minimum value to scale by when the adjustment type is
-   *                 <code>PercentChangeInCapacity</code>. </p>
+   * <p>A target tracking scaling policy.</p>
    */
-  MinAdjustmentMagnitude?: number;
+  TargetTrackingConfiguration?: TargetTrackingConfiguration;
 
   /**
    * <p>Indicates whether the policy is enabled (<code>true</code>) or disabled
@@ -3624,10 +3607,27 @@ export interface ScalingPolicy {
   Enabled?: boolean;
 
   /**
-   * <p>Available for backward compatibility. Use <code>MinAdjustmentMagnitude</code>
-   *             instead.</p>
+   * <p>The Amazon Resource Name (ARN) of the policy.</p>
    */
-  MinAdjustmentStep?: number;
+  PolicyARN?: string;
+
+  /**
+   * <p>The minimum value to scale by when the adjustment type is
+   *                 <code>PercentChangeInCapacity</code>. </p>
+   */
+  MinAdjustmentMagnitude?: number;
+
+  /**
+   * <p>The CloudWatch alarms related to the policy.</p>
+   */
+  Alarms?: Alarm[];
+
+  /**
+   * <p>Specifies how the scaling adjustment is interpreted (for example, an absolute number
+   *             or a percentage). The valid values are <code>ChangeInCapacity</code>,
+   *                 <code>ExactCapacity</code>, and <code>PercentChangeInCapacity</code>.</p>
+   */
+  AdjustmentType?: string;
 }
 
 export namespace ScalingPolicy {
@@ -3659,10 +3659,21 @@ export namespace PoliciesType {
 
 export interface DescribeScalingActivitiesType {
   /**
+   * <p>The maximum number of items to return with this call. The default value is
+   *                 <code>100</code> and the maximum value is <code>100</code>.</p>
+   */
+  MaxRecords?: number;
+
+  /**
    * <p>The token for the next set of items to return. (You received this token from a
    *             previous call.)</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The name of the Auto Scaling group.</p>
+   */
+  AutoScalingGroupName?: string;
 
   /**
    * <p>The activity IDs of the desired scaling activities. You can specify up to 50 IDs. If
@@ -3671,17 +3682,6 @@ export interface DescribeScalingActivitiesType {
    *             the results are limited to that group.</p>
    */
   ActivityIds?: string[];
-
-  /**
-   * <p>The name of the Auto Scaling group.</p>
-   */
-  AutoScalingGroupName?: string;
-
-  /**
-   * <p>The maximum number of items to return with this call. The default value is
-   *                 <code>100</code> and the maximum value is <code>100</code>.</p>
-   */
-  MaxRecords?: number;
 }
 
 export namespace DescribeScalingActivitiesType {
@@ -3769,29 +3769,10 @@ export namespace ProcessesType {
 
 export interface DescribeScheduledActionsType {
   /**
-   * <p>The names of one or more scheduled actions. You can specify up to 50 actions. If you
-   *             omit this parameter, all scheduled actions are described. If you specify an unknown
-   *             scheduled action, it is ignored with no error.</p>
-   */
-  ScheduledActionNames?: string[];
-
-  /**
-   * <p>The token for the next set of items to return. (You received this token from a
-   *             previous call.)</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>The maximum number of items to return with this call. The default value is
    *                 <code>50</code> and the maximum value is <code>100</code>.</p>
    */
   MaxRecords?: number;
-
-  /**
-   * <p>The earliest scheduled start time to return. If scheduled action names are provided,
-   *             this parameter is ignored.</p>
-   */
-  StartTime?: Date;
 
   /**
    * <p>The name of the Auto Scaling group.</p>
@@ -3803,6 +3784,25 @@ export interface DescribeScheduledActionsType {
    *             this parameter is ignored.</p>
    */
   EndTime?: Date;
+
+  /**
+   * <p>The earliest scheduled start time to return. If scheduled action names are provided,
+   *             this parameter is ignored.</p>
+   */
+  StartTime?: Date;
+
+  /**
+   * <p>The token for the next set of items to return. (You received this token from a
+   *             previous call.)</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The names of one or more scheduled actions. You can specify up to 50 actions. If you
+   *             omit this parameter, all scheduled actions are described. If you specify an unknown
+   *             scheduled action, it is ignored with no error.</p>
+   */
+  ScheduledActionNames?: string[];
 }
 
 export namespace DescribeScheduledActionsType {
@@ -3817,9 +3817,21 @@ export namespace DescribeScheduledActionsType {
  */
 export interface ScheduledUpdateGroupAction {
   /**
-   * <p>The maximum size of the Auto Scaling group.</p>
+   * <p>The name of the Auto Scaling group.</p>
    */
-  MaxSize?: number;
+  AutoScalingGroupName?: string;
+
+  /**
+   * <p>The date and time in UTC for this action to start. For example,
+   *                 <code>"2019-06-01T00:00:00Z"</code>.
+   *             </p>
+   */
+  StartTime?: Date;
+
+  /**
+   * <p>This parameter is no longer used.</p>
+   */
+  Time?: Date;
 
   /**
    * <p>The recurring schedule for the action, in Unix cron syntax format.</p>
@@ -3830,42 +3842,10 @@ export interface ScheduledUpdateGroupAction {
   Recurrence?: string;
 
   /**
-   * <p>The name of the Auto Scaling group.</p>
-   */
-  AutoScalingGroupName?: string;
-
-  /**
-   * <p>The name of the scheduled action.</p>
-   */
-  ScheduledActionName?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the scheduled action.</p>
-   */
-  ScheduledActionARN?: string;
-
-  /**
-   * <p>This parameter is no longer used.</p>
-   */
-  Time?: Date;
-
-  /**
    * <p>The desired capacity is the initial capacity of the Auto Scaling group after the scheduled
    *             action runs and the capacity it attempts to maintain.</p>
    */
   DesiredCapacity?: number;
-
-  /**
-   * <p>The minimum size of the Auto Scaling group.</p>
-   */
-  MinSize?: number;
-
-  /**
-   * <p>The date and time in UTC for this action to start. For example,
-   *                 <code>"2019-06-01T00:00:00Z"</code>.
-   *             </p>
-   */
-  StartTime?: Date;
 
   /**
    * <p>The date and time in UTC for the recurring schedule to end. For example,
@@ -3873,6 +3853,26 @@ export interface ScheduledUpdateGroupAction {
    *             </p>
    */
   EndTime?: Date;
+
+  /**
+   * <p>The name of the scheduled action.</p>
+   */
+  ScheduledActionName?: string;
+
+  /**
+   * <p>The minimum size of the Auto Scaling group.</p>
+   */
+  MinSize?: number;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the scheduled action.</p>
+   */
+  ScheduledActionARN?: string;
+
+  /**
+   * <p>The maximum size of the Auto Scaling group.</p>
+   */
+  MaxSize?: number;
 }
 
 export namespace ScheduledUpdateGroupAction {
@@ -3935,16 +3935,16 @@ export interface DescribeTagsType {
   MaxRecords?: number;
 
   /**
-   * <p>The token for the next set of items to return. (You received this token from a
-   *             previous call.)</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>One or more filters to scope the tags to return. The maximum number of filters per
    *             filter type (for example, <code>auto-scaling-group</code>) is 1000.</p>
    */
   Filters?: Filter[];
+
+  /**
+   * <p>The token for the next set of items to return. (You received this token from a
+   *             previous call.)</p>
+   */
+  NextToken?: string;
 }
 
 export namespace DescribeTagsType {
@@ -3955,17 +3955,17 @@ export namespace DescribeTagsType {
 
 export interface TagsType {
   /**
+   * <p>One or more tags.</p>
+   */
+  Tags?: TagDescription[];
+
+  /**
    * <p>A string that indicates that the response contains more items than can be returned in
    *             a single response. To receive additional items, specify this string for the
    *                 <code>NextToken</code> value when requesting the next set of items. This value is
    *             null when there are no more items to return.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>One or more tags.</p>
-   */
-  Tags?: TagDescription[];
 }
 
 export namespace TagsType {
@@ -4037,14 +4037,14 @@ export namespace DetachLoadBalancersResultType {
 
 export interface DetachLoadBalancersType {
   /**
-   * <p>The names of the load balancers. You can specify up to 10 load balancers.</p>
-   */
-  LoadBalancerNames: string[] | undefined;
-
-  /**
    * <p>The name of the Auto Scaling group.</p>
    */
   AutoScalingGroupName: string | undefined;
+
+  /**
+   * <p>The names of the load balancers. You can specify up to 10 load balancers.</p>
+   */
+  LoadBalancerNames: string[] | undefined;
 }
 
 export namespace DetachLoadBalancersType {
@@ -4174,11 +4174,6 @@ export interface EnableMetricsCollectionQuery {
   Granularity: string | undefined;
 
   /**
-   * <p>The name of the Auto Scaling group.</p>
-   */
-  AutoScalingGroupName: string | undefined;
-
-  /**
    * <p>Specifies which group-level metrics to start collecting. You can specify one or more
    *             of the following metrics:</p>
    *         <ul>
@@ -4254,6 +4249,11 @@ export interface EnableMetricsCollectionQuery {
    *         <p>If you omit this parameter, all metrics are enabled. </p>
    */
   Metrics?: string[];
+
+  /**
+   * <p>The name of the Auto Scaling group.</p>
+   */
+  AutoScalingGroupName: string | undefined;
 }
 
 export namespace EnableMetricsCollectionQuery {
@@ -4277,6 +4277,12 @@ export namespace EnterStandbyAnswer {
 
 export interface EnterStandbyQuery {
   /**
+   * <p>Indicates whether to decrement the desired capacity of the Auto Scaling group by the number of
+   *             instances moved to <code>Standby</code> mode.</p>
+   */
+  ShouldDecrementDesiredCapacity: boolean | undefined;
+
+  /**
    * <p>The IDs of the instances. You can specify up to 20 instances.</p>
    */
   InstanceIds?: string[];
@@ -4285,12 +4291,6 @@ export interface EnterStandbyQuery {
    * <p>The name of the Auto Scaling group.</p>
    */
   AutoScalingGroupName: string | undefined;
-
-  /**
-   * <p>Indicates whether to decrement the desired capacity of the Auto Scaling group by the number of
-   *             instances moved to <code>Standby</code> mode.</p>
-   */
-  ShouldDecrementDesiredCapacity: boolean | undefined;
 }
 
 export namespace EnterStandbyQuery {
@@ -4300,6 +4300,32 @@ export namespace EnterStandbyQuery {
 }
 
 export interface ExecutePolicyType {
+  /**
+   * <p>The name of the Auto Scaling group.</p>
+   */
+  AutoScalingGroupName?: string;
+
+  /**
+   * <p>The breach threshold for the alarm.</p>
+   *         <p>Required if the policy type is <code>StepScaling</code> and not supported
+   *             otherwise.</p>
+   */
+  BreachThreshold?: number;
+
+  /**
+   * <p>The name or ARN of the policy.</p>
+   */
+  PolicyName: string | undefined;
+
+  /**
+   * <p>Indicates whether Amazon EC2 Auto Scaling waits for the cooldown period to complete before executing
+   *             the policy.</p>
+   *         <p>Valid only if the policy type is <code>SimpleScaling</code>. For more information, see
+   *                 <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/Cooldown.html">Scaling
+   *                 Cooldowns for Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+   */
+  HonorCooldown?: boolean;
+
   /**
    * <p>The metric value to compare to <code>BreachThreshold</code>. This enables you to
    *             execute a policy of type <code>StepScaling</code> and determine which step adjustment to
@@ -4312,32 +4338,6 @@ export interface ExecutePolicyType {
    *             otherwise.</p>
    */
   MetricValue?: number;
-
-  /**
-   * <p>Indicates whether Amazon EC2 Auto Scaling waits for the cooldown period to complete before executing
-   *             the policy.</p>
-   *         <p>Valid only if the policy type is <code>SimpleScaling</code>. For more information, see
-   *                 <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/Cooldown.html">Scaling
-   *                 Cooldowns for Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
-   */
-  HonorCooldown?: boolean;
-
-  /**
-   * <p>The name of the Auto Scaling group.</p>
-   */
-  AutoScalingGroupName?: string;
-
-  /**
-   * <p>The name or ARN of the policy.</p>
-   */
-  PolicyName: string | undefined;
-
-  /**
-   * <p>The breach threshold for the alarm.</p>
-   *         <p>Required if the policy type is <code>StepScaling</code> and not supported
-   *             otherwise.</p>
-   */
-  BreachThreshold?: number;
 }
 
 export namespace ExecutePolicyType {
@@ -4361,14 +4361,14 @@ export namespace ExitStandbyAnswer {
 
 export interface ExitStandbyQuery {
   /**
-   * <p>The name of the Auto Scaling group.</p>
-   */
-  AutoScalingGroupName: string | undefined;
-
-  /**
    * <p>The IDs of the instances. You can specify up to 20 instances.</p>
    */
   InstanceIds?: string[];
+
+  /**
+   * <p>The name of the Auto Scaling group.</p>
+   */
+  AutoScalingGroupName: string | undefined;
 }
 
 export namespace ExitStandbyQuery {
@@ -4387,6 +4387,30 @@ export namespace PutLifecycleHookAnswer {
 
 export interface PutLifecycleHookType {
   /**
+   * <p>The ARN of the IAM role that allows the Auto Scaling group to publish to the specified
+   *             notification target, for example, an Amazon SNS topic or an Amazon SQS queue.</p>
+   *         <p>Required for new lifecycle hooks, but optional when updating existing hooks.</p>
+   */
+  RoleARN?: string;
+
+  /**
+   * <p>The name of the Auto Scaling group.</p>
+   */
+  AutoScalingGroupName: string | undefined;
+
+  /**
+   * <p>Defines the action the Auto Scaling group should take when the lifecycle hook timeout elapses
+   *             or if an unexpected failure occurs. This parameter can be either <code>CONTINUE</code>
+   *             or <code>ABANDON</code>. The default value is <code>ABANDON</code>.</p>
+   */
+  DefaultResult?: string;
+
+  /**
+   * <p>The name of the lifecycle hook.</p>
+   */
+  LifecycleHookName: string | undefined;
+
+  /**
    * <p>The ARN of the notification target that Amazon EC2 Auto Scaling uses to notify you when an instance
    *             is in the transition state for the lifecycle hook. This target can be either an SQS
    *             queue or an SNS topic.</p>
@@ -4401,14 +4425,10 @@ export interface PutLifecycleHookType {
   NotificationTargetARN?: string;
 
   /**
-   * <p>The name of the lifecycle hook.</p>
+   * <p>Additional information that you want to include any time Amazon EC2 Auto Scaling sends a message to
+   *             the notification target.</p>
    */
-  LifecycleHookName: string | undefined;
-
-  /**
-   * <p>The name of the Auto Scaling group.</p>
-   */
-  AutoScalingGroupName: string | undefined;
+  NotificationMetadata?: string;
 
   /**
    * <p>The instance state to which you want to attach the lifecycle hook. The valid values
@@ -4434,26 +4454,6 @@ export interface PutLifecycleHookType {
    *             out by calling the <a>RecordLifecycleActionHeartbeat</a> API.</p>
    */
   HeartbeatTimeout?: number;
-
-  /**
-   * <p>Additional information that you want to include any time Amazon EC2 Auto Scaling sends a message to
-   *             the notification target.</p>
-   */
-  NotificationMetadata?: string;
-
-  /**
-   * <p>Defines the action the Auto Scaling group should take when the lifecycle hook timeout elapses
-   *             or if an unexpected failure occurs. This parameter can be either <code>CONTINUE</code>
-   *             or <code>ABANDON</code>. The default value is <code>ABANDON</code>.</p>
-   */
-  DefaultResult?: string;
-
-  /**
-   * <p>The ARN of the IAM role that allows the Auto Scaling group to publish to the specified
-   *             notification target, for example, an Amazon SNS topic or an Amazon SQS queue.</p>
-   *         <p>Required for new lifecycle hooks, but optional when updating existing hooks.</p>
-   */
-  RoleARN?: string;
 }
 
 export namespace PutLifecycleHookType {
@@ -4469,16 +4469,16 @@ export interface PutNotificationConfigurationType {
   AutoScalingGroupName: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon Simple Notification Service (Amazon SNS)
-   *             topic.</p>
-   */
-  TopicARN: string | undefined;
-
-  /**
    * <p>The type of event that causes the notification to be sent. To query the notification
    *             types supported by Amazon EC2 Auto Scaling, call the <a>DescribeAutoScalingNotificationTypes</a> API.</p>
    */
   NotificationTypes: string[] | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon Simple Notification Service (Amazon SNS)
+   *             topic.</p>
+   */
+  TopicARN: string | undefined;
 }
 
 export namespace PutNotificationConfigurationType {
@@ -4492,14 +4492,14 @@ export namespace PutNotificationConfigurationType {
  */
 export interface PolicyARNType {
   /**
-   * <p>The Amazon Resource Name (ARN) of the policy.</p>
-   */
-  PolicyARN?: string;
-
-  /**
    * <p>The CloudWatch alarms created for the target tracking scaling policy.</p>
    */
   Alarms?: Alarm[];
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the policy.</p>
+   */
+  PolicyARN?: string;
 }
 
 export namespace PolicyARNType {
@@ -4510,80 +4510,9 @@ export namespace PolicyARNType {
 
 export interface PutScalingPolicyType {
   /**
-   * <p>Specifies how the scaling adjustment is interpreted (for example, an absolute number
-   *             or a percentage). The valid values are <code>ChangeInCapacity</code>,
-   *                 <code>ExactCapacity</code>, and <code>PercentChangeInCapacity</code>.</p>
-   *         <p>Required if the policy type is <code>StepScaling</code> or <code>SimpleScaling</code>.
-   *             For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-simple-step.html#as-scaling-adjustment">Scaling Adjustment Types</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
-   */
-  AdjustmentType?: string;
-
-  /**
-   * <p>A set of adjustments that enable you to scale based on the size of the alarm
-   *             breach.</p>
-   *         <p>Required if the policy type is <code>StepScaling</code>. (Not used with any other
-   *             policy type.) </p>
-   */
-  StepAdjustments?: StepAdjustment[];
-
-  /**
-   * <p>One of the following policy types: </p>
-   *         <ul>
-   *             <li>
-   *                 <p>
-   *                   <code>TargetTrackingScaling</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>StepScaling</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>SimpleScaling</code> (default)</p>
-   *             </li>
-   *          </ul>
-   */
-  PolicyType?: string;
-
-  /**
-   * <p>The estimated time, in seconds, until a newly launched instance can contribute to the
-   *             CloudWatch metrics. If not provided, the default is to use the value from the default cooldown
-   *             period for the Auto Scaling group.</p>
-   *         <p>Valid only if the policy type is <code>TargetTrackingScaling</code> or
-   *                 <code>StepScaling</code>.</p>
-   */
-  EstimatedInstanceWarmup?: number;
-
-  /**
    * <p>The name of the Auto Scaling group.</p>
    */
   AutoScalingGroupName: string | undefined;
-
-  /**
-   * <p>The aggregation type for the CloudWatch metrics. The valid values are <code>Minimum</code>,
-   *                 <code>Maximum</code>, and <code>Average</code>. If the aggregation type is null, the
-   *             value is treated as <code>Average</code>.</p>
-   *         <p>Valid only if the policy type is <code>StepScaling</code>.</p>
-   */
-  MetricAggregationType?: string;
-
-  /**
-   * <p>The duration of the policy's cooldown period, in seconds. When a cooldown period is
-   *             specified here, it overrides the default cooldown period defined for the Auto Scaling
-   *             group.</p>
-   *         <p>Valid only if the policy type is <code>SimpleScaling</code>. For more information, see
-   *                 <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/Cooldown.html">Scaling
-   *                 Cooldowns for Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
-   */
-  Cooldown?: number;
-
-  /**
-   * <p>Available for backward compatibility. Use <code>MinAdjustmentMagnitude</code>
-   *             instead.</p>
-   */
-  MinAdjustmentStep?: number;
 
   /**
    * <p>A target tracking scaling policy. Includes support for predefined or customized
@@ -4621,6 +4550,17 @@ export interface PutScalingPolicyType {
   TargetTrackingConfiguration?: TargetTrackingConfiguration;
 
   /**
+   * <p>Available for backward compatibility. Use <code>MinAdjustmentMagnitude</code>
+   *             instead.</p>
+   */
+  MinAdjustmentStep?: number;
+
+  /**
+   * <p>The name of the policy.</p>
+   */
+  PolicyName: string | undefined;
+
+  /**
    * <p>The amount by which to scale, based on the specified adjustment type. A positive value
    *             adds to the current capacity while a negative number removes from the current capacity.
    *             For exact capacity, you must specify a positive value.</p>
@@ -4630,9 +4570,42 @@ export interface PutScalingPolicyType {
   ScalingAdjustment?: number;
 
   /**
-   * <p>The name of the policy.</p>
+   * <p>The estimated time, in seconds, until a newly launched instance can contribute to the
+   *             CloudWatch metrics. If not provided, the default is to use the value from the default cooldown
+   *             period for the Auto Scaling group.</p>
+   *         <p>Valid only if the policy type is <code>TargetTrackingScaling</code> or
+   *                 <code>StepScaling</code>.</p>
    */
-  PolicyName: string | undefined;
+  EstimatedInstanceWarmup?: number;
+
+  /**
+   * <p>One of the following policy types: </p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>TargetTrackingScaling</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>StepScaling</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>SimpleScaling</code> (default)</p>
+   *             </li>
+   *          </ul>
+   */
+  PolicyType?: string;
+
+  /**
+   * <p>The aggregation type for the CloudWatch metrics. The valid values are <code>Minimum</code>,
+   *                 <code>Maximum</code>, and <code>Average</code>. If the aggregation type is null, the
+   *             value is treated as <code>Average</code>.</p>
+   *         <p>Valid only if the policy type is <code>StepScaling</code>.</p>
+   */
+  MetricAggregationType?: string;
 
   /**
    * <p>The minimum value to scale by when the adjustment type is
@@ -4660,6 +4633,33 @@ export interface PutScalingPolicyType {
    *             <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
    */
   Enabled?: boolean;
+
+  /**
+   * <p>The duration of the policy's cooldown period, in seconds. When a cooldown period is
+   *             specified here, it overrides the default cooldown period defined for the Auto Scaling
+   *             group.</p>
+   *         <p>Valid only if the policy type is <code>SimpleScaling</code>. For more information, see
+   *                 <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/Cooldown.html">Scaling
+   *                 Cooldowns for Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+   */
+  Cooldown?: number;
+
+  /**
+   * <p>A set of adjustments that enable you to scale based on the size of the alarm
+   *             breach.</p>
+   *         <p>Required if the policy type is <code>StepScaling</code>. (Not used with any other
+   *             policy type.) </p>
+   */
+  StepAdjustments?: StepAdjustment[];
+
+  /**
+   * <p>Specifies how the scaling adjustment is interpreted (for example, an absolute number
+   *             or a percentage). The valid values are <code>ChangeInCapacity</code>,
+   *                 <code>ExactCapacity</code>, and <code>PercentChangeInCapacity</code>.</p>
+   *         <p>Required if the policy type is <code>StepScaling</code> or <code>SimpleScaling</code>.
+   *             For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-simple-step.html#as-scaling-adjustment">Scaling Adjustment Types</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+   */
+  AdjustmentType?: string;
 }
 
 export namespace PutScalingPolicyType {
@@ -4669,6 +4669,24 @@ export namespace PutScalingPolicyType {
 }
 
 export interface PutScheduledUpdateGroupActionType {
+  /**
+   * <p>The maximum size of the Auto Scaling group.</p>
+   */
+  MaxSize?: number;
+
+  /**
+   * <p>The date and time for the recurring schedule to end. Amazon EC2 Auto Scaling does not perform the
+   *             action after this time.</p>
+   */
+  EndTime?: Date;
+
+  /**
+   * <p>The desired capacity is the initial capacity of the Auto Scaling group after the scheduled
+   *             action runs and the capacity it attempts to maintain. It can scale beyond this capacity
+   *             if you add more scaling conditions. </p>
+   */
+  DesiredCapacity?: number;
+
   /**
    * <p>The recurring schedule for this action, in Unix cron syntax format. This format
    *             consists of five fields separated by white spaces: [Minute] [Hour] [Day_of_Month]
@@ -4681,15 +4699,9 @@ export interface PutScheduledUpdateGroupActionType {
   Recurrence?: string;
 
   /**
-   * <p>The date and time for the recurring schedule to end. Amazon EC2 Auto Scaling does not perform the
-   *             action after this time.</p>
+   * <p>This parameter is no longer used.</p>
    */
-  EndTime?: Date;
-
-  /**
-   * <p>The maximum size of the Auto Scaling group.</p>
-   */
-  MaxSize?: number;
+  Time?: Date;
 
   /**
    * <p>The minimum size of the Auto Scaling group.</p>
@@ -4700,18 +4712,6 @@ export interface PutScheduledUpdateGroupActionType {
    * <p>The name of this scaling action.</p>
    */
   ScheduledActionName: string | undefined;
-
-  /**
-   * <p>The name of the Auto Scaling group.</p>
-   */
-  AutoScalingGroupName: string | undefined;
-
-  /**
-   * <p>The desired capacity is the initial capacity of the Auto Scaling group after the scheduled
-   *             action runs and the capacity it attempts to maintain. It can scale beyond this capacity
-   *             if you add more scaling conditions. </p>
-   */
-  DesiredCapacity?: number;
 
   /**
    * <p>The date and time for this action to start, in YYYY-MM-DDThh:mm:ssZ format in UTC/GMT
@@ -4725,9 +4725,9 @@ export interface PutScheduledUpdateGroupActionType {
   StartTime?: Date;
 
   /**
-   * <p>This parameter is no longer used.</p>
+   * <p>The name of the Auto Scaling group.</p>
    */
-  Time?: Date;
+  AutoScalingGroupName: string | undefined;
 }
 
 export namespace PutScheduledUpdateGroupActionType {
@@ -4751,6 +4751,11 @@ export interface RecordLifecycleActionHeartbeatType {
   InstanceId?: string;
 
   /**
+   * <p>The name of the Auto Scaling group.</p>
+   */
+  AutoScalingGroupName: string | undefined;
+
+  /**
    * <p>The name of the lifecycle hook.</p>
    */
   LifecycleHookName: string | undefined;
@@ -4761,11 +4766,6 @@ export interface RecordLifecycleActionHeartbeatType {
    *             you created the lifecycle hook.</p>
    */
   LifecycleActionToken?: string;
-
-  /**
-   * <p>The name of the Auto Scaling group.</p>
-   */
-  AutoScalingGroupName: string | undefined;
 }
 
 export namespace RecordLifecycleActionHeartbeatType {
@@ -4775,6 +4775,11 @@ export namespace RecordLifecycleActionHeartbeatType {
 }
 
 export interface ScalingProcessQuery {
+  /**
+   * <p>The name of the Auto Scaling group.</p>
+   */
+  AutoScalingGroupName: string | undefined;
+
   /**
    * <p>One or more of the following processes:</p>
    *         <ul>
@@ -4827,11 +4832,6 @@ export interface ScalingProcessQuery {
    *         <p>If you omit this parameter, all processes are specified.</p>
    */
   ScalingProcesses?: string[];
-
-  /**
-   * <p>The name of the Auto Scaling group.</p>
-   */
-  AutoScalingGroupName: string | undefined;
 }
 
 export namespace ScalingProcessQuery {
@@ -4841,6 +4841,11 @@ export namespace ScalingProcessQuery {
 }
 
 export interface SetDesiredCapacityType {
+  /**
+   * <p>The name of the Auto Scaling group.</p>
+   */
+  AutoScalingGroupName: string | undefined;
+
   /**
    * <p>Indicates whether Amazon EC2 Auto Scaling waits for the cooldown period to complete before initiating
    *             a scaling activity to set your Auto Scaling group to its new capacity. By default, Amazon EC2 Auto Scaling does
@@ -4853,11 +4858,6 @@ export interface SetDesiredCapacityType {
    *             completes and the capacity it attempts to maintain.</p>
    */
   DesiredCapacity: number | undefined;
-
-  /**
-   * <p>The name of the Auto Scaling group.</p>
-   */
-  AutoScalingGroupName: string | undefined;
 }
 
 export namespace SetDesiredCapacityType {
@@ -4867,18 +4867,6 @@ export namespace SetDesiredCapacityType {
 }
 
 export interface SetInstanceHealthQuery {
-  /**
-   * <p>If the Auto Scaling group of the specified instance has a <code>HealthCheckGracePeriod</code>
-   *             specified for the group, by default, this call respects the grace period. Set this to
-   *                 <code>False</code>, to have the call not respect the grace period associated with
-   *             the group.</p>
-   *
-   *         <p>For more information about the health check grace
-   *             period, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_CreateAutoScalingGroup.html">CreateAutoScalingGroup</a> in the <i>Amazon EC2 Auto Scaling API
-   *             Reference</i>.</p>
-   */
-  ShouldRespectGracePeriod?: boolean;
-
   /**
    * <p>The ID of the instance.</p>
    */
@@ -4890,6 +4878,18 @@ export interface SetInstanceHealthQuery {
    *             Amazon EC2 Auto Scaling terminates and replaces the unhealthy instance.</p>
    */
   HealthStatus: string | undefined;
+
+  /**
+   * <p>If the Auto Scaling group of the specified instance has a <code>HealthCheckGracePeriod</code>
+   *             specified for the group, by default, this call respects the grace period. Set this to
+   *                 <code>False</code>, to have the call not respect the grace period associated with
+   *             the group.</p>
+   *
+   *         <p>For more information about the health check grace
+   *             period, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_CreateAutoScalingGroup.html">CreateAutoScalingGroup</a> in the <i>Amazon EC2 Auto Scaling API
+   *             Reference</i>.</p>
+   */
+  ShouldRespectGracePeriod?: boolean;
 }
 
 export namespace SetInstanceHealthQuery {
@@ -4913,15 +4913,15 @@ export interface SetInstanceProtectionQuery {
   AutoScalingGroupName: string | undefined;
 
   /**
+   * <p>One or more instance IDs.</p>
+   */
+  InstanceIds: string[] | undefined;
+
+  /**
    * <p>Indicates whether the instance is protected from termination by Amazon EC2 Auto Scaling when scaling
    *             in.</p>
    */
   ProtectedFromScaleIn: boolean | undefined;
-
-  /**
-   * <p>One or more instance IDs.</p>
-   */
-  InstanceIds: string[] | undefined;
 }
 
 export namespace SetInstanceProtectionQuery {
@@ -4964,20 +4964,20 @@ export namespace StartInstanceRefreshAnswer {
  */
 export interface RefreshPreferences {
   /**
-   * <p>The amount of capacity in the Auto Scaling group that must remain healthy during an instance
-   *             refresh to allow the operation to continue, as a percentage of the desired capacity of
-   *             the Auto Scaling group (rounded up to the nearest integer). The default is <code>90</code>.
-   *         </p>
-   */
-  MinHealthyPercentage?: number;
-
-  /**
    * <p>The number of seconds until a newly launched instance is configured and ready to use.
    *             During this time, Amazon EC2 Auto Scaling does not immediately move on to the next replacement. The
    *             default is to use the value for the health check grace period defined for the
    *             group.</p>
    */
   InstanceWarmup?: number;
+
+  /**
+   * <p>The amount of capacity in the Auto Scaling group that must remain healthy during an instance
+   *             refresh to allow the operation to continue, as a percentage of the desired capacity of
+   *             the Auto Scaling group (rounded up to the nearest integer). The default is <code>90</code>.
+   *         </p>
+   */
+  MinHealthyPercentage?: number;
 }
 
 export namespace RefreshPreferences {
@@ -5002,11 +5002,6 @@ export interface StartInstanceRefreshType {
   Preferences?: RefreshPreferences;
 
   /**
-   * <p>The name of the Auto Scaling group.</p>
-   */
-  AutoScalingGroupName: string | undefined;
-
-  /**
    * <p>The strategy to use for the instance refresh. The only valid value is
    *                 <code>Rolling</code>.</p>
    *         <p>A rolling update is an update that is applied to all instances in an Auto Scaling group until
@@ -5016,6 +5011,11 @@ export interface StartInstanceRefreshType {
    *             previous configuration. </p>
    */
   Strategy?: RefreshStrategy | string;
+
+  /**
+   * <p>The name of the Auto Scaling group.</p>
+   */
+  AutoScalingGroupName: string | undefined;
 }
 
 export namespace StartInstanceRefreshType {
@@ -5045,66 +5045,6 @@ export namespace TerminateInstanceInAutoScalingGroupType {
 
 export interface UpdateAutoScalingGroupType {
   /**
-   * <p>The desired capacity is the initial capacity of the Auto Scaling group after this operation
-   *             completes and the capacity it attempts to maintain.</p>
-   *         <p>This number must be greater than or equal to the minimum size of the group and less
-   *             than or equal to the maximum size of the group.</p>
-   */
-  DesiredCapacity?: number;
-
-  /**
-   * <p>The name of the placement group into which to launch your instances, if any. A
-   *             placement group is a logical grouping of instances within a single Availability Zone.
-   *             You cannot specify multiple Availability Zones and a placement group. For more
-   *             information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html">Placement Groups</a> in the
-   *                 <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
-   */
-  PlacementGroup?: string;
-
-  /**
-   * <p>Indicates whether newly launched instances are protected from termination by Amazon EC2 Auto Scaling
-   *             when scaling in.</p>
-   *         <p>For more information about preventing instances from terminating on scale in, see
-   *                 <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-termination.html#instance-protection">Instance Protection</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
-   */
-  NewInstancesProtectedFromScaleIn?: boolean;
-
-  /**
-   * <p>The service to use for the health checks. The valid values are <code>EC2</code> and
-   *                 <code>ELB</code>. If you configure an Auto Scaling group to use ELB health checks, it
-   *             considers the instance unhealthy if it fails either the EC2 status checks or the load
-   *             balancer health checks.</p>
-   */
-  HealthCheckType?: string;
-
-  /**
-   * <p>The name of the Auto Scaling group.</p>
-   */
-  AutoScalingGroupName: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the service-linked role that the Auto Scaling group uses to
-   *             call other AWS services on your behalf. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-service-linked-role.html">Service-Linked
-   *                 Roles</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
-   */
-  ServiceLinkedRoleARN?: string;
-
-  /**
-   * <p>A standalone termination policy or a list of termination policies used to select the
-   *             instance to terminate. The policies are executed in the order that they are
-   *             listed.</p>
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-termination.html">Controlling Which
-   *                 Instances Auto Scaling Terminates During Scale In</a> in the
-   *                 <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
-   */
-  TerminationPolicies?: string[];
-
-  /**
-   * <p>The minimum size of the Auto Scaling group.</p>
-   */
-  MinSize?: number;
-
-  /**
    * <p>One or more Availability Zones for the group.</p>
    */
   AvailabilityZones?: string[];
@@ -5115,6 +5055,21 @@ export interface UpdateAutoScalingGroupType {
    *                 <code>LaunchTemplate</code> or <code>MixedInstancesPolicy</code>.</p>
    */
   LaunchConfigurationName?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the service-linked role that the Auto Scaling group uses to
+   *             call other AWS services on your behalf. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-service-linked-role.html">Service-Linked
+   *                 Roles</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+   */
+  ServiceLinkedRoleARN?: string;
+
+  /**
+   * <p>A comma-separated list of subnet IDs for virtual private cloud (VPC).</p>
+   *         <p>If you specify <code>VPCZoneIdentifier</code> with <code>AvailabilityZones</code>, the
+   *             subnets that you specify for this parameter must reside in those Availability
+   *             Zones.</p>
+   */
+  VPCZoneIdentifier?: string;
 
   /**
    * <p>An embedded object that specifies a mixed instances policy.</p>
@@ -5130,14 +5085,14 @@ export interface UpdateAutoScalingGroupType {
   MixedInstancesPolicy?: MixedInstancesPolicy;
 
   /**
-   * <p>The amount of time, in seconds, that Amazon EC2 Auto Scaling waits before checking the health status
-   *             of an EC2 instance that has come into service. The default value is
-   *             <code>0</code>.</p>
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/healthcheck.html#health-check-grace-period">Health
-   *                 Check Grace Period</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
-   *         <p>Required if you are adding an <code>ELB</code> health check.</p>
+   * <p>A standalone termination policy or a list of termination policies used to select the
+   *             instance to terminate. The policies are executed in the order that they are
+   *             listed.</p>
+   *         <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-termination.html">Controlling Which
+   *                 Instances Auto Scaling Terminates During Scale In</a> in the
+   *                 <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
    */
-  HealthCheckGracePeriod?: number;
+  TerminationPolicies?: string[];
 
   /**
    * <p>The maximum amount of time, in seconds, that an instance can be in service. The
@@ -5153,16 +5108,35 @@ export interface UpdateAutoScalingGroupType {
   MaxInstanceLifetime?: number;
 
   /**
-   * <p>The maximum size of the Auto Scaling group.</p>
-   *         <note>
-   *             <p>With a mixed instances policy that uses instance weighting, Amazon EC2 Auto Scaling may need to
-   *                 go above <code>MaxSize</code> to meet your capacity requirements. In this event,
-   *                 Amazon EC2 Auto Scaling will never go above <code>MaxSize</code> by more than your largest instance
-   *                 weight (weights that define how many units each instance contributes to the desired
-   *                 capacity of the group).</p>
-   *         </note>
+   * <p>The service to use for the health checks. The valid values are <code>EC2</code> and
+   *                 <code>ELB</code>. If you configure an Auto Scaling group to use ELB health checks, it
+   *             considers the instance unhealthy if it fails either the EC2 status checks or the load
+   *             balancer health checks.</p>
    */
-  MaxSize?: number;
+  HealthCheckType?: string;
+
+  /**
+   * <p>The launch template and version to use to specify the updates. If you specify
+   *                 <code>LaunchTemplate</code> in your update request, you can't specify
+   *                 <code>LaunchConfigurationName</code> or <code>MixedInstancesPolicy</code>.</p>
+   *         <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_LaunchTemplateSpecification.html">LaunchTemplateSpecification</a> in the <i>Amazon EC2 Auto Scaling API
+   *                 Reference</i>.</p>
+   */
+  LaunchTemplate?: LaunchTemplateSpecification;
+
+  /**
+   * <p>The minimum size of the Auto Scaling group.</p>
+   */
+  MinSize?: number;
+
+  /**
+   * <p>The name of the placement group into which to launch your instances, if any. A
+   *             placement group is a logical grouping of instances within a single Availability Zone.
+   *             You cannot specify multiple Availability Zones and a placement group. For more
+   *             information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html">Placement Groups</a> in the
+   *                 <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
+   */
+  PlacementGroup?: string;
 
   /**
    * <p>The amount of time, in seconds, after a scaling activity completes before another
@@ -5174,21 +5148,47 @@ export interface UpdateAutoScalingGroupType {
   DefaultCooldown?: number;
 
   /**
-   * <p>A comma-separated list of subnet IDs for virtual private cloud (VPC).</p>
-   *         <p>If you specify <code>VPCZoneIdentifier</code> with <code>AvailabilityZones</code>, the
-   *             subnets that you specify for this parameter must reside in those Availability
-   *             Zones.</p>
+   * <p>The name of the Auto Scaling group.</p>
    */
-  VPCZoneIdentifier?: string;
+  AutoScalingGroupName: string | undefined;
 
   /**
-   * <p>The launch template and version to use to specify the updates. If you specify
-   *                 <code>LaunchTemplate</code> in your update request, you can't specify
-   *                 <code>LaunchConfigurationName</code> or <code>MixedInstancesPolicy</code>.</p>
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_LaunchTemplateSpecification.html">LaunchTemplateSpecification</a> in the <i>Amazon EC2 Auto Scaling API
-   *                 Reference</i>.</p>
+   * <p>The amount of time, in seconds, that Amazon EC2 Auto Scaling waits before checking the health status
+   *             of an EC2 instance that has come into service. The default value is
+   *             <code>0</code>.</p>
+   *         <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/healthcheck.html#health-check-grace-period">Health
+   *                 Check Grace Period</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+   *         <p>Required if you are adding an <code>ELB</code> health check.</p>
    */
-  LaunchTemplate?: LaunchTemplateSpecification;
+  HealthCheckGracePeriod?: number;
+
+  /**
+   * <p>Indicates whether newly launched instances are protected from termination by Amazon EC2 Auto Scaling
+   *             when scaling in.</p>
+   *         <p>For more information about preventing instances from terminating on scale in, see
+   *                 <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-termination.html#instance-protection">Instance Protection</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+   */
+  NewInstancesProtectedFromScaleIn?: boolean;
+
+  /**
+   * <p>The desired capacity is the initial capacity of the Auto Scaling group after this operation
+   *             completes and the capacity it attempts to maintain.</p>
+   *         <p>This number must be greater than or equal to the minimum size of the group and less
+   *             than or equal to the maximum size of the group.</p>
+   */
+  DesiredCapacity?: number;
+
+  /**
+   * <p>The maximum size of the Auto Scaling group.</p>
+   *         <note>
+   *             <p>With a mixed instances policy that uses instance weighting, Amazon EC2 Auto Scaling may need to
+   *                 go above <code>MaxSize</code> to meet your capacity requirements. In this event,
+   *                 Amazon EC2 Auto Scaling will never go above <code>MaxSize</code> by more than your largest instance
+   *                 weight (weights that define how many units each instance contributes to the desired
+   *                 capacity of the group).</p>
+   *         </note>
+   */
+  MaxSize?: number;
 }
 
 export namespace UpdateAutoScalingGroupType {

@@ -873,7 +873,7 @@ export class AppSync extends AppSyncClient {
   /**
    * <p>Lists the API keys for a given API.</p>
    *          <note>
-   *             <p>API keys are deleted automatically sometime after they expire. However, they may
+   *             <p>API keys are deleted automatically 60 days after they expire. However, they may
    *             still be included in the response until they have actually been deleted. You can safely
    *             call <code>DeleteApiKey</code> to manually delete a key before it's automatically
    *             deleted.</p>
@@ -1245,7 +1245,7 @@ export class AppSync extends AppSyncClient {
   }
 
   /**
-   * <p>Updates an API key.</p>
+   * <p>Updates an API key. The key can be updated while it is not deleted.</p>
    */
   public updateApiKey(
     args: UpdateApiKeyCommandInput,

@@ -18,12 +18,6 @@ export namespace AccessDeniedException {
 
 export interface AssociateCustomerGatewayRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the customer gateway. For more information, see
-   *                 <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazonec2.html#amazonec2-resources-for-iam-policies">Resources Defined by Amazon EC2</a>.</p>
-   */
-  CustomerGatewayArn: string | undefined;
-
-  /**
    * <p>The ID of the global network.</p>
    */
   GlobalNetworkId: string | undefined;
@@ -32,6 +26,12 @@ export interface AssociateCustomerGatewayRequest {
    * <p>The ID of the device.</p>
    */
   DeviceId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the customer gateway. For more information, see
+   *                 <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazonec2.html#amazonec2-resources-for-iam-policies">Resources Defined by Amazon EC2</a>.</p>
+   */
+  CustomerGatewayArn: string | undefined;
 
   /**
    * <p>The ID of the link.</p>
@@ -57,6 +57,11 @@ export enum CustomerGatewayAssociationState {
  */
 export interface CustomerGatewayAssociation {
   /**
+   * <p>The Amazon Resource Name (ARN) of the customer gateway.</p>
+   */
+  CustomerGatewayArn?: string;
+
+  /**
    * <p>The association state.</p>
    */
   State?: CustomerGatewayAssociationState | string;
@@ -65,11 +70,6 @@ export interface CustomerGatewayAssociation {
    * <p>The ID of the device.</p>
    */
   DeviceId?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the customer gateway.</p>
-   */
-  CustomerGatewayArn?: string;
 
   /**
    * <p>The ID of the global network.</p>
@@ -109,15 +109,15 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
   name: "ConflictException";
   $fault: "client";
   /**
-   * <p>The ID of the resource.</p>
-   */
-  ResourceId: string | undefined;
-
-  Message: string | undefined;
-  /**
    * <p>The resource type.</p>
    */
   ResourceType: string | undefined;
+
+  Message: string | undefined;
+  /**
+   * <p>The ID of the resource.</p>
+   */
+  ResourceId: string | undefined;
 }
 
 export namespace ConflictException {
@@ -157,12 +157,11 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
    */
   ResourceId: string | undefined;
 
+  Message: string | undefined;
   /**
    * <p>The resource type.</p>
    */
   ResourceType: string | undefined;
-
-  Message: string | undefined;
 }
 
 export namespace ResourceNotFoundException {
@@ -183,24 +182,24 @@ export interface ServiceQuotaExceededException extends __SmithyException, $Metad
   LimitCode: string | undefined;
 
   /**
-   * <p>The resource type.</p>
-   */
-  ResourceType?: string;
-
-  /**
    * <p>The error message.</p>
    */
   Message: string | undefined;
 
   /**
-   * <p>The ID of the resource.</p>
+   * <p>The resource type.</p>
    */
-  ResourceId?: string;
+  ResourceType?: string;
 
   /**
    * <p>The service code.</p>
    */
   ServiceCode: string | undefined;
+
+  /**
+   * <p>The ID of the resource.</p>
+   */
+  ResourceId?: string;
 }
 
 export namespace ServiceQuotaExceededException {
@@ -215,12 +214,11 @@ export namespace ServiceQuotaExceededException {
 export interface ThrottlingException extends __SmithyException, $MetadataBearer {
   name: "ThrottlingException";
   $fault: "client";
+  Message: string | undefined;
   /**
    * <p>Indicates when to retry the request.</p>
    */
   RetryAfterSeconds?: number;
-
-  Message: string | undefined;
 }
 
 export namespace ThrottlingException {
@@ -263,12 +261,12 @@ export enum ValidationExceptionReason {
 export interface ValidationException extends __SmithyException, $MetadataBearer {
   name: "ValidationException";
   $fault: "client";
+  Message: string | undefined;
   /**
    * <p>The fields that caused the error, if applicable.</p>
    */
   Fields?: ValidationExceptionField[];
 
-  Message: string | undefined;
   /**
    * <p>The reason for the error.</p>
    */
@@ -316,11 +314,6 @@ export enum LinkAssociationState {
  */
 export interface LinkAssociation {
   /**
-   * <p>The ID of the global network.</p>
-   */
-  GlobalNetworkId?: string;
-
-  /**
    * <p>The state of the association.</p>
    */
   LinkAssociationState?: LinkAssociationState | string;
@@ -334,6 +327,11 @@ export interface LinkAssociation {
    * <p>The device ID for the link association.</p>
    */
   DeviceId?: string;
+
+  /**
+   * <p>The ID of the global network.</p>
+   */
+  GlobalNetworkId?: string;
 }
 
 export namespace LinkAssociation {
@@ -381,14 +379,14 @@ export namespace Bandwidth {
  */
 export interface Location {
   /**
-   * <p>The physical address.</p>
-   */
-  Address?: string;
-
-  /**
    * <p>The longitude.</p>
    */
   Longitude?: string;
+
+  /**
+   * <p>The physical address.</p>
+   */
+  Address?: string;
 
   /**
    * <p>The latitude.</p>
@@ -427,20 +425,16 @@ export namespace Tag {
 
 export interface CreateDeviceRequest {
   /**
+   * <p>The model of the device.</p>
+   *         <p>Length Constraints: Maximum length of 128 characters.</p>
+   */
+  Model?: string;
+
+  /**
    * <p>The serial number of the device.</p>
    *         <p>Length Constraints: Maximum length of 128 characters.</p>
    */
   SerialNumber?: string;
-
-  /**
-   * <p>The tags to apply to the resource during creation.</p>
-   */
-  Tags?: Tag[];
-
-  /**
-   * <p>The ID of the site.</p>
-   */
-  SiteId?: string;
 
   /**
    * <p>The type of the device.</p>
@@ -448,10 +442,14 @@ export interface CreateDeviceRequest {
   Type?: string;
 
   /**
-   * <p>A description of the device.</p>
-   *         <p>Length Constraints: Maximum length of 256 characters.</p>
+   * <p>The ID of the site.</p>
    */
-  Description?: string;
+  SiteId?: string;
+
+  /**
+   * <p>The tags to apply to the resource during creation.</p>
+   */
+  Tags?: Tag[];
 
   /**
    * <p>The location of the device.</p>
@@ -459,10 +457,10 @@ export interface CreateDeviceRequest {
   Location?: Location;
 
   /**
-   * <p>The model of the device.</p>
-   *         <p>Length Constraints: Maximum length of 128 characters.</p>
+   * <p>A description of the device.</p>
+   *         <p>Length Constraints: Maximum length of 256 characters.</p>
    */
-  Model?: string;
+  Description?: string;
 
   /**
    * <p>The vendor of the device.</p>
@@ -504,14 +502,19 @@ export interface Device {
   DeviceId?: string;
 
   /**
-   * <p>The ID of the global network.</p>
-   */
-  GlobalNetworkId?: string;
-
-  /**
    * <p>The device model.</p>
    */
   Model?: string;
+
+  /**
+   * <p>The device vendor.</p>
+   */
+  Vendor?: string;
+
+  /**
+   * <p>The ID of the global network.</p>
+   */
+  GlobalNetworkId?: string;
 
   /**
    * <p>The description of the device.</p>
@@ -524,9 +527,9 @@ export interface Device {
   SerialNumber?: string;
 
   /**
-   * <p>The tags for the device.</p>
+   * <p>The site ID.</p>
    */
-  Tags?: Tag[];
+  SiteId?: string;
 
   /**
    * <p>The device type.</p>
@@ -534,9 +537,9 @@ export interface Device {
   Type?: string;
 
   /**
-   * <p>The site ID.</p>
+   * <p>The tags for the device.</p>
    */
-  SiteId?: string;
+  Tags?: Tag[];
 
   /**
    * <p>The site location.</p>
@@ -547,11 +550,6 @@ export interface Device {
    * <p>The device state.</p>
    */
   State?: DeviceState | string;
-
-  /**
-   * <p>The device vendor.</p>
-   */
-  Vendor?: string;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the device.</p>
@@ -614,9 +612,9 @@ export interface GlobalNetwork {
   Tags?: Tag[];
 
   /**
-   * <p>The date and time that the global network was created.</p>
+   * <p>The state of the global network.</p>
    */
-  CreatedAt?: Date;
+  State?: GlobalNetworkState | string;
 
   /**
    * <p>The ID of the global network.</p>
@@ -629,9 +627,9 @@ export interface GlobalNetwork {
   Description?: string;
 
   /**
-   * <p>The state of the global network.</p>
+   * <p>The date and time that the global network was created.</p>
    */
-  State?: GlobalNetworkState | string;
+  CreatedAt?: Date;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the global network.</p>
@@ -660,16 +658,6 @@ export namespace CreateGlobalNetworkResponse {
 
 export interface CreateLinkRequest {
   /**
-   * <p>The tags to apply to the resource during creation.</p>
-   */
-  Tags?: Tag[];
-
-  /**
-   * <p>The ID of the site.</p>
-   */
-  SiteId: string | undefined;
-
-  /**
    * <p>The type of the link.</p>
    *         <p>Constraints: Cannot include the following characters: | \ ^</p>
    *         <p>Length Constraints: Maximum length of 128 characters.</p>
@@ -677,9 +665,19 @@ export interface CreateLinkRequest {
   Type?: string;
 
   /**
+   * <p>The ID of the site.</p>
+   */
+  SiteId: string | undefined;
+
+  /**
    * <p>The ID of the global network.</p>
    */
   GlobalNetworkId: string | undefined;
+
+  /**
+   * <p>The tags to apply to the resource during creation.</p>
+   */
+  Tags?: Tag[];
 
   /**
    * <p>The provider of the link.</p>
@@ -718,24 +716,24 @@ export enum LinkState {
  */
 export interface Link {
   /**
-   * <p>The date and time that the link was created.</p>
-   */
-  CreatedAt?: Date;
-
-  /**
-   * <p>The description of the link.</p>
-   */
-  Description?: string;
-
-  /**
    * <p>The ID of the global network.</p>
    */
   GlobalNetworkId?: string;
 
   /**
-   * <p>The type of the link.</p>
+   * <p>The date and time that the link was created.</p>
    */
-  Type?: string;
+  CreatedAt?: Date;
+
+  /**
+   * <p>The provider of the link.</p>
+   */
+  Provider?: string;
+
+  /**
+   * <p>The tags for the link.</p>
+   */
+  Tags?: Tag[];
 
   /**
    * <p>The ID of the link.</p>
@@ -748,14 +746,14 @@ export interface Link {
   SiteId?: string;
 
   /**
-   * <p>The provider of the link.</p>
+   * <p>The type of the link.</p>
    */
-  Provider?: string;
+  Type?: string;
 
   /**
-   * <p>The tags for the link.</p>
+   * <p>The description of the link.</p>
    */
-  Tags?: Tag[];
+  Description?: string;
 
   /**
    * <p>The bandwidth for the link.</p>
@@ -794,6 +792,12 @@ export namespace CreateLinkResponse {
 
 export interface CreateSiteRequest {
   /**
+   * <p>A description of your site.</p>
+   *         <p>Length Constraints: Maximum length of 256 characters.</p>
+   */
+  Description?: string;
+
+  /**
    * <p>The site location. This information is used for visualization in the Network Manager console. If you specify the address, the latitude and longitude are automatically calculated.</p>
    *         <ul>
    *             <li>
@@ -821,12 +825,6 @@ export interface CreateSiteRequest {
    * <p>The ID of the global network.</p>
    */
   GlobalNetworkId: string | undefined;
-
-  /**
-   * <p>A description of your site.</p>
-   *         <p>Length Constraints: Maximum length of 256 characters.</p>
-   */
-  Description?: string;
 }
 
 export namespace CreateSiteRequest {
@@ -852,29 +850,24 @@ export interface Site {
   State?: SiteState | string;
 
   /**
-   * <p>The location of the site.</p>
-   */
-  Location?: Location;
-
-  /**
-   * <p>The date and time that the site was created.</p>
-   */
-  CreatedAt?: Date;
-
-  /**
-   * <p>The ID of the global network.</p>
-   */
-  GlobalNetworkId?: string;
-
-  /**
    * <p>The description of the site.</p>
    */
   Description?: string;
 
   /**
+   * <p>The location of the site.</p>
+   */
+  Location?: Location;
+
+  /**
    * <p>The tags for the site.</p>
    */
   Tags?: Tag[];
+
+  /**
+   * <p>The ID of the global network.</p>
+   */
+  GlobalNetworkId?: string;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the site.</p>
@@ -885,6 +878,11 @@ export interface Site {
    * <p>The ID of the site.</p>
    */
   SiteId?: string;
+
+  /**
+   * <p>The date and time that the site was created.</p>
+   */
+  CreatedAt?: Date;
 }
 
 export namespace Site {
@@ -1027,14 +1025,14 @@ export namespace DeleteSiteResponse {
 
 export interface DeregisterTransitGatewayRequest {
   /**
-   * <p>The ID of the global network.</p>
-   */
-  GlobalNetworkId: string | undefined;
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the transit gateway.</p>
    */
   TransitGatewayArn: string | undefined;
+
+  /**
+   * <p>The ID of the global network.</p>
+   */
+  GlobalNetworkId: string | undefined;
 }
 
 export namespace DeregisterTransitGatewayRequest {
@@ -1113,11 +1111,6 @@ export namespace DeregisterTransitGatewayResponse {
 
 export interface DescribeGlobalNetworksRequest {
   /**
-   * <p>The maximum number of results to return.</p>
-   */
-  MaxResults?: number;
-
-  /**
    * <p>The IDs of one or more global networks. The maximum is 10.</p>
    */
   GlobalNetworkIds?: string[];
@@ -1126,6 +1119,11 @@ export interface DescribeGlobalNetworksRequest {
    * <p>The token for the next page of results.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return.</p>
+   */
+  MaxResults?: number;
 }
 
 export namespace DescribeGlobalNetworksRequest {
@@ -1136,14 +1134,14 @@ export namespace DescribeGlobalNetworksRequest {
 
 export interface DescribeGlobalNetworksResponse {
   /**
-   * <p>The token for the next page of results.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>Information about the global networks.</p>
    */
   GlobalNetworks?: GlobalNetwork[];
+
+  /**
+   * <p>The token for the next page of results.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace DescribeGlobalNetworksResponse {
@@ -1186,11 +1184,6 @@ export namespace DisassociateCustomerGatewayResponse {
 
 export interface DisassociateLinkRequest {
   /**
-   * <p>The ID of the device.</p>
-   */
-  DeviceId: string | undefined;
-
-  /**
    * <p>The ID of the link.</p>
    */
   LinkId: string | undefined;
@@ -1199,6 +1192,11 @@ export interface DisassociateLinkRequest {
    * <p>The ID of the global network.</p>
    */
   GlobalNetworkId: string | undefined;
+
+  /**
+   * <p>The ID of the device.</p>
+   */
+  DeviceId: string | undefined;
 }
 
 export namespace DisassociateLinkRequest {
@@ -1251,14 +1249,14 @@ export namespace GetCustomerGatewayAssociationsRequest {
 
 export interface GetCustomerGatewayAssociationsResponse {
   /**
-   * <p>The customer gateway associations.</p>
-   */
-  CustomerGatewayAssociations?: CustomerGatewayAssociation[];
-
-  /**
    * <p>The token for the next page of results.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The customer gateway associations.</p>
+   */
+  CustomerGatewayAssociations?: CustomerGatewayAssociation[];
 }
 
 export namespace GetCustomerGatewayAssociationsResponse {
@@ -1269,9 +1267,9 @@ export namespace GetCustomerGatewayAssociationsResponse {
 
 export interface GetDevicesRequest {
   /**
-   * <p>The ID of the global network.</p>
+   * <p>The token for the next page of results.</p>
    */
-  GlobalNetworkId: string | undefined;
+  NextToken?: string;
 
   /**
    * <p>One or more device IDs. The maximum is 10.</p>
@@ -1289,9 +1287,9 @@ export interface GetDevicesRequest {
   MaxResults?: number;
 
   /**
-   * <p>The token for the next page of results.</p>
+   * <p>The ID of the global network.</p>
    */
-  NextToken?: string;
+  GlobalNetworkId: string | undefined;
 }
 
 export namespace GetDevicesRequest {
@@ -1325,14 +1323,14 @@ export interface GetLinkAssociationsRequest {
   NextToken?: string;
 
   /**
-   * <p>The maximum number of results to return.</p>
-   */
-  MaxResults?: number;
-
-  /**
    * <p>The ID of the device.</p>
    */
   DeviceId?: string;
+
+  /**
+   * <p>The maximum number of results to return.</p>
+   */
+  MaxResults?: number;
 
   /**
    * <p>The ID of the link.</p>
@@ -1371,9 +1369,24 @@ export namespace GetLinkAssociationsResponse {
 
 export interface GetLinksRequest {
   /**
-   * <p>The link provider.</p>
+   * <p>One or more link IDs. The maximum is 10.</p>
    */
-  Provider?: string;
+  LinkIds?: string[];
+
+  /**
+   * <p>The ID of the global network.</p>
+   */
+  GlobalNetworkId: string | undefined;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return.</p>
+   */
+  MaxResults?: number;
 
   /**
    * <p>The ID of the site.</p>
@@ -1386,24 +1399,9 @@ export interface GetLinksRequest {
   Type?: string;
 
   /**
-   * <p>The ID of the global network.</p>
+   * <p>The link provider.</p>
    */
-  GlobalNetworkId: string | undefined;
-
-  /**
-   * <p>The token for the next page of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of results to return.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>One or more link IDs. The maximum is 10.</p>
-   */
-  LinkIds?: string[];
+  Provider?: string;
 }
 
 export namespace GetLinksRequest {
@@ -1414,14 +1412,14 @@ export namespace GetLinksRequest {
 
 export interface GetLinksResponse {
   /**
-   * <p>The token for the next page of results.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>The links.</p>
    */
   Links?: Link[];
+
+  /**
+   * <p>The token for the next page of results.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace GetLinksResponse {
@@ -1431,6 +1429,11 @@ export namespace GetLinksResponse {
 }
 
 export interface GetSitesRequest {
+  /**
+   * <p>One or more site IDs. The maximum is 10.</p>
+   */
+  SiteIds?: string[];
+
   /**
    * <p>The maximum number of results to return.</p>
    */
@@ -1445,11 +1448,6 @@ export interface GetSitesRequest {
    * <p>The ID of the global network.</p>
    */
   GlobalNetworkId: string | undefined;
-
-  /**
-   * <p>One or more site IDs. The maximum is 10.</p>
-   */
-  SiteIds?: string[];
 }
 
 export namespace GetSitesRequest {
@@ -1478,9 +1476,9 @@ export namespace GetSitesResponse {
 
 export interface GetTransitGatewayRegistrationsRequest {
   /**
-   * <p>The maximum number of results to return.</p>
+   * <p>The ID of the global network.</p>
    */
-  MaxResults?: number;
+  GlobalNetworkId: string | undefined;
 
   /**
    * <p>The Amazon Resource Names (ARNs) of one or more transit gateways. The maximum is
@@ -1489,14 +1487,14 @@ export interface GetTransitGatewayRegistrationsRequest {
   TransitGatewayArns?: string[];
 
   /**
-   * <p>The ID of the global network.</p>
-   */
-  GlobalNetworkId: string | undefined;
-
-  /**
    * <p>The token for the next page of results.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return.</p>
+   */
+  MaxResults?: number;
 }
 
 export namespace GetTransitGatewayRegistrationsRequest {
@@ -1635,15 +1633,10 @@ export namespace UntagResourceResponse {
 
 export interface UpdateDeviceRequest {
   /**
-   * <p>The serial number of the device.</p>
+   * <p>The vendor of the device.</p>
    *         <p>Length Constraints: Maximum length of 128 characters.</p>
    */
-  SerialNumber?: string;
-
-  /**
-   * <p>The ID of the site.</p>
-   */
-  SiteId?: string;
+  Vendor?: string;
 
   /**
    * <p>The type of the device.</p>
@@ -1651,15 +1644,9 @@ export interface UpdateDeviceRequest {
   Type?: string;
 
   /**
-   * <p>The ID of the global network.</p>
+   * <p>The ID of the site.</p>
    */
-  GlobalNetworkId: string | undefined;
-
-  /**
-   * <p>The vendor of the device.</p>
-   *         <p>Length Constraints: Maximum length of 128 characters.</p>
-   */
-  Vendor?: string;
+  SiteId?: string;
 
   /**
    * <p>Describes a location.</p>
@@ -1673,10 +1660,21 @@ export interface UpdateDeviceRequest {
   Description?: string;
 
   /**
+   * <p>The ID of the global network.</p>
+   */
+  GlobalNetworkId: string | undefined;
+
+  /**
    * <p>The model of the device.</p>
    *         <p>Length Constraints: Maximum length of 128 characters.</p>
    */
   Model?: string;
+
+  /**
+   * <p>The serial number of the device.</p>
+   *         <p>Length Constraints: Maximum length of 128 characters.</p>
+   */
+  SerialNumber?: string;
 
   /**
    * <p>The ID of the device.</p>
@@ -1705,15 +1703,15 @@ export namespace UpdateDeviceResponse {
 
 export interface UpdateGlobalNetworkRequest {
   /**
-   * <p>The ID of your global network.</p>
-   */
-  GlobalNetworkId: string | undefined;
-
-  /**
    * <p>A description of the global network.</p>
    *         <p>Length Constraints: Maximum length of 256 characters.</p>
    */
   Description?: string;
+
+  /**
+   * <p>The ID of your global network.</p>
+   */
+  GlobalNetworkId: string | undefined;
 }
 
 export namespace UpdateGlobalNetworkRequest {
@@ -1753,15 +1751,15 @@ export interface UpdateLinkRequest {
   Type?: string;
 
   /**
-   * <p>The ID of the global network.</p>
-   */
-  GlobalNetworkId: string | undefined;
-
-  /**
    * <p>The provider of the link.</p>
    *         <p>Length Constraints: Maximum length of 128 characters.</p>
    */
   Provider?: string;
+
+  /**
+   * <p>The ID of the global network.</p>
+   */
+  GlobalNetworkId: string | undefined;
 
   /**
    * <p>A description of the link.</p>
@@ -1791,11 +1789,6 @@ export namespace UpdateLinkResponse {
 
 export interface UpdateSiteRequest {
   /**
-   * <p>The ID of the global network.</p>
-   */
-  GlobalNetworkId: string | undefined;
-
-  /**
    * <p>The ID of your site.</p>
    */
   SiteId: string | undefined;
@@ -1824,6 +1817,11 @@ export interface UpdateSiteRequest {
    *         <p>Length Constraints: Maximum length of 256 characters.</p>
    */
   Description?: string;
+
+  /**
+   * <p>The ID of the global network.</p>
+   */
+  GlobalNetworkId: string | undefined;
 }
 
 export namespace UpdateSiteRequest {

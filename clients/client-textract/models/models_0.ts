@@ -6,7 +6,8 @@ import {
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
- * <p>You aren't authorized to perform the action.</p>
+ * <p>You aren't authorized to perform the action. Use the Amazon Resource Name (ARN)
+ *             of an authorized user or IAM role to perform the operation.</p>
  */
 export interface AccessDeniedException extends __SmithyException, $MetadataBearer {
   name: "AccessDeniedException";
@@ -224,16 +225,16 @@ export interface BoundingBox {
   Left?: number;
 
   /**
-   * <p>The width of the bounding box as a ratio of the overall document page
-   *          width.</p>
-   */
-  Width?: number;
-
-  /**
    * <p>The height of the bounding box as a ratio of the overall document page
    *          height.</p>
    */
   Height?: number;
+
+  /**
+   * <p>The width of the bounding box as a ratio of the overall document page
+   *          width.</p>
+   */
+  Width?: number;
 }
 
 export namespace BoundingBox {
@@ -255,14 +256,14 @@ export namespace BoundingBox {
  */
 export interface Point {
   /**
-   * <p>The value of the X coordinate for a point on a <code>Polygon</code>.</p>
-   */
-  X?: number;
-
-  /**
    * <p>The value of the Y coordinate for a point on a <code>Polygon</code>.</p>
    */
   Y?: number;
+
+  /**
+   * <p>The value of the X coordinate for a point on a <code>Polygon</code>.</p>
+   */
+  X?: number;
 }
 
 export namespace Point {
@@ -277,15 +278,15 @@ export namespace Point {
  */
 export interface Geometry {
   /**
-   * <p>Within the bounding box, a fine-grained polygon around the recognized item.</p>
-   */
-  Polygon?: Point[];
-
-  /**
    * <p>An axis-aligned coarse representation of the location of the recognized item on the
    *          document page.</p>
    */
   BoundingBox?: BoundingBox;
+
+  /**
+   * <p>Within the bounding box, a fine-grained polygon around the recognized item.</p>
+   */
+  Polygon?: Point[];
 }
 
 export namespace Geometry {
@@ -296,6 +297,7 @@ export namespace Geometry {
 
 export enum RelationshipType {
   CHILD = "CHILD",
+  COMPLEX_FEATURES = "COMPLEX_FEATURES",
   VALUE = "VALUE",
 }
 
@@ -311,7 +313,8 @@ export interface Relationship {
    * <p>The type of relationship that the blocks in the IDs array have with the current block.
    *          The relationship can be <code>VALUE</code> or <code>CHILD</code>. A relationship of type
    *          VALUE is a list that contains the ID of the VALUE block that's associated with the KEY of a key-value pair.
-   *          A relationship of type CHILD is a list of IDs that identify WORD blocks.</p>
+   *          A relationship of type CHILD is a list of IDs that identify WORD blocks in the case of lines
+   *          Cell blocks in the case of Tables, and WORD blocks in the case of Selection Elements.</p>
    */
   Type?: RelationshipType | string;
 
@@ -350,24 +353,6 @@ export enum SelectionStatus {
  */
 export interface Block {
   /**
-   * <p>The word or line of text that's recognized by Amazon Textract. </p>
-   */
-  Text?: string;
-
-  /**
-   * <p>The row in which a table cell is located. The first row position is 1.
-   *             <code>RowIndex</code> isn't returned by <code>DetectDocumentText</code> and
-   *             <code>GetDocumentTextDetection</code>.</p>
-   */
-  RowIndex?: number;
-
-  /**
-   * <p>The confidence score that Amazon Textract has in the accuracy of the recognized text and
-   *          the accuracy of the geometry points around the recognized text.</p>
-   */
-  Confidence?: number;
-
-  /**
    * <p>The type of entity. The following can be returned:</p>
    *          <ul>
    *             <li>
@@ -386,56 +371,16 @@ export interface Block {
   EntityTypes?: (EntityType | string)[];
 
   /**
-   * <p>The column in which a table cell appears. The first column position is 1.
-   *             <code>ColumnIndex</code> isn't returned by <code>DetectDocumentText</code> and
+   * <p>The row in which a table cell is located. The first row position is 1.
+   *             <code>RowIndex</code> isn't returned by <code>DetectDocumentText</code> and
    *             <code>GetDocumentTextDetection</code>.</p>
    */
-  ColumnIndex?: number;
+  RowIndex?: number;
 
   /**
-   * <p>The selection status of a selection element, such as an option button or check box. </p>
+   * <p>The word or line of text that's recognized by Amazon Textract. </p>
    */
-  SelectionStatus?: SelectionStatus | string;
-
-  /**
-   * <p>A list of child blocks of the current block. For example, a LINE object has child blocks
-   *          for each WORD block that's part of the line of text. There aren't Relationship objects in
-   *          the list for relationships that don't exist, such as when the current block has no child
-   *          blocks. The list size can be the following:</p>
-   *          <ul>
-   *             <li>
-   *                <p>0 - The block has no child blocks.</p>
-   *             </li>
-   *             <li>
-   *                <p>1 - The block has child blocks.</p>
-   *             </li>
-   *          </ul>
-   */
-  Relationships?: Relationship[];
-
-  /**
-   * <p>The number of columns that a table cell spans. Currently this value is always 1, even
-   *          if the number of columns spanned is greater than 1. <code>ColumnSpan</code> isn't returned by
-   *             <code>DetectDocumentText</code> and <code>GetDocumentTextDetection</code>. </p>
-   */
-  ColumnSpan?: number;
-
-  /**
-   * <p>The location of the recognized text on the image. It includes an axis-aligned, coarse
-   *          bounding box that surrounds the text, and a finer-grain polygon for more accurate spatial
-   *          information. </p>
-   */
-  Geometry?: Geometry;
-
-  /**
-   * <p>The page on which a block was detected. <code>Page</code> is returned by asynchronous
-   *          operations. Page values greater than 1 are only returned for multipage documents that are
-   *          in PDF format. A scanned image (JPEG/PNG), even if it contains multiple document pages, is
-   *          considered to be a single-page document. The value of <code>Page</code> is always 1.
-   *          Synchronous operations don't return <code>Page</code> because every input document is
-   *          considered to be a single-page document.</p>
-   */
-  Page?: number;
+  Text?: string;
 
   /**
    * <p>The number of rows that a table cell spans. Currently this value is always 1, even
@@ -515,6 +460,64 @@ export interface Block {
    *          operation. </p>
    */
   Id?: string;
+
+  /**
+   * <p>The location of the recognized text on the image. It includes an axis-aligned, coarse
+   *          bounding box that surrounds the text, and a finer-grain polygon for more accurate spatial
+   *          information. </p>
+   */
+  Geometry?: Geometry;
+
+  /**
+   * <p>The selection status of a selection element, such as an option button or check box. </p>
+   */
+  SelectionStatus?: SelectionStatus | string;
+
+  /**
+   * <p>The number of columns that a table cell spans. Currently this value is always 1, even
+   *          if the number of columns spanned is greater than 1. <code>ColumnSpan</code> isn't returned by
+   *             <code>DetectDocumentText</code> and <code>GetDocumentTextDetection</code>. </p>
+   */
+  ColumnSpan?: number;
+
+  /**
+   * <p>A list of child blocks of the current block. For example, a LINE object has child blocks
+   *          for each WORD block that's part of the line of text. There aren't Relationship objects in
+   *          the list for relationships that don't exist, such as when the current block has no child
+   *          blocks. The list size can be the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>0 - The block has no child blocks.</p>
+   *             </li>
+   *             <li>
+   *                <p>1 - The block has child blocks.</p>
+   *             </li>
+   *          </ul>
+   */
+  Relationships?: Relationship[];
+
+  /**
+   * <p>The page on which a block was detected. <code>Page</code> is returned by asynchronous
+   *          operations. Page values greater than 1 are only returned for multipage documents that are
+   *          in PDF format. A scanned image (JPEG/PNG), even if it contains multiple document pages, is
+   *          considered to be a single-page document. The value of <code>Page</code> is always 1.
+   *          Synchronous operations don't return <code>Page</code> because every input document is
+   *          considered to be a single-page document.</p>
+   */
+  Page?: number;
+
+  /**
+   * <p>The confidence score that Amazon Textract has in the accuracy of the recognized text and
+   *          the accuracy of the geometry points around the recognized text.</p>
+   */
+  Confidence?: number;
+
+  /**
+   * <p>The column in which a table cell appears. The first column position is 1.
+   *             <code>ColumnIndex</code> isn't returned by <code>DetectDocumentText</code> and
+   *             <code>GetDocumentTextDetection</code>.</p>
+   */
+  ColumnIndex?: number;
 }
 
 export namespace Block {
@@ -568,6 +571,11 @@ export namespace HumanLoopActivationOutput {
 
 export interface AnalyzeDocumentResponse {
   /**
+   * <p>The version of the model used to analyze the document.</p>
+   */
+  AnalyzeDocumentModelVersion?: string;
+
+  /**
    * <p>The items that are detected and analyzed by <code>AnalyzeDocument</code>.</p>
    */
   Blocks?: Block[];
@@ -576,11 +584,6 @@ export interface AnalyzeDocumentResponse {
    * <p>Shows the results of the human in the loop evaluation.</p>
    */
   HumanLoopActivationOutput?: HumanLoopActivationOutput;
-
-  /**
-   * <p>The version of the model used to analyze the document.</p>
-   */
-  AnalyzeDocumentModelVersion?: string;
 
   /**
    * <p>Metadata about the analyzed document. An example is the number of pages.</p>
@@ -595,7 +598,8 @@ export namespace AnalyzeDocumentResponse {
 }
 
 /**
- * <p>Amazon Textract isn't able to read the document.</p>
+ * <p>Amazon Textract isn't able to read the document. For more information on the document
+ *          limits in Amazon Textract, see <a>limits</a>.</p>
  */
 export interface BadDocumentException extends __SmithyException, $MetadataBearer {
   name: "BadDocumentException";
@@ -618,8 +622,8 @@ export namespace BadDocumentException {
 export interface DocumentTooLargeException extends __SmithyException, $MetadataBearer {
   name: "DocumentTooLargeException";
   $fault: "client";
-  Code?: string;
   Message?: string;
+  Code?: string;
 }
 
 export namespace DocumentTooLargeException {
@@ -635,10 +639,21 @@ export interface HumanLoopQuotaExceededException extends __SmithyException, $Met
   name: "HumanLoopQuotaExceededException";
   $fault: "client";
   Code?: string;
+  /**
+   * <p>The resource type.</p>
+   */
   ResourceType?: string;
+
   Message?: string;
-  QuotaCode?: string;
+  /**
+   * <p>The service code.</p>
+   */
   ServiceCode?: string;
+
+  /**
+   * <p>The quota code.</p>
+   */
+  QuotaCode?: string;
 }
 
 export namespace HumanLoopQuotaExceededException {
@@ -684,13 +699,16 @@ export namespace InvalidParameterException {
 }
 
 /**
- * <p>Amazon Textract is unable to access the S3 object that's specified in the request.</p>
+ * <p>Amazon Textract is unable to access the S3 object that's specified in the request.
+ *          for more information, <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html">Configure Access to Amazon S3</a>
+ *          For troubleshooting information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/troubleshooting.html">Troubleshooting Amazon S3</a>
+ *          </p>
  */
 export interface InvalidS3ObjectException extends __SmithyException, $MetadataBearer {
   name: "InvalidS3ObjectException";
   $fault: "client";
-  Code?: string;
   Message?: string;
+  Code?: string;
 }
 
 export namespace InvalidS3ObjectException {
@@ -722,8 +740,8 @@ export namespace ProvisionedThroughputExceededException {
 export interface ThrottlingException extends __SmithyException, $MetadataBearer {
   name: "ThrottlingException";
   $fault: "server";
-  Code?: string;
   Message?: string;
+  Code?: string;
 }
 
 export namespace ThrottlingException {
@@ -768,15 +786,15 @@ export namespace DetectDocumentTextRequest {
 
 export interface DetectDocumentTextResponse {
   /**
-   * <p></p>
-   */
-  DetectDocumentTextModelVersion?: string;
-
-  /**
    * <p>Metadata about the document. It contains the number of pages that are detected in the
    *          document.</p>
    */
   DocumentMetadata?: DocumentMetadata;
+
+  /**
+   * <p></p>
+   */
+  DetectDocumentTextModelVersion?: string;
 
   /**
    * <p>An array of <code>Block</code> objects that contain the text that's detected in the
@@ -812,10 +830,10 @@ export namespace DocumentLocation {
 
 export interface GetDocumentAnalysisRequest {
   /**
-   * <p>A unique identifier for the text-detection job. The <code>JobId</code> is returned from
-   *          <code>StartDocumentAnalysis</code>. A <code>JobId</code> value is only valid for 7 days.</p>
+   * <p>If the previous response was incomplete (because there are more blocks to retrieve), Amazon Textract returns a pagination
+   *          token in the response. You can use this pagination token to retrieve the next set of blocks.</p>
    */
-  JobId: string | undefined;
+  NextToken?: string;
 
   /**
    * <p>The maximum number of results to return per paginated call. The largest value that you
@@ -825,10 +843,10 @@ export interface GetDocumentAnalysisRequest {
   MaxResults?: number;
 
   /**
-   * <p>If the previous response was incomplete (because there are more blocks to retrieve), Amazon Textract returns a pagination
-   *          token in the response. You can use this pagination token to retrieve the next set of blocks.</p>
+   * <p>A unique identifier for the text-detection job. The <code>JobId</code> is returned from
+   *          <code>StartDocumentAnalysis</code>. A <code>JobId</code> value is only valid for 7 days.</p>
    */
-  NextToken?: string;
+  JobId: string | undefined;
 }
 
 export namespace GetDocumentAnalysisRequest {
@@ -849,14 +867,14 @@ export enum JobStatus {
  */
 export interface Warning {
   /**
-   * <p>The error code for the warning.</p>
-   */
-  ErrorCode?: string;
-
-  /**
    * <p>A list of the pages that the warning applies to.</p>
    */
   Pages?: number[];
+
+  /**
+   * <p>The error code for the warning.</p>
+   */
+  ErrorCode?: string;
 }
 
 export namespace Warning {
@@ -887,7 +905,7 @@ export interface GetDocumentAnalysisResponse {
   Warnings?: Warning[];
 
   /**
-   * <p>The current status of an asynchronous document-analysis operation.</p>
+   * <p>Returns if the detection job could not be completed. Contains explanation for what error occured.</p>
    */
   StatusMessage?: string;
 
@@ -956,25 +974,26 @@ export namespace GetDocumentTextDetectionRequest {
 
 export interface GetDocumentTextDetectionResponse {
   /**
+   * <p></p>
+   */
+  DetectDocumentTextModelVersion?: string;
+
+  /**
+   * <p>Information about a document that Amazon Textract processed. <code>DocumentMetadata</code> is
+   *          returned in every page of paginated responses from an Amazon Textract video operation.</p>
+   */
+  DocumentMetadata?: DocumentMetadata;
+
+  /**
    * <p>A list of warnings that occurred during the text-detection operation for the
    *          document.</p>
    */
   Warnings?: Warning[];
 
   /**
-   * <p></p>
-   */
-  DetectDocumentTextModelVersion?: string;
-
-  /**
-   * <p>The current status of an asynchronous text-detection operation for the document. </p>
+   * <p>Returns if the detection job could not be completed. Contains explanation for what error occured. </p>
    */
   StatusMessage?: string;
-
-  /**
-   * <p>The current status of the text detection job.</p>
-   */
-  JobStatus?: JobStatus | string;
 
   /**
    * <p>If the response is truncated, Amazon Textract returns this token. You can use this token in
@@ -983,15 +1002,14 @@ export interface GetDocumentTextDetectionResponse {
   NextToken?: string;
 
   /**
+   * <p>The current status of the text detection job.</p>
+   */
+  JobStatus?: JobStatus | string;
+
+  /**
    * <p>The results of the text-detection operation.</p>
    */
   Blocks?: Block[];
-
-  /**
-   * <p>Information about a document that Amazon Textract processed. <code>DocumentMetadata</code> is
-   *          returned in every page of paginated responses from an Amazon Textract video operation.</p>
-   */
-  DocumentMetadata?: DocumentMetadata;
 }
 
 export namespace GetDocumentTextDetectionResponse {
@@ -1060,16 +1078,31 @@ export namespace NotificationChannel {
   });
 }
 
-export interface StartDocumentAnalysisRequest {
+/**
+ * <p>Sets whether or not your output will go to a user created bucket.
+ *          Used to set the name of the bucket, and the prefix on the output
+ *          file.</p>
+ */
+export interface OutputConfig {
   /**
-   * <p>The idempotent token that you use to identify the start request. If you use the same
-   *          token with multiple <code>StartDocumentAnalysis</code> requests, the same
-   *             <code>JobId</code> is returned. Use <code>ClientRequestToken</code> to prevent the same
-   *          job from being accidentally started more than once. For more information, see
-   *          <a href="https://docs.aws.amazon.com/textract/latest/dg/api-async.html">Calling Amazon Textract Asynchronous Operations</a>.</p>
+   * <p>The name of the bucket your output will go to.</p>
    */
-  ClientRequestToken?: string;
+  S3Bucket: string | undefined;
 
+  /**
+   * <p>The prefix of the object key that the output will be saved to. When
+   *          not enabled, the prefix will be “textract_output".</p>
+   */
+  S3Prefix?: string;
+}
+
+export namespace OutputConfig {
+  export const filterSensitiveLog = (obj: OutputConfig): any => ({
+    ...obj,
+  });
+}
+
+export interface StartDocumentAnalysisRequest {
   /**
    * <p>The Amazon SNS topic ARN that you want Amazon Textract to publish the completion status of the
    *          operation to. </p>
@@ -1082,12 +1115,13 @@ export interface StartDocumentAnalysisRequest {
   DocumentLocation: DocumentLocation | undefined;
 
   /**
-   * <p>An identifier that you specify that's included in the completion notification published
-   *          to the Amazon SNS topic. For example, you can use <code>JobTag</code> to identify the type of
-   *          document that the completion notification corresponds to (such as a tax form or a
-   *          receipt).</p>
+   * <p>The idempotent token that you use to identify the start request. If you use the same
+   *          token with multiple <code>StartDocumentAnalysis</code> requests, the same
+   *             <code>JobId</code> is returned. Use <code>ClientRequestToken</code> to prevent the same
+   *          job from being accidentally started more than once. For more information, see
+   *          <a href="https://docs.aws.amazon.com/textract/latest/dg/api-async.html">Calling Amazon Textract Asynchronous Operations</a>.</p>
    */
-  JobTag?: string;
+  ClientRequestToken?: string;
 
   /**
    * <p>A list of the types of analysis to perform. Add TABLES to the list to return information
@@ -1098,6 +1132,20 @@ export interface StartDocumentAnalysisRequest {
    *             <code>FeatureTypes</code>). </p>
    */
   FeatureTypes: (FeatureType | string)[] | undefined;
+
+  /**
+   * <p>Sets if the output will go to a customer defined bucket. By default, Amazon Textract will save
+   *          the results internally to be accessed by the GetDocumentAnalysis operation.</p>
+   */
+  OutputConfig?: OutputConfig;
+
+  /**
+   * <p>An identifier that you specify that's included in the completion notification published
+   *          to the Amazon SNS topic. For example, you can use <code>JobTag</code> to identify the type of
+   *          document that the completion notification corresponds to (such as a tax form or a
+   *          receipt).</p>
+   */
+  JobTag?: string;
 }
 
 export namespace StartDocumentAnalysisRequest {
@@ -1123,11 +1171,6 @@ export namespace StartDocumentAnalysisResponse {
 
 export interface StartDocumentTextDetectionRequest {
   /**
-   * <p>The location of the document to be processed.</p>
-   */
-  DocumentLocation: DocumentLocation | undefined;
-
-  /**
    * <p>An identifier that you specify that's included in the completion notification published
    *          to the Amazon SNS topic. For example, you can use <code>JobTag</code> to identify the type of
    *          document that the completion notification corresponds to (such as a tax form or a
@@ -1145,10 +1188,21 @@ export interface StartDocumentTextDetectionRequest {
   ClientRequestToken?: string;
 
   /**
+   * <p>Sets if the output will go to a customer defined bucket. By default Amazon Textract will
+   *          save the results internally to be accessed with the GetDocumentTextDetection operation.</p>
+   */
+  OutputConfig?: OutputConfig;
+
+  /**
    * <p>The Amazon SNS topic ARN that you want Amazon Textract to publish the completion status of the
    *          operation to. </p>
    */
   NotificationChannel?: NotificationChannel;
+
+  /**
+   * <p>The location of the document to be processed.</p>
+   */
+  DocumentLocation: DocumentLocation | undefined;
 }
 
 export namespace StartDocumentTextDetectionRequest {

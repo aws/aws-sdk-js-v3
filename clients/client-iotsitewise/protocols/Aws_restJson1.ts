@@ -17,6 +17,10 @@ import { CreateAssetModelCommandInput, CreateAssetModelCommandOutput } from "../
 import { CreateDashboardCommandInput, CreateDashboardCommandOutput } from "../commands/CreateDashboardCommand";
 import { CreateGatewayCommandInput, CreateGatewayCommandOutput } from "../commands/CreateGatewayCommand";
 import { CreatePortalCommandInput, CreatePortalCommandOutput } from "../commands/CreatePortalCommand";
+import {
+  CreatePresignedPortalUrlCommandInput,
+  CreatePresignedPortalUrlCommandOutput,
+} from "../commands/CreatePresignedPortalUrlCommand";
 import { CreateProjectCommandInput, CreateProjectCommandOutput } from "../commands/CreateProjectCommand";
 import { DeleteAccessPolicyCommandInput, DeleteAccessPolicyCommandOutput } from "../commands/DeleteAccessPolicyCommand";
 import { DeleteAssetCommandInput, DeleteAssetCommandOutput } from "../commands/DeleteAssetCommand";
@@ -123,6 +127,7 @@ import {
   GatewaySummary,
   Greengrass,
   GroupIdentity,
+  IAMUserIdentity,
   Identity,
   Image,
   ImageFile,
@@ -526,6 +531,7 @@ export const serializeAws_restJson1CreatePortalCommand = async (
   let body: any;
   body = JSON.stringify({
     clientToken: input.clientToken ?? generateIdempotencyToken(),
+    ...(input.portalAuthMode !== undefined && { portalAuthMode: input.portalAuthMode }),
     ...(input.portalContactEmail !== undefined && { portalContactEmail: input.portalContactEmail }),
     ...(input.portalDescription !== undefined && { portalDescription: input.portalDescription }),
     ...(input.portalLogoImageFile !== undefined && {
@@ -550,6 +556,49 @@ export const serializeAws_restJson1CreatePortalCommand = async (
     method: "POST",
     headers,
     path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1CreatePresignedPortalUrlCommand = async (
+  input: CreatePresignedPortalUrlCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "",
+  };
+  let resolvedPath = "/portals/{portalId}/presigned-url";
+  if (input.portalId !== undefined) {
+    const labelValue: string = input.portalId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: portalId.");
+    }
+    resolvedPath = resolvedPath.replace("{portalId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: portalId.");
+  }
+  const query: any = {
+    ...(input.sessionDurationSeconds !== undefined && {
+      sessionDurationSeconds: input.sessionDurationSeconds.toString(),
+    }),
+  };
+  let body: any;
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "monitor." + resolvedHostname;
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname: resolvedHostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
     body,
   });
 };
@@ -1303,17 +1352,17 @@ export const serializeAws_restJson1GetAssetPropertyAggregatesCommand = async (
   };
   let resolvedPath = "/properties/aggregates";
   const query: any = {
+    ...(input.timeOrdering !== undefined && { timeOrdering: input.timeOrdering }),
     ...(input.propertyId !== undefined && { propertyId: input.propertyId }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
     ...(input.startDate !== undefined && { startDate: (input.startDate.toISOString().split(".")[0] + "Z").toString() }),
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
-    ...(input.endDate !== undefined && { endDate: (input.endDate.toISOString().split(".")[0] + "Z").toString() }),
-    ...(input.aggregateTypes !== undefined && { aggregateTypes: (input.aggregateTypes || []).map((_entry) => _entry) }),
-    ...(input.assetId !== undefined && { assetId: input.assetId }),
     ...(input.propertyAlias !== undefined && { propertyAlias: input.propertyAlias }),
     ...(input.resolution !== undefined && { resolution: input.resolution }),
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
-    ...(input.timeOrdering !== undefined && { timeOrdering: input.timeOrdering }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
+    ...(input.assetId !== undefined && { assetId: input.assetId }),
+    ...(input.aggregateTypes !== undefined && { aggregateTypes: (input.aggregateTypes || []).map((_entry) => _entry) }),
     ...(input.qualities !== undefined && { qualities: (input.qualities || []).map((_entry) => _entry) }),
+    ...(input.endDate !== undefined && { endDate: (input.endDate.toISOString().split(".")[0] + "Z").toString() }),
   };
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -1345,9 +1394,9 @@ export const serializeAws_restJson1GetAssetPropertyValueCommand = async (
   };
   let resolvedPath = "/properties/latest";
   const query: any = {
+    ...(input.propertyId !== undefined && { propertyId: input.propertyId }),
     ...(input.assetId !== undefined && { assetId: input.assetId }),
     ...(input.propertyAlias !== undefined && { propertyAlias: input.propertyAlias }),
-    ...(input.propertyId !== undefined && { propertyId: input.propertyId }),
   };
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -1379,14 +1428,14 @@ export const serializeAws_restJson1GetAssetPropertyValueHistoryCommand = async (
   };
   let resolvedPath = "/properties/history";
   const query: any = {
-    ...(input.qualities !== undefined && { qualities: (input.qualities || []).map((_entry) => _entry) }),
-    ...(input.timeOrdering !== undefined && { timeOrdering: input.timeOrdering }),
-    ...(input.propertyAlias !== undefined && { propertyAlias: input.propertyAlias }),
-    ...(input.propertyId !== undefined && { propertyId: input.propertyId }),
-    ...(input.startDate !== undefined && { startDate: (input.startDate.toISOString().split(".")[0] + "Z").toString() }),
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.assetId !== undefined && { assetId: input.assetId }),
     ...(input.endDate !== undefined && { endDate: (input.endDate.toISOString().split(".")[0] + "Z").toString() }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
+    ...(input.qualities !== undefined && { qualities: (input.qualities || []).map((_entry) => _entry) }),
+    ...(input.startDate !== undefined && { startDate: (input.startDate.toISOString().split(".")[0] + "Z").toString() }),
+    ...(input.propertyAlias !== undefined && { propertyAlias: input.propertyAlias }),
+    ...(input.propertyId !== undefined && { propertyId: input.propertyId }),
+    ...(input.timeOrdering !== undefined && { timeOrdering: input.timeOrdering }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   };
   let body: any;
@@ -1420,11 +1469,12 @@ export const serializeAws_restJson1ListAccessPoliciesCommand = async (
   let resolvedPath = "/access-policies";
   const query: any = {
     ...(input.identityId !== undefined && { identityId: input.identityId }),
-    ...(input.identityType !== undefined && { identityType: input.identityType }),
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
     ...(input.resourceId !== undefined && { resourceId: input.resourceId }),
-    ...(input.resourceType !== undefined && { resourceType: input.resourceType }),
+    ...(input.identityType !== undefined && { identityType: input.identityType }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.resourceType !== undefined && { resourceType: input.resourceType }),
+    ...(input.iamArn !== undefined && { iamArn: input.iamArn }),
   };
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -1456,8 +1506,8 @@ export const serializeAws_restJson1ListAssetModelsCommand = async (
   };
   let resolvedPath = "/asset-models";
   const query: any = {
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   };
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -1489,10 +1539,10 @@ export const serializeAws_restJson1ListAssetsCommand = async (
   };
   let resolvedPath = "/assets";
   const query: any = {
-    ...(input.assetModelId !== undefined && { assetModelId: input.assetModelId }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.filter !== undefined && { filter: input.filter }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
+    ...(input.assetModelId !== undefined && { assetModelId: input.assetModelId }),
   };
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -1533,9 +1583,10 @@ export const serializeAws_restJson1ListAssociatedAssetsCommand = async (
     throw new Error("No value provided for input HTTP label: assetId.");
   }
   const query: any = {
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.hierarchyId !== undefined && { hierarchyId: input.hierarchyId }),
+    ...(input.traversalDirection !== undefined && { traversalDirection: input.traversalDirection }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
   };
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -1567,9 +1618,9 @@ export const serializeAws_restJson1ListDashboardsCommand = async (
   };
   let resolvedPath = "/dashboards";
   const query: any = {
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
     ...(input.projectId !== undefined && { projectId: input.projectId }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   };
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -1601,8 +1652,8 @@ export const serializeAws_restJson1ListGatewaysCommand = async (
   };
   let resolvedPath = "/20200301/gateways";
   const query: any = {
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   };
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -1634,8 +1685,8 @@ export const serializeAws_restJson1ListPortalsCommand = async (
   };
   let resolvedPath = "/portals";
   const query: any = {
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
   };
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -1676,8 +1727,8 @@ export const serializeAws_restJson1ListProjectAssetsCommand = async (
     throw new Error("No value provided for input HTTP label: projectId.");
   }
   const query: any = {
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
   };
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -1709,9 +1760,9 @@ export const serializeAws_restJson1ListProjectsCommand = async (
   };
   let resolvedPath = "/projects";
   const query: any = {
-    ...(input.portalId !== undefined && { portalId: input.portalId }),
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.portalId !== undefined && { portalId: input.portalId }),
   };
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -1829,8 +1880,8 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   };
   let resolvedPath = "/tags";
   const query: any = {
-    ...(input.tagKeys !== undefined && { tagKeys: (input.tagKeys || []).map((_entry) => _entry) }),
     ...(input.resourceArn !== undefined && { resourceArn: input.resourceArn }),
+    ...(input.tagKeys !== undefined && { tagKeys: (input.tagKeys || []).map((_entry) => _entry) }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -3177,6 +3228,77 @@ const deserializeAws_restJson1CreatePortalCommandError = async (
     case "com.amazonaws.iotsitewise#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.iotsitewise#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1CreatePresignedPortalUrlCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreatePresignedPortalUrlCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1CreatePresignedPortalUrlCommandError(output, context);
+  }
+  const contents: CreatePresignedPortalUrlCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    presignedPortalUrl: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.presignedPortalUrl !== undefined && data.presignedPortalUrl !== null) {
+    contents.presignedPortalUrl = data.presignedPortalUrl;
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1CreatePresignedPortalUrlCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreatePresignedPortalUrlCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalFailureException":
+    case "com.amazonaws.iotsitewise#InternalFailureException":
+      response = {
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.iotsitewise#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -4667,6 +4789,7 @@ export const deserializeAws_restJson1DescribePortalCommand = async (
   const contents: DescribePortalCommandOutput = {
     $metadata: deserializeMetadata(output),
     portalArn: undefined,
+    portalAuthMode: undefined,
     portalClientId: undefined,
     portalContactEmail: undefined,
     portalCreationDate: undefined,
@@ -4682,6 +4805,9 @@ export const deserializeAws_restJson1DescribePortalCommand = async (
   const data: any = await parseBody(output.body, context);
   if (data.portalArn !== undefined && data.portalArn !== null) {
     contents.portalArn = data.portalArn;
+  }
+  if (data.portalAuthMode !== undefined && data.portalAuthMode !== null) {
+    contents.portalAuthMode = data.portalAuthMode;
   }
   if (data.portalClientId !== undefined && data.portalClientId !== null) {
     contents.portalClientId = data.portalClientId;
@@ -7306,9 +7432,16 @@ const serializeAws_restJson1GroupIdentity = (input: GroupIdentity, context: __Se
   };
 };
 
+const serializeAws_restJson1IAMUserIdentity = (input: IAMUserIdentity, context: __SerdeContext): any => {
+  return {
+    ...(input.arn !== undefined && { arn: input.arn }),
+  };
+};
+
 const serializeAws_restJson1Identity = (input: Identity, context: __SerdeContext): any => {
   return {
     ...(input.group !== undefined && { group: serializeAws_restJson1GroupIdentity(input.group, context) }),
+    ...(input.iamUser !== undefined && { iamUser: serializeAws_restJson1IAMUserIdentity(input.iamUser, context) }),
     ...(input.user !== undefined && { user: serializeAws_restJson1UserIdentity(input.user, context) }),
   };
 };
@@ -7894,11 +8027,21 @@ const deserializeAws_restJson1GroupIdentity = (output: any, context: __SerdeCont
   } as any;
 };
 
+const deserializeAws_restJson1IAMUserIdentity = (output: any, context: __SerdeContext): IAMUserIdentity => {
+  return {
+    arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1Identity = (output: any, context: __SerdeContext): Identity => {
   return {
     group:
       output.group !== undefined && output.group !== null
         ? deserializeAws_restJson1GroupIdentity(output.group, context)
+        : undefined,
+    iamUser:
+      output.iamUser !== undefined && output.iamUser !== null
+        ? deserializeAws_restJson1IAMUserIdentity(output.iamUser, context)
         : undefined,
     user:
       output.user !== undefined && output.user !== null
@@ -7989,6 +8132,10 @@ const deserializeAws_restJson1PortalSummary = (output: any, context: __SerdeCont
     name: output.name !== undefined && output.name !== null ? output.name : undefined,
     roleArn: output.roleArn !== undefined && output.roleArn !== null ? output.roleArn : undefined,
     startUrl: output.startUrl !== undefined && output.startUrl !== null ? output.startUrl : undefined,
+    status:
+      output.status !== undefined && output.status !== null
+        ? deserializeAws_restJson1PortalStatus(output.status, context)
+        : undefined,
   } as any;
 };
 

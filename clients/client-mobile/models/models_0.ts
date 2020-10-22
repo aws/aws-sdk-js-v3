@@ -54,19 +54,19 @@ export namespace BadRequestException {
 export interface CreateProjectRequest {
   /**
    * <p>
-   *             Default region where project resources should be created.
-   *         </p>
-   */
-  region?: string;
-
-  /**
-   * <p>
    *             ZIP or YAML file which contains configuration settings to be used when creating
    *             the project. This may be the contents of the file downloaded from the URL provided
    *             in an export project operation.
    *         </p>
    */
   contents?: Uint8Array;
+
+  /**
+   * <p>
+   *             Name of the project.
+   *         </p>
+   */
+  name?: string;
 
   /**
    * <p>
@@ -78,10 +78,10 @@ export interface CreateProjectRequest {
 
   /**
    * <p>
-   *             Name of the project.
+   *             Default region where project resources should be created.
    *         </p>
    */
-  name?: string;
+  region?: string;
 }
 
 export namespace CreateProjectRequest {
@@ -152,45 +152,10 @@ export enum ProjectState {
 export interface ProjectDetails {
   /**
    * <p>
-   *             List of AWS resources associated with a project.
-   *         </p>
-   */
-  resources?: Resource[];
-
-  /**
-   * <p>
-   *             Name of the project.
-   *         </p>
-   */
-  name?: string;
-
-  /**
-   * <p>
    *             Unique project identifier.
    *         </p>
    */
   projectId?: string;
-
-  /**
-   * <p>
-   *             Synchronization state for a project.
-   *         </p>
-   */
-  state?: ProjectState | string;
-
-  /**
-   * <p>
-   *             Default region to use for AWS resource creation in the AWS Mobile Hub project.
-   *         </p>
-   */
-  region?: string;
-
-  /**
-   * <p>
-   *             Date the project was created.
-   *         </p>
-   */
-  createdDate?: Date;
 
   /**
    * <p>
@@ -201,10 +166,45 @@ export interface ProjectDetails {
 
   /**
    * <p>
+   *             Name of the project.
+   *         </p>
+   */
+  name?: string;
+
+  /**
+   * <p>
+   *             Default region to use for AWS resource creation in the AWS Mobile Hub project.
+   *         </p>
+   */
+  region?: string;
+
+  /**
+   * <p>
+   *             Synchronization state for a project.
+   *         </p>
+   */
+  state?: ProjectState | string;
+
+  /**
+   * <p>
    *             Date of the last modification of the project.
    *         </p>
    */
   lastUpdatedDate?: Date;
+
+  /**
+   * <p>
+   *             Date the project was created.
+   *         </p>
+   */
+  createdDate?: Date;
+
+  /**
+   * <p>
+   *             List of AWS resources associated with a project.
+   *         </p>
+   */
+  resources?: Resource[];
 }
 
 export namespace ProjectDetails {
@@ -324,14 +324,14 @@ export interface ServiceUnavailableException extends __SmithyException, $Metadat
    *             The Exception Error Message.
    *         </p>
    */
-  message?: string;
+  retryAfterSeconds?: string;
 
   /**
    * <p>
    *             The Exception Error Message.
    *         </p>
    */
-  retryAfterSeconds?: string;
+  message?: string;
 }
 
 export namespace ServiceUnavailableException {
@@ -478,17 +478,10 @@ export enum Platform {
 export interface BundleDetails {
   /**
    * <p>
-   *             Developer desktop or mobile app or website platforms.
+   *             Icon for the download bundle.
    *         </p>
    */
-  availablePlatforms?: (Platform | string)[];
-
-  /**
-   * <p>
-   *             Description of the download bundle.
-   *         </p>
-   */
-  description?: string;
+  iconUrl?: string;
 
   /**
    * <p>
@@ -499,17 +492,10 @@ export interface BundleDetails {
 
   /**
    * <p>
-   *             Title of the download bundle.
+   *             Description of the download bundle.
    *         </p>
    */
-  title?: string;
-
-  /**
-   * <p>
-   *             Icon for the download bundle.
-   *         </p>
-   */
-  iconUrl?: string;
+  description?: string;
 
   /**
    * <p>
@@ -517,6 +503,20 @@ export interface BundleDetails {
    *         </p>
    */
   version?: string;
+
+  /**
+   * <p>
+   *             Title of the download bundle.
+   *         </p>
+   */
+  title?: string;
+
+  /**
+   * <p>
+   *             Developer desktop or mobile app or website platforms.
+   *         </p>
+   */
+  availablePlatforms?: (Platform | string)[];
 }
 
 export namespace BundleDetails {
@@ -601,13 +601,6 @@ export namespace DescribeProjectResult {
 export interface ExportBundleRequest {
   /**
    * <p>
-   *             Unique project identifier.
-   *         </p>
-   */
-  projectId?: string;
-
-  /**
-   * <p>
    *             Unique bundle identifier.
    *         </p>
    */
@@ -619,6 +612,13 @@ export interface ExportBundleRequest {
    *         </p>
    */
   platform?: Platform | string;
+
+  /**
+   * <p>
+   *             Unique project identifier.
+   *         </p>
+   */
+  projectId?: string;
 }
 
 export namespace ExportBundleRequest {
@@ -687,13 +687,6 @@ export interface ExportProjectResult {
 
   /**
    * <p>
-   *             URL which can be used to download the exported project configuation file(s).
-   *         </p>
-   */
-  downloadUrl?: string;
-
-  /**
-   * <p>
    *             URL which can be shared to allow other AWS users to create their own project
    *             in AWS Mobile Hub with the same configuration as the specified project. This
    *             URL pertains to a snapshot in time of the project configuration that is created
@@ -703,6 +696,13 @@ export interface ExportProjectResult {
    *         </p>
    */
   shareUrl?: string;
+
+  /**
+   * <p>
+   *             URL which can be used to download the exported project configuation file(s).
+   *         </p>
+   */
+  downloadUrl?: string;
 }
 
 export namespace ExportProjectResult {
@@ -748,18 +748,18 @@ export namespace ListBundlesRequest {
 export interface ListBundlesResult {
   /**
    * <p>
+   *             A list of bundles.
+   *         </p>
+   */
+  bundleList?: BundleDetails[];
+
+  /**
+   * <p>
    *             Pagination token. If non-null pagination token is returned in a result,
    *             then pass its value in another request to fetch more entries.
    *         </p>
    */
   nextToken?: string;
-
-  /**
-   * <p>
-   *             A list of bundles.
-   *         </p>
-   */
-  bundleList?: BundleDetails[];
 }
 
 export namespace ListBundlesResult {
@@ -776,19 +776,19 @@ export namespace ListBundlesResult {
 export interface ListProjectsRequest {
   /**
    * <p>
-   *             Maximum number of records to list in a single response.
-   *         </p>
-   */
-  maxResults?: number;
-
-  /**
-   * <p>
    *             Pagination token. Set to null to start listing projects from start.
    *             If non-null pagination token is returned in a result, then pass its
    *             value in here in another request to list more projects.
    *         </p>
    */
   nextToken?: string;
+
+  /**
+   * <p>
+   *             Maximum number of records to list in a single response.
+   *         </p>
+   */
+  maxResults?: number;
 }
 
 export namespace ListProjectsRequest {

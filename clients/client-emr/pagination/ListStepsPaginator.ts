@@ -29,7 +29,7 @@ export async function* listStepsPaginate(
   let hasNext = true;
   let page: ListStepsCommandOutput;
   while (hasNext) {
-    input["Marker"] = token;
+    input.Marker = token;
     if (config.client instanceof EMR) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
     } else if (config.client instanceof EMRClient) {
@@ -38,7 +38,7 @@ export async function* listStepsPaginate(
       throw new Error("Invalid client, expected EMR | EMRClient");
     }
     yield page;
-    token = page["Marker"];
+    token = page.Marker;
     hasNext = !!token;
   }
   // @ts-ignore

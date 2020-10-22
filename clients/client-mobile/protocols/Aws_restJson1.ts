@@ -43,9 +43,9 @@ export const serializeAws_restJson1CreateProjectCommand = async (
   };
   let resolvedPath = "/projects";
   const query: any = {
-    ...(input.region !== undefined && { region: input.region }),
-    ...(input.snapshotId !== undefined && { snapshotId: input.snapshotId }),
     ...(input.name !== undefined && { name: input.name }),
+    ...(input.snapshotId !== undefined && { snapshotId: input.snapshotId }),
+    ...(input.region !== undefined && { region: input.region }),
   };
   let body: any;
   if (input.contents !== undefined) {
@@ -168,8 +168,8 @@ export const serializeAws_restJson1ExportBundleCommand = async (
     throw new Error("No value provided for input HTTP label: bundleId.");
   }
   const query: any = {
-    ...(input.projectId !== undefined && { projectId: input.projectId }),
     ...(input.platform !== undefined && { platform: input.platform }),
+    ...(input.projectId !== undefined && { projectId: input.projectId }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -250,8 +250,8 @@ export const serializeAws_restJson1ListProjectsCommand = async (
   };
   let resolvedPath = "/projects";
   const query: any = {
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();

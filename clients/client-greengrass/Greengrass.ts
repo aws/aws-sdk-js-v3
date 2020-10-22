@@ -258,6 +258,11 @@ import {
   GetSubscriptionDefinitionVersionCommandOutput,
 } from "./commands/GetSubscriptionDefinitionVersionCommand";
 import {
+  GetThingRuntimeConfigurationCommand,
+  GetThingRuntimeConfigurationCommandInput,
+  GetThingRuntimeConfigurationCommandOutput,
+} from "./commands/GetThingRuntimeConfigurationCommand";
+import {
   ListBulkDeploymentDetailedReportsCommand,
   ListBulkDeploymentDetailedReportsCommandInput,
   ListBulkDeploymentDetailedReportsCommandOutput,
@@ -425,6 +430,11 @@ import {
   UpdateSubscriptionDefinitionCommandInput,
   UpdateSubscriptionDefinitionCommandOutput,
 } from "./commands/UpdateSubscriptionDefinitionCommand";
+import {
+  UpdateThingRuntimeConfigurationCommand,
+  UpdateThingRuntimeConfigurationCommandInput,
+  UpdateThingRuntimeConfigurationCommandOutput,
+} from "./commands/UpdateThingRuntimeConfigurationCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
@@ -2142,6 +2152,38 @@ export class Greengrass extends GreengrassClient {
   }
 
   /**
+   * Get the runtime configuration of a thing.
+   */
+  public getThingRuntimeConfiguration(
+    args: GetThingRuntimeConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetThingRuntimeConfigurationCommandOutput>;
+  public getThingRuntimeConfiguration(
+    args: GetThingRuntimeConfigurationCommandInput,
+    cb: (err: any, data?: GetThingRuntimeConfigurationCommandOutput) => void
+  ): void;
+  public getThingRuntimeConfiguration(
+    args: GetThingRuntimeConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetThingRuntimeConfigurationCommandOutput) => void
+  ): void;
+  public getThingRuntimeConfiguration(
+    args: GetThingRuntimeConfigurationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetThingRuntimeConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: GetThingRuntimeConfigurationCommandOutput) => void
+  ): Promise<GetThingRuntimeConfigurationCommandOutput> | void {
+    const command = new GetThingRuntimeConfigurationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * Gets a paginated list of the deployments that have been started in a bulk deployment operation, and their current deployment status.
    */
   public listBulkDeploymentDetailedReports(
@@ -3265,6 +3307,38 @@ export class Greengrass extends GreengrassClient {
     cb?: (err: any, data?: UpdateSubscriptionDefinitionCommandOutput) => void
   ): Promise<UpdateSubscriptionDefinitionCommandOutput> | void {
     const command = new UpdateSubscriptionDefinitionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * Updates the runtime configuration of a thing.
+   */
+  public updateThingRuntimeConfiguration(
+    args: UpdateThingRuntimeConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateThingRuntimeConfigurationCommandOutput>;
+  public updateThingRuntimeConfiguration(
+    args: UpdateThingRuntimeConfigurationCommandInput,
+    cb: (err: any, data?: UpdateThingRuntimeConfigurationCommandOutput) => void
+  ): void;
+  public updateThingRuntimeConfiguration(
+    args: UpdateThingRuntimeConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateThingRuntimeConfigurationCommandOutput) => void
+  ): void;
+  public updateThingRuntimeConfiguration(
+    args: UpdateThingRuntimeConfigurationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateThingRuntimeConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: UpdateThingRuntimeConfigurationCommandOutput) => void
+  ): Promise<UpdateThingRuntimeConfigurationCommandOutput> | void {
+    const command = new UpdateThingRuntimeConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

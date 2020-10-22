@@ -199,6 +199,7 @@ import {
   ListTagsForResourceResponse,
   NetworkAccessConfiguration,
   OperationNotPermittedException,
+  RequestLimitExceededException,
   ResourceAlreadyExistsException,
   ResourceError,
   ResourceInUseException,
@@ -984,6 +985,14 @@ const deserializeAws_json1_1BatchAssociateUserStackCommandError = async (
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
+    case "InvalidParameterCombinationException":
+    case "com.amazonaws.appstream#InvalidParameterCombinationException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterCombinationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "OperationNotPermittedException":
     case "com.amazonaws.appstream#OperationNotPermittedException":
       response = {
@@ -1039,6 +1048,22 @@ const deserializeAws_json1_1BatchDisassociateUserStackCommandError = async (
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
+    case "InvalidParameterCombinationException":
+    case "com.amazonaws.appstream#InvalidParameterCombinationException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterCombinationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "OperationNotPermittedException":
+    case "com.amazonaws.appstream#OperationNotPermittedException":
+      response = {
+        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     default:
       const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
@@ -1189,6 +1214,14 @@ const deserializeAws_json1_1CreateDirectoryConfigCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "InvalidRoleException":
+    case "com.amazonaws.appstream#InvalidRoleException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidRoleExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "LimitExceededException":
     case "com.amazonaws.appstream#LimitExceededException":
       response = {
@@ -1197,10 +1230,26 @@ const deserializeAws_json1_1CreateDirectoryConfigCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "OperationNotPermittedException":
+    case "com.amazonaws.appstream#OperationNotPermittedException":
+      response = {
+        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "ResourceAlreadyExistsException":
     case "com.amazonaws.appstream#ResourceAlreadyExistsException":
       response = {
         ...(await deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.appstream#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -1304,6 +1353,14 @@ const deserializeAws_json1_1CreateFleetCommandError = async (
     case "com.amazonaws.appstream#OperationNotPermittedException":
       response = {
         ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "RequestLimitExceededException":
+    case "com.amazonaws.appstream#RequestLimitExceededException":
+      response = {
+        ...(await deserializeAws_json1_1RequestLimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -1431,6 +1488,14 @@ const deserializeAws_json1_1CreateImageBuilderCommandError = async (
     case "com.amazonaws.appstream#OperationNotPermittedException":
       response = {
         ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "RequestLimitExceededException":
+    case "com.amazonaws.appstream#RequestLimitExceededException":
+      response = {
+        ...(await deserializeAws_json1_1RequestLimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -2972,6 +3037,14 @@ const deserializeAws_json1_1DescribeUserStackAssociationsCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "OperationNotPermittedException":
+    case "com.amazonaws.appstream#OperationNotPermittedException":
+      response = {
+        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     default:
       const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
@@ -3078,6 +3151,14 @@ const deserializeAws_json1_1DisassociateFleetCommandError = async (
     case "com.amazonaws.appstream#ConcurrentModificationException":
       response = {
         ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "OperationNotPermittedException":
+    case "com.amazonaws.appstream#OperationNotPermittedException":
+      response = {
+        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -3440,6 +3521,14 @@ const deserializeAws_json1_1StartFleetCommandError = async (
     case "com.amazonaws.appstream#OperationNotPermittedException":
       response = {
         ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "RequestLimitExceededException":
+    case "com.amazonaws.appstream#RequestLimitExceededException":
+      response = {
+        ...(await deserializeAws_json1_1RequestLimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -3862,6 +3951,22 @@ const deserializeAws_json1_1UpdateDirectoryConfigCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "InvalidRoleException":
+    case "com.amazonaws.appstream#InvalidRoleException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidRoleExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "OperationNotPermittedException":
+    case "com.amazonaws.appstream#OperationNotPermittedException":
+      response = {
+        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "ResourceInUseException":
     case "com.amazonaws.appstream#ResourceInUseException":
       response = {
@@ -3977,6 +4082,14 @@ const deserializeAws_json1_1UpdateFleetCommandError = async (
     case "com.amazonaws.appstream#OperationNotPermittedException":
       response = {
         ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "RequestLimitExceededException":
+    case "com.amazonaws.appstream#RequestLimitExceededException":
+      response = {
+        ...(await deserializeAws_json1_1RequestLimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -4317,6 +4430,21 @@ const deserializeAws_json1_1OperationNotPermittedExceptionResponse = async (
   return contents;
 };
 
+const deserializeAws_json1_1RequestLimitExceededExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<RequestLimitExceededException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1RequestLimitExceededException(body, context);
+  const contents: RequestLimitExceededException = {
+    name: "RequestLimitExceededException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
 const deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -4496,6 +4624,7 @@ const serializeAws_json1_1CreateFleetRequest = (input: CreateFleetRequest, conte
     ...(input.InstanceType !== undefined && { InstanceType: input.InstanceType }),
     ...(input.MaxUserDurationInSeconds !== undefined && { MaxUserDurationInSeconds: input.MaxUserDurationInSeconds }),
     ...(input.Name !== undefined && { Name: input.Name }),
+    ...(input.StreamView !== undefined && { StreamView: input.StreamView }),
     ...(input.Tags !== undefined && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
     ...(input.VpcConfig !== undefined && { VpcConfig: serializeAws_json1_1VpcConfig(input.VpcConfig, context) }),
   };
@@ -5001,6 +5130,7 @@ const serializeAws_json1_1UpdateFleetRequest = (input: UpdateFleetRequest, conte
     ...(input.InstanceType !== undefined && { InstanceType: input.InstanceType }),
     ...(input.MaxUserDurationInSeconds !== undefined && { MaxUserDurationInSeconds: input.MaxUserDurationInSeconds }),
     ...(input.Name !== undefined && { Name: input.Name }),
+    ...(input.StreamView !== undefined && { StreamView: input.StreamView }),
     ...(input.VpcConfig !== undefined && { VpcConfig: serializeAws_json1_1VpcConfig(input.VpcConfig, context) }),
   };
 };
@@ -5534,6 +5664,7 @@ const deserializeAws_json1_1Fleet = (output: any, context: __SerdeContext): Flee
         : undefined,
     Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
     State: output.State !== undefined && output.State !== null ? output.State : undefined,
+    StreamView: output.StreamView !== undefined && output.StreamView !== null ? output.StreamView : undefined,
     VpcConfig:
       output.VpcConfig !== undefined && output.VpcConfig !== null
         ? deserializeAws_json1_1VpcConfig(output.VpcConfig, context)
@@ -5813,6 +5944,15 @@ const deserializeAws_json1_1OrganizationalUnitDistinguishedNamesList = (
   context: __SerdeContext
 ): string[] => {
   return (output || []).map((entry: any) => entry);
+};
+
+const deserializeAws_json1_1RequestLimitExceededException = (
+  output: any,
+  context: __SerdeContext
+): RequestLimitExceededException => {
+  return {
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+  } as any;
 };
 
 const deserializeAws_json1_1ResourceAlreadyExistsException = (

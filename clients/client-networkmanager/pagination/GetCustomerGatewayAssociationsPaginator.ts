@@ -33,7 +33,7 @@ export async function* getCustomerGatewayAssociationsPaginate(
   let hasNext = true;
   let page: GetCustomerGatewayAssociationsCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof NetworkManager) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* getCustomerGatewayAssociationsPaginate(
       throw new Error("Invalid client, expected NetworkManager | NetworkManagerClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

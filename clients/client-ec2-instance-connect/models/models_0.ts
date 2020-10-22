@@ -48,9 +48,9 @@ export namespace InvalidArgsException {
 
 export interface SendSSHPublicKeyRequest {
   /**
-   * <p>The availability zone the EC2 instance was launched in.</p>
+   * <p>The public key to be published to the instance.  To use it after publication you must have the matching private key.</p>
    */
-  AvailabilityZone: string | undefined;
+  SSHPublicKey: string | undefined;
 
   /**
    * <p>The EC2 instance you wish to publish the SSH key to.</p>
@@ -58,9 +58,9 @@ export interface SendSSHPublicKeyRequest {
   InstanceId: string | undefined;
 
   /**
-   * <p>The public key to be published to the instance.  To use it after publication you must have the matching private key.</p>
+   * <p>The availability zone the EC2 instance was launched in.</p>
    */
-  SSHPublicKey: string | undefined;
+  AvailabilityZone: string | undefined;
 
   /**
    * <p>The OS user on the EC2 instance whom the key may be used to authenticate as.</p>

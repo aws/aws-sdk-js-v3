@@ -105,14 +105,14 @@ export enum DefinitionLanguage {
  */
 export interface DefinitionDocument {
   /**
-   * <p>The language used to define the entity. <code>GRAPHQL</code> is the only valid value.</p>
-   */
-  language: DefinitionLanguage | string | undefined;
-
-  /**
    * <p>The GraphQL text that defines the entity.</p>
    */
   text: string | undefined;
+
+  /**
+   * <p>The language used to define the entity. <code>GRAPHQL</code> is the only valid value.</p>
+   */
+  language: DefinitionLanguage | string | undefined;
 }
 
 export namespace DefinitionDocument {
@@ -145,11 +145,6 @@ export namespace CreateFlowTemplateRequest {
  */
 export interface FlowTemplateSummary {
   /**
-   * <p>The date when the workflow was created.</p>
-   */
-  createdAt?: Date;
-
-  /**
    * <p>The revision number of the workflow.</p>
    */
   revisionNumber?: number;
@@ -163,6 +158,11 @@ export interface FlowTemplateSummary {
    * <p>The ARN of the workflow.</p>
    */
   arn?: string;
+
+  /**
+   * <p>The date when the workflow was created.</p>
+   */
+  createdAt?: Date;
 }
 
 export namespace FlowTemplateSummary {
@@ -219,14 +219,14 @@ export namespace ResourceAlreadyExistsException {
  */
 export interface MetricsConfiguration {
   /**
-   * <p>The ARN of the role that is used to collect cloud metrics.</p>
-   */
-  metricRuleRoleArn?: string;
-
-  /**
    * <p>A Boolean that specifies whether cloud metrics are collected.</p>
    */
   cloudMetricEnabled?: boolean;
+
+  /**
+   * <p>The ARN of the role that is used to collect cloud metrics.</p>
+   */
+  metricRuleRoleArn?: string;
 }
 
 export namespace MetricsConfiguration {
@@ -240,14 +240,14 @@ export namespace MetricsConfiguration {
  */
 export interface Tag {
   /**
-   * <p>The optional value of the tag. The string value can be from 1 to 256 Unicode characters in length.</p>
-   */
-  value: string | undefined;
-
-  /**
    * <p>The required name of the tag. The string value can be from 1 to 128 Unicode characters in length.</p>
    */
   key: string | undefined;
+
+  /**
+   * <p>The optional value of the tag. The string value can be from 1 to 256 Unicode characters in length.</p>
+   */
+  value: string | undefined;
 }
 
 export namespace Tag {
@@ -262,17 +262,6 @@ export enum DeploymentTarget {
 }
 
 export interface CreateSystemInstanceRequest {
-  /**
-   * <p>The name of the Amazon Simple Storage Service bucket that will be used to store and deploy the system instance's resource file. This value is required if
-   *          the value of the <code>target</code> parameter is <code>GREENGRASS</code>.</p>
-   */
-  s3BucketName?: string;
-
-  /**
-   * <p>An object that specifies whether cloud metrics are collected in a deployment and, if so, what role is used to collect metrics.</p>
-   */
-  metricsConfiguration?: MetricsConfiguration;
-
   /**
    * <p>The name of the Greengrass group where the system instance will be deployed. This value is required if
    *       the value of the <code>target</code> parameter is <code>GREENGRASS</code>.</p>
@@ -300,6 +289,17 @@ export interface CreateSystemInstanceRequest {
    *       value is required if the value of the <code>target</code> parameter is <code>CLOUD</code>.</p>
    */
   flowActionsRoleArn?: string;
+
+  /**
+   * <p>An object that specifies whether cloud metrics are collected in a deployment and, if so, what role is used to collect metrics.</p>
+   */
+  metricsConfiguration?: MetricsConfiguration;
+
+  /**
+   * <p>The name of the Amazon Simple Storage Service bucket that will be used to store and deploy the system instance's resource file. This value is required if
+   *          the value of the <code>target</code> parameter is <code>GREENGRASS</code>.</p>
+   */
+  s3BucketName?: string;
 }
 
 export namespace CreateSystemInstanceRequest {
@@ -324,14 +324,9 @@ export enum SystemInstanceDeploymentStatus {
  */
 export interface SystemInstanceSummary {
   /**
-   * <p>The ID of the Greengrass group where the system instance is deployed.</p>
+   * <p>The target of the system instance.</p>
    */
-  greengrassGroupId?: string;
-
-  /**
-   * <p>The date when the system instance was created.</p>
-   */
-  createdAt?: Date;
+  target?: DeploymentTarget | string;
 
   /**
    * <p>The version of the Greengrass group where the system instance is deployed.</p>
@@ -339,9 +334,24 @@ export interface SystemInstanceSummary {
   greengrassGroupVersionId?: string;
 
   /**
-   * <p>The ARN of the system instance.</p>
+   * <p>The date when the system instance was created.</p>
    */
-  arn?: string;
+  createdAt?: Date;
+
+  /**
+   * <p>The ID of the system instance.</p>
+   */
+  id?: string;
+
+  /**
+   * <p>The ID of the Greengrass group where the system instance is deployed.</p>
+   */
+  greengrassGroupId?: string;
+
+  /**
+   * <p>The status of the system instance.</p>
+   */
+  status?: SystemInstanceDeploymentStatus | string;
 
   /**
    * <p>
@@ -351,19 +361,9 @@ export interface SystemInstanceSummary {
   updatedAt?: Date;
 
   /**
-   * <p>The status of the system instance.</p>
+   * <p>The ARN of the system instance.</p>
    */
-  status?: SystemInstanceDeploymentStatus | string;
-
-  /**
-   * <p>The ID of the system instance.</p>
-   */
-  id?: string;
-
-  /**
-   * <p>The target of the system instance.</p>
-   */
-  target?: DeploymentTarget | string;
+  arn?: string;
 
   /**
    * <p>The ID of the Greengrass group where the system instance is deployed.</p>
@@ -392,15 +392,15 @@ export namespace CreateSystemInstanceResponse {
 
 export interface CreateSystemTemplateRequest {
   /**
-   * <p>The <code>DefinitionDocument</code> used to create the system.</p>
-   */
-  definition: DefinitionDocument | undefined;
-
-  /**
    * <p>The namespace version in which the system is to be created.</p>
    *          <p>If no value is specified, the latest version is used by default.</p>
    */
   compatibleNamespaceVersion?: number;
+
+  /**
+   * <p>The <code>DefinitionDocument</code> used to create the system.</p>
+   */
+  definition: DefinitionDocument | undefined;
 }
 
 export namespace CreateSystemTemplateRequest {
@@ -413,11 +413,6 @@ export namespace CreateSystemTemplateRequest {
  * <p>An object that contains information about a system.</p>
  */
 export interface SystemTemplateSummary {
-  /**
-   * <p>The revision number of the system.</p>
-   */
-  revisionNumber?: number;
-
   /**
    * <p>The ID of the system.</p>
    */
@@ -432,6 +427,11 @@ export interface SystemTemplateSummary {
    * <p>The date when the system was created.</p>
    */
   createdAt?: Date;
+
+  /**
+   * <p>The revision number of the system.</p>
+   */
+  revisionNumber?: number;
 }
 
 export namespace SystemTemplateSummary {
@@ -691,24 +691,24 @@ export interface DescribeNamespaceResponse {
   trackingNamespaceVersion?: number;
 
   /**
-   * <p>The name of the public namespace that the latest namespace version is tracking.</p>
-   */
-  trackingNamespaceName?: string;
-
-  /**
    * <p>The version of the user's namespace to describe.</p>
    */
   namespaceVersion?: number;
 
   /**
-   * <p>The name of the namespace.</p>
+   * <p>The name of the public namespace that the latest namespace version is tracking.</p>
    */
-  namespaceName?: string;
+  trackingNamespaceName?: string;
 
   /**
    * <p>The ARN of the namespace.</p>
    */
   namespaceArn?: string;
+
+  /**
+   * <p>The name of the namespace.</p>
+   */
+  namespaceName?: string;
 }
 
 export namespace DescribeNamespaceResponse {
@@ -761,16 +761,6 @@ export namespace DissociateEntityFromThingResponse {
  */
 export interface EntityDescription {
   /**
-   * <p>The entity ID.</p>
-   */
-  id?: string;
-
-  /**
-   * <p>The entity ARN.</p>
-   */
-  arn?: string;
-
-  /**
    * <p>The time at which the entity was created.</p>
    */
   createdAt?: Date;
@@ -784,6 +774,16 @@ export interface EntityDescription {
    * <p>The definition document of the entity.</p>
    */
   definition?: DefinitionDocument;
+
+  /**
+   * <p>The entity ID.</p>
+   */
+  id?: string;
+
+  /**
+   * <p>The entity ARN.</p>
+   */
+  arn?: string;
 }
 
 export namespace EntityDescription {
@@ -806,15 +806,15 @@ export enum EntityFilterName {
  */
 export interface EntityFilter {
   /**
-   * <p>An array of string values for the search filter field. Multiple values function as AND criteria in the search.</p>
-   */
-  value?: string[];
-
-  /**
    * <p>The name of the entity search filter field. <code>REFERENCED_ENTITY_ID</code> filters on entities that are used by the entity in the result set. For example,
    *          you can filter on the ID of a property that is used in a state.</p>
    */
   name?: EntityFilterName | string;
+
+  /**
+   * <p>An array of string values for the search filter field. Multiple values function as AND criteria in the search.</p>
+   */
+  value?: string[];
 }
 
 export namespace EntityFilter {
@@ -848,11 +848,6 @@ export enum FlowExecutionEventType {
  */
 export interface FlowExecutionMessage {
   /**
-   * <p>The type of flow event .</p>
-   */
-  eventType?: FlowExecutionEventType | string;
-
-  /**
    * <p>The unique identifier of the message.</p>
    */
   messageId?: string;
@@ -861,6 +856,11 @@ export interface FlowExecutionMessage {
    * <p>A string containing information about the flow event.</p>
    */
   payload?: string;
+
+  /**
+   * <p>The type of flow event .</p>
+   */
+  eventType?: FlowExecutionEventType | string;
 
   /**
    * <p>The date and time when the message was last updated.</p>
@@ -886,19 +886,14 @@ export enum FlowExecutionStatus {
  */
 export interface FlowExecutionSummary {
   /**
-   * <p>The ID of the flow.</p>
+   * <p>The date and time when the flow execution summary was created.</p>
    */
-  flowTemplateId?: string;
+  createdAt?: Date;
 
   /**
    * <p>The date and time when the flow execution summary was last updated.</p>
    */
   updatedAt?: Date;
-
-  /**
-   * <p>The date and time when the flow execution summary was created.</p>
-   */
-  createdAt?: Date;
 
   /**
    * <p>The ID of the flow execution.</p>
@@ -914,6 +909,11 @@ export interface FlowExecutionSummary {
    * <p>The current status of the flow execution.</p>
    */
   status?: FlowExecutionStatus | string;
+
+  /**
+   * <p>The ID of the flow.</p>
+   */
+  flowTemplateId?: string;
 }
 
 export namespace FlowExecutionSummary {
@@ -957,14 +957,14 @@ export enum FlowTemplateFilterName {
  */
 export interface FlowTemplateFilter {
   /**
-   * <p>An array of string values for the search filter field. Multiple values function as AND criteria in the search.</p>
-   */
-  value: string[] | undefined;
-
-  /**
    * <p>The name of the search filter field.</p>
    */
   name: FlowTemplateFilterName | string | undefined;
+
+  /**
+   * <p>An array of string values for the search filter field. Multiple values function as AND criteria in the search.</p>
+   */
+  value: string[] | undefined;
 }
 
 export namespace FlowTemplateFilter {
@@ -975,11 +975,6 @@ export namespace FlowTemplateFilter {
 
 export interface GetEntitiesRequest {
   /**
-   * <p>The version of the user's namespace. Defaults to the latest version of the user's namespace.</p>
-   */
-  namespaceVersion?: number;
-
-  /**
    * <p>An array of entity IDs.</p>
    *          <p>The IDs should be in the following format.</p>
    *          <p>
@@ -987,6 +982,11 @@ export interface GetEntitiesRequest {
    *          </p>
    */
   ids: string[] | undefined;
+
+  /**
+   * <p>The version of the user's namespace. Defaults to the latest version of the user's namespace.</p>
+   */
+  namespaceVersion?: number;
 }
 
 export namespace GetEntitiesRequest {
@@ -1072,14 +1072,14 @@ export namespace GetFlowTemplateRevisionsRequest {
 
 export interface GetFlowTemplateRevisionsResponse {
   /**
-   * <p>An array of objects that provide summary data about each revision.</p>
-   */
-  summaries?: FlowTemplateSummary[];
-
-  /**
    * <p>The string to specify as <code>nextToken</code> when you request the next page of results.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>An array of objects that provide summary data about each revision.</p>
+   */
+  summaries?: FlowTemplateSummary[];
 }
 
 export namespace GetFlowTemplateRevisionsResponse {
@@ -1108,16 +1108,6 @@ export enum NamespaceDeletionStatus {
 
 export interface GetNamespaceDeletionStatusResponse {
   /**
-   * <p>The name of the namespace that is being deleted.</p>
-   */
-  namespaceName?: string;
-
-  /**
-   * <p>An error code returned by the namespace deletion task.</p>
-   */
-  errorCode?: NamespaceDeletionStatusErrorCodes | string;
-
-  /**
    * <p>The status of the deletion request.</p>
    */
   status?: NamespaceDeletionStatus | string;
@@ -1126,6 +1116,16 @@ export interface GetNamespaceDeletionStatusResponse {
    * <p>The ARN of the namespace that is being deleted.</p>
    */
   namespaceArn?: string;
+
+  /**
+   * <p>An error code returned by the namespace deletion task.</p>
+   */
+  errorCode?: NamespaceDeletionStatusErrorCodes | string;
+
+  /**
+   * <p>The name of the namespace that is being deleted.</p>
+   */
+  namespaceName?: string;
 
   /**
    * <p>An error code returned by the namespace deletion task.</p>
@@ -1161,6 +1161,13 @@ export namespace GetSystemInstanceRequest {
  */
 export interface SystemInstanceDescription {
   /**
+   * <p>The AWS Identity and Access Management (IAM) role that AWS IoT Things Graph assumes during flow execution in a
+   *       cloud deployment. This role must have read and write permissionss to AWS Lambda and AWS IoT and to any other
+   *       AWS services that the flow uses.</p>
+   */
+  flowActionsRoleArn?: string;
+
+  /**
    * <p>A list of objects that contain all of the IDs and revision numbers of workflows and systems that are used in a system instance.</p>
    */
   validatedDependencyRevisions?: DependencyRevision[];
@@ -1171,16 +1178,14 @@ export interface SystemInstanceDescription {
   s3BucketName?: string;
 
   /**
-   * <p>The AWS Identity and Access Management (IAM) role that AWS IoT Things Graph assumes during flow execution in a
-   *       cloud deployment. This role must have read and write permissionss to AWS Lambda and AWS IoT and to any other
-   *       AWS services that the flow uses.</p>
-   */
-  flowActionsRoleArn?: string;
-
-  /**
    * <p>An object that specifies whether cloud metrics are collected in a deployment and, if so, what role is used to collect metrics.</p>
    */
   metricsConfiguration?: MetricsConfiguration;
+
+  /**
+   * <p>A document that defines an entity. </p>
+   */
+  definition?: DefinitionDocument;
 
   /**
    * <p>The version of the user's namespace against which the system instance was validated.</p>
@@ -1191,11 +1196,6 @@ export interface SystemInstanceDescription {
    * <p>An object that contains summary information about a system instance.</p>
    */
   summary?: SystemInstanceSummary;
-
-  /**
-   * <p>A document that defines an entity. </p>
-   */
-  definition?: DefinitionDocument;
 }
 
 export namespace SystemInstanceDescription {
@@ -1219,11 +1219,6 @@ export namespace GetSystemInstanceResponse {
 
 export interface GetSystemTemplateRequest {
   /**
-   * <p>The number that specifies the revision of the system to get.</p>
-   */
-  revisionNumber?: number;
-
-  /**
    * <p>The ID of the system to get. This ID must be in the user's namespace.</p>
    *          <p>The ID should be in the following format.</p>
    *          <p>
@@ -1231,6 +1226,11 @@ export interface GetSystemTemplateRequest {
    *          </p>
    */
   id: string | undefined;
+
+  /**
+   * <p>The number that specifies the revision of the system to get.</p>
+   */
+  revisionNumber?: number;
 }
 
 export namespace GetSystemTemplateRequest {
@@ -1249,14 +1249,14 @@ export interface SystemTemplateDescription {
   validatedNamespaceVersion?: number;
 
   /**
-   * <p>The definition document of a system.</p>
-   */
-  definition?: DefinitionDocument;
-
-  /**
    * <p>An object that contains summary information about a system.</p>
    */
   summary?: SystemTemplateSummary;
+
+  /**
+   * <p>The definition document of a system.</p>
+   */
+  definition?: DefinitionDocument;
 }
 
 export namespace SystemTemplateDescription {
@@ -1280,13 +1280,9 @@ export namespace GetSystemTemplateResponse {
 
 export interface GetSystemTemplateRevisionsRequest {
   /**
-   * <p>The ID of the system template.</p>
-   *          <p>The ID should be in the following format.</p>
-   *          <p>
-   *             <code>urn:tdm:REGION/ACCOUNT ID/default:system:SYSTEMNAME</code>
-   *          </p>
+   * <p>The string that specifies the next page of results. Use this when you're paginating results.</p>
    */
-  id: string | undefined;
+  nextToken?: string;
 
   /**
    * <p>The maximum number of results to return in the response.</p>
@@ -1294,9 +1290,13 @@ export interface GetSystemTemplateRevisionsRequest {
   maxResults?: number;
 
   /**
-   * <p>The string that specifies the next page of results. Use this when you're paginating results.</p>
+   * <p>The ID of the system template.</p>
+   *          <p>The ID should be in the following format.</p>
+   *          <p>
+   *             <code>urn:tdm:REGION/ACCOUNT ID/default:system:SYSTEMNAME</code>
+   *          </p>
    */
-  nextToken?: string;
+  id: string | undefined;
 }
 
 export namespace GetSystemTemplateRevisionsRequest {
@@ -1344,9 +1344,9 @@ export enum UploadStatus {
 
 export interface GetUploadStatusResponse {
   /**
-   * <p>The ARN of the upload.</p>
+   * <p>The status of the upload. The initial status is <code>IN_PROGRESS</code>. The response show all validation failures if the upload fails.</p>
    */
-  namespaceArn?: string;
+  uploadStatus: UploadStatus | string | undefined;
 
   /**
    * <p>The reason for an upload failure.</p>
@@ -1359,9 +1359,9 @@ export interface GetUploadStatusResponse {
   uploadId: string | undefined;
 
   /**
-   * <p>The name of the upload's namespace.</p>
+   * <p>The date at which the upload was created.</p>
    */
-  namespaceName?: string;
+  createdDate: Date | undefined;
 
   /**
    * <p>The version of the user's namespace. Defaults to the latest version of the user's namespace.</p>
@@ -1369,14 +1369,14 @@ export interface GetUploadStatusResponse {
   namespaceVersion?: number;
 
   /**
-   * <p>The status of the upload. The initial status is <code>IN_PROGRESS</code>. The response show all validation failures if the upload fails.</p>
+   * <p>The name of the upload's namespace.</p>
    */
-  uploadStatus: UploadStatus | string | undefined;
+  namespaceName?: string;
 
   /**
-   * <p>The date at which the upload was created.</p>
+   * <p>The ARN of the upload.</p>
    */
-  createdDate: Date | undefined;
+  namespaceArn?: string;
 }
 
 export namespace GetUploadStatusResponse {
@@ -1392,14 +1392,14 @@ export interface ListFlowExecutionMessagesRequest {
   maxResults?: number;
 
   /**
-   * <p>The ID of the flow execution.</p>
-   */
-  flowExecutionId: string | undefined;
-
-  /**
    * <p>The string that specifies the next page of results. Use this when you're paginating results.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>The ID of the flow execution.</p>
+   */
+  flowExecutionId: string | undefined;
 }
 
 export namespace ListFlowExecutionMessagesRequest {
@@ -1469,6 +1469,16 @@ export namespace ListTagsForResourceResponse {
 
 export interface SearchEntitiesRequest {
   /**
+   * <p>The string that specifies the next page of results. Use this when you're paginating results.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>The entity types for which to search.</p>
+   */
+  entityTypes: (EntityType | string)[] | undefined;
+
+  /**
    * <p>Optional filter to apply to the search. Valid filters are <code>NAME</code>
    *             <code>NAMESPACE</code>, <code>SEMANTIC_TYPE_PATH</code> and <code>REFERENCED_ENTITY_ID</code>.
    *          <code>REFERENCED_ENTITY_ID</code> filters on entities that are used by the entity in the result set. For example,
@@ -1478,24 +1488,14 @@ export interface SearchEntitiesRequest {
   filters?: EntityFilter[];
 
   /**
-   * <p>The entity types for which to search.</p>
-   */
-  entityTypes: (EntityType | string)[] | undefined;
-
-  /**
-   * <p>The version of the user's namespace. Defaults to the latest version of the user's namespace.</p>
-   */
-  namespaceVersion?: number;
-
-  /**
    * <p>The maximum number of results to return in the response.</p>
    */
   maxResults?: number;
 
   /**
-   * <p>The string that specifies the next page of results. Use this when you're paginating results.</p>
+   * <p>The version of the user's namespace. Defaults to the latest version of the user's namespace.</p>
    */
-  nextToken?: string;
+  namespaceVersion?: number;
 }
 
 export namespace SearchEntitiesRequest {
@@ -1529,9 +1529,9 @@ export interface SearchFlowExecutionsRequest {
   maxResults?: number;
 
   /**
-   * <p>The date and time of the earliest flow execution to return.</p>
+   * <p>The string that specifies the next page of results. Use this when you're paginating results.</p>
    */
-  startTime?: Date;
+  nextToken?: string;
 
   /**
    * <p>The ID of a flow execution.</p>
@@ -1539,9 +1539,9 @@ export interface SearchFlowExecutionsRequest {
   flowExecutionId?: string;
 
   /**
-   * <p>The string that specifies the next page of results. Use this when you're paginating results.</p>
+   * <p>The date and time of the earliest flow execution to return.</p>
    */
-  nextToken?: string;
+  startTime?: Date;
 
   /**
    * <p>The ID of the system instance that contains the flow.</p>
@@ -1562,14 +1562,14 @@ export namespace SearchFlowExecutionsRequest {
 
 export interface SearchFlowExecutionsResponse {
   /**
-   * <p>The string to specify as <code>nextToken</code> when you request the next page of results.</p>
-   */
-  nextToken?: string;
-
-  /**
    * <p>An array of objects that contain summary information about each workflow execution in the result set.</p>
    */
   summaries?: FlowExecutionSummary[];
+
+  /**
+   * <p>The string to specify as <code>nextToken</code> when you request the next page of results.</p>
+   */
+  nextToken?: string;
 }
 
 export namespace SearchFlowExecutionsResponse {
@@ -1585,14 +1585,14 @@ export interface SearchFlowTemplatesRequest {
   nextToken?: string;
 
   /**
-   * <p>The maximum number of results to return in the response.</p>
-   */
-  maxResults?: number;
-
-  /**
    * <p>An array of objects that limit the result set. The only valid filter is <code>DEVICE_MODEL_ID</code>.</p>
    */
   filters?: FlowTemplateFilter[];
+
+  /**
+   * <p>The maximum number of results to return in the response.</p>
+   */
+  maxResults?: number;
 }
 
 export namespace SearchFlowTemplatesRequest {
@@ -1632,14 +1632,14 @@ export enum SystemInstanceFilterName {
  */
 export interface SystemInstanceFilter {
   /**
-   * <p>An array of string values for the search filter field. Multiple values function as AND criteria in the search. </p>
-   */
-  value?: string[];
-
-  /**
    * <p>The name of the search filter field.</p>
    */
   name?: SystemInstanceFilterName | string;
+
+  /**
+   * <p>An array of string values for the search filter field. Multiple values function as AND criteria in the search. </p>
+   */
+  value?: string[];
 }
 
 export namespace SystemInstanceFilter {
@@ -1675,14 +1675,14 @@ export namespace SearchSystemInstancesRequest {
 
 export interface SearchSystemInstancesResponse {
   /**
-   * <p>The string to specify as <code>nextToken</code> when you request the next page of results. </p>
-   */
-  nextToken?: string;
-
-  /**
    * <p>An array of objects that contain summary data abour the system instances in the result set.</p>
    */
   summaries?: SystemInstanceSummary[];
+
+  /**
+   * <p>The string to specify as <code>nextToken</code> when you request the next page of results. </p>
+   */
+  nextToken?: string;
 }
 
 export namespace SearchSystemInstancesResponse {
@@ -1723,14 +1723,14 @@ export interface SearchSystemTemplatesRequest {
   nextToken?: string;
 
   /**
-   * <p>An array of filters that limit the result set. The only valid filter is <code>FLOW_TEMPLATE_ID</code>.</p>
-   */
-  filters?: SystemTemplateFilter[];
-
-  /**
    * <p>The maximum number of results to return in the response.</p>
    */
   maxResults?: number;
+
+  /**
+   * <p>An array of filters that limit the result set. The only valid filter is <code>FLOW_TEMPLATE_ID</code>.</p>
+   */
+  filters?: SystemTemplateFilter[];
 }
 
 export namespace SearchSystemTemplatesRequest {
@@ -1759,6 +1759,11 @@ export namespace SearchSystemTemplatesResponse {
 
 export interface SearchThingsRequest {
   /**
+   * <p>The maximum number of results to return in the response.</p>
+   */
+  maxResults?: number;
+
+  /**
    * <p>The ID of the entity to which the things are associated.</p>
    *          <p>The IDs should be in the following format.</p>
    *          <p>
@@ -1766,11 +1771,6 @@ export interface SearchThingsRequest {
    *          </p>
    */
   entityId: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return in the response.</p>
-   */
-  maxResults?: number;
 
   /**
    * <p>The string that specifies the next page of results. Use this when you're paginating results.</p>
@@ -1812,14 +1812,14 @@ export namespace Thing {
 
 export interface SearchThingsResponse {
   /**
-   * <p>An array of things in the result set.</p>
-   */
-  things?: Thing[];
-
-  /**
    * <p>The string to specify as <code>nextToken</code> when you request the next page of results.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>An array of things in the result set.</p>
+   */
+  things?: Thing[];
 }
 
 export namespace SearchThingsResponse {
@@ -1909,9 +1909,13 @@ export namespace UntagResourceResponse {
 
 export interface UpdateFlowTemplateRequest {
   /**
-   * <p>The <code>DefinitionDocument</code> that contains the updated workflow definition.</p>
+   * <p>The ID of the workflow to be updated.</p>
+   *          <p>The ID should be in the following format.</p>
+   *          <p>
+   *             <code>urn:tdm:REGION/ACCOUNT ID/default:workflow:WORKFLOWNAME</code>
+   *          </p>
    */
-  definition: DefinitionDocument | undefined;
+  id: string | undefined;
 
   /**
    * <p>The version of the user's namespace.</p>
@@ -1921,13 +1925,9 @@ export interface UpdateFlowTemplateRequest {
   compatibleNamespaceVersion?: number;
 
   /**
-   * <p>The ID of the workflow to be updated.</p>
-   *          <p>The ID should be in the following format.</p>
-   *          <p>
-   *             <code>urn:tdm:REGION/ACCOUNT ID/default:workflow:WORKFLOWNAME</code>
-   *          </p>
+   * <p>The <code>DefinitionDocument</code> that contains the updated workflow definition.</p>
    */
-  id: string | undefined;
+  definition: DefinitionDocument | undefined;
 }
 
 export namespace UpdateFlowTemplateRequest {
@@ -1992,6 +1992,11 @@ export namespace UpdateSystemTemplateResponse {
 
 export interface UploadEntityDefinitionsRequest {
   /**
+   * <p>A Boolean that specifies whether to synchronize with the latest version of the public namespace. If set to <code>true</code>, the upload will create a new namespace version.</p>
+   */
+  syncWithPublicNamespace?: boolean;
+
+  /**
    * <p>A Boolean that specifies whether to deprecate all entities in the latest version before uploading the new <code>DefinitionDocument</code>.
    *          If set to <code>true</code>, the upload will create a new namespace version.</p>
    */
@@ -2001,11 +2006,6 @@ export interface UploadEntityDefinitionsRequest {
    * <p>The <code>DefinitionDocument</code> that defines the updated entities.</p>
    */
   document?: DefinitionDocument;
-
-  /**
-   * <p>A Boolean that specifies whether to synchronize with the latest version of the public namespace. If set to <code>true</code>, the upload will create a new namespace version.</p>
-   */
-  syncWithPublicNamespace?: boolean;
 }
 
 export namespace UploadEntityDefinitionsRequest {

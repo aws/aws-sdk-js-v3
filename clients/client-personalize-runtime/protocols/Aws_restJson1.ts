@@ -25,6 +25,7 @@ export const serializeAws_restJson1GetPersonalizedRankingCommand = async (
   body = JSON.stringify({
     ...(input.campaignArn !== undefined && { campaignArn: input.campaignArn }),
     ...(input.context !== undefined && { context: serializeAws_restJson1Context(input.context, context) }),
+    ...(input.filterArn !== undefined && { filterArn: input.filterArn }),
     ...(input.inputList !== undefined && { inputList: serializeAws_restJson1InputList(input.inputList, context) }),
     ...(input.userId !== undefined && { userId: input.userId }),
   });
@@ -79,10 +80,14 @@ export const deserializeAws_restJson1GetPersonalizedRankingCommand = async (
   const contents: GetPersonalizedRankingCommandOutput = {
     $metadata: deserializeMetadata(output),
     personalizedRanking: undefined,
+    recommendationId: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.personalizedRanking !== undefined && data.personalizedRanking !== null) {
     contents.personalizedRanking = deserializeAws_restJson1ItemList(data.personalizedRanking, context);
+  }
+  if (data.recommendationId !== undefined && data.recommendationId !== null) {
+    contents.recommendationId = data.recommendationId;
   }
   return Promise.resolve(contents);
 };
@@ -142,10 +147,14 @@ export const deserializeAws_restJson1GetRecommendationsCommand = async (
   const contents: GetRecommendationsCommandOutput = {
     $metadata: deserializeMetadata(output),
     itemList: undefined,
+    recommendationId: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.itemList !== undefined && data.itemList !== null) {
     contents.itemList = deserializeAws_restJson1ItemList(data.itemList, context);
+  }
+  if (data.recommendationId !== undefined && data.recommendationId !== null) {
+    contents.recommendationId = data.recommendationId;
   }
   return Promise.resolve(contents);
 };

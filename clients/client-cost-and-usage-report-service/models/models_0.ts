@@ -12,8 +12,7 @@ export enum AdditionalArtifact {
  */
 export interface DeleteReportDefinitionRequest {
   /**
-   * <p>The name of the report that you want to create. The name must be unique,
-   *         is case sensitive, and can't include spaces. </p>
+   * <p>The name of the report that you want to delete. The name must be unique, is case sensitive, and can't include spaces.</p>
    */
   ReportName?: string;
 }
@@ -118,12 +117,24 @@ export enum ReportVersioning {
 }
 
 export enum AWSRegion {
+  BAHRAIN = "me-south-1",
+  BEIJING = "cn-north-1",
+  CANADA_CENTRAL = "ca-central-1",
+  CAPE_TOWN = "af-south-1",
   FRANKFURT = "eu-central-1",
   HONG_KONG = "ap-east-1",
   IRELAND = "eu-west-1",
+  LONDON = "eu-west-2",
+  MILANO = "eu-south-1",
+  MUMBAI = "ap-south-1",
+  NINGXIA = "cn-northwest-1",
   NORTHERN_CALIFORNIA = "us-west-1",
+  OHIO = "us-east-2",
   OREGON = "us-west-2",
   OSAKA = "ap-northeast-3",
+  PARIS = "eu-west-3",
+  SAO_PAULO = "sa-east-1",
+  SEOUL = "ap-northeast-2",
   SINGAPORE = "ap-southeast-1",
   STOCKHOLM = "eu-north-1",
   SYDNEY = "ap-southeast-2",
@@ -134,6 +145,7 @@ export enum AWSRegion {
 export enum TimeUnit {
   DAILY = "DAILY",
   HOURLY = "HOURLY",
+  MONTHLY = "MONTHLY",
 }
 
 /**
@@ -150,9 +162,9 @@ export interface ReportDefinition {
   ReportVersioning?: ReportVersioning | string;
 
   /**
-   * <p>The length of time covered by the report. </p>
+   * <p>The format that AWS saves the report in.</p>
    */
-  TimeUnit: TimeUnit | string | undefined;
+  Format: ReportFormat | string | undefined;
 
   /**
    * <p>The name of the report that you want to create. The name must be unique,
@@ -161,20 +173,25 @@ export interface ReportDefinition {
   ReportName: string | undefined;
 
   /**
-   * <p>The compression format that AWS uses for the report.</p>
+   * <p>The length of time covered by the report. </p>
    */
-  Compression: CompressionFormat | string | undefined;
-
-  /**
-   * <p>The format that AWS saves the report in.</p>
-   */
-  Format: ReportFormat | string | undefined;
+  TimeUnit: TimeUnit | string | undefined;
 
   /**
    * <p>The prefix that AWS adds to the report name when AWS delivers the report. Your prefix
    *         can't include spaces.</p>
    */
   S3Prefix: string | undefined;
+
+  /**
+   * <p>The compression format that AWS uses for the report.</p>
+   */
+  Compression: CompressionFormat | string | undefined;
+
+  /**
+   * <p>The S3 bucket where AWS delivers the report.</p>
+   */
+  S3Bucket: string | undefined;
 
   /**
    * <p>A list of strings that indicate additional content that Amazon Web Services includes in the report, such as individual resource IDs. </p>
@@ -188,19 +205,14 @@ export interface ReportDefinition {
   RefreshClosedReports?: boolean;
 
   /**
-   * <p>The S3 bucket where AWS delivers the report.</p>
+   * <p>A list of manifests that you want Amazon Web Services to create for this report.</p>
    */
-  S3Bucket: string | undefined;
+  AdditionalArtifacts?: (AdditionalArtifact | string)[];
 
   /**
    * <p>The region of the S3 bucket that AWS delivers the report into.</p>
    */
   S3Region: AWSRegion | string | undefined;
-
-  /**
-   * <p>A list of manifests that you want Amazon Web Services to create for this report.</p>
-   */
-  AdditionalArtifacts?: (AdditionalArtifact | string)[];
 }
 
 export namespace ReportDefinition {
@@ -214,14 +226,14 @@ export namespace ReportDefinition {
  */
 export interface DescribeReportDefinitionsResponse {
   /**
-   * <p>A generic string.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>A list of AWS Cost and Usage reports owned by the account.</p>
    */
   ReportDefinitions?: ReportDefinition[];
+
+  /**
+   * <p>A generic string.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace DescribeReportDefinitionsResponse {

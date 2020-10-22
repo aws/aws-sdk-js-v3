@@ -33,7 +33,7 @@ export async function* describeDocumentVersionsPaginate(
   let hasNext = true;
   let page: DescribeDocumentVersionsCommandOutput;
   while (hasNext) {
-    input["Marker"] = token;
+    input.Marker = token;
     input["Limit"] = config.pageSize;
     if (config.client instanceof WorkDocs) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* describeDocumentVersionsPaginate(
       throw new Error("Invalid client, expected WorkDocs | WorkDocsClient");
     }
     yield page;
-    token = page["Marker"];
+    token = page.Marker;
     hasNext = !!token;
   }
   // @ts-ignore

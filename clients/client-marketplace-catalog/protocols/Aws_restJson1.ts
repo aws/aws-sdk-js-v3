@@ -69,8 +69,8 @@ export const serializeAws_restJson1DescribeChangeSetCommand = async (
   };
   let resolvedPath = "/DescribeChangeSet";
   const query: any = {
-    ...(input.Catalog !== undefined && { catalog: input.Catalog }),
     ...(input.ChangeSetId !== undefined && { changeSetId: input.ChangeSetId }),
+    ...(input.Catalog !== undefined && { catalog: input.Catalog }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -311,6 +311,7 @@ export const deserializeAws_restJson1DescribeChangeSetCommand = async (
     ChangeSetId: undefined,
     ChangeSetName: undefined,
     EndTime: undefined,
+    FailureCode: undefined,
     FailureDescription: undefined,
     StartTime: undefined,
     Status: undefined,
@@ -330,6 +331,9 @@ export const deserializeAws_restJson1DescribeChangeSetCommand = async (
   }
   if (data.EndTime !== undefined && data.EndTime !== null) {
     contents.EndTime = data.EndTime;
+  }
+  if (data.FailureCode !== undefined && data.FailureCode !== null) {
+    contents.FailureCode = data.FailureCode;
   }
   if (data.FailureDescription !== undefined && data.FailureDescription !== null) {
     contents.FailureDescription = data.FailureDescription;
@@ -1006,6 +1010,7 @@ const deserializeAws_restJson1ChangeSetSummaryListItem = (
       output.EntityIdList !== undefined && output.EntityIdList !== null
         ? deserializeAws_restJson1ResourceIdList(output.EntityIdList, context)
         : undefined,
+    FailureCode: output.FailureCode !== undefined && output.FailureCode !== null ? output.FailureCode : undefined,
     StartTime: output.StartTime !== undefined && output.StartTime !== null ? output.StartTime : undefined,
     Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
   } as any;

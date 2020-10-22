@@ -40,6 +40,11 @@ import {
   CreateEmailTemplateCommandOutput,
 } from "./commands/CreateEmailTemplateCommand";
 import {
+  CreateImportJobCommand,
+  CreateImportJobCommandInput,
+  CreateImportJobCommandOutput,
+} from "./commands/CreateImportJobCommand";
+import {
   DeleteConfigurationSetCommand,
   DeleteConfigurationSetCommandInput,
   DeleteConfigurationSetCommandOutput,
@@ -146,6 +151,11 @@ import {
   GetEmailTemplateCommandOutput,
 } from "./commands/GetEmailTemplateCommand";
 import {
+  GetImportJobCommand,
+  GetImportJobCommandInput,
+  GetImportJobCommandOutput,
+} from "./commands/GetImportJobCommand";
+import {
   GetSuppressedDestinationCommand,
   GetSuppressedDestinationCommandInput,
   GetSuppressedDestinationCommandOutput,
@@ -185,6 +195,11 @@ import {
   ListEmailTemplatesCommandInput,
   ListEmailTemplatesCommandOutput,
 } from "./commands/ListEmailTemplatesCommand";
+import {
+  ListImportJobsCommand,
+  ListImportJobsCommandInput,
+  ListImportJobsCommandOutput,
+} from "./commands/ListImportJobsCommand";
 import {
   ListSuppressedDestinationsCommand,
   ListSuppressedDestinationsCommandInput,
@@ -652,6 +667,38 @@ export class SESv2 extends SESv2Client {
     cb?: (err: any, data?: CreateEmailTemplateCommandOutput) => void
   ): Promise<CreateEmailTemplateCommandOutput> | void {
     const command = new CreateEmailTemplateCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates an import job for a data destination.</p>
+   */
+  public createImportJob(
+    args: CreateImportJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateImportJobCommandOutput>;
+  public createImportJob(
+    args: CreateImportJobCommandInput,
+    cb: (err: any, data?: CreateImportJobCommandOutput) => void
+  ): void;
+  public createImportJob(
+    args: CreateImportJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateImportJobCommandOutput) => void
+  ): void;
+  public createImportJob(
+    args: CreateImportJobCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateImportJobCommandOutput) => void),
+    cb?: (err: any, data?: CreateImportJobCommandOutput) => void
+  ): Promise<CreateImportJobCommandOutput> | void {
+    const command = new CreateImportJobCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1442,6 +1489,35 @@ export class SESv2 extends SESv2Client {
   }
 
   /**
+   * <p>Provides information about an import job.</p>
+   */
+  public getImportJob(
+    args: GetImportJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetImportJobCommandOutput>;
+  public getImportJob(args: GetImportJobCommandInput, cb: (err: any, data?: GetImportJobCommandOutput) => void): void;
+  public getImportJob(
+    args: GetImportJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetImportJobCommandOutput) => void
+  ): void;
+  public getImportJob(
+    args: GetImportJobCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetImportJobCommandOutput) => void),
+    cb?: (err: any, data?: GetImportJobCommandOutput) => void
+  ): Promise<GetImportJobCommandOutput> | void {
+    const command = new GetImportJobCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Retrieves information about a specific email address that's on the suppression list
    *             for your account.</p>
    */
@@ -1709,6 +1785,38 @@ export class SESv2 extends SESv2Client {
     cb?: (err: any, data?: ListEmailTemplatesCommandOutput) => void
   ): Promise<ListEmailTemplatesCommandOutput> | void {
     const command = new ListEmailTemplatesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Lists all of the import jobs.</p>
+   */
+  public listImportJobs(
+    args: ListImportJobsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListImportJobsCommandOutput>;
+  public listImportJobs(
+    args: ListImportJobsCommandInput,
+    cb: (err: any, data?: ListImportJobsCommandOutput) => void
+  ): void;
+  public listImportJobs(
+    args: ListImportJobsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListImportJobsCommandOutput) => void
+  ): void;
+  public listImportJobs(
+    args: ListImportJobsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListImportJobsCommandOutput) => void),
+    cb?: (err: any, data?: ListImportJobsCommandOutput) => void
+  ): Promise<ListImportJobsCommandOutput> | void {
+    const command = new ListImportJobsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

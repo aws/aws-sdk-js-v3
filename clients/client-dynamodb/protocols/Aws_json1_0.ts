@@ -7390,6 +7390,10 @@ const deserializeAws_json1_0ReplicaDescription = (output: any, context: __SerdeC
         ? deserializeAws_json1_0ProvisionedThroughputOverride(output.ProvisionedThroughputOverride, context)
         : undefined,
     RegionName: output.RegionName !== undefined && output.RegionName !== null ? output.RegionName : undefined,
+    ReplicaInaccessibleDateTime:
+      output.ReplicaInaccessibleDateTime !== undefined && output.ReplicaInaccessibleDateTime !== null
+        ? new Date(Math.round(output.ReplicaInaccessibleDateTime * 1000))
+        : undefined,
     ReplicaStatus:
       output.ReplicaStatus !== undefined && output.ReplicaStatus !== null ? output.ReplicaStatus : undefined,
     ReplicaStatusDescription:

@@ -29,7 +29,7 @@ export async function* listGroupsPaginate(
   let hasNext = true;
   let page: ListGroupsCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof WorkMail) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -39,7 +39,7 @@ export async function* listGroupsPaginate(
       throw new Error("Invalid client, expected WorkMail | WorkMailClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

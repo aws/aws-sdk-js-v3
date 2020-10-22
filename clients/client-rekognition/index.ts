@@ -20,6 +20,7 @@ export * from "./commands/DetectCustomLabelsCommand";
 export * from "./commands/DetectFacesCommand";
 export * from "./commands/DetectLabelsCommand";
 export * from "./commands/DetectModerationLabelsCommand";
+export * from "./commands/DetectProtectiveEquipmentCommand";
 export * from "./commands/DetectTextCommand";
 export * from "./commands/GetCelebrityInfoCommand";
 export * from "./commands/GetCelebrityRecognitionCommand";

@@ -12,6 +12,7 @@ export * from "./commands/GetQueueUrlCommand";
 export * from "./commands/ListDeadLetterSourceQueuesCommand";
 export * from "./pagination/ListDeadLetterSourceQueuesPaginator";
 export * from "./commands/ListQueuesCommand";
+export * from "./pagination/ListQueuesPaginator";
 export * from "./commands/ListQueueTagsCommand";
 export * from "./commands/PurgeQueueCommand";
 export * from "./commands/ReceiveMessageCommand";

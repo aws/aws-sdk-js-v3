@@ -42,48 +42,61 @@ export namespace ConflictException {
  */
 export interface EndpointDetails {
   /**
-   * <p>A list of subnet IDs that are required to host your file transfer protocol-enabled server
-   *       endpoint in your VPC.</p>
+   * <p>A list of address allocation IDs that are required to attach an Elastic IP address to your
+   *       server's endpoint.</p>
    *
    *          <note>
-   *             <p>This property can only be used when <code>EndpointType</code> is set to
-   *         <code>VPC</code>.</p>
+   *
+   *             <p>This property can only be set when <code>EndpointType</code> is set to <code>VPC</code>
+   *         and it is only valid in the <code>UpdateServer</code> API.</p>
    *          </note>
    */
-  SubnetIds?: string[];
+  AddressAllocationIds?: string[];
 
   /**
    * <p>The ID of the VPC endpoint.</p>
    *
    *          <note>
-   *             <p>This property can only be used when <code>EndpointType</code> is set to
+   *             <p>This property can only be set when <code>EndpointType</code> is set to
    *           <code>VPC_ENDPOINT</code>.</p>
    *          </note>
    */
   VpcEndpointId?: string;
 
   /**
-   * <p>A list of address allocation IDs that are required to attach an Elastic IP address to your
-   *       file transfer protocol-enabled server's endpoint. This is only valid in the
-   *         <code>UpdateServer</code> API.</p>
+   * <p>The VPC ID of the VPC in which a server's endpoint will be hosted.</p>
    *
    *          <note>
-   *             <p>This property can only be use when <code>EndpointType</code> is set to
-   *         <code>VPC</code>.</p>
-   *          </note>
-   */
-  AddressAllocationIds?: string[];
-
-  /**
-   * <p>The VPC ID of the VPC in which a file transfer protocol-enabled server's endpoint
-   *       will be hosted.</p>
-   *
-   *          <note>
-   *             <p>This property can only be used when <code>EndpointType</code> is set to
+   *             <p>This property can only be set when <code>EndpointType</code> is set to
    *         <code>VPC</code>.</p>
    *          </note>
    */
   VpcId?: string;
+
+  /**
+   * <p>A list of security groups IDs that are available to attach to your server's
+   *       endpoint.</p>
+   *
+   *          <note>
+   *             <p>This property can only be set when <code>EndpointType</code> is set to
+   *         <code>VPC</code>.</p>
+   *
+   *             <p>You can only edit the <code>SecurityGroupIds</code> property in the
+   *           <code>UpdateServer</code> API and only if you are changing the <code>EndpointType</code>
+   *         from <code>PUBLIC</code> or <code>VPC_ENDPOINT</code> to <code>VPC</code>.</p>
+   *          </note>
+   */
+  SecurityGroupIds?: string[];
+
+  /**
+   * <p>A list of subnet IDs that are required to host your server endpoint in your VPC.</p>
+   *
+   *          <note>
+   *             <p>This property can only be set when <code>EndpointType</code> is set to
+   *         <code>VPC</code>.</p>
+   *          </note>
+   */
+  SubnetIds?: string[];
 }
 
 export namespace EndpointDetails {
@@ -160,73 +173,6 @@ export namespace Tag {
 
 export interface CreateServerRequest {
   /**
-   * <p>The virtual private cloud (VPC) endpoint settings that are configured for your file
-   *       transfer protocol-enabled server. When you host your endpoint within your VPC, you can make it
-   *       accessible only to resources within your VPC, or you can attach Elastic IPs and make it
-   *       accessible to clients over the internet. Your VPC's default security groups are
-   *       automatically assigned to your endpoint.</p>
-   */
-  EndpointDetails?: EndpointDetails;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the AWS Certificate Manager (ACM) certificate. Required
-   *       when <code>Protocols</code> is set to <code>FTPS</code>.</p>
-   *
-   *          <p>To request a new public certificate, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-request-public.html">Request a public certificate</a>
-   *       in the <i> AWS Certificate Manager User Guide</i>.</p>
-   *
-   *          <p>To import an existing certificate into ACM, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html">Importing certificates into ACM</a>
-   *       in the <i> AWS Certificate Manager User Guide</i>.</p>
-   *
-   *          <p>To request a private certificate to use FTPS through private IP addresses, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-request-private.html">Request a
-   *         private certificate</a> in the <i> AWS Certificate Manager User
-   *       Guide</i>.</p>
-   *
-   *          <p>Certificates with the following cryptographic algorithms and key sizes are
-   *       supported:</p>
-   *
-   *          <ul>
-   *             <li>
-   *                <p>2048-bit RSA (RSA_2048)</p>
-   *             </li>
-   *             <li>
-   *                <p>4096-bit RSA (RSA_4096)</p>
-   *             </li>
-   *             <li>
-   *                <p>Elliptic Prime Curve 256 bit (EC_prime256v1)</p>
-   *             </li>
-   *             <li>
-   *                <p>Elliptic Prime Curve 384 bit (EC_secp384r1)</p>
-   *             </li>
-   *             <li>
-   *                <p>Elliptic Prime Curve 521 bit (EC_secp521r1)</p>
-   *             </li>
-   *          </ul>
-   *
-   *          <note>
-   *             <p>The certificate must be a valid SSL/TLS X.509 version 3 certificate with FQDN or IP
-   *         address specified and information about the issuer.</p>
-   *          </note>
-   */
-  Certificate?: string;
-
-  /**
-   * <p>Key-value pairs that can be used to group and search for file transfer protocol-enabled
-   *       servers.</p>
-   */
-  Tags?: Tag[];
-
-  /**
-   * <p>Specifies the mode of authentication for a file transfer protocol-enabled server. The
-   *       default value is <code>SERVICE_MANAGED</code>, which allows you to store and access user
-   *       credentials within the AWS Transfer Family service. Use the <code>API_GATEWAY</code> value to
-   *       integrate with an identity provider of your choosing. The <code>API_GATEWAY</code> setting
-   *       requires you to provide an API Gateway endpoint URL to call for authentication using the
-   *         <code>IdentityProviderDetails</code> parameter.</p>
-   */
-  IdentityProviderType?: IdentityProviderType | string;
-
-  /**
    * <p>The RSA private key as generated by the <code>ssh-keygen -N "" -m PEM -f
    *         my-new-server-key</code> command.</p>
    *
@@ -284,9 +230,94 @@ export interface CreateServerRequest {
   Protocols?: (Protocol | string)[];
 
   /**
-   * <p>The type of VPC endpoint that you want your file transfer protocol-enabled server to
-   *       connect to. You can choose to connect to the public internet or a VPC endpoint. With a VPC
-   *       endpoint, you can restrict access to your server and resources only within your VPC.</p>
+   * <p>Allows the service to write your users' activity to your Amazon CloudWatch logs for
+   *       monitoring and auditing purposes.</p>
+   */
+  LoggingRole?: string;
+
+  /**
+   * <p>Key-value pairs that can be used to group and search for servers.</p>
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the AWS Certificate Manager (ACM) certificate. Required
+   *       when <code>Protocols</code> is set to <code>FTPS</code>.</p>
+   *
+   *          <p>To request a new public certificate, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-request-public.html">Request a public certificate</a>
+   *       in the <i> AWS Certificate Manager User Guide</i>.</p>
+   *
+   *          <p>To import an existing certificate into ACM, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html">Importing certificates into ACM</a>
+   *       in the <i> AWS Certificate Manager User Guide</i>.</p>
+   *
+   *          <p>To request a private certificate to use FTPS through private IP addresses, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-request-private.html">Request a
+   *         private certificate</a> in the <i> AWS Certificate Manager User
+   *       Guide</i>.</p>
+   *
+   *          <p>Certificates with the following cryptographic algorithms and key sizes are
+   *       supported:</p>
+   *
+   *          <ul>
+   *             <li>
+   *                <p>2048-bit RSA (RSA_2048)</p>
+   *             </li>
+   *             <li>
+   *                <p>4096-bit RSA (RSA_4096)</p>
+   *             </li>
+   *             <li>
+   *                <p>Elliptic Prime Curve 256 bit (EC_prime256v1)</p>
+   *             </li>
+   *             <li>
+   *                <p>Elliptic Prime Curve 384 bit (EC_secp384r1)</p>
+   *             </li>
+   *             <li>
+   *                <p>Elliptic Prime Curve 521 bit (EC_secp521r1)</p>
+   *             </li>
+   *          </ul>
+   *
+   *          <note>
+   *             <p>The certificate must be a valid SSL/TLS X.509 version 3 certificate with FQDN or IP
+   *         address specified and information about the issuer.</p>
+   *          </note>
+   */
+  Certificate?: string;
+
+  /**
+   * <p>Specifies the mode of authentication for a server. The default value is
+   *         <code>SERVICE_MANAGED</code>, which allows you to store and access user credentials within
+   *       the AWS Transfer Family service. Use the <code>API_GATEWAY</code> value to integrate with an
+   *       identity provider of your choosing. The <code>API_GATEWAY</code> setting requires you to
+   *       provide an API Gateway endpoint URL to call for authentication using the
+   *         <code>IdentityProviderDetails</code> parameter.</p>
+   */
+  IdentityProviderType?: IdentityProviderType | string;
+
+  /**
+   * <p>The virtual private cloud (VPC) endpoint settings that are configured for your server.
+   *       When you host your endpoint within your VPC, you can make it accessible only to resources
+   *       within your VPC, or you can attach Elastic IPs and make it accessible to clients over the
+   *       internet. Your VPC's default security groups are automatically assigned to your
+   *       endpoint.</p>
+   */
+  EndpointDetails?: EndpointDetails;
+
+  /**
+   * <p>Specifies the name of the security policy that is attached to the server.</p>
+   */
+  SecurityPolicyName?: string;
+
+  /**
+   * <p>Required when <code>IdentityProviderType</code> is set to <code>API_GATEWAY</code>.
+   *       Accepts an array containing all of the information required to call a customer-supplied
+   *       authentication API, including the API Gateway URL. Not required when
+   *         <code>IdentityProviderType</code> is set to <code>SERVICE_MANAGED</code>.</p>
+   */
+  IdentityProviderDetails?: IdentityProviderDetails;
+
+  /**
+   * <p>The type of VPC endpoint that you want your server to connect to. You can choose to
+   *       connect to the public internet or a VPC endpoint. With a VPC endpoint, you can restrict access
+   *       to your server and resources only within your VPC.</p>
    *
    *          <note>
    *             <p>It is recommended that you use <code>VPC</code> as the <code>EndpointType</code>. With
@@ -297,20 +328,6 @@ export interface CreateServerRequest {
    *          </note>
    */
   EndpointType?: EndpointType | string;
-
-  /**
-   * <p>Allows the service to write your users' activity to your Amazon CloudWatch logs for
-   *       monitoring and auditing purposes.</p>
-   */
-  LoggingRole?: string;
-
-  /**
-   * <p>Required when <code>IdentityProviderType</code> is set to <code>API_GATEWAY</code>.
-   *       Accepts an array containing all of the information required to call a customer-supplied
-   *       authentication API, including the API Gateway URL. Not required when
-   *         <code>IdentityProviderType</code> is set to <code>SERVICE_MANAGED</code>.</p>
-   */
-  IdentityProviderDetails?: IdentityProviderDetails;
 }
 
 export namespace CreateServerRequest {
@@ -322,8 +339,7 @@ export namespace CreateServerRequest {
 
 export interface CreateServerResponse {
   /**
-   * <p>The service-assigned ID of the file transfer protocol-enabled server that is
-   *       created.</p>
+   * <p>The service-assigned ID of the server that is created.</p>
    */
   ServerId: string | undefined;
 }
@@ -371,8 +387,8 @@ export interface ResourceExistsException extends __SmithyException, $MetadataBea
   name: "ResourceExistsException";
   $fault: "client";
   Resource: string | undefined;
-  ResourceType: string | undefined;
   Message: string | undefined;
+  ResourceType: string | undefined;
 }
 
 export namespace ResourceExistsException {
@@ -414,19 +430,19 @@ export namespace ThrottlingException {
 }
 
 /**
- * <p>Represents an object that contains entries and a targets for
+ * <p>Represents an object that contains entries and targets for
  *         <code>HomeDirectoryMappings</code>.</p>
  */
 export interface HomeDirectoryMapEntry {
   /**
-   * <p>Represents the map target that is used in a <code>HomeDirectorymapEntry</code>.</p>
-   */
-  Target: string | undefined;
-
-  /**
    * <p>Represents an entry and a target for <code>HomeDirectoryMappings</code>.</p>
    */
   Entry: string | undefined;
+
+  /**
+   * <p>Represents the map target that is used in a <code>HomeDirectorymapEntry</code>.</p>
+   */
+  Target: string | undefined;
 }
 
 export namespace HomeDirectoryMapEntry {
@@ -442,33 +458,75 @@ export enum HomeDirectoryType {
 
 export interface CreateUserRequest {
   /**
-   * <p>A system-assigned unique identifier for a file transfer protocol-enabled server instance.
-   *       This is the specific server that you added your user to.</p>
+   * <p>The public portion of the Secure Shell (SSH) key used to authenticate the user to the
+   *       server.</p>
+   */
+  SshPublicKeyBody?: string;
+
+  /**
+   * <p>The landing directory (folder) for a user when they log in to the server using the
+   *       client.</p>
+   *
+   *          <p>An example is
+   *       <i>
+   *                <code>your-Amazon-S3-bucket-name>/home/username</code>
+   *             </i>.</p>
+   */
+  HomeDirectory?: string;
+
+  /**
+   * <p>Logical directory mappings that specify what Amazon S3 paths and keys should be visible to
+   *       your user and how you want to make them visible. You will need to specify the
+   *         "<code>Entry</code>" and "<code>Target</code>" pair, where <code>Entry</code> shows how the
+   *       path is made visible and <code>Target</code> is the actual Amazon S3 path. If you only specify
+   *       a target, it will be displayed as is. You will need to also make sure that your IAM role
+   *       provides access to paths in <code>Target</code>. The following is an example.</p>
+   *
+   *          <p>
+   *             <code>'[ "/bucket2/documentation", { "Entry": "your-personal-report.pdf", "Target":
+   *         "/bucket3/customized-reports/${transfer:UserName}.pdf" } ]'</code>
+   *          </p>
+   *
+   *          <p>In most cases, you can use this value instead of the scope-down policy to lock your user
+   *       down to the designated home directory ("chroot"). To do this, you can set <code>Entry</code>
+   *       to '/' and set <code>Target</code> to the HomeDirectory parameter value.</p>
+   *
+   *          <note>
+   *             <p>If the target of a logical directory entry does not exist in Amazon S3, the entry will
+   *         be ignored. As a workaround, you can use the Amazon S3 API to create 0 byte objects as place
+   *         holders for your directory. If using the CLI, use the <code>s3api</code> call instead of
+   *           <code>s3</code> so you can use the put-object operation. For example, you use the
+   *         following: <code>aws s3api put-object --bucket bucketname --key path/to/folder/</code>. Make
+   *         sure that the end of the key name ends in a '/' for it to be considered a
+   *         folder.</p>
+   *          </note>
+   */
+  HomeDirectoryMappings?: HomeDirectoryMapEntry[];
+
+  /**
+   * <p>The type of landing directory (folder) you want your users' home directory to be when
+   *       they log into the server. If you set it to <code>PATH</code>, the user will see the absolute
+   *       Amazon S3 bucket paths as is in their file transfer protocol clients. If you set it
+   *         <code>LOGICAL</code>, you will need to provide mappings in the
+   *         <code>HomeDirectoryMappings</code> for how you want to make Amazon S3 paths visible to your
+   *       users.</p>
+   */
+  HomeDirectoryType?: HomeDirectoryType | string;
+
+  /**
+   * <p>A system-assigned unique identifier for a server instance. This is the specific server
+   *       that you added your user to.</p>
    */
   ServerId: string | undefined;
 
   /**
-   * <p>A unique string that identifies a user and is associated with a file transfer
-   *       protocol-enabled server as specified by the <code>ServerId</code>. This user name must be a
-   *       minimum of 3 and a maximum of 32 characters long. The following are valid characters: a-z,
-   *       A-Z, 0-9, underscore, and hyphen. The user name can't start with a hyphen.</p>
+   * <p>A unique string that identifies a user and is associated with a as specified by the
+   *         <code>ServerId</code>. This user name must be a minimum of 3 and a maximum of 100 characters
+   *       long. The following are valid characters: a-z, A-Z, 0-9, underscore '_', hyphen
+   *       '-', period '.', and at sign '@'. The user name can't start
+   *       with a hyphen, period, or at sign.</p>
    */
   UserName: string | undefined;
-
-  /**
-   * <p>Key-value pairs that can be used to group and search for users. Tags are metadata attached
-   *       to users for any purpose.</p>
-   */
-  Tags?: Tag[];
-
-  /**
-   * <p>The IAM role that controls your users' access to your Amazon S3 bucket. The policies
-   *       attached to this role will determine the level of access you want to provide your users when
-   *       transferring files into and out of your Amazon S3 bucket or buckets. The IAM role should also
-   *       contain a trust relationship that allows the file transfer protocol-enabled server to access
-   *       your resources when servicing your users' transfer requests.</p>
-   */
-  Role: string | undefined;
 
   /**
    * <p>A scope-down policy for your user so you can use the same IAM role across multiple users.
@@ -495,59 +553,19 @@ export interface CreateUserRequest {
   Policy?: string;
 
   /**
-   * <p>The public portion of the Secure Shell (SSH) key used to authenticate the user to the file
-   *       transfer protocol-enabled server.</p>
+   * <p>The IAM role that controls your users' access to your Amazon S3 bucket. The policies
+   *       attached to this role will determine the level of access you want to provide your users when
+   *       transferring files into and out of your Amazon S3 bucket or buckets. The IAM role should also
+   *       contain a trust relationship that allows the server to access your resources when servicing
+   *       your users' transfer requests.</p>
    */
-  SshPublicKeyBody?: string;
+  Role: string | undefined;
 
   /**
-   * <p>Logical directory mappings that specify what Amazon S3 paths and keys should be visible to
-   *       your user and how you want to make them visible. You will need to specify the
-   *         "<code>Entry</code>" and "<code>Target</code>" pair, where <code>Entry</code> shows how the
-   *       path is made visible and <code>Target</code> is the actual Amazon S3 path. If you only specify
-   *       a target, it will be displayed as is. You will need to also make sure that your IAM role
-   *       provides access to paths in <code>Target</code>. The following is an example.</p>
-   *
-   *          <p>
-   *             <code>'[ "/bucket2/documentation", { "Entry": "your-personal-report.pdf", "Target":
-   *         "/bucket3/customized-reports/${transfer:UserName}.pdf" } ]'</code>
-   *          </p>
-   *
-   *          <p>In most cases, you can use this value instead of the scope-down policy to lock your user
-   *       down to the designated home directory ("chroot"). To do this, you can set <code>Entry</code>
-   *       to '/' and set <code>Target</code> to the HomeDirectory parameter value.</p>
-   *
-   *          <note>
-   *             <p>If the target of a logical directory entry does not exist in Amazon S3, the entry will
-   *         be ignored. As a workaround, you can use the Amazon S3 api to create 0 byte objects as place
-   *         holders for your directory. If using the CLI, use the <code>s3api</code> call instead of
-   *           <code>s3</code> so you can use the put-object operation. For example, you use the
-   *         following: <code>aws s3api put-object --bucket bucketname --key path/to/folder/</code>. Make
-   *         sure that the end of the key name ends in a '/' for it to be considered a folder.</p>
-   *          </note>
+   * <p>Key-value pairs that can be used to group and search for users. Tags are metadata attached
+   *       to users for any purpose.</p>
    */
-  HomeDirectoryMappings?: HomeDirectoryMapEntry[];
-
-  /**
-   * <p>The landing directory (folder) for a user when they log in to the file transfer
-   *       protocol-enabled server using the client.</p>
-   *
-   *          <p>An example is
-   *       <i>
-   *                <code>your-Amazon-S3-bucket-name>/home/username</code>
-   *             </i>.</p>
-   */
-  HomeDirectory?: string;
-
-  /**
-   * <p>The type of landing directory (folder) you want your users' home directory to be when
-   *       they log into the file transfer protocol-enabled server. If you set it to <code>PATH</code>,
-   *       the user will see the absolute Amazon S3 bucket paths as is in their file transfer protocol
-   *       clients. If you set it <code>LOGICAL</code>, you will need to provide mappings in the
-   *         <code>HomeDirectoryMappings</code> for how you want to make Amazon S3 paths visible to your
-   *       users.</p>
-   */
-  HomeDirectoryType?: HomeDirectoryType | string;
+  Tags?: Tag[];
 }
 
 export namespace CreateUserRequest {
@@ -558,13 +576,12 @@ export namespace CreateUserRequest {
 
 export interface CreateUserResponse {
   /**
-   * <p>A unique string that identifies a user account associated with a file transfer
-   *       protocol-enabled server.</p>
+   * <p>A unique string that identifies a user account associated with a server.</p>
    */
   UserName: string | undefined;
 
   /**
-   * <p>The ID of the file transfer protocol-enabled server that the user is attached to.</p>
+   * <p>The ID of the server that the user is attached to.</p>
    */
   ServerId: string | undefined;
 }
@@ -582,9 +599,9 @@ export namespace CreateUserResponse {
 export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
   name: "ResourceNotFoundException";
   $fault: "client";
-  Message: string | undefined;
   Resource: string | undefined;
   ResourceType: string | undefined;
+  Message: string | undefined;
 }
 
 export namespace ResourceNotFoundException {
@@ -595,8 +612,7 @@ export namespace ResourceNotFoundException {
 
 export interface DeleteServerRequest {
   /**
-   * <p>A unique system-assigned identifier for a file transfer protocol-enabled server
-   *       instance.</p>
+   * <p>A unique system-assigned identifier for a server instance.</p>
    */
   ServerId: string | undefined;
 }
@@ -609,15 +625,15 @@ export namespace DeleteServerRequest {
 
 export interface DeleteSshPublicKeyRequest {
   /**
-   * <p>A unique identifier used to reference your user's specific SSH key.</p>
-   */
-  SshPublicKeyId: string | undefined;
-
-  /**
    * <p>A system-assigned unique identifier for a file transfer protocol-enabled server instance
    *       that has the user assigned to it.</p>
    */
   ServerId: string | undefined;
+
+  /**
+   * <p>A unique identifier used to reference your user's specific SSH key.</p>
+   */
+  SshPublicKeyId: string | undefined;
 
   /**
    * <p>A unique string that identifies a user whose public key is being deleted.</p>
@@ -633,20 +649,67 @@ export namespace DeleteSshPublicKeyRequest {
 
 export interface DeleteUserRequest {
   /**
-   * <p>A system-assigned unique identifier for a file transfer protocol-enabled server instance
-   *       that has the user assigned to it.</p>
+   * <p>A system-assigned unique identifier for a server instance that has the user assigned to
+   *       it.</p>
    */
   ServerId: string | undefined;
 
   /**
-   * <p>A unique string that identifies a user that is being deleted from a file transfer
-   *       protocol-enabled server.</p>
+   * <p>A unique string that identifies a user that is being deleted from a server.</p>
    */
   UserName: string | undefined;
 }
 
 export namespace DeleteUserRequest {
   export const filterSensitiveLog = (obj: DeleteUserRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes the properties of a security policy that was specified. For more information
+ *       about security policies, see <a href="https://docs.aws.amazon.com/transfer/latest/userguide/security-policies.html">Working with security
+ *         policies</a>.</p>
+ */
+export interface DescribedSecurityPolicy {
+  /**
+   * <p>Specifies whether this policy enables Federal Information Processing Standards
+   *       (FIPS).</p>
+   */
+  Fips?: boolean;
+
+  /**
+   * <p>Specifies the name of the security policy that is attached to the server.</p>
+   */
+  SecurityPolicyName: string | undefined;
+
+  /**
+   * <p>Specifies the enabled Transport Layer Security (TLS) cipher encryption algorithms in the
+   *       security policy that is attached to the server.</p>
+   */
+  TlsCiphers?: string[];
+
+  /**
+   * <p>Specifies the enabled SSH message authentication code (MAC) encryption algorithms in the
+   *       security policy that is attached to the server.</p>
+   */
+  SshMacs?: string[];
+
+  /**
+   * <p>Specifies the enabled Secure Shell (SSH) cipher encryption algorithms in the security
+   *       policy that is attached to the server.</p>
+   */
+  SshCiphers?: string[];
+
+  /**
+   * <p>Specifies the enabled SSH key exchange (KEX) encryption algorithms in the security policy
+   *       that is attached to the server.</p>
+   */
+  SshKexs?: string[];
+}
+
+export namespace DescribedSecurityPolicy {
+  export const filterSensitiveLog = (obj: DescribedSecurityPolicy): any => ({
     ...obj,
   });
 }
@@ -661,58 +724,50 @@ export enum State {
 }
 
 /**
- * <p>Describes the properties of a file transfer protocol-enabled server that was specified.
- *       Information returned includes the following: the server Amazon Resource Name (ARN), the
- *       certificate ARN (if the FTPS protocol was selected), the endpoint type and details, the
- *       authentication configuration and type, the logging role, the file transfer protocol or
- *       protocols, the server ID and state, and assigned tags or metadata.</p>
+ * <p>Describes the properties of a file transfer protocol-enabled server that was
+ *       specified.</p>
  */
 export interface DescribedServer {
   /**
-   * <p>Defines the type of endpoint that your file transfer protocol-enabled server is connected
-   *       to. If your server is connected to a VPC endpoint, your server isn't accessible over the
-   *       public internet.</p>
+   * <p>Specifies the unique system-assigned identifier for a server that you instantiate.</p>
+   */
+  ServerId?: string;
+
+  /**
+   * <p>Defines the type of endpoint that your server is connected to. If your server is connected
+   *       to a VPC endpoint, your server isn't accessible over the public internet.</p>
    */
   EndpointType?: EndpointType | string;
 
   /**
-   * <p>Specifies the unique Amazon Resource Name (ARN) for a file transfer protocol-enabled
-   *       server to be described.</p>
+   * <p>Specifies the name of the security policy that is attached to the server.</p>
+   */
+  SecurityPolicyName?: string;
+
+  /**
+   * <p>Specifies the condition of a server for the server that was described. A value of
+   *         <code>ONLINE</code> indicates that the server can accept jobs and transfer files. A
+   *         <code>State</code> value of <code>OFFLINE</code> means that the server cannot perform file
+   *       transfer operations.</p>
+   *
+   *          <p>The states of <code>STARTING</code> and <code>STOPPING</code> indicate that the server is
+   *       in an intermediate state, either not fully able to respond, or not fully offline. The values
+   *       of <code>START_FAILED</code> or <code>STOP_FAILED</code> can indicate an error
+   *       condition.</p>
+   */
+  State?: State | string;
+
+  /**
+   * <p>Specifies the unique Amazon Resource Name (ARN) of the server.</p>
    */
   Arn: string | undefined;
 
   /**
-   * <p>Specifies information to call a customer-supplied authentication API. This field is not
-   *       populated when the <code>IdentityProviderType</code> of a file transfer protocol-enabled
-   *       server is <code>SERVICE_MANAGED</code>.</p>
-   */
-  IdentityProviderDetails?: IdentityProviderDetails;
-
-  /**
-   * <p>Specifies the AWS Identity and Access Management (IAM) role that allows a file transfer
-   *       protocol-enabled server to turn on Amazon CloudWatch logging for Amazon S3 events. When set,
-   *       user activity can be viewed in your CloudWatch logs.</p>
-   */
-  LoggingRole?: string;
-
-  /**
-   * <p>Specifies the key-value pairs that you can use to search for and group file transfer
-   *       protocol-enabled servers that were assigned to the server that was described.</p>
-   */
-  Tags?: Tag[];
-
-  /**
-   * <p>Specifies the number of users that are assigned to a file transfer protocol-enabled server
-   *       you specified with the <code>ServerId</code>.</p>
-   */
-  UserCount?: number;
-
-  /**
    * <p>Specifies the mode of authentication method enabled for this service. A value of
-   *         <code>SERVICE_MANAGED</code> means that you are using this file transfer protocol-enabled
-   *       server to store and access user credentials within the service. A value of
-   *         <code>API_GATEWAY</code> indicates that you have integrated an API Gateway endpoint that
-   *       will be invoked for authenticating your user into the service.</p>
+   *         <code>SERVICE_MANAGED</code> means that you are using this server to store and access user
+   *       credentials within the service. A value of <code>API_GATEWAY</code> indicates that you have
+   *       integrated an API Gateway endpoint that will be invoked for authenticating your user into the
+   *       service.</p>
    */
   IdentityProviderType?: IdentityProviderType | string;
 
@@ -723,30 +778,17 @@ export interface DescribedServer {
   Certificate?: string;
 
   /**
-   * <p>Specifies the virtual private cloud (VPC) endpoint settings that you configured for your
-   *       file transfer protocol-enabled server.</p>
+   * <p>Specifies the key-value pairs that you can use to search for and group servers that were
+   *       assigned to the server that was described.</p>
    */
-  EndpointDetails?: EndpointDetails;
+  Tags?: Tag[];
 
   /**
-   * <p>Specifies the condition of a file transfer protocol-enabled server for the server that was
-   *       described. A value of <code>ONLINE</code> indicates that the server can accept jobs and
-   *       transfer files. A <code>State</code> value of <code>OFFLINE</code> means that the server
-   *       cannot perform file transfer operations.</p>
-   *
-   *          <p>The states of <code>STARTING</code> and <code>STOPPING</code> indicate that the server is
-   *       in an intermediate state, either not fully able to respond, or not fully offline. The values
-   *       of <code>START_FAILED</code> or <code>STOP_FAILED</code> can indicate an error
-   *       condition.</p>
+   * <p>Specifies the AWS Identity and Access Management (IAM) role that allows a server to turn
+   *       on Amazon CloudWatch logging for Amazon S3 events. When set, user activity can be viewed in
+   *       your CloudWatch logs.</p>
    */
-  State?: State | string;
-
-  /**
-   * <p>Specifies the Base64-encoded SHA256 fingerprint of the server's host key. This value
-   *       is equivalent to the output of the <code>ssh-keygen -l -f my-new-server-key</code>
-   *       command.</p>
-   */
-  HostKeyFingerprint?: string;
+  LoggingRole?: string;
 
   /**
    * <p>Specifies the file transfer protocol or protocols over which your file transfer protocol
@@ -772,10 +814,30 @@ export interface DescribedServer {
   Protocols?: (Protocol | string)[];
 
   /**
-   * <p>Specifies the unique system-assigned identifier for a file transfer protocol-enabled
-   *       server that you instantiate.</p>
+   * <p>Specifies the number of users that are assigned to a server you specified with the
+   *         <code>ServerId</code>.</p>
    */
-  ServerId?: string;
+  UserCount?: number;
+
+  /**
+   * <p>Specifies the Base64-encoded SHA256 fingerprint of the server's host key. This value
+   *       is equivalent to the output of the <code>ssh-keygen -l -f my-new-server-key</code>
+   *       command.</p>
+   */
+  HostKeyFingerprint?: string;
+
+  /**
+   * <p>Specifies information to call a customer-supplied authentication API. This field is not
+   *       populated when the <code>IdentityProviderType</code> of a server is
+   *         <code>SERVICE_MANAGED</code>.</p>
+   */
+  IdentityProviderDetails?: IdentityProviderDetails;
+
+  /**
+   * <p>Specifies the virtual private cloud (VPC) endpoint settings that you configured for your
+   *       server.</p>
+   */
+  EndpointDetails?: EndpointDetails;
 }
 
 export namespace DescribedServer {
@@ -793,12 +855,6 @@ export namespace DescribedServer {
  */
 export interface SshPublicKey {
   /**
-   * <p>Specifies the <code>SshPublicKeyId</code> parameter contains the identifier of the public
-   *       key.</p>
-   */
-  SshPublicKeyId: string | undefined;
-
-  /**
    * <p>Specifies the date that the public key was added to the user account.</p>
    */
   DateImported: Date | undefined;
@@ -808,6 +864,12 @@ export interface SshPublicKey {
    *       <code>PublicKeyId</code>.</p>
    */
   SshPublicKeyBody: string | undefined;
+
+  /**
+   * <p>Specifies the <code>SshPublicKeyId</code> parameter contains the identifier of the public
+   *       key.</p>
+   */
+  SshPublicKeyId: string | undefined;
 }
 
 export namespace SshPublicKey {
@@ -817,22 +879,29 @@ export namespace SshPublicKey {
 }
 
 /**
- * <p>Returns properties of the user that you want to describe.</p>
+ * <p>Describes the properties of a user that was specified.</p>
  */
 export interface DescribedUser {
   /**
-   * <p>Specifies the logical directory mappings that specify what Amazon S3 paths and keys should
-   *       be visible to your user and how you want to make them visible. You will need to specify the
-   *         "<code>Entry</code>" and "<code>Target</code>" pair, where <code>Entry</code> shows how the
-   *       path is made visible and <code>Target</code> is the actual Amazon S3 path. If you only specify
-   *       a target, it will be displayed as is. You will need to also make sure that your AWS Identity
-   *       and Access Management (IAM) role provides access to paths in <code>Target</code>.</p>
-   *
-   *          <p>In most cases, you can use this value instead of the scope-down policy to lock your user
-   *       down to the designated home directory ("chroot"). To do this, you can set <code>Entry</code>
-   *       to '/' and set <code>Target</code> to the HomeDirectory parameter value.</p>
+   * <p>Specifies the public key portion of the Secure Shell (SSH) keys stored for the described
+   *       user.</p>
    */
-  HomeDirectoryMappings?: HomeDirectoryMapEntry[];
+  SshPublicKeys?: SshPublicKey[];
+
+  /**
+   * <p>Specifies the landing directory (or folder), which is the location that files are written
+   *       to or read from in an Amazon S3 bucket, for the described user. An example is
+   *           <i>
+   *                <code>your-Amazon-S3-bucket-name>/home/username</code>
+   *             </i>.</p>
+   */
+  HomeDirectory?: string;
+
+  /**
+   * <p>Specifies the key-value pairs for the user requested. Tag can be used to search for and
+   *       group users for a variety of purposes.</p>
+   */
+  Tags?: Tag[];
 
   /**
    * <p>Specifies the type of landing directory (folder) you mapped for your users to see when
@@ -850,47 +919,40 @@ export interface DescribedUser {
   Policy?: string;
 
   /**
-   * <p>Specifies the public key portion of the Secure Shell (SSH) keys stored for the described
-   *       user.</p>
+   * <p>Specifies the unique Amazon Resource Name (ARN) for the user that was requested to be
+   *       described.</p>
    */
-  SshPublicKeys?: SshPublicKey[];
+  Arn: string | undefined;
 
   /**
-   * <p>Specifies the landing directory (or folder), which is the location that files are written
-   *       to or read from in an Amazon S3 bucket, for the described user. An example is
-   *           <i>
-   *                <code>your-Amazon-S3-bucket-name>/home/username</code>
-   *             </i>.</p>
+   * <p>Specifies the logical directory mappings that specify what Amazon S3 paths and keys should
+   *       be visible to your user and how you want to make them visible. You will need to specify the
+   *         "<code>Entry</code>" and "<code>Target</code>" pair, where <code>Entry</code> shows how the
+   *       path is made visible and <code>Target</code> is the actual Amazon S3 path. If you only specify
+   *       a target, it will be displayed as is. You will need to also make sure that your AWS Identity
+   *       and Access Management (IAM) role provides access to paths in <code>Target</code>.</p>
+   *
+   *          <p>In most cases, you can use this value instead of the scope-down policy to lock your user
+   *       down to the designated home directory ("chroot"). To do this, you can set <code>Entry</code>
+   *       to '/' and set <code>Target</code> to the HomeDirectory parameter value.</p>
    */
-  HomeDirectory?: string;
-
-  /**
-   * <p>Specifies the name of the user that was requested to be described. User names are used for
-   *       authentication purposes. This is the string that will be used by your user when they log in to
-   *       your file transfer protocol-enabled server.</p>
-   */
-  UserName?: string;
-
-  /**
-   * <p>Specifies the key-value pairs for the user requested. Tag can be used to search for and
-   *       group users for a variety of purposes.</p>
-   */
-  Tags?: Tag[];
+  HomeDirectoryMappings?: HomeDirectoryMapEntry[];
 
   /**
    * <p>Specifies the IAM role that controls your users' access to your Amazon S3 bucket. The
    *       policies attached to this role will determine the level of access you want to provide your
    *       users when transferring files into and out of your Amazon S3 bucket or buckets. The IAM role
-   *       should also contain a trust relationship that allows a file transfer protocol-enabled server
-   *       to access your resources when servicing your users' transfer requests.</p>
+   *       should also contain a trust relationship that allows a server to access your resources when
+   *       servicing your users' transfer requests.</p>
    */
   Role?: string;
 
   /**
-   * <p>Specifies the unique Amazon Resource Name (ARN) for the user that was requested to be
-   *       described.</p>
+   * <p>Specifies the name of the user that was requested to be described. User names are used for
+   *       authentication purposes. This is the string that will be used by your user when they log in to
+   *       your server.</p>
    */
-  Arn: string | undefined;
+  UserName?: string;
 }
 
 export namespace DescribedUser {
@@ -899,9 +961,35 @@ export namespace DescribedUser {
   });
 }
 
+export interface DescribeSecurityPolicyRequest {
+  /**
+   * <p>Specifies the name of the security policy that is attached to the server.</p>
+   */
+  SecurityPolicyName: string | undefined;
+}
+
+export namespace DescribeSecurityPolicyRequest {
+  export const filterSensitiveLog = (obj: DescribeSecurityPolicyRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeSecurityPolicyResponse {
+  /**
+   * <p>An array containing the properties of the security policy.</p>
+   */
+  SecurityPolicy: DescribedSecurityPolicy | undefined;
+}
+
+export namespace DescribeSecurityPolicyResponse {
+  export const filterSensitiveLog = (obj: DescribeSecurityPolicyResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface DescribeServerRequest {
   /**
-   * <p>A system-assigned unique identifier for a file transfer protocol-enabled server.</p>
+   * <p>A system-assigned unique identifier for a server.</p>
    */
   ServerId: string | undefined;
 }
@@ -914,8 +1002,8 @@ export namespace DescribeServerRequest {
 
 export interface DescribeServerResponse {
   /**
-   * <p>An array containing the properties of a file transfer protocol-enabled server with the
-   *         <code>ServerID</code> you specified.</p>
+   * <p>An array containing the properties of a server with the <code>ServerID</code> you
+   *       specified.</p>
    */
   Server: DescribedServer | undefined;
 }
@@ -928,15 +1016,13 @@ export namespace DescribeServerResponse {
 
 export interface DescribeUserRequest {
   /**
-   * <p>A system-assigned unique identifier for a file transfer protocol-enabled server that has
-   *       this user assigned.</p>
+   * <p>A system-assigned unique identifier for a server that has this user assigned.</p>
    */
   ServerId: string | undefined;
 
   /**
-   * <p>The name of the user assigned to one or more file transfer protocol-enabled servers. User
-   *       names are part of the sign-in credentials to use the AWS Transfer Family service and perform
-   *       file transfer tasks.</p>
+   * <p>The name of the user assigned to one or more servers. User names are part of the sign-in
+   *       credentials to use the AWS Transfer Family service and perform file transfer tasks.</p>
    */
   UserName: string | undefined;
 }
@@ -949,16 +1035,15 @@ export namespace DescribeUserRequest {
 
 export interface DescribeUserResponse {
   /**
+   * <p>A system-assigned unique identifier for a server that has this user assigned.</p>
+   */
+  ServerId: string | undefined;
+
+  /**
    * <p>An array containing the properties of the user account for the <code>ServerID</code> value
    *       that you specified.</p>
    */
   User: DescribedUser | undefined;
-
-  /**
-   * <p>A system-assigned unique identifier for a file transfer protocol-enabled server that has
-   *       this user assigned.</p>
-   */
-  ServerId: string | undefined;
 }
 
 export namespace DescribeUserResponse {
@@ -969,20 +1054,19 @@ export namespace DescribeUserResponse {
 
 export interface ImportSshPublicKeyRequest {
   /**
-   * <p>The public key portion of an SSH key pair.</p>
-   */
-  SshPublicKeyBody: string | undefined;
-
-  /**
-   * <p>A system-assigned unique identifier for a file transfer protocol-enabled server.</p>
+   * <p>A system-assigned unique identifier for a server.</p>
    */
   ServerId: string | undefined;
 
   /**
-   * <p>The name of the user account that is assigned to one or more file transfer
-   *       protocol-enabled servers.</p>
+   * <p>The name of the user account that is assigned to one or more servers.</p>
    */
   UserName: string | undefined;
+
+  /**
+   * <p>The public key portion of an SSH key pair.</p>
+   */
+  SshPublicKeyBody: string | undefined;
 }
 
 export namespace ImportSshPublicKeyRequest {
@@ -992,18 +1076,13 @@ export namespace ImportSshPublicKeyRequest {
 }
 
 /**
- * <p>Identifies the user, the file transfer protocol-enabled server they belong to, and the
- *       identifier of the SSH public key associated with that user. A user can have more than one key
- *       on each server that they are associated with.</p>
+ * <p>Identifies the user, the server they belong to, and the identifier of the SSH public key
+ *       associated with that user. A user can have more than one key on each server that they are
+ *       associated with.</p>
  */
 export interface ImportSshPublicKeyResponse {
   /**
-   * <p>The name given to a public key by the system that was imported.</p>
-   */
-  SshPublicKeyId: string | undefined;
-
-  /**
-   * <p>A system-assigned unique identifier for a file transfer protocol-enabled server.</p>
+   * <p>A system-assigned unique identifier for a server.</p>
    */
   ServerId: string | undefined;
 
@@ -1011,6 +1090,11 @@ export interface ImportSshPublicKeyResponse {
    * <p>A user name assigned to the <code>ServerID</code> value that you specified.</p>
    */
   UserName: string | undefined;
+
+  /**
+   * <p>The name given to a public key by the system that was imported.</p>
+   */
+  SshPublicKeyId: string | undefined;
 }
 
 export namespace ImportSshPublicKeyResponse {
@@ -1039,16 +1123,15 @@ export namespace InvalidNextTokenException {
  */
 export interface ListedServer {
   /**
-   * <p>Specifies the number of users that are assigned to a file transfer protocol-enabled server
-   *       you specified with the <code>ServerId</code>.</p>
+   * <p>Specifies the unique Amazon Resource Name (ARN) for a server to be listed.</p>
    */
-  UserCount?: number;
+  Arn: string | undefined;
 
   /**
-   * <p>Specifies the condition of a file transfer protocol-enabled server for the server that was
-   *       described. A value of <code>ONLINE</code> indicates that the server can accept jobs and
-   *       transfer files. A <code>State</code> value of <code>OFFLINE</code> means that the server
-   *       cannot perform file transfer operations.</p>
+   * <p>Specifies the condition of a server for the server that was described. A value of
+   *         <code>ONLINE</code> indicates that the server can accept jobs and transfer files. A
+   *         <code>State</code> value of <code>OFFLINE</code> means that the server cannot perform file
+   *       transfer operations.</p>
    *
    *          <p>The states of <code>STARTING</code> and <code>STOPPING</code> indicate that the server is
    *       in an intermediate state, either not fully able to respond, or not fully offline. The values
@@ -1058,37 +1141,36 @@ export interface ListedServer {
   State?: State | string;
 
   /**
-   * <p>Specifies the type of VPC endpoint that your file transfer protocol-enabled server is
-   *       connected to. If your server is connected to a VPC endpoint, your server isn't accessible
-   *       over the public internet.</p>
+   * <p>Specifies the type of VPC endpoint that your server is connected to. If your server is
+   *       connected to a VPC endpoint, your server isn't accessible over the public
+   *       internet.</p>
    */
   EndpointType?: EndpointType | string;
 
   /**
-   * <p>Specifies the AWS Identity and Access Management (IAM) role that allows a file transfer
-   *       protocol-enabled server to turn on Amazon CloudWatch logging.</p>
-   */
-  LoggingRole?: string;
-
-  /**
-   * <p>Specifies the unique system assigned identifier for a file transfer protocol-enabled
-   *       servers that were listed.</p>
-   */
-  ServerId?: string;
-
-  /**
-   * <p>Specifies the authentication method used to validate a user for a file transfer
-   *       protocol-enabled server that was specified. This can include Secure Shell (SSH), user name and
-   *       password combinations, or your own custom authentication method. Valid values include
-   *         <code>SERVICE_MANAGED</code> or <code>API_GATEWAY</code>.</p>
+   * <p>Specifies the authentication method used to validate a user for a server that was
+   *       specified. This can include Secure Shell (SSH), user name and password combinations, or your
+   *       own custom authentication method. Valid values include <code>SERVICE_MANAGED</code> or
+   *         <code>API_GATEWAY</code>.</p>
    */
   IdentityProviderType?: IdentityProviderType | string;
 
   /**
-   * <p>Specifies the unique Amazon Resource Name (ARN) for a file transfer protocol-enabled
-   *       server to be listed.</p>
+   * <p>Specifies the number of users that are assigned to a server you specified with the
+   *         <code>ServerId</code>.</p>
    */
-  Arn: string | undefined;
+  UserCount?: number;
+
+  /**
+   * <p>Specifies the AWS Identity and Access Management (IAM) role that allows a server to turn
+   *       on Amazon CloudWatch logging.</p>
+   */
+  LoggingRole?: string;
+
+  /**
+   * <p>Specifies the unique system assigned identifier for the servers that were listed.</p>
+   */
+  ServerId?: string;
 }
 
 export namespace ListedServer {
@@ -1102,13 +1184,15 @@ export namespace ListedServer {
  */
 export interface ListedUser {
   /**
-   * <p>Specifies the type of landing directory (folder) you mapped for your users' home
-   *       directory. If you set it to <code>PATH</code>, the user will see the absolute Amazon S3 bucket
-   *       paths as is in their file transfer protocol clients. If you set it <code>LOGICAL</code>, you
-   *       will need to provide mappings in the <code>HomeDirectoryMappings</code> for how you want to
-   *       make Amazon S3 paths visible to your users.</p>
+   * <p>Specifies the number of SSH public keys stored for the user you specified.</p>
    */
-  HomeDirectoryType?: HomeDirectoryType | string;
+  SshPublicKeyCount?: number;
+
+  /**
+   * <p>Specifies the location that files are written to or read from an Amazon S3 bucket for the
+   *       user you specify by their ARN.</p>
+   */
+  HomeDirectory?: string;
 
   /**
    * <p>Specifies the name of the user whose ARN was specified. User names are used for
@@ -1126,21 +1210,19 @@ export interface ListedUser {
   Role?: string;
 
   /**
-   * <p>Specifies the number of SSH public keys stored for the user you specified.</p>
-   */
-  SshPublicKeyCount?: number;
-
-  /**
    * <p>Provides the unique Amazon Resource Name (ARN) for the user that you want to learn
    *       about.</p>
    */
   Arn: string | undefined;
 
   /**
-   * <p>Specifies the location that files are written to or read from an Amazon S3 bucket for the
-   *       user you specify by their ARN.</p>
+   * <p>Specifies the type of landing directory (folder) you mapped for your users' home
+   *       directory. If you set it to <code>PATH</code>, the user will see the absolute Amazon S3 bucket
+   *       paths as is in their file transfer protocol clients. If you set it <code>LOGICAL</code>, you
+   *       will need to provide mappings in the <code>HomeDirectoryMappings</code> for how you want to
+   *       make Amazon S3 paths visible to your users.</p>
    */
-  HomeDirectory?: string;
+  HomeDirectoryType?: HomeDirectoryType | string;
 }
 
 export namespace ListedUser {
@@ -1149,20 +1231,62 @@ export namespace ListedUser {
   });
 }
 
-export interface ListServersRequest {
+export interface ListSecurityPoliciesRequest {
   /**
-   * <p>When additional results are obtained from the<code>ListServers</code> command, a
+   * <p>When additional results are obtained from the <code>ListSecurityPolicies</code> command, a
    *         <code>NextToken</code> parameter is returned in the output. You can then pass the
-   *         <code>NextToken</code> parameter in a subsequent command to continue listing additional file
-   *       transfer protocol-enabled servers.</p>
+   *         <code>NextToken</code> parameter in a subsequent command to continue listing additional
+   *       security policies.</p>
    */
   NextToken?: string;
 
   /**
-   * <p>Specifies the number of file transfer protocol-enabled servers to return as a response to
-   *       the <code>ListServers</code> query.</p>
+   * <p>Specifies the number of security policies to return as a response to the
+   *         <code>ListSecurityPolicies</code> query.</p>
    */
   MaxResults?: number;
+}
+
+export namespace ListSecurityPoliciesRequest {
+  export const filterSensitiveLog = (obj: ListSecurityPoliciesRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListSecurityPoliciesResponse {
+  /**
+   * <p>An array of security policies that were listed.</p>
+   */
+  SecurityPolicyNames: string[] | undefined;
+
+  /**
+   * <p>When you can get additional results from the <code>ListSecurityPolicies</code> operation,
+   *       a <code>NextToken</code> parameter is returned in the output. In a following command, you can
+   *       pass in the <code>NextToken</code> parameter to continue listing security policies.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListSecurityPoliciesResponse {
+  export const filterSensitiveLog = (obj: ListSecurityPoliciesResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListServersRequest {
+  /**
+   * <p>Specifies the number of servers to return as a response to the <code>ListServers</code>
+   *       query.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>When additional results are obtained from the <code>ListServers</code> command, a
+   *         <code>NextToken</code> parameter is returned in the output. You can then pass the
+   *         <code>NextToken</code> parameter in a subsequent command to continue listing additional
+   *       servers.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace ListServersRequest {
@@ -1173,15 +1297,14 @@ export namespace ListServersRequest {
 
 export interface ListServersResponse {
   /**
-   * <p>An array of file transfer protocol-enabled servers that were listed.</p>
+   * <p>An array of servers that were listed.</p>
    */
   Servers: ListedServer[] | undefined;
 
   /**
    * <p>When you can get additional results from the <code>ListServers</code> operation, a
    *         <code>NextToken</code> parameter is returned in the output. In a following command, you can
-   *       pass in the <code>NextToken</code> parameter to continue listing additional file transfer
-   *       protocol-enabled servers.</p>
+   *       pass in the <code>NextToken</code> parameter to continue listing additional servers.</p>
    */
   NextToken?: string;
 }
@@ -1194,12 +1317,6 @@ export namespace ListServersResponse {
 
 export interface ListTagsForResourceRequest {
   /**
-   * <p>Specifies the number of tags to return as a response to the
-   *         <code>ListTagsForResource</code> request.</p>
-   */
-  MaxResults?: number;
-
-  /**
    * <p>Requests the tags associated with a particular Amazon Resource Name (ARN). An ARN is an
    *       identifier for a specific AWS resource, such as a server, user, or role.</p>
    */
@@ -1211,6 +1328,12 @@ export interface ListTagsForResourceRequest {
    *       command to the <code>NextToken</code> parameter to continue listing additional tags.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>Specifies the number of tags to return as a response to the
+   *         <code>ListTagsForResource</code> request.</p>
+   */
+  MaxResults?: number;
 }
 
 export namespace ListTagsForResourceRequest {
@@ -1221,12 +1344,9 @@ export namespace ListTagsForResourceRequest {
 
 export interface ListTagsForResourceResponse {
   /**
-   * <p>When you can get additional results from the <code>ListTagsForResource</code> call, a
-   *         <code>NextToken</code> parameter is returned in the output. You can then pass in a
-   *       subsequent command to the <code>NextToken</code> parameter to continue listing additional
-   *       tags.</p>
+   * <p>The ARN you specified to list the tags of.</p>
    */
-  NextToken?: string;
+  Arn?: string;
 
   /**
    * <p>Key-value pairs that are assigned to a resource, usually for the purpose of grouping and
@@ -1235,9 +1355,12 @@ export interface ListTagsForResourceResponse {
   Tags?: Tag[];
 
   /**
-   * <p>The ARN you specified to list the tags of.</p>
+   * <p>When you can get additional results from the <code>ListTagsForResource</code> call, a
+   *         <code>NextToken</code> parameter is returned in the output. You can then pass in a
+   *       subsequent command to the <code>NextToken</code> parameter to continue listing additional
+   *       tags.</p>
    */
-  Arn?: string;
+  NextToken?: string;
 }
 
 export namespace ListTagsForResourceResponse {
@@ -1247,6 +1370,11 @@ export namespace ListTagsForResourceResponse {
 }
 
 export interface ListUsersRequest {
+  /**
+   * <p>A system-assigned unique identifier for a server that has users assigned to it.</p>
+   */
+  ServerId: string | undefined;
+
   /**
    * <p>Specifies the number of users to return as a response to the <code>ListUsers</code>
    *       request.</p>
@@ -1260,12 +1388,6 @@ export interface ListUsersRequest {
    *       users.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>A system-assigned unique identifier for a file transfer protocol-enabled server that has
-   *       users assigned to it.</p>
-   */
-  ServerId: string | undefined;
 }
 
 export namespace ListUsersRequest {
@@ -1276,14 +1398,7 @@ export namespace ListUsersRequest {
 
 export interface ListUsersResponse {
   /**
-   * <p>Returns the user accounts and their properties for the <code>ServerId</code> value that
-   *       you specify.</p>
-   */
-  Users: ListedUser[] | undefined;
-
-  /**
-   * <p>A system-assigned unique identifier for a file transfer protocol-enabled server that the
-   *       users are assigned to.</p>
+   * <p>A system-assigned unique identifier for a server that the users are assigned to.</p>
    */
   ServerId: string | undefined;
 
@@ -1294,6 +1409,12 @@ export interface ListUsersResponse {
    *       users.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>Returns the user accounts and their properties for the <code>ServerId</code> value that
+   *       you specify.</p>
+   */
+  Users: ListedUser[] | undefined;
 }
 
 export namespace ListUsersResponse {
@@ -1304,8 +1425,7 @@ export namespace ListUsersResponse {
 
 export interface StartServerRequest {
   /**
-   * <p>A system-assigned unique identifier for a file transfer protocol-enabled server that you
-   *       start.</p>
+   * <p>A system-assigned unique identifier for a server that you start.</p>
    */
   ServerId: string | undefined;
 }
@@ -1318,8 +1438,7 @@ export namespace StartServerRequest {
 
 export interface StopServerRequest {
   /**
-   * <p>A system-assigned unique identifier for a file transfer protocol-enabled server that you
-   *       stopped.</p>
+   * <p>A system-assigned unique identifier for a server that you stopped.</p>
    */
   ServerId: string | undefined;
 }
@@ -1332,16 +1451,16 @@ export namespace StopServerRequest {
 
 export interface TagResourceRequest {
   /**
-   * <p>Key-value pairs assigned to ARNs that you can use to group and search for resources by
-   *       type. You can attach this metadata to user accounts for any purpose.</p>
-   */
-  Tags: Tag[] | undefined;
-
-  /**
    * <p>An Amazon Resource Name (ARN) for a specific AWS resource, such as a server, user, or
    *       role.</p>
    */
   Arn: string | undefined;
+
+  /**
+   * <p>Key-value pairs assigned to ARNs that you can use to group and search for resources by
+   *       type. You can attach this metadata to user accounts for any purpose.</p>
+   */
+  Tags: Tag[] | undefined;
 }
 
 export namespace TagResourceRequest {
@@ -1352,14 +1471,20 @@ export namespace TagResourceRequest {
 
 export interface TestIdentityProviderRequest {
   /**
-   * <p>The password of the user account to be tested.</p>
-   */
-  UserPassword?: string;
-
-  /**
    * <p>The source IP address of the user account to be tested.</p>
    */
   SourceIp?: string;
+
+  /**
+   * <p>A system-assigned identifier for a specific server. That server's user authentication
+   *       method is tested with a user name and password.</p>
+   */
+  ServerId: string | undefined;
+
+  /**
+   * <p>The name of the user account to be tested.</p>
+   */
+  UserName: string | undefined;
 
   /**
    * <p>The type of file transfer protocol to be tested.</p>
@@ -1381,15 +1506,9 @@ export interface TestIdentityProviderRequest {
   ServerProtocol?: Protocol | string;
 
   /**
-   * <p>A system-assigned identifier for a specific file transfer protocol-enabled server. That
-   *       server's user authentication method is tested with a user name and password.</p>
+   * <p>The password of the user account to be tested.</p>
    */
-  ServerId: string | undefined;
-
-  /**
-   * <p>The name of the user account to be tested.</p>
-   */
-  UserName: string | undefined;
+  UserPassword?: string;
 }
 
 export namespace TestIdentityProviderRequest {
@@ -1401,24 +1520,24 @@ export namespace TestIdentityProviderRequest {
 
 export interface TestIdentityProviderResponse {
   /**
-   * <p>The response that is returned from your API Gateway.</p>
-   */
-  Response?: string;
-
-  /**
-   * <p>A message that indicates whether the test was successful or not.</p>
-   */
-  Message?: string;
-
-  /**
    * <p>The HTTP status code that is the response from your API Gateway.</p>
    */
   StatusCode: number | undefined;
 
   /**
+   * <p>The response that is returned from your API Gateway.</p>
+   */
+  Response?: string;
+
+  /**
    * <p>The endpoint of the service used to authenticate a user.</p>
    */
   Url: string | undefined;
+
+  /**
+   * <p>A message that indicates whether the test was successful or not.</p>
+   */
+  Message?: string;
 }
 
 export namespace TestIdentityProviderResponse {
@@ -1449,54 +1568,25 @@ export namespace UntagResourceRequest {
 
 export interface UpdateServerRequest {
   /**
-   * <p>The virtual private cloud (VPC) endpoint settings that are configured for your file
-   *       transfer protocol-enabled server. With a VPC endpoint, you can restrict access to your server
-   *       to resources only within your VPC. To control incoming internet traffic, you will need to
-   *       associate one or more Elastic IP addresses with your server's endpoint.</p>
-   */
-  EndpointDetails?: EndpointDetails;
-
-  /**
-   * <p>The type of endpoint that you want your file transfer protocol-enabled server to connect
-   *       to. You can choose to connect to the public internet or a VPC endpoint. With a VPC endpoint,
-   *       you can restrict access to your server and resources only within your VPC.</p>
-   *
-   *          <note>
-   *             <p>It is recommended that you use <code>VPC</code> as the <code>EndpointType</code>. With
-   *         this endpoint type, you have the option to directly associate up to three Elastic IPv4
-   *         addresses (BYO IP included) with your server's endpoint and use VPC security groups to
-   *         restrict traffic by the client's public IP address. This is not possible with
-   *           <code>EndpointType</code> set to <code>VPC_ENDPOINT</code>.</p>
-   *          </note>
-   */
-  EndpointType?: EndpointType | string;
-
-  /**
-   * <p>An array containing all of the information required to call a customer's
-   *       authentication API method.</p>
-   */
-  IdentityProviderDetails?: IdentityProviderDetails;
-
-  /**
-   * <p>A system-assigned unique identifier for a file transfer protocol-enabled server instance
-   *       that the user account is assigned to.</p>
-   */
-  ServerId: string | undefined;
-
-  /**
    * <p>Changes the AWS Identity and Access Management (IAM) role that allows Amazon S3 events to
    *       be logged in Amazon CloudWatch, turning logging on or off.</p>
    */
   LoggingRole?: string;
 
   /**
+   * <p>A system-assigned unique identifier for a server instance that the user account is
+   *       assigned to.</p>
+   */
+  ServerId: string | undefined;
+
+  /**
    * <p>The RSA private key as generated by <code>ssh-keygen -N "" -m PEM -f
    *         my-new-server-key</code>.</p>
    *
    *          <important>
-   *             <p>If you aren't planning to migrate existing users from an existing file transfer
-   *         protocol-enabled server to a new server, don't update the host key. Accidentally
-   *         changing a server's host key can be disruptive.</p>
+   *             <p>If you aren't planning to migrate existing users from an existing server to a new
+   *         server, don't update the host key. Accidentally changing a server's host key can
+   *         be disruptive.</p>
    *          </important>
    *
    *
@@ -1540,6 +1630,40 @@ export interface UpdateServerRequest {
    *          </note>
    */
   Protocols?: (Protocol | string)[];
+
+  /**
+   * <p>An array containing all of the information required to call a customer's
+   *       authentication API method.</p>
+   */
+  IdentityProviderDetails?: IdentityProviderDetails;
+
+  /**
+   * <p>Specifies the name of the security policy that is attached to the server.</p>
+   */
+  SecurityPolicyName?: string;
+
+  /**
+   * <p>The type of endpoint that you want your server to connect to. You can choose to connect to
+   *       the public internet or a VPC endpoint. With a VPC endpoint, you can restrict access to your
+   *       server and resources only within your VPC.</p>
+   *
+   *          <note>
+   *             <p>It is recommended that you use <code>VPC</code> as the <code>EndpointType</code>. With
+   *         this endpoint type, you have the option to directly associate up to three Elastic IPv4
+   *         addresses (BYO IP included) with your server's endpoint and use VPC security groups to
+   *         restrict traffic by the client's public IP address. This is not possible with
+   *           <code>EndpointType</code> set to <code>VPC_ENDPOINT</code>.</p>
+   *          </note>
+   */
+  EndpointType?: EndpointType | string;
+
+  /**
+   * <p>The virtual private cloud (VPC) endpoint settings that are configured for your server.
+   *       With a VPC endpoint, you can restrict access to your server to resources only within your VPC.
+   *       To control incoming internet traffic, you will need to associate one or more Elastic IP
+   *       addresses with your server's endpoint.</p>
+   */
+  EndpointDetails?: EndpointDetails;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the AWS Certificate Manager (ACM) certificate. Required
@@ -1593,8 +1717,8 @@ export namespace UpdateServerRequest {
 
 export interface UpdateServerResponse {
   /**
-   * <p>A system-assigned unique identifier for a file transfer protocol-enabled server that the
-   *       user account is assigned to.</p>
+   * <p>A system-assigned unique identifier for a server that the user account is assigned
+   *       to.</p>
    */
   ServerId: string | undefined;
 }
@@ -1606,6 +1730,76 @@ export namespace UpdateServerResponse {
 }
 
 export interface UpdateUserRequest {
+  /**
+   * <p>The type of landing directory (folder) you want your users' home directory to be when
+   *       they log into the server. If you set it to <code>PATH</code>, the user will see the absolute
+   *       Amazon S3 bucket paths as is in their file transfer protocol clients. If you set it
+   *         <code>LOGICAL</code>, you will need to provide mappings in the
+   *         <code>HomeDirectoryMappings</code> for how you want to make Amazon S3 paths visible to your
+   *       users.</p>
+   */
+  HomeDirectoryType?: HomeDirectoryType | string;
+
+  /**
+   * <p>Logical directory mappings that specify what Amazon S3 paths and keys should be visible to
+   *       your user and how you want to make them visible. You will need to specify the
+   *         "<code>Entry</code>" and "<code>Target</code>" pair, where <code>Entry</code> shows how the
+   *       path is made visible and <code>Target</code> is the actual Amazon S3 path. If you only specify
+   *       a target, it will be displayed as is. You will need to also make sure that your IAM role
+   *       provides access to paths in <code>Target</code>. The following is an example.</p>
+   *
+   *          <p>
+   *             <code>'[ "/bucket2/documentation", { "Entry": "your-personal-report.pdf", "Target":
+   *         "/bucket3/customized-reports/${transfer:UserName}.pdf" } ]'</code>
+   *          </p>
+   *
+   *          <p>In most cases, you can use this value instead of the scope-down policy to lock your user
+   *       down to the designated home directory ("chroot"). To do this, you can set <code>Entry</code>
+   *       to '/' and set <code>Target</code> to the HomeDirectory parameter value.</p>
+   *
+   *          <note>
+   *             <p>If the target of a logical directory entry does not exist in Amazon S3, the entry will
+   *         be ignored. As a workaround, you can use the Amazon S3 API to create 0 byte objects as place
+   *         holders for your directory. If using the CLI, use the <code>s3api</code> call instead of
+   *           <code>s3</code> so you can use the put-object operation. For example, you use the
+   *         following: <code>aws s3api put-object --bucket bucketname --key path/to/folder/</code>. Make
+   *         sure that the end of the key name ends in a / for it to be considered a folder.</p>
+   *          </note>
+   */
+  HomeDirectoryMappings?: HomeDirectoryMapEntry[];
+
+  /**
+   * <p>Specifies the landing directory (folder) for a user when they log in to the server using
+   *       their file transfer protocol client.</p>
+   *
+   *          <p>An example is <code>your-Amazon-S3-bucket-name>/home/username</code>.</p>
+   */
+  HomeDirectory?: string;
+
+  /**
+   * <p>The IAM role that controls your users' access to your Amazon S3 bucket. The policies
+   *       attached to this role will determine the level of access you want to provide your users when
+   *       transferring files into and out of your Amazon S3 bucket or buckets. The IAM role should also
+   *       contain a trust relationship that allows the server to access your resources when servicing
+   *       your users' transfer requests.</p>
+   */
+  Role?: string;
+
+  /**
+   * <p>A system-assigned unique identifier for a server instance that the user account is
+   *       assigned to.</p>
+   */
+  ServerId: string | undefined;
+
+  /**
+   * <p>A unique string that identifies a user and is associated with a server as specified by the
+   *         <code>ServerId</code>. This user name must be a minimum of 3 and a maximum of 100 characters
+   *       long. The following are valid characters: a-z, A-Z, 0-9, underscore '_', hyphen
+   *       '-', period '.', and at sign '@'. The user name can't start
+   *       with a hyphen, period, or at sign.</p>
+   */
+  UserName: string | undefined;
+
   /**
    * <p>Allows you to supply a scope-down policy for your user so you can use the same IAM role
    *       across multiple users. The policy scopes down user access to portions of your Amazon S3
@@ -1628,76 +1822,6 @@ export interface UpdateUserRequest {
    *          </note>
    */
   Policy?: string;
-
-  /**
-   * <p>The IAM role that controls your users' access to your Amazon S3 bucket. The policies
-   *       attached to this role will determine the level of access you want to provide your users when
-   *       transferring files into and out of your Amazon S3 bucket or buckets. The IAM role should also
-   *       contain a trust relationship that allows the file transfer protocol-enabled server to access
-   *       your resources when servicing your users' transfer requests.</p>
-   */
-  Role?: string;
-
-  /**
-   * <p>A system-assigned unique identifier for a file transfer protocol-enabled server instance
-   *       that the user account is assigned to.</p>
-   */
-  ServerId: string | undefined;
-
-  /**
-   * <p>A unique string that identifies a user and is associated with a file transfer
-   *       protocol-enabled server as specified by the <code>ServerId</code>. This is the string that
-   *       will be used by your user when they log in to your server. This user name is a minimum of 3
-   *       and a maximum of 32 characters long. The following are valid characters: a-z, A-Z, 0-9,
-   *       underscore, and hyphen. The user name can't start with a hyphen.</p>
-   */
-  UserName: string | undefined;
-
-  /**
-   * <p>Logical directory mappings that specify what Amazon S3 paths and keys should be visible to
-   *       your user and how you want to make them visible. You will need to specify the
-   *         "<code>Entry</code>" and "<code>Target</code>" pair, where <code>Entry</code> shows how the
-   *       path is made visible and <code>Target</code> is the actual Amazon S3 path. If you only specify
-   *       a target, it will be displayed as is. You will need to also make sure that your IAM role
-   *       provides access to paths in <code>Target</code>. The following is an example.</p>
-   *
-   *          <p>
-   *             <code>'[ "/bucket2/documentation", { "Entry": "your-personal-report.pdf", "Target":
-   *         "/bucket3/customized-reports/${transfer:UserName}.pdf" } ]'</code>
-   *          </p>
-   *
-   *          <p>In most cases, you can use this value instead of the scope-down policy to lock your user
-   *       down to the designated home directory ("chroot"). To do this, you can set <code>Entry</code>
-   *       to '/' and set <code>Target</code> to the HomeDirectory parameter value.</p>
-   *
-   *          <note>
-   *             <p>If the target of a logical directory entry does not exist in Amazon S3, the entry will
-   *         be ignored. As a workaround, you can use the Amazon S3 api to create 0 byte objects as place
-   *         holders for your directory. If using the CLI, use the <code>s3api</code> call instead of
-   *           <code>s3</code> so you can use the put-object operation. For example, you use the
-   *         following: <code>aws s3api put-object --bucket bucketname --key path/to/folder/</code>. Make
-   *         sure that the end of the key name ends in a / for it to be considered a folder.</p>
-   *          </note>
-   */
-  HomeDirectoryMappings?: HomeDirectoryMapEntry[];
-
-  /**
-   * <p>Specifies the landing directory (folder) for a user when they log in to the file transfer
-   *       protocol-enabled server using their file transfer protocol client.</p>
-   *
-   *          <p>An example is <code>your-Amazon-S3-bucket-name>/home/username</code>.</p>
-   */
-  HomeDirectory?: string;
-
-  /**
-   * <p>The type of landing directory (folder) you want your users' home directory to be when
-   *       they log into the file transfer protocol-enabled server. If you set it to <code>PATH</code>,
-   *       the user will see the absolute Amazon S3 bucket paths as is in their file transfer protocol
-   *       clients. If you set it <code>LOGICAL</code>, you will need to provide mappings in the
-   *         <code>HomeDirectoryMappings</code> for how you want to make Amazon S3 paths visible to your
-   *       users.</p>
-   */
-  HomeDirectoryType?: HomeDirectoryType | string;
 }
 
 export namespace UpdateUserRequest {
@@ -1708,19 +1832,19 @@ export namespace UpdateUserRequest {
 
 /**
  * <p>
- *             <code>UpdateUserResponse</code> returns the user name and file transfer protocol-enabled
- *       server identifier for the request to update a user's properties.</p>
+ *             <code>UpdateUserResponse</code> returns the user name and identifier for the request to
+ *       update a user's properties.</p>
  */
 export interface UpdateUserResponse {
   /**
-   * <p>The unique identifier for a user that is assigned to a file transfer protocol-enabled
-   *       server instance that was specified in the request.</p>
+   * <p>The unique identifier for a user that is assigned to a server instance that was specified
+   *       in the request.</p>
    */
   UserName: string | undefined;
 
   /**
-   * <p>A system-assigned unique identifier for a file transfer protocol-enabled server instance
-   *       that the user account is assigned to.</p>
+   * <p>A system-assigned unique identifier for a server instance that the user account is
+   *       assigned to.</p>
    */
   ServerId: string | undefined;
 }

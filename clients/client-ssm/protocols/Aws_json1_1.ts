@@ -20187,25 +20187,48 @@ const deserializeAws_json1_1ParameterVersionNotFound = (
 
 const deserializeAws_json1_1Patch = (output: any, context: __SerdeContext): Patch => {
   return {
+    AdvisoryIds:
+      output.AdvisoryIds !== undefined && output.AdvisoryIds !== null
+        ? deserializeAws_json1_1PatchAdvisoryIdList(output.AdvisoryIds, context)
+        : undefined,
+    Arch: output.Arch !== undefined && output.Arch !== null ? output.Arch : undefined,
+    BugzillaIds:
+      output.BugzillaIds !== undefined && output.BugzillaIds !== null
+        ? deserializeAws_json1_1PatchBugzillaIdList(output.BugzillaIds, context)
+        : undefined,
+    CVEIds:
+      output.CVEIds !== undefined && output.CVEIds !== null
+        ? deserializeAws_json1_1PatchCVEIdList(output.CVEIds, context)
+        : undefined,
     Classification:
       output.Classification !== undefined && output.Classification !== null ? output.Classification : undefined,
     ContentUrl: output.ContentUrl !== undefined && output.ContentUrl !== null ? output.ContentUrl : undefined,
     Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
+    Epoch: output.Epoch !== undefined && output.Epoch !== null ? output.Epoch : undefined,
     Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
     KbNumber: output.KbNumber !== undefined && output.KbNumber !== null ? output.KbNumber : undefined,
     Language: output.Language !== undefined && output.Language !== null ? output.Language : undefined,
     MsrcNumber: output.MsrcNumber !== undefined && output.MsrcNumber !== null ? output.MsrcNumber : undefined,
     MsrcSeverity: output.MsrcSeverity !== undefined && output.MsrcSeverity !== null ? output.MsrcSeverity : undefined,
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
     Product: output.Product !== undefined && output.Product !== null ? output.Product : undefined,
     ProductFamily:
       output.ProductFamily !== undefined && output.ProductFamily !== null ? output.ProductFamily : undefined,
+    Release: output.Release !== undefined && output.Release !== null ? output.Release : undefined,
     ReleaseDate:
       output.ReleaseDate !== undefined && output.ReleaseDate !== null
         ? new Date(Math.round(output.ReleaseDate * 1000))
         : undefined,
+    Repository: output.Repository !== undefined && output.Repository !== null ? output.Repository : undefined,
+    Severity: output.Severity !== undefined && output.Severity !== null ? output.Severity : undefined,
     Title: output.Title !== undefined && output.Title !== null ? output.Title : undefined,
     Vendor: output.Vendor !== undefined && output.Vendor !== null ? output.Vendor : undefined,
+    Version: output.Version !== undefined && output.Version !== null ? output.Version : undefined,
   } as any;
+};
+
+const deserializeAws_json1_1PatchAdvisoryIdList = (output: any, context: __SerdeContext): string[] => {
+  return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_json1_1PatchBaselineIdentity = (output: any, context: __SerdeContext): PatchBaselineIdentity => {
@@ -20230,6 +20253,10 @@ const deserializeAws_json1_1PatchBaselineIdentityList = (
   return (output || []).map((entry: any) => deserializeAws_json1_1PatchBaselineIdentity(entry, context));
 };
 
+const deserializeAws_json1_1PatchBugzillaIdList = (output: any, context: __SerdeContext): string[] => {
+  return (output || []).map((entry: any) => entry);
+};
+
 const deserializeAws_json1_1PatchComplianceData = (output: any, context: __SerdeContext): PatchComplianceData => {
   return {
     Classification:
@@ -20247,6 +20274,10 @@ const deserializeAws_json1_1PatchComplianceData = (output: any, context: __Serde
 
 const deserializeAws_json1_1PatchComplianceDataList = (output: any, context: __SerdeContext): PatchComplianceData[] => {
   return (output || []).map((entry: any) => deserializeAws_json1_1PatchComplianceData(entry, context));
+};
+
+const deserializeAws_json1_1PatchCVEIdList = (output: any, context: __SerdeContext): string[] => {
+  return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_json1_1PatchFilter = (output: any, context: __SerdeContext): PatchFilter => {

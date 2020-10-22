@@ -3637,6 +3637,7 @@ const serializeAws_json1_1DeleteProjectInput = (input: DeleteProjectInput, conte
 const serializeAws_json1_1DeleteReportGroupInput = (input: DeleteReportGroupInput, context: __SerdeContext): any => {
   return {
     ...(input.arn !== undefined && { arn: input.arn }),
+    ...(input.deleteReports !== undefined && { deleteReports: input.deleteReports }),
   };
 };
 
@@ -4245,6 +4246,7 @@ const serializeAws_json1_1TagList = (input: Tag[], context: __SerdeContext): any
 
 const serializeAws_json1_1TestCaseFilter = (input: TestCaseFilter, context: __SerdeContext): any => {
   return {
+    ...(input.keyword !== undefined && { keyword: input.keyword }),
     ...(input.status !== undefined && { status: input.status }),
   };
 };

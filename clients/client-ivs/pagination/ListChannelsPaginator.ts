@@ -33,7 +33,7 @@ export async function* listChannelsPaginate(
   let hasNext = true;
   let page: ListChannelsCommandOutput;
   while (hasNext) {
-    input["nextToken"] = token;
+    input.nextToken = token;
     input["maxResults"] = config.pageSize;
     if (config.client instanceof Ivs) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* listChannelsPaginate(
       throw new Error("Invalid client, expected Ivs | IvsClient");
     }
     yield page;
-    token = page["nextToken"];
+    token = page.nextToken;
     hasNext = !!token;
   }
   // @ts-ignore

@@ -30,6 +30,7 @@ import {
   CreateEmailTemplateCommandInput,
   CreateEmailTemplateCommandOutput,
 } from "../commands/CreateEmailTemplateCommand";
+import { CreateImportJobCommandInput, CreateImportJobCommandOutput } from "../commands/CreateImportJobCommand";
 import {
   DeleteConfigurationSetCommandInput,
   DeleteConfigurationSetCommandOutput,
@@ -103,6 +104,7 @@ import {
   GetEmailIdentityPoliciesCommandOutput,
 } from "../commands/GetEmailIdentityPoliciesCommand";
 import { GetEmailTemplateCommandInput, GetEmailTemplateCommandOutput } from "../commands/GetEmailTemplateCommand";
+import { GetImportJobCommandInput, GetImportJobCommandOutput } from "../commands/GetImportJobCommand";
 import {
   GetSuppressedDestinationCommandInput,
   GetSuppressedDestinationCommandOutput,
@@ -132,6 +134,7 @@ import {
   ListEmailIdentitiesCommandOutput,
 } from "../commands/ListEmailIdentitiesCommand";
 import { ListEmailTemplatesCommandInput, ListEmailTemplatesCommandOutput } from "../commands/ListEmailTemplatesCommand";
+import { ListImportJobsCommandInput, ListImportJobsCommandOutput } from "../commands/ListImportJobsCommand";
 import {
   ListSuppressedDestinationsCommandInput,
   ListSuppressedDestinationsCommandOutput,
@@ -265,7 +268,11 @@ import {
   EventDestination,
   EventDestinationDefinition,
   EventType,
+  FailureInfo,
   IdentityInfo,
+  ImportDataSource,
+  ImportDestination,
+  ImportJobSummary,
   InboxPlacementTrackingOption,
   InvalidNextTokenException,
   IspPlacement,
@@ -293,6 +300,7 @@ import {
   SuppressedDestinationAttributes,
   SuppressedDestinationSummary,
   SuppressionAttributes,
+  SuppressionListDestination,
   SuppressionListReason,
   SuppressionOptions,
   Tag,
@@ -554,6 +562,35 @@ export const serializeAws_restJson1CreateEmailTemplateCommand = async (
       TemplateContent: serializeAws_restJson1EmailTemplateContent(input.TemplateContent, context),
     }),
     ...(input.TemplateName !== undefined && { TemplateName: input.TemplateName }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1CreateImportJobCommand = async (
+  input: CreateImportJobCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+  };
+  let resolvedPath = "/v2/email/import-jobs";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.ImportDataSource !== undefined && {
+      ImportDataSource: serializeAws_restJson1ImportDataSource(input.ImportDataSource, context),
+    }),
+    ...(input.ImportDestination !== undefined && {
+      ImportDestination: serializeAws_restJson1ImportDestination(input.ImportDestination, context),
+    }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1003,9 +1040,9 @@ export const serializeAws_restJson1GetDedicatedIpsCommand = async (
   };
   let resolvedPath = "/v2/email/dedicated-ips";
   const query: any = {
-    ...(input.PageSize !== undefined && { PageSize: input.PageSize.toString() }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
     ...(input.PoolName !== undefined && { PoolName: input.PoolName }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.PageSize !== undefined && { PageSize: input.PageSize.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1228,6 +1265,36 @@ export const serializeAws_restJson1GetEmailTemplateCommand = async (
   });
 };
 
+export const serializeAws_restJson1GetImportJobCommand = async (
+  input: GetImportJobCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "",
+  };
+  let resolvedPath = "/v2/email/import-jobs/{JobId}";
+  if (input.JobId !== undefined) {
+    const labelValue: string = input.JobId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: JobId.");
+    }
+    resolvedPath = resolvedPath.replace("{JobId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: JobId.");
+  }
+  let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1GetSuppressedDestinationCommand = async (
   input: GetSuppressedDestinationCommandInput,
   context: __SerdeContext
@@ -1293,8 +1360,8 @@ export const serializeAws_restJson1ListCustomVerificationEmailTemplatesCommand =
   };
   let resolvedPath = "/v2/email/custom-verification-email-templates";
   const query: any = {
-    ...(input.PageSize !== undefined && { PageSize: input.PageSize.toString() }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.PageSize !== undefined && { PageSize: input.PageSize.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1380,8 +1447,8 @@ export const serializeAws_restJson1ListDomainDeliverabilityCampaignsCommand = as
     throw new Error("No value provided for input HTTP label: SubscribedDomain.");
   }
   const query: any = {
-    ...(input.PageSize !== undefined && { PageSize: input.PageSize.toString() }),
     ...(input.EndDate !== undefined && { EndDate: (input.EndDate.toISOString().split(".")[0] + "Z").toString() }),
+    ...(input.PageSize !== undefined && { PageSize: input.PageSize.toString() }),
     ...(input.StartDate !== undefined && { StartDate: (input.StartDate.toISOString().split(".")[0] + "Z").toString() }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
   };
@@ -1438,6 +1505,35 @@ export const serializeAws_restJson1ListEmailTemplatesCommand = async (
     ...(input.PageSize !== undefined && { PageSize: input.PageSize.toString() }),
   };
   let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1ListImportJobsCommand = async (
+  input: ListImportJobsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+  };
+  let resolvedPath = "/v2/email/import-jobs";
+  const query: any = {
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.PageSize !== undefined && { PageSize: input.PageSize.toString() }),
+  };
+  let body: any;
+  body = JSON.stringify({
+    ...(input.ImportDestinationType !== undefined && { ImportDestinationType: input.ImportDestinationType }),
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -3066,6 +3162,77 @@ const deserializeAws_restJson1CreateEmailTemplateCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "BadRequestException":
+    case "com.amazonaws.sesv2#BadRequestException":
+      response = {
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "LimitExceededException":
+    case "com.amazonaws.sesv2#LimitExceededException":
+      response = {
+        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "TooManyRequestsException":
+    case "com.amazonaws.sesv2#TooManyRequestsException":
+      response = {
+        ...(await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1CreateImportJobCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateImportJobCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1CreateImportJobCommandError(output, context);
+  }
+  const contents: CreateImportJobCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    JobId: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.JobId !== undefined && data.JobId !== null) {
+    contents.JobId = data.JobId;
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1CreateImportJobCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateImportJobCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.sesv2#BadRequestException":
       response = {
@@ -4801,6 +4968,109 @@ const deserializeAws_restJson1GetEmailTemplateCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1GetImportJobCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetImportJobCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1GetImportJobCommandError(output, context);
+  }
+  const contents: GetImportJobCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    CompletedTimestamp: undefined,
+    CreatedTimestamp: undefined,
+    FailedRecordsCount: undefined,
+    FailureInfo: undefined,
+    ImportDataSource: undefined,
+    ImportDestination: undefined,
+    JobId: undefined,
+    JobStatus: undefined,
+    ProcessedRecordsCount: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.CompletedTimestamp !== undefined && data.CompletedTimestamp !== null) {
+    contents.CompletedTimestamp = new Date(Math.round(data.CompletedTimestamp * 1000));
+  }
+  if (data.CreatedTimestamp !== undefined && data.CreatedTimestamp !== null) {
+    contents.CreatedTimestamp = new Date(Math.round(data.CreatedTimestamp * 1000));
+  }
+  if (data.FailedRecordsCount !== undefined && data.FailedRecordsCount !== null) {
+    contents.FailedRecordsCount = data.FailedRecordsCount;
+  }
+  if (data.FailureInfo !== undefined && data.FailureInfo !== null) {
+    contents.FailureInfo = deserializeAws_restJson1FailureInfo(data.FailureInfo, context);
+  }
+  if (data.ImportDataSource !== undefined && data.ImportDataSource !== null) {
+    contents.ImportDataSource = deserializeAws_restJson1ImportDataSource(data.ImportDataSource, context);
+  }
+  if (data.ImportDestination !== undefined && data.ImportDestination !== null) {
+    contents.ImportDestination = deserializeAws_restJson1ImportDestination(data.ImportDestination, context);
+  }
+  if (data.JobId !== undefined && data.JobId !== null) {
+    contents.JobId = data.JobId;
+  }
+  if (data.JobStatus !== undefined && data.JobStatus !== null) {
+    contents.JobStatus = data.JobStatus;
+  }
+  if (data.ProcessedRecordsCount !== undefined && data.ProcessedRecordsCount !== null) {
+    contents.ProcessedRecordsCount = data.ProcessedRecordsCount;
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1GetImportJobCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetImportJobCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.sesv2#BadRequestException":
+      response = {
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.sesv2#NotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "TooManyRequestsException":
+    case "com.amazonaws.sesv2#TooManyRequestsException":
+      response = {
+        ...(await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1GetSuppressedDestinationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -5325,6 +5595,73 @@ const deserializeAws_restJson1ListEmailTemplatesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListEmailTemplatesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.sesv2#BadRequestException":
+      response = {
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "TooManyRequestsException":
+    case "com.amazonaws.sesv2#TooManyRequestsException":
+      response = {
+        ...(await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1ListImportJobsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListImportJobsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListImportJobsCommandError(output, context);
+  }
+  const contents: ListImportJobsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ImportJobs: undefined,
+    NextToken: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.ImportJobs !== undefined && data.ImportJobs !== null) {
+    contents.ImportJobs = deserializeAws_restJson1ImportJobSummaryList(data.ImportJobs, context);
+  }
+  if (data.NextToken !== undefined && data.NextToken !== null) {
+    contents.NextToken = data.NextToken;
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1ListImportJobsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListImportJobsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -7842,6 +8179,24 @@ const serializeAws_restJson1EventTypes = (input: (EventType | string)[], context
   return input.map((entry) => entry);
 };
 
+const serializeAws_restJson1ImportDataSource = (input: ImportDataSource, context: __SerdeContext): any => {
+  return {
+    ...(input.DataFormat !== undefined && { DataFormat: input.DataFormat }),
+    ...(input.S3Url !== undefined && { S3Url: input.S3Url }),
+  };
+};
+
+const serializeAws_restJson1ImportDestination = (input: ImportDestination, context: __SerdeContext): any => {
+  return {
+    ...(input.SuppressionListDestination !== undefined && {
+      SuppressionListDestination: serializeAws_restJson1SuppressionListDestination(
+        input.SuppressionListDestination,
+        context
+      ),
+    }),
+  };
+};
+
 const serializeAws_restJson1InboxPlacementTrackingOption = (
   input: InboxPlacementTrackingOption,
   context: __SerdeContext
@@ -7931,6 +8286,17 @@ const serializeAws_restJson1SendingOptions = (input: SendingOptions, context: __
 const serializeAws_restJson1SnsDestination = (input: SnsDestination, context: __SerdeContext): any => {
   return {
     ...(input.TopicArn !== undefined && { TopicArn: input.TopicArn }),
+  };
+};
+
+const serializeAws_restJson1SuppressionListDestination = (
+  input: SuppressionListDestination,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.SuppressionListImportAction !== undefined && {
+      SuppressionListImportAction: input.SuppressionListImportAction,
+    }),
   };
 };
 
@@ -8349,6 +8715,16 @@ const deserializeAws_restJson1EventTypes = (output: any, context: __SerdeContext
   return (output || []).map((entry: any) => entry);
 };
 
+const deserializeAws_restJson1FailureInfo = (output: any, context: __SerdeContext): FailureInfo => {
+  return {
+    ErrorMessage: output.ErrorMessage !== undefined && output.ErrorMessage !== null ? output.ErrorMessage : undefined,
+    FailedRecordsS3Url:
+      output.FailedRecordsS3Url !== undefined && output.FailedRecordsS3Url !== null
+        ? output.FailedRecordsS3Url
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1IdentityInfo = (output: any, context: __SerdeContext): IdentityInfo => {
   return {
     IdentityName: output.IdentityName !== undefined && output.IdentityName !== null ? output.IdentityName : undefined,
@@ -8360,6 +8736,41 @@ const deserializeAws_restJson1IdentityInfo = (output: any, context: __SerdeConte
 
 const deserializeAws_restJson1IdentityInfoList = (output: any, context: __SerdeContext): IdentityInfo[] => {
   return (output || []).map((entry: any) => deserializeAws_restJson1IdentityInfo(entry, context));
+};
+
+const deserializeAws_restJson1ImportDataSource = (output: any, context: __SerdeContext): ImportDataSource => {
+  return {
+    DataFormat: output.DataFormat !== undefined && output.DataFormat !== null ? output.DataFormat : undefined,
+    S3Url: output.S3Url !== undefined && output.S3Url !== null ? output.S3Url : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1ImportDestination = (output: any, context: __SerdeContext): ImportDestination => {
+  return {
+    SuppressionListDestination:
+      output.SuppressionListDestination !== undefined && output.SuppressionListDestination !== null
+        ? deserializeAws_restJson1SuppressionListDestination(output.SuppressionListDestination, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1ImportJobSummary = (output: any, context: __SerdeContext): ImportJobSummary => {
+  return {
+    CreatedTimestamp:
+      output.CreatedTimestamp !== undefined && output.CreatedTimestamp !== null
+        ? new Date(Math.round(output.CreatedTimestamp * 1000))
+        : undefined,
+    ImportDestination:
+      output.ImportDestination !== undefined && output.ImportDestination !== null
+        ? deserializeAws_restJson1ImportDestination(output.ImportDestination, context)
+        : undefined,
+    JobId: output.JobId !== undefined && output.JobId !== null ? output.JobId : undefined,
+    JobStatus: output.JobStatus !== undefined && output.JobStatus !== null ? output.JobStatus : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1ImportJobSummaryList = (output: any, context: __SerdeContext): ImportJobSummary[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1ImportJobSummary(entry, context));
 };
 
 const deserializeAws_restJson1InboxPlacementTrackingOption = (
@@ -8572,6 +8983,18 @@ const deserializeAws_restJson1SuppressionAttributes = (output: any, context: __S
     SuppressedReasons:
       output.SuppressedReasons !== undefined && output.SuppressedReasons !== null
         ? deserializeAws_restJson1SuppressionListReasons(output.SuppressedReasons, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1SuppressionListDestination = (
+  output: any,
+  context: __SerdeContext
+): SuppressionListDestination => {
+  return {
+    SuppressionListImportAction:
+      output.SuppressionListImportAction !== undefined && output.SuppressionListImportAction !== null
+        ? output.SuppressionListImportAction
         : undefined,
   } as any;
 };

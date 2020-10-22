@@ -31,6 +31,11 @@ export namespace CancelRotateSecretRequest {
 
 export interface CancelRotateSecretResponse {
   /**
+   * <p>The ARN of the secret for which rotation was canceled.</p>
+   */
+  ARN?: string;
+
+  /**
    * <p>The unique identifier of the version of the secret created during the rotation. This
    *       version might not be complete, and should be evaluated for possible deletion. At the very
    *       least, you should remove the <code>VersionStage</code> value <code>AWSPENDING</code> to enable this
@@ -38,11 +43,6 @@ export interface CancelRotateSecretResponse {
    *       successfully starting future rotations.</p>
    */
   VersionId?: string;
-
-  /**
-   * <p>The ARN of the secret for which rotation was canceled.</p>
-   */
-  ARN?: string;
 
   /**
    * <p>The friendly name of the secret for which rotation was canceled.</p>
@@ -162,100 +162,6 @@ export interface CreateSecretRequest {
   Name: string | undefined;
 
   /**
-   * <p>(Optional) Specifies text data that you want to encrypt and store in this new version of
-   *       the secret.</p>
-   *          <p>Either <code>SecretString</code> or <code>SecretBinary</code> must have a value, but not
-   *       both. They cannot both be empty.</p>
-   *          <p>If you create a secret by using the Secrets Manager console then Secrets Manager puts the protected
-   *       secret text in only the <code>SecretString</code> parameter. The Secrets Manager console stores the
-   *       information as a JSON structure of key/value pairs that the Lambda rotation function knows how
-   *       to parse.</p>
-   *          <p>For storing multiple values, we recommend that you use a JSON text string argument and
-   *       specify key/value pairs. For information on how to format a JSON parameter for the various
-   *       command line tool environments, see <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json">Using JSON for
-   *         Parameters</a> in the <i>AWS CLI User Guide</i>. For example:</p>
-   *          <p>
-   *             <code>{"username":"bob","password":"abc123xyz456"}</code>
-   *          </p>
-   *          <p>If your command-line tool or SDK requires quotation marks around the parameter, you should
-   *       use single quotes to avoid confusion with the double quotes required in the JSON text. </p>
-   */
-  SecretString?: string;
-
-  /**
-   * <p>(Optional) Specifies a user-provided description of the secret.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>(Optional) Specifies binary data that you want to encrypt and store in the new version of
-   *       the secret. To use this parameter in the command-line tools, we recommend that you store your
-   *       binary data in a file and then use the appropriate technique for your tool to pass the
-   *       contents of the file as a parameter.</p>
-   *          <p>Either <code>SecretString</code> or <code>SecretBinary</code> must have a value, but not
-   *       both. They cannot both be empty.</p>
-   *          <p>This parameter is not available using the Secrets Manager console. It can be accessed only by
-   *       using the AWS CLI or one of the AWS SDKs.</p>
-   */
-  SecretBinary?: Uint8Array;
-
-  /**
-   * <p>(Optional) If you include <code>SecretString</code> or <code>SecretBinary</code>, then an
-   *       initial version is created as part of the secret, and this parameter specifies a unique
-   *       identifier for the new version. </p>
-   *          <note>
-   *             <p>If you use the AWS CLI or one of the AWS SDK to call this operation, then you can
-   *         leave this parameter empty. The CLI or SDK generates a random UUID for you and includes it
-   *         as the value for this parameter in the request. If you don't use the SDK and instead
-   *         generate a raw HTTP request to the Secrets Manager service endpoint, then you must generate a
-   *           <code>ClientRequestToken</code> yourself for the new version and include the value in the
-   *         request.</p>
-   *          </note>
-   *          <p>This value helps ensure idempotency. Secrets Manager uses this value to prevent the accidental
-   *       creation of duplicate versions if there are failures and retries during a rotation. We
-   *       recommend that you generate a <a href="https://wikipedia.org/wiki/Universally_unique_identifier">UUID-type</a> value to
-   *       ensure uniqueness of your versions within the specified secret. </p>
-   *          <ul>
-   *             <li>
-   *                <p>If the <code>ClientRequestToken</code> value isn't already associated with a version
-   *           of the secret then a new version of the secret is created. </p>
-   *             </li>
-   *             <li>
-   *                <p>If a version with this value already exists and the version <code>SecretString</code>
-   *           and <code>SecretBinary</code> values are the same as those in the request, then the
-   *           request is ignored.</p>
-   *             </li>
-   *             <li>
-   *                <p>If a version with this value already exists and that version's
-   *             <code>SecretString</code> and <code>SecretBinary</code> values are different from those
-   *           in the request then the request fails because you cannot modify an existing version.
-   *           Instead, use <a>PutSecretValue</a> to create a new version.</p>
-   *             </li>
-   *          </ul>
-   *          <p>This value becomes the <code>VersionId</code> of the new version.</p>
-   */
-  ClientRequestToken?: string;
-
-  /**
-   * <p>(Optional) Specifies the ARN, Key ID, or alias of the AWS KMS customer master key (CMK) to
-   *       be used to encrypt the <code>SecretString</code> or <code>SecretBinary</code> values in the
-   *       versions stored in this secret.</p>
-   *          <p>You can specify any of the supported ways to identify a AWS KMS key ID. If you need to
-   *       reference a CMK in a different account, you can use only the key ARN or the alias ARN.</p>
-   *          <p>If you don't specify this value, then Secrets Manager defaults to using the AWS account's
-   *       default CMK (the one named <code>aws/secretsmanager</code>). If a AWS KMS CMK with that name doesn't yet
-   *       exist, then Secrets Manager creates it for you automatically the first time it needs to encrypt a
-   *       version's <code>SecretString</code> or <code>SecretBinary</code> fields.</p>
-   *          <important>
-   *             <p>You can use the account default CMK to encrypt and decrypt only if you call this
-   *         operation using credentials from the same account that owns the secret. If the secret
-   *         resides in a different account, then you must create a custom CMK and specify the ARN in
-   *         this field. </p>
-   *          </important>
-   */
-  KmsKeyId?: string;
-
-  /**
    * <p>(Optional) Specifies a list of user-defined tags that are attached to the secret. Each tag
    *       is a "Key" and "Value" pair of strings. This operation only appends tags to the existing list
    *       of tags. To remove tags, you must use <a>UntagResource</a>.</p>
@@ -310,6 +216,100 @@ export interface CreateSecretRequest {
    *          </ul>
    */
   Tags?: Tag[];
+
+  /**
+   * <p>(Optional) Specifies the ARN, Key ID, or alias of the AWS KMS customer master key (CMK) to
+   *       be used to encrypt the <code>SecretString</code> or <code>SecretBinary</code> values in the
+   *       versions stored in this secret.</p>
+   *          <p>You can specify any of the supported ways to identify a AWS KMS key ID. If you need to
+   *       reference a CMK in a different account, you can use only the key ARN or the alias ARN.</p>
+   *          <p>If you don't specify this value, then Secrets Manager defaults to using the AWS account's
+   *       default CMK (the one named <code>aws/secretsmanager</code>). If a AWS KMS CMK with that name doesn't yet
+   *       exist, then Secrets Manager creates it for you automatically the first time it needs to encrypt a
+   *       version's <code>SecretString</code> or <code>SecretBinary</code> fields.</p>
+   *          <important>
+   *             <p>You can use the account default CMK to encrypt and decrypt only if you call this
+   *         operation using credentials from the same account that owns the secret. If the secret
+   *         resides in a different account, then you must create a custom CMK and specify the ARN in
+   *         this field. </p>
+   *          </important>
+   */
+  KmsKeyId?: string;
+
+  /**
+   * <p>(Optional) Specifies a user-provided description of the secret.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>(Optional) Specifies text data that you want to encrypt and store in this new version of
+   *       the secret.</p>
+   *          <p>Either <code>SecretString</code> or <code>SecretBinary</code> must have a value, but not
+   *       both. They cannot both be empty.</p>
+   *          <p>If you create a secret by using the Secrets Manager console then Secrets Manager puts the protected
+   *       secret text in only the <code>SecretString</code> parameter. The Secrets Manager console stores the
+   *       information as a JSON structure of key/value pairs that the Lambda rotation function knows how
+   *       to parse.</p>
+   *          <p>For storing multiple values, we recommend that you use a JSON text string argument and
+   *       specify key/value pairs. For information on how to format a JSON parameter for the various
+   *       command line tool environments, see <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json">Using JSON for
+   *         Parameters</a> in the <i>AWS CLI User Guide</i>. For example:</p>
+   *          <p>
+   *             <code>{"username":"bob","password":"abc123xyz456"}</code>
+   *          </p>
+   *          <p>If your command-line tool or SDK requires quotation marks around the parameter, you should
+   *       use single quotes to avoid confusion with the double quotes required in the JSON text. </p>
+   */
+  SecretString?: string;
+
+  /**
+   * <p>(Optional) Specifies binary data that you want to encrypt and store in the new version of
+   *       the secret. To use this parameter in the command-line tools, we recommend that you store your
+   *       binary data in a file and then use the appropriate technique for your tool to pass the
+   *       contents of the file as a parameter.</p>
+   *          <p>Either <code>SecretString</code> or <code>SecretBinary</code> must have a value, but not
+   *       both. They cannot both be empty.</p>
+   *          <p>This parameter is not available using the Secrets Manager console. It can be accessed only by
+   *       using the AWS CLI or one of the AWS SDKs.</p>
+   */
+  SecretBinary?: Uint8Array;
+
+  /**
+   * <p>(Optional) If you include <code>SecretString</code> or <code>SecretBinary</code>, then an
+   *       initial version is created as part of the secret, and this parameter specifies a unique
+   *       identifier for the new version. </p>
+   *          <note>
+   *             <p>If you use the AWS CLI or one of the AWS SDK to call this operation, then you can
+   *         leave this parameter empty. The CLI or SDK generates a random UUID for you and includes it
+   *         as the value for this parameter in the request. If you don't use the SDK and instead
+   *         generate a raw HTTP request to the Secrets Manager service endpoint, then you must generate a
+   *           <code>ClientRequestToken</code> yourself for the new version and include the value in the
+   *         request.</p>
+   *          </note>
+   *          <p>This value helps ensure idempotency. Secrets Manager uses this value to prevent the accidental
+   *       creation of duplicate versions if there are failures and retries during a rotation. We
+   *       recommend that you generate a <a href="https://wikipedia.org/wiki/Universally_unique_identifier">UUID-type</a> value to
+   *       ensure uniqueness of your versions within the specified secret. </p>
+   *          <ul>
+   *             <li>
+   *                <p>If the <code>ClientRequestToken</code> value isn't already associated with a version
+   *           of the secret then a new version of the secret is created. </p>
+   *             </li>
+   *             <li>
+   *                <p>If a version with this value already exists and the version <code>SecretString</code>
+   *           and <code>SecretBinary</code> values are the same as those in the request, then the
+   *           request is ignored.</p>
+   *             </li>
+   *             <li>
+   *                <p>If a version with this value already exists and that version's
+   *             <code>SecretString</code> and <code>SecretBinary</code> values are different from those
+   *           in the request then the request fails because you cannot modify an existing version.
+   *           Instead, use <a>PutSecretValue</a> to create a new version.</p>
+   *             </li>
+   *          </ul>
+   *          <p>This value becomes the <code>VersionId</code> of the new version.</p>
+   */
+  ClientRequestToken?: string;
 }
 
 export namespace CreateSecretRequest {
@@ -322,15 +322,15 @@ export namespace CreateSecretRequest {
 
 export interface CreateSecretResponse {
   /**
-   * <p>The friendly name of the secret that you just created.</p>
-   */
-  Name?: string;
-
-  /**
    * <p>The unique identifier associated with the version of the secret you just
    *       created.</p>
    */
   VersionId?: string;
+
+  /**
+   * <p>The friendly name of the secret that you just created.</p>
+   */
+  Name?: string;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the secret that you just created.</p>
@@ -474,14 +474,14 @@ export namespace DeleteResourcePolicyRequest {
 
 export interface DeleteResourcePolicyResponse {
   /**
-   * <p>The friendly name of the secret that the resource-based policy was deleted for.</p>
-   */
-  Name?: string;
-
-  /**
    * <p>The ARN of the secret that the resource-based policy was deleted for.</p>
    */
   ARN?: string;
+
+  /**
+   * <p>The friendly name of the secret that the resource-based policy was deleted for.</p>
+   */
+  Name?: string;
 }
 
 export namespace DeleteResourcePolicyResponse {
@@ -510,6 +510,14 @@ export interface DeleteSecretRequest {
   ForceDeleteWithoutRecovery?: boolean;
 
   /**
+   * <p>(Optional) Specifies the number of days that Secrets Manager waits before it can delete the secret.
+   *       You can't use both this parameter and the <code>ForceDeleteWithoutRecovery</code> parameter in
+   *       the same API call.</p>
+   *          <p>This value can range from 7 to 30 days. The default value is 30.</p>
+   */
+  RecoveryWindowInDays?: number;
+
+  /**
    * <p>Specifies the secret that you want to delete. You can specify either the Amazon Resource
    *       Name (ARN) or the friendly name of the secret.</p>
    *          <note>
@@ -528,14 +536,6 @@ export interface DeleteSecretRequest {
    *         </note>
    */
   SecretId: string | undefined;
-
-  /**
-   * <p>(Optional) Specifies the number of days that Secrets Manager waits before it can delete the secret.
-   *       You can't use both this parameter and the <code>ForceDeleteWithoutRecovery</code> parameter in
-   *       the same API call.</p>
-   *          <p>This value can range from 7 to 30 days. The default value is 30.</p>
-   */
-  RecoveryWindowInDays?: number;
 }
 
 export namespace DeleteSecretRequest {
@@ -620,36 +620,23 @@ export namespace RotationRulesType {
 
 export interface DescribeSecretResponse {
   /**
-   * <p>The ARN of a Lambda function that's invoked by Secrets Manager to rotate the
-   *       secret either automatically per the schedule or manually by a call to
-   *         <code>RotateSecret</code>.</p>
+   * <p>The most recent date and time that the Secrets Manager rotation process was successfully
+   *       completed. This value is null if the secret has never rotated.</p>
    */
-  RotationLambdaARN?: string;
+  LastRotatedDate?: Date;
 
   /**
-   * <p>The last date that this secret was accessed. This value is truncated to midnight of the
-   *       date and therefore shows only the date, not the time.</p>
+   * <p>The user-provided description of the secret.</p>
    */
-  LastAccessedDate?: Date;
+  Description?: string;
 
   /**
-   * <p>The list of user-defined tags that are associated with the secret. To add tags to a
-   *       secret, use <a>TagResource</a>. To remove tags, use <a>UntagResource</a>.</p>
+   * <p>The ARN or alias of the AWS KMS customer master key (CMK) that's used to encrypt the
+   *         <code>SecretString</code> or <code>SecretBinary</code> fields in each version of the secret.
+   *       If you don't provide a key, then Secrets Manager defaults to encrypting the secret fields with the
+   *       default AWS KMS CMK (the one named <code>awssecretsmanager</code>) for this account.</p>
    */
-  Tags?: Tag[];
-
-  /**
-   * <p>Returns the name of the service that created this secret.</p>
-   */
-  OwningService?: string;
-
-  /**
-   * <p>This value exists if the secret is scheduled for deletion. Some time after the specified
-   *       date and time, Secrets Manager deletes the secret and all of its versions.</p>
-   *          <p>If a secret is scheduled for deletion, then its details, including the encrypted secret
-   *       information, is not accessible. To cancel a scheduled deletion and restore access, use <a>RestoreSecret</a>.</p>
-   */
-  DeletedDate?: Date;
+  KmsKeyId?: string;
 
   /**
    * <p>A list of all of the currently assigned <code>VersionStage</code> staging labels and the
@@ -663,35 +650,19 @@ export interface DescribeSecretResponse {
   VersionIdsToStages?: { [key: string]: string[] };
 
   /**
-   * <p>The ARN of the secret.</p>
+   * <p>The last date and time that this secret was modified in any way.</p>
    */
-  ARN?: string;
-
-  /**
-   * <p>The date that the secret was created.</p>
-   */
-  CreatedDate?: Date;
-
-  /**
-   * <p>The most recent date and time that the Secrets Manager rotation process was successfully
-   *       completed. This value is null if the secret has never rotated.</p>
-   */
-  LastRotatedDate?: Date;
-
-  /**
-   * <p>The user-provided friendly name of the secret.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>The user-provided description of the secret.</p>
-   */
-  Description?: string;
+  LastChangedDate?: Date;
 
   /**
    * <p>A structure that contains the rotation configuration for this secret.</p>
    */
   RotationRules?: RotationRulesType;
+
+  /**
+   * <p>The user-provided friendly name of the secret.</p>
+   */
+  Name?: string;
 
   /**
    * <p>Specifies whether automatic rotation is enabled for this secret.</p>
@@ -702,17 +673,46 @@ export interface DescribeSecretResponse {
   RotationEnabled?: boolean;
 
   /**
-   * <p>The ARN or alias of the AWS KMS customer master key (CMK) that's used to encrypt the
-   *         <code>SecretString</code> or <code>SecretBinary</code> fields in each version of the secret.
-   *       If you don't provide a key, then Secrets Manager defaults to encrypting the secret fields with the
-   *       default AWS KMS CMK (the one named <code>awssecretsmanager</code>) for this account.</p>
+   * <p>The last date that this secret was accessed. This value is truncated to midnight of the
+   *       date and therefore shows only the date, not the time.</p>
    */
-  KmsKeyId?: string;
+  LastAccessedDate?: Date;
 
   /**
-   * <p>The last date and time that this secret was modified in any way.</p>
+   * <p>The date that the secret was created.</p>
    */
-  LastChangedDate?: Date;
+  CreatedDate?: Date;
+
+  /**
+   * <p>This value exists if the secret is scheduled for deletion. Some time after the specified
+   *       date and time, Secrets Manager deletes the secret and all of its versions.</p>
+   *          <p>If a secret is scheduled for deletion, then its details, including the encrypted secret
+   *       information, is not accessible. To cancel a scheduled deletion and restore access, use <a>RestoreSecret</a>.</p>
+   */
+  DeletedDate?: Date;
+
+  /**
+   * <p>The ARN of the secret.</p>
+   */
+  ARN?: string;
+
+  /**
+   * <p>Returns the name of the service that created this secret.</p>
+   */
+  OwningService?: string;
+
+  /**
+   * <p>The ARN of a Lambda function that's invoked by Secrets Manager to rotate the
+   *       secret either automatically per the schedule or manually by a call to
+   *         <code>RotateSecret</code>.</p>
+   */
+  RotationLambdaARN?: string;
+
+  /**
+   * <p>The list of user-defined tags that are associated with the secret. To add tags to a
+   *       secret, use <a>TagResource</a>. To remove tags, use <a>UntagResource</a>.</p>
+   */
+  Tags?: Tag[];
 }
 
 export namespace DescribeSecretResponse {
@@ -746,22 +746,22 @@ export namespace Filter {
 
 export interface GetRandomPasswordRequest {
   /**
-   * <p>A string that includes characters that should not be included in the generated password.
-   *       The default is that all characters from the included sets can be used.</p>
-   */
-  ExcludeCharacters?: string;
-
-  /**
    * <p>Specifies that the generated password should not include digits. The default if you do not
    *       include this switch parameter is that digits can be included.</p>
    */
   ExcludeNumbers?: boolean;
 
   /**
-   * <p>Specifies that the generated password should not include lowercase letters. The default if
-   *       you do not include this switch parameter is that lowercase letters can be included.</p>
+   * <p>A string that includes characters that should not be included in the generated password.
+   *       The default is that all characters from the included sets can be used.</p>
    */
-  ExcludeLowercase?: boolean;
+  ExcludeCharacters?: string;
+
+  /**
+   * <p>The desired length of the generated password. The default value if you do not include this
+   *       parameter is 32 characters.</p>
+   */
+  PasswordLength?: number;
 
   /**
    * <p>A boolean value that specifies whether the generated password must include at least one of
@@ -771,10 +771,10 @@ export interface GetRandomPasswordRequest {
   RequireEachIncludedType?: boolean;
 
   /**
-   * <p>Specifies that the generated password should not include uppercase letters. The default if
-   *       you do not include this switch parameter is that uppercase letters can be included.</p>
+   * <p>Specifies that the generated password can include the space character. The default if you
+   *       do not include this switch parameter is that the space character is not included.</p>
    */
-  ExcludeUppercase?: boolean;
+  IncludeSpace?: boolean;
 
   /**
    * <p>Specifies that the generated password should not include punctuation characters. The
@@ -791,16 +791,16 @@ export interface GetRandomPasswordRequest {
   ExcludePunctuation?: boolean;
 
   /**
-   * <p>Specifies that the generated password can include the space character. The default if you
-   *       do not include this switch parameter is that the space character is not included.</p>
+   * <p>Specifies that the generated password should not include lowercase letters. The default if
+   *       you do not include this switch parameter is that lowercase letters can be included.</p>
    */
-  IncludeSpace?: boolean;
+  ExcludeLowercase?: boolean;
 
   /**
-   * <p>The desired length of the generated password. The default value if you do not include this
-   *       parameter is 32 characters.</p>
+   * <p>Specifies that the generated password should not include uppercase letters. The default if
+   *       you do not include this switch parameter is that uppercase letters can be included.</p>
    */
-  PasswordLength?: number;
+  ExcludeUppercase?: boolean;
 }
 
 export namespace GetRandomPasswordRequest {
@@ -853,11 +853,6 @@ export namespace GetResourcePolicyRequest {
 
 export interface GetResourcePolicyResponse {
   /**
-   * <p>The ARN of the secret that the resource-based policy was retrieved for.</p>
-   */
-  ARN?: string;
-
-  /**
    * <p>A JSON-formatted string that describes the permissions that are associated with the
    *       attached secret. These permissions are combined with any permissions that are associated with
    *       the user or role that attempts to access this secret. The combined permissions specify who can
@@ -870,6 +865,11 @@ export interface GetResourcePolicyResponse {
    * <p>The friendly name of the secret that the resource-based policy was retrieved for.</p>
    */
   Name?: string;
+
+  /**
+   * <p>The ARN of the secret that the resource-based policy was retrieved for.</p>
+   */
+  ARN?: string;
 }
 
 export namespace GetResourcePolicyResponse {
@@ -900,17 +900,6 @@ export interface GetSecretValueRequest {
   SecretId: string | undefined;
 
   /**
-   * <p>Specifies the unique identifier of the version of the secret that you want to retrieve. If
-   *       you specify this parameter then don't specify <code>VersionStage</code>. If you
-   *       don't specify either a <code>VersionStage</code> or <code>VersionId</code> then the
-   *       default is to perform the operation on the version with the <code>VersionStage</code> value of
-   *       <code>AWSCURRENT</code>.</p>
-   *          <p>This value is typically a <a href="https://wikipedia.org/wiki/Universally_unique_identifier">UUID-type</a> value with
-   *       32 hexadecimal digits.</p>
-   */
-  VersionId?: string;
-
-  /**
    * <p>Specifies the secret version that you want to retrieve by the staging label attached to
    *       the version.</p>
    *          <p>Staging labels are used to keep track of different versions during the rotation process.
@@ -920,6 +909,17 @@ export interface GetSecretValueRequest {
    *       <code>AWSCURRENT</code>.</p>
    */
   VersionStage?: string;
+
+  /**
+   * <p>Specifies the unique identifier of the version of the secret that you want to retrieve. If
+   *       you specify this parameter then don't specify <code>VersionStage</code>. If you
+   *       don't specify either a <code>VersionStage</code> or <code>VersionId</code> then the
+   *       default is to perform the operation on the version with the <code>VersionStage</code> value of
+   *       <code>AWSCURRENT</code>.</p>
+   *          <p>This value is typically a <a href="https://wikipedia.org/wiki/Universally_unique_identifier">UUID-type</a> value with
+   *       32 hexadecimal digits.</p>
+   */
+  VersionId?: string;
 }
 
 export namespace GetSecretValueRequest {
@@ -930,26 +930,14 @@ export namespace GetSecretValueRequest {
 
 export interface GetSecretValueResponse {
   /**
-   * <p>The friendly name of the secret.</p>
+   * <p>The unique identifier of this version of the secret.</p>
    */
-  Name?: string;
+  VersionId?: string;
 
   /**
    * <p>The date and time that this version of the secret was created.</p>
    */
   CreatedDate?: Date;
-
-  /**
-   * <p>The decrypted part of the protected secret information that was originally provided as
-   *       binary data in the form of a byte array. The response parameter represents the binary data as
-   *       a <a href="https://tools.ietf.org/html/rfc4648#section-4">base64-encoded</a>
-   *       string.</p>
-   *          <p>This parameter is not used if the secret is created by the Secrets Manager console.</p>
-   *          <p>If you store custom information in this field of the secret, then you must code your
-   *       Lambda rotation function to parse and interpret whatever you store in the
-   *         <code>SecretString</code> or <code>SecretBinary</code> fields.</p>
-   */
-  SecretBinary?: Uint8Array;
 
   /**
    * <p>The decrypted part of the protected secret information that was originally provided as a
@@ -966,27 +954,39 @@ export interface GetSecretValueResponse {
   SecretString?: string;
 
   /**
-   * <p>The unique identifier of this version of the secret.</p>
+   * <p>The decrypted part of the protected secret information that was originally provided as
+   *       binary data in the form of a byte array. The response parameter represents the binary data as
+   *       a <a href="https://tools.ietf.org/html/rfc4648#section-4">base64-encoded</a>
+   *       string.</p>
+   *          <p>This parameter is not used if the secret is created by the Secrets Manager console.</p>
+   *          <p>If you store custom information in this field of the secret, then you must code your
+   *       Lambda rotation function to parse and interpret whatever you store in the
+   *         <code>SecretString</code> or <code>SecretBinary</code> fields.</p>
    */
-  VersionId?: string;
-
-  /**
-   * <p>The ARN of the secret.</p>
-   */
-  ARN?: string;
+  SecretBinary?: Uint8Array;
 
   /**
    * <p>A list of all of the staging labels currently attached to this version of the
    *       secret.</p>
    */
   VersionStages?: string[];
+
+  /**
+   * <p>The friendly name of the secret.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The ARN of the secret.</p>
+   */
+  ARN?: string;
 }
 
 export namespace GetSecretValueResponse {
   export const filterSensitiveLog = (obj: GetSecretValueResponse): any => ({
     ...obj,
-    ...(obj.SecretBinary && { SecretBinary: SENSITIVE_STRING }),
     ...(obj.SecretString && { SecretString: SENSITIVE_STRING }),
+    ...(obj.SecretBinary && { SecretBinary: SENSITIVE_STRING }),
   });
 }
 
@@ -1012,11 +1012,6 @@ export enum SortOrderType {
 
 export interface ListSecretsRequest {
   /**
-   * <p>Lists the secret request filters.</p>
-   */
-  Filters?: Filter[];
-
-  /**
    * <p>(Optional) Limits the number of results you want to include in
    *     the response. If you don't include this parameter, it defaults to a value that's
    *     specific to the operation. If additional items exist beyond the maximum you specify, the
@@ -1029,6 +1024,11 @@ export interface ListSecretsRequest {
   MaxResults?: number;
 
   /**
+   * <p>Lists secrets in the requested order. </p>
+   */
+  SortOrder?: SortOrderType | string;
+
+  /**
    * <p>(Optional) Use this parameter in a request if you receive a
    *     <code>NextToken</code> response in a previous request indicating there's more
    *     output available. In a subsequent call, set it to the value of the previous call
@@ -1037,9 +1037,9 @@ export interface ListSecretsRequest {
   NextToken?: string;
 
   /**
-   * <p>Lists secrets in the requested order. </p>
+   * <p>Lists the secret request filters.</p>
    */
-  SortOrder?: SortOrderType | string;
+  Filters?: Filter[];
 }
 
 export namespace ListSecretsRequest {
@@ -1055,32 +1055,14 @@ export namespace ListSecretsRequest {
  */
 export interface SecretListEntry {
   /**
-   * <p>The ARN of an AWS Lambda function invoked by Secrets Manager to rotate and expire the
-   *       secret either automatically per the schedule or manually by a call to <a>RotateSecret</a>.</p>
+   * <p>The last date and time that the rotation process for this secret was invoked.</p>
    */
-  RotationLambdaARN?: string;
+  LastRotatedDate?: Date;
 
   /**
-   * <p>The last date that this secret was accessed. This value is truncated to midnight of the
-   *       date and therefore shows only the date, not the time.</p>
+   * <p>The user-provided description of the secret.</p>
    */
-  LastAccessedDate?: Date;
-
-  /**
-   * <p>The list of user-defined tags associated with the secret. To add tags to a
-   *       secret, use <a>TagResource</a>. To remove tags, use <a>UntagResource</a>.</p>
-   */
-  Tags?: Tag[];
-
-  /**
-   * <p>Returns the name of the service that created the secret.</p>
-   */
-  OwningService?: string;
-
-  /**
-   * <p>Indicates whether automatic, scheduled rotation is enabled for this secret.</p>
-   */
-  RotationEnabled?: boolean;
+  Description?: string;
 
   /**
    * <p>The ARN or alias of the AWS KMS customer master key (CMK) used to encrypt the
@@ -1102,6 +1084,53 @@ export interface SecretListEntry {
   SecretVersionsToStages?: { [key: string]: string[] };
 
   /**
+   * <p>The date and time when a secret was created.</p>
+   */
+  CreatedDate?: Date;
+
+  /**
+   * <p>The date and time the deletion of the secret occurred. Not present on active secrets. The
+   *       secret can be recovered until the number of days in the recovery window has passed, as
+   *       specified in the <code>RecoveryWindowInDays</code> parameter of the <a>DeleteSecret</a> operation.</p>
+   */
+  DeletedDate?: Date;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the secret.</p>
+   *          <p>For more information about ARNs in Secrets Manager, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_iam-permissions.html#iam-resources">Policy Resources</a> in the
+   *     <i>AWS Secrets Manager User Guide</i>.</p>
+   */
+  ARN?: string;
+
+  /**
+   * <p>Returns the name of the service that created the secret.</p>
+   */
+  OwningService?: string;
+
+  /**
+   * <p>The ARN of an AWS Lambda function invoked by Secrets Manager to rotate and expire the
+   *       secret either automatically per the schedule or manually by a call to <a>RotateSecret</a>.</p>
+   */
+  RotationLambdaARN?: string;
+
+  /**
+   * <p>The list of user-defined tags associated with the secret. To add tags to a
+   *       secret, use <a>TagResource</a>. To remove tags, use <a>UntagResource</a>.</p>
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>Indicates whether automatic, scheduled rotation is enabled for this secret.</p>
+   */
+  RotationEnabled?: boolean;
+
+  /**
+   * <p>The last date that this secret was accessed. This value is truncated to midnight of the
+   *       date and therefore shows only the date, not the time.</p>
+   */
+  LastAccessedDate?: Date;
+
+  /**
    * <p>The last date and time that this secret was modified in any way.</p>
    */
   LastChangedDate?: Date;
@@ -1118,35 +1147,6 @@ export interface SecretListEntry {
    *         <code>prod</code>. </p>
    */
   Name?: string;
-
-  /**
-   * <p>The user-provided description of the secret.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the secret.</p>
-   *          <p>For more information about ARNs in Secrets Manager, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_iam-permissions.html#iam-resources">Policy Resources</a> in the
-   *     <i>AWS Secrets Manager User Guide</i>.</p>
-   */
-  ARN?: string;
-
-  /**
-   * <p>The date and time when a secret was created.</p>
-   */
-  CreatedDate?: Date;
-
-  /**
-   * <p>The date and time the deletion of the secret occurred. Not present on active secrets. The
-   *       secret can be recovered until the number of days in the recovery window has passed, as
-   *       specified in the <code>RecoveryWindowInDays</code> parameter of the <a>DeleteSecret</a> operation.</p>
-   */
-  DeletedDate?: Date;
-
-  /**
-   * <p>The last date and time that the rotation process for this secret was invoked.</p>
-   */
-  LastRotatedDate?: Date;
 }
 
 export namespace SecretListEntry {
@@ -1157,6 +1157,11 @@ export namespace SecretListEntry {
 
 export interface ListSecretsResponse {
   /**
+   * <p>A list of the secrets in the account.</p>
+   */
+  SecretList?: SecretListEntry[];
+
+  /**
    * <p>If present in the response, this value indicates that
    *     there's more output available than included in the current response. This can
    *     occur even when the response includes no values at all, such as when you ask for a filtered view
@@ -1166,11 +1171,6 @@ export interface ListSecretsResponse {
    *     <code>null</code>).</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>A list of the secrets in the account.</p>
-   */
-  SecretList?: SecretListEntry[];
 }
 
 export namespace ListSecretsResponse {
@@ -1191,13 +1191,6 @@ export interface ListSecretVersionIdsRequest {
    *     operation to ensure that you receive all of the results.</p>
    */
   MaxResults?: number;
-
-  /**
-   * <p>(Optional) Specifies that you want the results to include versions that do not have any
-   *       staging labels attached to them. Such versions are considered deprecated and are subject to
-   *       deletion by Secrets Manager as needed.</p>
-   */
-  IncludeDeprecated?: boolean;
 
   /**
    * <p>The identifier for the secret containing the versions you want to list. You can specify
@@ -1226,6 +1219,13 @@ export interface ListSecretVersionIdsRequest {
    *     <code>NextToken</code> response to indicate where the output should continue from.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>(Optional) Specifies that you want the results to include versions that do not have any
+   *       staging labels attached to them. Such versions are considered deprecated and are subject to
+   *       deletion by Secrets Manager as needed.</p>
+   */
+  IncludeDeprecated?: boolean;
 }
 
 export namespace ListSecretVersionIdsRequest {
@@ -1239,6 +1239,17 @@ export namespace ListSecretVersionIdsRequest {
  */
 export interface SecretVersionsListEntry {
   /**
+   * <p>An array of staging labels that are currently associated with this version of the
+   *       secret.</p>
+   */
+  VersionStages?: string[];
+
+  /**
+   * <p>The date and time this version of the secret was created.</p>
+   */
+  CreatedDate?: Date;
+
+  /**
    * <p>The unique version identifier of this version of the secret.</p>
    */
   VersionId?: string;
@@ -1248,17 +1259,6 @@ export interface SecretVersionsListEntry {
    *       this field is at the date level and does not include the time.</p>
    */
   LastAccessedDate?: Date;
-
-  /**
-   * <p>The date and time this version of the secret was created.</p>
-   */
-  CreatedDate?: Date;
-
-  /**
-   * <p>An array of staging labels that are currently associated with this version of the
-   *       secret.</p>
-   */
-  VersionStages?: string[];
 }
 
 export namespace SecretVersionsListEntry {
@@ -1268,6 +1268,22 @@ export namespace SecretVersionsListEntry {
 }
 
 export interface ListSecretVersionIdsResponse {
+  /**
+   * <p>If present in the response, this value indicates that
+   *     there's more output available than included in the current response. This can
+   *     occur even when the response includes no values at all, such as when you ask for a filtered view
+   *     of a very long list. Use this value in the <code>NextToken</code> request parameter in a
+   *     subsequent call to the operation to continue processing and get the next part of the output. You
+   *     should repeat this until the <code>NextToken</code> response element comes back empty (as
+   *     <code>null</code>).</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The list of the currently available versions of the specified secret.</p>
+   */
+  Versions?: SecretVersionsListEntry[];
+
   /**
    * <p>The Amazon Resource Name (ARN) for the secret.</p>
    *          <note>
@@ -1284,22 +1300,6 @@ export interface ListSecretVersionIdsResponse {
    * <p>The friendly name of the secret.</p>
    */
   Name?: string;
-
-  /**
-   * <p>If present in the response, this value indicates that
-   *     there's more output available than included in the current response. This can
-   *     occur even when the response includes no values at all, such as when you ask for a filtered view
-   *     of a very long list. Use this value in the <code>NextToken</code> request parameter in a
-   *     subsequent call to the operation to continue processing and get the next part of the output. You
-   *     should repeat this until the <code>NextToken</code> response element comes back empty (as
-   *     <code>null</code>).</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The list of the currently available versions of the specified secret.</p>
-   */
-  Versions?: SecretVersionsListEntry[];
 }
 
 export namespace ListSecretVersionIdsResponse {
@@ -1325,11 +1325,6 @@ export namespace PublicPolicyException {
 
 export interface PutResourcePolicyRequest {
   /**
-   * <p>Makes an optional API call to Zelkova to validate the Resource Policy to prevent broad access to your secret.</p>
-   */
-  BlockPublicPolicy?: boolean;
-
-  /**
    * <p>A JSON-formatted string that's constructed according to the grammar and syntax for an
    *       AWS resource-based policy. The policy in the string identifies who can access or manage this
    *       secret and its versions. For information on how to format a JSON parameter for the various
@@ -1337,6 +1332,11 @@ export interface PutResourcePolicyRequest {
    *         JSON for Parameters</a> in the <i>AWS CLI User Guide</i>.</p>
    */
   ResourcePolicy: string | undefined;
+
+  /**
+   * <p>Makes an optional API call to Zelkova to validate the Resource Policy to prevent broad access to your secret.</p>
+   */
+  BlockPublicPolicy?: boolean;
 
   /**
    * <p>Specifies the secret that you want to attach the resource-based policy to. You can specify
@@ -1367,14 +1367,14 @@ export namespace PutResourcePolicyRequest {
 
 export interface PutResourcePolicyResponse {
   /**
-   * <p>The friendly name of the secret that the retrieved by the resource-based policy.</p>
-   */
-  Name?: string;
-
-  /**
    * <p>The ARN of the secret retrieved by the resource-based policy.</p>
    */
   ARN?: string;
+
+  /**
+   * <p>The friendly name of the secret that the retrieved by the resource-based policy.</p>
+   */
+  Name?: string;
 }
 
 export namespace PutResourcePolicyResponse {
@@ -1384,61 +1384,6 @@ export namespace PutResourcePolicyResponse {
 }
 
 export interface PutSecretValueRequest {
-  /**
-   * <p>Specifies the secret to which you want to add a new version. You can specify either the
-   *       Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already
-   *       exist.</p>
-   *          <note>
-   *             <p>If you specify an ARN, we generally recommend that you specify a complete ARN. You can
-   *         specify a partial ARN too—for example, if you don’t include the final hyphen and six random
-   *         characters that Secrets Manager adds at the end of the ARN when you created the secret. A partial ARN
-   *         match can work as long as it uniquely matches only one secret. However, if your secret has a
-   *         name that ends in a hyphen followed by six characters (before Secrets Manager adds the hyphen and six
-   *         characters to the ARN) and you try to use that as a partial ARN, then those characters cause
-   *         Secrets Manager to assume that you’re specifying a complete ARN. This confusion can cause unexpected
-   *         results. To avoid this situation, we recommend that you don’t create secret names ending
-   *         with a hyphen followed by six characters.</p>
-   *             <p>If you specify an incomplete ARN without the random suffix, and instead provide the
-   *         'friendly name', you <i>must</i> not include the random suffix. If you do include the random suffix added by Secrets Manager,
-   *         you receive either a <i>ResourceNotFoundException</i> or an <i>AccessDeniedException</i> error, depending on your permissions.</p>
-   *         </note>
-   */
-  SecretId: string | undefined;
-
-  /**
-   * <p>(Optional) Specifies binary data that you want to encrypt and store in the new version of
-   *       the secret. To use this parameter in the command-line tools, we recommend that you store your
-   *       binary data in a file and then use the appropriate technique for your tool to pass the
-   *       contents of the file as a parameter. Either <code>SecretBinary</code> or
-   *         <code>SecretString</code> must have a value, but not both. They cannot both be empty.</p>
-   *
-   *          <p>This parameter is not accessible if the secret using the Secrets Manager console.</p>
-   *          <p></p>
-   */
-  SecretBinary?: Uint8Array;
-
-  /**
-   * <p>(Optional) Specifies text data that you want to encrypt and store in this new version of
-   *       the secret. Either <code>SecretString</code> or <code>SecretBinary</code> must have a value,
-   *       but not both. They cannot both be empty.</p>
-   *
-   *          <p>If you create this secret by using the Secrets Manager console then Secrets Manager puts the
-   *       protected secret text in only the <code>SecretString</code> parameter. The Secrets Manager console
-   *       stores the information as a JSON structure of key/value pairs that the default Lambda rotation
-   *       function knows how to parse.</p>
-   *          <p>For storing multiple values, we recommend that you use a JSON text string argument and
-   *       specify key/value pairs. For information on how to format a JSON parameter for the various
-   *       command line tool environments, see <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json">Using JSON for
-   *         Parameters</a> in the <i>AWS CLI User Guide</i>.</p>
-   *          <p> For example:</p>
-   *          <p>
-   *             <code>[{"username":"bob"},{"password":"abc123xyz456"}]</code>
-   *          </p>
-   *          <p>If your command-line tool or SDK requires quotation marks around the parameter, you should
-   *       use single quotes to avoid confusion with the double quotes required in the JSON text.</p>
-   */
-  SecretString?: string;
-
   /**
    * <p>(Optional) Specifies a unique identifier for the new version of the secret. </p>
    *          <note>
@@ -1474,6 +1419,61 @@ export interface PutSecretValueRequest {
   ClientRequestToken?: string;
 
   /**
+   * <p>Specifies the secret to which you want to add a new version. You can specify either the
+   *       Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already
+   *       exist.</p>
+   *          <note>
+   *             <p>If you specify an ARN, we generally recommend that you specify a complete ARN. You can
+   *         specify a partial ARN too—for example, if you don’t include the final hyphen and six random
+   *         characters that Secrets Manager adds at the end of the ARN when you created the secret. A partial ARN
+   *         match can work as long as it uniquely matches only one secret. However, if your secret has a
+   *         name that ends in a hyphen followed by six characters (before Secrets Manager adds the hyphen and six
+   *         characters to the ARN) and you try to use that as a partial ARN, then those characters cause
+   *         Secrets Manager to assume that you’re specifying a complete ARN. This confusion can cause unexpected
+   *         results. To avoid this situation, we recommend that you don’t create secret names ending
+   *         with a hyphen followed by six characters.</p>
+   *             <p>If you specify an incomplete ARN without the random suffix, and instead provide the
+   *         'friendly name', you <i>must</i> not include the random suffix. If you do include the random suffix added by Secrets Manager,
+   *         you receive either a <i>ResourceNotFoundException</i> or an <i>AccessDeniedException</i> error, depending on your permissions.</p>
+   *         </note>
+   */
+  SecretId: string | undefined;
+
+  /**
+   * <p>(Optional) Specifies text data that you want to encrypt and store in this new version of
+   *       the secret. Either <code>SecretString</code> or <code>SecretBinary</code> must have a value,
+   *       but not both. They cannot both be empty.</p>
+   *
+   *          <p>If you create this secret by using the Secrets Manager console then Secrets Manager puts the
+   *       protected secret text in only the <code>SecretString</code> parameter. The Secrets Manager console
+   *       stores the information as a JSON structure of key/value pairs that the default Lambda rotation
+   *       function knows how to parse.</p>
+   *          <p>For storing multiple values, we recommend that you use a JSON text string argument and
+   *       specify key/value pairs. For information on how to format a JSON parameter for the various
+   *       command line tool environments, see <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json">Using JSON for
+   *         Parameters</a> in the <i>AWS CLI User Guide</i>.</p>
+   *          <p> For example:</p>
+   *          <p>
+   *             <code>[{"username":"bob"},{"password":"abc123xyz456"}]</code>
+   *          </p>
+   *          <p>If your command-line tool or SDK requires quotation marks around the parameter, you should
+   *       use single quotes to avoid confusion with the double quotes required in the JSON text.</p>
+   */
+  SecretString?: string;
+
+  /**
+   * <p>(Optional) Specifies binary data that you want to encrypt and store in the new version of
+   *       the secret. To use this parameter in the command-line tools, we recommend that you store your
+   *       binary data in a file and then use the appropriate technique for your tool to pass the
+   *       contents of the file as a parameter. Either <code>SecretBinary</code> or
+   *         <code>SecretString</code> must have a value, but not both. They cannot both be empty.</p>
+   *
+   *          <p>This parameter is not accessible if the secret using the Secrets Manager console.</p>
+   *          <p></p>
+   */
+  SecretBinary?: Uint8Array;
+
+  /**
    * <p>(Optional) Specifies a list of staging labels that are attached to this version of the
    *       secret. These staging labels are used to track the versions through the rotation process by
    *       the Lambda rotation function.</p>
@@ -1489,17 +1489,12 @@ export interface PutSecretValueRequest {
 export namespace PutSecretValueRequest {
   export const filterSensitiveLog = (obj: PutSecretValueRequest): any => ({
     ...obj,
-    ...(obj.SecretBinary && { SecretBinary: SENSITIVE_STRING }),
     ...(obj.SecretString && { SecretString: SENSITIVE_STRING }),
+    ...(obj.SecretBinary && { SecretBinary: SENSITIVE_STRING }),
   });
 }
 
 export interface PutSecretValueResponse {
-  /**
-   * <p>The unique identifier of the version of the secret you just created or updated.</p>
-   */
-  VersionId?: string;
-
   /**
    * <p>The Amazon Resource Name (ARN) for the secret for which you just created a version.</p>
    */
@@ -1516,6 +1511,11 @@ export interface PutSecretValueResponse {
    * <p>The friendly name of the secret for which you just created or updated a version.</p>
    */
   Name?: string;
+
+  /**
+   * <p>The unique identifier of the version of the secret you just created or updated.</p>
+   */
+  VersionId?: string;
 }
 
 export namespace PutSecretValueResponse {
@@ -1572,34 +1572,6 @@ export namespace RestoreSecretResponse {
 
 export interface RotateSecretRequest {
   /**
-   * <p>(Optional) Specifies a unique identifier for the new version of the secret that helps
-   *       ensure idempotency. </p>
-   *          <p>If you use the AWS CLI or one of the AWS SDK to call this operation, then you can
-   *       leave this parameter empty. The CLI or SDK generates a random UUID for you and includes that
-   *       in the request for this parameter. If you don't use the SDK and instead generate a raw HTTP
-   *       request to the Secrets Manager service endpoint, then you must generate a
-   *         <code>ClientRequestToken</code> yourself for new versions and include that value in the
-   *       request.</p>
-   *          <p>You only need to specify your own value if you implement your own retry logic and want to
-   *       ensure that a given secret is not created twice. We recommend that you generate a <a href="https://wikipedia.org/wiki/Universally_unique_identifier">UUID-type</a> value to
-   *       ensure uniqueness within the specified secret. </p>
-   *          <p>Secrets Manager uses this value to prevent the accidental creation of duplicate versions if
-   *       there are failures and retries during the function's processing. This value becomes the
-   *         <code>VersionId</code> of the new version.</p>
-   */
-  ClientRequestToken?: string;
-
-  /**
-   * <p>(Optional) Specifies the ARN of the Lambda function that can rotate the secret.</p>
-   */
-  RotationLambdaARN?: string;
-
-  /**
-   * <p>A structure that defines the rotation configuration for this secret.</p>
-   */
-  RotationRules?: RotationRulesType;
-
-  /**
    * <p>Specifies the secret that you want to rotate. You can specify either the Amazon Resource
    *       Name (ARN) or the friendly name of the secret.</p>
    *          <note>
@@ -1618,6 +1590,34 @@ export interface RotateSecretRequest {
    *         </note>
    */
   SecretId: string | undefined;
+
+  /**
+   * <p>(Optional) Specifies a unique identifier for the new version of the secret that helps
+   *       ensure idempotency. </p>
+   *          <p>If you use the AWS CLI or one of the AWS SDK to call this operation, then you can
+   *       leave this parameter empty. The CLI or SDK generates a random UUID for you and includes that
+   *       in the request for this parameter. If you don't use the SDK and instead generate a raw HTTP
+   *       request to the Secrets Manager service endpoint, then you must generate a
+   *         <code>ClientRequestToken</code> yourself for new versions and include that value in the
+   *       request.</p>
+   *          <p>You only need to specify your own value if you implement your own retry logic and want to
+   *       ensure that a given secret is not created twice. We recommend that you generate a <a href="https://wikipedia.org/wiki/Universally_unique_identifier">UUID-type</a> value to
+   *       ensure uniqueness within the specified secret. </p>
+   *          <p>Secrets Manager uses this value to prevent the accidental creation of duplicate versions if
+   *       there are failures and retries during the function's processing. This value becomes the
+   *         <code>VersionId</code> of the new version.</p>
+   */
+  ClientRequestToken?: string;
+
+  /**
+   * <p>A structure that defines the rotation configuration for this secret.</p>
+   */
+  RotationRules?: RotationRulesType;
+
+  /**
+   * <p>(Optional) Specifies the ARN of the Lambda function that can rotate the secret.</p>
+   */
+  RotationLambdaARN?: string;
 }
 
 export namespace RotateSecretRequest {
@@ -1628,10 +1628,9 @@ export namespace RotateSecretRequest {
 
 export interface RotateSecretResponse {
   /**
-   * <p>The ID of the new version of the secret created by the rotation started by this
-   *       request.</p>
+   * <p>The ARN of the secret.</p>
    */
-  VersionId?: string;
+  ARN?: string;
 
   /**
    * <p>The friendly name of the secret.</p>
@@ -1639,9 +1638,10 @@ export interface RotateSecretResponse {
   Name?: string;
 
   /**
-   * <p>The ARN of the secret.</p>
+   * <p>The ID of the new version of the secret created by the rotation started by this
+   *       request.</p>
    */
-  ARN?: string;
+  VersionId?: string;
 }
 
 export namespace RotateSecretResponse {
@@ -1727,16 +1727,6 @@ export namespace UntagResourceRequest {
 
 export interface UpdateSecretRequest {
   /**
-   * <p>(Optional) Specifies updated binary data that you want to encrypt and store in the new
-   *       version of the secret. To use this parameter in the command-line tools, we recommend that you
-   *       store your binary data in a file and then use the appropriate technique for your tool to pass
-   *       the contents of the file as a parameter. Either <code>SecretBinary</code> or
-   *         <code>SecretString</code> must have a value, but not both. They cannot both be empty.</p>
-   *          <p>This parameter is not accessible using the Secrets Manager console.</p>
-   */
-  SecretBinary?: Uint8Array;
-
-  /**
    * <p>(Optional) Specifies updated text data that you want to encrypt and store in this new
    *       version of the secret. Either <code>SecretBinary</code> or <code>SecretString</code> must have
    *       a value, but not both. They cannot both be empty.</p>
@@ -1776,11 +1766,6 @@ export interface UpdateSecretRequest {
   KmsKeyId?: string;
 
   /**
-   * <p>(Optional) Specifies an updated user-provided description of the secret.</p>
-   */
-  Description?: string;
-
-  /**
    * <p>Specifies the secret that you want to modify or to which you want to add a new version.
    *       You can specify either the Amazon Resource Name (ARN) or the friendly name of the
    *       secret.</p>
@@ -1800,6 +1785,11 @@ export interface UpdateSecretRequest {
    *         </note>
    */
   SecretId: string | undefined;
+
+  /**
+   * <p>(Optional) Specifies an updated user-provided description of the secret.</p>
+   */
+  Description?: string;
 
   /**
    * <p>(Optional) If you want to add a new version to the secret, this parameter specifies a
@@ -1834,17 +1824,38 @@ export interface UpdateSecretRequest {
    *          <p>This value becomes the <code>VersionId</code> of the new version.</p>
    */
   ClientRequestToken?: string;
+
+  /**
+   * <p>(Optional) Specifies updated binary data that you want to encrypt and store in the new
+   *       version of the secret. To use this parameter in the command-line tools, we recommend that you
+   *       store your binary data in a file and then use the appropriate technique for your tool to pass
+   *       the contents of the file as a parameter. Either <code>SecretBinary</code> or
+   *         <code>SecretString</code> must have a value, but not both. They cannot both be empty.</p>
+   *          <p>This parameter is not accessible using the Secrets Manager console.</p>
+   */
+  SecretBinary?: Uint8Array;
 }
 
 export namespace UpdateSecretRequest {
   export const filterSensitiveLog = (obj: UpdateSecretRequest): any => ({
     ...obj,
-    ...(obj.SecretBinary && { SecretBinary: SENSITIVE_STRING }),
     ...(obj.SecretString && { SecretString: SENSITIVE_STRING }),
+    ...(obj.SecretBinary && { SecretBinary: SENSITIVE_STRING }),
   });
 }
 
 export interface UpdateSecretResponse {
+  /**
+   * <p>The friendly name of the secret that was updated.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>If a new version of the secret was created by this operation, then <code>VersionId</code>
+   *       contains the unique identifier of the new version.</p>
+   */
+  VersionId?: string;
+
   /**
    * <p>The ARN of the secret that was updated.</p>
    *          <note>
@@ -1856,17 +1867,6 @@ export interface UpdateSecretResponse {
    *          </note>
    */
   ARN?: string;
-
-  /**
-   * <p>If a new version of the secret was created by this operation, then <code>VersionId</code>
-   *       contains the unique identifier of the new version.</p>
-   */
-  VersionId?: string;
-
-  /**
-   * <p>The friendly name of the secret that was updated.</p>
-   */
-  Name?: string;
 }
 
 export namespace UpdateSecretResponse {
@@ -1946,6 +1946,11 @@ export namespace UpdateSecretVersionStageResponse {
 
 export interface ValidateResourcePolicyRequest {
   /**
+   * <p>Identifies the Resource Policy attached to the secret.</p>
+   */
+  ResourcePolicy: string | undefined;
+
+  /**
    * <p> The identifier for the secret that you want to validate a resource policy. You can specify either
    *     the Amazon Resource Name (ARN) or the friendly name of the secret.</p>
    *          <note>
@@ -1964,11 +1969,6 @@ export interface ValidateResourcePolicyRequest {
    *         </note>
    */
   SecretId?: string;
-
-  /**
-   * <p>Identifies the Resource Policy attached to the secret.</p>
-   */
-  ResourcePolicy: string | undefined;
 }
 
 export namespace ValidateResourcePolicyRequest {
@@ -1982,14 +1982,14 @@ export namespace ValidateResourcePolicyRequest {
  */
 export interface ValidationErrorsEntry {
   /**
-   * <p>Checks the name of the policy.</p>
-   */
-  CheckName?: string;
-
-  /**
    * <p>Displays error messages if validation encounters problems during validation of the resource policy.</p>
    */
   ErrorMessage?: string;
+
+  /**
+   * <p>Checks the name of the policy.</p>
+   */
+  CheckName?: string;
 }
 
 export namespace ValidationErrorsEntry {
@@ -2000,14 +2000,14 @@ export namespace ValidationErrorsEntry {
 
 export interface ValidateResourcePolicyResponse {
   /**
-   * <p>Returns a message stating that your Reource Policy passed validation. </p>
-   */
-  PolicyValidationPassed?: boolean;
-
-  /**
    * <p>Returns an error message if your policy doesn't pass validatation.</p>
    */
   ValidationErrors?: ValidationErrorsEntry[];
+
+  /**
+   * <p>Returns a message stating that your Reource Policy passed validation. </p>
+   */
+  PolicyValidationPassed?: boolean;
 }
 
 export namespace ValidateResourcePolicyResponse {

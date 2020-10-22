@@ -12,19 +12,14 @@ export enum EntityStatusCode {
  */
 export interface AffectedEntity {
   /**
-   * <p>The 12-digit AWS account number that contains the affected entity.</p>
-   */
-  awsAccountId?: string;
-
-  /**
-   * <p>A map of entity tags attached to the affected entity.</p>
-   */
-  tags?: { [key: string]: string };
-
-  /**
    * <p>The URL of the affected entity.</p>
    */
   entityUrl?: string;
+
+  /**
+   * <p>The ID of the affected entity.</p>
+   */
+  entityValue?: string;
 
   /**
    * <p>The unique identifier for the entity. Format: <code>arn:aws:health:<i>entity-region</i>:<i>aws-account</i>:entity/<i>entity-id</i>
@@ -32,6 +27,14 @@ export interface AffectedEntity {
    *          </p>
    */
   entityArn?: string;
+
+  /**
+   * <p>A map of entity tags attached to the affected entity.</p>
+   *          <note>
+   *             <p>Currently, the <code>tags</code> property isn't supported.</p>
+   *          </note>
+   */
+  tags?: { [key: string]: string };
 
   /**
    * <p>The unique identifier for the event. Format: <code>arn:aws:health:<i>event-region</i>::event/<i>SERVICE</i>/<i>EVENT_TYPE_CODE</i>/<i>EVENT_TYPE_PLUS_ID</i>
@@ -47,14 +50,14 @@ export interface AffectedEntity {
   statusCode?: EntityStatusCode | string;
 
   /**
+   * <p>The 12-digit AWS account number that contains the affected entity.</p>
+   */
+  awsAccountId?: string;
+
+  /**
    * <p>The most recent time that the entity was updated.</p>
    */
   lastUpdatedTime?: Date;
-
-  /**
-   * <p>The ID of the affected entity.</p>
-   */
-  entityValue?: string;
 }
 
 export namespace AffectedEntity {
@@ -65,16 +68,16 @@ export namespace AffectedEntity {
 
 export interface DescribeAffectedAccountsForOrganizationRequest {
   /**
+   * <p>The maximum number of items to return in one batch, between 10 and 100, inclusive.</p>
+   */
+  maxResults?: number;
+
+  /**
    * <p>The unique identifier for the event. Format: <code>arn:aws:health:<i>event-region</i>::event/<i>SERVICE</i>/<i>EVENT_TYPE_CODE</i>/<i>EVENT_TYPE_PLUS_ID</i>
    *             </code>. Example: <code>Example: arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456</code>
    *          </p>
    */
   eventArn: string | undefined;
-
-  /**
-   * <p>The maximum number of items to return in one batch, between 10 and 100, inclusive.</p>
-   */
-  maxResults?: number;
 
   /**
    * <p>If the results of a search are large, only a portion of the
@@ -106,7 +109,29 @@ export interface DescribeAffectedAccountsForOrganizationResponse {
    */
   nextToken?: string;
 
+  /**
+   * <p>This parameter specifies if the AWS Health event is a public AWS service event or an account-specific event.</p>
+   *          <ul>
+   *             <li>
+   *                <p>If the <code>eventScopeCode</code> value is <code>PUBLIC</code>, then the
+   *                   <code>affectedAccounts</code> value is always empty.</p>
+   *             </li>
+   *             <li>
+   *                <p>If the <code>eventScopeCode</code> value is <code>ACCOUNT_SPECIFIC</code>, then
+   *                the <code>affectedAccounts</code> value lists the affected AWS accounts in your
+   *                organization. For example, if an event affects a service such as Amazon Elastic Compute Cloud and you
+   *                have AWS accounts that use that service, those account IDs appear in the
+   *                response.</p>
+   *             </li>
+   *             <li>
+   *                <p>If the <code>eventScopeCode</code> value is <code>NONE</code>, then the
+   *                   <code>eventArn</code> that you specified in the request is invalid or doesn't
+   *                exist.</p>
+   *             </li>
+   *          </ul>
+   */
   eventScopeCode?: EventScopeCode | string;
+
   /**
    * <p>A JSON set of elements of the affected accounts.</p>
    */
@@ -135,9 +160,9 @@ export namespace InvalidPaginationToken {
 }
 
 /**
- * <p>A range of dates and times that is used by the <a>EventFilter</a> and
- *             <a>EntityFilter</a> objects. If <code>from</code> is set and <code>to</code>
- *          is set: match items where the timestamp (<code>startTime</code>, <code>endTime</code>, or
+ * <p>A range of dates and times that is used by the <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_EventFilter.html">EventFilter</a> and
+ *          <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_EntityFilter.html">EntityFilter</a> objects. If <code>from</code> is set and <code>to</code> is
+ *          set: match items where the timestamp (<code>startTime</code>, <code>endTime</code>, or
  *             <code>lastUpdatedTime</code>) is between <code>from</code> and <code>to</code>
  *          inclusive. If <code>from</code> is set and <code>to</code> is not set: match items where
  *          the timestamp value is equal to or after <code>from</code>. If <code>from</code> is not set
@@ -146,14 +171,14 @@ export namespace InvalidPaginationToken {
  */
 export interface DateTimeRange {
   /**
-   * <p>The ending date and time of a time range.</p>
-   */
-  to?: Date;
-
-  /**
    * <p>The starting date and time of a time range.</p>
    */
   from?: Date;
+
+  /**
+   * <p>The ending date and time of a time range.</p>
+   */
+  to?: Date;
 }
 
 export namespace DateTimeRange {
@@ -163,19 +188,28 @@ export namespace DateTimeRange {
 }
 
 /**
- * <p>The values to use to filter results from the <a>DescribeAffectedEntities</a> operation.</p>
+ * <p>The values to use to filter results from the <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_EntityFilter.html">EntityFilter</a>
+ *          operation.</p>
  */
 export interface EntityFilter {
-  /**
-   * <p>A map of entity tags attached to the affected entity.</p>
-   */
-  tags?: { [key: string]: string }[];
-
   /**
    * <p>A list of entity status codes (<code>IMPAIRED</code>, <code>UNIMPAIRED</code>, or
    *             <code>UNKNOWN</code>).</p>
    */
   statusCodes?: (EntityStatusCode | string)[];
+
+  /**
+   * <p>A map of entity tags attached to the affected entity.</p>
+   *          <note>
+   *             <p>Currently, the <code>tags</code> property isn't supported.</p>
+   *          </note>
+   */
+  tags?: { [key: string]: string }[];
+
+  /**
+   * <p>A list of IDs for affected entities.</p>
+   */
+  entityValues?: string[];
 
   /**
    * <p>A list of entity ARNs (unique identifiers).</p>
@@ -186,11 +220,6 @@ export interface EntityFilter {
    * <p>A list of the most recent dates and times that the entity was updated.</p>
    */
   lastUpdatedTimes?: DateTimeRange[];
-
-  /**
-   * <p>A list of IDs for affected entities.</p>
-   */
-  entityValues?: string[];
 
   /**
    * <p>A list of event ARNs (unique identifiers). For example: <code>"arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-CDE456", "arn:aws:health:us-west-1::event/EBS/AWS_EBS_LOST_VOLUME/AWS_EBS_LOST_VOLUME_CHI789_JKL101"</code>
@@ -212,6 +241,11 @@ export interface DescribeAffectedEntitiesRequest {
   locale?: string;
 
   /**
+   * <p>Values to narrow the results returned. At least one event ARN is required.</p>
+   */
+  filter: EntityFilter | undefined;
+
+  /**
    * <p>The maximum number of items to return in one batch, between 10 and 100, inclusive.</p>
    */
   maxResults?: number;
@@ -223,11 +257,6 @@ export interface DescribeAffectedEntitiesRequest {
    * When all results have been returned, the response does not contain a pagination token value.</p>
    */
   nextToken?: string;
-
-  /**
-   * <p>Values to narrow the results returned. At least one event ARN is required.</p>
-   */
-  filter: EntityFilter | undefined;
 }
 
 export namespace DescribeAffectedEntitiesRequest {
@@ -238,17 +267,17 @@ export namespace DescribeAffectedEntitiesRequest {
 
 export interface DescribeAffectedEntitiesResponse {
   /**
+   * <p>The entities that match the filter criteria.</p>
+   */
+  entities?: AffectedEntity[];
+
+  /**
    * <p>If the results of a search are large, only a portion of the
    * results are returned, and a <code>nextToken</code> pagination token is returned in the response. To
    * retrieve the next batch of results, reissue the search request and include the returned token.
    * When all results have been returned, the response does not contain a pagination token value.</p>
    */
   nextToken?: string;
-
-  /**
-   * <p>The entities that match the filter criteria.</p>
-   */
-  entities?: AffectedEntity[];
 }
 
 export namespace DescribeAffectedEntitiesResponse {
@@ -273,20 +302,21 @@ export namespace UnsupportedLocale {
 }
 
 /**
- * <p>The values used to filter results from the <a>DescribeEventDetailsForOrganization</a> and <a>DescribeAffectedEntitiesForOrganization</a> operations.</p>
+ * <p>The values used to filter results from the <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeEventDetailsForOrganization.html">DescribeEventDetailsForOrganization</a> and
+ *          <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeAffectedEntitiesForOrganization.html">DescribeAffectedEntitiesForOrganization</a> operations.</p>
  */
 export interface EventAccountFilter {
+  /**
+   * <p>The 12-digit AWS account numbers that contains the affected entities.</p>
+   */
+  awsAccountId?: string;
+
   /**
    * <p>The unique identifier for the event. Format: <code>arn:aws:health:<i>event-region</i>::event/<i>SERVICE</i>/<i>EVENT_TYPE_CODE</i>/<i>EVENT_TYPE_PLUS_ID</i>
    *             </code>. Example: <code>Example: arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456</code>
    *          </p>
    */
   eventArn: string | undefined;
-
-  /**
-   * <p>The 12-digit AWS account numbers that contains the affected entities.</p>
-   */
-  awsAccountId?: string;
 }
 
 export namespace EventAccountFilter {
@@ -297,15 +327,15 @@ export namespace EventAccountFilter {
 
 export interface DescribeAffectedEntitiesForOrganizationRequest {
   /**
-   * <p>The locale (language) to return information in. English (en) is the default and the only supported value at this time.</p>
-   */
-  locale?: string;
-
-  /**
    * <p>A JSON set of elements including the <code>awsAccountId</code> and the
    *             <code>eventArn</code>.</p>
    */
   organizationEntityFilters: EventAccountFilter[] | undefined;
+
+  /**
+   * <p>The locale (language) to return information in. English (en) is the default and the only supported value at this time.</p>
+   */
+  locale?: string;
 
   /**
    * <p>If the results of a search are large, only a portion of the
@@ -328,10 +358,20 @@ export namespace DescribeAffectedEntitiesForOrganizationRequest {
 }
 
 /**
- * <p>Error information returned when a <a>DescribeAffectedEntitiesForOrganization</a> operation cannot find or process a
+ * <p>Error information returned when a <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeAffectedEntitiesForOrganization.html">DescribeAffectedEntitiesForOrganization</a> operation cannot find or process a
  *          specific entity.</p>
  */
 export interface OrganizationAffectedEntitiesErrorItem {
+  /**
+   * <p>The 12-digit AWS account numbers that contains the affected entities.</p>
+   */
+  awsAccountId?: string;
+
+  /**
+   * <p>The name of the error.</p>
+   */
+  errorName?: string;
+
   /**
    * <p>The unique identifier for the event type. The format is
    *             <code>AWS_SERVICE_DESCRIPTION</code>. For example,
@@ -345,16 +385,6 @@ export interface OrganizationAffectedEntitiesErrorItem {
    *          </p>
    */
   eventArn?: string;
-
-  /**
-   * <p>The name of the error.</p>
-   */
-  errorName?: string;
-
-  /**
-   * <p>The 12-digit AWS account numbers that contains the affected entities.</p>
-   */
-  awsAccountId?: string;
 }
 
 export namespace OrganizationAffectedEntitiesErrorItem {
@@ -375,7 +405,7 @@ export interface DescribeAffectedEntitiesForOrganizationResponse {
   /**
    * <p>A JSON set of elements including the <code>awsAccountId</code> and its
    *             <code>entityArn</code>, <code>entityValue</code> and its <code>entityArn</code>,
-   *             <code>lastUpdatedTime</code>, <code>statusCode</code>, and <code>tags</code>.</p>
+   *             <code>lastUpdatedTime</code>, and <code>statusCode</code>.</p>
    */
   entities?: AffectedEntity[];
 
@@ -407,11 +437,12 @@ export namespace DescribeEntityAggregatesRequest {
 }
 
 /**
- * <p>The number of entities that are affected by one or more events. Returned by the <a>DescribeEntityAggregates</a> operation.</p>
+ * <p>The number of entities that are affected by one or more events. Returned by the
+ *          <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeEntityAggregates.html">DescribeEntityAggregates</a> operation.</p>
  */
 export interface EntityAggregate {
   /**
-   * <p>The number entities that match the criteria for the specified events.</p>
+   * <p>The number of entities that match the criteria for the specified events.</p>
    */
   count?: number;
 
@@ -460,8 +491,8 @@ export enum EventTypeCategory {
 }
 
 /**
- * <p>The values to use to filter results from the <a>DescribeEvents</a> and
- *             <a>DescribeEventAggregates</a> operations.</p>
+ * <p>The values to use to filter results from the <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeEvents.html">DescribeEvents</a> and
+ *          <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeEventAggregates.html">DescribeEventAggregates</a> operations.</p>
  */
 export interface EventFilter {
   /**
@@ -471,13 +502,8 @@ export interface EventFilter {
   eventTypeCodes?: string[];
 
   /**
-   * <p>A list of dates and times that the event ended.</p>
-   */
-  endTimes?: DateTimeRange[];
-
-  /**
-   * <p>A list of entity identifiers, such as EC2 instance IDs (<code>i-34ab692e</code>) or
-   *          EBS volumes (<code>vol-426ab23e</code>).</p>
+   * <p>A list of entity identifiers, such as EC2 instance IDs (<code>i-34ab692e</code>) or EBS
+   *          volumes (<code>vol-426ab23e</code>).</p>
    */
   entityValues?: string[];
 
@@ -487,9 +513,31 @@ export interface EventFilter {
   startTimes?: DateTimeRange[];
 
   /**
-   * <p>The AWS services associated with the event. For example, <code>EC2</code>, <code>RDS</code>.</p>
+   * <p>A list of entity ARNs (unique identifiers).</p>
    */
-  services?: string[];
+  entityArns?: string[];
+
+  /**
+   * <p>A list of dates and times that the event was last updated.</p>
+   */
+  lastUpdatedTimes?: DateTimeRange[];
+
+  /**
+   * <p>A list of event type category codes (<code>issue</code>, <code>scheduledChange</code>,
+   *          or <code>accountNotification</code>).</p>
+   */
+  eventTypeCategories?: (EventTypeCategory | string)[];
+
+  /**
+   * <p>A list of dates and times that the event ended.</p>
+   */
+  endTimes?: DateTimeRange[];
+
+  /**
+   * <p>A list of event ARNs (unique identifiers). For example: <code>"arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-CDE456", "arn:aws:health:us-west-1::event/EBS/AWS_EBS_LOST_VOLUME/AWS_EBS_LOST_VOLUME_CHI789_JKL101"</code>
+   *          </p>
+   */
+  eventArns?: string[];
 
   /**
    * <p>A list of event status codes.</p>
@@ -503,6 +551,9 @@ export interface EventFilter {
 
   /**
    * <p>A map of entity tags attached to the affected entity.</p>
+   *          <note>
+   *             <p>Currently, the <code>tags</code> property isn't supported.</p>
+   *          </note>
    */
   tags?: { [key: string]: string }[];
 
@@ -512,26 +563,9 @@ export interface EventFilter {
   availabilityZones?: string[];
 
   /**
-   * <p>A list of dates and times that the event was last updated.</p>
+   * <p>The AWS services associated with the event. For example, <code>EC2</code>, <code>RDS</code>.</p>
    */
-  lastUpdatedTimes?: DateTimeRange[];
-
-  /**
-   * <p>A list of event ARNs (unique identifiers). For example: <code>"arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-CDE456", "arn:aws:health:us-west-1::event/EBS/AWS_EBS_LOST_VOLUME/AWS_EBS_LOST_VOLUME_CHI789_JKL101"</code>
-   *          </p>
-   */
-  eventArns?: string[];
-
-  /**
-   * <p>A list of entity ARNs (unique identifiers).</p>
-   */
-  entityArns?: string[];
-
-  /**
-   * <p>A list of event type category codes (<code>issue</code>,
-   *          <code>scheduledChange</code>, or <code>accountNotification</code>).</p>
-   */
-  eventTypeCategories?: (EventTypeCategory | string)[];
+  services?: string[];
 }
 
 export namespace EventFilter {
@@ -572,7 +606,7 @@ export namespace DescribeEventAggregatesRequest {
 }
 
 /**
- * <p>The number of events of each issue type. Returned by the <a>DescribeEventAggregates</a> operation.</p>
+ * <p>The number of events of each issue type. Returned by the <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeEventAggregates.html">DescribeEventAggregates</a> operation.</p>
  */
 export interface EventAggregate {
   /**
@@ -602,8 +636,7 @@ export interface DescribeEventAggregatesResponse {
   nextToken?: string;
 
   /**
-   * <p>The number of events in each category that meet the optional filter
-   *          criteria.</p>
+   * <p>The number of events in each category that meet the optional filter criteria.</p>
    */
   eventAggregates?: EventAggregate[];
 }
@@ -634,7 +667,7 @@ export namespace DescribeEventDetailsRequest {
 }
 
 /**
- * <p>Error information returned when a <a>DescribeEventDetails</a> operation
+ * <p>Error information returned when a <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeEventDetails.html">DescribeEventDetails</a> operation
  *          cannot find a specified event.</p>
  */
 export interface EventDetailsErrorItem {
@@ -644,16 +677,16 @@ export interface EventDetailsErrorItem {
   errorMessage?: string;
 
   /**
+   * <p>The name of the error.</p>
+   */
+  errorName?: string;
+
+  /**
    * <p>The unique identifier for the event. Format: <code>arn:aws:health:<i>event-region</i>::event/<i>SERVICE</i>/<i>EVENT_TYPE_CODE</i>/<i>EVENT_TYPE_PLUS_ID</i>
    *             </code>. Example: <code>Example: arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456</code>
    *          </p>
    */
   eventArn?: string;
-
-  /**
-   * <p>The name of the error.</p>
-   */
-  errorName?: string;
 }
 
 export namespace EventDetailsErrorItem {
@@ -664,13 +697,27 @@ export namespace EventDetailsErrorItem {
 
 /**
  * <p>Summary information about an AWS Health event.</p>
+ *          <p>AWS Health events can be public or account-specific:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <i>Public events</i> might be service events that are not specific
+ *                to an AWS account. For example, if there is an issue with an AWS Region, AWS Health
+ *                provides information about the event, even if you don't use services or resources in
+ *                that Region.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <i>Account-specific</i> events are specific to either your AWS
+ *                account or an account in your organization. For example, if there's an issue with
+ *                Amazon Elastic Compute Cloud in a Region that you use, AWS Health provides information about the event
+ *                and the affected resources in the account.</p>
+ *             </li>
+ *          </ul>
+ *          <p>You can determine if an event is public or account-specific by using the
+ *             <code>eventScopeCode</code> parameter. For more information, see <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_Event.html#AWSHealth-Type-Event-eventScopeCode">eventScopeCode</a>.</p>
  */
 export interface Event {
-  /**
-   * <p>The date and time that the event ended.</p>
-   */
-  endTime?: Date;
-
   /**
    * <p>The AWS service that is affected by the event. For example, <code>EC2</code>, <code>RDS</code>.</p>
    */
@@ -683,19 +730,47 @@ export interface Event {
   eventTypeCategory?: EventTypeCategory | string;
 
   /**
-   * <p>The most recent date and time that the event was updated.</p>
-   */
-  lastUpdatedTime?: Date;
-
-  /**
    * <p>The AWS region name of the event.</p>
    */
   region?: string;
 
   /**
-   * <p>The AWS Availability Zone of the event. For example, us-east-1a.</p>
+   * <p>The date and time that the event ended.</p>
    */
-  availabilityZone?: string;
+  endTime?: Date;
+
+  /**
+   * <p>The most recent date and time that the event was updated.</p>
+   */
+  lastUpdatedTime?: Date;
+
+  /**
+   * <p>The date and time that the event began.</p>
+   */
+  startTime?: Date;
+
+  /**
+   * <p>This parameter specifies if the AWS Health event is a public AWS service event or an account-specific event.</p>
+   *          <ul>
+   *             <li>
+   *                <p>If the <code>eventScopeCode</code> value is <code>PUBLIC</code>, then the
+   *                   <code>affectedAccounts</code> value is always empty.</p>
+   *             </li>
+   *             <li>
+   *                <p>If the <code>eventScopeCode</code> value is <code>ACCOUNT_SPECIFIC</code>, then
+   *                the <code>affectedAccounts</code> value lists the affected AWS accounts in your
+   *                organization. For example, if an event affects a service such as Amazon Elastic Compute Cloud and you
+   *                have AWS accounts that use that service, those account IDs appear in the
+   *                response.</p>
+   *             </li>
+   *             <li>
+   *                <p>If the <code>eventScopeCode</code> value is <code>NONE</code>, then the
+   *                   <code>eventArn</code> that you specified in the request is invalid or doesn't
+   *                exist.</p>
+   *             </li>
+   *          </ul>
+   */
+  eventScopeCode?: EventScopeCode | string;
 
   /**
    * <p>The unique identifier for the event. Format: <code>arn:aws:health:<i>event-region</i>::event/<i>SERVICE</i>/<i>EVENT_TYPE_CODE</i>/<i>EVENT_TYPE_PLUS_ID</i>
@@ -711,17 +786,15 @@ export interface Event {
   statusCode?: EventStatusCode | string;
 
   /**
+   * <p>The AWS Availability Zone of the event. For example, us-east-1a.</p>
+   */
+  availabilityZone?: string;
+
+  /**
    * <p>The unique identifier for the event type. The format is <code>AWS_<i>SERVICE</i>_<i>DESCRIPTION</i>
    *             </code>; for example, <code>AWS_EC2_SYSTEM_MAINTENANCE_EVENT</code>.</p>
    */
   eventTypeCode?: string;
-
-  /**
-   * <p>The date and time that the event began.</p>
-   */
-  startTime?: Date;
-
-  eventScopeCode?: EventScopeCode | string;
 }
 
 export namespace Event {
@@ -731,8 +804,7 @@ export namespace Event {
 }
 
 /**
- * <p>The detailed description of the event. Included in the information returned by the
- *             <a>DescribeEventDetails</a> operation.</p>
+ * <p>The detailed description of the event. Included in the information returned by the <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeEventDetails.html">DescribeEventDetails</a> operation.</p>
  */
 export interface EventDescription {
   /**
@@ -748,16 +820,11 @@ export namespace EventDescription {
 }
 
 /**
- * <p>Detailed information about an event. A combination of an <a>Event</a>
- *          object, an <a>EventDescription</a> object, and additional metadata about the
- *          event. Returned by the <a>DescribeEventDetails</a> operation.</p>
+ * <p>Detailed information about an event. A combination of an <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_Event.html">Event</a> object,
+ *          an <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_EventDescription.html">EventDescription</a> object, and additional metadata about the event.
+ *          Returned by the <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeEventDetails.html">DescribeEventDetails</a> operation.</p>
  */
 export interface EventDetails {
-  /**
-   * <p>The most recent description of the event.</p>
-   */
-  eventDescription?: EventDescription;
-
   /**
    * <p>Summary information about the event.</p>
    */
@@ -767,6 +834,11 @@ export interface EventDetails {
    * <p>Additional metadata about the event.</p>
    */
   eventMetadata?: { [key: string]: string };
+
+  /**
+   * <p>The most recent description of the event.</p>
+   */
+  eventDescription?: EventDescription;
 }
 
 export namespace EventDetails {
@@ -813,7 +885,7 @@ export namespace DescribeEventDetailsForOrganizationRequest {
 }
 
 /**
- * <p>Error information returned when a <a>DescribeEventDetailsForOrganization</a>
+ * <p>Error information returned when a <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeEventDetailsForOrganization.html">DescribeEventDetailsForOrganization</a>
  *          operation cannot find a specified event.</p>
  */
 export interface OrganizationEventDetailsErrorItem {
@@ -830,7 +902,7 @@ export interface OrganizationEventDetailsErrorItem {
   eventArn?: string;
 
   /**
-   * <p>Error information returned when a <a>DescribeEventDetailsForOrganization</a>
+   * <p>Error information returned when a <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeEventDetailsForOrganization.html">DescribeEventDetailsForOrganization</a>
    *          operation cannot find a specified event.</p>
    */
   awsAccountId?: string;
@@ -848,31 +920,49 @@ export namespace OrganizationEventDetailsErrorItem {
 }
 
 /**
- * <p>Detailed information about an event. A combination of an <a>Event</a> object,
- *          an <a>EventDescription</a> object, and additional metadata about the event.
- *          Returned by the <a>DescribeEventDetailsForOrganization</a> operation.</p>
+ * <p>Detailed information about an event. A combination of an <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_Event.html">Event</a> object,
+ *          an <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_EventDescription.html">EventDescription</a> object, and additional metadata about the event.
+ *          Returned by the <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeEventDetailsForOrganization.html">DescribeEventDetailsForOrganization</a> operation.</p>
  */
 export interface OrganizationEventDetails {
-  /**
-   * <p>The 12-digit AWS account numbers that contains the affected entities.</p>
-   */
-  awsAccountId?: string;
-
   /**
    * <p>Additional metadata about the event.</p>
    */
   eventMetadata?: { [key: string]: string };
 
   /**
+   * <p>The detailed description of the event. Included in the information returned by the <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeEventDetails.html">DescribeEventDetails</a> operation.</p>
+   */
+  eventDescription?: EventDescription;
+
+  /**
    * <p>Summary information about an AWS Health event.</p>
+   *          <p>AWS Health events can be public or account-specific:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <i>Public events</i> might be service events that are not specific
+   *                to an AWS account. For example, if there is an issue with an AWS Region, AWS Health
+   *                provides information about the event, even if you don't use services or resources in
+   *                that Region.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <i>Account-specific</i> events are specific to either your AWS
+   *                account or an account in your organization. For example, if there's an issue with
+   *                Amazon Elastic Compute Cloud in a Region that you use, AWS Health provides information about the event
+   *                and the affected resources in the account.</p>
+   *             </li>
+   *          </ul>
+   *          <p>You can determine if an event is public or account-specific by using the
+   *             <code>eventScopeCode</code> parameter. For more information, see <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_Event.html#AWSHealth-Type-Event-eventScopeCode">eventScopeCode</a>.</p>
    */
   event?: Event;
 
   /**
-   * <p>The detailed description of the event. Included in the information returned by the
-   *             <a>DescribeEventDetails</a> operation.</p>
+   * <p>The 12-digit AWS account numbers that contains the affected entities.</p>
    */
-  eventDescription?: EventDescription;
+  awsAccountId?: string;
 }
 
 export namespace OrganizationEventDetails {
@@ -909,6 +999,11 @@ export interface DescribeEventsRequest {
   nextToken?: string;
 
   /**
+   * <p>Values to narrow the results returned.</p>
+   */
+  filter?: EventFilter;
+
+  /**
    * <p>The maximum number of items to return in one batch, between 10 and 100, inclusive.</p>
    */
   maxResults?: number;
@@ -917,11 +1012,6 @@ export interface DescribeEventsRequest {
    * <p>The locale (language) to return information in. English (en) is the default and the only supported value at this time.</p>
    */
   locale?: string;
-
-  /**
-   * <p>Values to narrow the results returned.</p>
-   */
-  filter?: EventFilter;
 }
 
 export namespace DescribeEventsRequest {
@@ -952,21 +1042,14 @@ export namespace DescribeEventsResponse {
 }
 
 /**
- * <p>The values to filter results from the <a>DescribeEventsForOrganization</a>
+ * <p>The values to filter results from the <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeEventsForOrganization.html">DescribeEventsForOrganization</a>
  *          operation.</p>
  */
 export interface OrganizationEventFilter {
   /**
-   * <p>A range of dates and times that is used by the <a>EventFilter</a> and
-   *             <a>EntityFilter</a> objects. If <code>from</code> is set and <code>to</code>
-   *          is set: match items where the timestamp (<code>startTime</code>, <code>endTime</code>, or
-   *             <code>lastUpdatedTime</code>) is between <code>from</code> and <code>to</code>
-   *          inclusive. If <code>from</code> is set and <code>to</code> is not set: match items where
-   *          the timestamp value is equal to or after <code>from</code>. If <code>from</code> is not set
-   *          and <code>to</code> is set: match items where the timestamp value is equal to or before
-   *             <code>to</code>.</p>
+   * <p>A list of AWS Regions.</p>
    */
-  endTime?: DateTimeRange;
+  regions?: string[];
 
   /**
    * <p>A list of 12-digit AWS account numbers that contains the affected entities.</p>
@@ -979,9 +1062,16 @@ export interface OrganizationEventFilter {
   eventStatusCodes?: (EventStatusCode | string)[];
 
   /**
-   * <p>The AWS services associated with the event. For example, <code>EC2</code>, <code>RDS</code>.</p>
+   * <p>A range of dates and times that is used by the <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_EventFilter.html">EventFilter</a> and
+   *          <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_EntityFilter.html">EntityFilter</a> objects. If <code>from</code> is set and <code>to</code> is
+   *          set: match items where the timestamp (<code>startTime</code>, <code>endTime</code>, or
+   *             <code>lastUpdatedTime</code>) is between <code>from</code> and <code>to</code>
+   *          inclusive. If <code>from</code> is set and <code>to</code> is not set: match items where
+   *          the timestamp value is equal to or after <code>from</code>. If <code>from</code> is not set
+   *          and <code>to</code> is set: match items where the timestamp value is equal to or before
+   *             <code>to</code>.</p>
    */
-  services?: string[];
+  endTime?: DateTimeRange;
 
   /**
    * <p>A list of unique identifiers for event types. For example, <code>"AWS_EC2_SYSTEM_MAINTENANCE_EVENT","AWS_RDS_MAINTENANCE_SCHEDULED".</code>
@@ -990,9 +1080,36 @@ export interface OrganizationEventFilter {
   eventTypeCodes?: string[];
 
   /**
-   * <p>A range of dates and times that is used by the <a>EventFilter</a> and
-   *             <a>EntityFilter</a> objects. If <code>from</code> is set and <code>to</code>
-   *          is set: match items where the timestamp (<code>startTime</code>, <code>endTime</code>, or
+   * <p>A list of event type category codes (issue, scheduledChange, or accountNotification).</p>
+   */
+  eventTypeCategories?: (EventTypeCategory | string)[];
+
+  /**
+   * <p>A range of dates and times that is used by the <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_EventFilter.html">EventFilter</a> and
+   *          <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_EntityFilter.html">EntityFilter</a> objects. If <code>from</code> is set and <code>to</code> is
+   *          set: match items where the timestamp (<code>startTime</code>, <code>endTime</code>, or
+   *             <code>lastUpdatedTime</code>) is between <code>from</code> and <code>to</code>
+   *          inclusive. If <code>from</code> is set and <code>to</code> is not set: match items where
+   *          the timestamp value is equal to or after <code>from</code>. If <code>from</code> is not set
+   *          and <code>to</code> is set: match items where the timestamp value is equal to or before
+   *             <code>to</code>.</p>
+   */
+  lastUpdatedTime?: DateTimeRange;
+
+  /**
+   * <p>A list of entity identifiers, such as EC2 instance IDs (i-34ab692e) or EBS volumes (vol-426ab23e).</p>
+   */
+  entityValues?: string[];
+
+  /**
+   * <p>The AWS services associated with the event. For example, <code>EC2</code>, <code>RDS</code>.</p>
+   */
+  services?: string[];
+
+  /**
+   * <p>A range of dates and times that is used by the <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_EventFilter.html">EventFilter</a> and
+   *          <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_EntityFilter.html">EntityFilter</a> objects. If <code>from</code> is set and <code>to</code> is
+   *          set: match items where the timestamp (<code>startTime</code>, <code>endTime</code>, or
    *             <code>lastUpdatedTime</code>) is between <code>from</code> and <code>to</code>
    *          inclusive. If <code>from</code> is set and <code>to</code> is not set: match items where
    *          the timestamp value is equal to or after <code>from</code>. If <code>from</code> is not set
@@ -1002,36 +1119,9 @@ export interface OrganizationEventFilter {
   startTime?: DateTimeRange;
 
   /**
-   * <p>A list of entity identifiers, such as EC2 instance IDs (i-34ab692e) or EBS volumes (vol-426ab23e).</p>
-   */
-  entityValues?: string[];
-
-  /**
-   * <p>REPLACEME</p>
-   */
-  eventTypeCategories?: (EventTypeCategory | string)[];
-
-  /**
-   * <p>A list of AWS Regions.</p>
-   */
-  regions?: string[];
-
-  /**
-   * <p>REPLACEME</p>
+   * <p>A list of entity ARNs (unique identifiers).</p>
    */
   entityArns?: string[];
-
-  /**
-   * <p>A range of dates and times that is used by the <a>EventFilter</a> and
-   *             <a>EntityFilter</a> objects. If <code>from</code> is set and <code>to</code>
-   *          is set: match items where the timestamp (<code>startTime</code>, <code>endTime</code>, or
-   *             <code>lastUpdatedTime</code>) is between <code>from</code> and <code>to</code>
-   *          inclusive. If <code>from</code> is set and <code>to</code> is not set: match items where
-   *          the timestamp value is equal to or after <code>from</code>. If <code>from</code> is not set
-   *          and <code>to</code> is set: match items where the timestamp value is equal to or before
-   *             <code>to</code>.</p>
-   */
-  lastUpdatedTime?: DateTimeRange;
 }
 
 export namespace OrganizationEventFilter {
@@ -1072,24 +1162,19 @@ export namespace DescribeEventsForOrganizationRequest {
 }
 
 /**
- * <p>Summary information about an event, returned by the <a>DescribeEventsForOrganization</a> operation.</p>
+ * <p>Summary information about an event, returned by the <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeEventsForOrganization.html">DescribeEventsForOrganization</a> operation.</p>
  */
 export interface OrganizationEvent {
-  /**
-   * <p>The category of the event type.</p>
-   */
-  eventTypeCategory?: EventTypeCategory | string;
-
   /**
    * <p>The AWS service that is affected by the event. For example, EC2, RDS.</p>
    */
   service?: string;
 
-  eventScopeCode?: EventScopeCode | string;
   /**
-   * <p>The date and time that the event began.</p>
+   * <p>The most recent status of the event. Possible values are <code>open</code>,
+   *             <code>closed</code>, and <code>upcoming</code>.</p>
    */
-  startTime?: Date;
+  statusCode?: EventStatusCode | string;
 
   /**
    * <p>The unique identifier for the event type. The format is
@@ -1097,6 +1182,21 @@ export interface OrganizationEvent {
    *             <code>AWS_EC2_SYSTEM_MAINTENANCE_EVENT</code>.</p>
    */
   eventTypeCode?: string;
+
+  /**
+   * <p>The category of the event type.</p>
+   */
+  eventTypeCategory?: EventTypeCategory | string;
+
+  /**
+   * <p>The date and time that the event began.</p>
+   */
+  startTime?: Date;
+
+  /**
+   * <p>The most recent date and time that the event was updated.</p>
+   */
+  lastUpdatedTime?: Date;
 
   /**
    * <p>The unique identifier for the event. Format: <code>arn:aws:health:<i>event-region</i>::event/<i>SERVICE</i>/<i>EVENT_TYPE_CODE</i>/<i>EVENT_TYPE_PLUS_ID</i>
@@ -1111,15 +1211,27 @@ export interface OrganizationEvent {
   region?: string;
 
   /**
-   * <p>The most recent status of the event. Possible values are <code>open</code>,
-   *             <code>closed</code>, and <code>upcoming</code>.</p>
+   * <p>This parameter specifies if the AWS Health event is a public AWS service event or an account-specific event.</p>
+   *          <ul>
+   *             <li>
+   *                <p>If the <code>eventScopeCode</code> value is <code>PUBLIC</code>, then the
+   *                   <code>affectedAccounts</code> value is always empty.</p>
+   *             </li>
+   *             <li>
+   *                <p>If the <code>eventScopeCode</code> value is <code>ACCOUNT_SPECIFIC</code>, then
+   *                the <code>affectedAccounts</code> value lists the affected AWS accounts in your
+   *                organization. For example, if an event affects a service such as Amazon Elastic Compute Cloud and you
+   *                have AWS accounts that use that service, those account IDs appear in the
+   *                response.</p>
+   *             </li>
+   *             <li>
+   *                <p>If the <code>eventScopeCode</code> value is <code>NONE</code>, then the
+   *                   <code>eventArn</code> that you specified in the request is invalid or doesn't
+   *                exist.</p>
+   *             </li>
+   *          </ul>
    */
-  statusCode?: EventStatusCode | string;
-
-  /**
-   * <p>The most recent date and time that the event was updated.</p>
-   */
-  lastUpdatedTime?: Date;
+  eventScopeCode?: EventScopeCode | string;
 
   /**
    * <p>The date and time that the event ended.</p>
@@ -1135,17 +1247,17 @@ export namespace OrganizationEvent {
 
 export interface DescribeEventsForOrganizationResponse {
   /**
+   * <p>The events that match the specified filter criteria.</p>
+   */
+  events?: OrganizationEvent[];
+
+  /**
    * <p>If the results of a search are large, only a portion of the
    * results are returned, and a <code>nextToken</code> pagination token is returned in the response. To
    * retrieve the next batch of results, reissue the search request and include the returned token.
    * When all results have been returned, the response does not contain a pagination token value.</p>
    */
   nextToken?: string;
-
-  /**
-   * <p>The events that match the specified filter criteria.</p>
-   */
-  events?: OrganizationEvent[];
 }
 
 export namespace DescribeEventsForOrganizationResponse {
@@ -1155,25 +1267,25 @@ export namespace DescribeEventsForOrganizationResponse {
 }
 
 /**
- * <p>The values to use to filter results from the <a>DescribeEventTypes</a>
+ * <p>The values to use to filter results from the <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeEventTypes.html">DescribeEventTypes</a>
  *          operation.</p>
  */
 export interface EventTypeFilter {
   /**
-   * <p>A list of event type category codes (<code>issue</code>,
-   *          <code>scheduledChange</code>, or <code>accountNotification</code>).</p>
+   * <p>A list of event type category codes (<code>issue</code>, <code>scheduledChange</code>,
+   *          or <code>accountNotification</code>).</p>
    */
   eventTypeCategories?: (EventTypeCategory | string)[];
-
-  /**
-   * <p>A list of event type codes.</p>
-   */
-  eventTypeCodes?: string[];
 
   /**
    * <p>The AWS services associated with the event. For example, <code>EC2</code>, <code>RDS</code>.</p>
    */
   services?: string[];
+
+  /**
+   * <p>A list of event type codes.</p>
+   */
+  eventTypeCodes?: string[];
 }
 
 export namespace EventTypeFilter {
@@ -1189,9 +1301,9 @@ export interface DescribeEventTypesRequest {
   filter?: EventTypeFilter;
 
   /**
-   * <p>The locale (language) to return information in. English (en) is the default and the only supported value at this time.</p>
+   * <p>The maximum number of items to return in one batch, between 10 and 100, inclusive.</p>
    */
-  locale?: string;
+  maxResults?: number;
 
   /**
    * <p>If the results of a search are large, only a portion of the
@@ -1202,9 +1314,9 @@ export interface DescribeEventTypesRequest {
   nextToken?: string;
 
   /**
-   * <p>The maximum number of items to return in one batch, between 10 and 100, inclusive.</p>
+   * <p>The locale (language) to return information in. English (en) is the default and the only supported value at this time.</p>
    */
-  maxResults?: number;
+  locale?: string;
 }
 
 export namespace DescribeEventTypesRequest {
@@ -1214,23 +1326,23 @@ export namespace DescribeEventTypesRequest {
 }
 
 /**
- * <p>Metadata about a type of event that is reported by AWS Health. Data consists of
- *          the category (for example, <code>issue</code>), the service (for example,
- *          <code>EC2</code>), and the event type code (for example,
- *             <code>AWS_EC2_SYSTEM_MAINTENANCE_EVENT</code>).</p>
+ * <p>Metadata about a type of event that is reported by AWS Health. Data consists of the
+ *          category (for example, <code>issue</code>), the service (for example, <code>EC2</code>),
+ *          and the event type code (for example,
+ *          <code>AWS_EC2_SYSTEM_MAINTENANCE_EVENT</code>).</p>
  */
 export interface EventType {
+  /**
+   * <p>A list of event type category codes (<code>issue</code>, <code>scheduledChange</code>,
+   *          or <code>accountNotification</code>).</p>
+   */
+  category?: EventTypeCategory | string;
+
   /**
    * <p>The unique identifier for the event type. The format is <code>AWS_<i>SERVICE</i>_<i>DESCRIPTION</i>
    *             </code>; for example, <code>AWS_EC2_SYSTEM_MAINTENANCE_EVENT</code>.</p>
    */
   code?: string;
-
-  /**
-   * <p>A list of event type category codes (<code>issue</code>,
-   *          <code>scheduledChange</code>, or <code>accountNotification</code>).</p>
-   */
-  category?: EventTypeCategory | string;
 
   /**
    * <p>The AWS service that is affected by the event. For example, <code>EC2</code>, <code>RDS</code>.</p>
@@ -1288,8 +1400,8 @@ export namespace DescribeHealthServiceStatusForOrganizationResponse {
 
 /**
  * <p>
- *             <a>EnableHealthServiceAccessForOrganization</a> is already in progress. Wait
- *          for the action to complete before trying again. To get the current status, use the <a>DescribeHealthServiceStatusForOrganization</a> operation.</p>
+ *             <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_EnableHealthServiceAccessForOrganization.html">EnableHealthServiceAccessForOrganization</a> is already in progress. Wait
+ *          for the action to complete before trying again. To get the current status, use the <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeHealthServiceStatusForOrganization.html">DescribeHealthServiceStatusForOrganization</a> operation.</p>
  */
 export interface ConcurrentModificationException extends __SmithyException, $MetadataBearer {
   name: "ConcurrentModificationException";

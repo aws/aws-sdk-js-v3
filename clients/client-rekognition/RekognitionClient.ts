@@ -37,6 +37,10 @@ import {
   DetectModerationLabelsCommandInput,
   DetectModerationLabelsCommandOutput,
 } from "./commands/DetectModerationLabelsCommand";
+import {
+  DetectProtectiveEquipmentCommandInput,
+  DetectProtectiveEquipmentCommandOutput,
+} from "./commands/DetectProtectiveEquipmentCommand";
 import { DetectTextCommandInput, DetectTextCommandOutput } from "./commands/DetectTextCommand";
 import { GetCelebrityInfoCommandInput, GetCelebrityInfoCommandOutput } from "./commands/GetCelebrityInfoCommand";
 import {
@@ -173,6 +177,7 @@ export type ServiceInputTypes =
   | DetectFacesCommandInput
   | DetectLabelsCommandInput
   | DetectModerationLabelsCommandInput
+  | DetectProtectiveEquipmentCommandInput
   | DetectTextCommandInput
   | GetCelebrityInfoCommandInput
   | GetCelebrityRecognitionCommandInput
@@ -222,6 +227,7 @@ export type ServiceOutputTypes =
   | DetectFacesCommandOutput
   | DetectLabelsCommandOutput
   | DetectModerationLabelsCommandOutput
+  | DetectProtectiveEquipmentCommandOutput
   | DetectTextCommandOutput
   | GetCelebrityInfoCommandOutput
   | GetCelebrityRecognitionCommandOutput

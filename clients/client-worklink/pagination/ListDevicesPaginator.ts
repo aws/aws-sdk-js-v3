@@ -29,7 +29,7 @@ export async function* listDevicesPaginate(
   let hasNext = true;
   let page: ListDevicesCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof WorkLink) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -39,7 +39,7 @@ export async function* listDevicesPaginate(
       throw new Error("Invalid client, expected WorkLink | WorkLinkClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore
