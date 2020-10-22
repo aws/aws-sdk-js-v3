@@ -29,7 +29,7 @@ export async function* listProjectAssetsPaginate(
   input: ListProjectAssetsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListProjectAssetsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListProjectAssetsCommandOutput;
   while (hasNext) {

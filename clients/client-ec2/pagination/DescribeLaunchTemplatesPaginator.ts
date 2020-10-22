@@ -29,7 +29,7 @@ export async function* describeLaunchTemplatesPaginate(
   input: DescribeLaunchTemplatesCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeLaunchTemplatesCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeLaunchTemplatesCommandOutput;
   while (hasNext) {

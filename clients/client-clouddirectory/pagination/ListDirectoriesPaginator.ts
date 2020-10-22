@@ -29,7 +29,7 @@ export async function* listDirectoriesPaginate(
   input: ListDirectoriesCommandInput,
   ...additionalArguments: any
 ): Paginator<ListDirectoriesCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListDirectoriesCommandOutput;
   while (hasNext) {

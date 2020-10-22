@@ -29,7 +29,7 @@ export async function* describeHostReservationsPaginate(
   input: DescribeHostReservationsCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeHostReservationsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeHostReservationsCommandOutput;
   while (hasNext) {

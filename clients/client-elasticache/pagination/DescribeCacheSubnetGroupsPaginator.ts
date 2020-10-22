@@ -29,7 +29,7 @@ export async function* describeCacheSubnetGroupsPaginate(
   input: DescribeCacheSubnetGroupsCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeCacheSubnetGroupsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeCacheSubnetGroupsCommandOutput;
   while (hasNext) {

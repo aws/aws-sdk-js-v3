@@ -29,7 +29,7 @@ export async function* describeLocalGatewayRouteTableVpcAssociationsPaginate(
   input: DescribeLocalGatewayRouteTableVpcAssociationsCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeLocalGatewayRouteTableVpcAssociationsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeLocalGatewayRouteTableVpcAssociationsCommandOutput;
   while (hasNext) {

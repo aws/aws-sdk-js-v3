@@ -29,7 +29,7 @@ export async function* listChangeSetsPaginate(
   input: ListChangeSetsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListChangeSetsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListChangeSetsCommandOutput;
   while (hasNext) {

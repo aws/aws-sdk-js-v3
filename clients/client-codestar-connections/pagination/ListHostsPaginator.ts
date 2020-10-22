@@ -25,7 +25,7 @@ export async function* listHostsPaginate(
   input: ListHostsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListHostsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListHostsCommandOutput;
   while (hasNext) {

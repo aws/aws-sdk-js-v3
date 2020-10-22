@@ -29,7 +29,7 @@ export async function* listPrincipalsForPortfolioPaginate(
   input: ListPrincipalsForPortfolioCommandInput,
   ...additionalArguments: any
 ): Paginator<ListPrincipalsForPortfolioCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListPrincipalsForPortfolioCommandOutput;
   while (hasNext) {

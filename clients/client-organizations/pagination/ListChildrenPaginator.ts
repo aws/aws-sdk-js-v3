@@ -29,7 +29,7 @@ export async function* listChildrenPaginate(
   input: ListChildrenCommandInput,
   ...additionalArguments: any
 ): Paginator<ListChildrenCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListChildrenCommandOutput;
   while (hasNext) {

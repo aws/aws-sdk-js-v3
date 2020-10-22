@@ -29,7 +29,7 @@ export async function* listSkillsStoreCategoriesPaginate(
   input: ListSkillsStoreCategoriesCommandInput,
   ...additionalArguments: any
 ): Paginator<ListSkillsStoreCategoriesCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListSkillsStoreCategoriesCommandOutput;
   while (hasNext) {

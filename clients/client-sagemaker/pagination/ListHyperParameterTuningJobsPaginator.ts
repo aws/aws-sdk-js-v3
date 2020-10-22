@@ -29,7 +29,7 @@ export async function* listHyperParameterTuningJobsPaginate(
   input: ListHyperParameterTuningJobsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListHyperParameterTuningJobsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListHyperParameterTuningJobsCommandOutput;
   while (hasNext) {

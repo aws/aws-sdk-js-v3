@@ -29,7 +29,7 @@ export async function* describeGlobalReplicationGroupsPaginate(
   input: DescribeGlobalReplicationGroupsCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeGlobalReplicationGroupsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeGlobalReplicationGroupsCommandOutput;
   while (hasNext) {

@@ -29,7 +29,7 @@ export async function* describeFleetAttributesPaginate(
   input: DescribeFleetAttributesCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeFleetAttributesCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeFleetAttributesCommandOutput;
   while (hasNext) {

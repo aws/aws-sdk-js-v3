@@ -29,7 +29,7 @@ export async function* listThingRegistrationTasksPaginate(
   input: ListThingRegistrationTasksCommandInput,
   ...additionalArguments: any
 ): Paginator<ListThingRegistrationTasksCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListThingRegistrationTasksCommandOutput;
   while (hasNext) {

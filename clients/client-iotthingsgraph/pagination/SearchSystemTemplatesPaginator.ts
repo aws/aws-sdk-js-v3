@@ -29,7 +29,7 @@ export async function* searchSystemTemplatesPaginate(
   input: SearchSystemTemplatesCommandInput,
   ...additionalArguments: any
 ): Paginator<SearchSystemTemplatesCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: SearchSystemTemplatesCommandOutput;
   while (hasNext) {

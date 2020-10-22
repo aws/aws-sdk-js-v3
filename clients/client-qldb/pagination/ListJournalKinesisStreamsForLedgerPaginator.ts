@@ -29,7 +29,7 @@ export async function* listJournalKinesisStreamsForLedgerPaginate(
   input: ListJournalKinesisStreamsForLedgerCommandInput,
   ...additionalArguments: any
 ): Paginator<ListJournalKinesisStreamsForLedgerCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListJournalKinesisStreamsForLedgerCommandOutput;
   while (hasNext) {

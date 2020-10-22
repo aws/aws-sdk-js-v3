@@ -29,7 +29,7 @@ export async function* listContributorInsightsPaginate(
   input: ListContributorInsightsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListContributorInsightsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListContributorInsightsCommandOutput;
   while (hasNext) {

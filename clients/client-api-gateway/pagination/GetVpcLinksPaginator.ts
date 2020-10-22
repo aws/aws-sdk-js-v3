@@ -25,7 +25,7 @@ export async function* getVpcLinksPaginate(
   input: GetVpcLinksCommandInput,
   ...additionalArguments: any
 ): Paginator<GetVpcLinksCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: GetVpcLinksCommandOutput;
   while (hasNext) {

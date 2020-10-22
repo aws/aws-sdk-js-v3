@@ -29,7 +29,7 @@ export async function* listV2LoggingLevelsPaginate(
   input: ListV2LoggingLevelsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListV2LoggingLevelsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListV2LoggingLevelsCommandOutput;
   while (hasNext) {

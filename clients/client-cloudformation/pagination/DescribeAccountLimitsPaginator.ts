@@ -29,7 +29,7 @@ export async function* describeAccountLimitsPaginate(
   input: DescribeAccountLimitsCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeAccountLimitsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeAccountLimitsCommandOutput;
   while (hasNext) {

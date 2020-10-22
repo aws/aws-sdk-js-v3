@@ -29,7 +29,7 @@ export async function* listArchiveRulesPaginate(
   input: ListArchiveRulesCommandInput,
   ...additionalArguments: any
 ): Paginator<ListArchiveRulesCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListArchiveRulesCommandOutput;
   while (hasNext) {

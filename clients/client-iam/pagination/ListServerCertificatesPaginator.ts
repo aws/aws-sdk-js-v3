@@ -29,7 +29,7 @@ export async function* listServerCertificatesPaginate(
   input: ListServerCertificatesCommandInput,
   ...additionalArguments: any
 ): Paginator<ListServerCertificatesCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListServerCertificatesCommandOutput;
   while (hasNext) {

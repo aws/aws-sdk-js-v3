@@ -29,7 +29,7 @@ export async function* listDeviceEventsPaginate(
   input: ListDeviceEventsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListDeviceEventsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListDeviceEventsCommandOutput;
   while (hasNext) {

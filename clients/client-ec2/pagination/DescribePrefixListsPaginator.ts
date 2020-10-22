@@ -29,7 +29,7 @@ export async function* describePrefixListsPaginate(
   input: DescribePrefixListsCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribePrefixListsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribePrefixListsCommandOutput;
   while (hasNext) {

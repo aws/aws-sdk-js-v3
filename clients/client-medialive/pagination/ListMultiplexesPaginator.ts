@@ -29,7 +29,7 @@ export async function* listMultiplexesPaginate(
   input: ListMultiplexesCommandInput,
   ...additionalArguments: any
 ): Paginator<ListMultiplexesCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListMultiplexesCommandOutput;
   while (hasNext) {

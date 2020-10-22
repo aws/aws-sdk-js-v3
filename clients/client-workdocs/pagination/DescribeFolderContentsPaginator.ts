@@ -29,7 +29,7 @@ export async function* describeFolderContentsPaginate(
   input: DescribeFolderContentsCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeFolderContentsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeFolderContentsCommandOutput;
   while (hasNext) {

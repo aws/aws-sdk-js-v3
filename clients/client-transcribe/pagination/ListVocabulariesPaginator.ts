@@ -29,7 +29,7 @@ export async function* listVocabulariesPaginate(
   input: ListVocabulariesCommandInput,
   ...additionalArguments: any
 ): Paginator<ListVocabulariesCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListVocabulariesCommandOutput;
   while (hasNext) {

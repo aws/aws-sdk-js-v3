@@ -29,7 +29,7 @@ export async function* listCustomVerificationEmailTemplatesPaginate(
   input: ListCustomVerificationEmailTemplatesCommandInput,
   ...additionalArguments: any
 ): Paginator<ListCustomVerificationEmailTemplatesCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListCustomVerificationEmailTemplatesCommandOutput;
   while (hasNext) {

@@ -29,7 +29,7 @@ export async function* getTraceSummariesPaginate(
   input: GetTraceSummariesCommandInput,
   ...additionalArguments: any
 ): Paginator<GetTraceSummariesCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: GetTraceSummariesCommandOutput;
   while (hasNext) {

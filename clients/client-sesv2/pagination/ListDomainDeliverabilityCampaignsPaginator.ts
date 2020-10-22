@@ -29,7 +29,7 @@ export async function* listDomainDeliverabilityCampaignsPaginate(
   input: ListDomainDeliverabilityCampaignsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListDomainDeliverabilityCampaignsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListDomainDeliverabilityCampaignsCommandOutput;
   while (hasNext) {

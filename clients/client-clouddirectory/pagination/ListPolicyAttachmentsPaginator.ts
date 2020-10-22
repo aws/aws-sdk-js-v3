@@ -29,7 +29,7 @@ export async function* listPolicyAttachmentsPaginate(
   input: ListPolicyAttachmentsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListPolicyAttachmentsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListPolicyAttachmentsCommandOutput;
   while (hasNext) {

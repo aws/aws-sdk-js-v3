@@ -29,7 +29,7 @@ export async function* describeDBInstancesPaginate(
   input: DescribeDBInstancesCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeDBInstancesCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeDBInstancesCommandOutput;
   while (hasNext) {

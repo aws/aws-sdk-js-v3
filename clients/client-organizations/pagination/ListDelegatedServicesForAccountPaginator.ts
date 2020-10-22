@@ -29,7 +29,7 @@ export async function* listDelegatedServicesForAccountPaginate(
   input: ListDelegatedServicesForAccountCommandInput,
   ...additionalArguments: any
 ): Paginator<ListDelegatedServicesForAccountCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListDelegatedServicesForAccountCommandOutput;
   while (hasNext) {

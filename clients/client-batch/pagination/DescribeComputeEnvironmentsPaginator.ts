@@ -29,7 +29,7 @@ export async function* describeComputeEnvironmentsPaginate(
   input: DescribeComputeEnvironmentsCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeComputeEnvironmentsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeComputeEnvironmentsCommandOutput;
   while (hasNext) {

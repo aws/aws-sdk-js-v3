@@ -29,7 +29,7 @@ export async function* getAssetPropertyAggregatesPaginate(
   input: GetAssetPropertyAggregatesCommandInput,
   ...additionalArguments: any
 ): Paginator<GetAssetPropertyAggregatesCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: GetAssetPropertyAggregatesCommandOutput;
   while (hasNext) {

@@ -29,7 +29,7 @@ export async function* getCelebrityRecognitionPaginate(
   input: GetCelebrityRecognitionCommandInput,
   ...additionalArguments: any
 ): Paginator<GetCelebrityRecognitionCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: GetCelebrityRecognitionCommandOutput;
   while (hasNext) {

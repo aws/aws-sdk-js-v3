@@ -29,7 +29,7 @@ export async function* listRecommendationsPaginate(
   input: ListRecommendationsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListRecommendationsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListRecommendationsCommandOutput;
   while (hasNext) {

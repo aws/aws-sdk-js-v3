@@ -25,7 +25,7 @@ export async function* listTunnelsPaginate(
   input: ListTunnelsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListTunnelsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListTunnelsCommandOutput;
   while (hasNext) {

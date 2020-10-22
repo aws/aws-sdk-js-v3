@@ -29,7 +29,7 @@ export async function* describeClusterVersionsPaginate(
   input: DescribeClusterVersionsCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeClusterVersionsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeClusterVersionsCommandOutput;
   while (hasNext) {

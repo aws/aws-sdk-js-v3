@@ -29,7 +29,7 @@ export async function* listInstanceProfilesPaginate(
   input: ListInstanceProfilesCommandInput,
   ...additionalArguments: any
 ): Paginator<ListInstanceProfilesCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListInstanceProfilesCommandOutput;
   while (hasNext) {

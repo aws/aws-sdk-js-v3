@@ -25,7 +25,7 @@ export async function* getLinksPaginate(
   input: GetLinksCommandInput,
   ...additionalArguments: any
 ): Paginator<GetLinksCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: GetLinksCommandOutput;
   while (hasNext) {

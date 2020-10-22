@@ -29,7 +29,7 @@ export async function* listClustersPaginate(
   input: ListClustersCommandInput,
   ...additionalArguments: any
 ): Paginator<ListClustersCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListClustersCommandOutput;
   while (hasNext) {

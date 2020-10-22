@@ -29,7 +29,7 @@ export async function* listMedicalVocabulariesPaginate(
   input: ListMedicalVocabulariesCommandInput,
   ...additionalArguments: any
 ): Paginator<ListMedicalVocabulariesCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListMedicalVocabulariesCommandOutput;
   while (hasNext) {

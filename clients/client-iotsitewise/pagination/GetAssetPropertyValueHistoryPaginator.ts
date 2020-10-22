@@ -29,7 +29,7 @@ export async function* getAssetPropertyValueHistoryPaginate(
   input: GetAssetPropertyValueHistoryCommandInput,
   ...additionalArguments: any
 ): Paginator<GetAssetPropertyValueHistoryCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: GetAssetPropertyValueHistoryCommandOutput;
   while (hasNext) {

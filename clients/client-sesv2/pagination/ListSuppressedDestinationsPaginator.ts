@@ -29,7 +29,7 @@ export async function* listSuppressedDestinationsPaginate(
   input: ListSuppressedDestinationsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListSuppressedDestinationsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListSuppressedDestinationsCommandOutput;
   while (hasNext) {

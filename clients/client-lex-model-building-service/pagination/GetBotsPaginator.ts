@@ -25,7 +25,7 @@ export async function* getBotsPaginate(
   input: GetBotsCommandInput,
   ...additionalArguments: any
 ): Paginator<GetBotsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: GetBotsCommandOutput;
   while (hasNext) {

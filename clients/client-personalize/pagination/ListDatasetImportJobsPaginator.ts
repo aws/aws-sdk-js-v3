@@ -29,7 +29,7 @@ export async function* listDatasetImportJobsPaginate(
   input: ListDatasetImportJobsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListDatasetImportJobsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListDatasetImportJobsCommandOutput;
   while (hasNext) {

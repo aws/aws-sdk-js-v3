@@ -29,7 +29,7 @@ export async function* searchGameSessionsPaginate(
   input: SearchGameSessionsCommandInput,
   ...additionalArguments: any
 ): Paginator<SearchGameSessionsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: SearchGameSessionsCommandOutput;
   while (hasNext) {

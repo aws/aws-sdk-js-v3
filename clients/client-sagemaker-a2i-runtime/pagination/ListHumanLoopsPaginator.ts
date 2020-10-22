@@ -29,7 +29,7 @@ export async function* listHumanLoopsPaginate(
   input: ListHumanLoopsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListHumanLoopsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListHumanLoopsCommandOutput;
   while (hasNext) {

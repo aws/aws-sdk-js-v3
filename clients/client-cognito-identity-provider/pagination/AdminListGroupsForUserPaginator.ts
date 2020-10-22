@@ -29,7 +29,7 @@ export async function* adminListGroupsForUserPaginate(
   input: AdminListGroupsForUserCommandInput,
   ...additionalArguments: any
 ): Paginator<AdminListGroupsForUserCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: AdminListGroupsForUserCommandOutput;
   while (hasNext) {

@@ -29,7 +29,7 @@ export async function* describeInternetGatewaysPaginate(
   input: DescribeInternetGatewaysCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeInternetGatewaysCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeInternetGatewaysCommandOutput;
   while (hasNext) {

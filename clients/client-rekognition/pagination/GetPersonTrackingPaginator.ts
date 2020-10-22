@@ -29,7 +29,7 @@ export async function* getPersonTrackingPaginate(
   input: GetPersonTrackingCommandInput,
   ...additionalArguments: any
 ): Paginator<GetPersonTrackingCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: GetPersonTrackingCommandOutput;
   while (hasNext) {

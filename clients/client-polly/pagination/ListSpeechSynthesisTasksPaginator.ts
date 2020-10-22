@@ -29,7 +29,7 @@ export async function* listSpeechSynthesisTasksPaginate(
   input: ListSpeechSynthesisTasksCommandInput,
   ...additionalArguments: any
 ): Paginator<ListSpeechSynthesisTasksCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListSpeechSynthesisTasksCommandOutput;
   while (hasNext) {

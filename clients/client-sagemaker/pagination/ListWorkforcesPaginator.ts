@@ -29,7 +29,7 @@ export async function* listWorkforcesPaginate(
   input: ListWorkforcesCommandInput,
   ...additionalArguments: any
 ): Paginator<ListWorkforcesCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListWorkforcesCommandOutput;
   while (hasNext) {

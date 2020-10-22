@@ -29,7 +29,7 @@ export async function* getMLTaskRunsPaginate(
   input: GetMLTaskRunsCommandInput,
   ...additionalArguments: any
 ): Paginator<GetMLTaskRunsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: GetMLTaskRunsCommandOutput;
   while (hasNext) {

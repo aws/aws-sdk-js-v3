@@ -29,7 +29,7 @@ export async function* getAccountAuthorizationDetailsPaginate(
   input: GetAccountAuthorizationDetailsCommandInput,
   ...additionalArguments: any
 ): Paginator<GetAccountAuthorizationDetailsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: GetAccountAuthorizationDetailsCommandOutput;
   while (hasNext) {

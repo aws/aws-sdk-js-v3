@@ -29,7 +29,7 @@ export async function* listComplianceSummariesPaginate(
   input: ListComplianceSummariesCommandInput,
   ...additionalArguments: any
 ): Paginator<ListComplianceSummariesCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListComplianceSummariesCommandOutput;
   while (hasNext) {

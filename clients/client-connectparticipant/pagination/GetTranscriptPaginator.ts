@@ -29,7 +29,7 @@ export async function* getTranscriptPaginate(
   input: GetTranscriptCommandInput,
   ...additionalArguments: any
 ): Paginator<GetTranscriptCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: GetTranscriptCommandOutput;
   while (hasNext) {

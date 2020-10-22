@@ -29,7 +29,7 @@ export async function* listPermissionsPaginate(
   input: ListPermissionsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListPermissionsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListPermissionsCommandOutput;
   while (hasNext) {

@@ -29,7 +29,7 @@ export async function* listDataSourceSyncJobsPaginate(
   input: ListDataSourceSyncJobsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListDataSourceSyncJobsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListDataSourceSyncJobsCommandOutput;
   while (hasNext) {

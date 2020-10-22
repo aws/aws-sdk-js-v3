@@ -29,7 +29,7 @@ export async function* listServiceQuotaIncreaseRequestsInTemplatePaginate(
   input: ListServiceQuotaIncreaseRequestsInTemplateCommandInput,
   ...additionalArguments: any
 ): Paginator<ListServiceQuotaIncreaseRequestsInTemplateCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListServiceQuotaIncreaseRequestsInTemplateCommandOutput;
   while (hasNext) {

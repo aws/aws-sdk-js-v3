@@ -29,7 +29,7 @@ export async function* describeUsageLimitsPaginate(
   input: DescribeUsageLimitsCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeUsageLimitsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeUsageLimitsCommandOutput;
   while (hasNext) {

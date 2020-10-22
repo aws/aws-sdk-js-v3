@@ -29,7 +29,7 @@ export async function* listProxySessionsPaginate(
   input: ListProxySessionsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListProxySessionsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListProxySessionsCommandOutput;
   while (hasNext) {

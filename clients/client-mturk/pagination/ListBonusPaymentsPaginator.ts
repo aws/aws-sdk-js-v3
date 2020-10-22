@@ -29,7 +29,7 @@ export async function* listBonusPaymentsPaginate(
   input: ListBonusPaymentsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListBonusPaymentsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListBonusPaymentsCommandOutput;
   while (hasNext) {

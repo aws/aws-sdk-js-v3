@@ -29,7 +29,7 @@ export async function* listResolverQueryLogConfigAssociationsPaginate(
   input: ListResolverQueryLogConfigAssociationsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListResolverQueryLogConfigAssociationsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListResolverQueryLogConfigAssociationsCommandOutput;
   while (hasNext) {

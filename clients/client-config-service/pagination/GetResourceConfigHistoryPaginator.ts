@@ -29,7 +29,7 @@ export async function* getResourceConfigHistoryPaginate(
   input: GetResourceConfigHistoryCommandInput,
   ...additionalArguments: any
 ): Paginator<GetResourceConfigHistoryCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: GetResourceConfigHistoryCommandOutput;
   while (hasNext) {

@@ -29,7 +29,7 @@ export async function* describeCustomAvailabilityZonesPaginate(
   input: DescribeCustomAvailabilityZonesCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeCustomAvailabilityZonesCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeCustomAvailabilityZonesCommandOutput;
   while (hasNext) {

@@ -29,7 +29,7 @@ export async function* listEntitiesForPolicyPaginate(
   input: ListEntitiesForPolicyCommandInput,
   ...additionalArguments: any
 ): Paginator<ListEntitiesForPolicyCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListEntitiesForPolicyCommandOutput;
   while (hasNext) {

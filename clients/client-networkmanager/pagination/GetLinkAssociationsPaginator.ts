@@ -29,7 +29,7 @@ export async function* getLinkAssociationsPaginate(
   input: GetLinkAssociationsCommandInput,
   ...additionalArguments: any
 ): Paginator<GetLinkAssociationsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: GetLinkAssociationsCommandOutput;
   while (hasNext) {

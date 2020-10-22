@@ -29,7 +29,7 @@ export async function* listRegionalBucketsPaginate(
   input: ListRegionalBucketsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListRegionalBucketsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListRegionalBucketsCommandOutput;
   while (hasNext) {

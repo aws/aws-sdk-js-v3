@@ -29,7 +29,7 @@ export async function* listVirtualRoutersPaginate(
   input: ListVirtualRoutersCommandInput,
   ...additionalArguments: any
 ): Paginator<ListVirtualRoutersCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListVirtualRoutersCommandOutput;
   while (hasNext) {

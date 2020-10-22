@@ -29,7 +29,7 @@ export async function* listVersionsByFunctionPaginate(
   input: ListVersionsByFunctionCommandInput,
   ...additionalArguments: any
 ): Paginator<ListVersionsByFunctionCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListVersionsByFunctionCommandOutput;
   while (hasNext) {

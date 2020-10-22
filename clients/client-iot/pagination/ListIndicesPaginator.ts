@@ -25,7 +25,7 @@ export async function* listIndicesPaginate(
   input: ListIndicesCommandInput,
   ...additionalArguments: any
 ): Paginator<ListIndicesCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListIndicesCommandOutput;
   while (hasNext) {

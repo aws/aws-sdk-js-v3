@@ -29,7 +29,7 @@ export async function* describeEffectiveInstanceAssociationsPaginate(
   input: DescribeEffectiveInstanceAssociationsCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeEffectiveInstanceAssociationsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeEffectiveInstanceAssociationsCommandOutput;
   while (hasNext) {

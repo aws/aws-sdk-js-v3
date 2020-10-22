@@ -29,7 +29,7 @@ export async function* describeReservedNodesPaginate(
   input: DescribeReservedNodesCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeReservedNodesCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeReservedNodesCommandOutput;
   while (hasNext) {

@@ -25,7 +25,7 @@ export async function* listRoomsPaginate(
   input: ListRoomsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListRoomsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListRoomsCommandOutput;
   while (hasNext) {

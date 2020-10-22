@@ -25,7 +25,7 @@ export async function* listRolesPaginate(
   input: ListRolesCommandInput,
   ...additionalArguments: any
 ): Paginator<ListRolesCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListRolesCommandOutput;
   while (hasNext) {

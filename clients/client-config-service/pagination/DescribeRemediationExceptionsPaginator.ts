@@ -29,7 +29,7 @@ export async function* describeRemediationExceptionsPaginate(
   input: DescribeRemediationExceptionsCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeRemediationExceptionsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeRemediationExceptionsCommandOutput;
   while (hasNext) {

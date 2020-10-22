@@ -25,7 +25,7 @@ export async function* searchRoomsPaginate(
   input: SearchRoomsCommandInput,
   ...additionalArguments: any
 ): Paginator<SearchRoomsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: SearchRoomsCommandOutput;
   while (hasNext) {

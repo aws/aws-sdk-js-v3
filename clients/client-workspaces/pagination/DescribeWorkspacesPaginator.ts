@@ -29,7 +29,7 @@ export async function* describeWorkspacesPaginate(
   input: DescribeWorkspacesCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeWorkspacesCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeWorkspacesCommandOutput;
   while (hasNext) {

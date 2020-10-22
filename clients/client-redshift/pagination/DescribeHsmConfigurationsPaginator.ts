@@ -29,7 +29,7 @@ export async function* describeHsmConfigurationsPaginate(
   input: DescribeHsmConfigurationsCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeHsmConfigurationsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeHsmConfigurationsCommandOutput;
   while (hasNext) {

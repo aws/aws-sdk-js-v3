@@ -29,7 +29,7 @@ export async function* getCustomerGatewayAssociationsPaginate(
   input: GetCustomerGatewayAssociationsCommandInput,
   ...additionalArguments: any
 ): Paginator<GetCustomerGatewayAssociationsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: GetCustomerGatewayAssociationsCommandOutput;
   while (hasNext) {

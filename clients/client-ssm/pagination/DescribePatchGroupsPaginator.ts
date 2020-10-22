@@ -29,7 +29,7 @@ export async function* describePatchGroupsPaginate(
   input: DescribePatchGroupsCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribePatchGroupsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribePatchGroupsCommandOutput;
   while (hasNext) {

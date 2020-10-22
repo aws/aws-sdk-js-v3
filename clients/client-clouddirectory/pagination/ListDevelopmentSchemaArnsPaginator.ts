@@ -29,7 +29,7 @@ export async function* listDevelopmentSchemaArnsPaginate(
   input: ListDevelopmentSchemaArnsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListDevelopmentSchemaArnsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListDevelopmentSchemaArnsCommandOutput;
   while (hasNext) {

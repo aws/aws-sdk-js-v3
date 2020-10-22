@@ -29,7 +29,7 @@ export async function* listResolverRulesPaginate(
   input: ListResolverRulesCommandInput,
   ...additionalArguments: any
 ): Paginator<ListResolverRulesCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListResolverRulesCommandOutput;
   while (hasNext) {

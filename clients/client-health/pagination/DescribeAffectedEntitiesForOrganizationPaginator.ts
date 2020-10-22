@@ -29,7 +29,7 @@ export async function* describeAffectedEntitiesForOrganizationPaginate(
   input: DescribeAffectedEntitiesForOrganizationCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeAffectedEntitiesForOrganizationCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeAffectedEntitiesForOrganizationCommandOutput;
   while (hasNext) {

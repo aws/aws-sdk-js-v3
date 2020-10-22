@@ -25,7 +25,7 @@ export async function* getFindingsPaginate(
   input: GetFindingsCommandInput,
   ...additionalArguments: any
 ): Paginator<GetFindingsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: GetFindingsCommandOutput;
   while (hasNext) {

@@ -29,7 +29,7 @@ export async function* listAttachedIndicesPaginate(
   input: ListAttachedIndicesCommandInput,
   ...additionalArguments: any
 ): Paginator<ListAttachedIndicesCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListAttachedIndicesCommandOutput;
   while (hasNext) {

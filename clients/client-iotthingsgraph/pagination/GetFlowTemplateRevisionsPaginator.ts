@@ -29,7 +29,7 @@ export async function* getFlowTemplateRevisionsPaginate(
   input: GetFlowTemplateRevisionsCommandInput,
   ...additionalArguments: any
 ): Paginator<GetFlowTemplateRevisionsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: GetFlowTemplateRevisionsCommandOutput;
   while (hasNext) {

@@ -29,7 +29,7 @@ export async function* describeCanariesLastRunPaginate(
   input: DescribeCanariesLastRunCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeCanariesLastRunCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeCanariesLastRunCommandOutput;
   while (hasNext) {

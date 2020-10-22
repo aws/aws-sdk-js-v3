@@ -29,7 +29,7 @@ export async function* adminListUserAuthEventsPaginate(
   input: AdminListUserAuthEventsCommandInput,
   ...additionalArguments: any
 ): Paginator<AdminListUserAuthEventsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: AdminListUserAuthEventsCommandOutput;
   while (hasNext) {

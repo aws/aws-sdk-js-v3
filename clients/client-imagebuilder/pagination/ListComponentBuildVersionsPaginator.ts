@@ -29,7 +29,7 @@ export async function* listComponentBuildVersionsPaginate(
   input: ListComponentBuildVersionsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListComponentBuildVersionsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListComponentBuildVersionsCommandOutput;
   while (hasNext) {

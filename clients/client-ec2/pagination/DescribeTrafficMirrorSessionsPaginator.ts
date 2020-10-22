@@ -29,7 +29,7 @@ export async function* describeTrafficMirrorSessionsPaginate(
   input: DescribeTrafficMirrorSessionsCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeTrafficMirrorSessionsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeTrafficMirrorSessionsCommandOutput;
   while (hasNext) {

@@ -29,7 +29,7 @@ export async function* describeWorkspaceBundlesPaginate(
   input: DescribeWorkspaceBundlesCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeWorkspaceBundlesCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeWorkspaceBundlesCommandOutput;
   while (hasNext) {

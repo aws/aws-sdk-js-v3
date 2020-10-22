@@ -29,7 +29,7 @@ export async function* describeStaleSecurityGroupsPaginate(
   input: DescribeStaleSecurityGroupsCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeStaleSecurityGroupsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeStaleSecurityGroupsCommandOutput;
   while (hasNext) {

@@ -25,7 +25,7 @@ export async function* listAgentsPaginate(
   input: ListAgentsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListAgentsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListAgentsCommandOutput;
   while (hasNext) {

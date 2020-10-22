@@ -29,7 +29,7 @@ export async function* describeGlobalClustersPaginate(
   input: DescribeGlobalClustersCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeGlobalClustersCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeGlobalClustersCommandOutput;
   while (hasNext) {

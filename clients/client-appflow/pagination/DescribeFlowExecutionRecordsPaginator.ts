@@ -29,7 +29,7 @@ export async function* describeFlowExecutionRecordsPaginate(
   input: DescribeFlowExecutionRecordsCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeFlowExecutionRecordsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeFlowExecutionRecordsCommandOutput;
   while (hasNext) {

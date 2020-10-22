@@ -29,7 +29,7 @@ export async function* describeScheduledInstanceAvailabilityPaginate(
   input: DescribeScheduledInstanceAvailabilityCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeScheduledInstanceAvailabilityCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeScheduledInstanceAvailabilityCommandOutput;
   while (hasNext) {

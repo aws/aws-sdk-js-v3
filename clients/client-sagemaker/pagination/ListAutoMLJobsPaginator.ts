@@ -29,7 +29,7 @@ export async function* listAutoMLJobsPaginate(
   input: ListAutoMLJobsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListAutoMLJobsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListAutoMLJobsCommandOutput;
   while (hasNext) {

@@ -29,7 +29,7 @@ export async function* listNotebookInstanceLifecycleConfigsPaginate(
   input: ListNotebookInstanceLifecycleConfigsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListNotebookInstanceLifecycleConfigsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListNotebookInstanceLifecycleConfigsCommandOutput;
   while (hasNext) {

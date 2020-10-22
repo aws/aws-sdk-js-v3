@@ -29,7 +29,7 @@ export async function* listDocumentClassifiersPaginate(
   input: ListDocumentClassifiersCommandInput,
   ...additionalArguments: any
 ): Paginator<ListDocumentClassifiersCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListDocumentClassifiersCommandOutput;
   while (hasNext) {

@@ -29,7 +29,7 @@ export async function* listAWSServiceAccessForOrganizationPaginate(
   input: ListAWSServiceAccessForOrganizationCommandInput,
   ...additionalArguments: any
 ): Paginator<ListAWSServiceAccessForOrganizationCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListAWSServiceAccessForOrganizationCommandOutput;
   while (hasNext) {

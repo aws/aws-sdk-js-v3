@@ -25,7 +25,7 @@ export async function* getJobRunsPaginate(
   input: GetJobRunsCommandInput,
   ...additionalArguments: any
 ): Paginator<GetJobRunsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: GetJobRunsCommandOutput;
   while (hasNext) {

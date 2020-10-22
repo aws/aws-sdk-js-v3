@@ -29,7 +29,7 @@ export async function* listClosedWorkflowExecutionsPaginate(
   input: ListClosedWorkflowExecutionsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListClosedWorkflowExecutionsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListClosedWorkflowExecutionsCommandOutput;
   while (hasNext) {

@@ -29,7 +29,7 @@ export async function* listChangedBlocksPaginate(
   input: ListChangedBlocksCommandInput,
   ...additionalArguments: any
 ): Paginator<ListChangedBlocksCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListChangedBlocksCommandOutput;
   while (hasNext) {

@@ -29,7 +29,7 @@ export async function* listDimensionsPaginate(
   input: ListDimensionsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListDimensionsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListDimensionsCommandOutput;
   while (hasNext) {

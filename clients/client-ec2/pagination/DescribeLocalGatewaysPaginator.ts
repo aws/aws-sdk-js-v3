@@ -29,7 +29,7 @@ export async function* describeLocalGatewaysPaginate(
   input: DescribeLocalGatewaysCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeLocalGatewaysCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeLocalGatewaysCommandOutput;
   while (hasNext) {

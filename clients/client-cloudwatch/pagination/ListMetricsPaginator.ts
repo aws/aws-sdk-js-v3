@@ -25,7 +25,7 @@ export async function* listMetricsPaginate(
   input: ListMetricsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListMetricsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListMetricsCommandOutput;
   while (hasNext) {

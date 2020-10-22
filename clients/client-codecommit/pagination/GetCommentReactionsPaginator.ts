@@ -29,7 +29,7 @@ export async function* getCommentReactionsPaginate(
   input: GetCommentReactionsCommandInput,
   ...additionalArguments: any
 ): Paginator<GetCommentReactionsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: GetCommentReactionsCommandOutput;
   while (hasNext) {

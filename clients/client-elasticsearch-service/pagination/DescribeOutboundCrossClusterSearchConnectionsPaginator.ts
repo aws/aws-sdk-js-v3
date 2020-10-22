@@ -29,7 +29,7 @@ export async function* describeOutboundCrossClusterSearchConnectionsPaginate(
   input: DescribeOutboundCrossClusterSearchConnectionsCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeOutboundCrossClusterSearchConnectionsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeOutboundCrossClusterSearchConnectionsCommandOutput;
   while (hasNext) {

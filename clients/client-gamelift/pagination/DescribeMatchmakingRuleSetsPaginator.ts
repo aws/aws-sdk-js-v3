@@ -29,7 +29,7 @@ export async function* describeMatchmakingRuleSetsPaginate(
   input: DescribeMatchmakingRuleSetsCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeMatchmakingRuleSetsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeMatchmakingRuleSetsCommandOutput;
   while (hasNext) {

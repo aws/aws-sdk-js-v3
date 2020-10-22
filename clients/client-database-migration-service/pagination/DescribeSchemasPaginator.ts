@@ -29,7 +29,7 @@ export async function* describeSchemasPaginate(
   input: DescribeSchemasCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeSchemasCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeSchemasCommandOutput;
   while (hasNext) {

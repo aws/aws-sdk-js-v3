@@ -29,7 +29,7 @@ export async function* searchNetworkProfilesPaginate(
   input: SearchNetworkProfilesCommandInput,
   ...additionalArguments: any
 ): Paginator<SearchNetworkProfilesCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: SearchNetworkProfilesCommandOutput;
   while (hasNext) {

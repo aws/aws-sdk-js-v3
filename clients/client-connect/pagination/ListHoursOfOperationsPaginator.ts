@@ -29,7 +29,7 @@ export async function* listHoursOfOperationsPaginate(
   input: ListHoursOfOperationsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListHoursOfOperationsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListHoursOfOperationsCommandOutput;
   while (hasNext) {

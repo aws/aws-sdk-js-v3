@@ -29,7 +29,7 @@ export async function* getCommentsForComparedCommitPaginate(
   input: GetCommentsForComparedCommitCommandInput,
   ...additionalArguments: any
 ): Paginator<GetCommentsForComparedCommitCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: GetCommentsForComparedCommitCommandOutput;
   while (hasNext) {

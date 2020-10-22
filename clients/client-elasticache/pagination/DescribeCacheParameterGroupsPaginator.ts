@@ -29,7 +29,7 @@ export async function* describeCacheParameterGroupsPaginate(
   input: DescribeCacheParameterGroupsCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeCacheParameterGroupsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeCacheParameterGroupsCommandOutput;
   while (hasNext) {

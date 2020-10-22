@@ -25,7 +25,7 @@ export async function* getProductsPaginate(
   input: GetProductsCommandInput,
   ...additionalArguments: any
 ): Paginator<GetProductsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: GetProductsCommandOutput;
   while (hasNext) {

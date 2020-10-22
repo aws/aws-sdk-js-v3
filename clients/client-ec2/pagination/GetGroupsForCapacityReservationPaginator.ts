@@ -29,7 +29,7 @@ export async function* getGroupsForCapacityReservationPaginate(
   input: GetGroupsForCapacityReservationCommandInput,
   ...additionalArguments: any
 ): Paginator<GetGroupsForCapacityReservationCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: GetGroupsForCapacityReservationCommandOutput;
   while (hasNext) {

@@ -29,7 +29,7 @@ export async function* listSmartHomeAppliancesPaginate(
   input: ListSmartHomeAppliancesCommandInput,
   ...additionalArguments: any
 ): Paginator<ListSmartHomeAppliancesCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListSmartHomeAppliancesCommandOutput;
   while (hasNext) {

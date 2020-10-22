@@ -29,7 +29,7 @@ export async function* getServiceGraphPaginate(
   input: GetServiceGraphCommandInput,
   ...additionalArguments: any
 ): Paginator<GetServiceGraphCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: GetServiceGraphCommandOutput;
   while (hasNext) {

@@ -29,7 +29,7 @@ export async function* getClassifiersPaginate(
   input: GetClassifiersCommandInput,
   ...additionalArguments: any
 ): Paginator<GetClassifiersCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: GetClassifiersCommandOutput;
   while (hasNext) {

@@ -29,7 +29,7 @@ export async function* describeBatchPredictionsPaginate(
   input: DescribeBatchPredictionsCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeBatchPredictionsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeBatchPredictionsCommandOutput;
   while (hasNext) {

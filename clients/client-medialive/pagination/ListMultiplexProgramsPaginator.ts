@@ -29,7 +29,7 @@ export async function* listMultiplexProgramsPaginate(
   input: ListMultiplexProgramsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListMultiplexProgramsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListMultiplexProgramsCommandOutput;
   while (hasNext) {

@@ -29,7 +29,7 @@ export async function* queryObjectsPaginate(
   input: QueryObjectsCommandInput,
   ...additionalArguments: any
 ): Paginator<QueryObjectsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: QueryObjectsCommandOutput;
   while (hasNext) {

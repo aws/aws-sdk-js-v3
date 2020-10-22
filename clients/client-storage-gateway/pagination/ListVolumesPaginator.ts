@@ -25,7 +25,7 @@ export async function* listVolumesPaginate(
   input: ListVolumesCommandInput,
   ...additionalArguments: any
 ): Paginator<ListVolumesCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListVolumesCommandOutput;
   while (hasNext) {

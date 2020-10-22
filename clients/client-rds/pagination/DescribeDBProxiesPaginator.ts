@@ -29,7 +29,7 @@ export async function* describeDBProxiesPaginate(
   input: DescribeDBProxiesCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeDBProxiesCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeDBProxiesCommandOutput;
   while (hasNext) {

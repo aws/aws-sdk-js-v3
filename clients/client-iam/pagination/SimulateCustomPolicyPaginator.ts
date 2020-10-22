@@ -29,7 +29,7 @@ export async function* simulateCustomPolicyPaginate(
   input: SimulateCustomPolicyCommandInput,
   ...additionalArguments: any
 ): Paginator<SimulateCustomPolicyCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: SimulateCustomPolicyCommandOutput;
   while (hasNext) {

@@ -29,7 +29,7 @@ export async function* listImageBuildVersionsPaginate(
   input: ListImageBuildVersionsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListImageBuildVersionsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListImageBuildVersionsCommandOutput;
   while (hasNext) {

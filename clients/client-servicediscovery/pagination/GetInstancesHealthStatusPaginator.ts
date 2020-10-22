@@ -29,7 +29,7 @@ export async function* getInstancesHealthStatusPaginate(
   input: GetInstancesHealthStatusCommandInput,
   ...additionalArguments: any
 ): Paginator<GetInstancesHealthStatusCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: GetInstancesHealthStatusCommandOutput;
   while (hasNext) {

@@ -29,7 +29,7 @@ export async function* getMetricDataPaginate(
   input: GetMetricDataCommandInput,
   ...additionalArguments: any
 ): Paginator<GetMetricDataCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: GetMetricDataCommandOutput;
   while (hasNext) {

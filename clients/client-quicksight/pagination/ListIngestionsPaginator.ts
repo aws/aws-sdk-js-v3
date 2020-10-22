@@ -29,7 +29,7 @@ export async function* listIngestionsPaginate(
   input: ListIngestionsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListIngestionsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListIngestionsCommandOutput;
   while (hasNext) {

@@ -29,7 +29,7 @@ export async function* listAttendeesPaginate(
   input: ListAttendeesCommandInput,
   ...additionalArguments: any
 ): Paginator<ListAttendeesCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListAttendeesCommandOutput;
   while (hasNext) {

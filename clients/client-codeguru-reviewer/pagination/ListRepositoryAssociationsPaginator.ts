@@ -29,7 +29,7 @@ export async function* listRepositoryAssociationsPaginate(
   input: ListRepositoryAssociationsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListRepositoryAssociationsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListRepositoryAssociationsCommandOutput;
   while (hasNext) {

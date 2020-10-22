@@ -29,7 +29,7 @@ export async function* listEntitiesPaginate(
   input: ListEntitiesCommandInput,
   ...additionalArguments: any
 ): Paginator<ListEntitiesCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListEntitiesCommandOutput;
   while (hasNext) {

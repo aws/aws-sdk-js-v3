@@ -29,7 +29,7 @@ export async function* listIdentitiesPaginate(
   input: ListIdentitiesCommandInput,
   ...additionalArguments: any
 ): Paginator<ListIdentitiesCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListIdentitiesCommandOutput;
   while (hasNext) {

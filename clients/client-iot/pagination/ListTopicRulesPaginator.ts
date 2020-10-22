@@ -29,7 +29,7 @@ export async function* listTopicRulesPaginate(
   input: ListTopicRulesCommandInput,
   ...additionalArguments: any
 ): Paginator<ListTopicRulesCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListTopicRulesCommandOutput;
   while (hasNext) {

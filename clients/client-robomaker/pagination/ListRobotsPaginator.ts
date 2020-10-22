@@ -25,7 +25,7 @@ export async function* listRobotsPaginate(
   input: ListRobotsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListRobotsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListRobotsCommandOutput;
   while (hasNext) {

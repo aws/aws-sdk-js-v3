@@ -29,7 +29,7 @@ export async function* listEmailIdentitiesPaginate(
   input: ListEmailIdentitiesCommandInput,
   ...additionalArguments: any
 ): Paginator<ListEmailIdentitiesCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListEmailIdentitiesCommandOutput;
   while (hasNext) {

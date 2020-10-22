@@ -29,7 +29,7 @@ export async function* describePublicIpv4PoolsPaginate(
   input: DescribePublicIpv4PoolsCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribePublicIpv4PoolsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribePublicIpv4PoolsCommandOutput;
   while (hasNext) {

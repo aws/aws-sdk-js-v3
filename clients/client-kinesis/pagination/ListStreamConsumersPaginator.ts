@@ -29,7 +29,7 @@ export async function* listStreamConsumersPaginate(
   input: ListStreamConsumersCommandInput,
   ...additionalArguments: any
 ): Paginator<ListStreamConsumersCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListStreamConsumersCommandOutput;
   while (hasNext) {

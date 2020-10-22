@@ -25,7 +25,7 @@ export async function* listStreamsPaginate(
   input: ListStreamsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListStreamsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListStreamsCommandOutput;
   while (hasNext) {

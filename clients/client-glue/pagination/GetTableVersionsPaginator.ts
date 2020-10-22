@@ -29,7 +29,7 @@ export async function* getTableVersionsPaginate(
   input: GetTableVersionsCommandInput,
   ...additionalArguments: any
 ): Paginator<GetTableVersionsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: GetTableVersionsCommandOutput;
   while (hasNext) {

@@ -29,7 +29,7 @@ export async function* listTableMetadataPaginate(
   input: ListTableMetadataCommandInput,
   ...additionalArguments: any
 ): Paginator<ListTableMetadataCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListTableMetadataCommandOutput;
   while (hasNext) {

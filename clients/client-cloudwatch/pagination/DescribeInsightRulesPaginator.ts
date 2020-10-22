@@ -29,7 +29,7 @@ export async function* describeInsightRulesPaginate(
   input: DescribeInsightRulesCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeInsightRulesCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeInsightRulesCommandOutput;
   while (hasNext) {

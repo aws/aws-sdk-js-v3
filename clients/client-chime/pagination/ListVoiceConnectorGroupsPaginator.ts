@@ -29,7 +29,7 @@ export async function* listVoiceConnectorGroupsPaginate(
   input: ListVoiceConnectorGroupsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListVoiceConnectorGroupsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListVoiceConnectorGroupsCommandOutput;
   while (hasNext) {

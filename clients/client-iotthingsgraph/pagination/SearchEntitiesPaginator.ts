@@ -29,7 +29,7 @@ export async function* searchEntitiesPaginate(
   input: SearchEntitiesCommandInput,
   ...additionalArguments: any
 ): Paginator<SearchEntitiesCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: SearchEntitiesCommandOutput;
   while (hasNext) {

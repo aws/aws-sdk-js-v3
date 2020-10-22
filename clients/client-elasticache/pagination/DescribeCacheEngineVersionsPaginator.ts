@@ -29,7 +29,7 @@ export async function* describeCacheEngineVersionsPaginate(
   input: DescribeCacheEngineVersionsCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeCacheEngineVersionsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeCacheEngineVersionsCommandOutput;
   while (hasNext) {

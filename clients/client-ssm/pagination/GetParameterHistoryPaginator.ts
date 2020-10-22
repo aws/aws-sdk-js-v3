@@ -29,7 +29,7 @@ export async function* getParameterHistoryPaginate(
   input: GetParameterHistoryCommandInput,
   ...additionalArguments: any
 ): Paginator<GetParameterHistoryCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: GetParameterHistoryCommandOutput;
   while (hasNext) {

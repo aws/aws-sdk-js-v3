@@ -29,7 +29,7 @@ export async function* describeSpotInstanceRequestsPaginate(
   input: DescribeSpotInstanceRequestsCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeSpotInstanceRequestsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeSpotInstanceRequestsCommandOutput;
   while (hasNext) {

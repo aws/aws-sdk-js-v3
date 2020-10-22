@@ -29,7 +29,7 @@ export async function* listTestGridSessionsPaginate(
   input: ListTestGridSessionsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListTestGridSessionsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListTestGridSessionsCommandOutput;
   while (hasNext) {
