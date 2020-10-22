@@ -29,7 +29,7 @@ export async function* listGroundStationsPaginate(
   input: ListGroundStationsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListGroundStationsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListGroundStationsCommandOutput;
   while (hasNext) {

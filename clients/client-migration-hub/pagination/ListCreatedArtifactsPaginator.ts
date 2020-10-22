@@ -29,7 +29,7 @@ export async function* listCreatedArtifactsPaginate(
   input: ListCreatedArtifactsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListCreatedArtifactsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListCreatedArtifactsCommandOutput;
   while (hasNext) {

@@ -29,7 +29,7 @@ export async function* describeCacheSecurityGroupsPaginate(
   input: DescribeCacheSecurityGroupsCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeCacheSecurityGroupsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeCacheSecurityGroupsCommandOutput;
   while (hasNext) {

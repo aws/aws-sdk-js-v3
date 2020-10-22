@@ -29,7 +29,7 @@ export async function* getMergeConflictsPaginate(
   input: GetMergeConflictsCommandInput,
   ...additionalArguments: any
 ): Paginator<GetMergeConflictsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: GetMergeConflictsCommandOutput;
   while (hasNext) {

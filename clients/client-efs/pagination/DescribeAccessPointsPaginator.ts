@@ -29,7 +29,7 @@ export async function* describeAccessPointsPaginate(
   input: DescribeAccessPointsCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeAccessPointsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeAccessPointsCommandOutput;
   while (hasNext) {

@@ -29,7 +29,7 @@ export async function* listReservationsPaginate(
   input: ListReservationsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListReservationsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListReservationsCommandOutput;
   while (hasNext) {

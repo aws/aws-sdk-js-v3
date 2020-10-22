@@ -25,7 +25,7 @@ export async function* listMeshesPaginate(
   input: ListMeshesCommandInput,
   ...additionalArguments: any
 ): Paginator<ListMeshesCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListMeshesCommandOutput;
   while (hasNext) {

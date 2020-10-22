@@ -29,7 +29,7 @@ export async function* listExperimentsPaginate(
   input: ListExperimentsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListExperimentsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListExperimentsCommandOutput;
   while (hasNext) {

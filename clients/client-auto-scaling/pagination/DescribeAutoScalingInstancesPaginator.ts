@@ -29,7 +29,7 @@ export async function* describeAutoScalingInstancesPaginate(
   input: DescribeAutoScalingInstancesCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeAutoScalingInstancesCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeAutoScalingInstancesCommandOutput;
   while (hasNext) {

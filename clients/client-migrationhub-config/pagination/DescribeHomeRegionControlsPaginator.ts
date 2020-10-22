@@ -29,7 +29,7 @@ export async function* describeHomeRegionControlsPaginate(
   input: DescribeHomeRegionControlsCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeHomeRegionControlsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeHomeRegionControlsCommandOutput;
   while (hasNext) {

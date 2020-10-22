@@ -29,7 +29,7 @@ export async function* getFaceDetectionPaginate(
   input: GetFaceDetectionCommandInput,
   ...additionalArguments: any
 ): Paginator<GetFaceDetectionCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: GetFaceDetectionCommandOutput;
   while (hasNext) {

@@ -29,7 +29,7 @@ export async function* describeGameSessionDetailsPaginate(
   input: DescribeGameSessionDetailsCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeGameSessionDetailsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeGameSessionDetailsCommandOutput;
   while (hasNext) {

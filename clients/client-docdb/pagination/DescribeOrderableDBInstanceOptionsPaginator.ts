@@ -29,7 +29,7 @@ export async function* describeOrderableDBInstanceOptionsPaginate(
   input: DescribeOrderableDBInstanceOptionsCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeOrderableDBInstanceOptionsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeOrderableDBInstanceOptionsCommandOutput;
   while (hasNext) {

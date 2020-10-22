@@ -29,7 +29,7 @@ export async function* describeReservedInstancesModificationsPaginate(
   input: DescribeReservedInstancesModificationsCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeReservedInstancesModificationsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeReservedInstancesModificationsCommandOutput;
   while (hasNext) {

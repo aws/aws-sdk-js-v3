@@ -29,7 +29,7 @@ export async function* describeOrderableReplicationInstancesPaginate(
   input: DescribeOrderableReplicationInstancesCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeOrderableReplicationInstancesCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeOrderableReplicationInstancesCommandOutput;
   while (hasNext) {

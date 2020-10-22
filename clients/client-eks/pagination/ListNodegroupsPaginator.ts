@@ -29,7 +29,7 @@ export async function* listNodegroupsPaginate(
   input: ListNodegroupsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListNodegroupsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListNodegroupsCommandOutput;
   while (hasNext) {

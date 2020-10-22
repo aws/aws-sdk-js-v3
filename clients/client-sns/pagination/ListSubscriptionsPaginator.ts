@@ -29,7 +29,7 @@ export async function* listSubscriptionsPaginate(
   input: ListSubscriptionsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListSubscriptionsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListSubscriptionsCommandOutput;
   while (hasNext) {

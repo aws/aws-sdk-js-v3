@@ -25,7 +25,7 @@ export async function* listConfigsPaginate(
   input: ListConfigsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListConfigsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListConfigsCommandOutput;
   while (hasNext) {

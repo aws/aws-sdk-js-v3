@@ -29,7 +29,7 @@ export async function* listDedicatedIpPoolsPaginate(
   input: ListDedicatedIpPoolsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListDedicatedIpPoolsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListDedicatedIpPoolsCommandOutput;
   while (hasNext) {

@@ -29,7 +29,7 @@ export async function* listAssessmentRunAgentsPaginate(
   input: ListAssessmentRunAgentsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListAssessmentRunAgentsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListAssessmentRunAgentsCommandOutput;
   while (hasNext) {

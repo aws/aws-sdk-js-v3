@@ -29,7 +29,7 @@ export async function* listGameServerGroupsPaginate(
   input: ListGameServerGroupsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListGameServerGroupsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListGameServerGroupsCommandOutput;
   while (hasNext) {

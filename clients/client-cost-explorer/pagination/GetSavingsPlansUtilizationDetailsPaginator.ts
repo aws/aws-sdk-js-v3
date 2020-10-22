@@ -29,7 +29,7 @@ export async function* getSavingsPlansUtilizationDetailsPaginate(
   input: GetSavingsPlansUtilizationDetailsCommandInput,
   ...additionalArguments: any
 ): Paginator<GetSavingsPlansUtilizationDetailsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: GetSavingsPlansUtilizationDetailsCommandOutput;
   while (hasNext) {

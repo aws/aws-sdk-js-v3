@@ -29,7 +29,7 @@ export async function* listBackupPlanVersionsPaginate(
   input: ListBackupPlanVersionsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListBackupPlanVersionsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListBackupPlanVersionsCommandOutput;
   while (hasNext) {

@@ -29,7 +29,7 @@ export async function* listPlaybackKeyPairsPaginate(
   input: ListPlaybackKeyPairsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListPlaybackKeyPairsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListPlaybackKeyPairsCommandOutput;
   while (hasNext) {

@@ -29,7 +29,7 @@ export async function* listBranchesPaginate(
   input: ListBranchesCommandInput,
   ...additionalArguments: any
 ): Paginator<ListBranchesCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListBranchesCommandOutput;
   while (hasNext) {

@@ -29,7 +29,7 @@ export async function* describeSourceRegionsPaginate(
   input: DescribeSourceRegionsCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeSourceRegionsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeSourceRegionsCommandOutput;
   while (hasNext) {

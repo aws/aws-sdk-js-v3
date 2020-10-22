@@ -25,7 +25,7 @@ export async function* getRulesPaginate(
   input: GetRulesCommandInput,
   ...additionalArguments: any
 ): Paginator<GetRulesCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: GetRulesCommandOutput;
   while (hasNext) {

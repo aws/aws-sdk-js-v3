@@ -29,7 +29,7 @@ export async function* describeDhcpOptionsPaginate(
   input: DescribeDhcpOptionsCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeDhcpOptionsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeDhcpOptionsCommandOutput;
   while (hasNext) {

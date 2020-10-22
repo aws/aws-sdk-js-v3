@@ -29,7 +29,7 @@ export async function* listOrganizationalUnitsForParentPaginate(
   input: ListOrganizationalUnitsForParentCommandInput,
   ...additionalArguments: any
 ): Paginator<ListOrganizationalUnitsForParentCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListOrganizationalUnitsForParentCommandOutput;
   while (hasNext) {

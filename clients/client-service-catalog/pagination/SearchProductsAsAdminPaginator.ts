@@ -29,7 +29,7 @@ export async function* searchProductsAsAdminPaginate(
   input: SearchProductsAsAdminCommandInput,
   ...additionalArguments: any
 ): Paginator<SearchProductsAsAdminCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: SearchProductsAsAdminCommandOutput;
   while (hasNext) {

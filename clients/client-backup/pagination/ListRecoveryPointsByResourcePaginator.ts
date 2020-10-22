@@ -29,7 +29,7 @@ export async function* listRecoveryPointsByResourcePaginate(
   input: ListRecoveryPointsByResourceCommandInput,
   ...additionalArguments: any
 ): Paginator<ListRecoveryPointsByResourceCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListRecoveryPointsByResourceCommandOutput;
   while (hasNext) {

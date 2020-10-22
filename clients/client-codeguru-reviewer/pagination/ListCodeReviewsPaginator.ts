@@ -29,7 +29,7 @@ export async function* listCodeReviewsPaginate(
   input: ListCodeReviewsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListCodeReviewsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListCodeReviewsCommandOutput;
   while (hasNext) {

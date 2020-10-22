@@ -25,7 +25,7 @@ export async function* listPromptsPaginate(
   input: ListPromptsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListPromptsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListPromptsCommandOutput;
   while (hasNext) {

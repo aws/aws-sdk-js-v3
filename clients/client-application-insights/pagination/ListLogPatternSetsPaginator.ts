@@ -29,7 +29,7 @@ export async function* listLogPatternSetsPaginate(
   input: ListLogPatternSetsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListLogPatternSetsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListLogPatternSetsCommandOutput;
   while (hasNext) {

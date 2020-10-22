@@ -29,7 +29,7 @@ export async function* listChannelsPaginate(
   input: ListChannelsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListChannelsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListChannelsCommandOutput;
   while (hasNext) {

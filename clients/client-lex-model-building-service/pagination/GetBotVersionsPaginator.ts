@@ -29,7 +29,7 @@ export async function* getBotVersionsPaginate(
   input: GetBotVersionsCommandInput,
   ...additionalArguments: any
 ): Paginator<GetBotVersionsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: GetBotVersionsCommandOutput;
   while (hasNext) {

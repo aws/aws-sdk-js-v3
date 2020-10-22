@@ -29,7 +29,7 @@ export async function* describeVpcEndpointsPaginate(
   input: DescribeVpcEndpointsCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeVpcEndpointsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeVpcEndpointsCommandOutput;
   while (hasNext) {

@@ -25,7 +25,7 @@ export async function* listSecretsPaginate(
   input: ListSecretsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListSecretsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListSecretsCommandOutput;
   while (hasNext) {

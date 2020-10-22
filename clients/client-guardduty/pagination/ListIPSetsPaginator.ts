@@ -25,7 +25,7 @@ export async function* listIPSetsPaginate(
   input: ListIPSetsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListIPSetsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListIPSetsCommandOutput;
   while (hasNext) {

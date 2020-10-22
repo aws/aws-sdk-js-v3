@@ -29,7 +29,7 @@ export async function* listPullRequestsPaginate(
   input: ListPullRequestsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListPullRequestsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListPullRequestsCommandOutput;
   while (hasNext) {

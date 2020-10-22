@@ -29,7 +29,7 @@ export async function* describeCapacityReservationsPaginate(
   input: DescribeCapacityReservationsCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeCapacityReservationsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeCapacityReservationsCommandOutput;
   while (hasNext) {

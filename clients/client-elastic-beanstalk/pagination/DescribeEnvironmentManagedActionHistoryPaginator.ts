@@ -29,7 +29,7 @@ export async function* describeEnvironmentManagedActionHistoryPaginate(
   input: DescribeEnvironmentManagedActionHistoryCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeEnvironmentManagedActionHistoryCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeEnvironmentManagedActionHistoryCommandOutput;
   while (hasNext) {

@@ -29,7 +29,7 @@ export async function* listScramSecretsPaginate(
   input: ListScramSecretsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListScramSecretsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListScramSecretsCommandOutput;
   while (hasNext) {

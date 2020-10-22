@@ -29,7 +29,7 @@ export async function* getEffectivePermissionsForPathPaginate(
   input: GetEffectivePermissionsForPathCommandInput,
   ...additionalArguments: any
 ): Paginator<GetEffectivePermissionsForPathCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: GetEffectivePermissionsForPathCommandOutput;
   while (hasNext) {

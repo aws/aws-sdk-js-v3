@@ -25,7 +25,7 @@ export async function* getInsightsPaginate(
   input: GetInsightsCommandInput,
   ...additionalArguments: any
 ): Paginator<GetInsightsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: GetInsightsCommandOutput;
   while (hasNext) {

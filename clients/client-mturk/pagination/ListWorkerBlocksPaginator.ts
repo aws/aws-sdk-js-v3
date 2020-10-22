@@ -29,7 +29,7 @@ export async function* listWorkerBlocksPaginate(
   input: ListWorkerBlocksCommandInput,
   ...additionalArguments: any
 ): Paginator<ListWorkerBlocksCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListWorkerBlocksCommandOutput;
   while (hasNext) {

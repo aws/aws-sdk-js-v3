@@ -29,7 +29,7 @@ export async function* listReportGroupsPaginate(
   input: ListReportGroupsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListReportGroupsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListReportGroupsCommandOutput;
   while (hasNext) {

@@ -29,7 +29,7 @@ export async function* describeAssociationExecutionsPaginate(
   input: DescribeAssociationExecutionsCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeAssociationExecutionsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeAssociationExecutionsCommandOutput;
   while (hasNext) {

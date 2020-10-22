@@ -29,7 +29,7 @@ export async function* listConnectionsPaginate(
   input: ListConnectionsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListConnectionsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListConnectionsCommandOutput;
   while (hasNext) {

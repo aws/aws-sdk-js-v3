@@ -29,7 +29,7 @@ export async function* describeCacheClustersPaginate(
   input: DescribeCacheClustersCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeCacheClustersCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeCacheClustersCommandOutput;
   while (hasNext) {

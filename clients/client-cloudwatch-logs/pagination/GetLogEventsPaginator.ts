@@ -29,7 +29,7 @@ export async function* getLogEventsPaginate(
   input: GetLogEventsCommandInput,
   ...additionalArguments: any
 ): Paginator<GetLogEventsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: GetLogEventsCommandOutput;
   while (hasNext) {

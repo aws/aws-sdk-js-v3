@@ -29,7 +29,7 @@ export async function* getTransitGatewayPrefixListReferencesPaginate(
   input: GetTransitGatewayPrefixListReferencesCommandInput,
   ...additionalArguments: any
 ): Paginator<GetTransitGatewayPrefixListReferencesCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: GetTransitGatewayPrefixListReferencesCommandOutput;
   while (hasNext) {

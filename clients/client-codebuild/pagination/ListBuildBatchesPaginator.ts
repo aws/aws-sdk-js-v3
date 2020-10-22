@@ -29,7 +29,7 @@ export async function* listBuildBatchesPaginate(
   input: ListBuildBatchesCommandInput,
   ...additionalArguments: any
 ): Paginator<ListBuildBatchesCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListBuildBatchesCommandOutput;
   while (hasNext) {

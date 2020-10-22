@@ -29,7 +29,7 @@ export async function* listDeadLetterSourceQueuesPaginate(
   input: ListDeadLetterSourceQueuesCommandInput,
   ...additionalArguments: any
 ): Paginator<ListDeadLetterSourceQueuesCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListDeadLetterSourceQueuesCommandOutput;
   while (hasNext) {

@@ -29,7 +29,7 @@ export async function* listFlowExecutionMessagesPaginate(
   input: ListFlowExecutionMessagesCommandInput,
   ...additionalArguments: any
 ): Paginator<ListFlowExecutionMessagesCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListFlowExecutionMessagesCommandOutput;
   while (hasNext) {

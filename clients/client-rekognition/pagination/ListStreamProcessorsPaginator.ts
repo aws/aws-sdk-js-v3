@@ -29,7 +29,7 @@ export async function* listStreamProcessorsPaginate(
   input: ListStreamProcessorsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListStreamProcessorsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListStreamProcessorsCommandOutput;
   while (hasNext) {

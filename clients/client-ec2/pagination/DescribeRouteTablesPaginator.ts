@@ -29,7 +29,7 @@ export async function* describeRouteTablesPaginate(
   input: DescribeRouteTablesCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeRouteTablesCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeRouteTablesCommandOutput;
   while (hasNext) {

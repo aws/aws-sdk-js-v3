@@ -29,7 +29,7 @@ export async function* listPublicKeysPaginate(
   input: ListPublicKeysCommandInput,
   ...additionalArguments: any
 ): Paginator<ListPublicKeysCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListPublicKeysCommandOutput;
   while (hasNext) {

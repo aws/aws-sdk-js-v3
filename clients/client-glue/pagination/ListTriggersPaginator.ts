@@ -29,7 +29,7 @@ export async function* listTriggersPaginate(
   input: ListTriggersCommandInput,
   ...additionalArguments: any
 ): Paginator<ListTriggersCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListTriggersCommandOutput;
   while (hasNext) {

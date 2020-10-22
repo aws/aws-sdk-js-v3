@@ -29,7 +29,7 @@ export async function* listElasticsearchVersionsPaginate(
   input: ListElasticsearchVersionsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListElasticsearchVersionsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListElasticsearchVersionsCommandOutput;
   while (hasNext) {

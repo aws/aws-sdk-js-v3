@@ -29,7 +29,7 @@ export async function* describeCoipPoolsPaginate(
   input: DescribeCoipPoolsCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeCoipPoolsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeCoipPoolsCommandOutput;
   while (hasNext) {

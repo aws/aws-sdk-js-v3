@@ -29,7 +29,7 @@ export async function* describePrincipalIdFormatPaginate(
   input: DescribePrincipalIdFormatCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribePrincipalIdFormatCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribePrincipalIdFormatCommandOutput;
   while (hasNext) {

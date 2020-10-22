@@ -29,7 +29,7 @@ export async function* describeLoadBalancersPaginate(
   input: DescribeLoadBalancersCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeLoadBalancersCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeLoadBalancersCommandOutput;
   while (hasNext) {

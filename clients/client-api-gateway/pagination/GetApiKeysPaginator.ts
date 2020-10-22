@@ -25,7 +25,7 @@ export async function* getApiKeysPaginate(
   input: GetApiKeysCommandInput,
   ...additionalArguments: any
 ): Paginator<GetApiKeysCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: GetApiKeysCommandOutput;
   while (hasNext) {

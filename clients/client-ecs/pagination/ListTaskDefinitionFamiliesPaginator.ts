@@ -29,7 +29,7 @@ export async function* listTaskDefinitionFamiliesPaginate(
   input: ListTaskDefinitionFamiliesCommandInput,
   ...additionalArguments: any
 ): Paginator<ListTaskDefinitionFamiliesCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListTaskDefinitionFamiliesCommandOutput;
   while (hasNext) {

@@ -25,7 +25,7 @@ export async function* getTriggersPaginate(
   input: GetTriggersCommandInput,
   ...additionalArguments: any
 ): Paginator<GetTriggersCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: GetTriggersCommandOutput;
   while (hasNext) {

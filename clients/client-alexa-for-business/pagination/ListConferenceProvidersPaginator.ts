@@ -29,7 +29,7 @@ export async function* listConferenceProvidersPaginate(
   input: ListConferenceProvidersCommandInput,
   ...additionalArguments: any
 ): Paginator<ListConferenceProvidersCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListConferenceProvidersCommandOutput;
   while (hasNext) {

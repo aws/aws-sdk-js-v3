@@ -29,7 +29,7 @@ export async function* describeAlarmHistoryPaginate(
   input: DescribeAlarmHistoryCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeAlarmHistoryCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeAlarmHistoryCommandOutput;
   while (hasNext) {

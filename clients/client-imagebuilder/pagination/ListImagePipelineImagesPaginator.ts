@@ -29,7 +29,7 @@ export async function* listImagePipelineImagesPaginate(
   input: ListImagePipelineImagesCommandInput,
   ...additionalArguments: any
 ): Paginator<ListImagePipelineImagesCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListImagePipelineImagesCommandOutput;
   while (hasNext) {

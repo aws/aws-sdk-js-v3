@@ -29,7 +29,7 @@ export async function* searchTransitGatewayMulticastGroupsPaginate(
   input: SearchTransitGatewayMulticastGroupsCommandInput,
   ...additionalArguments: any
 ): Paginator<SearchTransitGatewayMulticastGroupsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: SearchTransitGatewayMulticastGroupsCommandOutput;
   while (hasNext) {

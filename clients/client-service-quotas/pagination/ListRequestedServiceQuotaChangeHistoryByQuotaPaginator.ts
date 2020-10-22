@@ -29,7 +29,7 @@ export async function* listRequestedServiceQuotaChangeHistoryByQuotaPaginate(
   input: ListRequestedServiceQuotaChangeHistoryByQuotaCommandInput,
   ...additionalArguments: any
 ): Paginator<ListRequestedServiceQuotaChangeHistoryByQuotaCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListRequestedServiceQuotaChangeHistoryByQuotaCommandOutput;
   while (hasNext) {

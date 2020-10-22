@@ -29,7 +29,7 @@ export async function* describeStackResourceDriftsPaginate(
   input: DescribeStackResourceDriftsCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeStackResourceDriftsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeStackResourceDriftsCommandOutput;
   while (hasNext) {

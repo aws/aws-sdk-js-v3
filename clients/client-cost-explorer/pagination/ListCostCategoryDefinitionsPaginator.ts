@@ -29,7 +29,7 @@ export async function* listCostCategoryDefinitionsPaginate(
   input: ListCostCategoryDefinitionsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListCostCategoryDefinitionsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListCostCategoryDefinitionsCommandOutput;
   while (hasNext) {

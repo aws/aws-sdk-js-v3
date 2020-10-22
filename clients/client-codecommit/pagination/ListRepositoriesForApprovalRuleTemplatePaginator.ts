@@ -29,7 +29,7 @@ export async function* listRepositoriesForApprovalRuleTemplatePaginate(
   input: ListRepositoriesForApprovalRuleTemplateCommandInput,
   ...additionalArguments: any
 ): Paginator<ListRepositoriesForApprovalRuleTemplateCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListRepositoriesForApprovalRuleTemplateCommandOutput;
   while (hasNext) {

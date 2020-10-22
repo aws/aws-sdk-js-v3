@@ -29,7 +29,7 @@ export async function* listAccountAssignmentDeletionStatusPaginate(
   input: ListAccountAssignmentDeletionStatusCommandInput,
   ...additionalArguments: any
 ): Paginator<ListAccountAssignmentDeletionStatusCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListAccountAssignmentDeletionStatusCommandOutput;
   while (hasNext) {

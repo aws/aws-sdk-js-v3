@@ -29,7 +29,7 @@ export async function* listUserHierarchyGroupsPaginate(
   input: ListUserHierarchyGroupsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListUserHierarchyGroupsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListUserHierarchyGroupsCommandOutput;
   while (hasNext) {

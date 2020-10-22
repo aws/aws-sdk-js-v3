@@ -29,7 +29,7 @@ export async function* describeCodeCoveragesPaginate(
   input: DescribeCodeCoveragesCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeCodeCoveragesCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeCodeCoveragesCommandOutput;
   while (hasNext) {

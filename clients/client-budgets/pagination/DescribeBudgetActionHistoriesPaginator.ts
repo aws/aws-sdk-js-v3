@@ -29,7 +29,7 @@ export async function* describeBudgetActionHistoriesPaginate(
   input: DescribeBudgetActionHistoriesCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeBudgetActionHistoriesCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeBudgetActionHistoriesCommandOutput;
   while (hasNext) {

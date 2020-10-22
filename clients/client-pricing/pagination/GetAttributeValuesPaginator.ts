@@ -29,7 +29,7 @@ export async function* getAttributeValuesPaginate(
   input: GetAttributeValuesCommandInput,
   ...additionalArguments: any
 ): Paginator<GetAttributeValuesCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: GetAttributeValuesCommandOutput;
   while (hasNext) {

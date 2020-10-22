@@ -29,7 +29,7 @@ export async function* describeEffectivePatchesForPatchBaselinePaginate(
   input: DescribeEffectivePatchesForPatchBaselineCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeEffectivePatchesForPatchBaselineCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeEffectivePatchesForPatchBaselineCommandOutput;
   while (hasNext) {

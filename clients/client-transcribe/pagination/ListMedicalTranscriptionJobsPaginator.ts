@@ -29,7 +29,7 @@ export async function* listMedicalTranscriptionJobsPaginate(
   input: ListMedicalTranscriptionJobsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListMedicalTranscriptionJobsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListMedicalTranscriptionJobsCommandOutput;
   while (hasNext) {

@@ -29,7 +29,7 @@ export async function* getVariablesPaginate(
   input: GetVariablesCommandInput,
   ...additionalArguments: any
 ): Paginator<GetVariablesCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: GetVariablesCommandOutput;
   while (hasNext) {

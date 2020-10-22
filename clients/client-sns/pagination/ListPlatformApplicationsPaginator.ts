@@ -29,7 +29,7 @@ export async function* listPlatformApplicationsPaginate(
   input: ListPlatformApplicationsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListPlatformApplicationsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListPlatformApplicationsCommandOutput;
   while (hasNext) {

@@ -29,7 +29,7 @@ export async function* listProfilingGroupsPaginate(
   input: ListProfilingGroupsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListProfilingGroupsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListProfilingGroupsCommandOutput;
   while (hasNext) {

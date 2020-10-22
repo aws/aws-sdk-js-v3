@@ -29,7 +29,7 @@ export async function* getOpsSummaryPaginate(
   input: GetOpsSummaryCommandInput,
   ...additionalArguments: any
 ): Paginator<GetOpsSummaryCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: GetOpsSummaryCommandOutput;
   while (hasNext) {

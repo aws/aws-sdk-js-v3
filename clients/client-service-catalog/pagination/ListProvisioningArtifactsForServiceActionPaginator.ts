@@ -29,7 +29,7 @@ export async function* listProvisioningArtifactsForServiceActionPaginate(
   input: ListProvisioningArtifactsForServiceActionCommandInput,
   ...additionalArguments: any
 ): Paginator<ListProvisioningArtifactsForServiceActionCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListProvisioningArtifactsForServiceActionCommandOutput;
   while (hasNext) {

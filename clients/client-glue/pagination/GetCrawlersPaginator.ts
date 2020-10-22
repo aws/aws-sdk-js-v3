@@ -25,7 +25,7 @@ export async function* getCrawlersPaginate(
   input: GetCrawlersCommandInput,
   ...additionalArguments: any
 ): Paginator<GetCrawlersCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: GetCrawlersCommandOutput;
   while (hasNext) {

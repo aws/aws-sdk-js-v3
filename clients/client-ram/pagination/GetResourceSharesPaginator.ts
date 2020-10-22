@@ -29,7 +29,7 @@ export async function* getResourceSharesPaginate(
   input: GetResourceSharesCommandInput,
   ...additionalArguments: any
 ): Paginator<GetResourceSharesCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: GetResourceSharesCommandOutput;
   while (hasNext) {

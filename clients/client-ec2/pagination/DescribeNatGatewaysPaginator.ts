@@ -29,7 +29,7 @@ export async function* describeNatGatewaysPaginate(
   input: DescribeNatGatewaysCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeNatGatewaysCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeNatGatewaysCommandOutput;
   while (hasNext) {

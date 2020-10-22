@@ -29,7 +29,7 @@ export async function* previewAgentsPaginate(
   input: PreviewAgentsCommandInput,
   ...additionalArguments: any
 ): Paginator<PreviewAgentsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: PreviewAgentsCommandOutput;
   while (hasNext) {

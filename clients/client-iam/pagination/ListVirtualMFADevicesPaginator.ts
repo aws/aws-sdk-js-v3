@@ -29,7 +29,7 @@ export async function* listVirtualMFADevicesPaginate(
   input: ListVirtualMFADevicesCommandInput,
   ...additionalArguments: any
 ): Paginator<ListVirtualMFADevicesCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListVirtualMFADevicesCommandOutput;
   while (hasNext) {

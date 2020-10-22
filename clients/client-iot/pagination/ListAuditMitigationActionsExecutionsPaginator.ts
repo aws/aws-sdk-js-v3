@@ -29,7 +29,7 @@ export async function* listAuditMitigationActionsExecutionsPaginate(
   input: ListAuditMitigationActionsExecutionsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListAuditMitigationActionsExecutionsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListAuditMitigationActionsExecutionsCommandOutput;
   while (hasNext) {

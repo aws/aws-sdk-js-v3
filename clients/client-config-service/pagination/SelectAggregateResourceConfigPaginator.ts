@@ -29,7 +29,7 @@ export async function* selectAggregateResourceConfigPaginate(
   input: SelectAggregateResourceConfigCommandInput,
   ...additionalArguments: any
 ): Paginator<SelectAggregateResourceConfigCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: SelectAggregateResourceConfigCommandOutput;
   while (hasNext) {

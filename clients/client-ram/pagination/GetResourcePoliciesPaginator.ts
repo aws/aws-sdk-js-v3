@@ -29,7 +29,7 @@ export async function* getResourcePoliciesPaginate(
   input: GetResourcePoliciesCommandInput,
   ...additionalArguments: any
 ): Paginator<GetResourcePoliciesCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: GetResourcePoliciesCommandOutput;
   while (hasNext) {

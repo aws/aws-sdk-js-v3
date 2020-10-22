@@ -29,7 +29,7 @@ export async function* listTagOptionsPaginate(
   input: ListTagOptionsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListTagOptionsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListTagOptionsCommandOutput;
   while (hasNext) {

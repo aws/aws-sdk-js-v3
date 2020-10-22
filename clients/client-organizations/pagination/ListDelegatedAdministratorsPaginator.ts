@@ -29,7 +29,7 @@ export async function* listDelegatedAdministratorsPaginate(
   input: ListDelegatedAdministratorsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListDelegatedAdministratorsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListDelegatedAdministratorsCommandOutput;
   while (hasNext) {

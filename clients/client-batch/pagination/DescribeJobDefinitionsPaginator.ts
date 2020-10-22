@@ -29,7 +29,7 @@ export async function* describeJobDefinitionsPaginate(
   input: DescribeJobDefinitionsCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeJobDefinitionsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeJobDefinitionsCommandOutput;
   while (hasNext) {

@@ -29,7 +29,7 @@ export async function* listAuditSuppressionsPaginate(
   input: ListAuditSuppressionsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListAuditSuppressionsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListAuditSuppressionsCommandOutput;
   while (hasNext) {

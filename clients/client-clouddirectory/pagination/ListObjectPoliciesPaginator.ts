@@ -29,7 +29,7 @@ export async function* listObjectPoliciesPaginate(
   input: ListObjectPoliciesCommandInput,
   ...additionalArguments: any
 ): Paginator<ListObjectPoliciesCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListObjectPoliciesCommandOutput;
   while (hasNext) {

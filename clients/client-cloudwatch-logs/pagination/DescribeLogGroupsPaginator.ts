@@ -29,7 +29,7 @@ export async function* describeLogGroupsPaginate(
   input: DescribeLogGroupsCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeLogGroupsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeLogGroupsCommandOutput;
   while (hasNext) {

@@ -29,7 +29,7 @@ export async function* listAccountRolesPaginate(
   input: ListAccountRolesCommandInput,
   ...additionalArguments: any
 ): Paginator<ListAccountRolesCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListAccountRolesCommandOutput;
   while (hasNext) {

@@ -29,7 +29,7 @@ export async function* listViolationEventsPaginate(
   input: ListViolationEventsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListViolationEventsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListViolationEventsCommandOutput;
   while (hasNext) {

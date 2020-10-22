@@ -29,7 +29,7 @@ export async function* listPhoneNumberOrdersPaginate(
   input: ListPhoneNumberOrdersCommandInput,
   ...additionalArguments: any
 ): Paginator<ListPhoneNumberOrdersCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListPhoneNumberOrdersCommandOutput;
   while (hasNext) {

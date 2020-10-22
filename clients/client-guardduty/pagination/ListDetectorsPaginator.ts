@@ -29,7 +29,7 @@ export async function* listDetectorsPaginate(
   input: ListDetectorsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListDetectorsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListDetectorsCommandOutput;
   while (hasNext) {

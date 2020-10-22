@@ -29,7 +29,7 @@ export async function* getStatementResultPaginate(
   input: GetStatementResultCommandInput,
   ...additionalArguments: any
 ): Paginator<GetStatementResultCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: GetStatementResultCommandOutput;
   while (hasNext) {

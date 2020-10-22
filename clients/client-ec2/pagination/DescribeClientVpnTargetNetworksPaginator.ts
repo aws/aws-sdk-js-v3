@@ -29,7 +29,7 @@ export async function* describeClientVpnTargetNetworksPaginate(
   input: DescribeClientVpnTargetNetworksCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeClientVpnTargetNetworksCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeClientVpnTargetNetworksCommandOutput;
   while (hasNext) {

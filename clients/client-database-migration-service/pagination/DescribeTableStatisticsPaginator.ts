@@ -29,7 +29,7 @@ export async function* describeTableStatisticsPaginate(
   input: DescribeTableStatisticsCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeTableStatisticsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeTableStatisticsCommandOutput;
   while (hasNext) {

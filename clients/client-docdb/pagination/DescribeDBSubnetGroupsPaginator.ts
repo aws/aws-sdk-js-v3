@@ -29,7 +29,7 @@ export async function* describeDBSubnetGroupsPaginate(
   input: DescribeDBSubnetGroupsCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeDBSubnetGroupsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeDBSubnetGroupsCommandOutput;
   while (hasNext) {

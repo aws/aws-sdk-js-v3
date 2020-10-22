@@ -29,7 +29,7 @@ export async function* listTypedLinkFacetNamesPaginate(
   input: ListTypedLinkFacetNamesCommandInput,
   ...additionalArguments: any
 ): Paginator<ListTypedLinkFacetNamesCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListTypedLinkFacetNamesCommandOutput;
   while (hasNext) {

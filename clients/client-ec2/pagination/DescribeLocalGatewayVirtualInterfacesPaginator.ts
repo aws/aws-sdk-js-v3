@@ -29,7 +29,7 @@ export async function* describeLocalGatewayVirtualInterfacesPaginate(
   input: DescribeLocalGatewayVirtualInterfacesCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeLocalGatewayVirtualInterfacesCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeLocalGatewayVirtualInterfacesCommandOutput;
   while (hasNext) {

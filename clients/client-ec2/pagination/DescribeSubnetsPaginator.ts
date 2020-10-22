@@ -29,7 +29,7 @@ export async function* describeSubnetsPaginate(
   input: DescribeSubnetsCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeSubnetsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeSubnetsCommandOutput;
   while (hasNext) {

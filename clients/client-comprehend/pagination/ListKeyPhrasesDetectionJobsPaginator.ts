@@ -29,7 +29,7 @@ export async function* listKeyPhrasesDetectionJobsPaginate(
   input: ListKeyPhrasesDetectionJobsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListKeyPhrasesDetectionJobsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListKeyPhrasesDetectionJobsCommandOutput;
   while (hasNext) {

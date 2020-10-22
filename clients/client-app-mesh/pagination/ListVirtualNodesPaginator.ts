@@ -29,7 +29,7 @@ export async function* listVirtualNodesPaginate(
   input: ListVirtualNodesCommandInput,
   ...additionalArguments: any
 ): Paginator<ListVirtualNodesCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListVirtualNodesCommandOutput;
   while (hasNext) {

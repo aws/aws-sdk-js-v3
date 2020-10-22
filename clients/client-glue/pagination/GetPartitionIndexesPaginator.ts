@@ -29,7 +29,7 @@ export async function* getPartitionIndexesPaginate(
   input: GetPartitionIndexesCommandInput,
   ...additionalArguments: any
 ): Paginator<GetPartitionIndexesCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: GetPartitionIndexesCommandOutput;
   while (hasNext) {

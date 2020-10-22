@@ -29,7 +29,7 @@ export async function* getSecurityConfigurationsPaginate(
   input: GetSecurityConfigurationsCommandInput,
   ...additionalArguments: any
 ): Paginator<GetSecurityConfigurationsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: GetSecurityConfigurationsCommandOutput;
   while (hasNext) {

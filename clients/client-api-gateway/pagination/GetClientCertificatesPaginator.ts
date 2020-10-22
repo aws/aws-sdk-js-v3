@@ -29,7 +29,7 @@ export async function* getClientCertificatesPaginate(
   input: GetClientCertificatesCommandInput,
   ...additionalArguments: any
 ): Paginator<GetClientCertificatesCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: GetClientCertificatesCommandOutput;
   while (hasNext) {

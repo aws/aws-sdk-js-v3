@@ -29,7 +29,7 @@ export async function* describeScalableTargetsPaginate(
   input: DescribeScalableTargetsCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeScalableTargetsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeScalableTargetsCommandOutput;
   while (hasNext) {

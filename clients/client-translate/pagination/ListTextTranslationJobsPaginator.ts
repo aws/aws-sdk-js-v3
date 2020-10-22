@@ -29,7 +29,7 @@ export async function* listTextTranslationJobsPaginate(
   input: ListTextTranslationJobsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListTextTranslationJobsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListTextTranslationJobsCommandOutput;
   while (hasNext) {

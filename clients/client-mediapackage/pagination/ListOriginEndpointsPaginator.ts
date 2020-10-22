@@ -29,7 +29,7 @@ export async function* listOriginEndpointsPaginate(
   input: ListOriginEndpointsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListOriginEndpointsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListOriginEndpointsCommandOutput;
   while (hasNext) {

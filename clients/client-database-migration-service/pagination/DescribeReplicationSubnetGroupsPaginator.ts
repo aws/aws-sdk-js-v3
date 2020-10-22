@@ -29,7 +29,7 @@ export async function* describeReplicationSubnetGroupsPaginate(
   input: DescribeReplicationSubnetGroupsCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeReplicationSubnetGroupsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeReplicationSubnetGroupsCommandOutput;
   while (hasNext) {

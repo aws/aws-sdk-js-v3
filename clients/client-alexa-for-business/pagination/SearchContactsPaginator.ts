@@ -29,7 +29,7 @@ export async function* searchContactsPaginate(
   input: SearchContactsCommandInput,
   ...additionalArguments: any
 ): Paginator<SearchContactsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: SearchContactsCommandOutput;
   while (hasNext) {

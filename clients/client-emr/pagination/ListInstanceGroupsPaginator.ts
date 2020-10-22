@@ -29,7 +29,7 @@ export async function* listInstanceGroupsPaginate(
   input: ListInstanceGroupsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListInstanceGroupsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListInstanceGroupsCommandOutput;
   while (hasNext) {

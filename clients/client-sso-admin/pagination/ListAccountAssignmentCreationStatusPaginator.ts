@@ -29,7 +29,7 @@ export async function* listAccountAssignmentCreationStatusPaginate(
   input: ListAccountAssignmentCreationStatusCommandInput,
   ...additionalArguments: any
 ): Paginator<ListAccountAssignmentCreationStatusCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListAccountAssignmentCreationStatusCommandOutput;
   while (hasNext) {

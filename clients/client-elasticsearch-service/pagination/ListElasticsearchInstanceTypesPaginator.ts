@@ -29,7 +29,7 @@ export async function* listElasticsearchInstanceTypesPaginate(
   input: ListElasticsearchInstanceTypesCommandInput,
   ...additionalArguments: any
 ): Paginator<ListElasticsearchInstanceTypesCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListElasticsearchInstanceTypesCommandOutput;
   while (hasNext) {

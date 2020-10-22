@@ -29,7 +29,7 @@ export async function* listGatewayRoutesPaginate(
   input: ListGatewayRoutesCommandInput,
   ...additionalArguments: any
 ): Paginator<ListGatewayRoutesCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListGatewayRoutesCommandOutput;
   while (hasNext) {

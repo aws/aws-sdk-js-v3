@@ -29,7 +29,7 @@ export async function* listAssociationVersionsPaginate(
   input: ListAssociationVersionsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListAssociationVersionsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListAssociationVersionsCommandOutput;
   while (hasNext) {

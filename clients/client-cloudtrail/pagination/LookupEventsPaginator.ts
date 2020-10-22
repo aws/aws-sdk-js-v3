@@ -29,7 +29,7 @@ export async function* lookupEventsPaginate(
   input: LookupEventsCommandInput,
   ...additionalArguments: any
 ): Paginator<LookupEventsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: LookupEventsCommandOutput;
   while (hasNext) {

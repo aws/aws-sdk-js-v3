@@ -25,7 +25,7 @@ export async function* getUsagePaginate(
   input: GetUsageCommandInput,
   ...additionalArguments: any
 ): Paginator<GetUsageCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: GetUsageCommandOutput;
   while (hasNext) {

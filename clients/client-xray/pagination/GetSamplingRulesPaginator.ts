@@ -29,7 +29,7 @@ export async function* getSamplingRulesPaginate(
   input: GetSamplingRulesCommandInput,
   ...additionalArguments: any
 ): Paginator<GetSamplingRulesCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: GetSamplingRulesCommandOutput;
   while (hasNext) {

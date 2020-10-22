@@ -29,7 +29,7 @@ export async function* listDataCatalogsPaginate(
   input: ListDataCatalogsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListDataCatalogsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListDataCatalogsCommandOutput;
   while (hasNext) {

@@ -29,7 +29,7 @@ export async function* getTransitGatewayRouteTableAssociationsPaginate(
   input: GetTransitGatewayRouteTableAssociationsCommandInput,
   ...additionalArguments: any
 ): Paginator<GetTransitGatewayRouteTableAssociationsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: GetTransitGatewayRouteTableAssociationsCommandOutput;
   while (hasNext) {

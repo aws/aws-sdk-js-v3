@@ -29,7 +29,7 @@ export async function* listSigningPlatformsPaginate(
   input: ListSigningPlatformsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListSigningPlatformsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListSigningPlatformsCommandOutput;
   while (hasNext) {

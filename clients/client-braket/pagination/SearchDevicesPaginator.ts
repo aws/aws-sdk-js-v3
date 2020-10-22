@@ -29,7 +29,7 @@ export async function* searchDevicesPaginate(
   input: SearchDevicesCommandInput,
   ...additionalArguments: any
 ): Paginator<SearchDevicesCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: SearchDevicesCommandOutput;
   while (hasNext) {

@@ -29,7 +29,7 @@ export async function* getDifferencesPaginate(
   input: GetDifferencesCommandInput,
   ...additionalArguments: any
 ): Paginator<GetDifferencesCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: GetDifferencesCommandOutput;
   while (hasNext) {

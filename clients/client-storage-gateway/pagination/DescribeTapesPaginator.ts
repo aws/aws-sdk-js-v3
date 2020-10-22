@@ -29,7 +29,7 @@ export async function* describeTapesPaginate(
   input: DescribeTapesCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeTapesCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeTapesCommandOutput;
   while (hasNext) {
