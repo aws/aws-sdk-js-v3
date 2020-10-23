@@ -37,5 +37,10 @@
   "react-native": {
     "@aws-sdk/util-utf8-node": "@aws-sdk/util-utf8-browser"
   },
-  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/master/packages/eventstream-marshaller"
+  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/master/packages/eventstream-marshaller",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aws/aws-sdk-js-v3.git",
+    "directory": "packages/eventstream-marshaller"
+  }
 }

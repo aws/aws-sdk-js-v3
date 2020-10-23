@@ -29,5 +29,10 @@
   "engines": {
     "node": ">= 10.0.0"
   },
-  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/master/packages/util-locate-window"
+  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/master/packages/util-locate-window",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aws/aws-sdk-js-v3.git",
+    "directory": "packages/util-locate-window"
+  }
 }

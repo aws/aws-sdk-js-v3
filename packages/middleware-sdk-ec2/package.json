@@ -32,5 +32,10 @@
   "engines": {
     "node": ">= 10.0.0"
   },
-  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/master/packages/middleware-sdk-ec2"
+  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/master/packages/middleware-sdk-ec2",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aws/aws-sdk-js-v3.git",
+    "directory": "packages/middleware-sdk-ec2"
+  }
 }

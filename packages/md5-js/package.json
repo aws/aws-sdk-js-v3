@@ -38,5 +38,10 @@
   "react-native": {
     "@aws-sdk/util-base64-node": "@aws-sdk/util-base64-browser"
   },
-  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/master/packages/md5-js"
+  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/master/packages/md5-js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aws/aws-sdk-js-v3.git",
+    "directory": "packages/md5-js"
+  }
 }
