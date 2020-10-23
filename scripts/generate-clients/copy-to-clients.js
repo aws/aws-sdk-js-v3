@@ -114,6 +114,11 @@ const copyToClients = async (sourceDir, destinationDir) => {
         const mergedManifest = {
           ...mergeManifest(packageManifest, destManifest),
           homepage: `https://github.com/aws/aws-sdk-js-v3/tree/master/clients/${clientName}`,
+          repository: {
+            type: "git",
+            url: "https://github.com/aws/aws-sdk-js-v3.git",
+            directory: `clients/${clientName}`,
+          },
         };
         writeFileSync(destSubPath, JSON.stringify(mergedManifest, null, 2).concat(`\n`));
       } else if (overwritablePredicate(packageSub) || !existsSync(destSubPath)) {
