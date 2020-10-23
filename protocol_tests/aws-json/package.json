@@ -76,5 +76,6 @@
     "url": "https://aws.amazon.com/javascript/"
   },
   "license": "Apache-2.0",
-  "private": true
+  "private": true,
+  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/master/clients/aws-json"
 }

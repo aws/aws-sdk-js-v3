@@ -26,5 +26,6 @@
     "jest": "^26.1.0",
     "typescript": "~4.0.2"
   },
-  "types": "./dist/cjs/index.d.ts"
+  "types": "./dist/cjs/index.d.ts",
+  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/master/packages/util-base64-browser"
 }

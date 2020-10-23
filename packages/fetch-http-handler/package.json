@@ -29,5 +29,6 @@
     "@aws-sdk/abort-controller": "1.0.0-rc.2",
     "@types/jest": "^26.0.4",
     "typescript": "~4.0.2"
-  }
+  },
+  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/master/packages/fetch-http-handler"
 }

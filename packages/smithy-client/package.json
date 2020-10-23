@@ -29,5 +29,6 @@
   },
   "engines": {
     "node": ">= 10.0.0"
-  }
+  },
+  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/master/packages/smithy-client"
 }
