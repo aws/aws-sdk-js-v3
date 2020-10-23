@@ -32,5 +32,6 @@
   },
   "react-native": {
     "@aws-sdk/chunked-blob-reader": "@aws-sdk/chunked-blob-reader-native"
-  }
+  },
+  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/master/packages/hash-blob-browser"
 }
