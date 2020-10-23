@@ -231,6 +231,7 @@ import {
   BorderStyle,
   CalculatedColumn,
   CastColumnTypeOperation,
+  ColumnDescription,
   ColumnGroup,
   ColumnGroupColumnSchema,
   ColumnGroupSchema,
@@ -368,15 +369,6 @@ export const serializeAws_restJson1CancelIngestionCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/accounts/{AwsAccountId}/data-sets/{DataSetId}/ingestions/{IngestionId}";
-  if (input.DataSetId !== undefined) {
-    const labelValue: string = input.DataSetId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: DataSetId.");
-    }
-    resolvedPath = resolvedPath.replace("{DataSetId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: DataSetId.");
-  }
   if (input.AwsAccountId !== undefined) {
     const labelValue: string = input.AwsAccountId;
     if (labelValue.length <= 0) {
@@ -385,6 +377,15 @@ export const serializeAws_restJson1CancelIngestionCommand = async (
     resolvedPath = resolvedPath.replace("{AwsAccountId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
+  }
+  if (input.DataSetId !== undefined) {
+    const labelValue: string = input.DataSetId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: DataSetId.");
+    }
+    resolvedPath = resolvedPath.replace("{DataSetId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: DataSetId.");
   }
   if (input.IngestionId !== undefined) {
     const labelValue: string = input.IngestionId;
@@ -710,6 +711,24 @@ export const serializeAws_restJson1CreateGroupMembershipCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/accounts/{AwsAccountId}/namespaces/{Namespace}/groups/{GroupName}/members/{MemberName}";
+  if (input.Namespace !== undefined) {
+    const labelValue: string = input.Namespace;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: Namespace.");
+    }
+    resolvedPath = resolvedPath.replace("{Namespace}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: Namespace.");
+  }
+  if (input.AwsAccountId !== undefined) {
+    const labelValue: string = input.AwsAccountId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: AwsAccountId.");
+    }
+    resolvedPath = resolvedPath.replace("{AwsAccountId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: AwsAccountId.");
+  }
   if (input.GroupName !== undefined) {
     const labelValue: string = input.GroupName;
     if (labelValue.length <= 0) {
@@ -727,24 +746,6 @@ export const serializeAws_restJson1CreateGroupMembershipCommand = async (
     resolvedPath = resolvedPath.replace("{MemberName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: MemberName.");
-  }
-  if (input.AwsAccountId !== undefined) {
-    const labelValue: string = input.AwsAccountId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: AwsAccountId.");
-    }
-    resolvedPath = resolvedPath.replace("{AwsAccountId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: AwsAccountId.");
-  }
-  if (input.Namespace !== undefined) {
-    const labelValue: string = input.Namespace;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: Namespace.");
-    }
-    resolvedPath = resolvedPath.replace("{Namespace}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: Namespace.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -812,6 +813,15 @@ export const serializeAws_restJson1CreateIngestionCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/accounts/{AwsAccountId}/data-sets/{DataSetId}/ingestions/{IngestionId}";
+  if (input.IngestionId !== undefined) {
+    const labelValue: string = input.IngestionId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: IngestionId.");
+    }
+    resolvedPath = resolvedPath.replace("{IngestionId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: IngestionId.");
+  }
   if (input.DataSetId !== undefined) {
     const labelValue: string = input.DataSetId;
     if (labelValue.length <= 0) {
@@ -829,15 +839,6 @@ export const serializeAws_restJson1CreateIngestionCommand = async (
     resolvedPath = resolvedPath.replace("{AwsAccountId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
-  }
-  if (input.IngestionId !== undefined) {
-    const labelValue: string = input.IngestionId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: IngestionId.");
-    }
-    resolvedPath = resolvedPath.replace("{IngestionId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: IngestionId.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -945,15 +946,6 @@ export const serializeAws_restJson1CreateTemplateAliasCommand = async (
     "Content-Type": "application/json",
   };
   let resolvedPath = "/accounts/{AwsAccountId}/templates/{TemplateId}/aliases/{AliasName}";
-  if (input.AliasName !== undefined) {
-    const labelValue: string = input.AliasName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: AliasName.");
-    }
-    resolvedPath = resolvedPath.replace("{AliasName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: AliasName.");
-  }
   if (input.AwsAccountId !== undefined) {
     const labelValue: string = input.AwsAccountId;
     if (labelValue.length <= 0) {
@@ -962,6 +954,15 @@ export const serializeAws_restJson1CreateTemplateAliasCommand = async (
     resolvedPath = resolvedPath.replace("{AwsAccountId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
+  }
+  if (input.AliasName !== undefined) {
+    const labelValue: string = input.AliasName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: AliasName.");
+    }
+    resolvedPath = resolvedPath.replace("{AliasName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: AliasName.");
   }
   if (input.TemplateId !== undefined) {
     const labelValue: string = input.TemplateId;
@@ -1047,15 +1048,6 @@ export const serializeAws_restJson1CreateThemeAliasCommand = async (
     "Content-Type": "application/json",
   };
   let resolvedPath = "/accounts/{AwsAccountId}/themes/{ThemeId}/aliases/{AliasName}";
-  if (input.AliasName !== undefined) {
-    const labelValue: string = input.AliasName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: AliasName.");
-    }
-    resolvedPath = resolvedPath.replace("{AliasName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: AliasName.");
-  }
   if (input.ThemeId !== undefined) {
     const labelValue: string = input.ThemeId;
     if (labelValue.length <= 0) {
@@ -1064,6 +1056,15 @@ export const serializeAws_restJson1CreateThemeAliasCommand = async (
     resolvedPath = resolvedPath.replace("{ThemeId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ThemeId.");
+  }
+  if (input.AliasName !== undefined) {
+    const labelValue: string = input.AliasName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: AliasName.");
+    }
+    resolvedPath = resolvedPath.replace("{AliasName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: AliasName.");
   }
   if (input.AwsAccountId !== undefined) {
     const labelValue: string = input.AwsAccountId;
@@ -1132,15 +1133,6 @@ export const serializeAws_restJson1DeleteAnalysisCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/accounts/{AwsAccountId}/analyses/{AnalysisId}";
-  if (input.AnalysisId !== undefined) {
-    const labelValue: string = input.AnalysisId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: AnalysisId.");
-    }
-    resolvedPath = resolvedPath.replace("{AnalysisId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: AnalysisId.");
-  }
   if (input.AwsAccountId !== undefined) {
     const labelValue: string = input.AwsAccountId;
     if (labelValue.length <= 0) {
@@ -1150,12 +1142,21 @@ export const serializeAws_restJson1DeleteAnalysisCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
+  if (input.AnalysisId !== undefined) {
+    const labelValue: string = input.AnalysisId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: AnalysisId.");
+    }
+    resolvedPath = resolvedPath.replace("{AnalysisId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: AnalysisId.");
+  }
   const query: any = {
-    ...(input.RecoveryWindowInDays !== undefined && {
-      "recovery-window-in-days": input.RecoveryWindowInDays.toString(),
-    }),
     ...(input.ForceDeleteWithoutRecovery !== undefined && {
       "force-delete-without-recovery": input.ForceDeleteWithoutRecovery.toString(),
+    }),
+    ...(input.RecoveryWindowInDays !== undefined && {
+      "recovery-window-in-days": input.RecoveryWindowInDays.toString(),
     }),
   };
   let body: any;
@@ -1301,15 +1302,6 @@ export const serializeAws_restJson1DeleteGroupCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/accounts/{AwsAccountId}/namespaces/{Namespace}/groups/{GroupName}";
-  if (input.Namespace !== undefined) {
-    const labelValue: string = input.Namespace;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: Namespace.");
-    }
-    resolvedPath = resolvedPath.replace("{Namespace}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: Namespace.");
-  }
   if (input.AwsAccountId !== undefined) {
     const labelValue: string = input.AwsAccountId;
     if (labelValue.length <= 0) {
@@ -1318,6 +1310,15 @@ export const serializeAws_restJson1DeleteGroupCommand = async (
     resolvedPath = resolvedPath.replace("{AwsAccountId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
+  }
+  if (input.Namespace !== undefined) {
+    const labelValue: string = input.Namespace;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: Namespace.");
+    }
+    resolvedPath = resolvedPath.replace("{Namespace}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: Namespace.");
   }
   if (input.GroupName !== undefined) {
     const labelValue: string = input.GroupName;
@@ -1349,15 +1350,6 @@ export const serializeAws_restJson1DeleteGroupMembershipCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/accounts/{AwsAccountId}/namespaces/{Namespace}/groups/{GroupName}/members/{MemberName}";
-  if (input.GroupName !== undefined) {
-    const labelValue: string = input.GroupName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: GroupName.");
-    }
-    resolvedPath = resolvedPath.replace("{GroupName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: GroupName.");
-  }
   if (input.AwsAccountId !== undefined) {
     const labelValue: string = input.AwsAccountId;
     if (labelValue.length <= 0) {
@@ -1367,15 +1359,6 @@ export const serializeAws_restJson1DeleteGroupMembershipCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
-  if (input.MemberName !== undefined) {
-    const labelValue: string = input.MemberName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: MemberName.");
-    }
-    resolvedPath = resolvedPath.replace("{MemberName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: MemberName.");
-  }
   if (input.Namespace !== undefined) {
     const labelValue: string = input.Namespace;
     if (labelValue.length <= 0) {
@@ -1384,6 +1367,24 @@ export const serializeAws_restJson1DeleteGroupMembershipCommand = async (
     resolvedPath = resolvedPath.replace("{Namespace}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: Namespace.");
+  }
+  if (input.GroupName !== undefined) {
+    const labelValue: string = input.GroupName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: GroupName.");
+    }
+    resolvedPath = resolvedPath.replace("{GroupName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: GroupName.");
+  }
+  if (input.MemberName !== undefined) {
+    const labelValue: string = input.MemberName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: MemberName.");
+    }
+    resolvedPath = resolvedPath.replace("{MemberName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: MemberName.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1406,14 +1407,14 @@ export const serializeAws_restJson1DeleteIAMPolicyAssignmentCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/accounts/{AwsAccountId}/namespace/{Namespace}/iam-policy-assignments/{AssignmentName}";
-  if (input.Namespace !== undefined) {
-    const labelValue: string = input.Namespace;
+  if (input.AwsAccountId !== undefined) {
+    const labelValue: string = input.AwsAccountId;
     if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: Namespace.");
+      throw new Error("Empty value provided for input HTTP label: AwsAccountId.");
     }
-    resolvedPath = resolvedPath.replace("{Namespace}", __extendedEncodeURIComponent(labelValue));
+    resolvedPath = resolvedPath.replace("{AwsAccountId}", __extendedEncodeURIComponent(labelValue));
   } else {
-    throw new Error("No value provided for input HTTP label: Namespace.");
+    throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
   if (input.AssignmentName !== undefined) {
     const labelValue: string = input.AssignmentName;
@@ -1424,14 +1425,14 @@ export const serializeAws_restJson1DeleteIAMPolicyAssignmentCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: AssignmentName.");
   }
-  if (input.AwsAccountId !== undefined) {
-    const labelValue: string = input.AwsAccountId;
+  if (input.Namespace !== undefined) {
+    const labelValue: string = input.Namespace;
     if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: AwsAccountId.");
+      throw new Error("Empty value provided for input HTTP label: Namespace.");
     }
-    resolvedPath = resolvedPath.replace("{AwsAccountId}", __extendedEncodeURIComponent(labelValue));
+    resolvedPath = resolvedPath.replace("{Namespace}", __extendedEncodeURIComponent(labelValue));
   } else {
-    throw new Error("No value provided for input HTTP label: AwsAccountId.");
+    throw new Error("No value provided for input HTTP label: Namespace.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1454,15 +1455,6 @@ export const serializeAws_restJson1DeleteNamespaceCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/accounts/{AwsAccountId}/namespaces/{Namespace}";
-  if (input.Namespace !== undefined) {
-    const labelValue: string = input.Namespace;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: Namespace.");
-    }
-    resolvedPath = resolvedPath.replace("{Namespace}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: Namespace.");
-  }
   if (input.AwsAccountId !== undefined) {
     const labelValue: string = input.AwsAccountId;
     if (labelValue.length <= 0) {
@@ -1471,6 +1463,15 @@ export const serializeAws_restJson1DeleteNamespaceCommand = async (
     resolvedPath = resolvedPath.replace("{AwsAccountId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
+  }
+  if (input.Namespace !== undefined) {
+    const labelValue: string = input.Namespace;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: Namespace.");
+    }
+    resolvedPath = resolvedPath.replace("{Namespace}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: Namespace.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1493,15 +1494,6 @@ export const serializeAws_restJson1DeleteTemplateCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/accounts/{AwsAccountId}/templates/{TemplateId}";
-  if (input.TemplateId !== undefined) {
-    const labelValue: string = input.TemplateId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: TemplateId.");
-    }
-    resolvedPath = resolvedPath.replace("{TemplateId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: TemplateId.");
-  }
   if (input.AwsAccountId !== undefined) {
     const labelValue: string = input.AwsAccountId;
     if (labelValue.length <= 0) {
@@ -1510,6 +1502,15 @@ export const serializeAws_restJson1DeleteTemplateCommand = async (
     resolvedPath = resolvedPath.replace("{AwsAccountId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
+  }
+  if (input.TemplateId !== undefined) {
+    const labelValue: string = input.TemplateId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: TemplateId.");
+    }
+    resolvedPath = resolvedPath.replace("{TemplateId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: TemplateId.");
   }
   const query: any = {
     ...(input.VersionNumber !== undefined && { "version-number": input.VersionNumber.toString() }),
@@ -1536,6 +1537,15 @@ export const serializeAws_restJson1DeleteTemplateAliasCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/accounts/{AwsAccountId}/templates/{TemplateId}/aliases/{AliasName}";
+  if (input.TemplateId !== undefined) {
+    const labelValue: string = input.TemplateId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: TemplateId.");
+    }
+    resolvedPath = resolvedPath.replace("{TemplateId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: TemplateId.");
+  }
   if (input.AwsAccountId !== undefined) {
     const labelValue: string = input.AwsAccountId;
     if (labelValue.length <= 0) {
@@ -1553,15 +1563,6 @@ export const serializeAws_restJson1DeleteTemplateAliasCommand = async (
     resolvedPath = resolvedPath.replace("{AliasName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: AliasName.");
-  }
-  if (input.TemplateId !== undefined) {
-    const labelValue: string = input.TemplateId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: TemplateId.");
-    }
-    resolvedPath = resolvedPath.replace("{TemplateId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: TemplateId.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1584,15 +1585,6 @@ export const serializeAws_restJson1DeleteThemeCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/accounts/{AwsAccountId}/themes/{ThemeId}";
-  if (input.AwsAccountId !== undefined) {
-    const labelValue: string = input.AwsAccountId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: AwsAccountId.");
-    }
-    resolvedPath = resolvedPath.replace("{AwsAccountId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: AwsAccountId.");
-  }
   if (input.ThemeId !== undefined) {
     const labelValue: string = input.ThemeId;
     if (labelValue.length <= 0) {
@@ -1601,6 +1593,15 @@ export const serializeAws_restJson1DeleteThemeCommand = async (
     resolvedPath = resolvedPath.replace("{ThemeId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ThemeId.");
+  }
+  if (input.AwsAccountId !== undefined) {
+    const labelValue: string = input.AwsAccountId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: AwsAccountId.");
+    }
+    resolvedPath = resolvedPath.replace("{AwsAccountId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
   const query: any = {
     ...(input.VersionNumber !== undefined && { "version-number": input.VersionNumber.toString() }),
@@ -1627,15 +1628,6 @@ export const serializeAws_restJson1DeleteThemeAliasCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/accounts/{AwsAccountId}/themes/{ThemeId}/aliases/{AliasName}";
-  if (input.AwsAccountId !== undefined) {
-    const labelValue: string = input.AwsAccountId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: AwsAccountId.");
-    }
-    resolvedPath = resolvedPath.replace("{AwsAccountId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: AwsAccountId.");
-  }
   if (input.ThemeId !== undefined) {
     const labelValue: string = input.ThemeId;
     if (labelValue.length <= 0) {
@@ -1653,6 +1645,15 @@ export const serializeAws_restJson1DeleteThemeAliasCommand = async (
     resolvedPath = resolvedPath.replace("{AliasName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: AliasName.");
+  }
+  if (input.AwsAccountId !== undefined) {
+    const labelValue: string = input.AwsAccountId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: AwsAccountId.");
+    }
+    resolvedPath = resolvedPath.replace("{AwsAccountId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1684,15 +1685,6 @@ export const serializeAws_restJson1DeleteUserCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: UserName.");
   }
-  if (input.Namespace !== undefined) {
-    const labelValue: string = input.Namespace;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: Namespace.");
-    }
-    resolvedPath = resolvedPath.replace("{Namespace}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: Namespace.");
-  }
   if (input.AwsAccountId !== undefined) {
     const labelValue: string = input.AwsAccountId;
     if (labelValue.length <= 0) {
@@ -1701,6 +1693,15 @@ export const serializeAws_restJson1DeleteUserCommand = async (
     resolvedPath = resolvedPath.replace("{AwsAccountId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
+  }
+  if (input.Namespace !== undefined) {
+    const labelValue: string = input.Namespace;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: Namespace.");
+    }
+    resolvedPath = resolvedPath.replace("{Namespace}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: Namespace.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1732,15 +1733,6 @@ export const serializeAws_restJson1DeleteUserByPrincipalIdCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: Namespace.");
   }
-  if (input.AwsAccountId !== undefined) {
-    const labelValue: string = input.AwsAccountId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: AwsAccountId.");
-    }
-    resolvedPath = resolvedPath.replace("{AwsAccountId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: AwsAccountId.");
-  }
   if (input.PrincipalId !== undefined) {
     const labelValue: string = input.PrincipalId;
     if (labelValue.length <= 0) {
@@ -1749,6 +1741,15 @@ export const serializeAws_restJson1DeleteUserByPrincipalIdCommand = async (
     resolvedPath = resolvedPath.replace("{PrincipalId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: PrincipalId.");
+  }
+  if (input.AwsAccountId !== undefined) {
+    const labelValue: string = input.AwsAccountId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: AwsAccountId.");
+    }
+    resolvedPath = resolvedPath.replace("{AwsAccountId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1781,8 +1782,8 @@ export const serializeAws_restJson1DescribeAccountCustomizationCommand = async (
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
   const query: any = {
-    ...(input.Resolved !== undefined && { resolved: input.Resolved.toString() }),
     ...(input.Namespace !== undefined && { namespace: input.Namespace }),
+    ...(input.Resolved !== undefined && { resolved: input.Resolved.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1875,15 +1876,6 @@ export const serializeAws_restJson1DescribeAnalysisPermissionsCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/accounts/{AwsAccountId}/analyses/{AnalysisId}/permissions";
-  if (input.AwsAccountId !== undefined) {
-    const labelValue: string = input.AwsAccountId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: AwsAccountId.");
-    }
-    resolvedPath = resolvedPath.replace("{AwsAccountId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: AwsAccountId.");
-  }
   if (input.AnalysisId !== undefined) {
     const labelValue: string = input.AnalysisId;
     if (labelValue.length <= 0) {
@@ -1892,6 +1884,15 @@ export const serializeAws_restJson1DescribeAnalysisPermissionsCommand = async (
     resolvedPath = resolvedPath.replace("{AnalysisId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: AnalysisId.");
+  }
+  if (input.AwsAccountId !== undefined) {
+    const labelValue: string = input.AwsAccountId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: AwsAccountId.");
+    }
+    resolvedPath = resolvedPath.replace("{AwsAccountId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -2114,15 +2115,6 @@ export const serializeAws_restJson1DescribeDataSourcePermissionsCommand = async 
     "Content-Type": "",
   };
   let resolvedPath = "/accounts/{AwsAccountId}/data-sources/{DataSourceId}/permissions";
-  if (input.AwsAccountId !== undefined) {
-    const labelValue: string = input.AwsAccountId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: AwsAccountId.");
-    }
-    resolvedPath = resolvedPath.replace("{AwsAccountId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: AwsAccountId.");
-  }
   if (input.DataSourceId !== undefined) {
     const labelValue: string = input.DataSourceId;
     if (labelValue.length <= 0) {
@@ -2131,6 +2123,15 @@ export const serializeAws_restJson1DescribeDataSourcePermissionsCommand = async 
     resolvedPath = resolvedPath.replace("{DataSourceId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: DataSourceId.");
+  }
+  if (input.AwsAccountId !== undefined) {
+    const labelValue: string = input.AwsAccountId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: AwsAccountId.");
+    }
+    resolvedPath = resolvedPath.replace("{AwsAccountId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -2153,15 +2154,6 @@ export const serializeAws_restJson1DescribeGroupCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/accounts/{AwsAccountId}/namespaces/{Namespace}/groups/{GroupName}";
-  if (input.GroupName !== undefined) {
-    const labelValue: string = input.GroupName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: GroupName.");
-    }
-    resolvedPath = resolvedPath.replace("{GroupName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: GroupName.");
-  }
   if (input.Namespace !== undefined) {
     const labelValue: string = input.Namespace;
     if (labelValue.length <= 0) {
@@ -2170,6 +2162,15 @@ export const serializeAws_restJson1DescribeGroupCommand = async (
     resolvedPath = resolvedPath.replace("{Namespace}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: Namespace.");
+  }
+  if (input.GroupName !== undefined) {
+    const labelValue: string = input.GroupName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: GroupName.");
+    }
+    resolvedPath = resolvedPath.replace("{GroupName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: GroupName.");
   }
   if (input.AwsAccountId !== undefined) {
     const labelValue: string = input.AwsAccountId;
@@ -2249,15 +2250,6 @@ export const serializeAws_restJson1DescribeIngestionCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/accounts/{AwsAccountId}/data-sets/{DataSetId}/ingestions/{IngestionId}";
-  if (input.DataSetId !== undefined) {
-    const labelValue: string = input.DataSetId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: DataSetId.");
-    }
-    resolvedPath = resolvedPath.replace("{DataSetId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: DataSetId.");
-  }
   if (input.AwsAccountId !== undefined) {
     const labelValue: string = input.AwsAccountId;
     if (labelValue.length <= 0) {
@@ -2266,6 +2258,15 @@ export const serializeAws_restJson1DescribeIngestionCommand = async (
     resolvedPath = resolvedPath.replace("{AwsAccountId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
+  }
+  if (input.DataSetId !== undefined) {
+    const labelValue: string = input.DataSetId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: DataSetId.");
+    }
+    resolvedPath = resolvedPath.replace("{DataSetId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: DataSetId.");
   }
   if (input.IngestionId !== undefined) {
     const labelValue: string = input.IngestionId;
@@ -2297,15 +2298,6 @@ export const serializeAws_restJson1DescribeNamespaceCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/accounts/{AwsAccountId}/namespaces/{Namespace}";
-  if (input.Namespace !== undefined) {
-    const labelValue: string = input.Namespace;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: Namespace.");
-    }
-    resolvedPath = resolvedPath.replace("{Namespace}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: Namespace.");
-  }
   if (input.AwsAccountId !== undefined) {
     const labelValue: string = input.AwsAccountId;
     if (labelValue.length <= 0) {
@@ -2314,6 +2306,15 @@ export const serializeAws_restJson1DescribeNamespaceCommand = async (
     resolvedPath = resolvedPath.replace("{AwsAccountId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
+  }
+  if (input.Namespace !== undefined) {
+    const labelValue: string = input.Namespace;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: Namespace.");
+    }
+    resolvedPath = resolvedPath.replace("{Namespace}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: Namespace.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -2355,8 +2356,8 @@ export const serializeAws_restJson1DescribeTemplateCommand = async (
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
   const query: any = {
-    ...(input.AliasName !== undefined && { "alias-name": input.AliasName }),
     ...(input.VersionNumber !== undefined && { "version-number": input.VersionNumber.toString() }),
+    ...(input.AliasName !== undefined && { "alias-name": input.AliasName }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -2389,15 +2390,6 @@ export const serializeAws_restJson1DescribeTemplateAliasCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
-  if (input.AliasName !== undefined) {
-    const labelValue: string = input.AliasName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: AliasName.");
-    }
-    resolvedPath = resolvedPath.replace("{AliasName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: AliasName.");
-  }
   if (input.TemplateId !== undefined) {
     const labelValue: string = input.TemplateId;
     if (labelValue.length <= 0) {
@@ -2406,6 +2398,15 @@ export const serializeAws_restJson1DescribeTemplateAliasCommand = async (
     resolvedPath = resolvedPath.replace("{TemplateId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: TemplateId.");
+  }
+  if (input.AliasName !== undefined) {
+    const labelValue: string = input.AliasName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: AliasName.");
+    }
+    resolvedPath = resolvedPath.replace("{AliasName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: AliasName.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -2511,14 +2512,14 @@ export const serializeAws_restJson1DescribeThemeAliasCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/accounts/{AwsAccountId}/themes/{ThemeId}/aliases/{AliasName}";
-  if (input.AwsAccountId !== undefined) {
-    const labelValue: string = input.AwsAccountId;
+  if (input.ThemeId !== undefined) {
+    const labelValue: string = input.ThemeId;
     if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: AwsAccountId.");
+      throw new Error("Empty value provided for input HTTP label: ThemeId.");
     }
-    resolvedPath = resolvedPath.replace("{AwsAccountId}", __extendedEncodeURIComponent(labelValue));
+    resolvedPath = resolvedPath.replace("{ThemeId}", __extendedEncodeURIComponent(labelValue));
   } else {
-    throw new Error("No value provided for input HTTP label: AwsAccountId.");
+    throw new Error("No value provided for input HTTP label: ThemeId.");
   }
   if (input.AliasName !== undefined) {
     const labelValue: string = input.AliasName;
@@ -2529,14 +2530,14 @@ export const serializeAws_restJson1DescribeThemeAliasCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: AliasName.");
   }
-  if (input.ThemeId !== undefined) {
-    const labelValue: string = input.ThemeId;
+  if (input.AwsAccountId !== undefined) {
+    const labelValue: string = input.AwsAccountId;
     if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: ThemeId.");
+      throw new Error("Empty value provided for input HTTP label: AwsAccountId.");
     }
-    resolvedPath = resolvedPath.replace("{ThemeId}", __extendedEncodeURIComponent(labelValue));
+    resolvedPath = resolvedPath.replace("{AwsAccountId}", __extendedEncodeURIComponent(labelValue));
   } else {
-    throw new Error("No value provided for input HTTP label: ThemeId.");
+    throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -2598,15 +2599,6 @@ export const serializeAws_restJson1DescribeUserCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/accounts/{AwsAccountId}/namespaces/{Namespace}/users/{UserName}";
-  if (input.Namespace !== undefined) {
-    const labelValue: string = input.Namespace;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: Namespace.");
-    }
-    resolvedPath = resolvedPath.replace("{Namespace}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: Namespace.");
-  }
   if (input.AwsAccountId !== undefined) {
     const labelValue: string = input.AwsAccountId;
     if (labelValue.length <= 0) {
@@ -2615,6 +2607,15 @@ export const serializeAws_restJson1DescribeUserCommand = async (
     resolvedPath = resolvedPath.replace("{AwsAccountId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
+  }
+  if (input.Namespace !== undefined) {
+    const labelValue: string = input.Namespace;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: Namespace.");
+    }
+    resolvedPath = resolvedPath.replace("{Namespace}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: Namespace.");
   }
   if (input.UserName !== undefined) {
     const labelValue: string = input.UserName;
@@ -2665,13 +2666,13 @@ export const serializeAws_restJson1GetDashboardEmbedUrlCommand = async (
     throw new Error("No value provided for input HTTP label: DashboardId.");
   }
   const query: any = {
+    ...(input.UndoRedoDisabled !== undefined && { "undo-redo-disabled": input.UndoRedoDisabled.toString() }),
+    ...(input.ResetDisabled !== undefined && { "reset-disabled": input.ResetDisabled.toString() }),
     ...(input.SessionLifetimeInMinutes !== undefined && {
       "session-lifetime": input.SessionLifetimeInMinutes.toString(),
     }),
-    ...(input.ResetDisabled !== undefined && { "reset-disabled": input.ResetDisabled.toString() }),
     ...(input.IdentityType !== undefined && { "creds-type": input.IdentityType }),
     ...(input.UserArn !== undefined && { "user-arn": input.UserArn }),
-    ...(input.UndoRedoDisabled !== undefined && { "undo-redo-disabled": input.UndoRedoDisabled.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -2705,10 +2706,10 @@ export const serializeAws_restJson1GetSessionEmbedUrlCommand = async (
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
   const query: any = {
+    ...(input.EntryPoint !== undefined && { "entry-point": input.EntryPoint }),
     ...(input.SessionLifetimeInMinutes !== undefined && {
       "session-lifetime": input.SessionLifetimeInMinutes.toString(),
     }),
-    ...(input.EntryPoint !== undefined && { "entry-point": input.EntryPoint }),
     ...(input.UserArn !== undefined && { "user-arn": input.UserArn }),
   };
   let body: any;
@@ -2778,8 +2779,8 @@ export const serializeAws_restJson1ListDashboardsCommand = async (
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
   const query: any = {
-    ...(input.NextToken !== undefined && { "next-token": input.NextToken }),
     ...(input.MaxResults !== undefined && { "max-results": input.MaxResults.toString() }),
+    ...(input.NextToken !== undefined && { "next-token": input.NextToken }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -2892,8 +2893,8 @@ export const serializeAws_restJson1ListDataSourcesCommand = async (
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
   const query: any = {
-    ...(input.MaxResults !== undefined && { "max-results": input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { "next-token": input.NextToken }),
+    ...(input.MaxResults !== undefined && { "max-results": input.MaxResults.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -2917,6 +2918,15 @@ export const serializeAws_restJson1ListGroupMembershipsCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/accounts/{AwsAccountId}/namespaces/{Namespace}/groups/{GroupName}/members";
+  if (input.AwsAccountId !== undefined) {
+    const labelValue: string = input.AwsAccountId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: AwsAccountId.");
+    }
+    resolvedPath = resolvedPath.replace("{AwsAccountId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: AwsAccountId.");
+  }
   if (input.GroupName !== undefined) {
     const labelValue: string = input.GroupName;
     if (labelValue.length <= 0) {
@@ -2935,18 +2945,9 @@ export const serializeAws_restJson1ListGroupMembershipsCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: Namespace.");
   }
-  if (input.AwsAccountId !== undefined) {
-    const labelValue: string = input.AwsAccountId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: AwsAccountId.");
-    }
-    resolvedPath = resolvedPath.replace("{AwsAccountId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: AwsAccountId.");
-  }
   const query: any = {
-    ...(input.NextToken !== undefined && { "next-token": input.NextToken }),
     ...(input.MaxResults !== undefined && { "max-results": input.MaxResults.toString() }),
+    ...(input.NextToken !== undefined && { "next-token": input.NextToken }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -2970,15 +2971,6 @@ export const serializeAws_restJson1ListGroupsCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/accounts/{AwsAccountId}/namespaces/{Namespace}/groups";
-  if (input.AwsAccountId !== undefined) {
-    const labelValue: string = input.AwsAccountId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: AwsAccountId.");
-    }
-    resolvedPath = resolvedPath.replace("{AwsAccountId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: AwsAccountId.");
-  }
   if (input.Namespace !== undefined) {
     const labelValue: string = input.Namespace;
     if (labelValue.length <= 0) {
@@ -2987,6 +2979,15 @@ export const serializeAws_restJson1ListGroupsCommand = async (
     resolvedPath = resolvedPath.replace("{Namespace}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: Namespace.");
+  }
+  if (input.AwsAccountId !== undefined) {
+    const labelValue: string = input.AwsAccountId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: AwsAccountId.");
+    }
+    resolvedPath = resolvedPath.replace("{AwsAccountId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
   const query: any = {
     ...(input.NextToken !== undefined && { "next-token": input.NextToken }),
@@ -3014,15 +3015,6 @@ export const serializeAws_restJson1ListIAMPolicyAssignmentsCommand = async (
     "Content-Type": "application/json",
   };
   let resolvedPath = "/accounts/{AwsAccountId}/namespaces/{Namespace}/iam-policy-assignments";
-  if (input.Namespace !== undefined) {
-    const labelValue: string = input.Namespace;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: Namespace.");
-    }
-    resolvedPath = resolvedPath.replace("{Namespace}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: Namespace.");
-  }
   if (input.AwsAccountId !== undefined) {
     const labelValue: string = input.AwsAccountId;
     if (labelValue.length <= 0) {
@@ -3031,6 +3023,15 @@ export const serializeAws_restJson1ListIAMPolicyAssignmentsCommand = async (
     resolvedPath = resolvedPath.replace("{AwsAccountId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
+  }
+  if (input.Namespace !== undefined) {
+    const labelValue: string = input.Namespace;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: Namespace.");
+    }
+    resolvedPath = resolvedPath.replace("{Namespace}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: Namespace.");
   }
   const query: any = {
     ...(input.MaxResults !== undefined && { "max-results": input.MaxResults.toString() }),
@@ -3061,15 +3062,6 @@ export const serializeAws_restJson1ListIAMPolicyAssignmentsForUserCommand = asyn
     "Content-Type": "",
   };
   let resolvedPath = "/accounts/{AwsAccountId}/namespaces/{Namespace}/users/{UserName}/iam-policy-assignments";
-  if (input.Namespace !== undefined) {
-    const labelValue: string = input.Namespace;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: Namespace.");
-    }
-    resolvedPath = resolvedPath.replace("{Namespace}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: Namespace.");
-  }
   if (input.AwsAccountId !== undefined) {
     const labelValue: string = input.AwsAccountId;
     if (labelValue.length <= 0) {
@@ -3078,6 +3070,15 @@ export const serializeAws_restJson1ListIAMPolicyAssignmentsForUserCommand = asyn
     resolvedPath = resolvedPath.replace("{AwsAccountId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
+  }
+  if (input.Namespace !== undefined) {
+    const labelValue: string = input.Namespace;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: Namespace.");
+    }
+    resolvedPath = resolvedPath.replace("{Namespace}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: Namespace.");
   }
   if (input.UserName !== undefined) {
     const labelValue: string = input.UserName;
@@ -3089,8 +3090,8 @@ export const serializeAws_restJson1ListIAMPolicyAssignmentsForUserCommand = asyn
     throw new Error("No value provided for input HTTP label: UserName.");
   }
   const query: any = {
-    ...(input.MaxResults !== undefined && { "max-results": input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { "next-token": input.NextToken }),
+    ...(input.MaxResults !== undefined && { "max-results": input.MaxResults.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -3223,15 +3224,6 @@ export const serializeAws_restJson1ListTemplateAliasesCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/accounts/{AwsAccountId}/templates/{TemplateId}/aliases";
-  if (input.TemplateId !== undefined) {
-    const labelValue: string = input.TemplateId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: TemplateId.");
-    }
-    resolvedPath = resolvedPath.replace("{TemplateId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: TemplateId.");
-  }
   if (input.AwsAccountId !== undefined) {
     const labelValue: string = input.AwsAccountId;
     if (labelValue.length <= 0) {
@@ -3240,6 +3232,15 @@ export const serializeAws_restJson1ListTemplateAliasesCommand = async (
     resolvedPath = resolvedPath.replace("{AwsAccountId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
+  }
+  if (input.TemplateId !== undefined) {
+    const labelValue: string = input.TemplateId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: TemplateId.");
+    }
+    resolvedPath = resolvedPath.replace("{TemplateId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: TemplateId.");
   }
   const query: any = {
     ...(input.NextToken !== undefined && { "next-token": input.NextToken }),
@@ -3346,15 +3347,6 @@ export const serializeAws_restJson1ListThemeAliasesCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/accounts/{AwsAccountId}/themes/{ThemeId}/aliases";
-  if (input.AwsAccountId !== undefined) {
-    const labelValue: string = input.AwsAccountId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: AwsAccountId.");
-    }
-    resolvedPath = resolvedPath.replace("{AwsAccountId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: AwsAccountId.");
-  }
   if (input.ThemeId !== undefined) {
     const labelValue: string = input.ThemeId;
     if (labelValue.length <= 0) {
@@ -3363,6 +3355,15 @@ export const serializeAws_restJson1ListThemeAliasesCommand = async (
     resolvedPath = resolvedPath.replace("{ThemeId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ThemeId.");
+  }
+  if (input.AwsAccountId !== undefined) {
+    const labelValue: string = input.AwsAccountId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: AwsAccountId.");
+    }
+    resolvedPath = resolvedPath.replace("{AwsAccountId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
   const query: any = {
     ...(input.MaxResults !== undefined && { "max-result": input.MaxResults.toString() }),
@@ -3400,8 +3401,8 @@ export const serializeAws_restJson1ListThemesCommand = async (
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
   const query: any = {
-    ...(input.MaxResults !== undefined && { "max-results": input.MaxResults.toString() }),
     ...(input.Type !== undefined && { type: input.Type }),
+    ...(input.MaxResults !== undefined && { "max-results": input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { "next-token": input.NextToken }),
   };
   let body: any;
@@ -3445,8 +3446,8 @@ export const serializeAws_restJson1ListThemeVersionsCommand = async (
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
   const query: any = {
-    ...(input.NextToken !== undefined && { "next-token": input.NextToken }),
     ...(input.MaxResults !== undefined && { "max-results": input.MaxResults.toString() }),
+    ...(input.NextToken !== undefined && { "next-token": input.NextToken }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -3470,14 +3471,14 @@ export const serializeAws_restJson1ListUserGroupsCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/accounts/{AwsAccountId}/namespaces/{Namespace}/users/{UserName}/groups";
-  if (input.AwsAccountId !== undefined) {
-    const labelValue: string = input.AwsAccountId;
+  if (input.UserName !== undefined) {
+    const labelValue: string = input.UserName;
     if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: AwsAccountId.");
+      throw new Error("Empty value provided for input HTTP label: UserName.");
     }
-    resolvedPath = resolvedPath.replace("{AwsAccountId}", __extendedEncodeURIComponent(labelValue));
+    resolvedPath = resolvedPath.replace("{UserName}", __extendedEncodeURIComponent(labelValue));
   } else {
-    throw new Error("No value provided for input HTTP label: AwsAccountId.");
+    throw new Error("No value provided for input HTTP label: UserName.");
   }
   if (input.Namespace !== undefined) {
     const labelValue: string = input.Namespace;
@@ -3488,18 +3489,18 @@ export const serializeAws_restJson1ListUserGroupsCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: Namespace.");
   }
-  if (input.UserName !== undefined) {
-    const labelValue: string = input.UserName;
+  if (input.AwsAccountId !== undefined) {
+    const labelValue: string = input.AwsAccountId;
     if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: UserName.");
+      throw new Error("Empty value provided for input HTTP label: AwsAccountId.");
     }
-    resolvedPath = resolvedPath.replace("{UserName}", __extendedEncodeURIComponent(labelValue));
+    resolvedPath = resolvedPath.replace("{AwsAccountId}", __extendedEncodeURIComponent(labelValue));
   } else {
-    throw new Error("No value provided for input HTTP label: UserName.");
+    throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
   const query: any = {
-    ...(input.MaxResults !== undefined && { "max-results": input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { "next-token": input.NextToken }),
+    ...(input.MaxResults !== undefined && { "max-results": input.MaxResults.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -3523,15 +3524,6 @@ export const serializeAws_restJson1ListUsersCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/accounts/{AwsAccountId}/namespaces/{Namespace}/users";
-  if (input.AwsAccountId !== undefined) {
-    const labelValue: string = input.AwsAccountId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: AwsAccountId.");
-    }
-    resolvedPath = resolvedPath.replace("{AwsAccountId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: AwsAccountId.");
-  }
   if (input.Namespace !== undefined) {
     const labelValue: string = input.Namespace;
     if (labelValue.length <= 0) {
@@ -3540,6 +3532,15 @@ export const serializeAws_restJson1ListUsersCommand = async (
     resolvedPath = resolvedPath.replace("{Namespace}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: Namespace.");
+  }
+  if (input.AwsAccountId !== undefined) {
+    const labelValue: string = input.AwsAccountId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: AwsAccountId.");
+    }
+    resolvedPath = resolvedPath.replace("{AwsAccountId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
   const query: any = {
     ...(input.NextToken !== undefined && { "next-token": input.NextToken }),
@@ -3567,15 +3568,6 @@ export const serializeAws_restJson1RegisterUserCommand = async (
     "Content-Type": "application/json",
   };
   let resolvedPath = "/accounts/{AwsAccountId}/namespaces/{Namespace}/users";
-  if (input.AwsAccountId !== undefined) {
-    const labelValue: string = input.AwsAccountId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: AwsAccountId.");
-    }
-    resolvedPath = resolvedPath.replace("{AwsAccountId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: AwsAccountId.");
-  }
   if (input.Namespace !== undefined) {
     const labelValue: string = input.Namespace;
     if (labelValue.length <= 0) {
@@ -3584,6 +3576,15 @@ export const serializeAws_restJson1RegisterUserCommand = async (
     resolvedPath = resolvedPath.replace("{Namespace}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: Namespace.");
+  }
+  if (input.AwsAccountId !== undefined) {
+    const labelValue: string = input.AwsAccountId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: AwsAccountId.");
+    }
+    resolvedPath = resolvedPath.replace("{AwsAccountId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
   let body: any;
   body = JSON.stringify({
@@ -3868,15 +3869,6 @@ export const serializeAws_restJson1UpdateAnalysisCommand = async (
     "Content-Type": "application/json",
   };
   let resolvedPath = "/accounts/{AwsAccountId}/analyses/{AnalysisId}";
-  if (input.AwsAccountId !== undefined) {
-    const labelValue: string = input.AwsAccountId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: AwsAccountId.");
-    }
-    resolvedPath = resolvedPath.replace("{AwsAccountId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: AwsAccountId.");
-  }
   if (input.AnalysisId !== undefined) {
     const labelValue: string = input.AnalysisId;
     if (labelValue.length <= 0) {
@@ -3885,6 +3877,15 @@ export const serializeAws_restJson1UpdateAnalysisCommand = async (
     resolvedPath = resolvedPath.replace("{AnalysisId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: AnalysisId.");
+  }
+  if (input.AwsAccountId !== undefined) {
+    const labelValue: string = input.AwsAccountId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: AwsAccountId.");
+    }
+    resolvedPath = resolvedPath.replace("{AwsAccountId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
   let body: any;
   body = JSON.stringify({
@@ -3915,15 +3916,6 @@ export const serializeAws_restJson1UpdateAnalysisPermissionsCommand = async (
     "Content-Type": "application/json",
   };
   let resolvedPath = "/accounts/{AwsAccountId}/analyses/{AnalysisId}/permissions";
-  if (input.AwsAccountId !== undefined) {
-    const labelValue: string = input.AwsAccountId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: AwsAccountId.");
-    }
-    resolvedPath = resolvedPath.replace("{AwsAccountId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: AwsAccountId.");
-  }
   if (input.AnalysisId !== undefined) {
     const labelValue: string = input.AnalysisId;
     if (labelValue.length <= 0) {
@@ -3932,6 +3924,15 @@ export const serializeAws_restJson1UpdateAnalysisPermissionsCommand = async (
     resolvedPath = resolvedPath.replace("{AnalysisId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: AnalysisId.");
+  }
+  if (input.AwsAccountId !== undefined) {
+    const labelValue: string = input.AwsAccountId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: AwsAccountId.");
+    }
+    resolvedPath = resolvedPath.replace("{AwsAccountId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
   let body: any;
   body = JSON.stringify({
@@ -4108,15 +4109,6 @@ export const serializeAws_restJson1UpdateDataSetCommand = async (
     "Content-Type": "application/json",
   };
   let resolvedPath = "/accounts/{AwsAccountId}/data-sets/{DataSetId}";
-  if (input.AwsAccountId !== undefined) {
-    const labelValue: string = input.AwsAccountId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: AwsAccountId.");
-    }
-    resolvedPath = resolvedPath.replace("{AwsAccountId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: AwsAccountId.");
-  }
   if (input.DataSetId !== undefined) {
     const labelValue: string = input.DataSetId;
     if (labelValue.length <= 0) {
@@ -4125,6 +4117,15 @@ export const serializeAws_restJson1UpdateDataSetCommand = async (
     resolvedPath = resolvedPath.replace("{DataSetId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: DataSetId.");
+  }
+  if (input.AwsAccountId !== undefined) {
+    const labelValue: string = input.AwsAccountId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: AwsAccountId.");
+    }
+    resolvedPath = resolvedPath.replace("{AwsAccountId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
   let body: any;
   body = JSON.stringify({
@@ -4267,15 +4268,6 @@ export const serializeAws_restJson1UpdateDataSourcePermissionsCommand = async (
     "Content-Type": "application/json",
   };
   let resolvedPath = "/accounts/{AwsAccountId}/data-sources/{DataSourceId}/permissions";
-  if (input.DataSourceId !== undefined) {
-    const labelValue: string = input.DataSourceId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: DataSourceId.");
-    }
-    resolvedPath = resolvedPath.replace("{DataSourceId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: DataSourceId.");
-  }
   if (input.AwsAccountId !== undefined) {
     const labelValue: string = input.AwsAccountId;
     if (labelValue.length <= 0) {
@@ -4284,6 +4276,15 @@ export const serializeAws_restJson1UpdateDataSourcePermissionsCommand = async (
     resolvedPath = resolvedPath.replace("{AwsAccountId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
+  }
+  if (input.DataSourceId !== undefined) {
+    const labelValue: string = input.DataSourceId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: DataSourceId.");
+    }
+    resolvedPath = resolvedPath.replace("{DataSourceId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: DataSourceId.");
   }
   let body: any;
   body = JSON.stringify({
@@ -4365,15 +4366,6 @@ export const serializeAws_restJson1UpdateIAMPolicyAssignmentCommand = async (
     "Content-Type": "application/json",
   };
   let resolvedPath = "/accounts/{AwsAccountId}/namespaces/{Namespace}/iam-policy-assignments/{AssignmentName}";
-  if (input.Namespace !== undefined) {
-    const labelValue: string = input.Namespace;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: Namespace.");
-    }
-    resolvedPath = resolvedPath.replace("{Namespace}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: Namespace.");
-  }
   if (input.AwsAccountId !== undefined) {
     const labelValue: string = input.AwsAccountId;
     if (labelValue.length <= 0) {
@@ -4382,6 +4374,15 @@ export const serializeAws_restJson1UpdateIAMPolicyAssignmentCommand = async (
     resolvedPath = resolvedPath.replace("{AwsAccountId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
+  }
+  if (input.Namespace !== undefined) {
+    const labelValue: string = input.Namespace;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: Namespace.");
+    }
+    resolvedPath = resolvedPath.replace("{Namespace}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: Namespace.");
   }
   if (input.AssignmentName !== undefined) {
     const labelValue: string = input.AssignmentName;
@@ -4418,15 +4419,6 @@ export const serializeAws_restJson1UpdateTemplateCommand = async (
     "Content-Type": "application/json",
   };
   let resolvedPath = "/accounts/{AwsAccountId}/templates/{TemplateId}";
-  if (input.AwsAccountId !== undefined) {
-    const labelValue: string = input.AwsAccountId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: AwsAccountId.");
-    }
-    resolvedPath = resolvedPath.replace("{AwsAccountId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: AwsAccountId.");
-  }
   if (input.TemplateId !== undefined) {
     const labelValue: string = input.TemplateId;
     if (labelValue.length <= 0) {
@@ -4435,6 +4427,15 @@ export const serializeAws_restJson1UpdateTemplateCommand = async (
     resolvedPath = resolvedPath.replace("{TemplateId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: TemplateId.");
+  }
+  if (input.AwsAccountId !== undefined) {
+    const labelValue: string = input.AwsAccountId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: AwsAccountId.");
+    }
+    resolvedPath = resolvedPath.replace("{AwsAccountId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
   let body: any;
   body = JSON.stringify({
@@ -4609,15 +4610,6 @@ export const serializeAws_restJson1UpdateThemeAliasCommand = async (
     "Content-Type": "application/json",
   };
   let resolvedPath = "/accounts/{AwsAccountId}/themes/{ThemeId}/aliases/{AliasName}";
-  if (input.ThemeId !== undefined) {
-    const labelValue: string = input.ThemeId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: ThemeId.");
-    }
-    resolvedPath = resolvedPath.replace("{ThemeId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: ThemeId.");
-  }
   if (input.AliasName !== undefined) {
     const labelValue: string = input.AliasName;
     if (labelValue.length <= 0) {
@@ -4626,6 +4618,15 @@ export const serializeAws_restJson1UpdateThemeAliasCommand = async (
     resolvedPath = resolvedPath.replace("{AliasName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: AliasName.");
+  }
+  if (input.ThemeId !== undefined) {
+    const labelValue: string = input.ThemeId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: ThemeId.");
+    }
+    resolvedPath = resolvedPath.replace("{ThemeId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: ThemeId.");
   }
   if (input.AwsAccountId !== undefined) {
     const labelValue: string = input.AwsAccountId;
@@ -4707,6 +4708,15 @@ export const serializeAws_restJson1UpdateUserCommand = async (
     "Content-Type": "application/json",
   };
   let resolvedPath = "/accounts/{AwsAccountId}/namespaces/{Namespace}/users/{UserName}";
+  if (input.AwsAccountId !== undefined) {
+    const labelValue: string = input.AwsAccountId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: AwsAccountId.");
+    }
+    resolvedPath = resolvedPath.replace("{AwsAccountId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: AwsAccountId.");
+  }
   if (input.Namespace !== undefined) {
     const labelValue: string = input.Namespace;
     if (labelValue.length <= 0) {
@@ -4724,15 +4734,6 @@ export const serializeAws_restJson1UpdateUserCommand = async (
     resolvedPath = resolvedPath.replace("{UserName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: UserName.");
-  }
-  if (input.AwsAccountId !== undefined) {
-    const labelValue: string = input.AwsAccountId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: AwsAccountId.");
-    }
-    resolvedPath = resolvedPath.replace("{AwsAccountId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
   let body: any;
   body = JSON.stringify({
@@ -4765,6 +4766,7 @@ export const deserializeAws_restJson1CancelIngestionCommand = async (
     Arn: undefined,
     IngestionId: undefined,
     RequestId: undefined,
+    Status: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.Arn !== undefined && data.Arn !== null) {
@@ -4870,6 +4872,7 @@ export const deserializeAws_restJson1CreateAccountCustomizationCommand = async (
     AwsAccountId: undefined,
     Namespace: undefined,
     RequestId: undefined,
+    Status: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.AccountCustomization !== undefined && data.AccountCustomization !== null) {
@@ -4988,6 +4991,7 @@ export const deserializeAws_restJson1CreateAnalysisCommand = async (
     Arn: undefined,
     CreationStatus: undefined,
     RequestId: undefined,
+    Status: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.AnalysisId !== undefined && data.AnalysisId !== null) {
@@ -5103,6 +5107,7 @@ export const deserializeAws_restJson1CreateDashboardCommand = async (
     CreationStatus: undefined,
     DashboardId: undefined,
     RequestId: undefined,
+    Status: undefined,
     VersionArn: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -5223,6 +5228,7 @@ export const deserializeAws_restJson1CreateDataSetCommand = async (
     IngestionArn: undefined,
     IngestionId: undefined,
     RequestId: undefined,
+    Status: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.Arn !== undefined && data.Arn !== null) {
@@ -5357,6 +5363,7 @@ export const deserializeAws_restJson1CreateDataSourceCommand = async (
     CreationStatus: undefined,
     DataSourceId: undefined,
     RequestId: undefined,
+    Status: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.Arn !== undefined && data.Arn !== null) {
@@ -5478,6 +5485,7 @@ export const deserializeAws_restJson1CreateGroupCommand = async (
     $metadata: deserializeMetadata(output),
     Group: undefined,
     RequestId: undefined,
+    Status: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.Group !== undefined && data.Group !== null) {
@@ -5601,6 +5609,7 @@ export const deserializeAws_restJson1CreateGroupMembershipCommand = async (
     $metadata: deserializeMetadata(output),
     GroupMember: undefined,
     RequestId: undefined,
+    Status: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.GroupMember !== undefined && data.GroupMember !== null) {
@@ -5712,6 +5721,7 @@ export const deserializeAws_restJson1CreateIAMPolicyAssignmentCommand = async (
     Identities: undefined,
     PolicyArn: undefined,
     RequestId: undefined,
+    Status: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.AssignmentId !== undefined && data.AssignmentId !== null) {
@@ -5833,6 +5843,7 @@ export const deserializeAws_restJson1CreateIngestionCommand = async (
     IngestionId: undefined,
     IngestionStatus: undefined,
     RequestId: undefined,
+    Status: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.Arn !== undefined && data.Arn !== null) {
@@ -5950,6 +5961,7 @@ export const deserializeAws_restJson1CreateNamespaceCommand = async (
     IdentityStore: undefined,
     Name: undefined,
     RequestId: undefined,
+    Status: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.Arn !== undefined && data.Arn !== null) {
@@ -6094,6 +6106,7 @@ export const deserializeAws_restJson1CreateTemplateCommand = async (
     Arn: undefined,
     CreationStatus: undefined,
     RequestId: undefined,
+    Status: undefined,
     TemplateId: undefined,
     VersionArn: undefined,
   };
@@ -6227,6 +6240,7 @@ export const deserializeAws_restJson1CreateTemplateAliasCommand = async (
   const contents: CreateTemplateAliasCommandOutput = {
     $metadata: deserializeMetadata(output),
     RequestId: undefined,
+    Status: undefined,
     TemplateAlias: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -6336,6 +6350,7 @@ export const deserializeAws_restJson1CreateThemeCommand = async (
     Arn: undefined,
     CreationStatus: undefined,
     RequestId: undefined,
+    Status: undefined,
     ThemeId: undefined,
     VersionArn: undefined,
   };
@@ -6461,6 +6476,7 @@ export const deserializeAws_restJson1CreateThemeAliasCommand = async (
   const contents: CreateThemeAliasCommandOutput = {
     $metadata: deserializeMetadata(output),
     RequestId: undefined,
+    Status: undefined,
     ThemeAlias: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -6576,6 +6592,7 @@ export const deserializeAws_restJson1DeleteAccountCustomizationCommand = async (
   const contents: DeleteAccountCustomizationCommandOutput = {
     $metadata: deserializeMetadata(output),
     RequestId: undefined,
+    Status: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.RequestId !== undefined && data.RequestId !== null) {
@@ -6674,6 +6691,7 @@ export const deserializeAws_restJson1DeleteAnalysisCommand = async (
     Arn: undefined,
     DeletionTime: undefined,
     RequestId: undefined,
+    Status: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.AnalysisId !== undefined && data.AnalysisId !== null) {
@@ -6780,6 +6798,7 @@ export const deserializeAws_restJson1DeleteDashboardCommand = async (
     Arn: undefined,
     DashboardId: undefined,
     RequestId: undefined,
+    Status: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.Arn !== undefined && data.Arn !== null) {
@@ -6883,6 +6902,7 @@ export const deserializeAws_restJson1DeleteDataSetCommand = async (
     Arn: undefined,
     DataSetId: undefined,
     RequestId: undefined,
+    Status: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.Arn !== undefined && data.Arn !== null) {
@@ -6978,6 +6998,7 @@ export const deserializeAws_restJson1DeleteDataSourceCommand = async (
     Arn: undefined,
     DataSourceId: undefined,
     RequestId: undefined,
+    Status: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.Arn !== undefined && data.Arn !== null) {
@@ -7071,6 +7092,7 @@ export const deserializeAws_restJson1DeleteGroupCommand = async (
   const contents: DeleteGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     RequestId: undefined,
+    Status: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.RequestId !== undefined && data.RequestId !== null) {
@@ -7174,6 +7196,7 @@ export const deserializeAws_restJson1DeleteGroupMembershipCommand = async (
   const contents: DeleteGroupMembershipCommandOutput = {
     $metadata: deserializeMetadata(output),
     RequestId: undefined,
+    Status: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.RequestId !== undefined && data.RequestId !== null) {
@@ -7278,6 +7301,7 @@ export const deserializeAws_restJson1DeleteIAMPolicyAssignmentCommand = async (
     $metadata: deserializeMetadata(output),
     AssignmentName: undefined,
     RequestId: undefined,
+    Status: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.AssignmentName !== undefined && data.AssignmentName !== null) {
@@ -7384,6 +7408,7 @@ export const deserializeAws_restJson1DeleteNamespaceCommand = async (
   const contents: DeleteNamespaceCommandOutput = {
     $metadata: deserializeMetadata(output),
     RequestId: undefined,
+    Status: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.RequestId !== undefined && data.RequestId !== null) {
@@ -7488,6 +7513,7 @@ export const deserializeAws_restJson1DeleteTemplateCommand = async (
     $metadata: deserializeMetadata(output),
     Arn: undefined,
     RequestId: undefined,
+    Status: undefined,
     TemplateId: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -7600,6 +7626,7 @@ export const deserializeAws_restJson1DeleteTemplateAliasCommand = async (
     AliasName: undefined,
     Arn: undefined,
     RequestId: undefined,
+    Status: undefined,
     TemplateId: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -7698,6 +7725,7 @@ export const deserializeAws_restJson1DeleteThemeCommand = async (
     $metadata: deserializeMetadata(output),
     Arn: undefined,
     RequestId: undefined,
+    Status: undefined,
     ThemeId: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -7810,6 +7838,7 @@ export const deserializeAws_restJson1DeleteThemeAliasCommand = async (
     AliasName: undefined,
     Arn: undefined,
     RequestId: undefined,
+    Status: undefined,
     ThemeId: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -7915,6 +7944,7 @@ export const deserializeAws_restJson1DeleteUserCommand = async (
   const contents: DeleteUserCommandOutput = {
     $metadata: deserializeMetadata(output),
     RequestId: undefined,
+    Status: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.RequestId !== undefined && data.RequestId !== null) {
@@ -8018,6 +8048,7 @@ export const deserializeAws_restJson1DeleteUserByPrincipalIdCommand = async (
   const contents: DeleteUserByPrincipalIdCommandOutput = {
     $metadata: deserializeMetadata(output),
     RequestId: undefined,
+    Status: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.RequestId !== undefined && data.RequestId !== null) {
@@ -8125,6 +8156,7 @@ export const deserializeAws_restJson1DescribeAccountCustomizationCommand = async
     AwsAccountId: undefined,
     Namespace: undefined,
     RequestId: undefined,
+    Status: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.AccountCustomization !== undefined && data.AccountCustomization !== null) {
@@ -8233,6 +8265,7 @@ export const deserializeAws_restJson1DescribeAccountSettingsCommand = async (
     $metadata: deserializeMetadata(output),
     AccountSettings: undefined,
     RequestId: undefined,
+    Status: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.AccountSettings !== undefined && data.AccountSettings !== null) {
@@ -8332,6 +8365,7 @@ export const deserializeAws_restJson1DescribeAnalysisCommand = async (
     $metadata: deserializeMetadata(output),
     Analysis: undefined,
     RequestId: undefined,
+    Status: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.Analysis !== undefined && data.Analysis !== null) {
@@ -8433,6 +8467,7 @@ export const deserializeAws_restJson1DescribeAnalysisPermissionsCommand = async 
     AnalysisId: undefined,
     Permissions: undefined,
     RequestId: undefined,
+    Status: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.AnalysisArn !== undefined && data.AnalysisArn !== null) {
@@ -8530,6 +8565,7 @@ export const deserializeAws_restJson1DescribeDashboardCommand = async (
     $metadata: deserializeMetadata(output),
     Dashboard: undefined,
     RequestId: undefined,
+    Status: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.Dashboard !== undefined && data.Dashboard !== null) {
@@ -8631,6 +8667,7 @@ export const deserializeAws_restJson1DescribeDashboardPermissionsCommand = async
     DashboardId: undefined,
     Permissions: undefined,
     RequestId: undefined,
+    Status: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.DashboardArn !== undefined && data.DashboardArn !== null) {
@@ -8728,6 +8765,7 @@ export const deserializeAws_restJson1DescribeDataSetCommand = async (
     $metadata: deserializeMetadata(output),
     DataSet: undefined,
     RequestId: undefined,
+    Status: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.DataSet !== undefined && data.DataSet !== null) {
@@ -8821,6 +8859,7 @@ export const deserializeAws_restJson1DescribeDataSetPermissionsCommand = async (
     DataSetId: undefined,
     Permissions: undefined,
     RequestId: undefined,
+    Status: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.DataSetArn !== undefined && data.DataSetArn !== null) {
@@ -8918,6 +8957,7 @@ export const deserializeAws_restJson1DescribeDataSourceCommand = async (
     $metadata: deserializeMetadata(output),
     DataSource: undefined,
     RequestId: undefined,
+    Status: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.DataSource !== undefined && data.DataSource !== null) {
@@ -9011,6 +9051,7 @@ export const deserializeAws_restJson1DescribeDataSourcePermissionsCommand = asyn
     DataSourceId: undefined,
     Permissions: undefined,
     RequestId: undefined,
+    Status: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.DataSourceArn !== undefined && data.DataSourceArn !== null) {
@@ -9108,6 +9149,7 @@ export const deserializeAws_restJson1DescribeGroupCommand = async (
     $metadata: deserializeMetadata(output),
     Group: undefined,
     RequestId: undefined,
+    Status: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.Group !== undefined && data.Group !== null) {
@@ -9215,6 +9257,7 @@ export const deserializeAws_restJson1DescribeIAMPolicyAssignmentCommand = async 
     $metadata: deserializeMetadata(output),
     IAMPolicyAssignment: undefined,
     RequestId: undefined,
+    Status: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.IAMPolicyAssignment !== undefined && data.IAMPolicyAssignment !== null) {
@@ -9314,6 +9357,7 @@ export const deserializeAws_restJson1DescribeIngestionCommand = async (
     $metadata: deserializeMetadata(output),
     Ingestion: undefined,
     RequestId: undefined,
+    Status: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.Ingestion !== undefined && data.Ingestion !== null) {
@@ -9413,6 +9457,7 @@ export const deserializeAws_restJson1DescribeNamespaceCommand = async (
     $metadata: deserializeMetadata(output),
     Namespace: undefined,
     RequestId: undefined,
+    Status: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.Namespace !== undefined && data.Namespace !== null) {
@@ -9511,6 +9556,7 @@ export const deserializeAws_restJson1DescribeTemplateCommand = async (
   const contents: DescribeTemplateCommandOutput = {
     $metadata: deserializeMetadata(output),
     RequestId: undefined,
+    Status: undefined,
     Template: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -9626,6 +9672,7 @@ export const deserializeAws_restJson1DescribeTemplateAliasCommand = async (
   const contents: DescribeTemplateAliasCommandOutput = {
     $metadata: deserializeMetadata(output),
     RequestId: undefined,
+    Status: undefined,
     TemplateAlias: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -9710,6 +9757,7 @@ export const deserializeAws_restJson1DescribeTemplatePermissionsCommand = async 
     $metadata: deserializeMetadata(output),
     Permissions: undefined,
     RequestId: undefined,
+    Status: undefined,
     TemplateArn: undefined,
     TemplateId: undefined,
   };
@@ -9816,6 +9864,7 @@ export const deserializeAws_restJson1DescribeThemeCommand = async (
   const contents: DescribeThemeCommandOutput = {
     $metadata: deserializeMetadata(output),
     RequestId: undefined,
+    Status: undefined,
     Theme: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -9923,6 +9972,7 @@ export const deserializeAws_restJson1DescribeThemeAliasCommand = async (
   const contents: DescribeThemeAliasCommandOutput = {
     $metadata: deserializeMetadata(output),
     RequestId: undefined,
+    Status: undefined,
     ThemeAlias: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -10023,6 +10073,7 @@ export const deserializeAws_restJson1DescribeThemePermissionsCommand = async (
     $metadata: deserializeMetadata(output),
     Permissions: undefined,
     RequestId: undefined,
+    Status: undefined,
     ThemeArn: undefined,
     ThemeId: undefined,
   };
@@ -10129,6 +10180,7 @@ export const deserializeAws_restJson1DescribeUserCommand = async (
   const contents: DescribeUserCommandOutput = {
     $metadata: deserializeMetadata(output),
     RequestId: undefined,
+    Status: undefined,
     User: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -10237,6 +10289,7 @@ export const deserializeAws_restJson1GetDashboardEmbedUrlCommand = async (
     $metadata: deserializeMetadata(output),
     EmbedUrl: undefined,
     RequestId: undefined,
+    Status: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.EmbedUrl !== undefined && data.EmbedUrl !== null) {
@@ -10376,6 +10429,7 @@ export const deserializeAws_restJson1GetSessionEmbedUrlCommand = async (
     $metadata: deserializeMetadata(output),
     EmbedUrl: undefined,
     RequestId: undefined,
+    Status: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.EmbedUrl !== undefined && data.EmbedUrl !== null) {
@@ -10500,6 +10554,7 @@ export const deserializeAws_restJson1ListAnalysesCommand = async (
     AnalysisSummaryList: undefined,
     NextToken: undefined,
     RequestId: undefined,
+    Status: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.AnalysisSummaryList !== undefined && data.AnalysisSummaryList !== null) {
@@ -10587,6 +10642,7 @@ export const deserializeAws_restJson1ListDashboardsCommand = async (
     DashboardSummaryList: undefined,
     NextToken: undefined,
     RequestId: undefined,
+    Status: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.DashboardSummaryList !== undefined && data.DashboardSummaryList !== null) {
@@ -10674,6 +10730,7 @@ export const deserializeAws_restJson1ListDashboardVersionsCommand = async (
     DashboardVersionSummaryList: undefined,
     NextToken: undefined,
     RequestId: undefined,
+    Status: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.DashboardVersionSummaryList !== undefined && data.DashboardVersionSummaryList !== null) {
@@ -10780,6 +10837,7 @@ export const deserializeAws_restJson1ListDataSetsCommand = async (
     DataSetSummaries: undefined,
     NextToken: undefined,
     RequestId: undefined,
+    Status: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.DataSetSummaries !== undefined && data.DataSetSummaries !== null) {
@@ -10875,6 +10933,7 @@ export const deserializeAws_restJson1ListDataSourcesCommand = async (
     DataSources: undefined,
     NextToken: undefined,
     RequestId: undefined,
+    Status: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.DataSources !== undefined && data.DataSources !== null) {
@@ -10970,6 +11029,7 @@ export const deserializeAws_restJson1ListGroupMembershipsCommand = async (
     GroupMemberList: undefined,
     NextToken: undefined,
     RequestId: undefined,
+    Status: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.GroupMemberList !== undefined && data.GroupMemberList !== null) {
@@ -11089,6 +11149,7 @@ export const deserializeAws_restJson1ListGroupsCommand = async (
     GroupList: undefined,
     NextToken: undefined,
     RequestId: undefined,
+    Status: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.GroupList !== undefined && data.GroupList !== null) {
@@ -11208,6 +11269,7 @@ export const deserializeAws_restJson1ListIAMPolicyAssignmentsCommand = async (
     IAMPolicyAssignments: undefined,
     NextToken: undefined,
     RequestId: undefined,
+    Status: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.IAMPolicyAssignments !== undefined && data.IAMPolicyAssignments !== null) {
@@ -11314,6 +11376,7 @@ export const deserializeAws_restJson1ListIAMPolicyAssignmentsForUserCommand = as
     ActiveAssignments: undefined,
     NextToken: undefined,
     RequestId: undefined,
+    Status: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.ActiveAssignments !== undefined && data.ActiveAssignments !== null) {
@@ -11425,6 +11488,7 @@ export const deserializeAws_restJson1ListIngestionsCommand = async (
     Ingestions: undefined,
     NextToken: undefined,
     RequestId: undefined,
+    Status: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.Ingestions !== undefined && data.Ingestions !== null) {
@@ -11536,6 +11600,7 @@ export const deserializeAws_restJson1ListNamespacesCommand = async (
     Namespaces: undefined,
     NextToken: undefined,
     RequestId: undefined,
+    Status: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.Namespaces !== undefined && data.Namespaces !== null) {
@@ -11653,6 +11718,7 @@ export const deserializeAws_restJson1ListTagsForResourceCommand = async (
   const contents: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     RequestId: undefined,
+    Status: undefined,
     Tags: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -11745,6 +11811,7 @@ export const deserializeAws_restJson1ListTemplateAliasesCommand = async (
     $metadata: deserializeMetadata(output),
     NextToken: undefined,
     RequestId: undefined,
+    Status: undefined,
     TemplateAliasList: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -11840,6 +11907,7 @@ export const deserializeAws_restJson1ListTemplatesCommand = async (
     $metadata: deserializeMetadata(output),
     NextToken: undefined,
     RequestId: undefined,
+    Status: undefined,
     TemplateSummaryList: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -11943,6 +12011,7 @@ export const deserializeAws_restJson1ListTemplateVersionsCommand = async (
     $metadata: deserializeMetadata(output),
     NextToken: undefined,
     RequestId: undefined,
+    Status: undefined,
     TemplateVersionSummaryList: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -12049,6 +12118,7 @@ export const deserializeAws_restJson1ListThemeAliasesCommand = async (
     $metadata: deserializeMetadata(output),
     NextToken: undefined,
     RequestId: undefined,
+    Status: undefined,
     ThemeAliasList: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -12160,6 +12230,7 @@ export const deserializeAws_restJson1ListThemesCommand = async (
     $metadata: deserializeMetadata(output),
     NextToken: undefined,
     RequestId: undefined,
+    Status: undefined,
     ThemeSummaryList: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -12271,6 +12342,7 @@ export const deserializeAws_restJson1ListThemeVersionsCommand = async (
     $metadata: deserializeMetadata(output),
     NextToken: undefined,
     RequestId: undefined,
+    Status: undefined,
     ThemeVersionSummaryList: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -12386,6 +12458,7 @@ export const deserializeAws_restJson1ListUserGroupsCommand = async (
     GroupList: undefined,
     NextToken: undefined,
     RequestId: undefined,
+    Status: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.GroupList !== undefined && data.GroupList !== null) {
@@ -12496,6 +12569,7 @@ export const deserializeAws_restJson1ListUsersCommand = async (
     $metadata: deserializeMetadata(output),
     NextToken: undefined,
     RequestId: undefined,
+    Status: undefined,
     UserList: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -12614,6 +12688,7 @@ export const deserializeAws_restJson1RegisterUserCommand = async (
   const contents: RegisterUserCommandOutput = {
     $metadata: deserializeMetadata(output),
     RequestId: undefined,
+    Status: undefined,
     User: undefined,
     UserInvitationUrl: undefined,
   };
@@ -12743,6 +12818,7 @@ export const deserializeAws_restJson1RestoreAnalysisCommand = async (
     AnalysisId: undefined,
     Arn: undefined,
     RequestId: undefined,
+    Status: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.AnalysisId !== undefined && data.AnalysisId !== null) {
@@ -12846,6 +12922,7 @@ export const deserializeAws_restJson1SearchAnalysesCommand = async (
     AnalysisSummaryList: undefined,
     NextToken: undefined,
     RequestId: undefined,
+    Status: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.AnalysisSummaryList !== undefined && data.AnalysisSummaryList !== null) {
@@ -12949,6 +13026,7 @@ export const deserializeAws_restJson1SearchDashboardsCommand = async (
     DashboardSummaryList: undefined,
     NextToken: undefined,
     RequestId: undefined,
+    Status: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.DashboardSummaryList !== undefined && data.DashboardSummaryList !== null) {
@@ -13050,6 +13128,7 @@ export const deserializeAws_restJson1TagResourceCommand = async (
   const contents: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     RequestId: undefined,
+    Status: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.RequestId !== undefined && data.RequestId !== null) {
@@ -13145,6 +13224,7 @@ export const deserializeAws_restJson1UntagResourceCommand = async (
   const contents: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     RequestId: undefined,
+    Status: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.RequestId !== undefined && data.RequestId !== null) {
@@ -13236,6 +13316,7 @@ export const deserializeAws_restJson1UpdateAccountCustomizationCommand = async (
     AwsAccountId: undefined,
     Namespace: undefined,
     RequestId: undefined,
+    Status: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.AccountCustomization !== undefined && data.AccountCustomization !== null) {
@@ -13343,6 +13424,7 @@ export const deserializeAws_restJson1UpdateAccountSettingsCommand = async (
   const contents: UpdateAccountSettingsCommandOutput = {
     $metadata: deserializeMetadata(output),
     RequestId: undefined,
+    Status: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.RequestId !== undefined && data.RequestId !== null) {
@@ -13440,6 +13522,7 @@ export const deserializeAws_restJson1UpdateAnalysisCommand = async (
     AnalysisId: undefined,
     Arn: undefined,
     RequestId: undefined,
+    Status: undefined,
     UpdateStatus: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -13556,6 +13639,7 @@ export const deserializeAws_restJson1UpdateAnalysisPermissionsCommand = async (
     AnalysisId: undefined,
     Permissions: undefined,
     RequestId: undefined,
+    Status: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.AnalysisArn !== undefined && data.AnalysisArn !== null) {
@@ -13786,6 +13870,7 @@ export const deserializeAws_restJson1UpdateDashboardPermissionsCommand = async (
     DashboardId: undefined,
     Permissions: undefined,
     RequestId: undefined,
+    Status: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.DashboardArn !== undefined && data.DashboardArn !== null) {
@@ -13892,6 +13977,7 @@ export const deserializeAws_restJson1UpdateDashboardPublishedVersionCommand = as
     DashboardArn: undefined,
     DashboardId: undefined,
     RequestId: undefined,
+    Status: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.DashboardArn !== undefined && data.DashboardArn !== null) {
@@ -13997,6 +14083,7 @@ export const deserializeAws_restJson1UpdateDataSetCommand = async (
     IngestionArn: undefined,
     IngestionId: undefined,
     RequestId: undefined,
+    Status: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.Arn !== undefined && data.Arn !== null) {
@@ -14122,6 +14209,7 @@ export const deserializeAws_restJson1UpdateDataSetPermissionsCommand = async (
     DataSetArn: undefined,
     DataSetId: undefined,
     RequestId: undefined,
+    Status: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.DataSetArn !== undefined && data.DataSetArn !== null) {
@@ -14225,6 +14313,7 @@ export const deserializeAws_restJson1UpdateDataSourceCommand = async (
     Arn: undefined,
     DataSourceId: undefined,
     RequestId: undefined,
+    Status: undefined,
     UpdateStatus: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -14332,6 +14421,7 @@ export const deserializeAws_restJson1UpdateDataSourcePermissionsCommand = async 
     DataSourceArn: undefined,
     DataSourceId: undefined,
     RequestId: undefined,
+    Status: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.DataSourceArn !== undefined && data.DataSourceArn !== null) {
@@ -14434,6 +14524,7 @@ export const deserializeAws_restJson1UpdateGroupCommand = async (
     $metadata: deserializeMetadata(output),
     Group: undefined,
     RequestId: undefined,
+    Status: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.Group !== undefined && data.Group !== null) {
@@ -14545,6 +14636,7 @@ export const deserializeAws_restJson1UpdateIAMPolicyAssignmentCommand = async (
     Identities: undefined,
     PolicyArn: undefined,
     RequestId: undefined,
+    Status: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.AssignmentId !== undefined && data.AssignmentId !== null) {
@@ -14665,6 +14757,7 @@ export const deserializeAws_restJson1UpdateTemplateCommand = async (
     Arn: undefined,
     CreationStatus: undefined,
     RequestId: undefined,
+    Status: undefined,
     TemplateId: undefined,
     VersionArn: undefined,
   };
@@ -14790,6 +14883,7 @@ export const deserializeAws_restJson1UpdateTemplateAliasCommand = async (
   const contents: UpdateTemplateAliasCommandOutput = {
     $metadata: deserializeMetadata(output),
     RequestId: undefined,
+    Status: undefined,
     TemplateAlias: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -14882,6 +14976,7 @@ export const deserializeAws_restJson1UpdateTemplatePermissionsCommand = async (
     $metadata: deserializeMetadata(output),
     Permissions: undefined,
     RequestId: undefined,
+    Status: undefined,
     TemplateArn: undefined,
     TemplateId: undefined,
   };
@@ -14990,6 +15085,7 @@ export const deserializeAws_restJson1UpdateThemeCommand = async (
     Arn: undefined,
     CreationStatus: undefined,
     RequestId: undefined,
+    Status: undefined,
     ThemeId: undefined,
     VersionArn: undefined,
   };
@@ -15115,6 +15211,7 @@ export const deserializeAws_restJson1UpdateThemeAliasCommand = async (
   const contents: UpdateThemeAliasCommandOutput = {
     $metadata: deserializeMetadata(output),
     RequestId: undefined,
+    Status: undefined,
     ThemeAlias: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -15223,6 +15320,7 @@ export const deserializeAws_restJson1UpdateThemePermissionsCommand = async (
     $metadata: deserializeMetadata(output),
     Permissions: undefined,
     RequestId: undefined,
+    Status: undefined,
     ThemeArn: undefined,
     ThemeId: undefined,
   };
@@ -15329,6 +15427,7 @@ export const deserializeAws_restJson1UpdateUserCommand = async (
   const contents: UpdateUserCommandOutput = {
     $metadata: deserializeMetadata(output),
     RequestId: undefined,
+    Status: undefined,
     User: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -15923,6 +16022,12 @@ const serializeAws_restJson1ColorList = (input: string[], context: __SerdeContex
   return input.map((entry) => entry);
 };
 
+const serializeAws_restJson1ColumnDescription = (input: ColumnDescription, context: __SerdeContext): any => {
+  return {
+    ...(input.Text !== undefined && { Text: input.Text }),
+  };
+};
+
 const serializeAws_restJson1ColumnGroup = (input: ColumnGroup, context: __SerdeContext): any => {
   return {
     ...(input.GeoSpatialColumnGroup !== undefined && {
@@ -15941,6 +16046,9 @@ const serializeAws_restJson1ColumnList = (input: string[], context: __SerdeConte
 
 const serializeAws_restJson1ColumnTag = (input: ColumnTag, context: __SerdeContext): any => {
   return {
+    ...(input.ColumnDescription !== undefined && {
+      ColumnDescription: serializeAws_restJson1ColumnDescription(input.ColumnDescription, context),
+    }),
     ...(input.ColumnGeographicRole !== undefined && { ColumnGeographicRole: input.ColumnGeographicRole }),
   };
 };
@@ -16856,6 +16964,12 @@ const deserializeAws_restJson1ColorList = (output: any, context: __SerdeContext)
   return (output || []).map((entry: any) => entry);
 };
 
+const deserializeAws_restJson1ColumnDescription = (output: any, context: __SerdeContext): ColumnDescription => {
+  return {
+    Text: output.Text !== undefined && output.Text !== null ? output.Text : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1ColumnGroup = (output: any, context: __SerdeContext): ColumnGroup => {
   return {
     GeoSpatialColumnGroup:
@@ -16918,6 +17032,10 @@ const deserializeAws_restJson1ColumnSchemaList = (output: any, context: __SerdeC
 
 const deserializeAws_restJson1ColumnTag = (output: any, context: __SerdeContext): ColumnTag => {
   return {
+    ColumnDescription:
+      output.ColumnDescription !== undefined && output.ColumnDescription !== null
+        ? deserializeAws_restJson1ColumnDescription(output.ColumnDescription, context)
+        : undefined,
     ColumnGeographicRole:
       output.ColumnGeographicRole !== undefined && output.ColumnGeographicRole !== null
         ? output.ColumnGeographicRole
@@ -17593,6 +17711,7 @@ const deserializeAws_restJson1Namespaces = (output: any, context: __SerdeContext
 
 const deserializeAws_restJson1OutputColumn = (output: any, context: __SerdeContext): OutputColumn => {
   return {
+    Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
     Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
     Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
   } as any;

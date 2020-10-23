@@ -7,7 +7,7 @@ export enum AdminStatus {
 }
 
 /**
- * <p>Provides information about an account that's designated as a delegated administrator of Amazon Macie for an AWS organization.</p>
+ * <p>Provides information about the delegated Amazon Macie administrator account for an AWS organization.</p>
  */
 export interface AdminAccount {
   /**
@@ -530,12 +530,12 @@ export interface Range {
   startColumn?: number;
 
   /**
-   * <p>Possible values are:</p> <ul><li><p>In an Occurrences.lineRanges array, the number of lines from the start of the file.</p></li> <li><p>In an Occurrences.offsetRanges array, the number of characters from the start of the file.</p></li> <li><p>In a Page object, the number of lines (lineRange) or characters (offsetRange) from the start of the page.</p></li></ul>
+   * <p>Possible values are:</p> <ul><li><p>In an Occurrences.lineRanges array, the number of lines from the beginning of the file to the beginning of the sensitive data.</p></li> <li><p>In an Occurrences.offsetRanges array, the number of characters from the beginning of the file to the beginning of the sensitive data.</p></li> <li><p>In a Page object, the number of lines (lineRange) or characters (offsetRange) from the beginning of the page to the beginning of the sensitive data.</p></li></ul>
    */
   start?: number;
 
   /**
-   * <p>Possible values are:</p> <ul><li><p>In an Occurrences.lineRanges array, the number of lines from the end of the file.</p></li> <li><p>In an Occurrences.offsetRanges array, the number of characters from the end of the file.</p></li> <li><p>In a Page object, the number of lines (lineRange) or characters (offsetRange) from the end of the page.</p></li></ul>
+   * <p>Possible values are:</p> <ul><li><p>In an Occurrences.lineRanges array, the number of lines from the beginning of the file to the end of the sensitive data.</p></li> <li><p>In an Occurrences.offsetRanges array, the number of characters from the beginning of the file to the end of the sensitive data.</p></li> <li><p>In a Page object, the number of lines (lineRange) or characters (offsetRange) from the beginning of the page to the end of the sensitive data.</p></li></ul>
    */
   end?: number;
 }
@@ -561,7 +561,7 @@ export interface Page {
   lineRange?: Range;
 
   /**
-   * <p>The position of the data on the page, relative to the start and end of the page.</p>
+   * <p>The position of the data on the page, relative to the beginning of the page.</p>
    */
   offsetRange?: Range;
 }
@@ -613,7 +613,7 @@ export interface Occurrences {
   cells?: Cell[];
 
   /**
-   * <p>An array of objects, one for each occurrence of sensitive data in a binary text file. Each object specifies the position of the data relative to the start of the file.</p> <p>This value is typically null. For binary text files, Macie adds location data to a lineRanges.Range or Page object, depending on the file type.</p>
+   * <p>An array of objects, one for each occurrence of sensitive data in a binary text file. Each object specifies the position of the data relative to the beginning of the file.</p> <p>This value is typically null. For binary text files, Macie adds location data to a lineRanges.Range or Page object, depending on the file type.</p>
    */
   offsetRanges?: Range[];
 }
@@ -656,7 +656,7 @@ export namespace CustomDetection {
 }
 
 /**
- * <p>Provides information about the number of occurrences of the data that produced a sensitive data finding, and the custom data identifiers that detected the data for the finding.</p>
+ * <p>Provides information about custom data identifiers that produced a sensitive data finding, and the number of occurrences of the data that they detected for the finding.</p>
  */
 export interface CustomDataIdentifiers {
   /**
@@ -3512,7 +3512,7 @@ export interface DescribeOrganizationConfigurationResponse {
   autoEnable?: boolean;
 
   /**
-   * <p>Specifies whether the maximum number of Amazon Macie member accounts are already associated with the AWS organization.</p>
+   * <p>Specifies whether the maximum number of Amazon Macie member accounts are part of the AWS organization.</p>
    */
   maxAccountLimitReached?: boolean;
 }
@@ -3641,7 +3641,7 @@ export namespace EnableMacieResponse {
 
 export interface EnableOrganizationAdminAccountRequest {
   /**
-   * <p>The AWS account ID for the account.</p>
+   * <p>The AWS account ID for the account to designate as the delegated Amazon Macie administrator account for the organization.</p>
    */
   adminAccountId: string | undefined;
 
@@ -4584,7 +4584,7 @@ export interface ListOrganizationAdminAccountsResponse {
   nextToken?: string;
 
   /**
-   * <p>An array of objects, one for each account that's designated as a delegated administrator of Amazon Macie for the AWS organization. Of those accounts, only one can have a status of ENABLED.</p>
+   * <p>An array of objects, one for each delegated Amazon Macie administrator account for the organization. Only one of these accounts can have a status of ENABLED.</p>
    */
   adminAccounts?: AdminAccount[];
 }
