@@ -77,5 +77,10 @@
     "url": "https://aws.amazon.com/javascript/"
   },
   "license": "Apache-2.0",
-  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/master/clients/client-route-53"
+  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/master/clients/client-route-53",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aws/aws-sdk-js-v3.git",
+    "directory": "clients/client-route-53"
+  }
 }

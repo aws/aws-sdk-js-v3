@@ -76,5 +76,10 @@
     "url": "https://aws.amazon.com/javascript/"
   },
   "license": "Apache-2.0",
-  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/master/clients/client-secrets-manager"
+  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/master/clients/client-secrets-manager",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aws/aws-sdk-js-v3.git",
+    "directory": "clients/client-secrets-manager"
+  }
 }
