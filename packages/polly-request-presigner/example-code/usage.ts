@@ -3,7 +3,7 @@ import { Polly, PollyClient } from "@aws-sdk/client-polly";
 import { getSynthesizeSpeechUrl } from "../src/index";
 
 const synthesizeSpeechParams = {
-  Text: "Hello world, the poly presigner is really cool!",
+  Text: "Hello world, the polly presigner is really cool!",
   OutputFormat: "mp3",
   VoiceId: "Kimberly",
 };
