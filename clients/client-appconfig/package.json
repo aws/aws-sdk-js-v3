@@ -73,5 +73,6 @@
     "name": "AWS SDK for JavaScript Team",
     "url": "https://aws.amazon.com/javascript/"
   },
-  "license": "Apache-2.0"
+  "license": "Apache-2.0",
+  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/master/clients/client-appconfig"
 }
