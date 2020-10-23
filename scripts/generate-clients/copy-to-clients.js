@@ -88,6 +88,7 @@ const getInternalDepVersion = (depName) => {
 const copyToClients = async (sourceDir, destinationDir) => {
   for (const modelName of readdirSync(sourceDir)) {
     if (modelName === "source") continue;
+
     const artifactPath = join(sourceDir, modelName, "typescript-codegen");
     const packageManifestPath = join(artifactPath, "package.json");
     if (!existsSync(packageManifestPath)) {
@@ -97,16 +98,23 @@ const copyToClients = async (sourceDir, destinationDir) => {
 
     const packageManifest = JSON.parse(readFileSync(packageManifestPath).toString());
     const packageName = packageManifest.name;
+    const clientName = packageName.replace("@aws-sdk/", "");
+
     console.log(`copying ${packageName} from ${artifactPath} to ${destinationDir}`);
-    const destPath = join(destinationDir, packageName.replace("@aws-sdk/", ""));
+    const destPath = join(destinationDir, clientName);
     const overwritablePredicate = getOverwritablePredicate(packageName);
+
     for (const packageSub of readdirSync(artifactPath)) {
       const packageSubPath = join(artifactPath, packageSub);
       const destSubPath = join(destPath, packageSub);
+
       if (packageSub === "package.json") {
         //copy manifest file
         const destManifest = existsSync(destSubPath) ? JSON.parse(readFileSync(destSubPath).toString()) : {};
-        const mergedManifest = mergeManifest(packageManifest, destManifest);
+        const mergedManifest = {
+          ...mergeManifest(packageManifest, destManifest),
+          homepage: `https://github.com/aws/aws-sdk-js-v3/tree/master/clients/${clientName}`,
+        };
         writeFileSync(destSubPath, JSON.stringify(mergedManifest, null, 2).concat(`\n`));
       } else if (overwritablePredicate(packageSub) || !existsSync(destSubPath)) {
         if (lstatSync(packageSubPath).isDirectory()) removeSync(destSubPath);
