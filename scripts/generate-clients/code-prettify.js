@@ -1,8 +1,9 @@
 // @ts-check
 const { spawnProcess } = require("./spawn-process");
+const path = require("path");
 
 const prettifyCode = async (dir) => {
-  await spawnProcess("./node_modules/.bin/prettier", ["--write", `${dir}/**/*.{ts,js,md,json}`]);
+  await spawnProcess(path.join(__dirname, "..", "..", "node_modules", ".bin", "prettier"), ["--write", `${dir}/**/*.{ts,js,md,json}`]);
 };
 
 module.exports = {
