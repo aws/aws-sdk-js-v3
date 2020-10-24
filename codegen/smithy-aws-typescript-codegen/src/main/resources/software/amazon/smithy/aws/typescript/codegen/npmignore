@@ -1,4 +1,12 @@
 /coverage/
 /docs/
-tsconfig.test.json
+tsconfig*.json
 *.tsbuildinfo
+
+# source files
+/*.ts
+/jest.config.js
+/commands
+/models
+/pagination
+/protocols
