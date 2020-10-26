@@ -75,5 +75,10 @@
     "url": "https://aws.amazon.com/javascript/"
   },
   "license": "Apache-2.0",
-  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/master/clients/client-redshift"
+  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/master/clients/client-redshift",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aws/aws-sdk-js-v3.git",
+    "directory": "clients/client-redshift"
+  }
 }

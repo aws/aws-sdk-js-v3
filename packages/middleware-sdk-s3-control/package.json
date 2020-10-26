@@ -33,5 +33,10 @@
   "engines": {
     "node": ">= 10.0.0"
   },
-  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/master/packages/middleware-sdk-s3-control"
+  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/master/packages/middleware-sdk-s3-control",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aws/aws-sdk-js-v3.git",
+    "directory": "packages/middleware-sdk-s3-control"
+  }
 }
