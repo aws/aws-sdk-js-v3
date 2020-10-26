@@ -227,7 +227,7 @@ export interface ApiCache {
    *             </li>
    *          </ul>
    *          <p>Historically, instance types were identified by an EC2-style value. As of July 2020, this is deprecated, and the generic identifiers above should be used.</p>
-   *          <p>The following legacy instance types are avaible, but their use is discouraged:</p>
+   *          <p>The following legacy instance types are available, but their use is discouraged:</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -277,7 +277,7 @@ export interface ApiCache {
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>PER_RESOLVER_CACHING</b>: Individual resovlers
+   *                   <b>PER_RESOLVER_CACHING</b>: Individual resolvers
    *                that you specify are cached.</p>
    *             </li>
    *          </ul>
@@ -559,7 +559,7 @@ export interface CreateApiCacheRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>PER_RESOLVER_CACHING</b>: Individual resovlers
+   *                   <b>PER_RESOLVER_CACHING</b>: Individual resolvers
    *                that you specify are cached.</p>
    *             </li>
    *          </ul>
@@ -610,7 +610,7 @@ export interface CreateApiCacheRequest {
    *             </li>
    *          </ul>
    *          <p>Historically, instance types were identified by an EC2-style value. As of July 2020, this is deprecated, and the generic identifiers above should be used.</p>
-   *          <p>The following legacy instance types are avaible, but their use is discouraged:</p>
+   *          <p>The following legacy instance types are available, but their use is discouraged:</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -1449,8 +1449,8 @@ export interface GraphqlApi {
   apiId?: string;
 
   /**
-   * <p>The ARN of the AWS WAF ACL associated with this
-   *          <code>GraphqlApi</code> if one exists.</p>
+   * <p>The ARN of the AWS Web Application Firewall (WAF) ACL associated with this
+   *          <code>GraphqlApi</code>, if one exists.</p>
    */
   wafWebAclArn?: string;
 
@@ -2814,7 +2814,7 @@ export interface UpdateApiCacheRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>PER_RESOLVER_CACHING</b>: Individual resovlers
+   *                   <b>PER_RESOLVER_CACHING</b>: Individual resolvers
    *                that you specify are cached.</p>
    *             </li>
    *          </ul>
@@ -2870,7 +2870,7 @@ export interface UpdateApiCacheRequest {
    *             </li>
    *          </ul>
    *          <p>Historically, instance types were identified by an EC2-style value. As of July 2020, this is deprecated, and the generic identifiers above should be used.</p>
-   *          <p>The following legacy instance types are avaible, but their use is discouraged:</p>
+   *          <p>The following legacy instance types are available, but their use is discouraged:</p>
    *          <ul>
    *             <li>
    *                <p>

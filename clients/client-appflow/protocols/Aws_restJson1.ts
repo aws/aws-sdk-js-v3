@@ -84,6 +84,7 @@ import {
   GoogleAnalyticsConnectorProfileProperties,
   GoogleAnalyticsMetadata,
   GoogleAnalyticsSourceProperties,
+  IncrementalPullConfig,
   InforNexusConnectorProfileCredentials,
   InforNexusConnectorProfileProperties,
   InforNexusMetadata,
@@ -147,6 +148,7 @@ import {
   VeevaConnectorProfileProperties,
   VeevaMetadata,
   VeevaSourceProperties,
+  WriteOperationType,
   ZendeskConnectorProfileCredentials,
   ZendeskConnectorProfileProperties,
   ZendeskMetadata,
@@ -1671,10 +1673,14 @@ export const deserializeAws_restJson1StartFlowCommand = async (
   }
   const contents: StartFlowCommandOutput = {
     $metadata: deserializeMetadata(output),
+    executionId: undefined,
     flowArn: undefined,
     flowStatus: undefined,
   };
   const data: any = await parseBody(output.body, context);
+  if (data.executionId !== undefined && data.executionId !== null) {
+    contents.executionId = data.executionId;
+  }
   if (data.flowArn !== undefined && data.flowArn !== null) {
     contents.flowArn = data.flowArn;
   }
@@ -2626,6 +2632,16 @@ const serializeAws_restJson1GoogleAnalyticsSourceProperties = (
   };
 };
 
+const serializeAws_restJson1IdFieldNameList = (input: string[], context: __SerdeContext): any => {
+  return input.map((entry) => entry);
+};
+
+const serializeAws_restJson1IncrementalPullConfig = (input: IncrementalPullConfig, context: __SerdeContext): any => {
+  return {
+    ...(input.datetimeTypeFieldName !== undefined && { datetimeTypeFieldName: input.datetimeTypeFieldName }),
+  };
+};
+
 const serializeAws_restJson1InforNexusConnectorProfileCredentials = (
   input: InforNexusConnectorProfileCredentials,
   context: __SerdeContext
@@ -2769,6 +2785,7 @@ const serializeAws_restJson1SalesforceConnectorProfileCredentials = (
 ): any => {
   return {
     ...(input.accessToken !== undefined && { accessToken: input.accessToken }),
+    ...(input.clientCredentialsArn !== undefined && { clientCredentialsArn: input.clientCredentialsArn }),
     ...(input.oAuthRequest !== undefined && {
       oAuthRequest: serializeAws_restJson1ConnectorOAuthRequest(input.oAuthRequest, context),
     }),
@@ -2794,7 +2811,11 @@ const serializeAws_restJson1SalesforceDestinationProperties = (
     ...(input.errorHandlingConfig !== undefined && {
       errorHandlingConfig: serializeAws_restJson1ErrorHandlingConfig(input.errorHandlingConfig, context),
     }),
+    ...(input.idFieldNames !== undefined && {
+      idFieldNames: serializeAws_restJson1IdFieldNameList(input.idFieldNames, context),
+    }),
     ...(input.object !== undefined && { object: input.object }),
+    ...(input.writeOperationType !== undefined && { writeOperationType: input.writeOperationType }),
   };
 };
 
@@ -2997,6 +3018,9 @@ const serializeAws_restJson1SourceFlowConfig = (input: SourceFlowConfig, context
   return {
     ...(input.connectorProfileName !== undefined && { connectorProfileName: input.connectorProfileName }),
     ...(input.connectorType !== undefined && { connectorType: input.connectorType }),
+    ...(input.incrementalPullConfig !== undefined && {
+      incrementalPullConfig: serializeAws_restJson1IncrementalPullConfig(input.incrementalPullConfig, context),
+    }),
     ...(input.sourceConnectorProperties !== undefined && {
       sourceConnectorProperties: serializeAws_restJson1SourceConnectorProperties(
         input.sourceConnectorProperties,
@@ -3541,7 +3565,12 @@ const deserializeAws_restJson1DestinationFieldProperties = (
   return {
     isCreatable: output.isCreatable !== undefined && output.isCreatable !== null ? output.isCreatable : undefined,
     isNullable: output.isNullable !== undefined && output.isNullable !== null ? output.isNullable : undefined,
+    isUpdatable: output.isUpdatable !== undefined && output.isUpdatable !== null ? output.isUpdatable : undefined,
     isUpsertable: output.isUpsertable !== undefined && output.isUpsertable !== null ? output.isUpsertable : undefined,
+    supportedWriteOperations:
+      output.supportedWriteOperations !== undefined && output.supportedWriteOperations !== null
+        ? deserializeAws_restJson1SupportedWriteOperationList(output.supportedWriteOperations, context)
+        : undefined,
   } as any;
 };
 
@@ -3768,6 +3797,19 @@ const deserializeAws_restJson1GoogleAnalyticsSourceProperties = (
   } as any;
 };
 
+const deserializeAws_restJson1IdFieldNameList = (output: any, context: __SerdeContext): string[] => {
+  return (output || []).map((entry: any) => entry);
+};
+
+const deserializeAws_restJson1IncrementalPullConfig = (output: any, context: __SerdeContext): IncrementalPullConfig => {
+  return {
+    datetimeTypeFieldName:
+      output.datetimeTypeFieldName !== undefined && output.datetimeTypeFieldName !== null
+        ? output.datetimeTypeFieldName
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1InforNexusConnectorProfileProperties = (
   output: any,
   context: __SerdeContext
@@ -3922,7 +3964,15 @@ const deserializeAws_restJson1SalesforceDestinationProperties = (
       output.errorHandlingConfig !== undefined && output.errorHandlingConfig !== null
         ? deserializeAws_restJson1ErrorHandlingConfig(output.errorHandlingConfig, context)
         : undefined,
+    idFieldNames:
+      output.idFieldNames !== undefined && output.idFieldNames !== null
+        ? deserializeAws_restJson1IdFieldNameList(output.idFieldNames, context)
+        : undefined,
     object: output.object !== undefined && output.object !== null ? output.object : undefined,
+    writeOperationType:
+      output.writeOperationType !== undefined && output.writeOperationType !== null
+        ? output.writeOperationType
+        : undefined,
   } as any;
 };
 
@@ -4176,6 +4226,10 @@ const deserializeAws_restJson1SourceFlowConfig = (output: any, context: __SerdeC
         : undefined,
     connectorType:
       output.connectorType !== undefined && output.connectorType !== null ? output.connectorType : undefined,
+    incrementalPullConfig:
+      output.incrementalPullConfig !== undefined && output.incrementalPullConfig !== null
+        ? deserializeAws_restJson1IncrementalPullConfig(output.incrementalPullConfig, context)
+        : undefined,
     sourceConnectorProperties:
       output.sourceConnectorProperties !== undefined && output.sourceConnectorProperties !== null
         ? deserializeAws_restJson1SourceConnectorProperties(output.sourceConnectorProperties, context)
@@ -4196,6 +4250,13 @@ const deserializeAws_restJson1SupportedFieldTypeDetails = (
 };
 
 const deserializeAws_restJson1SupportedValueList = (output: any, context: __SerdeContext): string[] => {
+  return (output || []).map((entry: any) => entry);
+};
+
+const deserializeAws_restJson1SupportedWriteOperationList = (
+  output: any,
+  context: __SerdeContext
+): (WriteOperationType | string)[] => {
   return (output || []).map((entry: any) => entry);
 };
 

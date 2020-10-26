@@ -17,6 +17,7 @@ import {
   CreateFieldLevelEncryptionProfileCommandOutput,
 } from "./commands/CreateFieldLevelEncryptionProfileCommand";
 import { CreateInvalidationCommandInput, CreateInvalidationCommandOutput } from "./commands/CreateInvalidationCommand";
+import { CreateKeyGroupCommandInput, CreateKeyGroupCommandOutput } from "./commands/CreateKeyGroupCommand";
 import {
   CreateMonitoringSubscriptionCommandInput,
   CreateMonitoringSubscriptionCommandOutput,
@@ -52,6 +53,7 @@ import {
   DeleteFieldLevelEncryptionProfileCommandInput,
   DeleteFieldLevelEncryptionProfileCommandOutput,
 } from "./commands/DeleteFieldLevelEncryptionProfileCommand";
+import { DeleteKeyGroupCommandInput, DeleteKeyGroupCommandOutput } from "./commands/DeleteKeyGroupCommand";
 import {
   DeleteMonitoringSubscriptionCommandInput,
   DeleteMonitoringSubscriptionCommandOutput,
@@ -104,6 +106,8 @@ import {
   GetFieldLevelEncryptionProfileConfigCommandOutput,
 } from "./commands/GetFieldLevelEncryptionProfileConfigCommand";
 import { GetInvalidationCommandInput, GetInvalidationCommandOutput } from "./commands/GetInvalidationCommand";
+import { GetKeyGroupCommandInput, GetKeyGroupCommandOutput } from "./commands/GetKeyGroupCommand";
+import { GetKeyGroupConfigCommandInput, GetKeyGroupConfigCommandOutput } from "./commands/GetKeyGroupConfigCommand";
 import {
   GetMonitoringSubscriptionCommandInput,
   GetMonitoringSubscriptionCommandOutput,
@@ -140,6 +144,10 @@ import {
   ListDistributionsByCachePolicyIdCommandOutput,
 } from "./commands/ListDistributionsByCachePolicyIdCommand";
 import {
+  ListDistributionsByKeyGroupCommandInput,
+  ListDistributionsByKeyGroupCommandOutput,
+} from "./commands/ListDistributionsByKeyGroupCommand";
+import {
   ListDistributionsByOriginRequestPolicyIdCommandInput,
   ListDistributionsByOriginRequestPolicyIdCommandOutput,
 } from "./commands/ListDistributionsByOriginRequestPolicyIdCommand";
@@ -161,6 +169,7 @@ import {
   ListFieldLevelEncryptionProfilesCommandOutput,
 } from "./commands/ListFieldLevelEncryptionProfilesCommand";
 import { ListInvalidationsCommandInput, ListInvalidationsCommandOutput } from "./commands/ListInvalidationsCommand";
+import { ListKeyGroupsCommandInput, ListKeyGroupsCommandOutput } from "./commands/ListKeyGroupsCommand";
 import {
   ListOriginRequestPoliciesCommandInput,
   ListOriginRequestPoliciesCommandOutput,
@@ -194,6 +203,7 @@ import {
   UpdateFieldLevelEncryptionProfileCommandInput,
   UpdateFieldLevelEncryptionProfileCommandOutput,
 } from "./commands/UpdateFieldLevelEncryptionProfileCommand";
+import { UpdateKeyGroupCommandInput, UpdateKeyGroupCommandOutput } from "./commands/UpdateKeyGroupCommand";
 import {
   UpdateOriginRequestPolicyCommandInput,
   UpdateOriginRequestPolicyCommandOutput,
@@ -264,6 +274,7 @@ export type ServiceInputTypes =
   | CreateFieldLevelEncryptionConfigCommandInput
   | CreateFieldLevelEncryptionProfileCommandInput
   | CreateInvalidationCommandInput
+  | CreateKeyGroupCommandInput
   | CreateMonitoringSubscriptionCommandInput
   | CreateOriginRequestPolicyCommandInput
   | CreatePublicKeyCommandInput
@@ -275,6 +286,7 @@ export type ServiceInputTypes =
   | DeleteDistributionCommandInput
   | DeleteFieldLevelEncryptionConfigCommandInput
   | DeleteFieldLevelEncryptionProfileCommandInput
+  | DeleteKeyGroupCommandInput
   | DeleteMonitoringSubscriptionCommandInput
   | DeleteOriginRequestPolicyCommandInput
   | DeletePublicKeyCommandInput
@@ -291,6 +303,8 @@ export type ServiceInputTypes =
   | GetFieldLevelEncryptionProfileCommandInput
   | GetFieldLevelEncryptionProfileConfigCommandInput
   | GetInvalidationCommandInput
+  | GetKeyGroupCommandInput
+  | GetKeyGroupConfigCommandInput
   | GetMonitoringSubscriptionCommandInput
   | GetOriginRequestPolicyCommandInput
   | GetOriginRequestPolicyConfigCommandInput
@@ -302,6 +316,7 @@ export type ServiceInputTypes =
   | ListCachePoliciesCommandInput
   | ListCloudFrontOriginAccessIdentitiesCommandInput
   | ListDistributionsByCachePolicyIdCommandInput
+  | ListDistributionsByKeyGroupCommandInput
   | ListDistributionsByOriginRequestPolicyIdCommandInput
   | ListDistributionsByRealtimeLogConfigCommandInput
   | ListDistributionsByWebACLIdCommandInput
@@ -309,6 +324,7 @@ export type ServiceInputTypes =
   | ListFieldLevelEncryptionConfigsCommandInput
   | ListFieldLevelEncryptionProfilesCommandInput
   | ListInvalidationsCommandInput
+  | ListKeyGroupsCommandInput
   | ListOriginRequestPoliciesCommandInput
   | ListPublicKeysCommandInput
   | ListRealtimeLogConfigsCommandInput
@@ -321,6 +337,7 @@ export type ServiceInputTypes =
   | UpdateDistributionCommandInput
   | UpdateFieldLevelEncryptionConfigCommandInput
   | UpdateFieldLevelEncryptionProfileCommandInput
+  | UpdateKeyGroupCommandInput
   | UpdateOriginRequestPolicyCommandInput
   | UpdatePublicKeyCommandInput
   | UpdateRealtimeLogConfigCommandInput
@@ -334,6 +351,7 @@ export type ServiceOutputTypes =
   | CreateFieldLevelEncryptionConfigCommandOutput
   | CreateFieldLevelEncryptionProfileCommandOutput
   | CreateInvalidationCommandOutput
+  | CreateKeyGroupCommandOutput
   | CreateMonitoringSubscriptionCommandOutput
   | CreateOriginRequestPolicyCommandOutput
   | CreatePublicKeyCommandOutput
@@ -345,6 +363,7 @@ export type ServiceOutputTypes =
   | DeleteDistributionCommandOutput
   | DeleteFieldLevelEncryptionConfigCommandOutput
   | DeleteFieldLevelEncryptionProfileCommandOutput
+  | DeleteKeyGroupCommandOutput
   | DeleteMonitoringSubscriptionCommandOutput
   | DeleteOriginRequestPolicyCommandOutput
   | DeletePublicKeyCommandOutput
@@ -361,6 +380,8 @@ export type ServiceOutputTypes =
   | GetFieldLevelEncryptionProfileCommandOutput
   | GetFieldLevelEncryptionProfileConfigCommandOutput
   | GetInvalidationCommandOutput
+  | GetKeyGroupCommandOutput
+  | GetKeyGroupConfigCommandOutput
   | GetMonitoringSubscriptionCommandOutput
   | GetOriginRequestPolicyCommandOutput
   | GetOriginRequestPolicyConfigCommandOutput
@@ -372,6 +393,7 @@ export type ServiceOutputTypes =
   | ListCachePoliciesCommandOutput
   | ListCloudFrontOriginAccessIdentitiesCommandOutput
   | ListDistributionsByCachePolicyIdCommandOutput
+  | ListDistributionsByKeyGroupCommandOutput
   | ListDistributionsByOriginRequestPolicyIdCommandOutput
   | ListDistributionsByRealtimeLogConfigCommandOutput
   | ListDistributionsByWebACLIdCommandOutput
@@ -379,6 +401,7 @@ export type ServiceOutputTypes =
   | ListFieldLevelEncryptionConfigsCommandOutput
   | ListFieldLevelEncryptionProfilesCommandOutput
   | ListInvalidationsCommandOutput
+  | ListKeyGroupsCommandOutput
   | ListOriginRequestPoliciesCommandOutput
   | ListPublicKeysCommandOutput
   | ListRealtimeLogConfigsCommandOutput
@@ -391,6 +414,7 @@ export type ServiceOutputTypes =
   | UpdateDistributionCommandOutput
   | UpdateFieldLevelEncryptionConfigCommandOutput
   | UpdateFieldLevelEncryptionProfileCommandOutput
+  | UpdateKeyGroupCommandOutput
   | UpdateOriginRequestPolicyCommandOutput
   | UpdatePublicKeyCommandOutput
   | UpdateRealtimeLogConfigCommandOutput

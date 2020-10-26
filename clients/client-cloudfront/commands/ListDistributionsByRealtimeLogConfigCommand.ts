@@ -1,6 +1,8 @@
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import { ListDistributionsByRealtimeLogConfigRequest } from "../models/models_0";
-import { ListDistributionsByRealtimeLogConfigResult } from "../models/models_1";
+import {
+  ListDistributionsByRealtimeLogConfigRequest,
+  ListDistributionsByRealtimeLogConfigResult,
+} from "../models/models_1";
 import {
   deserializeAws_restXmlListDistributionsByRealtimeLogConfigCommand,
   serializeAws_restXmlListDistributionsByRealtimeLogConfigCommand,

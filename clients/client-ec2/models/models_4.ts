@@ -108,11 +108,30 @@ import {
   SpotFleetRequestConfigData,
   SpotInstanceRequest,
   SpotPlacement,
+  TransitGatewayAttachmentPropagation,
   TransitGatewayPropagationState,
   UnlimitedSupportedInstanceFamily,
   VolumeModification,
 } from "./models_3";
 import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
+
+export interface GetTransitGatewayAttachmentPropagationsResult {
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>Information about the propagation route tables.</p>
+   */
+  TransitGatewayAttachmentPropagations?: TransitGatewayAttachmentPropagation[];
+}
+
+export namespace GetTransitGatewayAttachmentPropagationsResult {
+  export const filterSensitiveLog = (obj: GetTransitGatewayAttachmentPropagationsResult): any => ({
+    ...obj,
+  });
+}
 
 export interface GetTransitGatewayMulticastDomainAssociationsRequest {
   /**
@@ -5802,6 +5821,8 @@ export interface RequestSpotInstancesRequest {
    *             warning before it terminates.</p>
    *          <p>You can't specify an Availability Zone group or a launch group if you specify a
    *             duration.</p>
+   *          <p>New accounts or accounts with no previous billing history with AWS are not eligible for
+   *             Spot Instances with a defined duration (also known as Spot blocks).</p>
    */
   BlockDurationMinutes?: number;
 
@@ -5839,8 +5860,21 @@ export interface RequestSpotInstancesRequest {
   AvailabilityZoneGroup?: string;
 
   /**
-   * <p>The end date of the request. If this is a one-time request, the request remains active until all instances launch, the request is canceled, or this date is reached.
-   *          If the request is persistent, it remains active until it is canceled or this date is reached. The default end date is 7 days from the current date.</p>
+   * <p>The end date of the request, in UTC format
+   *                 (<i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).</p>
+   *          <ul>
+   *             <li>
+   *                 <p>For a persistent request, the request remains active until the <code>ValidUntil</code> date
+   *                     and time is reached. Otherwise, the request remains active until you cancel it.
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>For a one-time request, the request remains active until all instances launch,
+   *                     the request is canceled, or the <code>ValidUntil</code> date and time is
+   *                     reached. By default, the request is valid for 7 days from the date the request
+   *                     was created.</p>
+   *             </li>
+   *          </ul>
    */
   ValidUntil?: Date;
 }
@@ -6421,10 +6455,20 @@ export namespace HibernationOptionsRequest {
  */
 export interface SpotMarketOptions {
   /**
-   * <p>The end date of the request. For a one-time request, the request remains active until
-   *             all instances launch, the request is canceled, or this date is reached. If the request
-   *             is persistent, it remains active until it is canceled or this date and time is reached.
-   *             The default end date is 7 days from the current date.</p>
+   * <p>The end date of the request, in UTC format
+   *                 (<i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).
+   *             Supported only for persistent requests.</p>
+   *         <ul>
+   *             <li>
+   *                 <p>For a persistent request, the request remains active until the
+   *                         <code>ValidUntil</code> date and time is reached. Otherwise, the request
+   *                     remains active until you cancel it.</p>
+   *             </li>
+   *             <li>
+   *                 <p>For a one-time request, <code>ValidUntil</code> is not supported. The request
+   *                     remains active until all instances launch or you cancel the request.</p>
+   *             </li>
+   *          </ul>
    */
   ValidUntil?: Date;
 
@@ -6443,6 +6487,14 @@ export interface SpotMarketOptions {
   /**
    * <p>The required duration for the Spot Instances (also known as Spot blocks), in minutes.
    *             This value must be a multiple of 60 (60, 120, 180, 240, 300, or 360).</p>
+   *         <p>The duration period starts as soon as your Spot Instance receives its instance ID. At
+   *             the end of the duration period, Amazon EC2 marks the Spot Instance for termination and
+   *             provides a Spot Instance termination notice, which gives the instance a two-minute
+   *             warning before it terminates.</p>
+   *         <p>You can't specify an Availability Zone group or a launch group if you specify a
+   *             duration.</p>
+   *         <p>New accounts or accounts with no previous billing history with AWS are not eligible
+   *             for Spot Instances with a defined duration (also known as Spot blocks).</p>
    */
   BlockDurationMinutes?: number;
 

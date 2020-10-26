@@ -4604,8 +4604,8 @@ export namespace DescribeAvailablePatchesRequest {
  */
 export interface Patch {
   /**
-   * <p>The particular release of a patch. For example,
-   *    in <code>pkg-example-EE-20180914-2.2.amzn1.noarch</code>, the release is <code>2.amaz1</code>.
+   * <p>The particular release of a patch. For example, in
+   *     <code>pkg-example-EE-20180914-2.2.amzn1.noarch</code>, the release is <code>2.amaz1</code>.
    *    Applies to Linux-based instances only.</p>
    */
   Release?: string;
@@ -4623,10 +4623,9 @@ export interface Patch {
   Language?: string;
 
   /**
-   * <p>The source patch repository for the operating
-   *    system and version, such as <code>trusty-security</code> for Ubuntu Server 14.04 LTE and
-   *     <code>focal-security</code> for Ubuntu Server 20.04 LTE. Applies to Linux-based instances
-   *    only.</p>
+   * <p>The source patch repository for the operating system and version, such as
+   *     <code>trusty-security</code> for Ubuntu Server 14.04 LTE and <code>focal-security</code> for
+   *    Ubuntu Server 20.04 LTE. Applies to Linux-based instances only.</p>
    */
   Repository?: string;
 
@@ -4644,8 +4643,8 @@ export interface Patch {
   MsrcSeverity?: string;
 
   /**
-   * <p>The severity level of the patch. For example,
-   *     <code>CRITICAL</code> or <code>MODERATE</code>.</p>
+   * <p>The severity level of the patch. For example, <code>CRITICAL</code> or
+   *    <code>MODERATE</code>.</p>
    */
   Severity?: string;
 
@@ -4661,9 +4660,8 @@ export interface Patch {
   Product?: string;
 
   /**
-   * <p>The Common Vulnerabilities and Exposures (CVE) ID
-   *    of the patch. For example, <code>CVE-1999-0067</code>. Applies to Linux-based instances
-   *    only.</p>
+   * <p>The Common Vulnerabilities and Exposures (CVE) ID of the patch. For example,
+   *     <code>CVE-1999-0067</code>. Applies to Linux-based instances only.</p>
    */
   CVEIds?: string[];
 
@@ -4682,8 +4680,8 @@ export interface Patch {
   Id?: string;
 
   /**
-   * <p>The Advisory ID of the patch. For example,
-   *     <code>RHSA-2020:3779</code>. Applies to Linux-based instances only.</p>
+   * <p>The Advisory ID of the patch. For example, <code>RHSA-2020:3779</code>. Applies to
+   *    Linux-based instances only.</p>
    */
   AdvisoryIds?: string[];
 
@@ -4715,8 +4713,8 @@ export interface Patch {
   ReleaseDate?: Date;
 
   /**
-   * <p>The Bugzilla ID of the patch. For example,
-   *     <code>1600646</code>. Applies to Linux-based instances only.</p>
+   * <p>The Bugzilla ID of the patch. For example, <code>1600646</code>. Applies to Linux-based
+   *    instances only.</p>
    */
   BugzillaIds?: string[];
 
@@ -4726,15 +4724,14 @@ export interface Patch {
   Title?: string;
 
   /**
-   * <p>The name of the patch. Applies to Linux-based
-   *    instances only.</p>
+   * <p>The name of the patch. Applies to Linux-based instances only.</p>
    */
   Name?: string;
 
   /**
    * <p>The epoch of the patch. For example in
-   *     <code>pkg-example-EE-20180914-2.2.amzn1.noarch</code>, the epoch value is
-   *     <code>20180914-2</code>. Applies to Linux-based instances only.</p>
+   *    <code>pkg-example-EE-20180914-2.2.amzn1.noarch</code>, the epoch value is
+   *    <code>20180914-2</code>. Applies to Linux-based instances only.</p>
    */
   Epoch?: number;
 
@@ -5570,6 +5567,12 @@ export interface PatchComplianceData {
    *          <p>For descriptions of each patch state, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-compliance-about.html#sysman-compliance-monitor-patch">About patch compliance</a> in the <i>AWS Systems Manager User Guide</i>.</p>
    */
   State: PatchComplianceDataState | string | undefined;
+
+  /**
+   * <p>The IDs of one or more Common Vulnerabilities and Exposure (CVE) issues that are resolved by
+   *    the patch.</p>
+   */
+  CVEIds?: string;
 
   /**
    * <p>The classification of the patch (for example, SecurityUpdates, Updates,

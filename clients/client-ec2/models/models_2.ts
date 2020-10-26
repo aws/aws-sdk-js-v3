@@ -8043,7 +8043,9 @@ export namespace Instance {
 }
 
 /**
- * <p>Describes a reservation.</p>
+ * <p>Describes a launch request for one or more instances, and includes
+ *             owner, requester, and security group information that applies to all
+ *             instances in the launch request.</p>
  */
 export interface Reservation {
   /**
@@ -8497,21 +8499,21 @@ export interface DescribeInstanceTypesRequest {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>auto-recovery-supported</code> - Indicates whether auto recovery is supported. (<code>true</code> | <code>false</code>)</p>
+   *                   <code>auto-recovery-supported</code> - Indicates whether auto recovery is supported.  (<code>true</code> | <code>false</code>)</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>bare-metal</code> - Indicates whether it is a bare metal instance type. (<code>true</code> | <code>false</code>)</p>
+   *                   <code>bare-metal</code> - Indicates whether it is a bare metal instance type.  (<code>true</code> | <code>false</code>)</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <code>burstable-performance-supported</code> - Indicates whether it is a burstable performance instance
-   *      type. (<code>true</code> | <code>false</code>)</p>
+   *      type.  (<code>true</code> | <code>false</code>)</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <code>current-generation</code> - Indicates whether this instance type is the latest generation instance type
-   *      of an instance family. (<code>true</code> | <code>false</code>)</p>
+   *      of an instance family.  (<code>true</code> | <code>false</code>)</p>
    *             </li>
    *             <li>
    *                <p>
@@ -8520,13 +8522,13 @@ export interface DescribeInstanceTypesRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>ebs-info.ebs-optimized-info.baseline-throughput-in-mbps</code> - The baseline
-   *                     throughput performance for an EBS-optimized instance type, in MBps.</p>
+   *                   <code>ebs-info.ebs-optimized-info.baseline-iops</code> - The baseline input/output storage
+   *      operations per second for an EBS-optimized instance type.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>ebs-info.ebs-optimized-info.baseline-iops</code> - The baseline input/output storage
-   *                     operations per second for an EBS-optimized instance type.</p>
+   *                   <code>ebs-info.ebs-optimized-info.baseline-throughput-in-mbps</code> - The baseline
+   *                     throughput performance for an EBS-optimized instance type, in MBps.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -8535,13 +8537,13 @@ export interface DescribeInstanceTypesRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>ebs-info.ebs-optimized-info.maximum-throughput-in-mbps</code> - The maximum
-   *                     throughput performance for an EBS-optimized instance type, in MBps.</p>
+   *                   <code>ebs-info.ebs-optimized-info.maximum-iops</code> - The maximum input/output storage
+   *                     operations per second for an EBS-optimized instance type.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>ebs-info.ebs-optimized-info.maximum-iops</code> - The maximum input/output storage
-   *                     operations per second for an EBS-optimized instance type.</p>
+   *                   <code>ebs-info.ebs-optimized-info.maximum-throughput-in-mbps</code> - The maximum
+   *      throughput performance for an EBS-optimized instance type, in MBps.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -8556,21 +8558,22 @@ export interface DescribeInstanceTypesRequest {
    *             <li>
    *                <p>
    *                   <code>ebs-info.nvme-support</code> - Indicates whether non-volatile memory express (NVMe)
-   *      is supported or required. (<code>required</code> | <code>supported</code> |
-   *       <code>unsupported</code>)</p>
+   *      is supported for EBS volumes. (<code>required</code> | <code>supported</code> |
+   *      <code>unsupported</code>)</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>free-tier-eligible</code> - Indicates whether the instance type is eligible to use in the free
-   *      tier. (<code>true</code> | <code>false</code>)</p>
+   *                   <code>free-tier-eligible</code> - Indicates whether the instance type is eligible to use
+   *      in the free tier.  (<code>true</code> | <code>false</code>)</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>hibernation-supported</code> - Indicates whether On-Demand hibernation is supported. (<code>true</code> | <code>false</code>)</p>
+   *                   <code>hibernation-supported</code> - Indicates whether On-Demand hibernation is supported.
+   *       (<code>true</code> | <code>false</code>)</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>hypervisor</code> - The hypervisor used. (<code>nitro</code> | <code>xen</code>)</p>
+   *                   <code>hypervisor</code> - The hypervisor. (<code>nitro</code> | <code>xen</code>)</p>
    *             </li>
    *             <li>
    *                <p>
@@ -8588,6 +8591,11 @@ export interface DescribeInstanceTypesRequest {
    *             </li>
    *             <li>
    *                <p>
+   *                   <code>instance-storage-info.nvme-support</code> - Indicates whether non-volatile memory express (NVMe)
+   *      is supported for instance store. (<code>required</code> | <code>supported</code>) | <code>unsupported</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <code>instance-storage-info.total-size-in-gb</code> - The total amount of storage available from all local
    *      instance storage, in GB.</p>
    *             </li>
@@ -8598,16 +8606,21 @@ export interface DescribeInstanceTypesRequest {
    *             </li>
    *             <li>
    *                <p>
+   *                   <code>instance-type</code> - The instance type (for example <code>c5.2xlarge</code> or
+   *      c5*).</p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <code>memory-info.size-in-mib</code> - The memory size.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>network-info.efa-supported</code> - Indicates whether the instance type supports Elastic Fabric Adapter (EFA).  (<code>true</code> | <code>false</code>)</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <code>network-info.ena-support</code> - Indicates whether Elastic Network Adapter (ENA) is supported or
    *      required. (<code>required</code> | <code>supported</code> | <code>unsupported</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>network-info.efa-supported</code> - Indicates whether the instance type supports Elastic Fabric Adapter (EFA). (<code>true</code> | <code>false</code>)</p>
    *             </li>
    *             <li>
    *                <p>
@@ -8625,16 +8638,32 @@ export interface DescribeInstanceTypesRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>network-info.maximum-network-interfaces</code> - The maximum number of network interfaces per
-   *      instance.</p>
+   *                   <code>network-info.maximum-network-interfaces</code> - The maximum number of network interfaces per instance.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>network-info.network-performance</code> - Describes the network performance.</p>
+   *                   <code>network-info.network-performance</code> - The network performance (for example, "25
+   *      Gigabit").</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>processor-info.supported-architecture</code> - The CPU architecture. (<code>arm64</code> | <code>i386</code> | <code>x86_64</code>)</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <code>processor-info.sustained-clock-speed-in-ghz</code> - The CPU clock speed, in GHz.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>supported-root-device-type</code> - The root device type. (<code>ebs</code> | <code>instance-store</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>supported-usage-class</code> - The usage class. (<code>on-demand</code> | <code>spot</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>supported-virtualization-type</code> - The virtualization type. (<code>hvm</code> | <code>paravirtual</code>)</p>
    *             </li>
    *             <li>
    *                <p>
@@ -8648,6 +8677,15 @@ export interface DescribeInstanceTypesRequest {
    *             <li>
    *                <p>
    *                   <code>vcpu-info.default-vcpus</code> - The default number of vCPUs for the instance type.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>vcpu-info.valid-cores</code> - The number of cores that can be configured for the instance type.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>vcpu-info.valid-threads-per-core</code> - The number of threads per core that can be configured for the instance type.
+   *         For example, "1" or "1,2".</p>
    *             </li>
    *          </ul>
    */
@@ -8978,10 +9016,21 @@ export namespace DiskInfo {
   });
 }
 
+export enum EphemeralNvmeSupport {
+  REQUIRED = "required",
+  SUPPORTED = "supported",
+  UNSUPPORTED = "unsupported",
+}
+
 /**
  * <p>Describes the disks that are available for the instance type.</p>
  */
 export interface InstanceStorageInfo {
+  /**
+   * <p>Indicates whether non-volatile memory express (NVMe) is supported for instance store.</p>
+   */
+  NvmeSupport?: EphemeralNvmeSupport | string;
+
   /**
    * <p>The total size of the disks, in GB.</p>
    */
@@ -10511,52 +10560,6 @@ export interface DescribeManagedPrefixListsResult {
 
 export namespace DescribeManagedPrefixListsResult {
   export const filterSensitiveLog = (obj: DescribeManagedPrefixListsResult): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeMovingAddressesRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The token for the next page of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of results to return for the request in a single page. The remaining
-   *       results of the initial request can be seen by sending another request with the returned
-   *       <code>NextToken</code> value. This value can be between 5 and 1000; if
-   *       <code>MaxResults</code> is given a value outside of this range, an error is returned.</p>
-   *          <p>Default: If no value is provided, the default is 1000.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>One or more filters.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>moving-status</code> - The status of the Elastic IP address
-   *           (<code>MovingToVpc</code> | <code>RestoringToClassic</code>).</p>
-   *             </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>One or more Elastic IP addresses.</p>
-   */
-  PublicIps?: string[];
-}
-
-export namespace DescribeMovingAddressesRequest {
-  export const filterSensitiveLog = (obj: DescribeMovingAddressesRequest): any => ({
     ...obj,
   });
 }

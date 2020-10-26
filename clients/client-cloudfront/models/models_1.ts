@@ -1,34 +1,730 @@
 import {
+  AliasICPRecordal,
   Aliases,
+  CacheBehaviors,
   CachePolicy,
   CachePolicyConfig,
+  CachePolicyList,
+  CachePolicyType,
   CloudFrontOriginAccessIdentity,
   CloudFrontOriginAccessIdentityConfig,
   ContentTypeProfileConfig,
+  CustomErrorResponses,
+  DefaultCacheBehavior,
   Distribution,
   DistributionConfig,
-  DistributionList,
   EncryptionEntities,
   EndPoint,
   FieldLevelEncryption,
   FieldLevelEncryptionConfig,
   FieldLevelEncryptionProfile,
   FieldLevelEncryptionProfileConfig,
+  HttpVersion,
+  KeyGroup,
+  KeyGroupConfig,
+  OriginGroups,
   OriginRequestPolicy,
   OriginRequestPolicyConfig,
+  Origins,
   PriceClass,
   PublicKey,
   PublicKeyConfig,
   QueryArgProfileConfig,
   RealtimeLogConfig,
+  Restrictions,
   S3Origin,
   StreamingDistribution,
   StreamingDistributionConfig,
   Tags,
   TrustedSigners,
+  ViewerCertificate,
 } from "./models_0";
 import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+export interface GetRealtimeLogConfigResult {
+  /**
+   * <p>A real-time log configuration.</p>
+   */
+  RealtimeLogConfig?: RealtimeLogConfig;
+}
+
+export namespace GetRealtimeLogConfigResult {
+  export const filterSensitiveLog = (obj: GetRealtimeLogConfigResult): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The request to get a streaming distribution's information.</p>
+ */
+export interface GetStreamingDistributionRequest {
+  /**
+   * <p>The streaming distribution's ID.</p>
+   */
+  Id: string | undefined;
+}
+
+export namespace GetStreamingDistributionRequest {
+  export const filterSensitiveLog = (obj: GetStreamingDistributionRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The returned result of the corresponding request.</p>
+ */
+export interface GetStreamingDistributionResult {
+  /**
+   * <p>The streaming distribution's information.</p>
+   */
+  StreamingDistribution?: StreamingDistribution;
+
+  /**
+   * <p>The current version of the streaming distribution's information. For example:
+   * 				<code>E2QWRUHAPOMQZL</code>.</p>
+   */
+  ETag?: string;
+}
+
+export namespace GetStreamingDistributionResult {
+  export const filterSensitiveLog = (obj: GetStreamingDistributionResult): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>To request to get a streaming distribution configuration.</p>
+ */
+export interface GetStreamingDistributionConfigRequest {
+  /**
+   * <p>The streaming distribution's ID.</p>
+   */
+  Id: string | undefined;
+}
+
+export namespace GetStreamingDistributionConfigRequest {
+  export const filterSensitiveLog = (obj: GetStreamingDistributionConfigRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The returned result of the corresponding request.</p>
+ */
+export interface GetStreamingDistributionConfigResult {
+  /**
+   * <p>The current version of the configuration. For example: <code>E2QWRUHAPOMQZL</code>.
+   * 		</p>
+   */
+  ETag?: string;
+
+  /**
+   * <p>The streaming distribution's configuration information.</p>
+   */
+  StreamingDistributionConfig?: StreamingDistributionConfig;
+}
+
+export namespace GetStreamingDistributionConfigResult {
+  export const filterSensitiveLog = (obj: GetStreamingDistributionConfigResult): any => ({
+    ...obj,
+  });
+}
+
+export interface ListCachePoliciesRequest {
+  /**
+   * <p>Use this field when paginating results to indicate where to begin in your list of
+   * 			cache policies. The response includes cache policies in the list that occur after the
+   * 			marker. To get the next page of the list, set this field’s value to the value of
+   * 			<code>NextMarker</code> from the current page’s response.</p>
+   */
+  Marker?: string;
+
+  /**
+   * <p>A filter to return only the specified kinds of cache policies. Valid values
+   * 			are:</p>
+   * 		       <ul>
+   *             <li>
+   * 				           <p>
+   *                   <code>managed</code> – Returns only the managed policies created by AWS.</p>
+   * 			         </li>
+   *             <li>
+   * 				           <p>
+   *                   <code>custom</code> – Returns only the custom policies created in your AWS
+   * 					account.</p>
+   * 			         </li>
+   *          </ul>
+   */
+  Type?: CachePolicyType | string;
+
+  /**
+   * <p>The maximum number of cache policies that you want in the response.</p>
+   */
+  MaxItems?: string;
+}
+
+export namespace ListCachePoliciesRequest {
+  export const filterSensitiveLog = (obj: ListCachePoliciesRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListCachePoliciesResult {
+  /**
+   * <p>A list of cache policies.</p>
+   */
+  CachePolicyList?: CachePolicyList;
+}
+
+export namespace ListCachePoliciesResult {
+  export const filterSensitiveLog = (obj: ListCachePoliciesResult): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The request to list origin access identities. </p>
+ */
+export interface ListCloudFrontOriginAccessIdentitiesRequest {
+  /**
+   * <p>The maximum number of origin access identities you want in the response body.
+   * 		</p>
+   */
+  MaxItems?: string;
+
+  /**
+   * <p>Use this when paginating results to indicate where to begin in your list of origin
+   * 			access identities. The results include identities in the list that occur after the marker. To
+   * 			get the next page of results, set the <code>Marker</code> to the value of the
+   * 				<code>NextMarker</code> from the current page's response (which is also the ID of the last
+   * 			identity on that page).</p>
+   */
+  Marker?: string;
+}
+
+export namespace ListCloudFrontOriginAccessIdentitiesRequest {
+  export const filterSensitiveLog = (obj: ListCloudFrontOriginAccessIdentitiesRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Summary of the information about a CloudFront origin access identity.</p>
+ */
+export interface CloudFrontOriginAccessIdentitySummary {
+  /**
+   * <p>The ID for the origin access identity. For example:
+   * 			<code>E74FTE3AJFJ256A</code>.</p>
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The Amazon S3 canonical user ID for the origin access identity, which you use when giving
+   * 			the origin access identity read permission to an object in Amazon S3.</p>
+   */
+  S3CanonicalUserId: string | undefined;
+
+  /**
+   * <p>The comment for this origin access identity, as originally specified when
+   * 			created.</p>
+   */
+  Comment: string | undefined;
+}
+
+export namespace CloudFrontOriginAccessIdentitySummary {
+  export const filterSensitiveLog = (obj: CloudFrontOriginAccessIdentitySummary): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Lists the origin access identities for CloudFront.Send a <code>GET</code> request to the
+ * 					<code>/<i>CloudFront API version</i>/origin-access-identity/cloudfront</code>
+ * 			resource. The response includes a <code>CloudFrontOriginAccessIdentityList</code> element with
+ * 			zero or more <code>CloudFrontOriginAccessIdentitySummary</code> child elements. By default,
+ * 			your entire list of origin access identities is returned in one single page. If the list is
+ * 			long, you can paginate it using the <code>MaxItems</code> and <code>Marker</code>
+ * 			parameters.</p>
+ */
+export interface CloudFrontOriginAccessIdentityList {
+  /**
+   * <p>The number of CloudFront origin access identities that were created by the current AWS
+   * 			account. </p>
+   */
+  Quantity: number | undefined;
+
+  /**
+   * <p>Use this when paginating results to indicate where to begin in your list of origin
+   * 			access identities. The results include identities in the list that occur after the marker. To
+   * 			get the next page of results, set the <code>Marker</code> to the value of the
+   * 				<code>NextMarker</code> from the current page's response (which is also the ID of the last
+   * 			identity on that page). </p>
+   */
+  Marker: string | undefined;
+
+  /**
+   * <p>If <code>IsTruncated</code> is <code>true</code>, this element is present and contains
+   * 			the value you can use for the <code>Marker</code> request parameter to continue listing your
+   * 			origin access identities where they left off. </p>
+   */
+  NextMarker?: string;
+
+  /**
+   * <p>A complex type that contains one <code>CloudFrontOriginAccessIdentitySummary</code>
+   * 			element for each origin access identity that was created by the current AWS
+   * 			account.</p>
+   */
+  Items?: CloudFrontOriginAccessIdentitySummary[];
+
+  /**
+   * <p>The maximum number of origin access identities you want in the response body.
+   * 		</p>
+   */
+  MaxItems: number | undefined;
+
+  /**
+   * <p>A flag that indicates whether more origin access identities remain to be listed. If
+   * 			your results were truncated, you can make a follow-up pagination request using the
+   * 				<code>Marker</code> request parameter to retrieve more items in the list.</p>
+   */
+  IsTruncated: boolean | undefined;
+}
+
+export namespace CloudFrontOriginAccessIdentityList {
+  export const filterSensitiveLog = (obj: CloudFrontOriginAccessIdentityList): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The returned result of the corresponding request. </p>
+ */
+export interface ListCloudFrontOriginAccessIdentitiesResult {
+  /**
+   * <p>The <code>CloudFrontOriginAccessIdentityList</code> type. </p>
+   */
+  CloudFrontOriginAccessIdentityList?: CloudFrontOriginAccessIdentityList;
+}
+
+export namespace ListCloudFrontOriginAccessIdentitiesResult {
+  export const filterSensitiveLog = (obj: ListCloudFrontOriginAccessIdentitiesResult): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The request to list your distributions. </p>
+ */
+export interface ListDistributionsRequest {
+  /**
+   * <p>The maximum number of distributions you want in the response body.</p>
+   */
+  MaxItems?: string;
+
+  /**
+   * <p>Use this when paginating results to indicate where to begin in your list of
+   * 			distributions. The results include distributions in the list that occur after the marker. To
+   * 			get the next page of results, set the <code>Marker</code> to the value of the
+   * 				<code>NextMarker</code> from the current page's response (which is also the ID of the last
+   * 			distribution on that page).</p>
+   */
+  Marker?: string;
+}
+
+export namespace ListDistributionsRequest {
+  export const filterSensitiveLog = (obj: ListDistributionsRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A summary of the information about a CloudFront distribution.</p>
+ */
+export interface DistributionSummary {
+  /**
+   * <p>The comment originally specified when this distribution was created.</p>
+   */
+  Comment: string | undefined;
+
+  /**
+   * <p>The current status of the distribution. When the status is <code>Deployed</code>, the
+   * 			distribution's information is propagated to all CloudFront edge locations.</p>
+   */
+  Status: string | undefined;
+
+  /**
+   * <p> Specify the maximum HTTP version that you want viewers to use to communicate with
+   * 			CloudFront. The default value for new web distributions is <code>http2</code>. Viewers that don't
+   * 			support <code>HTTP/2</code> will automatically use an earlier version.</p>
+   */
+  HttpVersion: HttpVersion | string | undefined;
+
+  /**
+   * <p>A complex type that contains information about price class for this streaming
+   * 			distribution. </p>
+   */
+  PriceClass: PriceClass | string | undefined;
+
+  /**
+   * <p>A complex type that contains zero or more <code>CacheBehavior</code>
+   * 			elements.</p>
+   */
+  CacheBehaviors: CacheBehaviors | undefined;
+
+  /**
+   * <p>AWS services in China customers must file for an Internet Content Provider (ICP) recordal if they want to serve content
+   * 			publicly on an alternate domain name, also known as a CNAME, that they've added to CloudFront. AliasICPRecordal provides the ICP
+   * 			recordal status for CNAMEs associated with distributions.</p>
+   * 		       <p>For more information about ICP recordals, see  <a href="https://docs.amazonaws.cn/en_us/aws/latest/userguide/accounts-and-credentials.html">
+   * 			Signup, Accounts, and Credentials</a> in <i>Getting Started with AWS services in China</i>.</p>
+   */
+  AliasICPRecordals?: AliasICPRecordal[];
+
+  /**
+   * <p>The identifier for the distribution. For example:
+   * 			<code>EDFDVBD632BHDS5</code>.</p>
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The ARN (Amazon Resource Name) for the distribution. For example:
+   * 				<code>arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5</code>, where
+   * 				<code>123456789012</code> is your AWS account ID.</p>
+   */
+  ARN: string | undefined;
+
+  /**
+   * <p>A complex type that contains information about CNAMEs (alternate domain names), if any,
+   * 			for this distribution.</p>
+   */
+  Aliases: Aliases | undefined;
+
+  /**
+   * <p>The Web ACL Id (if any) associated with the distribution.</p>
+   */
+  WebACLId: string | undefined;
+
+  /**
+   * <p> A complex type that contains information about origin groups for this
+   * 			distribution.</p>
+   */
+  OriginGroups?: OriginGroups;
+
+  /**
+   * <p>A complex type that contains information about origins for this distribution.</p>
+   */
+  Origins: Origins | undefined;
+
+  /**
+   * <p>The domain name that corresponds to the distribution, for example, <code>d111111abcdef8.cloudfront.net</code>.</p>
+   */
+  DomainName: string | undefined;
+
+  /**
+   * <p>A complex type that contains zero or more <code>CustomErrorResponses</code>
+   * 			elements.</p>
+   */
+  CustomErrorResponses: CustomErrorResponses | undefined;
+
+  /**
+   * <p>The date and time the distribution was last modified.</p>
+   */
+  LastModifiedTime: Date | undefined;
+
+  /**
+   * <p>A complex type that identifies ways in which you want to restrict distribution of your
+   * 			content.</p>
+   */
+  Restrictions: Restrictions | undefined;
+
+  /**
+   * <p>A complex type that describes the default cache behavior if you don't specify a
+   * 				<code>CacheBehavior</code> element or if files don't match any of the values of
+   * 				<code>PathPattern</code> in <code>CacheBehavior</code> elements. You must create exactly one
+   * 			default cache behavior.</p>
+   */
+  DefaultCacheBehavior: DefaultCacheBehavior | undefined;
+
+  /**
+   * <p>Whether CloudFront responds to IPv6 DNS requests with an IPv6 address for your
+   * 			distribution.</p>
+   */
+  IsIPV6Enabled: boolean | undefined;
+
+  /**
+   * <p>A complex type that determines the distribution’s SSL/TLS configuration for
+   * 			communicating with viewers.</p>
+   */
+  ViewerCertificate: ViewerCertificate | undefined;
+
+  /**
+   * <p>Whether the distribution is enabled to accept user requests for content.</p>
+   */
+  Enabled: boolean | undefined;
+}
+
+export namespace DistributionSummary {
+  export const filterSensitiveLog = (obj: DistributionSummary): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A distribution list.</p>
+ */
+export interface DistributionList {
+  /**
+   * <p>The value you provided for the <code>Marker</code> request parameter.</p>
+   */
+  Marker: string | undefined;
+
+  /**
+   * <p>If <code>IsTruncated</code> is <code>true</code>, this element is present and contains
+   * 			the value you can use for the <code>Marker</code> request parameter to continue listing your
+   * 			distributions where they left off. </p>
+   */
+  NextMarker?: string;
+
+  /**
+   * <p>The number of distributions that were created by the current AWS account. </p>
+   */
+  Quantity: number | undefined;
+
+  /**
+   * <p>A complex type that contains one <code>DistributionSummary</code> element for each
+   * 			distribution that was created by the current AWS account.</p>
+   */
+  Items?: DistributionSummary[];
+
+  /**
+   * <p>A flag that indicates whether more distributions remain to be listed. If your results
+   * 			were truncated, you can make a follow-up pagination request using the <code>Marker</code>
+   * 			request parameter to retrieve more distributions in the list.</p>
+   */
+  IsTruncated: boolean | undefined;
+
+  /**
+   * <p>The value you provided for the <code>MaxItems</code> request parameter.</p>
+   */
+  MaxItems: number | undefined;
+}
+
+export namespace DistributionList {
+  export const filterSensitiveLog = (obj: DistributionList): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The returned result of the corresponding request. </p>
+ */
+export interface ListDistributionsResult {
+  /**
+   * <p>The <code>DistributionList</code> type. </p>
+   */
+  DistributionList?: DistributionList;
+}
+
+export namespace ListDistributionsResult {
+  export const filterSensitiveLog = (obj: ListDistributionsResult): any => ({
+    ...obj,
+  });
+}
+
+export interface ListDistributionsByCachePolicyIdRequest {
+  /**
+   * <p>The maximum number of distribution IDs that you want in the response.</p>
+   */
+  MaxItems?: string;
+
+  /**
+   * <p>Use this field when paginating results to indicate where to begin in your list of
+   * 			distribution IDs. The response includes distribution IDs in the list that occur after
+   * 			the marker. To get the next page of the list, set this field’s value to the value of
+   * 			<code>NextMarker</code> from the current page’s response.</p>
+   */
+  Marker?: string;
+
+  /**
+   * <p>The ID of the cache policy whose associated distribution IDs you want to list.</p>
+   */
+  CachePolicyId: string | undefined;
+}
+
+export namespace ListDistributionsByCachePolicyIdRequest {
+  export const filterSensitiveLog = (obj: ListDistributionsByCachePolicyIdRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A list of distribution IDs.</p>
+ */
+export interface DistributionIdList {
+  /**
+   * <p>The total number of distribution IDs returned in the response.</p>
+   */
+  Quantity: number | undefined;
+
+  /**
+   * <p>Contains the value that you should use in the <code>Marker</code> field of a
+   * 			subsequent request to continue listing distribution IDs where you left off.</p>
+   */
+  NextMarker?: string;
+
+  /**
+   * <p>A flag that indicates whether more distribution IDs remain to be listed. If your
+   * 			results were truncated, you can make a subsequent request using the <code>Marker</code>
+   * 			request field to retrieve more distribution IDs in the list.</p>
+   */
+  IsTruncated: boolean | undefined;
+
+  /**
+   * <p>Contains the distribution IDs in the list.</p>
+   */
+  Items?: string[];
+
+  /**
+   * <p>The maximum number of distribution IDs requested.</p>
+   */
+  MaxItems: number | undefined;
+
+  /**
+   * <p>The value provided in the <code>Marker</code> request field.</p>
+   */
+  Marker: string | undefined;
+}
+
+export namespace DistributionIdList {
+  export const filterSensitiveLog = (obj: DistributionIdList): any => ({
+    ...obj,
+  });
+}
+
+export interface ListDistributionsByCachePolicyIdResult {
+  /**
+   * <p>A list of distribution IDs.</p>
+   */
+  DistributionIdList?: DistributionIdList;
+}
+
+export namespace ListDistributionsByCachePolicyIdResult {
+  export const filterSensitiveLog = (obj: ListDistributionsByCachePolicyIdResult): any => ({
+    ...obj,
+  });
+}
+
+export interface ListDistributionsByKeyGroupRequest {
+  /**
+   * <p>Use this field when paginating results to indicate where to begin in your list of
+   * 			distribution IDs. The response includes distribution IDs in the list that occur after
+   * 			the marker. To get the next page of the list, set this field’s value to the value of
+   * 			<code>NextMarker</code> from the current page’s response.</p>
+   */
+  Marker?: string;
+
+  /**
+   * <p>The maximum number of distribution IDs that you want in the response.</p>
+   */
+  MaxItems?: string;
+
+  /**
+   * <p>The ID of the key group whose associated distribution IDs you are listing.</p>
+   */
+  KeyGroupId: string | undefined;
+}
+
+export namespace ListDistributionsByKeyGroupRequest {
+  export const filterSensitiveLog = (obj: ListDistributionsByKeyGroupRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListDistributionsByKeyGroupResult {
+  /**
+   * <p>A list of distribution IDs.</p>
+   */
+  DistributionIdList?: DistributionIdList;
+}
+
+export namespace ListDistributionsByKeyGroupResult {
+  export const filterSensitiveLog = (obj: ListDistributionsByKeyGroupResult): any => ({
+    ...obj,
+  });
+}
+
+export interface ListDistributionsByOriginRequestPolicyIdRequest {
+  /**
+   * <p>Use this field when paginating results to indicate where to begin in your list of
+   * 			distribution IDs. The response includes distribution IDs in the list that occur after
+   * 			the marker. To get the next page of the list, set this field’s value to the value of
+   * 			<code>NextMarker</code> from the current page’s response.</p>
+   */
+  Marker?: string;
+
+  /**
+   * <p>The maximum number of distribution IDs that you want in the response.</p>
+   */
+  MaxItems?: string;
+
+  /**
+   * <p>The ID of the origin request policy whose associated distribution IDs you want to
+   * 			list.</p>
+   */
+  OriginRequestPolicyId: string | undefined;
+}
+
+export namespace ListDistributionsByOriginRequestPolicyIdRequest {
+  export const filterSensitiveLog = (obj: ListDistributionsByOriginRequestPolicyIdRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListDistributionsByOriginRequestPolicyIdResult {
+  /**
+   * <p>A list of distribution IDs.</p>
+   */
+  DistributionIdList?: DistributionIdList;
+}
+
+export namespace ListDistributionsByOriginRequestPolicyIdResult {
+  export const filterSensitiveLog = (obj: ListDistributionsByOriginRequestPolicyIdResult): any => ({
+    ...obj,
+  });
+}
+
+export interface ListDistributionsByRealtimeLogConfigRequest {
+  /**
+   * <p>The name of the real-time log configuration whose associated distributions you want to
+   * 			list.</p>
+   */
+  RealtimeLogConfigName?: string;
+
+  /**
+   * <p>The maximum number of distributions that you want in the response.</p>
+   */
+  MaxItems?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the real-time log configuration whose associated
+   * 			distributions you want to list.</p>
+   */
+  RealtimeLogConfigArn?: string;
+
+  /**
+   * <p>Use this field when paginating results to indicate where to begin in your list of
+   * 			distributions. The response includes distributions in the list that occur after the
+   * 			marker. To get the next page of the list, set this field’s value to the value of
+   * 			<code>NextMarker</code> from the current page’s response.</p>
+   */
+  Marker?: string;
+}
+
+export namespace ListDistributionsByRealtimeLogConfigRequest {
+  export const filterSensitiveLog = (obj: ListDistributionsByRealtimeLogConfigRequest): any => ({
+    ...obj,
+  });
+}
 
 export interface ListDistributionsByRealtimeLogConfigResult {
   /**
@@ -49,12 +745,6 @@ export namespace ListDistributionsByRealtimeLogConfigResult {
  */
 export interface ListDistributionsByWebACLIdRequest {
   /**
-   * <p>The maximum number of distributions that you want CloudFront to return in the response body.
-   * 			The maximum and default values are both 100.</p>
-   */
-  MaxItems?: string;
-
-  /**
    * <p>Use <code>Marker</code> and <code>MaxItems</code> to control pagination of results. If
    * 			you have more than <code>MaxItems</code> distributions that satisfy the request, the response
    * 			includes a <code>NextMarker</code> element. To get the next page of results, submit another
@@ -62,6 +752,12 @@ export interface ListDistributionsByWebACLIdRequest {
    * 			from the last response. (For the first request, omit <code>Marker</code>.) </p>
    */
   Marker?: string;
+
+  /**
+   * <p>The maximum number of distributions that you want CloudFront to return in the response body.
+   * 			The maximum and default values are both 100.</p>
+   */
+  MaxItems?: string;
 
   /**
    * <p>The ID of the AWS WAF web ACL that you want to list the associated distributions.
@@ -119,6 +815,11 @@ export namespace ListFieldLevelEncryptionConfigsRequest {
  */
 export interface FieldLevelEncryptionSummary {
   /**
+   * <p>The last time that the summary of field-level encryption items was modified.</p>
+   */
+  LastModifiedTime: Date | undefined;
+
+  /**
    * <p>
    * 			A summary of a query argument-profile mapping.
    * 		</p>
@@ -126,16 +827,9 @@ export interface FieldLevelEncryptionSummary {
   QueryArgProfileConfig?: QueryArgProfileConfig;
 
   /**
-   * <p>
-   * 			A summary of a content type-profile mapping.
-   * 		</p>
+   * <p>The unique ID of a field-level encryption item.</p>
    */
-  ContentTypeProfileConfig?: ContentTypeProfileConfig;
-
-  /**
-   * <p>The last time that the summary of field-level encryption items was modified.</p>
-   */
-  LastModifiedTime: Date | undefined;
+  Id: string | undefined;
 
   /**
    * <p>An optional comment about the field-level encryption item.</p>
@@ -143,9 +837,11 @@ export interface FieldLevelEncryptionSummary {
   Comment?: string;
 
   /**
-   * <p>The unique ID of a field-level encryption item.</p>
+   * <p>
+   * 			A summary of a content type-profile mapping.
+   * 		</p>
    */
-  Id: string | undefined;
+  ContentTypeProfileConfig?: ContentTypeProfileConfig;
 }
 
 export namespace FieldLevelEncryptionSummary {
@@ -159,6 +855,16 @@ export namespace FieldLevelEncryptionSummary {
  */
 export interface FieldLevelEncryptionList {
   /**
+   * <p>The number of field-level encryption items.</p>
+   */
+  Quantity: number | undefined;
+
+  /**
+   * <p>An array of field-level encryption items.</p>
+   */
+  Items?: FieldLevelEncryptionSummary[];
+
+  /**
    * <p>If there are more elements to be listed, this element is present and contains
    * 			the value that you can use for the <code>Marker</code> request parameter to continue
    * 			listing your configurations where you left off.</p>
@@ -166,19 +872,9 @@ export interface FieldLevelEncryptionList {
   NextMarker?: string;
 
   /**
-   * <p>The number of field-level encryption items.</p>
-   */
-  Quantity: number | undefined;
-
-  /**
    * <p>The maximum number of elements you want in the response body. </p>
    */
   MaxItems: number | undefined;
-
-  /**
-   * <p>An array of field-level encryption items.</p>
-   */
-  Items?: FieldLevelEncryptionSummary[];
 }
 
 export namespace FieldLevelEncryptionList {
@@ -202,16 +898,16 @@ export namespace ListFieldLevelEncryptionConfigsResult {
 
 export interface ListFieldLevelEncryptionProfilesRequest {
   /**
+   * <p>The maximum number of field-level encryption profiles you want in the response body. </p>
+   */
+  MaxItems?: string;
+
+  /**
    * <p>Use this when paginating results to indicate where to begin in your list of profiles. The results include profiles in the list that
    * 			occur after the marker. To get the next page of results, set the <code>Marker</code> to the value of the
    * 			<code>NextMarker</code> from the current page's response (which is also the ID of the last profile on that page). </p>
    */
   Marker?: string;
-
-  /**
-   * <p>The maximum number of field-level encryption profiles you want in the response body. </p>
-   */
-  MaxItems?: string;
 }
 
 export namespace ListFieldLevelEncryptionProfilesRequest {
@@ -225,10 +921,20 @@ export namespace ListFieldLevelEncryptionProfilesRequest {
  */
 export interface FieldLevelEncryptionProfileSummary {
   /**
+   * <p>An optional comment for the field-level encryption profile summary.</p>
+   */
+  Comment?: string;
+
+  /**
    * <p>A complex data type of encryption entities for the field-level encryption profile that include the public key ID, provider, and
    * 			field patterns for specifying which fields to encrypt with this key.</p>
    */
   EncryptionEntities: EncryptionEntities | undefined;
+
+  /**
+   * <p>The time when the the field-level encryption profile summary was last updated.</p>
+   */
+  LastModifiedTime: Date | undefined;
 
   /**
    * <p>Name for the field-level encryption profile summary.</p>
@@ -236,19 +942,9 @@ export interface FieldLevelEncryptionProfileSummary {
   Name: string | undefined;
 
   /**
-   * <p>An optional comment for the field-level encryption profile summary.</p>
-   */
-  Comment?: string;
-
-  /**
    * <p>ID for the field-level encryption profile summary.</p>
    */
   Id: string | undefined;
-
-  /**
-   * <p>The time when the the field-level encryption profile summary was last updated.</p>
-   */
-  LastModifiedTime: Date | undefined;
 }
 
 export namespace FieldLevelEncryptionProfileSummary {
@@ -262,11 +958,6 @@ export namespace FieldLevelEncryptionProfileSummary {
  */
 export interface FieldLevelEncryptionProfileList {
   /**
-   * <p>The number of field-level encryption profiles.</p>
-   */
-  Quantity: number | undefined;
-
-  /**
    * <p>The maximum number of field-level encryption profiles you want in the response body. </p>
    */
   MaxItems: number | undefined;
@@ -275,6 +966,11 @@ export interface FieldLevelEncryptionProfileList {
    * <p>The field-level encryption profile items.</p>
    */
   Items?: FieldLevelEncryptionProfileSummary[];
+
+  /**
+   * <p>The number of field-level encryption profiles.</p>
+   */
+  Quantity: number | undefined;
 
   /**
    * <p>If there are more elements to be listed, this element is present and contains
@@ -308,17 +1004,6 @@ export namespace ListFieldLevelEncryptionProfilesResult {
  */
 export interface ListInvalidationsRequest {
   /**
-   * <p>The distribution's ID.</p>
-   */
-  DistributionId: string | undefined;
-
-  /**
-   * <p>The maximum number of invalidation batches that you want in the response
-   * 			body.</p>
-   */
-  MaxItems?: string;
-
-  /**
    * <p>Use this parameter when paginating results to indicate where to begin in your list of
    * 			invalidation batches. Because the results are returned in decreasing order from most recent to
    * 			oldest, the most recent results are on the first page, the second page will contain earlier
@@ -327,6 +1012,17 @@ export interface ListInvalidationsRequest {
    * 			of the last invalidation batch on that page. </p>
    */
   Marker?: string;
+
+  /**
+   * <p>The maximum number of invalidation batches that you want in the response
+   * 			body.</p>
+   */
+  MaxItems?: string;
+
+  /**
+   * <p>The distribution's ID.</p>
+   */
+  DistributionId: string | undefined;
 }
 
 export namespace ListInvalidationsRequest {
@@ -340,9 +1036,9 @@ export namespace ListInvalidationsRequest {
  */
 export interface InvalidationSummary {
   /**
-   * <p>The time that an invalidation request was created.</p>
+   * <p>The status of an invalidation request.</p>
    */
-  CreateTime: Date | undefined;
+  Status: string | undefined;
 
   /**
    * <p>The unique ID for an invalidation request.</p>
@@ -350,9 +1046,9 @@ export interface InvalidationSummary {
   Id: string | undefined;
 
   /**
-   * <p>The status of an invalidation request.</p>
+   * <p>The time that an invalidation request was created.</p>
    */
-  Status: string | undefined;
+  CreateTime: Date | undefined;
 }
 
 export namespace InvalidationSummary {
@@ -368,33 +1064,11 @@ export namespace InvalidationSummary {
  */
 export interface InvalidationList {
   /**
-   * <p>A complex type that contains one <code>InvalidationSummary</code> element for each
-   * 			invalidation batch created by the current AWS account.</p>
-   */
-  Items?: InvalidationSummary[];
-
-  /**
-   * <p>The value that you provided for the <code>Marker</code> request parameter.</p>
-   */
-  Marker: string | undefined;
-
-  /**
    * <p>If <code>IsTruncated</code> is <code>true</code>, this element is present and contains
    * 			the value that you can use for the <code>Marker</code> request parameter to continue listing
    * 			your invalidation batches where they left off.</p>
    */
   NextMarker?: string;
-
-  /**
-   * <p>The number of invalidation batches that were created by the current AWS account.
-   * 		</p>
-   */
-  Quantity: number | undefined;
-
-  /**
-   * <p>The value that you provided for the <code>MaxItems</code> request parameter.</p>
-   */
-  MaxItems: number | undefined;
 
   /**
    * <p>A flag that indicates whether more invalidation batch requests remain to be listed. If
@@ -403,6 +1077,28 @@ export interface InvalidationList {
    * 			list.</p>
    */
   IsTruncated: boolean | undefined;
+
+  /**
+   * <p>The value that you provided for the <code>MaxItems</code> request parameter.</p>
+   */
+  MaxItems: number | undefined;
+
+  /**
+   * <p>The value that you provided for the <code>Marker</code> request parameter.</p>
+   */
+  Marker: string | undefined;
+
+  /**
+   * <p>The number of invalidation batches that were created by the current AWS account.
+   * 		</p>
+   */
+  Quantity: number | undefined;
+
+  /**
+   * <p>A complex type that contains one <code>InvalidationSummary</code> element for each
+   * 			invalidation batch created by the current AWS account.</p>
+   */
+  Items?: InvalidationSummary[];
 }
 
 export namespace InvalidationList {
@@ -423,6 +1119,89 @@ export interface ListInvalidationsResult {
 
 export namespace ListInvalidationsResult {
   export const filterSensitiveLog = (obj: ListInvalidationsResult): any => ({
+    ...obj,
+  });
+}
+
+export interface ListKeyGroupsRequest {
+  /**
+   * <p>The maximum number of key groups that you want in the response.</p>
+   */
+  MaxItems?: string;
+
+  /**
+   * <p>Use this field when paginating results to indicate where to begin in your list of key
+   * 			groups. The response includes key groups in the list that occur after the marker. To get
+   * 			the next page of the list, set this field’s value to the value of
+   * 			<code>NextMarker</code> from the current page’s response.</p>
+   */
+  Marker?: string;
+}
+
+export namespace ListKeyGroupsRequest {
+  export const filterSensitiveLog = (obj: ListKeyGroupsRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains information about a key group.</p>
+ */
+export interface KeyGroupSummary {
+  /**
+   * <p>A key group.</p>
+   */
+  KeyGroup: KeyGroup | undefined;
+}
+
+export namespace KeyGroupSummary {
+  export const filterSensitiveLog = (obj: KeyGroupSummary): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A list of key groups.</p>
+ */
+export interface KeyGroupList {
+  /**
+   * <p>If there are more items in the list than are in this response, this element is present. It
+   * 			contains the value that you should use in the <code>Marker</code> field of a subsequent
+   * 			request to continue listing key groups.</p>
+   */
+  NextMarker?: string;
+
+  /**
+   * <p>The number of key groups returned in the response.</p>
+   */
+  Quantity: number | undefined;
+
+  /**
+   * <p>The maximum number of key groups requested.</p>
+   */
+  MaxItems: number | undefined;
+
+  /**
+   * <p>A list of key groups.</p>
+   */
+  Items?: KeyGroupSummary[];
+}
+
+export namespace KeyGroupList {
+  export const filterSensitiveLog = (obj: KeyGroupList): any => ({
+    ...obj,
+  });
+}
+
+export interface ListKeyGroupsResult {
+  /**
+   * <p>A list of key groups.</p>
+   */
+  KeyGroupList?: KeyGroupList;
+}
+
+export namespace ListKeyGroupsResult {
+  export const filterSensitiveLog = (obj: ListKeyGroupsResult): any => ({
     ...obj,
   });
 }
@@ -494,14 +1273,14 @@ export namespace OriginRequestPolicySummary {
  */
 export interface OriginRequestPolicyList {
   /**
+   * <p>The maximum number of origin request policies requested.</p>
+   */
+  MaxItems: number | undefined;
+
+  /**
    * <p>The total number of origin request policies returned in the response.</p>
    */
   Quantity: number | undefined;
-
-  /**
-   * <p>Contains the origin request policies in the list.</p>
-   */
-  Items?: OriginRequestPolicySummary[];
 
   /**
    * <p>If there are more items in the list than are in this response, this element is
@@ -512,9 +1291,9 @@ export interface OriginRequestPolicyList {
   NextMarker?: string;
 
   /**
-   * <p>The maximum number of origin request policies requested.</p>
+   * <p>Contains the origin request policies in the list.</p>
    */
-  MaxItems: number | undefined;
+  Items?: OriginRequestPolicySummary[];
 }
 
 export namespace OriginRequestPolicyList {
@@ -557,44 +1336,33 @@ export namespace ListPublicKeysRequest {
 }
 
 /**
- * <p>A complex data type for public key information.
- * 		</p>
+ * <p>Contains information about a public key.</p>
  */
 export interface PublicKeySummary {
   /**
-   * <p>
-   * 			Encoded key for public key information summary.
-   * 		</p>
+   * <p>The date and time when the public key was uploaded.</p>
    */
-  EncodedKey: string | undefined;
+  CreatedTime: Date | undefined;
 
   /**
-   * <p>
-   * 			Comment for public key information summary.
-   * 		</p>
+   * <p>A comment to describe the public key.</p>
    */
   Comment?: string;
 
   /**
-   * <p>
-   * 			Name for public key information summary.
-   * 		</p>
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>
-   * 			ID for public key information summary.
-   * 		</p>
+   * <p>The identifier of the public key.</p>
    */
   Id: string | undefined;
 
   /**
-   * <p>
-   * 			Creation time for public key information summary.
-   * 		</p>
+   * <p>A name to help identify the public key.</p>
    */
-  CreatedTime: Date | undefined;
+  Name: string | undefined;
+
+  /**
+   * <p>The public key.</p>
+   */
+  EncodedKey: string | undefined;
 }
 
 export namespace PublicKeySummary {
@@ -604,19 +1372,18 @@ export namespace PublicKeySummary {
 }
 
 /**
- * <p>A list of public keys you've added to CloudFront to use with features like field-level encryption.</p>
+ * <p>A list of public keys that you can use with <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html">signed URLs and signed cookies</a>, or with <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/field-level-encryption.html">field-level encryption</a>.</p>
  */
 export interface PublicKeyList {
   /**
-   * <p>The number of public keys you added to CloudFront to use with features like field-level
-   * 			encryption.</p>
+   * <p>A list of public keys.</p>
    */
-  Quantity: number | undefined;
+  Items?: PublicKeySummary[];
 
   /**
-   * <p>The maximum number of public keys you want in the response body. </p>
+   * <p>The number of public keys in the list.</p>
    */
-  MaxItems: number | undefined;
+  Quantity: number | undefined;
 
   /**
    * <p>If there are more elements to be listed, this element is present and contains
@@ -626,9 +1393,9 @@ export interface PublicKeyList {
   NextMarker?: string;
 
   /**
-   * <p>An array of information about a public key you add to CloudFront to use with features like field-level encryption.</p>
+   * <p>The maximum number of public keys you want in the response.</p>
    */
-  Items?: PublicKeySummary[];
+  MaxItems: number | undefined;
 }
 
 export namespace PublicKeyList {
@@ -652,17 +1419,17 @@ export namespace ListPublicKeysResult {
 
 export interface ListRealtimeLogConfigsRequest {
   /**
-   * <p>The maximum number of real-time log configurations that you want in the response.</p>
-   */
-  MaxItems?: string;
-
-  /**
    * <p>Use this field when paginating results to indicate where to begin in your list of real-time
    * 			log configurations. The response includes real-time log configurations in the list that
    * 			occur after the marker. To get the next page of the list, set this field’s value to the
    * 			value of <code>NextMarker</code> from the current page’s response.</p>
    */
   Marker?: string;
+
+  /**
+   * <p>The maximum number of real-time log configurations that you want in the response.</p>
+   */
+  MaxItems?: string;
 }
 
 export namespace ListRealtimeLogConfigsRequest {
@@ -676,24 +1443,6 @@ export namespace ListRealtimeLogConfigsRequest {
  */
 export interface RealtimeLogConfigs {
   /**
-   * <p>If there are more items in the list than are in this response, this element is present. It
-   * 			contains the value that you should use in the <code>Marker</code> field of a subsequent
-   * 			request to continue listing real-time log configurations where you left off. </p>
-   */
-  NextMarker?: string;
-
-  /**
-   * <p>This parameter indicates where this list of real-time log configurations begins. This list
-   * 			includes real-time log configurations that occur after the marker.</p>
-   */
-  Marker: string | undefined;
-
-  /**
-   * <p>Contains the list of real-time log configurations.</p>
-   */
-  Items?: RealtimeLogConfig[];
-
-  /**
    * <p>A flag that indicates whether there are more real-time log configurations than are contained
    * 			in this list.</p>
    */
@@ -703,6 +1452,24 @@ export interface RealtimeLogConfigs {
    * <p>The maximum number of real-time log configurations requested.</p>
    */
   MaxItems: number | undefined;
+
+  /**
+   * <p>Contains the list of real-time log configurations.</p>
+   */
+  Items?: RealtimeLogConfig[];
+
+  /**
+   * <p>This parameter indicates where this list of real-time log configurations begins. This list
+   * 			includes real-time log configurations that occur after the marker.</p>
+   */
+  Marker: string | undefined;
+
+  /**
+   * <p>If there are more items in the list than are in this response, this element is present. It
+   * 			contains the value that you should use in the <code>Marker</code> field of a subsequent
+   * 			request to continue listing real-time log configurations where you left off. </p>
+   */
+  NextMarker?: string;
 }
 
 export namespace RealtimeLogConfigs {
@@ -729,14 +1496,14 @@ export namespace ListRealtimeLogConfigsResult {
  */
 export interface ListStreamingDistributionsRequest {
   /**
-   * <p>The value that you provided for the <code>Marker</code> request parameter.</p>
-   */
-  Marker?: string;
-
-  /**
    * <p>The value that you provided for the <code>MaxItems</code> request parameter.</p>
    */
   MaxItems?: string;
+
+  /**
+   * <p>The value that you provided for the <code>Marker</code> request parameter.</p>
+   */
+  Marker?: string;
 }
 
 export namespace ListStreamingDistributionsRequest {
@@ -750,14 +1517,16 @@ export namespace ListStreamingDistributionsRequest {
  */
 export interface StreamingDistributionSummary {
   /**
-   * <p>The date and time the distribution was last modified.</p>
+   * <p>A complex type that contains information about price class for this streaming
+   * 			distribution. </p>
    */
-  LastModifiedTime: Date | undefined;
+  PriceClass: PriceClass | string | undefined;
 
   /**
-   * <p>Whether the distribution is enabled to accept end user requests for content.</p>
+   * <p>A complex type that contains information about the Amazon S3 bucket from which you want
+   * 			CloudFront to get your media files for distribution.</p>
    */
-  Enabled: boolean | undefined;
+  S3Origin: S3Origin | undefined;
 
   /**
    * <p>The domain name corresponding to the distribution, for example, <code>d111111abcdef8.cloudfront.net</code>.</p>
@@ -765,10 +1534,27 @@ export interface StreamingDistributionSummary {
   DomainName: string | undefined;
 
   /**
-   * <p>A complex type that contains information about price class for this streaming
-   * 			distribution. </p>
+   * <p> Indicates the current status of the distribution. When the status is
+   * 			<code>Deployed</code>, the distribution's information is fully propagated throughout the
+   * 			Amazon CloudFront system.</p>
    */
-  PriceClass: PriceClass | string | undefined;
+  Status: string | undefined;
+
+  /**
+   * <p>Whether the distribution is enabled to accept end user requests for content.</p>
+   */
+  Enabled: boolean | undefined;
+
+  /**
+   * <p>A complex type that contains information about CNAMEs (alternate domain names), if any,
+   * 			for this streaming distribution.</p>
+   */
+  Aliases: Aliases | undefined;
+
+  /**
+   * <p>The date and time the distribution was last modified.</p>
+   */
+  LastModifiedTime: Date | undefined;
 
   /**
    * <p>A complex type that specifies the AWS accounts, if any, that you want to allow to
@@ -793,35 +1579,16 @@ export interface StreamingDistributionSummary {
   Id: string | undefined;
 
   /**
-   * <p> The ARN (Amazon Resource Name) for the streaming distribution. For example:
-   * 				<code>arn:aws:cloudfront::123456789012:streaming-distribution/EDFDVBD632BHDS5</code>, where
-   * 				<code>123456789012</code> is your AWS account ID.</p>
-   */
-  ARN: string | undefined;
-
-  /**
-   * <p>A complex type that contains information about the Amazon S3 bucket from which you want
-   * 			CloudFront to get your media files for distribution.</p>
-   */
-  S3Origin: S3Origin | undefined;
-
-  /**
    * <p>The comment originally specified when this distribution was created.</p>
    */
   Comment: string | undefined;
 
   /**
-   * <p>A complex type that contains information about CNAMEs (alternate domain names), if any,
-   * 			for this streaming distribution.</p>
+   * <p> The ARN (Amazon Resource Name) for the streaming distribution. For example:
+   * 				<code>arn:aws:cloudfront::123456789012:streaming-distribution/EDFDVBD632BHDS5</code>, where
+   * 				<code>123456789012</code> is your AWS account ID.</p>
    */
-  Aliases: Aliases | undefined;
-
-  /**
-   * <p> Indicates the current status of the distribution. When the status is
-   * 			<code>Deployed</code>, the distribution's information is fully propagated throughout the
-   * 			Amazon CloudFront system.</p>
-   */
-  Status: string | undefined;
+  ARN: string | undefined;
 }
 
 export namespace StreamingDistributionSummary {
@@ -835,22 +1602,28 @@ export namespace StreamingDistributionSummary {
  */
 export interface StreamingDistributionList {
   /**
-   * <p>A complex type that contains one <code>StreamingDistributionSummary</code> element for
-   * 			each distribution that was created by the current AWS account.</p>
-   */
-  Items?: StreamingDistributionSummary[];
-
-  /**
-   * <p>The value you provided for the <code>Marker</code> request parameter. </p>
-   */
-  Marker: string | undefined;
-
-  /**
    * <p>If <code>IsTruncated</code> is <code>true</code>, this element is present and contains
    * 			the value you can use for the <code>Marker</code> request parameter to continue listing your
    * 			RTMP distributions where they left off. </p>
    */
   NextMarker?: string;
+
+  /**
+   * <p>A flag that indicates whether more streaming distributions remain to be listed. If your
+   * 			results were truncated, you can make a follow-up pagination request using the
+   * 				<code>Marker</code> request parameter to retrieve more distributions in the list. </p>
+   */
+  IsTruncated: boolean | undefined;
+
+  /**
+   * <p>The value you provided for the <code>MaxItems</code> request parameter. </p>
+   */
+  MaxItems: number | undefined;
+
+  /**
+   * <p>The value you provided for the <code>Marker</code> request parameter. </p>
+   */
+  Marker: string | undefined;
 
   /**
    * <p>The number of streaming distributions that were created by the current AWS account.
@@ -859,16 +1632,10 @@ export interface StreamingDistributionList {
   Quantity: number | undefined;
 
   /**
-   * <p>The value you provided for the <code>MaxItems</code> request parameter. </p>
+   * <p>A complex type that contains one <code>StreamingDistributionSummary</code> element for
+   * 			each distribution that was created by the current AWS account.</p>
    */
-  MaxItems: number | undefined;
-
-  /**
-   * <p>A flag that indicates whether more streaming distributions remain to be listed. If your
-   * 			results were truncated, you can make a follow-up pagination request using the
-   * 				<code>Marker</code> request parameter to retrieve more distributions in the list. </p>
-   */
-  IsTruncated: boolean | undefined;
+  Items?: StreamingDistributionSummary[];
 }
 
 export namespace StreamingDistributionList {
@@ -921,21 +1688,6 @@ export interface ListTagsForResourceResult {
 
 export namespace ListTagsForResourceResult {
   export const filterSensitiveLog = (obj: ListTagsForResourceResult): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>A resource that was specified is not valid.</p>
- */
-export interface NoSuchResource extends __SmithyException, $MetadataBearer {
-  name: "NoSuchResource";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace NoSuchResource {
-  export const filterSensitiveLog = (obj: NoSuchResource): any => ({
     ...obj,
   });
 }
@@ -1015,6 +1767,13 @@ export namespace IllegalUpdate {
 
 export interface UpdateCachePolicyRequest {
   /**
+   * <p>The unique identifier for the cache policy that you are updating. The identifier is returned
+   * 			in a cache behavior’s <code>CachePolicyId</code> field in the response to
+   * 			<code>GetDistributionConfig</code>.</p>
+   */
+  Id: string | undefined;
+
+  /**
    * <p>A cache policy configuration.</p>
    */
   CachePolicyConfig: CachePolicyConfig | undefined;
@@ -1025,13 +1784,6 @@ export interface UpdateCachePolicyRequest {
    * 			<code>GetCachePolicyConfig</code>.</p>
    */
   IfMatch?: string;
-
-  /**
-   * <p>The unique identifier for the cache policy that you are updating. The identifier is returned
-   * 			in a cache behavior’s <code>CachePolicyId</code> field in the response to
-   * 			<code>GetDistributionConfig</code>.</p>
-   */
-  Id: string | undefined;
 }
 
 export namespace UpdateCachePolicyRequest {
@@ -1042,14 +1794,14 @@ export namespace UpdateCachePolicyRequest {
 
 export interface UpdateCachePolicyResult {
   /**
-   * <p>A cache policy.</p>
-   */
-  CachePolicy?: CachePolicy;
-
-  /**
    * <p>The current version of the cache policy.</p>
    */
   ETag?: string;
+
+  /**
+   * <p>A cache policy.</p>
+   */
+  CachePolicy?: CachePolicy;
 }
 
 export namespace UpdateCachePolicyResult {
@@ -1063,9 +1815,10 @@ export namespace UpdateCachePolicyResult {
  */
 export interface UpdateCloudFrontOriginAccessIdentityRequest {
   /**
-   * <p>The identity's configuration information.</p>
+   * <p>The value of the <code>ETag</code> header that you received when retrieving the
+   * 			identity's configuration. For example: <code>E2QWRUHAPOMQZL</code>.</p>
    */
-  CloudFrontOriginAccessIdentityConfig: CloudFrontOriginAccessIdentityConfig | undefined;
+  IfMatch?: string;
 
   /**
    * <p>The identity's id.</p>
@@ -1073,10 +1826,9 @@ export interface UpdateCloudFrontOriginAccessIdentityRequest {
   Id: string | undefined;
 
   /**
-   * <p>The value of the <code>ETag</code> header that you received when retrieving the
-   * 			identity's configuration. For example: <code>E2QWRUHAPOMQZL</code>.</p>
+   * <p>The identity's configuration information.</p>
    */
-  IfMatch?: string;
+  CloudFrontOriginAccessIdentityConfig: CloudFrontOriginAccessIdentityConfig | undefined;
 }
 
 export namespace UpdateCloudFrontOriginAccessIdentityRequest {
@@ -1112,10 +1864,9 @@ export namespace UpdateCloudFrontOriginAccessIdentityResult {
  */
 export interface UpdateDistributionRequest {
   /**
-   * <p>The value of the <code>ETag</code> header that you received when retrieving the
-   * 			distribution's configuration. For example: <code>E2QWRUHAPOMQZL</code>.</p>
+   * <p>The distribution's configuration information.</p>
    */
-  IfMatch?: string;
+  DistributionConfig: DistributionConfig | undefined;
 
   /**
    * <p>The distribution's id.</p>
@@ -1123,9 +1874,10 @@ export interface UpdateDistributionRequest {
   Id: string | undefined;
 
   /**
-   * <p>The distribution's configuration information.</p>
+   * <p>The value of the <code>ETag</code> header that you received when retrieving the
+   * 			distribution's configuration. For example: <code>E2QWRUHAPOMQZL</code>.</p>
    */
-  DistributionConfig: DistributionConfig | undefined;
+  IfMatch?: string;
 }
 
 export namespace UpdateDistributionRequest {
@@ -1142,15 +1894,15 @@ export namespace UpdateDistributionRequest {
  */
 export interface UpdateDistributionResult {
   /**
+   * <p>The distribution's information.</p>
+   */
+  Distribution?: Distribution;
+
+  /**
    * <p>The current version of the configuration. For example:
    * 			<code>E2QWRUHAPOMQZL</code>.</p>
    */
   ETag?: string;
-
-  /**
-   * <p>The distribution's information.</p>
-   */
-  Distribution?: Distribution;
 }
 
 export namespace UpdateDistributionResult {
@@ -1168,14 +1920,14 @@ export interface UpdateFieldLevelEncryptionConfigRequest {
   IfMatch?: string;
 
   /**
-   * <p>The ID of the configuration you want to update.</p>
-   */
-  Id: string | undefined;
-
-  /**
    * <p>Request to update a field-level encryption configuration. </p>
    */
   FieldLevelEncryptionConfig: FieldLevelEncryptionConfig | undefined;
+
+  /**
+   * <p>The ID of the configuration you want to update.</p>
+   */
+  Id: string | undefined;
 }
 
 export namespace UpdateFieldLevelEncryptionConfigRequest {
@@ -1186,15 +1938,15 @@ export namespace UpdateFieldLevelEncryptionConfigRequest {
 
 export interface UpdateFieldLevelEncryptionConfigResult {
   /**
-   * <p>Return the results of updating the configuration.</p>
-   */
-  FieldLevelEncryption?: FieldLevelEncryption;
-
-  /**
    * <p>The value of the <code>ETag</code> header that you received when updating the configuration.
    * 			For example: <code>E2QWRUHAPOMQZL</code>.</p>
    */
   ETag?: string;
+
+  /**
+   * <p>Return the results of updating the configuration.</p>
+   */
+  FieldLevelEncryption?: FieldLevelEncryption;
 }
 
 export namespace UpdateFieldLevelEncryptionConfigResult {
@@ -1205,9 +1957,10 @@ export namespace UpdateFieldLevelEncryptionConfigResult {
 
 export interface UpdateFieldLevelEncryptionProfileRequest {
   /**
-   * <p>Request to update a field-level encryption profile. </p>
+   * <p>The value of the <code>ETag</code> header that you received when retrieving the profile identity to update.
+   * 			For example: <code>E2QWRUHAPOMQZL</code>.</p>
    */
-  FieldLevelEncryptionProfileConfig: FieldLevelEncryptionProfileConfig | undefined;
+  IfMatch?: string;
 
   /**
    * <p>The ID of the field-level encryption profile request. </p>
@@ -1215,10 +1968,9 @@ export interface UpdateFieldLevelEncryptionProfileRequest {
   Id: string | undefined;
 
   /**
-   * <p>The value of the <code>ETag</code> header that you received when retrieving the profile identity to update.
-   * 			For example: <code>E2QWRUHAPOMQZL</code>.</p>
+   * <p>Request to update a field-level encryption profile. </p>
    */
-  IfMatch?: string;
+  FieldLevelEncryptionProfileConfig: FieldLevelEncryptionProfileConfig | undefined;
 }
 
 export namespace UpdateFieldLevelEncryptionProfileRequest {
@@ -1245,13 +1997,55 @@ export namespace UpdateFieldLevelEncryptionProfileResult {
   });
 }
 
-export interface UpdateOriginRequestPolicyRequest {
+export interface UpdateKeyGroupRequest {
   /**
-   * <p>The version of the origin request policy that you are updating. The version is returned in
-   * 			the origin request policy’s <code>ETag</code> field in the response to
-   * 			<code>GetOriginRequestPolicyConfig</code>.</p>
+   * <p>The identifier of the key group that you are updating.</p>
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The key group configuration.</p>
+   */
+  KeyGroupConfig: KeyGroupConfig | undefined;
+
+  /**
+   * <p>The version of the key group that you are updating. The version is the key group’s
+   * 			<code>ETag</code> value.</p>
    */
   IfMatch?: string;
+}
+
+export namespace UpdateKeyGroupRequest {
+  export const filterSensitiveLog = (obj: UpdateKeyGroupRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateKeyGroupResult {
+  /**
+   * <p>The key group that was just updated.</p>
+   */
+  KeyGroup?: KeyGroup;
+
+  /**
+   * <p>The identifier for this version of the key group.</p>
+   */
+  ETag?: string;
+}
+
+export namespace UpdateKeyGroupResult {
+  export const filterSensitiveLog = (obj: UpdateKeyGroupResult): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateOriginRequestPolicyRequest {
+  /**
+   * <p>The unique identifier for the origin request policy that you are updating. The identifier is
+   * 			returned in a cache behavior’s <code>OriginRequestPolicyId</code> field in the response
+   * 			to <code>GetDistributionConfig</code>.</p>
+   */
+  Id: string | undefined;
 
   /**
    * <p>An origin request policy configuration.</p>
@@ -1259,11 +2053,11 @@ export interface UpdateOriginRequestPolicyRequest {
   OriginRequestPolicyConfig: OriginRequestPolicyConfig | undefined;
 
   /**
-   * <p>The unique identifier for the origin request policy that you are updating. The identifier is
-   * 			returned in a cache behavior’s <code>OriginRequestPolicyId</code> field in the response
-   * 			to <code>GetDistributionConfig</code>.</p>
+   * <p>The version of the origin request policy that you are updating. The version is returned in
+   * 			the origin request policy’s <code>ETag</code> field in the response to
+   * 			<code>GetOriginRequestPolicyConfig</code>.</p>
    */
-  Id: string | undefined;
+  IfMatch?: string;
 }
 
 export namespace UpdateOriginRequestPolicyRequest {
@@ -1274,14 +2068,14 @@ export namespace UpdateOriginRequestPolicyRequest {
 
 export interface UpdateOriginRequestPolicyResult {
   /**
-   * <p>The current version of the origin request policy.</p>
-   */
-  ETag?: string;
-
-  /**
    * <p>An origin request policy.</p>
    */
   OriginRequestPolicy?: OriginRequestPolicy;
+
+  /**
+   * <p>The current version of the origin request policy.</p>
+   */
+  ETag?: string;
 }
 
 export namespace UpdateOriginRequestPolicyResult {
@@ -1292,20 +2086,20 @@ export namespace UpdateOriginRequestPolicyResult {
 
 export interface UpdatePublicKeyRequest {
   /**
-   * <p>The value of the <code>ETag</code> header that you received when retrieving the public key to update.
-   * 			For example: <code>E2QWRUHAPOMQZL</code>.</p>
+   * <p>A public key configuration.</p>
    */
-  IfMatch?: string;
+  PublicKeyConfig: PublicKeyConfig | undefined;
 
   /**
-   * <p>ID of the public key to be updated.</p>
+   * <p>The identifier of the public key that you are updating.</p>
    */
   Id: string | undefined;
 
   /**
-   * <p>Request to update public key information.</p>
+   * <p>The value of the <code>ETag</code> header that you received when retrieving the public key to update.
+   * 			For example: <code>E2QWRUHAPOMQZL</code>.</p>
    */
-  PublicKeyConfig: PublicKeyConfig | undefined;
+  IfMatch?: string;
 }
 
 export namespace UpdatePublicKeyRequest {
@@ -1316,14 +2110,14 @@ export namespace UpdatePublicKeyRequest {
 
 export interface UpdatePublicKeyResult {
   /**
-   * <p>The current version of the update public key result. For example: <code>E2QWRUHAPOMQZL</code>.</p>
-   */
-  ETag?: string;
-
-  /**
-   * <p>Return the results of updating the public key.</p>
+   * <p>The public key.</p>
    */
   PublicKey?: PublicKey;
+
+  /**
+   * <p>The identifier of the current version of the public key.</p>
+   */
+  ETag?: string;
 }
 
 export namespace UpdatePublicKeyResult {
@@ -1333,6 +2127,13 @@ export namespace UpdatePublicKeyResult {
 }
 
 export interface UpdateRealtimeLogConfigRequest {
+  /**
+   * <p>The sampling rate for this real-time log configuration. The sampling rate determines the
+   * 			percentage of viewer requests that are represented in the real-time log data. You must
+   * 			provide an integer between 1 and 100, inclusive.</p>
+   */
+  SamplingRate?: number;
+
   /**
    * <p>A list of fields to include in each real-time log record.</p>
    * 		       <p>For more information about fields, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-fields">Real-time log configuration fields</a> in the
@@ -1347,21 +2148,14 @@ export interface UpdateRealtimeLogConfigRequest {
   EndPoints?: EndPoint[];
 
   /**
-   * <p>The sampling rate for this real-time log configuration. The sampling rate determines the
-   * 			percentage of viewer requests that are represented in the real-time log data. You must
-   * 			provide an integer between 1 and 100, inclusive.</p>
+   * <p>The Amazon Resource Name (ARN) for this real-time log configuration.</p>
    */
-  SamplingRate?: number;
+  ARN?: string;
 
   /**
    * <p>The name for this real-time log configuration.</p>
    */
   Name?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) for this real-time log configuration.</p>
-   */
-  ARN?: string;
 }
 
 export namespace UpdateRealtimeLogConfigRequest {
@@ -1388,9 +2182,9 @@ export namespace UpdateRealtimeLogConfigResult {
  */
 export interface UpdateStreamingDistributionRequest {
   /**
-   * <p>The streaming distribution's configuration information.</p>
+   * <p>The streaming distribution's id.</p>
    */
-  StreamingDistributionConfig: StreamingDistributionConfig | undefined;
+  Id: string | undefined;
 
   /**
    * <p>The value of the <code>ETag</code> header that you received when retrieving the
@@ -1399,9 +2193,9 @@ export interface UpdateStreamingDistributionRequest {
   IfMatch?: string;
 
   /**
-   * <p>The streaming distribution's id.</p>
+   * <p>The streaming distribution's configuration information.</p>
    */
-  Id: string | undefined;
+  StreamingDistributionConfig: StreamingDistributionConfig | undefined;
 }
 
 export namespace UpdateStreamingDistributionRequest {

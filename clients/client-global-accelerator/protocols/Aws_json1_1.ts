@@ -107,6 +107,7 @@ import {
   ListTagsForResourceResponse,
   Listener,
   ListenerNotFoundException,
+  PortOverride,
   PortRange,
   ProvisionByoipCidrRequest,
   ProvisionByoipCidrResponse,
@@ -2705,6 +2706,9 @@ const serializeAws_json1_1CreateEndpointGroupRequest = (
     ...(input.HealthCheckProtocol !== undefined && { HealthCheckProtocol: input.HealthCheckProtocol }),
     IdempotencyToken: input.IdempotencyToken ?? generateIdempotencyToken(),
     ...(input.ListenerArn !== undefined && { ListenerArn: input.ListenerArn }),
+    ...(input.PortOverrides !== undefined && {
+      PortOverrides: serializeAws_json1_1PortOverrides(input.PortOverrides, context),
+    }),
     ...(input.ThresholdCount !== undefined && { ThresholdCount: input.ThresholdCount }),
     ...(input.TrafficDialPercentage !== undefined && { TrafficDialPercentage: input.TrafficDialPercentage }),
   };
@@ -2846,6 +2850,17 @@ const serializeAws_json1_1ListTagsForResourceRequest = (
   };
 };
 
+const serializeAws_json1_1PortOverride = (input: PortOverride, context: __SerdeContext): any => {
+  return {
+    ...(input.EndpointPort !== undefined && { EndpointPort: input.EndpointPort }),
+    ...(input.ListenerPort !== undefined && { ListenerPort: input.ListenerPort }),
+  };
+};
+
+const serializeAws_json1_1PortOverrides = (input: PortOverride[], context: __SerdeContext): any => {
+  return input.map((entry) => serializeAws_json1_1PortOverride(entry, context));
+};
+
 const serializeAws_json1_1PortRange = (input: PortRange, context: __SerdeContext): any => {
   return {
     ...(input.FromPort !== undefined && { FromPort: input.FromPort }),
@@ -2937,6 +2952,9 @@ const serializeAws_json1_1UpdateEndpointGroupRequest = (
     ...(input.HealthCheckPath !== undefined && { HealthCheckPath: input.HealthCheckPath }),
     ...(input.HealthCheckPort !== undefined && { HealthCheckPort: input.HealthCheckPort }),
     ...(input.HealthCheckProtocol !== undefined && { HealthCheckProtocol: input.HealthCheckProtocol }),
+    ...(input.PortOverrides !== undefined && {
+      PortOverrides: serializeAws_json1_1PortOverrides(input.PortOverrides, context),
+    }),
     ...(input.ThresholdCount !== undefined && { ThresholdCount: input.ThresholdCount }),
     ...(input.TrafficDialPercentage !== undefined && { TrafficDialPercentage: input.TrafficDialPercentage }),
   };
@@ -3226,6 +3244,10 @@ const deserializeAws_json1_1EndpointGroup = (output: any, context: __SerdeContex
       output.HealthCheckProtocol !== undefined && output.HealthCheckProtocol !== null
         ? output.HealthCheckProtocol
         : undefined,
+    PortOverrides:
+      output.PortOverrides !== undefined && output.PortOverrides !== null
+        ? deserializeAws_json1_1PortOverrides(output.PortOverrides, context)
+        : undefined,
     ThresholdCount:
       output.ThresholdCount !== undefined && output.ThresholdCount !== null ? output.ThresholdCount : undefined,
     TrafficDialPercentage:
@@ -3406,6 +3428,17 @@ const deserializeAws_json1_1ListTagsForResourceResponse = (
     Tags:
       output.Tags !== undefined && output.Tags !== null ? deserializeAws_json1_1Tags(output.Tags, context) : undefined,
   } as any;
+};
+
+const deserializeAws_json1_1PortOverride = (output: any, context: __SerdeContext): PortOverride => {
+  return {
+    EndpointPort: output.EndpointPort !== undefined && output.EndpointPort !== null ? output.EndpointPort : undefined,
+    ListenerPort: output.ListenerPort !== undefined && output.ListenerPort !== null ? output.ListenerPort : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1PortOverrides = (output: any, context: __SerdeContext): PortOverride[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1PortOverride(entry, context));
 };
 
 const deserializeAws_json1_1PortRange = (output: any, context: __SerdeContext): PortRange => {

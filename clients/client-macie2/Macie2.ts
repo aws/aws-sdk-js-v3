@@ -776,7 +776,7 @@ export class Macie2 extends Macie2Client {
   }
 
   /**
-   * <p>Disables an account as a delegated administrator of Amazon Macie for an AWS organization.</p>
+   * <p>Disables an account as the delegated Amazon Macie administrator account for an AWS organization.</p>
    */
   public disableOrganizationAdminAccount(
     args: DisableOrganizationAdminAccountCommandInput,
@@ -898,7 +898,7 @@ export class Macie2 extends Macie2Client {
   }
 
   /**
-   * <p>Enables an account as a delegated administrator of Amazon Macie for an AWS organization.</p>
+   * <p>Designates an account as the delegated Amazon Macie administrator account for an AWS organization.</p>
    */
   public enableOrganizationAdminAccount(
     args: EnableOrganizationAdminAccountCommandInput,
@@ -1485,7 +1485,7 @@ export class Macie2 extends Macie2Client {
   }
 
   /**
-   * <p>Retrieves information about the account that's designated as the delegated administrator of Amazon Macie for an AWS organization.</p>
+   * <p>Retrieves information about the delegated Amazon Macie administrator account for an AWS organization.</p>
    */
   public listOrganizationAdminAccounts(
     args: ListOrganizationAdminAccountsCommandInput,
@@ -1799,7 +1799,7 @@ export class Macie2 extends Macie2Client {
   }
 
   /**
-   * <p>Updates Amazon Macie configuration settings for an AWS organization.</p>
+   * <p>Updates the Amazon Macie configuration settings for an AWS organization.</p>
    */
   public updateOrganizationConfiguration(
     args: UpdateOrganizationConfigurationCommandInput,

@@ -1622,9 +1622,6 @@ export class Backup extends BackupClient {
 
   /**
    * <p>Recovers the saved resource identified by an Amazon Resource Name (ARN). </p>
-   *          <p>If the resource ARN is included in the request, then the last complete backup of that
-   *          resource is recovered. If the ARN of a recovery point is supplied, then that recovery point
-   *          is restored.</p>
    */
   public startRestoreJob(
     args: StartRestoreJobCommandInput,

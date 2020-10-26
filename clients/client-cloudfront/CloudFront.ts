@@ -35,6 +35,11 @@ import {
   CreateInvalidationCommandOutput,
 } from "./commands/CreateInvalidationCommand";
 import {
+  CreateKeyGroupCommand,
+  CreateKeyGroupCommandInput,
+  CreateKeyGroupCommandOutput,
+} from "./commands/CreateKeyGroupCommand";
+import {
   CreateMonitoringSubscriptionCommand,
   CreateMonitoringSubscriptionCommandInput,
   CreateMonitoringSubscriptionCommandOutput,
@@ -89,6 +94,11 @@ import {
   DeleteFieldLevelEncryptionProfileCommandInput,
   DeleteFieldLevelEncryptionProfileCommandOutput,
 } from "./commands/DeleteFieldLevelEncryptionProfileCommand";
+import {
+  DeleteKeyGroupCommand,
+  DeleteKeyGroupCommandInput,
+  DeleteKeyGroupCommandOutput,
+} from "./commands/DeleteKeyGroupCommand";
 import {
   DeleteMonitoringSubscriptionCommand,
   DeleteMonitoringSubscriptionCommandInput,
@@ -169,6 +179,12 @@ import {
   GetInvalidationCommandInput,
   GetInvalidationCommandOutput,
 } from "./commands/GetInvalidationCommand";
+import { GetKeyGroupCommand, GetKeyGroupCommandInput, GetKeyGroupCommandOutput } from "./commands/GetKeyGroupCommand";
+import {
+  GetKeyGroupConfigCommand,
+  GetKeyGroupConfigCommandInput,
+  GetKeyGroupConfigCommandOutput,
+} from "./commands/GetKeyGroupConfigCommand";
 import {
   GetMonitoringSubscriptionCommand,
   GetMonitoringSubscriptionCommandInput,
@@ -225,6 +241,11 @@ import {
   ListDistributionsByCachePolicyIdCommandOutput,
 } from "./commands/ListDistributionsByCachePolicyIdCommand";
 import {
+  ListDistributionsByKeyGroupCommand,
+  ListDistributionsByKeyGroupCommandInput,
+  ListDistributionsByKeyGroupCommandOutput,
+} from "./commands/ListDistributionsByKeyGroupCommand";
+import {
   ListDistributionsByOriginRequestPolicyIdCommand,
   ListDistributionsByOriginRequestPolicyIdCommandInput,
   ListDistributionsByOriginRequestPolicyIdCommandOutput,
@@ -259,6 +280,11 @@ import {
   ListInvalidationsCommandInput,
   ListInvalidationsCommandOutput,
 } from "./commands/ListInvalidationsCommand";
+import {
+  ListKeyGroupsCommand,
+  ListKeyGroupsCommandInput,
+  ListKeyGroupsCommandOutput,
+} from "./commands/ListKeyGroupsCommand";
 import {
   ListOriginRequestPoliciesCommand,
   ListOriginRequestPoliciesCommandInput,
@@ -315,6 +341,11 @@ import {
   UpdateFieldLevelEncryptionProfileCommandInput,
   UpdateFieldLevelEncryptionProfileCommandOutput,
 } from "./commands/UpdateFieldLevelEncryptionProfileCommand";
+import {
+  UpdateKeyGroupCommand,
+  UpdateKeyGroupCommandInput,
+  UpdateKeyGroupCommandOutput,
+} from "./commands/UpdateKeyGroupCommand";
 import {
   UpdateOriginRequestPolicyCommand,
   UpdateOriginRequestPolicyCommandInput,
@@ -603,6 +634,45 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
+   * <p>Creates a key group that you can use with <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html">CloudFront signed URLs and signed cookies</a>.</p>
+   * 		       <p>To create a key group, you must specify at least one public key for the key group. After you
+   * 			create a key group, you can reference it from one or more cache behaviors. When you
+   * 			reference a key group in a cache behavior, CloudFront requires signed URLs or signed cookies
+   * 			for all requests that match the cache behavior. The URLs or cookies must be signed with
+   * 			a private key whose corresponding public key is in the key group. The signed URL or
+   * 			cookie contains information about which public key CloudFront should use to verify the
+   * 			signature. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html">Serving private content</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
+   */
+  public createKeyGroup(
+    args: CreateKeyGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateKeyGroupCommandOutput>;
+  public createKeyGroup(
+    args: CreateKeyGroupCommandInput,
+    cb: (err: any, data?: CreateKeyGroupCommandOutput) => void
+  ): void;
+  public createKeyGroup(
+    args: CreateKeyGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateKeyGroupCommandOutput) => void
+  ): void;
+  public createKeyGroup(
+    args: CreateKeyGroupCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateKeyGroupCommandOutput) => void),
+    cb?: (err: any, data?: CreateKeyGroupCommandOutput) => void
+  ): Promise<CreateKeyGroupCommandOutput> | void {
+    const command = new CreateKeyGroupCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Enables additional CloudWatch metrics for the specified CloudFront distribution. The
    * 			additional metrics incur an additional cost.</p>
    * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/viewing-cloudfront-metrics.html#monitoring-console.distributions-additional">Viewing additional CloudFront distribution metrics</a> in the
@@ -694,7 +764,7 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
-   * <p>Add a new public key to CloudFront to use, for example, for field-level encryption. You can add a maximum of 10 public keys with one AWS account.</p>
+   * <p>Uploads a public key to CloudFront that you can use with <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html">signed URLs and signed cookies</a>, or with <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/field-level-encryption.html">field-level encryption</a>.</p>
    */
   public createPublicKey(
     args: CreatePublicKeyCommandInput,
@@ -1004,6 +1074,44 @@ export class CloudFront extends CloudFrontClient {
     cb?: (err: any, data?: DeleteFieldLevelEncryptionProfileCommandOutput) => void
   ): Promise<DeleteFieldLevelEncryptionProfileCommandOutput> | void {
     const command = new DeleteFieldLevelEncryptionProfileCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes a key group.</p>
+   * 		       <p>You cannot delete a key group that is referenced in a cache behavior. First update
+   * 			your distributions to remove the key group from all cache behaviors, then delete the key
+   * 			group.</p>
+   * 		       <p>To delete a key group, you must provide the key group’s identifier and version. To get
+   * 			these values, use <code>ListKeyGroups</code> followed by <code>GetKeyGroup</code> or
+   * 			<code>GetKeyGroupConfig</code>.</p>
+   */
+  public deleteKeyGroup(
+    args: DeleteKeyGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteKeyGroupCommandOutput>;
+  public deleteKeyGroup(
+    args: DeleteKeyGroupCommandInput,
+    cb: (err: any, data?: DeleteKeyGroupCommandOutput) => void
+  ): void;
+  public deleteKeyGroup(
+    args: DeleteKeyGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteKeyGroupCommandOutput) => void
+  ): void;
+  public deleteKeyGroup(
+    args: DeleteKeyGroupCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteKeyGroupCommandOutput) => void),
+    cb?: (err: any, data?: DeleteKeyGroupCommandOutput) => void
+  ): Promise<DeleteKeyGroupCommandOutput> | void {
+    const command = new DeleteKeyGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1606,6 +1714,74 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
+   * <p>Gets a key group, including the date and time when the key group was last modified.</p>
+   * 		       <p>To get a key group, you must provide the key group’s identifier. If the key group is
+   * 			referenced in a distribution’s cache behavior, you can get the key group’s identifier
+   * 			using <code>ListDistributions</code> or <code>GetDistribution</code>. If the key group
+   * 			is not referenced in a cache behavior, you can get the identifier using
+   * 			<code>ListKeyGroups</code>.</p>
+   */
+  public getKeyGroup(args: GetKeyGroupCommandInput, options?: __HttpHandlerOptions): Promise<GetKeyGroupCommandOutput>;
+  public getKeyGroup(args: GetKeyGroupCommandInput, cb: (err: any, data?: GetKeyGroupCommandOutput) => void): void;
+  public getKeyGroup(
+    args: GetKeyGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetKeyGroupCommandOutput) => void
+  ): void;
+  public getKeyGroup(
+    args: GetKeyGroupCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetKeyGroupCommandOutput) => void),
+    cb?: (err: any, data?: GetKeyGroupCommandOutput) => void
+  ): Promise<GetKeyGroupCommandOutput> | void {
+    const command = new GetKeyGroupCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Gets a key group configuration.</p>
+   * 		       <p>To get a key group configuration, you must provide the key group’s identifier. If the
+   * 			key group is referenced in a distribution’s cache behavior, you can get the key group’s
+   * 			identifier using <code>ListDistributions</code> or <code>GetDistribution</code>. If the
+   * 			key group is not referenced in a cache behavior, you can get the identifier using
+   * 			<code>ListKeyGroups</code>.</p>
+   */
+  public getKeyGroupConfig(
+    args: GetKeyGroupConfigCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetKeyGroupConfigCommandOutput>;
+  public getKeyGroupConfig(
+    args: GetKeyGroupConfigCommandInput,
+    cb: (err: any, data?: GetKeyGroupConfigCommandOutput) => void
+  ): void;
+  public getKeyGroupConfig(
+    args: GetKeyGroupConfigCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetKeyGroupConfigCommandOutput) => void
+  ): void;
+  public getKeyGroupConfig(
+    args: GetKeyGroupConfigCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetKeyGroupConfigCommandOutput) => void),
+    cb?: (err: any, data?: GetKeyGroupConfigCommandOutput) => void
+  ): Promise<GetKeyGroupConfigCommandOutput> | void {
+    const command = new GetKeyGroupConfigCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Gets information about whether additional CloudWatch metrics are enabled for the specified
    * 			CloudFront distribution.</p>
    */
@@ -1722,7 +1898,7 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
-   * <p>Get the public key information.</p>
+   * <p>Gets a public key.</p>
    */
   public getPublicKey(
     args: GetPublicKeyCommandInput,
@@ -1751,7 +1927,7 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
-   * <p>Return public key configuration informaation</p>
+   * <p>Gets a public key configuration.</p>
    */
   public getPublicKeyConfig(
     args: GetPublicKeyConfigCommandInput,
@@ -2023,6 +2199,44 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
+   * <p>Gets a list of distribution IDs for distributions that have a cache behavior that references
+   * 			the specified key group.</p>
+   * 		       <p>You can optionally specify the maximum number of items to receive in the response. If
+   * 			the total number of items in the list exceeds the maximum that you specify, or the
+   * 			default maximum, the response is paginated. To get the next page of items, send a
+   * 			subsequent request that specifies the <code>NextMarker</code> value from the current
+   * 			response as the <code>Marker</code> value in the subsequent request.</p>
+   */
+  public listDistributionsByKeyGroup(
+    args: ListDistributionsByKeyGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDistributionsByKeyGroupCommandOutput>;
+  public listDistributionsByKeyGroup(
+    args: ListDistributionsByKeyGroupCommandInput,
+    cb: (err: any, data?: ListDistributionsByKeyGroupCommandOutput) => void
+  ): void;
+  public listDistributionsByKeyGroup(
+    args: ListDistributionsByKeyGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListDistributionsByKeyGroupCommandOutput) => void
+  ): void;
+  public listDistributionsByKeyGroup(
+    args: ListDistributionsByKeyGroupCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDistributionsByKeyGroupCommandOutput) => void),
+    cb?: (err: any, data?: ListDistributionsByKeyGroupCommandOutput) => void
+  ): Promise<ListDistributionsByKeyGroupCommandOutput> | void {
+    const command = new ListDistributionsByKeyGroupCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Gets a list of distribution IDs for distributions that have a cache behavior that’s
    * 			associated with the specified origin request policy.</p>
    * 		       <p>You can optionally specify the maximum number of items to receive in the response. If
@@ -2221,6 +2435,43 @@ export class CloudFront extends CloudFrontClient {
     cb?: (err: any, data?: ListInvalidationsCommandOutput) => void
   ): Promise<ListInvalidationsCommandOutput> | void {
     const command = new ListInvalidationsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Gets a list of key groups.</p>
+   * 		       <p>You can optionally specify the maximum number of items to receive in the response. If
+   * 			the total number of items in the list exceeds the maximum that you specify, or the
+   * 			default maximum, the response is paginated. To get the next page of items, send a
+   * 			subsequent request that specifies the <code>NextMarker</code> value from the current
+   * 			response as the <code>Marker</code> value in the subsequent request.</p>
+   */
+  public listKeyGroups(
+    args: ListKeyGroupsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListKeyGroupsCommandOutput>;
+  public listKeyGroups(
+    args: ListKeyGroupsCommandInput,
+    cb: (err: any, data?: ListKeyGroupsCommandOutput) => void
+  ): void;
+  public listKeyGroups(
+    args: ListKeyGroupsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListKeyGroupsCommandOutput) => void
+  ): void;
+  public listKeyGroups(
+    args: ListKeyGroupsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListKeyGroupsCommandOutput) => void),
+    cb?: (err: any, data?: ListKeyGroupsCommandOutput) => void
+  ): Promise<ListKeyGroupsCommandOutput> | void {
+    const command = new ListKeyGroupsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -2706,6 +2957,55 @@ export class CloudFront extends CloudFrontClient {
     cb?: (err: any, data?: UpdateFieldLevelEncryptionProfileCommandOutput) => void
   ): Promise<UpdateFieldLevelEncryptionProfileCommandOutput> | void {
     const command = new UpdateFieldLevelEncryptionProfileCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates a key group.</p>
+   * 		       <p>When you update a key group, all the fields are updated with the values provided in
+   * 			the request. You cannot update some fields independent of others. To update a key
+   * 			group:</p>
+   * 		       <ol>
+   *             <li>
+   * 				           <p>Get the current key group with <code>GetKeyGroup</code> or
+   * 					<code>GetKeyGroupConfig</code>.</p>
+   * 			         </li>
+   *             <li>
+   * 				           <p>Locally modify the fields in the key group that you want to update. For
+   * 					example, add or remove public key IDs.</p>
+   * 			         </li>
+   *             <li>
+   * 				           <p>Call <code>UpdateKeyGroup</code> with the entire key group object, including
+   * 					the fields that you modified and those that you didn’t.</p>
+   * 			         </li>
+   *          </ol>
+   */
+  public updateKeyGroup(
+    args: UpdateKeyGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateKeyGroupCommandOutput>;
+  public updateKeyGroup(
+    args: UpdateKeyGroupCommandInput,
+    cb: (err: any, data?: UpdateKeyGroupCommandOutput) => void
+  ): void;
+  public updateKeyGroup(
+    args: UpdateKeyGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateKeyGroupCommandOutput) => void
+  ): void;
+  public updateKeyGroup(
+    args: UpdateKeyGroupCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateKeyGroupCommandOutput) => void),
+    cb?: (err: any, data?: UpdateKeyGroupCommandOutput) => void
+  ): Promise<UpdateKeyGroupCommandOutput> | void {
+    const command = new UpdateKeyGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

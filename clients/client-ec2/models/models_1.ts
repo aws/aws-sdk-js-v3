@@ -3128,12 +3128,13 @@ export interface CreateSpotDatafeedSubscriptionRequest {
   DryRun?: boolean;
 
   /**
-   * <p>The Amazon S3 bucket in which to store the Spot Instance data feed.</p>
+   * <p>The name of the Amazon S3 bucket in which to store the Spot Instance data feed. For more information
+   *          about bucket names, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html#bucketnamingrules">Rules for bucket naming</a> in the <i>Amazon S3 Developer Guide</i>.</p>
    */
   Bucket: string | undefined;
 
   /**
-   * <p>A prefix for the data feed file names.</p>
+   * <p>The prefix for the data feed file names.</p>
    */
   Prefix?: string;
 }
@@ -3172,12 +3173,12 @@ export type DatafeedSubscriptionState = "Active" | "Inactive";
  */
 export interface SpotDatafeedSubscription {
   /**
-   * <p>The prefix that is prepended to data feed files.</p>
+   * <p>The prefix for the data feed files.</p>
    */
   Prefix?: string;
 
   /**
-   * <p>The Amazon S3 bucket where the Spot Instance data feed is located.</p>
+   * <p>The name of the Amazon S3 bucket where the Spot Instance data feed is located.</p>
    */
   Bucket?: string;
 
