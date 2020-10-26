@@ -12,34 +12,34 @@
  * express or implied. See the License for the specific language governing
  * permissions and limitations under the License.
  */
+
 package software.amazon.smithy.aws.typescript.codegen;
 
 import static software.amazon.smithy.typescript.codegen.integration.RuntimeClientPlugin.Convention.HAS_CONFIG;
 import static software.amazon.smithy.typescript.codegen.integration.RuntimeClientPlugin.Convention.HAS_MIDDLEWARE;
 
-import java.util.logging.Logger;
 import java.util.List;
 import java.util.Optional;
-import software.amazon.smithy.build.PluginContext;
+import java.util.logging.Logger;
 import software.amazon.smithy.aws.traits.ServiceTrait;
-
+import software.amazon.smithy.build.PluginContext;
+import software.amazon.smithy.model.Model;
 import software.amazon.smithy.model.shapes.MemberShape;
 import software.amazon.smithy.model.shapes.OperationShape;
 import software.amazon.smithy.model.shapes.ServiceShape;
 import software.amazon.smithy.model.shapes.Shape;
 import software.amazon.smithy.model.traits.RequiredTrait;
-import software.amazon.smithy.model.Model;
 import software.amazon.smithy.model.transform.ModelTransformer;
+import software.amazon.smithy.typescript.codegen.TypeScriptSettings;
 import software.amazon.smithy.typescript.codegen.integration.RuntimeClientPlugin;
 import software.amazon.smithy.typescript.codegen.integration.TypeScriptIntegration;
-import software.amazon.smithy.typescript.codegen.TypeScriptSettings;
 import software.amazon.smithy.utils.ListUtils;
 
 /**
- * Add S3Control customization
+ * Add S3Control customization.
  */
 public class AddS3ControlDependency implements TypeScriptIntegration {
-    
+
     private static final Logger LOGGER = Logger.getLogger(AddS3ControlDependency.class.getName());
 
     @Override
@@ -50,17 +50,25 @@ public class AddS3ControlDependency implements TypeScriptIntegration {
                         .servicePredicate((m, s) -> isS3Control(s))
                         .build(),
                 RuntimeClientPlugin.builder()
-                        .withConventions(AwsDependency.S3_CONTROL_MIDDLEWARE.dependency, "ProcessArnables", HAS_MIDDLEWARE)
+                        .withConventions(
+                            AwsDependency.S3_CONTROL_MIDDLEWARE.dependency,
+                            "ProcessArnables",
+                            HAS_MIDDLEWARE
+                        )
                         .operationPredicate((m, s, o) ->  isS3Control(s) && isArnableOperation(o))
                         .build(),
                 RuntimeClientPlugin.builder()
-                        .withConventions(AwsDependency.S3_CONTROL_MIDDLEWARE.dependency, "RedirectFromPostId", HAS_MIDDLEWARE)
+                        .withConventions(
+                            AwsDependency.S3_CONTROL_MIDDLEWARE.dependency,
+                            "RedirectFromPostId",
+                            HAS_MIDDLEWARE
+                        )
                         .operationPredicate((m, s, o) ->  isS3Control(s) && !isArnableOperation(o))
                         .build());
     }
 
     @Override
-    public Model preprocessModel(PluginContext context, TypeScriptSettings settings) {        
+    public Model preprocessModel(PluginContext context, TypeScriptSettings settings) {
         Model model = context.getModel();
         if (!isS3Control(settings.getService(model))) {
             return model;
