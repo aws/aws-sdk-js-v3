@@ -228,9 +228,11 @@ public class AddBuiltinPlugins implements TypeScriptIntegration {
     }
 
     private static boolean operationUsesAwsAuth(Model model, ServiceShape service, OperationShape operation) {
-        // Cognito Identity service doesn't need auth for GetId, GetOpenIdToken, GetCredentialsForIdentity.
+        // Cognito Identity doesn't need auth for GetId, GetOpenIdToken, GetCredentialsForIdentity, UnlinkIdentity.
+        // Remove when optionalAuth model update is published in V261331976.
         if (testServiceId(service, "Cognito Identity")) {
-            Boolean isUnsignedCommand = SetUtils.of("GetId", "GetOpenIdToken", "GetCredentialsForIdentity")
+            Boolean isUnsignedCommand = SetUtils
+                    .of("GetId", "GetOpenIdToken", "GetCredentialsForIdentity", "UnlinkIdentity")
                     .contains(operation.getId().getName());
             return !isUnsignedCommand;
         }
