@@ -3,7 +3,7 @@ import { getSignedUrl } from "./getSignedUrls";
 
 export interface PresignedPollyOptions {
   /**
-   * Seconds until the presigned URL expires. Defaults to 900
+   * Seconds until the presigned URL expires. Defaults to 3600
    */
   expiresIn?: number;
 }
@@ -15,7 +15,7 @@ export interface PresignedPollyInput {
   /**
    * A pre-configured instance of the AWS.Polly service object to use for requests. The object may bound parameters used by the presigner.
    */
-  client: Polly | PollyClient;
+  client: PollyClient;
 
   /**
    * The input to the synthesizedSpeechCommand
