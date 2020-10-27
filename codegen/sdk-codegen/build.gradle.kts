@@ -46,6 +46,9 @@ tasks.register("generate-smithy-build") {
 
         fileTree(models).filter { it.isFile }.files.forEach { file ->
             val (sdkId, version, remaining) = file.name.split(".")
+            val clientName = sdkId.split("-").toTypedArray()
+                    .map { it.capitalize() }
+                    .joinToString(separator = " ")
             var manifestOverwrites = Node.parse(
                     File("smithy-aws-typescript-codegen/src/main/resources/software/amazon/smithy/aws/typescript/codegen/package.json.template")
                             .readText()
@@ -59,7 +62,7 @@ tasks.register("generate-smithy-build") {
                                     .withMember("packageVersion", "1.0.0-rc.1")
                                     .withMember("packageJson", manifestOverwrites)
                                     .withMember("packageDescription", "AWS SDK for JavaScript "
-                                        + sdkId + " Client for Node.js, Browser and React Native")
+                                        + clientName + " Client for Node.js, Browser and React Native")
                                     .build()))
                     .build()
             projectionsBuilder.withMember(sdkId + "." + version.toLowerCase(), projectionContents)
