@@ -58,6 +58,8 @@ tasks.register("generate-smithy-build") {
                                     // Note that this version is replaced by Lerna when publishing.
                                     .withMember("packageVersion", "1.0.0-rc.1")
                                     .withMember("packageJson", manifestOverwrites)
+                                    .withMember("packageDescription", "AWS SDK for JavaScript "
+                                        + sdkId + " Client for Node.js, Browser and React Native")
                                     .build()))
                     .build()
             projectionsBuilder.withMember(sdkId + "." + version.toLowerCase(), projectionContents)
