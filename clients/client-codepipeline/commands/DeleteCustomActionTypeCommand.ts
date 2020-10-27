@@ -46,6 +46,8 @@ export class DeleteCustomActionTypeCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CodePipelineClient",
+      commandName: "DeleteCustomActionTypeCommand",
       inputFilterSensitiveLog: DeleteCustomActionTypeInput.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

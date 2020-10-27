@@ -46,6 +46,8 @@ export class DeleteScheduleCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "MediaLiveClient",
+      commandName: "DeleteScheduleCommand",
       inputFilterSensitiveLog: DeleteScheduleRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteScheduleResponse.filterSensitiveLog,
     };

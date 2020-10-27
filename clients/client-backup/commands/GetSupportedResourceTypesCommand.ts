@@ -46,6 +46,8 @@ export class GetSupportedResourceTypesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "BackupClient",
+      commandName: "GetSupportedResourceTypesCommand",
       inputFilterSensitiveLog: (input: any) => input,
       outputFilterSensitiveLog: GetSupportedResourceTypesOutput.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class ModifyDocumentPermissionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SSMClient",
+      commandName: "ModifyDocumentPermissionCommand",
       inputFilterSensitiveLog: ModifyDocumentPermissionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ModifyDocumentPermissionResponse.filterSensitiveLog,
     };

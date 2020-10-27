@@ -46,6 +46,8 @@ export class DescribeAdjustmentTypesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "AutoScalingClient",
+      commandName: "DescribeAdjustmentTypesCommand",
       inputFilterSensitiveLog: (input: any) => input,
       outputFilterSensitiveLog: DescribeAdjustmentTypesAnswer.filterSensitiveLog,
     };

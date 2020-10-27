@@ -46,6 +46,8 @@ export class DeleteIndexCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "KendraClient",
+      commandName: "DeleteIndexCommand",
       inputFilterSensitiveLog: DeleteIndexRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

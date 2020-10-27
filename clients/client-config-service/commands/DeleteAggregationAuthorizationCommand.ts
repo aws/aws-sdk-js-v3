@@ -46,6 +46,8 @@ export class DeleteAggregationAuthorizationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ConfigServiceClient",
+      commandName: "DeleteAggregationAuthorizationCommand",
       inputFilterSensitiveLog: DeleteAggregationAuthorizationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

@@ -50,6 +50,8 @@ export class DeregisterTargetFromMaintenanceWindowCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SSMClient",
+      commandName: "DeregisterTargetFromMaintenanceWindowCommand",
       inputFilterSensitiveLog: DeregisterTargetFromMaintenanceWindowRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeregisterTargetFromMaintenanceWindowResult.filterSensitiveLog,
     };

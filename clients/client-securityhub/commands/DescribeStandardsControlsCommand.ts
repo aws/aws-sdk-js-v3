@@ -46,6 +46,8 @@ export class DescribeStandardsControlsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SecurityHubClient",
+      commandName: "DescribeStandardsControlsCommand",
       inputFilterSensitiveLog: DescribeStandardsControlsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeStandardsControlsResponse.filterSensitiveLog,
     };

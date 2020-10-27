@@ -46,6 +46,8 @@ export class DescribeActivationsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SSMClient",
+      commandName: "DescribeActivationsCommand",
       inputFilterSensitiveLog: DescribeActivationsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeActivationsResult.filterSensitiveLog,
     };

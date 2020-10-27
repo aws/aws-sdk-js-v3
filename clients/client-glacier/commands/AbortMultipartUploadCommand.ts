@@ -46,6 +46,8 @@ export class AbortMultipartUploadCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GlacierClient",
+      commandName: "AbortMultipartUploadCommand",
       inputFilterSensitiveLog: AbortMultipartUploadInput.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

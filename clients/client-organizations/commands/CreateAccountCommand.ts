@@ -46,6 +46,8 @@ export class CreateAccountCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "OrganizationsClient",
+      commandName: "CreateAccountCommand",
       inputFilterSensitiveLog: CreateAccountRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateAccountResponse.filterSensitiveLog,
     };

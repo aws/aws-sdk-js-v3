@@ -46,6 +46,8 @@ export class GetUserDefinedFunctionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GlueClient",
+      commandName: "GetUserDefinedFunctionsCommand",
       inputFilterSensitiveLog: GetUserDefinedFunctionsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetUserDefinedFunctionsResponse.filterSensitiveLog,
     };

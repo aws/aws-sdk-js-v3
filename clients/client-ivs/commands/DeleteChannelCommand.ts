@@ -46,6 +46,8 @@ export class DeleteChannelCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "IvsClient",
+      commandName: "DeleteChannelCommand",
       inputFilterSensitiveLog: DeleteChannelRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

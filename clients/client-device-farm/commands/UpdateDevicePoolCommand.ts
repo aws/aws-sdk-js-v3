@@ -46,6 +46,8 @@ export class UpdateDevicePoolCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "DeviceFarmClient",
+      commandName: "UpdateDevicePoolCommand",
       inputFilterSensitiveLog: UpdateDevicePoolRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateDevicePoolResult.filterSensitiveLog,
     };

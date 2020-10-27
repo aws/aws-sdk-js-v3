@@ -46,6 +46,8 @@ export class GetClientCertificateCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "APIGatewayClient",
+      commandName: "GetClientCertificateCommand",
       inputFilterSensitiveLog: GetClientCertificateRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ClientCertificate.filterSensitiveLog,
     };

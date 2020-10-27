@@ -46,6 +46,8 @@ export class ListArtifactsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "DeviceFarmClient",
+      commandName: "ListArtifactsCommand",
       inputFilterSensitiveLog: ListArtifactsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListArtifactsResult.filterSensitiveLog,
     };

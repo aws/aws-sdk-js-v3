@@ -46,6 +46,8 @@ export class UpdateUserProfileCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "OpsWorksClient",
+      commandName: "UpdateUserProfileCommand",
       inputFilterSensitiveLog: UpdateUserProfileRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

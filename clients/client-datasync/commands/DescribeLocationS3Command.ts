@@ -46,6 +46,8 @@ export class DescribeLocationS3Command extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "DataSyncClient",
+      commandName: "DescribeLocationS3Command",
       inputFilterSensitiveLog: DescribeLocationS3Request.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeLocationS3Response.filterSensitiveLog,
     };

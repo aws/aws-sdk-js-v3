@@ -46,6 +46,8 @@ export class DeleteLanguageModelCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "TranscribeClient",
+      commandName: "DeleteLanguageModelCommand",
       inputFilterSensitiveLog: DeleteLanguageModelRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

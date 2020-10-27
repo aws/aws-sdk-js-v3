@@ -46,6 +46,8 @@ export class GetColumnStatisticsForPartitionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GlueClient",
+      commandName: "GetColumnStatisticsForPartitionCommand",
       inputFilterSensitiveLog: GetColumnStatisticsForPartitionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetColumnStatisticsForPartitionResponse.filterSensitiveLog,
     };

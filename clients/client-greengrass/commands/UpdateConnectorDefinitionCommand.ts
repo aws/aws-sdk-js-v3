@@ -46,6 +46,8 @@ export class UpdateConnectorDefinitionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GreengrassClient",
+      commandName: "UpdateConnectorDefinitionCommand",
       inputFilterSensitiveLog: UpdateConnectorDefinitionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateConnectorDefinitionResponse.filterSensitiveLog,
     };

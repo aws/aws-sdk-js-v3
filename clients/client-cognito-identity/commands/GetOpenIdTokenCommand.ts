@@ -46,6 +46,8 @@ export class GetOpenIdTokenCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CognitoIdentityClient",
+      commandName: "GetOpenIdTokenCommand",
       inputFilterSensitiveLog: GetOpenIdTokenInput.filterSensitiveLog,
       outputFilterSensitiveLog: GetOpenIdTokenResponse.filterSensitiveLog,
     };

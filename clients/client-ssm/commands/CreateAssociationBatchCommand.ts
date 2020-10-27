@@ -46,6 +46,8 @@ export class CreateAssociationBatchCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SSMClient",
+      commandName: "CreateAssociationBatchCommand",
       inputFilterSensitiveLog: CreateAssociationBatchRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateAssociationBatchResult.filterSensitiveLog,
     };

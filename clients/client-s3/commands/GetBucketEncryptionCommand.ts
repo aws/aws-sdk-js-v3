@@ -48,6 +48,8 @@ export class GetBucketEncryptionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "S3Client",
+      commandName: "GetBucketEncryptionCommand",
       inputFilterSensitiveLog: GetBucketEncryptionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetBucketEncryptionOutput.filterSensitiveLog,
     };

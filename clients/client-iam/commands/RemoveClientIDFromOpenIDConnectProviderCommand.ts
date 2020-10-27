@@ -49,6 +49,8 @@ export class RemoveClientIDFromOpenIDConnectProviderCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "IAMClient",
+      commandName: "RemoveClientIDFromOpenIDConnectProviderCommand",
       inputFilterSensitiveLog: RemoveClientIDFromOpenIDConnectProviderRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

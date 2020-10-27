@@ -46,6 +46,8 @@ export class SearchLocalGatewayRoutesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EC2Client",
+      commandName: "SearchLocalGatewayRoutesCommand",
       inputFilterSensitiveLog: SearchLocalGatewayRoutesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: SearchLocalGatewayRoutesResult.filterSensitiveLog,
     };

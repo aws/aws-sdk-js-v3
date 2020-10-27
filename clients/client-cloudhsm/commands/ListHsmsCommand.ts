@@ -43,6 +43,8 @@ export class ListHsmsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CloudHSMClient",
+      commandName: "ListHsmsCommand",
       inputFilterSensitiveLog: ListHsmsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListHsmsResponse.filterSensitiveLog,
     };

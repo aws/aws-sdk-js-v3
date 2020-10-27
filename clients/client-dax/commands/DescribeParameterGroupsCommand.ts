@@ -46,6 +46,8 @@ export class DescribeParameterGroupsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "DAXClient",
+      commandName: "DescribeParameterGroupsCommand",
       inputFilterSensitiveLog: DescribeParameterGroupsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeParameterGroupsResponse.filterSensitiveLog,
     };

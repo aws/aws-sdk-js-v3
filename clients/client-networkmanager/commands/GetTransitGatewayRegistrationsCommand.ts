@@ -46,6 +46,8 @@ export class GetTransitGatewayRegistrationsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "NetworkManagerClient",
+      commandName: "GetTransitGatewayRegistrationsCommand",
       inputFilterSensitiveLog: GetTransitGatewayRegistrationsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetTransitGatewayRegistrationsResponse.filterSensitiveLog,
     };

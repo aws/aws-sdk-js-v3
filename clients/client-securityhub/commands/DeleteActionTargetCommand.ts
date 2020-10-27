@@ -46,6 +46,8 @@ export class DeleteActionTargetCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SecurityHubClient",
+      commandName: "DeleteActionTargetCommand",
       inputFilterSensitiveLog: DeleteActionTargetRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteActionTargetResponse.filterSensitiveLog,
     };

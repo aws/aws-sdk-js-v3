@@ -46,6 +46,8 @@ export class UpdateAssociationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SSMClient",
+      commandName: "UpdateAssociationCommand",
       inputFilterSensitiveLog: UpdateAssociationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateAssociationResult.filterSensitiveLog,
     };

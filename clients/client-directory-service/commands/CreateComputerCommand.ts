@@ -46,6 +46,8 @@ export class CreateComputerCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "DirectoryServiceClient",
+      commandName: "CreateComputerCommand",
       inputFilterSensitiveLog: CreateComputerRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateComputerResult.filterSensitiveLog,
     };

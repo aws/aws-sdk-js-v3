@@ -50,6 +50,8 @@ export class DeleteReplicationTaskCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "DatabaseMigrationServiceClient",
+      commandName: "DeleteReplicationTaskCommand",
       inputFilterSensitiveLog: DeleteReplicationTaskMessage.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteReplicationTaskResponse.filterSensitiveLog,
     };

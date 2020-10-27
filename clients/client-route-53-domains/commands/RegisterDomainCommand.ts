@@ -46,6 +46,8 @@ export class RegisterDomainCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "Route53DomainsClient",
+      commandName: "RegisterDomainCommand",
       inputFilterSensitiveLog: RegisterDomainRequest.filterSensitiveLog,
       outputFilterSensitiveLog: RegisterDomainResponse.filterSensitiveLog,
     };

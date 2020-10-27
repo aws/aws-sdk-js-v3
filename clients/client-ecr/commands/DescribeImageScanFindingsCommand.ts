@@ -46,6 +46,8 @@ export class DescribeImageScanFindingsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ECRClient",
+      commandName: "DescribeImageScanFindingsCommand",
       inputFilterSensitiveLog: DescribeImageScanFindingsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeImageScanFindingsResponse.filterSensitiveLog,
     };

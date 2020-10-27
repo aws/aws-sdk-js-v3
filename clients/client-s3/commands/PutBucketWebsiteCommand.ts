@@ -48,6 +48,8 @@ export class PutBucketWebsiteCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "S3Client",
+      commandName: "PutBucketWebsiteCommand",
       inputFilterSensitiveLog: PutBucketWebsiteRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

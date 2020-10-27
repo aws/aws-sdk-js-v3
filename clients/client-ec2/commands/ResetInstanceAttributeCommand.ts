@@ -46,6 +46,8 @@ export class ResetInstanceAttributeCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EC2Client",
+      commandName: "ResetInstanceAttributeCommand",
       inputFilterSensitiveLog: ResetInstanceAttributeRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

@@ -46,6 +46,8 @@ export class EnableUserCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "AppStreamClient",
+      commandName: "EnableUserCommand",
       inputFilterSensitiveLog: EnableUserRequest.filterSensitiveLog,
       outputFilterSensitiveLog: EnableUserResult.filterSensitiveLog,
     };

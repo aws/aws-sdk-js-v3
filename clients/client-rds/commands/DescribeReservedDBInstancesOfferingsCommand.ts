@@ -46,6 +46,8 @@ export class DescribeReservedDBInstancesOfferingsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "RDSClient",
+      commandName: "DescribeReservedDBInstancesOfferingsCommand",
       inputFilterSensitiveLog: DescribeReservedDBInstancesOfferingsMessage.filterSensitiveLog,
       outputFilterSensitiveLog: ReservedDBInstancesOfferingMessage.filterSensitiveLog,
     };

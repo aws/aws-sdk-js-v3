@@ -46,6 +46,8 @@ export class DeleteResourceConfigCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ConfigServiceClient",
+      commandName: "DeleteResourceConfigCommand",
       inputFilterSensitiveLog: DeleteResourceConfigRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

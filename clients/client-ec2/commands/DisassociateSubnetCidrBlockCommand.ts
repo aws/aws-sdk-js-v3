@@ -46,6 +46,8 @@ export class DisassociateSubnetCidrBlockCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EC2Client",
+      commandName: "DisassociateSubnetCidrBlockCommand",
       inputFilterSensitiveLog: DisassociateSubnetCidrBlockRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DisassociateSubnetCidrBlockResult.filterSensitiveLog,
     };

@@ -50,6 +50,8 @@ export class UntagResourceCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "IoT1ClickProjectsClient",
+      commandName: "UntagResourceCommand",
       inputFilterSensitiveLog: UntagResourceRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UntagResourceResponse.filterSensitiveLog,
     };

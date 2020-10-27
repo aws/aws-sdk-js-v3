@@ -46,6 +46,8 @@ export class GetInvitationsCountCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GuardDutyClient",
+      commandName: "GetInvitationsCountCommand",
       inputFilterSensitiveLog: GetInvitationsCountRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetInvitationsCountResponse.filterSensitiveLog,
     };

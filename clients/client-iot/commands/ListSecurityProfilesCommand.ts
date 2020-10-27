@@ -46,6 +46,8 @@ export class ListSecurityProfilesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "IoTClient",
+      commandName: "ListSecurityProfilesCommand",
       inputFilterSensitiveLog: ListSecurityProfilesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListSecurityProfilesResponse.filterSensitiveLog,
     };

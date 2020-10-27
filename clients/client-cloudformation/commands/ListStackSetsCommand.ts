@@ -46,6 +46,8 @@ export class ListStackSetsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CloudFormationClient",
+      commandName: "ListStackSetsCommand",
       inputFilterSensitiveLog: ListStackSetsInput.filterSensitiveLog,
       outputFilterSensitiveLog: ListStackSetsOutput.filterSensitiveLog,
     };

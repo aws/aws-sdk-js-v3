@@ -50,6 +50,8 @@ export class StartDataCollectionByAgentIdsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ApplicationDiscoveryServiceClient",
+      commandName: "StartDataCollectionByAgentIdsCommand",
       inputFilterSensitiveLog: StartDataCollectionByAgentIdsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: StartDataCollectionByAgentIdsResponse.filterSensitiveLog,
     };

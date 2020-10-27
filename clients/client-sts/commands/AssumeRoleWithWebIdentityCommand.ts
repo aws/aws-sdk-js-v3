@@ -46,6 +46,8 @@ export class AssumeRoleWithWebIdentityCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "STSClient",
+      commandName: "AssumeRoleWithWebIdentityCommand",
       inputFilterSensitiveLog: AssumeRoleWithWebIdentityRequest.filterSensitiveLog,
       outputFilterSensitiveLog: AssumeRoleWithWebIdentityResponse.filterSensitiveLog,
     };

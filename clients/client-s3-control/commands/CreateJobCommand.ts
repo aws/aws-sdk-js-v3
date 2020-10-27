@@ -45,6 +45,8 @@ export class CreateJobCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "S3ControlClient",
+      commandName: "CreateJobCommand",
       inputFilterSensitiveLog: CreateJobRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateJobResult.filterSensitiveLog,
     };

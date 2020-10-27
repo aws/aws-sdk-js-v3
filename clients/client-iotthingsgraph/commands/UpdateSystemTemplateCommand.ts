@@ -46,6 +46,8 @@ export class UpdateSystemTemplateCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "IoTThingsGraphClient",
+      commandName: "UpdateSystemTemplateCommand",
       inputFilterSensitiveLog: UpdateSystemTemplateRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateSystemTemplateResponse.filterSensitiveLog,
     };

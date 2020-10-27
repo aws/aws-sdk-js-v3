@@ -43,6 +43,8 @@ export class StartInstancesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EC2Client",
+      commandName: "StartInstancesCommand",
       inputFilterSensitiveLog: StartInstancesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: StartInstancesResult.filterSensitiveLog,
     };

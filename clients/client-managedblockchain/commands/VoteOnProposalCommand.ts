@@ -50,6 +50,8 @@ export class VoteOnProposalCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ManagedBlockchainClient",
+      commandName: "VoteOnProposalCommand",
       inputFilterSensitiveLog: VoteOnProposalInput.filterSensitiveLog,
       outputFilterSensitiveLog: VoteOnProposalOutput.filterSensitiveLog,
     };

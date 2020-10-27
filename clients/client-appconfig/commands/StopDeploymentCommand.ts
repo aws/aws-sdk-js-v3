@@ -46,6 +46,8 @@ export class StopDeploymentCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "AppConfigClient",
+      commandName: "StopDeploymentCommand",
       inputFilterSensitiveLog: StopDeploymentRequest.filterSensitiveLog,
       outputFilterSensitiveLog: Deployment.filterSensitiveLog,
     };

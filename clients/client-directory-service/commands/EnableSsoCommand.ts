@@ -43,6 +43,8 @@ export class EnableSsoCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "DirectoryServiceClient",
+      commandName: "EnableSsoCommand",
       inputFilterSensitiveLog: EnableSsoRequest.filterSensitiveLog,
       outputFilterSensitiveLog: EnableSsoResult.filterSensitiveLog,
     };

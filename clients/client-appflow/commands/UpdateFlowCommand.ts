@@ -46,6 +46,8 @@ export class UpdateFlowCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "AppflowClient",
+      commandName: "UpdateFlowCommand",
       inputFilterSensitiveLog: UpdateFlowRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateFlowResponse.filterSensitiveLog,
     };

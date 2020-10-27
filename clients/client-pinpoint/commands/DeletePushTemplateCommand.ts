@@ -46,6 +46,8 @@ export class DeletePushTemplateCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "PinpointClient",
+      commandName: "DeletePushTemplateCommand",
       inputFilterSensitiveLog: DeletePushTemplateRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeletePushTemplateResponse.filterSensitiveLog,
     };

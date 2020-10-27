@@ -46,6 +46,8 @@ export class CreateDefaultVpcCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EC2Client",
+      commandName: "CreateDefaultVpcCommand",
       inputFilterSensitiveLog: CreateDefaultVpcRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateDefaultVpcResult.filterSensitiveLog,
     };

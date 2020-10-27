@@ -50,6 +50,8 @@ export class ListRequestedServiceQuotaChangeHistoryCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ServiceQuotasClient",
+      commandName: "ListRequestedServiceQuotaChangeHistoryCommand",
       inputFilterSensitiveLog: ListRequestedServiceQuotaChangeHistoryRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListRequestedServiceQuotaChangeHistoryResponse.filterSensitiveLog,
     };

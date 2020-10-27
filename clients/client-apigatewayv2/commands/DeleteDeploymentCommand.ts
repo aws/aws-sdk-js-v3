@@ -46,6 +46,8 @@ export class DeleteDeploymentCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ApiGatewayV2Client",
+      commandName: "DeleteDeploymentCommand",
       inputFilterSensitiveLog: DeleteDeploymentRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

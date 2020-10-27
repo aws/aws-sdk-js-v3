@@ -46,6 +46,8 @@ export class GetDataflowGraphCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GlueClient",
+      commandName: "GetDataflowGraphCommand",
       inputFilterSensitiveLog: GetDataflowGraphRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetDataflowGraphResponse.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class ResetJobBookmarkCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GlueClient",
+      commandName: "ResetJobBookmarkCommand",
       inputFilterSensitiveLog: ResetJobBookmarkRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ResetJobBookmarkResponse.filterSensitiveLog,
     };

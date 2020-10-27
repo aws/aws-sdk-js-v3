@@ -46,6 +46,8 @@ export class ListObjectChildrenCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CloudDirectoryClient",
+      commandName: "ListObjectChildrenCommand",
       inputFilterSensitiveLog: ListObjectChildrenRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListObjectChildrenResponse.filterSensitiveLog,
     };

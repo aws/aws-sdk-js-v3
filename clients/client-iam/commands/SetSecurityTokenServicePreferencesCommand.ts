@@ -46,6 +46,8 @@ export class SetSecurityTokenServicePreferencesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "IAMClient",
+      commandName: "SetSecurityTokenServicePreferencesCommand",
       inputFilterSensitiveLog: SetSecurityTokenServicePreferencesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

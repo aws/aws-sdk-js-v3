@@ -46,6 +46,8 @@ export class CancelDataRepositoryTaskCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "FSxClient",
+      commandName: "CancelDataRepositoryTaskCommand",
       inputFilterSensitiveLog: CancelDataRepositoryTaskRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CancelDataRepositoryTaskResponse.filterSensitiveLog,
     };

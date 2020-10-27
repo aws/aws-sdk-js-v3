@@ -46,6 +46,8 @@ export class RegisterDeviceCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CognitoSyncClient",
+      commandName: "RegisterDeviceCommand",
       inputFilterSensitiveLog: RegisterDeviceRequest.filterSensitiveLog,
       outputFilterSensitiveLog: RegisterDeviceResponse.filterSensitiveLog,
     };

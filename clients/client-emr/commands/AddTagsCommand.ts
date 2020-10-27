@@ -39,6 +39,8 @@ export class AddTagsCommand extends $Command<AddTagsCommandInput, AddTagsCommand
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EMRClient",
+      commandName: "AddTagsCommand",
       inputFilterSensitiveLog: AddTagsInput.filterSensitiveLog,
       outputFilterSensitiveLog: AddTagsOutput.filterSensitiveLog,
     };

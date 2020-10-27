@@ -46,6 +46,8 @@ export class GetTranscriptionJobCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "TranscribeClient",
+      commandName: "GetTranscriptionJobCommand",
       inputFilterSensitiveLog: GetTranscriptionJobRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetTranscriptionJobResponse.filterSensitiveLog,
     };

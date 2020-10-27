@@ -46,6 +46,8 @@ export class GetEndpointAttributesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SNSClient",
+      commandName: "GetEndpointAttributesCommand",
       inputFilterSensitiveLog: GetEndpointAttributesInput.filterSensitiveLog,
       outputFilterSensitiveLog: GetEndpointAttributesResponse.filterSensitiveLog,
     };

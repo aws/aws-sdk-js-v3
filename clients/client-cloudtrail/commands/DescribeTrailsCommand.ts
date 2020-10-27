@@ -46,6 +46,8 @@ export class DescribeTrailsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CloudTrailClient",
+      commandName: "DescribeTrailsCommand",
       inputFilterSensitiveLog: DescribeTrailsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeTrailsResponse.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class UpdateModelCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ApiGatewayV2Client",
+      commandName: "UpdateModelCommand",
       inputFilterSensitiveLog: UpdateModelRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateModelResponse.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class DescribePipelineCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "IoTAnalyticsClient",
+      commandName: "DescribePipelineCommand",
       inputFilterSensitiveLog: DescribePipelineRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribePipelineResponse.filterSensitiveLog,
     };

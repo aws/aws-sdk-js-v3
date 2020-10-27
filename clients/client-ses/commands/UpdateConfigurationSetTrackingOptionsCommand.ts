@@ -50,6 +50,8 @@ export class UpdateConfigurationSetTrackingOptionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SESClient",
+      commandName: "UpdateConfigurationSetTrackingOptionsCommand",
       inputFilterSensitiveLog: UpdateConfigurationSetTrackingOptionsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateConfigurationSetTrackingOptionsResponse.filterSensitiveLog,
     };

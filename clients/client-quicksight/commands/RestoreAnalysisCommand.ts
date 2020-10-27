@@ -46,6 +46,8 @@ export class RestoreAnalysisCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "QuickSightClient",
+      commandName: "RestoreAnalysisCommand",
       inputFilterSensitiveLog: RestoreAnalysisRequest.filterSensitiveLog,
       outputFilterSensitiveLog: RestoreAnalysisResponse.filterSensitiveLog,
     };

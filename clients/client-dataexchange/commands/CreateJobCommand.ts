@@ -46,6 +46,8 @@ export class CreateJobCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "DataExchangeClient",
+      commandName: "CreateJobCommand",
       inputFilterSensitiveLog: CreateJobRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateJobResponse.filterSensitiveLog,
     };

@@ -43,6 +43,8 @@ export class DeleteUserCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ElastiCacheClient",
+      commandName: "DeleteUserCommand",
       inputFilterSensitiveLog: DeleteUserMessage.filterSensitiveLog,
       outputFilterSensitiveLog: User.filterSensitiveLog,
     };

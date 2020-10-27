@@ -46,6 +46,8 @@ export class BatchGetTriggersCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GlueClient",
+      commandName: "BatchGetTriggersCommand",
       inputFilterSensitiveLog: BatchGetTriggersRequest.filterSensitiveLog,
       outputFilterSensitiveLog: BatchGetTriggersResponse.filterSensitiveLog,
     };

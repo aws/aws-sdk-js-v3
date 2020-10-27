@@ -46,6 +46,8 @@ export class UpdateApplicationSettingsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "PinpointClient",
+      commandName: "UpdateApplicationSettingsCommand",
       inputFilterSensitiveLog: UpdateApplicationSettingsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateApplicationSettingsResponse.filterSensitiveLog,
     };

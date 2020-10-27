@@ -43,6 +43,8 @@ export class QueryMapsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "QueryProtocolClient",
+      commandName: "QueryMapsCommand",
       inputFilterSensitiveLog: QueryMapsInput.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

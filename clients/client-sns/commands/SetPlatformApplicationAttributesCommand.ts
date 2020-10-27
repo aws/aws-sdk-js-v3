@@ -46,6 +46,8 @@ export class SetPlatformApplicationAttributesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SNSClient",
+      commandName: "SetPlatformApplicationAttributesCommand",
       inputFilterSensitiveLog: SetPlatformApplicationAttributesInput.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

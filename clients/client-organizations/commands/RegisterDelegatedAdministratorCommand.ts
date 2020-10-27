@@ -46,6 +46,8 @@ export class RegisterDelegatedAdministratorCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "OrganizationsClient",
+      commandName: "RegisterDelegatedAdministratorCommand",
       inputFilterSensitiveLog: RegisterDelegatedAdministratorRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

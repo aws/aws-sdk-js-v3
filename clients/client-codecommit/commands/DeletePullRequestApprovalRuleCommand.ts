@@ -46,6 +46,8 @@ export class DeletePullRequestApprovalRuleCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CodeCommitClient",
+      commandName: "DeletePullRequestApprovalRuleCommand",
       inputFilterSensitiveLog: DeletePullRequestApprovalRuleInput.filterSensitiveLog,
       outputFilterSensitiveLog: DeletePullRequestApprovalRuleOutput.filterSensitiveLog,
     };

@@ -50,6 +50,8 @@ export class PutBucketLifecycleConfigurationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "S3Client",
+      commandName: "PutBucketLifecycleConfigurationCommand",
       inputFilterSensitiveLog: PutBucketLifecycleConfigurationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

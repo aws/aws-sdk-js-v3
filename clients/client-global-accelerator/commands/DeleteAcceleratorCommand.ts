@@ -50,6 +50,8 @@ export class DeleteAcceleratorCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GlobalAcceleratorClient",
+      commandName: "DeleteAcceleratorCommand",
       inputFilterSensitiveLog: DeleteAcceleratorRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

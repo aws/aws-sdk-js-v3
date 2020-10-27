@@ -46,6 +46,8 @@ export class DeleteConnectionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GlueClient",
+      commandName: "DeleteConnectionCommand",
       inputFilterSensitiveLog: DeleteConnectionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteConnectionResponse.filterSensitiveLog,
     };

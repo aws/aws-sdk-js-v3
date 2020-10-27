@@ -46,6 +46,8 @@ export class GetShardIteratorCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "KinesisClient",
+      commandName: "GetShardIteratorCommand",
       inputFilterSensitiveLog: GetShardIteratorInput.filterSensitiveLog,
       outputFilterSensitiveLog: GetShardIteratorOutput.filterSensitiveLog,
     };

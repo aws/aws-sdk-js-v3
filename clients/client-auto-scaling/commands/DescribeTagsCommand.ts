@@ -43,6 +43,8 @@ export class DescribeTagsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "AutoScalingClient",
+      commandName: "DescribeTagsCommand",
       inputFilterSensitiveLog: DescribeTagsType.filterSensitiveLog,
       outputFilterSensitiveLog: TagsType.filterSensitiveLog,
     };

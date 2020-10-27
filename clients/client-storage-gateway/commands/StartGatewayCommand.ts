@@ -46,6 +46,8 @@ export class StartGatewayCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "StorageGatewayClient",
+      commandName: "StartGatewayCommand",
       inputFilterSensitiveLog: StartGatewayInput.filterSensitiveLog,
       outputFilterSensitiveLog: StartGatewayOutput.filterSensitiveLog,
     };

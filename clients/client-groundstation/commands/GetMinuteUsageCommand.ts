@@ -46,6 +46,8 @@ export class GetMinuteUsageCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GroundStationClient",
+      commandName: "GetMinuteUsageCommand",
       inputFilterSensitiveLog: GetMinuteUsageRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetMinuteUsageResponse.filterSensitiveLog,
     };

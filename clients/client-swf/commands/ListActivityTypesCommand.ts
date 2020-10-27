@@ -46,6 +46,8 @@ export class ListActivityTypesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SWFClient",
+      commandName: "ListActivityTypesCommand",
       inputFilterSensitiveLog: ListActivityTypesInput.filterSensitiveLog,
       outputFilterSensitiveLog: ActivityTypeInfos.filterSensitiveLog,
     };

@@ -43,6 +43,8 @@ export class ReleaseHostsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EC2Client",
+      commandName: "ReleaseHostsCommand",
       inputFilterSensitiveLog: ReleaseHostsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ReleaseHostsResult.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class DeleteMethodResponseCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "APIGatewayClient",
+      commandName: "DeleteMethodResponseCommand",
       inputFilterSensitiveLog: DeleteMethodResponseRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

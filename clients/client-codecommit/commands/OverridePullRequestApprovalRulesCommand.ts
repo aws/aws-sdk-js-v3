@@ -46,6 +46,8 @@ export class OverridePullRequestApprovalRulesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CodeCommitClient",
+      commandName: "OverridePullRequestApprovalRulesCommand",
       inputFilterSensitiveLog: OverridePullRequestApprovalRulesInput.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

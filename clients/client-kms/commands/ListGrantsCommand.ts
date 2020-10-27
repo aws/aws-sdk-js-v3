@@ -46,6 +46,8 @@ export class ListGrantsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "KMSClient",
+      commandName: "ListGrantsCommand",
       inputFilterSensitiveLog: ListGrantsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListGrantsResponse.filterSensitiveLog,
     };

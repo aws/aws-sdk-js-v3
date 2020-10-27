@@ -42,6 +42,8 @@ export class GetAppsCommand extends $Command<GetAppsCommandInput, GetAppsCommand
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "PinpointClient",
+      commandName: "GetAppsCommand",
       inputFilterSensitiveLog: GetAppsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetAppsResponse.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class UpdateResolverCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "AppSyncClient",
+      commandName: "UpdateResolverCommand",
       inputFilterSensitiveLog: UpdateResolverRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateResolverResponse.filterSensitiveLog,
     };

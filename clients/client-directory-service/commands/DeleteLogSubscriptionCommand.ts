@@ -46,6 +46,8 @@ export class DeleteLogSubscriptionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "DirectoryServiceClient",
+      commandName: "DeleteLogSubscriptionCommand",
       inputFilterSensitiveLog: DeleteLogSubscriptionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteLogSubscriptionResult.filterSensitiveLog,
     };

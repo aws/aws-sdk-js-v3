@@ -46,6 +46,8 @@ export class DescribeImportImageTasksCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EC2Client",
+      commandName: "DescribeImportImageTasksCommand",
       inputFilterSensitiveLog: DescribeImportImageTasksRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeImportImageTasksResult.filterSensitiveLog,
     };

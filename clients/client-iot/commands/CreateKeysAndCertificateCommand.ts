@@ -46,6 +46,8 @@ export class CreateKeysAndCertificateCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "IoTClient",
+      commandName: "CreateKeysAndCertificateCommand",
       inputFilterSensitiveLog: CreateKeysAndCertificateRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateKeysAndCertificateResponse.filterSensitiveLog,
     };

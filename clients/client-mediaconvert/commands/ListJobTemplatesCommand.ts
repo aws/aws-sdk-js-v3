@@ -46,6 +46,8 @@ export class ListJobTemplatesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "MediaConvertClient",
+      commandName: "ListJobTemplatesCommand",
       inputFilterSensitiveLog: ListJobTemplatesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListJobTemplatesResponse.filterSensitiveLog,
     };

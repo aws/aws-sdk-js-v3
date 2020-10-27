@@ -46,6 +46,8 @@ export class GetJobDocumentCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "IoTClient",
+      commandName: "GetJobDocumentCommand",
       inputFilterSensitiveLog: GetJobDocumentRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetJobDocumentResponse.filterSensitiveLog,
     };

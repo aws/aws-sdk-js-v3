@@ -46,6 +46,8 @@ export class ListLexiconsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "PollyClient",
+      commandName: "ListLexiconsCommand",
       inputFilterSensitiveLog: ListLexiconsInput.filterSensitiveLog,
       outputFilterSensitiveLog: ListLexiconsOutput.filterSensitiveLog,
     };

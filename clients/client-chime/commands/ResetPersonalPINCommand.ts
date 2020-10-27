@@ -46,6 +46,8 @@ export class ResetPersonalPINCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ChimeClient",
+      commandName: "ResetPersonalPINCommand",
       inputFilterSensitiveLog: ResetPersonalPINRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ResetPersonalPINResponse.filterSensitiveLog,
     };

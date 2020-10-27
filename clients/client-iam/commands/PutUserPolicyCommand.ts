@@ -46,6 +46,8 @@ export class PutUserPolicyCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "IAMClient",
+      commandName: "PutUserPolicyCommand",
       inputFilterSensitiveLog: PutUserPolicyRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

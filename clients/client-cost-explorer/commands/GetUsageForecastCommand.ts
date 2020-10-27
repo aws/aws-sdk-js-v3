@@ -46,6 +46,8 @@ export class GetUsageForecastCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CostExplorerClient",
+      commandName: "GetUsageForecastCommand",
       inputFilterSensitiveLog: GetUsageForecastRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetUsageForecastResponse.filterSensitiveLog,
     };

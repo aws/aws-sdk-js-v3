@@ -39,6 +39,8 @@ export class UntagCommand extends $Command<UntagCommandInput, UntagCommandOutput
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ResourceGroupsClient",
+      commandName: "UntagCommand",
       inputFilterSensitiveLog: UntagInput.filterSensitiveLog,
       outputFilterSensitiveLog: UntagOutput.filterSensitiveLog,
     };

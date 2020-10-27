@@ -46,6 +46,8 @@ export class ListResourceTagsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "KMSClient",
+      commandName: "ListResourceTagsCommand",
       inputFilterSensitiveLog: ListResourceTagsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListResourceTagsResponse.filterSensitiveLog,
     };

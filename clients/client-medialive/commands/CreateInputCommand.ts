@@ -46,6 +46,8 @@ export class CreateInputCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "MediaLiveClient",
+      commandName: "CreateInputCommand",
       inputFilterSensitiveLog: CreateInputRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateInputResponse.filterSensitiveLog,
     };

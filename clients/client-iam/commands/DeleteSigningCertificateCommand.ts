@@ -46,6 +46,8 @@ export class DeleteSigningCertificateCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "IAMClient",
+      commandName: "DeleteSigningCertificateCommand",
       inputFilterSensitiveLog: DeleteSigningCertificateRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

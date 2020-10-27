@@ -46,6 +46,8 @@ export class AttachInstancesToLoadBalancerCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "LightsailClient",
+      commandName: "AttachInstancesToLoadBalancerCommand",
       inputFilterSensitiveLog: AttachInstancesToLoadBalancerRequest.filterSensitiveLog,
       outputFilterSensitiveLog: AttachInstancesToLoadBalancerResult.filterSensitiveLog,
     };

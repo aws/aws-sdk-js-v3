@@ -46,6 +46,8 @@ export class DeleteDataSourceCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "QuickSightClient",
+      commandName: "DeleteDataSourceCommand",
       inputFilterSensitiveLog: DeleteDataSourceRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteDataSourceResponse.filterSensitiveLog,
     };

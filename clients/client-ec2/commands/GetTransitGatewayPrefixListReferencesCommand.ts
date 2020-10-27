@@ -50,6 +50,8 @@ export class GetTransitGatewayPrefixListReferencesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EC2Client",
+      commandName: "GetTransitGatewayPrefixListReferencesCommand",
       inputFilterSensitiveLog: GetTransitGatewayPrefixListReferencesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetTransitGatewayPrefixListReferencesResult.filterSensitiveLog,
     };

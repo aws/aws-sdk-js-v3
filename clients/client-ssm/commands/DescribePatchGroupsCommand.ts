@@ -46,6 +46,8 @@ export class DescribePatchGroupsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SSMClient",
+      commandName: "DescribePatchGroupsCommand",
       inputFilterSensitiveLog: DescribePatchGroupsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribePatchGroupsResult.filterSensitiveLog,
     };

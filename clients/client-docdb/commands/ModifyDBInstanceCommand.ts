@@ -46,6 +46,8 @@ export class ModifyDBInstanceCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "DocDBClient",
+      commandName: "ModifyDBInstanceCommand",
       inputFilterSensitiveLog: ModifyDBInstanceMessage.filterSensitiveLog,
       outputFilterSensitiveLog: ModifyDBInstanceResult.filterSensitiveLog,
     };

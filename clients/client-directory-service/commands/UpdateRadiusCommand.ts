@@ -46,6 +46,8 @@ export class UpdateRadiusCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "DirectoryServiceClient",
+      commandName: "UpdateRadiusCommand",
       inputFilterSensitiveLog: UpdateRadiusRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateRadiusResult.filterSensitiveLog,
     };

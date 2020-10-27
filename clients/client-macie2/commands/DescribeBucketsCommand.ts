@@ -46,6 +46,8 @@ export class DescribeBucketsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "Macie2Client",
+      commandName: "DescribeBucketsCommand",
       inputFilterSensitiveLog: DescribeBucketsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeBucketsResponse.filterSensitiveLog,
     };

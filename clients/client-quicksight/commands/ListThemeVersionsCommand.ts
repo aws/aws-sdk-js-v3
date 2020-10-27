@@ -46,6 +46,8 @@ export class ListThemeVersionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "QuickSightClient",
+      commandName: "ListThemeVersionsCommand",
       inputFilterSensitiveLog: ListThemeVersionsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListThemeVersionsResponse.filterSensitiveLog,
     };

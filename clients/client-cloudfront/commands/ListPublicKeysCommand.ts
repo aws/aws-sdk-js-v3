@@ -46,6 +46,8 @@ export class ListPublicKeysCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CloudFrontClient",
+      commandName: "ListPublicKeysCommand",
       inputFilterSensitiveLog: ListPublicKeysRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListPublicKeysResult.filterSensitiveLog,
     };

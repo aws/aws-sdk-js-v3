@@ -45,6 +45,8 @@ export class EmptyOperationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "JsonProtocolClient",
+      commandName: "EmptyOperationCommand",
       inputFilterSensitiveLog: (input: any) => input,
       outputFilterSensitiveLog: (output: any) => output,
     };

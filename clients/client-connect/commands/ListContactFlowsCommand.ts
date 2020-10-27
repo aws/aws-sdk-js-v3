@@ -46,6 +46,8 @@ export class ListContactFlowsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ConnectClient",
+      commandName: "ListContactFlowsCommand",
       inputFilterSensitiveLog: ListContactFlowsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListContactFlowsResponse.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class ListExclusionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "InspectorClient",
+      commandName: "ListExclusionsCommand",
       inputFilterSensitiveLog: ListExclusionsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListExclusionsResponse.filterSensitiveLog,
     };

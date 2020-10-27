@@ -46,6 +46,8 @@ export class GetBulkDeploymentStatusCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GreengrassClient",
+      commandName: "GetBulkDeploymentStatusCommand",
       inputFilterSensitiveLog: GetBulkDeploymentStatusRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetBulkDeploymentStatusResponse.filterSensitiveLog,
     };

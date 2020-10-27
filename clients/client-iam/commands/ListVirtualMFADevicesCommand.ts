@@ -46,6 +46,8 @@ export class ListVirtualMFADevicesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "IAMClient",
+      commandName: "ListVirtualMFADevicesCommand",
       inputFilterSensitiveLog: ListVirtualMFADevicesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListVirtualMFADevicesResponse.filterSensitiveLog,
     };

@@ -50,6 +50,8 @@ export class GetTagKeysCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ResourceGroupsTaggingAPIClient",
+      commandName: "GetTagKeysCommand",
       inputFilterSensitiveLog: GetTagKeysInput.filterSensitiveLog,
       outputFilterSensitiveLog: GetTagKeysOutput.filterSensitiveLog,
     };

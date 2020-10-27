@@ -46,6 +46,8 @@ export class UpdateConnectorProfileCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "AppflowClient",
+      commandName: "UpdateConnectorProfileCommand",
       inputFilterSensitiveLog: UpdateConnectorProfileRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateConnectorProfileResponse.filterSensitiveLog,
     };

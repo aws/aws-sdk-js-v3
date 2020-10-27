@@ -46,6 +46,8 @@ export class DeleteFolderContentsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "WorkDocsClient",
+      commandName: "DeleteFolderContentsCommand",
       inputFilterSensitiveLog: DeleteFolderContentsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

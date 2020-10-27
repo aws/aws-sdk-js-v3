@@ -46,6 +46,8 @@ export class PutLoggingOptionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "IoTAnalyticsClient",
+      commandName: "PutLoggingOptionsCommand",
       inputFilterSensitiveLog: PutLoggingOptionsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

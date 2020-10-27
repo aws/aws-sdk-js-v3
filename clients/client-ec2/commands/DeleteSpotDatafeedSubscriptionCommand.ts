@@ -46,6 +46,8 @@ export class DeleteSpotDatafeedSubscriptionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EC2Client",
+      commandName: "DeleteSpotDatafeedSubscriptionCommand",
       inputFilterSensitiveLog: DeleteSpotDatafeedSubscriptionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

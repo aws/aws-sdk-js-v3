@@ -46,6 +46,8 @@ export class UpdateDataSourceCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "AppSyncClient",
+      commandName: "UpdateDataSourceCommand",
       inputFilterSensitiveLog: UpdateDataSourceRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateDataSourceResponse.filterSensitiveLog,
     };

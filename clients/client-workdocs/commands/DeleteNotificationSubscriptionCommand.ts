@@ -46,6 +46,8 @@ export class DeleteNotificationSubscriptionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "WorkDocsClient",
+      commandName: "DeleteNotificationSubscriptionCommand",
       inputFilterSensitiveLog: DeleteNotificationSubscriptionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

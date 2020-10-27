@@ -46,6 +46,8 @@ export class StopAccessLoggingCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "MediaStoreClient",
+      commandName: "StopAccessLoggingCommand",
       inputFilterSensitiveLog: StopAccessLoggingInput.filterSensitiveLog,
       outputFilterSensitiveLog: StopAccessLoggingOutput.filterSensitiveLog,
     };

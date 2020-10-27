@@ -50,6 +50,8 @@ export class GetNodeCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ManagedBlockchainClient",
+      commandName: "GetNodeCommand",
       inputFilterSensitiveLog: GetNodeInput.filterSensitiveLog,
       outputFilterSensitiveLog: GetNodeOutput.filterSensitiveLog,
     };

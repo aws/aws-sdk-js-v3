@@ -46,6 +46,8 @@ export class UntagResourceCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CloudWatchClient",
+      commandName: "UntagResourceCommand",
       inputFilterSensitiveLog: UntagResourceInput.filterSensitiveLog,
       outputFilterSensitiveLog: UntagResourceOutput.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class GetRestApisCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "APIGatewayClient",
+      commandName: "GetRestApisCommand",
       inputFilterSensitiveLog: GetRestApisRequest.filterSensitiveLog,
       outputFilterSensitiveLog: RestApis.filterSensitiveLog,
     };

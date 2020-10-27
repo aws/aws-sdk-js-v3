@@ -46,6 +46,8 @@ export class ListPresetsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "MediaConvertClient",
+      commandName: "ListPresetsCommand",
       inputFilterSensitiveLog: ListPresetsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListPresetsResponse.filterSensitiveLog,
     };

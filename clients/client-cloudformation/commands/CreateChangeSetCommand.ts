@@ -46,6 +46,8 @@ export class CreateChangeSetCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CloudFormationClient",
+      commandName: "CreateChangeSetCommand",
       inputFilterSensitiveLog: CreateChangeSetInput.filterSensitiveLog,
       outputFilterSensitiveLog: CreateChangeSetOutput.filterSensitiveLog,
     };

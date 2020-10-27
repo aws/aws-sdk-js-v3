@@ -46,6 +46,8 @@ export class HttpRequestWithGreedyLabelInPathCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "RestXmlProtocolClient",
+      commandName: "HttpRequestWithGreedyLabelInPathCommand",
       inputFilterSensitiveLog: HttpRequestWithGreedyLabelInPathInput.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

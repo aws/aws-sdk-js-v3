@@ -46,6 +46,8 @@ export class DetectProtectiveEquipmentCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "RekognitionClient",
+      commandName: "DetectProtectiveEquipmentCommand",
       inputFilterSensitiveLog: DetectProtectiveEquipmentRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DetectProtectiveEquipmentResponse.filterSensitiveLog,
     };

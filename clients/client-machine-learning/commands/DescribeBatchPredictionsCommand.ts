@@ -46,6 +46,8 @@ export class DescribeBatchPredictionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "MachineLearningClient",
+      commandName: "DescribeBatchPredictionsCommand",
       inputFilterSensitiveLog: DescribeBatchPredictionsInput.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeBatchPredictionsOutput.filterSensitiveLog,
     };

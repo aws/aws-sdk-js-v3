@@ -46,6 +46,8 @@ export class DescribePendingMaintenanceActionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "DocDBClient",
+      commandName: "DescribePendingMaintenanceActionsCommand",
       inputFilterSensitiveLog: DescribePendingMaintenanceActionsMessage.filterSensitiveLog,
       outputFilterSensitiveLog: PendingMaintenanceActionsMessage.filterSensitiveLog,
     };

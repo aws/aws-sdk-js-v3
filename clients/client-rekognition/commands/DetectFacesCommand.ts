@@ -46,6 +46,8 @@ export class DetectFacesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "RekognitionClient",
+      commandName: "DetectFacesCommand",
       inputFilterSensitiveLog: DetectFacesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DetectFacesResponse.filterSensitiveLog,
     };

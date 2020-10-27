@@ -46,6 +46,8 @@ export class UpdateVariableCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "FraudDetectorClient",
+      commandName: "UpdateVariableCommand",
       inputFilterSensitiveLog: UpdateVariableRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateVariableResult.filterSensitiveLog,
     };

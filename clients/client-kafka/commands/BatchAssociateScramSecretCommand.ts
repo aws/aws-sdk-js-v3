@@ -46,6 +46,8 @@ export class BatchAssociateScramSecretCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "KafkaClient",
+      commandName: "BatchAssociateScramSecretCommand",
       inputFilterSensitiveLog: BatchAssociateScramSecretRequest.filterSensitiveLog,
       outputFilterSensitiveLog: BatchAssociateScramSecretResponse.filterSensitiveLog,
     };

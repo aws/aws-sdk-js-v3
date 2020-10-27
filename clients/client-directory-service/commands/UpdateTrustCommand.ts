@@ -46,6 +46,8 @@ export class UpdateTrustCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "DirectoryServiceClient",
+      commandName: "UpdateTrustCommand",
       inputFilterSensitiveLog: UpdateTrustRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateTrustResult.filterSensitiveLog,
     };

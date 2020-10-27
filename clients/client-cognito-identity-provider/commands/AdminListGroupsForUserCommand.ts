@@ -50,6 +50,8 @@ export class AdminListGroupsForUserCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CognitoIdentityProviderClient",
+      commandName: "AdminListGroupsForUserCommand",
       inputFilterSensitiveLog: AdminListGroupsForUserRequest.filterSensitiveLog,
       outputFilterSensitiveLog: AdminListGroupsForUserResponse.filterSensitiveLog,
     };

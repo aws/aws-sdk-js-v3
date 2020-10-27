@@ -46,6 +46,8 @@ export class AuthorizeClientVpnIngressCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EC2Client",
+      commandName: "AuthorizeClientVpnIngressCommand",
       inputFilterSensitiveLog: AuthorizeClientVpnIngressRequest.filterSensitiveLog,
       outputFilterSensitiveLog: AuthorizeClientVpnIngressResult.filterSensitiveLog,
     };

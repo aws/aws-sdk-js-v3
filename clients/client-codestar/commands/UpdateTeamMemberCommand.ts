@@ -46,6 +46,8 @@ export class UpdateTeamMemberCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CodeStarClient",
+      commandName: "UpdateTeamMemberCommand",
       inputFilterSensitiveLog: UpdateTeamMemberRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateTeamMemberResult.filterSensitiveLog,
     };

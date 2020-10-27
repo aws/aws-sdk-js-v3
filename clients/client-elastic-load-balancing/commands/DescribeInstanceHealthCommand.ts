@@ -50,6 +50,8 @@ export class DescribeInstanceHealthCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ElasticLoadBalancingClient",
+      commandName: "DescribeInstanceHealthCommand",
       inputFilterSensitiveLog: DescribeEndPointStateInput.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeEndPointStateOutput.filterSensitiveLog,
     };

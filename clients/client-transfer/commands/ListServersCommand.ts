@@ -46,6 +46,8 @@ export class ListServersCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "TransferClient",
+      commandName: "ListServersCommand",
       inputFilterSensitiveLog: ListServersRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListServersResponse.filterSensitiveLog,
     };

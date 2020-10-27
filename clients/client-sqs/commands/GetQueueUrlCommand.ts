@@ -43,6 +43,8 @@ export class GetQueueUrlCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SQSClient",
+      commandName: "GetQueueUrlCommand",
       inputFilterSensitiveLog: GetQueueUrlRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetQueueUrlResult.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class CreateDBClusterParameterGroupCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "NeptuneClient",
+      commandName: "CreateDBClusterParameterGroupCommand",
       inputFilterSensitiveLog: CreateDBClusterParameterGroupMessage.filterSensitiveLog,
       outputFilterSensitiveLog: CreateDBClusterParameterGroupResult.filterSensitiveLog,
     };

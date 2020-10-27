@@ -46,6 +46,8 @@ export class DeleteSnapshotCopyGrantCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "RedshiftClient",
+      commandName: "DeleteSnapshotCopyGrantCommand",
       inputFilterSensitiveLog: DeleteSnapshotCopyGrantMessage.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

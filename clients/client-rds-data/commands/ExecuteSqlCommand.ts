@@ -46,6 +46,8 @@ export class ExecuteSqlCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "RDSDataClient",
+      commandName: "ExecuteSqlCommand",
       inputFilterSensitiveLog: ExecuteSqlRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ExecuteSqlResponse.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class AddTagsToVaultCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GlacierClient",
+      commandName: "AddTagsToVaultCommand",
       inputFilterSensitiveLog: AddTagsToVaultInput.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

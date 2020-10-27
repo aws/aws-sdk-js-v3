@@ -46,6 +46,8 @@ export class PublishVersionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "LambdaClient",
+      commandName: "PublishVersionCommand",
       inputFilterSensitiveLog: PublishVersionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: FunctionConfiguration.filterSensitiveLog,
     };

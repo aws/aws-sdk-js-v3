@@ -46,6 +46,8 @@ export class UpdateNotificationSettingsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "MTurkClient",
+      commandName: "UpdateNotificationSettingsCommand",
       inputFilterSensitiveLog: UpdateNotificationSettingsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateNotificationSettingsResponse.filterSensitiveLog,
     };

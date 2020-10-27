@@ -46,6 +46,8 @@ export class GetCertificateCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ACMClient",
+      commandName: "GetCertificateCommand",
       inputFilterSensitiveLog: GetCertificateRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetCertificateResponse.filterSensitiveLog,
     };

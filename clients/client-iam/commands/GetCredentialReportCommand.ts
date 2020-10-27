@@ -46,6 +46,8 @@ export class GetCredentialReportCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "IAMClient",
+      commandName: "GetCredentialReportCommand",
       inputFilterSensitiveLog: (input: any) => input,
       outputFilterSensitiveLog: GetCredentialReportResponse.filterSensitiveLog,
     };

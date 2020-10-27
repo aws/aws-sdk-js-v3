@@ -50,6 +50,8 @@ export class DescribeRemediationExecutionStatusCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ConfigServiceClient",
+      commandName: "DescribeRemediationExecutionStatusCommand",
       inputFilterSensitiveLog: DescribeRemediationExecutionStatusRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeRemediationExecutionStatusResponse.filterSensitiveLog,
     };

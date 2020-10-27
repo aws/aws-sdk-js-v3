@@ -46,6 +46,8 @@ export class GetMembersCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GuardDutyClient",
+      commandName: "GetMembersCommand",
       inputFilterSensitiveLog: GetMembersRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetMembersResponse.filterSensitiveLog,
     };

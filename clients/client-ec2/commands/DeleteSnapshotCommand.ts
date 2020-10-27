@@ -43,6 +43,8 @@ export class DeleteSnapshotCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EC2Client",
+      commandName: "DeleteSnapshotCommand",
       inputFilterSensitiveLog: DeleteSnapshotRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

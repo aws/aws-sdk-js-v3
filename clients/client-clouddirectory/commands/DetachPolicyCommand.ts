@@ -46,6 +46,8 @@ export class DetachPolicyCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CloudDirectoryClient",
+      commandName: "DetachPolicyCommand",
       inputFilterSensitiveLog: DetachPolicyRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DetachPolicyResponse.filterSensitiveLog,
     };

@@ -53,6 +53,8 @@ export class GetServiceQuotaIncreaseRequestFromTemplateCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ServiceQuotasClient",
+      commandName: "GetServiceQuotaIncreaseRequestFromTemplateCommand",
       inputFilterSensitiveLog: GetServiceQuotaIncreaseRequestFromTemplateRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetServiceQuotaIncreaseRequestFromTemplateResponse.filterSensitiveLog,
     };

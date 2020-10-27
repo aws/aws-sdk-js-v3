@@ -39,6 +39,8 @@ export class UntagUserCommand extends $Command<UntagUserCommandInput, UntagUserC
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "IAMClient",
+      commandName: "UntagUserCommand",
       inputFilterSensitiveLog: UntagUserRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

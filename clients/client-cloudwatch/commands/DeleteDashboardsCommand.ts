@@ -46,6 +46,8 @@ export class DeleteDashboardsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CloudWatchClient",
+      commandName: "DeleteDashboardsCommand",
       inputFilterSensitiveLog: DeleteDashboardsInput.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteDashboardsOutput.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class CreatePartnerEventSourceCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CloudWatchEventsClient",
+      commandName: "CreatePartnerEventSourceCommand",
       inputFilterSensitiveLog: CreatePartnerEventSourceRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreatePartnerEventSourceResponse.filterSensitiveLog,
     };

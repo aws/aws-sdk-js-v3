@@ -46,6 +46,8 @@ export class DescribeTemplateAliasCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "QuickSightClient",
+      commandName: "DescribeTemplateAliasCommand",
       inputFilterSensitiveLog: DescribeTemplateAliasRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeTemplateAliasResponse.filterSensitiveLog,
     };

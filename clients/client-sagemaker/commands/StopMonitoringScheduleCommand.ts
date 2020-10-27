@@ -46,6 +46,8 @@ export class StopMonitoringScheduleCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SageMakerClient",
+      commandName: "StopMonitoringScheduleCommand",
       inputFilterSensitiveLog: StopMonitoringScheduleRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

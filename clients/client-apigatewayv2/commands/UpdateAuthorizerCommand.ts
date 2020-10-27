@@ -46,6 +46,8 @@ export class UpdateAuthorizerCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ApiGatewayV2Client",
+      commandName: "UpdateAuthorizerCommand",
       inputFilterSensitiveLog: UpdateAuthorizerRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateAuthorizerResponse.filterSensitiveLog,
     };

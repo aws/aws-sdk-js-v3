@@ -46,6 +46,8 @@ export class DeleteSAMLProviderCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "IAMClient",
+      commandName: "DeleteSAMLProviderCommand",
       inputFilterSensitiveLog: DeleteSAMLProviderRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

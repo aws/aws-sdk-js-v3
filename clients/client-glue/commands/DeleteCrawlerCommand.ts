@@ -46,6 +46,8 @@ export class DeleteCrawlerCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GlueClient",
+      commandName: "DeleteCrawlerCommand",
       inputFilterSensitiveLog: DeleteCrawlerRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteCrawlerResponse.filterSensitiveLog,
     };

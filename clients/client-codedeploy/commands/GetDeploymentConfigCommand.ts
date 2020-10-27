@@ -46,6 +46,8 @@ export class GetDeploymentConfigCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CodeDeployClient",
+      commandName: "GetDeploymentConfigCommand",
       inputFilterSensitiveLog: GetDeploymentConfigInput.filterSensitiveLog,
       outputFilterSensitiveLog: GetDeploymentConfigOutput.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class CreateConnectionAliasCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "WorkSpacesClient",
+      commandName: "CreateConnectionAliasCommand",
       inputFilterSensitiveLog: CreateConnectionAliasRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateConnectionAliasResult.filterSensitiveLog,
     };

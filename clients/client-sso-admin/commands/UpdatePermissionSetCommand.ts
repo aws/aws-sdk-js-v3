@@ -46,6 +46,8 @@ export class UpdatePermissionSetCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SSOAdminClient",
+      commandName: "UpdatePermissionSetCommand",
       inputFilterSensitiveLog: UpdatePermissionSetRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdatePermissionSetResponse.filterSensitiveLog,
     };

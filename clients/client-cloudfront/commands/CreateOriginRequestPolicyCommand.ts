@@ -46,6 +46,8 @@ export class CreateOriginRequestPolicyCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CloudFrontClient",
+      commandName: "CreateOriginRequestPolicyCommand",
       inputFilterSensitiveLog: CreateOriginRequestPolicyRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateOriginRequestPolicyResult.filterSensitiveLog,
     };

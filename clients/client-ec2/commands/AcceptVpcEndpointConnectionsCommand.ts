@@ -46,6 +46,8 @@ export class AcceptVpcEndpointConnectionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EC2Client",
+      commandName: "AcceptVpcEndpointConnectionsCommand",
       inputFilterSensitiveLog: AcceptVpcEndpointConnectionsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: AcceptVpcEndpointConnectionsResult.filterSensitiveLog,
     };

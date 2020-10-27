@@ -50,6 +50,8 @@ export class ExportConfigurationsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ApplicationDiscoveryServiceClient",
+      commandName: "ExportConfigurationsCommand",
       inputFilterSensitiveLog: (input: any) => input,
       outputFilterSensitiveLog: ExportConfigurationsResponse.filterSensitiveLog,
     };

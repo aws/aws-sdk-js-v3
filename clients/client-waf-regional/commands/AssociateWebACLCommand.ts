@@ -46,6 +46,8 @@ export class AssociateWebACLCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "WAFRegionalClient",
+      commandName: "AssociateWebACLCommand",
       inputFilterSensitiveLog: AssociateWebACLRequest.filterSensitiveLog,
       outputFilterSensitiveLog: AssociateWebACLResponse.filterSensitiveLog,
     };

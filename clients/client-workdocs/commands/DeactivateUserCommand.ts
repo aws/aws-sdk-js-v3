@@ -46,6 +46,8 @@ export class DeactivateUserCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "WorkDocsClient",
+      commandName: "DeactivateUserCommand",
       inputFilterSensitiveLog: DeactivateUserRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

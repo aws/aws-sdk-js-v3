@@ -46,6 +46,8 @@ export class ListRoomsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ChimeClient",
+      commandName: "ListRoomsCommand",
       inputFilterSensitiveLog: ListRoomsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListRoomsResponse.filterSensitiveLog,
     };

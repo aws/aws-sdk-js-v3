@@ -46,6 +46,8 @@ export class UpdateGatewayInformationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "StorageGatewayClient",
+      commandName: "UpdateGatewayInformationCommand",
       inputFilterSensitiveLog: UpdateGatewayInformationInput.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateGatewayInformationOutput.filterSensitiveLog,
     };

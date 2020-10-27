@@ -46,6 +46,8 @@ export class BatchGetRepositoriesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CodeCommitClient",
+      commandName: "BatchGetRepositoriesCommand",
       inputFilterSensitiveLog: BatchGetRepositoriesInput.filterSensitiveLog,
       outputFilterSensitiveLog: BatchGetRepositoriesOutput.filterSensitiveLog,
     };

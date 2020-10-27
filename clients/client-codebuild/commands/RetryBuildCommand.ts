@@ -46,6 +46,8 @@ export class RetryBuildCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CodeBuildClient",
+      commandName: "RetryBuildCommand",
       inputFilterSensitiveLog: RetryBuildInput.filterSensitiveLog,
       outputFilterSensitiveLog: RetryBuildOutput.filterSensitiveLog,
     };

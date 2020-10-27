@@ -50,6 +50,8 @@ export class GetUICustomizationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CognitoIdentityProviderClient",
+      commandName: "GetUICustomizationCommand",
       inputFilterSensitiveLog: GetUICustomizationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetUICustomizationResponse.filterSensitiveLog,
     };

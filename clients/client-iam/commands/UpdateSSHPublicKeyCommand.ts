@@ -46,6 +46,8 @@ export class UpdateSSHPublicKeyCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "IAMClient",
+      commandName: "UpdateSSHPublicKeyCommand",
       inputFilterSensitiveLog: UpdateSSHPublicKeyRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

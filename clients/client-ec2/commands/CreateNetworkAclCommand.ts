@@ -46,6 +46,8 @@ export class CreateNetworkAclCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EC2Client",
+      commandName: "CreateNetworkAclCommand",
       inputFilterSensitiveLog: CreateNetworkAclRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateNetworkAclResult.filterSensitiveLog,
     };

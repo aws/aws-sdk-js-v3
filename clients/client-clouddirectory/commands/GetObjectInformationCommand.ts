@@ -46,6 +46,8 @@ export class GetObjectInformationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CloudDirectoryClient",
+      commandName: "GetObjectInformationCommand",
       inputFilterSensitiveLog: GetObjectInformationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetObjectInformationResponse.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class ModifyInstanceMetadataOptionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EC2Client",
+      commandName: "ModifyInstanceMetadataOptionsCommand",
       inputFilterSensitiveLog: ModifyInstanceMetadataOptionsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ModifyInstanceMetadataOptionsResult.filterSensitiveLog,
     };

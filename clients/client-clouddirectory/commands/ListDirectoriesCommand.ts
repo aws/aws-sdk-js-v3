@@ -46,6 +46,8 @@ export class ListDirectoriesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CloudDirectoryClient",
+      commandName: "ListDirectoriesCommand",
       inputFilterSensitiveLog: ListDirectoriesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListDirectoriesResponse.filterSensitiveLog,
     };

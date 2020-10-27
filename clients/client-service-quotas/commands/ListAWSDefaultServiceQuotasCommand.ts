@@ -46,6 +46,8 @@ export class ListAWSDefaultServiceQuotasCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ServiceQuotasClient",
+      commandName: "ListAWSDefaultServiceQuotasCommand",
       inputFilterSensitiveLog: ListAWSDefaultServiceQuotasRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListAWSDefaultServiceQuotasResponse.filterSensitiveLog,
     };

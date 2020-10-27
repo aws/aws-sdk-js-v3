@@ -46,6 +46,8 @@ export class ListOfferingsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "DeviceFarmClient",
+      commandName: "ListOfferingsCommand",
       inputFilterSensitiveLog: ListOfferingsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListOfferingsResult.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class GetDataCatalogEncryptionSettingsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GlueClient",
+      commandName: "GetDataCatalogEncryptionSettingsCommand",
       inputFilterSensitiveLog: GetDataCatalogEncryptionSettingsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetDataCatalogEncryptionSettingsResponse.filterSensitiveLog,
     };

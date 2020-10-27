@@ -50,6 +50,8 @@ export class CreateSlotTypeVersionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "LexModelBuildingServiceClient",
+      commandName: "CreateSlotTypeVersionCommand",
       inputFilterSensitiveLog: CreateSlotTypeVersionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateSlotTypeVersionResponse.filterSensitiveLog,
     };

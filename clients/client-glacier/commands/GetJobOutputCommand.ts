@@ -46,6 +46,8 @@ export class GetJobOutputCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GlacierClient",
+      commandName: "GetJobOutputCommand",
       inputFilterSensitiveLog: GetJobOutputInput.filterSensitiveLog,
       outputFilterSensitiveLog: GetJobOutputOutput.filterSensitiveLog,
     };

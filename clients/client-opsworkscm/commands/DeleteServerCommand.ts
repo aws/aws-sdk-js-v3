@@ -46,6 +46,8 @@ export class DeleteServerCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "OpsWorksCMClient",
+      commandName: "DeleteServerCommand",
       inputFilterSensitiveLog: DeleteServerRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteServerResponse.filterSensitiveLog,
     };

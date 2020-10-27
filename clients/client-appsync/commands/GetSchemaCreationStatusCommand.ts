@@ -46,6 +46,8 @@ export class GetSchemaCreationStatusCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "AppSyncClient",
+      commandName: "GetSchemaCreationStatusCommand",
       inputFilterSensitiveLog: GetSchemaCreationStatusRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetSchemaCreationStatusResponse.filterSensitiveLog,
     };

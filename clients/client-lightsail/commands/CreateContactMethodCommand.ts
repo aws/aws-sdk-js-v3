@@ -46,6 +46,8 @@ export class CreateContactMethodCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "LightsailClient",
+      commandName: "CreateContactMethodCommand",
       inputFilterSensitiveLog: CreateContactMethodRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateContactMethodResult.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class CreateLocationFsxWindowsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "DataSyncClient",
+      commandName: "CreateLocationFsxWindowsCommand",
       inputFilterSensitiveLog: CreateLocationFsxWindowsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateLocationFsxWindowsResponse.filterSensitiveLog,
     };

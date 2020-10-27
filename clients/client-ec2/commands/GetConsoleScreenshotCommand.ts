@@ -46,6 +46,8 @@ export class GetConsoleScreenshotCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EC2Client",
+      commandName: "GetConsoleScreenshotCommand",
       inputFilterSensitiveLog: GetConsoleScreenshotRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetConsoleScreenshotResult.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class DeleteVoiceConnectorTerminationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ChimeClient",
+      commandName: "DeleteVoiceConnectorTerminationCommand",
       inputFilterSensitiveLog: DeleteVoiceConnectorTerminationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

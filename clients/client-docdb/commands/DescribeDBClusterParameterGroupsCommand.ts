@@ -46,6 +46,8 @@ export class DescribeDBClusterParameterGroupsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "DocDBClient",
+      commandName: "DescribeDBClusterParameterGroupsCommand",
       inputFilterSensitiveLog: DescribeDBClusterParameterGroupsMessage.filterSensitiveLog,
       outputFilterSensitiveLog: DBClusterParameterGroupsMessage.filterSensitiveLog,
     };

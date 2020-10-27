@@ -46,6 +46,8 @@ export class DeleteEmailTemplateCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "PinpointClient",
+      commandName: "DeleteEmailTemplateCommand",
       inputFilterSensitiveLog: DeleteEmailTemplateRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteEmailTemplateResponse.filterSensitiveLog,
     };

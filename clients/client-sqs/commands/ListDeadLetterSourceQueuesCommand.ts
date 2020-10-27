@@ -46,6 +46,8 @@ export class ListDeadLetterSourceQueuesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SQSClient",
+      commandName: "ListDeadLetterSourceQueuesCommand",
       inputFilterSensitiveLog: ListDeadLetterSourceQueuesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListDeadLetterSourceQueuesResult.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class PutPermissionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CodeGuruProfilerClient",
+      commandName: "PutPermissionCommand",
       inputFilterSensitiveLog: PutPermissionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: PutPermissionResponse.filterSensitiveLog,
     };

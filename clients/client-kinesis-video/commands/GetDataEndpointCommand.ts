@@ -46,6 +46,8 @@ export class GetDataEndpointCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "KinesisVideoClient",
+      commandName: "GetDataEndpointCommand",
       inputFilterSensitiveLog: GetDataEndpointInput.filterSensitiveLog,
       outputFilterSensitiveLog: GetDataEndpointOutput.filterSensitiveLog,
     };

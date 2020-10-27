@@ -46,6 +46,8 @@ export class StartQueryCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CloudWatchLogsClient",
+      commandName: "StartQueryCommand",
       inputFilterSensitiveLog: StartQueryRequest.filterSensitiveLog,
       outputFilterSensitiveLog: StartQueryResponse.filterSensitiveLog,
     };

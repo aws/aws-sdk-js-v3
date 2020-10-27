@@ -46,6 +46,8 @@ export class ModifyWorkspaceCreationPropertiesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "WorkSpacesClient",
+      commandName: "ModifyWorkspaceCreationPropertiesCommand",
       inputFilterSensitiveLog: ModifyWorkspaceCreationPropertiesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ModifyWorkspaceCreationPropertiesResult.filterSensitiveLog,
     };

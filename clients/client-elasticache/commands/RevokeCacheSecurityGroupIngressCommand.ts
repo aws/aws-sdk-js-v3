@@ -46,6 +46,8 @@ export class RevokeCacheSecurityGroupIngressCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ElastiCacheClient",
+      commandName: "RevokeCacheSecurityGroupIngressCommand",
       inputFilterSensitiveLog: RevokeCacheSecurityGroupIngressMessage.filterSensitiveLog,
       outputFilterSensitiveLog: RevokeCacheSecurityGroupIngressResult.filterSensitiveLog,
     };

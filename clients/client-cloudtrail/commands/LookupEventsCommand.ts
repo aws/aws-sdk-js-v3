@@ -46,6 +46,8 @@ export class LookupEventsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CloudTrailClient",
+      commandName: "LookupEventsCommand",
       inputFilterSensitiveLog: LookupEventsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: LookupEventsResponse.filterSensitiveLog,
     };

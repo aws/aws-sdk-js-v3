@@ -50,6 +50,8 @@ export class PutBucketCorsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "S3Client",
+      commandName: "PutBucketCorsCommand",
       inputFilterSensitiveLog: PutBucketCorsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

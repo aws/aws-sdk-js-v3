@@ -46,6 +46,8 @@ export class DescribeCodeReviewCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CodeGuruReviewerClient",
+      commandName: "DescribeCodeReviewCommand",
       inputFilterSensitiveLog: DescribeCodeReviewRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeCodeReviewResponse.filterSensitiveLog,
     };

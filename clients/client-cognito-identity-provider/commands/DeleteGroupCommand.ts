@@ -50,6 +50,8 @@ export class DeleteGroupCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CognitoIdentityProviderClient",
+      commandName: "DeleteGroupCommand",
       inputFilterSensitiveLog: DeleteGroupRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

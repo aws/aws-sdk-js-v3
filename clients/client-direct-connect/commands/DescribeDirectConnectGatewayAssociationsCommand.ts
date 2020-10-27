@@ -53,6 +53,8 @@ export class DescribeDirectConnectGatewayAssociationsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "DirectConnectClient",
+      commandName: "DescribeDirectConnectGatewayAssociationsCommand",
       inputFilterSensitiveLog: DescribeDirectConnectGatewayAssociationsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeDirectConnectGatewayAssociationsResult.filterSensitiveLog,
     };

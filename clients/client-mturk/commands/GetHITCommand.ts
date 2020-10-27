@@ -39,6 +39,8 @@ export class GetHITCommand extends $Command<GetHITCommandInput, GetHITCommandOut
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "MTurkClient",
+      commandName: "GetHITCommand",
       inputFilterSensitiveLog: GetHITRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetHITResponse.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class DescribeUserHierarchyGroupCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ConnectClient",
+      commandName: "DescribeUserHierarchyGroupCommand",
       inputFilterSensitiveLog: DescribeUserHierarchyGroupRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeUserHierarchyGroupResponse.filterSensitiveLog,
     };

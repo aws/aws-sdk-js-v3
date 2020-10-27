@@ -46,6 +46,8 @@ export class UpdateJobShipmentStateCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SnowballClient",
+      commandName: "UpdateJobShipmentStateCommand",
       inputFilterSensitiveLog: UpdateJobShipmentStateRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateJobShipmentStateResult.filterSensitiveLog,
     };

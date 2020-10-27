@@ -46,6 +46,8 @@ export class DeleteDBClusterSnapshotCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "NeptuneClient",
+      commandName: "DeleteDBClusterSnapshotCommand",
       inputFilterSensitiveLog: DeleteDBClusterSnapshotMessage.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteDBClusterSnapshotResult.filterSensitiveLog,
     };

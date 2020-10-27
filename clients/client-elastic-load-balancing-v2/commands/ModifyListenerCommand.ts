@@ -50,6 +50,8 @@ export class ModifyListenerCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ElasticLoadBalancingV2Client",
+      commandName: "ModifyListenerCommand",
       inputFilterSensitiveLog: ModifyListenerInput.filterSensitiveLog,
       outputFilterSensitiveLog: ModifyListenerOutput.filterSensitiveLog,
     };

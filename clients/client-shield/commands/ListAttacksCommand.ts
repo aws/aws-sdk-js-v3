@@ -46,6 +46,8 @@ export class ListAttacksCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ShieldClient",
+      commandName: "ListAttacksCommand",
       inputFilterSensitiveLog: ListAttacksRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListAttacksResponse.filterSensitiveLog,
     };

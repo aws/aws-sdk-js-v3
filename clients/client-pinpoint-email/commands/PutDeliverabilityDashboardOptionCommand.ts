@@ -46,6 +46,8 @@ export class PutDeliverabilityDashboardOptionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "PinpointEmailClient",
+      commandName: "PutDeliverabilityDashboardOptionCommand",
       inputFilterSensitiveLog: PutDeliverabilityDashboardOptionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: PutDeliverabilityDashboardOptionResponse.filterSensitiveLog,
     };

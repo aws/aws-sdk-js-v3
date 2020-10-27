@@ -46,6 +46,8 @@ export class SetLocalConsolePasswordCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "StorageGatewayClient",
+      commandName: "SetLocalConsolePasswordCommand",
       inputFilterSensitiveLog: SetLocalConsolePasswordInput.filterSensitiveLog,
       outputFilterSensitiveLog: SetLocalConsolePasswordOutput.filterSensitiveLog,
     };

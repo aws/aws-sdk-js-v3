@@ -46,6 +46,8 @@ export class TagLogGroupCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CloudWatchLogsClient",
+      commandName: "TagLogGroupCommand",
       inputFilterSensitiveLog: TagLogGroupRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

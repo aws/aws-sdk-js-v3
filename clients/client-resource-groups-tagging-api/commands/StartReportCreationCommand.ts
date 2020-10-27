@@ -50,6 +50,8 @@ export class StartReportCreationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ResourceGroupsTaggingAPIClient",
+      commandName: "StartReportCreationCommand",
       inputFilterSensitiveLog: StartReportCreationInput.filterSensitiveLog,
       outputFilterSensitiveLog: StartReportCreationOutput.filterSensitiveLog,
     };

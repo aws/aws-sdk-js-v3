@@ -46,6 +46,8 @@ export class StartInstanceCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "OpsWorksClient",
+      commandName: "StartInstanceCommand",
       inputFilterSensitiveLog: StartInstanceRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

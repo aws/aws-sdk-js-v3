@@ -46,6 +46,8 @@ export class UpdateJourneyStateCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "PinpointClient",
+      commandName: "UpdateJourneyStateCommand",
       inputFilterSensitiveLog: UpdateJourneyStateRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateJourneyStateResponse.filterSensitiveLog,
     };

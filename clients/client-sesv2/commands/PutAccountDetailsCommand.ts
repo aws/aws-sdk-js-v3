@@ -46,6 +46,8 @@ export class PutAccountDetailsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SESv2Client",
+      commandName: "PutAccountDetailsCommand",
       inputFilterSensitiveLog: PutAccountDetailsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: PutAccountDetailsResponse.filterSensitiveLog,
     };

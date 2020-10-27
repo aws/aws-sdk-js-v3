@@ -50,6 +50,8 @@ export class DescribeWorkspacesConnectionStatusCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "WorkSpacesClient",
+      commandName: "DescribeWorkspacesConnectionStatusCommand",
       inputFilterSensitiveLog: DescribeWorkspacesConnectionStatusRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeWorkspacesConnectionStatusResult.filterSensitiveLog,
     };

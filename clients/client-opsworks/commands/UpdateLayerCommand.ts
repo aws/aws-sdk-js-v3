@@ -46,6 +46,8 @@ export class UpdateLayerCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "OpsWorksClient",
+      commandName: "UpdateLayerCommand",
       inputFilterSensitiveLog: UpdateLayerRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

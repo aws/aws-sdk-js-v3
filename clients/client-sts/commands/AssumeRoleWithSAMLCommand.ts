@@ -46,6 +46,8 @@ export class AssumeRoleWithSAMLCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "STSClient",
+      commandName: "AssumeRoleWithSAMLCommand",
       inputFilterSensitiveLog: AssumeRoleWithSAMLRequest.filterSensitiveLog,
       outputFilterSensitiveLog: AssumeRoleWithSAMLResponse.filterSensitiveLog,
     };

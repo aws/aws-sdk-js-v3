@@ -46,6 +46,8 @@ export class GetEnabledStandardsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SecurityHubClient",
+      commandName: "GetEnabledStandardsCommand",
       inputFilterSensitiveLog: GetEnabledStandardsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetEnabledStandardsResponse.filterSensitiveLog,
     };

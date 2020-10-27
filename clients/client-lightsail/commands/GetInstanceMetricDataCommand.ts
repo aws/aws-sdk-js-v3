@@ -46,6 +46,8 @@ export class GetInstanceMetricDataCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "LightsailClient",
+      commandName: "GetInstanceMetricDataCommand",
       inputFilterSensitiveLog: GetInstanceMetricDataRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetInstanceMetricDataResult.filterSensitiveLog,
     };

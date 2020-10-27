@@ -48,6 +48,8 @@ export class PutBucketAclCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "S3Client",
+      commandName: "PutBucketAclCommand",
       inputFilterSensitiveLog: PutBucketAclRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

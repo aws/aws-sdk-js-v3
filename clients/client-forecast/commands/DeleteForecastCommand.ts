@@ -46,6 +46,8 @@ export class DeleteForecastCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ForecastClient",
+      commandName: "DeleteForecastCommand",
       inputFilterSensitiveLog: DeleteForecastRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

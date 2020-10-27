@@ -46,6 +46,8 @@ export class DisassociateExternalConnectionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CodeartifactClient",
+      commandName: "DisassociateExternalConnectionCommand",
       inputFilterSensitiveLog: DisassociateExternalConnectionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DisassociateExternalConnectionResult.filterSensitiveLog,
     };

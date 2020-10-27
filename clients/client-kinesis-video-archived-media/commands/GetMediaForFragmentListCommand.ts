@@ -50,6 +50,8 @@ export class GetMediaForFragmentListCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "KinesisVideoArchivedMediaClient",
+      commandName: "GetMediaForFragmentListCommand",
       inputFilterSensitiveLog: GetMediaForFragmentListInput.filterSensitiveLog,
       outputFilterSensitiveLog: GetMediaForFragmentListOutput.filterSensitiveLog,
     };

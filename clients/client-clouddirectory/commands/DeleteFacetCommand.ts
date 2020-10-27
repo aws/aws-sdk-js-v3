@@ -46,6 +46,8 @@ export class DeleteFacetCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CloudDirectoryClient",
+      commandName: "DeleteFacetCommand",
       inputFilterSensitiveLog: DeleteFacetRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteFacetResponse.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class ResetDBClusterParameterGroupCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "NeptuneClient",
+      commandName: "ResetDBClusterParameterGroupCommand",
       inputFilterSensitiveLog: ResetDBClusterParameterGroupMessage.filterSensitiveLog,
       outputFilterSensitiveLog: DBClusterParameterGroupNameMessage.filterSensitiveLog,
     };

@@ -50,6 +50,8 @@ export class GetIceServerConfigCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "KinesisVideoSignalingClient",
+      commandName: "GetIceServerConfigCommand",
       inputFilterSensitiveLog: GetIceServerConfigRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetIceServerConfigResponse.filterSensitiveLog,
     };

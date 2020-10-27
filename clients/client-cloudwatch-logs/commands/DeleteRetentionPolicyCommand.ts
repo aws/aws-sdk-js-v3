@@ -46,6 +46,8 @@ export class DeleteRetentionPolicyCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CloudWatchLogsClient",
+      commandName: "DeleteRetentionPolicyCommand",
       inputFilterSensitiveLog: DeleteRetentionPolicyRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

@@ -50,6 +50,8 @@ export class ClaimDevicesByClaimCodeCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "IoT1ClickDevicesServiceClient",
+      commandName: "ClaimDevicesByClaimCodeCommand",
       inputFilterSensitiveLog: ClaimDevicesByClaimCodeRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ClaimDevicesByClaimCodeResponse.filterSensitiveLog,
     };

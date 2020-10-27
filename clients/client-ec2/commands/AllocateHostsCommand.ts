@@ -43,6 +43,8 @@ export class AllocateHostsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EC2Client",
+      commandName: "AllocateHostsCommand",
       inputFilterSensitiveLog: AllocateHostsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: AllocateHostsResult.filterSensitiveLog,
     };

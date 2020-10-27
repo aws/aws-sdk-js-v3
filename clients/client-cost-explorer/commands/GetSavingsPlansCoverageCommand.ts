@@ -46,6 +46,8 @@ export class GetSavingsPlansCoverageCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CostExplorerClient",
+      commandName: "GetSavingsPlansCoverageCommand",
       inputFilterSensitiveLog: GetSavingsPlansCoverageRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetSavingsPlansCoverageResponse.filterSensitiveLog,
     };

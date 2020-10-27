@@ -46,6 +46,8 @@ export class ListOfferingsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "MediaConnectClient",
+      commandName: "ListOfferingsCommand",
       inputFilterSensitiveLog: ListOfferingsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListOfferingsResponse.filterSensitiveLog,
     };

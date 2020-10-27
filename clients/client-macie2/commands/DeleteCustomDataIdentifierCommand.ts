@@ -46,6 +46,8 @@ export class DeleteCustomDataIdentifierCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "Macie2Client",
+      commandName: "DeleteCustomDataIdentifierCommand",
       inputFilterSensitiveLog: DeleteCustomDataIdentifierRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteCustomDataIdentifierResponse.filterSensitiveLog,
     };

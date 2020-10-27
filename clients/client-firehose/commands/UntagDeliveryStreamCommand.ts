@@ -46,6 +46,8 @@ export class UntagDeliveryStreamCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "FirehoseClient",
+      commandName: "UntagDeliveryStreamCommand",
       inputFilterSensitiveLog: UntagDeliveryStreamInput.filterSensitiveLog,
       outputFilterSensitiveLog: UntagDeliveryStreamOutput.filterSensitiveLog,
     };

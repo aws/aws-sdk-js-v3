@@ -46,6 +46,8 @@ export class ListMeshesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "AppMeshClient",
+      commandName: "ListMeshesCommand",
       inputFilterSensitiveLog: ListMeshesInput.filterSensitiveLog,
       outputFilterSensitiveLog: ListMeshesOutput.filterSensitiveLog,
     };

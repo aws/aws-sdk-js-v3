@@ -46,6 +46,8 @@ export class CreateApiCacheCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "AppSyncClient",
+      commandName: "CreateApiCacheCommand",
       inputFilterSensitiveLog: CreateApiCacheRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateApiCacheResponse.filterSensitiveLog,
     };

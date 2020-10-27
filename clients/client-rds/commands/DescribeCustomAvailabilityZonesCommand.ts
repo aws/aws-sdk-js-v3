@@ -46,6 +46,8 @@ export class DescribeCustomAvailabilityZonesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "RDSClient",
+      commandName: "DescribeCustomAvailabilityZonesCommand",
       inputFilterSensitiveLog: DescribeCustomAvailabilityZonesMessage.filterSensitiveLog,
       outputFilterSensitiveLog: CustomAvailabilityZoneMessage.filterSensitiveLog,
     };

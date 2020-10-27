@@ -46,6 +46,8 @@ export class ListSuitesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "DeviceFarmClient",
+      commandName: "ListSuitesCommand",
       inputFilterSensitiveLog: ListSuitesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListSuitesResult.filterSensitiveLog,
     };

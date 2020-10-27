@@ -46,6 +46,8 @@ export class GetGlobalSettingsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ChimeClient",
+      commandName: "GetGlobalSettingsCommand",
       inputFilterSensitiveLog: (input: any) => input,
       outputFilterSensitiveLog: GetGlobalSettingsResponse.filterSensitiveLog,
     };

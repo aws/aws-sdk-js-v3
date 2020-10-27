@@ -50,6 +50,8 @@ export class UpdateUserAttributesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CognitoIdentityProviderClient",
+      commandName: "UpdateUserAttributesCommand",
       inputFilterSensitiveLog: UpdateUserAttributesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateUserAttributesResponse.filterSensitiveLog,
     };

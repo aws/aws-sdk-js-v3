@@ -46,6 +46,8 @@ export class ListAcceptedPortfolioSharesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ServiceCatalogClient",
+      commandName: "ListAcceptedPortfolioSharesCommand",
       inputFilterSensitiveLog: ListAcceptedPortfolioSharesInput.filterSensitiveLog,
       outputFilterSensitiveLog: ListAcceptedPortfolioSharesOutput.filterSensitiveLog,
     };

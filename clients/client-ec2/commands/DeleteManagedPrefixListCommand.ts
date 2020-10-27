@@ -46,6 +46,8 @@ export class DeleteManagedPrefixListCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EC2Client",
+      commandName: "DeleteManagedPrefixListCommand",
       inputFilterSensitiveLog: DeleteManagedPrefixListRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteManagedPrefixListResult.filterSensitiveLog,
     };

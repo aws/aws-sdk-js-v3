@@ -46,6 +46,8 @@ export class DisassociateCreatedArtifactCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "MigrationHubClient",
+      commandName: "DisassociateCreatedArtifactCommand",
       inputFilterSensitiveLog: DisassociateCreatedArtifactRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DisassociateCreatedArtifactResult.filterSensitiveLog,
     };

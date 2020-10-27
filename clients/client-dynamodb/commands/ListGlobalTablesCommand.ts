@@ -46,6 +46,8 @@ export class ListGlobalTablesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "DynamoDBClient",
+      commandName: "ListGlobalTablesCommand",
       inputFilterSensitiveLog: ListGlobalTablesInput.filterSensitiveLog,
       outputFilterSensitiveLog: ListGlobalTablesOutput.filterSensitiveLog,
     };

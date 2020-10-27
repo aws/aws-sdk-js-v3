@@ -50,6 +50,8 @@ export class DeleteUserAttributesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CognitoIdentityProviderClient",
+      commandName: "DeleteUserAttributesCommand",
       inputFilterSensitiveLog: DeleteUserAttributesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteUserAttributesResponse.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class JsonBlobsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "RestJsonProtocolClient",
+      commandName: "JsonBlobsCommand",
       inputFilterSensitiveLog: JsonBlobsInputOutput.filterSensitiveLog,
       outputFilterSensitiveLog: JsonBlobsInputOutput.filterSensitiveLog,
     };

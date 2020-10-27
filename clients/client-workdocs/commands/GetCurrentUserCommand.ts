@@ -46,6 +46,8 @@ export class GetCurrentUserCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "WorkDocsClient",
+      commandName: "GetCurrentUserCommand",
       inputFilterSensitiveLog: GetCurrentUserRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetCurrentUserResponse.filterSensitiveLog,
     };

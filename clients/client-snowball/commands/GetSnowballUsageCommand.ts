@@ -46,6 +46,8 @@ export class GetSnowballUsageCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SnowballClient",
+      commandName: "GetSnowballUsageCommand",
       inputFilterSensitiveLog: GetSnowballUsageRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetSnowballUsageResult.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class DeleteLogStreamCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CloudWatchLogsClient",
+      commandName: "DeleteLogStreamCommand",
       inputFilterSensitiveLog: DeleteLogStreamRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

@@ -48,6 +48,8 @@ export class LookupDeveloperIdentityCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CognitoIdentityClient",
+      commandName: "LookupDeveloperIdentityCommand",
       inputFilterSensitiveLog: LookupDeveloperIdentityInput.filterSensitiveLog,
       outputFilterSensitiveLog: LookupDeveloperIdentityResponse.filterSensitiveLog,
     };

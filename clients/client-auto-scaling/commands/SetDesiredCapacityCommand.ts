@@ -46,6 +46,8 @@ export class SetDesiredCapacityCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "AutoScalingClient",
+      commandName: "SetDesiredCapacityCommand",
       inputFilterSensitiveLog: SetDesiredCapacityType.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

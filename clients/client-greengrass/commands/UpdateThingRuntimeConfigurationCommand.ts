@@ -46,6 +46,8 @@ export class UpdateThingRuntimeConfigurationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GreengrassClient",
+      commandName: "UpdateThingRuntimeConfigurationCommand",
       inputFilterSensitiveLog: UpdateThingRuntimeConfigurationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateThingRuntimeConfigurationResponse.filterSensitiveLog,
     };

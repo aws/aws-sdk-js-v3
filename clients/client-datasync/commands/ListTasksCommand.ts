@@ -43,6 +43,8 @@ export class ListTasksCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "DataSyncClient",
+      commandName: "ListTasksCommand",
       inputFilterSensitiveLog: ListTasksRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListTasksResponse.filterSensitiveLog,
     };

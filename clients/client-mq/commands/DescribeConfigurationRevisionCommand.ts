@@ -46,6 +46,8 @@ export class DescribeConfigurationRevisionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "MqClient",
+      commandName: "DescribeConfigurationRevisionCommand",
       inputFilterSensitiveLog: DescribeConfigurationRevisionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeConfigurationRevisionResponse.filterSensitiveLog,
     };

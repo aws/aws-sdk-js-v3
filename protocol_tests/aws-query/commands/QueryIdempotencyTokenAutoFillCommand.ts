@@ -46,6 +46,8 @@ export class QueryIdempotencyTokenAutoFillCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "QueryProtocolClient",
+      commandName: "QueryIdempotencyTokenAutoFillCommand",
       inputFilterSensitiveLog: QueryIdempotencyTokenAutoFillInput.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

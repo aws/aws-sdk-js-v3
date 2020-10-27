@@ -46,6 +46,8 @@ export class ListRestoreJobsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "BackupClient",
+      commandName: "ListRestoreJobsCommand",
       inputFilterSensitiveLog: ListRestoreJobsInput.filterSensitiveLog,
       outputFilterSensitiveLog: ListRestoreJobsOutput.filterSensitiveLog,
     };

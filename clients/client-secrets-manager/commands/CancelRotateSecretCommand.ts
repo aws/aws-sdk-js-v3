@@ -46,6 +46,8 @@ export class CancelRotateSecretCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SecretsManagerClient",
+      commandName: "CancelRotateSecretCommand",
       inputFilterSensitiveLog: CancelRotateSecretRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CancelRotateSecretResponse.filterSensitiveLog,
     };

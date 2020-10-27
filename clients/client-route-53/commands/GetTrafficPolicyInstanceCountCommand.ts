@@ -46,6 +46,8 @@ export class GetTrafficPolicyInstanceCountCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "Route53Client",
+      commandName: "GetTrafficPolicyInstanceCountCommand",
       inputFilterSensitiveLog: GetTrafficPolicyInstanceCountRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetTrafficPolicyInstanceCountResponse.filterSensitiveLog,
     };

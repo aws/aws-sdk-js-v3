@@ -46,6 +46,8 @@ export class PutParameterCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SSMClient",
+      commandName: "PutParameterCommand",
       inputFilterSensitiveLog: PutParameterRequest.filterSensitiveLog,
       outputFilterSensitiveLog: PutParameterResult.filterSensitiveLog,
     };

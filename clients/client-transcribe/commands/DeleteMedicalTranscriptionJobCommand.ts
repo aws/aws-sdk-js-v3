@@ -46,6 +46,8 @@ export class DeleteMedicalTranscriptionJobCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "TranscribeClient",
+      commandName: "DeleteMedicalTranscriptionJobCommand",
       inputFilterSensitiveLog: DeleteMedicalTranscriptionJobRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

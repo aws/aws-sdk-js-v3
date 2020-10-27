@@ -50,6 +50,8 @@ export class AdminSetUserMFAPreferenceCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CognitoIdentityProviderClient",
+      commandName: "AdminSetUserMFAPreferenceCommand",
       inputFilterSensitiveLog: AdminSetUserMFAPreferenceRequest.filterSensitiveLog,
       outputFilterSensitiveLog: AdminSetUserMFAPreferenceResponse.filterSensitiveLog,
     };

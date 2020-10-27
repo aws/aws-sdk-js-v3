@@ -46,6 +46,8 @@ export class ModifySubnetAttributeCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EC2Client",
+      commandName: "ModifySubnetAttributeCommand",
       inputFilterSensitiveLog: ModifySubnetAttributeRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

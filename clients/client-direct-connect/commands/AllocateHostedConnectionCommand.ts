@@ -46,6 +46,8 @@ export class AllocateHostedConnectionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "DirectConnectClient",
+      commandName: "AllocateHostedConnectionCommand",
       inputFilterSensitiveLog: AllocateHostedConnectionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: Connection.filterSensitiveLog,
     };

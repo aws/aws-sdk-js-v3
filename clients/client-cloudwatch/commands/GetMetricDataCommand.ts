@@ -46,6 +46,8 @@ export class GetMetricDataCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CloudWatchClient",
+      commandName: "GetMetricDataCommand",
       inputFilterSensitiveLog: GetMetricDataInput.filterSensitiveLog,
       outputFilterSensitiveLog: GetMetricDataOutput.filterSensitiveLog,
     };

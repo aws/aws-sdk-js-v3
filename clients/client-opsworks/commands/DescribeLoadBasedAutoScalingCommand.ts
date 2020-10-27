@@ -46,6 +46,8 @@ export class DescribeLoadBasedAutoScalingCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "OpsWorksClient",
+      commandName: "DescribeLoadBasedAutoScalingCommand",
       inputFilterSensitiveLog: DescribeLoadBasedAutoScalingRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeLoadBasedAutoScalingResult.filterSensitiveLog,
     };

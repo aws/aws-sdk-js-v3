@@ -46,6 +46,8 @@ export class ListSizeConstraintSetsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "WAFClient",
+      commandName: "ListSizeConstraintSetsCommand",
       inputFilterSensitiveLog: ListSizeConstraintSetsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListSizeConstraintSetsResponse.filterSensitiveLog,
     };

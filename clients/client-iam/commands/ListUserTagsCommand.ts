@@ -43,6 +43,8 @@ export class ListUserTagsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "IAMClient",
+      commandName: "ListUserTagsCommand",
       inputFilterSensitiveLog: ListUserTagsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListUserTagsResponse.filterSensitiveLog,
     };

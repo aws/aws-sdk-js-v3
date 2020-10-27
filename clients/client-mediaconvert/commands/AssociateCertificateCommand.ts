@@ -46,6 +46,8 @@ export class AssociateCertificateCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "MediaConvertClient",
+      commandName: "AssociateCertificateCommand",
       inputFilterSensitiveLog: AssociateCertificateRequest.filterSensitiveLog,
       outputFilterSensitiveLog: AssociateCertificateResponse.filterSensitiveLog,
     };

@@ -43,6 +43,8 @@ export class DescribeTagsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "RedshiftClient",
+      commandName: "DescribeTagsCommand",
       inputFilterSensitiveLog: DescribeTagsMessage.filterSensitiveLog,
       outputFilterSensitiveLog: TaggedResourceListMessage.filterSensitiveLog,
     };

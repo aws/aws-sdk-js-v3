@@ -46,6 +46,8 @@ export class ValidateTemplateCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CloudFormationClient",
+      commandName: "ValidateTemplateCommand",
       inputFilterSensitiveLog: ValidateTemplateInput.filterSensitiveLog,
       outputFilterSensitiveLog: ValidateTemplateOutput.filterSensitiveLog,
     };

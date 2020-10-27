@@ -46,6 +46,8 @@ export class GetCostAndUsageWithResourcesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CostExplorerClient",
+      commandName: "GetCostAndUsageWithResourcesCommand",
       inputFilterSensitiveLog: GetCostAndUsageWithResourcesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetCostAndUsageWithResourcesResponse.filterSensitiveLog,
     };

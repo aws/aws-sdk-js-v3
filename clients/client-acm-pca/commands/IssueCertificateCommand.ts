@@ -46,6 +46,8 @@ export class IssueCertificateCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ACMPCAClient",
+      commandName: "IssueCertificateCommand",
       inputFilterSensitiveLog: IssueCertificateRequest.filterSensitiveLog,
       outputFilterSensitiveLog: IssueCertificateResponse.filterSensitiveLog,
     };

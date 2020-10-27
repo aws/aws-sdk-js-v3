@@ -46,6 +46,8 @@ export class StopBackupJobCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "BackupClient",
+      commandName: "StopBackupJobCommand",
       inputFilterSensitiveLog: StopBackupJobInput.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

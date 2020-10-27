@@ -46,6 +46,8 @@ export class DeleteMountTargetCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EFSClient",
+      commandName: "DeleteMountTargetCommand",
       inputFilterSensitiveLog: DeleteMountTargetRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

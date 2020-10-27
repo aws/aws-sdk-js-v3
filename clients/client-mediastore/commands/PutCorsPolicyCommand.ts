@@ -46,6 +46,8 @@ export class PutCorsPolicyCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "MediaStoreClient",
+      commandName: "PutCorsPolicyCommand",
       inputFilterSensitiveLog: PutCorsPolicyInput.filterSensitiveLog,
       outputFilterSensitiveLog: PutCorsPolicyOutput.filterSensitiveLog,
     };

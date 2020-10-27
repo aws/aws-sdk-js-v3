@@ -46,6 +46,8 @@ export class GetLoggerDefinitionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GreengrassClient",
+      commandName: "GetLoggerDefinitionCommand",
       inputFilterSensitiveLog: GetLoggerDefinitionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetLoggerDefinitionResponse.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class CreateLicenseConfigurationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "LicenseManagerClient",
+      commandName: "CreateLicenseConfigurationCommand",
       inputFilterSensitiveLog: CreateLicenseConfigurationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateLicenseConfigurationResponse.filterSensitiveLog,
     };

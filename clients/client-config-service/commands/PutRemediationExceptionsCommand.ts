@@ -46,6 +46,8 @@ export class PutRemediationExceptionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ConfigServiceClient",
+      commandName: "PutRemediationExceptionsCommand",
       inputFilterSensitiveLog: PutRemediationExceptionsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: PutRemediationExceptionsResponse.filterSensitiveLog,
     };

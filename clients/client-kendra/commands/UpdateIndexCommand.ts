@@ -46,6 +46,8 @@ export class UpdateIndexCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "KendraClient",
+      commandName: "UpdateIndexCommand",
       inputFilterSensitiveLog: UpdateIndexRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

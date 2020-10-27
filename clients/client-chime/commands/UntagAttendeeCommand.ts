@@ -46,6 +46,8 @@ export class UntagAttendeeCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ChimeClient",
+      commandName: "UntagAttendeeCommand",
       inputFilterSensitiveLog: UntagAttendeeRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

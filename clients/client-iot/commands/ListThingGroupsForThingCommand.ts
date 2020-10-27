@@ -46,6 +46,8 @@ export class ListThingGroupsForThingCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "IoTClient",
+      commandName: "ListThingGroupsForThingCommand",
       inputFilterSensitiveLog: ListThingGroupsForThingRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListThingGroupsForThingResponse.filterSensitiveLog,
     };

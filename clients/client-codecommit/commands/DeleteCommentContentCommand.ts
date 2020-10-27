@@ -46,6 +46,8 @@ export class DeleteCommentContentCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CodeCommitClient",
+      commandName: "DeleteCommentContentCommand",
       inputFilterSensitiveLog: DeleteCommentContentInput.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteCommentContentOutput.filterSensitiveLog,
     };

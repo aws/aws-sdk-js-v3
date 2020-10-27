@@ -50,6 +50,8 @@ export class DescribeTransitGatewayMulticastDomainsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EC2Client",
+      commandName: "DescribeTransitGatewayMulticastDomainsCommand",
       inputFilterSensitiveLog: DescribeTransitGatewayMulticastDomainsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeTransitGatewayMulticastDomainsResult.filterSensitiveLog,
     };

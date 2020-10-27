@@ -46,6 +46,8 @@ export class DisassociateIamInstanceProfileCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EC2Client",
+      commandName: "DisassociateIamInstanceProfileCommand",
       inputFilterSensitiveLog: DisassociateIamInstanceProfileRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DisassociateIamInstanceProfileResult.filterSensitiveLog,
     };

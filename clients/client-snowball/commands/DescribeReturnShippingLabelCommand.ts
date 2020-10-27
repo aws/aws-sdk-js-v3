@@ -46,6 +46,8 @@ export class DescribeReturnShippingLabelCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SnowballClient",
+      commandName: "DescribeReturnShippingLabelCommand",
       inputFilterSensitiveLog: DescribeReturnShippingLabelRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeReturnShippingLabelResult.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class UpdateContainerAgentCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ECSClient",
+      commandName: "UpdateContainerAgentCommand",
       inputFilterSensitiveLog: UpdateContainerAgentRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateContainerAgentResponse.filterSensitiveLog,
     };

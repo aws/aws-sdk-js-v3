@@ -46,6 +46,8 @@ export class CancelMLTaskRunCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GlueClient",
+      commandName: "CancelMLTaskRunCommand",
       inputFilterSensitiveLog: CancelMLTaskRunRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CancelMLTaskRunResponse.filterSensitiveLog,
     };

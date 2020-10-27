@@ -46,6 +46,8 @@ export class UpdateClusterKafkaVersionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "KafkaClient",
+      commandName: "UpdateClusterKafkaVersionCommand",
       inputFilterSensitiveLog: UpdateClusterKafkaVersionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateClusterKafkaVersionResponse.filterSensitiveLog,
     };

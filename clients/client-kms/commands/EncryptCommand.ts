@@ -39,6 +39,8 @@ export class EncryptCommand extends $Command<EncryptCommandInput, EncryptCommand
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "KMSClient",
+      commandName: "EncryptCommand",
       inputFilterSensitiveLog: EncryptRequest.filterSensitiveLog,
       outputFilterSensitiveLog: EncryptResponse.filterSensitiveLog,
     };

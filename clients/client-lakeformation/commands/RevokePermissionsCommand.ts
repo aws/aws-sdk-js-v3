@@ -46,6 +46,8 @@ export class RevokePermissionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "LakeFormationClient",
+      commandName: "RevokePermissionsCommand",
       inputFilterSensitiveLog: RevokePermissionsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: RevokePermissionsResponse.filterSensitiveLog,
     };

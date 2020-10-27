@@ -46,6 +46,8 @@ export class PutAccessControlRuleCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "WorkMailClient",
+      commandName: "PutAccessControlRuleCommand",
       inputFilterSensitiveLog: PutAccessControlRuleRequest.filterSensitiveLog,
       outputFilterSensitiveLog: PutAccessControlRuleResponse.filterSensitiveLog,
     };

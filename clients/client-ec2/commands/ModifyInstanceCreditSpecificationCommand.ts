@@ -46,6 +46,8 @@ export class ModifyInstanceCreditSpecificationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EC2Client",
+      commandName: "ModifyInstanceCreditSpecificationCommand",
       inputFilterSensitiveLog: ModifyInstanceCreditSpecificationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ModifyInstanceCreditSpecificationResult.filterSensitiveLog,
     };

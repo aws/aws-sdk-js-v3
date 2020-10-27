@@ -46,6 +46,8 @@ export class ListTaskDefinitionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ECSClient",
+      commandName: "ListTaskDefinitionsCommand",
       inputFilterSensitiveLog: ListTaskDefinitionsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListTaskDefinitionsResponse.filterSensitiveLog,
     };

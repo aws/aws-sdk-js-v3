@@ -46,6 +46,8 @@ export class SendMessagesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "PinpointClient",
+      commandName: "SendMessagesCommand",
       inputFilterSensitiveLog: SendMessagesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: SendMessagesResponse.filterSensitiveLog,
     };

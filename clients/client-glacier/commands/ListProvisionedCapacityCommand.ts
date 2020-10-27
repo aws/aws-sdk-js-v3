@@ -46,6 +46,8 @@ export class ListProvisionedCapacityCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GlacierClient",
+      commandName: "ListProvisionedCapacityCommand",
       inputFilterSensitiveLog: ListProvisionedCapacityInput.filterSensitiveLog,
       outputFilterSensitiveLog: ListProvisionedCapacityOutput.filterSensitiveLog,
     };

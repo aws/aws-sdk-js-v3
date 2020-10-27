@@ -46,6 +46,8 @@ export class PutFunctionConcurrencyCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "LambdaClient",
+      commandName: "PutFunctionConcurrencyCommand",
       inputFilterSensitiveLog: PutFunctionConcurrencyRequest.filterSensitiveLog,
       outputFilterSensitiveLog: Concurrency.filterSensitiveLog,
     };

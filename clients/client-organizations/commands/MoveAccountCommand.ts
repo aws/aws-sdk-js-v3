@@ -46,6 +46,8 @@ export class MoveAccountCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "OrganizationsClient",
+      commandName: "MoveAccountCommand",
       inputFilterSensitiveLog: MoveAccountRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

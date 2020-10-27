@@ -46,6 +46,8 @@ export class CreateRecommenderConfigurationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "PinpointClient",
+      commandName: "CreateRecommenderConfigurationCommand",
       inputFilterSensitiveLog: CreateRecommenderConfigurationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateRecommenderConfigurationResponse.filterSensitiveLog,
     };

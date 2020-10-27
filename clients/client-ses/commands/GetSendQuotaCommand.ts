@@ -43,6 +43,8 @@ export class GetSendQuotaCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SESClient",
+      commandName: "GetSendQuotaCommand",
       inputFilterSensitiveLog: (input: any) => input,
       outputFilterSensitiveLog: GetSendQuotaResponse.filterSensitiveLog,
     };

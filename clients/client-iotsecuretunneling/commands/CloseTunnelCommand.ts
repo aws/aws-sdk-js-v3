@@ -50,6 +50,8 @@ export class CloseTunnelCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "IoTSecureTunnelingClient",
+      commandName: "CloseTunnelCommand",
       inputFilterSensitiveLog: CloseTunnelRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CloseTunnelResponse.filterSensitiveLog,
     };

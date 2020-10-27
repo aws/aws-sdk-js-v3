@@ -46,6 +46,8 @@ export class CheckDomainAvailabilityCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "Route53DomainsClient",
+      commandName: "CheckDomainAvailabilityCommand",
       inputFilterSensitiveLog: CheckDomainAvailabilityRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CheckDomainAvailabilityResponse.filterSensitiveLog,
     };

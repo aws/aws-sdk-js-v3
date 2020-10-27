@@ -46,6 +46,8 @@ export class DetachLoadBalancerTargetGroupsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "AutoScalingClient",
+      commandName: "DetachLoadBalancerTargetGroupsCommand",
       inputFilterSensitiveLog: DetachLoadBalancerTargetGroupsType.filterSensitiveLog,
       outputFilterSensitiveLog: DetachLoadBalancerTargetGroupsResultType.filterSensitiveLog,
     };

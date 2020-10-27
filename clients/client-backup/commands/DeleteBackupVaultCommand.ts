@@ -46,6 +46,8 @@ export class DeleteBackupVaultCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "BackupClient",
+      commandName: "DeleteBackupVaultCommand",
       inputFilterSensitiveLog: DeleteBackupVaultInput.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

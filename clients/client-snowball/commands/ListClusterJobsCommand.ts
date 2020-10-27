@@ -46,6 +46,8 @@ export class ListClusterJobsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SnowballClient",
+      commandName: "ListClusterJobsCommand",
       inputFilterSensitiveLog: ListClusterJobsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListClusterJobsResult.filterSensitiveLog,
     };

@@ -53,6 +53,8 @@ export class DescribeAffectedEntitiesForOrganizationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "HealthClient",
+      commandName: "DescribeAffectedEntitiesForOrganizationCommand",
       inputFilterSensitiveLog: DescribeAffectedEntitiesForOrganizationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeAffectedEntitiesForOrganizationResponse.filterSensitiveLog,
     };

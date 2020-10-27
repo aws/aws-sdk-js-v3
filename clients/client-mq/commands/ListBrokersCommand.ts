@@ -46,6 +46,8 @@ export class ListBrokersCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "MqClient",
+      commandName: "ListBrokersCommand",
       inputFilterSensitiveLog: ListBrokersRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListBrokersResponse.filterSensitiveLog,
     };

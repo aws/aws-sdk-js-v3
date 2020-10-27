@@ -50,6 +50,8 @@ export class UpdateNotificationRuleCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CodestarNotificationsClient",
+      commandName: "UpdateNotificationRuleCommand",
       inputFilterSensitiveLog: UpdateNotificationRuleRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateNotificationRuleResult.filterSensitiveLog,
     };

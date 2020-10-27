@@ -46,6 +46,8 @@ export class AssociateExternalConnectionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CodeartifactClient",
+      commandName: "AssociateExternalConnectionCommand",
       inputFilterSensitiveLog: AssociateExternalConnectionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: AssociateExternalConnectionResult.filterSensitiveLog,
     };

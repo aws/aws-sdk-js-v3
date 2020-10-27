@@ -46,6 +46,8 @@ export class SetDataRetrievalPolicyCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GlacierClient",
+      commandName: "SetDataRetrievalPolicyCommand",
       inputFilterSensitiveLog: SetDataRetrievalPolicyInput.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

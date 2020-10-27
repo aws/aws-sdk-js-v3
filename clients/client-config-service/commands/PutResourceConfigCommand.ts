@@ -46,6 +46,8 @@ export class PutResourceConfigCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ConfigServiceClient",
+      commandName: "PutResourceConfigCommand",
       inputFilterSensitiveLog: PutResourceConfigRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

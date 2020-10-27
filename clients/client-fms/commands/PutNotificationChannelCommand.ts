@@ -46,6 +46,8 @@ export class PutNotificationChannelCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "FMSClient",
+      commandName: "PutNotificationChannelCommand",
       inputFilterSensitiveLog: PutNotificationChannelRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

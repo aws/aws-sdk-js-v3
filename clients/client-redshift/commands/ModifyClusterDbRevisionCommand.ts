@@ -46,6 +46,8 @@ export class ModifyClusterDbRevisionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "RedshiftClient",
+      commandName: "ModifyClusterDbRevisionCommand",
       inputFilterSensitiveLog: ModifyClusterDbRevisionMessage.filterSensitiveLog,
       outputFilterSensitiveLog: ModifyClusterDbRevisionResult.filterSensitiveLog,
     };

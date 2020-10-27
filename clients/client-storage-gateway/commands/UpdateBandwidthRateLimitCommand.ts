@@ -46,6 +46,8 @@ export class UpdateBandwidthRateLimitCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "StorageGatewayClient",
+      commandName: "UpdateBandwidthRateLimitCommand",
       inputFilterSensitiveLog: UpdateBandwidthRateLimitInput.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateBandwidthRateLimitOutput.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class CreateRegexPatternSetCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "WAFV2Client",
+      commandName: "CreateRegexPatternSetCommand",
       inputFilterSensitiveLog: CreateRegexPatternSetRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateRegexPatternSetResponse.filterSensitiveLog,
     };

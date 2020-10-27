@@ -46,6 +46,8 @@ export class CreateEventSourceMappingCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "LambdaClient",
+      commandName: "CreateEventSourceMappingCommand",
       inputFilterSensitiveLog: CreateEventSourceMappingRequest.filterSensitiveLog,
       outputFilterSensitiveLog: EventSourceMappingConfiguration.filterSensitiveLog,
     };

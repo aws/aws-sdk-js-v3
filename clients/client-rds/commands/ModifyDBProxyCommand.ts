@@ -46,6 +46,8 @@ export class ModifyDBProxyCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "RDSClient",
+      commandName: "ModifyDBProxyCommand",
       inputFilterSensitiveLog: ModifyDBProxyRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ModifyDBProxyResponse.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class DescribeStacksCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "AppStreamClient",
+      commandName: "DescribeStacksCommand",
       inputFilterSensitiveLog: DescribeStacksRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeStacksResult.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class UpdateApiKeyCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "AppSyncClient",
+      commandName: "UpdateApiKeyCommand",
       inputFilterSensitiveLog: UpdateApiKeyRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateApiKeyResponse.filterSensitiveLog,
     };

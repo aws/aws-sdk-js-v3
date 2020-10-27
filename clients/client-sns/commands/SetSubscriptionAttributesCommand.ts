@@ -46,6 +46,8 @@ export class SetSubscriptionAttributesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SNSClient",
+      commandName: "SetSubscriptionAttributesCommand",
       inputFilterSensitiveLog: SetSubscriptionAttributesInput.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

@@ -45,6 +45,8 @@ export class PredictCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "MachineLearningClient",
+      commandName: "PredictCommand",
       inputFilterSensitiveLog: PredictInput.filterSensitiveLog,
       outputFilterSensitiveLog: PredictOutput.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class PurchaseOfferingCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "MediaConnectClient",
+      commandName: "PurchaseOfferingCommand",
       inputFilterSensitiveLog: PurchaseOfferingRequest.filterSensitiveLog,
       outputFilterSensitiveLog: PurchaseOfferingResponse.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class GetRandomPasswordCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SecretsManagerClient",
+      commandName: "GetRandomPasswordCommand",
       inputFilterSensitiveLog: GetRandomPasswordRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetRandomPasswordResponse.filterSensitiveLog,
     };

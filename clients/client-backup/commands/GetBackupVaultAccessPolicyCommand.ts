@@ -46,6 +46,8 @@ export class GetBackupVaultAccessPolicyCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "BackupClient",
+      commandName: "GetBackupVaultAccessPolicyCommand",
       inputFilterSensitiveLog: GetBackupVaultAccessPolicyInput.filterSensitiveLog,
       outputFilterSensitiveLog: GetBackupVaultAccessPolicyOutput.filterSensitiveLog,
     };

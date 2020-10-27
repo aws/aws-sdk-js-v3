@@ -53,6 +53,8 @@ export class DescribeAccountAssignmentDeletionStatusCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SSOAdminClient",
+      commandName: "DescribeAccountAssignmentDeletionStatusCommand",
       inputFilterSensitiveLog: DescribeAccountAssignmentDeletionStatusRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeAccountAssignmentDeletionStatusResponse.filterSensitiveLog,
     };

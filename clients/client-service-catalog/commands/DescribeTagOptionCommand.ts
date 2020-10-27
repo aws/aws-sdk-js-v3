@@ -46,6 +46,8 @@ export class DescribeTagOptionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ServiceCatalogClient",
+      commandName: "DescribeTagOptionCommand",
       inputFilterSensitiveLog: DescribeTagOptionInput.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeTagOptionOutput.filterSensitiveLog,
     };

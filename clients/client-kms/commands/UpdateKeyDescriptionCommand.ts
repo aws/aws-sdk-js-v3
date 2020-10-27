@@ -46,6 +46,8 @@ export class UpdateKeyDescriptionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "KMSClient",
+      commandName: "UpdateKeyDescriptionCommand",
       inputFilterSensitiveLog: UpdateKeyDescriptionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

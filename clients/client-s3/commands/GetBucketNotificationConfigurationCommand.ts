@@ -48,6 +48,8 @@ export class GetBucketNotificationConfigurationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "S3Client",
+      commandName: "GetBucketNotificationConfigurationCommand",
       inputFilterSensitiveLog: GetBucketNotificationConfigurationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: NotificationConfiguration.filterSensitiveLog,
     };

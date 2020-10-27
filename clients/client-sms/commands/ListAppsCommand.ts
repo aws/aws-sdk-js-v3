@@ -39,6 +39,8 @@ export class ListAppsCommand extends $Command<ListAppsCommandInput, ListAppsComm
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SMSClient",
+      commandName: "ListAppsCommand",
       inputFilterSensitiveLog: ListAppsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListAppsResponse.filterSensitiveLog,
     };

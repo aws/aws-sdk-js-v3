@@ -50,6 +50,8 @@ export class DescribeReplicationSubnetGroupsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "DatabaseMigrationServiceClient",
+      commandName: "DescribeReplicationSubnetGroupsCommand",
       inputFilterSensitiveLog: DescribeReplicationSubnetGroupsMessage.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeReplicationSubnetGroupsResponse.filterSensitiveLog,
     };

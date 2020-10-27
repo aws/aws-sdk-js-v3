@@ -50,6 +50,8 @@ export class ListTagsForResourceCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "DatabaseMigrationServiceClient",
+      commandName: "ListTagsForResourceCommand",
       inputFilterSensitiveLog: ListTagsForResourceMessage.filterSensitiveLog,
       outputFilterSensitiveLog: ListTagsForResourceResponse.filterSensitiveLog,
     };

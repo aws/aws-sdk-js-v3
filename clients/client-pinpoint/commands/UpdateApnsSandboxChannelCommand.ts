@@ -46,6 +46,8 @@ export class UpdateApnsSandboxChannelCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "PinpointClient",
+      commandName: "UpdateApnsSandboxChannelCommand",
       inputFilterSensitiveLog: UpdateApnsSandboxChannelRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateApnsSandboxChannelResponse.filterSensitiveLog,
     };

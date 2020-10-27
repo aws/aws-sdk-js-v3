@@ -46,6 +46,8 @@ export class DeleteProvisioningArtifactCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ServiceCatalogClient",
+      commandName: "DeleteProvisioningArtifactCommand",
       inputFilterSensitiveLog: DeleteProvisioningArtifactInput.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteProvisioningArtifactOutput.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class AllocatePrivateVirtualInterfaceCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "DirectConnectClient",
+      commandName: "AllocatePrivateVirtualInterfaceCommand",
       inputFilterSensitiveLog: AllocatePrivateVirtualInterfaceRequest.filterSensitiveLog,
       outputFilterSensitiveLog: VirtualInterface.filterSensitiveLog,
     };

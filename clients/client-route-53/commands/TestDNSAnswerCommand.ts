@@ -48,6 +48,8 @@ export class TestDNSAnswerCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "Route53Client",
+      commandName: "TestDNSAnswerCommand",
       inputFilterSensitiveLog: TestDNSAnswerRequest.filterSensitiveLog,
       outputFilterSensitiveLog: TestDNSAnswerResponse.filterSensitiveLog,
     };

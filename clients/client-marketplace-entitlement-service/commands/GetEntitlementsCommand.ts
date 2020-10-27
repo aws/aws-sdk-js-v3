@@ -50,6 +50,8 @@ export class GetEntitlementsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "MarketplaceEntitlementServiceClient",
+      commandName: "GetEntitlementsCommand",
       inputFilterSensitiveLog: GetEntitlementsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetEntitlementsResult.filterSensitiveLog,
     };

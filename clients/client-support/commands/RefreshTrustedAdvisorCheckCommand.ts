@@ -46,6 +46,8 @@ export class RefreshTrustedAdvisorCheckCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SupportClient",
+      commandName: "RefreshTrustedAdvisorCheckCommand",
       inputFilterSensitiveLog: RefreshTrustedAdvisorCheckRequest.filterSensitiveLog,
       outputFilterSensitiveLog: RefreshTrustedAdvisorCheckResponse.filterSensitiveLog,
     };

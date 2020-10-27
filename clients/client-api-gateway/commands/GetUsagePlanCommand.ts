@@ -46,6 +46,8 @@ export class GetUsagePlanCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "APIGatewayClient",
+      commandName: "GetUsagePlanCommand",
       inputFilterSensitiveLog: GetUsagePlanRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UsagePlan.filterSensitiveLog,
     };

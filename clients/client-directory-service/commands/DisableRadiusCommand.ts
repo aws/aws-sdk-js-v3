@@ -46,6 +46,8 @@ export class DisableRadiusCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "DirectoryServiceClient",
+      commandName: "DisableRadiusCommand",
       inputFilterSensitiveLog: DisableRadiusRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DisableRadiusResult.filterSensitiveLog,
     };

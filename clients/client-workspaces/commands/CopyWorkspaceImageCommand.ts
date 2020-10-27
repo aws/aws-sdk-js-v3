@@ -46,6 +46,8 @@ export class CopyWorkspaceImageCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "WorkSpacesClient",
+      commandName: "CopyWorkspaceImageCommand",
       inputFilterSensitiveLog: CopyWorkspaceImageRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CopyWorkspaceImageResult.filterSensitiveLog,
     };

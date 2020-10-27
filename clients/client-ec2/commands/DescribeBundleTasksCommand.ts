@@ -46,6 +46,8 @@ export class DescribeBundleTasksCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EC2Client",
+      commandName: "DescribeBundleTasksCommand",
       inputFilterSensitiveLog: DescribeBundleTasksRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeBundleTasksResult.filterSensitiveLog,
     };

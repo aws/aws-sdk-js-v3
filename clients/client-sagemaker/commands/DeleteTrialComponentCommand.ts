@@ -46,6 +46,8 @@ export class DeleteTrialComponentCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SageMakerClient",
+      commandName: "DeleteTrialComponentCommand",
       inputFilterSensitiveLog: DeleteTrialComponentRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteTrialComponentResponse.filterSensitiveLog,
     };

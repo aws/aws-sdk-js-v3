@@ -47,6 +47,8 @@ export class ResumeClusterCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "RedshiftClient",
+      commandName: "ResumeClusterCommand",
       inputFilterSensitiveLog: ResumeClusterMessage.filterSensitiveLog,
       outputFilterSensitiveLog: ResumeClusterResult.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class UpdateIntegrationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ApiGatewayV2Client",
+      commandName: "UpdateIntegrationCommand",
       inputFilterSensitiveLog: UpdateIntegrationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateIntegrationResult.filterSensitiveLog,
     };

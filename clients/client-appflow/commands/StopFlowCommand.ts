@@ -46,6 +46,8 @@ export class StopFlowCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "AppflowClient",
+      commandName: "StopFlowCommand",
       inputFilterSensitiveLog: StopFlowRequest.filterSensitiveLog,
       outputFilterSensitiveLog: StopFlowResponse.filterSensitiveLog,
     };

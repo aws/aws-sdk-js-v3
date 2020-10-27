@@ -50,6 +50,8 @@ export class ImportCertificateCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "DatabaseMigrationServiceClient",
+      commandName: "ImportCertificateCommand",
       inputFilterSensitiveLog: ImportCertificateMessage.filterSensitiveLog,
       outputFilterSensitiveLog: ImportCertificateResponse.filterSensitiveLog,
     };

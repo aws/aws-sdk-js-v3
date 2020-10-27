@@ -46,6 +46,8 @@ export class UpdateLedgerCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "QLDBClient",
+      commandName: "UpdateLedgerCommand",
       inputFilterSensitiveLog: UpdateLedgerRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateLedgerResponse.filterSensitiveLog,
     };

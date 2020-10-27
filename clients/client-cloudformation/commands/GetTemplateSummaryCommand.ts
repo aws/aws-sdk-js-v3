@@ -46,6 +46,8 @@ export class GetTemplateSummaryCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CloudFormationClient",
+      commandName: "GetTemplateSummaryCommand",
       inputFilterSensitiveLog: GetTemplateSummaryInput.filterSensitiveLog,
       outputFilterSensitiveLog: GetTemplateSummaryOutput.filterSensitiveLog,
     };

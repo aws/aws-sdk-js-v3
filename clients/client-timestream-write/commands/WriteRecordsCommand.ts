@@ -46,6 +46,8 @@ export class WriteRecordsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "TimestreamWriteClient",
+      commandName: "WriteRecordsCommand",
       inputFilterSensitiveLog: WriteRecordsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

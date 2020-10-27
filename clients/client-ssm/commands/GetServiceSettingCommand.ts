@@ -46,6 +46,8 @@ export class GetServiceSettingCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SSMClient",
+      commandName: "GetServiceSettingCommand",
       inputFilterSensitiveLog: GetServiceSettingRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetServiceSettingResult.filterSensitiveLog,
     };

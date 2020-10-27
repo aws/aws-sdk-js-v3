@@ -46,6 +46,8 @@ export class UploadEntityDefinitionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "IoTThingsGraphClient",
+      commandName: "UploadEntityDefinitionsCommand",
       inputFilterSensitiveLog: UploadEntityDefinitionsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UploadEntityDefinitionsResponse.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class ListResourcesForTagOptionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ServiceCatalogClient",
+      commandName: "ListResourcesForTagOptionCommand",
       inputFilterSensitiveLog: ListResourcesForTagOptionInput.filterSensitiveLog,
       outputFilterSensitiveLog: ListResourcesForTagOptionOutput.filterSensitiveLog,
     };

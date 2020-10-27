@@ -46,6 +46,8 @@ export class AssignIpv6AddressesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EC2Client",
+      commandName: "AssignIpv6AddressesCommand",
       inputFilterSensitiveLog: AssignIpv6AddressesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: AssignIpv6AddressesResult.filterSensitiveLog,
     };

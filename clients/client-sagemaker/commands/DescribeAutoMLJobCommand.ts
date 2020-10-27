@@ -46,6 +46,8 @@ export class DescribeAutoMLJobCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SageMakerClient",
+      commandName: "DescribeAutoMLJobCommand",
       inputFilterSensitiveLog: DescribeAutoMLJobRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeAutoMLJobResponse.filterSensitiveLog,
     };

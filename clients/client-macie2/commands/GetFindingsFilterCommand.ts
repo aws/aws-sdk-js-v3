@@ -46,6 +46,8 @@ export class GetFindingsFilterCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "Macie2Client",
+      commandName: "GetFindingsFilterCommand",
       inputFilterSensitiveLog: GetFindingsFilterRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetFindingsFilterResponse.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class DeleteDataflowEndpointGroupCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GroundStationClient",
+      commandName: "DeleteDataflowEndpointGroupCommand",
       inputFilterSensitiveLog: DeleteDataflowEndpointGroupRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DataflowEndpointGroupIdResponse.filterSensitiveLog,
     };

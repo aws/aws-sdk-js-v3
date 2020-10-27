@@ -46,6 +46,8 @@ export class StopRelationalDatabaseCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "LightsailClient",
+      commandName: "StopRelationalDatabaseCommand",
       inputFilterSensitiveLog: StopRelationalDatabaseRequest.filterSensitiveLog,
       outputFilterSensitiveLog: StopRelationalDatabaseResult.filterSensitiveLog,
     };

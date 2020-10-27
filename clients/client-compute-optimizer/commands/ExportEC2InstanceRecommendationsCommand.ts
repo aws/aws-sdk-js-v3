@@ -46,6 +46,8 @@ export class ExportEC2InstanceRecommendationsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ComputeOptimizerClient",
+      commandName: "ExportEC2InstanceRecommendationsCommand",
       inputFilterSensitiveLog: ExportEC2InstanceRecommendationsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ExportEC2InstanceRecommendationsResponse.filterSensitiveLog,
     };

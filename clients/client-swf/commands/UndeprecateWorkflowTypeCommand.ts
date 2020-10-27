@@ -46,6 +46,8 @@ export class UndeprecateWorkflowTypeCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SWFClient",
+      commandName: "UndeprecateWorkflowTypeCommand",
       inputFilterSensitiveLog: UndeprecateWorkflowTypeInput.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

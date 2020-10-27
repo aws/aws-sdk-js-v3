@@ -46,6 +46,8 @@ export class CreateGameServerGroupCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GameLiftClient",
+      commandName: "CreateGameServerGroupCommand",
       inputFilterSensitiveLog: CreateGameServerGroupInput.filterSensitiveLog,
       outputFilterSensitiveLog: CreateGameServerGroupOutput.filterSensitiveLog,
     };

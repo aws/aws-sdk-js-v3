@@ -46,6 +46,8 @@ export class GetJobUnlockCodeCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SnowballClient",
+      commandName: "GetJobUnlockCodeCommand",
       inputFilterSensitiveLog: GetJobUnlockCodeRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetJobUnlockCodeResult.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class PromoteReadReplicaDBClusterCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "RDSClient",
+      commandName: "PromoteReadReplicaDBClusterCommand",
       inputFilterSensitiveLog: PromoteReadReplicaDBClusterMessage.filterSensitiveLog,
       outputFilterSensitiveLog: PromoteReadReplicaDBClusterResult.filterSensitiveLog,
     };

@@ -43,6 +43,8 @@ export class DeleteFaqCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "KendraClient",
+      commandName: "DeleteFaqCommand",
       inputFilterSensitiveLog: DeleteFaqRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

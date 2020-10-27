@@ -43,6 +43,8 @@ export class StopBuildCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CodeBuildClient",
+      commandName: "StopBuildCommand",
       inputFilterSensitiveLog: StopBuildInput.filterSensitiveLog,
       outputFilterSensitiveLog: StopBuildOutput.filterSensitiveLog,
     };

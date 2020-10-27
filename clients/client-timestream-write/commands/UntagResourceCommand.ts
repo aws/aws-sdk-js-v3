@@ -46,6 +46,8 @@ export class UntagResourceCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "TimestreamWriteClient",
+      commandName: "UntagResourceCommand",
       inputFilterSensitiveLog: UntagResourceRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UntagResourceResponse.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class CreateResolverQueryLogConfigCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "Route53ResolverClient",
+      commandName: "CreateResolverQueryLogConfigCommand",
       inputFilterSensitiveLog: CreateResolverQueryLogConfigRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateResolverQueryLogConfigResponse.filterSensitiveLog,
     };

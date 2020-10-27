@@ -46,6 +46,8 @@ export class DeleteDBClusterCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "RDSClient",
+      commandName: "DeleteDBClusterCommand",
       inputFilterSensitiveLog: DeleteDBClusterMessage.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteDBClusterResult.filterSensitiveLog,
     };

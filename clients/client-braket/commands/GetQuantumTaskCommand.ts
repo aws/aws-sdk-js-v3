@@ -46,6 +46,8 @@ export class GetQuantumTaskCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "BraketClient",
+      commandName: "GetQuantumTaskCommand",
       inputFilterSensitiveLog: GetQuantumTaskRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetQuantumTaskResponse.filterSensitiveLog,
     };

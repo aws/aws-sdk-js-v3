@@ -48,6 +48,8 @@ export class UpdateJobPriorityCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "S3ControlClient",
+      commandName: "UpdateJobPriorityCommand",
       inputFilterSensitiveLog: UpdateJobPriorityRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateJobPriorityResult.filterSensitiveLog,
     };

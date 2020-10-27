@@ -46,6 +46,8 @@ export class ListAssociationVersionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SSMClient",
+      commandName: "ListAssociationVersionsCommand",
       inputFilterSensitiveLog: ListAssociationVersionsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListAssociationVersionsResult.filterSensitiveLog,
     };

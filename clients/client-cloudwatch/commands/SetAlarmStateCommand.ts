@@ -46,6 +46,8 @@ export class SetAlarmStateCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CloudWatchClient",
+      commandName: "SetAlarmStateCommand",
       inputFilterSensitiveLog: SetAlarmStateInput.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

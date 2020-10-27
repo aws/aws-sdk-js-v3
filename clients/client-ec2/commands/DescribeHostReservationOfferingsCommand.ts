@@ -46,6 +46,8 @@ export class DescribeHostReservationOfferingsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EC2Client",
+      commandName: "DescribeHostReservationOfferingsCommand",
       inputFilterSensitiveLog: DescribeHostReservationOfferingsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeHostReservationOfferingsResult.filterSensitiveLog,
     };

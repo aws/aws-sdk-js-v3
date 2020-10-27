@@ -46,6 +46,8 @@ export class DeleteArchiveRuleCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "AccessAnalyzerClient",
+      commandName: "DeleteArchiveRuleCommand",
       inputFilterSensitiveLog: DeleteArchiveRuleRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

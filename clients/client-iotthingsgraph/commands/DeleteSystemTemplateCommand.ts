@@ -46,6 +46,8 @@ export class DeleteSystemTemplateCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "IoTThingsGraphClient",
+      commandName: "DeleteSystemTemplateCommand",
       inputFilterSensitiveLog: DeleteSystemTemplateRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteSystemTemplateResponse.filterSensitiveLog,
     };

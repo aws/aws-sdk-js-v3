@@ -46,6 +46,8 @@ export class StopTriggerCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GlueClient",
+      commandName: "StopTriggerCommand",
       inputFilterSensitiveLog: StopTriggerRequest.filterSensitiveLog,
       outputFilterSensitiveLog: StopTriggerResponse.filterSensitiveLog,
     };

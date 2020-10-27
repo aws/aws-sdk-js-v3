@@ -42,6 +42,8 @@ export class GetStreamCommand extends $Command<GetStreamCommandInput, GetStreamC
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "IvsClient",
+      commandName: "GetStreamCommand",
       inputFilterSensitiveLog: GetStreamRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetStreamResponse.filterSensitiveLog,
     };

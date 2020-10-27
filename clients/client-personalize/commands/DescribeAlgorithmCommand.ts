@@ -46,6 +46,8 @@ export class DescribeAlgorithmCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "PersonalizeClient",
+      commandName: "DescribeAlgorithmCommand",
       inputFilterSensitiveLog: DescribeAlgorithmRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeAlgorithmResponse.filterSensitiveLog,
     };

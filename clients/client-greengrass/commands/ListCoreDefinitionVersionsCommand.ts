@@ -46,6 +46,8 @@ export class ListCoreDefinitionVersionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GreengrassClient",
+      commandName: "ListCoreDefinitionVersionsCommand",
       inputFilterSensitiveLog: ListCoreDefinitionVersionsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListCoreDefinitionVersionsResponse.filterSensitiveLog,
     };

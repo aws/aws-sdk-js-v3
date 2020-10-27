@@ -50,6 +50,8 @@ export class CreateNetworkCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ManagedBlockchainClient",
+      commandName: "CreateNetworkCommand",
       inputFilterSensitiveLog: CreateNetworkInput.filterSensitiveLog,
       outputFilterSensitiveLog: CreateNetworkOutput.filterSensitiveLog,
     };

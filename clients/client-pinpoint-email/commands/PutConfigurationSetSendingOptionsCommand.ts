@@ -50,6 +50,8 @@ export class PutConfigurationSetSendingOptionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "PinpointEmailClient",
+      commandName: "PutConfigurationSetSendingOptionsCommand",
       inputFilterSensitiveLog: PutConfigurationSetSendingOptionsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: PutConfigurationSetSendingOptionsResponse.filterSensitiveLog,
     };

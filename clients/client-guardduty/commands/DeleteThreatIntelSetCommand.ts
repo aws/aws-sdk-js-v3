@@ -46,6 +46,8 @@ export class DeleteThreatIntelSetCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GuardDutyClient",
+      commandName: "DeleteThreatIntelSetCommand",
       inputFilterSensitiveLog: DeleteThreatIntelSetRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteThreatIntelSetResponse.filterSensitiveLog,
     };

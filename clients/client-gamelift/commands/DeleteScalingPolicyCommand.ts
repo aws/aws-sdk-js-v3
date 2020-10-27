@@ -46,6 +46,8 @@ export class DeleteScalingPolicyCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GameLiftClient",
+      commandName: "DeleteScalingPolicyCommand",
       inputFilterSensitiveLog: DeleteScalingPolicyInput.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

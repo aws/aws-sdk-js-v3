@@ -46,6 +46,8 @@ export class DescribeThingTypeCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "IoTClient",
+      commandName: "DescribeThingTypeCommand",
       inputFilterSensitiveLog: DescribeThingTypeRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeThingTypeResponse.filterSensitiveLog,
     };

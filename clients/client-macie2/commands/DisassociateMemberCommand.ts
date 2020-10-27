@@ -46,6 +46,8 @@ export class DisassociateMemberCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "Macie2Client",
+      commandName: "DisassociateMemberCommand",
       inputFilterSensitiveLog: DisassociateMemberRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DisassociateMemberResponse.filterSensitiveLog,
     };

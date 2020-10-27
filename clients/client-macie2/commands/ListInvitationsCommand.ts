@@ -46,6 +46,8 @@ export class ListInvitationsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "Macie2Client",
+      commandName: "ListInvitationsCommand",
       inputFilterSensitiveLog: ListInvitationsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListInvitationsResponse.filterSensitiveLog,
     };

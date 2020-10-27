@@ -46,6 +46,8 @@ export class DescribeWorldTemplateCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "RoboMakerClient",
+      commandName: "DescribeWorldTemplateCommand",
       inputFilterSensitiveLog: DescribeWorldTemplateRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeWorldTemplateResponse.filterSensitiveLog,
     };

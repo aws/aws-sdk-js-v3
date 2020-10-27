@@ -46,6 +46,8 @@ export class ListDevEndpointsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GlueClient",
+      commandName: "ListDevEndpointsCommand",
       inputFilterSensitiveLog: ListDevEndpointsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListDevEndpointsResponse.filterSensitiveLog,
     };

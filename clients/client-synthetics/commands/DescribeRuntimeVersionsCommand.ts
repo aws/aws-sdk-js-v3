@@ -46,6 +46,8 @@ export class DescribeRuntimeVersionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SyntheticsClient",
+      commandName: "DescribeRuntimeVersionsCommand",
       inputFilterSensitiveLog: DescribeRuntimeVersionsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeRuntimeVersionsResponse.filterSensitiveLog,
     };

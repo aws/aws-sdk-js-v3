@@ -46,6 +46,8 @@ export class ResendValidationEmailCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ACMClient",
+      commandName: "ResendValidationEmailCommand",
       inputFilterSensitiveLog: ResendValidationEmailRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

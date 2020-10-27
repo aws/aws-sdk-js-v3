@@ -46,6 +46,8 @@ export class GetAWSDefaultServiceQuotaCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ServiceQuotasClient",
+      commandName: "GetAWSDefaultServiceQuotaCommand",
       inputFilterSensitiveLog: GetAWSDefaultServiceQuotaRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetAWSDefaultServiceQuotaResponse.filterSensitiveLog,
     };

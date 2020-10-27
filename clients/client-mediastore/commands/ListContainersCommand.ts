@@ -46,6 +46,8 @@ export class ListContainersCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "MediaStoreClient",
+      commandName: "ListContainersCommand",
       inputFilterSensitiveLog: ListContainersInput.filterSensitiveLog,
       outputFilterSensitiveLog: ListContainersOutput.filterSensitiveLog,
     };

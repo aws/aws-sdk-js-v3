@@ -46,6 +46,8 @@ export class GetFederationTokenCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "STSClient",
+      commandName: "GetFederationTokenCommand",
       inputFilterSensitiveLog: GetFederationTokenRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetFederationTokenResponse.filterSensitiveLog,
     };

@@ -50,6 +50,8 @@ export class CreatePackageCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ElasticsearchServiceClient",
+      commandName: "CreatePackageCommand",
       inputFilterSensitiveLog: CreatePackageRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreatePackageResponse.filterSensitiveLog,
     };

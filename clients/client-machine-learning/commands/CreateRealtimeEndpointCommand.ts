@@ -46,6 +46,8 @@ export class CreateRealtimeEndpointCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "MachineLearningClient",
+      commandName: "CreateRealtimeEndpointCommand",
       inputFilterSensitiveLog: CreateRealtimeEndpointInput.filterSensitiveLog,
       outputFilterSensitiveLog: CreateRealtimeEndpointOutput.filterSensitiveLog,
     };

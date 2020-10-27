@@ -46,6 +46,8 @@ export class TerminateEnvironmentCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ElasticBeanstalkClient",
+      commandName: "TerminateEnvironmentCommand",
       inputFilterSensitiveLog: TerminateEnvironmentMessage.filterSensitiveLog,
       outputFilterSensitiveLog: EnvironmentDescription.filterSensitiveLog,
     };

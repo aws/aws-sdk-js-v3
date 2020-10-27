@@ -46,6 +46,8 @@ export class ConnectDirectoryCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "DirectoryServiceClient",
+      commandName: "ConnectDirectoryCommand",
       inputFilterSensitiveLog: ConnectDirectoryRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ConnectDirectoryResult.filterSensitiveLog,
     };

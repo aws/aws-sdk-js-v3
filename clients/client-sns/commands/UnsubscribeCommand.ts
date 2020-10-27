@@ -43,6 +43,8 @@ export class UnsubscribeCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SNSClient",
+      commandName: "UnsubscribeCommand",
       inputFilterSensitiveLog: UnsubscribeInput.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

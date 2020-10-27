@@ -46,6 +46,8 @@ export class DescribeHarvestJobCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "MediaPackageClient",
+      commandName: "DescribeHarvestJobCommand",
       inputFilterSensitiveLog: DescribeHarvestJobRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeHarvestJobResponse.filterSensitiveLog,
     };

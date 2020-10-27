@@ -46,6 +46,8 @@ export class StartPiiEntitiesDetectionJobCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ComprehendClient",
+      commandName: "StartPiiEntitiesDetectionJobCommand",
       inputFilterSensitiveLog: StartPiiEntitiesDetectionJobRequest.filterSensitiveLog,
       outputFilterSensitiveLog: StartPiiEntitiesDetectionJobResponse.filterSensitiveLog,
     };

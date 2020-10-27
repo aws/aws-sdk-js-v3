@@ -46,6 +46,8 @@ export class BatchCreateRoomMembershipCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ChimeClient",
+      commandName: "BatchCreateRoomMembershipCommand",
       inputFilterSensitiveLog: BatchCreateRoomMembershipRequest.filterSensitiveLog,
       outputFilterSensitiveLog: BatchCreateRoomMembershipResponse.filterSensitiveLog,
     };

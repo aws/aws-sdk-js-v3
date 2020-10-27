@@ -46,6 +46,8 @@ export class CreateCloudFormationStackCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "LightsailClient",
+      commandName: "CreateCloudFormationStackCommand",
       inputFilterSensitiveLog: CreateCloudFormationStackRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateCloudFormationStackResult.filterSensitiveLog,
     };

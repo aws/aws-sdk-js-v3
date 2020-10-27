@@ -46,6 +46,8 @@ export class UpdatePartitionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GlueClient",
+      commandName: "UpdatePartitionCommand",
       inputFilterSensitiveLog: UpdatePartitionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdatePartitionResponse.filterSensitiveLog,
     };

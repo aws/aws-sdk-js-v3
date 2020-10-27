@@ -46,6 +46,8 @@ export class DeleteLifecyclePolicyCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "DLMClient",
+      commandName: "DeleteLifecyclePolicyCommand",
       inputFilterSensitiveLog: DeleteLifecyclePolicyRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteLifecyclePolicyResponse.filterSensitiveLog,
     };

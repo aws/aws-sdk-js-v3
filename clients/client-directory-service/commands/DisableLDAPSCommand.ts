@@ -46,6 +46,8 @@ export class DisableLDAPSCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "DirectoryServiceClient",
+      commandName: "DisableLDAPSCommand",
       inputFilterSensitiveLog: DisableLDAPSRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DisableLDAPSResult.filterSensitiveLog,
     };

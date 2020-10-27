@@ -46,6 +46,8 @@ export class UpdateProxySessionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ChimeClient",
+      commandName: "UpdateProxySessionCommand",
       inputFilterSensitiveLog: UpdateProxySessionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateProxySessionResponse.filterSensitiveLog,
     };

@@ -43,6 +43,8 @@ export class StopJobCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "DeviceFarmClient",
+      commandName: "StopJobCommand",
       inputFilterSensitiveLog: StopJobRequest.filterSensitiveLog,
       outputFilterSensitiveLog: StopJobResult.filterSensitiveLog,
     };

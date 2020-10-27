@@ -46,6 +46,8 @@ export class SkipWaitTimeForInstanceTerminationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CodeDeployClient",
+      commandName: "SkipWaitTimeForInstanceTerminationCommand",
       inputFilterSensitiveLog: SkipWaitTimeForInstanceTerminationInput.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

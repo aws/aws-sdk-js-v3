@@ -46,6 +46,8 @@ export class UpgradePublishedSchemaCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CloudDirectoryClient",
+      commandName: "UpgradePublishedSchemaCommand",
       inputFilterSensitiveLog: UpgradePublishedSchemaRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpgradePublishedSchemaResponse.filterSensitiveLog,
     };

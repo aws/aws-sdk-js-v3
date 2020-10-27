@@ -46,6 +46,8 @@ export class GetAnalyzerCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "AccessAnalyzerClient",
+      commandName: "GetAnalyzerCommand",
       inputFilterSensitiveLog: GetAnalyzerRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetAnalyzerResponse.filterSensitiveLog,
     };

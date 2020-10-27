@@ -46,6 +46,8 @@ export class DescribeDataSourceCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "KendraClient",
+      commandName: "DescribeDataSourceCommand",
       inputFilterSensitiveLog: DescribeDataSourceRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeDataSourceResponse.filterSensitiveLog,
     };

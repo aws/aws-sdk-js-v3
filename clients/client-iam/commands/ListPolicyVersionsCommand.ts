@@ -46,6 +46,8 @@ export class ListPolicyVersionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "IAMClient",
+      commandName: "ListPolicyVersionsCommand",
       inputFilterSensitiveLog: ListPolicyVersionsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListPolicyVersionsResponse.filterSensitiveLog,
     };

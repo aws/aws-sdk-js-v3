@@ -46,6 +46,8 @@ export class ModifyCurrentDBClusterCapacityCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "RDSClient",
+      commandName: "ModifyCurrentDBClusterCapacityCommand",
       inputFilterSensitiveLog: ModifyCurrentDBClusterCapacityMessage.filterSensitiveLog,
       outputFilterSensitiveLog: DBClusterCapacityInfo.filterSensitiveLog,
     };

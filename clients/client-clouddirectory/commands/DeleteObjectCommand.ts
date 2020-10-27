@@ -46,6 +46,8 @@ export class DeleteObjectCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CloudDirectoryClient",
+      commandName: "DeleteObjectCommand",
       inputFilterSensitiveLog: DeleteObjectRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteObjectResponse.filterSensitiveLog,
     };

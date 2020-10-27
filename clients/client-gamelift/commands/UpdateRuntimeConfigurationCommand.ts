@@ -46,6 +46,8 @@ export class UpdateRuntimeConfigurationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GameLiftClient",
+      commandName: "UpdateRuntimeConfigurationCommand",
       inputFilterSensitiveLog: UpdateRuntimeConfigurationInput.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateRuntimeConfigurationOutput.filterSensitiveLog,
     };

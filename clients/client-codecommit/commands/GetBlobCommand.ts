@@ -43,6 +43,8 @@ export class GetBlobCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CodeCommitClient",
+      commandName: "GetBlobCommand",
       inputFilterSensitiveLog: GetBlobInput.filterSensitiveLog,
       outputFilterSensitiveLog: GetBlobOutput.filterSensitiveLog,
     };

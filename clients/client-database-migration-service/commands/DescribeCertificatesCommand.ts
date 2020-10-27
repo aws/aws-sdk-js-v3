@@ -50,6 +50,8 @@ export class DescribeCertificatesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "DatabaseMigrationServiceClient",
+      commandName: "DescribeCertificatesCommand",
       inputFilterSensitiveLog: DescribeCertificatesMessage.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeCertificatesResponse.filterSensitiveLog,
     };

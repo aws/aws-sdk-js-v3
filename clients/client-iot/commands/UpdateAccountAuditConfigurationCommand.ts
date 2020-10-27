@@ -46,6 +46,8 @@ export class UpdateAccountAuditConfigurationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "IoTClient",
+      commandName: "UpdateAccountAuditConfigurationCommand",
       inputFilterSensitiveLog: UpdateAccountAuditConfigurationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateAccountAuditConfigurationResponse.filterSensitiveLog,
     };

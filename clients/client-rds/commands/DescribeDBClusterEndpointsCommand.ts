@@ -46,6 +46,8 @@ export class DescribeDBClusterEndpointsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "RDSClient",
+      commandName: "DescribeDBClusterEndpointsCommand",
       inputFilterSensitiveLog: DescribeDBClusterEndpointsMessage.filterSensitiveLog,
       outputFilterSensitiveLog: DBClusterEndpointMessage.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class DiscoverInstancesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ServiceDiscoveryClient",
+      commandName: "DiscoverInstancesCommand",
       inputFilterSensitiveLog: DiscoverInstancesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DiscoverInstancesResponse.filterSensitiveLog,
     };

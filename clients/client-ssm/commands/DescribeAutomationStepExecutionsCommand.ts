@@ -46,6 +46,8 @@ export class DescribeAutomationStepExecutionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SSMClient",
+      commandName: "DescribeAutomationStepExecutionsCommand",
       inputFilterSensitiveLog: DescribeAutomationStepExecutionsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeAutomationStepExecutionsResult.filterSensitiveLog,
     };

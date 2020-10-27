@@ -42,6 +42,8 @@ export class CreateJobCommand extends $Command<CreateJobCommandInput, CreateJobC
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "IoTClient",
+      commandName: "CreateJobCommand",
       inputFilterSensitiveLog: CreateJobRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateJobResponse.filterSensitiveLog,
     };

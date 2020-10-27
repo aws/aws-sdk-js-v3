@@ -46,6 +46,8 @@ export class CreateCacheClusterCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ElastiCacheClient",
+      commandName: "CreateCacheClusterCommand",
       inputFilterSensitiveLog: CreateCacheClusterMessage.filterSensitiveLog,
       outputFilterSensitiveLog: CreateCacheClusterResult.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class CreateSecurityConfigurationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EMRClient",
+      commandName: "CreateSecurityConfigurationCommand",
       inputFilterSensitiveLog: CreateSecurityConfigurationInput.filterSensitiveLog,
       outputFilterSensitiveLog: CreateSecurityConfigurationOutput.filterSensitiveLog,
     };

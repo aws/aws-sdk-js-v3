@@ -46,6 +46,8 @@ export class SetInstanceProtectionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "AutoScalingClient",
+      commandName: "SetInstanceProtectionCommand",
       inputFilterSensitiveLog: SetInstanceProtectionQuery.filterSensitiveLog,
       outputFilterSensitiveLog: SetInstanceProtectionAnswer.filterSensitiveLog,
     };

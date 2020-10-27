@@ -50,6 +50,8 @@ export class ResendConfirmationCodeCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CognitoIdentityProviderClient",
+      commandName: "ResendConfirmationCodeCommand",
       inputFilterSensitiveLog: ResendConfirmationCodeRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ResendConfirmationCodeResponse.filterSensitiveLog,
     };

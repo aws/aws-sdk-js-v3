@@ -46,6 +46,8 @@ export class CreateDeploymentCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ApiGatewayV2Client",
+      commandName: "CreateDeploymentCommand",
       inputFilterSensitiveLog: CreateDeploymentRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateDeploymentResponse.filterSensitiveLog,
     };

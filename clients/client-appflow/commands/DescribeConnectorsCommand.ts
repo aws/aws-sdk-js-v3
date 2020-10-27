@@ -46,6 +46,8 @@ export class DescribeConnectorsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "AppflowClient",
+      commandName: "DescribeConnectorsCommand",
       inputFilterSensitiveLog: DescribeConnectorsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeConnectorsResponse.filterSensitiveLog,
     };

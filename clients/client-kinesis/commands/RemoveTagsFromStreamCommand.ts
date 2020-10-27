@@ -46,6 +46,8 @@ export class RemoveTagsFromStreamCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "KinesisClient",
+      commandName: "RemoveTagsFromStreamCommand",
       inputFilterSensitiveLog: RemoveTagsFromStreamInput.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

@@ -50,6 +50,8 @@ export class PutBucketTaggingCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "S3Client",
+      commandName: "PutBucketTaggingCommand",
       inputFilterSensitiveLog: PutBucketTaggingRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

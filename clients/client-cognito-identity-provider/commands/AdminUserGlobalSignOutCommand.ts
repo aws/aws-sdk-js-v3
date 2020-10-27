@@ -50,6 +50,8 @@ export class AdminUserGlobalSignOutCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CognitoIdentityProviderClient",
+      commandName: "AdminUserGlobalSignOutCommand",
       inputFilterSensitiveLog: AdminUserGlobalSignOutRequest.filterSensitiveLog,
       outputFilterSensitiveLog: AdminUserGlobalSignOutResponse.filterSensitiveLog,
     };

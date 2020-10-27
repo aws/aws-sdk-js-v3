@@ -50,6 +50,8 @@ export class DescribeObservationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ApplicationInsightsClient",
+      commandName: "DescribeObservationCommand",
       inputFilterSensitiveLog: DescribeObservationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeObservationResponse.filterSensitiveLog,
     };

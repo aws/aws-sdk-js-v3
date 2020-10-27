@@ -46,6 +46,8 @@ export class GetClusterCredentialsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "RedshiftClient",
+      commandName: "GetClusterCredentialsCommand",
       inputFilterSensitiveLog: GetClusterCredentialsMessage.filterSensitiveLog,
       outputFilterSensitiveLog: ClusterCredentials.filterSensitiveLog,
     };

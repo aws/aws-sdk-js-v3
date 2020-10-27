@@ -46,6 +46,8 @@ export class RetryStageExecutionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CodePipelineClient",
+      commandName: "RetryStageExecutionCommand",
       inputFilterSensitiveLog: RetryStageExecutionInput.filterSensitiveLog,
       outputFilterSensitiveLog: RetryStageExecutionOutput.filterSensitiveLog,
     };

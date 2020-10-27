@@ -46,6 +46,8 @@ export class SimpleInputParamsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "QueryProtocolClient",
+      commandName: "SimpleInputParamsCommand",
       inputFilterSensitiveLog: SimpleInputParamsInput.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

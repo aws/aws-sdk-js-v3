@@ -46,6 +46,8 @@ export class RemoveTargetsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EventBridgeClient",
+      commandName: "RemoveTargetsCommand",
       inputFilterSensitiveLog: RemoveTargetsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: RemoveTargetsResponse.filterSensitiveLog,
     };

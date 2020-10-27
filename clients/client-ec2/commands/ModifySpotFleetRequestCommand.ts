@@ -46,6 +46,8 @@ export class ModifySpotFleetRequestCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EC2Client",
+      commandName: "ModifySpotFleetRequestCommand",
       inputFilterSensitiveLog: ModifySpotFleetRequestRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ModifySpotFleetRequestResponse.filterSensitiveLog,
     };

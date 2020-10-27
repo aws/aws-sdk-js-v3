@@ -46,6 +46,8 @@ export class ListThemesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "QuickSightClient",
+      commandName: "ListThemesCommand",
       inputFilterSensitiveLog: ListThemesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListThemesResponse.filterSensitiveLog,
     };

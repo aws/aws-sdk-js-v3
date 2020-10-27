@@ -46,6 +46,8 @@ export class GetEventPredictionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "FraudDetectorClient",
+      commandName: "GetEventPredictionCommand",
       inputFilterSensitiveLog: GetEventPredictionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetEventPredictionResult.filterSensitiveLog,
     };

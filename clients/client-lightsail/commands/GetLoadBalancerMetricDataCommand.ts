@@ -46,6 +46,8 @@ export class GetLoadBalancerMetricDataCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "LightsailClient",
+      commandName: "GetLoadBalancerMetricDataCommand",
       inputFilterSensitiveLog: GetLoadBalancerMetricDataRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetLoadBalancerMetricDataResult.filterSensitiveLog,
     };

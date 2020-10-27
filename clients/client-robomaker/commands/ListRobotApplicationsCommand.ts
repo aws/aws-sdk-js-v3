@@ -46,6 +46,8 @@ export class ListRobotApplicationsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "RoboMakerClient",
+      commandName: "ListRobotApplicationsCommand",
       inputFilterSensitiveLog: ListRobotApplicationsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListRobotApplicationsResponse.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class SetTopicAttributesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SNSClient",
+      commandName: "SetTopicAttributesCommand",
       inputFilterSensitiveLog: SetTopicAttributesInput.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

@@ -46,6 +46,8 @@ export class DeletePlaybackConfigurationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "MediaTailorClient",
+      commandName: "DeletePlaybackConfigurationCommand",
       inputFilterSensitiveLog: DeletePlaybackConfigurationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeletePlaybackConfigurationResponse.filterSensitiveLog,
     };

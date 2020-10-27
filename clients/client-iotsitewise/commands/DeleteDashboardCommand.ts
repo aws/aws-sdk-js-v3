@@ -46,6 +46,8 @@ export class DeleteDashboardCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "IoTSiteWiseClient",
+      commandName: "DeleteDashboardCommand",
       inputFilterSensitiveLog: DeleteDashboardRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteDashboardResponse.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class DeleteFunctionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "AppSyncClient",
+      commandName: "DeleteFunctionCommand",
       inputFilterSensitiveLog: DeleteFunctionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteFunctionResponse.filterSensitiveLog,
     };

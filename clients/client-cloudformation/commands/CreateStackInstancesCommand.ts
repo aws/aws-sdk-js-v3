@@ -46,6 +46,8 @@ export class CreateStackInstancesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CloudFormationClient",
+      commandName: "CreateStackInstancesCommand",
       inputFilterSensitiveLog: CreateStackInstancesInput.filterSensitiveLog,
       outputFilterSensitiveLog: CreateStackInstancesOutput.filterSensitiveLog,
     };

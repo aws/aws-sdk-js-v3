@@ -46,6 +46,8 @@ export class ResetCacheCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "StorageGatewayClient",
+      commandName: "ResetCacheCommand",
       inputFilterSensitiveLog: ResetCacheInput.filterSensitiveLog,
       outputFilterSensitiveLog: ResetCacheOutput.filterSensitiveLog,
     };

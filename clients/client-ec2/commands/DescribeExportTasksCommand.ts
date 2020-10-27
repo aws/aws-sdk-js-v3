@@ -46,6 +46,8 @@ export class DescribeExportTasksCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EC2Client",
+      commandName: "DescribeExportTasksCommand",
       inputFilterSensitiveLog: DescribeExportTasksRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeExportTasksResult.filterSensitiveLog,
     };

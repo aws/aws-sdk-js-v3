@@ -46,6 +46,8 @@ export class GetAttributeValuesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "PricingClient",
+      commandName: "GetAttributeValuesCommand",
       inputFilterSensitiveLog: GetAttributeValuesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetAttributeValuesResponse.filterSensitiveLog,
     };

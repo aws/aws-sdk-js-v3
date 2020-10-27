@@ -46,6 +46,8 @@ export class BatchUnsuspendUserCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ChimeClient",
+      commandName: "BatchUnsuspendUserCommand",
       inputFilterSensitiveLog: BatchUnsuspendUserRequest.filterSensitiveLog,
       outputFilterSensitiveLog: BatchUnsuspendUserResponse.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class ListArchiveRulesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "AccessAnalyzerClient",
+      commandName: "ListArchiveRulesCommand",
       inputFilterSensitiveLog: ListArchiveRulesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListArchiveRulesResponse.filterSensitiveLog,
     };

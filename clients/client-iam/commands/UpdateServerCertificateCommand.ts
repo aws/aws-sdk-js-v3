@@ -46,6 +46,8 @@ export class UpdateServerCertificateCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "IAMClient",
+      commandName: "UpdateServerCertificateCommand",
       inputFilterSensitiveLog: UpdateServerCertificateRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

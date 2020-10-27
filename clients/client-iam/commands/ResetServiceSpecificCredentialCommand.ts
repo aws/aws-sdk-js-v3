@@ -46,6 +46,8 @@ export class ResetServiceSpecificCredentialCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "IAMClient",
+      commandName: "ResetServiceSpecificCredentialCommand",
       inputFilterSensitiveLog: ResetServiceSpecificCredentialRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ResetServiceSpecificCredentialResponse.filterSensitiveLog,
     };

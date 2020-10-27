@@ -46,6 +46,8 @@ export class GetOperationDetailCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "Route53DomainsClient",
+      commandName: "GetOperationDetailCommand",
       inputFilterSensitiveLog: GetOperationDetailRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetOperationDetailResponse.filterSensitiveLog,
     };

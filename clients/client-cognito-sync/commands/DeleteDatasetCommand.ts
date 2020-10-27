@@ -46,6 +46,8 @@ export class DeleteDatasetCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CognitoSyncClient",
+      commandName: "DeleteDatasetCommand",
       inputFilterSensitiveLog: DeleteDatasetRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteDatasetResponse.filterSensitiveLog,
     };

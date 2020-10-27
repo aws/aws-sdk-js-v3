@@ -46,6 +46,8 @@ export class DetachVpnGatewayCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EC2Client",
+      commandName: "DetachVpnGatewayCommand",
       inputFilterSensitiveLog: DetachVpnGatewayRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

@@ -46,6 +46,8 @@ export class UpdateAgentCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "DataSyncClient",
+      commandName: "UpdateAgentCommand",
       inputFilterSensitiveLog: UpdateAgentRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateAgentResponse.filterSensitiveLog,
     };

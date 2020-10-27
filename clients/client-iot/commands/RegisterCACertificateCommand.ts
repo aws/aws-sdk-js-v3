@@ -46,6 +46,8 @@ export class RegisterCACertificateCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "IoTClient",
+      commandName: "RegisterCACertificateCommand",
       inputFilterSensitiveLog: RegisterCACertificateRequest.filterSensitiveLog,
       outputFilterSensitiveLog: RegisterCACertificateResponse.filterSensitiveLog,
     };

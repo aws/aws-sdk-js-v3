@@ -46,6 +46,8 @@ export class DeleteDomainAssociationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "AmplifyClient",
+      commandName: "DeleteDomainAssociationCommand",
       inputFilterSensitiveLog: DeleteDomainAssociationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteDomainAssociationResult.filterSensitiveLog,
     };

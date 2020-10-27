@@ -46,6 +46,8 @@ export class UpdateTaskSetCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ECSClient",
+      commandName: "UpdateTaskSetCommand",
       inputFilterSensitiveLog: UpdateTaskSetRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateTaskSetResponse.filterSensitiveLog,
     };

@@ -43,6 +43,8 @@ export class AllocateAddressCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EC2Client",
+      commandName: "AllocateAddressCommand",
       inputFilterSensitiveLog: AllocateAddressRequest.filterSensitiveLog,
       outputFilterSensitiveLog: AllocateAddressResult.filterSensitiveLog,
     };

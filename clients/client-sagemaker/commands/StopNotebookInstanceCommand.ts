@@ -46,6 +46,8 @@ export class StopNotebookInstanceCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SageMakerClient",
+      commandName: "StopNotebookInstanceCommand",
       inputFilterSensitiveLog: StopNotebookInstanceInput.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

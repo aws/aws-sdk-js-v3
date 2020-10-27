@@ -43,6 +43,8 @@ export class SendBonusCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "MTurkClient",
+      commandName: "SendBonusCommand",
       inputFilterSensitiveLog: SendBonusRequest.filterSensitiveLog,
       outputFilterSensitiveLog: SendBonusResponse.filterSensitiveLog,
     };

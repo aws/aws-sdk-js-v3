@@ -46,6 +46,8 @@ export class RotateChannelCredentialsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "MediaPackageClient",
+      commandName: "RotateChannelCredentialsCommand",
       inputFilterSensitiveLog: RotateChannelCredentialsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: RotateChannelCredentialsResponse.filterSensitiveLog,
     };

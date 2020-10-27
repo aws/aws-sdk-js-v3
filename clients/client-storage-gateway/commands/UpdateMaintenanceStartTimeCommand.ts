@@ -46,6 +46,8 @@ export class UpdateMaintenanceStartTimeCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "StorageGatewayClient",
+      commandName: "UpdateMaintenanceStartTimeCommand",
       inputFilterSensitiveLog: UpdateMaintenanceStartTimeInput.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateMaintenanceStartTimeOutput.filterSensitiveLog,
     };

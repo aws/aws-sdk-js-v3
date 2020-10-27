@@ -46,6 +46,8 @@ export class ListConfigurationSetsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SESv2Client",
+      commandName: "ListConfigurationSetsCommand",
       inputFilterSensitiveLog: ListConfigurationSetsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListConfigurationSetsResponse.filterSensitiveLog,
     };

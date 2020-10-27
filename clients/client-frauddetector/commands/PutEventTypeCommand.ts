@@ -46,6 +46,8 @@ export class PutEventTypeCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "FraudDetectorClient",
+      commandName: "PutEventTypeCommand",
       inputFilterSensitiveLog: PutEventTypeRequest.filterSensitiveLog,
       outputFilterSensitiveLog: PutEventTypeResult.filterSensitiveLog,
     };

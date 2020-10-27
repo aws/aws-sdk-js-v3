@@ -48,6 +48,8 @@ export class GetBucketOwnershipControlsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "S3Client",
+      commandName: "GetBucketOwnershipControlsCommand",
       inputFilterSensitiveLog: GetBucketOwnershipControlsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetBucketOwnershipControlsOutput.filterSensitiveLog,
     };

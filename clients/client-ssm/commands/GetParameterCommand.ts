@@ -46,6 +46,8 @@ export class GetParameterCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SSMClient",
+      commandName: "GetParameterCommand",
       inputFilterSensitiveLog: GetParameterRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetParameterResult.filterSensitiveLog,
     };

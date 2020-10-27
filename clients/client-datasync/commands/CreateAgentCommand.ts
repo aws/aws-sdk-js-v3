@@ -46,6 +46,8 @@ export class CreateAgentCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "DataSyncClient",
+      commandName: "CreateAgentCommand",
       inputFilterSensitiveLog: CreateAgentRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateAgentResponse.filterSensitiveLog,
     };

@@ -50,6 +50,8 @@ export class DescribeEngineDefaultClusterParametersCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "DocDBClient",
+      commandName: "DescribeEngineDefaultClusterParametersCommand",
       inputFilterSensitiveLog: DescribeEngineDefaultClusterParametersMessage.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeEngineDefaultClusterParametersResult.filterSensitiveLog,
     };

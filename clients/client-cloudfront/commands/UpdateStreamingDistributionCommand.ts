@@ -46,6 +46,8 @@ export class UpdateStreamingDistributionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CloudFrontClient",
+      commandName: "UpdateStreamingDistributionCommand",
       inputFilterSensitiveLog: UpdateStreamingDistributionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateStreamingDistributionResult.filterSensitiveLog,
     };

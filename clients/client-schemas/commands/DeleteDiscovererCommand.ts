@@ -46,6 +46,8 @@ export class DeleteDiscovererCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SchemasClient",
+      commandName: "DeleteDiscovererCommand",
       inputFilterSensitiveLog: DeleteDiscovererRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

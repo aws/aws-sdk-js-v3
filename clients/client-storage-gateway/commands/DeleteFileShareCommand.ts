@@ -46,6 +46,8 @@ export class DeleteFileShareCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "StorageGatewayClient",
+      commandName: "DeleteFileShareCommand",
       inputFilterSensitiveLog: DeleteFileShareInput.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteFileShareOutput.filterSensitiveLog,
     };

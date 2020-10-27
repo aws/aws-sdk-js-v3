@@ -46,6 +46,8 @@ export class GetOrganizationsAccessReportCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "IAMClient",
+      commandName: "GetOrganizationsAccessReportCommand",
       inputFilterSensitiveLog: GetOrganizationsAccessReportRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetOrganizationsAccessReportResponse.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class TestRenderTemplateCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SESClient",
+      commandName: "TestRenderTemplateCommand",
       inputFilterSensitiveLog: TestRenderTemplateRequest.filterSensitiveLog,
       outputFilterSensitiveLog: TestRenderTemplateResponse.filterSensitiveLog,
     };

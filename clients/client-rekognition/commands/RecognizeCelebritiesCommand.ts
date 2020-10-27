@@ -46,6 +46,8 @@ export class RecognizeCelebritiesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "RekognitionClient",
+      commandName: "RecognizeCelebritiesCommand",
       inputFilterSensitiveLog: RecognizeCelebritiesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: RecognizeCelebritiesResponse.filterSensitiveLog,
     };

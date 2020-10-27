@@ -46,6 +46,8 @@ export class UpdateConfigurationProfileCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "AppConfigClient",
+      commandName: "UpdateConfigurationProfileCommand",
       inputFilterSensitiveLog: UpdateConfigurationProfileRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ConfigurationProfile.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class ListUpdatesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EKSClient",
+      commandName: "ListUpdatesCommand",
       inputFilterSensitiveLog: ListUpdatesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListUpdatesResponse.filterSensitiveLog,
     };

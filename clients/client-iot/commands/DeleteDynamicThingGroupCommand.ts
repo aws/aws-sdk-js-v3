@@ -46,6 +46,8 @@ export class DeleteDynamicThingGroupCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "IoTClient",
+      commandName: "DeleteDynamicThingGroupCommand",
       inputFilterSensitiveLog: DeleteDynamicThingGroupRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteDynamicThingGroupResponse.filterSensitiveLog,
     };

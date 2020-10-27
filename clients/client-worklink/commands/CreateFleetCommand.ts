@@ -46,6 +46,8 @@ export class CreateFleetCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "WorkLinkClient",
+      commandName: "CreateFleetCommand",
       inputFilterSensitiveLog: CreateFleetRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateFleetResponse.filterSensitiveLog,
     };

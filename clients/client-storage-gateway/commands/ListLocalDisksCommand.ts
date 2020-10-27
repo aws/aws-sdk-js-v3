@@ -46,6 +46,8 @@ export class ListLocalDisksCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "StorageGatewayClient",
+      commandName: "ListLocalDisksCommand",
       inputFilterSensitiveLog: ListLocalDisksInput.filterSensitiveLog,
       outputFilterSensitiveLog: ListLocalDisksOutput.filterSensitiveLog,
     };

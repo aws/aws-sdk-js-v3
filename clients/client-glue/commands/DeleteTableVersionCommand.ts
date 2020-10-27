@@ -46,6 +46,8 @@ export class DeleteTableVersionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GlueClient",
+      commandName: "DeleteTableVersionCommand",
       inputFilterSensitiveLog: DeleteTableVersionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteTableVersionResponse.filterSensitiveLog,
     };

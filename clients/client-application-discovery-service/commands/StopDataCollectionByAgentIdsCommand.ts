@@ -50,6 +50,8 @@ export class StopDataCollectionByAgentIdsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ApplicationDiscoveryServiceClient",
+      commandName: "StopDataCollectionByAgentIdsCommand",
       inputFilterSensitiveLog: StopDataCollectionByAgentIdsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: StopDataCollectionByAgentIdsResponse.filterSensitiveLog,
     };

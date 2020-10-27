@@ -46,6 +46,8 @@ export class RenewOfferingCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "DeviceFarmClient",
+      commandName: "RenewOfferingCommand",
       inputFilterSensitiveLog: RenewOfferingRequest.filterSensitiveLog,
       outputFilterSensitiveLog: RenewOfferingResult.filterSensitiveLog,
     };

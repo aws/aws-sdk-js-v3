@@ -47,6 +47,8 @@ export class StartExportTaskCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "RDSClient",
+      commandName: "StartExportTaskCommand",
       inputFilterSensitiveLog: StartExportTaskMessage.filterSensitiveLog,
       outputFilterSensitiveLog: ExportTask.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class StartSnapshotCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EBSClient",
+      commandName: "StartSnapshotCommand",
       inputFilterSensitiveLog: StartSnapshotRequest.filterSensitiveLog,
       outputFilterSensitiveLog: StartSnapshotResponse.filterSensitiveLog,
     };

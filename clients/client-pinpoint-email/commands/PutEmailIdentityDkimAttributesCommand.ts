@@ -46,6 +46,8 @@ export class PutEmailIdentityDkimAttributesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "PinpointEmailClient",
+      commandName: "PutEmailIdentityDkimAttributesCommand",
       inputFilterSensitiveLog: PutEmailIdentityDkimAttributesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: PutEmailIdentityDkimAttributesResponse.filterSensitiveLog,
     };

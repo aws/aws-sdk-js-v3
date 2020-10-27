@@ -46,6 +46,8 @@ export class DeleteRuleCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "WAFClient",
+      commandName: "DeleteRuleCommand",
       inputFilterSensitiveLog: DeleteRuleRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteRuleResponse.filterSensitiveLog,
     };

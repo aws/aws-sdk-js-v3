@@ -46,6 +46,8 @@ export class DeleteDeviceUsageDataCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "AlexaForBusinessClient",
+      commandName: "DeleteDeviceUsageDataCommand",
       inputFilterSensitiveLog: DeleteDeviceUsageDataRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteDeviceUsageDataResponse.filterSensitiveLog,
     };

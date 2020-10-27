@@ -46,6 +46,8 @@ export class ListImportJobsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SESv2Client",
+      commandName: "ListImportJobsCommand",
       inputFilterSensitiveLog: ListImportJobsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListImportJobsResponse.filterSensitiveLog,
     };

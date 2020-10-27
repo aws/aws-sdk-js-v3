@@ -46,6 +46,8 @@ export class DisableGatewayCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "StorageGatewayClient",
+      commandName: "DisableGatewayCommand",
       inputFilterSensitiveLog: DisableGatewayInput.filterSensitiveLog,
       outputFilterSensitiveLog: DisableGatewayOutput.filterSensitiveLog,
     };

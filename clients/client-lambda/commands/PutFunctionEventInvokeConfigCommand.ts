@@ -46,6 +46,8 @@ export class PutFunctionEventInvokeConfigCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "LambdaClient",
+      commandName: "PutFunctionEventInvokeConfigCommand",
       inputFilterSensitiveLog: PutFunctionEventInvokeConfigRequest.filterSensitiveLog,
       outputFilterSensitiveLog: FunctionEventInvokeConfig.filterSensitiveLog,
     };

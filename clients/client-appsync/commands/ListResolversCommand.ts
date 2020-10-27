@@ -46,6 +46,8 @@ export class ListResolversCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "AppSyncClient",
+      commandName: "ListResolversCommand",
       inputFilterSensitiveLog: ListResolversRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListResolversResponse.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class AssociateRoleToGroupCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GreengrassClient",
+      commandName: "AssociateRoleToGroupCommand",
       inputFilterSensitiveLog: AssociateRoleToGroupRequest.filterSensitiveLog,
       outputFilterSensitiveLog: AssociateRoleToGroupResponse.filterSensitiveLog,
     };

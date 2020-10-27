@@ -48,6 +48,8 @@ export class ListHostedZonesByNameCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "Route53Client",
+      commandName: "ListHostedZonesByNameCommand",
       inputFilterSensitiveLog: ListHostedZonesByNameRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListHostedZonesByNameResponse.filterSensitiveLog,
     };

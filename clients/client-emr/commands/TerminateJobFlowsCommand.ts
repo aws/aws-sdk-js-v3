@@ -46,6 +46,8 @@ export class TerminateJobFlowsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EMRClient",
+      commandName: "TerminateJobFlowsCommand",
       inputFilterSensitiveLog: TerminateJobFlowsInput.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

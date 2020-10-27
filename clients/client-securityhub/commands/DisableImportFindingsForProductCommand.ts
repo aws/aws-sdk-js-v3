@@ -46,6 +46,8 @@ export class DisableImportFindingsForProductCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SecurityHubClient",
+      commandName: "DisableImportFindingsForProductCommand",
       inputFilterSensitiveLog: DisableImportFindingsForProductRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DisableImportFindingsForProductResponse.filterSensitiveLog,
     };

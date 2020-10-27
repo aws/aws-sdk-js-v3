@@ -46,6 +46,8 @@ export class CreateScriptCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GlueClient",
+      commandName: "CreateScriptCommand",
       inputFilterSensitiveLog: CreateScriptRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateScriptResponse.filterSensitiveLog,
     };

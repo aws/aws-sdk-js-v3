@@ -46,6 +46,8 @@ export class HttpPayloadTraitsWithMediaTypeCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "RestJsonProtocolClient",
+      commandName: "HttpPayloadTraitsWithMediaTypeCommand",
       inputFilterSensitiveLog: HttpPayloadTraitsWithMediaTypeInputOutput.filterSensitiveLog,
       outputFilterSensitiveLog: HttpPayloadTraitsWithMediaTypeInputOutput.filterSensitiveLog,
     };

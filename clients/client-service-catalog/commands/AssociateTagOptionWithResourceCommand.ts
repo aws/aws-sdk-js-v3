@@ -46,6 +46,8 @@ export class AssociateTagOptionWithResourceCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ServiceCatalogClient",
+      commandName: "AssociateTagOptionWithResourceCommand",
       inputFilterSensitiveLog: AssociateTagOptionWithResourceInput.filterSensitiveLog,
       outputFilterSensitiveLog: AssociateTagOptionWithResourceOutput.filterSensitiveLog,
     };

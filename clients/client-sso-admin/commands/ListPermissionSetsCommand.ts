@@ -46,6 +46,8 @@ export class ListPermissionSetsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SSOAdminClient",
+      commandName: "ListPermissionSetsCommand",
       inputFilterSensitiveLog: ListPermissionSetsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListPermissionSetsResponse.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class DisassociateFromMasterAccountCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "Macie2Client",
+      commandName: "DisassociateFromMasterAccountCommand",
       inputFilterSensitiveLog: DisassociateFromMasterAccountRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DisassociateFromMasterAccountResponse.filterSensitiveLog,
     };

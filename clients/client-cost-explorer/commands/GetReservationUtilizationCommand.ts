@@ -46,6 +46,8 @@ export class GetReservationUtilizationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CostExplorerClient",
+      commandName: "GetReservationUtilizationCommand",
       inputFilterSensitiveLog: GetReservationUtilizationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetReservationUtilizationResponse.filterSensitiveLog,
     };

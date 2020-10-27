@@ -50,6 +50,8 @@ export class PutApplicationPolicyCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ServerlessApplicationRepositoryClient",
+      commandName: "PutApplicationPolicyCommand",
       inputFilterSensitiveLog: PutApplicationPolicyRequest.filterSensitiveLog,
       outputFilterSensitiveLog: PutApplicationPolicyResponse.filterSensitiveLog,
     };

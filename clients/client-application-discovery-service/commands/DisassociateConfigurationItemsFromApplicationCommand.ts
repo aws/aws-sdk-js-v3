@@ -57,6 +57,8 @@ export class DisassociateConfigurationItemsFromApplicationCommand extends $Comma
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ApplicationDiscoveryServiceClient",
+      commandName: "DisassociateConfigurationItemsFromApplicationCommand",
       inputFilterSensitiveLog: DisassociateConfigurationItemsFromApplicationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DisassociateConfigurationItemsFromApplicationResponse.filterSensitiveLog,
     };

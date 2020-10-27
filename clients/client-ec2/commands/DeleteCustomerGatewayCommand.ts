@@ -46,6 +46,8 @@ export class DeleteCustomerGatewayCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EC2Client",
+      commandName: "DeleteCustomerGatewayCommand",
       inputFilterSensitiveLog: DeleteCustomerGatewayRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

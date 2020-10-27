@@ -46,6 +46,8 @@ export class GetTagsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ResourceGroupsClient",
+      commandName: "GetTagsCommand",
       inputFilterSensitiveLog: GetTagsInput.filterSensitiveLog,
       outputFilterSensitiveLog: GetTagsOutput.filterSensitiveLog,
     };

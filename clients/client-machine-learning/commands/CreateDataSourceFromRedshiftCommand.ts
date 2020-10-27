@@ -46,6 +46,8 @@ export class CreateDataSourceFromRedshiftCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "MachineLearningClient",
+      commandName: "CreateDataSourceFromRedshiftCommand",
       inputFilterSensitiveLog: CreateDataSourceFromRedshiftInput.filterSensitiveLog,
       outputFilterSensitiveLog: CreateDataSourceFromRedshiftOutput.filterSensitiveLog,
     };

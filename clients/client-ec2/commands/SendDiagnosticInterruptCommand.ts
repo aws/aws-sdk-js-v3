@@ -46,6 +46,8 @@ export class SendDiagnosticInterruptCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EC2Client",
+      commandName: "SendDiagnosticInterruptCommand",
       inputFilterSensitiveLog: SendDiagnosticInterruptRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

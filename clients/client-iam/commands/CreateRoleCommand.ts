@@ -43,6 +43,8 @@ export class CreateRoleCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "IAMClient",
+      commandName: "CreateRoleCommand",
       inputFilterSensitiveLog: CreateRoleRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateRoleResponse.filterSensitiveLog,
     };

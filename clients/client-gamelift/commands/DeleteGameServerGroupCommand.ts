@@ -46,6 +46,8 @@ export class DeleteGameServerGroupCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GameLiftClient",
+      commandName: "DeleteGameServerGroupCommand",
       inputFilterSensitiveLog: DeleteGameServerGroupInput.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteGameServerGroupOutput.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class DescribeSolutionVersionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "PersonalizeClient",
+      commandName: "DescribeSolutionVersionCommand",
       inputFilterSensitiveLog: DescribeSolutionVersionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeSolutionVersionResponse.filterSensitiveLog,
     };

@@ -48,6 +48,8 @@ export class ListObjectVersionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "S3Client",
+      commandName: "ListObjectVersionsCommand",
       inputFilterSensitiveLog: ListObjectVersionsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListObjectVersionsOutput.filterSensitiveLog,
     };

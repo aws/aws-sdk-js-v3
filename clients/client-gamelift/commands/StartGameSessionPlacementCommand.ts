@@ -46,6 +46,8 @@ export class StartGameSessionPlacementCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GameLiftClient",
+      commandName: "StartGameSessionPlacementCommand",
       inputFilterSensitiveLog: StartGameSessionPlacementInput.filterSensitiveLog,
       outputFilterSensitiveLog: StartGameSessionPlacementOutput.filterSensitiveLog,
     };

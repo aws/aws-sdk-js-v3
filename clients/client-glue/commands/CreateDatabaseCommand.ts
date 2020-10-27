@@ -46,6 +46,8 @@ export class CreateDatabaseCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GlueClient",
+      commandName: "CreateDatabaseCommand",
       inputFilterSensitiveLog: CreateDatabaseRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateDatabaseResponse.filterSensitiveLog,
     };

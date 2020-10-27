@@ -46,6 +46,8 @@ export class GetAnomalySubscriptionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CostExplorerClient",
+      commandName: "GetAnomalySubscriptionsCommand",
       inputFilterSensitiveLog: GetAnomalySubscriptionsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetAnomalySubscriptionsResponse.filterSensitiveLog,
     };

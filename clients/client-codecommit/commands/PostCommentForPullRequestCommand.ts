@@ -46,6 +46,8 @@ export class PostCommentForPullRequestCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CodeCommitClient",
+      commandName: "PostCommentForPullRequestCommand",
       inputFilterSensitiveLog: PostCommentForPullRequestInput.filterSensitiveLog,
       outputFilterSensitiveLog: PostCommentForPullRequestOutput.filterSensitiveLog,
     };

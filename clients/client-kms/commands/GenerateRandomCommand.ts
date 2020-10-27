@@ -46,6 +46,8 @@ export class GenerateRandomCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "KMSClient",
+      commandName: "GenerateRandomCommand",
       inputFilterSensitiveLog: GenerateRandomRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GenerateRandomResponse.filterSensitiveLog,
     };

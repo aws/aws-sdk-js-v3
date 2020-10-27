@@ -46,6 +46,8 @@ export class DeleteSamplingRuleCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "XRayClient",
+      commandName: "DeleteSamplingRuleCommand",
       inputFilterSensitiveLog: DeleteSamplingRuleRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteSamplingRuleResult.filterSensitiveLog,
     };

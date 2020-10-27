@@ -46,6 +46,8 @@ export class StartPersonTrackingCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "RekognitionClient",
+      commandName: "StartPersonTrackingCommand",
       inputFilterSensitiveLog: StartPersonTrackingRequest.filterSensitiveLog,
       outputFilterSensitiveLog: StartPersonTrackingResponse.filterSensitiveLog,
     };

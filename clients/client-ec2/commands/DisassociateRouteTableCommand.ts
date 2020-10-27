@@ -46,6 +46,8 @@ export class DisassociateRouteTableCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EC2Client",
+      commandName: "DisassociateRouteTableCommand",
       inputFilterSensitiveLog: DisassociateRouteTableRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

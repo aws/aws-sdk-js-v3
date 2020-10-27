@@ -46,6 +46,8 @@ export class SetVaultAccessPolicyCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GlacierClient",
+      commandName: "SetVaultAccessPolicyCommand",
       inputFilterSensitiveLog: SetVaultAccessPolicyInput.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

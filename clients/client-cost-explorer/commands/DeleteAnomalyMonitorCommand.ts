@@ -46,6 +46,8 @@ export class DeleteAnomalyMonitorCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CostExplorerClient",
+      commandName: "DeleteAnomalyMonitorCommand",
       inputFilterSensitiveLog: DeleteAnomalyMonitorRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteAnomalyMonitorResponse.filterSensitiveLog,
     };

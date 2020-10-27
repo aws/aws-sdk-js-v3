@@ -46,6 +46,8 @@ export class ListAlgorithmsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SageMakerClient",
+      commandName: "ListAlgorithmsCommand",
       inputFilterSensitiveLog: ListAlgorithmsInput.filterSensitiveLog,
       outputFilterSensitiveLog: ListAlgorithmsOutput.filterSensitiveLog,
     };

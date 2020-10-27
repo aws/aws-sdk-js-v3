@@ -46,6 +46,8 @@ export class DeleteDomainCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CodeartifactClient",
+      commandName: "DeleteDomainCommand",
       inputFilterSensitiveLog: DeleteDomainRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteDomainResult.filterSensitiveLog,
     };

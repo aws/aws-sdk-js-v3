@@ -46,6 +46,8 @@ export class ListAttendeesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ChimeClient",
+      commandName: "ListAttendeesCommand",
       inputFilterSensitiveLog: ListAttendeesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListAttendeesResponse.filterSensitiveLog,
     };

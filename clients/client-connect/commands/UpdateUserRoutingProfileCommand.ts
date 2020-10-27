@@ -46,6 +46,8 @@ export class UpdateUserRoutingProfileCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ConnectClient",
+      commandName: "UpdateUserRoutingProfileCommand",
       inputFilterSensitiveLog: UpdateUserRoutingProfileRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

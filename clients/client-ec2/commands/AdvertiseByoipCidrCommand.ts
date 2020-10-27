@@ -46,6 +46,8 @@ export class AdvertiseByoipCidrCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EC2Client",
+      commandName: "AdvertiseByoipCidrCommand",
       inputFilterSensitiveLog: AdvertiseByoipCidrRequest.filterSensitiveLog,
       outputFilterSensitiveLog: AdvertiseByoipCidrResult.filterSensitiveLog,
     };

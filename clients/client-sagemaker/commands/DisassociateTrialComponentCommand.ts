@@ -46,6 +46,8 @@ export class DisassociateTrialComponentCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SageMakerClient",
+      commandName: "DisassociateTrialComponentCommand",
       inputFilterSensitiveLog: DisassociateTrialComponentRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DisassociateTrialComponentResponse.filterSensitiveLog,
     };

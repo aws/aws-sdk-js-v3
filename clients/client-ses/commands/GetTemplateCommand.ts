@@ -43,6 +43,8 @@ export class GetTemplateCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SESClient",
+      commandName: "GetTemplateCommand",
       inputFilterSensitiveLog: GetTemplateRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetTemplateResponse.filterSensitiveLog,
     };

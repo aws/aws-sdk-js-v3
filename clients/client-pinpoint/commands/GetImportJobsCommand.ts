@@ -46,6 +46,8 @@ export class GetImportJobsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "PinpointClient",
+      commandName: "GetImportJobsCommand",
       inputFilterSensitiveLog: GetImportJobsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetImportJobsResponse.filterSensitiveLog,
     };

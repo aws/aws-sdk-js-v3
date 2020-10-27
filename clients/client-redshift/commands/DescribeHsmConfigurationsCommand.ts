@@ -46,6 +46,8 @@ export class DescribeHsmConfigurationsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "RedshiftClient",
+      commandName: "DescribeHsmConfigurationsCommand",
       inputFilterSensitiveLog: DescribeHsmConfigurationsMessage.filterSensitiveLog,
       outputFilterSensitiveLog: HsmConfigurationMessage.filterSensitiveLog,
     };

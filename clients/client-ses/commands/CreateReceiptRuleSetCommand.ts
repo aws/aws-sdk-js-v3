@@ -46,6 +46,8 @@ export class CreateReceiptRuleSetCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SESClient",
+      commandName: "CreateReceiptRuleSetCommand",
       inputFilterSensitiveLog: CreateReceiptRuleSetRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateReceiptRuleSetResponse.filterSensitiveLog,
     };

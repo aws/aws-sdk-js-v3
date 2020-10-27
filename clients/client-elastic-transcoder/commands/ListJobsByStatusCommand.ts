@@ -50,6 +50,8 @@ export class ListJobsByStatusCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ElasticTranscoderClient",
+      commandName: "ListJobsByStatusCommand",
       inputFilterSensitiveLog: ListJobsByStatusRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListJobsByStatusResponse.filterSensitiveLog,
     };

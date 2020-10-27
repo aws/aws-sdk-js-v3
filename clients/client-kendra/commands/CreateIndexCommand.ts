@@ -46,6 +46,8 @@ export class CreateIndexCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "KendraClient",
+      commandName: "CreateIndexCommand",
       inputFilterSensitiveLog: CreateIndexRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateIndexResponse.filterSensitiveLog,
     };

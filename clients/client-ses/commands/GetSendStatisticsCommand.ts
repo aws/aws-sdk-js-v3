@@ -46,6 +46,8 @@ export class GetSendStatisticsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SESClient",
+      commandName: "GetSendStatisticsCommand",
       inputFilterSensitiveLog: (input: any) => input,
       outputFilterSensitiveLog: GetSendStatisticsResponse.filterSensitiveLog,
     };

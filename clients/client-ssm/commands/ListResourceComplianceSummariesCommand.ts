@@ -46,6 +46,8 @@ export class ListResourceComplianceSummariesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SSMClient",
+      commandName: "ListResourceComplianceSummariesCommand",
       inputFilterSensitiveLog: ListResourceComplianceSummariesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListResourceComplianceSummariesResult.filterSensitiveLog,
     };

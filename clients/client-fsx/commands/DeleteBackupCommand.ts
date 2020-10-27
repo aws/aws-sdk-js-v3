@@ -46,6 +46,8 @@ export class DeleteBackupCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "FSxClient",
+      commandName: "DeleteBackupCommand",
       inputFilterSensitiveLog: DeleteBackupRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteBackupResponse.filterSensitiveLog,
     };

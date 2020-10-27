@@ -46,6 +46,8 @@ export class GetRelationalDatabaseLogStreamsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "LightsailClient",
+      commandName: "GetRelationalDatabaseLogStreamsCommand",
       inputFilterSensitiveLog: GetRelationalDatabaseLogStreamsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetRelationalDatabaseLogStreamsResult.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class UpdateWorkteamCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SageMakerClient",
+      commandName: "UpdateWorkteamCommand",
       inputFilterSensitiveLog: UpdateWorkteamRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateWorkteamResponse.filterSensitiveLog,
     };

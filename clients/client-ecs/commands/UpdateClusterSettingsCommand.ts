@@ -46,6 +46,8 @@ export class UpdateClusterSettingsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ECSClient",
+      commandName: "UpdateClusterSettingsCommand",
       inputFilterSensitiveLog: UpdateClusterSettingsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateClusterSettingsResponse.filterSensitiveLog,
     };

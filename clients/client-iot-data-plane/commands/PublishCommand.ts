@@ -46,6 +46,8 @@ export class PublishCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "IoTDataPlaneClient",
+      commandName: "PublishCommand",
       inputFilterSensitiveLog: PublishRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

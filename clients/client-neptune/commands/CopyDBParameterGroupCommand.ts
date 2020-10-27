@@ -46,6 +46,8 @@ export class CopyDBParameterGroupCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "NeptuneClient",
+      commandName: "CopyDBParameterGroupCommand",
       inputFilterSensitiveLog: CopyDBParameterGroupMessage.filterSensitiveLog,
       outputFilterSensitiveLog: CopyDBParameterGroupResult.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class DescribePermissionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "OpsWorksClient",
+      commandName: "DescribePermissionsCommand",
       inputFilterSensitiveLog: DescribePermissionsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribePermissionsResult.filterSensitiveLog,
     };

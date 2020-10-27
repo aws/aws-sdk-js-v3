@@ -46,6 +46,8 @@ export class CreateChannelCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "IvsClient",
+      commandName: "CreateChannelCommand",
       inputFilterSensitiveLog: CreateChannelRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateChannelResponse.filterSensitiveLog,
     };

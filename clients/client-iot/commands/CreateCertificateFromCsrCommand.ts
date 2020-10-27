@@ -46,6 +46,8 @@ export class CreateCertificateFromCsrCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "IoTClient",
+      commandName: "CreateCertificateFromCsrCommand",
       inputFilterSensitiveLog: CreateCertificateFromCsrRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateCertificateFromCsrResponse.filterSensitiveLog,
     };

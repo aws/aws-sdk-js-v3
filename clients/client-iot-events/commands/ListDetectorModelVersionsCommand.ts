@@ -46,6 +46,8 @@ export class ListDetectorModelVersionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "IoTEventsClient",
+      commandName: "ListDetectorModelVersionsCommand",
       inputFilterSensitiveLog: ListDetectorModelVersionsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListDetectorModelVersionsResponse.filterSensitiveLog,
     };

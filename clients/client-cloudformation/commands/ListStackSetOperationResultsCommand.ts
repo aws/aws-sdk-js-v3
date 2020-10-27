@@ -46,6 +46,8 @@ export class ListStackSetOperationResultsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CloudFormationClient",
+      commandName: "ListStackSetOperationResultsCommand",
       inputFilterSensitiveLog: ListStackSetOperationResultsInput.filterSensitiveLog,
       outputFilterSensitiveLog: ListStackSetOperationResultsOutput.filterSensitiveLog,
     };

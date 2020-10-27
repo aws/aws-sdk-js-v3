@@ -46,6 +46,8 @@ export class DeleteBackendEnvironmentCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "AmplifyClient",
+      commandName: "DeleteBackendEnvironmentCommand",
       inputFilterSensitiveLog: DeleteBackendEnvironmentRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteBackendEnvironmentResult.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class ListAccessControlRulesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "WorkMailClient",
+      commandName: "ListAccessControlRulesCommand",
       inputFilterSensitiveLog: ListAccessControlRulesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListAccessControlRulesResponse.filterSensitiveLog,
     };

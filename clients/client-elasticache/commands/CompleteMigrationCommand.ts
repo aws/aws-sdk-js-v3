@@ -46,6 +46,8 @@ export class CompleteMigrationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ElastiCacheClient",
+      commandName: "CompleteMigrationCommand",
       inputFilterSensitiveLog: CompleteMigrationMessage.filterSensitiveLog,
       outputFilterSensitiveLog: CompleteMigrationResponse.filterSensitiveLog,
     };

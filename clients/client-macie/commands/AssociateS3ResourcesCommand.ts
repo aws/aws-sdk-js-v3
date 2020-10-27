@@ -46,6 +46,8 @@ export class AssociateS3ResourcesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "MacieClient",
+      commandName: "AssociateS3ResourcesCommand",
       inputFilterSensitiveLog: AssociateS3ResourcesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: AssociateS3ResourcesResult.filterSensitiveLog,
     };

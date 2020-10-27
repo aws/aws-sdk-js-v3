@@ -46,6 +46,8 @@ export class DescribeSubscriptionFiltersCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CloudWatchLogsClient",
+      commandName: "DescribeSubscriptionFiltersCommand",
       inputFilterSensitiveLog: DescribeSubscriptionFiltersRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeSubscriptionFiltersResponse.filterSensitiveLog,
     };

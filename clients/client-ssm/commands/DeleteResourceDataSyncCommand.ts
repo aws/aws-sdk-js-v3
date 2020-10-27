@@ -46,6 +46,8 @@ export class DeleteResourceDataSyncCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SSMClient",
+      commandName: "DeleteResourceDataSyncCommand",
       inputFilterSensitiveLog: DeleteResourceDataSyncRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteResourceDataSyncResult.filterSensitiveLog,
     };

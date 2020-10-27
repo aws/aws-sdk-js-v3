@@ -46,6 +46,8 @@ export class GetChangeTokenCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "WAFRegionalClient",
+      commandName: "GetChangeTokenCommand",
       inputFilterSensitiveLog: GetChangeTokenRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetChangeTokenResponse.filterSensitiveLog,
     };

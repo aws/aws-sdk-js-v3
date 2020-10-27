@@ -48,6 +48,8 @@ export class PutBucketVersioningCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "S3Client",
+      commandName: "PutBucketVersioningCommand",
       inputFilterSensitiveLog: PutBucketVersioningRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

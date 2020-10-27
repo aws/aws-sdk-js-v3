@@ -46,6 +46,8 @@ export class ListTypeRegistrationsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CloudFormationClient",
+      commandName: "ListTypeRegistrationsCommand",
       inputFilterSensitiveLog: ListTypeRegistrationsInput.filterSensitiveLog,
       outputFilterSensitiveLog: ListTypeRegistrationsOutput.filterSensitiveLog,
     };

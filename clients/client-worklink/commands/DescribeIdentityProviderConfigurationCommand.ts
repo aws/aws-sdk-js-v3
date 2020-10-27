@@ -50,6 +50,8 @@ export class DescribeIdentityProviderConfigurationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "WorkLinkClient",
+      commandName: "DescribeIdentityProviderConfigurationCommand",
       inputFilterSensitiveLog: DescribeIdentityProviderConfigurationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeIdentityProviderConfigurationResponse.filterSensitiveLog,
     };

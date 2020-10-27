@@ -46,6 +46,8 @@ export class DeleteDeploymentGroupCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CodeDeployClient",
+      commandName: "DeleteDeploymentGroupCommand",
       inputFilterSensitiveLog: DeleteDeploymentGroupInput.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteDeploymentGroupOutput.filterSensitiveLog,
     };

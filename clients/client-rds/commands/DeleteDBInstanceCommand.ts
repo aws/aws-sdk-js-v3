@@ -46,6 +46,8 @@ export class DeleteDBInstanceCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "RDSClient",
+      commandName: "DeleteDBInstanceCommand",
       inputFilterSensitiveLog: DeleteDBInstanceMessage.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteDBInstanceResult.filterSensitiveLog,
     };

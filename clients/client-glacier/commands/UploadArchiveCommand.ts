@@ -48,6 +48,8 @@ export class UploadArchiveCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GlacierClient",
+      commandName: "UploadArchiveCommand",
       inputFilterSensitiveLog: UploadArchiveInput.filterSensitiveLog,
       outputFilterSensitiveLog: ArchiveCreationOutput.filterSensitiveLog,
     };

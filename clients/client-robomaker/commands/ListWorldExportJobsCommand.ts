@@ -46,6 +46,8 @@ export class ListWorldExportJobsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "RoboMakerClient",
+      commandName: "ListWorldExportJobsCommand",
       inputFilterSensitiveLog: ListWorldExportJobsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListWorldExportJobsResponse.filterSensitiveLog,
     };

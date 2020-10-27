@@ -46,6 +46,8 @@ export class RemoveThingFromThingGroupCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "IoTClient",
+      commandName: "RemoveThingFromThingGroupCommand",
       inputFilterSensitiveLog: RemoveThingFromThingGroupRequest.filterSensitiveLog,
       outputFilterSensitiveLog: RemoveThingFromThingGroupResponse.filterSensitiveLog,
     };

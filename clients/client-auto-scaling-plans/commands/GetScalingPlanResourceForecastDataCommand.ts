@@ -50,6 +50,8 @@ export class GetScalingPlanResourceForecastDataCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "AutoScalingPlansClient",
+      commandName: "GetScalingPlanResourceForecastDataCommand",
       inputFilterSensitiveLog: GetScalingPlanResourceForecastDataRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetScalingPlanResourceForecastDataResponse.filterSensitiveLog,
     };

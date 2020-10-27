@@ -50,6 +50,8 @@ export class DeleteAppReplicationConfigurationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SMSClient",
+      commandName: "DeleteAppReplicationConfigurationCommand",
       inputFilterSensitiveLog: DeleteAppReplicationConfigurationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteAppReplicationConfigurationResponse.filterSensitiveLog,
     };

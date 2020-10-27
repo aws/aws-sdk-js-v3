@@ -46,6 +46,8 @@ export class UpdateAnomalyMonitorCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CostExplorerClient",
+      commandName: "UpdateAnomalyMonitorCommand",
       inputFilterSensitiveLog: UpdateAnomalyMonitorRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateAnomalyMonitorResponse.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class AttachInstancesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "AutoScalingClient",
+      commandName: "AttachInstancesCommand",
       inputFilterSensitiveLog: AttachInstancesQuery.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

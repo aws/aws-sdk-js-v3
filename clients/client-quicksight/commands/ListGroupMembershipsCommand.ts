@@ -46,6 +46,8 @@ export class ListGroupMembershipsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "QuickSightClient",
+      commandName: "ListGroupMembershipsCommand",
       inputFilterSensitiveLog: ListGroupMembershipsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListGroupMembershipsResponse.filterSensitiveLog,
     };

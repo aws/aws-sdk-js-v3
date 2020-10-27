@@ -46,6 +46,8 @@ export class ListVersionsByFunctionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "LambdaClient",
+      commandName: "ListVersionsByFunctionCommand",
       inputFilterSensitiveLog: ListVersionsByFunctionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListVersionsByFunctionResponse.filterSensitiveLog,
     };

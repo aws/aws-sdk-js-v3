@@ -50,6 +50,8 @@ export class UpdateComponentCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ApplicationInsightsClient",
+      commandName: "UpdateComponentCommand",
       inputFilterSensitiveLog: UpdateComponentRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateComponentResponse.filterSensitiveLog,
     };

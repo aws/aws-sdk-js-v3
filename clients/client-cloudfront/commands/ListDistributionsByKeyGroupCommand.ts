@@ -46,6 +46,8 @@ export class ListDistributionsByKeyGroupCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CloudFrontClient",
+      commandName: "ListDistributionsByKeyGroupCommand",
       inputFilterSensitiveLog: ListDistributionsByKeyGroupRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListDistributionsByKeyGroupResult.filterSensitiveLog,
     };

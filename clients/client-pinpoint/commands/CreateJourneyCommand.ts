@@ -46,6 +46,8 @@ export class CreateJourneyCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "PinpointClient",
+      commandName: "CreateJourneyCommand",
       inputFilterSensitiveLog: CreateJourneyRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateJourneyResponse.filterSensitiveLog,
     };

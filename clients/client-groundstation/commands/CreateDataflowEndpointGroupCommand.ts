@@ -46,6 +46,8 @@ export class CreateDataflowEndpointGroupCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GroundStationClient",
+      commandName: "CreateDataflowEndpointGroupCommand",
       inputFilterSensitiveLog: CreateDataflowEndpointGroupRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DataflowEndpointGroupIdResponse.filterSensitiveLog,
     };

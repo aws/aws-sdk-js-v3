@@ -46,6 +46,8 @@ export class DescribeLunaClientCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CloudHSMClient",
+      commandName: "DescribeLunaClientCommand",
       inputFilterSensitiveLog: DescribeLunaClientRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeLunaClientResponse.filterSensitiveLog,
     };

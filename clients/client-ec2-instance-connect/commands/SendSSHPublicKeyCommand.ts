@@ -50,6 +50,8 @@ export class SendSSHPublicKeyCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EC2InstanceConnectClient",
+      commandName: "SendSSHPublicKeyCommand",
       inputFilterSensitiveLog: SendSSHPublicKeyRequest.filterSensitiveLog,
       outputFilterSensitiveLog: SendSSHPublicKeyResponse.filterSensitiveLog,
     };

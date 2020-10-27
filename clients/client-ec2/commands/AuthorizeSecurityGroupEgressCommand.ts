@@ -46,6 +46,8 @@ export class AuthorizeSecurityGroupEgressCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EC2Client",
+      commandName: "AuthorizeSecurityGroupEgressCommand",
       inputFilterSensitiveLog: AuthorizeSecurityGroupEgressRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

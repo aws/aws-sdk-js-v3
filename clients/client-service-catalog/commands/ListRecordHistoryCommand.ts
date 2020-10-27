@@ -46,6 +46,8 @@ export class ListRecordHistoryCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ServiceCatalogClient",
+      commandName: "ListRecordHistoryCommand",
       inputFilterSensitiveLog: ListRecordHistoryInput.filterSensitiveLog,
       outputFilterSensitiveLog: ListRecordHistoryOutput.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class DescribeFleetUtilizationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GameLiftClient",
+      commandName: "DescribeFleetUtilizationCommand",
       inputFilterSensitiveLog: DescribeFleetUtilizationInput.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeFleetUtilizationOutput.filterSensitiveLog,
     };

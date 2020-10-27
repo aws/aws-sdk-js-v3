@@ -50,6 +50,8 @@ export class StartChangeSetCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "MarketplaceCatalogClient",
+      commandName: "StartChangeSetCommand",
       inputFilterSensitiveLog: StartChangeSetRequest.filterSensitiveLog,
       outputFilterSensitiveLog: StartChangeSetResponse.filterSensitiveLog,
     };

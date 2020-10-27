@@ -46,6 +46,8 @@ export class ListFunctionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "LambdaClient",
+      commandName: "ListFunctionsCommand",
       inputFilterSensitiveLog: ListFunctionsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListFunctionsResponse.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class DeleteAuthorizerCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ApiGatewayV2Client",
+      commandName: "DeleteAuthorizerCommand",
       inputFilterSensitiveLog: DeleteAuthorizerRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

@@ -46,6 +46,8 @@ export class UpdateExpirationForHITCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "MTurkClient",
+      commandName: "UpdateExpirationForHITCommand",
       inputFilterSensitiveLog: UpdateExpirationForHITRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateExpirationForHITResponse.filterSensitiveLog,
     };

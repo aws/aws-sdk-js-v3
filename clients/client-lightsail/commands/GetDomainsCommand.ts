@@ -46,6 +46,8 @@ export class GetDomainsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "LightsailClient",
+      commandName: "GetDomainsCommand",
       inputFilterSensitiveLog: GetDomainsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetDomainsResult.filterSensitiveLog,
     };

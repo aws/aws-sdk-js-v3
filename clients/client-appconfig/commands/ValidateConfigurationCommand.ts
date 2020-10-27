@@ -46,6 +46,8 @@ export class ValidateConfigurationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "AppConfigClient",
+      commandName: "ValidateConfigurationCommand",
       inputFilterSensitiveLog: ValidateConfigurationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

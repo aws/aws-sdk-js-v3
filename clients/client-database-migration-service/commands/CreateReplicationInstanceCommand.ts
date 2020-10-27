@@ -50,6 +50,8 @@ export class CreateReplicationInstanceCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "DatabaseMigrationServiceClient",
+      commandName: "CreateReplicationInstanceCommand",
       inputFilterSensitiveLog: CreateReplicationInstanceMessage.filterSensitiveLog,
       outputFilterSensitiveLog: CreateReplicationInstanceResponse.filterSensitiveLog,
     };

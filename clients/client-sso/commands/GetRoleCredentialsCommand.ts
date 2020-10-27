@@ -46,6 +46,8 @@ export class GetRoleCredentialsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SSOClient",
+      commandName: "GetRoleCredentialsCommand",
       inputFilterSensitiveLog: GetRoleCredentialsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetRoleCredentialsResponse.filterSensitiveLog,
     };

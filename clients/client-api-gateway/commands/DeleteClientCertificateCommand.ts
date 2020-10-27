@@ -46,6 +46,8 @@ export class DeleteClientCertificateCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "APIGatewayClient",
+      commandName: "DeleteClientCertificateCommand",
       inputFilterSensitiveLog: DeleteClientCertificateRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

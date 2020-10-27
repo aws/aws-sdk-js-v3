@@ -39,6 +39,8 @@ export class UpdateAppCommand extends $Command<UpdateAppCommandInput, UpdateAppC
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SMSClient",
+      commandName: "UpdateAppCommand",
       inputFilterSensitiveLog: UpdateAppRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateAppResponse.filterSensitiveLog,
     };

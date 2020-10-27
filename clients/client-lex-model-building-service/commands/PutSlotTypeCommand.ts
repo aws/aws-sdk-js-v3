@@ -50,6 +50,8 @@ export class PutSlotTypeCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "LexModelBuildingServiceClient",
+      commandName: "PutSlotTypeCommand",
       inputFilterSensitiveLog: PutSlotTypeRequest.filterSensitiveLog,
       outputFilterSensitiveLog: PutSlotTypeResponse.filterSensitiveLog,
     };

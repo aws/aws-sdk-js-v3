@@ -46,6 +46,8 @@ export class UpdateActionTargetCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SecurityHubClient",
+      commandName: "UpdateActionTargetCommand",
       inputFilterSensitiveLog: UpdateActionTargetRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateActionTargetResponse.filterSensitiveLog,
     };

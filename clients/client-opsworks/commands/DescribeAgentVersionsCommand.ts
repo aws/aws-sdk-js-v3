@@ -46,6 +46,8 @@ export class DescribeAgentVersionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "OpsWorksClient",
+      commandName: "DescribeAgentVersionsCommand",
       inputFilterSensitiveLog: DescribeAgentVersionsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeAgentVersionsResult.filterSensitiveLog,
     };

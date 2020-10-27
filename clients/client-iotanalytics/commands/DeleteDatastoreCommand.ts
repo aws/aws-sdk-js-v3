@@ -46,6 +46,8 @@ export class DeleteDatastoreCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "IoTAnalyticsClient",
+      commandName: "DeleteDatastoreCommand",
       inputFilterSensitiveLog: DeleteDatastoreRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

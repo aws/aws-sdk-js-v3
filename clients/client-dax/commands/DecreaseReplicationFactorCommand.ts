@@ -46,6 +46,8 @@ export class DecreaseReplicationFactorCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "DAXClient",
+      commandName: "DecreaseReplicationFactorCommand",
       inputFilterSensitiveLog: DecreaseReplicationFactorRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DecreaseReplicationFactorResponse.filterSensitiveLog,
     };

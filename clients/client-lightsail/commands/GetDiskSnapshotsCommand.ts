@@ -46,6 +46,8 @@ export class GetDiskSnapshotsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "LightsailClient",
+      commandName: "GetDiskSnapshotsCommand",
       inputFilterSensitiveLog: GetDiskSnapshotsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetDiskSnapshotsResult.filterSensitiveLog,
     };

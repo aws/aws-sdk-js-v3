@@ -46,6 +46,8 @@ export class PutDomainPermissionsPolicyCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CodeartifactClient",
+      commandName: "PutDomainPermissionsPolicyCommand",
       inputFilterSensitiveLog: PutDomainPermissionsPolicyRequest.filterSensitiveLog,
       outputFilterSensitiveLog: PutDomainPermissionsPolicyResult.filterSensitiveLog,
     };

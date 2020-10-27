@@ -46,6 +46,8 @@ export class RequestCancelWorkflowExecutionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SWFClient",
+      commandName: "RequestCancelWorkflowExecutionCommand",
       inputFilterSensitiveLog: RequestCancelWorkflowExecutionInput.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

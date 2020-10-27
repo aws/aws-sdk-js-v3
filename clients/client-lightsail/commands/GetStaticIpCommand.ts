@@ -46,6 +46,8 @@ export class GetStaticIpCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "LightsailClient",
+      commandName: "GetStaticIpCommand",
       inputFilterSensitiveLog: GetStaticIpRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetStaticIpResult.filterSensitiveLog,
     };

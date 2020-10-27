@@ -46,6 +46,8 @@ export class RemoveTagsFromOnPremisesInstancesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CodeDeployClient",
+      commandName: "RemoveTagsFromOnPremisesInstancesCommand",
       inputFilterSensitiveLog: RemoveTagsFromOnPremisesInstancesInput.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

@@ -46,6 +46,8 @@ export class GetResourcePoliciesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GlueClient",
+      commandName: "GetResourcePoliciesCommand",
       inputFilterSensitiveLog: GetResourcePoliciesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetResourcePoliciesResponse.filterSensitiveLog,
     };

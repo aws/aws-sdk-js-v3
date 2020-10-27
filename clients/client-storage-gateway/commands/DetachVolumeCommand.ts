@@ -46,6 +46,8 @@ export class DetachVolumeCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "StorageGatewayClient",
+      commandName: "DetachVolumeCommand",
       inputFilterSensitiveLog: DetachVolumeInput.filterSensitiveLog,
       outputFilterSensitiveLog: DetachVolumeOutput.filterSensitiveLog,
     };

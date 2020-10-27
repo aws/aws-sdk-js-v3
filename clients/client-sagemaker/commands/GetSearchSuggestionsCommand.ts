@@ -46,6 +46,8 @@ export class GetSearchSuggestionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SageMakerClient",
+      commandName: "GetSearchSuggestionsCommand",
       inputFilterSensitiveLog: GetSearchSuggestionsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetSearchSuggestionsResponse.filterSensitiveLog,
     };

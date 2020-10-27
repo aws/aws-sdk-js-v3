@@ -46,6 +46,8 @@ export class StopConfigurationRecorderCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ConfigServiceClient",
+      commandName: "StopConfigurationRecorderCommand",
       inputFilterSensitiveLog: StopConfigurationRecorderRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

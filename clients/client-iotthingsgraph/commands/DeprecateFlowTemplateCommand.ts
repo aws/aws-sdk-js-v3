@@ -46,6 +46,8 @@ export class DeprecateFlowTemplateCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "IoTThingsGraphClient",
+      commandName: "DeprecateFlowTemplateCommand",
       inputFilterSensitiveLog: DeprecateFlowTemplateRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeprecateFlowTemplateResponse.filterSensitiveLog,
     };

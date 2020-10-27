@@ -46,6 +46,8 @@ export class AddIpRoutesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "DirectoryServiceClient",
+      commandName: "AddIpRoutesCommand",
       inputFilterSensitiveLog: AddIpRoutesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: AddIpRoutesResult.filterSensitiveLog,
     };

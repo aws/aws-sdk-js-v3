@@ -46,6 +46,8 @@ export class CreateBackupCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "OpsWorksCMClient",
+      commandName: "CreateBackupCommand",
       inputFilterSensitiveLog: CreateBackupRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateBackupResponse.filterSensitiveLog,
     };

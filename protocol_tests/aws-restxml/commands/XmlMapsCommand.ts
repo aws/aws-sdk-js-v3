@@ -43,6 +43,8 @@ export class XmlMapsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "RestXmlProtocolClient",
+      commandName: "XmlMapsCommand",
       inputFilterSensitiveLog: XmlMapsInputOutput.filterSensitiveLog,
       outputFilterSensitiveLog: XmlMapsInputOutput.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class CreateLaunchConfigurationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "AutoScalingClient",
+      commandName: "CreateLaunchConfigurationCommand",
       inputFilterSensitiveLog: CreateLaunchConfigurationType.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

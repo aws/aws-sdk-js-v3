@@ -46,6 +46,8 @@ export class GetProvisionedProductOutputsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ServiceCatalogClient",
+      commandName: "GetProvisionedProductOutputsCommand",
       inputFilterSensitiveLog: GetProvisionedProductOutputsInput.filterSensitiveLog,
       outputFilterSensitiveLog: GetProvisionedProductOutputsOutput.filterSensitiveLog,
     };

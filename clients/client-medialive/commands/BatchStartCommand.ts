@@ -46,6 +46,8 @@ export class BatchStartCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "MediaLiveClient",
+      commandName: "BatchStartCommand",
       inputFilterSensitiveLog: BatchStartRequest.filterSensitiveLog,
       outputFilterSensitiveLog: BatchStartResponse.filterSensitiveLog,
     };

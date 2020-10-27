@@ -46,6 +46,8 @@ export class CreateDirectoryCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CloudDirectoryClient",
+      commandName: "CreateDirectoryCommand",
       inputFilterSensitiveLog: CreateDirectoryRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateDirectoryResponse.filterSensitiveLog,
     };

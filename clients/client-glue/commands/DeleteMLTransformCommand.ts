@@ -46,6 +46,8 @@ export class DeleteMLTransformCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GlueClient",
+      commandName: "DeleteMLTransformCommand",
       inputFilterSensitiveLog: DeleteMLTransformRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteMLTransformResponse.filterSensitiveLog,
     };

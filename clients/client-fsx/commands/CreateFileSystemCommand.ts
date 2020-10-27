@@ -46,6 +46,8 @@ export class CreateFileSystemCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "FSxClient",
+      commandName: "CreateFileSystemCommand",
       inputFilterSensitiveLog: CreateFileSystemRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateFileSystemResponse.filterSensitiveLog,
     };

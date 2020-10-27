@@ -46,6 +46,8 @@ export class CreateRoomCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "AlexaForBusinessClient",
+      commandName: "CreateRoomCommand",
       inputFilterSensitiveLog: CreateRoomRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateRoomResponse.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class DeleteRuleCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "FraudDetectorClient",
+      commandName: "DeleteRuleCommand",
       inputFilterSensitiveLog: DeleteRuleRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteRuleResult.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class DeleteMitigationActionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "IoTClient",
+      commandName: "DeleteMitigationActionCommand",
       inputFilterSensitiveLog: DeleteMitigationActionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteMitigationActionResponse.filterSensitiveLog,
     };

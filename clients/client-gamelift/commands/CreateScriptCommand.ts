@@ -46,6 +46,8 @@ export class CreateScriptCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GameLiftClient",
+      commandName: "CreateScriptCommand",
       inputFilterSensitiveLog: CreateScriptInput.filterSensitiveLog,
       outputFilterSensitiveLog: CreateScriptOutput.filterSensitiveLog,
     };

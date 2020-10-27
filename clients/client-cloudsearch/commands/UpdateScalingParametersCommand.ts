@@ -46,6 +46,8 @@ export class UpdateScalingParametersCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CloudSearchClient",
+      commandName: "UpdateScalingParametersCommand",
       inputFilterSensitiveLog: UpdateScalingParametersRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateScalingParametersResponse.filterSensitiveLog,
     };

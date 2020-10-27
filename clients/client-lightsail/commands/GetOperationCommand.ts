@@ -46,6 +46,8 @@ export class GetOperationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "LightsailClient",
+      commandName: "GetOperationCommand",
       inputFilterSensitiveLog: GetOperationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetOperationResult.filterSensitiveLog,
     };

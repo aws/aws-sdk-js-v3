@@ -46,6 +46,8 @@ export class CreateBackupPlanCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "BackupClient",
+      commandName: "CreateBackupPlanCommand",
       inputFilterSensitiveLog: CreateBackupPlanInput.filterSensitiveLog,
       outputFilterSensitiveLog: CreateBackupPlanOutput.filterSensitiveLog,
     };

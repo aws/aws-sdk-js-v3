@@ -46,6 +46,8 @@ export class DeletePackageVersionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CodeartifactClient",
+      commandName: "DeletePackageVersionsCommand",
       inputFilterSensitiveLog: DeletePackageVersionsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeletePackageVersionsResult.filterSensitiveLog,
     };

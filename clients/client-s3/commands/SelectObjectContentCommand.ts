@@ -51,6 +51,8 @@ export class SelectObjectContentCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "S3Client",
+      commandName: "SelectObjectContentCommand",
       inputFilterSensitiveLog: SelectObjectContentRequest.filterSensitiveLog,
       outputFilterSensitiveLog: SelectObjectContentOutput.filterSensitiveLog,
     };

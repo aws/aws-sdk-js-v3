@@ -46,6 +46,8 @@ export class HttpPayloadWithStructureCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "RestXmlProtocolClient",
+      commandName: "HttpPayloadWithStructureCommand",
       inputFilterSensitiveLog: HttpPayloadWithStructureInputOutput.filterSensitiveLog,
       outputFilterSensitiveLog: HttpPayloadWithStructureInputOutput.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class PutSecretValueCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SecretsManagerClient",
+      commandName: "PutSecretValueCommand",
       inputFilterSensitiveLog: PutSecretValueRequest.filterSensitiveLog,
       outputFilterSensitiveLog: PutSecretValueResponse.filterSensitiveLog,
     };

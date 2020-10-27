@@ -46,6 +46,8 @@ export class ListCACertificatesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "IoTClient",
+      commandName: "ListCACertificatesCommand",
       inputFilterSensitiveLog: ListCACertificatesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListCACertificatesResponse.filterSensitiveLog,
     };

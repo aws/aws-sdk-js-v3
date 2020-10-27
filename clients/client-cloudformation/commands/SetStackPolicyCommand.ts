@@ -46,6 +46,8 @@ export class SetStackPolicyCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CloudFormationClient",
+      commandName: "SetStackPolicyCommand",
       inputFilterSensitiveLog: SetStackPolicyInput.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

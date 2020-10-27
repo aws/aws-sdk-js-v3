@@ -46,6 +46,8 @@ export class DescribeHumanTaskUiCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SageMakerClient",
+      commandName: "DescribeHumanTaskUiCommand",
       inputFilterSensitiveLog: DescribeHumanTaskUiRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeHumanTaskUiResponse.filterSensitiveLog,
     };

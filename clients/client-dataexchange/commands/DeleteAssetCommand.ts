@@ -46,6 +46,8 @@ export class DeleteAssetCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "DataExchangeClient",
+      commandName: "DeleteAssetCommand",
       inputFilterSensitiveLog: DeleteAssetRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

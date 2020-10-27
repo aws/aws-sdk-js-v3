@@ -46,6 +46,8 @@ export class DeleteEventSourceMappingCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "LambdaClient",
+      commandName: "DeleteEventSourceMappingCommand",
       inputFilterSensitiveLog: DeleteEventSourceMappingRequest.filterSensitiveLog,
       outputFilterSensitiveLog: EventSourceMappingConfiguration.filterSensitiveLog,
     };

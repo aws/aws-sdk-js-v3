@@ -46,6 +46,8 @@ export class UnassignInstanceCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "OpsWorksClient",
+      commandName: "UnassignInstanceCommand",
       inputFilterSensitiveLog: UnassignInstanceRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

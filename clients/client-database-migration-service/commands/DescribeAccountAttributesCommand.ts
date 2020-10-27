@@ -50,6 +50,8 @@ export class DescribeAccountAttributesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "DatabaseMigrationServiceClient",
+      commandName: "DescribeAccountAttributesCommand",
       inputFilterSensitiveLog: DescribeAccountAttributesMessage.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeAccountAttributesResponse.filterSensitiveLog,
     };

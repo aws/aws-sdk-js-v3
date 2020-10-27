@@ -46,6 +46,8 @@ export class CreateDatasetGroupCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ForecastClient",
+      commandName: "CreateDatasetGroupCommand",
       inputFilterSensitiveLog: CreateDatasetGroupRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateDatasetGroupResponse.filterSensitiveLog,
     };

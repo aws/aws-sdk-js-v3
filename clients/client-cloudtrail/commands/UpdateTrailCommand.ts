@@ -46,6 +46,8 @@ export class UpdateTrailCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CloudTrailClient",
+      commandName: "UpdateTrailCommand",
       inputFilterSensitiveLog: UpdateTrailRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateTrailResponse.filterSensitiveLog,
     };

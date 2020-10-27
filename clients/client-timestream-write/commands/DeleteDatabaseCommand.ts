@@ -46,6 +46,8 @@ export class DeleteDatabaseCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "TimestreamWriteClient",
+      commandName: "DeleteDatabaseCommand",
       inputFilterSensitiveLog: DeleteDatabaseRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

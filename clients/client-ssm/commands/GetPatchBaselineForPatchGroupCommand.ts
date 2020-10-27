@@ -46,6 +46,8 @@ export class GetPatchBaselineForPatchGroupCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SSMClient",
+      commandName: "GetPatchBaselineForPatchGroupCommand",
       inputFilterSensitiveLog: GetPatchBaselineForPatchGroupRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetPatchBaselineForPatchGroupResult.filterSensitiveLog,
     };

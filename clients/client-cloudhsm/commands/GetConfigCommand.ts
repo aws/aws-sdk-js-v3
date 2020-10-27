@@ -43,6 +43,8 @@ export class GetConfigCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CloudHSMClient",
+      commandName: "GetConfigCommand",
       inputFilterSensitiveLog: GetConfigRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetConfigResponse.filterSensitiveLog,
     };

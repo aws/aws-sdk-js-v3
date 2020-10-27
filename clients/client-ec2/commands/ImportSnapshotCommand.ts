@@ -43,6 +43,8 @@ export class ImportSnapshotCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EC2Client",
+      commandName: "ImportSnapshotCommand",
       inputFilterSensitiveLog: ImportSnapshotRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ImportSnapshotResult.filterSensitiveLog,
     };

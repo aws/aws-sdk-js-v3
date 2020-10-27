@@ -46,6 +46,8 @@ export class BatchGetReportsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CodeBuildClient",
+      commandName: "BatchGetReportsCommand",
       inputFilterSensitiveLog: BatchGetReportsInput.filterSensitiveLog,
       outputFilterSensitiveLog: BatchGetReportsOutput.filterSensitiveLog,
     };

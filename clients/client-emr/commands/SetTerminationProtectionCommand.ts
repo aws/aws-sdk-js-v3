@@ -46,6 +46,8 @@ export class SetTerminationProtectionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EMRClient",
+      commandName: "SetTerminationProtectionCommand",
       inputFilterSensitiveLog: SetTerminationProtectionInput.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

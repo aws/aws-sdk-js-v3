@@ -46,6 +46,8 @@ export class NullAndEmptyHeadersClientCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "RestXmlProtocolClient",
+      commandName: "NullAndEmptyHeadersClientCommand",
       inputFilterSensitiveLog: NullAndEmptyHeadersIO.filterSensitiveLog,
       outputFilterSensitiveLog: NullAndEmptyHeadersIO.filterSensitiveLog,
     };

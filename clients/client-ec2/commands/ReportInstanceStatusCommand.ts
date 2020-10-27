@@ -46,6 +46,8 @@ export class ReportInstanceStatusCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EC2Client",
+      commandName: "ReportInstanceStatusCommand",
       inputFilterSensitiveLog: ReportInstanceStatusRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

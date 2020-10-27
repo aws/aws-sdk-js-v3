@@ -46,6 +46,8 @@ export class DescribeTableCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "DynamoDBClient",
+      commandName: "DescribeTableCommand",
       inputFilterSensitiveLog: DescribeTableInput.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeTableOutput.filterSensitiveLog,
     };

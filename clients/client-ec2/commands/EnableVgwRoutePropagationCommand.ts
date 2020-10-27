@@ -46,6 +46,8 @@ export class EnableVgwRoutePropagationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EC2Client",
+      commandName: "EnableVgwRoutePropagationCommand",
       inputFilterSensitiveLog: EnableVgwRoutePropagationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

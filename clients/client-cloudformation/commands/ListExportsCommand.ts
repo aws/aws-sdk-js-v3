@@ -43,6 +43,8 @@ export class ListExportsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CloudFormationClient",
+      commandName: "ListExportsCommand",
       inputFilterSensitiveLog: ListExportsInput.filterSensitiveLog,
       outputFilterSensitiveLog: ListExportsOutput.filterSensitiveLog,
     };

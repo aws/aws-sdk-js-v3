@@ -46,6 +46,8 @@ export class CreateConnectorDefinitionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GreengrassClient",
+      commandName: "CreateConnectorDefinitionCommand",
       inputFilterSensitiveLog: CreateConnectorDefinitionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateConnectorDefinitionResponse.filterSensitiveLog,
     };

@@ -50,6 +50,8 @@ export class UpdateRelationalDatabaseParametersCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "LightsailClient",
+      commandName: "UpdateRelationalDatabaseParametersCommand",
       inputFilterSensitiveLog: UpdateRelationalDatabaseParametersRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateRelationalDatabaseParametersResult.filterSensitiveLog,
     };

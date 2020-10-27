@@ -46,6 +46,8 @@ export class UntagLogGroupCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CloudWatchLogsClient",
+      commandName: "UntagLogGroupCommand",
       inputFilterSensitiveLog: UntagLogGroupRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

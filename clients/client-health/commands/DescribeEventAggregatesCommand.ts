@@ -46,6 +46,8 @@ export class DescribeEventAggregatesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "HealthClient",
+      commandName: "DescribeEventAggregatesCommand",
       inputFilterSensitiveLog: DescribeEventAggregatesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeEventAggregatesResponse.filterSensitiveLog,
     };

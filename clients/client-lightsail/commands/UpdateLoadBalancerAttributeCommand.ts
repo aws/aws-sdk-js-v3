@@ -46,6 +46,8 @@ export class UpdateLoadBalancerAttributeCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "LightsailClient",
+      commandName: "UpdateLoadBalancerAttributeCommand",
       inputFilterSensitiveLog: UpdateLoadBalancerAttributeRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateLoadBalancerAttributeResult.filterSensitiveLog,
     };

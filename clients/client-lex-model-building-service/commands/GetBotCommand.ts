@@ -47,6 +47,8 @@ export class GetBotCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "LexModelBuildingServiceClient",
+      commandName: "GetBotCommand",
       inputFilterSensitiveLog: GetBotRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetBotResponse.filterSensitiveLog,
     };

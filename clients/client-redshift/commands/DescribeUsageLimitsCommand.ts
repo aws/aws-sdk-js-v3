@@ -46,6 +46,8 @@ export class DescribeUsageLimitsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "RedshiftClient",
+      commandName: "DescribeUsageLimitsCommand",
       inputFilterSensitiveLog: DescribeUsageLimitsMessage.filterSensitiveLog,
       outputFilterSensitiveLog: UsageLimitList.filterSensitiveLog,
     };

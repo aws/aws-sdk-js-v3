@@ -50,6 +50,8 @@ export class DescribeDocumentClassificationJobCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ComprehendClient",
+      commandName: "DescribeDocumentClassificationJobCommand",
       inputFilterSensitiveLog: DescribeDocumentClassificationJobRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeDocumentClassificationJobResponse.filterSensitiveLog,
     };

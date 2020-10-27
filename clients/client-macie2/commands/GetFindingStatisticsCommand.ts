@@ -46,6 +46,8 @@ export class GetFindingStatisticsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "Macie2Client",
+      commandName: "GetFindingStatisticsCommand",
       inputFilterSensitiveLog: GetFindingStatisticsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetFindingStatisticsResponse.filterSensitiveLog,
     };

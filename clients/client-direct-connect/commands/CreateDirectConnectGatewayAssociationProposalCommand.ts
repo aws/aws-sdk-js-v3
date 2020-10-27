@@ -53,6 +53,8 @@ export class CreateDirectConnectGatewayAssociationProposalCommand extends $Comma
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "DirectConnectClient",
+      commandName: "CreateDirectConnectGatewayAssociationProposalCommand",
       inputFilterSensitiveLog: CreateDirectConnectGatewayAssociationProposalRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateDirectConnectGatewayAssociationProposalResult.filterSensitiveLog,
     };

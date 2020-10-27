@@ -46,6 +46,8 @@ export class DeleteRolePermissionsBoundaryCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "IAMClient",
+      commandName: "DeleteRolePermissionsBoundaryCommand",
       inputFilterSensitiveLog: DeleteRolePermissionsBoundaryRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

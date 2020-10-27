@@ -46,6 +46,8 @@ export class CreateTagsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "MediaLiveClient",
+      commandName: "CreateTagsCommand",
       inputFilterSensitiveLog: CreateTagsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

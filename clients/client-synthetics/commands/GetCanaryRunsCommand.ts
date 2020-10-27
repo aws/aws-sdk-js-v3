@@ -46,6 +46,8 @@ export class GetCanaryRunsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SyntheticsClient",
+      commandName: "GetCanaryRunsCommand",
       inputFilterSensitiveLog: GetCanaryRunsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetCanaryRunsResponse.filterSensitiveLog,
     };

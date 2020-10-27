@@ -46,6 +46,8 @@ export class DeleteCacheParameterGroupCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ElastiCacheClient",
+      commandName: "DeleteCacheParameterGroupCommand",
       inputFilterSensitiveLog: DeleteCacheParameterGroupMessage.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

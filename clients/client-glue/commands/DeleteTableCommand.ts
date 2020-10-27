@@ -46,6 +46,8 @@ export class DeleteTableCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GlueClient",
+      commandName: "DeleteTableCommand",
       inputFilterSensitiveLog: DeleteTableRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteTableResponse.filterSensitiveLog,
     };

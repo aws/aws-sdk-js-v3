@@ -46,6 +46,8 @@ export class DescribeWorkspaceImagePermissionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "WorkSpacesClient",
+      commandName: "DescribeWorkspaceImagePermissionsCommand",
       inputFilterSensitiveLog: DescribeWorkspaceImagePermissionsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeWorkspaceImagePermissionsResult.filterSensitiveLog,
     };

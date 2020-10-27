@@ -46,6 +46,8 @@ export class DeletePublicKeyCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CloudFrontClient",
+      commandName: "DeletePublicKeyCommand",
       inputFilterSensitiveLog: DeletePublicKeyRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

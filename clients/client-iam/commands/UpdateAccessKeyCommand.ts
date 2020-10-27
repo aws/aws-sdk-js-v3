@@ -46,6 +46,8 @@ export class UpdateAccessKeyCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "IAMClient",
+      commandName: "UpdateAccessKeyCommand",
       inputFilterSensitiveLog: UpdateAccessKeyRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

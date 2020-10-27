@@ -46,6 +46,8 @@ export class CancelQueryCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "TimestreamQueryClient",
+      commandName: "CancelQueryCommand",
       inputFilterSensitiveLog: CancelQueryRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CancelQueryResponse.filterSensitiveLog,
     };

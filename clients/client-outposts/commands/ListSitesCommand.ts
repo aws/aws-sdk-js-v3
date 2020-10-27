@@ -46,6 +46,8 @@ export class ListSitesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "OutpostsClient",
+      commandName: "ListSitesCommand",
       inputFilterSensitiveLog: ListSitesInput.filterSensitiveLog,
       outputFilterSensitiveLog: ListSitesOutput.filterSensitiveLog,
     };

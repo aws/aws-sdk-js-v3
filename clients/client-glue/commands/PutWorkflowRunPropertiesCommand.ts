@@ -46,6 +46,8 @@ export class PutWorkflowRunPropertiesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GlueClient",
+      commandName: "PutWorkflowRunPropertiesCommand",
       inputFilterSensitiveLog: PutWorkflowRunPropertiesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: PutWorkflowRunPropertiesResponse.filterSensitiveLog,
     };

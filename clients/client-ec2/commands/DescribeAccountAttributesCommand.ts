@@ -46,6 +46,8 @@ export class DescribeAccountAttributesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EC2Client",
+      commandName: "DescribeAccountAttributesCommand",
       inputFilterSensitiveLog: DescribeAccountAttributesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeAccountAttributesResult.filterSensitiveLog,
     };

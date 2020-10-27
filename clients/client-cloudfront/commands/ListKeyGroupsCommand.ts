@@ -46,6 +46,8 @@ export class ListKeyGroupsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CloudFrontClient",
+      commandName: "ListKeyGroupsCommand",
       inputFilterSensitiveLog: ListKeyGroupsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListKeyGroupsResult.filterSensitiveLog,
     };

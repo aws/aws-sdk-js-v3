@@ -46,6 +46,8 @@ export class GetRequestedServiceQuotaChangeCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ServiceQuotasClient",
+      commandName: "GetRequestedServiceQuotaChangeCommand",
       inputFilterSensitiveLog: GetRequestedServiceQuotaChangeRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetRequestedServiceQuotaChangeResponse.filterSensitiveLog,
     };

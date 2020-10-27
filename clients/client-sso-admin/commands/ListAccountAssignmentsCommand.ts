@@ -46,6 +46,8 @@ export class ListAccountAssignmentsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SSOAdminClient",
+      commandName: "ListAccountAssignmentsCommand",
       inputFilterSensitiveLog: ListAccountAssignmentsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListAccountAssignmentsResponse.filterSensitiveLog,
     };

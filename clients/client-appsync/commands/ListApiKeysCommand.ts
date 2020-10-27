@@ -46,6 +46,8 @@ export class ListApiKeysCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "AppSyncClient",
+      commandName: "ListApiKeysCommand",
       inputFilterSensitiveLog: ListApiKeysRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListApiKeysResponse.filterSensitiveLog,
     };

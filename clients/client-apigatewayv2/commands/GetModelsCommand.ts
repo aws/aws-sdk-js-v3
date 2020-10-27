@@ -46,6 +46,8 @@ export class GetModelsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ApiGatewayV2Client",
+      commandName: "GetModelsCommand",
       inputFilterSensitiveLog: GetModelsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetModelsResponse.filterSensitiveLog,
     };

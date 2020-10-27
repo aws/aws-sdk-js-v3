@@ -46,6 +46,8 @@ export class ListLocationsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "DataSyncClient",
+      commandName: "ListLocationsCommand",
       inputFilterSensitiveLog: ListLocationsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListLocationsResponse.filterSensitiveLog,
     };

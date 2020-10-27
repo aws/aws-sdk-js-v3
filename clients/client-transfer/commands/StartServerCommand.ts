@@ -46,6 +46,8 @@ export class StartServerCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "TransferClient",
+      commandName: "StartServerCommand",
       inputFilterSensitiveLog: StartServerRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

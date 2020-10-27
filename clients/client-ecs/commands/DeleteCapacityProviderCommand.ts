@@ -46,6 +46,8 @@ export class DeleteCapacityProviderCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ECSClient",
+      commandName: "DeleteCapacityProviderCommand",
       inputFilterSensitiveLog: DeleteCapacityProviderRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteCapacityProviderResponse.filterSensitiveLog,
     };

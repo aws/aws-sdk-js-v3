@@ -46,6 +46,8 @@ export class DescribeDatastoreCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "IoTAnalyticsClient",
+      commandName: "DescribeDatastoreCommand",
       inputFilterSensitiveLog: DescribeDatastoreRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeDatastoreResponse.filterSensitiveLog,
     };

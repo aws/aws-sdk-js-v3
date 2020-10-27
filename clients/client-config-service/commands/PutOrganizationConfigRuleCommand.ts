@@ -46,6 +46,8 @@ export class PutOrganizationConfigRuleCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ConfigServiceClient",
+      commandName: "PutOrganizationConfigRuleCommand",
       inputFilterSensitiveLog: PutOrganizationConfigRuleRequest.filterSensitiveLog,
       outputFilterSensitiveLog: PutOrganizationConfigRuleResponse.filterSensitiveLog,
     };

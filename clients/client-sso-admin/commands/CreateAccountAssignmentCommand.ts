@@ -46,6 +46,8 @@ export class CreateAccountAssignmentCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SSOAdminClient",
+      commandName: "CreateAccountAssignmentCommand",
       inputFilterSensitiveLog: CreateAccountAssignmentRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateAccountAssignmentResponse.filterSensitiveLog,
     };

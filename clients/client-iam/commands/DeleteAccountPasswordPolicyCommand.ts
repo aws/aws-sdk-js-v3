@@ -45,6 +45,8 @@ export class DeleteAccountPasswordPolicyCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "IAMClient",
+      commandName: "DeleteAccountPasswordPolicyCommand",
       inputFilterSensitiveLog: (input: any) => input,
       outputFilterSensitiveLog: (output: any) => output,
     };

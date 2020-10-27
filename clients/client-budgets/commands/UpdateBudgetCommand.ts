@@ -46,6 +46,8 @@ export class UpdateBudgetCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "BudgetsClient",
+      commandName: "UpdateBudgetCommand",
       inputFilterSensitiveLog: UpdateBudgetRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateBudgetResponse.filterSensitiveLog,
     };

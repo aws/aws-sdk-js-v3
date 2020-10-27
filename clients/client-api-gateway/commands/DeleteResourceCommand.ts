@@ -46,6 +46,8 @@ export class DeleteResourceCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "APIGatewayClient",
+      commandName: "DeleteResourceCommand",
       inputFilterSensitiveLog: DeleteResourceRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

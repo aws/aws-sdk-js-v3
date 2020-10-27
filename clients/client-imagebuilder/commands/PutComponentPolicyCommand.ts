@@ -46,6 +46,8 @@ export class PutComponentPolicyCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ImagebuilderClient",
+      commandName: "PutComponentPolicyCommand",
       inputFilterSensitiveLog: PutComponentPolicyRequest.filterSensitiveLog,
       outputFilterSensitiveLog: PutComponentPolicyResponse.filterSensitiveLog,
     };

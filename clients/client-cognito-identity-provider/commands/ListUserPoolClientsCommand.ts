@@ -50,6 +50,8 @@ export class ListUserPoolClientsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CognitoIdentityProviderClient",
+      commandName: "ListUserPoolClientsCommand",
       inputFilterSensitiveLog: ListUserPoolClientsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListUserPoolClientsResponse.filterSensitiveLog,
     };

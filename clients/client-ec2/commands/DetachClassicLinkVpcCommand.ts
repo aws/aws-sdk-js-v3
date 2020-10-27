@@ -46,6 +46,8 @@ export class DetachClassicLinkVpcCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EC2Client",
+      commandName: "DetachClassicLinkVpcCommand",
       inputFilterSensitiveLog: DetachClassicLinkVpcRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DetachClassicLinkVpcResult.filterSensitiveLog,
     };

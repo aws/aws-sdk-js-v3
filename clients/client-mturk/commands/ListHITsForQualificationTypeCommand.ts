@@ -46,6 +46,8 @@ export class ListHITsForQualificationTypeCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "MTurkClient",
+      commandName: "ListHITsForQualificationTypeCommand",
       inputFilterSensitiveLog: ListHITsForQualificationTypeRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListHITsForQualificationTypeResponse.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class GetFacetCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CloudDirectoryClient",
+      commandName: "GetFacetCommand",
       inputFilterSensitiveLog: GetFacetRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetFacetResponse.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class DescribeCopyJobCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "BackupClient",
+      commandName: "DescribeCopyJobCommand",
       inputFilterSensitiveLog: DescribeCopyJobInput.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeCopyJobOutput.filterSensitiveLog,
     };

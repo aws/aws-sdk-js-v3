@@ -50,6 +50,8 @@ export class UpdateCompanyNetworkConfigurationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "WorkLinkClient",
+      commandName: "UpdateCompanyNetworkConfigurationCommand",
       inputFilterSensitiveLog: UpdateCompanyNetworkConfigurationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateCompanyNetworkConfigurationResponse.filterSensitiveLog,
     };

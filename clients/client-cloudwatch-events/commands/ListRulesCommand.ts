@@ -43,6 +43,8 @@ export class ListRulesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CloudWatchEventsClient",
+      commandName: "ListRulesCommand",
       inputFilterSensitiveLog: ListRulesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListRulesResponse.filterSensitiveLog,
     };

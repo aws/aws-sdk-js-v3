@@ -46,6 +46,8 @@ export class DescribeEnvironmentHealthCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ElasticBeanstalkClient",
+      commandName: "DescribeEnvironmentHealthCommand",
       inputFilterSensitiveLog: DescribeEnvironmentHealthRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeEnvironmentHealthResult.filterSensitiveLog,
     };

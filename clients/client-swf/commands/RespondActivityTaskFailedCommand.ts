@@ -46,6 +46,8 @@ export class RespondActivityTaskFailedCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SWFClient",
+      commandName: "RespondActivityTaskFailedCommand",
       inputFilterSensitiveLog: RespondActivityTaskFailedInput.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

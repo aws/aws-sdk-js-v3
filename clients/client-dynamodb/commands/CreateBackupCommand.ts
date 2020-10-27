@@ -46,6 +46,8 @@ export class CreateBackupCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "DynamoDBClient",
+      commandName: "CreateBackupCommand",
       inputFilterSensitiveLog: CreateBackupInput.filterSensitiveLog,
       outputFilterSensitiveLog: CreateBackupOutput.filterSensitiveLog,
     };

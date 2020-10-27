@@ -46,6 +46,8 @@ export class UpdateRealtimeLogConfigCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CloudFrontClient",
+      commandName: "UpdateRealtimeLogConfigCommand",
       inputFilterSensitiveLog: UpdateRealtimeLogConfigRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateRealtimeLogConfigResult.filterSensitiveLog,
     };

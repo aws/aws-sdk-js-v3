@@ -46,6 +46,8 @@ export class DeleteTableCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "TimestreamWriteClient",
+      commandName: "DeleteTableCommand",
       inputFilterSensitiveLog: DeleteTableRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

@@ -57,6 +57,8 @@ export class AssociateConfigurationItemsToApplicationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ApplicationDiscoveryServiceClient",
+      commandName: "AssociateConfigurationItemsToApplicationCommand",
       inputFilterSensitiveLog: AssociateConfigurationItemsToApplicationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: AssociateConfigurationItemsToApplicationResponse.filterSensitiveLog,
     };

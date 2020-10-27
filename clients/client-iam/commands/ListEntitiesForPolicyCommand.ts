@@ -46,6 +46,8 @@ export class ListEntitiesForPolicyCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "IAMClient",
+      commandName: "ListEntitiesForPolicyCommand",
       inputFilterSensitiveLog: ListEntitiesForPolicyRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListEntitiesForPolicyResponse.filterSensitiveLog,
     };

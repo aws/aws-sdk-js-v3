@@ -39,6 +39,8 @@ export class SearchCommand extends $Command<SearchCommandInput, SearchCommandOut
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SageMakerClient",
+      commandName: "SearchCommand",
       inputFilterSensitiveLog: SearchRequest.filterSensitiveLog,
       outputFilterSensitiveLog: SearchResponse.filterSensitiveLog,
     };

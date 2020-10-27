@@ -46,6 +46,8 @@ export class PutDestinationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CloudWatchLogsClient",
+      commandName: "PutDestinationCommand",
       inputFilterSensitiveLog: PutDestinationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: PutDestinationResponse.filterSensitiveLog,
     };

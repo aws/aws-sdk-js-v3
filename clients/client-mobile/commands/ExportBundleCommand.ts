@@ -46,6 +46,8 @@ export class ExportBundleCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "MobileClient",
+      commandName: "ExportBundleCommand",
       inputFilterSensitiveLog: ExportBundleRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ExportBundleResult.filterSensitiveLog,
     };

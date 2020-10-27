@@ -46,6 +46,8 @@ export class StopCrawlerCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GlueClient",
+      commandName: "StopCrawlerCommand",
       inputFilterSensitiveLog: StopCrawlerRequest.filterSensitiveLog,
       outputFilterSensitiveLog: StopCrawlerResponse.filterSensitiveLog,
     };

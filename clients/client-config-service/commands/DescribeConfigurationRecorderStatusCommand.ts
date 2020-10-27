@@ -50,6 +50,8 @@ export class DescribeConfigurationRecorderStatusCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ConfigServiceClient",
+      commandName: "DescribeConfigurationRecorderStatusCommand",
       inputFilterSensitiveLog: DescribeConfigurationRecorderStatusRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeConfigurationRecorderStatusResponse.filterSensitiveLog,
     };

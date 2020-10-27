@@ -46,6 +46,8 @@ export class GetPartitionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GlueClient",
+      commandName: "GetPartitionCommand",
       inputFilterSensitiveLog: GetPartitionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetPartitionResponse.filterSensitiveLog,
     };

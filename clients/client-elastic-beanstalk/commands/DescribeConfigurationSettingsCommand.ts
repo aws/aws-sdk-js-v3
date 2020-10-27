@@ -46,6 +46,8 @@ export class DescribeConfigurationSettingsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ElasticBeanstalkClient",
+      commandName: "DescribeConfigurationSettingsCommand",
       inputFilterSensitiveLog: DescribeConfigurationSettingsMessage.filterSensitiveLog,
       outputFilterSensitiveLog: ConfigurationSettingsDescriptions.filterSensitiveLog,
     };

@@ -50,6 +50,8 @@ export class DescribeEventCategoriesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "DatabaseMigrationServiceClient",
+      commandName: "DescribeEventCategoriesCommand",
       inputFilterSensitiveLog: DescribeEventCategoriesMessage.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeEventCategoriesResponse.filterSensitiveLog,
     };

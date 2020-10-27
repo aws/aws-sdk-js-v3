@@ -46,6 +46,8 @@ export class DescribeServerCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "TransferClient",
+      commandName: "DescribeServerCommand",
       inputFilterSensitiveLog: DescribeServerRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeServerResponse.filterSensitiveLog,
     };

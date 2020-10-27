@@ -46,6 +46,8 @@ export class SearchDevicesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "AlexaForBusinessClient",
+      commandName: "SearchDevicesCommand",
       inputFilterSensitiveLog: SearchDevicesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: SearchDevicesResponse.filterSensitiveLog,
     };

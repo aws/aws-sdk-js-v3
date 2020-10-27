@@ -46,6 +46,8 @@ export class DescribeClusterCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EKSClient",
+      commandName: "DescribeClusterCommand",
       inputFilterSensitiveLog: DescribeClusterRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeClusterResponse.filterSensitiveLog,
     };

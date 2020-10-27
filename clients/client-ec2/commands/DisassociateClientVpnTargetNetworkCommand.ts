@@ -50,6 +50,8 @@ export class DisassociateClientVpnTargetNetworkCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EC2Client",
+      commandName: "DisassociateClientVpnTargetNetworkCommand",
       inputFilterSensitiveLog: DisassociateClientVpnTargetNetworkRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DisassociateClientVpnTargetNetworkResult.filterSensitiveLog,
     };

@@ -50,6 +50,8 @@ export class CreateAppCookieStickinessPolicyCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ElasticLoadBalancingClient",
+      commandName: "CreateAppCookieStickinessPolicyCommand",
       inputFilterSensitiveLog: CreateAppCookieStickinessPolicyInput.filterSensitiveLog,
       outputFilterSensitiveLog: CreateAppCookieStickinessPolicyOutput.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class CreateAliasCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "DirectoryServiceClient",
+      commandName: "CreateAliasCommand",
       inputFilterSensitiveLog: CreateAliasRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateAliasResult.filterSensitiveLog,
     };

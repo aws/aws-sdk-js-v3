@@ -46,6 +46,8 @@ export class DeleteFilterCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GuardDutyClient",
+      commandName: "DeleteFilterCommand",
       inputFilterSensitiveLog: DeleteFilterRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteFilterResponse.filterSensitiveLog,
     };

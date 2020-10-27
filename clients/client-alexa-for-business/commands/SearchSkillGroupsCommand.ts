@@ -46,6 +46,8 @@ export class SearchSkillGroupsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "AlexaForBusinessClient",
+      commandName: "SearchSkillGroupsCommand",
       inputFilterSensitiveLog: SearchSkillGroupsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: SearchSkillGroupsResponse.filterSensitiveLog,
     };

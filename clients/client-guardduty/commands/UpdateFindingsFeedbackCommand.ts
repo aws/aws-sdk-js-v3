@@ -46,6 +46,8 @@ export class UpdateFindingsFeedbackCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GuardDutyClient",
+      commandName: "UpdateFindingsFeedbackCommand",
       inputFilterSensitiveLog: UpdateFindingsFeedbackRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateFindingsFeedbackResponse.filterSensitiveLog,
     };

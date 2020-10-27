@@ -46,6 +46,8 @@ export class ModifyDBClusterParameterGroupCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "DocDBClient",
+      commandName: "ModifyDBClusterParameterGroupCommand",
       inputFilterSensitiveLog: ModifyDBClusterParameterGroupMessage.filterSensitiveLog,
       outputFilterSensitiveLog: DBClusterParameterGroupNameMessage.filterSensitiveLog,
     };

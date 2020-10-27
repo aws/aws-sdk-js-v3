@@ -46,6 +46,8 @@ export class UpdatePhoneNumberSettingsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ChimeClient",
+      commandName: "UpdatePhoneNumberSettingsCommand",
       inputFilterSensitiveLog: UpdatePhoneNumberSettingsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

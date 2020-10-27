@@ -46,6 +46,8 @@ export class DeleteIPSetCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GuardDutyClient",
+      commandName: "DeleteIPSetCommand",
       inputFilterSensitiveLog: DeleteIPSetRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteIPSetResponse.filterSensitiveLog,
     };

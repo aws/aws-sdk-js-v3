@@ -50,6 +50,8 @@ export class DescribeReportDefinitionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CostAndUsageReportServiceClient",
+      commandName: "DescribeReportDefinitionsCommand",
       inputFilterSensitiveLog: DescribeReportDefinitionsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeReportDefinitionsResponse.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class PutProtocolsListCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "FMSClient",
+      commandName: "PutProtocolsListCommand",
       inputFilterSensitiveLog: PutProtocolsListRequest.filterSensitiveLog,
       outputFilterSensitiveLog: PutProtocolsListResponse.filterSensitiveLog,
     };

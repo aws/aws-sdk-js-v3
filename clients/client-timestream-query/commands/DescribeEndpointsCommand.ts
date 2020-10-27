@@ -46,6 +46,8 @@ export class DescribeEndpointsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "TimestreamQueryClient",
+      commandName: "DescribeEndpointsCommand",
       inputFilterSensitiveLog: DescribeEndpointsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeEndpointsResponse.filterSensitiveLog,
     };

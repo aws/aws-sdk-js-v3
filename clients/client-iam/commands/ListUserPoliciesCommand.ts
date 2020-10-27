@@ -46,6 +46,8 @@ export class ListUserPoliciesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "IAMClient",
+      commandName: "ListUserPoliciesCommand",
       inputFilterSensitiveLog: ListUserPoliciesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListUserPoliciesResponse.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class ListAccountAliasesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "IAMClient",
+      commandName: "ListAccountAliasesCommand",
       inputFilterSensitiveLog: ListAccountAliasesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListAccountAliasesResponse.filterSensitiveLog,
     };

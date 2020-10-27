@@ -46,6 +46,8 @@ export class DeleteRepositoryCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CodeCommitClient",
+      commandName: "DeleteRepositoryCommand",
       inputFilterSensitiveLog: DeleteRepositoryInput.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteRepositoryOutput.filterSensitiveLog,
     };

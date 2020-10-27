@@ -46,6 +46,8 @@ export class ListBonusPaymentsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "MTurkClient",
+      commandName: "ListBonusPaymentsCommand",
       inputFilterSensitiveLog: ListBonusPaymentsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListBonusPaymentsResponse.filterSensitiveLog,
     };

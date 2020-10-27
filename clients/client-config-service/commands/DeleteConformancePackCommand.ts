@@ -46,6 +46,8 @@ export class DeleteConformancePackCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ConfigServiceClient",
+      commandName: "DeleteConformancePackCommand",
       inputFilterSensitiveLog: DeleteConformancePackRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

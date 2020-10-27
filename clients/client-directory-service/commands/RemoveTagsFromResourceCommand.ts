@@ -46,6 +46,8 @@ export class RemoveTagsFromResourceCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "DirectoryServiceClient",
+      commandName: "RemoveTagsFromResourceCommand",
       inputFilterSensitiveLog: RemoveTagsFromResourceRequest.filterSensitiveLog,
       outputFilterSensitiveLog: RemoveTagsFromResourceResult.filterSensitiveLog,
     };

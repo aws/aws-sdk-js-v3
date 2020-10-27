@@ -46,6 +46,8 @@ export class ListResourceDefinitionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GreengrassClient",
+      commandName: "ListResourceDefinitionsCommand",
       inputFilterSensitiveLog: ListResourceDefinitionsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListResourceDefinitionsResponse.filterSensitiveLog,
     };

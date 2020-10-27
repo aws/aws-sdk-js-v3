@@ -46,6 +46,8 @@ export class DescribeCoipPoolsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EC2Client",
+      commandName: "DescribeCoipPoolsCommand",
       inputFilterSensitiveLog: DescribeCoipPoolsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeCoipPoolsResult.filterSensitiveLog,
     };

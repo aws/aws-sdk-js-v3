@@ -48,6 +48,8 @@ export class PutPublicAccessBlockCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "S3Client",
+      commandName: "PutPublicAccessBlockCommand",
       inputFilterSensitiveLog: PutPublicAccessBlockRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

@@ -46,6 +46,8 @@ export class ResetDBParameterGroupCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "NeptuneClient",
+      commandName: "ResetDBParameterGroupCommand",
       inputFilterSensitiveLog: ResetDBParameterGroupMessage.filterSensitiveLog,
       outputFilterSensitiveLog: DBParameterGroupNameMessage.filterSensitiveLog,
     };

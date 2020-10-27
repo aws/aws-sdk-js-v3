@@ -46,6 +46,8 @@ export class ListVolumesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "StorageGatewayClient",
+      commandName: "ListVolumesCommand",
       inputFilterSensitiveLog: ListVolumesInput.filterSensitiveLog,
       outputFilterSensitiveLog: ListVolumesOutput.filterSensitiveLog,
     };

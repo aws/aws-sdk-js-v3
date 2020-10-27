@@ -46,6 +46,8 @@ export class PutTargetsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EventBridgeClient",
+      commandName: "PutTargetsCommand",
       inputFilterSensitiveLog: PutTargetsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: PutTargetsResponse.filterSensitiveLog,
     };

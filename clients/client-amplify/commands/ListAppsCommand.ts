@@ -46,6 +46,8 @@ export class ListAppsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "AmplifyClient",
+      commandName: "ListAppsCommand",
       inputFilterSensitiveLog: ListAppsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListAppsResult.filterSensitiveLog,
     };

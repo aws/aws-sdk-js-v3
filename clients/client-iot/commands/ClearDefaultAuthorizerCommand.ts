@@ -46,6 +46,8 @@ export class ClearDefaultAuthorizerCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "IoTClient",
+      commandName: "ClearDefaultAuthorizerCommand",
       inputFilterSensitiveLog: ClearDefaultAuthorizerRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ClearDefaultAuthorizerResponse.filterSensitiveLog,
     };

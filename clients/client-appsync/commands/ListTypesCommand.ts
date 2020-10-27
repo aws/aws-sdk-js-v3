@@ -46,6 +46,8 @@ export class ListTypesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "AppSyncClient",
+      commandName: "ListTypesCommand",
       inputFilterSensitiveLog: ListTypesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListTypesResponse.filterSensitiveLog,
     };

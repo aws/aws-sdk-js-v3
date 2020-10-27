@@ -46,6 +46,8 @@ export class ImportKeyPairCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "LightsailClient",
+      commandName: "ImportKeyPairCommand",
       inputFilterSensitiveLog: ImportKeyPairRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ImportKeyPairResult.filterSensitiveLog,
     };

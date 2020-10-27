@@ -46,6 +46,8 @@ export class DeleteDomainConfigurationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "IoTClient",
+      commandName: "DeleteDomainConfigurationCommand",
       inputFilterSensitiveLog: DeleteDomainConfigurationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteDomainConfigurationResponse.filterSensitiveLog,
     };

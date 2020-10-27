@@ -53,6 +53,8 @@ export class ListRequestedServiceQuotaChangeHistoryByQuotaCommand extends $Comma
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ServiceQuotasClient",
+      commandName: "ListRequestedServiceQuotaChangeHistoryByQuotaCommand",
       inputFilterSensitiveLog: ListRequestedServiceQuotaChangeHistoryByQuotaRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListRequestedServiceQuotaChangeHistoryByQuotaResponse.filterSensitiveLog,
     };

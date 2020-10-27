@@ -46,6 +46,8 @@ export class GetEntitiesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "IoTThingsGraphClient",
+      commandName: "GetEntitiesCommand",
       inputFilterSensitiveLog: GetEntitiesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetEntitiesResponse.filterSensitiveLog,
     };

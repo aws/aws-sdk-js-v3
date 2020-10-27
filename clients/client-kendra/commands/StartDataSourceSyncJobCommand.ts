@@ -46,6 +46,8 @@ export class StartDataSourceSyncJobCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "KendraClient",
+      commandName: "StartDataSourceSyncJobCommand",
       inputFilterSensitiveLog: StartDataSourceSyncJobRequest.filterSensitiveLog,
       outputFilterSensitiveLog: StartDataSourceSyncJobResponse.filterSensitiveLog,
     };

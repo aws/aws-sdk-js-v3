@@ -46,6 +46,8 @@ export class GetPublicKeyCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "KMSClient",
+      commandName: "GetPublicKeyCommand",
       inputFilterSensitiveLog: GetPublicKeyRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetPublicKeyResponse.filterSensitiveLog,
     };

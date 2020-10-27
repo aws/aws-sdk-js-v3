@@ -39,6 +39,8 @@ export class CreateKeyCommand extends $Command<CreateKeyCommandInput, CreateKeyC
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "KMSClient",
+      commandName: "CreateKeyCommand",
       inputFilterSensitiveLog: CreateKeyRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateKeyResponse.filterSensitiveLog,
     };

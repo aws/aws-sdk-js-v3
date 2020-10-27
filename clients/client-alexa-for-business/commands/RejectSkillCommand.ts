@@ -46,6 +46,8 @@ export class RejectSkillCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "AlexaForBusinessClient",
+      commandName: "RejectSkillCommand",
       inputFilterSensitiveLog: RejectSkillRequest.filterSensitiveLog,
       outputFilterSensitiveLog: RejectSkillResponse.filterSensitiveLog,
     };

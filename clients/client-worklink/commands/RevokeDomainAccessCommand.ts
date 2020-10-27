@@ -46,6 +46,8 @@ export class RevokeDomainAccessCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "WorkLinkClient",
+      commandName: "RevokeDomainAccessCommand",
       inputFilterSensitiveLog: RevokeDomainAccessRequest.filterSensitiveLog,
       outputFilterSensitiveLog: RevokeDomainAccessResponse.filterSensitiveLog,
     };

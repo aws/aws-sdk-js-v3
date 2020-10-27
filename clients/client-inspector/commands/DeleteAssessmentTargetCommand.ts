@@ -46,6 +46,8 @@ export class DeleteAssessmentTargetCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "InspectorClient",
+      commandName: "DeleteAssessmentTargetCommand",
       inputFilterSensitiveLog: DeleteAssessmentTargetRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

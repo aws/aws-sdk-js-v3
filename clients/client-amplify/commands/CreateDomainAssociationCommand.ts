@@ -46,6 +46,8 @@ export class CreateDomainAssociationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "AmplifyClient",
+      commandName: "CreateDomainAssociationCommand",
       inputFilterSensitiveLog: CreateDomainAssociationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateDomainAssociationResult.filterSensitiveLog,
     };

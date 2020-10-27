@@ -46,6 +46,8 @@ export class PurchaseProvisionedCapacityCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GlacierClient",
+      commandName: "PurchaseProvisionedCapacityCommand",
       inputFilterSensitiveLog: PurchaseProvisionedCapacityInput.filterSensitiveLog,
       outputFilterSensitiveLog: PurchaseProvisionedCapacityOutput.filterSensitiveLog,
     };

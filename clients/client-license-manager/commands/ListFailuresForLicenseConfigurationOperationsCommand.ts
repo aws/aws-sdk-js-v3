@@ -53,6 +53,8 @@ export class ListFailuresForLicenseConfigurationOperationsCommand extends $Comma
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "LicenseManagerClient",
+      commandName: "ListFailuresForLicenseConfigurationOperationsCommand",
       inputFilterSensitiveLog: ListFailuresForLicenseConfigurationOperationsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListFailuresForLicenseConfigurationOperationsResponse.filterSensitiveLog,
     };

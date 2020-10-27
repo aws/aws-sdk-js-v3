@@ -47,6 +47,8 @@ export class RemoveTagsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ElasticLoadBalancingV2Client",
+      commandName: "RemoveTagsCommand",
       inputFilterSensitiveLog: RemoveTagsInput.filterSensitiveLog,
       outputFilterSensitiveLog: RemoveTagsOutput.filterSensitiveLog,
     };

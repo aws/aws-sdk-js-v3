@@ -46,6 +46,8 @@ export class GetProtocolsListCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "FMSClient",
+      commandName: "GetProtocolsListCommand",
       inputFilterSensitiveLog: GetProtocolsListRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetProtocolsListResponse.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class AddInstanceFleetCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EMRClient",
+      commandName: "AddInstanceFleetCommand",
       inputFilterSensitiveLog: AddInstanceFleetInput.filterSensitiveLog,
       outputFilterSensitiveLog: AddInstanceFleetOutput.filterSensitiveLog,
     };

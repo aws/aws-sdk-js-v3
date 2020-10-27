@@ -46,6 +46,8 @@ export class DescribeInputDeviceThumbnailCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "MediaLiveClient",
+      commandName: "DescribeInputDeviceThumbnailCommand",
       inputFilterSensitiveLog: DescribeInputDeviceThumbnailRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeInputDeviceThumbnailResponse.filterSensitiveLog,
     };

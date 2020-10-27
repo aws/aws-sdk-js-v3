@@ -46,6 +46,8 @@ export class ListPoliciesForTargetCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "OrganizationsClient",
+      commandName: "ListPoliciesForTargetCommand",
       inputFilterSensitiveLog: ListPoliciesForTargetRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListPoliciesForTargetResponse.filterSensitiveLog,
     };

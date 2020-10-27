@@ -46,6 +46,8 @@ export class UpdateSecurityProfileCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "IoTClient",
+      commandName: "UpdateSecurityProfileCommand",
       inputFilterSensitiveLog: UpdateSecurityProfileRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateSecurityProfileResponse.filterSensitiveLog,
     };

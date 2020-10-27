@@ -46,6 +46,8 @@ export class GetResourceSharesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "RAMClient",
+      commandName: "GetResourceSharesCommand",
       inputFilterSensitiveLog: GetResourceSharesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetResourceSharesResponse.filterSensitiveLog,
     };

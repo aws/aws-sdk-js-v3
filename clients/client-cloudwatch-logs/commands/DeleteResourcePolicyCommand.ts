@@ -46,6 +46,8 @@ export class DeleteResourcePolicyCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CloudWatchLogsClient",
+      commandName: "DeleteResourcePolicyCommand",
       inputFilterSensitiveLog: DeleteResourcePolicyRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

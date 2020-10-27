@@ -46,6 +46,8 @@ export class GetQualificationScoreCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "MTurkClient",
+      commandName: "GetQualificationScoreCommand",
       inputFilterSensitiveLog: GetQualificationScoreRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetQualificationScoreResponse.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class UpdateConfigCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GroundStationClient",
+      commandName: "UpdateConfigCommand",
       inputFilterSensitiveLog: UpdateConfigRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ConfigIdResponse.filterSensitiveLog,
     };

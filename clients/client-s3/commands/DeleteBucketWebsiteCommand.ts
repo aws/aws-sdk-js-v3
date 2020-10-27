@@ -48,6 +48,8 @@ export class DeleteBucketWebsiteCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "S3Client",
+      commandName: "DeleteBucketWebsiteCommand",
       inputFilterSensitiveLog: DeleteBucketWebsiteRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

@@ -46,6 +46,8 @@ export class GenerateDataKeyPairCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "KMSClient",
+      commandName: "GenerateDataKeyPairCommand",
       inputFilterSensitiveLog: GenerateDataKeyPairRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GenerateDataKeyPairResponse.filterSensitiveLog,
     };

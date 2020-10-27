@@ -46,6 +46,8 @@ export class DeleteAlarmCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "LightsailClient",
+      commandName: "DeleteAlarmCommand",
       inputFilterSensitiveLog: DeleteAlarmRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteAlarmResult.filterSensitiveLog,
     };

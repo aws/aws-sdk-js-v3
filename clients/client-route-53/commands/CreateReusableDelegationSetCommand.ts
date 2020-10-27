@@ -48,6 +48,8 @@ export class CreateReusableDelegationSetCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "Route53Client",
+      commandName: "CreateReusableDelegationSetCommand",
       inputFilterSensitiveLog: CreateReusableDelegationSetRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateReusableDelegationSetResponse.filterSensitiveLog,
     };

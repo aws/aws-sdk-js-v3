@@ -46,6 +46,8 @@ export class DescribeClusterCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SnowballClient",
+      commandName: "DescribeClusterCommand",
       inputFilterSensitiveLog: DescribeClusterRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeClusterResult.filterSensitiveLog,
     };

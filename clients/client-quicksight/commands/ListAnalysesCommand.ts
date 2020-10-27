@@ -46,6 +46,8 @@ export class ListAnalysesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "QuickSightClient",
+      commandName: "ListAnalysesCommand",
       inputFilterSensitiveLog: ListAnalysesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListAnalysesResponse.filterSensitiveLog,
     };

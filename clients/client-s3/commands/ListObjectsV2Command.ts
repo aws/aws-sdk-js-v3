@@ -48,6 +48,8 @@ export class ListObjectsV2Command extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "S3Client",
+      commandName: "ListObjectsV2Command",
       inputFilterSensitiveLog: ListObjectsV2Request.filterSensitiveLog,
       outputFilterSensitiveLog: ListObjectsV2Output.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class DeregisterRobotCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "RoboMakerClient",
+      commandName: "DeregisterRobotCommand",
       inputFilterSensitiveLog: DeregisterRobotRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeregisterRobotResponse.filterSensitiveLog,
     };

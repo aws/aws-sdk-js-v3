@@ -46,6 +46,8 @@ export class DescribeClientVpnTargetNetworksCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EC2Client",
+      commandName: "DescribeClientVpnTargetNetworksCommand",
       inputFilterSensitiveLog: DescribeClientVpnTargetNetworksRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeClientVpnTargetNetworksResult.filterSensitiveLog,
     };

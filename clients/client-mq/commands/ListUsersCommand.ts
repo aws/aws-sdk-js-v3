@@ -42,6 +42,8 @@ export class ListUsersCommand extends $Command<ListUsersCommandInput, ListUsersC
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "MqClient",
+      commandName: "ListUsersCommand",
       inputFilterSensitiveLog: ListUsersRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListUsersResponse.filterSensitiveLog,
     };

@@ -50,6 +50,8 @@ export class GetSessionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "LexRuntimeServiceClient",
+      commandName: "GetSessionCommand",
       inputFilterSensitiveLog: GetSessionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetSessionResponse.filterSensitiveLog,
     };

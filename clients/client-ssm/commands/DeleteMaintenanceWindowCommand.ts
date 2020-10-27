@@ -46,6 +46,8 @@ export class DeleteMaintenanceWindowCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SSMClient",
+      commandName: "DeleteMaintenanceWindowCommand",
       inputFilterSensitiveLog: DeleteMaintenanceWindowRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteMaintenanceWindowResult.filterSensitiveLog,
     };

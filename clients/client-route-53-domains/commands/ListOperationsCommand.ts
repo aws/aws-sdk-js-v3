@@ -46,6 +46,8 @@ export class ListOperationsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "Route53DomainsClient",
+      commandName: "ListOperationsCommand",
       inputFilterSensitiveLog: ListOperationsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListOperationsResponse.filterSensitiveLog,
     };

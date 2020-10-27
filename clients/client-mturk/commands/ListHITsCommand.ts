@@ -39,6 +39,8 @@ export class ListHITsCommand extends $Command<ListHITsCommandInput, ListHITsComm
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "MTurkClient",
+      commandName: "ListHITsCommand",
       inputFilterSensitiveLog: ListHITsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListHITsResponse.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class AcceptMatchCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GameLiftClient",
+      commandName: "AcceptMatchCommand",
       inputFilterSensitiveLog: AcceptMatchInput.filterSensitiveLog,
       outputFilterSensitiveLog: AcceptMatchOutput.filterSensitiveLog,
     };

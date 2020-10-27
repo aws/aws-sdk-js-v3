@@ -50,6 +50,8 @@ export class CreateCertificateAuthorityAuditReportCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ACMPCAClient",
+      commandName: "CreateCertificateAuthorityAuditReportCommand",
       inputFilterSensitiveLog: CreateCertificateAuthorityAuditReportRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateCertificateAuthorityAuditReportResponse.filterSensitiveLog,
     };

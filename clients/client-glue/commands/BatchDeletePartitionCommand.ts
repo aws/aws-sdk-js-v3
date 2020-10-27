@@ -46,6 +46,8 @@ export class BatchDeletePartitionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GlueClient",
+      commandName: "BatchDeletePartitionCommand",
       inputFilterSensitiveLog: BatchDeletePartitionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: BatchDeletePartitionResponse.filterSensitiveLog,
     };

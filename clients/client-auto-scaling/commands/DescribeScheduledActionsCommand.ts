@@ -46,6 +46,8 @@ export class DescribeScheduledActionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "AutoScalingClient",
+      commandName: "DescribeScheduledActionsCommand",
       inputFilterSensitiveLog: DescribeScheduledActionsType.filterSensitiveLog,
       outputFilterSensitiveLog: ScheduledActionsType.filterSensitiveLog,
     };

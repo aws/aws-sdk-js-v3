@@ -50,6 +50,8 @@ export class DeleteApplicationsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ApplicationDiscoveryServiceClient",
+      commandName: "DeleteApplicationsCommand",
       inputFilterSensitiveLog: DeleteApplicationsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteApplicationsResponse.filterSensitiveLog,
     };

@@ -43,6 +43,8 @@ export class ReplaceRouteCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EC2Client",
+      commandName: "ReplaceRouteCommand",
       inputFilterSensitiveLog: ReplaceRouteRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

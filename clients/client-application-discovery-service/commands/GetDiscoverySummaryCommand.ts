@@ -50,6 +50,8 @@ export class GetDiscoverySummaryCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ApplicationDiscoveryServiceClient",
+      commandName: "GetDiscoverySummaryCommand",
       inputFilterSensitiveLog: GetDiscoverySummaryRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetDiscoverySummaryResponse.filterSensitiveLog,
     };

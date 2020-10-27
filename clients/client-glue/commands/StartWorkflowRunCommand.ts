@@ -46,6 +46,8 @@ export class StartWorkflowRunCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GlueClient",
+      commandName: "StartWorkflowRunCommand",
       inputFilterSensitiveLog: StartWorkflowRunRequest.filterSensitiveLog,
       outputFilterSensitiveLog: StartWorkflowRunResponse.filterSensitiveLog,
     };

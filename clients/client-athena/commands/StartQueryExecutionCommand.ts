@@ -46,6 +46,8 @@ export class StartQueryExecutionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "AthenaClient",
+      commandName: "StartQueryExecutionCommand",
       inputFilterSensitiveLog: StartQueryExecutionInput.filterSensitiveLog,
       outputFilterSensitiveLog: StartQueryExecutionOutput.filterSensitiveLog,
     };

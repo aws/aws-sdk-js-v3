@@ -46,6 +46,8 @@ export class DescribeJobCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SnowballClient",
+      commandName: "DescribeJobCommand",
       inputFilterSensitiveLog: DescribeJobRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeJobResult.filterSensitiveLog,
     };

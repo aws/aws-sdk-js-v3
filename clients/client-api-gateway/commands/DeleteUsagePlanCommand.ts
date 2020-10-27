@@ -46,6 +46,8 @@ export class DeleteUsagePlanCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "APIGatewayClient",
+      commandName: "DeleteUsagePlanCommand",
       inputFilterSensitiveLog: DeleteUsagePlanRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

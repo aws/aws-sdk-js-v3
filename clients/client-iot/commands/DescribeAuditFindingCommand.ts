@@ -46,6 +46,8 @@ export class DescribeAuditFindingCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "IoTClient",
+      commandName: "DescribeAuditFindingCommand",
       inputFilterSensitiveLog: DescribeAuditFindingRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeAuditFindingResponse.filterSensitiveLog,
     };

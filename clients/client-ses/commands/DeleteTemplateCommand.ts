@@ -46,6 +46,8 @@ export class DeleteTemplateCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SESClient",
+      commandName: "DeleteTemplateCommand",
       inputFilterSensitiveLog: DeleteTemplateRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteTemplateResponse.filterSensitiveLog,
     };

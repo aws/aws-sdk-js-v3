@@ -46,6 +46,8 @@ export class ListFargateProfilesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EKSClient",
+      commandName: "ListFargateProfilesCommand",
       inputFilterSensitiveLog: ListFargateProfilesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListFargateProfilesResponse.filterSensitiveLog,
     };

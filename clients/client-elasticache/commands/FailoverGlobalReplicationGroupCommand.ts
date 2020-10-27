@@ -46,6 +46,8 @@ export class FailoverGlobalReplicationGroupCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ElastiCacheClient",
+      commandName: "FailoverGlobalReplicationGroupCommand",
       inputFilterSensitiveLog: FailoverGlobalReplicationGroupMessage.filterSensitiveLog,
       outputFilterSensitiveLog: FailoverGlobalReplicationGroupResult.filterSensitiveLog,
     };

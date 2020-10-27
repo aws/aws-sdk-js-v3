@@ -50,6 +50,8 @@ export class DeleteReportDefinitionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CostAndUsageReportServiceClient",
+      commandName: "DeleteReportDefinitionCommand",
       inputFilterSensitiveLog: DeleteReportDefinitionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteReportDefinitionResponse.filterSensitiveLog,
     };

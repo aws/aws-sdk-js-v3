@@ -46,6 +46,8 @@ export class ImportSourceCredentialsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CodeBuildClient",
+      commandName: "ImportSourceCredentialsCommand",
       inputFilterSensitiveLog: ImportSourceCredentialsInput.filterSensitiveLog,
       outputFilterSensitiveLog: ImportSourceCredentialsOutput.filterSensitiveLog,
     };

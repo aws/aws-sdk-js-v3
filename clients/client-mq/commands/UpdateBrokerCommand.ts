@@ -46,6 +46,8 @@ export class UpdateBrokerCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "MqClient",
+      commandName: "UpdateBrokerCommand",
       inputFilterSensitiveLog: UpdateBrokerRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateBrokerResponse.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class RedactRoomMessageCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ChimeClient",
+      commandName: "RedactRoomMessageCommand",
       inputFilterSensitiveLog: RedactRoomMessageRequest.filterSensitiveLog,
       outputFilterSensitiveLog: RedactRoomMessageResponse.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class UpdateDatabaseCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GlueClient",
+      commandName: "UpdateDatabaseCommand",
       inputFilterSensitiveLog: UpdateDatabaseRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateDatabaseResponse.filterSensitiveLog,
     };

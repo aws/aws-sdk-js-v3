@@ -53,6 +53,8 @@ export class BatchAssociateApprovalRuleTemplateWithRepositoriesCommand extends $
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CodeCommitClient",
+      commandName: "BatchAssociateApprovalRuleTemplateWithRepositoriesCommand",
       inputFilterSensitiveLog: BatchAssociateApprovalRuleTemplateWithRepositoriesInput.filterSensitiveLog,
       outputFilterSensitiveLog: BatchAssociateApprovalRuleTemplateWithRepositoriesOutput.filterSensitiveLog,
     };

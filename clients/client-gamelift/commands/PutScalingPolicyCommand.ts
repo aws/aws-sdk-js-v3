@@ -46,6 +46,8 @@ export class PutScalingPolicyCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GameLiftClient",
+      commandName: "PutScalingPolicyCommand",
       inputFilterSensitiveLog: PutScalingPolicyInput.filterSensitiveLog,
       outputFilterSensitiveLog: PutScalingPolicyOutput.filterSensitiveLog,
     };

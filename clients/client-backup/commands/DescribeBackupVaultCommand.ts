@@ -46,6 +46,8 @@ export class DescribeBackupVaultCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "BackupClient",
+      commandName: "DescribeBackupVaultCommand",
       inputFilterSensitiveLog: DescribeBackupVaultInput.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeBackupVaultOutput.filterSensitiveLog,
     };

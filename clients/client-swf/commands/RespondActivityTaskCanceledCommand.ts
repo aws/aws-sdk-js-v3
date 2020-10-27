@@ -46,6 +46,8 @@ export class RespondActivityTaskCanceledCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SWFClient",
+      commandName: "RespondActivityTaskCanceledCommand",
       inputFilterSensitiveLog: RespondActivityTaskCanceledInput.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

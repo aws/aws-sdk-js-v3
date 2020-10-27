@@ -46,6 +46,8 @@ export class DescribePullRequestEventsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CodeCommitClient",
+      commandName: "DescribePullRequestEventsCommand",
       inputFilterSensitiveLog: DescribePullRequestEventsInput.filterSensitiveLog,
       outputFilterSensitiveLog: DescribePullRequestEventsOutput.filterSensitiveLog,
     };

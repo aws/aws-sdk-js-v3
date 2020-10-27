@@ -46,6 +46,8 @@ export class CreatePlatformEndpointCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SNSClient",
+      commandName: "CreatePlatformEndpointCommand",
       inputFilterSensitiveLog: CreatePlatformEndpointInput.filterSensitiveLog,
       outputFilterSensitiveLog: CreateEndpointResponse.filterSensitiveLog,
     };

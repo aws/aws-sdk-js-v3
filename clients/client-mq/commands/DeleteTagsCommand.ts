@@ -46,6 +46,8 @@ export class DeleteTagsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "MqClient",
+      commandName: "DeleteTagsCommand",
       inputFilterSensitiveLog: DeleteTagsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

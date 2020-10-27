@@ -43,6 +43,8 @@ export class GetSuiteCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "DeviceFarmClient",
+      commandName: "GetSuiteCommand",
       inputFilterSensitiveLog: GetSuiteRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetSuiteResult.filterSensitiveLog,
     };

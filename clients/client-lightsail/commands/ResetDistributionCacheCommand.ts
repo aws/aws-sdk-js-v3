@@ -46,6 +46,8 @@ export class ResetDistributionCacheCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "LightsailClient",
+      commandName: "ResetDistributionCacheCommand",
       inputFilterSensitiveLog: ResetDistributionCacheRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ResetDistributionCacheResult.filterSensitiveLog,
     };

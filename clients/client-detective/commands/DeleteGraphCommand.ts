@@ -46,6 +46,8 @@ export class DeleteGraphCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "DetectiveClient",
+      commandName: "DeleteGraphCommand",
       inputFilterSensitiveLog: DeleteGraphRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

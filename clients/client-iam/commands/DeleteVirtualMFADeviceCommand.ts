@@ -46,6 +46,8 @@ export class DeleteVirtualMFADeviceCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "IAMClient",
+      commandName: "DeleteVirtualMFADeviceCommand",
       inputFilterSensitiveLog: DeleteVirtualMFADeviceRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

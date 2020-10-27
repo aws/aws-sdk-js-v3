@@ -50,6 +50,8 @@ export class ListTunnelsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "IoTSecureTunnelingClient",
+      commandName: "ListTunnelsCommand",
       inputFilterSensitiveLog: ListTunnelsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListTunnelsResponse.filterSensitiveLog,
     };

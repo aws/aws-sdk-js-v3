@@ -46,6 +46,8 @@ export class GetKeyPolicyCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "KMSClient",
+      commandName: "GetKeyPolicyCommand",
       inputFilterSensitiveLog: GetKeyPolicyRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetKeyPolicyResponse.filterSensitiveLog,
     };

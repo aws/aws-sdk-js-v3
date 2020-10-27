@@ -50,6 +50,8 @@ export class DeleteHostCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CodeStarConnectionsClient",
+      commandName: "DeleteHostCommand",
       inputFilterSensitiveLog: DeleteHostInput.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteHostOutput.filterSensitiveLog,
     };

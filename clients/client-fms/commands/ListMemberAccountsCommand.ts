@@ -46,6 +46,8 @@ export class ListMemberAccountsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "FMSClient",
+      commandName: "ListMemberAccountsCommand",
       inputFilterSensitiveLog: ListMemberAccountsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListMemberAccountsResponse.filterSensitiveLog,
     };

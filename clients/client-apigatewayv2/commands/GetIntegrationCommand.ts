@@ -46,6 +46,8 @@ export class GetIntegrationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ApiGatewayV2Client",
+      commandName: "GetIntegrationCommand",
       inputFilterSensitiveLog: GetIntegrationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetIntegrationResult.filterSensitiveLog,
     };

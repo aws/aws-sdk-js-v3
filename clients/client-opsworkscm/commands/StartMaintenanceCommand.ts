@@ -46,6 +46,8 @@ export class StartMaintenanceCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "OpsWorksCMClient",
+      commandName: "StartMaintenanceCommand",
       inputFilterSensitiveLog: StartMaintenanceRequest.filterSensitiveLog,
       outputFilterSensitiveLog: StartMaintenanceResponse.filterSensitiveLog,
     };

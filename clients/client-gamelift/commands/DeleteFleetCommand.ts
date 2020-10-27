@@ -46,6 +46,8 @@ export class DeleteFleetCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GameLiftClient",
+      commandName: "DeleteFleetCommand",
       inputFilterSensitiveLog: DeleteFleetInput.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

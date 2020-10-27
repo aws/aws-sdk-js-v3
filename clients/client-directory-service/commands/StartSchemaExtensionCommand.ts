@@ -46,6 +46,8 @@ export class StartSchemaExtensionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "DirectoryServiceClient",
+      commandName: "StartSchemaExtensionCommand",
       inputFilterSensitiveLog: StartSchemaExtensionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: StartSchemaExtensionResult.filterSensitiveLog,
     };

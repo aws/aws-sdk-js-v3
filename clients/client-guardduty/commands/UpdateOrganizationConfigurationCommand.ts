@@ -46,6 +46,8 @@ export class UpdateOrganizationConfigurationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GuardDutyClient",
+      commandName: "UpdateOrganizationConfigurationCommand",
       inputFilterSensitiveLog: UpdateOrganizationConfigurationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateOrganizationConfigurationResponse.filterSensitiveLog,
     };

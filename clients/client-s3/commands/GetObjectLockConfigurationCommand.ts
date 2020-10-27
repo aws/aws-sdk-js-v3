@@ -48,6 +48,8 @@ export class GetObjectLockConfigurationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "S3Client",
+      commandName: "GetObjectLockConfigurationCommand",
       inputFilterSensitiveLog: GetObjectLockConfigurationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetObjectLockConfigurationOutput.filterSensitiveLog,
     };

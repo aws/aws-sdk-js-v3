@@ -46,6 +46,8 @@ export class GetVoiceConnectorOriginationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ChimeClient",
+      commandName: "GetVoiceConnectorOriginationCommand",
       inputFilterSensitiveLog: GetVoiceConnectorOriginationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetVoiceConnectorOriginationResponse.filterSensitiveLog,
     };

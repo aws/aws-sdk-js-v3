@@ -46,6 +46,8 @@ export class RegisterInstanceCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ServiceDiscoveryClient",
+      commandName: "RegisterInstanceCommand",
       inputFilterSensitiveLog: RegisterInstanceRequest.filterSensitiveLog,
       outputFilterSensitiveLog: RegisterInstanceResponse.filterSensitiveLog,
     };

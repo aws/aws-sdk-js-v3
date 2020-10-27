@@ -46,6 +46,8 @@ export class StartChannelCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "MediaLiveClient",
+      commandName: "StartChannelCommand",
       inputFilterSensitiveLog: StartChannelRequest.filterSensitiveLog,
       outputFilterSensitiveLog: StartChannelResponse.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class CreateWebACLCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "WAFV2Client",
+      commandName: "CreateWebACLCommand",
       inputFilterSensitiveLog: CreateWebACLRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateWebACLResponse.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class StopRemoteAccessSessionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "DeviceFarmClient",
+      commandName: "StopRemoteAccessSessionCommand",
       inputFilterSensitiveLog: StopRemoteAccessSessionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: StopRemoteAccessSessionResult.filterSensitiveLog,
     };

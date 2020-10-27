@@ -46,6 +46,8 @@ export class BatchWriteItemCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "DynamoDBClient",
+      commandName: "BatchWriteItemCommand",
       inputFilterSensitiveLog: BatchWriteItemInput.filterSensitiveLog,
       outputFilterSensitiveLog: BatchWriteItemOutput.filterSensitiveLog,
     };

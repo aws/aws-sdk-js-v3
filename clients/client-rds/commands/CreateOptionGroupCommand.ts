@@ -46,6 +46,8 @@ export class CreateOptionGroupCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "RDSClient",
+      commandName: "CreateOptionGroupCommand",
       inputFilterSensitiveLog: CreateOptionGroupMessage.filterSensitiveLog,
       outputFilterSensitiveLog: CreateOptionGroupResult.filterSensitiveLog,
     };

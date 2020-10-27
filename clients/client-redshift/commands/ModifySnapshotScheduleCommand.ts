@@ -47,6 +47,8 @@ export class ModifySnapshotScheduleCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "RedshiftClient",
+      commandName: "ModifySnapshotScheduleCommand",
       inputFilterSensitiveLog: ModifySnapshotScheduleMessage.filterSensitiveLog,
       outputFilterSensitiveLog: SnapshotSchedule.filterSensitiveLog,
     };

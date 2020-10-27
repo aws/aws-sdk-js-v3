@@ -46,6 +46,8 @@ export class QueryObjectsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "DataPipelineClient",
+      commandName: "QueryObjectsCommand",
       inputFilterSensitiveLog: QueryObjectsInput.filterSensitiveLog,
       outputFilterSensitiveLog: QueryObjectsOutput.filterSensitiveLog,
     };

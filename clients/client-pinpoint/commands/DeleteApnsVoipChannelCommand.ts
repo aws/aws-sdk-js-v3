@@ -46,6 +46,8 @@ export class DeleteApnsVoipChannelCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "PinpointClient",
+      commandName: "DeleteApnsVoipChannelCommand",
       inputFilterSensitiveLog: DeleteApnsVoipChannelRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteApnsVoipChannelResponse.filterSensitiveLog,
     };

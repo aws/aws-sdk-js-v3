@@ -46,6 +46,8 @@ export class GetMLTaskRunCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GlueClient",
+      commandName: "GetMLTaskRunCommand",
       inputFilterSensitiveLog: GetMLTaskRunRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetMLTaskRunResponse.filterSensitiveLog,
     };

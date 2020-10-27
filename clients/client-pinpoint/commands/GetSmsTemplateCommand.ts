@@ -46,6 +46,8 @@ export class GetSmsTemplateCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "PinpointClient",
+      commandName: "GetSmsTemplateCommand",
       inputFilterSensitiveLog: GetSmsTemplateRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetSmsTemplateResponse.filterSensitiveLog,
     };

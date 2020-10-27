@@ -50,6 +50,8 @@ export class StopReplicationTaskCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "DatabaseMigrationServiceClient",
+      commandName: "StopReplicationTaskCommand",
       inputFilterSensitiveLog: StopReplicationTaskMessage.filterSensitiveLog,
       outputFilterSensitiveLog: StopReplicationTaskResponse.filterSensitiveLog,
     };

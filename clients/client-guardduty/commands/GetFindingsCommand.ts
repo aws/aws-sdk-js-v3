@@ -46,6 +46,8 @@ export class GetFindingsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GuardDutyClient",
+      commandName: "GetFindingsCommand",
       inputFilterSensitiveLog: GetFindingsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetFindingsResponse.filterSensitiveLog,
     };

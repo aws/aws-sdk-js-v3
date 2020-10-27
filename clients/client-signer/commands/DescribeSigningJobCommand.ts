@@ -46,6 +46,8 @@ export class DescribeSigningJobCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SignerClient",
+      commandName: "DescribeSigningJobCommand",
       inputFilterSensitiveLog: DescribeSigningJobRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeSigningJobResponse.filterSensitiveLog,
     };

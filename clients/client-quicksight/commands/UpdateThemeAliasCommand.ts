@@ -46,6 +46,8 @@ export class UpdateThemeAliasCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "QuickSightClient",
+      commandName: "UpdateThemeAliasCommand",
       inputFilterSensitiveLog: UpdateThemeAliasRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateThemeAliasResponse.filterSensitiveLog,
     };

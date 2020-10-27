@@ -46,6 +46,8 @@ export class BatchGetCustomDataIdentifiersCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "Macie2Client",
+      commandName: "BatchGetCustomDataIdentifiersCommand",
       inputFilterSensitiveLog: BatchGetCustomDataIdentifiersRequest.filterSensitiveLog,
       outputFilterSensitiveLog: BatchGetCustomDataIdentifiersResponse.filterSensitiveLog,
     };

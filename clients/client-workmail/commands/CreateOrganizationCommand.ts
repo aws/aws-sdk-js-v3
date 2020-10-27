@@ -46,6 +46,8 @@ export class CreateOrganizationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "WorkMailClient",
+      commandName: "CreateOrganizationCommand",
       inputFilterSensitiveLog: CreateOrganizationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateOrganizationResponse.filterSensitiveLog,
     };

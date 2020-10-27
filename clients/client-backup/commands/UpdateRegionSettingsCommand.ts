@@ -46,6 +46,8 @@ export class UpdateRegionSettingsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "BackupClient",
+      commandName: "UpdateRegionSettingsCommand",
       inputFilterSensitiveLog: UpdateRegionSettingsInput.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

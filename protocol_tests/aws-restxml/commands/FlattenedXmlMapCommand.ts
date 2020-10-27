@@ -46,6 +46,8 @@ export class FlattenedXmlMapCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "RestXmlProtocolClient",
+      commandName: "FlattenedXmlMapCommand",
       inputFilterSensitiveLog: FlattenedXmlMapInputOutput.filterSensitiveLog,
       outputFilterSensitiveLog: FlattenedXmlMapInputOutput.filterSensitiveLog,
     };

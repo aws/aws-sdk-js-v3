@@ -46,6 +46,8 @@ export class CreateTableCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "TimestreamWriteClient",
+      commandName: "CreateTableCommand",
       inputFilterSensitiveLog: CreateTableRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateTableResponse.filterSensitiveLog,
     };

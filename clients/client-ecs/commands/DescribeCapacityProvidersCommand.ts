@@ -46,6 +46,8 @@ export class DescribeCapacityProvidersCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ECSClient",
+      commandName: "DescribeCapacityProvidersCommand",
       inputFilterSensitiveLog: DescribeCapacityProvidersRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeCapacityProvidersResponse.filterSensitiveLog,
     };

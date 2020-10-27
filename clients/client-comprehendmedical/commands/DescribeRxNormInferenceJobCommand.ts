@@ -50,6 +50,8 @@ export class DescribeRxNormInferenceJobCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ComprehendMedicalClient",
+      commandName: "DescribeRxNormInferenceJobCommand",
       inputFilterSensitiveLog: DescribeRxNormInferenceJobRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeRxNormInferenceJobResponse.filterSensitiveLog,
     };

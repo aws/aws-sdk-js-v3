@@ -46,6 +46,8 @@ export class CancelTaskExecutionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "DataSyncClient",
+      commandName: "CancelTaskExecutionCommand",
       inputFilterSensitiveLog: CancelTaskExecutionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CancelTaskExecutionResponse.filterSensitiveLog,
     };

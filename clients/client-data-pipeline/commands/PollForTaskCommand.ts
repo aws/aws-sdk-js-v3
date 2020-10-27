@@ -46,6 +46,8 @@ export class PollForTaskCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "DataPipelineClient",
+      commandName: "PollForTaskCommand",
       inputFilterSensitiveLog: PollForTaskInput.filterSensitiveLog,
       outputFilterSensitiveLog: PollForTaskOutput.filterSensitiveLog,
     };

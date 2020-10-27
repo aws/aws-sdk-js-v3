@@ -50,6 +50,8 @@ export class DeprovisionByoipCidrCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GlobalAcceleratorClient",
+      commandName: "DeprovisionByoipCidrCommand",
       inputFilterSensitiveLog: DeprovisionByoipCidrRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeprovisionByoipCidrResponse.filterSensitiveLog,
     };

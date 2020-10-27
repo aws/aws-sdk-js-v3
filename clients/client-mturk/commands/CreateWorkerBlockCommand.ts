@@ -46,6 +46,8 @@ export class CreateWorkerBlockCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "MTurkClient",
+      commandName: "CreateWorkerBlockCommand",
       inputFilterSensitiveLog: CreateWorkerBlockRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateWorkerBlockResponse.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class GetFunctionConfigurationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "LambdaClient",
+      commandName: "GetFunctionConfigurationCommand",
       inputFilterSensitiveLog: GetFunctionConfigurationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: FunctionConfiguration.filterSensitiveLog,
     };

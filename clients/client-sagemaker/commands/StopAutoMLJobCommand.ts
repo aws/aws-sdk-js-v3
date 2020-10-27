@@ -46,6 +46,8 @@ export class StopAutoMLJobCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SageMakerClient",
+      commandName: "StopAutoMLJobCommand",
       inputFilterSensitiveLog: StopAutoMLJobRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

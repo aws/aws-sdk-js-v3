@@ -46,6 +46,8 @@ export class ListGatewayRoutesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "AppMeshClient",
+      commandName: "ListGatewayRoutesCommand",
       inputFilterSensitiveLog: ListGatewayRoutesInput.filterSensitiveLog,
       outputFilterSensitiveLog: ListGatewayRoutesOutput.filterSensitiveLog,
     };

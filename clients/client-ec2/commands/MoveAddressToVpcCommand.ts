@@ -46,6 +46,8 @@ export class MoveAddressToVpcCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EC2Client",
+      commandName: "MoveAddressToVpcCommand",
       inputFilterSensitiveLog: MoveAddressToVpcRequest.filterSensitiveLog,
       outputFilterSensitiveLog: MoveAddressToVpcResult.filterSensitiveLog,
     };

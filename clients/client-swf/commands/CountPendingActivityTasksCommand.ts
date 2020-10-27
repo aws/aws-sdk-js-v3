@@ -46,6 +46,8 @@ export class CountPendingActivityTasksCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SWFClient",
+      commandName: "CountPendingActivityTasksCommand",
       inputFilterSensitiveLog: CountPendingActivityTasksInput.filterSensitiveLog,
       outputFilterSensitiveLog: PendingTaskCount.filterSensitiveLog,
     };

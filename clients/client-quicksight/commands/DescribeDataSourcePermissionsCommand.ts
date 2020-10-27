@@ -46,6 +46,8 @@ export class DescribeDataSourcePermissionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "QuickSightClient",
+      commandName: "DescribeDataSourcePermissionsCommand",
       inputFilterSensitiveLog: DescribeDataSourcePermissionsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeDataSourcePermissionsResponse.filterSensitiveLog,
     };

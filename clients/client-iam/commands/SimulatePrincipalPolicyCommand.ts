@@ -46,6 +46,8 @@ export class SimulatePrincipalPolicyCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "IAMClient",
+      commandName: "SimulatePrincipalPolicyCommand",
       inputFilterSensitiveLog: SimulatePrincipalPolicyRequest.filterSensitiveLog,
       outputFilterSensitiveLog: SimulatePolicyResponse.filterSensitiveLog,
     };

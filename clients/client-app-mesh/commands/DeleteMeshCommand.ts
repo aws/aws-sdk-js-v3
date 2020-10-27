@@ -46,6 +46,8 @@ export class DeleteMeshCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "AppMeshClient",
+      commandName: "DeleteMeshCommand",
       inputFilterSensitiveLog: DeleteMeshInput.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteMeshOutput.filterSensitiveLog,
     };

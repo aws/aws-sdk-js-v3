@@ -46,6 +46,8 @@ export class DescribeGatewayInformationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "StorageGatewayClient",
+      commandName: "DescribeGatewayInformationCommand",
       inputFilterSensitiveLog: DescribeGatewayInformationInput.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeGatewayInformationOutput.filterSensitiveLog,
     };

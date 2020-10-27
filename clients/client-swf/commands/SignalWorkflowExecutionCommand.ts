@@ -46,6 +46,8 @@ export class SignalWorkflowExecutionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SWFClient",
+      commandName: "SignalWorkflowExecutionCommand",
       inputFilterSensitiveLog: SignalWorkflowExecutionInput.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

@@ -46,6 +46,8 @@ export class RestoreDBInstanceToPointInTimeCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "RDSClient",
+      commandName: "RestoreDBInstanceToPointInTimeCommand",
       inputFilterSensitiveLog: RestoreDBInstanceToPointInTimeMessage.filterSensitiveLog,
       outputFilterSensitiveLog: RestoreDBInstanceToPointInTimeResult.filterSensitiveLog,
     };

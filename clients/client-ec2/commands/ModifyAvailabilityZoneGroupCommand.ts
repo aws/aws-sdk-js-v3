@@ -46,6 +46,8 @@ export class ModifyAvailabilityZoneGroupCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EC2Client",
+      commandName: "ModifyAvailabilityZoneGroupCommand",
       inputFilterSensitiveLog: ModifyAvailabilityZoneGroupRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ModifyAvailabilityZoneGroupResult.filterSensitiveLog,
     };

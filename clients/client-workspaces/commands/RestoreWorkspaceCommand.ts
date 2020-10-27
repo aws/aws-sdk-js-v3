@@ -46,6 +46,8 @@ export class RestoreWorkspaceCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "WorkSpacesClient",
+      commandName: "RestoreWorkspaceCommand",
       inputFilterSensitiveLog: RestoreWorkspaceRequest.filterSensitiveLog,
       outputFilterSensitiveLog: RestoreWorkspaceResult.filterSensitiveLog,
     };

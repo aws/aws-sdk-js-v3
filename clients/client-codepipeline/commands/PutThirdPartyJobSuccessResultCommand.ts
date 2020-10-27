@@ -46,6 +46,8 @@ export class PutThirdPartyJobSuccessResultCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CodePipelineClient",
+      commandName: "PutThirdPartyJobSuccessResultCommand",
       inputFilterSensitiveLog: PutThirdPartyJobSuccessResultInput.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

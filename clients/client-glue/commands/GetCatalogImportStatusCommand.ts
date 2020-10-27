@@ -46,6 +46,8 @@ export class GetCatalogImportStatusCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GlueClient",
+      commandName: "GetCatalogImportStatusCommand",
       inputFilterSensitiveLog: GetCatalogImportStatusRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetCatalogImportStatusResponse.filterSensitiveLog,
     };

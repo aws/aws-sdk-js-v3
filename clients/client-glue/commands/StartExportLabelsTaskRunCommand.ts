@@ -46,6 +46,8 @@ export class StartExportLabelsTaskRunCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GlueClient",
+      commandName: "StartExportLabelsTaskRunCommand",
       inputFilterSensitiveLog: StartExportLabelsTaskRunRequest.filterSensitiveLog,
       outputFilterSensitiveLog: StartExportLabelsTaskRunResponse.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class BatchGetVariableCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "FraudDetectorClient",
+      commandName: "BatchGetVariableCommand",
       inputFilterSensitiveLog: BatchGetVariableRequest.filterSensitiveLog,
       outputFilterSensitiveLog: BatchGetVariableResult.filterSensitiveLog,
     };

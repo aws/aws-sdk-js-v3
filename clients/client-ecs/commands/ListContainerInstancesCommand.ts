@@ -46,6 +46,8 @@ export class ListContainerInstancesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ECSClient",
+      commandName: "ListContainerInstancesCommand",
       inputFilterSensitiveLog: ListContainerInstancesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListContainerInstancesResponse.filterSensitiveLog,
     };

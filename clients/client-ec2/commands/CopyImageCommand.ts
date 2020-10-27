@@ -39,6 +39,8 @@ export class CopyImageCommand extends $Command<CopyImageCommandInput, CopyImageC
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EC2Client",
+      commandName: "CopyImageCommand",
       inputFilterSensitiveLog: CopyImageRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CopyImageResult.filterSensitiveLog,
     };

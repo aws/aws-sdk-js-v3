@@ -46,6 +46,8 @@ export class ListClusterOperationsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "KafkaClient",
+      commandName: "ListClusterOperationsCommand",
       inputFilterSensitiveLog: ListClusterOperationsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListClusterOperationsResponse.filterSensitiveLog,
     };

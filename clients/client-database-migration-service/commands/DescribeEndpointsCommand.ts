@@ -50,6 +50,8 @@ export class DescribeEndpointsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "DatabaseMigrationServiceClient",
+      commandName: "DescribeEndpointsCommand",
       inputFilterSensitiveLog: DescribeEndpointsMessage.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeEndpointsResponse.filterSensitiveLog,
     };

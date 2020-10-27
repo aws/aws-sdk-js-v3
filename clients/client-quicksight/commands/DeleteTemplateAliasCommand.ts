@@ -46,6 +46,8 @@ export class DeleteTemplateAliasCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "QuickSightClient",
+      commandName: "DeleteTemplateAliasCommand",
       inputFilterSensitiveLog: DeleteTemplateAliasRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteTemplateAliasResponse.filterSensitiveLog,
     };

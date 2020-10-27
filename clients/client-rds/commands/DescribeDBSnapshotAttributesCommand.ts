@@ -46,6 +46,8 @@ export class DescribeDBSnapshotAttributesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "RDSClient",
+      commandName: "DescribeDBSnapshotAttributesCommand",
       inputFilterSensitiveLog: DescribeDBSnapshotAttributesMessage.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeDBSnapshotAttributesResult.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class CreateSMBFileShareCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "StorageGatewayClient",
+      commandName: "CreateSMBFileShareCommand",
       inputFilterSensitiveLog: CreateSMBFileShareInput.filterSensitiveLog,
       outputFilterSensitiveLog: CreateSMBFileShareOutput.filterSensitiveLog,
     };

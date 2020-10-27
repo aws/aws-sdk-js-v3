@@ -46,6 +46,8 @@ export class GetLoadBalancerTlsCertificatesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "LightsailClient",
+      commandName: "GetLoadBalancerTlsCertificatesCommand",
       inputFilterSensitiveLog: GetLoadBalancerTlsCertificatesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetLoadBalancerTlsCertificatesResult.filterSensitiveLog,
     };

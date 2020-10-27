@@ -50,6 +50,8 @@ export class GetIdentityVerificationAttributesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SESClient",
+      commandName: "GetIdentityVerificationAttributesCommand",
       inputFilterSensitiveLog: GetIdentityVerificationAttributesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetIdentityVerificationAttributesResponse.filterSensitiveLog,
     };

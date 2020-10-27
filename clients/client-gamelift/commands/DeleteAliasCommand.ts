@@ -46,6 +46,8 @@ export class DeleteAliasCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GameLiftClient",
+      commandName: "DeleteAliasCommand",
       inputFilterSensitiveLog: DeleteAliasInput.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

@@ -46,6 +46,8 @@ export class GetRetentionSettingsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ChimeClient",
+      commandName: "GetRetentionSettingsCommand",
       inputFilterSensitiveLog: GetRetentionSettingsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetRetentionSettingsResponse.filterSensitiveLog,
     };

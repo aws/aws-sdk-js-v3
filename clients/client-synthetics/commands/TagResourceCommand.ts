@@ -46,6 +46,8 @@ export class TagResourceCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SyntheticsClient",
+      commandName: "TagResourceCommand",
       inputFilterSensitiveLog: TagResourceRequest.filterSensitiveLog,
       outputFilterSensitiveLog: TagResourceResponse.filterSensitiveLog,
     };

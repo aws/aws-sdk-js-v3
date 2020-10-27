@@ -46,6 +46,8 @@ export class UpdateTagsForDomainCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "Route53DomainsClient",
+      commandName: "UpdateTagsForDomainCommand",
       inputFilterSensitiveLog: UpdateTagsForDomainRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateTagsForDomainResponse.filterSensitiveLog,
     };

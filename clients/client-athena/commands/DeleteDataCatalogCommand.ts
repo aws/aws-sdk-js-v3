@@ -46,6 +46,8 @@ export class DeleteDataCatalogCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "AthenaClient",
+      commandName: "DeleteDataCatalogCommand",
       inputFilterSensitiveLog: DeleteDataCatalogInput.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteDataCatalogOutput.filterSensitiveLog,
     };

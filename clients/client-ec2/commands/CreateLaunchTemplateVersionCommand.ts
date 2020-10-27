@@ -46,6 +46,8 @@ export class CreateLaunchTemplateVersionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EC2Client",
+      commandName: "CreateLaunchTemplateVersionCommand",
       inputFilterSensitiveLog: CreateLaunchTemplateVersionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateLaunchTemplateVersionResult.filterSensitiveLog,
     };

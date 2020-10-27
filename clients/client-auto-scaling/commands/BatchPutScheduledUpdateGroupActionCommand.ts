@@ -47,6 +47,8 @@ export class BatchPutScheduledUpdateGroupActionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "AutoScalingClient",
+      commandName: "BatchPutScheduledUpdateGroupActionCommand",
       inputFilterSensitiveLog: BatchPutScheduledUpdateGroupActionType.filterSensitiveLog,
       outputFilterSensitiveLog: BatchPutScheduledUpdateGroupActionAnswer.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class UpdateAssessmentTargetCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "InspectorClient",
+      commandName: "UpdateAssessmentTargetCommand",
       inputFilterSensitiveLog: UpdateAssessmentTargetRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

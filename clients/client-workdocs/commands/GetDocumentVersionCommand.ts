@@ -46,6 +46,8 @@ export class GetDocumentVersionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "WorkDocsClient",
+      commandName: "GetDocumentVersionCommand",
       inputFilterSensitiveLog: GetDocumentVersionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetDocumentVersionResponse.filterSensitiveLog,
     };

@@ -43,6 +43,8 @@ export class DescribeTagsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EC2Client",
+      commandName: "DescribeTagsCommand",
       inputFilterSensitiveLog: DescribeTagsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeTagsResult.filterSensitiveLog,
     };

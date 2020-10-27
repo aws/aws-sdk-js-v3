@@ -48,6 +48,8 @@ export class CopyDBClusterSnapshotCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "RDSClient",
+      commandName: "CopyDBClusterSnapshotCommand",
       inputFilterSensitiveLog: CopyDBClusterSnapshotMessage.filterSensitiveLog,
       outputFilterSensitiveLog: CopyDBClusterSnapshotResult.filterSensitiveLog,
     };

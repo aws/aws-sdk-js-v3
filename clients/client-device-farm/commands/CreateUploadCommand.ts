@@ -46,6 +46,8 @@ export class CreateUploadCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "DeviceFarmClient",
+      commandName: "CreateUploadCommand",
       inputFilterSensitiveLog: CreateUploadRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateUploadResult.filterSensitiveLog,
     };

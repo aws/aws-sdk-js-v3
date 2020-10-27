@@ -46,6 +46,8 @@ export class DescribeMovingAddressesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EC2Client",
+      commandName: "DescribeMovingAddressesCommand",
       inputFilterSensitiveLog: DescribeMovingAddressesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeMovingAddressesResult.filterSensitiveLog,
     };

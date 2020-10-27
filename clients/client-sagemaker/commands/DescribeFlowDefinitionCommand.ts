@@ -46,6 +46,8 @@ export class DescribeFlowDefinitionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SageMakerClient",
+      commandName: "DescribeFlowDefinitionCommand",
       inputFilterSensitiveLog: DescribeFlowDefinitionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeFlowDefinitionResponse.filterSensitiveLog,
     };

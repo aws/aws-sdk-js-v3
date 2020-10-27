@@ -46,6 +46,8 @@ export class DeleteBrokerCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "MqClient",
+      commandName: "DeleteBrokerCommand",
       inputFilterSensitiveLog: DeleteBrokerRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteBrokerResponse.filterSensitiveLog,
     };

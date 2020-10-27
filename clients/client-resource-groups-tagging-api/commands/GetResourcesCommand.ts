@@ -50,6 +50,8 @@ export class GetResourcesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ResourceGroupsTaggingAPIClient",
+      commandName: "GetResourcesCommand",
       inputFilterSensitiveLog: GetResourcesInput.filterSensitiveLog,
       outputFilterSensitiveLog: GetResourcesOutput.filterSensitiveLog,
     };

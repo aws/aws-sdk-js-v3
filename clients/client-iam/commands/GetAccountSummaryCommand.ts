@@ -46,6 +46,8 @@ export class GetAccountSummaryCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "IAMClient",
+      commandName: "GetAccountSummaryCommand",
       inputFilterSensitiveLog: (input: any) => input,
       outputFilterSensitiveLog: GetAccountSummaryResponse.filterSensitiveLog,
     };

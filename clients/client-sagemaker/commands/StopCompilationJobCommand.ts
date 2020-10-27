@@ -46,6 +46,8 @@ export class StopCompilationJobCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SageMakerClient",
+      commandName: "StopCompilationJobCommand",
       inputFilterSensitiveLog: StopCompilationJobRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

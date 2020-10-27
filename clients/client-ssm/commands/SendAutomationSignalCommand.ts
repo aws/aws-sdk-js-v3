@@ -46,6 +46,8 @@ export class SendAutomationSignalCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SSMClient",
+      commandName: "SendAutomationSignalCommand",
       inputFilterSensitiveLog: SendAutomationSignalRequest.filterSensitiveLog,
       outputFilterSensitiveLog: SendAutomationSignalResult.filterSensitiveLog,
     };

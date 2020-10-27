@@ -46,6 +46,8 @@ export class CreateGlobalClusterCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "RDSClient",
+      commandName: "CreateGlobalClusterCommand",
       inputFilterSensitiveLog: CreateGlobalClusterMessage.filterSensitiveLog,
       outputFilterSensitiveLog: CreateGlobalClusterResult.filterSensitiveLog,
     };

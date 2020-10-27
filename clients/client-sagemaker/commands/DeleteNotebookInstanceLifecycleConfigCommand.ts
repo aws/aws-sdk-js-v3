@@ -46,6 +46,8 @@ export class DeleteNotebookInstanceLifecycleConfigCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SageMakerClient",
+      commandName: "DeleteNotebookInstanceLifecycleConfigCommand",
       inputFilterSensitiveLog: DeleteNotebookInstanceLifecycleConfigInput.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

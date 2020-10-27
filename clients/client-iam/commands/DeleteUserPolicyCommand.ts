@@ -46,6 +46,8 @@ export class DeleteUserPolicyCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "IAMClient",
+      commandName: "DeleteUserPolicyCommand",
       inputFilterSensitiveLog: DeleteUserPolicyRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

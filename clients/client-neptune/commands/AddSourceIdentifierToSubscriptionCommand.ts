@@ -46,6 +46,8 @@ export class AddSourceIdentifierToSubscriptionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "NeptuneClient",
+      commandName: "AddSourceIdentifierToSubscriptionCommand",
       inputFilterSensitiveLog: AddSourceIdentifierToSubscriptionMessage.filterSensitiveLog,
       outputFilterSensitiveLog: AddSourceIdentifierToSubscriptionResult.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class BatchGetQueryExecutionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "AthenaClient",
+      commandName: "BatchGetQueryExecutionCommand",
       inputFilterSensitiveLog: BatchGetQueryExecutionInput.filterSensitiveLog,
       outputFilterSensitiveLog: BatchGetQueryExecutionOutput.filterSensitiveLog,
     };

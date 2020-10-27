@@ -46,6 +46,8 @@ export class CreateConditionalForwarderCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "DirectoryServiceClient",
+      commandName: "CreateConditionalForwarderCommand",
       inputFilterSensitiveLog: CreateConditionalForwarderRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateConditionalForwarderResult.filterSensitiveLog,
     };

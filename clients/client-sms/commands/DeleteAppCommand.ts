@@ -39,6 +39,8 @@ export class DeleteAppCommand extends $Command<DeleteAppCommandInput, DeleteAppC
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SMSClient",
+      commandName: "DeleteAppCommand",
       inputFilterSensitiveLog: DeleteAppRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteAppResponse.filterSensitiveLog,
     };

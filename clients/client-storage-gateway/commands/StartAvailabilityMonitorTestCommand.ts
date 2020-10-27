@@ -46,6 +46,8 @@ export class StartAvailabilityMonitorTestCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "StorageGatewayClient",
+      commandName: "StartAvailabilityMonitorTestCommand",
       inputFilterSensitiveLog: StartAvailabilityMonitorTestInput.filterSensitiveLog,
       outputFilterSensitiveLog: StartAvailabilityMonitorTestOutput.filterSensitiveLog,
     };

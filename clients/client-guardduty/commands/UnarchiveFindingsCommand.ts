@@ -46,6 +46,8 @@ export class UnarchiveFindingsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GuardDutyClient",
+      commandName: "UnarchiveFindingsCommand",
       inputFilterSensitiveLog: UnarchiveFindingsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UnarchiveFindingsResponse.filterSensitiveLog,
     };

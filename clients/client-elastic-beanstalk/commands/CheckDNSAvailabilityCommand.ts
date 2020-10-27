@@ -46,6 +46,8 @@ export class CheckDNSAvailabilityCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ElasticBeanstalkClient",
+      commandName: "CheckDNSAvailabilityCommand",
       inputFilterSensitiveLog: CheckDNSAvailabilityMessage.filterSensitiveLog,
       outputFilterSensitiveLog: CheckDNSAvailabilityResultMessage.filterSensitiveLog,
     };

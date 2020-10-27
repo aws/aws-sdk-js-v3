@@ -43,6 +43,8 @@ export class DeleteTopicCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SNSClient",
+      commandName: "DeleteTopicCommand",
       inputFilterSensitiveLog: DeleteTopicInput.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

@@ -46,6 +46,8 @@ export class CreateRoleAliasCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "IoTClient",
+      commandName: "CreateRoleAliasCommand",
       inputFilterSensitiveLog: CreateRoleAliasRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateRoleAliasResponse.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class GetDomainStatisticsReportCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SESv2Client",
+      commandName: "GetDomainStatisticsReportCommand",
       inputFilterSensitiveLog: GetDomainStatisticsReportRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetDomainStatisticsReportResponse.filterSensitiveLog,
     };

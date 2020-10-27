@@ -50,6 +50,8 @@ export class RegisterTargetsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ElasticLoadBalancingV2Client",
+      commandName: "RegisterTargetsCommand",
       inputFilterSensitiveLog: RegisterTargetsInput.filterSensitiveLog,
       outputFilterSensitiveLog: RegisterTargetsOutput.filterSensitiveLog,
     };

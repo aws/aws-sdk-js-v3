@@ -46,6 +46,8 @@ export class GetAssetCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "DataExchangeClient",
+      commandName: "GetAssetCommand",
       inputFilterSensitiveLog: GetAssetRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetAssetResponse.filterSensitiveLog,
     };

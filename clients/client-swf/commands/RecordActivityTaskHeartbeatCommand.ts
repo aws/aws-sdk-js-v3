@@ -46,6 +46,8 @@ export class RecordActivityTaskHeartbeatCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SWFClient",
+      commandName: "RecordActivityTaskHeartbeatCommand",
       inputFilterSensitiveLog: RecordActivityTaskHeartbeatInput.filterSensitiveLog,
       outputFilterSensitiveLog: ActivityTaskStatus.filterSensitiveLog,
     };

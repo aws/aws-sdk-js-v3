@@ -46,6 +46,8 @@ export class ListScramSecretsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "KafkaClient",
+      commandName: "ListScramSecretsCommand",
       inputFilterSensitiveLog: ListScramSecretsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListScramSecretsResponse.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class GetGroupQueryCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ResourceGroupsClient",
+      commandName: "GetGroupQueryCommand",
       inputFilterSensitiveLog: GetGroupQueryInput.filterSensitiveLog,
       outputFilterSensitiveLog: GetGroupQueryOutput.filterSensitiveLog,
     };

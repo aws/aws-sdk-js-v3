@@ -46,6 +46,8 @@ export class StopLabelingJobCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SageMakerClient",
+      commandName: "StopLabelingJobCommand",
       inputFilterSensitiveLog: StopLabelingJobRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

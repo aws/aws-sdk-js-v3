@@ -43,6 +43,8 @@ export class GetTemplateCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CloudFormationClient",
+      commandName: "GetTemplateCommand",
       inputFilterSensitiveLog: GetTemplateInput.filterSensitiveLog,
       outputFilterSensitiveLog: GetTemplateOutput.filterSensitiveLog,
     };

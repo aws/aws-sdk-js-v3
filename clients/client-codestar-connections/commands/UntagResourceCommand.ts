@@ -50,6 +50,8 @@ export class UntagResourceCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CodeStarConnectionsClient",
+      commandName: "UntagResourceCommand",
       inputFilterSensitiveLog: UntagResourceInput.filterSensitiveLog,
       outputFilterSensitiveLog: UntagResourceOutput.filterSensitiveLog,
     };

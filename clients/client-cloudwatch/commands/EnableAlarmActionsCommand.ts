@@ -46,6 +46,8 @@ export class EnableAlarmActionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CloudWatchClient",
+      commandName: "EnableAlarmActionsCommand",
       inputFilterSensitiveLog: EnableAlarmActionsInput.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

@@ -46,6 +46,8 @@ export class AttachPrincipalPolicyCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "IoTClient",
+      commandName: "AttachPrincipalPolicyCommand",
       inputFilterSensitiveLog: AttachPrincipalPolicyRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

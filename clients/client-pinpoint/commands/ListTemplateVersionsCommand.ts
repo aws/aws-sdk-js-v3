@@ -46,6 +46,8 @@ export class ListTemplateVersionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "PinpointClient",
+      commandName: "ListTemplateVersionsCommand",
       inputFilterSensitiveLog: ListTemplateVersionsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListTemplateVersionsResponse.filterSensitiveLog,
     };

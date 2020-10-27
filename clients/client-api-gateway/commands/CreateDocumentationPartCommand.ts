@@ -46,6 +46,8 @@ export class CreateDocumentationPartCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "APIGatewayClient",
+      commandName: "CreateDocumentationPartCommand",
       inputFilterSensitiveLog: CreateDocumentationPartRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DocumentationPart.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class CreateRoutingProfileCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ConnectClient",
+      commandName: "CreateRoutingProfileCommand",
       inputFilterSensitiveLog: CreateRoutingProfileRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateRoutingProfileResponse.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class ListAuditFindingsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "IoTClient",
+      commandName: "ListAuditFindingsCommand",
       inputFilterSensitiveLog: ListAuditFindingsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListAuditFindingsResponse.filterSensitiveLog,
     };

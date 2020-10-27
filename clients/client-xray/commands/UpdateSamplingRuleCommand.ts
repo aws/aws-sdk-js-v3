@@ -46,6 +46,8 @@ export class UpdateSamplingRuleCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "XRayClient",
+      commandName: "UpdateSamplingRuleCommand",
       inputFilterSensitiveLog: UpdateSamplingRuleRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateSamplingRuleResult.filterSensitiveLog,
     };

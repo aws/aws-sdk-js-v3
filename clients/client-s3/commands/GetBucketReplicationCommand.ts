@@ -48,6 +48,8 @@ export class GetBucketReplicationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "S3Client",
+      commandName: "GetBucketReplicationCommand",
       inputFilterSensitiveLog: GetBucketReplicationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetBucketReplicationOutput.filterSensitiveLog,
     };

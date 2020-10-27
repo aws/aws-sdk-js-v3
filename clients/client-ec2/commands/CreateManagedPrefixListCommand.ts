@@ -46,6 +46,8 @@ export class CreateManagedPrefixListCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EC2Client",
+      commandName: "CreateManagedPrefixListCommand",
       inputFilterSensitiveLog: CreateManagedPrefixListRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateManagedPrefixListResult.filterSensitiveLog,
     };

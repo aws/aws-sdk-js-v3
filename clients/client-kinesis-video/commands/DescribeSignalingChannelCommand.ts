@@ -46,6 +46,8 @@ export class DescribeSignalingChannelCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "KinesisVideoClient",
+      commandName: "DescribeSignalingChannelCommand",
       inputFilterSensitiveLog: DescribeSignalingChannelInput.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeSignalingChannelOutput.filterSensitiveLog,
     };

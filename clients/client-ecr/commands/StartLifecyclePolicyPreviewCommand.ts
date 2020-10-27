@@ -46,6 +46,8 @@ export class StartLifecyclePolicyPreviewCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ECRClient",
+      commandName: "StartLifecyclePolicyPreviewCommand",
       inputFilterSensitiveLog: StartLifecyclePolicyPreviewRequest.filterSensitiveLog,
       outputFilterSensitiveLog: StartLifecyclePolicyPreviewResponse.filterSensitiveLog,
     };

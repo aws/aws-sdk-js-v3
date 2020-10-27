@@ -46,6 +46,8 @@ export class AssociateHostedConnectionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "DirectConnectClient",
+      commandName: "AssociateHostedConnectionCommand",
       inputFilterSensitiveLog: AssociateHostedConnectionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: Connection.filterSensitiveLog,
     };

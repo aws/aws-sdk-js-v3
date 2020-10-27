@@ -46,6 +46,8 @@ export class DeleteChapCredentialsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "StorageGatewayClient",
+      commandName: "DeleteChapCredentialsCommand",
       inputFilterSensitiveLog: DeleteChapCredentialsInput.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteChapCredentialsOutput.filterSensitiveLog,
     };

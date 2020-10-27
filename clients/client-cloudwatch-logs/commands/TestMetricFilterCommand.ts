@@ -46,6 +46,8 @@ export class TestMetricFilterCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CloudWatchLogsClient",
+      commandName: "TestMetricFilterCommand",
       inputFilterSensitiveLog: TestMetricFilterRequest.filterSensitiveLog,
       outputFilterSensitiveLog: TestMetricFilterResponse.filterSensitiveLog,
     };

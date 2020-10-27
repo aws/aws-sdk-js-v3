@@ -46,6 +46,8 @@ export class InviteMembersCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SecurityHubClient",
+      commandName: "InviteMembersCommand",
       inputFilterSensitiveLog: InviteMembersRequest.filterSensitiveLog,
       outputFilterSensitiveLog: InviteMembersResponse.filterSensitiveLog,
     };

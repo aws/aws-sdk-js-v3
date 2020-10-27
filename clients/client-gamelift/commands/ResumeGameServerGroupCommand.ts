@@ -46,6 +46,8 @@ export class ResumeGameServerGroupCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GameLiftClient",
+      commandName: "ResumeGameServerGroupCommand",
       inputFilterSensitiveLog: ResumeGameServerGroupInput.filterSensitiveLog,
       outputFilterSensitiveLog: ResumeGameServerGroupOutput.filterSensitiveLog,
     };

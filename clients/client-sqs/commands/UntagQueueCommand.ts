@@ -43,6 +43,8 @@ export class UntagQueueCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SQSClient",
+      commandName: "UntagQueueCommand",
       inputFilterSensitiveLog: UntagQueueRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

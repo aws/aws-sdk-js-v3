@@ -46,6 +46,8 @@ export class RunJobFlowCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EMRClient",
+      commandName: "RunJobFlowCommand",
       inputFilterSensitiveLog: RunJobFlowInput.filterSensitiveLog,
       outputFilterSensitiveLog: RunJobFlowOutput.filterSensitiveLog,
     };

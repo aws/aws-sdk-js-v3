@@ -46,6 +46,8 @@ export class CreateDirectoryConfigCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "AppStreamClient",
+      commandName: "CreateDirectoryConfigCommand",
       inputFilterSensitiveLog: CreateDirectoryConfigRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateDirectoryConfigResult.filterSensitiveLog,
     };

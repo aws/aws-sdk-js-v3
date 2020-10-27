@@ -46,6 +46,8 @@ export class DescribeCopyProductStatusCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ServiceCatalogClient",
+      commandName: "DescribeCopyProductStatusCommand",
       inputFilterSensitiveLog: DescribeCopyProductStatusInput.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeCopyProductStatusOutput.filterSensitiveLog,
     };

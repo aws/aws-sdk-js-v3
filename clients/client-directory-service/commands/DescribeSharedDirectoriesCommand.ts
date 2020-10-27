@@ -46,6 +46,8 @@ export class DescribeSharedDirectoriesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "DirectoryServiceClient",
+      commandName: "DescribeSharedDirectoriesCommand",
       inputFilterSensitiveLog: DescribeSharedDirectoriesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeSharedDirectoriesResult.filterSensitiveLog,
     };

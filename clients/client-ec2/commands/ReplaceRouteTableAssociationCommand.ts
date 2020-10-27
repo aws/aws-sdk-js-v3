@@ -46,6 +46,8 @@ export class ReplaceRouteTableAssociationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EC2Client",
+      commandName: "ReplaceRouteTableAssociationCommand",
       inputFilterSensitiveLog: ReplaceRouteTableAssociationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ReplaceRouteTableAssociationResult.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class DisassociateKmsKeyCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CloudWatchLogsClient",
+      commandName: "DisassociateKmsKeyCommand",
       inputFilterSensitiveLog: DisassociateKmsKeyRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

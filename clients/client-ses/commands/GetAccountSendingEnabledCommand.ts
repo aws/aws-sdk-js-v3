@@ -46,6 +46,8 @@ export class GetAccountSendingEnabledCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SESClient",
+      commandName: "GetAccountSendingEnabledCommand",
       inputFilterSensitiveLog: (input: any) => input,
       outputFilterSensitiveLog: GetAccountSendingEnabledResponse.filterSensitiveLog,
     };

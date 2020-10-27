@@ -46,6 +46,8 @@ export class GetHealthCheckStatusCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "Route53Client",
+      commandName: "GetHealthCheckStatusCommand",
       inputFilterSensitiveLog: GetHealthCheckStatusRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetHealthCheckStatusResponse.filterSensitiveLog,
     };

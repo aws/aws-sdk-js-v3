@@ -46,6 +46,8 @@ export class DescribeCertificatesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "RDSClient",
+      commandName: "DescribeCertificatesCommand",
       inputFilterSensitiveLog: DescribeCertificatesMessage.filterSensitiveLog,
       outputFilterSensitiveLog: CertificateMessage.filterSensitiveLog,
     };

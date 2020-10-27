@@ -46,6 +46,8 @@ export class UpdateBrokerCountCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "KafkaClient",
+      commandName: "UpdateBrokerCountCommand",
       inputFilterSensitiveLog: UpdateBrokerCountRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateBrokerCountResponse.filterSensitiveLog,
     };

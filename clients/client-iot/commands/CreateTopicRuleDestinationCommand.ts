@@ -46,6 +46,8 @@ export class CreateTopicRuleDestinationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "IoTClient",
+      commandName: "CreateTopicRuleDestinationCommand",
       inputFilterSensitiveLog: CreateTopicRuleDestinationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateTopicRuleDestinationResponse.filterSensitiveLog,
     };

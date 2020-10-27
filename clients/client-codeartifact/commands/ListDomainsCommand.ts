@@ -46,6 +46,8 @@ export class ListDomainsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CodeartifactClient",
+      commandName: "ListDomainsCommand",
       inputFilterSensitiveLog: ListDomainsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListDomainsResult.filterSensitiveLog,
     };

@@ -50,6 +50,8 @@ export class WithdrawByoipCidrCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GlobalAcceleratorClient",
+      commandName: "WithdrawByoipCidrCommand",
       inputFilterSensitiveLog: WithdrawByoipCidrRequest.filterSensitiveLog,
       outputFilterSensitiveLog: WithdrawByoipCidrResponse.filterSensitiveLog,
     };

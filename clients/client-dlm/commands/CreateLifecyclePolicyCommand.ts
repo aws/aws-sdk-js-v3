@@ -46,6 +46,8 @@ export class CreateLifecyclePolicyCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "DLMClient",
+      commandName: "CreateLifecyclePolicyCommand",
       inputFilterSensitiveLog: CreateLifecyclePolicyRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateLifecyclePolicyResponse.filterSensitiveLog,
     };

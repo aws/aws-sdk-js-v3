@@ -48,6 +48,8 @@ export class GetBucketLifecycleConfigurationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "S3Client",
+      commandName: "GetBucketLifecycleConfigurationCommand",
       inputFilterSensitiveLog: GetBucketLifecycleConfigurationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetBucketLifecycleConfigurationOutput.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class DeleteDBParameterGroupCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "NeptuneClient",
+      commandName: "DeleteDBParameterGroupCommand",
       inputFilterSensitiveLog: DeleteDBParameterGroupMessage.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

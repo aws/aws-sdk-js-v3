@@ -46,6 +46,8 @@ export class GetCallerIdentityCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "STSClient",
+      commandName: "GetCallerIdentityCommand",
       inputFilterSensitiveLog: GetCallerIdentityRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetCallerIdentityResponse.filterSensitiveLog,
     };

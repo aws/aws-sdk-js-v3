@@ -46,6 +46,8 @@ export class UpdatePullRequestApprovalStateCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CodeCommitClient",
+      commandName: "UpdatePullRequestApprovalStateCommand",
       inputFilterSensitiveLog: UpdatePullRequestApprovalStateInput.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

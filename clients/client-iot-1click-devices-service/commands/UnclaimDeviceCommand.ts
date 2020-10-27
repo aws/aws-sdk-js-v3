@@ -50,6 +50,8 @@ export class UnclaimDeviceCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "IoT1ClickDevicesServiceClient",
+      commandName: "UnclaimDeviceCommand",
       inputFilterSensitiveLog: UnclaimDeviceRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UnclaimDeviceResponse.filterSensitiveLog,
     };

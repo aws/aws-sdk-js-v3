@@ -46,6 +46,8 @@ export class AllocateStaticIpCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "LightsailClient",
+      commandName: "AllocateStaticIpCommand",
       inputFilterSensitiveLog: AllocateStaticIpRequest.filterSensitiveLog,
       outputFilterSensitiveLog: AllocateStaticIpResult.filterSensitiveLog,
     };

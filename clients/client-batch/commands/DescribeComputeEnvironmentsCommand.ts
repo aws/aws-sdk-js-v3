@@ -46,6 +46,8 @@ export class DescribeComputeEnvironmentsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "BatchClient",
+      commandName: "DescribeComputeEnvironmentsCommand",
       inputFilterSensitiveLog: DescribeComputeEnvironmentsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeComputeEnvironmentsResponse.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class DescribePackagingConfigurationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "MediaPackageVodClient",
+      commandName: "DescribePackagingConfigurationCommand",
       inputFilterSensitiveLog: DescribePackagingConfigurationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribePackagingConfigurationResponse.filterSensitiveLog,
     };

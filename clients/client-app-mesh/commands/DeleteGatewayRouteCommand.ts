@@ -46,6 +46,8 @@ export class DeleteGatewayRouteCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "AppMeshClient",
+      commandName: "DeleteGatewayRouteCommand",
       inputFilterSensitiveLog: DeleteGatewayRouteInput.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteGatewayRouteOutput.filterSensitiveLog,
     };

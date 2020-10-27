@@ -46,6 +46,8 @@ export class CreateStreamProcessorCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "RekognitionClient",
+      commandName: "CreateStreamProcessorCommand",
       inputFilterSensitiveLog: CreateStreamProcessorRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateStreamProcessorResponse.filterSensitiveLog,
     };

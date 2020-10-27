@@ -46,6 +46,8 @@ export class DescribeFileSystemPolicyCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EFSClient",
+      commandName: "DescribeFileSystemPolicyCommand",
       inputFilterSensitiveLog: DescribeFileSystemPolicyRequest.filterSensitiveLog,
       outputFilterSensitiveLog: FileSystemPolicyDescription.filterSensitiveLog,
     };

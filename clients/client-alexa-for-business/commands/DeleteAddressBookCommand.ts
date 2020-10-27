@@ -46,6 +46,8 @@ export class DeleteAddressBookCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "AlexaForBusinessClient",
+      commandName: "DeleteAddressBookCommand",
       inputFilterSensitiveLog: DeleteAddressBookRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteAddressBookResponse.filterSensitiveLog,
     };

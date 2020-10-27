@@ -46,6 +46,8 @@ export class UpdateDomainNameserversCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "Route53DomainsClient",
+      commandName: "UpdateDomainNameserversCommand",
       inputFilterSensitiveLog: UpdateDomainNameserversRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateDomainNameserversResponse.filterSensitiveLog,
     };

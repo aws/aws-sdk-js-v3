@@ -46,6 +46,8 @@ export class ListDatasetGroupsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "PersonalizeClient",
+      commandName: "ListDatasetGroupsCommand",
       inputFilterSensitiveLog: ListDatasetGroupsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListDatasetGroupsResponse.filterSensitiveLog,
     };

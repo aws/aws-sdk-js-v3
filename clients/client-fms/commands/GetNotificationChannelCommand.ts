@@ -46,6 +46,8 @@ export class GetNotificationChannelCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "FMSClient",
+      commandName: "GetNotificationChannelCommand",
       inputFilterSensitiveLog: GetNotificationChannelRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetNotificationChannelResponse.filterSensitiveLog,
     };

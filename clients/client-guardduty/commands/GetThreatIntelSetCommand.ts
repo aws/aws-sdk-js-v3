@@ -46,6 +46,8 @@ export class GetThreatIntelSetCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GuardDutyClient",
+      commandName: "GetThreatIntelSetCommand",
       inputFilterSensitiveLog: GetThreatIntelSetRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetThreatIntelSetResponse.filterSensitiveLog,
     };

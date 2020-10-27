@@ -46,6 +46,8 @@ export class DeleteImagePipelineCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ImagebuilderClient",
+      commandName: "DeleteImagePipelineCommand",
       inputFilterSensitiveLog: DeleteImagePipelineRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteImagePipelineResponse.filterSensitiveLog,
     };

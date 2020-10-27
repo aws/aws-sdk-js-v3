@@ -46,6 +46,8 @@ export class ListIPSetsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GuardDutyClient",
+      commandName: "ListIPSetsCommand",
       inputFilterSensitiveLog: ListIPSetsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListIPSetsResponse.filterSensitiveLog,
     };

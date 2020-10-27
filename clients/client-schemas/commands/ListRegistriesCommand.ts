@@ -46,6 +46,8 @@ export class ListRegistriesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SchemasClient",
+      commandName: "ListRegistriesCommand",
       inputFilterSensitiveLog: ListRegistriesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListRegistriesResponse.filterSensitiveLog,
     };

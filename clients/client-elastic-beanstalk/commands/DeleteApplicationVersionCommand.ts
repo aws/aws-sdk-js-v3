@@ -46,6 +46,8 @@ export class DeleteApplicationVersionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ElasticBeanstalkClient",
+      commandName: "DeleteApplicationVersionCommand",
       inputFilterSensitiveLog: DeleteApplicationVersionMessage.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

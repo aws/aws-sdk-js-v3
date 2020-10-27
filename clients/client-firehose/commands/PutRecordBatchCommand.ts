@@ -46,6 +46,8 @@ export class PutRecordBatchCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "FirehoseClient",
+      commandName: "PutRecordBatchCommand",
       inputFilterSensitiveLog: PutRecordBatchInput.filterSensitiveLog,
       outputFilterSensitiveLog: PutRecordBatchOutput.filterSensitiveLog,
     };

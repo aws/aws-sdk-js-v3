@@ -46,6 +46,8 @@ export class DeleteSqlInjectionMatchSetCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "WAFClient",
+      commandName: "DeleteSqlInjectionMatchSetCommand",
       inputFilterSensitiveLog: DeleteSqlInjectionMatchSetRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteSqlInjectionMatchSetResponse.filterSensitiveLog,
     };

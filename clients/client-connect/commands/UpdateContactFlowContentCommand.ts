@@ -46,6 +46,8 @@ export class UpdateContactFlowContentCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ConnectClient",
+      commandName: "UpdateContactFlowContentCommand",
       inputFilterSensitiveLog: UpdateContactFlowContentRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

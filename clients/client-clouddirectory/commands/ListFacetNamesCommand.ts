@@ -46,6 +46,8 @@ export class ListFacetNamesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CloudDirectoryClient",
+      commandName: "ListFacetNamesCommand",
       inputFilterSensitiveLog: ListFacetNamesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListFacetNamesResponse.filterSensitiveLog,
     };

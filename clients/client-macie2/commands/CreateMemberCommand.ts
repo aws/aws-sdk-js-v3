@@ -46,6 +46,8 @@ export class CreateMemberCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "Macie2Client",
+      commandName: "CreateMemberCommand",
       inputFilterSensitiveLog: CreateMemberRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateMemberResponse.filterSensitiveLog,
     };

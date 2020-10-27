@@ -46,6 +46,8 @@ export class UpdateFolderCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "WorkDocsClient",
+      commandName: "UpdateFolderCommand",
       inputFilterSensitiveLog: UpdateFolderRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

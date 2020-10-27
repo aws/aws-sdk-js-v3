@@ -46,6 +46,8 @@ export class PutNotificationConfigurationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "AutoScalingClient",
+      commandName: "PutNotificationConfigurationCommand",
       inputFilterSensitiveLog: PutNotificationConfigurationType.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

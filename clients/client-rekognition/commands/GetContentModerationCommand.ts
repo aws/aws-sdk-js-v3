@@ -46,6 +46,8 @@ export class GetContentModerationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "RekognitionClient",
+      commandName: "GetContentModerationCommand",
       inputFilterSensitiveLog: GetContentModerationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetContentModerationResponse.filterSensitiveLog,
     };

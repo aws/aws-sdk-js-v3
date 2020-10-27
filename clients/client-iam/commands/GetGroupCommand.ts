@@ -39,6 +39,8 @@ export class GetGroupCommand extends $Command<GetGroupCommandInput, GetGroupComm
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "IAMClient",
+      commandName: "GetGroupCommand",
       inputFilterSensitiveLog: GetGroupRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetGroupResponse.filterSensitiveLog,
     };

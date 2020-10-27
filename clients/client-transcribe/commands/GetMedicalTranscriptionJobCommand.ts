@@ -46,6 +46,8 @@ export class GetMedicalTranscriptionJobCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "TranscribeClient",
+      commandName: "GetMedicalTranscriptionJobCommand",
       inputFilterSensitiveLog: GetMedicalTranscriptionJobRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetMedicalTranscriptionJobResponse.filterSensitiveLog,
     };

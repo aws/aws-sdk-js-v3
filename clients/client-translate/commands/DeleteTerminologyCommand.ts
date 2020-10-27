@@ -46,6 +46,8 @@ export class DeleteTerminologyCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "TranslateClient",
+      commandName: "DeleteTerminologyCommand",
       inputFilterSensitiveLog: DeleteTerminologyRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

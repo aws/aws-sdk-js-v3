@@ -46,6 +46,8 @@ export class ListDeploymentJobsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "RoboMakerClient",
+      commandName: "ListDeploymentJobsCommand",
       inputFilterSensitiveLog: ListDeploymentJobsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListDeploymentJobsResponse.filterSensitiveLog,
     };

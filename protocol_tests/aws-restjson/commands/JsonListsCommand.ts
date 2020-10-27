@@ -46,6 +46,8 @@ export class JsonListsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "RestJsonProtocolClient",
+      commandName: "JsonListsCommand",
       inputFilterSensitiveLog: JsonListsInputOutput.filterSensitiveLog,
       outputFilterSensitiveLog: JsonListsInputOutput.filterSensitiveLog,
     };

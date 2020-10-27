@@ -46,6 +46,8 @@ export class UpdateStateMachineCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SFNClient",
+      commandName: "UpdateStateMachineCommand",
       inputFilterSensitiveLog: UpdateStateMachineInput.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateStateMachineOutput.filterSensitiveLog,
     };

@@ -43,6 +43,8 @@ export class GetBranchCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CodeCommitClient",
+      commandName: "GetBranchCommand",
       inputFilterSensitiveLog: GetBranchInput.filterSensitiveLog,
       outputFilterSensitiveLog: GetBranchOutput.filterSensitiveLog,
     };

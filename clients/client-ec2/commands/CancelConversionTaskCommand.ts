@@ -46,6 +46,8 @@ export class CancelConversionTaskCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EC2Client",
+      commandName: "CancelConversionTaskCommand",
       inputFilterSensitiveLog: CancelConversionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

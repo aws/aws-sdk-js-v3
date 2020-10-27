@@ -46,6 +46,8 @@ export class CompleteVaultLockCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GlacierClient",
+      commandName: "CompleteVaultLockCommand",
       inputFilterSensitiveLog: CompleteVaultLockInput.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

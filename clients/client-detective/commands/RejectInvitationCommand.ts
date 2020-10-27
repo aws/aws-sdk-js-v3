@@ -46,6 +46,8 @@ export class RejectInvitationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "DetectiveClient",
+      commandName: "RejectInvitationCommand",
       inputFilterSensitiveLog: RejectInvitationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

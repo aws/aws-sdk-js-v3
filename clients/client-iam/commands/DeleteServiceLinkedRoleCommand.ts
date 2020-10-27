@@ -46,6 +46,8 @@ export class DeleteServiceLinkedRoleCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "IAMClient",
+      commandName: "DeleteServiceLinkedRoleCommand",
       inputFilterSensitiveLog: DeleteServiceLinkedRoleRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteServiceLinkedRoleResponse.filterSensitiveLog,
     };

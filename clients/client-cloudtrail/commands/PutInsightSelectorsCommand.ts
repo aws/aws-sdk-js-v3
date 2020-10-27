@@ -46,6 +46,8 @@ export class PutInsightSelectorsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CloudTrailClient",
+      commandName: "PutInsightSelectorsCommand",
       inputFilterSensitiveLog: PutInsightSelectorsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: PutInsightSelectorsResponse.filterSensitiveLog,
     };

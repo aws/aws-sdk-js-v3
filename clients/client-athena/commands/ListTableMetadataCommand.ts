@@ -46,6 +46,8 @@ export class ListTableMetadataCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "AthenaClient",
+      commandName: "ListTableMetadataCommand",
       inputFilterSensitiveLog: ListTableMetadataInput.filterSensitiveLog,
       outputFilterSensitiveLog: ListTableMetadataOutput.filterSensitiveLog,
     };

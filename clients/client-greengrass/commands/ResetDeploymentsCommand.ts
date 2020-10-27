@@ -46,6 +46,8 @@ export class ResetDeploymentsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GreengrassClient",
+      commandName: "ResetDeploymentsCommand",
       inputFilterSensitiveLog: ResetDeploymentsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ResetDeploymentsResponse.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class DeleteProtocolsListCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "FMSClient",
+      commandName: "DeleteProtocolsListCommand",
       inputFilterSensitiveLog: DeleteProtocolsListRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

@@ -46,6 +46,8 @@ export class DeleteFunctionDefinitionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GreengrassClient",
+      commandName: "DeleteFunctionDefinitionCommand",
       inputFilterSensitiveLog: DeleteFunctionDefinitionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteFunctionDefinitionResponse.filterSensitiveLog,
     };

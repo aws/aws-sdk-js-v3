@@ -46,6 +46,8 @@ export class DeleteInvitationsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GuardDutyClient",
+      commandName: "DeleteInvitationsCommand",
       inputFilterSensitiveLog: DeleteInvitationsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteInvitationsResponse.filterSensitiveLog,
     };

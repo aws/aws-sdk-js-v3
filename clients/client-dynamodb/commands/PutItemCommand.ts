@@ -39,6 +39,8 @@ export class PutItemCommand extends $Command<PutItemCommandInput, PutItemCommand
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "DynamoDBClient",
+      commandName: "PutItemCommand",
       inputFilterSensitiveLog: PutItemInput.filterSensitiveLog,
       outputFilterSensitiveLog: PutItemOutput.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class GetSigningProfileCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SignerClient",
+      commandName: "GetSigningProfileCommand",
       inputFilterSensitiveLog: GetSigningProfileRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetSigningProfileResponse.filterSensitiveLog,
     };

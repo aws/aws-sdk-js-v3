@@ -46,6 +46,8 @@ export class CreateXssMatchSetCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "WAFClient",
+      commandName: "CreateXssMatchSetCommand",
       inputFilterSensitiveLog: CreateXssMatchSetRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateXssMatchSetResponse.filterSensitiveLog,
     };

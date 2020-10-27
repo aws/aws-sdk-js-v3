@@ -53,6 +53,8 @@ export class DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsComm
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EC2Client",
+      commandName: "DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommand",
       inputFilterSensitiveLog:
         DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsRequest.filterSensitiveLog,
       outputFilterSensitiveLog:

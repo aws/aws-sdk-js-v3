@@ -46,6 +46,8 @@ export class UpdateConnectionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GlueClient",
+      commandName: "UpdateConnectionCommand",
       inputFilterSensitiveLog: UpdateConnectionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateConnectionResponse.filterSensitiveLog,
     };

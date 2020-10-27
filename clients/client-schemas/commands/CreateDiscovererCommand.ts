@@ -46,6 +46,8 @@ export class CreateDiscovererCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SchemasClient",
+      commandName: "CreateDiscovererCommand",
       inputFilterSensitiveLog: CreateDiscovererRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateDiscovererResponse.filterSensitiveLog,
     };

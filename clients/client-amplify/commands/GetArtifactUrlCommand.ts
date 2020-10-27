@@ -46,6 +46,8 @@ export class GetArtifactUrlCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "AmplifyClient",
+      commandName: "GetArtifactUrlCommand",
       inputFilterSensitiveLog: GetArtifactUrlRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetArtifactUrlResult.filterSensitiveLog,
     };

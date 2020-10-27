@@ -50,6 +50,8 @@ export class DescribeStackProvisioningParametersCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "OpsWorksClient",
+      commandName: "DescribeStackProvisioningParametersCommand",
       inputFilterSensitiveLog: DescribeStackProvisioningParametersRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeStackProvisioningParametersResult.filterSensitiveLog,
     };

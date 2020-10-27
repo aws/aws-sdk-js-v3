@@ -46,6 +46,8 @@ export class DeleteVerifiedEmailAddressCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SESClient",
+      commandName: "DeleteVerifiedEmailAddressCommand",
       inputFilterSensitiveLog: DeleteVerifiedEmailAddressRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

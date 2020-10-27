@@ -46,6 +46,8 @@ export class SelectAggregateResourceConfigCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ConfigServiceClient",
+      commandName: "SelectAggregateResourceConfigCommand",
       inputFilterSensitiveLog: SelectAggregateResourceConfigRequest.filterSensitiveLog,
       outputFilterSensitiveLog: SelectAggregateResourceConfigResponse.filterSensitiveLog,
     };

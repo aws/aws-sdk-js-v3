@@ -46,6 +46,8 @@ export class GetSnapshotLimitsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "DirectoryServiceClient",
+      commandName: "GetSnapshotLimitsCommand",
       inputFilterSensitiveLog: GetSnapshotLimitsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetSnapshotLimitsResult.filterSensitiveLog,
     };

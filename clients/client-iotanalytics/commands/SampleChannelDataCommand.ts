@@ -46,6 +46,8 @@ export class SampleChannelDataCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "IoTAnalyticsClient",
+      commandName: "SampleChannelDataCommand",
       inputFilterSensitiveLog: SampleChannelDataRequest.filterSensitiveLog,
       outputFilterSensitiveLog: SampleChannelDataResponse.filterSensitiveLog,
     };

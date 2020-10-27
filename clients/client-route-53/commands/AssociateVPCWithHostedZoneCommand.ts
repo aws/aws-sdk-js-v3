@@ -48,6 +48,8 @@ export class AssociateVPCWithHostedZoneCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "Route53Client",
+      commandName: "AssociateVPCWithHostedZoneCommand",
       inputFilterSensitiveLog: AssociateVPCWithHostedZoneRequest.filterSensitiveLog,
       outputFilterSensitiveLog: AssociateVPCWithHostedZoneResponse.filterSensitiveLog,
     };

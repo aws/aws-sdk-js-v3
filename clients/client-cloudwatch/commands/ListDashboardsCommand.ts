@@ -46,6 +46,8 @@ export class ListDashboardsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CloudWatchClient",
+      commandName: "ListDashboardsCommand",
       inputFilterSensitiveLog: ListDashboardsInput.filterSensitiveLog,
       outputFilterSensitiveLog: ListDashboardsOutput.filterSensitiveLog,
     };

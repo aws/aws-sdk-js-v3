@@ -46,6 +46,8 @@ export class DisassociatePhoneNumberFromUserCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ChimeClient",
+      commandName: "DisassociatePhoneNumberFromUserCommand",
       inputFilterSensitiveLog: DisassociatePhoneNumberFromUserRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DisassociatePhoneNumberFromUserResponse.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class DescribeForecastCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ForecastClient",
+      commandName: "DescribeForecastCommand",
       inputFilterSensitiveLog: DescribeForecastRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeForecastResponse.filterSensitiveLog,
     };

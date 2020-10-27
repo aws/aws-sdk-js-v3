@@ -46,6 +46,8 @@ export class DescribeInstancesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GameLiftClient",
+      commandName: "DescribeInstancesCommand",
       inputFilterSensitiveLog: DescribeInstancesInput.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeInstancesOutput.filterSensitiveLog,
     };

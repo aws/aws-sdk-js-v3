@@ -46,6 +46,8 @@ export class DeleteLayerCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "OpsWorksClient",
+      commandName: "DeleteLayerCommand",
       inputFilterSensitiveLog: DeleteLayerRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

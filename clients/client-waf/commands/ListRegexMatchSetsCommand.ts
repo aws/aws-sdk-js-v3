@@ -46,6 +46,8 @@ export class ListRegexMatchSetsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "WAFClient",
+      commandName: "ListRegexMatchSetsCommand",
       inputFilterSensitiveLog: ListRegexMatchSetsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListRegexMatchSetsResponse.filterSensitiveLog,
     };

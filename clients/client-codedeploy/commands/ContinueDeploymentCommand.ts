@@ -46,6 +46,8 @@ export class ContinueDeploymentCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CodeDeployClient",
+      commandName: "ContinueDeploymentCommand",
       inputFilterSensitiveLog: ContinueDeploymentInput.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

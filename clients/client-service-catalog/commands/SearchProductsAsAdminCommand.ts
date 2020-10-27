@@ -46,6 +46,8 @@ export class SearchProductsAsAdminCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ServiceCatalogClient",
+      commandName: "SearchProductsAsAdminCommand",
       inputFilterSensitiveLog: SearchProductsAsAdminInput.filterSensitiveLog,
       outputFilterSensitiveLog: SearchProductsAsAdminOutput.filterSensitiveLog,
     };

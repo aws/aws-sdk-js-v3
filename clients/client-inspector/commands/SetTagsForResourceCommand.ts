@@ -46,6 +46,8 @@ export class SetTagsForResourceCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "InspectorClient",
+      commandName: "SetTagsForResourceCommand",
       inputFilterSensitiveLog: SetTagsForResourceRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

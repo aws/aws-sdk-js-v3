@@ -46,6 +46,8 @@ export class UpdateEnrollmentStatusCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ComputeOptimizerClient",
+      commandName: "UpdateEnrollmentStatusCommand",
       inputFilterSensitiveLog: UpdateEnrollmentStatusRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateEnrollmentStatusResponse.filterSensitiveLog,
     };

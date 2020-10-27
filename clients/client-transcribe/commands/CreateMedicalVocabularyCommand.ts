@@ -46,6 +46,8 @@ export class CreateMedicalVocabularyCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "TranscribeClient",
+      commandName: "CreateMedicalVocabularyCommand",
       inputFilterSensitiveLog: CreateMedicalVocabularyRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateMedicalVocabularyResponse.filterSensitiveLog,
     };

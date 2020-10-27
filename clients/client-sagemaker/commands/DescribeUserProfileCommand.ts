@@ -46,6 +46,8 @@ export class DescribeUserProfileCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SageMakerClient",
+      commandName: "DescribeUserProfileCommand",
       inputFilterSensitiveLog: DescribeUserProfileRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeUserProfileResponse.filterSensitiveLog,
     };

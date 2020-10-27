@@ -43,6 +43,8 @@ export class StopStackCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "OpsWorksClient",
+      commandName: "StopStackCommand",
       inputFilterSensitiveLog: StopStackRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

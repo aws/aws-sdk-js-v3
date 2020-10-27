@@ -46,6 +46,8 @@ export class DescribeDatabaseCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "TimestreamWriteClient",
+      commandName: "DescribeDatabaseCommand",
       inputFilterSensitiveLog: DescribeDatabaseRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeDatabaseResponse.filterSensitiveLog,
     };

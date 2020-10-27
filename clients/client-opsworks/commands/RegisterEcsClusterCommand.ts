@@ -46,6 +46,8 @@ export class RegisterEcsClusterCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "OpsWorksClient",
+      commandName: "RegisterEcsClusterCommand",
       inputFilterSensitiveLog: RegisterEcsClusterRequest.filterSensitiveLog,
       outputFilterSensitiveLog: RegisterEcsClusterResult.filterSensitiveLog,
     };

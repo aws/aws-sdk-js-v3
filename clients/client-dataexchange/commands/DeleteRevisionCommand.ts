@@ -46,6 +46,8 @@ export class DeleteRevisionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "DataExchangeClient",
+      commandName: "DeleteRevisionCommand",
       inputFilterSensitiveLog: DeleteRevisionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

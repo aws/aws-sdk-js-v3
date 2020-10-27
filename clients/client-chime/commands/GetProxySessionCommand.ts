@@ -46,6 +46,8 @@ export class GetProxySessionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ChimeClient",
+      commandName: "GetProxySessionCommand",
       inputFilterSensitiveLog: GetProxySessionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetProxySessionResponse.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class DescribeManagedRuleGroupCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "WAFV2Client",
+      commandName: "DescribeManagedRuleGroupCommand",
       inputFilterSensitiveLog: DescribeManagedRuleGroupRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeManagedRuleGroupResponse.filterSensitiveLog,
     };

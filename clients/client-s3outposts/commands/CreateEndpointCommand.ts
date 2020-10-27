@@ -46,6 +46,8 @@ export class CreateEndpointCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "S3OutpostsClient",
+      commandName: "CreateEndpointCommand",
       inputFilterSensitiveLog: CreateEndpointRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateEndpointResult.filterSensitiveLog,
     };

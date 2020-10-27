@@ -43,6 +43,8 @@ export class DeregisterImageCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EC2Client",
+      commandName: "DeregisterImageCommand",
       inputFilterSensitiveLog: DeregisterImageRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

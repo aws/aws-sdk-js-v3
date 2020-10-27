@@ -46,6 +46,8 @@ export class DeleteConnectorDefinitionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GreengrassClient",
+      commandName: "DeleteConnectorDefinitionCommand",
       inputFilterSensitiveLog: DeleteConnectorDefinitionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteConnectorDefinitionResponse.filterSensitiveLog,
     };

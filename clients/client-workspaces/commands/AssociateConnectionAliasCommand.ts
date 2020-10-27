@@ -46,6 +46,8 @@ export class AssociateConnectionAliasCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "WorkSpacesClient",
+      commandName: "AssociateConnectionAliasCommand",
       inputFilterSensitiveLog: AssociateConnectionAliasRequest.filterSensitiveLog,
       outputFilterSensitiveLog: AssociateConnectionAliasResult.filterSensitiveLog,
     };

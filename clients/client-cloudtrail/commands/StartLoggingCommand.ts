@@ -46,6 +46,8 @@ export class StartLoggingCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CloudTrailClient",
+      commandName: "StartLoggingCommand",
       inputFilterSensitiveLog: StartLoggingRequest.filterSensitiveLog,
       outputFilterSensitiveLog: StartLoggingResponse.filterSensitiveLog,
     };

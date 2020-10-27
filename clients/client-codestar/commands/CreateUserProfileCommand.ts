@@ -46,6 +46,8 @@ export class CreateUserProfileCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CodeStarClient",
+      commandName: "CreateUserProfileCommand",
       inputFilterSensitiveLog: CreateUserProfileRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateUserProfileResult.filterSensitiveLog,
     };

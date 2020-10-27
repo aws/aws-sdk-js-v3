@@ -46,6 +46,8 @@ export class DeleteDeliveryStreamCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "FirehoseClient",
+      commandName: "DeleteDeliveryStreamCommand",
       inputFilterSensitiveLog: DeleteDeliveryStreamInput.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteDeliveryStreamOutput.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class StartBulkDeploymentCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GreengrassClient",
+      commandName: "StartBulkDeploymentCommand",
       inputFilterSensitiveLog: StartBulkDeploymentRequest.filterSensitiveLog,
       outputFilterSensitiveLog: StartBulkDeploymentResponse.filterSensitiveLog,
     };

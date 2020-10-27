@@ -46,6 +46,8 @@ export class EnableRuleCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EventBridgeClient",
+      commandName: "EnableRuleCommand",
       inputFilterSensitiveLog: EnableRuleRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

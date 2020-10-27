@@ -46,6 +46,8 @@ export class DeleteJobTemplateCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "MediaConvertClient",
+      commandName: "DeleteJobTemplateCommand",
       inputFilterSensitiveLog: DeleteJobTemplateRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteJobTemplateResponse.filterSensitiveLog,
     };

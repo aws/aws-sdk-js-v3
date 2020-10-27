@@ -46,6 +46,8 @@ export class ListHostedZonesByVPCCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "Route53Client",
+      commandName: "ListHostedZonesByVPCCommand",
       inputFilterSensitiveLog: ListHostedZonesByVPCRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListHostedZonesByVPCResponse.filterSensitiveLog,
     };

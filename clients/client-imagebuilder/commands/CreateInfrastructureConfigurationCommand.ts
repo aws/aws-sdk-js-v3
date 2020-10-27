@@ -50,6 +50,8 @@ export class CreateInfrastructureConfigurationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ImagebuilderClient",
+      commandName: "CreateInfrastructureConfigurationCommand",
       inputFilterSensitiveLog: CreateInfrastructureConfigurationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateInfrastructureConfigurationResponse.filterSensitiveLog,
     };

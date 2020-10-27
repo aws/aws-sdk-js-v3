@@ -43,6 +43,8 @@ export class UnpeerVpcCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "LightsailClient",
+      commandName: "UnpeerVpcCommand",
       inputFilterSensitiveLog: UnpeerVpcRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UnpeerVpcResult.filterSensitiveLog,
     };

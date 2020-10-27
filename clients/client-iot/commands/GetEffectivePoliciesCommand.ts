@@ -46,6 +46,8 @@ export class GetEffectivePoliciesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "IoTClient",
+      commandName: "GetEffectivePoliciesCommand",
       inputFilterSensitiveLog: GetEffectivePoliciesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetEffectivePoliciesResponse.filterSensitiveLog,
     };

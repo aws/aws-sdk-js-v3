@@ -46,6 +46,8 @@ export class GetDirectoryLimitsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "DirectoryServiceClient",
+      commandName: "GetDirectoryLimitsCommand",
       inputFilterSensitiveLog: GetDirectoryLimitsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetDirectoryLimitsResult.filterSensitiveLog,
     };

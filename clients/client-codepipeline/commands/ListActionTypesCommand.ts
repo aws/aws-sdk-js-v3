@@ -46,6 +46,8 @@ export class ListActionTypesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CodePipelineClient",
+      commandName: "ListActionTypesCommand",
       inputFilterSensitiveLog: ListActionTypesInput.filterSensitiveLog,
       outputFilterSensitiveLog: ListActionTypesOutput.filterSensitiveLog,
     };

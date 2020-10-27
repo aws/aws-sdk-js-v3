@@ -46,6 +46,8 @@ export class ListPendingInvitationResourcesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "RAMClient",
+      commandName: "ListPendingInvitationResourcesCommand",
       inputFilterSensitiveLog: ListPendingInvitationResourcesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListPendingInvitationResourcesResponse.filterSensitiveLog,
     };

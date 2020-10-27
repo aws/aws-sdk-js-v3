@@ -46,6 +46,8 @@ export class DeleteChannelCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "MediaLiveClient",
+      commandName: "DeleteChannelCommand",
       inputFilterSensitiveLog: DeleteChannelRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteChannelResponse.filterSensitiveLog,
     };

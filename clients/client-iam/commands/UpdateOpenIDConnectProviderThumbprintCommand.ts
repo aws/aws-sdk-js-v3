@@ -46,6 +46,8 @@ export class UpdateOpenIDConnectProviderThumbprintCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "IAMClient",
+      commandName: "UpdateOpenIDConnectProviderThumbprintCommand",
       inputFilterSensitiveLog: UpdateOpenIDConnectProviderThumbprintRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

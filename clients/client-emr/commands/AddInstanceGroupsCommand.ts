@@ -46,6 +46,8 @@ export class AddInstanceGroupsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EMRClient",
+      commandName: "AddInstanceGroupsCommand",
       inputFilterSensitiveLog: AddInstanceGroupsInput.filterSensitiveLog,
       outputFilterSensitiveLog: AddInstanceGroupsOutput.filterSensitiveLog,
     };

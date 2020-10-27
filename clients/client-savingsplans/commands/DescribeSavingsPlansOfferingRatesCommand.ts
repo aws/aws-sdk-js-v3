@@ -50,6 +50,8 @@ export class DescribeSavingsPlansOfferingRatesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SavingsplansClient",
+      commandName: "DescribeSavingsPlansOfferingRatesCommand",
       inputFilterSensitiveLog: DescribeSavingsPlansOfferingRatesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeSavingsPlansOfferingRatesResponse.filterSensitiveLog,
     };

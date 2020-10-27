@@ -50,6 +50,8 @@ export class PostToConnectionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ApiGatewayManagementApiClient",
+      commandName: "PostToConnectionCommand",
       inputFilterSensitiveLog: PostToConnectionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

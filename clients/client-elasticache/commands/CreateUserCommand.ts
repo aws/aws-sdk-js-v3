@@ -43,6 +43,8 @@ export class CreateUserCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ElastiCacheClient",
+      commandName: "CreateUserCommand",
       inputFilterSensitiveLog: CreateUserMessage.filterSensitiveLog,
       outputFilterSensitiveLog: User.filterSensitiveLog,
     };

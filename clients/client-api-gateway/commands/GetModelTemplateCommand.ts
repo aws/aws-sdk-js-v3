@@ -46,6 +46,8 @@ export class GetModelTemplateCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "APIGatewayClient",
+      commandName: "GetModelTemplateCommand",
       inputFilterSensitiveLog: GetModelTemplateRequest.filterSensitiveLog,
       outputFilterSensitiveLog: Template.filterSensitiveLog,
     };

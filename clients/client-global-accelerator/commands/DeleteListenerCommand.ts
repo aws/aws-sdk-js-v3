@@ -50,6 +50,8 @@ export class DeleteListenerCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GlobalAcceleratorClient",
+      commandName: "DeleteListenerCommand",
       inputFilterSensitiveLog: DeleteListenerRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

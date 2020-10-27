@@ -46,6 +46,8 @@ export class RegisterAVSDeviceCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "AlexaForBusinessClient",
+      commandName: "RegisterAVSDeviceCommand",
       inputFilterSensitiveLog: RegisterAVSDeviceRequest.filterSensitiveLog,
       outputFilterSensitiveLog: RegisterAVSDeviceResponse.filterSensitiveLog,
     };

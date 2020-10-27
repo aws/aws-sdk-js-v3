@@ -46,6 +46,8 @@ export class GetInlinePolicyForPermissionSetCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SSOAdminClient",
+      commandName: "GetInlinePolicyForPermissionSetCommand",
       inputFilterSensitiveLog: GetInlinePolicyForPermissionSetRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetInlinePolicyForPermissionSetResponse.filterSensitiveLog,
     };

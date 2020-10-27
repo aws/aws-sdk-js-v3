@@ -46,6 +46,8 @@ export class DeleteConnectorProfileCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "AppflowClient",
+      commandName: "DeleteConnectorProfileCommand",
       inputFilterSensitiveLog: DeleteConnectorProfileRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteConnectorProfileResponse.filterSensitiveLog,
     };

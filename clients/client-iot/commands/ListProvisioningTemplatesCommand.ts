@@ -46,6 +46,8 @@ export class ListProvisioningTemplatesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "IoTClient",
+      commandName: "ListProvisioningTemplatesCommand",
       inputFilterSensitiveLog: ListProvisioningTemplatesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListProvisioningTemplatesResponse.filterSensitiveLog,
     };

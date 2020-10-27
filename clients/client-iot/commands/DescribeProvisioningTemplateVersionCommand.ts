@@ -50,6 +50,8 @@ export class DescribeProvisioningTemplateVersionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "IoTClient",
+      commandName: "DescribeProvisioningTemplateVersionCommand",
       inputFilterSensitiveLog: DescribeProvisioningTemplateVersionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeProvisioningTemplateVersionResponse.filterSensitiveLog,
     };

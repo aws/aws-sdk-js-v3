@@ -50,6 +50,8 @@ export class DeleteBotChannelAssociationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "LexModelBuildingServiceClient",
+      commandName: "DeleteBotChannelAssociationCommand",
       inputFilterSensitiveLog: DeleteBotChannelAssociationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

@@ -46,6 +46,8 @@ export class CancelAuditMitigationActionsTaskCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "IoTClient",
+      commandName: "CancelAuditMitigationActionsTaskCommand",
       inputFilterSensitiveLog: CancelAuditMitigationActionsTaskRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CancelAuditMitigationActionsTaskResponse.filterSensitiveLog,
     };

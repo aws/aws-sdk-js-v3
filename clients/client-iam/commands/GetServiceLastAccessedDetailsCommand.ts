@@ -46,6 +46,8 @@ export class GetServiceLastAccessedDetailsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "IAMClient",
+      commandName: "GetServiceLastAccessedDetailsCommand",
       inputFilterSensitiveLog: GetServiceLastAccessedDetailsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetServiceLastAccessedDetailsResponse.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class DescribeRuleCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CloudWatchEventsClient",
+      commandName: "DescribeRuleCommand",
       inputFilterSensitiveLog: DescribeRuleRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeRuleResponse.filterSensitiveLog,
     };

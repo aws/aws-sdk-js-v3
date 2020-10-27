@@ -46,6 +46,8 @@ export class DeclineInvitationsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GuardDutyClient",
+      commandName: "DeclineInvitationsCommand",
       inputFilterSensitiveLog: DeclineInvitationsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeclineInvitationsResponse.filterSensitiveLog,
     };

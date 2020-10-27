@@ -46,6 +46,8 @@ export class DeleteSmsTemplateCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "PinpointClient",
+      commandName: "DeleteSmsTemplateCommand",
       inputFilterSensitiveLog: DeleteSmsTemplateRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteSmsTemplateResponse.filterSensitiveLog,
     };

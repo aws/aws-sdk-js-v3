@@ -53,6 +53,8 @@ export class AssociatePhoneNumbersWithVoiceConnectorGroupCommand extends $Comman
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ChimeClient",
+      commandName: "AssociatePhoneNumbersWithVoiceConnectorGroupCommand",
       inputFilterSensitiveLog: AssociatePhoneNumbersWithVoiceConnectorGroupRequest.filterSensitiveLog,
       outputFilterSensitiveLog: AssociatePhoneNumbersWithVoiceConnectorGroupResponse.filterSensitiveLog,
     };

@@ -50,6 +50,8 @@ export class GetIdentityProviderByIdentifierCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CognitoIdentityProviderClient",
+      commandName: "GetIdentityProviderByIdentifierCommand",
       inputFilterSensitiveLog: GetIdentityProviderByIdentifierRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetIdentityProviderByIdentifierResponse.filterSensitiveLog,
     };

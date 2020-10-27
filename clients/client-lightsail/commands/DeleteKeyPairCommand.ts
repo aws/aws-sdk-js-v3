@@ -46,6 +46,8 @@ export class DeleteKeyPairCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "LightsailClient",
+      commandName: "DeleteKeyPairCommand",
       inputFilterSensitiveLog: DeleteKeyPairRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteKeyPairResult.filterSensitiveLog,
     };

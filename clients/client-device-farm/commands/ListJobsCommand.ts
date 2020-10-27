@@ -43,6 +43,8 @@ export class ListJobsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "DeviceFarmClient",
+      commandName: "ListJobsCommand",
       inputFilterSensitiveLog: ListJobsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListJobsResult.filterSensitiveLog,
     };

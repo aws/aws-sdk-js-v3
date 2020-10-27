@@ -47,6 +47,8 @@ export class DescribeNotificationConfigurationsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "AutoScalingClient",
+      commandName: "DescribeNotificationConfigurationsCommand",
       inputFilterSensitiveLog: DescribeNotificationConfigurationsType.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeNotificationConfigurationsAnswer.filterSensitiveLog,
     };

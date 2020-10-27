@@ -46,6 +46,8 @@ export class GetSubscriptionDefinitionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GreengrassClient",
+      commandName: "GetSubscriptionDefinitionCommand",
       inputFilterSensitiveLog: GetSubscriptionDefinitionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetSubscriptionDefinitionResponse.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class DeleteWorkerBlockCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "MTurkClient",
+      commandName: "DeleteWorkerBlockCommand",
       inputFilterSensitiveLog: DeleteWorkerBlockRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteWorkerBlockResponse.filterSensitiveLog,
     };

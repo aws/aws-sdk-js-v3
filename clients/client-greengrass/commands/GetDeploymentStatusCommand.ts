@@ -46,6 +46,8 @@ export class GetDeploymentStatusCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GreengrassClient",
+      commandName: "GetDeploymentStatusCommand",
       inputFilterSensitiveLog: GetDeploymentStatusRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetDeploymentStatusResponse.filterSensitiveLog,
     };

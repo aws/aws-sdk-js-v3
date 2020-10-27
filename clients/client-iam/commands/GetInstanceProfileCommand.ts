@@ -46,6 +46,8 @@ export class GetInstanceProfileCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "IAMClient",
+      commandName: "GetInstanceProfileCommand",
       inputFilterSensitiveLog: GetInstanceProfileRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetInstanceProfileResponse.filterSensitiveLog,
     };

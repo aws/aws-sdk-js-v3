@@ -46,6 +46,8 @@ export class CreateSampleFindingsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "Macie2Client",
+      commandName: "CreateSampleFindingsCommand",
       inputFilterSensitiveLog: CreateSampleFindingsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateSampleFindingsResponse.filterSensitiveLog,
     };

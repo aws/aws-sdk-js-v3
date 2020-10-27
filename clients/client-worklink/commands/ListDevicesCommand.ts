@@ -46,6 +46,8 @@ export class ListDevicesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "WorkLinkClient",
+      commandName: "ListDevicesCommand",
       inputFilterSensitiveLog: ListDevicesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListDevicesResponse.filterSensitiveLog,
     };

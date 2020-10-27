@@ -46,6 +46,8 @@ export class DeleteLicenseConfigurationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "LicenseManagerClient",
+      commandName: "DeleteLicenseConfigurationCommand",
       inputFilterSensitiveLog: DeleteLicenseConfigurationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteLicenseConfigurationResponse.filterSensitiveLog,
     };

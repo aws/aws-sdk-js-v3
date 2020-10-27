@@ -50,6 +50,8 @@ export class DescribeOrganizationConformancePacksCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ConfigServiceClient",
+      commandName: "DescribeOrganizationConformancePacksCommand",
       inputFilterSensitiveLog: DescribeOrganizationConformancePacksRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeOrganizationConformancePacksResponse.filterSensitiveLog,
     };

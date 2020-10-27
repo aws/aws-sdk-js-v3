@@ -46,6 +46,8 @@ export class GetTimeSeriesServiceStatisticsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "XRayClient",
+      commandName: "GetTimeSeriesServiceStatisticsCommand",
       inputFilterSensitiveLog: GetTimeSeriesServiceStatisticsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetTimeSeriesServiceStatisticsResult.filterSensitiveLog,
     };

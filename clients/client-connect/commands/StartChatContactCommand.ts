@@ -46,6 +46,8 @@ export class StartChatContactCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ConnectClient",
+      commandName: "StartChatContactCommand",
       inputFilterSensitiveLog: StartChatContactRequest.filterSensitiveLog,
       outputFilterSensitiveLog: StartChatContactResponse.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class UpdateTableCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "TimestreamWriteClient",
+      commandName: "UpdateTableCommand",
       inputFilterSensitiveLog: UpdateTableRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateTableResponse.filterSensitiveLog,
     };

@@ -50,6 +50,8 @@ export class DeleteTargetGroupCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ElasticLoadBalancingV2Client",
+      commandName: "DeleteTargetGroupCommand",
       inputFilterSensitiveLog: DeleteTargetGroupInput.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteTargetGroupOutput.filterSensitiveLog,
     };

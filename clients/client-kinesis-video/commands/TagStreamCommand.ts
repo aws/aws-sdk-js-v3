@@ -46,6 +46,8 @@ export class TagStreamCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "KinesisVideoClient",
+      commandName: "TagStreamCommand",
       inputFilterSensitiveLog: TagStreamInput.filterSensitiveLog,
       outputFilterSensitiveLog: TagStreamOutput.filterSensitiveLog,
     };

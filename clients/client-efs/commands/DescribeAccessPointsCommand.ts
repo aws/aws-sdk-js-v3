@@ -46,6 +46,8 @@ export class DescribeAccessPointsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EFSClient",
+      commandName: "DescribeAccessPointsCommand",
       inputFilterSensitiveLog: DescribeAccessPointsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeAccessPointsResponse.filterSensitiveLog,
     };

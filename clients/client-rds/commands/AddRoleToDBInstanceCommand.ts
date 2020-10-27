@@ -46,6 +46,8 @@ export class AddRoleToDBInstanceCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "RDSClient",
+      commandName: "AddRoleToDBInstanceCommand",
       inputFilterSensitiveLog: AddRoleToDBInstanceMessage.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

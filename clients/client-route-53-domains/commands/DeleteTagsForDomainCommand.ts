@@ -46,6 +46,8 @@ export class DeleteTagsForDomainCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "Route53DomainsClient",
+      commandName: "DeleteTagsForDomainCommand",
       inputFilterSensitiveLog: DeleteTagsForDomainRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteTagsForDomainResponse.filterSensitiveLog,
     };

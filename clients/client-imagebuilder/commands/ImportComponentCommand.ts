@@ -46,6 +46,8 @@ export class ImportComponentCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ImagebuilderClient",
+      commandName: "ImportComponentCommand",
       inputFilterSensitiveLog: ImportComponentRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ImportComponentResponse.filterSensitiveLog,
     };

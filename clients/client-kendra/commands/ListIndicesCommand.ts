@@ -46,6 +46,8 @@ export class ListIndicesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "KendraClient",
+      commandName: "ListIndicesCommand",
       inputFilterSensitiveLog: ListIndicesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListIndicesResponse.filterSensitiveLog,
     };

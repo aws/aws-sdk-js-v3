@@ -50,6 +50,8 @@ export class StopPHIDetectionJobCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ComprehendMedicalClient",
+      commandName: "StopPHIDetectionJobCommand",
       inputFilterSensitiveLog: StopPHIDetectionJobRequest.filterSensitiveLog,
       outputFilterSensitiveLog: StopPHIDetectionJobResponse.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class DeleteRequestValidatorCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "APIGatewayClient",
+      commandName: "DeleteRequestValidatorCommand",
       inputFilterSensitiveLog: DeleteRequestValidatorRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

@@ -48,6 +48,8 @@ export class DisassociateVPCFromHostedZoneCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "Route53Client",
+      commandName: "DisassociateVPCFromHostedZoneCommand",
       inputFilterSensitiveLog: DisassociateVPCFromHostedZoneRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DisassociateVPCFromHostedZoneResponse.filterSensitiveLog,
     };

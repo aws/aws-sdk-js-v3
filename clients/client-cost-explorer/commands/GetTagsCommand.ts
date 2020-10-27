@@ -43,6 +43,8 @@ export class GetTagsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CostExplorerClient",
+      commandName: "GetTagsCommand",
       inputFilterSensitiveLog: GetTagsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetTagsResponse.filterSensitiveLog,
     };

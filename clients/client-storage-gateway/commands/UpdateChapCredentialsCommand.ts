@@ -46,6 +46,8 @@ export class UpdateChapCredentialsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "StorageGatewayClient",
+      commandName: "UpdateChapCredentialsCommand",
       inputFilterSensitiveLog: UpdateChapCredentialsInput.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateChapCredentialsOutput.filterSensitiveLog,
     };

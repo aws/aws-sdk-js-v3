@@ -46,6 +46,8 @@ export class UpdateSubscriberCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "BudgetsClient",
+      commandName: "UpdateSubscriberCommand",
       inputFilterSensitiveLog: UpdateSubscriberRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateSubscriberResponse.filterSensitiveLog,
     };

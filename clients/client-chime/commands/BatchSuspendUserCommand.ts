@@ -46,6 +46,8 @@ export class BatchSuspendUserCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ChimeClient",
+      commandName: "BatchSuspendUserCommand",
       inputFilterSensitiveLog: BatchSuspendUserRequest.filterSensitiveLog,
       outputFilterSensitiveLog: BatchSuspendUserResponse.filterSensitiveLog,
     };

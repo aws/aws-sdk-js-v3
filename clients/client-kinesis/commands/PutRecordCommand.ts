@@ -43,6 +43,8 @@ export class PutRecordCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "KinesisClient",
+      commandName: "PutRecordCommand",
       inputFilterSensitiveLog: PutRecordInput.filterSensitiveLog,
       outputFilterSensitiveLog: PutRecordOutput.filterSensitiveLog,
     };

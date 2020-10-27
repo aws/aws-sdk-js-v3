@@ -46,6 +46,8 @@ export class CreateNodegroupCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EKSClient",
+      commandName: "CreateNodegroupCommand",
       inputFilterSensitiveLog: CreateNodegroupRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateNodegroupResponse.filterSensitiveLog,
     };

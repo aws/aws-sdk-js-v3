@@ -50,6 +50,8 @@ export class DescribeEntityCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "MarketplaceCatalogClient",
+      commandName: "DescribeEntityCommand",
       inputFilterSensitiveLog: DescribeEntityRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeEntityResponse.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class RevokeFlowEntitlementCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "MediaConnectClient",
+      commandName: "RevokeFlowEntitlementCommand",
       inputFilterSensitiveLog: RevokeFlowEntitlementRequest.filterSensitiveLog,
       outputFilterSensitiveLog: RevokeFlowEntitlementResponse.filterSensitiveLog,
     };

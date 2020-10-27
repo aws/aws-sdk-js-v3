@@ -46,6 +46,8 @@ export class DeleteCustomAvailabilityZoneCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "RDSClient",
+      commandName: "DeleteCustomAvailabilityZoneCommand",
       inputFilterSensitiveLog: DeleteCustomAvailabilityZoneMessage.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteCustomAvailabilityZoneResult.filterSensitiveLog,
     };

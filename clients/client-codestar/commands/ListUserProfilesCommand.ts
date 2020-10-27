@@ -46,6 +46,8 @@ export class ListUserProfilesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CodeStarClient",
+      commandName: "ListUserProfilesCommand",
       inputFilterSensitiveLog: ListUserProfilesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListUserProfilesResult.filterSensitiveLog,
     };

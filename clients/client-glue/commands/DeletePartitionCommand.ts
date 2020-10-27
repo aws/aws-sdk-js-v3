@@ -46,6 +46,8 @@ export class DeletePartitionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GlueClient",
+      commandName: "DeletePartitionCommand",
       inputFilterSensitiveLog: DeletePartitionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeletePartitionResponse.filterSensitiveLog,
     };

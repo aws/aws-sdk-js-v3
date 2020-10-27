@@ -46,6 +46,8 @@ export class DescribePackageVersionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CodeartifactClient",
+      commandName: "DescribePackageVersionCommand",
       inputFilterSensitiveLog: DescribePackageVersionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribePackageVersionResult.filterSensitiveLog,
     };

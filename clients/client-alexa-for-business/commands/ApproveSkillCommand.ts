@@ -46,6 +46,8 @@ export class ApproveSkillCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "AlexaForBusinessClient",
+      commandName: "ApproveSkillCommand",
       inputFilterSensitiveLog: ApproveSkillRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ApproveSkillResponse.filterSensitiveLog,
     };

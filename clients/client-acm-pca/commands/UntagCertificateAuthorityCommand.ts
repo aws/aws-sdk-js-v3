@@ -46,6 +46,8 @@ export class UntagCertificateAuthorityCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ACMPCAClient",
+      commandName: "UntagCertificateAuthorityCommand",
       inputFilterSensitiveLog: UntagCertificateAuthorityRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

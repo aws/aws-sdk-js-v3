@@ -46,6 +46,8 @@ export class DescribeDBProxiesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "RDSClient",
+      commandName: "DescribeDBProxiesCommand",
       inputFilterSensitiveLog: DescribeDBProxiesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeDBProxiesResponse.filterSensitiveLog,
     };

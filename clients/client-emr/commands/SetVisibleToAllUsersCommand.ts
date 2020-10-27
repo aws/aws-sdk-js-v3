@@ -46,6 +46,8 @@ export class SetVisibleToAllUsersCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EMRClient",
+      commandName: "SetVisibleToAllUsersCommand",
       inputFilterSensitiveLog: SetVisibleToAllUsersInput.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

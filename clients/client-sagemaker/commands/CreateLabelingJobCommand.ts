@@ -46,6 +46,8 @@ export class CreateLabelingJobCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SageMakerClient",
+      commandName: "CreateLabelingJobCommand",
       inputFilterSensitiveLog: CreateLabelingJobRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateLabelingJobResponse.filterSensitiveLog,
     };

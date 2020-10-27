@@ -46,6 +46,8 @@ export class DescribeDirectoriesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "DirectoryServiceClient",
+      commandName: "DescribeDirectoriesCommand",
       inputFilterSensitiveLog: DescribeDirectoriesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeDirectoriesResult.filterSensitiveLog,
     };

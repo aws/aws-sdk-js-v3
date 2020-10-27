@@ -46,6 +46,8 @@ export class PutVoiceConnectorOriginationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ChimeClient",
+      commandName: "PutVoiceConnectorOriginationCommand",
       inputFilterSensitiveLog: PutVoiceConnectorOriginationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: PutVoiceConnectorOriginationResponse.filterSensitiveLog,
     };

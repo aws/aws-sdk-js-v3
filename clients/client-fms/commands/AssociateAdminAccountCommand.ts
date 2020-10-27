@@ -46,6 +46,8 @@ export class AssociateAdminAccountCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "FMSClient",
+      commandName: "AssociateAdminAccountCommand",
       inputFilterSensitiveLog: AssociateAdminAccountRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

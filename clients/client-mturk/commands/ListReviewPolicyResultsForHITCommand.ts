@@ -46,6 +46,8 @@ export class ListReviewPolicyResultsForHITCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "MTurkClient",
+      commandName: "ListReviewPolicyResultsForHITCommand",
       inputFilterSensitiveLog: ListReviewPolicyResultsForHITRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListReviewPolicyResultsForHITResponse.filterSensitiveLog,
     };

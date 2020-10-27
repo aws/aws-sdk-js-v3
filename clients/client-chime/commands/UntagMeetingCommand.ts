@@ -46,6 +46,8 @@ export class UntagMeetingCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ChimeClient",
+      commandName: "UntagMeetingCommand",
       inputFilterSensitiveLog: UntagMeetingRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

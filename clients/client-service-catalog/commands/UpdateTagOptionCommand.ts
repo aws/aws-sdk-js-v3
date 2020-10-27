@@ -46,6 +46,8 @@ export class UpdateTagOptionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ServiceCatalogClient",
+      commandName: "UpdateTagOptionCommand",
       inputFilterSensitiveLog: UpdateTagOptionInput.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateTagOptionOutput.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class CreateGlobalReplicationGroupCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ElastiCacheClient",
+      commandName: "CreateGlobalReplicationGroupCommand",
       inputFilterSensitiveLog: CreateGlobalReplicationGroupMessage.filterSensitiveLog,
       outputFilterSensitiveLog: CreateGlobalReplicationGroupResult.filterSensitiveLog,
     };

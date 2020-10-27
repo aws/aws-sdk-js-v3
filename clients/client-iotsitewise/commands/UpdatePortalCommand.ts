@@ -46,6 +46,8 @@ export class UpdatePortalCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "IoTSiteWiseClient",
+      commandName: "UpdatePortalCommand",
       inputFilterSensitiveLog: UpdatePortalRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdatePortalResponse.filterSensitiveLog,
     };

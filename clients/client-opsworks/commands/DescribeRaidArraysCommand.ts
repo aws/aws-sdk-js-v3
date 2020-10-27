@@ -46,6 +46,8 @@ export class DescribeRaidArraysCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "OpsWorksClient",
+      commandName: "DescribeRaidArraysCommand",
       inputFilterSensitiveLog: DescribeRaidArraysRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeRaidArraysResult.filterSensitiveLog,
     };

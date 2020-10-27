@@ -46,6 +46,8 @@ export class EnableAddOnCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "LightsailClient",
+      commandName: "EnableAddOnCommand",
       inputFilterSensitiveLog: EnableAddOnRequest.filterSensitiveLog,
       outputFilterSensitiveLog: EnableAddOnResult.filterSensitiveLog,
     };

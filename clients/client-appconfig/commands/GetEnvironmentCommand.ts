@@ -46,6 +46,8 @@ export class GetEnvironmentCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "AppConfigClient",
+      commandName: "GetEnvironmentCommand",
       inputFilterSensitiveLog: GetEnvironmentRequest.filterSensitiveLog,
       outputFilterSensitiveLog: Environment.filterSensitiveLog,
     };

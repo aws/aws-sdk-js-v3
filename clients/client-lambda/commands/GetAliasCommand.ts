@@ -42,6 +42,8 @@ export class GetAliasCommand extends $Command<GetAliasCommandInput, GetAliasComm
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "LambdaClient",
+      commandName: "GetAliasCommand",
       inputFilterSensitiveLog: GetAliasRequest.filterSensitiveLog,
       outputFilterSensitiveLog: AliasConfiguration.filterSensitiveLog,
     };

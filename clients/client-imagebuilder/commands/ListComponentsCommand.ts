@@ -46,6 +46,8 @@ export class ListComponentsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ImagebuilderClient",
+      commandName: "ListComponentsCommand",
       inputFilterSensitiveLog: ListComponentsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListComponentsResponse.filterSensitiveLog,
     };

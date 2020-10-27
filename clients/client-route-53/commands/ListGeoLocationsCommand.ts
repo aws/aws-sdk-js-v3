@@ -46,6 +46,8 @@ export class ListGeoLocationsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "Route53Client",
+      commandName: "ListGeoLocationsCommand",
       inputFilterSensitiveLog: ListGeoLocationsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListGeoLocationsResponse.filterSensitiveLog,
     };

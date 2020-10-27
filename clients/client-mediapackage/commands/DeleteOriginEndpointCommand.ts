@@ -46,6 +46,8 @@ export class DeleteOriginEndpointCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "MediaPackageClient",
+      commandName: "DeleteOriginEndpointCommand",
       inputFilterSensitiveLog: DeleteOriginEndpointRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteOriginEndpointResponse.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class TagResourceCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "LambdaClient",
+      commandName: "TagResourceCommand",
       inputFilterSensitiveLog: TagResourceRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

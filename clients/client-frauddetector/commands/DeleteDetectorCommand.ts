@@ -46,6 +46,8 @@ export class DeleteDetectorCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "FraudDetectorClient",
+      commandName: "DeleteDetectorCommand",
       inputFilterSensitiveLog: DeleteDetectorRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteDetectorResult.filterSensitiveLog,
     };

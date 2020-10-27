@@ -46,6 +46,8 @@ export class CreateDetectorCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GuardDutyClient",
+      commandName: "CreateDetectorCommand",
       inputFilterSensitiveLog: CreateDetectorRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateDetectorResponse.filterSensitiveLog,
     };

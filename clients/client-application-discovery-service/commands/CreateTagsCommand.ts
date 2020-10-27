@@ -50,6 +50,8 @@ export class CreateTagsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ApplicationDiscoveryServiceClient",
+      commandName: "CreateTagsCommand",
       inputFilterSensitiveLog: CreateTagsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateTagsResponse.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class CreateSubnetGroupCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "DAXClient",
+      commandName: "CreateSubnetGroupCommand",
       inputFilterSensitiveLog: CreateSubnetGroupRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateSubnetGroupResponse.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class CreateDomainCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "LightsailClient",
+      commandName: "CreateDomainCommand",
       inputFilterSensitiveLog: CreateDomainRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateDomainResult.filterSensitiveLog,
     };

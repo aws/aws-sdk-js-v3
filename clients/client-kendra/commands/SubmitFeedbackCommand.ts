@@ -46,6 +46,8 @@ export class SubmitFeedbackCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "KendraClient",
+      commandName: "SubmitFeedbackCommand",
       inputFilterSensitiveLog: SubmitFeedbackRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

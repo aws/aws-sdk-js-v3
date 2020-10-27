@@ -46,6 +46,8 @@ export class GetSchemaAsJsonCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CloudDirectoryClient",
+      commandName: "GetSchemaAsJsonCommand",
       inputFilterSensitiveLog: GetSchemaAsJsonRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetSchemaAsJsonResponse.filterSensitiveLog,
     };

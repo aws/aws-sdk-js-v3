@@ -46,6 +46,8 @@ export class DescribeRecommendationExportJobsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ComputeOptimizerClient",
+      commandName: "DescribeRecommendationExportJobsCommand",
       inputFilterSensitiveLog: DescribeRecommendationExportJobsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeRecommendationExportJobsResponse.filterSensitiveLog,
     };

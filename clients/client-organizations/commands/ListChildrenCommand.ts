@@ -46,6 +46,8 @@ export class ListChildrenCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "OrganizationsClient",
+      commandName: "ListChildrenCommand",
       inputFilterSensitiveLog: ListChildrenRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListChildrenResponse.filterSensitiveLog,
     };

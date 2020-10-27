@@ -43,6 +43,8 @@ export class DeleteSubnetCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EC2Client",
+      commandName: "DeleteSubnetCommand",
       inputFilterSensitiveLog: DeleteSubnetRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

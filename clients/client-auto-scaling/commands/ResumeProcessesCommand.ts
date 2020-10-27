@@ -46,6 +46,8 @@ export class ResumeProcessesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "AutoScalingClient",
+      commandName: "ResumeProcessesCommand",
       inputFilterSensitiveLog: ScalingProcessQuery.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

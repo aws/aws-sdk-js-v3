@@ -50,6 +50,8 @@ export class DisassociateTransitGatewayRouteTableCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EC2Client",
+      commandName: "DisassociateTransitGatewayRouteTableCommand",
       inputFilterSensitiveLog: DisassociateTransitGatewayRouteTableRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DisassociateTransitGatewayRouteTableResult.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class ReplaceNetworkAclEntryCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EC2Client",
+      commandName: "ReplaceNetworkAclEntryCommand",
       inputFilterSensitiveLog: ReplaceNetworkAclEntryRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

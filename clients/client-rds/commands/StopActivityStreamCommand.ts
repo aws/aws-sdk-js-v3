@@ -46,6 +46,8 @@ export class StopActivityStreamCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "RDSClient",
+      commandName: "StopActivityStreamCommand",
       inputFilterSensitiveLog: StopActivityStreamRequest.filterSensitiveLog,
       outputFilterSensitiveLog: StopActivityStreamResponse.filterSensitiveLog,
     };

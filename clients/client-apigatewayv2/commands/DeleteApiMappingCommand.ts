@@ -46,6 +46,8 @@ export class DeleteApiMappingCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ApiGatewayV2Client",
+      commandName: "DeleteApiMappingCommand",
       inputFilterSensitiveLog: DeleteApiMappingRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

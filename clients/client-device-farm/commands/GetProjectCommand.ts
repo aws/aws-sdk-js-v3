@@ -46,6 +46,8 @@ export class GetProjectCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "DeviceFarmClient",
+      commandName: "GetProjectCommand",
       inputFilterSensitiveLog: GetProjectRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetProjectResult.filterSensitiveLog,
     };

@@ -50,6 +50,8 @@ export class AdminUpdateAuthEventFeedbackCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CognitoIdentityProviderClient",
+      commandName: "AdminUpdateAuthEventFeedbackCommand",
       inputFilterSensitiveLog: AdminUpdateAuthEventFeedbackRequest.filterSensitiveLog,
       outputFilterSensitiveLog: AdminUpdateAuthEventFeedbackResponse.filterSensitiveLog,
     };

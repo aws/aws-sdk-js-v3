@@ -46,6 +46,8 @@ export class UpdateSAMLProviderCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "IAMClient",
+      commandName: "UpdateSAMLProviderCommand",
       inputFilterSensitiveLog: UpdateSAMLProviderRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateSAMLProviderResponse.filterSensitiveLog,
     };

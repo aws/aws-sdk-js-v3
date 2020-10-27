@@ -50,6 +50,8 @@ export class GetCSVHeaderCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CognitoIdentityProviderClient",
+      commandName: "GetCSVHeaderCommand",
       inputFilterSensitiveLog: GetCSVHeaderRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetCSVHeaderResponse.filterSensitiveLog,
     };

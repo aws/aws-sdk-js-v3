@@ -46,6 +46,8 @@ export class GetSSHPublicKeyCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "IAMClient",
+      commandName: "GetSSHPublicKeyCommand",
       inputFilterSensitiveLog: GetSSHPublicKeyRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetSSHPublicKeyResponse.filterSensitiveLog,
     };

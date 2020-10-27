@@ -46,6 +46,8 @@ export class ExecutePolicyCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "AutoScalingClient",
+      commandName: "ExecutePolicyCommand",
       inputFilterSensitiveLog: ExecutePolicyType.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

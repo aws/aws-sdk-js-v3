@@ -42,6 +42,8 @@ export class StopJobCommand extends $Command<StopJobCommandInput, StopJobCommand
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "AmplifyClient",
+      commandName: "StopJobCommand",
       inputFilterSensitiveLog: StopJobRequest.filterSensitiveLog,
       outputFilterSensitiveLog: StopJobResult.filterSensitiveLog,
     };

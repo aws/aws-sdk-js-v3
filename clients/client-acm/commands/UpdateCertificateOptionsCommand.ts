@@ -46,6 +46,8 @@ export class UpdateCertificateOptionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ACMClient",
+      commandName: "UpdateCertificateOptionsCommand",
       inputFilterSensitiveLog: UpdateCertificateOptionsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

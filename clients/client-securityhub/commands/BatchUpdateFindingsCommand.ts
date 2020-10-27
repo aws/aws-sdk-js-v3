@@ -46,6 +46,8 @@ export class BatchUpdateFindingsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SecurityHubClient",
+      commandName: "BatchUpdateFindingsCommand",
       inputFilterSensitiveLog: BatchUpdateFindingsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: BatchUpdateFindingsResponse.filterSensitiveLog,
     };

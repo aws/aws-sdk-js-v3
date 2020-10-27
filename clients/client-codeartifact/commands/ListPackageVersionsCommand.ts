@@ -46,6 +46,8 @@ export class ListPackageVersionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CodeartifactClient",
+      commandName: "ListPackageVersionsCommand",
       inputFilterSensitiveLog: ListPackageVersionsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListPackageVersionsResult.filterSensitiveLog,
     };

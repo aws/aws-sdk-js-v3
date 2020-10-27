@@ -50,6 +50,8 @@ export class ListPermissionSetProvisioningStatusCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SSOAdminClient",
+      commandName: "ListPermissionSetProvisioningStatusCommand",
       inputFilterSensitiveLog: ListPermissionSetProvisioningStatusRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListPermissionSetProvisioningStatusResponse.filterSensitiveLog,
     };

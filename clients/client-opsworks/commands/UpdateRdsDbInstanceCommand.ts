@@ -46,6 +46,8 @@ export class UpdateRdsDbInstanceCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "OpsWorksClient",
+      commandName: "UpdateRdsDbInstanceCommand",
       inputFilterSensitiveLog: UpdateRdsDbInstanceRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

@@ -46,6 +46,8 @@ export class ImportCertificateAuthorityCertificateCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ACMPCAClient",
+      commandName: "ImportCertificateAuthorityCertificateCommand",
       inputFilterSensitiveLog: ImportCertificateAuthorityCertificateRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

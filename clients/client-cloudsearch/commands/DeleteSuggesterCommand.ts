@@ -46,6 +46,8 @@ export class DeleteSuggesterCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CloudSearchClient",
+      commandName: "DeleteSuggesterCommand",
       inputFilterSensitiveLog: DeleteSuggesterRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteSuggesterResponse.filterSensitiveLog,
     };

@@ -49,6 +49,8 @@ export class UpdateRoutingProfileDefaultOutboundQueueCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ConnectClient",
+      commandName: "UpdateRoutingProfileDefaultOutboundQueueCommand",
       inputFilterSensitiveLog: UpdateRoutingProfileDefaultOutboundQueueRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

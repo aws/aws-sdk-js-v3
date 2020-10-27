@@ -46,6 +46,8 @@ export class SendTestEventNotificationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "MTurkClient",
+      commandName: "SendTestEventNotificationCommand",
       inputFilterSensitiveLog: SendTestEventNotificationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: SendTestEventNotificationResponse.filterSensitiveLog,
     };

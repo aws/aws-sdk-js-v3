@@ -50,6 +50,8 @@ export class CreateResourceServerCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CognitoIdentityProviderClient",
+      commandName: "CreateResourceServerCommand",
       inputFilterSensitiveLog: CreateResourceServerRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateResourceServerResponse.filterSensitiveLog,
     };

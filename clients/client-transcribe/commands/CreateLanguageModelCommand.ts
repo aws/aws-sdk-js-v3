@@ -46,6 +46,8 @@ export class CreateLanguageModelCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "TranscribeClient",
+      commandName: "CreateLanguageModelCommand",
       inputFilterSensitiveLog: CreateLanguageModelRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateLanguageModelResponse.filterSensitiveLog,
     };

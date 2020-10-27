@@ -50,6 +50,8 @@ export class ListEntitiesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "MarketplaceCatalogClient",
+      commandName: "ListEntitiesCommand",
       inputFilterSensitiveLog: ListEntitiesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListEntitiesResponse.filterSensitiveLog,
     };

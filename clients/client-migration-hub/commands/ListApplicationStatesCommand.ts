@@ -46,6 +46,8 @@ export class ListApplicationStatesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "MigrationHubClient",
+      commandName: "ListApplicationStatesCommand",
       inputFilterSensitiveLog: ListApplicationStatesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListApplicationStatesResult.filterSensitiveLog,
     };

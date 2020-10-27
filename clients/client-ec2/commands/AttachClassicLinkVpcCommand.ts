@@ -46,6 +46,8 @@ export class AttachClassicLinkVpcCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EC2Client",
+      commandName: "AttachClassicLinkVpcCommand",
       inputFilterSensitiveLog: AttachClassicLinkVpcRequest.filterSensitiveLog,
       outputFilterSensitiveLog: AttachClassicLinkVpcResult.filterSensitiveLog,
     };

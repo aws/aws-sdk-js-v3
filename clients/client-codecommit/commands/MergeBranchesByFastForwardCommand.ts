@@ -46,6 +46,8 @@ export class MergeBranchesByFastForwardCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CodeCommitClient",
+      commandName: "MergeBranchesByFastForwardCommand",
       inputFilterSensitiveLog: MergeBranchesByFastForwardInput.filterSensitiveLog,
       outputFilterSensitiveLog: MergeBranchesByFastForwardOutput.filterSensitiveLog,
     };

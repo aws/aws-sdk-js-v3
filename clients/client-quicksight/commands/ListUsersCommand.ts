@@ -46,6 +46,8 @@ export class ListUsersCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "QuickSightClient",
+      commandName: "ListUsersCommand",
       inputFilterSensitiveLog: ListUsersRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListUsersResponse.filterSensitiveLog,
     };

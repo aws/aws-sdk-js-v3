@@ -46,6 +46,8 @@ export class UpdateIPSetCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "WAFV2Client",
+      commandName: "UpdateIPSetCommand",
       inputFilterSensitiveLog: UpdateIPSetRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateIPSetResponse.filterSensitiveLog,
     };

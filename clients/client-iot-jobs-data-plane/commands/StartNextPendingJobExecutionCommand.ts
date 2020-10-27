@@ -46,6 +46,8 @@ export class StartNextPendingJobExecutionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "IoTJobsDataPlaneClient",
+      commandName: "StartNextPendingJobExecutionCommand",
       inputFilterSensitiveLog: StartNextPendingJobExecutionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: StartNextPendingJobExecutionResponse.filterSensitiveLog,
     };

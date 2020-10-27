@@ -46,6 +46,8 @@ export class CreateDomainNameCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "APIGatewayClient",
+      commandName: "CreateDomainNameCommand",
       inputFilterSensitiveLog: CreateDomainNameRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DomainName.filterSensitiveLog,
     };

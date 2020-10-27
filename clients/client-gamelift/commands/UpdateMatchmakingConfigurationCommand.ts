@@ -46,6 +46,8 @@ export class UpdateMatchmakingConfigurationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GameLiftClient",
+      commandName: "UpdateMatchmakingConfigurationCommand",
       inputFilterSensitiveLog: UpdateMatchmakingConfigurationInput.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateMatchmakingConfigurationOutput.filterSensitiveLog,
     };

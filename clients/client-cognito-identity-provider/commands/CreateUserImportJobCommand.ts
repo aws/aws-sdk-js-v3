@@ -50,6 +50,8 @@ export class CreateUserImportJobCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CognitoIdentityProviderClient",
+      commandName: "CreateUserImportJobCommand",
       inputFilterSensitiveLog: CreateUserImportJobRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateUserImportJobResponse.filterSensitiveLog,
     };

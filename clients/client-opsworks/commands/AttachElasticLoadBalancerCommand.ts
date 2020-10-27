@@ -46,6 +46,8 @@ export class AttachElasticLoadBalancerCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "OpsWorksClient",
+      commandName: "AttachElasticLoadBalancerCommand",
       inputFilterSensitiveLog: AttachElasticLoadBalancerRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

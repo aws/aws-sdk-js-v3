@@ -46,6 +46,8 @@ export class ModifyWorkspaceStateCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "WorkSpacesClient",
+      commandName: "ModifyWorkspaceStateCommand",
       inputFilterSensitiveLog: ModifyWorkspaceStateRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ModifyWorkspaceStateResult.filterSensitiveLog,
     };

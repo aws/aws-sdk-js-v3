@@ -46,6 +46,8 @@ export class GetBootstrapBrokersCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "KafkaClient",
+      commandName: "GetBootstrapBrokersCommand",
       inputFilterSensitiveLog: GetBootstrapBrokersRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetBootstrapBrokersResponse.filterSensitiveLog,
     };

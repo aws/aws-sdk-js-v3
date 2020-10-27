@@ -46,6 +46,8 @@ export class DeletePolicyVersionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "IoTClient",
+      commandName: "DeletePolicyVersionCommand",
       inputFilterSensitiveLog: DeletePolicyVersionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

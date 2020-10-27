@@ -46,6 +46,8 @@ export class UpdateAccountCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ChimeClient",
+      commandName: "UpdateAccountCommand",
       inputFilterSensitiveLog: UpdateAccountRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateAccountResponse.filterSensitiveLog,
     };

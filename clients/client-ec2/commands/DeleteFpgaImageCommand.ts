@@ -43,6 +43,8 @@ export class DeleteFpgaImageCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EC2Client",
+      commandName: "DeleteFpgaImageCommand",
       inputFilterSensitiveLog: DeleteFpgaImageRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteFpgaImageResult.filterSensitiveLog,
     };

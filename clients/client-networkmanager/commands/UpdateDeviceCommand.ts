@@ -46,6 +46,8 @@ export class UpdateDeviceCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "NetworkManagerClient",
+      commandName: "UpdateDeviceCommand",
       inputFilterSensitiveLog: UpdateDeviceRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateDeviceResponse.filterSensitiveLog,
     };

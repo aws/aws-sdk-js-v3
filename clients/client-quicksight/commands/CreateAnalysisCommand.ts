@@ -46,6 +46,8 @@ export class CreateAnalysisCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "QuickSightClient",
+      commandName: "CreateAnalysisCommand",
       inputFilterSensitiveLog: CreateAnalysisRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateAnalysisResponse.filterSensitiveLog,
     };

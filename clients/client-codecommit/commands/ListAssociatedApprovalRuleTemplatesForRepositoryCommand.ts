@@ -53,6 +53,8 @@ export class ListAssociatedApprovalRuleTemplatesForRepositoryCommand extends $Co
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CodeCommitClient",
+      commandName: "ListAssociatedApprovalRuleTemplatesForRepositoryCommand",
       inputFilterSensitiveLog: ListAssociatedApprovalRuleTemplatesForRepositoryInput.filterSensitiveLog,
       outputFilterSensitiveLog: ListAssociatedApprovalRuleTemplatesForRepositoryOutput.filterSensitiveLog,
     };

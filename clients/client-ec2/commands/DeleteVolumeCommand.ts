@@ -43,6 +43,8 @@ export class DeleteVolumeCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EC2Client",
+      commandName: "DeleteVolumeCommand",
       inputFilterSensitiveLog: DeleteVolumeRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

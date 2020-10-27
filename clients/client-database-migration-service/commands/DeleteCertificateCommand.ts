@@ -50,6 +50,8 @@ export class DeleteCertificateCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "DatabaseMigrationServiceClient",
+      commandName: "DeleteCertificateCommand",
       inputFilterSensitiveLog: DeleteCertificateMessage.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteCertificateResponse.filterSensitiveLog,
     };

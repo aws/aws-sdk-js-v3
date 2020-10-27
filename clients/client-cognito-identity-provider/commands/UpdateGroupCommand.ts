@@ -50,6 +50,8 @@ export class UpdateGroupCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CognitoIdentityProviderClient",
+      commandName: "UpdateGroupCommand",
       inputFilterSensitiveLog: UpdateGroupRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateGroupResponse.filterSensitiveLog,
     };

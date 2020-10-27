@@ -46,6 +46,8 @@ export class ListCustomDataIdentifiersCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "Macie2Client",
+      commandName: "ListCustomDataIdentifiersCommand",
       inputFilterSensitiveLog: ListCustomDataIdentifiersRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListCustomDataIdentifiersResponse.filterSensitiveLog,
     };

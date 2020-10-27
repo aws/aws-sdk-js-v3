@@ -46,6 +46,8 @@ export class CreateCarrierGatewayCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EC2Client",
+      commandName: "CreateCarrierGatewayCommand",
       inputFilterSensitiveLog: CreateCarrierGatewayRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateCarrierGatewayResult.filterSensitiveLog,
     };

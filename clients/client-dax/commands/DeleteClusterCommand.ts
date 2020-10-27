@@ -46,6 +46,8 @@ export class DeleteClusterCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "DAXClient",
+      commandName: "DeleteClusterCommand",
       inputFilterSensitiveLog: DeleteClusterRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteClusterResponse.filterSensitiveLog,
     };

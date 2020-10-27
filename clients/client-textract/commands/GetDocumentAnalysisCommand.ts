@@ -46,6 +46,8 @@ export class GetDocumentAnalysisCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "TextractClient",
+      commandName: "GetDocumentAnalysisCommand",
       inputFilterSensitiveLog: GetDocumentAnalysisRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetDocumentAnalysisResponse.filterSensitiveLog,
     };

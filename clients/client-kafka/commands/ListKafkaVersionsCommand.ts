@@ -46,6 +46,8 @@ export class ListKafkaVersionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "KafkaClient",
+      commandName: "ListKafkaVersionsCommand",
       inputFilterSensitiveLog: ListKafkaVersionsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListKafkaVersionsResponse.filterSensitiveLog,
     };

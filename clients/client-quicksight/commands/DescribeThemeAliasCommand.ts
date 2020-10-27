@@ -46,6 +46,8 @@ export class DescribeThemeAliasCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "QuickSightClient",
+      commandName: "DescribeThemeAliasCommand",
       inputFilterSensitiveLog: DescribeThemeAliasRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeThemeAliasResponse.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class PutResourcePolicyCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CloudWatchLogsClient",
+      commandName: "PutResourcePolicyCommand",
       inputFilterSensitiveLog: PutResourcePolicyRequest.filterSensitiveLog,
       outputFilterSensitiveLog: PutResourcePolicyResponse.filterSensitiveLog,
     };

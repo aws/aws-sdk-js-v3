@@ -46,6 +46,8 @@ export class StopChannelCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "MediaLiveClient",
+      commandName: "StopChannelCommand",
       inputFilterSensitiveLog: StopChannelRequest.filterSensitiveLog,
       outputFilterSensitiveLog: StopChannelResponse.filterSensitiveLog,
     };

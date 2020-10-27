@@ -46,6 +46,8 @@ export class DeleteChangeSetCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CloudFormationClient",
+      commandName: "DeleteChangeSetCommand",
       inputFilterSensitiveLog: DeleteChangeSetInput.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteChangeSetOutput.filterSensitiveLog,
     };

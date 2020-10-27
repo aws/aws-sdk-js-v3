@@ -46,6 +46,8 @@ export class EnableInsightRulesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CloudWatchClient",
+      commandName: "EnableInsightRulesCommand",
       inputFilterSensitiveLog: EnableInsightRulesInput.filterSensitiveLog,
       outputFilterSensitiveLog: EnableInsightRulesOutput.filterSensitiveLog,
     };

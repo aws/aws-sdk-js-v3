@@ -45,6 +45,8 @@ export class LeaveOrganizationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "OrganizationsClient",
+      commandName: "LeaveOrganizationCommand",
       inputFilterSensitiveLog: (input: any) => input,
       outputFilterSensitiveLog: (output: any) => output,
     };

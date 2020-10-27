@@ -46,6 +46,8 @@ export class CreateSoftwareUpdateJobCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GreengrassClient",
+      commandName: "CreateSoftwareUpdateJobCommand",
       inputFilterSensitiveLog: CreateSoftwareUpdateJobRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateSoftwareUpdateJobResponse.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class UpdateEvaluationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "MachineLearningClient",
+      commandName: "UpdateEvaluationCommand",
       inputFilterSensitiveLog: UpdateEvaluationInput.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateEvaluationOutput.filterSensitiveLog,
     };

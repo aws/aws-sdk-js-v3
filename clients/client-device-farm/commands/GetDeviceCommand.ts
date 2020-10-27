@@ -43,6 +43,8 @@ export class GetDeviceCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "DeviceFarmClient",
+      commandName: "GetDeviceCommand",
       inputFilterSensitiveLog: GetDeviceRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetDeviceResult.filterSensitiveLog,
     };

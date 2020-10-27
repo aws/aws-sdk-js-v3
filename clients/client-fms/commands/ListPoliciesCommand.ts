@@ -46,6 +46,8 @@ export class ListPoliciesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "FMSClient",
+      commandName: "ListPoliciesCommand",
       inputFilterSensitiveLog: ListPoliciesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListPoliciesResponse.filterSensitiveLog,
     };

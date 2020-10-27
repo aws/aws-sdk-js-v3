@@ -46,6 +46,8 @@ export class DescribeTrustsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "DirectoryServiceClient",
+      commandName: "DescribeTrustsCommand",
       inputFilterSensitiveLog: DescribeTrustsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeTrustsResult.filterSensitiveLog,
     };

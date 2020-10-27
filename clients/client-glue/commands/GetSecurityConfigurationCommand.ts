@@ -46,6 +46,8 @@ export class GetSecurityConfigurationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GlueClient",
+      commandName: "GetSecurityConfigurationCommand",
       inputFilterSensitiveLog: GetSecurityConfigurationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetSecurityConfigurationResponse.filterSensitiveLog,
     };

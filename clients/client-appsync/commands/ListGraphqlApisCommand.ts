@@ -46,6 +46,8 @@ export class ListGraphqlApisCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "AppSyncClient",
+      commandName: "ListGraphqlApisCommand",
       inputFilterSensitiveLog: ListGraphqlApisRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListGraphqlApisResponse.filterSensitiveLog,
     };

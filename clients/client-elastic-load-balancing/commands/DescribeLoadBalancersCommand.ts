@@ -50,6 +50,8 @@ export class DescribeLoadBalancersCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ElasticLoadBalancingClient",
+      commandName: "DescribeLoadBalancersCommand",
       inputFilterSensitiveLog: DescribeAccessPointsInput.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeAccessPointsOutput.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class DescribeKeyPairsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EC2Client",
+      commandName: "DescribeKeyPairsCommand",
       inputFilterSensitiveLog: DescribeKeyPairsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeKeyPairsResult.filterSensitiveLog,
     };

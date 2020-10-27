@@ -46,6 +46,8 @@ export class DescribeRetentionConfigurationsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ConfigServiceClient",
+      commandName: "DescribeRetentionConfigurationsCommand",
       inputFilterSensitiveLog: DescribeRetentionConfigurationsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeRetentionConfigurationsResponse.filterSensitiveLog,
     };
