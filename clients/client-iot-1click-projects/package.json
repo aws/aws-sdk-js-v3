@@ -1,5 +1,6 @@
 {
   "name": "@aws-sdk/client-iot-1click-projects",
+  "description": "AWS SDK for JavaScript Iot 1click Projects Client for Node.js, Browser and React Native",
   "version": "1.0.0-rc.2",
   "scripts": {
     "clean": "npm run remove-definitions && npm run remove-dist",

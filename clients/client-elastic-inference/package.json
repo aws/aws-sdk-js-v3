@@ -1,5 +1,6 @@
 {
   "name": "@aws-sdk/client-elastic-inference",
+  "description": "AWS SDK for JavaScript Elastic Inference Client for Node.js, Browser and React Native",
   "version": "1.0.0-rc.2",
   "scripts": {
     "clean": "npm run remove-definitions && npm run remove-dist",
