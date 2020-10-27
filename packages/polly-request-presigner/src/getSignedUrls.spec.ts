@@ -1,7 +1,7 @@
 const mockV4Sign = jest.fn();
-const mockV4Presign = jest.fn();
+const mockPresign = jest.fn();
 const mockV4 = jest.fn().mockReturnValue({
-  presign: mockV4Presign,
+  presign: mockPresign,
   sign: mockV4Sign,
 });
 jest.mock("@aws-sdk/signature-v4", () => ({
@@ -10,13 +10,6 @@ jest.mock("@aws-sdk/signature-v4", () => ({
 
 import { SynthesizeSpeechCommand, PollyClient } from "@aws-sdk/client-polly";
 
-const mockPresign = jest.fn();
-const mockPresigner = jest.fn().mockReturnValue({
-  presign: mockPresign,
-});
-jest.mock("./PollyPresigner", () => ({
-  PollyPresigner: mockPresigner,
-}));
 jest.mock("@aws-sdk/util-format-url", () => ({
   formatUrl: (url: any) => url,
 }));
@@ -32,7 +25,7 @@ describe("getSignedUrl", () => {
     mockPresign.mockReset();
   });
 
-  it("should call PollyPresigner.sign", async () => {
+  it("should call SignatureV4.sign", async () => {
     const mockPresigned = "a presigned url";
     mockPresign.mockReturnValue(mockPresigned);
     const client = new PollyClient(clientParams);
@@ -44,9 +37,7 @@ describe("getSignedUrl", () => {
     const signed = await getSignedUrl(client, command);
     expect(signed).toBe(mockPresigned);
     expect(mockPresign).toBeCalled();
-    expect(mockV4Presign).not.toBeCalled();
     expect(mockV4Sign).not.toBeCalled();
-    // do not add extra middleware to the client or command
     expect(client.middlewareStack.remove("presignInterceptMiddleware")).toBe(false);
     expect(command.middlewareStack.remove("presignInterceptMiddleware")).toBe(false);
   });
