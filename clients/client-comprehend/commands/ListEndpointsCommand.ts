@@ -46,6 +46,8 @@ export class ListEndpointsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ComprehendClient",
+      commandName: "ListEndpointsCommand",
       inputFilterSensitiveLog: ListEndpointsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListEndpointsResponse.filterSensitiveLog,
     };

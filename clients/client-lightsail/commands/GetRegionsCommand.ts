@@ -46,6 +46,8 @@ export class GetRegionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "LightsailClient",
+      commandName: "GetRegionsCommand",
       inputFilterSensitiveLog: GetRegionsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetRegionsResult.filterSensitiveLog,
     };

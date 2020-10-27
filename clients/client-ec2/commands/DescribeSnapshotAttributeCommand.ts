@@ -46,6 +46,8 @@ export class DescribeSnapshotAttributeCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EC2Client",
+      commandName: "DescribeSnapshotAttributeCommand",
       inputFilterSensitiveLog: DescribeSnapshotAttributeRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeSnapshotAttributeResult.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class CopyBackupToRegionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CloudHSMV2Client",
+      commandName: "CopyBackupToRegionCommand",
       inputFilterSensitiveLog: CopyBackupToRegionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CopyBackupToRegionResponse.filterSensitiveLog,
     };

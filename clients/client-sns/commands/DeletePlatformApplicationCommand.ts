@@ -46,6 +46,8 @@ export class DeletePlatformApplicationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SNSClient",
+      commandName: "DeletePlatformApplicationCommand",
       inputFilterSensitiveLog: DeletePlatformApplicationInput.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

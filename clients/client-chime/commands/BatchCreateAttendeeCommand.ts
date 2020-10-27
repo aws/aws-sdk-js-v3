@@ -46,6 +46,8 @@ export class BatchCreateAttendeeCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ChimeClient",
+      commandName: "BatchCreateAttendeeCommand",
       inputFilterSensitiveLog: BatchCreateAttendeeRequest.filterSensitiveLog,
       outputFilterSensitiveLog: BatchCreateAttendeeResponse.filterSensitiveLog,
     };

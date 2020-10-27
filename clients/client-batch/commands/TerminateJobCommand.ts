@@ -46,6 +46,8 @@ export class TerminateJobCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "BatchClient",
+      commandName: "TerminateJobCommand",
       inputFilterSensitiveLog: TerminateJobRequest.filterSensitiveLog,
       outputFilterSensitiveLog: TerminateJobResponse.filterSensitiveLog,
     };

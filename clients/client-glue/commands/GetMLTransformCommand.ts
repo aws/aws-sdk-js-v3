@@ -47,6 +47,8 @@ export class GetMLTransformCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GlueClient",
+      commandName: "GetMLTransformCommand",
       inputFilterSensitiveLog: GetMLTransformRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetMLTransformResponse.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class GetDistributionConfigurationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ImagebuilderClient",
+      commandName: "GetDistributionConfigurationCommand",
       inputFilterSensitiveLog: GetDistributionConfigurationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetDistributionConfigurationResponse.filterSensitiveLog,
     };

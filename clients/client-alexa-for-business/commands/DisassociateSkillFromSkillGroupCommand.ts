@@ -46,6 +46,8 @@ export class DisassociateSkillFromSkillGroupCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "AlexaForBusinessClient",
+      commandName: "DisassociateSkillFromSkillGroupCommand",
       inputFilterSensitiveLog: DisassociateSkillFromSkillGroupRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DisassociateSkillFromSkillGroupResponse.filterSensitiveLog,
     };

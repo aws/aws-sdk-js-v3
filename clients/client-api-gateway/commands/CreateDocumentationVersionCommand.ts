@@ -46,6 +46,8 @@ export class CreateDocumentationVersionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "APIGatewayClient",
+      commandName: "CreateDocumentationVersionCommand",
       inputFilterSensitiveLog: CreateDocumentationVersionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DocumentationVersion.filterSensitiveLog,
     };

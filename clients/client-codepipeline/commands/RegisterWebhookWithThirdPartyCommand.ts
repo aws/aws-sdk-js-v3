@@ -46,6 +46,8 @@ export class RegisterWebhookWithThirdPartyCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CodePipelineClient",
+      commandName: "RegisterWebhookWithThirdPartyCommand",
       inputFilterSensitiveLog: RegisterWebhookWithThirdPartyInput.filterSensitiveLog,
       outputFilterSensitiveLog: RegisterWebhookWithThirdPartyOutput.filterSensitiveLog,
     };

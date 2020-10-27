@@ -46,6 +46,8 @@ export class DeleteProvisionedProductPlanCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ServiceCatalogClient",
+      commandName: "DeleteProvisionedProductPlanCommand",
       inputFilterSensitiveLog: DeleteProvisionedProductPlanInput.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteProvisionedProductPlanOutput.filterSensitiveLog,
     };

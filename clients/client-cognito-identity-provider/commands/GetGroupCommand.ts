@@ -47,6 +47,8 @@ export class GetGroupCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CognitoIdentityProviderClient",
+      commandName: "GetGroupCommand",
       inputFilterSensitiveLog: GetGroupRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetGroupResponse.filterSensitiveLog,
     };

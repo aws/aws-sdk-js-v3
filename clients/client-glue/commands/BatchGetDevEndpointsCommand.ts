@@ -46,6 +46,8 @@ export class BatchGetDevEndpointsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GlueClient",
+      commandName: "BatchGetDevEndpointsCommand",
       inputFilterSensitiveLog: BatchGetDevEndpointsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: BatchGetDevEndpointsResponse.filterSensitiveLog,
     };

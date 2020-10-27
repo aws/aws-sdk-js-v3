@@ -43,6 +43,8 @@ export class PutLabelCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "FraudDetectorClient",
+      commandName: "PutLabelCommand",
       inputFilterSensitiveLog: PutLabelRequest.filterSensitiveLog,
       outputFilterSensitiveLog: PutLabelResult.filterSensitiveLog,
     };

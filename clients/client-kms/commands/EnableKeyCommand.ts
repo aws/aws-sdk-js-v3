@@ -39,6 +39,8 @@ export class EnableKeyCommand extends $Command<EnableKeyCommandInput, EnableKeyC
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "KMSClient",
+      commandName: "EnableKeyCommand",
       inputFilterSensitiveLog: EnableKeyRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

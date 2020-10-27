@@ -46,6 +46,8 @@ export class RejectSharedDirectoryCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "DirectoryServiceClient",
+      commandName: "RejectSharedDirectoryCommand",
       inputFilterSensitiveLog: RejectSharedDirectoryRequest.filterSensitiveLog,
       outputFilterSensitiveLog: RejectSharedDirectoryResult.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class CreateMultiplexCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "MediaLiveClient",
+      commandName: "CreateMultiplexCommand",
       inputFilterSensitiveLog: CreateMultiplexRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateMultiplexResponse.filterSensitiveLog,
     };

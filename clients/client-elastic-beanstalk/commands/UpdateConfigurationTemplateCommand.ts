@@ -46,6 +46,8 @@ export class UpdateConfigurationTemplateCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ElasticBeanstalkClient",
+      commandName: "UpdateConfigurationTemplateCommand",
       inputFilterSensitiveLog: UpdateConfigurationTemplateMessage.filterSensitiveLog,
       outputFilterSensitiveLog: ConfigurationSettingsDescription.filterSensitiveLog,
     };

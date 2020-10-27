@@ -46,6 +46,8 @@ export class DeleteVolumeCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "StorageGatewayClient",
+      commandName: "DeleteVolumeCommand",
       inputFilterSensitiveLog: DeleteVolumeInput.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteVolumeOutput.filterSensitiveLog,
     };

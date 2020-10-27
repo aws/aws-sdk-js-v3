@@ -46,6 +46,8 @@ export class DeleteUserDefinedFunctionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GlueClient",
+      commandName: "DeleteUserDefinedFunctionCommand",
       inputFilterSensitiveLog: DeleteUserDefinedFunctionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteUserDefinedFunctionResponse.filterSensitiveLog,
     };

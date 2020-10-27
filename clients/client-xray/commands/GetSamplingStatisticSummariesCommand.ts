@@ -46,6 +46,8 @@ export class GetSamplingStatisticSummariesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "XRayClient",
+      commandName: "GetSamplingStatisticSummariesCommand",
       inputFilterSensitiveLog: GetSamplingStatisticSummariesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetSamplingStatisticSummariesResult.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class ListAliasesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "LambdaClient",
+      commandName: "ListAliasesCommand",
       inputFilterSensitiveLog: ListAliasesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListAliasesResponse.filterSensitiveLog,
     };

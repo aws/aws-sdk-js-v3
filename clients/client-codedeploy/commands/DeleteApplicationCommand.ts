@@ -46,6 +46,8 @@ export class DeleteApplicationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CodeDeployClient",
+      commandName: "DeleteApplicationCommand",
       inputFilterSensitiveLog: DeleteApplicationInput.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

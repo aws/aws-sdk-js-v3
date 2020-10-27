@@ -50,6 +50,8 @@ export class DescribeDeviceCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "IoT1ClickDevicesServiceClient",
+      commandName: "DescribeDeviceCommand",
       inputFilterSensitiveLog: DescribeDeviceRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeDeviceResponse.filterSensitiveLog,
     };

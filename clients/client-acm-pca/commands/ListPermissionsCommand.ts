@@ -46,6 +46,8 @@ export class ListPermissionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ACMPCAClient",
+      commandName: "ListPermissionsCommand",
       inputFilterSensitiveLog: ListPermissionsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListPermissionsResponse.filterSensitiveLog,
     };

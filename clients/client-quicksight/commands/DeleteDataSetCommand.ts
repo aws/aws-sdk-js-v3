@@ -46,6 +46,8 @@ export class DeleteDataSetCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "QuickSightClient",
+      commandName: "DeleteDataSetCommand",
       inputFilterSensitiveLog: DeleteDataSetRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteDataSetResponse.filterSensitiveLog,
     };

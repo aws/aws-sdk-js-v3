@@ -46,6 +46,8 @@ export class ModifyEventSubscriptionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "RedshiftClient",
+      commandName: "ModifyEventSubscriptionCommand",
       inputFilterSensitiveLog: ModifyEventSubscriptionMessage.filterSensitiveLog,
       outputFilterSensitiveLog: ModifyEventSubscriptionResult.filterSensitiveLog,
     };

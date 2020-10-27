@@ -48,6 +48,8 @@ export class PutObjectRetentionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "S3Client",
+      commandName: "PutObjectRetentionCommand",
       inputFilterSensitiveLog: PutObjectRetentionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: PutObjectRetentionOutput.filterSensitiveLog,
     };

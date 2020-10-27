@@ -46,6 +46,8 @@ export class ListVirtualRoutersCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "AppMeshClient",
+      commandName: "ListVirtualRoutersCommand",
       inputFilterSensitiveLog: ListVirtualRoutersInput.filterSensitiveLog,
       outputFilterSensitiveLog: ListVirtualRoutersOutput.filterSensitiveLog,
     };

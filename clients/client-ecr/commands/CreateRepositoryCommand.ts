@@ -46,6 +46,8 @@ export class CreateRepositoryCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ECRClient",
+      commandName: "CreateRepositoryCommand",
       inputFilterSensitiveLog: CreateRepositoryRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateRepositoryResponse.filterSensitiveLog,
     };

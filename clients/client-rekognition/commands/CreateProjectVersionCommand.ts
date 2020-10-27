@@ -46,6 +46,8 @@ export class CreateProjectVersionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "RekognitionClient",
+      commandName: "CreateProjectVersionCommand",
       inputFilterSensitiveLog: CreateProjectVersionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateProjectVersionResponse.filterSensitiveLog,
     };

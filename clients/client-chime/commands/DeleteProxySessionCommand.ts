@@ -46,6 +46,8 @@ export class DeleteProxySessionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ChimeClient",
+      commandName: "DeleteProxySessionCommand",
       inputFilterSensitiveLog: DeleteProxySessionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

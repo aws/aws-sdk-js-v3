@@ -43,6 +43,8 @@ export class CreateKeyPairCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EC2Client",
+      commandName: "CreateKeyPairCommand",
       inputFilterSensitiveLog: CreateKeyPairRequest.filterSensitiveLog,
       outputFilterSensitiveLog: KeyPair.filterSensitiveLog,
     };

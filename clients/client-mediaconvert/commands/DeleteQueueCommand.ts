@@ -46,6 +46,8 @@ export class DeleteQueueCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "MediaConvertClient",
+      commandName: "DeleteQueueCommand",
       inputFilterSensitiveLog: DeleteQueueRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteQueueResponse.filterSensitiveLog,
     };

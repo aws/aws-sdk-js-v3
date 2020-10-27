@@ -46,6 +46,8 @@ export class GetPhoneNumberOrderCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ChimeClient",
+      commandName: "GetPhoneNumberOrderCommand",
       inputFilterSensitiveLog: GetPhoneNumberOrderRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetPhoneNumberOrderResponse.filterSensitiveLog,
     };

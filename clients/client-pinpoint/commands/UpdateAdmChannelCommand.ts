@@ -46,6 +46,8 @@ export class UpdateAdmChannelCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "PinpointClient",
+      commandName: "UpdateAdmChannelCommand",
       inputFilterSensitiveLog: UpdateAdmChannelRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateAdmChannelResponse.filterSensitiveLog,
     };

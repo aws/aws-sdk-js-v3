@@ -46,6 +46,8 @@ export class ListLoggingConfigurationsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "WAFV2Client",
+      commandName: "ListLoggingConfigurationsCommand",
       inputFilterSensitiveLog: ListLoggingConfigurationsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListLoggingConfigurationsResponse.filterSensitiveLog,
     };

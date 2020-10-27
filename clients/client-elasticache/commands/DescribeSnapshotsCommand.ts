@@ -46,6 +46,8 @@ export class DescribeSnapshotsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ElastiCacheClient",
+      commandName: "DescribeSnapshotsCommand",
       inputFilterSensitiveLog: DescribeSnapshotsMessage.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeSnapshotsListMessage.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class DescribeTableCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "RedshiftDataClient",
+      commandName: "DescribeTableCommand",
       inputFilterSensitiveLog: DescribeTableRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeTableResponse.filterSensitiveLog,
     };

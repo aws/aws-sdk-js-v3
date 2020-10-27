@@ -46,6 +46,8 @@ export class DeleteWorkflowCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GlueClient",
+      commandName: "DeleteWorkflowCommand",
       inputFilterSensitiveLog: DeleteWorkflowRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteWorkflowResponse.filterSensitiveLog,
     };

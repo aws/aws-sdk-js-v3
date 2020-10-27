@@ -50,6 +50,8 @@ export class GetDevicesInPlacementCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "IoT1ClickProjectsClient",
+      commandName: "GetDevicesInPlacementCommand",
       inputFilterSensitiveLog: GetDevicesInPlacementRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetDevicesInPlacementResponse.filterSensitiveLog,
     };

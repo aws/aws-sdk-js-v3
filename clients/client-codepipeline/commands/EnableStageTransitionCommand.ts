@@ -46,6 +46,8 @@ export class EnableStageTransitionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CodePipelineClient",
+      commandName: "EnableStageTransitionCommand",
       inputFilterSensitiveLog: EnableStageTransitionInput.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

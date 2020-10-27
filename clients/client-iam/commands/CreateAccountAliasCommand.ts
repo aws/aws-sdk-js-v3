@@ -46,6 +46,8 @@ export class CreateAccountAliasCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "IAMClient",
+      commandName: "CreateAccountAliasCommand",
       inputFilterSensitiveLog: CreateAccountAliasRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

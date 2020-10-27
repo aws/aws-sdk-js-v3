@@ -46,6 +46,8 @@ export class DeleteOriginRequestPolicyCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CloudFrontClient",
+      commandName: "DeleteOriginRequestPolicyCommand",
       inputFilterSensitiveLog: DeleteOriginRequestPolicyRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

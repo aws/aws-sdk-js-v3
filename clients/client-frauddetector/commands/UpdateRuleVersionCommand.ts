@@ -46,6 +46,8 @@ export class UpdateRuleVersionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "FraudDetectorClient",
+      commandName: "UpdateRuleVersionCommand",
       inputFilterSensitiveLog: UpdateRuleVersionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateRuleVersionResult.filterSensitiveLog,
     };

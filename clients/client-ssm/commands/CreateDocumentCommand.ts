@@ -46,6 +46,8 @@ export class CreateDocumentCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SSMClient",
+      commandName: "CreateDocumentCommand",
       inputFilterSensitiveLog: CreateDocumentRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateDocumentResult.filterSensitiveLog,
     };

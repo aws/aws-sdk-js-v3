@@ -46,6 +46,8 @@ export class GetInstanceAccessCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GameLiftClient",
+      commandName: "GetInstanceAccessCommand",
       inputFilterSensitiveLog: GetInstanceAccessInput.filterSensitiveLog,
       outputFilterSensitiveLog: GetInstanceAccessOutput.filterSensitiveLog,
     };

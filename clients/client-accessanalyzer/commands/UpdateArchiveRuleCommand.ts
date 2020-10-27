@@ -46,6 +46,8 @@ export class UpdateArchiveRuleCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "AccessAnalyzerClient",
+      commandName: "UpdateArchiveRuleCommand",
       inputFilterSensitiveLog: UpdateArchiveRuleRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

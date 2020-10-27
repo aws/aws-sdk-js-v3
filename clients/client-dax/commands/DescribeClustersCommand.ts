@@ -46,6 +46,8 @@ export class DescribeClustersCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "DAXClient",
+      commandName: "DescribeClustersCommand",
       inputFilterSensitiveLog: DescribeClustersRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeClustersResponse.filterSensitiveLog,
     };

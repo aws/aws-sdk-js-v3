@@ -50,6 +50,8 @@ export class DescribeNotificationSubscriptionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "WorkDocsClient",
+      commandName: "DescribeNotificationSubscriptionsCommand",
       inputFilterSensitiveLog: DescribeNotificationSubscriptionsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeNotificationSubscriptionsResponse.filterSensitiveLog,
     };

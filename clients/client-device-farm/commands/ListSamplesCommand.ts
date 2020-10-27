@@ -46,6 +46,8 @@ export class ListSamplesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "DeviceFarmClient",
+      commandName: "ListSamplesCommand",
       inputFilterSensitiveLog: ListSamplesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListSamplesResult.filterSensitiveLog,
     };

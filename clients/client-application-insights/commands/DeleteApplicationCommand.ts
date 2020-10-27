@@ -50,6 +50,8 @@ export class DeleteApplicationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ApplicationInsightsClient",
+      commandName: "DeleteApplicationCommand",
       inputFilterSensitiveLog: DeleteApplicationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteApplicationResponse.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class DeleteSnapshotCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "DirectoryServiceClient",
+      commandName: "DeleteSnapshotCommand",
       inputFilterSensitiveLog: DeleteSnapshotRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteSnapshotResult.filterSensitiveLog,
     };

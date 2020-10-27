@@ -46,6 +46,8 @@ export class PutDedicatedIpInPoolCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "PinpointEmailClient",
+      commandName: "PutDedicatedIpInPoolCommand",
       inputFilterSensitiveLog: PutDedicatedIpInPoolRequest.filterSensitiveLog,
       outputFilterSensitiveLog: PutDedicatedIpInPoolResponse.filterSensitiveLog,
     };

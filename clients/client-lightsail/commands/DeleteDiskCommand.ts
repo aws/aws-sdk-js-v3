@@ -46,6 +46,8 @@ export class DeleteDiskCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "LightsailClient",
+      commandName: "DeleteDiskCommand",
       inputFilterSensitiveLog: DeleteDiskRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteDiskResult.filterSensitiveLog,
     };

@@ -50,6 +50,8 @@ export class DescribeReservedInstancesOfferingsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EC2Client",
+      commandName: "DescribeReservedInstancesOfferingsCommand",
       inputFilterSensitiveLog: DescribeReservedInstancesOfferingsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeReservedInstancesOfferingsResult.filterSensitiveLog,
     };

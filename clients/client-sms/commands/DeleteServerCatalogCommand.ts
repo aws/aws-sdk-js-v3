@@ -46,6 +46,8 @@ export class DeleteServerCatalogCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SMSClient",
+      commandName: "DeleteServerCatalogCommand",
       inputFilterSensitiveLog: DeleteServerCatalogRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteServerCatalogResponse.filterSensitiveLog,
     };

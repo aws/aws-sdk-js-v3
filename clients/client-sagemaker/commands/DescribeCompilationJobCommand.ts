@@ -46,6 +46,8 @@ export class DescribeCompilationJobCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SageMakerClient",
+      commandName: "DescribeCompilationJobCommand",
       inputFilterSensitiveLog: DescribeCompilationJobRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeCompilationJobResponse.filterSensitiveLog,
     };

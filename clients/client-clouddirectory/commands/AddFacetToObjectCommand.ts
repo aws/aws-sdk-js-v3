@@ -46,6 +46,8 @@ export class AddFacetToObjectCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CloudDirectoryClient",
+      commandName: "AddFacetToObjectCommand",
       inputFilterSensitiveLog: AddFacetToObjectRequest.filterSensitiveLog,
       outputFilterSensitiveLog: AddFacetToObjectResponse.filterSensitiveLog,
     };

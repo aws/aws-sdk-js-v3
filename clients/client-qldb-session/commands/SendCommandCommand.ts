@@ -46,6 +46,8 @@ export class SendCommandCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "QLDBSessionClient",
+      commandName: "SendCommandCommand",
       inputFilterSensitiveLog: SendCommandRequest.filterSensitiveLog,
       outputFilterSensitiveLog: SendCommandResult.filterSensitiveLog,
     };

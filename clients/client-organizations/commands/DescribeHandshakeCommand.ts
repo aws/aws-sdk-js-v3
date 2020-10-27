@@ -46,6 +46,8 @@ export class DescribeHandshakeCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "OrganizationsClient",
+      commandName: "DescribeHandshakeCommand",
       inputFilterSensitiveLog: DescribeHandshakeRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeHandshakeResponse.filterSensitiveLog,
     };

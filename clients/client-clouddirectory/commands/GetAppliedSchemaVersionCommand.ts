@@ -46,6 +46,8 @@ export class GetAppliedSchemaVersionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CloudDirectoryClient",
+      commandName: "GetAppliedSchemaVersionCommand",
       inputFilterSensitiveLog: GetAppliedSchemaVersionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetAppliedSchemaVersionResponse.filterSensitiveLog,
     };

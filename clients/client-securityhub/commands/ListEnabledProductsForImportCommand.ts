@@ -46,6 +46,8 @@ export class ListEnabledProductsForImportCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SecurityHubClient",
+      commandName: "ListEnabledProductsForImportCommand",
       inputFilterSensitiveLog: ListEnabledProductsForImportRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListEnabledProductsForImportResponse.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class DeleteAssetModelCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "IoTSiteWiseClient",
+      commandName: "DeleteAssetModelCommand",
       inputFilterSensitiveLog: DeleteAssetModelRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteAssetModelResponse.filterSensitiveLog,
     };

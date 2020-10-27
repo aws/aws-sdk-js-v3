@@ -46,6 +46,8 @@ export class DeleteTestGridProjectCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "DeviceFarmClient",
+      commandName: "DeleteTestGridProjectCommand",
       inputFilterSensitiveLog: DeleteTestGridProjectRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteTestGridProjectResult.filterSensitiveLog,
     };

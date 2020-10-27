@@ -46,6 +46,8 @@ export class DescribeSessionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "AppStreamClient",
+      commandName: "DescribeSessionsCommand",
       inputFilterSensitiveLog: DescribeSessionsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeSessionsResult.filterSensitiveLog,
     };

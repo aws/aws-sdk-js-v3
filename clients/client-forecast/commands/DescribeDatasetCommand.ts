@@ -46,6 +46,8 @@ export class DescribeDatasetCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ForecastClient",
+      commandName: "DescribeDatasetCommand",
       inputFilterSensitiveLog: DescribeDatasetRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeDatasetResponse.filterSensitiveLog,
     };

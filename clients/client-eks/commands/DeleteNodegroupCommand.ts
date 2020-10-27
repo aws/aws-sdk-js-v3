@@ -46,6 +46,8 @@ export class DeleteNodegroupCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EKSClient",
+      commandName: "DeleteNodegroupCommand",
       inputFilterSensitiveLog: DeleteNodegroupRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteNodegroupResponse.filterSensitiveLog,
     };

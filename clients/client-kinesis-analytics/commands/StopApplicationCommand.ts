@@ -46,6 +46,8 @@ export class StopApplicationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "KinesisAnalyticsClient",
+      commandName: "StopApplicationCommand",
       inputFilterSensitiveLog: StopApplicationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: StopApplicationResponse.filterSensitiveLog,
     };

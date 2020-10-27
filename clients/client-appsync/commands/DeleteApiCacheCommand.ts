@@ -46,6 +46,8 @@ export class DeleteApiCacheCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "AppSyncClient",
+      commandName: "DeleteApiCacheCommand",
       inputFilterSensitiveLog: DeleteApiCacheRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteApiCacheResponse.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class RestartAppServerCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ElasticBeanstalkClient",
+      commandName: "RestartAppServerCommand",
       inputFilterSensitiveLog: RestartAppServerMessage.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

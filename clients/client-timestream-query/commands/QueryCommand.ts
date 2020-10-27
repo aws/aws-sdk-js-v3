@@ -39,6 +39,8 @@ export class QueryCommand extends $Command<QueryCommandInput, QueryCommandOutput
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "TimestreamQueryClient",
+      commandName: "QueryCommand",
       inputFilterSensitiveLog: QueryRequest.filterSensitiveLog,
       outputFilterSensitiveLog: QueryResponse.filterSensitiveLog,
     };

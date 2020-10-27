@@ -46,6 +46,8 @@ export class UpdateInsightCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SecurityHubClient",
+      commandName: "UpdateInsightCommand",
       inputFilterSensitiveLog: UpdateInsightRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateInsightResponse.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class DescribeRouteTablesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EC2Client",
+      commandName: "DescribeRouteTablesCommand",
       inputFilterSensitiveLog: DescribeRouteTablesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeRouteTablesResult.filterSensitiveLog,
     };

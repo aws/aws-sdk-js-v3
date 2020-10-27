@@ -46,6 +46,8 @@ export class AssociateNodeCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "OpsWorksCMClient",
+      commandName: "AssociateNodeCommand",
       inputFilterSensitiveLog: AssociateNodeRequest.filterSensitiveLog,
       outputFilterSensitiveLog: AssociateNodeResponse.filterSensitiveLog,
     };

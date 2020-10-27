@@ -46,6 +46,8 @@ export class GetImageRecipeCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ImagebuilderClient",
+      commandName: "GetImageRecipeCommand",
       inputFilterSensitiveLog: GetImageRecipeRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetImageRecipeResponse.filterSensitiveLog,
     };

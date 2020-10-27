@@ -46,6 +46,8 @@ export class DescribeSecurityGroupReferencesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EC2Client",
+      commandName: "DescribeSecurityGroupReferencesCommand",
       inputFilterSensitiveLog: DescribeSecurityGroupReferencesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeSecurityGroupReferencesResult.filterSensitiveLog,
     };

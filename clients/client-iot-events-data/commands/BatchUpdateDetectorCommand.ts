@@ -46,6 +46,8 @@ export class BatchUpdateDetectorCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "IoTEventsDataClient",
+      commandName: "BatchUpdateDetectorCommand",
       inputFilterSensitiveLog: BatchUpdateDetectorRequest.filterSensitiveLog,
       outputFilterSensitiveLog: BatchUpdateDetectorResponse.filterSensitiveLog,
     };

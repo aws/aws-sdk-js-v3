@@ -46,6 +46,8 @@ export class GetImageCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ImagebuilderClient",
+      commandName: "GetImageCommand",
       inputFilterSensitiveLog: GetImageRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetImageResponse.filterSensitiveLog,
     };

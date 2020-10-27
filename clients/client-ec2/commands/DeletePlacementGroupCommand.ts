@@ -46,6 +46,8 @@ export class DeletePlacementGroupCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EC2Client",
+      commandName: "DeletePlacementGroupCommand",
       inputFilterSensitiveLog: DeletePlacementGroupRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

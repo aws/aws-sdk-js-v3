@@ -46,6 +46,8 @@ export class RevokeCertificateCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ACMPCAClient",
+      commandName: "RevokeCertificateCommand",
       inputFilterSensitiveLog: RevokeCertificateRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

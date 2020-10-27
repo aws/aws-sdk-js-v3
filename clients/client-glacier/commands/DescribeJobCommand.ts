@@ -46,6 +46,8 @@ export class DescribeJobCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GlacierClient",
+      commandName: "DescribeJobCommand",
       inputFilterSensitiveLog: DescribeJobInput.filterSensitiveLog,
       outputFilterSensitiveLog: GlacierJobDescription.filterSensitiveLog,
     };

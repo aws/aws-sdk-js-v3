@@ -46,6 +46,8 @@ export class ScheduleKeyDeletionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "KMSClient",
+      commandName: "ScheduleKeyDeletionCommand",
       inputFilterSensitiveLog: ScheduleKeyDeletionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ScheduleKeyDeletionResponse.filterSensitiveLog,
     };

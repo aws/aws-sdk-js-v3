@@ -39,6 +39,8 @@ export class CreateVpcCommand extends $Command<CreateVpcCommandInput, CreateVpcC
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EC2Client",
+      commandName: "CreateVpcCommand",
       inputFilterSensitiveLog: CreateVpcRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateVpcResult.filterSensitiveLog,
     };

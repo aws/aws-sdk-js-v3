@@ -46,6 +46,8 @@ export class ReorderReceiptRuleSetCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SESClient",
+      commandName: "ReorderReceiptRuleSetCommand",
       inputFilterSensitiveLog: ReorderReceiptRuleSetRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ReorderReceiptRuleSetResponse.filterSensitiveLog,
     };

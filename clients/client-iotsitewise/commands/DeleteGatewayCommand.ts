@@ -46,6 +46,8 @@ export class DeleteGatewayCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "IoTSiteWiseClient",
+      commandName: "DeleteGatewayCommand",
       inputFilterSensitiveLog: DeleteGatewayRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

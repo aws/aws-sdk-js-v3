@@ -46,6 +46,8 @@ export class GetRegexMatchSetCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "WAFRegionalClient",
+      commandName: "GetRegexMatchSetCommand",
       inputFilterSensitiveLog: GetRegexMatchSetRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetRegexMatchSetResponse.filterSensitiveLog,
     };

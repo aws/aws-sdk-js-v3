@@ -46,6 +46,8 @@ export class TransactGetItemsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "DynamoDBClient",
+      commandName: "TransactGetItemsCommand",
       inputFilterSensitiveLog: TransactGetItemsInput.filterSensitiveLog,
       outputFilterSensitiveLog: TransactGetItemsOutput.filterSensitiveLog,
     };

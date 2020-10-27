@@ -46,6 +46,8 @@ export class AddRoleToDBClusterCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "RDSClient",
+      commandName: "AddRoleToDBClusterCommand",
       inputFilterSensitiveLog: AddRoleToDBClusterMessage.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

@@ -46,6 +46,8 @@ export class DeleteRealtimeLogConfigCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CloudFrontClient",
+      commandName: "DeleteRealtimeLogConfigCommand",
       inputFilterSensitiveLog: DeleteRealtimeLogConfigRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

@@ -46,6 +46,8 @@ export class AssociateCreatedArtifactCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "MigrationHubClient",
+      commandName: "AssociateCreatedArtifactCommand",
       inputFilterSensitiveLog: AssociateCreatedArtifactRequest.filterSensitiveLog,
       outputFilterSensitiveLog: AssociateCreatedArtifactResult.filterSensitiveLog,
     };

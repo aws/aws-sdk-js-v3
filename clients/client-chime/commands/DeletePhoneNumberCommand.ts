@@ -46,6 +46,8 @@ export class DeletePhoneNumberCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ChimeClient",
+      commandName: "DeletePhoneNumberCommand",
       inputFilterSensitiveLog: DeletePhoneNumberRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

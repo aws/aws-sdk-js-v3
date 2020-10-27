@@ -46,6 +46,8 @@ export class CreateResolverEndpointCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "Route53ResolverClient",
+      commandName: "CreateResolverEndpointCommand",
       inputFilterSensitiveLog: CreateResolverEndpointRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateResolverEndpointResponse.filterSensitiveLog,
     };

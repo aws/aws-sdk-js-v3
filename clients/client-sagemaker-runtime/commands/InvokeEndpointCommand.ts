@@ -46,6 +46,8 @@ export class InvokeEndpointCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SageMakerRuntimeClient",
+      commandName: "InvokeEndpointCommand",
       inputFilterSensitiveLog: InvokeEndpointInput.filterSensitiveLog,
       outputFilterSensitiveLog: InvokeEndpointOutput.filterSensitiveLog,
     };

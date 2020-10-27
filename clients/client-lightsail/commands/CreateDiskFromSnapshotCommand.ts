@@ -46,6 +46,8 @@ export class CreateDiskFromSnapshotCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "LightsailClient",
+      commandName: "CreateDiskFromSnapshotCommand",
       inputFilterSensitiveLog: CreateDiskFromSnapshotRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateDiskFromSnapshotResult.filterSensitiveLog,
     };

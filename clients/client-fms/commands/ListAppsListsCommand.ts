@@ -46,6 +46,8 @@ export class ListAppsListsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "FMSClient",
+      commandName: "ListAppsListsCommand",
       inputFilterSensitiveLog: ListAppsListsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListAppsListsResponse.filterSensitiveLog,
     };

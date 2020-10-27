@@ -46,6 +46,8 @@ export class DetachInternetGatewayCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EC2Client",
+      commandName: "DetachInternetGatewayCommand",
       inputFilterSensitiveLog: DetachInternetGatewayRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

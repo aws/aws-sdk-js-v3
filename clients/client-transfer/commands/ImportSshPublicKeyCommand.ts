@@ -46,6 +46,8 @@ export class ImportSshPublicKeyCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "TransferClient",
+      commandName: "ImportSshPublicKeyCommand",
       inputFilterSensitiveLog: ImportSshPublicKeyRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ImportSshPublicKeyResponse.filterSensitiveLog,
     };

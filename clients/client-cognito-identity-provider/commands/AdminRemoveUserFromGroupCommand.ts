@@ -50,6 +50,8 @@ export class AdminRemoveUserFromGroupCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CognitoIdentityProviderClient",
+      commandName: "AdminRemoveUserFromGroupCommand",
       inputFilterSensitiveLog: AdminRemoveUserFromGroupRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

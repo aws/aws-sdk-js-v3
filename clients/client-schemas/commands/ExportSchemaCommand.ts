@@ -46,6 +46,8 @@ export class ExportSchemaCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SchemasClient",
+      commandName: "ExportSchemaCommand",
       inputFilterSensitiveLog: ExportSchemaRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ExportSchemaResponse.filterSensitiveLog,
     };

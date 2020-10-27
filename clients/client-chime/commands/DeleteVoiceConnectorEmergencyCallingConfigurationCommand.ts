@@ -49,6 +49,8 @@ export class DeleteVoiceConnectorEmergencyCallingConfigurationCommand extends $C
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ChimeClient",
+      commandName: "DeleteVoiceConnectorEmergencyCallingConfigurationCommand",
       inputFilterSensitiveLog: DeleteVoiceConnectorEmergencyCallingConfigurationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

@@ -46,6 +46,8 @@ export class RestoreDBClusterToPointInTimeCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "DocDBClient",
+      commandName: "RestoreDBClusterToPointInTimeCommand",
       inputFilterSensitiveLog: RestoreDBClusterToPointInTimeMessage.filterSensitiveLog,
       outputFilterSensitiveLog: RestoreDBClusterToPointInTimeResult.filterSensitiveLog,
     };

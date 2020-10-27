@@ -46,6 +46,8 @@ export class DescribeDataRepositoryTasksCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "FSxClient",
+      commandName: "DescribeDataRepositoryTasksCommand",
       inputFilterSensitiveLog: DescribeDataRepositoryTasksRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeDataRepositoryTasksResponse.filterSensitiveLog,
     };

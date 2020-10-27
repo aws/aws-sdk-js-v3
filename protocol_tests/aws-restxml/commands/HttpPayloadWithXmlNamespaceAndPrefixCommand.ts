@@ -47,6 +47,8 @@ export class HttpPayloadWithXmlNamespaceAndPrefixCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "RestXmlProtocolClient",
+      commandName: "HttpPayloadWithXmlNamespaceAndPrefixCommand",
       inputFilterSensitiveLog: HttpPayloadWithXmlNamespaceAndPrefixInputOutput.filterSensitiveLog,
       outputFilterSensitiveLog: HttpPayloadWithXmlNamespaceAndPrefixInputOutput.filterSensitiveLog,
     };

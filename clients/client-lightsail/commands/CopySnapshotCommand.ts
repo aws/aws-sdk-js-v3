@@ -46,6 +46,8 @@ export class CopySnapshotCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "LightsailClient",
+      commandName: "CopySnapshotCommand",
       inputFilterSensitiveLog: CopySnapshotRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CopySnapshotResult.filterSensitiveLog,
     };

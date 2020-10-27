@@ -46,6 +46,8 @@ export class DeleteStreamKeyCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "IvsClient",
+      commandName: "DeleteStreamKeyCommand",
       inputFilterSensitiveLog: DeleteStreamKeyRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

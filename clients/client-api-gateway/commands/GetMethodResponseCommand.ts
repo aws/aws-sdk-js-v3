@@ -46,6 +46,8 @@ export class GetMethodResponseCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "APIGatewayClient",
+      commandName: "GetMethodResponseCommand",
       inputFilterSensitiveLog: GetMethodResponseRequest.filterSensitiveLog,
       outputFilterSensitiveLog: MethodResponse.filterSensitiveLog,
     };

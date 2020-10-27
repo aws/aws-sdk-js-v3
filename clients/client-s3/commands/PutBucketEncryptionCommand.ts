@@ -48,6 +48,8 @@ export class PutBucketEncryptionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "S3Client",
+      commandName: "PutBucketEncryptionCommand",
       inputFilterSensitiveLog: PutBucketEncryptionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

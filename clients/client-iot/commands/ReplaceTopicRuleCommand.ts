@@ -46,6 +46,8 @@ export class ReplaceTopicRuleCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "IoTClient",
+      commandName: "ReplaceTopicRuleCommand",
       inputFilterSensitiveLog: ReplaceTopicRuleRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

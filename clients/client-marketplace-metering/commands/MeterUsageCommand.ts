@@ -50,6 +50,8 @@ export class MeterUsageCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "MarketplaceMeteringClient",
+      commandName: "MeterUsageCommand",
       inputFilterSensitiveLog: MeterUsageRequest.filterSensitiveLog,
       outputFilterSensitiveLog: MeterUsageResult.filterSensitiveLog,
     };

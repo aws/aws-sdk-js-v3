@@ -46,6 +46,8 @@ export class DescribeMonitoringScheduleCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SageMakerClient",
+      commandName: "DescribeMonitoringScheduleCommand",
       inputFilterSensitiveLog: DescribeMonitoringScheduleRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeMonitoringScheduleResponse.filterSensitiveLog,
     };

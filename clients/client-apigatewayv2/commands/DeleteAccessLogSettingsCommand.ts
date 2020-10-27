@@ -46,6 +46,8 @@ export class DeleteAccessLogSettingsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ApiGatewayV2Client",
+      commandName: "DeleteAccessLogSettingsCommand",
       inputFilterSensitiveLog: DeleteAccessLogSettingsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

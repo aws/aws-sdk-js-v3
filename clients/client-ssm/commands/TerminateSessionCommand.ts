@@ -46,6 +46,8 @@ export class TerminateSessionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SSMClient",
+      commandName: "TerminateSessionCommand",
       inputFilterSensitiveLog: TerminateSessionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: TerminateSessionResponse.filterSensitiveLog,
     };

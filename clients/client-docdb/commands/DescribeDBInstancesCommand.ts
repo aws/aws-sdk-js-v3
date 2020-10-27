@@ -46,6 +46,8 @@ export class DescribeDBInstancesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "DocDBClient",
+      commandName: "DescribeDBInstancesCommand",
       inputFilterSensitiveLog: DescribeDBInstancesMessage.filterSensitiveLog,
       outputFilterSensitiveLog: DBInstanceMessage.filterSensitiveLog,
     };

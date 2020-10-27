@@ -50,6 +50,8 @@ export class ListApplicationVersionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ServerlessApplicationRepositoryClient",
+      commandName: "ListApplicationVersionsCommand",
       inputFilterSensitiveLog: ListApplicationVersionsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListApplicationVersionsResponse.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class GetSuppressedDestinationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SESv2Client",
+      commandName: "GetSuppressedDestinationCommand",
       inputFilterSensitiveLog: GetSuppressedDestinationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetSuppressedDestinationResponse.filterSensitiveLog,
     };

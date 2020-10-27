@@ -46,6 +46,8 @@ export class ListGroupsForUserCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "IAMClient",
+      commandName: "ListGroupsForUserCommand",
       inputFilterSensitiveLog: ListGroupsForUserRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListGroupsForUserResponse.filterSensitiveLog,
     };

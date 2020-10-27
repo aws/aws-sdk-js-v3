@@ -46,6 +46,8 @@ export class DeleteQueuedSavingsPlanCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SavingsplansClient",
+      commandName: "DeleteQueuedSavingsPlanCommand",
       inputFilterSensitiveLog: DeleteQueuedSavingsPlanRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteQueuedSavingsPlanResponse.filterSensitiveLog,
     };

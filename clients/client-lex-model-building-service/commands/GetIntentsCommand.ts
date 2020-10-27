@@ -50,6 +50,8 @@ export class GetIntentsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "LexModelBuildingServiceClient",
+      commandName: "GetIntentsCommand",
       inputFilterSensitiveLog: GetIntentsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetIntentsResponse.filterSensitiveLog,
     };

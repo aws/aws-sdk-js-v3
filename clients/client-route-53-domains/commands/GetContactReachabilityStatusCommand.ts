@@ -46,6 +46,8 @@ export class GetContactReachabilityStatusCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "Route53DomainsClient",
+      commandName: "GetContactReachabilityStatusCommand",
       inputFilterSensitiveLog: GetContactReachabilityStatusRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetContactReachabilityStatusResponse.filterSensitiveLog,
     };

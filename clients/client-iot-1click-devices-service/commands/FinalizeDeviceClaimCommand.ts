@@ -50,6 +50,8 @@ export class FinalizeDeviceClaimCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "IoT1ClickDevicesServiceClient",
+      commandName: "FinalizeDeviceClaimCommand",
       inputFilterSensitiveLog: FinalizeDeviceClaimRequest.filterSensitiveLog,
       outputFilterSensitiveLog: FinalizeDeviceClaimResponse.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class UpdateFileSystemCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "FSxClient",
+      commandName: "UpdateFileSystemCommand",
       inputFilterSensitiveLog: UpdateFileSystemRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateFileSystemResponse.filterSensitiveLog,
     };

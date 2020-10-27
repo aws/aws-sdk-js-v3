@@ -46,6 +46,8 @@ export class GetDocumentTextDetectionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "TextractClient",
+      commandName: "GetDocumentTextDetectionCommand",
       inputFilterSensitiveLog: GetDocumentTextDetectionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetDocumentTextDetectionResponse.filterSensitiveLog,
     };

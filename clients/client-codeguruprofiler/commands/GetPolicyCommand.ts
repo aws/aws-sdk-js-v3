@@ -46,6 +46,8 @@ export class GetPolicyCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CodeGuruProfilerClient",
+      commandName: "GetPolicyCommand",
       inputFilterSensitiveLog: GetPolicyRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetPolicyResponse.filterSensitiveLog,
     };

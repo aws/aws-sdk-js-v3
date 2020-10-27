@@ -46,6 +46,8 @@ export class StopKeyPhrasesDetectionJobCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ComprehendClient",
+      commandName: "StopKeyPhrasesDetectionJobCommand",
       inputFilterSensitiveLog: StopKeyPhrasesDetectionJobRequest.filterSensitiveLog,
       outputFilterSensitiveLog: StopKeyPhrasesDetectionJobResponse.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class CloseInstancePublicPortsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "LightsailClient",
+      commandName: "CloseInstancePublicPortsCommand",
       inputFilterSensitiveLog: CloseInstancePublicPortsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CloseInstancePublicPortsResult.filterSensitiveLog,
     };

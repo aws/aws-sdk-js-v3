@@ -46,6 +46,8 @@ export class ListBootstrapActionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EMRClient",
+      commandName: "ListBootstrapActionsCommand",
       inputFilterSensitiveLog: ListBootstrapActionsInput.filterSensitiveLog,
       outputFilterSensitiveLog: ListBootstrapActionsOutput.filterSensitiveLog,
     };

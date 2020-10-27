@@ -46,6 +46,8 @@ export class UpdateSkillGroupCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "AlexaForBusinessClient",
+      commandName: "UpdateSkillGroupCommand",
       inputFilterSensitiveLog: UpdateSkillGroupRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateSkillGroupResponse.filterSensitiveLog,
     };

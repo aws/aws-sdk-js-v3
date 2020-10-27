@@ -46,6 +46,8 @@ export class TestInvokeAuthorizerCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "APIGatewayClient",
+      commandName: "TestInvokeAuthorizerCommand",
       inputFilterSensitiveLog: TestInvokeAuthorizerRequest.filterSensitiveLog,
       outputFilterSensitiveLog: TestInvokeAuthorizerResponse.filterSensitiveLog,
     };

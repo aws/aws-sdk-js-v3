@@ -50,6 +50,8 @@ export class GenerateOrganizationsAccessReportCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "IAMClient",
+      commandName: "GenerateOrganizationsAccessReportCommand",
       inputFilterSensitiveLog: GenerateOrganizationsAccessReportRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GenerateOrganizationsAccessReportResponse.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class CancelCommandCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SSMClient",
+      commandName: "CancelCommandCommand",
       inputFilterSensitiveLog: CancelCommandRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CancelCommandResult.filterSensitiveLog,
     };

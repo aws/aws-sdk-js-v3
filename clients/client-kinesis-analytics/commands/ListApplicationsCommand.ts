@@ -46,6 +46,8 @@ export class ListApplicationsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "KinesisAnalyticsClient",
+      commandName: "ListApplicationsCommand",
       inputFilterSensitiveLog: ListApplicationsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListApplicationsResponse.filterSensitiveLog,
     };

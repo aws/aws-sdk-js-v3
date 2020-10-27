@@ -46,6 +46,8 @@ export class HttpPrefixHeadersCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "RestJsonProtocolClient",
+      commandName: "HttpPrefixHeadersCommand",
       inputFilterSensitiveLog: HttpPrefixHeadersInputOutput.filterSensitiveLog,
       outputFilterSensitiveLog: HttpPrefixHeadersInputOutput.filterSensitiveLog,
     };

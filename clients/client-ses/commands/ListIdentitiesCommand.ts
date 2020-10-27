@@ -46,6 +46,8 @@ export class ListIdentitiesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SESClient",
+      commandName: "ListIdentitiesCommand",
       inputFilterSensitiveLog: ListIdentitiesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListIdentitiesResponse.filterSensitiveLog,
     };

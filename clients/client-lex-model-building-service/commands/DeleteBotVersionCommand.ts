@@ -50,6 +50,8 @@ export class DeleteBotVersionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "LexModelBuildingServiceClient",
+      commandName: "DeleteBotVersionCommand",
       inputFilterSensitiveLog: DeleteBotVersionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

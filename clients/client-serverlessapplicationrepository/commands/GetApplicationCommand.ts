@@ -50,6 +50,8 @@ export class GetApplicationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ServerlessApplicationRepositoryClient",
+      commandName: "GetApplicationCommand",
       inputFilterSensitiveLog: GetApplicationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetApplicationResponse.filterSensitiveLog,
     };

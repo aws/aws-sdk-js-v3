@@ -46,6 +46,8 @@ export class DeleteWorldTemplateCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "RoboMakerClient",
+      commandName: "DeleteWorldTemplateCommand",
       inputFilterSensitiveLog: DeleteWorldTemplateRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteWorldTemplateResponse.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class GetVoiceConnectorGroupCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ChimeClient",
+      commandName: "GetVoiceConnectorGroupCommand",
       inputFilterSensitiveLog: GetVoiceConnectorGroupRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetVoiceConnectorGroupResponse.filterSensitiveLog,
     };

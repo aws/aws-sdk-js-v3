@@ -46,6 +46,8 @@ export class TagMeetingCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ChimeClient",
+      commandName: "TagMeetingCommand",
       inputFilterSensitiveLog: TagMeetingRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

@@ -46,6 +46,8 @@ export class GetAuthorizationTokenCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ECRClient",
+      commandName: "GetAuthorizationTokenCommand",
       inputFilterSensitiveLog: GetAuthorizationTokenRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetAuthorizationTokenResponse.filterSensitiveLog,
     };

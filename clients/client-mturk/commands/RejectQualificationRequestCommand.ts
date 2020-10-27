@@ -46,6 +46,8 @@ export class RejectQualificationRequestCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "MTurkClient",
+      commandName: "RejectQualificationRequestCommand",
       inputFilterSensitiveLog: RejectQualificationRequestRequest.filterSensitiveLog,
       outputFilterSensitiveLog: RejectQualificationRequestResponse.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class ListInvalidationsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CloudFrontClient",
+      commandName: "ListInvalidationsCommand",
       inputFilterSensitiveLog: ListInvalidationsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListInvalidationsResult.filterSensitiveLog,
     };

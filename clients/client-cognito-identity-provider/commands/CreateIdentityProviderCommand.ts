@@ -50,6 +50,8 @@ export class CreateIdentityProviderCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CognitoIdentityProviderClient",
+      commandName: "CreateIdentityProviderCommand",
       inputFilterSensitiveLog: CreateIdentityProviderRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateIdentityProviderResponse.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class DeleteSecurityConfigurationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GlueClient",
+      commandName: "DeleteSecurityConfigurationCommand",
       inputFilterSensitiveLog: DeleteSecurityConfigurationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteSecurityConfigurationResponse.filterSensitiveLog,
     };

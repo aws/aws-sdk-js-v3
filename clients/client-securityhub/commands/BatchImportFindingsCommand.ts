@@ -46,6 +46,8 @@ export class BatchImportFindingsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SecurityHubClient",
+      commandName: "BatchImportFindingsCommand",
       inputFilterSensitiveLog: BatchImportFindingsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: BatchImportFindingsResponse.filterSensitiveLog,
     };

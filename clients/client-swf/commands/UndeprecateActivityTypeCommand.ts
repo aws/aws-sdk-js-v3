@@ -46,6 +46,8 @@ export class UndeprecateActivityTypeCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SWFClient",
+      commandName: "UndeprecateActivityTypeCommand",
       inputFilterSensitiveLog: UndeprecateActivityTypeInput.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

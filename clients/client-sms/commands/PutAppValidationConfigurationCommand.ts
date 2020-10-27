@@ -46,6 +46,8 @@ export class PutAppValidationConfigurationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SMSClient",
+      commandName: "PutAppValidationConfigurationCommand",
       inputFilterSensitiveLog: PutAppValidationConfigurationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: PutAppValidationConfigurationResponse.filterSensitiveLog,
     };

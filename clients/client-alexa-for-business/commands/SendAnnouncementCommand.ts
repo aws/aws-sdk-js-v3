@@ -46,6 +46,8 @@ export class SendAnnouncementCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "AlexaForBusinessClient",
+      commandName: "SendAnnouncementCommand",
       inputFilterSensitiveLog: SendAnnouncementRequest.filterSensitiveLog,
       outputFilterSensitiveLog: SendAnnouncementResponse.filterSensitiveLog,
     };

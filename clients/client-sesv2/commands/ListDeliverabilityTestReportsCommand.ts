@@ -46,6 +46,8 @@ export class ListDeliverabilityTestReportsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SESv2Client",
+      commandName: "ListDeliverabilityTestReportsCommand",
       inputFilterSensitiveLog: ListDeliverabilityTestReportsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListDeliverabilityTestReportsResponse.filterSensitiveLog,
     };

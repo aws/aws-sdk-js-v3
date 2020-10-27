@@ -46,6 +46,8 @@ export class AcknowledgeThirdPartyJobCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CodePipelineClient",
+      commandName: "AcknowledgeThirdPartyJobCommand",
       inputFilterSensitiveLog: AcknowledgeThirdPartyJobInput.filterSensitiveLog,
       outputFilterSensitiveLog: AcknowledgeThirdPartyJobOutput.filterSensitiveLog,
     };

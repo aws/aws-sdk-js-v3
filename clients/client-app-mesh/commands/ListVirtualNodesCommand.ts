@@ -46,6 +46,8 @@ export class ListVirtualNodesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "AppMeshClient",
+      commandName: "ListVirtualNodesCommand",
       inputFilterSensitiveLog: ListVirtualNodesInput.filterSensitiveLog,
       outputFilterSensitiveLog: ListVirtualNodesOutput.filterSensitiveLog,
     };

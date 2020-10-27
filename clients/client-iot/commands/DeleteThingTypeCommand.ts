@@ -46,6 +46,8 @@ export class DeleteThingTypeCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "IoTClient",
+      commandName: "DeleteThingTypeCommand",
       inputFilterSensitiveLog: DeleteThingTypeRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteThingTypeResponse.filterSensitiveLog,
     };

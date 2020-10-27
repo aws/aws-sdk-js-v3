@@ -50,6 +50,8 @@ export class DescribePackagesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ElasticsearchServiceClient",
+      commandName: "DescribePackagesCommand",
       inputFilterSensitiveLog: DescribePackagesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribePackagesResponse.filterSensitiveLog,
     };

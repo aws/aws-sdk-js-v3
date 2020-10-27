@@ -46,6 +46,8 @@ export class RecursiveXmlShapesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "QueryProtocolClient",
+      commandName: "RecursiveXmlShapesCommand",
       inputFilterSensitiveLog: (input: any) => input,
       outputFilterSensitiveLog: RecursiveXmlShapesOutput.filterSensitiveLog,
     };

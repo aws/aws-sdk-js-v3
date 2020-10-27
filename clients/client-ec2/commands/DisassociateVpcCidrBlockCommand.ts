@@ -46,6 +46,8 @@ export class DisassociateVpcCidrBlockCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EC2Client",
+      commandName: "DisassociateVpcCidrBlockCommand",
       inputFilterSensitiveLog: DisassociateVpcCidrBlockRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DisassociateVpcCidrBlockResult.filterSensitiveLog,
     };

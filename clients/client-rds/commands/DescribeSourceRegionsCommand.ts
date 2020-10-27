@@ -46,6 +46,8 @@ export class DescribeSourceRegionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "RDSClient",
+      commandName: "DescribeSourceRegionsCommand",
       inputFilterSensitiveLog: DescribeSourceRegionsMessage.filterSensitiveLog,
       outputFilterSensitiveLog: SourceRegionMessage.filterSensitiveLog,
     };

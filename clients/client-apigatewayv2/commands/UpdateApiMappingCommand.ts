@@ -46,6 +46,8 @@ export class UpdateApiMappingCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ApiGatewayV2Client",
+      commandName: "UpdateApiMappingCommand",
       inputFilterSensitiveLog: UpdateApiMappingRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateApiMappingResponse.filterSensitiveLog,
     };

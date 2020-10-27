@@ -50,6 +50,8 @@ export class UploadPartCopyCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "S3Client",
+      commandName: "UploadPartCopyCommand",
       inputFilterSensitiveLog: UploadPartCopyRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UploadPartCopyOutput.filterSensitiveLog,
     };

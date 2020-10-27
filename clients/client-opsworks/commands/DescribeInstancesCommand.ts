@@ -46,6 +46,8 @@ export class DescribeInstancesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "OpsWorksClient",
+      commandName: "DescribeInstancesCommand",
       inputFilterSensitiveLog: DescribeInstancesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeInstancesResult.filterSensitiveLog,
     };

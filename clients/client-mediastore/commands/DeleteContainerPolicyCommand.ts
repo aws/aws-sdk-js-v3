@@ -46,6 +46,8 @@ export class DeleteContainerPolicyCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "MediaStoreClient",
+      commandName: "DeleteContainerPolicyCommand",
       inputFilterSensitiveLog: DeleteContainerPolicyInput.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteContainerPolicyOutput.filterSensitiveLog,
     };

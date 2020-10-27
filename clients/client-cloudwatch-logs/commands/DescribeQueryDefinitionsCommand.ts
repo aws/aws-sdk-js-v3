@@ -46,6 +46,8 @@ export class DescribeQueryDefinitionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CloudWatchLogsClient",
+      commandName: "DescribeQueryDefinitionsCommand",
       inputFilterSensitiveLog: DescribeQueryDefinitionsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeQueryDefinitionsResponse.filterSensitiveLog,
     };

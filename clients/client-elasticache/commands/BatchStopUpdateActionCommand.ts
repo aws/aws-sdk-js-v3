@@ -46,6 +46,8 @@ export class BatchStopUpdateActionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ElastiCacheClient",
+      commandName: "BatchStopUpdateActionCommand",
       inputFilterSensitiveLog: BatchStopUpdateActionMessage.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateActionResultsMessage.filterSensitiveLog,
     };

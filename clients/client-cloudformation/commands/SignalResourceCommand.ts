@@ -46,6 +46,8 @@ export class SignalResourceCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CloudFormationClient",
+      commandName: "SignalResourceCommand",
       inputFilterSensitiveLog: SignalResourceInput.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

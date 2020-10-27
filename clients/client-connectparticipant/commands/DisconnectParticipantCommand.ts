@@ -50,6 +50,8 @@ export class DisconnectParticipantCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ConnectParticipantClient",
+      commandName: "DisconnectParticipantCommand",
       inputFilterSensitiveLog: DisconnectParticipantRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DisconnectParticipantResponse.filterSensitiveLog,
     };

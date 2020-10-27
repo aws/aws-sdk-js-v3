@@ -46,6 +46,8 @@ export class UpdateApnsChannelCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "PinpointClient",
+      commandName: "UpdateApnsChannelCommand",
       inputFilterSensitiveLog: UpdateApnsChannelRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateApnsChannelResponse.filterSensitiveLog,
     };

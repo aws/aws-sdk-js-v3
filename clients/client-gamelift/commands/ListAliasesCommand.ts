@@ -46,6 +46,8 @@ export class ListAliasesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GameLiftClient",
+      commandName: "ListAliasesCommand",
       inputFilterSensitiveLog: ListAliasesInput.filterSensitiveLog,
       outputFilterSensitiveLog: ListAliasesOutput.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class BatchDeleteWorldsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "RoboMakerClient",
+      commandName: "BatchDeleteWorldsCommand",
       inputFilterSensitiveLog: BatchDeleteWorldsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: BatchDeleteWorldsResponse.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class DescribeDBSecurityGroupsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "RDSClient",
+      commandName: "DescribeDBSecurityGroupsCommand",
       inputFilterSensitiveLog: DescribeDBSecurityGroupsMessage.filterSensitiveLog,
       outputFilterSensitiveLog: DBSecurityGroupMessage.filterSensitiveLog,
     };

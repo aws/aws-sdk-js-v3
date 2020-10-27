@@ -46,6 +46,8 @@ export class DisassociateDiscoveredResourceCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "MigrationHubClient",
+      commandName: "DisassociateDiscoveredResourceCommand",
       inputFilterSensitiveLog: DisassociateDiscoveredResourceRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DisassociateDiscoveredResourceResult.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class AssociateResolverQueryLogConfigCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "Route53ResolverClient",
+      commandName: "AssociateResolverQueryLogConfigCommand",
       inputFilterSensitiveLog: AssociateResolverQueryLogConfigRequest.filterSensitiveLog,
       outputFilterSensitiveLog: AssociateResolverQueryLogConfigResponse.filterSensitiveLog,
     };

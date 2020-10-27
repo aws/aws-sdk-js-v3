@@ -46,6 +46,8 @@ export class CreateHostedConfigurationVersionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "AppConfigClient",
+      commandName: "CreateHostedConfigurationVersionCommand",
       inputFilterSensitiveLog: CreateHostedConfigurationVersionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: HostedConfigurationVersion.filterSensitiveLog,
     };

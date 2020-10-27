@@ -46,6 +46,8 @@ export class UpdateFindingsFilterCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "Macie2Client",
+      commandName: "UpdateFindingsFilterCommand",
       inputFilterSensitiveLog: UpdateFindingsFilterRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateFindingsFilterResponse.filterSensitiveLog,
     };

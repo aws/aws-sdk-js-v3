@@ -46,6 +46,8 @@ export class CreateNetworkProfileCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "DeviceFarmClient",
+      commandName: "CreateNetworkProfileCommand",
       inputFilterSensitiveLog: CreateNetworkProfileRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateNetworkProfileResult.filterSensitiveLog,
     };

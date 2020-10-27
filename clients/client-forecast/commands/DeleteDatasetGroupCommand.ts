@@ -46,6 +46,8 @@ export class DeleteDatasetGroupCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ForecastClient",
+      commandName: "DeleteDatasetGroupCommand",
       inputFilterSensitiveLog: DeleteDatasetGroupRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

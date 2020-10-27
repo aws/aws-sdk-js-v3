@@ -43,6 +43,8 @@ export class DeleteTagsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "RedshiftClient",
+      commandName: "DeleteTagsCommand",
       inputFilterSensitiveLog: DeleteTagsMessage.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

@@ -46,6 +46,8 @@ export class GetAccessControlEffectCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "WorkMailClient",
+      commandName: "GetAccessControlEffectCommand",
       inputFilterSensitiveLog: GetAccessControlEffectRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetAccessControlEffectResponse.filterSensitiveLog,
     };

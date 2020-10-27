@@ -46,6 +46,8 @@ export class PutRetentionPolicyCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "WorkMailClient",
+      commandName: "PutRetentionPolicyCommand",
       inputFilterSensitiveLog: PutRetentionPolicyRequest.filterSensitiveLog,
       outputFilterSensitiveLog: PutRetentionPolicyResponse.filterSensitiveLog,
     };

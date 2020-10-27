@@ -46,6 +46,8 @@ export class UpdateCachePolicyCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CloudFrontClient",
+      commandName: "UpdateCachePolicyCommand",
       inputFilterSensitiveLog: UpdateCachePolicyRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateCachePolicyResult.filterSensitiveLog,
     };

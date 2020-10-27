@@ -46,6 +46,8 @@ export class CreateScheduledActionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "RedshiftClient",
+      commandName: "CreateScheduledActionCommand",
       inputFilterSensitiveLog: CreateScheduledActionMessage.filterSensitiveLog,
       outputFilterSensitiveLog: ScheduledAction.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class GetApiKeysCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "APIGatewayClient",
+      commandName: "GetApiKeysCommand",
       inputFilterSensitiveLog: GetApiKeysRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ApiKeys.filterSensitiveLog,
     };

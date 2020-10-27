@@ -46,6 +46,8 @@ export class DeleteFolderCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "WorkDocsClient",
+      commandName: "DeleteFolderCommand",
       inputFilterSensitiveLog: DeleteFolderRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

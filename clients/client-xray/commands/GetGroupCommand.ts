@@ -42,6 +42,8 @@ export class GetGroupCommand extends $Command<GetGroupCommandInput, GetGroupComm
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "XRayClient",
+      commandName: "GetGroupCommand",
       inputFilterSensitiveLog: GetGroupRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetGroupResult.filterSensitiveLog,
     };

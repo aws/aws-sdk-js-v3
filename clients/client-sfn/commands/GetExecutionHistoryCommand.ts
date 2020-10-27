@@ -46,6 +46,8 @@ export class GetExecutionHistoryCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SFNClient",
+      commandName: "GetExecutionHistoryCommand",
       inputFilterSensitiveLog: GetExecutionHistoryInput.filterSensitiveLog,
       outputFilterSensitiveLog: GetExecutionHistoryOutput.filterSensitiveLog,
     };

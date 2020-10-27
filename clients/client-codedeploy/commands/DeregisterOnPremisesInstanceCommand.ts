@@ -46,6 +46,8 @@ export class DeregisterOnPremisesInstanceCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CodeDeployClient",
+      commandName: "DeregisterOnPremisesInstanceCommand",
       inputFilterSensitiveLog: DeregisterOnPremisesInstanceInput.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

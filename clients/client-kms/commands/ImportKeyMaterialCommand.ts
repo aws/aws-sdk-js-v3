@@ -46,6 +46,8 @@ export class ImportKeyMaterialCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "KMSClient",
+      commandName: "ImportKeyMaterialCommand",
       inputFilterSensitiveLog: ImportKeyMaterialRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ImportKeyMaterialResponse.filterSensitiveLog,
     };

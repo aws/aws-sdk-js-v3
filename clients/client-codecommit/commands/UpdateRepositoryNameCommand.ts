@@ -46,6 +46,8 @@ export class UpdateRepositoryNameCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CodeCommitClient",
+      commandName: "UpdateRepositoryNameCommand",
       inputFilterSensitiveLog: UpdateRepositoryNameInput.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

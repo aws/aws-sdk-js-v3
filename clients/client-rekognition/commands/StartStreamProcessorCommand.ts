@@ -46,6 +46,8 @@ export class StartStreamProcessorCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "RekognitionClient",
+      commandName: "StartStreamProcessorCommand",
       inputFilterSensitiveLog: StartStreamProcessorRequest.filterSensitiveLog,
       outputFilterSensitiveLog: StartStreamProcessorResponse.filterSensitiveLog,
     };

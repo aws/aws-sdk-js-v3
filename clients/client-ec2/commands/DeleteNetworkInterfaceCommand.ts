@@ -46,6 +46,8 @@ export class DeleteNetworkInterfaceCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EC2Client",
+      commandName: "DeleteNetworkInterfaceCommand",
       inputFilterSensitiveLog: DeleteNetworkInterfaceRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

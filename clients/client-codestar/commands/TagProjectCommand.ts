@@ -46,6 +46,8 @@ export class TagProjectCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CodeStarClient",
+      commandName: "TagProjectCommand",
       inputFilterSensitiveLog: TagProjectRequest.filterSensitiveLog,
       outputFilterSensitiveLog: TagProjectResult.filterSensitiveLog,
     };

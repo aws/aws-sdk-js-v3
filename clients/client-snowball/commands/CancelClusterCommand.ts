@@ -46,6 +46,8 @@ export class CancelClusterCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SnowballClient",
+      commandName: "CancelClusterCommand",
       inputFilterSensitiveLog: CancelClusterRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CancelClusterResult.filterSensitiveLog,
     };

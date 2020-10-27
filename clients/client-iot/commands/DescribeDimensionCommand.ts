@@ -46,6 +46,8 @@ export class DescribeDimensionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "IoTClient",
+      commandName: "DescribeDimensionCommand",
       inputFilterSensitiveLog: DescribeDimensionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeDimensionResponse.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class SwapEnvironmentCNAMEsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ElasticBeanstalkClient",
+      commandName: "SwapEnvironmentCNAMEsCommand",
       inputFilterSensitiveLog: SwapEnvironmentCNAMEsMessage.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

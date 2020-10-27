@@ -46,6 +46,8 @@ export class GetResourceDefinitionVersionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GreengrassClient",
+      commandName: "GetResourceDefinitionVersionCommand",
       inputFilterSensitiveLog: GetResourceDefinitionVersionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetResourceDefinitionVersionResponse.filterSensitiveLog,
     };

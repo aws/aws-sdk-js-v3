@@ -46,6 +46,8 @@ export class AddPermissionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SQSClient",
+      commandName: "AddPermissionCommand",
       inputFilterSensitiveLog: AddPermissionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

@@ -46,6 +46,8 @@ export class PutTelemetryRecordsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "XRayClient",
+      commandName: "PutTelemetryRecordsCommand",
       inputFilterSensitiveLog: PutTelemetryRecordsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: PutTelemetryRecordsResult.filterSensitiveLog,
     };

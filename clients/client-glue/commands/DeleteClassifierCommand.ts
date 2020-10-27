@@ -46,6 +46,8 @@ export class DeleteClassifierCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GlueClient",
+      commandName: "DeleteClassifierCommand",
       inputFilterSensitiveLog: DeleteClassifierRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteClassifierResponse.filterSensitiveLog,
     };

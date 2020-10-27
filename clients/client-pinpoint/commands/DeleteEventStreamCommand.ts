@@ -46,6 +46,8 @@ export class DeleteEventStreamCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "PinpointClient",
+      commandName: "DeleteEventStreamCommand",
       inputFilterSensitiveLog: DeleteEventStreamRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteEventStreamResponse.filterSensitiveLog,
     };

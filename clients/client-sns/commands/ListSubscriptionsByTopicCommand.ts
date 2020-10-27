@@ -46,6 +46,8 @@ export class ListSubscriptionsByTopicCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SNSClient",
+      commandName: "ListSubscriptionsByTopicCommand",
       inputFilterSensitiveLog: ListSubscriptionsByTopicInput.filterSensitiveLog,
       outputFilterSensitiveLog: ListSubscriptionsByTopicResponse.filterSensitiveLog,
     };

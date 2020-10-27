@@ -46,6 +46,8 @@ export class RegisterResourceCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "LakeFormationClient",
+      commandName: "RegisterResourceCommand",
       inputFilterSensitiveLog: RegisterResourceRequest.filterSensitiveLog,
       outputFilterSensitiveLog: RegisterResourceResponse.filterSensitiveLog,
     };

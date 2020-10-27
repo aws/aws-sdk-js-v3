@@ -43,6 +43,8 @@ export class CopyImageCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "AppStreamClient",
+      commandName: "CopyImageCommand",
       inputFilterSensitiveLog: CopyImageRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CopyImageResponse.filterSensitiveLog,
     };

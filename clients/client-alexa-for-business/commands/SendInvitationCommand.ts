@@ -46,6 +46,8 @@ export class SendInvitationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "AlexaForBusinessClient",
+      commandName: "SendInvitationCommand",
       inputFilterSensitiveLog: SendInvitationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: SendInvitationResponse.filterSensitiveLog,
     };

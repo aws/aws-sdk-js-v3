@@ -46,6 +46,8 @@ export class CreateDevicePoolCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "DeviceFarmClient",
+      commandName: "CreateDevicePoolCommand",
       inputFilterSensitiveLog: CreateDevicePoolRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateDevicePoolResult.filterSensitiveLog,
     };

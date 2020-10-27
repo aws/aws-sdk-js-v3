@@ -46,6 +46,8 @@ export class DeleteConfigurationAggregatorCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ConfigServiceClient",
+      commandName: "DeleteConfigurationAggregatorCommand",
       inputFilterSensitiveLog: DeleteConfigurationAggregatorRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

@@ -46,6 +46,8 @@ export class GetDeliverabilityTestReportCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "PinpointEmailClient",
+      commandName: "GetDeliverabilityTestReportCommand",
       inputFilterSensitiveLog: GetDeliverabilityTestReportRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetDeliverabilityTestReportResponse.filterSensitiveLog,
     };

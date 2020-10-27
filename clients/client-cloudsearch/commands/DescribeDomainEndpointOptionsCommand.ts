@@ -46,6 +46,8 @@ export class DescribeDomainEndpointOptionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CloudSearchClient",
+      commandName: "DescribeDomainEndpointOptionsCommand",
       inputFilterSensitiveLog: DescribeDomainEndpointOptionsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeDomainEndpointOptionsResponse.filterSensitiveLog,
     };

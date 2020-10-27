@@ -46,6 +46,8 @@ export class GetMetricPolicyCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "MediaStoreClient",
+      commandName: "GetMetricPolicyCommand",
       inputFilterSensitiveLog: GetMetricPolicyInput.filterSensitiveLog,
       outputFilterSensitiveLog: GetMetricPolicyOutput.filterSensitiveLog,
     };

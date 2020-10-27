@@ -46,6 +46,8 @@ export class UpdateDiscovererCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SchemasClient",
+      commandName: "UpdateDiscovererCommand",
       inputFilterSensitiveLog: UpdateDiscovererRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateDiscovererResponse.filterSensitiveLog,
     };

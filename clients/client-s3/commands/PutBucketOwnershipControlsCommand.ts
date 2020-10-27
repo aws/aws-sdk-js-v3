@@ -48,6 +48,8 @@ export class PutBucketOwnershipControlsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "S3Client",
+      commandName: "PutBucketOwnershipControlsCommand",
       inputFilterSensitiveLog: PutBucketOwnershipControlsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

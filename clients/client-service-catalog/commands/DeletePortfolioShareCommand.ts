@@ -46,6 +46,8 @@ export class DeletePortfolioShareCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ServiceCatalogClient",
+      commandName: "DeletePortfolioShareCommand",
       inputFilterSensitiveLog: DeletePortfolioShareInput.filterSensitiveLog,
       outputFilterSensitiveLog: DeletePortfolioShareOutput.filterSensitiveLog,
     };

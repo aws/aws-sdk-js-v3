@@ -46,6 +46,8 @@ export class DisableKeyRotationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "KMSClient",
+      commandName: "DisableKeyRotationCommand",
       inputFilterSensitiveLog: DisableKeyRotationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

@@ -46,6 +46,8 @@ export class DeleteDomainNameCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ApiGatewayV2Client",
+      commandName: "DeleteDomainNameCommand",
       inputFilterSensitiveLog: DeleteDomainNameRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

@@ -47,6 +47,8 @@ export class GetHostCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CodeStarConnectionsClient",
+      commandName: "GetHostCommand",
       inputFilterSensitiveLog: GetHostInput.filterSensitiveLog,
       outputFilterSensitiveLog: GetHostOutput.filterSensitiveLog,
     };

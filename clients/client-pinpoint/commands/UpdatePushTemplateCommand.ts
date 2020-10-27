@@ -46,6 +46,8 @@ export class UpdatePushTemplateCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "PinpointClient",
+      commandName: "UpdatePushTemplateCommand",
       inputFilterSensitiveLog: UpdatePushTemplateRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdatePushTemplateResponse.filterSensitiveLog,
     };

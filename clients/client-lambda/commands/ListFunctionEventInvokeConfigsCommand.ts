@@ -46,6 +46,8 @@ export class ListFunctionEventInvokeConfigsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "LambdaClient",
+      commandName: "ListFunctionEventInvokeConfigsCommand",
       inputFilterSensitiveLog: ListFunctionEventInvokeConfigsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListFunctionEventInvokeConfigsResponse.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class DeleteDirectConnectGatewayCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "DirectConnectClient",
+      commandName: "DeleteDirectConnectGatewayCommand",
       inputFilterSensitiveLog: DeleteDirectConnectGatewayRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteDirectConnectGatewayResult.filterSensitiveLog,
     };

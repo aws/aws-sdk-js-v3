@@ -50,6 +50,8 @@ export class CreateConnectionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CodeStarConnectionsClient",
+      commandName: "CreateConnectionCommand",
       inputFilterSensitiveLog: CreateConnectionInput.filterSensitiveLog,
       outputFilterSensitiveLog: CreateConnectionOutput.filterSensitiveLog,
     };

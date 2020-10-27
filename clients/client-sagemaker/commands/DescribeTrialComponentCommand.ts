@@ -46,6 +46,8 @@ export class DescribeTrialComponentCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SageMakerClient",
+      commandName: "DescribeTrialComponentCommand",
       inputFilterSensitiveLog: DescribeTrialComponentRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeTrialComponentResponse.filterSensitiveLog,
     };

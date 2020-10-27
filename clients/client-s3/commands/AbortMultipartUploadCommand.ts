@@ -48,6 +48,8 @@ export class AbortMultipartUploadCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "S3Client",
+      commandName: "AbortMultipartUploadCommand",
       inputFilterSensitiveLog: AbortMultipartUploadRequest.filterSensitiveLog,
       outputFilterSensitiveLog: AbortMultipartUploadOutput.filterSensitiveLog,
     };

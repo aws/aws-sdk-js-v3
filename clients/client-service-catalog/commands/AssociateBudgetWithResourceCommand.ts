@@ -46,6 +46,8 @@ export class AssociateBudgetWithResourceCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ServiceCatalogClient",
+      commandName: "AssociateBudgetWithResourceCommand",
       inputFilterSensitiveLog: AssociateBudgetWithResourceInput.filterSensitiveLog,
       outputFilterSensitiveLog: AssociateBudgetWithResourceOutput.filterSensitiveLog,
     };

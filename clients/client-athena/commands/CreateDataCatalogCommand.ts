@@ -46,6 +46,8 @@ export class CreateDataCatalogCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "AthenaClient",
+      commandName: "CreateDataCatalogCommand",
       inputFilterSensitiveLog: CreateDataCatalogInput.filterSensitiveLog,
       outputFilterSensitiveLog: CreateDataCatalogOutput.filterSensitiveLog,
     };

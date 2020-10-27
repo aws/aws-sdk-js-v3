@@ -46,6 +46,8 @@ export class GetJobRunsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GlueClient",
+      commandName: "GetJobRunsCommand",
       inputFilterSensitiveLog: GetJobRunsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetJobRunsResponse.filterSensitiveLog,
     };

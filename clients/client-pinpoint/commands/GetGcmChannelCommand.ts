@@ -46,6 +46,8 @@ export class GetGcmChannelCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "PinpointClient",
+      commandName: "GetGcmChannelCommand",
       inputFilterSensitiveLog: GetGcmChannelRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetGcmChannelResponse.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class DeleteDevEndpointCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GlueClient",
+      commandName: "DeleteDevEndpointCommand",
       inputFilterSensitiveLog: DeleteDevEndpointRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteDevEndpointResponse.filterSensitiveLog,
     };

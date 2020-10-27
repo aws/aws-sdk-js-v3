@@ -46,6 +46,8 @@ export class RollbackTransactionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "RDSDataClient",
+      commandName: "RollbackTransactionCommand",
       inputFilterSensitiveLog: RollbackTransactionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: RollbackTransactionResponse.filterSensitiveLog,
     };

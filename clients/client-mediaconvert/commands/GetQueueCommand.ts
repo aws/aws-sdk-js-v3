@@ -46,6 +46,8 @@ export class GetQueueCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "MediaConvertClient",
+      commandName: "GetQueueCommand",
       inputFilterSensitiveLog: GetQueueRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetQueueResponse.filterSensitiveLog,
     };

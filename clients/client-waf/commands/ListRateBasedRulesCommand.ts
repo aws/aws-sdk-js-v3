@@ -46,6 +46,8 @@ export class ListRateBasedRulesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "WAFClient",
+      commandName: "ListRateBasedRulesCommand",
       inputFilterSensitiveLog: ListRateBasedRulesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListRateBasedRulesResponse.filterSensitiveLog,
     };

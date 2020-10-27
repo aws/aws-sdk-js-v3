@@ -46,6 +46,8 @@ export class CreateGraphCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "DetectiveClient",
+      commandName: "CreateGraphCommand",
       inputFilterSensitiveLog: (input: any) => input,
       outputFilterSensitiveLog: CreateGraphResponse.filterSensitiveLog,
     };

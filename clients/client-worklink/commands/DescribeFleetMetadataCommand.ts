@@ -46,6 +46,8 @@ export class DescribeFleetMetadataCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "WorkLinkClient",
+      commandName: "DescribeFleetMetadataCommand",
       inputFilterSensitiveLog: DescribeFleetMetadataRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeFleetMetadataResponse.filterSensitiveLog,
     };

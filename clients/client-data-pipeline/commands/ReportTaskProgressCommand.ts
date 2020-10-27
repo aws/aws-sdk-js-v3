@@ -46,6 +46,8 @@ export class ReportTaskProgressCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "DataPipelineClient",
+      commandName: "ReportTaskProgressCommand",
       inputFilterSensitiveLog: ReportTaskProgressInput.filterSensitiveLog,
       outputFilterSensitiveLog: ReportTaskProgressOutput.filterSensitiveLog,
     };

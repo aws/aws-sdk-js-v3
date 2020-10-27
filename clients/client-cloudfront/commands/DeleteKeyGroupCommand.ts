@@ -46,6 +46,8 @@ export class DeleteKeyGroupCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CloudFrontClient",
+      commandName: "DeleteKeyGroupCommand",
       inputFilterSensitiveLog: DeleteKeyGroupRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

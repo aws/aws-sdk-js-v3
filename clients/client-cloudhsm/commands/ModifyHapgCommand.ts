@@ -46,6 +46,8 @@ export class ModifyHapgCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CloudHSMClient",
+      commandName: "ModifyHapgCommand",
       inputFilterSensitiveLog: ModifyHapgRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ModifyHapgResponse.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class AssignVolumeCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "OpsWorksClient",
+      commandName: "AssignVolumeCommand",
       inputFilterSensitiveLog: AssignVolumeRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

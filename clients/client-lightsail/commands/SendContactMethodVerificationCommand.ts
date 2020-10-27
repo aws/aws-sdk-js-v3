@@ -46,6 +46,8 @@ export class SendContactMethodVerificationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "LightsailClient",
+      commandName: "SendContactMethodVerificationCommand",
       inputFilterSensitiveLog: SendContactMethodVerificationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: SendContactMethodVerificationResult.filterSensitiveLog,
     };

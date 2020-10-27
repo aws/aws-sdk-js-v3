@@ -46,6 +46,8 @@ export class ActivateUserCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "WorkDocsClient",
+      commandName: "ActivateUserCommand",
       inputFilterSensitiveLog: ActivateUserRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ActivateUserResponse.filterSensitiveLog,
     };

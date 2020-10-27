@@ -46,6 +46,8 @@ export class GetRegistrationCodeCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "IoTClient",
+      commandName: "GetRegistrationCodeCommand",
       inputFilterSensitiveLog: GetRegistrationCodeRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetRegistrationCodeResponse.filterSensitiveLog,
     };

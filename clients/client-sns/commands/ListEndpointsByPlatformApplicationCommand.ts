@@ -50,6 +50,8 @@ export class ListEndpointsByPlatformApplicationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SNSClient",
+      commandName: "ListEndpointsByPlatformApplicationCommand",
       inputFilterSensitiveLog: ListEndpointsByPlatformApplicationInput.filterSensitiveLog,
       outputFilterSensitiveLog: ListEndpointsByPlatformApplicationResponse.filterSensitiveLog,
     };

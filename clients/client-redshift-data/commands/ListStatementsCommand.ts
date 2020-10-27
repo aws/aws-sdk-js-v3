@@ -46,6 +46,8 @@ export class ListStatementsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "RedshiftDataClient",
+      commandName: "ListStatementsCommand",
       inputFilterSensitiveLog: ListStatementsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListStatementsResponse.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class HttpPayloadTraitsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "RestJsonProtocolClient",
+      commandName: "HttpPayloadTraitsCommand",
       inputFilterSensitiveLog: HttpPayloadTraitsInputOutput.filterSensitiveLog,
       outputFilterSensitiveLog: HttpPayloadTraitsInputOutput.filterSensitiveLog,
     };

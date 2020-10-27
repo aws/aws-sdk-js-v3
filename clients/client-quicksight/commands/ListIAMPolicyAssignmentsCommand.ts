@@ -46,6 +46,8 @@ export class ListIAMPolicyAssignmentsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "QuickSightClient",
+      commandName: "ListIAMPolicyAssignmentsCommand",
       inputFilterSensitiveLog: ListIAMPolicyAssignmentsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListIAMPolicyAssignmentsResponse.filterSensitiveLog,
     };

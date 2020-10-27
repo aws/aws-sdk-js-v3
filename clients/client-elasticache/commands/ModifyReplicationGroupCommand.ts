@@ -46,6 +46,8 @@ export class ModifyReplicationGroupCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ElastiCacheClient",
+      commandName: "ModifyReplicationGroupCommand",
       inputFilterSensitiveLog: ModifyReplicationGroupMessage.filterSensitiveLog,
       outputFilterSensitiveLog: ModifyReplicationGroupResult.filterSensitiveLog,
     };

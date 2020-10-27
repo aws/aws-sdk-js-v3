@@ -46,6 +46,8 @@ export class CreateIngestionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "QuickSightClient",
+      commandName: "CreateIngestionCommand",
       inputFilterSensitiveLog: CreateIngestionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateIngestionResponse.filterSensitiveLog,
     };

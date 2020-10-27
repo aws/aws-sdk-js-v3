@@ -50,6 +50,8 @@ export class AddCustomAttributesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CognitoIdentityProviderClient",
+      commandName: "AddCustomAttributesCommand",
       inputFilterSensitiveLog: AddCustomAttributesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: AddCustomAttributesResponse.filterSensitiveLog,
     };

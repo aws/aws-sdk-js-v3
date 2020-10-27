@@ -46,6 +46,8 @@ export class ListPrincipalsForPortfolioCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ServiceCatalogClient",
+      commandName: "ListPrincipalsForPortfolioCommand",
       inputFilterSensitiveLog: ListPrincipalsForPortfolioInput.filterSensitiveLog,
       outputFilterSensitiveLog: ListPrincipalsForPortfolioOutput.filterSensitiveLog,
     };

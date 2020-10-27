@@ -48,6 +48,8 @@ export class DeleteTrafficPolicyInstanceCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "Route53Client",
+      commandName: "DeleteTrafficPolicyInstanceCommand",
       inputFilterSensitiveLog: DeleteTrafficPolicyInstanceRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteTrafficPolicyInstanceResponse.filterSensitiveLog,
     };

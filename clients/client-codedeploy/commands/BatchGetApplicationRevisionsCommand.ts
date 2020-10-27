@@ -46,6 +46,8 @@ export class BatchGetApplicationRevisionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CodeDeployClient",
+      commandName: "BatchGetApplicationRevisionsCommand",
       inputFilterSensitiveLog: BatchGetApplicationRevisionsInput.filterSensitiveLog,
       outputFilterSensitiveLog: BatchGetApplicationRevisionsOutput.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class CreateDimensionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "IoTClient",
+      commandName: "CreateDimensionCommand",
       inputFilterSensitiveLog: CreateDimensionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateDimensionResponse.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class AttachTypedLinkCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CloudDirectoryClient",
+      commandName: "AttachTypedLinkCommand",
       inputFilterSensitiveLog: AttachTypedLinkRequest.filterSensitiveLog,
       outputFilterSensitiveLog: AttachTypedLinkResponse.filterSensitiveLog,
     };

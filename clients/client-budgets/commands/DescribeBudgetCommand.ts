@@ -46,6 +46,8 @@ export class DescribeBudgetCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "BudgetsClient",
+      commandName: "DescribeBudgetCommand",
       inputFilterSensitiveLog: DescribeBudgetRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeBudgetResponse.filterSensitiveLog,
     };

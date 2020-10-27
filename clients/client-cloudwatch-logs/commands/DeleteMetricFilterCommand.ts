@@ -46,6 +46,8 @@ export class DeleteMetricFilterCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CloudWatchLogsClient",
+      commandName: "DeleteMetricFilterCommand",
       inputFilterSensitiveLog: DeleteMetricFilterRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

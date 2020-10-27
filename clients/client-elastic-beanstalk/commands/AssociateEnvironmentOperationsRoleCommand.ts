@@ -46,6 +46,8 @@ export class AssociateEnvironmentOperationsRoleCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ElasticBeanstalkClient",
+      commandName: "AssociateEnvironmentOperationsRoleCommand",
       inputFilterSensitiveLog: AssociateEnvironmentOperationsRoleMessage.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

@@ -46,6 +46,8 @@ export class DescribeTimeToLiveCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "DynamoDBClient",
+      commandName: "DescribeTimeToLiveCommand",
       inputFilterSensitiveLog: DescribeTimeToLiveInput.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeTimeToLiveOutput.filterSensitiveLog,
     };

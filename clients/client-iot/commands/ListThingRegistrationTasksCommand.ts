@@ -46,6 +46,8 @@ export class ListThingRegistrationTasksCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "IoTClient",
+      commandName: "ListThingRegistrationTasksCommand",
       inputFilterSensitiveLog: ListThingRegistrationTasksRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListThingRegistrationTasksResponse.filterSensitiveLog,
     };

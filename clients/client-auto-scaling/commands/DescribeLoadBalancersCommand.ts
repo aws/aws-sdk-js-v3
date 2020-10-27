@@ -46,6 +46,8 @@ export class DescribeLoadBalancersCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "AutoScalingClient",
+      commandName: "DescribeLoadBalancersCommand",
       inputFilterSensitiveLog: DescribeLoadBalancersRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeLoadBalancersResponse.filterSensitiveLog,
     };

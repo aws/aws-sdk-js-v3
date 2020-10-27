@@ -46,6 +46,8 @@ export class NoInputAndOutputCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "QueryProtocolClient",
+      commandName: "NoInputAndOutputCommand",
       inputFilterSensitiveLog: NoInputAndOutputOutput.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

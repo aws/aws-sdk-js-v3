@@ -46,6 +46,8 @@ export class DeleteVoiceChannelCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "PinpointClient",
+      commandName: "DeleteVoiceChannelCommand",
       inputFilterSensitiveLog: DeleteVoiceChannelRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteVoiceChannelResponse.filterSensitiveLog,
     };

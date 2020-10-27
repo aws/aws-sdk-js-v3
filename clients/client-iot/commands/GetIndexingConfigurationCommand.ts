@@ -46,6 +46,8 @@ export class GetIndexingConfigurationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "IoTClient",
+      commandName: "GetIndexingConfigurationCommand",
       inputFilterSensitiveLog: GetIndexingConfigurationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetIndexingConfigurationResponse.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class UpdateNodegroupConfigCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EKSClient",
+      commandName: "UpdateNodegroupConfigCommand",
       inputFilterSensitiveLog: UpdateNodegroupConfigRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateNodegroupConfigResponse.filterSensitiveLog,
     };

@@ -50,6 +50,8 @@ export class RegisterUsageCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "MarketplaceMeteringClient",
+      commandName: "RegisterUsageCommand",
       inputFilterSensitiveLog: RegisterUsageRequest.filterSensitiveLog,
       outputFilterSensitiveLog: RegisterUsageResult.filterSensitiveLog,
     };

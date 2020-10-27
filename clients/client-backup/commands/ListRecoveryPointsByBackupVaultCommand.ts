@@ -46,6 +46,8 @@ export class ListRecoveryPointsByBackupVaultCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "BackupClient",
+      commandName: "ListRecoveryPointsByBackupVaultCommand",
       inputFilterSensitiveLog: ListRecoveryPointsByBackupVaultInput.filterSensitiveLog,
       outputFilterSensitiveLog: ListRecoveryPointsByBackupVaultOutput.filterSensitiveLog,
     };

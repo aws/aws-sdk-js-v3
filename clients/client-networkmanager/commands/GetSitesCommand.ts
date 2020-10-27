@@ -46,6 +46,8 @@ export class GetSitesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "NetworkManagerClient",
+      commandName: "GetSitesCommand",
       inputFilterSensitiveLog: GetSitesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetSitesResponse.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class ListEventBusesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CloudWatchEventsClient",
+      commandName: "ListEventBusesCommand",
       inputFilterSensitiveLog: ListEventBusesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListEventBusesResponse.filterSensitiveLog,
     };

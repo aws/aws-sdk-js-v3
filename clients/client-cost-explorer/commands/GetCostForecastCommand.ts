@@ -46,6 +46,8 @@ export class GetCostForecastCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CostExplorerClient",
+      commandName: "GetCostForecastCommand",
       inputFilterSensitiveLog: GetCostForecastRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetCostForecastResponse.filterSensitiveLog,
     };

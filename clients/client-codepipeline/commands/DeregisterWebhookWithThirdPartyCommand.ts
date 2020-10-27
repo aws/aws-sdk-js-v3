@@ -46,6 +46,8 @@ export class DeregisterWebhookWithThirdPartyCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CodePipelineClient",
+      commandName: "DeregisterWebhookWithThirdPartyCommand",
       inputFilterSensitiveLog: DeregisterWebhookWithThirdPartyInput.filterSensitiveLog,
       outputFilterSensitiveLog: DeregisterWebhookWithThirdPartyOutput.filterSensitiveLog,
     };

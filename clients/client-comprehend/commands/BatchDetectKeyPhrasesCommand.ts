@@ -46,6 +46,8 @@ export class BatchDetectKeyPhrasesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ComprehendClient",
+      commandName: "BatchDetectKeyPhrasesCommand",
       inputFilterSensitiveLog: BatchDetectKeyPhrasesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: BatchDetectKeyPhrasesResponse.filterSensitiveLog,
     };

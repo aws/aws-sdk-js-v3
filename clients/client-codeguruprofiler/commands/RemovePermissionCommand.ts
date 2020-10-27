@@ -46,6 +46,8 @@ export class RemovePermissionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CodeGuruProfilerClient",
+      commandName: "RemovePermissionCommand",
       inputFilterSensitiveLog: RemovePermissionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: RemovePermissionResponse.filterSensitiveLog,
     };

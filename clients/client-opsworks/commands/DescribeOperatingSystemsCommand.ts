@@ -46,6 +46,8 @@ export class DescribeOperatingSystemsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "OpsWorksClient",
+      commandName: "DescribeOperatingSystemsCommand",
       inputFilterSensitiveLog: (input: any) => input,
       outputFilterSensitiveLog: DescribeOperatingSystemsResponse.filterSensitiveLog,
     };

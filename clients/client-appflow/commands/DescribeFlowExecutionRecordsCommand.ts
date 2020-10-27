@@ -46,6 +46,8 @@ export class DescribeFlowExecutionRecordsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "AppflowClient",
+      commandName: "DescribeFlowExecutionRecordsCommand",
       inputFilterSensitiveLog: DescribeFlowExecutionRecordsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeFlowExecutionRecordsResponse.filterSensitiveLog,
     };

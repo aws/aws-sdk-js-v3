@@ -46,6 +46,8 @@ export class DescribeVaultCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GlacierClient",
+      commandName: "DescribeVaultCommand",
       inputFilterSensitiveLog: DescribeVaultInput.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeVaultOutput.filterSensitiveLog,
     };

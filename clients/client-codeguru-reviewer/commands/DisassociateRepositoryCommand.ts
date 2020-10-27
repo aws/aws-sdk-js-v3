@@ -46,6 +46,8 @@ export class DisassociateRepositoryCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CodeGuruReviewerClient",
+      commandName: "DisassociateRepositoryCommand",
       inputFilterSensitiveLog: DisassociateRepositoryRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DisassociateRepositoryResponse.filterSensitiveLog,
     };

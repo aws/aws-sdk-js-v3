@@ -46,6 +46,8 @@ export class UpdateReceiptRuleCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SESClient",
+      commandName: "UpdateReceiptRuleCommand",
       inputFilterSensitiveLog: UpdateReceiptRuleRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateReceiptRuleResponse.filterSensitiveLog,
     };

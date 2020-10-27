@@ -46,6 +46,8 @@ export class DeleteDimensionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "IoTClient",
+      commandName: "DeleteDimensionCommand",
       inputFilterSensitiveLog: DeleteDimensionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteDimensionResponse.filterSensitiveLog,
     };

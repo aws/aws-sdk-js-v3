@@ -46,6 +46,8 @@ export class AssociateRepositoryCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CodeGuruReviewerClient",
+      commandName: "AssociateRepositoryCommand",
       inputFilterSensitiveLog: AssociateRepositoryRequest.filterSensitiveLog,
       outputFilterSensitiveLog: AssociateRepositoryResponse.filterSensitiveLog,
     };

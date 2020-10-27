@@ -46,6 +46,8 @@ export class CancelRetrievalCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "StorageGatewayClient",
+      commandName: "CancelRetrievalCommand",
       inputFilterSensitiveLog: CancelRetrievalInput.filterSensitiveLog,
       outputFilterSensitiveLog: CancelRetrievalOutput.filterSensitiveLog,
     };

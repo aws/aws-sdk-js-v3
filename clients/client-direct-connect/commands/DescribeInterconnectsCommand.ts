@@ -46,6 +46,8 @@ export class DescribeInterconnectsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "DirectConnectClient",
+      commandName: "DescribeInterconnectsCommand",
       inputFilterSensitiveLog: DescribeInterconnectsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: Interconnects.filterSensitiveLog,
     };

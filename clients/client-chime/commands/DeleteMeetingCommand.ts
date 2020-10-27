@@ -46,6 +46,8 @@ export class DeleteMeetingCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ChimeClient",
+      commandName: "DeleteMeetingCommand",
       inputFilterSensitiveLog: DeleteMeetingRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

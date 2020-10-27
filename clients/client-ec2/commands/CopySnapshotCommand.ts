@@ -45,6 +45,8 @@ export class CopySnapshotCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EC2Client",
+      commandName: "CopySnapshotCommand",
       inputFilterSensitiveLog: CopySnapshotRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CopySnapshotResult.filterSensitiveLog,
     };

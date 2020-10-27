@@ -46,6 +46,8 @@ export class StopMonitoringMembersCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GuardDutyClient",
+      commandName: "StopMonitoringMembersCommand",
       inputFilterSensitiveLog: StopMonitoringMembersRequest.filterSensitiveLog,
       outputFilterSensitiveLog: StopMonitoringMembersResponse.filterSensitiveLog,
     };

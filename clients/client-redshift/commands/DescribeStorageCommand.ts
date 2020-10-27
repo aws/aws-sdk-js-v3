@@ -46,6 +46,8 @@ export class DescribeStorageCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "RedshiftClient",
+      commandName: "DescribeStorageCommand",
       inputFilterSensitiveLog: (input: any) => input,
       outputFilterSensitiveLog: CustomerStorageMessage.filterSensitiveLog,
     };

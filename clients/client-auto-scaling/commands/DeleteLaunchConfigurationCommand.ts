@@ -46,6 +46,8 @@ export class DeleteLaunchConfigurationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "AutoScalingClient",
+      commandName: "DeleteLaunchConfigurationCommand",
       inputFilterSensitiveLog: LaunchConfigurationNameType.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

@@ -46,6 +46,8 @@ export class GetPackageVersionReadmeCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CodeartifactClient",
+      commandName: "GetPackageVersionReadmeCommand",
       inputFilterSensitiveLog: GetPackageVersionReadmeRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetPackageVersionReadmeResult.filterSensitiveLog,
     };

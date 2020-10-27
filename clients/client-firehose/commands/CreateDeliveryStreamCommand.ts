@@ -46,6 +46,8 @@ export class CreateDeliveryStreamCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "FirehoseClient",
+      commandName: "CreateDeliveryStreamCommand",
       inputFilterSensitiveLog: CreateDeliveryStreamInput.filterSensitiveLog,
       outputFilterSensitiveLog: CreateDeliveryStreamOutput.filterSensitiveLog,
     };

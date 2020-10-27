@@ -46,6 +46,8 @@ export class DeleteOrganizationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "WorkMailClient",
+      commandName: "DeleteOrganizationCommand",
       inputFilterSensitiveLog: DeleteOrganizationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteOrganizationResponse.filterSensitiveLog,
     };

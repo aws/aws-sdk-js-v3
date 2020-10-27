@@ -46,6 +46,8 @@ export class AssociateDomainCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "WorkLinkClient",
+      commandName: "AssociateDomainCommand",
       inputFilterSensitiveLog: AssociateDomainRequest.filterSensitiveLog,
       outputFilterSensitiveLog: AssociateDomainResponse.filterSensitiveLog,
     };

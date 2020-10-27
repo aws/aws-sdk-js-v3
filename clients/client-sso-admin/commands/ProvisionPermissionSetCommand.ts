@@ -46,6 +46,8 @@ export class ProvisionPermissionSetCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SSOAdminClient",
+      commandName: "ProvisionPermissionSetCommand",
       inputFilterSensitiveLog: ProvisionPermissionSetRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ProvisionPermissionSetResponse.filterSensitiveLog,
     };

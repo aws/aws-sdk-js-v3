@@ -46,6 +46,8 @@ export class GetOpsItemCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SSMClient",
+      commandName: "GetOpsItemCommand",
       inputFilterSensitiveLog: GetOpsItemRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetOpsItemResponse.filterSensitiveLog,
     };

@@ -50,6 +50,8 @@ export class RemoveTagsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ElasticsearchServiceClient",
+      commandName: "RemoveTagsCommand",
       inputFilterSensitiveLog: RemoveTagsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

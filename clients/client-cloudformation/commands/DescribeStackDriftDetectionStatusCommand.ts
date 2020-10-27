@@ -46,6 +46,8 @@ export class DescribeStackDriftDetectionStatusCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CloudFormationClient",
+      commandName: "DescribeStackDriftDetectionStatusCommand",
       inputFilterSensitiveLog: DescribeStackDriftDetectionStatusInput.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeStackDriftDetectionStatusOutput.filterSensitiveLog,
     };

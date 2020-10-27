@@ -46,6 +46,8 @@ export class CreateFilterCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GuardDutyClient",
+      commandName: "CreateFilterCommand",
       inputFilterSensitiveLog: CreateFilterRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateFilterResponse.filterSensitiveLog,
     };

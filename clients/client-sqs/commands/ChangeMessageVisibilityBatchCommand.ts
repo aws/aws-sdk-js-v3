@@ -46,6 +46,8 @@ export class ChangeMessageVisibilityBatchCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SQSClient",
+      commandName: "ChangeMessageVisibilityBatchCommand",
       inputFilterSensitiveLog: ChangeMessageVisibilityBatchRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ChangeMessageVisibilityBatchResult.filterSensitiveLog,
     };

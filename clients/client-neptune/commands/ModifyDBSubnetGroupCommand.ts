@@ -46,6 +46,8 @@ export class ModifyDBSubnetGroupCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "NeptuneClient",
+      commandName: "ModifyDBSubnetGroupCommand",
       inputFilterSensitiveLog: ModifyDBSubnetGroupMessage.filterSensitiveLog,
       outputFilterSensitiveLog: ModifyDBSubnetGroupResult.filterSensitiveLog,
     };

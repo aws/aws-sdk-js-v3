@@ -46,6 +46,8 @@ export class DeleteRegistryCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SchemasClient",
+      commandName: "DeleteRegistryCommand",
       inputFilterSensitiveLog: DeleteRegistryRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

@@ -50,6 +50,8 @@ export class StopContinuousExportCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ApplicationDiscoveryServiceClient",
+      commandName: "StopContinuousExportCommand",
       inputFilterSensitiveLog: StopContinuousExportRequest.filterSensitiveLog,
       outputFilterSensitiveLog: StopContinuousExportResponse.filterSensitiveLog,
     };

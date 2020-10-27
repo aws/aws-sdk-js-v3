@@ -46,6 +46,8 @@ export class DeleteInternetGatewayCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EC2Client",
+      commandName: "DeleteInternetGatewayCommand",
       inputFilterSensitiveLog: DeleteInternetGatewayRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

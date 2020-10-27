@@ -46,6 +46,8 @@ export class UpdateDataRetentionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "KinesisVideoClient",
+      commandName: "UpdateDataRetentionCommand",
       inputFilterSensitiveLog: UpdateDataRetentionInput.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateDataRetentionOutput.filterSensitiveLog,
     };

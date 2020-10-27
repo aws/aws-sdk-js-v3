@@ -46,6 +46,8 @@ export class DescribeAccountAttributesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "OpsWorksCMClient",
+      commandName: "DescribeAccountAttributesCommand",
       inputFilterSensitiveLog: DescribeAccountAttributesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeAccountAttributesResponse.filterSensitiveLog,
     };

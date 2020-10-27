@@ -50,6 +50,8 @@ export class PutConfigurationSetReputationOptionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "PinpointEmailClient",
+      commandName: "PutConfigurationSetReputationOptionsCommand",
       inputFilterSensitiveLog: PutConfigurationSetReputationOptionsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: PutConfigurationSetReputationOptionsResponse.filterSensitiveLog,
     };

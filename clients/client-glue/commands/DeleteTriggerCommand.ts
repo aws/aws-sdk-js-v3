@@ -46,6 +46,8 @@ export class DeleteTriggerCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GlueClient",
+      commandName: "DeleteTriggerCommand",
       inputFilterSensitiveLog: DeleteTriggerRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteTriggerResponse.filterSensitiveLog,
     };

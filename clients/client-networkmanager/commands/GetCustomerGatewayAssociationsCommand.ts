@@ -46,6 +46,8 @@ export class GetCustomerGatewayAssociationsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "NetworkManagerClient",
+      commandName: "GetCustomerGatewayAssociationsCommand",
       inputFilterSensitiveLog: GetCustomerGatewayAssociationsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetCustomerGatewayAssociationsResponse.filterSensitiveLog,
     };

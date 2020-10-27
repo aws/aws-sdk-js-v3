@@ -46,6 +46,8 @@ export class ValidateConfigurationSettingsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ElasticBeanstalkClient",
+      commandName: "ValidateConfigurationSettingsCommand",
       inputFilterSensitiveLog: ValidateConfigurationSettingsMessage.filterSensitiveLog,
       outputFilterSensitiveLog: ConfigurationSettingsValidationMessages.filterSensitiveLog,
     };

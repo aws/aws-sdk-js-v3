@@ -46,6 +46,8 @@ export class StartImageBuilderCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "AppStreamClient",
+      commandName: "StartImageBuilderCommand",
       inputFilterSensitiveLog: StartImageBuilderRequest.filterSensitiveLog,
       outputFilterSensitiveLog: StartImageBuilderResult.filterSensitiveLog,
     };

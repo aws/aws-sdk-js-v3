@@ -46,6 +46,8 @@ export class AssociatePrincipalWithPortfolioCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ServiceCatalogClient",
+      commandName: "AssociatePrincipalWithPortfolioCommand",
       inputFilterSensitiveLog: AssociatePrincipalWithPortfolioInput.filterSensitiveLog,
       outputFilterSensitiveLog: AssociatePrincipalWithPortfolioOutput.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class RegenerateSecurityTokenCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ChimeClient",
+      commandName: "RegenerateSecurityTokenCommand",
       inputFilterSensitiveLog: RegenerateSecurityTokenRequest.filterSensitiveLog,
       outputFilterSensitiveLog: RegenerateSecurityTokenResponse.filterSensitiveLog,
     };

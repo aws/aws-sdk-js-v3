@@ -46,6 +46,8 @@ export class GetDefaultRetentionPolicyCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "WorkMailClient",
+      commandName: "GetDefaultRetentionPolicyCommand",
       inputFilterSensitiveLog: GetDefaultRetentionPolicyRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetDefaultRetentionPolicyResponse.filterSensitiveLog,
     };

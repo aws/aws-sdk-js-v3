@@ -46,6 +46,8 @@ export class GetGeoMatchSetCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "WAFRegionalClient",
+      commandName: "GetGeoMatchSetCommand",
       inputFilterSensitiveLog: GetGeoMatchSetRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetGeoMatchSetResponse.filterSensitiveLog,
     };

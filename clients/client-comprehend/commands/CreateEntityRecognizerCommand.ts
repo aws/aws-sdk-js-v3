@@ -46,6 +46,8 @@ export class CreateEntityRecognizerCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ComprehendClient",
+      commandName: "CreateEntityRecognizerCommand",
       inputFilterSensitiveLog: CreateEntityRecognizerRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateEntityRecognizerResponse.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class ListReportGroupsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CodeBuildClient",
+      commandName: "ListReportGroupsCommand",
       inputFilterSensitiveLog: ListReportGroupsInput.filterSensitiveLog,
       outputFilterSensitiveLog: ListReportGroupsOutput.filterSensitiveLog,
     };

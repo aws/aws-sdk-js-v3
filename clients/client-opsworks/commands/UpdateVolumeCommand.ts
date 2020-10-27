@@ -46,6 +46,8 @@ export class UpdateVolumeCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "OpsWorksClient",
+      commandName: "UpdateVolumeCommand",
       inputFilterSensitiveLog: UpdateVolumeRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

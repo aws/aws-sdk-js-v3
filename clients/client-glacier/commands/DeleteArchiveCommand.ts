@@ -46,6 +46,8 @@ export class DeleteArchiveCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GlacierClient",
+      commandName: "DeleteArchiveCommand",
       inputFilterSensitiveLog: DeleteArchiveInput.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

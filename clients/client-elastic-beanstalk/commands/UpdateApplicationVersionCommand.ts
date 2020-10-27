@@ -46,6 +46,8 @@ export class UpdateApplicationVersionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ElasticBeanstalkClient",
+      commandName: "UpdateApplicationVersionCommand",
       inputFilterSensitiveLog: UpdateApplicationVersionMessage.filterSensitiveLog,
       outputFilterSensitiveLog: ApplicationVersionDescriptionMessage.filterSensitiveLog,
     };

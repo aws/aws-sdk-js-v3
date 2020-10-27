@@ -46,6 +46,8 @@ export class DeleteSchemaVersionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SchemasClient",
+      commandName: "DeleteSchemaVersionCommand",
       inputFilterSensitiveLog: DeleteSchemaVersionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

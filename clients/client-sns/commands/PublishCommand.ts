@@ -39,6 +39,8 @@ export class PublishCommand extends $Command<PublishCommandInput, PublishCommand
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SNSClient",
+      commandName: "PublishCommand",
       inputFilterSensitiveLog: PublishInput.filterSensitiveLog,
       outputFilterSensitiveLog: PublishResponse.filterSensitiveLog,
     };

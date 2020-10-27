@@ -46,6 +46,8 @@ export class ListMitigationActionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "IoTClient",
+      commandName: "ListMitigationActionsCommand",
       inputFilterSensitiveLog: ListMitigationActionsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListMitigationActionsResponse.filterSensitiveLog,
     };

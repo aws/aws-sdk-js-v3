@@ -46,6 +46,8 @@ export class GetCognitoEventsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CognitoSyncClient",
+      commandName: "GetCognitoEventsCommand",
       inputFilterSensitiveLog: GetCognitoEventsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetCognitoEventsResponse.filterSensitiveLog,
     };

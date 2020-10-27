@@ -46,6 +46,8 @@ export class DescribeAddressCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SnowballClient",
+      commandName: "DescribeAddressCommand",
       inputFilterSensitiveLog: DescribeAddressRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeAddressResult.filterSensitiveLog,
     };

@@ -39,6 +39,8 @@ export class GetApiCommand extends $Command<GetApiCommandInput, GetApiCommandOut
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ApiGatewayV2Client",
+      commandName: "GetApiCommand",
       inputFilterSensitiveLog: GetApiRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetApiResponse.filterSensitiveLog,
     };

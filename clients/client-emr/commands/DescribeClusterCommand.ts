@@ -46,6 +46,8 @@ export class DescribeClusterCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EMRClient",
+      commandName: "DescribeClusterCommand",
       inputFilterSensitiveLog: DescribeClusterInput.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeClusterOutput.filterSensitiveLog,
     };

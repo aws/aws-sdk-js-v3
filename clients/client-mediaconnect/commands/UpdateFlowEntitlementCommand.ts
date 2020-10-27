@@ -46,6 +46,8 @@ export class UpdateFlowEntitlementCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "MediaConnectClient",
+      commandName: "UpdateFlowEntitlementCommand",
       inputFilterSensitiveLog: UpdateFlowEntitlementRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateFlowEntitlementResponse.filterSensitiveLog,
     };

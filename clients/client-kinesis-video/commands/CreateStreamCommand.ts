@@ -46,6 +46,8 @@ export class CreateStreamCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "KinesisVideoClient",
+      commandName: "CreateStreamCommand",
       inputFilterSensitiveLog: CreateStreamInput.filterSensitiveLog,
       outputFilterSensitiveLog: CreateStreamOutput.filterSensitiveLog,
     };

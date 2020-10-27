@@ -46,6 +46,8 @@ export class DescribeDefaultParametersCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "DAXClient",
+      commandName: "DescribeDefaultParametersCommand",
       inputFilterSensitiveLog: DescribeDefaultParametersRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeDefaultParametersResponse.filterSensitiveLog,
     };

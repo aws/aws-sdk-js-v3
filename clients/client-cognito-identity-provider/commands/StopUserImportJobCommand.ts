@@ -50,6 +50,8 @@ export class StopUserImportJobCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CognitoIdentityProviderClient",
+      commandName: "StopUserImportJobCommand",
       inputFilterSensitiveLog: StopUserImportJobRequest.filterSensitiveLog,
       outputFilterSensitiveLog: StopUserImportJobResponse.filterSensitiveLog,
     };

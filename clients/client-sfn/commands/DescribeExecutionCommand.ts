@@ -46,6 +46,8 @@ export class DescribeExecutionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SFNClient",
+      commandName: "DescribeExecutionCommand",
       inputFilterSensitiveLog: DescribeExecutionInput.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeExecutionOutput.filterSensitiveLog,
     };

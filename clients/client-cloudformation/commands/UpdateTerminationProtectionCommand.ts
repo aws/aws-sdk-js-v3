@@ -46,6 +46,8 @@ export class UpdateTerminationProtectionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CloudFormationClient",
+      commandName: "UpdateTerminationProtectionCommand",
       inputFilterSensitiveLog: UpdateTerminationProtectionInput.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateTerminationProtectionOutput.filterSensitiveLog,
     };

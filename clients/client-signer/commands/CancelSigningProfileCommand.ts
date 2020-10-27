@@ -46,6 +46,8 @@ export class CancelSigningProfileCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SignerClient",
+      commandName: "CancelSigningProfileCommand",
       inputFilterSensitiveLog: CancelSigningProfileRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

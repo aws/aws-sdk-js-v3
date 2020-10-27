@@ -46,6 +46,8 @@ export class StopQueryExecutionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "AthenaClient",
+      commandName: "StopQueryExecutionCommand",
       inputFilterSensitiveLog: StopQueryExecutionInput.filterSensitiveLog,
       outputFilterSensitiveLog: StopQueryExecutionOutput.filterSensitiveLog,
     };

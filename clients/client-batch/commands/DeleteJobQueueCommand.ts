@@ -46,6 +46,8 @@ export class DeleteJobQueueCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "BatchClient",
+      commandName: "DeleteJobQueueCommand",
       inputFilterSensitiveLog: DeleteJobQueueRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteJobQueueResponse.filterSensitiveLog,
     };

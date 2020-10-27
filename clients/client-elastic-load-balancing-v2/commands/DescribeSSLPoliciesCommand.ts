@@ -50,6 +50,8 @@ export class DescribeSSLPoliciesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ElasticLoadBalancingV2Client",
+      commandName: "DescribeSSLPoliciesCommand",
       inputFilterSensitiveLog: DescribeSSLPoliciesInput.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeSSLPoliciesOutput.filterSensitiveLog,
     };

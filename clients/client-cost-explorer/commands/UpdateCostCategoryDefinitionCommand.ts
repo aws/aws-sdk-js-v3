@@ -46,6 +46,8 @@ export class UpdateCostCategoryDefinitionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CostExplorerClient",
+      commandName: "UpdateCostCategoryDefinitionCommand",
       inputFilterSensitiveLog: UpdateCostCategoryDefinitionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateCostCategoryDefinitionResponse.filterSensitiveLog,
     };

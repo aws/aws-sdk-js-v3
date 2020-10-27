@@ -43,6 +43,8 @@ export class XmlListsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "QueryProtocolClient",
+      commandName: "XmlListsCommand",
       inputFilterSensitiveLog: (input: any) => input,
       outputFilterSensitiveLog: XmlListsOutput.filterSensitiveLog,
     };

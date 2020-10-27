@@ -46,6 +46,8 @@ export class GetJourneyDateRangeKpiCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "PinpointClient",
+      commandName: "GetJourneyDateRangeKpiCommand",
       inputFilterSensitiveLog: GetJourneyDateRangeKpiRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetJourneyDateRangeKpiResponse.filterSensitiveLog,
     };

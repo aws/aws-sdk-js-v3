@@ -46,6 +46,8 @@ export class UpdateConnectionAliasPermissionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "WorkSpacesClient",
+      commandName: "UpdateConnectionAliasPermissionCommand",
       inputFilterSensitiveLog: UpdateConnectionAliasPermissionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateConnectionAliasPermissionResult.filterSensitiveLog,
     };

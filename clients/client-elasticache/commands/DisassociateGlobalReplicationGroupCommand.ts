@@ -50,6 +50,8 @@ export class DisassociateGlobalReplicationGroupCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ElastiCacheClient",
+      commandName: "DisassociateGlobalReplicationGroupCommand",
       inputFilterSensitiveLog: DisassociateGlobalReplicationGroupMessage.filterSensitiveLog,
       outputFilterSensitiveLog: DisassociateGlobalReplicationGroupResult.filterSensitiveLog,
     };

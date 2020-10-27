@@ -46,6 +46,8 @@ export class UpdateBasePathMappingCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "APIGatewayClient",
+      commandName: "UpdateBasePathMappingCommand",
       inputFilterSensitiveLog: UpdateBasePathMappingRequest.filterSensitiveLog,
       outputFilterSensitiveLog: BasePathMapping.filterSensitiveLog,
     };

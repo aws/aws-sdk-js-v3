@@ -46,6 +46,8 @@ export class CountOpenWorkflowExecutionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SWFClient",
+      commandName: "CountOpenWorkflowExecutionsCommand",
       inputFilterSensitiveLog: CountOpenWorkflowExecutionsInput.filterSensitiveLog,
       outputFilterSensitiveLog: WorkflowExecutionCount.filterSensitiveLog,
     };

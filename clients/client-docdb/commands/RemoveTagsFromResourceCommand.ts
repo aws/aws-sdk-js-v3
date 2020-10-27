@@ -46,6 +46,8 @@ export class RemoveTagsFromResourceCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "DocDBClient",
+      commandName: "RemoveTagsFromResourceCommand",
       inputFilterSensitiveLog: RemoveTagsFromResourceMessage.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

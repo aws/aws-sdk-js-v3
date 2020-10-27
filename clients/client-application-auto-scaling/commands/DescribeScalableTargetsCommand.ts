@@ -50,6 +50,8 @@ export class DescribeScalableTargetsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ApplicationAutoScalingClient",
+      commandName: "DescribeScalableTargetsCommand",
       inputFilterSensitiveLog: DescribeScalableTargetsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeScalableTargetsResponse.filterSensitiveLog,
     };

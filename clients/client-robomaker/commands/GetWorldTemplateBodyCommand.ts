@@ -46,6 +46,8 @@ export class GetWorldTemplateBodyCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "RoboMakerClient",
+      commandName: "GetWorldTemplateBodyCommand",
       inputFilterSensitiveLog: GetWorldTemplateBodyRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetWorldTemplateBodyResponse.filterSensitiveLog,
     };

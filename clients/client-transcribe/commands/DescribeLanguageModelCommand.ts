@@ -46,6 +46,8 @@ export class DescribeLanguageModelCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "TranscribeClient",
+      commandName: "DescribeLanguageModelCommand",
       inputFilterSensitiveLog: DescribeLanguageModelRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeLanguageModelResponse.filterSensitiveLog,
     };

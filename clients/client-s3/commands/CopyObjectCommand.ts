@@ -50,6 +50,8 @@ export class CopyObjectCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "S3Client",
+      commandName: "CopyObjectCommand",
       inputFilterSensitiveLog: CopyObjectRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CopyObjectOutput.filterSensitiveLog,
     };

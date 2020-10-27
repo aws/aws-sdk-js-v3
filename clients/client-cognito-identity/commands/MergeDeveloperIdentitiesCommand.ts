@@ -48,6 +48,8 @@ export class MergeDeveloperIdentitiesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CognitoIdentityClient",
+      commandName: "MergeDeveloperIdentitiesCommand",
       inputFilterSensitiveLog: MergeDeveloperIdentitiesInput.filterSensitiveLog,
       outputFilterSensitiveLog: MergeDeveloperIdentitiesResponse.filterSensitiveLog,
     };

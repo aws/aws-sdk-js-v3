@@ -46,6 +46,8 @@ export class DescribeReservedNodeOfferingsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "RedshiftClient",
+      commandName: "DescribeReservedNodeOfferingsCommand",
       inputFilterSensitiveLog: DescribeReservedNodeOfferingsMessage.filterSensitiveLog,
       outputFilterSensitiveLog: ReservedNodeOfferingsMessage.filterSensitiveLog,
     };

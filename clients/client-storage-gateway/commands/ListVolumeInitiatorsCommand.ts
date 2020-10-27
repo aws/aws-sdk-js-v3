@@ -46,6 +46,8 @@ export class ListVolumeInitiatorsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "StorageGatewayClient",
+      commandName: "ListVolumeInitiatorsCommand",
       inputFilterSensitiveLog: ListVolumeInitiatorsInput.filterSensitiveLog,
       outputFilterSensitiveLog: ListVolumeInitiatorsOutput.filterSensitiveLog,
     };

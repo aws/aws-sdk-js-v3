@@ -46,6 +46,8 @@ export class DeleteAccountCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ChimeClient",
+      commandName: "DeleteAccountCommand",
       inputFilterSensitiveLog: DeleteAccountRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteAccountResponse.filterSensitiveLog,
     };

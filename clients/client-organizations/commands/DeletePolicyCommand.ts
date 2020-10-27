@@ -46,6 +46,8 @@ export class DeletePolicyCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "OrganizationsClient",
+      commandName: "DeletePolicyCommand",
       inputFilterSensitiveLog: DeletePolicyRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

@@ -43,6 +43,8 @@ export class ExitStandbyCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "AutoScalingClient",
+      commandName: "ExitStandbyCommand",
       inputFilterSensitiveLog: ExitStandbyQuery.filterSensitiveLog,
       outputFilterSensitiveLog: ExitStandbyAnswer.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class StartFleetActionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GameLiftClient",
+      commandName: "StartFleetActionsCommand",
       inputFilterSensitiveLog: StartFleetActionsInput.filterSensitiveLog,
       outputFilterSensitiveLog: StartFleetActionsOutput.filterSensitiveLog,
     };

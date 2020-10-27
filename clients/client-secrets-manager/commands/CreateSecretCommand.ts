@@ -46,6 +46,8 @@ export class CreateSecretCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SecretsManagerClient",
+      commandName: "CreateSecretCommand",
       inputFilterSensitiveLog: CreateSecretRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateSecretResponse.filterSensitiveLog,
     };

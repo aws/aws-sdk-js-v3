@@ -46,6 +46,8 @@ export class EnableOrganizationAdminAccountCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GuardDutyClient",
+      commandName: "EnableOrganizationAdminAccountCommand",
       inputFilterSensitiveLog: EnableOrganizationAdminAccountRequest.filterSensitiveLog,
       outputFilterSensitiveLog: EnableOrganizationAdminAccountResponse.filterSensitiveLog,
     };

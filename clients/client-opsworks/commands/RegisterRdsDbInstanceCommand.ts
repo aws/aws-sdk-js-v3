@@ -46,6 +46,8 @@ export class RegisterRdsDbInstanceCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "OpsWorksClient",
+      commandName: "RegisterRdsDbInstanceCommand",
       inputFilterSensitiveLog: RegisterRdsDbInstanceRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

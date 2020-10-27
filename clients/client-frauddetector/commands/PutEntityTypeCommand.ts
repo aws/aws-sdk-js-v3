@@ -46,6 +46,8 @@ export class PutEntityTypeCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "FraudDetectorClient",
+      commandName: "PutEntityTypeCommand",
       inputFilterSensitiveLog: PutEntityTypeRequest.filterSensitiveLog,
       outputFilterSensitiveLog: PutEntityTypeResult.filterSensitiveLog,
     };

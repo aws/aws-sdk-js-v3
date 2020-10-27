@@ -46,6 +46,8 @@ export class DeleteComponentCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ImagebuilderClient",
+      commandName: "DeleteComponentCommand",
       inputFilterSensitiveLog: DeleteComponentRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteComponentResponse.filterSensitiveLog,
     };

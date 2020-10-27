@@ -46,6 +46,8 @@ export class BatchGrantPermissionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "LakeFormationClient",
+      commandName: "BatchGrantPermissionsCommand",
       inputFilterSensitiveLog: BatchGrantPermissionsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: BatchGrantPermissionsResponse.filterSensitiveLog,
     };

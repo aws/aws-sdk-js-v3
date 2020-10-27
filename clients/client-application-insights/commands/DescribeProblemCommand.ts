@@ -50,6 +50,8 @@ export class DescribeProblemCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ApplicationInsightsClient",
+      commandName: "DescribeProblemCommand",
       inputFilterSensitiveLog: DescribeProblemRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeProblemResponse.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class UpdateGroupCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GreengrassClient",
+      commandName: "UpdateGroupCommand",
       inputFilterSensitiveLog: UpdateGroupRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateGroupResponse.filterSensitiveLog,
     };

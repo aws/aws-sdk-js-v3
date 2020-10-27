@@ -43,6 +43,8 @@ export class ImportVolumeCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EC2Client",
+      commandName: "ImportVolumeCommand",
       inputFilterSensitiveLog: ImportVolumeRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ImportVolumeResult.filterSensitiveLog,
     };

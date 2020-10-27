@@ -46,6 +46,8 @@ export class DeleteStreamCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "KinesisVideoClient",
+      commandName: "DeleteStreamCommand",
       inputFilterSensitiveLog: DeleteStreamInput.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteStreamOutput.filterSensitiveLog,
     };

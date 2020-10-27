@@ -43,6 +43,8 @@ export class DeleteFleetsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EC2Client",
+      commandName: "DeleteFleetsCommand",
       inputFilterSensitiveLog: DeleteFleetsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteFleetsResult.filterSensitiveLog,
     };

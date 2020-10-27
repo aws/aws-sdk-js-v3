@@ -43,6 +43,8 @@ export class ListRootsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "OrganizationsClient",
+      commandName: "ListRootsCommand",
       inputFilterSensitiveLog: ListRootsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListRootsResponse.filterSensitiveLog,
     };

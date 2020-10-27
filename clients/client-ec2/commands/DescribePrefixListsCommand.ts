@@ -46,6 +46,8 @@ export class DescribePrefixListsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EC2Client",
+      commandName: "DescribePrefixListsCommand",
       inputFilterSensitiveLog: DescribePrefixListsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribePrefixListsResult.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class ListPartnerEventSourceAccountsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CloudWatchEventsClient",
+      commandName: "ListPartnerEventSourceAccountsCommand",
       inputFilterSensitiveLog: ListPartnerEventSourceAccountsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListPartnerEventSourceAccountsResponse.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class CancelInstanceRefreshCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "AutoScalingClient",
+      commandName: "CancelInstanceRefreshCommand",
       inputFilterSensitiveLog: CancelInstanceRefreshType.filterSensitiveLog,
       outputFilterSensitiveLog: CancelInstanceRefreshAnswer.filterSensitiveLog,
     };

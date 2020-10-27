@@ -50,6 +50,8 @@ export class RegisterInstancesWithLoadBalancerCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ElasticLoadBalancingClient",
+      commandName: "RegisterInstancesWithLoadBalancerCommand",
       inputFilterSensitiveLog: RegisterEndPointsInput.filterSensitiveLog,
       outputFilterSensitiveLog: RegisterEndPointsOutput.filterSensitiveLog,
     };

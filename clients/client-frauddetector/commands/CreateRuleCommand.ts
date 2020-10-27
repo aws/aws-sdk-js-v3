@@ -46,6 +46,8 @@ export class CreateRuleCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "FraudDetectorClient",
+      commandName: "CreateRuleCommand",
       inputFilterSensitiveLog: CreateRuleRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateRuleResult.filterSensitiveLog,
     };

@@ -50,6 +50,8 @@ export class DeleteLoadBalancerCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ElasticLoadBalancingClient",
+      commandName: "DeleteLoadBalancerCommand",
       inputFilterSensitiveLog: DeleteAccessPointInput.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteAccessPointOutput.filterSensitiveLog,
     };

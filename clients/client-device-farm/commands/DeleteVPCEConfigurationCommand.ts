@@ -46,6 +46,8 @@ export class DeleteVPCEConfigurationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "DeviceFarmClient",
+      commandName: "DeleteVPCEConfigurationCommand",
       inputFilterSensitiveLog: DeleteVPCEConfigurationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteVPCEConfigurationResult.filterSensitiveLog,
     };

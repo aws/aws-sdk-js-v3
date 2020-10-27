@@ -46,6 +46,8 @@ export class RemoveUserFromGroupCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "IAMClient",
+      commandName: "RemoveUserFromGroupCommand",
       inputFilterSensitiveLog: RemoveUserFromGroupRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

@@ -46,6 +46,8 @@ export class DescribeSnapshotScheduleCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "StorageGatewayClient",
+      commandName: "DescribeSnapshotScheduleCommand",
       inputFilterSensitiveLog: DescribeSnapshotScheduleInput.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeSnapshotScheduleOutput.filterSensitiveLog,
     };

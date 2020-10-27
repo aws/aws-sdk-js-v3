@@ -46,6 +46,8 @@ export class BatchStopJobRunCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GlueClient",
+      commandName: "BatchStopJobRunCommand",
       inputFilterSensitiveLog: BatchStopJobRunRequest.filterSensitiveLog,
       outputFilterSensitiveLog: BatchStopJobRunResponse.filterSensitiveLog,
     };

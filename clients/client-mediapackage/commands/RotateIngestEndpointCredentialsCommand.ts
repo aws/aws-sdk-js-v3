@@ -46,6 +46,8 @@ export class RotateIngestEndpointCredentialsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "MediaPackageClient",
+      commandName: "RotateIngestEndpointCredentialsCommand",
       inputFilterSensitiveLog: RotateIngestEndpointCredentialsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: RotateIngestEndpointCredentialsResponse.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class PutAppsListCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "FMSClient",
+      commandName: "PutAppsListCommand",
       inputFilterSensitiveLog: PutAppsListRequest.filterSensitiveLog,
       outputFilterSensitiveLog: PutAppsListResponse.filterSensitiveLog,
     };

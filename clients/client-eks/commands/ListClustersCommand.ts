@@ -46,6 +46,8 @@ export class ListClustersCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EKSClient",
+      commandName: "ListClustersCommand",
       inputFilterSensitiveLog: ListClustersRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListClustersResponse.filterSensitiveLog,
     };

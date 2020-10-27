@@ -46,6 +46,8 @@ export class ListTapePoolsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "StorageGatewayClient",
+      commandName: "ListTapePoolsCommand",
       inputFilterSensitiveLog: ListTapePoolsInput.filterSensitiveLog,
       outputFilterSensitiveLog: ListTapePoolsOutput.filterSensitiveLog,
     };

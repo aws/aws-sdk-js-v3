@@ -46,6 +46,8 @@ export class CreateClassifierCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GlueClient",
+      commandName: "CreateClassifierCommand",
       inputFilterSensitiveLog: CreateClassifierRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateClassifierResponse.filterSensitiveLog,
     };

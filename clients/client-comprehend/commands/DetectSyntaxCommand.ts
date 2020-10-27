@@ -46,6 +46,8 @@ export class DetectSyntaxCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ComprehendClient",
+      commandName: "DetectSyntaxCommand",
       inputFilterSensitiveLog: DetectSyntaxRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DetectSyntaxResponse.filterSensitiveLog,
     };

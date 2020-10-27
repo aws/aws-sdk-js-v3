@@ -46,6 +46,8 @@ export class ImportAppCatalogCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SMSClient",
+      commandName: "ImportAppCatalogCommand",
       inputFilterSensitiveLog: ImportAppCatalogRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ImportAppCatalogResponse.filterSensitiveLog,
     };

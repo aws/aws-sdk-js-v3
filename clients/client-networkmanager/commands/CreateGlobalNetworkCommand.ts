@@ -46,6 +46,8 @@ export class CreateGlobalNetworkCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "NetworkManagerClient",
+      commandName: "CreateGlobalNetworkCommand",
       inputFilterSensitiveLog: CreateGlobalNetworkRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateGlobalNetworkResponse.filterSensitiveLog,
     };

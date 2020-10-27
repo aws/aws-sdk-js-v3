@@ -46,6 +46,8 @@ export class AssociateTeamMemberCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CodeStarClient",
+      commandName: "AssociateTeamMemberCommand",
       inputFilterSensitiveLog: AssociateTeamMemberRequest.filterSensitiveLog,
       outputFilterSensitiveLog: AssociateTeamMemberResult.filterSensitiveLog,
     };

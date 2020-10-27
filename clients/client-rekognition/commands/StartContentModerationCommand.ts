@@ -46,6 +46,8 @@ export class StartContentModerationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "RekognitionClient",
+      commandName: "StartContentModerationCommand",
       inputFilterSensitiveLog: StartContentModerationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: StartContentModerationResponse.filterSensitiveLog,
     };

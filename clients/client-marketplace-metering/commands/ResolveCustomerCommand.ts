@@ -50,6 +50,8 @@ export class ResolveCustomerCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "MarketplaceMeteringClient",
+      commandName: "ResolveCustomerCommand",
       inputFilterSensitiveLog: ResolveCustomerRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ResolveCustomerResult.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class ListConfigsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GroundStationClient",
+      commandName: "ListConfigsCommand",
       inputFilterSensitiveLog: ListConfigsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListConfigsResponse.filterSensitiveLog,
     };

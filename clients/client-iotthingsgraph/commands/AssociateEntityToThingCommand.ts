@@ -46,6 +46,8 @@ export class AssociateEntityToThingCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "IoTThingsGraphClient",
+      commandName: "AssociateEntityToThingCommand",
       inputFilterSensitiveLog: AssociateEntityToThingRequest.filterSensitiveLog,
       outputFilterSensitiveLog: AssociateEntityToThingResponse.filterSensitiveLog,
     };

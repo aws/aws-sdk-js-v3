@@ -47,6 +47,8 @@ export class ImportInstallationMediaCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "RDSClient",
+      commandName: "ImportInstallationMediaCommand",
       inputFilterSensitiveLog: ImportInstallationMediaMessage.filterSensitiveLog,
       outputFilterSensitiveLog: InstallationMedia.filterSensitiveLog,
     };

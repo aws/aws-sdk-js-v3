@@ -46,6 +46,8 @@ export class DeleteAnalysisCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "QuickSightClient",
+      commandName: "DeleteAnalysisCommand",
       inputFilterSensitiveLog: DeleteAnalysisRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteAnalysisResponse.filterSensitiveLog,
     };

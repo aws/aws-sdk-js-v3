@@ -46,6 +46,8 @@ export class DeletePermissionSetCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SSOAdminClient",
+      commandName: "DeletePermissionSetCommand",
       inputFilterSensitiveLog: DeletePermissionSetRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeletePermissionSetResponse.filterSensitiveLog,
     };

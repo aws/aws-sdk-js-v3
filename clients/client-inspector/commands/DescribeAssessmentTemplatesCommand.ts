@@ -46,6 +46,8 @@ export class DescribeAssessmentTemplatesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "InspectorClient",
+      commandName: "DescribeAssessmentTemplatesCommand",
       inputFilterSensitiveLog: DescribeAssessmentTemplatesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeAssessmentTemplatesResponse.filterSensitiveLog,
     };

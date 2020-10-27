@@ -48,6 +48,8 @@ export class GetBucketInventoryConfigurationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "S3Client",
+      commandName: "GetBucketInventoryConfigurationCommand",
       inputFilterSensitiveLog: GetBucketInventoryConfigurationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetBucketInventoryConfigurationOutput.filterSensitiveLog,
     };

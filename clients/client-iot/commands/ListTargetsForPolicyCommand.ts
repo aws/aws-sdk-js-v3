@@ -46,6 +46,8 @@ export class ListTargetsForPolicyCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "IoTClient",
+      commandName: "ListTargetsForPolicyCommand",
       inputFilterSensitiveLog: ListTargetsForPolicyRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListTargetsForPolicyResponse.filterSensitiveLog,
     };

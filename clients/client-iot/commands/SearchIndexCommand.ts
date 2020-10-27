@@ -46,6 +46,8 @@ export class SearchIndexCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "IoTClient",
+      commandName: "SearchIndexCommand",
       inputFilterSensitiveLog: SearchIndexRequest.filterSensitiveLog,
       outputFilterSensitiveLog: SearchIndexResponse.filterSensitiveLog,
     };

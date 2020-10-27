@@ -46,6 +46,8 @@ export class SearchProvisionedProductsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ServiceCatalogClient",
+      commandName: "SearchProvisionedProductsCommand",
       inputFilterSensitiveLog: SearchProvisionedProductsInput.filterSensitiveLog,
       outputFilterSensitiveLog: SearchProvisionedProductsOutput.filterSensitiveLog,
     };

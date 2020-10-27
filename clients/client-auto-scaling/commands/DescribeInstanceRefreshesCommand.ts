@@ -46,6 +46,8 @@ export class DescribeInstanceRefreshesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "AutoScalingClient",
+      commandName: "DescribeInstanceRefreshesCommand",
       inputFilterSensitiveLog: DescribeInstanceRefreshesType.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeInstanceRefreshesAnswer.filterSensitiveLog,
     };

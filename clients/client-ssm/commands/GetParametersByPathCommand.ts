@@ -46,6 +46,8 @@ export class GetParametersByPathCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SSMClient",
+      commandName: "GetParametersByPathCommand",
       inputFilterSensitiveLog: GetParametersByPathRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetParametersByPathResult.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class DescribeAssociationExecutionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SSMClient",
+      commandName: "DescribeAssociationExecutionsCommand",
       inputFilterSensitiveLog: DescribeAssociationExecutionsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeAssociationExecutionsResult.filterSensitiveLog,
     };

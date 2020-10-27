@@ -46,6 +46,8 @@ export class DescribeTagsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "DirectConnectClient",
+      commandName: "DescribeTagsCommand",
       inputFilterSensitiveLog: DescribeTagsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeTagsResponse.filterSensitiveLog,
     };

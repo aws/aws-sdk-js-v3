@@ -46,6 +46,8 @@ export class DescribeActivityTypeCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SWFClient",
+      commandName: "DescribeActivityTypeCommand",
       inputFilterSensitiveLog: DescribeActivityTypeInput.filterSensitiveLog,
       outputFilterSensitiveLog: ActivityTypeDetail.filterSensitiveLog,
     };

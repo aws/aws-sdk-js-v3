@@ -50,6 +50,8 @@ export class CreateComponentCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ApplicationInsightsClient",
+      commandName: "CreateComponentCommand",
       inputFilterSensitiveLog: CreateComponentRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateComponentResponse.filterSensitiveLog,
     };

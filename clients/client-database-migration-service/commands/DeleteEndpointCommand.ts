@@ -50,6 +50,8 @@ export class DeleteEndpointCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "DatabaseMigrationServiceClient",
+      commandName: "DeleteEndpointCommand",
       inputFilterSensitiveLog: DeleteEndpointMessage.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteEndpointResponse.filterSensitiveLog,
     };

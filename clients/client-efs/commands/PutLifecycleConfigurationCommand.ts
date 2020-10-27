@@ -46,6 +46,8 @@ export class PutLifecycleConfigurationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EFSClient",
+      commandName: "PutLifecycleConfigurationCommand",
       inputFilterSensitiveLog: PutLifecycleConfigurationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: LifecycleConfigurationDescription.filterSensitiveLog,
     };

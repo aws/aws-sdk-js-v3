@@ -46,6 +46,8 @@ export class UpdateGameServerGroupCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GameLiftClient",
+      commandName: "UpdateGameServerGroupCommand",
       inputFilterSensitiveLog: UpdateGameServerGroupInput.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateGameServerGroupOutput.filterSensitiveLog,
     };

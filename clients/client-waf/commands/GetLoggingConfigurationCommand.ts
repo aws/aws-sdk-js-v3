@@ -46,6 +46,8 @@ export class GetLoggingConfigurationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "WAFClient",
+      commandName: "GetLoggingConfigurationCommand",
       inputFilterSensitiveLog: GetLoggingConfigurationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetLoggingConfigurationResponse.filterSensitiveLog,
     };

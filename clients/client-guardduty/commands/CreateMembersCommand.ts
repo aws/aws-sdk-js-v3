@@ -46,6 +46,8 @@ export class CreateMembersCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GuardDutyClient",
+      commandName: "CreateMembersCommand",
       inputFilterSensitiveLog: CreateMembersRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateMembersResponse.filterSensitiveLog,
     };

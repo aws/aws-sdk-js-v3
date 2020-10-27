@@ -50,6 +50,8 @@ export class DeletePresetCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ElasticTranscoderClient",
+      commandName: "DeletePresetCommand",
       inputFilterSensitiveLog: DeletePresetRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeletePresetResponse.filterSensitiveLog,
     };

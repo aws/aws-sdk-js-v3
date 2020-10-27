@@ -46,6 +46,8 @@ export class PutComplianceItemsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SSMClient",
+      commandName: "PutComplianceItemsCommand",
       inputFilterSensitiveLog: PutComplianceItemsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: PutComplianceItemsResult.filterSensitiveLog,
     };

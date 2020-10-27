@@ -46,6 +46,8 @@ export class FlushStageAuthorizersCacheCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "APIGatewayClient",
+      commandName: "FlushStageAuthorizersCacheCommand",
       inputFilterSensitiveLog: FlushStageAuthorizersCacheRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

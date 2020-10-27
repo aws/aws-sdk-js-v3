@@ -46,6 +46,8 @@ export class SearchNetworkProfilesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "AlexaForBusinessClient",
+      commandName: "SearchNetworkProfilesCommand",
       inputFilterSensitiveLog: SearchNetworkProfilesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: SearchNetworkProfilesResponse.filterSensitiveLog,
     };

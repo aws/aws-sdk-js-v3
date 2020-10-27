@@ -46,6 +46,8 @@ export class CreateStreamCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "IoTClient",
+      commandName: "CreateStreamCommand",
       inputFilterSensitiveLog: CreateStreamRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateStreamResponse.filterSensitiveLog,
     };

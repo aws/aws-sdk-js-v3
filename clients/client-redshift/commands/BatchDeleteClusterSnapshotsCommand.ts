@@ -46,6 +46,8 @@ export class BatchDeleteClusterSnapshotsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "RedshiftClient",
+      commandName: "BatchDeleteClusterSnapshotsCommand",
       inputFilterSensitiveLog: BatchDeleteClusterSnapshotsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: BatchDeleteClusterSnapshotsResult.filterSensitiveLog,
     };

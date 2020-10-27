@@ -39,6 +39,8 @@ export class ListStepsCommand extends $Command<ListStepsCommandInput, ListStepsC
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EMRClient",
+      commandName: "ListStepsCommand",
       inputFilterSensitiveLog: ListStepsInput.filterSensitiveLog,
       outputFilterSensitiveLog: ListStepsOutput.filterSensitiveLog,
     };

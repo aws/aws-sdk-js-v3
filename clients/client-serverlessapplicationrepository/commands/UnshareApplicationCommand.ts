@@ -50,6 +50,8 @@ export class UnshareApplicationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ServerlessApplicationRepositoryClient",
+      commandName: "UnshareApplicationCommand",
       inputFilterSensitiveLog: UnshareApplicationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

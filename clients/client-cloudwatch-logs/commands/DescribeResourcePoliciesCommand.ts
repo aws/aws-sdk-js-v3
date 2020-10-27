@@ -46,6 +46,8 @@ export class DescribeResourcePoliciesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CloudWatchLogsClient",
+      commandName: "DescribeResourcePoliciesCommand",
       inputFilterSensitiveLog: DescribeResourcePoliciesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeResourcePoliciesResponse.filterSensitiveLog,
     };

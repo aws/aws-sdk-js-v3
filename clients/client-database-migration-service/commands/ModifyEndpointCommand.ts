@@ -50,6 +50,8 @@ export class ModifyEndpointCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "DatabaseMigrationServiceClient",
+      commandName: "ModifyEndpointCommand",
       inputFilterSensitiveLog: ModifyEndpointMessage.filterSensitiveLog,
       outputFilterSensitiveLog: ModifyEndpointResponse.filterSensitiveLog,
     };

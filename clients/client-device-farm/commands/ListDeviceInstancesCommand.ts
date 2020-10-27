@@ -46,6 +46,8 @@ export class ListDeviceInstancesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "DeviceFarmClient",
+      commandName: "ListDeviceInstancesCommand",
       inputFilterSensitiveLog: ListDeviceInstancesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListDeviceInstancesResult.filterSensitiveLog,
     };

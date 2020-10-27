@@ -46,6 +46,8 @@ export class DescribeConfigurationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "KafkaClient",
+      commandName: "DescribeConfigurationCommand",
       inputFilterSensitiveLog: DescribeConfigurationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeConfigurationResponse.filterSensitiveLog,
     };

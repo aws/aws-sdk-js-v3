@@ -46,6 +46,8 @@ export class GetConnectionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GlueClient",
+      commandName: "GetConnectionsCommand",
       inputFilterSensitiveLog: GetConnectionsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetConnectionsResponse.filterSensitiveLog,
     };

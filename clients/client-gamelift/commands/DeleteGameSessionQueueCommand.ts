@@ -46,6 +46,8 @@ export class DeleteGameSessionQueueCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GameLiftClient",
+      commandName: "DeleteGameSessionQueueCommand",
       inputFilterSensitiveLog: DeleteGameSessionQueueInput.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteGameSessionQueueOutput.filterSensitiveLog,
     };

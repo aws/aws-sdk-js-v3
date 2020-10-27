@@ -46,6 +46,8 @@ export class CreateExportTaskCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CloudWatchLogsClient",
+      commandName: "CreateExportTaskCommand",
       inputFilterSensitiveLog: CreateExportTaskRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateExportTaskResponse.filterSensitiveLog,
     };

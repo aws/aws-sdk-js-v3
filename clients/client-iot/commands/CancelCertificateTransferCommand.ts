@@ -46,6 +46,8 @@ export class CancelCertificateTransferCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "IoTClient",
+      commandName: "CancelCertificateTransferCommand",
       inputFilterSensitiveLog: CancelCertificateTransferRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

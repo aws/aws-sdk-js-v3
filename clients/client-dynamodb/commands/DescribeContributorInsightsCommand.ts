@@ -46,6 +46,8 @@ export class DescribeContributorInsightsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "DynamoDBClient",
+      commandName: "DescribeContributorInsightsCommand",
       inputFilterSensitiveLog: DescribeContributorInsightsInput.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeContributorInsightsOutput.filterSensitiveLog,
     };

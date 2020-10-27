@@ -46,6 +46,8 @@ export class AssociateSkillWithUsersCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "AlexaForBusinessClient",
+      commandName: "AssociateSkillWithUsersCommand",
       inputFilterSensitiveLog: AssociateSkillWithUsersRequest.filterSensitiveLog,
       outputFilterSensitiveLog: AssociateSkillWithUsersResponse.filterSensitiveLog,
     };

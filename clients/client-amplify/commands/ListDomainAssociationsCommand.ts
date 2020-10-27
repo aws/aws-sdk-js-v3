@@ -46,6 +46,8 @@ export class ListDomainAssociationsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "AmplifyClient",
+      commandName: "ListDomainAssociationsCommand",
       inputFilterSensitiveLog: ListDomainAssociationsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListDomainAssociationsResult.filterSensitiveLog,
     };

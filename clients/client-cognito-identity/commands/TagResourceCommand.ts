@@ -48,6 +48,8 @@ export class TagResourceCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CognitoIdentityClient",
+      commandName: "TagResourceCommand",
       inputFilterSensitiveLog: TagResourceInput.filterSensitiveLog,
       outputFilterSensitiveLog: TagResourceResponse.filterSensitiveLog,
     };

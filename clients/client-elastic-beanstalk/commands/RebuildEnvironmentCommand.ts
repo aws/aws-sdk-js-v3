@@ -46,6 +46,8 @@ export class RebuildEnvironmentCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ElasticBeanstalkClient",
+      commandName: "RebuildEnvironmentCommand",
       inputFilterSensitiveLog: RebuildEnvironmentMessage.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

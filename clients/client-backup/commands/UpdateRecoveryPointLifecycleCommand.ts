@@ -46,6 +46,8 @@ export class UpdateRecoveryPointLifecycleCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "BackupClient",
+      commandName: "UpdateRecoveryPointLifecycleCommand",
       inputFilterSensitiveLog: UpdateRecoveryPointLifecycleInput.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateRecoveryPointLifecycleOutput.filterSensitiveLog,
     };

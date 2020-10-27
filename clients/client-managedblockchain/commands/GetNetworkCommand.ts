@@ -50,6 +50,8 @@ export class GetNetworkCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ManagedBlockchainClient",
+      commandName: "GetNetworkCommand",
       inputFilterSensitiveLog: GetNetworkInput.filterSensitiveLog,
       outputFilterSensitiveLog: GetNetworkOutput.filterSensitiveLog,
     };

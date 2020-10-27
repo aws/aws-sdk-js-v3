@@ -39,6 +39,8 @@ export class ListFaqsCommand extends $Command<ListFaqsCommandInput, ListFaqsComm
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "KendraClient",
+      commandName: "ListFaqsCommand",
       inputFilterSensitiveLog: ListFaqsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListFaqsResponse.filterSensitiveLog,
     };

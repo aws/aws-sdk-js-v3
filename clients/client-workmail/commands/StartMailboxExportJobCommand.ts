@@ -46,6 +46,8 @@ export class StartMailboxExportJobCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "WorkMailClient",
+      commandName: "StartMailboxExportJobCommand",
       inputFilterSensitiveLog: StartMailboxExportJobRequest.filterSensitiveLog,
       outputFilterSensitiveLog: StartMailboxExportJobResponse.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class DeleteNamedQueryCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "AthenaClient",
+      commandName: "DeleteNamedQueryCommand",
       inputFilterSensitiveLog: DeleteNamedQueryInput.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteNamedQueryOutput.filterSensitiveLog,
     };

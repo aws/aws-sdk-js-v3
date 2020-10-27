@@ -46,6 +46,8 @@ export class DeleteUserEndpointsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "PinpointClient",
+      commandName: "DeleteUserEndpointsCommand",
       inputFilterSensitiveLog: DeleteUserEndpointsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteUserEndpointsResponse.filterSensitiveLog,
     };

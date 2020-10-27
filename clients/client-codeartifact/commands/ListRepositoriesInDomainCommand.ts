@@ -46,6 +46,8 @@ export class ListRepositoriesInDomainCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CodeartifactClient",
+      commandName: "ListRepositoriesInDomainCommand",
       inputFilterSensitiveLog: ListRepositoriesInDomainRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListRepositoriesInDomainResult.filterSensitiveLog,
     };

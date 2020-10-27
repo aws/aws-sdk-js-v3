@@ -46,6 +46,8 @@ export class UpdateVirtualInterfaceAttributesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "DirectConnectClient",
+      commandName: "UpdateVirtualInterfaceAttributesCommand",
       inputFilterSensitiveLog: UpdateVirtualInterfaceAttributesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: VirtualInterface.filterSensitiveLog,
     };

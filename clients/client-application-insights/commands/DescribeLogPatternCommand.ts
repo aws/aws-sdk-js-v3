@@ -50,6 +50,8 @@ export class DescribeLogPatternCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ApplicationInsightsClient",
+      commandName: "DescribeLogPatternCommand",
       inputFilterSensitiveLog: DescribeLogPatternRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeLogPatternResponse.filterSensitiveLog,
     };

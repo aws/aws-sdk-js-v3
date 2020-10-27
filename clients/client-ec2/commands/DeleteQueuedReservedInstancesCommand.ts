@@ -46,6 +46,8 @@ export class DeleteQueuedReservedInstancesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EC2Client",
+      commandName: "DeleteQueuedReservedInstancesCommand",
       inputFilterSensitiveLog: DeleteQueuedReservedInstancesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteQueuedReservedInstancesResult.filterSensitiveLog,
     };

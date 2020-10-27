@@ -46,6 +46,8 @@ export class RequestSpotFleetCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EC2Client",
+      commandName: "RequestSpotFleetCommand",
       inputFilterSensitiveLog: RequestSpotFleetRequest.filterSensitiveLog,
       outputFilterSensitiveLog: RequestSpotFleetResponse.filterSensitiveLog,
     };

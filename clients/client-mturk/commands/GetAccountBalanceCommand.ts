@@ -46,6 +46,8 @@ export class GetAccountBalanceCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "MTurkClient",
+      commandName: "GetAccountBalanceCommand",
       inputFilterSensitiveLog: GetAccountBalanceRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetAccountBalanceResponse.filterSensitiveLog,
     };

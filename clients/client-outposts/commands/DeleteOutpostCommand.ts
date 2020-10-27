@@ -46,6 +46,8 @@ export class DeleteOutpostCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "OutpostsClient",
+      commandName: "DeleteOutpostCommand",
       inputFilterSensitiveLog: DeleteOutpostInput.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteOutpostOutput.filterSensitiveLog,
     };

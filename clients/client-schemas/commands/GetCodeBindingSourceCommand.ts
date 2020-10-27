@@ -46,6 +46,8 @@ export class GetCodeBindingSourceCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SchemasClient",
+      commandName: "GetCodeBindingSourceCommand",
       inputFilterSensitiveLog: GetCodeBindingSourceRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetCodeBindingSourceResponse.filterSensitiveLog,
     };

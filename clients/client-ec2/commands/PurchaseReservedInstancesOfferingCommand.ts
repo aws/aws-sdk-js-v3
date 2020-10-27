@@ -46,6 +46,8 @@ export class PurchaseReservedInstancesOfferingCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EC2Client",
+      commandName: "PurchaseReservedInstancesOfferingCommand",
       inputFilterSensitiveLog: PurchaseReservedInstancesOfferingRequest.filterSensitiveLog,
       outputFilterSensitiveLog: PurchaseReservedInstancesOfferingResult.filterSensitiveLog,
     };

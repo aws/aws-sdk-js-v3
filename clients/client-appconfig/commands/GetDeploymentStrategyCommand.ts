@@ -46,6 +46,8 @@ export class GetDeploymentStrategyCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "AppConfigClient",
+      commandName: "GetDeploymentStrategyCommand",
       inputFilterSensitiveLog: GetDeploymentStrategyRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeploymentStrategy.filterSensitiveLog,
     };

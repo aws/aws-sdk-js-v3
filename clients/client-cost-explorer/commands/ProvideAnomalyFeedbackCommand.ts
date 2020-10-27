@@ -46,6 +46,8 @@ export class ProvideAnomalyFeedbackCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CostExplorerClient",
+      commandName: "ProvideAnomalyFeedbackCommand",
       inputFilterSensitiveLog: ProvideAnomalyFeedbackRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ProvideAnomalyFeedbackResponse.filterSensitiveLog,
     };

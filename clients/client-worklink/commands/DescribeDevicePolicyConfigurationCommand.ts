@@ -50,6 +50,8 @@ export class DescribeDevicePolicyConfigurationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "WorkLinkClient",
+      commandName: "DescribeDevicePolicyConfigurationCommand",
       inputFilterSensitiveLog: DescribeDevicePolicyConfigurationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeDevicePolicyConfigurationResponse.filterSensitiveLog,
     };

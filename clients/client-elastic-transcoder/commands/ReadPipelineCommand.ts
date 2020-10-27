@@ -50,6 +50,8 @@ export class ReadPipelineCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ElasticTranscoderClient",
+      commandName: "ReadPipelineCommand",
       inputFilterSensitiveLog: ReadPipelineRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ReadPipelineResponse.filterSensitiveLog,
     };

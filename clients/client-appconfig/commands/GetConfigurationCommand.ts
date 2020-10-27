@@ -46,6 +46,8 @@ export class GetConfigurationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "AppConfigClient",
+      commandName: "GetConfigurationCommand",
       inputFilterSensitiveLog: GetConfigurationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: Configuration.filterSensitiveLog,
     };

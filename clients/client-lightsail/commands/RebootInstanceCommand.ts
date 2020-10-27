@@ -46,6 +46,8 @@ export class RebootInstanceCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "LightsailClient",
+      commandName: "RebootInstanceCommand",
       inputFilterSensitiveLog: RebootInstanceRequest.filterSensitiveLog,
       outputFilterSensitiveLog: RebootInstanceResult.filterSensitiveLog,
     };

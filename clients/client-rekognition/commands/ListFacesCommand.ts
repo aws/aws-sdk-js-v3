@@ -43,6 +43,8 @@ export class ListFacesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "RekognitionClient",
+      commandName: "ListFacesCommand",
       inputFilterSensitiveLog: ListFacesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListFacesResponse.filterSensitiveLog,
     };

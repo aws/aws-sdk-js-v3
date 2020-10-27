@@ -46,6 +46,8 @@ export class BatchStopCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "MediaLiveClient",
+      commandName: "BatchStopCommand",
       inputFilterSensitiveLog: BatchStopRequest.filterSensitiveLog,
       outputFilterSensitiveLog: BatchStopResponse.filterSensitiveLog,
     };

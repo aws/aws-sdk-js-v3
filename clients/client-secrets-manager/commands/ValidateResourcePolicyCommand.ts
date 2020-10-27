@@ -46,6 +46,8 @@ export class ValidateResourcePolicyCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SecretsManagerClient",
+      commandName: "ValidateResourcePolicyCommand",
       inputFilterSensitiveLog: ValidateResourcePolicyRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ValidateResourcePolicyResponse.filterSensitiveLog,
     };

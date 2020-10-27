@@ -46,6 +46,8 @@ export class GetCertificateAuthorityCsrCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ACMPCAClient",
+      commandName: "GetCertificateAuthorityCsrCommand",
       inputFilterSensitiveLog: GetCertificateAuthorityCsrRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetCertificateAuthorityCsrResponse.filterSensitiveLog,
     };

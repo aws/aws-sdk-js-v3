@@ -46,6 +46,8 @@ export class SignOutUserCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "WorkLinkClient",
+      commandName: "SignOutUserCommand",
       inputFilterSensitiveLog: SignOutUserRequest.filterSensitiveLog,
       outputFilterSensitiveLog: SignOutUserResponse.filterSensitiveLog,
     };

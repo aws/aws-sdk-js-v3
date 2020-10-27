@@ -46,6 +46,8 @@ export class EnableFastSnapshotRestoresCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EC2Client",
+      commandName: "EnableFastSnapshotRestoresCommand",
       inputFilterSensitiveLog: EnableFastSnapshotRestoresRequest.filterSensitiveLog,
       outputFilterSensitiveLog: EnableFastSnapshotRestoresResult.filterSensitiveLog,
     };

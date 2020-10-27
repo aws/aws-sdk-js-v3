@@ -46,6 +46,8 @@ export class DisableRuleCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CloudWatchEventsClient",
+      commandName: "DisableRuleCommand",
       inputFilterSensitiveLog: DisableRuleRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

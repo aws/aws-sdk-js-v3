@@ -46,6 +46,8 @@ export class DeleteDedicatedIpPoolCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SESv2Client",
+      commandName: "DeleteDedicatedIpPoolCommand",
       inputFilterSensitiveLog: DeleteDedicatedIpPoolRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteDedicatedIpPoolResponse.filterSensitiveLog,
     };

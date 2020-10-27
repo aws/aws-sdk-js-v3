@@ -46,6 +46,8 @@ export class UpdatePresetCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "MediaConvertClient",
+      commandName: "UpdatePresetCommand",
       inputFilterSensitiveLog: UpdatePresetRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdatePresetResponse.filterSensitiveLog,
     };

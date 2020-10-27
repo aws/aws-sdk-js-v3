@@ -46,6 +46,8 @@ export class ModifyImageAttributeCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EC2Client",
+      commandName: "ModifyImageAttributeCommand",
       inputFilterSensitiveLog: ModifyImageAttributeRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

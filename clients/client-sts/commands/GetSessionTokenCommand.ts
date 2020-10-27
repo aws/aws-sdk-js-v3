@@ -46,6 +46,8 @@ export class GetSessionTokenCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "STSClient",
+      commandName: "GetSessionTokenCommand",
       inputFilterSensitiveLog: GetSessionTokenRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetSessionTokenResponse.filterSensitiveLog,
     };

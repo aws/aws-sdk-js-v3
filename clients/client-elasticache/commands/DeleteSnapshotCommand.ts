@@ -46,6 +46,8 @@ export class DeleteSnapshotCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ElastiCacheClient",
+      commandName: "DeleteSnapshotCommand",
       inputFilterSensitiveLog: DeleteSnapshotMessage.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteSnapshotResult.filterSensitiveLog,
     };

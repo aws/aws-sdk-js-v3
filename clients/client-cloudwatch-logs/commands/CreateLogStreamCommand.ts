@@ -46,6 +46,8 @@ export class CreateLogStreamCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CloudWatchLogsClient",
+      commandName: "CreateLogStreamCommand",
       inputFilterSensitiveLog: CreateLogStreamRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

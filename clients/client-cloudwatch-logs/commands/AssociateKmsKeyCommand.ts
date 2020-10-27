@@ -46,6 +46,8 @@ export class AssociateKmsKeyCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CloudWatchLogsClient",
+      commandName: "AssociateKmsKeyCommand",
       inputFilterSensitiveLog: AssociateKmsKeyRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

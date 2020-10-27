@@ -46,6 +46,8 @@ export class CreatePublishingDestinationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GuardDutyClient",
+      commandName: "CreatePublishingDestinationCommand",
       inputFilterSensitiveLog: CreatePublishingDestinationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreatePublishingDestinationResponse.filterSensitiveLog,
     };

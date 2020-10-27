@@ -39,6 +39,8 @@ export class SignCommand extends $Command<SignCommandInput, SignCommandOutput, K
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "KMSClient",
+      commandName: "SignCommand",
       inputFilterSensitiveLog: SignRequest.filterSensitiveLog,
       outputFilterSensitiveLog: SignResponse.filterSensitiveLog,
     };

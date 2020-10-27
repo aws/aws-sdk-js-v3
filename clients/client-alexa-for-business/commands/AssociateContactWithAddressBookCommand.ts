@@ -46,6 +46,8 @@ export class AssociateContactWithAddressBookCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "AlexaForBusinessClient",
+      commandName: "AssociateContactWithAddressBookCommand",
       inputFilterSensitiveLog: AssociateContactWithAddressBookRequest.filterSensitiveLog,
       outputFilterSensitiveLog: AssociateContactWithAddressBookResponse.filterSensitiveLog,
     };

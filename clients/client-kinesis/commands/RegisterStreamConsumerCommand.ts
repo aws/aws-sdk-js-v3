@@ -46,6 +46,8 @@ export class RegisterStreamConsumerCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "KinesisClient",
+      commandName: "RegisterStreamConsumerCommand",
       inputFilterSensitiveLog: RegisterStreamConsumerInput.filterSensitiveLog,
       outputFilterSensitiveLog: RegisterStreamConsumerOutput.filterSensitiveLog,
     };

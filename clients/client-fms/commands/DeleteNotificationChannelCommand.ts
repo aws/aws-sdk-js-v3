@@ -46,6 +46,8 @@ export class DeleteNotificationChannelCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "FMSClient",
+      commandName: "DeleteNotificationChannelCommand",
       inputFilterSensitiveLog: DeleteNotificationChannelRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

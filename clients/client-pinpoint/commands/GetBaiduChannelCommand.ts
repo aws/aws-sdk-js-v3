@@ -46,6 +46,8 @@ export class GetBaiduChannelCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "PinpointClient",
+      commandName: "GetBaiduChannelCommand",
       inputFilterSensitiveLog: GetBaiduChannelRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetBaiduChannelResponse.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class DeleteRecommenderConfigurationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "PinpointClient",
+      commandName: "DeleteRecommenderConfigurationCommand",
       inputFilterSensitiveLog: DeleteRecommenderConfigurationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteRecommenderConfigurationResponse.filterSensitiveLog,
     };

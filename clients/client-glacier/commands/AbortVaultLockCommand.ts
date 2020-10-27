@@ -46,6 +46,8 @@ export class AbortVaultLockCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GlacierClient",
+      commandName: "AbortVaultLockCommand",
       inputFilterSensitiveLog: AbortVaultLockInput.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

@@ -46,6 +46,8 @@ export class DescribeSpotPriceHistoryCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EC2Client",
+      commandName: "DescribeSpotPriceHistoryCommand",
       inputFilterSensitiveLog: DescribeSpotPriceHistoryRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeSpotPriceHistoryResult.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class ListUploadsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "DeviceFarmClient",
+      commandName: "ListUploadsCommand",
       inputFilterSensitiveLog: ListUploadsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListUploadsResult.filterSensitiveLog,
     };

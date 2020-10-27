@@ -46,6 +46,8 @@ export class UpdateDocumentVersionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "WorkDocsClient",
+      commandName: "UpdateDocumentVersionCommand",
       inputFilterSensitiveLog: UpdateDocumentVersionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

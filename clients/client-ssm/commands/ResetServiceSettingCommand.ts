@@ -46,6 +46,8 @@ export class ResetServiceSettingCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SSMClient",
+      commandName: "ResetServiceSettingCommand",
       inputFilterSensitiveLog: ResetServiceSettingRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ResetServiceSettingResult.filterSensitiveLog,
     };

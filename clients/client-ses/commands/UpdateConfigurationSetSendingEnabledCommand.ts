@@ -46,6 +46,8 @@ export class UpdateConfigurationSetSendingEnabledCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SESClient",
+      commandName: "UpdateConfigurationSetSendingEnabledCommand",
       inputFilterSensitiveLog: UpdateConfigurationSetSendingEnabledRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

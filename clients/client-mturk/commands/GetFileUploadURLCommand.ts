@@ -46,6 +46,8 @@ export class GetFileUploadURLCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "MTurkClient",
+      commandName: "GetFileUploadURLCommand",
       inputFilterSensitiveLog: GetFileUploadURLRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetFileUploadURLResponse.filterSensitiveLog,
     };

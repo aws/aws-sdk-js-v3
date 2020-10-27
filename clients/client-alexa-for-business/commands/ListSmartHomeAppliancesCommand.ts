@@ -46,6 +46,8 @@ export class ListSmartHomeAppliancesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "AlexaForBusinessClient",
+      commandName: "ListSmartHomeAppliancesCommand",
       inputFilterSensitiveLog: ListSmartHomeAppliancesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListSmartHomeAppliancesResponse.filterSensitiveLog,
     };

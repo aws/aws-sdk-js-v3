@@ -46,6 +46,8 @@ export class DescribeEC2InstanceLimitsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GameLiftClient",
+      commandName: "DescribeEC2InstanceLimitsCommand",
       inputFilterSensitiveLog: DescribeEC2InstanceLimitsInput.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeEC2InstanceLimitsOutput.filterSensitiveLog,
     };

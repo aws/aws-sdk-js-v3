@@ -46,6 +46,8 @@ export class GetAccountPasswordPolicyCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "IAMClient",
+      commandName: "GetAccountPasswordPolicyCommand",
       inputFilterSensitiveLog: (input: any) => input,
       outputFilterSensitiveLog: GetAccountPasswordPolicyResponse.filterSensitiveLog,
     };

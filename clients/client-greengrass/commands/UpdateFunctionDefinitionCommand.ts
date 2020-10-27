@@ -46,6 +46,8 @@ export class UpdateFunctionDefinitionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GreengrassClient",
+      commandName: "UpdateFunctionDefinitionCommand",
       inputFilterSensitiveLog: UpdateFunctionDefinitionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateFunctionDefinitionResponse.filterSensitiveLog,
     };

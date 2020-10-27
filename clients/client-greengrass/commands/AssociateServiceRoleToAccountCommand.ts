@@ -46,6 +46,8 @@ export class AssociateServiceRoleToAccountCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GreengrassClient",
+      commandName: "AssociateServiceRoleToAccountCommand",
       inputFilterSensitiveLog: AssociateServiceRoleToAccountRequest.filterSensitiveLog,
       outputFilterSensitiveLog: AssociateServiceRoleToAccountResponse.filterSensitiveLog,
     };

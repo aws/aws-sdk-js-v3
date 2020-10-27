@@ -50,6 +50,8 @@ export class AdminForgetDeviceCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CognitoIdentityProviderClient",
+      commandName: "AdminForgetDeviceCommand",
       inputFilterSensitiveLog: AdminForgetDeviceRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

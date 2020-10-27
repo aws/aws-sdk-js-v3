@@ -46,6 +46,8 @@ export class CreateUserProfileCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "OpsWorksClient",
+      commandName: "CreateUserProfileCommand",
       inputFilterSensitiveLog: CreateUserProfileRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateUserProfileResult.filterSensitiveLog,
     };

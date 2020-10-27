@@ -46,6 +46,8 @@ export class DeleteStackSetCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CloudFormationClient",
+      commandName: "DeleteStackSetCommand",
       inputFilterSensitiveLog: DeleteStackSetInput.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteStackSetOutput.filterSensitiveLog,
     };

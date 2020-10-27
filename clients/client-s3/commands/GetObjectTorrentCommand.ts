@@ -48,6 +48,8 @@ export class GetObjectTorrentCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "S3Client",
+      commandName: "GetObjectTorrentCommand",
       inputFilterSensitiveLog: GetObjectTorrentRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetObjectTorrentOutput.filterSensitiveLog,
     };

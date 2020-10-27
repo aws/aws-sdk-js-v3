@@ -46,6 +46,8 @@ export class BatchDescribeSimulationJobCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "RoboMakerClient",
+      commandName: "BatchDescribeSimulationJobCommand",
       inputFilterSensitiveLog: BatchDescribeSimulationJobRequest.filterSensitiveLog,
       outputFilterSensitiveLog: BatchDescribeSimulationJobResponse.filterSensitiveLog,
     };

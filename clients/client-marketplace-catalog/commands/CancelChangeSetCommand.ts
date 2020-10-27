@@ -50,6 +50,8 @@ export class CancelChangeSetCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "MarketplaceCatalogClient",
+      commandName: "CancelChangeSetCommand",
       inputFilterSensitiveLog: CancelChangeSetRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CancelChangeSetResponse.filterSensitiveLog,
     };

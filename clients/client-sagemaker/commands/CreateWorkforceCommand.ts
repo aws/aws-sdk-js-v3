@@ -46,6 +46,8 @@ export class CreateWorkforceCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SageMakerClient",
+      commandName: "CreateWorkforceCommand",
       inputFilterSensitiveLog: CreateWorkforceRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateWorkforceResponse.filterSensitiveLog,
     };

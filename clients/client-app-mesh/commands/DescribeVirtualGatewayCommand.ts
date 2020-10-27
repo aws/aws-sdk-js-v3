@@ -46,6 +46,8 @@ export class DescribeVirtualGatewayCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "AppMeshClient",
+      commandName: "DescribeVirtualGatewayCommand",
       inputFilterSensitiveLog: DescribeVirtualGatewayInput.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeVirtualGatewayOutput.filterSensitiveLog,
     };

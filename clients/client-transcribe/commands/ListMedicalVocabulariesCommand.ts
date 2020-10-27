@@ -46,6 +46,8 @@ export class ListMedicalVocabulariesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "TranscribeClient",
+      commandName: "ListMedicalVocabulariesCommand",
       inputFilterSensitiveLog: ListMedicalVocabulariesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListMedicalVocabulariesResponse.filterSensitiveLog,
     };

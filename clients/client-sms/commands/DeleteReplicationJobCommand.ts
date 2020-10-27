@@ -46,6 +46,8 @@ export class DeleteReplicationJobCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SMSClient",
+      commandName: "DeleteReplicationJobCommand",
       inputFilterSensitiveLog: DeleteReplicationJobRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteReplicationJobResponse.filterSensitiveLog,
     };

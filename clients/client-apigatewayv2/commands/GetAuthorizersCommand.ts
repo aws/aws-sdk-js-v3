@@ -46,6 +46,8 @@ export class GetAuthorizersCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ApiGatewayV2Client",
+      commandName: "GetAuthorizersCommand",
       inputFilterSensitiveLog: GetAuthorizersRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetAuthorizersResponse.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class SubscribeToEventCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "InspectorClient",
+      commandName: "SubscribeToEventCommand",
       inputFilterSensitiveLog: SubscribeToEventRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

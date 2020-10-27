@@ -46,6 +46,8 @@ export class ResyncMFADeviceCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "IAMClient",
+      commandName: "ResyncMFADeviceCommand",
       inputFilterSensitiveLog: ResyncMFADeviceRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

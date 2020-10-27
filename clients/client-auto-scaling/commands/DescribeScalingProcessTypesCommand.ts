@@ -46,6 +46,8 @@ export class DescribeScalingProcessTypesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "AutoScalingClient",
+      commandName: "DescribeScalingProcessTypesCommand",
       inputFilterSensitiveLog: (input: any) => input,
       outputFilterSensitiveLog: ProcessesType.filterSensitiveLog,
     };

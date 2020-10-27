@@ -46,6 +46,8 @@ export class DeleteSecurityConfigurationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EMRClient",
+      commandName: "DeleteSecurityConfigurationCommand",
       inputFilterSensitiveLog: DeleteSecurityConfigurationInput.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteSecurityConfigurationOutput.filterSensitiveLog,
     };

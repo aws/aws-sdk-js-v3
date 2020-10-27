@@ -46,6 +46,8 @@ export class UpdateLoginProfileCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "IAMClient",
+      commandName: "UpdateLoginProfileCommand",
       inputFilterSensitiveLog: UpdateLoginProfileRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

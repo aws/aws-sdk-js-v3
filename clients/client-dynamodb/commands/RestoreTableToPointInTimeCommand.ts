@@ -46,6 +46,8 @@ export class RestoreTableToPointInTimeCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "DynamoDBClient",
+      commandName: "RestoreTableToPointInTimeCommand",
       inputFilterSensitiveLog: RestoreTableToPointInTimeInput.filterSensitiveLog,
       outputFilterSensitiveLog: RestoreTableToPointInTimeOutput.filterSensitiveLog,
     };

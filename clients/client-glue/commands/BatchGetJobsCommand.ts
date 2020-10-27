@@ -46,6 +46,8 @@ export class BatchGetJobsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GlueClient",
+      commandName: "BatchGetJobsCommand",
       inputFilterSensitiveLog: BatchGetJobsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: BatchGetJobsResponse.filterSensitiveLog,
     };

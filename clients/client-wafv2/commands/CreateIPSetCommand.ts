@@ -46,6 +46,8 @@ export class CreateIPSetCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "WAFV2Client",
+      commandName: "CreateIPSetCommand",
       inputFilterSensitiveLog: CreateIPSetRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateIPSetResponse.filterSensitiveLog,
     };

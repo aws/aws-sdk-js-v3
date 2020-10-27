@@ -50,6 +50,8 @@ export class ListEntitiesDetectionV2JobsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ComprehendMedicalClient",
+      commandName: "ListEntitiesDetectionV2JobsCommand",
       inputFilterSensitiveLog: ListEntitiesDetectionV2JobsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListEntitiesDetectionV2JobsResponse.filterSensitiveLog,
     };

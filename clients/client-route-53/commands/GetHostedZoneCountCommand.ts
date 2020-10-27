@@ -46,6 +46,8 @@ export class GetHostedZoneCountCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "Route53Client",
+      commandName: "GetHostedZoneCountCommand",
       inputFilterSensitiveLog: GetHostedZoneCountRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetHostedZoneCountResponse.filterSensitiveLog,
     };

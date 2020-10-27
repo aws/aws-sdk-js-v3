@@ -46,6 +46,8 @@ export class GetOutpostCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "OutpostsClient",
+      commandName: "GetOutpostCommand",
       inputFilterSensitiveLog: GetOutpostInput.filterSensitiveLog,
       outputFilterSensitiveLog: GetOutpostOutput.filterSensitiveLog,
     };

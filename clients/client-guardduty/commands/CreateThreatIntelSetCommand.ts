@@ -46,6 +46,8 @@ export class CreateThreatIntelSetCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GuardDutyClient",
+      commandName: "CreateThreatIntelSetCommand",
       inputFilterSensitiveLog: CreateThreatIntelSetRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateThreatIntelSetResponse.filterSensitiveLog,
     };

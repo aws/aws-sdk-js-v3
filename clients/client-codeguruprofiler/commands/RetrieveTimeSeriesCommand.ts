@@ -46,6 +46,8 @@ export class RetrieveTimeSeriesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CodeGuruProfilerClient",
+      commandName: "RetrieveTimeSeriesCommand",
       inputFilterSensitiveLog: RetrieveTimeSeriesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: RetrieveTimeSeriesResponse.filterSensitiveLog,
     };

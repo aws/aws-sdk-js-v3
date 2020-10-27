@@ -46,6 +46,8 @@ export class RestoreFromSnapshotCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "DirectoryServiceClient",
+      commandName: "RestoreFromSnapshotCommand",
       inputFilterSensitiveLog: RestoreFromSnapshotRequest.filterSensitiveLog,
       outputFilterSensitiveLog: RestoreFromSnapshotResult.filterSensitiveLog,
     };

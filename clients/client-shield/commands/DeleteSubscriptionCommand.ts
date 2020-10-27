@@ -46,6 +46,8 @@ export class DeleteSubscriptionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ShieldClient",
+      commandName: "DeleteSubscriptionCommand",
       inputFilterSensitiveLog: DeleteSubscriptionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteSubscriptionResponse.filterSensitiveLog,
     };

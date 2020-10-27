@@ -46,6 +46,8 @@ export class DeleteApiKeyCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "APIGatewayClient",
+      commandName: "DeleteApiKeyCommand",
       inputFilterSensitiveLog: DeleteApiKeyRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

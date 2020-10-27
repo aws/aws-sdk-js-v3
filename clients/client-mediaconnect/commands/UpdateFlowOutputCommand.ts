@@ -46,6 +46,8 @@ export class UpdateFlowOutputCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "MediaConnectClient",
+      commandName: "UpdateFlowOutputCommand",
       inputFilterSensitiveLog: UpdateFlowOutputRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateFlowOutputResponse.filterSensitiveLog,
     };

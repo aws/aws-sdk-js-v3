@@ -46,6 +46,8 @@ export class RegisterActivityTypeCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SWFClient",
+      commandName: "RegisterActivityTypeCommand",
       inputFilterSensitiveLog: RegisterActivityTypeInput.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

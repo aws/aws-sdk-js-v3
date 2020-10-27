@@ -46,6 +46,8 @@ export class UpdateEmailTemplateCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "PinpointClient",
+      commandName: "UpdateEmailTemplateCommand",
       inputFilterSensitiveLog: UpdateEmailTemplateRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateEmailTemplateResponse.filterSensitiveLog,
     };

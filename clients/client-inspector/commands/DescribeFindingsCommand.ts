@@ -46,6 +46,8 @@ export class DescribeFindingsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "InspectorClient",
+      commandName: "DescribeFindingsCommand",
       inputFilterSensitiveLog: DescribeFindingsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeFindingsResponse.filterSensitiveLog,
     };

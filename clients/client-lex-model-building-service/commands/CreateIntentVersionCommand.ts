@@ -50,6 +50,8 @@ export class CreateIntentVersionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "LexModelBuildingServiceClient",
+      commandName: "CreateIntentVersionCommand",
       inputFilterSensitiveLog: CreateIntentVersionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateIntentVersionResponse.filterSensitiveLog,
     };

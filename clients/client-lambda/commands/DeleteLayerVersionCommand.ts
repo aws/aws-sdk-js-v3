@@ -46,6 +46,8 @@ export class DeleteLayerVersionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "LambdaClient",
+      commandName: "DeleteLayerVersionCommand",
       inputFilterSensitiveLog: DeleteLayerVersionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

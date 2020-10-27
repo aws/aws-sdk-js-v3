@@ -46,6 +46,8 @@ export class XmlTimestampsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "QueryProtocolClient",
+      commandName: "XmlTimestampsCommand",
       inputFilterSensitiveLog: (input: any) => input,
       outputFilterSensitiveLog: XmlTimestampsOutput.filterSensitiveLog,
     };

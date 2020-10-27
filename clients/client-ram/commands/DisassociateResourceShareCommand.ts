@@ -46,6 +46,8 @@ export class DisassociateResourceShareCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "RAMClient",
+      commandName: "DisassociateResourceShareCommand",
       inputFilterSensitiveLog: DisassociateResourceShareRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DisassociateResourceShareResponse.filterSensitiveLog,
     };

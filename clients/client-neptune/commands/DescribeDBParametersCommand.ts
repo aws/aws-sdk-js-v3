@@ -46,6 +46,8 @@ export class DescribeDBParametersCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "NeptuneClient",
+      commandName: "DescribeDBParametersCommand",
       inputFilterSensitiveLog: DescribeDBParametersMessage.filterSensitiveLog,
       outputFilterSensitiveLog: DBParameterGroupDetails.filterSensitiveLog,
     };

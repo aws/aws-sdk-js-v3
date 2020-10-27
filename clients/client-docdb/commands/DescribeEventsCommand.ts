@@ -46,6 +46,8 @@ export class DescribeEventsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "DocDBClient",
+      commandName: "DescribeEventsCommand",
       inputFilterSensitiveLog: DescribeEventsMessage.filterSensitiveLog,
       outputFilterSensitiveLog: EventsMessage.filterSensitiveLog,
     };

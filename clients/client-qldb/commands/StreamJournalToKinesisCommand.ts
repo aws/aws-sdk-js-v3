@@ -46,6 +46,8 @@ export class StreamJournalToKinesisCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "QLDBClient",
+      commandName: "StreamJournalToKinesisCommand",
       inputFilterSensitiveLog: StreamJournalToKinesisRequest.filterSensitiveLog,
       outputFilterSensitiveLog: StreamJournalToKinesisResponse.filterSensitiveLog,
     };

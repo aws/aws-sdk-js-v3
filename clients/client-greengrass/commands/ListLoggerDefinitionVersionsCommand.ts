@@ -46,6 +46,8 @@ export class ListLoggerDefinitionVersionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GreengrassClient",
+      commandName: "ListLoggerDefinitionVersionsCommand",
       inputFilterSensitiveLog: ListLoggerDefinitionVersionsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListLoggerDefinitionVersionsResponse.filterSensitiveLog,
     };

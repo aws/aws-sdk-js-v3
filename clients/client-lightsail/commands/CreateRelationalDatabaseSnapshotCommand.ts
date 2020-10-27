@@ -46,6 +46,8 @@ export class CreateRelationalDatabaseSnapshotCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "LightsailClient",
+      commandName: "CreateRelationalDatabaseSnapshotCommand",
       inputFilterSensitiveLog: CreateRelationalDatabaseSnapshotRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateRelationalDatabaseSnapshotResult.filterSensitiveLog,
     };

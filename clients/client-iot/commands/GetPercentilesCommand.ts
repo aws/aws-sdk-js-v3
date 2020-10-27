@@ -46,6 +46,8 @@ export class GetPercentilesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "IoTClient",
+      commandName: "GetPercentilesCommand",
       inputFilterSensitiveLog: GetPercentilesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetPercentilesResponse.filterSensitiveLog,
     };

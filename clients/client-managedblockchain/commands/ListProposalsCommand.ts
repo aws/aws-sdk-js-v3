@@ -50,6 +50,8 @@ export class ListProposalsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ManagedBlockchainClient",
+      commandName: "ListProposalsCommand",
       inputFilterSensitiveLog: ListProposalsInput.filterSensitiveLog,
       outputFilterSensitiveLog: ListProposalsOutput.filterSensitiveLog,
     };

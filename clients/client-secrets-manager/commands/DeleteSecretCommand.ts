@@ -46,6 +46,8 @@ export class DeleteSecretCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SecretsManagerClient",
+      commandName: "DeleteSecretCommand",
       inputFilterSensitiveLog: DeleteSecretRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteSecretResponse.filterSensitiveLog,
     };

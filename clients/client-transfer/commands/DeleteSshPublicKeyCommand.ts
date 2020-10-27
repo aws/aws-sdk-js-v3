@@ -46,6 +46,8 @@ export class DeleteSshPublicKeyCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "TransferClient",
+      commandName: "DeleteSshPublicKeyCommand",
       inputFilterSensitiveLog: DeleteSshPublicKeyRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

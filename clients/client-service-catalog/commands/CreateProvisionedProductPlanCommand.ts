@@ -46,6 +46,8 @@ export class CreateProvisionedProductPlanCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ServiceCatalogClient",
+      commandName: "CreateProvisionedProductPlanCommand",
       inputFilterSensitiveLog: CreateProvisionedProductPlanInput.filterSensitiveLog,
       outputFilterSensitiveLog: CreateProvisionedProductPlanOutput.filterSensitiveLog,
     };

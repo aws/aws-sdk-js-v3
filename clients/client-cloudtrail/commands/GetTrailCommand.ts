@@ -43,6 +43,8 @@ export class GetTrailCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CloudTrailClient",
+      commandName: "GetTrailCommand",
       inputFilterSensitiveLog: GetTrailRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetTrailResponse.filterSensitiveLog,
     };

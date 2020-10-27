@@ -46,6 +46,8 @@ export class GetThingShadowCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "IoTDataPlaneClient",
+      commandName: "GetThingShadowCommand",
       inputFilterSensitiveLog: GetThingShadowRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetThingShadowResponse.filterSensitiveLog,
     };

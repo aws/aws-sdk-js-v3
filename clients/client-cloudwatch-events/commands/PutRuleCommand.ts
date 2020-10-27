@@ -43,6 +43,8 @@ export class PutRuleCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CloudWatchEventsClient",
+      commandName: "PutRuleCommand",
       inputFilterSensitiveLog: PutRuleRequest.filterSensitiveLog,
       outputFilterSensitiveLog: PutRuleResponse.filterSensitiveLog,
     };

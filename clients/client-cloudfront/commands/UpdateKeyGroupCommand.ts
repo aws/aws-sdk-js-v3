@@ -46,6 +46,8 @@ export class UpdateKeyGroupCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CloudFrontClient",
+      commandName: "UpdateKeyGroupCommand",
       inputFilterSensitiveLog: UpdateKeyGroupRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateKeyGroupResult.filterSensitiveLog,
     };

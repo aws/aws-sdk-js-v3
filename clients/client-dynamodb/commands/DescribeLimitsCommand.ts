@@ -46,6 +46,8 @@ export class DescribeLimitsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "DynamoDBClient",
+      commandName: "DescribeLimitsCommand",
       inputFilterSensitiveLog: DescribeLimitsInput.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeLimitsOutput.filterSensitiveLog,
     };

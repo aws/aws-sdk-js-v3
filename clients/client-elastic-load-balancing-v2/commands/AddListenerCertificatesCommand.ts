@@ -50,6 +50,8 @@ export class AddListenerCertificatesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ElasticLoadBalancingV2Client",
+      commandName: "AddListenerCertificatesCommand",
       inputFilterSensitiveLog: AddListenerCertificatesInput.filterSensitiveLog,
       outputFilterSensitiveLog: AddListenerCertificatesOutput.filterSensitiveLog,
     };

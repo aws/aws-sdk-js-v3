@@ -46,6 +46,8 @@ export class UpdateAccountPasswordPolicyCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "IAMClient",
+      commandName: "UpdateAccountPasswordPolicyCommand",
       inputFilterSensitiveLog: UpdateAccountPasswordPolicyRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

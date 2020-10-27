@@ -46,6 +46,8 @@ export class GetStagesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "APIGatewayClient",
+      commandName: "GetStagesCommand",
       inputFilterSensitiveLog: GetStagesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: Stages.filterSensitiveLog,
     };

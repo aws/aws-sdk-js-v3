@@ -50,6 +50,8 @@ export class DeleteMemberCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ManagedBlockchainClient",
+      commandName: "DeleteMemberCommand",
       inputFilterSensitiveLog: DeleteMemberInput.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteMemberOutput.filterSensitiveLog,
     };

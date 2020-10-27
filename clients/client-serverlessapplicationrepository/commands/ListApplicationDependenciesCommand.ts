@@ -50,6 +50,8 @@ export class ListApplicationDependenciesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ServerlessApplicationRepositoryClient",
+      commandName: "ListApplicationDependenciesCommand",
       inputFilterSensitiveLog: ListApplicationDependenciesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListApplicationDependenciesResponse.filterSensitiveLog,
     };

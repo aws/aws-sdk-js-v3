@@ -46,6 +46,8 @@ export class DeleteColumnStatisticsForTableCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GlueClient",
+      commandName: "DeleteColumnStatisticsForTableCommand",
       inputFilterSensitiveLog: DeleteColumnStatisticsForTableRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteColumnStatisticsForTableResponse.filterSensitiveLog,
     };

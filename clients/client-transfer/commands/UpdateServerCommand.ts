@@ -46,6 +46,8 @@ export class UpdateServerCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "TransferClient",
+      commandName: "UpdateServerCommand",
       inputFilterSensitiveLog: UpdateServerRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateServerResponse.filterSensitiveLog,
     };

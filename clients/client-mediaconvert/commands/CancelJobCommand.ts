@@ -46,6 +46,8 @@ export class CancelJobCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "MediaConvertClient",
+      commandName: "CancelJobCommand",
       inputFilterSensitiveLog: CancelJobRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CancelJobResponse.filterSensitiveLog,
     };

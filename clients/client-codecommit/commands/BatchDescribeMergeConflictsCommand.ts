@@ -46,6 +46,8 @@ export class BatchDescribeMergeConflictsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CodeCommitClient",
+      commandName: "BatchDescribeMergeConflictsCommand",
       inputFilterSensitiveLog: BatchDescribeMergeConflictsInput.filterSensitiveLog,
       outputFilterSensitiveLog: BatchDescribeMergeConflictsOutput.filterSensitiveLog,
     };

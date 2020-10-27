@@ -46,6 +46,8 @@ export class DetachStaticIpCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "LightsailClient",
+      commandName: "DetachStaticIpCommand",
       inputFilterSensitiveLog: DetachStaticIpRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DetachStaticIpResult.filterSensitiveLog,
     };

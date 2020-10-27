@@ -46,6 +46,8 @@ export class GenerateTemplateCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SMSClient",
+      commandName: "GenerateTemplateCommand",
       inputFilterSensitiveLog: GenerateTemplateRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GenerateTemplateResponse.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class CreateGameSessionQueueCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GameLiftClient",
+      commandName: "CreateGameSessionQueueCommand",
       inputFilterSensitiveLog: CreateGameSessionQueueInput.filterSensitiveLog,
       outputFilterSensitiveLog: CreateGameSessionQueueOutput.filterSensitiveLog,
     };

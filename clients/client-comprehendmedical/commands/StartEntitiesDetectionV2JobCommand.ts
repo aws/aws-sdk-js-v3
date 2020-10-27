@@ -50,6 +50,8 @@ export class StartEntitiesDetectionV2JobCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ComprehendMedicalClient",
+      commandName: "StartEntitiesDetectionV2JobCommand",
       inputFilterSensitiveLog: StartEntitiesDetectionV2JobRequest.filterSensitiveLog,
       outputFilterSensitiveLog: StartEntitiesDetectionV2JobResponse.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class UpdateEventConfigurationsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "IoTClient",
+      commandName: "UpdateEventConfigurationsCommand",
       inputFilterSensitiveLog: UpdateEventConfigurationsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateEventConfigurationsResponse.filterSensitiveLog,
     };

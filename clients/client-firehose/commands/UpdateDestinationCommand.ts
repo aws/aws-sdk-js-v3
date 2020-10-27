@@ -46,6 +46,8 @@ export class UpdateDestinationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "FirehoseClient",
+      commandName: "UpdateDestinationCommand",
       inputFilterSensitiveLog: UpdateDestinationInput.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateDestinationOutput.filterSensitiveLog,
     };

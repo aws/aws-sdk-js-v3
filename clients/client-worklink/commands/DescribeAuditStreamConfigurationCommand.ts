@@ -46,6 +46,8 @@ export class DescribeAuditStreamConfigurationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "WorkLinkClient",
+      commandName: "DescribeAuditStreamConfigurationCommand",
       inputFilterSensitiveLog: DescribeAuditStreamConfigurationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeAuditStreamConfigurationResponse.filterSensitiveLog,
     };

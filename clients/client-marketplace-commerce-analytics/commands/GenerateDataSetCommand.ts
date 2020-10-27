@@ -50,6 +50,8 @@ export class GenerateDataSetCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "MarketplaceCommerceAnalyticsClient",
+      commandName: "GenerateDataSetCommand",
       inputFilterSensitiveLog: GenerateDataSetRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GenerateDataSetResult.filterSensitiveLog,
     };

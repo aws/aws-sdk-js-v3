@@ -46,6 +46,8 @@ export class ListPipelinesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "IoTAnalyticsClient",
+      commandName: "ListPipelinesCommand",
       inputFilterSensitiveLog: ListPipelinesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListPipelinesResponse.filterSensitiveLog,
     };

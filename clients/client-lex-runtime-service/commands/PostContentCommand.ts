@@ -52,6 +52,8 @@ export class PostContentCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "LexRuntimeServiceClient",
+      commandName: "PostContentCommand",
       inputFilterSensitiveLog: PostContentRequest.filterSensitiveLog,
       outputFilterSensitiveLog: PostContentResponse.filterSensitiveLog,
     };

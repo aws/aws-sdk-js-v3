@@ -46,6 +46,8 @@ export class DeleteTapePoolCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "StorageGatewayClient",
+      commandName: "DeleteTapePoolCommand",
       inputFilterSensitiveLog: DeleteTapePoolInput.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteTapePoolOutput.filterSensitiveLog,
     };

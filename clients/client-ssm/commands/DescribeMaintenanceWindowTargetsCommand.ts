@@ -46,6 +46,8 @@ export class DescribeMaintenanceWindowTargetsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SSMClient",
+      commandName: "DescribeMaintenanceWindowTargetsCommand",
       inputFilterSensitiveLog: DescribeMaintenanceWindowTargetsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeMaintenanceWindowTargetsResult.filterSensitiveLog,
     };

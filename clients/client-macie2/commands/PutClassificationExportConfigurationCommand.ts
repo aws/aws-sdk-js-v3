@@ -50,6 +50,8 @@ export class PutClassificationExportConfigurationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "Macie2Client",
+      commandName: "PutClassificationExportConfigurationCommand",
       inputFilterSensitiveLog: PutClassificationExportConfigurationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: PutClassificationExportConfigurationResponse.filterSensitiveLog,
     };

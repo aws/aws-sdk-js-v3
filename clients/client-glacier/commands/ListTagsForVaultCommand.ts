@@ -46,6 +46,8 @@ export class ListTagsForVaultCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GlacierClient",
+      commandName: "ListTagsForVaultCommand",
       inputFilterSensitiveLog: ListTagsForVaultInput.filterSensitiveLog,
       outputFilterSensitiveLog: ListTagsForVaultOutput.filterSensitiveLog,
     };

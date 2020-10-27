@@ -46,6 +46,8 @@ export class DescribeCodeCoveragesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CodeBuildClient",
+      commandName: "DescribeCodeCoveragesCommand",
       inputFilterSensitiveLog: DescribeCodeCoveragesInput.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeCodeCoveragesOutput.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class ModifyVpnTunnelOptionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EC2Client",
+      commandName: "ModifyVpnTunnelOptionsCommand",
       inputFilterSensitiveLog: ModifyVpnTunnelOptionsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ModifyVpnTunnelOptionsResult.filterSensitiveLog,
     };

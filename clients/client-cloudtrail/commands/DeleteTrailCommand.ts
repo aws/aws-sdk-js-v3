@@ -46,6 +46,8 @@ export class DeleteTrailCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CloudTrailClient",
+      commandName: "DeleteTrailCommand",
       inputFilterSensitiveLog: DeleteTrailRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteTrailResponse.filterSensitiveLog,
     };

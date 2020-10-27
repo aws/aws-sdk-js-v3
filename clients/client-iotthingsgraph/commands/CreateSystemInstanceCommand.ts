@@ -46,6 +46,8 @@ export class CreateSystemInstanceCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "IoTThingsGraphClient",
+      commandName: "CreateSystemInstanceCommand",
       inputFilterSensitiveLog: CreateSystemInstanceRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateSystemInstanceResponse.filterSensitiveLog,
     };

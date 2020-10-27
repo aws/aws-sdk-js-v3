@@ -46,6 +46,8 @@ export class ResetFpgaImageAttributeCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EC2Client",
+      commandName: "ResetFpgaImageAttributeCommand",
       inputFilterSensitiveLog: ResetFpgaImageAttributeRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ResetFpgaImageAttributeResult.filterSensitiveLog,
     };

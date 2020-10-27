@@ -47,6 +47,8 @@ export class SubscribeToShardCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "KinesisClient",
+      commandName: "SubscribeToShardCommand",
       inputFilterSensitiveLog: SubscribeToShardInput.filterSensitiveLog,
       outputFilterSensitiveLog: SubscribeToShardOutput.filterSensitiveLog,
     };

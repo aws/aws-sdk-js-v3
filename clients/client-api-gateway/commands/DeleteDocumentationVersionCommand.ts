@@ -46,6 +46,8 @@ export class DeleteDocumentationVersionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "APIGatewayClient",
+      commandName: "DeleteDocumentationVersionCommand",
       inputFilterSensitiveLog: DeleteDocumentationVersionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

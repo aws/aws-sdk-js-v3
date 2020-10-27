@@ -48,6 +48,8 @@ export class GetBucketLocationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "S3Client",
+      commandName: "GetBucketLocationCommand",
       inputFilterSensitiveLog: GetBucketLocationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetBucketLocationOutput.filterSensitiveLog,
     };

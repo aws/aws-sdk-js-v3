@@ -46,6 +46,8 @@ export class XmlNamespacesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "RestXmlProtocolClient",
+      commandName: "XmlNamespacesCommand",
       inputFilterSensitiveLog: XmlNamespacesInputOutput.filterSensitiveLog,
       outputFilterSensitiveLog: XmlNamespacesInputOutput.filterSensitiveLog,
     };

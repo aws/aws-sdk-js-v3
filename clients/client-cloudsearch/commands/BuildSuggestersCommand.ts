@@ -46,6 +46,8 @@ export class BuildSuggestersCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CloudSearchClient",
+      commandName: "BuildSuggestersCommand",
       inputFilterSensitiveLog: BuildSuggestersRequest.filterSensitiveLog,
       outputFilterSensitiveLog: BuildSuggestersResponse.filterSensitiveLog,
     };

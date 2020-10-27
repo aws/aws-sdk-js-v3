@@ -46,6 +46,8 @@ export class DescribeAccountLimitsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "AutoScalingClient",
+      commandName: "DescribeAccountLimitsCommand",
       inputFilterSensitiveLog: (input: any) => input,
       outputFilterSensitiveLog: DescribeAccountLimitsAnswer.filterSensitiveLog,
     };

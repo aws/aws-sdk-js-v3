@@ -49,6 +49,8 @@ export class UpdateConfigurationSetReputationMetricsEnabledCommand extends $Comm
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SESClient",
+      commandName: "UpdateConfigurationSetReputationMetricsEnabledCommand",
       inputFilterSensitiveLog: UpdateConfigurationSetReputationMetricsEnabledRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

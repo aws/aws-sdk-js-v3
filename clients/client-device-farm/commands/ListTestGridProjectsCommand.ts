@@ -46,6 +46,8 @@ export class ListTestGridProjectsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "DeviceFarmClient",
+      commandName: "ListTestGridProjectsCommand",
       inputFilterSensitiveLog: ListTestGridProjectsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListTestGridProjectsResult.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class DeleteRuleCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EventBridgeClient",
+      commandName: "DeleteRuleCommand",
       inputFilterSensitiveLog: DeleteRuleRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

@@ -46,6 +46,8 @@ export class CreateCommitCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CodeCommitClient",
+      commandName: "CreateCommitCommand",
       inputFilterSensitiveLog: CreateCommitInput.filterSensitiveLog,
       outputFilterSensitiveLog: CreateCommitOutput.filterSensitiveLog,
     };

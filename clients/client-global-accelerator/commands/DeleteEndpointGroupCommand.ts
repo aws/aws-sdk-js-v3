@@ -50,6 +50,8 @@ export class DeleteEndpointGroupCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GlobalAcceleratorClient",
+      commandName: "DeleteEndpointGroupCommand",
       inputFilterSensitiveLog: DeleteEndpointGroupRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

@@ -46,6 +46,8 @@ export class UpdateRoomMembershipCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ChimeClient",
+      commandName: "UpdateRoomMembershipCommand",
       inputFilterSensitiveLog: UpdateRoomMembershipRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateRoomMembershipResponse.filterSensitiveLog,
     };

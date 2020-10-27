@@ -46,6 +46,8 @@ export class CreateModelVersionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "FraudDetectorClient",
+      commandName: "CreateModelVersionCommand",
       inputFilterSensitiveLog: CreateModelVersionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateModelVersionResult.filterSensitiveLog,
     };

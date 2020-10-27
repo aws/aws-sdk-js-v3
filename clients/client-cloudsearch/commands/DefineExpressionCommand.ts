@@ -46,6 +46,8 @@ export class DefineExpressionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CloudSearchClient",
+      commandName: "DefineExpressionCommand",
       inputFilterSensitiveLog: DefineExpressionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DefineExpressionResponse.filterSensitiveLog,
     };

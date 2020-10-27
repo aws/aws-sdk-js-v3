@@ -46,6 +46,8 @@ export class MonitorInstancesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EC2Client",
+      commandName: "MonitorInstancesCommand",
       inputFilterSensitiveLog: MonitorInstancesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: MonitorInstancesResult.filterSensitiveLog,
     };

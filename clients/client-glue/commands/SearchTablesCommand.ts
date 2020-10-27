@@ -46,6 +46,8 @@ export class SearchTablesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GlueClient",
+      commandName: "SearchTablesCommand",
       inputFilterSensitiveLog: SearchTablesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: SearchTablesResponse.filterSensitiveLog,
     };

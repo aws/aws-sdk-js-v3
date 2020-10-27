@@ -46,6 +46,8 @@ export class DescribeEventTrackerCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "PersonalizeClient",
+      commandName: "DescribeEventTrackerCommand",
       inputFilterSensitiveLog: DescribeEventTrackerRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeEventTrackerResponse.filterSensitiveLog,
     };

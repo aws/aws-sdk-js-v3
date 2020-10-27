@@ -46,6 +46,8 @@ export class SetTypeDefaultVersionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CloudFormationClient",
+      commandName: "SetTypeDefaultVersionCommand",
       inputFilterSensitiveLog: SetTypeDefaultVersionInput.filterSensitiveLog,
       outputFilterSensitiveLog: SetTypeDefaultVersionOutput.filterSensitiveLog,
     };

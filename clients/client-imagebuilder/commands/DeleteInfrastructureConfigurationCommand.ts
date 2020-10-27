@@ -50,6 +50,8 @@ export class DeleteInfrastructureConfigurationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ImagebuilderClient",
+      commandName: "DeleteInfrastructureConfigurationCommand",
       inputFilterSensitiveLog: DeleteInfrastructureConfigurationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteInfrastructureConfigurationResponse.filterSensitiveLog,
     };

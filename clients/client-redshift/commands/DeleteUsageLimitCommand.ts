@@ -46,6 +46,8 @@ export class DeleteUsageLimitCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "RedshiftClient",
+      commandName: "DeleteUsageLimitCommand",
       inputFilterSensitiveLog: DeleteUsageLimitMessage.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

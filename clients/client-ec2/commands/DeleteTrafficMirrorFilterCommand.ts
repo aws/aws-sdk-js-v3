@@ -46,6 +46,8 @@ export class DeleteTrafficMirrorFilterCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EC2Client",
+      commandName: "DeleteTrafficMirrorFilterCommand",
       inputFilterSensitiveLog: DeleteTrafficMirrorFilterRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteTrafficMirrorFilterResult.filterSensitiveLog,
     };

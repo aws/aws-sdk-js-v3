@@ -46,6 +46,8 @@ export class ListTeamMembersCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CodeStarClient",
+      commandName: "ListTeamMembersCommand",
       inputFilterSensitiveLog: ListTeamMembersRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListTeamMembersResult.filterSensitiveLog,
     };

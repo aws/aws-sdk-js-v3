@@ -46,6 +46,8 @@ export class DescribeVoicesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "PollyClient",
+      commandName: "DescribeVoicesCommand",
       inputFilterSensitiveLog: DescribeVoicesInput.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeVoicesOutput.filterSensitiveLog,
     };

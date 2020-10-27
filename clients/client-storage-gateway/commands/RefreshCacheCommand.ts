@@ -46,6 +46,8 @@ export class RefreshCacheCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "StorageGatewayClient",
+      commandName: "RefreshCacheCommand",
       inputFilterSensitiveLog: RefreshCacheInput.filterSensitiveLog,
       outputFilterSensitiveLog: RefreshCacheOutput.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class RebuildWorkspacesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "WorkSpacesClient",
+      commandName: "RebuildWorkspacesCommand",
       inputFilterSensitiveLog: RebuildWorkspacesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: RebuildWorkspacesResult.filterSensitiveLog,
     };

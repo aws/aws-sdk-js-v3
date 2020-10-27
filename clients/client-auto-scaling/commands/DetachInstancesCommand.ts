@@ -46,6 +46,8 @@ export class DetachInstancesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "AutoScalingClient",
+      commandName: "DetachInstancesCommand",
       inputFilterSensitiveLog: DetachInstancesQuery.filterSensitiveLog,
       outputFilterSensitiveLog: DetachInstancesAnswer.filterSensitiveLog,
     };

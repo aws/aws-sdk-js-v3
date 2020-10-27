@@ -46,6 +46,8 @@ export class DeleteDBClusterParameterGroupCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "DocDBClient",
+      commandName: "DeleteDBClusterParameterGroupCommand",
       inputFilterSensitiveLog: DeleteDBClusterParameterGroupMessage.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

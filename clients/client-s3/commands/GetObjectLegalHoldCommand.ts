@@ -48,6 +48,8 @@ export class GetObjectLegalHoldCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "S3Client",
+      commandName: "GetObjectLegalHoldCommand",
       inputFilterSensitiveLog: GetObjectLegalHoldRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetObjectLegalHoldOutput.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class ImportPlaybackKeyPairCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "IvsClient",
+      commandName: "ImportPlaybackKeyPairCommand",
       inputFilterSensitiveLog: ImportPlaybackKeyPairRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ImportPlaybackKeyPairResponse.filterSensitiveLog,
     };

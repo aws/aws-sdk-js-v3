@@ -46,6 +46,8 @@ export class GetDatasetContentCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "IoTAnalyticsClient",
+      commandName: "GetDatasetContentCommand",
       inputFilterSensitiveLog: GetDatasetContentRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetDatasetContentResponse.filterSensitiveLog,
     };

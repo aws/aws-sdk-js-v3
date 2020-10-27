@@ -46,6 +46,8 @@ export class ListShardsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "KinesisClient",
+      commandName: "ListShardsCommand",
       inputFilterSensitiveLog: ListShardsInput.filterSensitiveLog,
       outputFilterSensitiveLog: ListShardsOutput.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class CreateByteMatchSetCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "WAFRegionalClient",
+      commandName: "CreateByteMatchSetCommand",
       inputFilterSensitiveLog: CreateByteMatchSetRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateByteMatchSetResponse.filterSensitiveLog,
     };

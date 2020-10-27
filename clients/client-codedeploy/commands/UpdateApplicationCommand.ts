@@ -46,6 +46,8 @@ export class UpdateApplicationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CodeDeployClient",
+      commandName: "UpdateApplicationCommand",
       inputFilterSensitiveLog: UpdateApplicationInput.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

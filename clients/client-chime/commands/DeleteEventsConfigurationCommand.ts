@@ -46,6 +46,8 @@ export class DeleteEventsConfigurationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ChimeClient",
+      commandName: "DeleteEventsConfigurationCommand",
       inputFilterSensitiveLog: DeleteEventsConfigurationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

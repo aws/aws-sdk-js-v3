@@ -46,6 +46,8 @@ export class DescribeVpcClassicLinkCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EC2Client",
+      commandName: "DescribeVpcClassicLinkCommand",
       inputFilterSensitiveLog: DescribeVpcClassicLinkRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeVpcClassicLinkResult.filterSensitiveLog,
     };

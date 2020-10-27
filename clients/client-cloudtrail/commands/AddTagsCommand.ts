@@ -43,6 +43,8 @@ export class AddTagsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CloudTrailClient",
+      commandName: "AddTagsCommand",
       inputFilterSensitiveLog: AddTagsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: AddTagsResponse.filterSensitiveLog,
     };

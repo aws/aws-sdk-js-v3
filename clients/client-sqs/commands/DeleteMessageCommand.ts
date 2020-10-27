@@ -46,6 +46,8 @@ export class DeleteMessageCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SQSClient",
+      commandName: "DeleteMessageCommand",
       inputFilterSensitiveLog: DeleteMessageRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

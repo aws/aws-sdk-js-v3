@@ -46,6 +46,8 @@ export class CreateCrawlerCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GlueClient",
+      commandName: "CreateCrawlerCommand",
       inputFilterSensitiveLog: CreateCrawlerRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateCrawlerResponse.filterSensitiveLog,
     };

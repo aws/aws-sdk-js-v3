@@ -46,6 +46,8 @@ export class CreateDeviceDefinitionVersionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GreengrassClient",
+      commandName: "CreateDeviceDefinitionVersionCommand",
       inputFilterSensitiveLog: CreateDeviceDefinitionVersionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateDeviceDefinitionVersionResponse.filterSensitiveLog,
     };

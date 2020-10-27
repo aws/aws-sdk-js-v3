@@ -46,6 +46,8 @@ export class ImportCertificateCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ACMClient",
+      commandName: "ImportCertificateCommand",
       inputFilterSensitiveLog: ImportCertificateRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ImportCertificateResponse.filterSensitiveLog,
     };

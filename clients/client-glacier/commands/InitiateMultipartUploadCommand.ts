@@ -46,6 +46,8 @@ export class InitiateMultipartUploadCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GlacierClient",
+      commandName: "InitiateMultipartUploadCommand",
       inputFilterSensitiveLog: InitiateMultipartUploadInput.filterSensitiveLog,
       outputFilterSensitiveLog: InitiateMultipartUploadOutput.filterSensitiveLog,
     };

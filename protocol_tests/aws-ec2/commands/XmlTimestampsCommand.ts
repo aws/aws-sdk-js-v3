@@ -43,6 +43,8 @@ export class XmlTimestampsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EC2ProtocolClient",
+      commandName: "XmlTimestampsCommand",
       inputFilterSensitiveLog: (input: any) => input,
       outputFilterSensitiveLog: XmlTimestampsOutput.filterSensitiveLog,
     };

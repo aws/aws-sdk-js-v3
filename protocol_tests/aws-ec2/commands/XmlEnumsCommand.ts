@@ -43,6 +43,8 @@ export class XmlEnumsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EC2ProtocolClient",
+      commandName: "XmlEnumsCommand",
       inputFilterSensitiveLog: (input: any) => input,
       outputFilterSensitiveLog: XmlEnumsOutput.filterSensitiveLog,
     };

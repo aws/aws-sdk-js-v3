@@ -46,6 +46,8 @@ export class ClassifyDocumentCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ComprehendClient",
+      commandName: "ClassifyDocumentCommand",
       inputFilterSensitiveLog: ClassifyDocumentRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ClassifyDocumentResponse.filterSensitiveLog,
     };

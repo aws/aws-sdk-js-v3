@@ -46,6 +46,8 @@ export class CreateAutoScalingGroupCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "AutoScalingClient",
+      commandName: "CreateAutoScalingGroupCommand",
       inputFilterSensitiveLog: CreateAutoScalingGroupType.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

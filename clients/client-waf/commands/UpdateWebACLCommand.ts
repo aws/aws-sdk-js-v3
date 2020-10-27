@@ -46,6 +46,8 @@ export class UpdateWebACLCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "WAFClient",
+      commandName: "UpdateWebACLCommand",
       inputFilterSensitiveLog: UpdateWebACLRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateWebACLResponse.filterSensitiveLog,
     };

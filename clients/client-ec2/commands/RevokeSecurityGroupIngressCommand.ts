@@ -46,6 +46,8 @@ export class RevokeSecurityGroupIngressCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EC2Client",
+      commandName: "RevokeSecurityGroupIngressCommand",
       inputFilterSensitiveLog: RevokeSecurityGroupIngressRequest.filterSensitiveLog,
       outputFilterSensitiveLog: RevokeSecurityGroupIngressResult.filterSensitiveLog,
     };

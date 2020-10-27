@@ -46,6 +46,8 @@ export class StartSchemaCreationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "AppSyncClient",
+      commandName: "StartSchemaCreationCommand",
       inputFilterSensitiveLog: StartSchemaCreationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: StartSchemaCreationResponse.filterSensitiveLog,
     };

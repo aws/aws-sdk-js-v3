@@ -46,6 +46,8 @@ export class GetDataSetCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "DataExchangeClient",
+      commandName: "GetDataSetCommand",
       inputFilterSensitiveLog: GetDataSetRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetDataSetResponse.filterSensitiveLog,
     };

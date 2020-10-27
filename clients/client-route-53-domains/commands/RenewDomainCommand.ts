@@ -46,6 +46,8 @@ export class RenewDomainCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "Route53DomainsClient",
+      commandName: "RenewDomainCommand",
       inputFilterSensitiveLog: RenewDomainRequest.filterSensitiveLog,
       outputFilterSensitiveLog: RenewDomainResponse.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class CreateCertificateCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "LightsailClient",
+      commandName: "CreateCertificateCommand",
       inputFilterSensitiveLog: CreateCertificateRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateCertificateResult.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class DeleteAccountCustomizationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "QuickSightClient",
+      commandName: "DeleteAccountCustomizationCommand",
       inputFilterSensitiveLog: DeleteAccountCustomizationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteAccountCustomizationResponse.filterSensitiveLog,
     };

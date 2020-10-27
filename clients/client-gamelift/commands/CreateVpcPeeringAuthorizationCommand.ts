@@ -46,6 +46,8 @@ export class CreateVpcPeeringAuthorizationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GameLiftClient",
+      commandName: "CreateVpcPeeringAuthorizationCommand",
       inputFilterSensitiveLog: CreateVpcPeeringAuthorizationInput.filterSensitiveLog,
       outputFilterSensitiveLog: CreateVpcPeeringAuthorizationOutput.filterSensitiveLog,
     };

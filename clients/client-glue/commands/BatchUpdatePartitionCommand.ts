@@ -46,6 +46,8 @@ export class BatchUpdatePartitionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GlueClient",
+      commandName: "BatchUpdatePartitionCommand",
       inputFilterSensitiveLog: BatchUpdatePartitionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: BatchUpdatePartitionResponse.filterSensitiveLog,
     };

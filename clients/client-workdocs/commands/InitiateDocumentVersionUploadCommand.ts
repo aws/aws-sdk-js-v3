@@ -46,6 +46,8 @@ export class InitiateDocumentVersionUploadCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "WorkDocsClient",
+      commandName: "InitiateDocumentVersionUploadCommand",
       inputFilterSensitiveLog: InitiateDocumentVersionUploadRequest.filterSensitiveLog,
       outputFilterSensitiveLog: InitiateDocumentVersionUploadResponse.filterSensitiveLog,
     };

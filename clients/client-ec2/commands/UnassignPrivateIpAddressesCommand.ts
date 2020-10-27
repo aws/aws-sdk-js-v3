@@ -46,6 +46,8 @@ export class UnassignPrivateIpAddressesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EC2Client",
+      commandName: "UnassignPrivateIpAddressesCommand",
       inputFilterSensitiveLog: UnassignPrivateIpAddressesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

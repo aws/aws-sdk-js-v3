@@ -46,6 +46,8 @@ export class CreateServiceActionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ServiceCatalogClient",
+      commandName: "CreateServiceActionCommand",
       inputFilterSensitiveLog: CreateServiceActionInput.filterSensitiveLog,
       outputFilterSensitiveLog: CreateServiceActionOutput.filterSensitiveLog,
     };

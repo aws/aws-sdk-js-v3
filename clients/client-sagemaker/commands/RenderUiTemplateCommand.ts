@@ -46,6 +46,8 @@ export class RenderUiTemplateCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SageMakerClient",
+      commandName: "RenderUiTemplateCommand",
       inputFilterSensitiveLog: RenderUiTemplateRequest.filterSensitiveLog,
       outputFilterSensitiveLog: RenderUiTemplateResponse.filterSensitiveLog,
     };

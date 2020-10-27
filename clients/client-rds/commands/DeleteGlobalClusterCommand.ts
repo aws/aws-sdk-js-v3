@@ -46,6 +46,8 @@ export class DeleteGlobalClusterCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "RDSClient",
+      commandName: "DeleteGlobalClusterCommand",
       inputFilterSensitiveLog: DeleteGlobalClusterMessage.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteGlobalClusterResult.filterSensitiveLog,
     };

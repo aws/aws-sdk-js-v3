@@ -46,6 +46,8 @@ export class GetManagedPrefixListEntriesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EC2Client",
+      commandName: "GetManagedPrefixListEntriesCommand",
       inputFilterSensitiveLog: GetManagedPrefixListEntriesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetManagedPrefixListEntriesResult.filterSensitiveLog,
     };

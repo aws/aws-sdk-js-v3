@@ -46,6 +46,8 @@ export class DeleteRouteCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "AppMeshClient",
+      commandName: "DeleteRouteCommand",
       inputFilterSensitiveLog: DeleteRouteInput.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteRouteOutput.filterSensitiveLog,
     };

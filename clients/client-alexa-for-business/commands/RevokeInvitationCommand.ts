@@ -46,6 +46,8 @@ export class RevokeInvitationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "AlexaForBusinessClient",
+      commandName: "RevokeInvitationCommand",
       inputFilterSensitiveLog: RevokeInvitationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: RevokeInvitationResponse.filterSensitiveLog,
     };

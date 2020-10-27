@@ -46,6 +46,8 @@ export class DeleteFacesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "RekognitionClient",
+      commandName: "DeleteFacesCommand",
       inputFilterSensitiveLog: DeleteFacesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteFacesResponse.filterSensitiveLog,
     };

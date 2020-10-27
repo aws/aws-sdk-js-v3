@@ -46,6 +46,8 @@ export class RebootRelationalDatabaseCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "LightsailClient",
+      commandName: "RebootRelationalDatabaseCommand",
       inputFilterSensitiveLog: RebootRelationalDatabaseRequest.filterSensitiveLog,
       outputFilterSensitiveLog: RebootRelationalDatabaseResult.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class DeleteIndexFieldCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CloudSearchClient",
+      commandName: "DeleteIndexFieldCommand",
       inputFilterSensitiveLog: DeleteIndexFieldRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteIndexFieldResponse.filterSensitiveLog,
     };

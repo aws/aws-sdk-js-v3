@@ -46,6 +46,8 @@ export class ContinueUpdateRollbackCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CloudFormationClient",
+      commandName: "ContinueUpdateRollbackCommand",
       inputFilterSensitiveLog: ContinueUpdateRollbackInput.filterSensitiveLog,
       outputFilterSensitiveLog: ContinueUpdateRollbackOutput.filterSensitiveLog,
     };

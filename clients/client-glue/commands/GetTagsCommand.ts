@@ -39,6 +39,8 @@ export class GetTagsCommand extends $Command<GetTagsCommandInput, GetTagsCommand
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GlueClient",
+      commandName: "GetTagsCommand",
       inputFilterSensitiveLog: GetTagsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetTagsResponse.filterSensitiveLog,
     };

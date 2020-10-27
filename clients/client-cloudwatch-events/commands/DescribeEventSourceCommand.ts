@@ -46,6 +46,8 @@ export class DescribeEventSourceCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CloudWatchEventsClient",
+      commandName: "DescribeEventSourceCommand",
       inputFilterSensitiveLog: DescribeEventSourceRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeEventSourceResponse.filterSensitiveLog,
     };

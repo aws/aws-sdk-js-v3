@@ -46,6 +46,8 @@ export class DescribeSnapshotsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "DirectoryServiceClient",
+      commandName: "DescribeSnapshotsCommand",
       inputFilterSensitiveLog: DescribeSnapshotsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeSnapshotsResult.filterSensitiveLog,
     };

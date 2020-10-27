@@ -46,6 +46,8 @@ export class StartAssociationsOnceCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SSMClient",
+      commandName: "StartAssociationsOnceCommand",
       inputFilterSensitiveLog: StartAssociationsOnceRequest.filterSensitiveLog,
       outputFilterSensitiveLog: StartAssociationsOnceResult.filterSensitiveLog,
     };

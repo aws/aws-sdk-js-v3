@@ -46,6 +46,8 @@ export class ChangeTagsForResourceCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "Route53Client",
+      commandName: "ChangeTagsForResourceCommand",
       inputFilterSensitiveLog: ChangeTagsForResourceRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ChangeTagsForResourceResponse.filterSensitiveLog,
     };

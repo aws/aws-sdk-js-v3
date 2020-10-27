@@ -46,6 +46,8 @@ export class DeleteFunctionEventInvokeConfigCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "LambdaClient",
+      commandName: "DeleteFunctionEventInvokeConfigCommand",
       inputFilterSensitiveLog: DeleteFunctionEventInvokeConfigRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

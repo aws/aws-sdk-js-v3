@@ -39,6 +39,8 @@ export class GetItemCommand extends $Command<GetItemCommandInput, GetItemCommand
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "DynamoDBClient",
+      commandName: "GetItemCommand",
       inputFilterSensitiveLog: GetItemInput.filterSensitiveLog,
       outputFilterSensitiveLog: GetItemOutput.filterSensitiveLog,
     };

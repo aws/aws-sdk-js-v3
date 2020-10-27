@@ -46,6 +46,8 @@ export class DescribeUserStackAssociationsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "AppStreamClient",
+      commandName: "DescribeUserStackAssociationsCommand",
       inputFilterSensitiveLog: DescribeUserStackAssociationsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeUserStackAssociationsResult.filterSensitiveLog,
     };

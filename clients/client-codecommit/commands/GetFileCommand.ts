@@ -43,6 +43,8 @@ export class GetFileCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CodeCommitClient",
+      commandName: "GetFileCommand",
       inputFilterSensitiveLog: GetFileInput.filterSensitiveLog,
       outputFilterSensitiveLog: GetFileOutput.filterSensitiveLog,
     };

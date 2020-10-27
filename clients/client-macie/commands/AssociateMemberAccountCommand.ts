@@ -46,6 +46,8 @@ export class AssociateMemberAccountCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "MacieClient",
+      commandName: "AssociateMemberAccountCommand",
       inputFilterSensitiveLog: AssociateMemberAccountRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

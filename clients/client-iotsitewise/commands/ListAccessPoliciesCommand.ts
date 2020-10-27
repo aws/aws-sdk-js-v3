@@ -46,6 +46,8 @@ export class ListAccessPoliciesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "IoTSiteWiseClient",
+      commandName: "ListAccessPoliciesCommand",
       inputFilterSensitiveLog: ListAccessPoliciesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListAccessPoliciesResponse.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class DeleteConfigurationSetCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "PinpointEmailClient",
+      commandName: "DeleteConfigurationSetCommand",
       inputFilterSensitiveLog: DeleteConfigurationSetRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteConfigurationSetResponse.filterSensitiveLog,
     };

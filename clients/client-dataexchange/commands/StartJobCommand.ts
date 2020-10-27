@@ -46,6 +46,8 @@ export class StartJobCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "DataExchangeClient",
+      commandName: "StartJobCommand",
       inputFilterSensitiveLog: StartJobRequest.filterSensitiveLog,
       outputFilterSensitiveLog: StartJobResponse.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class UpdateNetworkProfileCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "DeviceFarmClient",
+      commandName: "UpdateNetworkProfileCommand",
       inputFilterSensitiveLog: UpdateNetworkProfileRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateNetworkProfileResult.filterSensitiveLog,
     };

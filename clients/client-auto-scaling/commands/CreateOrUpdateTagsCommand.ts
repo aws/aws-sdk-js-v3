@@ -46,6 +46,8 @@ export class CreateOrUpdateTagsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "AutoScalingClient",
+      commandName: "CreateOrUpdateTagsCommand",
       inputFilterSensitiveLog: CreateOrUpdateTagsType.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

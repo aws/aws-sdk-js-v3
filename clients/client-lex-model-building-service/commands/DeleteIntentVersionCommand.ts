@@ -50,6 +50,8 @@ export class DeleteIntentVersionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "LexModelBuildingServiceClient",
+      commandName: "DeleteIntentVersionCommand",
       inputFilterSensitiveLog: DeleteIntentVersionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

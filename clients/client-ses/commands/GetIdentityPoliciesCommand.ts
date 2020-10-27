@@ -46,6 +46,8 @@ export class GetIdentityPoliciesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SESClient",
+      commandName: "GetIdentityPoliciesCommand",
       inputFilterSensitiveLog: GetIdentityPoliciesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetIdentityPoliciesResponse.filterSensitiveLog,
     };

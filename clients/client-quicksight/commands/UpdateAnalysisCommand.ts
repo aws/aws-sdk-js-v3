@@ -46,6 +46,8 @@ export class UpdateAnalysisCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "QuickSightClient",
+      commandName: "UpdateAnalysisCommand",
       inputFilterSensitiveLog: UpdateAnalysisRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateAnalysisResponse.filterSensitiveLog,
     };

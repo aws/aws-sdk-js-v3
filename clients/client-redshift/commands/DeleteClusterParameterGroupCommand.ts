@@ -46,6 +46,8 @@ export class DeleteClusterParameterGroupCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "RedshiftClient",
+      commandName: "DeleteClusterParameterGroupCommand",
       inputFilterSensitiveLog: DeleteClusterParameterGroupMessage.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

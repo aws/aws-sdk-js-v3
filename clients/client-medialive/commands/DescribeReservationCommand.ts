@@ -46,6 +46,8 @@ export class DescribeReservationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "MediaLiveClient",
+      commandName: "DescribeReservationCommand",
       inputFilterSensitiveLog: DescribeReservationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeReservationResponse.filterSensitiveLog,
     };

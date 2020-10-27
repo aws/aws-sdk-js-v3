@@ -46,6 +46,8 @@ export class CreateLayerCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "OpsWorksClient",
+      commandName: "CreateLayerCommand",
       inputFilterSensitiveLog: CreateLayerRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateLayerResult.filterSensitiveLog,
     };

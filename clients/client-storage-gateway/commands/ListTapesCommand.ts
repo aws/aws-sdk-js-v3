@@ -43,6 +43,8 @@ export class ListTapesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "StorageGatewayClient",
+      commandName: "ListTapesCommand",
       inputFilterSensitiveLog: ListTapesInput.filterSensitiveLog,
       outputFilterSensitiveLog: ListTapesOutput.filterSensitiveLog,
     };

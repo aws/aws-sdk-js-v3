@@ -46,6 +46,8 @@ export class UpdateFunctionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "AppSyncClient",
+      commandName: "UpdateFunctionCommand",
       inputFilterSensitiveLog: UpdateFunctionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateFunctionResponse.filterSensitiveLog,
     };

@@ -43,6 +43,8 @@ export class DeleteKeyPairCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EC2Client",
+      commandName: "DeleteKeyPairCommand",
       inputFilterSensitiveLog: DeleteKeyPairRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

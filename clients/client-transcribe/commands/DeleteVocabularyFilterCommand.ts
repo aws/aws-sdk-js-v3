@@ -46,6 +46,8 @@ export class DeleteVocabularyFilterCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "TranscribeClient",
+      commandName: "DeleteVocabularyFilterCommand",
       inputFilterSensitiveLog: DeleteVocabularyFilterRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

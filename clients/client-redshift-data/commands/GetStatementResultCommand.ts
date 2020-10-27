@@ -46,6 +46,8 @@ export class GetStatementResultCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "RedshiftDataClient",
+      commandName: "GetStatementResultCommand",
       inputFilterSensitiveLog: GetStatementResultRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetStatementResultResponse.filterSensitiveLog,
     };

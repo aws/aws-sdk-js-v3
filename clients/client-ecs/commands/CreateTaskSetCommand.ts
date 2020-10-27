@@ -46,6 +46,8 @@ export class CreateTaskSetCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ECSClient",
+      commandName: "CreateTaskSetCommand",
       inputFilterSensitiveLog: CreateTaskSetRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateTaskSetResponse.filterSensitiveLog,
     };

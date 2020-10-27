@@ -46,6 +46,8 @@ export class DisassociateTagOptionFromResourceCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ServiceCatalogClient",
+      commandName: "DisassociateTagOptionFromResourceCommand",
       inputFilterSensitiveLog: DisassociateTagOptionFromResourceInput.filterSensitiveLog,
       outputFilterSensitiveLog: DisassociateTagOptionFromResourceOutput.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class CreateProfileCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "AlexaForBusinessClient",
+      commandName: "CreateProfileCommand",
       inputFilterSensitiveLog: CreateProfileRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateProfileResponse.filterSensitiveLog,
     };

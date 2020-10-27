@@ -46,6 +46,8 @@ export class ListTagsOfResourceCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "DynamoDBClient",
+      commandName: "ListTagsOfResourceCommand",
       inputFilterSensitiveLog: ListTagsOfResourceInput.filterSensitiveLog,
       outputFilterSensitiveLog: ListTagsOfResourceOutput.filterSensitiveLog,
     };

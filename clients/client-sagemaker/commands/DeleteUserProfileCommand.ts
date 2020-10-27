@@ -46,6 +46,8 @@ export class DeleteUserProfileCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SageMakerClient",
+      commandName: "DeleteUserProfileCommand",
       inputFilterSensitiveLog: DeleteUserProfileRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

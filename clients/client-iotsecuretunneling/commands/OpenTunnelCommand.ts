@@ -50,6 +50,8 @@ export class OpenTunnelCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "IoTSecureTunnelingClient",
+      commandName: "OpenTunnelCommand",
       inputFilterSensitiveLog: OpenTunnelRequest.filterSensitiveLog,
       outputFilterSensitiveLog: OpenTunnelResponse.filterSensitiveLog,
     };

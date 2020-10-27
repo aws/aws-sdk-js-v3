@@ -46,6 +46,8 @@ export class ConstantAndVariableQueryStringCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "RestXmlProtocolClient",
+      commandName: "ConstantAndVariableQueryStringCommand",
       inputFilterSensitiveLog: ConstantAndVariableQueryStringInput.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

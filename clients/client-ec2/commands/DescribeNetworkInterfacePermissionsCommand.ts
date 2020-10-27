@@ -50,6 +50,8 @@ export class DescribeNetworkInterfacePermissionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EC2Client",
+      commandName: "DescribeNetworkInterfacePermissionsCommand",
       inputFilterSensitiveLog: DescribeNetworkInterfacePermissionsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeNetworkInterfacePermissionsResult.filterSensitiveLog,
     };

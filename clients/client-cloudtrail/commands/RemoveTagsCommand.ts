@@ -46,6 +46,8 @@ export class RemoveTagsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CloudTrailClient",
+      commandName: "RemoveTagsCommand",
       inputFilterSensitiveLog: RemoveTagsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: RemoveTagsResponse.filterSensitiveLog,
     };

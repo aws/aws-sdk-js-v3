@@ -46,6 +46,8 @@ export class UnshareDirectoryCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "DirectoryServiceClient",
+      commandName: "UnshareDirectoryCommand",
       inputFilterSensitiveLog: UnshareDirectoryRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UnshareDirectoryResult.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class UpdateResolverEndpointCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "Route53ResolverClient",
+      commandName: "UpdateResolverEndpointCommand",
       inputFilterSensitiveLog: UpdateResolverEndpointRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateResolverEndpointResponse.filterSensitiveLog,
     };

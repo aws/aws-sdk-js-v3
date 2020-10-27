@@ -46,6 +46,8 @@ export class UpdateConditionalForwarderCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "DirectoryServiceClient",
+      commandName: "UpdateConditionalForwarderCommand",
       inputFilterSensitiveLog: UpdateConditionalForwarderRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateConditionalForwarderResult.filterSensitiveLog,
     };

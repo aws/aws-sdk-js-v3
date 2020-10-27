@@ -46,6 +46,8 @@ export class CreateEmailIdentityCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "PinpointEmailClient",
+      commandName: "CreateEmailIdentityCommand",
       inputFilterSensitiveLog: CreateEmailIdentityRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateEmailIdentityResponse.filterSensitiveLog,
     };

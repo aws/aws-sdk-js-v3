@@ -46,6 +46,8 @@ export class DetachRolePolicyCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "IAMClient",
+      commandName: "DetachRolePolicyCommand",
       inputFilterSensitiveLog: DetachRolePolicyRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

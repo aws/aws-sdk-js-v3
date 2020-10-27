@@ -46,6 +46,8 @@ export class CancelStepsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EMRClient",
+      commandName: "CancelStepsCommand",
       inputFilterSensitiveLog: CancelStepsInput.filterSensitiveLog,
       outputFilterSensitiveLog: CancelStepsOutput.filterSensitiveLog,
     };

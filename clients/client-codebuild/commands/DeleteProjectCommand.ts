@@ -46,6 +46,8 @@ export class DeleteProjectCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CodeBuildClient",
+      commandName: "DeleteProjectCommand",
       inputFilterSensitiveLog: DeleteProjectInput.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteProjectOutput.filterSensitiveLog,
     };

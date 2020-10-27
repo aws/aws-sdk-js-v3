@@ -46,6 +46,8 @@ export class InviteUsersCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ChimeClient",
+      commandName: "InviteUsersCommand",
       inputFilterSensitiveLog: InviteUsersRequest.filterSensitiveLog,
       outputFilterSensitiveLog: InviteUsersResponse.filterSensitiveLog,
     };

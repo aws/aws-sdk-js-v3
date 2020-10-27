@@ -46,6 +46,8 @@ export class UpdateModelCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "FraudDetectorClient",
+      commandName: "UpdateModelCommand",
       inputFilterSensitiveLog: UpdateModelRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateModelResult.filterSensitiveLog,
     };

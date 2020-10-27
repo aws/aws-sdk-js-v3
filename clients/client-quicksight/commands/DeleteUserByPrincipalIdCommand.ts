@@ -46,6 +46,8 @@ export class DeleteUserByPrincipalIdCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "QuickSightClient",
+      commandName: "DeleteUserByPrincipalIdCommand",
       inputFilterSensitiveLog: DeleteUserByPrincipalIdRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteUserByPrincipalIdResponse.filterSensitiveLog,
     };

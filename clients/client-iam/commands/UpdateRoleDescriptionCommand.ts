@@ -46,6 +46,8 @@ export class UpdateRoleDescriptionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "IAMClient",
+      commandName: "UpdateRoleDescriptionCommand",
       inputFilterSensitiveLog: UpdateRoleDescriptionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateRoleDescriptionResponse.filterSensitiveLog,
     };

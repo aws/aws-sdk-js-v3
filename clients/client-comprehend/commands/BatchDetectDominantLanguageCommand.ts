@@ -46,6 +46,8 @@ export class BatchDetectDominantLanguageCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ComprehendClient",
+      commandName: "BatchDetectDominantLanguageCommand",
       inputFilterSensitiveLog: BatchDetectDominantLanguageRequest.filterSensitiveLog,
       outputFilterSensitiveLog: BatchDetectDominantLanguageResponse.filterSensitiveLog,
     };

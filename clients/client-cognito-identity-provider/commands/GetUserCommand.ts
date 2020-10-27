@@ -47,6 +47,8 @@ export class GetUserCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CognitoIdentityProviderClient",
+      commandName: "GetUserCommand",
       inputFilterSensitiveLog: GetUserRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetUserResponse.filterSensitiveLog,
     };

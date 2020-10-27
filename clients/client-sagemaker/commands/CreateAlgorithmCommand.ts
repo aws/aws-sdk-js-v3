@@ -46,6 +46,8 @@ export class CreateAlgorithmCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SageMakerClient",
+      commandName: "CreateAlgorithmCommand",
       inputFilterSensitiveLog: CreateAlgorithmInput.filterSensitiveLog,
       outputFilterSensitiveLog: CreateAlgorithmOutput.filterSensitiveLog,
     };

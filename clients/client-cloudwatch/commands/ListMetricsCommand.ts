@@ -43,6 +43,8 @@ export class ListMetricsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CloudWatchClient",
+      commandName: "ListMetricsCommand",
       inputFilterSensitiveLog: ListMetricsInput.filterSensitiveLog,
       outputFilterSensitiveLog: ListMetricsOutput.filterSensitiveLog,
     };

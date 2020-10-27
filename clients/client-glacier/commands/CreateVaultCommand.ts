@@ -46,6 +46,8 @@ export class CreateVaultCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GlacierClient",
+      commandName: "CreateVaultCommand",
       inputFilterSensitiveLog: CreateVaultInput.filterSensitiveLog,
       outputFilterSensitiveLog: CreateVaultOutput.filterSensitiveLog,
     };

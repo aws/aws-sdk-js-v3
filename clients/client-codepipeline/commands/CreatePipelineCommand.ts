@@ -46,6 +46,8 @@ export class CreatePipelineCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CodePipelineClient",
+      commandName: "CreatePipelineCommand",
       inputFilterSensitiveLog: CreatePipelineInput.filterSensitiveLog,
       outputFilterSensitiveLog: CreatePipelineOutput.filterSensitiveLog,
     };

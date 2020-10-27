@@ -46,6 +46,8 @@ export class DeleteSnapshotScheduleCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "StorageGatewayClient",
+      commandName: "DeleteSnapshotScheduleCommand",
       inputFilterSensitiveLog: DeleteSnapshotScheduleInput.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteSnapshotScheduleOutput.filterSensitiveLog,
     };

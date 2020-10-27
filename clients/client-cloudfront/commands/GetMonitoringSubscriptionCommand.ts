@@ -46,6 +46,8 @@ export class GetMonitoringSubscriptionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CloudFrontClient",
+      commandName: "GetMonitoringSubscriptionCommand",
       inputFilterSensitiveLog: GetMonitoringSubscriptionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetMonitoringSubscriptionResult.filterSensitiveLog,
     };

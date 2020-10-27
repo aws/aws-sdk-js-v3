@@ -46,6 +46,8 @@ export class ListViolationEventsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "IoTClient",
+      commandName: "ListViolationEventsCommand",
       inputFilterSensitiveLog: ListViolationEventsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListViolationEventsResponse.filterSensitiveLog,
     };

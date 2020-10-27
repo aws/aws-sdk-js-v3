@@ -46,6 +46,8 @@ export class AttachCertificateToDistributionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "LightsailClient",
+      commandName: "AttachCertificateToDistributionCommand",
       inputFilterSensitiveLog: AttachCertificateToDistributionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: AttachCertificateToDistributionResult.filterSensitiveLog,
     };

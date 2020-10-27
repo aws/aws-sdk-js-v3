@@ -46,6 +46,8 @@ export class DescribeIndexCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "KendraClient",
+      commandName: "DescribeIndexCommand",
       inputFilterSensitiveLog: DescribeIndexRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeIndexResponse.filterSensitiveLog,
     };

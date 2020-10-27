@@ -46,6 +46,8 @@ export class GetDomainSuggestionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "Route53DomainsClient",
+      commandName: "GetDomainSuggestionsCommand",
       inputFilterSensitiveLog: GetDomainSuggestionsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetDomainSuggestionsResponse.filterSensitiveLog,
     };

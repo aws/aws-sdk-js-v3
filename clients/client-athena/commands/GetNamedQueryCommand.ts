@@ -46,6 +46,8 @@ export class GetNamedQueryCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "AthenaClient",
+      commandName: "GetNamedQueryCommand",
       inputFilterSensitiveLog: GetNamedQueryInput.filterSensitiveLog,
       outputFilterSensitiveLog: GetNamedQueryOutput.filterSensitiveLog,
     };

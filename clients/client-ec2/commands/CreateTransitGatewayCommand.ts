@@ -46,6 +46,8 @@ export class CreateTransitGatewayCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EC2Client",
+      commandName: "CreateTransitGatewayCommand",
       inputFilterSensitiveLog: CreateTransitGatewayRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateTransitGatewayResult.filterSensitiveLog,
     };

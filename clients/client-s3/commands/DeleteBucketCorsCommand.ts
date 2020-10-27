@@ -48,6 +48,8 @@ export class DeleteBucketCorsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "S3Client",
+      commandName: "DeleteBucketCorsCommand",
       inputFilterSensitiveLog: DeleteBucketCorsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

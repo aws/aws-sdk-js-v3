@@ -50,6 +50,8 @@ export class ListListenersCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GlobalAcceleratorClient",
+      commandName: "ListListenersCommand",
       inputFilterSensitiveLog: ListListenersRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListListenersResponse.filterSensitiveLog,
     };

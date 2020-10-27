@@ -46,6 +46,8 @@ export class EmptyInputAndEmptyOutputCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EC2ProtocolClient",
+      commandName: "EmptyInputAndEmptyOutputCommand",
       inputFilterSensitiveLog: EmptyInputAndEmptyOutputInput.filterSensitiveLog,
       outputFilterSensitiveLog: EmptyInputAndEmptyOutputOutput.filterSensitiveLog,
     };

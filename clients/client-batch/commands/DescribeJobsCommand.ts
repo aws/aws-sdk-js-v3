@@ -46,6 +46,8 @@ export class DescribeJobsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "BatchClient",
+      commandName: "DescribeJobsCommand",
       inputFilterSensitiveLog: DescribeJobsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeJobsResponse.filterSensitiveLog,
     };

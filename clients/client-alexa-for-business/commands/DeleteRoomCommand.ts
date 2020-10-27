@@ -46,6 +46,8 @@ export class DeleteRoomCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "AlexaForBusinessClient",
+      commandName: "DeleteRoomCommand",
       inputFilterSensitiveLog: DeleteRoomRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteRoomResponse.filterSensitiveLog,
     };

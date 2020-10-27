@@ -46,6 +46,8 @@ export class UpdateDataSetCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "QuickSightClient",
+      commandName: "UpdateDataSetCommand",
       inputFilterSensitiveLog: UpdateDataSetRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateDataSetResponse.filterSensitiveLog,
     };

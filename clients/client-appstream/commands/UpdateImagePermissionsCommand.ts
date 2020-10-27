@@ -46,6 +46,8 @@ export class UpdateImagePermissionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "AppStreamClient",
+      commandName: "UpdateImagePermissionsCommand",
       inputFilterSensitiveLog: UpdateImagePermissionsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateImagePermissionsResult.filterSensitiveLog,
     };

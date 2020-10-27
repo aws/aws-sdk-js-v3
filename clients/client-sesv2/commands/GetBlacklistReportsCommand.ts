@@ -46,6 +46,8 @@ export class GetBlacklistReportsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SESv2Client",
+      commandName: "GetBlacklistReportsCommand",
       inputFilterSensitiveLog: GetBlacklistReportsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetBlacklistReportsResponse.filterSensitiveLog,
     };

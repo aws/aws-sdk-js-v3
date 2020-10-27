@@ -46,6 +46,8 @@ export class NotifyAppValidationOutputCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SMSClient",
+      commandName: "NotifyAppValidationOutputCommand",
       inputFilterSensitiveLog: NotifyAppValidationOutputRequest.filterSensitiveLog,
       outputFilterSensitiveLog: NotifyAppValidationOutputResponse.filterSensitiveLog,
     };

@@ -48,6 +48,8 @@ export class GetJobTaggingCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "S3ControlClient",
+      commandName: "GetJobTaggingCommand",
       inputFilterSensitiveLog: GetJobTaggingRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetJobTaggingResult.filterSensitiveLog,
     };

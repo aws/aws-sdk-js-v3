@@ -50,6 +50,8 @@ export class CreateEventSubscriptionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "DatabaseMigrationServiceClient",
+      commandName: "CreateEventSubscriptionCommand",
       inputFilterSensitiveLog: CreateEventSubscriptionMessage.filterSensitiveLog,
       outputFilterSensitiveLog: CreateEventSubscriptionResponse.filterSensitiveLog,
     };

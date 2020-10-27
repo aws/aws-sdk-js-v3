@@ -46,6 +46,8 @@ export class GrantAccessCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "OpsWorksClient",
+      commandName: "GrantAccessCommand",
       inputFilterSensitiveLog: GrantAccessRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GrantAccessResult.filterSensitiveLog,
     };

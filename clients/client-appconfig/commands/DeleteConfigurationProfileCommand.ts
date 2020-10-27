@@ -46,6 +46,8 @@ export class DeleteConfigurationProfileCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "AppConfigClient",
+      commandName: "DeleteConfigurationProfileCommand",
       inputFilterSensitiveLog: DeleteConfigurationProfileRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

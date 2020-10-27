@@ -46,6 +46,8 @@ export class CreateCapacityReservationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EC2Client",
+      commandName: "CreateCapacityReservationCommand",
       inputFilterSensitiveLog: CreateCapacityReservationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateCapacityReservationResult.filterSensitiveLog,
     };

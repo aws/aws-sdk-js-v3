@@ -46,6 +46,8 @@ export class UpdateDashboardCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "IoTSiteWiseClient",
+      commandName: "UpdateDashboardCommand",
       inputFilterSensitiveLog: UpdateDashboardRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateDashboardResponse.filterSensitiveLog,
     };

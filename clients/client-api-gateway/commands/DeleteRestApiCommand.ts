@@ -46,6 +46,8 @@ export class DeleteRestApiCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "APIGatewayClient",
+      commandName: "DeleteRestApiCommand",
       inputFilterSensitiveLog: DeleteRestApiRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

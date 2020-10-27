@@ -46,6 +46,8 @@ export class CreateAccountCustomizationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "QuickSightClient",
+      commandName: "CreateAccountCustomizationCommand",
       inputFilterSensitiveLog: CreateAccountCustomizationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateAccountCustomizationResponse.filterSensitiveLog,
     };

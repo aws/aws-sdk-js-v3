@@ -46,6 +46,8 @@ export class UpdateScriptCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GameLiftClient",
+      commandName: "UpdateScriptCommand",
       inputFilterSensitiveLog: UpdateScriptInput.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateScriptOutput.filterSensitiveLog,
     };

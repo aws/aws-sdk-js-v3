@@ -46,6 +46,8 @@ export class DescribeAccountModificationsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "WorkSpacesClient",
+      commandName: "DescribeAccountModificationsCommand",
       inputFilterSensitiveLog: DescribeAccountModificationsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeAccountModificationsResult.filterSensitiveLog,
     };

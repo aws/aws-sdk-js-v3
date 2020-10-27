@@ -50,6 +50,8 @@ export class DescribeTableStatisticsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "DatabaseMigrationServiceClient",
+      commandName: "DescribeTableStatisticsCommand",
       inputFilterSensitiveLog: DescribeTableStatisticsMessage.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeTableStatisticsResponse.filterSensitiveLog,
     };

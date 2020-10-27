@@ -50,6 +50,8 @@ export class GetMediaCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "KinesisVideoMediaClient",
+      commandName: "GetMediaCommand",
       inputFilterSensitiveLog: GetMediaInput.filterSensitiveLog,
       outputFilterSensitiveLog: GetMediaOutput.filterSensitiveLog,
     };

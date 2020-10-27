@@ -46,6 +46,8 @@ export class DescribeBrokerInstanceOptionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "MqClient",
+      commandName: "DescribeBrokerInstanceOptionsCommand",
       inputFilterSensitiveLog: DescribeBrokerInstanceOptionsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeBrokerInstanceOptionsResponse.filterSensitiveLog,
     };

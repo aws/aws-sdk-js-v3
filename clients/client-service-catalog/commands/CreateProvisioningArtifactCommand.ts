@@ -46,6 +46,8 @@ export class CreateProvisioningArtifactCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ServiceCatalogClient",
+      commandName: "CreateProvisioningArtifactCommand",
       inputFilterSensitiveLog: CreateProvisioningArtifactInput.filterSensitiveLog,
       outputFilterSensitiveLog: CreateProvisioningArtifactOutput.filterSensitiveLog,
     };

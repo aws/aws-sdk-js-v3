@@ -46,6 +46,8 @@ export class UpdateWorldTemplateCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "RoboMakerClient",
+      commandName: "UpdateWorldTemplateCommand",
       inputFilterSensitiveLog: UpdateWorldTemplateRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateWorldTemplateResponse.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class BatchDisassociateUserStackCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "AppStreamClient",
+      commandName: "BatchDisassociateUserStackCommand",
       inputFilterSensitiveLog: BatchDisassociateUserStackRequest.filterSensitiveLog,
       outputFilterSensitiveLog: BatchDisassociateUserStackResult.filterSensitiveLog,
     };

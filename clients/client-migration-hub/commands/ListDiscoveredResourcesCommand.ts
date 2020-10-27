@@ -46,6 +46,8 @@ export class ListDiscoveredResourcesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "MigrationHubClient",
+      commandName: "ListDiscoveredResourcesCommand",
       inputFilterSensitiveLog: ListDiscoveredResourcesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListDiscoveredResourcesResult.filterSensitiveLog,
     };

@@ -50,6 +50,8 @@ export class GetIdentityNotificationAttributesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SESClient",
+      commandName: "GetIdentityNotificationAttributesCommand",
       inputFilterSensitiveLog: GetIdentityNotificationAttributesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetIdentityNotificationAttributesResponse.filterSensitiveLog,
     };

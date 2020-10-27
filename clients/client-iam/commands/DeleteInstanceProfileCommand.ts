@@ -46,6 +46,8 @@ export class DeleteInstanceProfileCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "IAMClient",
+      commandName: "DeleteInstanceProfileCommand",
       inputFilterSensitiveLog: DeleteInstanceProfileRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

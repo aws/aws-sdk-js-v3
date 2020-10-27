@@ -46,6 +46,8 @@ export class StopAssessmentRunCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "InspectorClient",
+      commandName: "StopAssessmentRunCommand",
       inputFilterSensitiveLog: StopAssessmentRunRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

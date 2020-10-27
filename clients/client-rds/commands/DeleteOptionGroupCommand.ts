@@ -46,6 +46,8 @@ export class DeleteOptionGroupCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "RDSClient",
+      commandName: "DeleteOptionGroupCommand",
       inputFilterSensitiveLog: DeleteOptionGroupMessage.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

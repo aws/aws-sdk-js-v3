@@ -46,6 +46,8 @@ export class CreateSiteCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "NetworkManagerClient",
+      commandName: "CreateSiteCommand",
       inputFilterSensitiveLog: CreateSiteRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateSiteResponse.filterSensitiveLog,
     };

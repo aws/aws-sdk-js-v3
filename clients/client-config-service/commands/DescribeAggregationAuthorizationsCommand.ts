@@ -50,6 +50,8 @@ export class DescribeAggregationAuthorizationsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ConfigServiceClient",
+      commandName: "DescribeAggregationAuthorizationsCommand",
       inputFilterSensitiveLog: DescribeAggregationAuthorizationsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeAggregationAuthorizationsResponse.filterSensitiveLog,
     };

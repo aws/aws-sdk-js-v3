@@ -50,6 +50,8 @@ export class UpdateMemberCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ManagedBlockchainClient",
+      commandName: "UpdateMemberCommand",
       inputFilterSensitiveLog: UpdateMemberInput.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateMemberOutput.filterSensitiveLog,
     };

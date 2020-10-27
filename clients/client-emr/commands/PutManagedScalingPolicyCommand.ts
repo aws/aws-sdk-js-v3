@@ -46,6 +46,8 @@ export class PutManagedScalingPolicyCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EMRClient",
+      commandName: "PutManagedScalingPolicyCommand",
       inputFilterSensitiveLog: PutManagedScalingPolicyInput.filterSensitiveLog,
       outputFilterSensitiveLog: PutManagedScalingPolicyOutput.filterSensitiveLog,
     };

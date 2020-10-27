@@ -46,6 +46,8 @@ export class GetCommandInvocationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SSMClient",
+      commandName: "GetCommandInvocationCommand",
       inputFilterSensitiveLog: GetCommandInvocationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetCommandInvocationResult.filterSensitiveLog,
     };

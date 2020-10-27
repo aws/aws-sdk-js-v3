@@ -46,6 +46,8 @@ export class DeleteDataSourceCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "MachineLearningClient",
+      commandName: "DeleteDataSourceCommand",
       inputFilterSensitiveLog: DeleteDataSourceInput.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteDataSourceOutput.filterSensitiveLog,
     };

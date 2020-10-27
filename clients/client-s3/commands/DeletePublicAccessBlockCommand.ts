@@ -48,6 +48,8 @@ export class DeletePublicAccessBlockCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "S3Client",
+      commandName: "DeletePublicAccessBlockCommand",
       inputFilterSensitiveLog: DeletePublicAccessBlockRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

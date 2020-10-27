@@ -46,6 +46,8 @@ export class DescribeEnvironmentManagedActionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ElasticBeanstalkClient",
+      commandName: "DescribeEnvironmentManagedActionsCommand",
       inputFilterSensitiveLog: DescribeEnvironmentManagedActionsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeEnvironmentManagedActionsResult.filterSensitiveLog,
     };

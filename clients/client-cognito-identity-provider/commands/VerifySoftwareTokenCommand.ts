@@ -50,6 +50,8 @@ export class VerifySoftwareTokenCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CognitoIdentityProviderClient",
+      commandName: "VerifySoftwareTokenCommand",
       inputFilterSensitiveLog: VerifySoftwareTokenRequest.filterSensitiveLog,
       outputFilterSensitiveLog: VerifySoftwareTokenResponse.filterSensitiveLog,
     };

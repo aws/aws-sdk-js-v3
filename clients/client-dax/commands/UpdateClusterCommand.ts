@@ -46,6 +46,8 @@ export class UpdateClusterCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "DAXClient",
+      commandName: "UpdateClusterCommand",
       inputFilterSensitiveLog: UpdateClusterRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateClusterResponse.filterSensitiveLog,
     };

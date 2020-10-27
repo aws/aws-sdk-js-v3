@@ -46,6 +46,8 @@ export class UpdateCanaryCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SyntheticsClient",
+      commandName: "UpdateCanaryCommand",
       inputFilterSensitiveLog: UpdateCanaryRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateCanaryResponse.filterSensitiveLog,
     };

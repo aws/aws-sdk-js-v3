@@ -46,6 +46,8 @@ export class ListDeploymentInstancesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CodeDeployClient",
+      commandName: "ListDeploymentInstancesCommand",
       inputFilterSensitiveLog: ListDeploymentInstancesInput.filterSensitiveLog,
       outputFilterSensitiveLog: ListDeploymentInstancesOutput.filterSensitiveLog,
     };

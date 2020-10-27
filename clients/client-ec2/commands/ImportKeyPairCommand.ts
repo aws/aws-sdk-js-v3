@@ -43,6 +43,8 @@ export class ImportKeyPairCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EC2Client",
+      commandName: "ImportKeyPairCommand",
       inputFilterSensitiveLog: ImportKeyPairRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ImportKeyPairResult.filterSensitiveLog,
     };

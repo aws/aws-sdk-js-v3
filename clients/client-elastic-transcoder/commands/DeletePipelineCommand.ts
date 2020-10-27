@@ -50,6 +50,8 @@ export class DeletePipelineCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ElasticTranscoderClient",
+      commandName: "DeletePipelineCommand",
       inputFilterSensitiveLog: DeletePipelineRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeletePipelineResponse.filterSensitiveLog,
     };

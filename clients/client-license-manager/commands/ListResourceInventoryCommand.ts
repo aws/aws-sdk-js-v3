@@ -46,6 +46,8 @@ export class ListResourceInventoryCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "LicenseManagerClient",
+      commandName: "ListResourceInventoryCommand",
       inputFilterSensitiveLog: ListResourceInventoryRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListResourceInventoryResponse.filterSensitiveLog,
     };

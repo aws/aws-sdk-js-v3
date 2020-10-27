@@ -46,6 +46,8 @@ export class EnableEnhancedMonitoringCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "KinesisClient",
+      commandName: "EnableEnhancedMonitoringCommand",
       inputFilterSensitiveLog: EnableEnhancedMonitoringInput.filterSensitiveLog,
       outputFilterSensitiveLog: EnhancedMonitoringOutput.filterSensitiveLog,
     };

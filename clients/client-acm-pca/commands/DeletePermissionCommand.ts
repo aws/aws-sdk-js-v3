@@ -46,6 +46,8 @@ export class DeletePermissionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ACMPCAClient",
+      commandName: "DeletePermissionCommand",
       inputFilterSensitiveLog: DeletePermissionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

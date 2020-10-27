@@ -46,6 +46,8 @@ export class GetAddressBookCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "AlexaForBusinessClient",
+      commandName: "GetAddressBookCommand",
       inputFilterSensitiveLog: GetAddressBookRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetAddressBookResponse.filterSensitiveLog,
     };

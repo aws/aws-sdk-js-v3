@@ -50,6 +50,8 @@ export class RemoveListenerCertificatesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ElasticLoadBalancingV2Client",
+      commandName: "RemoveListenerCertificatesCommand",
       inputFilterSensitiveLog: RemoveListenerCertificatesInput.filterSensitiveLog,
       outputFilterSensitiveLog: RemoveListenerCertificatesOutput.filterSensitiveLog,
     };

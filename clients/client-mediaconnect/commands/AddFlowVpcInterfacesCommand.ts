@@ -46,6 +46,8 @@ export class AddFlowVpcInterfacesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "MediaConnectClient",
+      commandName: "AddFlowVpcInterfacesCommand",
       inputFilterSensitiveLog: AddFlowVpcInterfacesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: AddFlowVpcInterfacesResponse.filterSensitiveLog,
     };

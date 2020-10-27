@@ -46,6 +46,8 @@ export class DeleteAliasCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "KMSClient",
+      commandName: "DeleteAliasCommand",
       inputFilterSensitiveLog: DeleteAliasRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

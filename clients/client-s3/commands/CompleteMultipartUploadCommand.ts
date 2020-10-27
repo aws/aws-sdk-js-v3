@@ -48,6 +48,8 @@ export class CompleteMultipartUploadCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "S3Client",
+      commandName: "CompleteMultipartUploadCommand",
       inputFilterSensitiveLog: CompleteMultipartUploadRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CompleteMultipartUploadOutput.filterSensitiveLog,
     };

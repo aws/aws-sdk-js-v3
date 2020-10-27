@@ -46,6 +46,8 @@ export class DeleteAccessPointCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EFSClient",
+      commandName: "DeleteAccessPointCommand",
       inputFilterSensitiveLog: DeleteAccessPointRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

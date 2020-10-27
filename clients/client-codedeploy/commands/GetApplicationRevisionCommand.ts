@@ -46,6 +46,8 @@ export class GetApplicationRevisionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CodeDeployClient",
+      commandName: "GetApplicationRevisionCommand",
       inputFilterSensitiveLog: GetApplicationRevisionInput.filterSensitiveLog,
       outputFilterSensitiveLog: GetApplicationRevisionOutput.filterSensitiveLog,
     };

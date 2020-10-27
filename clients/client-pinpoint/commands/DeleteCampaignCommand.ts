@@ -46,6 +46,8 @@ export class DeleteCampaignCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "PinpointClient",
+      commandName: "DeleteCampaignCommand",
       inputFilterSensitiveLog: DeleteCampaignRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteCampaignResponse.filterSensitiveLog,
     };

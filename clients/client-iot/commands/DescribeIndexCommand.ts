@@ -46,6 +46,8 @@ export class DescribeIndexCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "IoTClient",
+      commandName: "DescribeIndexCommand",
       inputFilterSensitiveLog: DescribeIndexRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeIndexResponse.filterSensitiveLog,
     };

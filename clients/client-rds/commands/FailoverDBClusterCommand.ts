@@ -46,6 +46,8 @@ export class FailoverDBClusterCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "RDSClient",
+      commandName: "FailoverDBClusterCommand",
       inputFilterSensitiveLog: FailoverDBClusterMessage.filterSensitiveLog,
       outputFilterSensitiveLog: FailoverDBClusterResult.filterSensitiveLog,
     };

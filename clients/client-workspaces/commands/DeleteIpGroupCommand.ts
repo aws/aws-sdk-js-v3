@@ -46,6 +46,8 @@ export class DeleteIpGroupCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "WorkSpacesClient",
+      commandName: "DeleteIpGroupCommand",
       inputFilterSensitiveLog: DeleteIpGroupRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteIpGroupResult.filterSensitiveLog,
     };

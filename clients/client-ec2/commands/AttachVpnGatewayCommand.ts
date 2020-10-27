@@ -46,6 +46,8 @@ export class AttachVpnGatewayCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EC2Client",
+      commandName: "AttachVpnGatewayCommand",
       inputFilterSensitiveLog: AttachVpnGatewayRequest.filterSensitiveLog,
       outputFilterSensitiveLog: AttachVpnGatewayResult.filterSensitiveLog,
     };

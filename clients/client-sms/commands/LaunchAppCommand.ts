@@ -39,6 +39,8 @@ export class LaunchAppCommand extends $Command<LaunchAppCommandInput, LaunchAppC
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SMSClient",
+      commandName: "LaunchAppCommand",
       inputFilterSensitiveLog: LaunchAppRequest.filterSensitiveLog,
       outputFilterSensitiveLog: LaunchAppResponse.filterSensitiveLog,
     };

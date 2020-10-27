@@ -46,6 +46,8 @@ export class DeleteEventSubscriptionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "RedshiftClient",
+      commandName: "DeleteEventSubscriptionCommand",
       inputFilterSensitiveLog: DeleteEventSubscriptionMessage.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

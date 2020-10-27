@@ -46,6 +46,8 @@ export class UpdateStackCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "OpsWorksClient",
+      commandName: "UpdateStackCommand",
       inputFilterSensitiveLog: UpdateStackRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

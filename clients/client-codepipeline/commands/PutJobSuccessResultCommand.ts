@@ -46,6 +46,8 @@ export class PutJobSuccessResultCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CodePipelineClient",
+      commandName: "PutJobSuccessResultCommand",
       inputFilterSensitiveLog: PutJobSuccessResultInput.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

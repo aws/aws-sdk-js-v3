@@ -46,6 +46,8 @@ export class StartMLEvaluationTaskRunCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GlueClient",
+      commandName: "StartMLEvaluationTaskRunCommand",
       inputFilterSensitiveLog: StartMLEvaluationTaskRunRequest.filterSensitiveLog,
       outputFilterSensitiveLog: StartMLEvaluationTaskRunResponse.filterSensitiveLog,
     };

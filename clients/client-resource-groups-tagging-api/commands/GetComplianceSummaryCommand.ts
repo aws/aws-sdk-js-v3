@@ -50,6 +50,8 @@ export class GetComplianceSummaryCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ResourceGroupsTaggingAPIClient",
+      commandName: "GetComplianceSummaryCommand",
       inputFilterSensitiveLog: GetComplianceSummaryInput.filterSensitiveLog,
       outputFilterSensitiveLog: GetComplianceSummaryOutput.filterSensitiveLog,
     };

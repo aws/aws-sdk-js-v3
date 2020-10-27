@@ -46,6 +46,8 @@ export class ListTagsForResourceCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ElasticBeanstalkClient",
+      commandName: "ListTagsForResourceCommand",
       inputFilterSensitiveLog: ListTagsForResourceMessage.filterSensitiveLog,
       outputFilterSensitiveLog: ResourceTagsDescriptionMessage.filterSensitiveLog,
     };

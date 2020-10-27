@@ -46,6 +46,8 @@ export class ListRepositoryAssociationsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CodeGuruReviewerClient",
+      commandName: "ListRepositoryAssociationsCommand",
       inputFilterSensitiveLog: ListRepositoryAssociationsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListRepositoryAssociationsResponse.filterSensitiveLog,
     };

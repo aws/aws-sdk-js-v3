@@ -46,6 +46,8 @@ export class UpdateRecordsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CognitoSyncClient",
+      commandName: "UpdateRecordsCommand",
       inputFilterSensitiveLog: UpdateRecordsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateRecordsResponse.filterSensitiveLog,
     };

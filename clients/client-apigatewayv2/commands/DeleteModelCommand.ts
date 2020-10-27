@@ -46,6 +46,8 @@ export class DeleteModelCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ApiGatewayV2Client",
+      commandName: "DeleteModelCommand",
       inputFilterSensitiveLog: DeleteModelRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

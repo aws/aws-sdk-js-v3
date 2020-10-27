@@ -46,6 +46,8 @@ export class TransferInputDeviceCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "MediaLiveClient",
+      commandName: "TransferInputDeviceCommand",
       inputFilterSensitiveLog: TransferInputDeviceRequest.filterSensitiveLog,
       outputFilterSensitiveLog: TransferInputDeviceResponse.filterSensitiveLog,
     };

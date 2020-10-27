@@ -46,6 +46,8 @@ export class DeleteWorkGroupCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "AthenaClient",
+      commandName: "DeleteWorkGroupCommand",
       inputFilterSensitiveLog: DeleteWorkGroupInput.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteWorkGroupOutput.filterSensitiveLog,
     };

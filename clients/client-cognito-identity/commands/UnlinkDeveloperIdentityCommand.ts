@@ -48,6 +48,8 @@ export class UnlinkDeveloperIdentityCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CognitoIdentityClient",
+      commandName: "UnlinkDeveloperIdentityCommand",
       inputFilterSensitiveLog: UnlinkDeveloperIdentityInput.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

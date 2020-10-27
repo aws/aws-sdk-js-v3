@@ -46,6 +46,8 @@ export class CreateCommentCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "WorkDocsClient",
+      commandName: "CreateCommentCommand",
       inputFilterSensitiveLog: CreateCommentRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateCommentResponse.filterSensitiveLog,
     };

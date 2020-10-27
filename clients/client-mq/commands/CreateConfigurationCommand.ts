@@ -46,6 +46,8 @@ export class CreateConfigurationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "MqClient",
+      commandName: "CreateConfigurationCommand",
       inputFilterSensitiveLog: CreateConfigurationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateConfigurationResponse.filterSensitiveLog,
     };

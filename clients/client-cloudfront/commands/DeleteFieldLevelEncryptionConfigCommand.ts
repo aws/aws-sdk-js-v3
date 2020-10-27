@@ -46,6 +46,8 @@ export class DeleteFieldLevelEncryptionConfigCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CloudFrontClient",
+      commandName: "DeleteFieldLevelEncryptionConfigCommand",
       inputFilterSensitiveLog: DeleteFieldLevelEncryptionConfigRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

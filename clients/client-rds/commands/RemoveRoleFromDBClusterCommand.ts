@@ -46,6 +46,8 @@ export class RemoveRoleFromDBClusterCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "RDSClient",
+      commandName: "RemoveRoleFromDBClusterCommand",
       inputFilterSensitiveLog: RemoveRoleFromDBClusterMessage.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

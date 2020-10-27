@@ -46,6 +46,8 @@ export class BacktrackDBClusterCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "RDSClient",
+      commandName: "BacktrackDBClusterCommand",
       inputFilterSensitiveLog: BacktrackDBClusterMessage.filterSensitiveLog,
       outputFilterSensitiveLog: DBClusterBacktrack.filterSensitiveLog,
     };

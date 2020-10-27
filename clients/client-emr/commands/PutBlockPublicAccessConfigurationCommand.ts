@@ -46,6 +46,8 @@ export class PutBlockPublicAccessConfigurationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EMRClient",
+      commandName: "PutBlockPublicAccessConfigurationCommand",
       inputFilterSensitiveLog: PutBlockPublicAccessConfigurationInput.filterSensitiveLog,
       outputFilterSensitiveLog: PutBlockPublicAccessConfigurationOutput.filterSensitiveLog,
     };

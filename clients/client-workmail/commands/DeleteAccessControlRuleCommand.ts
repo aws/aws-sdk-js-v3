@@ -46,6 +46,8 @@ export class DeleteAccessControlRuleCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "WorkMailClient",
+      commandName: "DeleteAccessControlRuleCommand",
       inputFilterSensitiveLog: DeleteAccessControlRuleRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteAccessControlRuleResponse.filterSensitiveLog,
     };

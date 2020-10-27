@@ -46,6 +46,8 @@ export class BatchDeleteImageCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ECRClient",
+      commandName: "BatchDeleteImageCommand",
       inputFilterSensitiveLog: BatchDeleteImageRequest.filterSensitiveLog,
       outputFilterSensitiveLog: BatchDeleteImageResponse.filterSensitiveLog,
     };

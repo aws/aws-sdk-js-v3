@@ -46,6 +46,8 @@ export class ListTagsForResourceCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "XRayClient",
+      commandName: "ListTagsForResourceCommand",
       inputFilterSensitiveLog: ListTagsForResourceRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListTagsForResourceResponse.filterSensitiveLog,
     };

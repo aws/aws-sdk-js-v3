@@ -46,6 +46,8 @@ export class UntagStreamCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "KinesisVideoClient",
+      commandName: "UntagStreamCommand",
       inputFilterSensitiveLog: UntagStreamInput.filterSensitiveLog,
       outputFilterSensitiveLog: UntagStreamOutput.filterSensitiveLog,
     };

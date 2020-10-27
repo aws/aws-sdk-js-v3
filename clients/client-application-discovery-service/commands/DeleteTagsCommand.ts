@@ -50,6 +50,8 @@ export class DeleteTagsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ApplicationDiscoveryServiceClient",
+      commandName: "DeleteTagsCommand",
       inputFilterSensitiveLog: DeleteTagsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteTagsResponse.filterSensitiveLog,
     };

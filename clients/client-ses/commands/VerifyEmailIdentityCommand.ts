@@ -46,6 +46,8 @@ export class VerifyEmailIdentityCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SESClient",
+      commandName: "VerifyEmailIdentityCommand",
       inputFilterSensitiveLog: VerifyEmailIdentityRequest.filterSensitiveLog,
       outputFilterSensitiveLog: VerifyEmailIdentityResponse.filterSensitiveLog,
     };

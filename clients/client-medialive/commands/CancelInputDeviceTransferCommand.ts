@@ -46,6 +46,8 @@ export class CancelInputDeviceTransferCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "MediaLiveClient",
+      commandName: "CancelInputDeviceTransferCommand",
       inputFilterSensitiveLog: CancelInputDeviceTransferRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CancelInputDeviceTransferResponse.filterSensitiveLog,
     };

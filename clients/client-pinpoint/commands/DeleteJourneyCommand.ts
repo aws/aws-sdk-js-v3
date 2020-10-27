@@ -46,6 +46,8 @@ export class DeleteJourneyCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "PinpointClient",
+      commandName: "DeleteJourneyCommand",
       inputFilterSensitiveLog: DeleteJourneyRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteJourneyResponse.filterSensitiveLog,
     };

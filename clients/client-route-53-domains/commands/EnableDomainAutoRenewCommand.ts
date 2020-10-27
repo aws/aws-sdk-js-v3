@@ -46,6 +46,8 @@ export class EnableDomainAutoRenewCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "Route53DomainsClient",
+      commandName: "EnableDomainAutoRenewCommand",
       inputFilterSensitiveLog: EnableDomainAutoRenewRequest.filterSensitiveLog,
       outputFilterSensitiveLog: EnableDomainAutoRenewResponse.filterSensitiveLog,
     };

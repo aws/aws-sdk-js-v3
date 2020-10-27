@@ -46,6 +46,8 @@ export class DeleteConfigurationTemplateCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ElasticBeanstalkClient",
+      commandName: "DeleteConfigurationTemplateCommand",
       inputFilterSensitiveLog: DeleteConfigurationTemplateMessage.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

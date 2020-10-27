@@ -47,6 +47,8 @@ export class PutBotCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "LexModelBuildingServiceClient",
+      commandName: "PutBotCommand",
       inputFilterSensitiveLog: PutBotRequest.filterSensitiveLog,
       outputFilterSensitiveLog: PutBotResponse.filterSensitiveLog,
     };

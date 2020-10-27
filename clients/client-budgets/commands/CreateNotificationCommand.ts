@@ -46,6 +46,8 @@ export class CreateNotificationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "BudgetsClient",
+      commandName: "CreateNotificationCommand",
       inputFilterSensitiveLog: CreateNotificationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateNotificationResponse.filterSensitiveLog,
     };

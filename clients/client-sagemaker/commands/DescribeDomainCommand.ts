@@ -46,6 +46,8 @@ export class DescribeDomainCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SageMakerClient",
+      commandName: "DescribeDomainCommand",
       inputFilterSensitiveLog: DescribeDomainRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeDomainResponse.filterSensitiveLog,
     };

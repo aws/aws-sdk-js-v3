@@ -48,6 +48,8 @@ export class DeleteBucketTaggingCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "S3ControlClient",
+      commandName: "DeleteBucketTaggingCommand",
       inputFilterSensitiveLog: DeleteBucketTaggingRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

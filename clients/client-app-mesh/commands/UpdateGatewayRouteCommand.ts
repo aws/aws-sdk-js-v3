@@ -46,6 +46,8 @@ export class UpdateGatewayRouteCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "AppMeshClient",
+      commandName: "UpdateGatewayRouteCommand",
       inputFilterSensitiveLog: UpdateGatewayRouteInput.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateGatewayRouteOutput.filterSensitiveLog,
     };

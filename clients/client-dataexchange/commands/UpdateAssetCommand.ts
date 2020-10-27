@@ -46,6 +46,8 @@ export class UpdateAssetCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "DataExchangeClient",
+      commandName: "UpdateAssetCommand",
       inputFilterSensitiveLog: UpdateAssetRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateAssetResponse.filterSensitiveLog,
     };

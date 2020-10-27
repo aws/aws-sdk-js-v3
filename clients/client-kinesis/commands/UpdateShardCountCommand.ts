@@ -46,6 +46,8 @@ export class UpdateShardCountCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "KinesisClient",
+      commandName: "UpdateShardCountCommand",
       inputFilterSensitiveLog: UpdateShardCountInput.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateShardCountOutput.filterSensitiveLog,
     };

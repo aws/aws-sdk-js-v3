@@ -46,6 +46,8 @@ export class PutPipelineDefinitionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "DataPipelineClient",
+      commandName: "PutPipelineDefinitionCommand",
       inputFilterSensitiveLog: PutPipelineDefinitionInput.filterSensitiveLog,
       outputFilterSensitiveLog: PutPipelineDefinitionOutput.filterSensitiveLog,
     };

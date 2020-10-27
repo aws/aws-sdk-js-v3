@@ -46,6 +46,8 @@ export class DescribeWorldGenerationJobCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "RoboMakerClient",
+      commandName: "DescribeWorldGenerationJobCommand",
       inputFilterSensitiveLog: DescribeWorldGenerationJobRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeWorldGenerationJobResponse.filterSensitiveLog,
     };

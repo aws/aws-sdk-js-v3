@@ -46,6 +46,8 @@ export class DeleteSchemaCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SchemasClient",
+      commandName: "DeleteSchemaCommand",
       inputFilterSensitiveLog: DeleteSchemaRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

@@ -46,6 +46,8 @@ export class UnsubscribeFromDatasetCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CognitoSyncClient",
+      commandName: "UnsubscribeFromDatasetCommand",
       inputFilterSensitiveLog: UnsubscribeFromDatasetRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UnsubscribeFromDatasetResponse.filterSensitiveLog,
     };

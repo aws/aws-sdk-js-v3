@@ -46,6 +46,8 @@ export class DescribeFleetHistoryCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EC2Client",
+      commandName: "DescribeFleetHistoryCommand",
       inputFilterSensitiveLog: DescribeFleetHistoryRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeFleetHistoryResult.filterSensitiveLog,
     };

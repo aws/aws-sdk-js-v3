@@ -46,6 +46,8 @@ export class DeleteAuditSuppressionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "IoTClient",
+      commandName: "DeleteAuditSuppressionCommand",
       inputFilterSensitiveLog: DeleteAuditSuppressionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteAuditSuppressionResponse.filterSensitiveLog,
     };

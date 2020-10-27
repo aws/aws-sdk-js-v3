@@ -46,6 +46,8 @@ export class NoInputAndOutputCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EC2ProtocolClient",
+      commandName: "NoInputAndOutputCommand",
       inputFilterSensitiveLog: (input: any) => input,
       outputFilterSensitiveLog: NoInputAndOutputOutput.filterSensitiveLog,
     };

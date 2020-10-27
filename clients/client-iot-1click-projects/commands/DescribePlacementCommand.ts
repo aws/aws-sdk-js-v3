@@ -50,6 +50,8 @@ export class DescribePlacementCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "IoT1ClickProjectsClient",
+      commandName: "DescribePlacementCommand",
       inputFilterSensitiveLog: DescribePlacementRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribePlacementResponse.filterSensitiveLog,
     };

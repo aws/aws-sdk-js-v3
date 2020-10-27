@@ -49,6 +49,8 @@ export class AssociateApprovalRuleTemplateWithRepositoryCommand extends $Command
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CodeCommitClient",
+      commandName: "AssociateApprovalRuleTemplateWithRepositoryCommand",
       inputFilterSensitiveLog: AssociateApprovalRuleTemplateWithRepositoryInput.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

@@ -50,6 +50,8 @@ export class PutIntentCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "LexModelBuildingServiceClient",
+      commandName: "PutIntentCommand",
       inputFilterSensitiveLog: PutIntentRequest.filterSensitiveLog,
       outputFilterSensitiveLog: PutIntentResponse.filterSensitiveLog,
     };

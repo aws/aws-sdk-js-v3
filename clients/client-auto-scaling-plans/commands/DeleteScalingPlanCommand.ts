@@ -46,6 +46,8 @@ export class DeleteScalingPlanCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "AutoScalingPlansClient",
+      commandName: "DeleteScalingPlanCommand",
       inputFilterSensitiveLog: DeleteScalingPlanRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteScalingPlanResponse.filterSensitiveLog,
     };

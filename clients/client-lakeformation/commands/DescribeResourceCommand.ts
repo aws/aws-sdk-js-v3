@@ -46,6 +46,8 @@ export class DescribeResourceCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "LakeFormationClient",
+      commandName: "DescribeResourceCommand",
       inputFilterSensitiveLog: DescribeResourceRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeResourceResponse.filterSensitiveLog,
     };

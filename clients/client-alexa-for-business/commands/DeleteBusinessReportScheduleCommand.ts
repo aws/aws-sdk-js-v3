@@ -46,6 +46,8 @@ export class DeleteBusinessReportScheduleCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "AlexaForBusinessClient",
+      commandName: "DeleteBusinessReportScheduleCommand",
       inputFilterSensitiveLog: DeleteBusinessReportScheduleRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteBusinessReportScheduleResponse.filterSensitiveLog,
     };

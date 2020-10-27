@@ -39,6 +39,8 @@ export class GetAppCommand extends $Command<GetAppCommandInput, GetAppCommandOut
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SMSClient",
+      commandName: "GetAppCommand",
       inputFilterSensitiveLog: GetAppRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetAppResponse.filterSensitiveLog,
     };

@@ -43,6 +43,8 @@ export class CreateTopicCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SNSClient",
+      commandName: "CreateTopicCommand",
       inputFilterSensitiveLog: CreateTopicInput.filterSensitiveLog,
       outputFilterSensitiveLog: CreateTopicResponse.filterSensitiveLog,
     };

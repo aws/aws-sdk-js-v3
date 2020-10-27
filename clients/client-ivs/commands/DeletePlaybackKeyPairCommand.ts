@@ -46,6 +46,8 @@ export class DeletePlaybackKeyPairCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "IvsClient",
+      commandName: "DeletePlaybackKeyPairCommand",
       inputFilterSensitiveLog: DeletePlaybackKeyPairRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeletePlaybackKeyPairResponse.filterSensitiveLog,
     };

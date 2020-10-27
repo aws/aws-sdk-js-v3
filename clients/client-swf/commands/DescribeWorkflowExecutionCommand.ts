@@ -46,6 +46,8 @@ export class DescribeWorkflowExecutionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SWFClient",
+      commandName: "DescribeWorkflowExecutionCommand",
       inputFilterSensitiveLog: DescribeWorkflowExecutionInput.filterSensitiveLog,
       outputFilterSensitiveLog: WorkflowExecutionDetail.filterSensitiveLog,
     };

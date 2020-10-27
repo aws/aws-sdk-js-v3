@@ -46,6 +46,8 @@ export class AssociateDeviceWithRoomCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "AlexaForBusinessClient",
+      commandName: "AssociateDeviceWithRoomCommand",
       inputFilterSensitiveLog: AssociateDeviceWithRoomRequest.filterSensitiveLog,
       outputFilterSensitiveLog: AssociateDeviceWithRoomResponse.filterSensitiveLog,
     };

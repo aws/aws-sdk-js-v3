@@ -46,6 +46,8 @@ export class PutEvaluationsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ConfigServiceClient",
+      commandName: "PutEvaluationsCommand",
       inputFilterSensitiveLog: PutEvaluationsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: PutEvaluationsResponse.filterSensitiveLog,
     };

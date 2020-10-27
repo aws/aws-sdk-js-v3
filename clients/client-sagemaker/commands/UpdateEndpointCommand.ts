@@ -46,6 +46,8 @@ export class UpdateEndpointCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SageMakerClient",
+      commandName: "UpdateEndpointCommand",
       inputFilterSensitiveLog: UpdateEndpointInput.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateEndpointOutput.filterSensitiveLog,
     };

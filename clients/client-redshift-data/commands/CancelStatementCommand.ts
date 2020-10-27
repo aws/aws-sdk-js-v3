@@ -46,6 +46,8 @@ export class CancelStatementCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "RedshiftDataClient",
+      commandName: "CancelStatementCommand",
       inputFilterSensitiveLog: CancelStatementRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CancelStatementResponse.filterSensitiveLog,
     };

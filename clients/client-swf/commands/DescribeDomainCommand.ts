@@ -46,6 +46,8 @@ export class DescribeDomainCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SWFClient",
+      commandName: "DescribeDomainCommand",
       inputFilterSensitiveLog: DescribeDomainInput.filterSensitiveLog,
       outputFilterSensitiveLog: DomainDetail.filterSensitiveLog,
     };

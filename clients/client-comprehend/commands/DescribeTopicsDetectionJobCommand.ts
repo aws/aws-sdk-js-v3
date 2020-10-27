@@ -46,6 +46,8 @@ export class DescribeTopicsDetectionJobCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ComprehendClient",
+      commandName: "DescribeTopicsDetectionJobCommand",
       inputFilterSensitiveLog: DescribeTopicsDetectionJobRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeTopicsDetectionJobResponse.filterSensitiveLog,
     };

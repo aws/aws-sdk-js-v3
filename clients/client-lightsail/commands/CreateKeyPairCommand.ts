@@ -46,6 +46,8 @@ export class CreateKeyPairCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "LightsailClient",
+      commandName: "CreateKeyPairCommand",
       inputFilterSensitiveLog: CreateKeyPairRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateKeyPairResult.filterSensitiveLog,
     };

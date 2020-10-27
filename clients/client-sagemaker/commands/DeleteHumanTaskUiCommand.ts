@@ -46,6 +46,8 @@ export class DeleteHumanTaskUiCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SageMakerClient",
+      commandName: "DeleteHumanTaskUiCommand",
       inputFilterSensitiveLog: DeleteHumanTaskUiRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteHumanTaskUiResponse.filterSensitiveLog,
     };

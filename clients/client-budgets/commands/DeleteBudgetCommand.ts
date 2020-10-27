@@ -46,6 +46,8 @@ export class DeleteBudgetCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "BudgetsClient",
+      commandName: "DeleteBudgetCommand",
       inputFilterSensitiveLog: DeleteBudgetRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteBudgetResponse.filterSensitiveLog,
     };

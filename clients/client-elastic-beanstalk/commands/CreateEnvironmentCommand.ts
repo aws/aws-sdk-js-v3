@@ -46,6 +46,8 @@ export class CreateEnvironmentCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ElasticBeanstalkClient",
+      commandName: "CreateEnvironmentCommand",
       inputFilterSensitiveLog: CreateEnvironmentMessage.filterSensitiveLog,
       outputFilterSensitiveLog: EnvironmentDescription.filterSensitiveLog,
     };

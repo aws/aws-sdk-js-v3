@@ -50,6 +50,8 @@ export class GetUtterancesViewCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "LexModelBuildingServiceClient",
+      commandName: "GetUtterancesViewCommand",
       inputFilterSensitiveLog: GetUtterancesViewRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetUtterancesViewResponse.filterSensitiveLog,
     };

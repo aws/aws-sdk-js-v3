@@ -46,6 +46,8 @@ export class DeleteSolutionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "PersonalizeClient",
+      commandName: "DeleteSolutionCommand",
       inputFilterSensitiveLog: DeleteSolutionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

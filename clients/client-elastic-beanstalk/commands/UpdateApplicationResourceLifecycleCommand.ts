@@ -50,6 +50,8 @@ export class UpdateApplicationResourceLifecycleCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ElasticBeanstalkClient",
+      commandName: "UpdateApplicationResourceLifecycleCommand",
       inputFilterSensitiveLog: UpdateApplicationResourceLifecycleMessage.filterSensitiveLog,
       outputFilterSensitiveLog: ApplicationResourceLifecycleDescriptionMessage.filterSensitiveLog,
     };

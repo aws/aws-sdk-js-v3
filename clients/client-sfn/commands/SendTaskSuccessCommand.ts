@@ -46,6 +46,8 @@ export class SendTaskSuccessCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SFNClient",
+      commandName: "SendTaskSuccessCommand",
       inputFilterSensitiveLog: SendTaskSuccessInput.filterSensitiveLog,
       outputFilterSensitiveLog: SendTaskSuccessOutput.filterSensitiveLog,
     };

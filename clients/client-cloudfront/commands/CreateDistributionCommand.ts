@@ -46,6 +46,8 @@ export class CreateDistributionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CloudFrontClient",
+      commandName: "CreateDistributionCommand",
       inputFilterSensitiveLog: CreateDistributionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateDistributionResult.filterSensitiveLog,
     };

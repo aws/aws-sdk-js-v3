@@ -43,6 +43,8 @@ export class DeleteHsmCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CloudHSMV2Client",
+      commandName: "DeleteHsmCommand",
       inputFilterSensitiveLog: DeleteHsmRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteHsmResponse.filterSensitiveLog,
     };

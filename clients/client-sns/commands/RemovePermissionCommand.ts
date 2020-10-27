@@ -46,6 +46,8 @@ export class RemovePermissionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SNSClient",
+      commandName: "RemovePermissionCommand",
       inputFilterSensitiveLog: RemovePermissionInput.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

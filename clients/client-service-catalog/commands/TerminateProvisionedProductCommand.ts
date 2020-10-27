@@ -46,6 +46,8 @@ export class TerminateProvisionedProductCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ServiceCatalogClient",
+      commandName: "TerminateProvisionedProductCommand",
       inputFilterSensitiveLog: TerminateProvisionedProductInput.filterSensitiveLog,
       outputFilterSensitiveLog: TerminateProvisionedProductOutput.filterSensitiveLog,
     };

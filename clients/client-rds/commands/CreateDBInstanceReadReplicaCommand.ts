@@ -48,6 +48,8 @@ export class CreateDBInstanceReadReplicaCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "RDSClient",
+      commandName: "CreateDBInstanceReadReplicaCommand",
       inputFilterSensitiveLog: CreateDBInstanceReadReplicaMessage.filterSensitiveLog,
       outputFilterSensitiveLog: CreateDBInstanceReadReplicaResult.filterSensitiveLog,
     };

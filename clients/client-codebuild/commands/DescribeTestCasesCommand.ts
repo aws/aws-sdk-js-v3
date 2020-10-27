@@ -46,6 +46,8 @@ export class DescribeTestCasesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CodeBuildClient",
+      commandName: "DescribeTestCasesCommand",
       inputFilterSensitiveLog: DescribeTestCasesInput.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeTestCasesOutput.filterSensitiveLog,
     };

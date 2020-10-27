@@ -46,6 +46,8 @@ export class GetDomainDeliverabilityCampaignCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "PinpointEmailClient",
+      commandName: "GetDomainDeliverabilityCampaignCommand",
       inputFilterSensitiveLog: GetDomainDeliverabilityCampaignRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetDomainDeliverabilityCampaignResponse.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class DescribeSimulationApplicationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "RoboMakerClient",
+      commandName: "DescribeSimulationApplicationCommand",
       inputFilterSensitiveLog: DescribeSimulationApplicationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeSimulationApplicationResponse.filterSensitiveLog,
     };

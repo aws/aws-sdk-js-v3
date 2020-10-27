@@ -50,6 +50,8 @@ export class DescribeHomeRegionControlsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "MigrationHubConfigClient",
+      commandName: "DescribeHomeRegionControlsCommand",
       inputFilterSensitiveLog: DescribeHomeRegionControlsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeHomeRegionControlsResult.filterSensitiveLog,
     };

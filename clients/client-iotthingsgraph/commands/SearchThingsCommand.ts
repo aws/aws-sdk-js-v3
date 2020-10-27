@@ -46,6 +46,8 @@ export class SearchThingsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "IoTThingsGraphClient",
+      commandName: "SearchThingsCommand",
       inputFilterSensitiveLog: SearchThingsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: SearchThingsResponse.filterSensitiveLog,
     };

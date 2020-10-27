@@ -46,6 +46,8 @@ export class RetrieveTapeArchiveCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "StorageGatewayClient",
+      commandName: "RetrieveTapeArchiveCommand",
       inputFilterSensitiveLog: RetrieveTapeArchiveInput.filterSensitiveLog,
       outputFilterSensitiveLog: RetrieveTapeArchiveOutput.filterSensitiveLog,
     };

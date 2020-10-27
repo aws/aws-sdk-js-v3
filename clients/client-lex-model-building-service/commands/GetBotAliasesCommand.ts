@@ -50,6 +50,8 @@ export class GetBotAliasesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "LexModelBuildingServiceClient",
+      commandName: "GetBotAliasesCommand",
       inputFilterSensitiveLog: GetBotAliasesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetBotAliasesResponse.filterSensitiveLog,
     };

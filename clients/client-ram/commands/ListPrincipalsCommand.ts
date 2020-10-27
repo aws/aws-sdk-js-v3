@@ -46,6 +46,8 @@ export class ListPrincipalsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "RAMClient",
+      commandName: "ListPrincipalsCommand",
       inputFilterSensitiveLog: ListPrincipalsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListPrincipalsResponse.filterSensitiveLog,
     };

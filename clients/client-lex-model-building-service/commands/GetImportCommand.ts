@@ -50,6 +50,8 @@ export class GetImportCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "LexModelBuildingServiceClient",
+      commandName: "GetImportCommand",
       inputFilterSensitiveLog: GetImportRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetImportResponse.filterSensitiveLog,
     };

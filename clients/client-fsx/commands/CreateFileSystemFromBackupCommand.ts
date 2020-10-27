@@ -46,6 +46,8 @@ export class CreateFileSystemFromBackupCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "FSxClient",
+      commandName: "CreateFileSystemFromBackupCommand",
       inputFilterSensitiveLog: CreateFileSystemFromBackupRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateFileSystemFromBackupResponse.filterSensitiveLog,
     };

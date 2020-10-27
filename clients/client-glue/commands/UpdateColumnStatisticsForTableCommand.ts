@@ -46,6 +46,8 @@ export class UpdateColumnStatisticsForTableCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GlueClient",
+      commandName: "UpdateColumnStatisticsForTableCommand",
       inputFilterSensitiveLog: UpdateColumnStatisticsForTableRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateColumnStatisticsForTableResponse.filterSensitiveLog,
     };

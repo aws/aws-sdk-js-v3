@@ -46,6 +46,8 @@ export class CreatePresignedDomainUrlCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SageMakerClient",
+      commandName: "CreatePresignedDomainUrlCommand",
       inputFilterSensitiveLog: CreatePresignedDomainUrlRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreatePresignedDomainUrlResponse.filterSensitiveLog,
     };

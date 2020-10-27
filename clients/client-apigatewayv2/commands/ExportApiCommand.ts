@@ -46,6 +46,8 @@ export class ExportApiCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ApiGatewayV2Client",
+      commandName: "ExportApiCommand",
       inputFilterSensitiveLog: ExportApiRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ExportApiResponse.filterSensitiveLog,
     };

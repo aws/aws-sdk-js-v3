@@ -46,6 +46,8 @@ export class BatchDeleteCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "MediaLiveClient",
+      commandName: "BatchDeleteCommand",
       inputFilterSensitiveLog: BatchDeleteRequest.filterSensitiveLog,
       outputFilterSensitiveLog: BatchDeleteResponse.filterSensitiveLog,
     };

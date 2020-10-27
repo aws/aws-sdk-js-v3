@@ -50,6 +50,8 @@ export class ChangePasswordCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CognitoIdentityProviderClient",
+      commandName: "ChangePasswordCommand",
       inputFilterSensitiveLog: ChangePasswordRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ChangePasswordResponse.filterSensitiveLog,
     };

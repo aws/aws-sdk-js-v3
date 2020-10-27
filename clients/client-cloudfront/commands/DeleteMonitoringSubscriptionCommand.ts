@@ -46,6 +46,8 @@ export class DeleteMonitoringSubscriptionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CloudFrontClient",
+      commandName: "DeleteMonitoringSubscriptionCommand",
       inputFilterSensitiveLog: DeleteMonitoringSubscriptionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteMonitoringSubscriptionResult.filterSensitiveLog,
     };

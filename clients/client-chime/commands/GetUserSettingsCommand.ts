@@ -46,6 +46,8 @@ export class GetUserSettingsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ChimeClient",
+      commandName: "GetUserSettingsCommand",
       inputFilterSensitiveLog: GetUserSettingsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetUserSettingsResponse.filterSensitiveLog,
     };

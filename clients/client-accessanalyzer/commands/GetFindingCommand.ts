@@ -46,6 +46,8 @@ export class GetFindingCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "AccessAnalyzerClient",
+      commandName: "GetFindingCommand",
       inputFilterSensitiveLog: GetFindingRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetFindingResponse.filterSensitiveLog,
     };

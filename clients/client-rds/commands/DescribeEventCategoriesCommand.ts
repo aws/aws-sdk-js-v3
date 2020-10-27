@@ -46,6 +46,8 @@ export class DescribeEventCategoriesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "RDSClient",
+      commandName: "DescribeEventCategoriesCommand",
       inputFilterSensitiveLog: DescribeEventCategoriesMessage.filterSensitiveLog,
       outputFilterSensitiveLog: EventCategoriesMessage.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class CreateInternetGatewayCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EC2Client",
+      commandName: "CreateInternetGatewayCommand",
       inputFilterSensitiveLog: CreateInternetGatewayRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateInternetGatewayResult.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class DescribeVpcAttributeCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EC2Client",
+      commandName: "DescribeVpcAttributeCommand",
       inputFilterSensitiveLog: DescribeVpcAttributeRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeVpcAttributeResult.filterSensitiveLog,
     };

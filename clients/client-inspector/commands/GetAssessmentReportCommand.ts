@@ -46,6 +46,8 @@ export class GetAssessmentReportCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "InspectorClient",
+      commandName: "GetAssessmentReportCommand",
       inputFilterSensitiveLog: GetAssessmentReportRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetAssessmentReportResponse.filterSensitiveLog,
     };

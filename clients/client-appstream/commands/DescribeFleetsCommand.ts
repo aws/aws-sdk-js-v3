@@ -46,6 +46,8 @@ export class DescribeFleetsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "AppStreamClient",
+      commandName: "DescribeFleetsCommand",
       inputFilterSensitiveLog: DescribeFleetsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeFleetsResult.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class DeregisterGameServerCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GameLiftClient",
+      commandName: "DeregisterGameServerCommand",
       inputFilterSensitiveLog: DeregisterGameServerInput.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

@@ -46,6 +46,8 @@ export class StopNotebookExecutionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EMRClient",
+      commandName: "StopNotebookExecutionCommand",
       inputFilterSensitiveLog: StopNotebookExecutionInput.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

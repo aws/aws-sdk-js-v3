@@ -46,6 +46,8 @@ export class GetInventoryCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SSMClient",
+      commandName: "GetInventoryCommand",
       inputFilterSensitiveLog: GetInventoryRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetInventoryResult.filterSensitiveLog,
     };

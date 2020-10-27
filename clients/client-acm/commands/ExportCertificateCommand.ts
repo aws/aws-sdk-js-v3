@@ -46,6 +46,8 @@ export class ExportCertificateCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ACMClient",
+      commandName: "ExportCertificateCommand",
       inputFilterSensitiveLog: ExportCertificateRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ExportCertificateResponse.filterSensitiveLog,
     };

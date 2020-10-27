@@ -46,6 +46,8 @@ export class BatchDetectSentimentCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ComprehendClient",
+      commandName: "BatchDetectSentimentCommand",
       inputFilterSensitiveLog: BatchDetectSentimentRequest.filterSensitiveLog,
       outputFilterSensitiveLog: BatchDetectSentimentResponse.filterSensitiveLog,
     };

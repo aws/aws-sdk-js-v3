@@ -46,6 +46,8 @@ export class MergePullRequestByThreeWayCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CodeCommitClient",
+      commandName: "MergePullRequestByThreeWayCommand",
       inputFilterSensitiveLog: MergePullRequestByThreeWayInput.filterSensitiveLog,
       outputFilterSensitiveLog: MergePullRequestByThreeWayOutput.filterSensitiveLog,
     };

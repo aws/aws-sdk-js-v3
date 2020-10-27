@@ -50,6 +50,8 @@ export class ReadPresetCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ElasticTranscoderClient",
+      commandName: "ReadPresetCommand",
       inputFilterSensitiveLog: ReadPresetRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ReadPresetResponse.filterSensitiveLog,
     };

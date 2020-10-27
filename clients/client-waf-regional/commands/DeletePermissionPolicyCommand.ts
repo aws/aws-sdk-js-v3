@@ -46,6 +46,8 @@ export class DeletePermissionPolicyCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "WAFRegionalClient",
+      commandName: "DeletePermissionPolicyCommand",
       inputFilterSensitiveLog: DeletePermissionPolicyRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeletePermissionPolicyResponse.filterSensitiveLog,
     };

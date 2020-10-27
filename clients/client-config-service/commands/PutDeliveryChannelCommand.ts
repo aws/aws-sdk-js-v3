@@ -46,6 +46,8 @@ export class PutDeliveryChannelCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ConfigServiceClient",
+      commandName: "PutDeliveryChannelCommand",
       inputFilterSensitiveLog: PutDeliveryChannelRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

@@ -46,6 +46,8 @@ export class CreateAccountCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ChimeClient",
+      commandName: "CreateAccountCommand",
       inputFilterSensitiveLog: CreateAccountRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateAccountResponse.filterSensitiveLog,
     };

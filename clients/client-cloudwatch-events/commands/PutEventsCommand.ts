@@ -43,6 +43,8 @@ export class PutEventsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CloudWatchEventsClient",
+      commandName: "PutEventsCommand",
       inputFilterSensitiveLog: PutEventsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: PutEventsResponse.filterSensitiveLog,
     };

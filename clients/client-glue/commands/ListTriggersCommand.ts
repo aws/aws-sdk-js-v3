@@ -46,6 +46,8 @@ export class ListTriggersCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GlueClient",
+      commandName: "ListTriggersCommand",
       inputFilterSensitiveLog: ListTriggersRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListTriggersResponse.filterSensitiveLog,
     };

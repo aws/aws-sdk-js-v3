@@ -46,6 +46,8 @@ export class DeleteServiceCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ECSClient",
+      commandName: "DeleteServiceCommand",
       inputFilterSensitiveLog: DeleteServiceRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteServiceResponse.filterSensitiveLog,
     };

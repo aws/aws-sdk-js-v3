@@ -46,6 +46,8 @@ export class GetPackageVersionAssetCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CodeartifactClient",
+      commandName: "GetPackageVersionAssetCommand",
       inputFilterSensitiveLog: GetPackageVersionAssetRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetPackageVersionAssetResult.filterSensitiveLog,
     };

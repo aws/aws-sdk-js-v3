@@ -46,6 +46,8 @@ export class CreateFolderCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "WorkDocsClient",
+      commandName: "CreateFolderCommand",
       inputFilterSensitiveLog: CreateFolderRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateFolderResponse.filterSensitiveLog,
     };

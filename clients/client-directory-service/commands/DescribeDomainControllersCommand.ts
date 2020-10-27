@@ -46,6 +46,8 @@ export class DescribeDomainControllersCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "DirectoryServiceClient",
+      commandName: "DescribeDomainControllersCommand",
       inputFilterSensitiveLog: DescribeDomainControllersRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeDomainControllersResult.filterSensitiveLog,
     };

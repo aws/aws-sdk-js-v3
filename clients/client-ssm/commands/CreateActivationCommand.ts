@@ -46,6 +46,8 @@ export class CreateActivationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SSMClient",
+      commandName: "CreateActivationCommand",
       inputFilterSensitiveLog: CreateActivationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateActivationResult.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class VerifyDomainDkimCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SESClient",
+      commandName: "VerifyDomainDkimCommand",
       inputFilterSensitiveLog: VerifyDomainDkimRequest.filterSensitiveLog,
       outputFilterSensitiveLog: VerifyDomainDkimResponse.filterSensitiveLog,
     };

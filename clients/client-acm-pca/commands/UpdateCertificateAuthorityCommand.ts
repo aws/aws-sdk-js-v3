@@ -46,6 +46,8 @@ export class UpdateCertificateAuthorityCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ACMPCAClient",
+      commandName: "UpdateCertificateAuthorityCommand",
       inputFilterSensitiveLog: UpdateCertificateAuthorityRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

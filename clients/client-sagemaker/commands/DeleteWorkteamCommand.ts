@@ -46,6 +46,8 @@ export class DeleteWorkteamCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SageMakerClient",
+      commandName: "DeleteWorkteamCommand",
       inputFilterSensitiveLog: DeleteWorkteamRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteWorkteamResponse.filterSensitiveLog,
     };

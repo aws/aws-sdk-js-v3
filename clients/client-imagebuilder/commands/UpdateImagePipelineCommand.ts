@@ -46,6 +46,8 @@ export class UpdateImagePipelineCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ImagebuilderClient",
+      commandName: "UpdateImagePipelineCommand",
       inputFilterSensitiveLog: UpdateImagePipelineRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateImagePipelineResponse.filterSensitiveLog,
     };

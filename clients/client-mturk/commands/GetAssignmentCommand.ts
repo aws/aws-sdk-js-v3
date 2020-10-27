@@ -46,6 +46,8 @@ export class GetAssignmentCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "MTurkClient",
+      commandName: "GetAssignmentCommand",
       inputFilterSensitiveLog: GetAssignmentRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetAssignmentResponse.filterSensitiveLog,
     };

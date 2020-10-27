@@ -53,6 +53,8 @@ export class DisableAvailabilityZonesForLoadBalancerCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ElasticLoadBalancingClient",
+      commandName: "DisableAvailabilityZonesForLoadBalancerCommand",
       inputFilterSensitiveLog: RemoveAvailabilityZonesInput.filterSensitiveLog,
       outputFilterSensitiveLog: RemoveAvailabilityZonesOutput.filterSensitiveLog,
     };

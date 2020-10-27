@@ -46,6 +46,8 @@ export class PutKeyPolicyCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "KMSClient",
+      commandName: "PutKeyPolicyCommand",
       inputFilterSensitiveLog: PutKeyPolicyRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

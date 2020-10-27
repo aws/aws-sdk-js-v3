@@ -39,6 +39,8 @@ export class TagUserCommand extends $Command<TagUserCommandInput, TagUserCommand
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "IAMClient",
+      commandName: "TagUserCommand",
       inputFilterSensitiveLog: TagUserRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

@@ -46,6 +46,8 @@ export class CreateConfigurationSetCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "PinpointEmailClient",
+      commandName: "CreateConfigurationSetCommand",
       inputFilterSensitiveLog: CreateConfigurationSetRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateConfigurationSetResponse.filterSensitiveLog,
     };

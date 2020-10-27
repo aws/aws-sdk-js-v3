@@ -46,6 +46,8 @@ export class GetInstancesHealthStatusCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ServiceDiscoveryClient",
+      commandName: "GetInstancesHealthStatusCommand",
       inputFilterSensitiveLog: GetInstancesHealthStatusRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetInstancesHealthStatusResponse.filterSensitiveLog,
     };

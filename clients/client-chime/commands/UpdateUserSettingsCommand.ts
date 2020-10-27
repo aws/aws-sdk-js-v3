@@ -46,6 +46,8 @@ export class UpdateUserSettingsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ChimeClient",
+      commandName: "UpdateUserSettingsCommand",
       inputFilterSensitiveLog: UpdateUserSettingsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

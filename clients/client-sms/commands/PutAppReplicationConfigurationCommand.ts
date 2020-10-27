@@ -46,6 +46,8 @@ export class PutAppReplicationConfigurationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SMSClient",
+      commandName: "PutAppReplicationConfigurationCommand",
       inputFilterSensitiveLog: PutAppReplicationConfigurationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: PutAppReplicationConfigurationResponse.filterSensitiveLog,
     };

@@ -48,6 +48,8 @@ export class UpdateTrafficPolicyCommentCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "Route53Client",
+      commandName: "UpdateTrafficPolicyCommentCommand",
       inputFilterSensitiveLog: UpdateTrafficPolicyCommentRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateTrafficPolicyCommentResponse.filterSensitiveLog,
     };

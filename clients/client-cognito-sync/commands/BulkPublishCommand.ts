@@ -46,6 +46,8 @@ export class BulkPublishCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CognitoSyncClient",
+      commandName: "BulkPublishCommand",
       inputFilterSensitiveLog: BulkPublishRequest.filterSensitiveLog,
       outputFilterSensitiveLog: BulkPublishResponse.filterSensitiveLog,
     };

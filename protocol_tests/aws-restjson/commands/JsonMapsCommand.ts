@@ -46,6 +46,8 @@ export class JsonMapsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "RestJsonProtocolClient",
+      commandName: "JsonMapsCommand",
       inputFilterSensitiveLog: JsonMapsInputOutput.filterSensitiveLog,
       outputFilterSensitiveLog: JsonMapsInputOutput.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class GetRequestValidatorCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "APIGatewayClient",
+      commandName: "GetRequestValidatorCommand",
       inputFilterSensitiveLog: GetRequestValidatorRequest.filterSensitiveLog,
       outputFilterSensitiveLog: RequestValidator.filterSensitiveLog,
     };

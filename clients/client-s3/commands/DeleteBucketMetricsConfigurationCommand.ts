@@ -48,6 +48,8 @@ export class DeleteBucketMetricsConfigurationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "S3Client",
+      commandName: "DeleteBucketMetricsConfigurationCommand",
       inputFilterSensitiveLog: DeleteBucketMetricsConfigurationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

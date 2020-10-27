@@ -41,6 +41,8 @@ export class ListPartsCommand extends $Command<ListPartsCommandInput, ListPartsC
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "S3Client",
+      commandName: "ListPartsCommand",
       inputFilterSensitiveLog: ListPartsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListPartsOutput.filterSensitiveLog,
     };

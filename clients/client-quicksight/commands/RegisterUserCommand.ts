@@ -46,6 +46,8 @@ export class RegisterUserCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "QuickSightClient",
+      commandName: "RegisterUserCommand",
       inputFilterSensitiveLog: RegisterUserRequest.filterSensitiveLog,
       outputFilterSensitiveLog: RegisterUserResponse.filterSensitiveLog,
     };

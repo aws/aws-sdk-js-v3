@@ -46,6 +46,8 @@ export class DeleteMultiplexProgramCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "MediaLiveClient",
+      commandName: "DeleteMultiplexProgramCommand",
       inputFilterSensitiveLog: DeleteMultiplexProgramRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteMultiplexProgramResponse.filterSensitiveLog,
     };

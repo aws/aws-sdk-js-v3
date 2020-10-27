@@ -46,6 +46,8 @@ export class DeleteDistributionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "LightsailClient",
+      commandName: "DeleteDistributionCommand",
       inputFilterSensitiveLog: DeleteDistributionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteDistributionResult.filterSensitiveLog,
     };

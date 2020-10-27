@@ -43,6 +43,8 @@ export class GetLabelsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "FraudDetectorClient",
+      commandName: "GetLabelsCommand",
       inputFilterSensitiveLog: GetLabelsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetLabelsResult.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class OpenInstancePublicPortsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "LightsailClient",
+      commandName: "OpenInstancePublicPortsCommand",
       inputFilterSensitiveLog: OpenInstancePublicPortsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: OpenInstancePublicPortsResult.filterSensitiveLog,
     };

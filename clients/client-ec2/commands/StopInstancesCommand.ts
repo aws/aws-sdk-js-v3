@@ -43,6 +43,8 @@ export class StopInstancesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EC2Client",
+      commandName: "StopInstancesCommand",
       inputFilterSensitiveLog: StopInstancesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: StopInstancesResult.filterSensitiveLog,
     };

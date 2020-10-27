@@ -46,6 +46,8 @@ export class GetConferenceProviderCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "AlexaForBusinessClient",
+      commandName: "GetConferenceProviderCommand",
       inputFilterSensitiveLog: GetConferenceProviderRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetConferenceProviderResponse.filterSensitiveLog,
     };

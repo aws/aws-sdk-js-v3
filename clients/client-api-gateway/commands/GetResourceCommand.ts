@@ -46,6 +46,8 @@ export class GetResourceCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "APIGatewayClient",
+      commandName: "GetResourceCommand",
       inputFilterSensitiveLog: GetResourceRequest.filterSensitiveLog,
       outputFilterSensitiveLog: Resource.filterSensitiveLog,
     };

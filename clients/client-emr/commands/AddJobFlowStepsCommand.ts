@@ -46,6 +46,8 @@ export class AddJobFlowStepsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EMRClient",
+      commandName: "AddJobFlowStepsCommand",
       inputFilterSensitiveLog: AddJobFlowStepsInput.filterSensitiveLog,
       outputFilterSensitiveLog: AddJobFlowStepsOutput.filterSensitiveLog,
     };

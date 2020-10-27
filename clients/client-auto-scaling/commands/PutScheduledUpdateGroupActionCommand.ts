@@ -46,6 +46,8 @@ export class PutScheduledUpdateGroupActionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "AutoScalingClient",
+      commandName: "PutScheduledUpdateGroupActionCommand",
       inputFilterSensitiveLog: PutScheduledUpdateGroupActionType.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

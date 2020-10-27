@@ -46,6 +46,8 @@ export class UpdateCustomVerificationEmailTemplateCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SESClient",
+      commandName: "UpdateCustomVerificationEmailTemplateCommand",
       inputFilterSensitiveLog: UpdateCustomVerificationEmailTemplateRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

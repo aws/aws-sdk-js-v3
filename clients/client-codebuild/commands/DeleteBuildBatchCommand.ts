@@ -46,6 +46,8 @@ export class DeleteBuildBatchCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CodeBuildClient",
+      commandName: "DeleteBuildBatchCommand",
       inputFilterSensitiveLog: DeleteBuildBatchInput.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteBuildBatchOutput.filterSensitiveLog,
     };

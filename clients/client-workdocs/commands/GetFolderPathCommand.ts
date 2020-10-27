@@ -46,6 +46,8 @@ export class GetFolderPathCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "WorkDocsClient",
+      commandName: "GetFolderPathCommand",
       inputFilterSensitiveLog: GetFolderPathRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetFolderPathResponse.filterSensitiveLog,
     };

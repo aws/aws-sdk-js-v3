@@ -46,6 +46,8 @@ export class MergePullRequestByFastForwardCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CodeCommitClient",
+      commandName: "MergePullRequestByFastForwardCommand",
       inputFilterSensitiveLog: MergePullRequestByFastForwardInput.filterSensitiveLog,
       outputFilterSensitiveLog: MergePullRequestByFastForwardOutput.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class GetSizeConstraintSetCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "WAFClient",
+      commandName: "GetSizeConstraintSetCommand",
       inputFilterSensitiveLog: GetSizeConstraintSetRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetSizeConstraintSetResponse.filterSensitiveLog,
     };

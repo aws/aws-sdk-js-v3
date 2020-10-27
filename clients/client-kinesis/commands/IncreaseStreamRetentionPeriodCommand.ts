@@ -46,6 +46,8 @@ export class IncreaseStreamRetentionPeriodCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "KinesisClient",
+      commandName: "IncreaseStreamRetentionPeriodCommand",
       inputFilterSensitiveLog: IncreaseStreamRetentionPeriodInput.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

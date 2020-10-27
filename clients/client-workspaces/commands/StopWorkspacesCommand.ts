@@ -46,6 +46,8 @@ export class StopWorkspacesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "WorkSpacesClient",
+      commandName: "StopWorkspacesCommand",
       inputFilterSensitiveLog: StopWorkspacesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: StopWorkspacesResult.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class DeletePackagingConfigurationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "MediaPackageVodClient",
+      commandName: "DeletePackagingConfigurationCommand",
       inputFilterSensitiveLog: DeletePackagingConfigurationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeletePackagingConfigurationResponse.filterSensitiveLog,
     };

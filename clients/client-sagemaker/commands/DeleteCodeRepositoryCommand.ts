@@ -46,6 +46,8 @@ export class DeleteCodeRepositoryCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SageMakerClient",
+      commandName: "DeleteCodeRepositoryCommand",
       inputFilterSensitiveLog: DeleteCodeRepositoryInput.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

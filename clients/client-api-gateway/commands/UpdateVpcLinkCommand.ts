@@ -46,6 +46,8 @@ export class UpdateVpcLinkCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "APIGatewayClient",
+      commandName: "UpdateVpcLinkCommand",
       inputFilterSensitiveLog: UpdateVpcLinkRequest.filterSensitiveLog,
       outputFilterSensitiveLog: VpcLink.filterSensitiveLog,
     };

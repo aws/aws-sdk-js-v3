@@ -46,6 +46,8 @@ export class PutMetricPolicyCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "MediaStoreClient",
+      commandName: "PutMetricPolicyCommand",
       inputFilterSensitiveLog: PutMetricPolicyInput.filterSensitiveLog,
       outputFilterSensitiveLog: PutMetricPolicyOutput.filterSensitiveLog,
     };

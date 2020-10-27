@@ -39,6 +39,8 @@ export class TagQueueCommand extends $Command<TagQueueCommandInput, TagQueueComm
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SQSClient",
+      commandName: "TagQueueCommand",
       inputFilterSensitiveLog: TagQueueRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

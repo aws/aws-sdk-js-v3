@@ -46,6 +46,8 @@ export class DescribeLocalGatewaysCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EC2Client",
+      commandName: "DescribeLocalGatewaysCommand",
       inputFilterSensitiveLog: DescribeLocalGatewaysRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeLocalGatewaysResult.filterSensitiveLog,
     };

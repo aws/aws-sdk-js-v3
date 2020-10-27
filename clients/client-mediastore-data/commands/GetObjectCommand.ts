@@ -46,6 +46,8 @@ export class GetObjectCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "MediaStoreDataClient",
+      commandName: "GetObjectCommand",
       inputFilterSensitiveLog: GetObjectRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetObjectResponse.filterSensitiveLog,
     };

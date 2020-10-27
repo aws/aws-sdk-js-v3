@@ -46,6 +46,8 @@ export class StartWorkflowExecutionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SWFClient",
+      commandName: "StartWorkflowExecutionCommand",
       inputFilterSensitiveLog: StartWorkflowExecutionInput.filterSensitiveLog,
       outputFilterSensitiveLog: Run.filterSensitiveLog,
     };

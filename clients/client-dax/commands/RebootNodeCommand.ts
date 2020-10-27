@@ -46,6 +46,8 @@ export class RebootNodeCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "DAXClient",
+      commandName: "RebootNodeCommand",
       inputFilterSensitiveLog: RebootNodeRequest.filterSensitiveLog,
       outputFilterSensitiveLog: RebootNodeResponse.filterSensitiveLog,
     };

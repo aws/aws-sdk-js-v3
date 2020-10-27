@@ -46,6 +46,8 @@ export class UpdatePublicKeyCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CloudFrontClient",
+      commandName: "UpdatePublicKeyCommand",
       inputFilterSensitiveLog: UpdatePublicKeyRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdatePublicKeyResult.filterSensitiveLog,
     };

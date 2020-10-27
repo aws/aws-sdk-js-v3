@@ -43,6 +43,8 @@ export class StopFleetCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "AppStreamClient",
+      commandName: "StopFleetCommand",
       inputFilterSensitiveLog: StopFleetRequest.filterSensitiveLog,
       outputFilterSensitiveLog: StopFleetResult.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class DescribePortfolioShareStatusCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ServiceCatalogClient",
+      commandName: "DescribePortfolioShareStatusCommand",
       inputFilterSensitiveLog: DescribePortfolioShareStatusInput.filterSensitiveLog,
       outputFilterSensitiveLog: DescribePortfolioShareStatusOutput.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class ListAccessKeysCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "IAMClient",
+      commandName: "ListAccessKeysCommand",
       inputFilterSensitiveLog: ListAccessKeysRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListAccessKeysResponse.filterSensitiveLog,
     };

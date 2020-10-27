@@ -46,6 +46,8 @@ export class GetSegmentVersionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "PinpointClient",
+      commandName: "GetSegmentVersionsCommand",
       inputFilterSensitiveLog: GetSegmentVersionsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetSegmentVersionsResponse.filterSensitiveLog,
     };

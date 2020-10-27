@@ -46,6 +46,8 @@ export class SetTimeBasedAutoScalingCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "OpsWorksClient",
+      commandName: "SetTimeBasedAutoScalingCommand",
       inputFilterSensitiveLog: SetTimeBasedAutoScalingRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

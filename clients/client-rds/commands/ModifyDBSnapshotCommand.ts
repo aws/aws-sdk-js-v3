@@ -46,6 +46,8 @@ export class ModifyDBSnapshotCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "RDSClient",
+      commandName: "ModifyDBSnapshotCommand",
       inputFilterSensitiveLog: ModifyDBSnapshotMessage.filterSensitiveLog,
       outputFilterSensitiveLog: ModifyDBSnapshotResult.filterSensitiveLog,
     };

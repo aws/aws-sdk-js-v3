@@ -47,6 +47,8 @@ export class DisassociatePrincipalFromPortfolioCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ServiceCatalogClient",
+      commandName: "DisassociatePrincipalFromPortfolioCommand",
       inputFilterSensitiveLog: DisassociatePrincipalFromPortfolioInput.filterSensitiveLog,
       outputFilterSensitiveLog: DisassociatePrincipalFromPortfolioOutput.filterSensitiveLog,
     };

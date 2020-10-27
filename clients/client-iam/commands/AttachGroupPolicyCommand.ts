@@ -46,6 +46,8 @@ export class AttachGroupPolicyCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "IAMClient",
+      commandName: "AttachGroupPolicyCommand",
       inputFilterSensitiveLog: AttachGroupPolicyRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

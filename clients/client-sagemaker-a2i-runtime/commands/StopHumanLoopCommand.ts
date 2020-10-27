@@ -50,6 +50,8 @@ export class StopHumanLoopCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SageMakerA2IRuntimeClient",
+      commandName: "StopHumanLoopCommand",
       inputFilterSensitiveLog: StopHumanLoopRequest.filterSensitiveLog,
       outputFilterSensitiveLog: StopHumanLoopResponse.filterSensitiveLog,
     };

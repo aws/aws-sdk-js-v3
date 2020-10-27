@@ -46,6 +46,8 @@ export class DescribeDeliveryChannelsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ConfigServiceClient",
+      commandName: "DescribeDeliveryChannelsCommand",
       inputFilterSensitiveLog: DescribeDeliveryChannelsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeDeliveryChannelsResponse.filterSensitiveLog,
     };

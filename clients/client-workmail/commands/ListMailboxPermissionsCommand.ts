@@ -46,6 +46,8 @@ export class ListMailboxPermissionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "WorkMailClient",
+      commandName: "ListMailboxPermissionsCommand",
       inputFilterSensitiveLog: ListMailboxPermissionsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListMailboxPermissionsResponse.filterSensitiveLog,
     };

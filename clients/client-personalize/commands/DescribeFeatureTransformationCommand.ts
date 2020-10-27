@@ -46,6 +46,8 @@ export class DescribeFeatureTransformationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "PersonalizeClient",
+      commandName: "DescribeFeatureTransformationCommand",
       inputFilterSensitiveLog: DescribeFeatureTransformationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeFeatureTransformationResponse.filterSensitiveLog,
     };

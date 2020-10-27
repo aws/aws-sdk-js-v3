@@ -46,6 +46,8 @@ export class ListProfileTimesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CodeGuruProfilerClient",
+      commandName: "ListProfileTimesCommand",
       inputFilterSensitiveLog: ListProfileTimesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListProfileTimesResponse.filterSensitiveLog,
     };

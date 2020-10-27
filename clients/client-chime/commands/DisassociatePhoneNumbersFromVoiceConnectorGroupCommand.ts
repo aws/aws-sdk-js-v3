@@ -53,6 +53,8 @@ export class DisassociatePhoneNumbersFromVoiceConnectorGroupCommand extends $Com
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ChimeClient",
+      commandName: "DisassociatePhoneNumbersFromVoiceConnectorGroupCommand",
       inputFilterSensitiveLog: DisassociatePhoneNumbersFromVoiceConnectorGroupRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DisassociatePhoneNumbersFromVoiceConnectorGroupResponse.filterSensitiveLog,
     };

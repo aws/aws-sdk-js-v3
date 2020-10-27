@@ -43,6 +43,8 @@ export class SendBounceCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SESClient",
+      commandName: "SendBounceCommand",
       inputFilterSensitiveLog: SendBounceRequest.filterSensitiveLog,
       outputFilterSensitiveLog: SendBounceResponse.filterSensitiveLog,
     };

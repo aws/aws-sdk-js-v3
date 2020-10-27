@@ -46,6 +46,8 @@ export class ModifyTrafficMirrorSessionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EC2Client",
+      commandName: "ModifyTrafficMirrorSessionCommand",
       inputFilterSensitiveLog: ModifyTrafficMirrorSessionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ModifyTrafficMirrorSessionResult.filterSensitiveLog,
     };

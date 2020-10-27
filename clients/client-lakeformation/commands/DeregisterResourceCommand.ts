@@ -46,6 +46,8 @@ export class DeregisterResourceCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "LakeFormationClient",
+      commandName: "DeregisterResourceCommand",
       inputFilterSensitiveLog: DeregisterResourceRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeregisterResourceResponse.filterSensitiveLog,
     };

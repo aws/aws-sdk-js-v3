@@ -46,6 +46,8 @@ export class CreateLocalGatewayRouteCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EC2Client",
+      commandName: "CreateLocalGatewayRouteCommand",
       inputFilterSensitiveLog: CreateLocalGatewayRouteRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateLocalGatewayRouteResult.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class DescribeEntityRecognizerCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ComprehendClient",
+      commandName: "DescribeEntityRecognizerCommand",
       inputFilterSensitiveLog: DescribeEntityRecognizerRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeEntityRecognizerResponse.filterSensitiveLog,
     };

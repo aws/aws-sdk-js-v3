@@ -46,6 +46,8 @@ export class InputAndOutputWithHeadersCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "RestJsonProtocolClient",
+      commandName: "InputAndOutputWithHeadersCommand",
       inputFilterSensitiveLog: InputAndOutputWithHeadersIO.filterSensitiveLog,
       outputFilterSensitiveLog: InputAndOutputWithHeadersIO.filterSensitiveLog,
     };

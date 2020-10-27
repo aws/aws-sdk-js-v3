@@ -46,6 +46,8 @@ export class CreateExclusionsPreviewCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "InspectorClient",
+      commandName: "CreateExclusionsPreviewCommand",
       inputFilterSensitiveLog: CreateExclusionsPreviewRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateExclusionsPreviewResponse.filterSensitiveLog,
     };

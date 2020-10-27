@@ -46,6 +46,8 @@ export class SubscribeToDatasetCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CognitoSyncClient",
+      commandName: "SubscribeToDatasetCommand",
       inputFilterSensitiveLog: SubscribeToDatasetRequest.filterSensitiveLog,
       outputFilterSensitiveLog: SubscribeToDatasetResponse.filterSensitiveLog,
     };

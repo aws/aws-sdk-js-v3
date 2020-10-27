@@ -46,6 +46,8 @@ export class DescribeSecurityPolicyCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "TransferClient",
+      commandName: "DescribeSecurityPolicyCommand",
       inputFilterSensitiveLog: DescribeSecurityPolicyRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeSecurityPolicyResponse.filterSensitiveLog,
     };

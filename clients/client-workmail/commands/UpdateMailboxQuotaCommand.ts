@@ -46,6 +46,8 @@ export class UpdateMailboxQuotaCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "WorkMailClient",
+      commandName: "UpdateMailboxQuotaCommand",
       inputFilterSensitiveLog: UpdateMailboxQuotaRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateMailboxQuotaResponse.filterSensitiveLog,
     };

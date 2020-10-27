@@ -46,6 +46,8 @@ export class DescribeComplianceByConfigRuleCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ConfigServiceClient",
+      commandName: "DescribeComplianceByConfigRuleCommand",
       inputFilterSensitiveLog: DescribeComplianceByConfigRuleRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeComplianceByConfigRuleResponse.filterSensitiveLog,
     };

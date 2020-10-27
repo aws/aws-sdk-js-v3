@@ -46,6 +46,8 @@ export class PutEncryptionConfigCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "XRayClient",
+      commandName: "PutEncryptionConfigCommand",
       inputFilterSensitiveLog: PutEncryptionConfigRequest.filterSensitiveLog,
       outputFilterSensitiveLog: PutEncryptionConfigResult.filterSensitiveLog,
     };

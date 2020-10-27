@@ -46,6 +46,8 @@ export class CreateTransformJobCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SageMakerClient",
+      commandName: "CreateTransformJobCommand",
       inputFilterSensitiveLog: CreateTransformJobRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateTransformJobResponse.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class UpdateGlobalTableCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "DynamoDBClient",
+      commandName: "UpdateGlobalTableCommand",
       inputFilterSensitiveLog: UpdateGlobalTableInput.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateGlobalTableOutput.filterSensitiveLog,
     };

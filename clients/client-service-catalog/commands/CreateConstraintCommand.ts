@@ -46,6 +46,8 @@ export class CreateConstraintCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ServiceCatalogClient",
+      commandName: "CreateConstraintCommand",
       inputFilterSensitiveLog: CreateConstraintInput.filterSensitiveLog,
       outputFilterSensitiveLog: CreateConstraintOutput.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class DeleteTapeArchiveCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "StorageGatewayClient",
+      commandName: "DeleteTapeArchiveCommand",
       inputFilterSensitiveLog: DeleteTapeArchiveInput.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteTapeArchiveOutput.filterSensitiveLog,
     };

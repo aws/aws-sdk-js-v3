@@ -46,6 +46,8 @@ export class GetProtectionStatusCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "FMSClient",
+      commandName: "GetProtectionStatusCommand",
       inputFilterSensitiveLog: GetProtectionStatusRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetProtectionStatusResponse.filterSensitiveLog,
     };

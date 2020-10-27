@@ -43,6 +43,8 @@ export class PutFileCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CodeCommitClient",
+      commandName: "PutFileCommand",
       inputFilterSensitiveLog: PutFileInput.filterSensitiveLog,
       outputFilterSensitiveLog: PutFileOutput.filterSensitiveLog,
     };

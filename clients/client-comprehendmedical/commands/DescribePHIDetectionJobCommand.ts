@@ -50,6 +50,8 @@ export class DescribePHIDetectionJobCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ComprehendMedicalClient",
+      commandName: "DescribePHIDetectionJobCommand",
       inputFilterSensitiveLog: DescribePHIDetectionJobRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribePHIDetectionJobResponse.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class DeleteUserGroupCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ElastiCacheClient",
+      commandName: "DeleteUserGroupCommand",
       inputFilterSensitiveLog: DeleteUserGroupMessage.filterSensitiveLog,
       outputFilterSensitiveLog: UserGroup.filterSensitiveLog,
     };

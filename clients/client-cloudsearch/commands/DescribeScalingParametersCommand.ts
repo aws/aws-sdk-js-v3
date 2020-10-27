@@ -46,6 +46,8 @@ export class DescribeScalingParametersCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CloudSearchClient",
+      commandName: "DescribeScalingParametersCommand",
       inputFilterSensitiveLog: DescribeScalingParametersRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeScalingParametersResponse.filterSensitiveLog,
     };

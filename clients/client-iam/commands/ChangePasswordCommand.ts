@@ -46,6 +46,8 @@ export class ChangePasswordCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "IAMClient",
+      commandName: "ChangePasswordCommand",
       inputFilterSensitiveLog: ChangePasswordRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

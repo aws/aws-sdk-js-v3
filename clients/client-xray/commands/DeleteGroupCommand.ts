@@ -46,6 +46,8 @@ export class DeleteGroupCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "XRayClient",
+      commandName: "DeleteGroupCommand",
       inputFilterSensitiveLog: DeleteGroupRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteGroupResult.filterSensitiveLog,
     };

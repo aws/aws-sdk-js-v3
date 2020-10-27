@@ -46,6 +46,8 @@ export class CreateTypeCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "AppSyncClient",
+      commandName: "CreateTypeCommand",
       inputFilterSensitiveLog: CreateTypeRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateTypeResponse.filterSensitiveLog,
     };

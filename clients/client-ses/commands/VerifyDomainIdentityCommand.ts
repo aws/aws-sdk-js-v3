@@ -46,6 +46,8 @@ export class VerifyDomainIdentityCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SESClient",
+      commandName: "VerifyDomainIdentityCommand",
       inputFilterSensitiveLog: VerifyDomainIdentityRequest.filterSensitiveLog,
       outputFilterSensitiveLog: VerifyDomainIdentityResponse.filterSensitiveLog,
     };

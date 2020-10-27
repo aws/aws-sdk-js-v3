@@ -46,6 +46,8 @@ export class GetLinksCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "NetworkManagerClient",
+      commandName: "GetLinksCommand",
       inputFilterSensitiveLog: GetLinksRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetLinksResponse.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class ExportTransitGatewayRoutesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EC2Client",
+      commandName: "ExportTransitGatewayRoutesCommand",
       inputFilterSensitiveLog: ExportTransitGatewayRoutesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ExportTransitGatewayRoutesResult.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class ListInputsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "IoTEventsClient",
+      commandName: "ListInputsCommand",
       inputFilterSensitiveLog: ListInputsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListInputsResponse.filterSensitiveLog,
     };

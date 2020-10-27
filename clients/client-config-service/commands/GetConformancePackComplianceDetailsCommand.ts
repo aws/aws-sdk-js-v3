@@ -50,6 +50,8 @@ export class GetConformancePackComplianceDetailsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ConfigServiceClient",
+      commandName: "GetConformancePackComplianceDetailsCommand",
       inputFilterSensitiveLog: GetConformancePackComplianceDetailsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetConformancePackComplianceDetailsResponse.filterSensitiveLog,
     };

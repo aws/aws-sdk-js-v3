@@ -47,6 +47,8 @@ export class AddTagsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ElasticLoadBalancingClient",
+      commandName: "AddTagsCommand",
       inputFilterSensitiveLog: AddTagsInput.filterSensitiveLog,
       outputFilterSensitiveLog: AddTagsOutput.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class GetDataSourceCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "AppSyncClient",
+      commandName: "GetDataSourceCommand",
       inputFilterSensitiveLog: GetDataSourceRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetDataSourceResponse.filterSensitiveLog,
     };

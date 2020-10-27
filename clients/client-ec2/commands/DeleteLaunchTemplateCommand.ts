@@ -46,6 +46,8 @@ export class DeleteLaunchTemplateCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EC2Client",
+      commandName: "DeleteLaunchTemplateCommand",
       inputFilterSensitiveLog: DeleteLaunchTemplateRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteLaunchTemplateResult.filterSensitiveLog,
     };

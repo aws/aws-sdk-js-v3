@@ -46,6 +46,8 @@ export class GetLifecyclePolicyCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ECRClient",
+      commandName: "GetLifecyclePolicyCommand",
       inputFilterSensitiveLog: GetLifecyclePolicyRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetLifecyclePolicyResponse.filterSensitiveLog,
     };

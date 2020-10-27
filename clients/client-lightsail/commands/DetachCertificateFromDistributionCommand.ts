@@ -46,6 +46,8 @@ export class DetachCertificateFromDistributionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "LightsailClient",
+      commandName: "DetachCertificateFromDistributionCommand",
       inputFilterSensitiveLog: DetachCertificateFromDistributionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DetachCertificateFromDistributionResult.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class CreateStageCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ApiGatewayV2Client",
+      commandName: "CreateStageCommand",
       inputFilterSensitiveLog: CreateStageRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateStageResponse.filterSensitiveLog,
     };

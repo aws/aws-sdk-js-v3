@@ -46,6 +46,8 @@ export class DeleteHsmClientCertificateCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "RedshiftClient",
+      commandName: "DeleteHsmClientCertificateCommand",
       inputFilterSensitiveLog: DeleteHsmClientCertificateMessage.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

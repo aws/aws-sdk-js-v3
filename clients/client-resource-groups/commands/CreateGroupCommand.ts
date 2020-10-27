@@ -46,6 +46,8 @@ export class CreateGroupCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ResourceGroupsClient",
+      commandName: "CreateGroupCommand",
       inputFilterSensitiveLog: CreateGroupInput.filterSensitiveLog,
       outputFilterSensitiveLog: CreateGroupOutput.filterSensitiveLog,
     };

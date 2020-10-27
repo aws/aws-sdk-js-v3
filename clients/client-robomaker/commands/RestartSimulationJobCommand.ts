@@ -46,6 +46,8 @@ export class RestartSimulationJobCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "RoboMakerClient",
+      commandName: "RestartSimulationJobCommand",
       inputFilterSensitiveLog: RestartSimulationJobRequest.filterSensitiveLog,
       outputFilterSensitiveLog: RestartSimulationJobResponse.filterSensitiveLog,
     };

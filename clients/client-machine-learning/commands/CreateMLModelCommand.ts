@@ -46,6 +46,8 @@ export class CreateMLModelCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "MachineLearningClient",
+      commandName: "CreateMLModelCommand",
       inputFilterSensitiveLog: CreateMLModelInput.filterSensitiveLog,
       outputFilterSensitiveLog: CreateMLModelOutput.filterSensitiveLog,
     };

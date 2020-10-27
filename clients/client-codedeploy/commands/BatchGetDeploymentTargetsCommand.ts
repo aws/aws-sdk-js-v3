@@ -46,6 +46,8 @@ export class BatchGetDeploymentTargetsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CodeDeployClient",
+      commandName: "BatchGetDeploymentTargetsCommand",
       inputFilterSensitiveLog: BatchGetDeploymentTargetsInput.filterSensitiveLog,
       outputFilterSensitiveLog: BatchGetDeploymentTargetsOutput.filterSensitiveLog,
     };

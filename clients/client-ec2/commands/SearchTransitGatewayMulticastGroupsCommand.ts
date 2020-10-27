@@ -50,6 +50,8 @@ export class SearchTransitGatewayMulticastGroupsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EC2Client",
+      commandName: "SearchTransitGatewayMulticastGroupsCommand",
       inputFilterSensitiveLog: SearchTransitGatewayMulticastGroupsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: SearchTransitGatewayMulticastGroupsResult.filterSensitiveLog,
     };

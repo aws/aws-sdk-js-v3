@@ -46,6 +46,8 @@ export class DeleteAnalysisSchemeCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CloudSearchClient",
+      commandName: "DeleteAnalysisSchemeCommand",
       inputFilterSensitiveLog: DeleteAnalysisSchemeRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteAnalysisSchemeResponse.filterSensitiveLog,
     };

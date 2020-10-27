@@ -50,6 +50,8 @@ export class UpgradeElasticsearchDomainCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ElasticsearchServiceClient",
+      commandName: "UpgradeElasticsearchDomainCommand",
       inputFilterSensitiveLog: UpgradeElasticsearchDomainRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpgradeElasticsearchDomainResponse.filterSensitiveLog,
     };

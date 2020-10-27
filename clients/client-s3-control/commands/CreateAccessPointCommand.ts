@@ -48,6 +48,8 @@ export class CreateAccessPointCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "S3ControlClient",
+      commandName: "CreateAccessPointCommand",
       inputFilterSensitiveLog: CreateAccessPointRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateAccessPointResult.filterSensitiveLog,
     };

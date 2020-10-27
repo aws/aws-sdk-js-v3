@@ -46,6 +46,8 @@ export class GrantPermissionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "LakeFormationClient",
+      commandName: "GrantPermissionsCommand",
       inputFilterSensitiveLog: GrantPermissionsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GrantPermissionsResponse.filterSensitiveLog,
     };

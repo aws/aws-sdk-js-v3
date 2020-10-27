@@ -46,6 +46,8 @@ export class ListLogSubscriptionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "DirectoryServiceClient",
+      commandName: "ListLogSubscriptionsCommand",
       inputFilterSensitiveLog: ListLogSubscriptionsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListLogSubscriptionsResult.filterSensitiveLog,
     };

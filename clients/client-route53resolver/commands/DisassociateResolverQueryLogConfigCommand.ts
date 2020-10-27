@@ -50,6 +50,8 @@ export class DisassociateResolverQueryLogConfigCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "Route53ResolverClient",
+      commandName: "DisassociateResolverQueryLogConfigCommand",
       inputFilterSensitiveLog: DisassociateResolverQueryLogConfigRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DisassociateResolverQueryLogConfigResponse.filterSensitiveLog,
     };

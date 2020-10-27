@@ -46,6 +46,8 @@ export class RegisterDomainCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SWFClient",
+      commandName: "RegisterDomainCommand",
       inputFilterSensitiveLog: RegisterDomainInput.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

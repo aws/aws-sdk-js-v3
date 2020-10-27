@@ -46,6 +46,8 @@ export class DeregisterDelegatedAdministratorCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "OrganizationsClient",
+      commandName: "DeregisterDelegatedAdministratorCommand",
       inputFilterSensitiveLog: DeregisterDelegatedAdministratorRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

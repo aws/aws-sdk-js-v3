@@ -50,6 +50,8 @@ export class BatchMeterUsageCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "MarketplaceMeteringClient",
+      commandName: "BatchMeterUsageCommand",
       inputFilterSensitiveLog: BatchMeterUsageRequest.filterSensitiveLog,
       outputFilterSensitiveLog: BatchMeterUsageResult.filterSensitiveLog,
     };

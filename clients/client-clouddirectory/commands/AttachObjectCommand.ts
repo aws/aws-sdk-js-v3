@@ -46,6 +46,8 @@ export class AttachObjectCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CloudDirectoryClient",
+      commandName: "AttachObjectCommand",
       inputFilterSensitiveLog: AttachObjectRequest.filterSensitiveLog,
       outputFilterSensitiveLog: AttachObjectResponse.filterSensitiveLog,
     };

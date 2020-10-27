@@ -46,6 +46,8 @@ export class CreateBrokerCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "MqClient",
+      commandName: "CreateBrokerCommand",
       inputFilterSensitiveLog: CreateBrokerRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateBrokerResponse.filterSensitiveLog,
     };

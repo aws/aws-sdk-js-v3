@@ -46,6 +46,8 @@ export class DeleteReceiptFilterCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SESClient",
+      commandName: "DeleteReceiptFilterCommand",
       inputFilterSensitiveLog: DeleteReceiptFilterRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteReceiptFilterResponse.filterSensitiveLog,
     };

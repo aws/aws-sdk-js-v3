@@ -46,6 +46,8 @@ export class DescribeLDAPSSettingsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "DirectoryServiceClient",
+      commandName: "DescribeLDAPSSettingsCommand",
       inputFilterSensitiveLog: DescribeLDAPSSettingsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeLDAPSSettingsResult.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class ModifyCacheClusterCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ElastiCacheClient",
+      commandName: "ModifyCacheClusterCommand",
       inputFilterSensitiveLog: ModifyCacheClusterMessage.filterSensitiveLog,
       outputFilterSensitiveLog: ModifyCacheClusterResult.filterSensitiveLog,
     };

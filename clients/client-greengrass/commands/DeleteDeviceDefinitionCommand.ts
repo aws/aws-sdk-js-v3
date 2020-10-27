@@ -46,6 +46,8 @@ export class DeleteDeviceDefinitionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GreengrassClient",
+      commandName: "DeleteDeviceDefinitionCommand",
       inputFilterSensitiveLog: DeleteDeviceDefinitionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteDeviceDefinitionResponse.filterSensitiveLog,
     };

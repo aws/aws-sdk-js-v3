@@ -46,6 +46,8 @@ export class GetServiceGraphCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "XRayClient",
+      commandName: "GetServiceGraphCommand",
       inputFilterSensitiveLog: GetServiceGraphRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetServiceGraphResult.filterSensitiveLog,
     };

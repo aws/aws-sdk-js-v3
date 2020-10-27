@@ -47,6 +47,8 @@ export class DescribeSessionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SSMClient",
+      commandName: "DescribeSessionsCommand",
       inputFilterSensitiveLog: DescribeSessionsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeSessionsResponse.filterSensitiveLog,
     };

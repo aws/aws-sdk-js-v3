@@ -46,6 +46,8 @@ export class DeregisterVolumeCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "OpsWorksClient",
+      commandName: "DeregisterVolumeCommand",
       inputFilterSensitiveLog: DeregisterVolumeRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

@@ -50,6 +50,8 @@ export class DeleteApplicationSnapshotCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "KinesisAnalyticsV2Client",
+      commandName: "DeleteApplicationSnapshotCommand",
       inputFilterSensitiveLog: DeleteApplicationSnapshotRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteApplicationSnapshotResponse.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class DeleteVaultNotificationsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GlacierClient",
+      commandName: "DeleteVaultNotificationsCommand",
       inputFilterSensitiveLog: DeleteVaultNotificationsInput.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

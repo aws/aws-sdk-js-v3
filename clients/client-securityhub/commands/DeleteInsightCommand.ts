@@ -46,6 +46,8 @@ export class DeleteInsightCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SecurityHubClient",
+      commandName: "DeleteInsightCommand",
       inputFilterSensitiveLog: DeleteInsightRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteInsightResponse.filterSensitiveLog,
     };

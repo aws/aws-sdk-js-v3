@@ -46,6 +46,8 @@ export class EnableMetricsCollectionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "AutoScalingClient",
+      commandName: "EnableMetricsCollectionCommand",
       inputFilterSensitiveLog: EnableMetricsCollectionQuery.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

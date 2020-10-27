@@ -53,6 +53,8 @@ export class BatchAssociateServiceActionWithProvisioningArtifactCommand extends 
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ServiceCatalogClient",
+      commandName: "BatchAssociateServiceActionWithProvisioningArtifactCommand",
       inputFilterSensitiveLog: BatchAssociateServiceActionWithProvisioningArtifactInput.filterSensitiveLog,
       outputFilterSensitiveLog: BatchAssociateServiceActionWithProvisioningArtifactOutput.filterSensitiveLog,
     };

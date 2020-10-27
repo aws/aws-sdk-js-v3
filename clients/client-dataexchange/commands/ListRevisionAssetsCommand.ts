@@ -46,6 +46,8 @@ export class ListRevisionAssetsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "DataExchangeClient",
+      commandName: "ListRevisionAssetsCommand",
       inputFilterSensitiveLog: ListRevisionAssetsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListRevisionAssetsResponse.filterSensitiveLog,
     };

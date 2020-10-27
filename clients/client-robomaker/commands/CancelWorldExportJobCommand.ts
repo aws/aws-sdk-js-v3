@@ -46,6 +46,8 @@ export class CancelWorldExportJobCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "RoboMakerClient",
+      commandName: "CancelWorldExportJobCommand",
       inputFilterSensitiveLog: CancelWorldExportJobRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CancelWorldExportJobResponse.filterSensitiveLog,
     };

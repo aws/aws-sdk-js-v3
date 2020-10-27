@@ -39,6 +39,8 @@ export class GetPlanCommand extends $Command<GetPlanCommandInput, GetPlanCommand
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GlueClient",
+      commandName: "GetPlanCommand",
       inputFilterSensitiveLog: GetPlanRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetPlanResponse.filterSensitiveLog,
     };

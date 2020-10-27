@@ -46,6 +46,8 @@ export class CreateLoadBalancerCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "LightsailClient",
+      commandName: "CreateLoadBalancerCommand",
       inputFilterSensitiveLog: CreateLoadBalancerRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateLoadBalancerResult.filterSensitiveLog,
     };

@@ -48,6 +48,8 @@ export class DeleteAccessPointPolicyCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "S3ControlClient",
+      commandName: "DeleteAccessPointPolicyCommand",
       inputFilterSensitiveLog: DeleteAccessPointPolicyRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

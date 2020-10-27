@@ -46,6 +46,8 @@ export class BatchUpdatePhoneNumberCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ChimeClient",
+      commandName: "BatchUpdatePhoneNumberCommand",
       inputFilterSensitiveLog: BatchUpdatePhoneNumberRequest.filterSensitiveLog,
       outputFilterSensitiveLog: BatchUpdatePhoneNumberResponse.filterSensitiveLog,
     };

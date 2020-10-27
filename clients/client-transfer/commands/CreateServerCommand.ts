@@ -46,6 +46,8 @@ export class CreateServerCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "TransferClient",
+      commandName: "CreateServerCommand",
       inputFilterSensitiveLog: CreateServerRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateServerResponse.filterSensitiveLog,
     };

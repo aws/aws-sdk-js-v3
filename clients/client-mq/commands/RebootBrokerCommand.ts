@@ -46,6 +46,8 @@ export class RebootBrokerCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "MqClient",
+      commandName: "RebootBrokerCommand",
       inputFilterSensitiveLog: RebootBrokerRequest.filterSensitiveLog,
       outputFilterSensitiveLog: RebootBrokerResponse.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class ResolveAliasCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GameLiftClient",
+      commandName: "ResolveAliasCommand",
       inputFilterSensitiveLog: ResolveAliasInput.filterSensitiveLog,
       outputFilterSensitiveLog: ResolveAliasOutput.filterSensitiveLog,
     };

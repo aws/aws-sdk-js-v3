@@ -43,6 +43,8 @@ export class SetStatusCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "DataPipelineClient",
+      commandName: "SetStatusCommand",
       inputFilterSensitiveLog: SetStatusInput.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

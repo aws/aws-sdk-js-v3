@@ -39,6 +39,8 @@ export class GetPolicyCommand extends $Command<GetPolicyCommandInput, GetPolicyC
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "FMSClient",
+      commandName: "GetPolicyCommand",
       inputFilterSensitiveLog: GetPolicyRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetPolicyResponse.filterSensitiveLog,
     };

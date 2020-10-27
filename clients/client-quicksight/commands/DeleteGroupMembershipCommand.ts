@@ -46,6 +46,8 @@ export class DeleteGroupMembershipCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "QuickSightClient",
+      commandName: "DeleteGroupMembershipCommand",
       inputFilterSensitiveLog: DeleteGroupMembershipRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteGroupMembershipResponse.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class ListV2LoggingLevelsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "IoTClient",
+      commandName: "ListV2LoggingLevelsCommand",
       inputFilterSensitiveLog: ListV2LoggingLevelsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListV2LoggingLevelsResponse.filterSensitiveLog,
     };

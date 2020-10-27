@@ -49,6 +49,8 @@ export class RestoreObjectCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "S3Client",
+      commandName: "RestoreObjectCommand",
       inputFilterSensitiveLog: RestoreObjectRequest.filterSensitiveLog,
       outputFilterSensitiveLog: RestoreObjectOutput.filterSensitiveLog,
     };

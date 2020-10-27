@@ -46,6 +46,8 @@ export class DeleteFileSystemCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EFSClient",
+      commandName: "DeleteFileSystemCommand",
       inputFilterSensitiveLog: DeleteFileSystemRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

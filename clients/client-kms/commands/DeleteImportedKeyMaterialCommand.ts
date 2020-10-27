@@ -46,6 +46,8 @@ export class DeleteImportedKeyMaterialCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "KMSClient",
+      commandName: "DeleteImportedKeyMaterialCommand",
       inputFilterSensitiveLog: DeleteImportedKeyMaterialRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

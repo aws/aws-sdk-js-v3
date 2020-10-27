@@ -46,6 +46,8 @@ export class PutUserPermissionsBoundaryCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "IAMClient",
+      commandName: "PutUserPermissionsBoundaryCommand",
       inputFilterSensitiveLog: PutUserPermissionsBoundaryRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

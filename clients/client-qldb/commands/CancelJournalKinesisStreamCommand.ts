@@ -46,6 +46,8 @@ export class CancelJournalKinesisStreamCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "QLDBClient",
+      commandName: "CancelJournalKinesisStreamCommand",
       inputFilterSensitiveLog: CancelJournalKinesisStreamRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CancelJournalKinesisStreamResponse.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class StopDBClusterCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "RDSClient",
+      commandName: "StopDBClusterCommand",
       inputFilterSensitiveLog: StopDBClusterMessage.filterSensitiveLog,
       outputFilterSensitiveLog: StopDBClusterResult.filterSensitiveLog,
     };

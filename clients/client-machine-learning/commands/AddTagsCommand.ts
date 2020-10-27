@@ -43,6 +43,8 @@ export class AddTagsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "MachineLearningClient",
+      commandName: "AddTagsCommand",
       inputFilterSensitiveLog: AddTagsInput.filterSensitiveLog,
       outputFilterSensitiveLog: AddTagsOutput.filterSensitiveLog,
     };

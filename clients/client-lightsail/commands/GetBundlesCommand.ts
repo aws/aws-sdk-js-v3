@@ -46,6 +46,8 @@ export class GetBundlesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "LightsailClient",
+      commandName: "GetBundlesCommand",
       inputFilterSensitiveLog: GetBundlesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetBundlesResult.filterSensitiveLog,
     };

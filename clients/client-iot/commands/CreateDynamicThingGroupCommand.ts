@@ -46,6 +46,8 @@ export class CreateDynamicThingGroupCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "IoTClient",
+      commandName: "CreateDynamicThingGroupCommand",
       inputFilterSensitiveLog: CreateDynamicThingGroupRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateDynamicThingGroupResponse.filterSensitiveLog,
     };

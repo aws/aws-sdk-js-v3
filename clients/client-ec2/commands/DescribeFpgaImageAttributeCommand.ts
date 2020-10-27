@@ -46,6 +46,8 @@ export class DescribeFpgaImageAttributeCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EC2Client",
+      commandName: "DescribeFpgaImageAttributeCommand",
       inputFilterSensitiveLog: DescribeFpgaImageAttributeRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeFpgaImageAttributeResult.filterSensitiveLog,
     };

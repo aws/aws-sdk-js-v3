@@ -46,6 +46,8 @@ export class DeletePendingAggregationRequestCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ConfigServiceClient",
+      commandName: "DeletePendingAggregationRequestCommand",
       inputFilterSensitiveLog: DeletePendingAggregationRequestRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

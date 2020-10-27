@@ -46,6 +46,8 @@ export class DescribeAccountLimitsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CloudFormationClient",
+      commandName: "DescribeAccountLimitsCommand",
       inputFilterSensitiveLog: DescribeAccountLimitsInput.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeAccountLimitsOutput.filterSensitiveLog,
     };

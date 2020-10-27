@@ -46,6 +46,8 @@ export class DeleteReservationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "MediaLiveClient",
+      commandName: "DeleteReservationCommand",
       inputFilterSensitiveLog: DeleteReservationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteReservationResponse.filterSensitiveLog,
     };

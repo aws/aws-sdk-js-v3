@@ -46,6 +46,8 @@ export class UpdateVoiceConnectorCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ChimeClient",
+      commandName: "UpdateVoiceConnectorCommand",
       inputFilterSensitiveLog: UpdateVoiceConnectorRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateVoiceConnectorResponse.filterSensitiveLog,
     };

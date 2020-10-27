@@ -46,6 +46,8 @@ export class CreateFieldLevelEncryptionProfileCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CloudFrontClient",
+      commandName: "CreateFieldLevelEncryptionProfileCommand",
       inputFilterSensitiveLog: CreateFieldLevelEncryptionProfileRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateFieldLevelEncryptionProfileResult.filterSensitiveLog,
     };

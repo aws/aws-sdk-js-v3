@@ -46,6 +46,8 @@ export class DescribeNotebookExecutionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EMRClient",
+      commandName: "DescribeNotebookExecutionCommand",
       inputFilterSensitiveLog: DescribeNotebookExecutionInput.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeNotebookExecutionOutput.filterSensitiveLog,
     };

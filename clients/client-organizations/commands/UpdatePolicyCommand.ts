@@ -46,6 +46,8 @@ export class UpdatePolicyCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "OrganizationsClient",
+      commandName: "UpdatePolicyCommand",
       inputFilterSensitiveLog: UpdatePolicyRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdatePolicyResponse.filterSensitiveLog,
     };

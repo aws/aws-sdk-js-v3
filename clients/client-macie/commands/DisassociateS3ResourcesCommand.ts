@@ -46,6 +46,8 @@ export class DisassociateS3ResourcesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "MacieClient",
+      commandName: "DisassociateS3ResourcesCommand",
       inputFilterSensitiveLog: DisassociateS3ResourcesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DisassociateS3ResourcesResult.filterSensitiveLog,
     };

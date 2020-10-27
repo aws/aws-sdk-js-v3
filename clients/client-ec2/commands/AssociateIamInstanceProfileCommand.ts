@@ -46,6 +46,8 @@ export class AssociateIamInstanceProfileCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EC2Client",
+      commandName: "AssociateIamInstanceProfileCommand",
       inputFilterSensitiveLog: AssociateIamInstanceProfileRequest.filterSensitiveLog,
       outputFilterSensitiveLog: AssociateIamInstanceProfileResult.filterSensitiveLog,
     };

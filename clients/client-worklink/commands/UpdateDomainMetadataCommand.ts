@@ -46,6 +46,8 @@ export class UpdateDomainMetadataCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "WorkLinkClient",
+      commandName: "UpdateDomainMetadataCommand",
       inputFilterSensitiveLog: UpdateDomainMetadataRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateDomainMetadataResponse.filterSensitiveLog,
     };

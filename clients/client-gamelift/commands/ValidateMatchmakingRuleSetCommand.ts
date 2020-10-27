@@ -46,6 +46,8 @@ export class ValidateMatchmakingRuleSetCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GameLiftClient",
+      commandName: "ValidateMatchmakingRuleSetCommand",
       inputFilterSensitiveLog: ValidateMatchmakingRuleSetInput.filterSensitiveLog,
       outputFilterSensitiveLog: ValidateMatchmakingRuleSetOutput.filterSensitiveLog,
     };

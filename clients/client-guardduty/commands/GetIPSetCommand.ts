@@ -46,6 +46,8 @@ export class GetIPSetCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GuardDutyClient",
+      commandName: "GetIPSetCommand",
       inputFilterSensitiveLog: GetIPSetRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetIPSetResponse.filterSensitiveLog,
     };

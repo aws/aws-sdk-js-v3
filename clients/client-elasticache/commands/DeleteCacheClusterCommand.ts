@@ -46,6 +46,8 @@ export class DeleteCacheClusterCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ElastiCacheClient",
+      commandName: "DeleteCacheClusterCommand",
       inputFilterSensitiveLog: DeleteCacheClusterMessage.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteCacheClusterResult.filterSensitiveLog,
     };

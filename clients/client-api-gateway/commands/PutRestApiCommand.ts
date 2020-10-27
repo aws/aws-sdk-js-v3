@@ -46,6 +46,8 @@ export class PutRestApiCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "APIGatewayClient",
+      commandName: "PutRestApiCommand",
       inputFilterSensitiveLog: PutRestApiRequest.filterSensitiveLog,
       outputFilterSensitiveLog: RestApi.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class DescribeConnectionAliasesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "WorkSpacesClient",
+      commandName: "DescribeConnectionAliasesCommand",
       inputFilterSensitiveLog: DescribeConnectionAliasesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeConnectionAliasesResult.filterSensitiveLog,
     };

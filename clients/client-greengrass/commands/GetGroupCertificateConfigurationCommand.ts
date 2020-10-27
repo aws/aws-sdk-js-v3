@@ -46,6 +46,8 @@ export class GetGroupCertificateConfigurationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GreengrassClient",
+      commandName: "GetGroupCertificateConfigurationCommand",
       inputFilterSensitiveLog: GetGroupCertificateConfigurationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetGroupCertificateConfigurationResponse.filterSensitiveLog,
     };

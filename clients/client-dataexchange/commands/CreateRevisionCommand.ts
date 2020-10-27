@@ -46,6 +46,8 @@ export class CreateRevisionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "DataExchangeClient",
+      commandName: "CreateRevisionCommand",
       inputFilterSensitiveLog: CreateRevisionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateRevisionResponse.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class ListIdentityPoolUsageCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CognitoSyncClient",
+      commandName: "ListIdentityPoolUsageCommand",
       inputFilterSensitiveLog: ListIdentityPoolUsageRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListIdentityPoolUsageResponse.filterSensitiveLog,
     };

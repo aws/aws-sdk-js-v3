@@ -43,6 +43,8 @@ export class DeleteAlarmsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CloudWatchClient",
+      commandName: "DeleteAlarmsCommand",
       inputFilterSensitiveLog: DeleteAlarmsInput.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

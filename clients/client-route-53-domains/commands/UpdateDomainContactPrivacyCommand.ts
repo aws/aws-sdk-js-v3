@@ -46,6 +46,8 @@ export class UpdateDomainContactPrivacyCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "Route53DomainsClient",
+      commandName: "UpdateDomainContactPrivacyCommand",
       inputFilterSensitiveLog: UpdateDomainContactPrivacyRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateDomainContactPrivacyResponse.filterSensitiveLog,
     };

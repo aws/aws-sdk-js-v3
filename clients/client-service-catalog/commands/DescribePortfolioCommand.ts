@@ -46,6 +46,8 @@ export class DescribePortfolioCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ServiceCatalogClient",
+      commandName: "DescribePortfolioCommand",
       inputFilterSensitiveLog: DescribePortfolioInput.filterSensitiveLog,
       outputFilterSensitiveLog: DescribePortfolioOutput.filterSensitiveLog,
     };

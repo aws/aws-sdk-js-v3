@@ -46,6 +46,8 @@ export class InviteMembersCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GuardDutyClient",
+      commandName: "InviteMembersCommand",
       inputFilterSensitiveLog: InviteMembersRequest.filterSensitiveLog,
       outputFilterSensitiveLog: InviteMembersResponse.filterSensitiveLog,
     };

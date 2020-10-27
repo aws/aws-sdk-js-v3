@@ -46,6 +46,8 @@ export class ListSAMLProvidersCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "IAMClient",
+      commandName: "ListSAMLProvidersCommand",
       inputFilterSensitiveLog: ListSAMLProvidersRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListSAMLProvidersResponse.filterSensitiveLog,
     };

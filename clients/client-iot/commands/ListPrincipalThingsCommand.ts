@@ -46,6 +46,8 @@ export class ListPrincipalThingsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "IoTClient",
+      commandName: "ListPrincipalThingsCommand",
       inputFilterSensitiveLog: ListPrincipalThingsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListPrincipalThingsResponse.filterSensitiveLog,
     };

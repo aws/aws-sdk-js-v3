@@ -46,6 +46,8 @@ export class GetWebhookCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "AmplifyClient",
+      commandName: "GetWebhookCommand",
       inputFilterSensitiveLog: GetWebhookRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetWebhookResult.filterSensitiveLog,
     };

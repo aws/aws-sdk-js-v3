@@ -46,6 +46,8 @@ export class DeleteMembersCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SecurityHubClient",
+      commandName: "DeleteMembersCommand",
       inputFilterSensitiveLog: DeleteMembersRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteMembersResponse.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class GetBlockPublicAccessConfigurationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EMRClient",
+      commandName: "GetBlockPublicAccessConfigurationCommand",
       inputFilterSensitiveLog: GetBlockPublicAccessConfigurationInput.filterSensitiveLog,
       outputFilterSensitiveLog: GetBlockPublicAccessConfigurationOutput.filterSensitiveLog,
     };

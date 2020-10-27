@@ -46,6 +46,8 @@ export class ListDeploymentsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GreengrassClient",
+      commandName: "ListDeploymentsCommand",
       inputFilterSensitiveLog: ListDeploymentsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListDeploymentsResponse.filterSensitiveLog,
     };

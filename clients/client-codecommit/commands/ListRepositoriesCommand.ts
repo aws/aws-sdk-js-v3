@@ -46,6 +46,8 @@ export class ListRepositoriesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CodeCommitClient",
+      commandName: "ListRepositoriesCommand",
       inputFilterSensitiveLog: ListRepositoriesInput.filterSensitiveLog,
       outputFilterSensitiveLog: ListRepositoriesOutput.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class TerminateWorkspacesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "WorkSpacesClient",
+      commandName: "TerminateWorkspacesCommand",
       inputFilterSensitiveLog: TerminateWorkspacesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: TerminateWorkspacesResult.filterSensitiveLog,
     };

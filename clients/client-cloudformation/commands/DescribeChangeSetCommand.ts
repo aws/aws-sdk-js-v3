@@ -46,6 +46,8 @@ export class DescribeChangeSetCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CloudFormationClient",
+      commandName: "DescribeChangeSetCommand",
       inputFilterSensitiveLog: DescribeChangeSetInput.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeChangeSetOutput.filterSensitiveLog,
     };

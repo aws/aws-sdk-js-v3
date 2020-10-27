@@ -46,6 +46,8 @@ export class DetachGroupPolicyCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "IAMClient",
+      commandName: "DetachGroupPolicyCommand",
       inputFilterSensitiveLog: DetachGroupPolicyRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

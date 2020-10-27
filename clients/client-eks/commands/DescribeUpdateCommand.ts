@@ -46,6 +46,8 @@ export class DescribeUpdateCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EKSClient",
+      commandName: "DescribeUpdateCommand",
       inputFilterSensitiveLog: DescribeUpdateRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeUpdateResponse.filterSensitiveLog,
     };

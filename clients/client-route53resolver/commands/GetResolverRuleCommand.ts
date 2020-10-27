@@ -46,6 +46,8 @@ export class GetResolverRuleCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "Route53ResolverClient",
+      commandName: "GetResolverRuleCommand",
       inputFilterSensitiveLog: GetResolverRuleRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetResolverRuleResponse.filterSensitiveLog,
     };

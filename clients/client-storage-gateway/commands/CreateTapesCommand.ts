@@ -46,6 +46,8 @@ export class CreateTapesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "StorageGatewayClient",
+      commandName: "CreateTapesCommand",
       inputFilterSensitiveLog: CreateTapesInput.filterSensitiveLog,
       outputFilterSensitiveLog: CreateTapesOutput.filterSensitiveLog,
     };

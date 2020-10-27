@@ -46,6 +46,8 @@ export class SetPermissionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "OpsWorksClient",
+      commandName: "SetPermissionCommand",
       inputFilterSensitiveLog: SetPermissionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

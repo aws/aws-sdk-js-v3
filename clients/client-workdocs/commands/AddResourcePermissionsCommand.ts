@@ -46,6 +46,8 @@ export class AddResourcePermissionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "WorkDocsClient",
+      commandName: "AddResourcePermissionsCommand",
       inputFilterSensitiveLog: AddResourcePermissionsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: AddResourcePermissionsResponse.filterSensitiveLog,
     };

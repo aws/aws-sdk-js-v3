@@ -50,6 +50,8 @@ export class DeleteScalingPolicyCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ApplicationAutoScalingClient",
+      commandName: "DeleteScalingPolicyCommand",
       inputFilterSensitiveLog: DeleteScalingPolicyRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteScalingPolicyResponse.filterSensitiveLog,
     };

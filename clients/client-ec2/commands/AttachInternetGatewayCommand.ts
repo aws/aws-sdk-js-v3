@@ -46,6 +46,8 @@ export class AttachInternetGatewayCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EC2Client",
+      commandName: "AttachInternetGatewayCommand",
       inputFilterSensitiveLog: AttachInternetGatewayRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

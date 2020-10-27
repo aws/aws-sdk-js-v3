@@ -46,6 +46,8 @@ export class DeactivateEventSourceCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CloudWatchEventsClient",
+      commandName: "DeactivateEventSourceCommand",
       inputFilterSensitiveLog: DeactivateEventSourceRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

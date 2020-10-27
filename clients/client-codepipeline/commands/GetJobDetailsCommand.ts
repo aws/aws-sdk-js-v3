@@ -46,6 +46,8 @@ export class GetJobDetailsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CodePipelineClient",
+      commandName: "GetJobDetailsCommand",
       inputFilterSensitiveLog: GetJobDetailsInput.filterSensitiveLog,
       outputFilterSensitiveLog: GetJobDetailsOutput.filterSensitiveLog,
     };

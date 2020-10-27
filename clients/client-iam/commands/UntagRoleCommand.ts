@@ -39,6 +39,8 @@ export class UntagRoleCommand extends $Command<UntagRoleCommandInput, UntagRoleC
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "IAMClient",
+      commandName: "UntagRoleCommand",
       inputFilterSensitiveLog: UntagRoleRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

@@ -46,6 +46,8 @@ export class GetTopicAttributesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SNSClient",
+      commandName: "GetTopicAttributesCommand",
       inputFilterSensitiveLog: GetTopicAttributesInput.filterSensitiveLog,
       outputFilterSensitiveLog: GetTopicAttributesResponse.filterSensitiveLog,
     };

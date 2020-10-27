@@ -48,6 +48,8 @@ export class PutBucketMetricsConfigurationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "S3Client",
+      commandName: "PutBucketMetricsConfigurationCommand",
       inputFilterSensitiveLog: PutBucketMetricsConfigurationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

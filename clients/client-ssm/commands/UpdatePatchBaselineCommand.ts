@@ -46,6 +46,8 @@ export class UpdatePatchBaselineCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SSMClient",
+      commandName: "UpdatePatchBaselineCommand",
       inputFilterSensitiveLog: UpdatePatchBaselineRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdatePatchBaselineResult.filterSensitiveLog,
     };

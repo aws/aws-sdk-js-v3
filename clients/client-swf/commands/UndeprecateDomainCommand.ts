@@ -46,6 +46,8 @@ export class UndeprecateDomainCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SWFClient",
+      commandName: "UndeprecateDomainCommand",
       inputFilterSensitiveLog: UndeprecateDomainInput.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

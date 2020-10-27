@@ -46,6 +46,8 @@ export class ListTargetsByRuleCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CloudWatchEventsClient",
+      commandName: "ListTargetsByRuleCommand",
       inputFilterSensitiveLog: ListTargetsByRuleRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListTargetsByRuleResponse.filterSensitiveLog,
     };

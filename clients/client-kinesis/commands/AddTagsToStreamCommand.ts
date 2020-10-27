@@ -46,6 +46,8 @@ export class AddTagsToStreamCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "KinesisClient",
+      commandName: "AddTagsToStreamCommand",
       inputFilterSensitiveLog: AddTagsToStreamInput.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

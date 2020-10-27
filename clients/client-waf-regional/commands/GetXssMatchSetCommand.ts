@@ -46,6 +46,8 @@ export class GetXssMatchSetCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "WAFRegionalClient",
+      commandName: "GetXssMatchSetCommand",
       inputFilterSensitiveLog: GetXssMatchSetRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetXssMatchSetResponse.filterSensitiveLog,
     };

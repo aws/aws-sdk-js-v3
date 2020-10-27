@@ -46,6 +46,8 @@ export class DeleteStateMachineCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SFNClient",
+      commandName: "DeleteStateMachineCommand",
       inputFilterSensitiveLog: DeleteStateMachineInput.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteStateMachineOutput.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class CompleteLifecycleActionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "AutoScalingClient",
+      commandName: "CompleteLifecycleActionCommand",
       inputFilterSensitiveLog: CompleteLifecycleActionType.filterSensitiveLog,
       outputFilterSensitiveLog: CompleteLifecycleActionAnswer.filterSensitiveLog,
     };

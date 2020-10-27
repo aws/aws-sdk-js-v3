@@ -46,6 +46,8 @@ export class CreateWorkGroupCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "AthenaClient",
+      commandName: "CreateWorkGroupCommand",
       inputFilterSensitiveLog: CreateWorkGroupInput.filterSensitiveLog,
       outputFilterSensitiveLog: CreateWorkGroupOutput.filterSensitiveLog,
     };

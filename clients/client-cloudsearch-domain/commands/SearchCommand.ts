@@ -47,6 +47,8 @@ export class SearchCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CloudSearchDomainClient",
+      commandName: "SearchCommand",
       inputFilterSensitiveLog: SearchRequest.filterSensitiveLog,
       outputFilterSensitiveLog: SearchResponse.filterSensitiveLog,
     };

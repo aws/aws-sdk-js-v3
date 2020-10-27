@@ -46,6 +46,8 @@ export class CreateBatchInferenceJobCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "PersonalizeClient",
+      commandName: "CreateBatchInferenceJobCommand",
       inputFilterSensitiveLog: CreateBatchInferenceJobRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateBatchInferenceJobResponse.filterSensitiveLog,
     };

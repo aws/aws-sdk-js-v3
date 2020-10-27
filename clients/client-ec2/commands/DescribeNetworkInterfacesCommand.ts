@@ -46,6 +46,8 @@ export class DescribeNetworkInterfacesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EC2Client",
+      commandName: "DescribeNetworkInterfacesCommand",
       inputFilterSensitiveLog: DescribeNetworkInterfacesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeNetworkInterfacesResult.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class GetApnsVoipSandboxChannelCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "PinpointClient",
+      commandName: "GetApnsVoipSandboxChannelCommand",
       inputFilterSensitiveLog: GetApnsVoipSandboxChannelRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetApnsVoipSandboxChannelResponse.filterSensitiveLog,
     };

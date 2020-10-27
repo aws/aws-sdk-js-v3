@@ -46,6 +46,8 @@ export class UpdateInputSecurityGroupCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "MediaLiveClient",
+      commandName: "UpdateInputSecurityGroupCommand",
       inputFilterSensitiveLog: UpdateInputSecurityGroupRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateInputSecurityGroupResponse.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class CountClosedWorkflowExecutionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SWFClient",
+      commandName: "CountClosedWorkflowExecutionsCommand",
       inputFilterSensitiveLog: CountClosedWorkflowExecutionsInput.filterSensitiveLog,
       outputFilterSensitiveLog: WorkflowExecutionCount.filterSensitiveLog,
     };

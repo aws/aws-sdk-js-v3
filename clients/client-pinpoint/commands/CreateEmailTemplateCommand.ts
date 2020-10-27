@@ -46,6 +46,8 @@ export class CreateEmailTemplateCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "PinpointClient",
+      commandName: "CreateEmailTemplateCommand",
       inputFilterSensitiveLog: CreateEmailTemplateRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateEmailTemplateResponse.filterSensitiveLog,
     };

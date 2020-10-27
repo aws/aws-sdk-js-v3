@@ -46,6 +46,8 @@ export class DescribeFilterCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "PersonalizeClient",
+      commandName: "DescribeFilterCommand",
       inputFilterSensitiveLog: DescribeFilterRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeFilterResponse.filterSensitiveLog,
     };

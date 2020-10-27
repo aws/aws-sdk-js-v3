@@ -46,6 +46,8 @@ export class ChangeMessageVisibilityCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SQSClient",
+      commandName: "ChangeMessageVisibilityCommand",
       inputFilterSensitiveLog: ChangeMessageVisibilityRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

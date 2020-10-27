@@ -39,6 +39,8 @@ export class ListRolesCommand extends $Command<ListRolesCommandInput, ListRolesC
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "IAMClient",
+      commandName: "ListRolesCommand",
       inputFilterSensitiveLog: ListRolesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListRolesResponse.filterSensitiveLog,
     };

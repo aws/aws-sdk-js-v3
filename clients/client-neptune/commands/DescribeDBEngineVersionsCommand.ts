@@ -46,6 +46,8 @@ export class DescribeDBEngineVersionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "NeptuneClient",
+      commandName: "DescribeDBEngineVersionsCommand",
       inputFilterSensitiveLog: DescribeDBEngineVersionsMessage.filterSensitiveLog,
       outputFilterSensitiveLog: DBEngineVersionMessage.filterSensitiveLog,
     };

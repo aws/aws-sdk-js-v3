@@ -46,6 +46,8 @@ export class ListConnectorEntitiesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "AppflowClient",
+      commandName: "ListConnectorEntitiesCommand",
       inputFilterSensitiveLog: ListConnectorEntitiesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListConnectorEntitiesResponse.filterSensitiveLog,
     };

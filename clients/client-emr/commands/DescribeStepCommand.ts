@@ -46,6 +46,8 @@ export class DescribeStepCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EMRClient",
+      commandName: "DescribeStepCommand",
       inputFilterSensitiveLog: DescribeStepInput.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeStepOutput.filterSensitiveLog,
     };

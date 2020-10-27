@@ -50,6 +50,8 @@ export class DescribeAgentsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ApplicationDiscoveryServiceClient",
+      commandName: "DescribeAgentsCommand",
       inputFilterSensitiveLog: DescribeAgentsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeAgentsResponse.filterSensitiveLog,
     };

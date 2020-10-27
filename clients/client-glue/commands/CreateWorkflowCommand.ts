@@ -46,6 +46,8 @@ export class CreateWorkflowCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GlueClient",
+      commandName: "CreateWorkflowCommand",
       inputFilterSensitiveLog: CreateWorkflowRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateWorkflowResponse.filterSensitiveLog,
     };

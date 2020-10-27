@@ -46,6 +46,8 @@ export class DeleteHapgCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CloudHSMClient",
+      commandName: "DeleteHapgCommand",
       inputFilterSensitiveLog: DeleteHapgRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteHapgResponse.filterSensitiveLog,
     };

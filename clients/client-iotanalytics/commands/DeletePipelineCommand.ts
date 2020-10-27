@@ -46,6 +46,8 @@ export class DeletePipelineCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "IoTAnalyticsClient",
+      commandName: "DeletePipelineCommand",
       inputFilterSensitiveLog: DeletePipelineRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

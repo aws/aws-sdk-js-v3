@@ -46,6 +46,8 @@ export class TranslateTextCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "TranslateClient",
+      commandName: "TranslateTextCommand",
       inputFilterSensitiveLog: TranslateTextRequest.filterSensitiveLog,
       outputFilterSensitiveLog: TranslateTextResponse.filterSensitiveLog,
     };

@@ -50,6 +50,8 @@ export class GetUpgradeHistoryCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ElasticsearchServiceClient",
+      commandName: "GetUpgradeHistoryCommand",
       inputFilterSensitiveLog: GetUpgradeHistoryRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetUpgradeHistoryResponse.filterSensitiveLog,
     };

@@ -50,6 +50,8 @@ export class DescribeTargetGroupsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ElasticLoadBalancingV2Client",
+      commandName: "DescribeTargetGroupsCommand",
       inputFilterSensitiveLog: DescribeTargetGroupsInput.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeTargetGroupsOutput.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class ApproveAssignmentCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "MTurkClient",
+      commandName: "ApproveAssignmentCommand",
       inputFilterSensitiveLog: ApproveAssignmentRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ApproveAssignmentResponse.filterSensitiveLog,
     };

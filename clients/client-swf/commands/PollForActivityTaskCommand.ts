@@ -46,6 +46,8 @@ export class PollForActivityTaskCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SWFClient",
+      commandName: "PollForActivityTaskCommand",
       inputFilterSensitiveLog: PollForActivityTaskInput.filterSensitiveLog,
       outputFilterSensitiveLog: ActivityTask.filterSensitiveLog,
     };

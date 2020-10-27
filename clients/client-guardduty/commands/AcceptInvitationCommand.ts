@@ -46,6 +46,8 @@ export class AcceptInvitationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GuardDutyClient",
+      commandName: "AcceptInvitationCommand",
       inputFilterSensitiveLog: AcceptInvitationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: AcceptInvitationResponse.filterSensitiveLog,
     };

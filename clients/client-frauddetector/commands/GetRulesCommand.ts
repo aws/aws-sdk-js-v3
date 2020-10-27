@@ -43,6 +43,8 @@ export class GetRulesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "FraudDetectorClient",
+      commandName: "GetRulesCommand",
       inputFilterSensitiveLog: GetRulesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetRulesResult.filterSensitiveLog,
     };

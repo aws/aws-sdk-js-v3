@@ -46,6 +46,8 @@ export class ListTerminologiesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "TranslateClient",
+      commandName: "ListTerminologiesCommand",
       inputFilterSensitiveLog: ListTerminologiesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListTerminologiesResponse.filterSensitiveLog,
     };

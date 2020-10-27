@@ -46,6 +46,8 @@ export class DescribeAcceleratorTypesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ElasticInferenceClient",
+      commandName: "DescribeAcceleratorTypesCommand",
       inputFilterSensitiveLog: DescribeAcceleratorTypesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeAcceleratorTypesResponse.filterSensitiveLog,
     };

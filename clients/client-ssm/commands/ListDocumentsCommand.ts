@@ -46,6 +46,8 @@ export class ListDocumentsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SSMClient",
+      commandName: "ListDocumentsCommand",
       inputFilterSensitiveLog: ListDocumentsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListDocumentsResult.filterSensitiveLog,
     };

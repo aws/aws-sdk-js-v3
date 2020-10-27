@@ -46,6 +46,8 @@ export class GetCommentsForComparedCommitCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CodeCommitClient",
+      commandName: "GetCommentsForComparedCommitCommand",
       inputFilterSensitiveLog: GetCommentsForComparedCommitInput.filterSensitiveLog,
       outputFilterSensitiveLog: GetCommentsForComparedCommitOutput.filterSensitiveLog,
     };

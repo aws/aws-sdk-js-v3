@@ -46,6 +46,8 @@ export class GetSAMLProviderCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "IAMClient",
+      commandName: "GetSAMLProviderCommand",
       inputFilterSensitiveLog: GetSAMLProviderRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetSAMLProviderResponse.filterSensitiveLog,
     };

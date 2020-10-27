@@ -46,6 +46,8 @@ export class ListDistributionsByCachePolicyIdCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CloudFrontClient",
+      commandName: "ListDistributionsByCachePolicyIdCommand",
       inputFilterSensitiveLog: ListDistributionsByCachePolicyIdRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListDistributionsByCachePolicyIdResult.filterSensitiveLog,
     };

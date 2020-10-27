@@ -50,6 +50,8 @@ export class UnsubscribeCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CodestarNotificationsClient",
+      commandName: "UnsubscribeCommand",
       inputFilterSensitiveLog: UnsubscribeRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UnsubscribeResult.filterSensitiveLog,
     };

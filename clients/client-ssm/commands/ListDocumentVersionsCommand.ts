@@ -46,6 +46,8 @@ export class ListDocumentVersionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SSMClient",
+      commandName: "ListDocumentVersionsCommand",
       inputFilterSensitiveLog: ListDocumentVersionsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListDocumentVersionsResult.filterSensitiveLog,
     };

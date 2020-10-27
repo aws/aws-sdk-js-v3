@@ -46,6 +46,8 @@ export class ListCompatibleImagesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SnowballClient",
+      commandName: "ListCompatibleImagesCommand",
       inputFilterSensitiveLog: ListCompatibleImagesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListCompatibleImagesResult.filterSensitiveLog,
     };

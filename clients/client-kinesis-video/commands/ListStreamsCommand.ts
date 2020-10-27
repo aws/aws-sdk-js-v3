@@ -46,6 +46,8 @@ export class ListStreamsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "KinesisVideoClient",
+      commandName: "ListStreamsCommand",
       inputFilterSensitiveLog: ListStreamsInput.filterSensitiveLog,
       outputFilterSensitiveLog: ListStreamsOutput.filterSensitiveLog,
     };

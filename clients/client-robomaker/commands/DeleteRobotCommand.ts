@@ -46,6 +46,8 @@ export class DeleteRobotCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "RoboMakerClient",
+      commandName: "DeleteRobotCommand",
       inputFilterSensitiveLog: DeleteRobotRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteRobotResponse.filterSensitiveLog,
     };

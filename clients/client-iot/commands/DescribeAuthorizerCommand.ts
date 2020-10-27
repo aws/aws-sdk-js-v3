@@ -46,6 +46,8 @@ export class DescribeAuthorizerCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "IoTClient",
+      commandName: "DescribeAuthorizerCommand",
       inputFilterSensitiveLog: DescribeAuthorizerRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeAuthorizerResponse.filterSensitiveLog,
     };

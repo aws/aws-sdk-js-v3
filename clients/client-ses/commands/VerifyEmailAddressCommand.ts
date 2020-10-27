@@ -46,6 +46,8 @@ export class VerifyEmailAddressCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SESClient",
+      commandName: "VerifyEmailAddressCommand",
       inputFilterSensitiveLog: VerifyEmailAddressRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

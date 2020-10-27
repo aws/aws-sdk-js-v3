@@ -46,6 +46,8 @@ export class ListAnalyzersCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "AccessAnalyzerClient",
+      commandName: "ListAnalyzersCommand",
       inputFilterSensitiveLog: ListAnalyzersRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListAnalyzersResponse.filterSensitiveLog,
     };

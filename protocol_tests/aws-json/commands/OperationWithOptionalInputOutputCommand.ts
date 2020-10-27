@@ -46,6 +46,8 @@ export class OperationWithOptionalInputOutputCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "JsonProtocolClient",
+      commandName: "OperationWithOptionalInputOutputCommand",
       inputFilterSensitiveLog: SimpleStruct.filterSensitiveLog,
       outputFilterSensitiveLog: SimpleStruct.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class CancelExportTaskCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CloudWatchLogsClient",
+      commandName: "CancelExportTaskCommand",
       inputFilterSensitiveLog: CancelExportTaskRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

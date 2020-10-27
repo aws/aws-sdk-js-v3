@@ -46,6 +46,8 @@ export class CreateStreamKeyCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "IvsClient",
+      commandName: "CreateStreamKeyCommand",
       inputFilterSensitiveLog: CreateStreamKeyRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateStreamKeyResponse.filterSensitiveLog,
     };

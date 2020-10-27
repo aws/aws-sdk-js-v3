@@ -46,6 +46,8 @@ export class TransactWriteItemsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "DynamoDBClient",
+      commandName: "TransactWriteItemsCommand",
       inputFilterSensitiveLog: TransactWriteItemsInput.filterSensitiveLog,
       outputFilterSensitiveLog: TransactWriteItemsOutput.filterSensitiveLog,
     };

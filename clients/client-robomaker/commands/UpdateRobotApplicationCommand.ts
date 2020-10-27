@@ -46,6 +46,8 @@ export class UpdateRobotApplicationCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "RoboMakerClient",
+      commandName: "UpdateRobotApplicationCommand",
       inputFilterSensitiveLog: UpdateRobotApplicationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateRobotApplicationResponse.filterSensitiveLog,
     };

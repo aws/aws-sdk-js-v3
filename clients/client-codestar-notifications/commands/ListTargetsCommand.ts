@@ -50,6 +50,8 @@ export class ListTargetsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CodestarNotificationsClient",
+      commandName: "ListTargetsCommand",
       inputFilterSensitiveLog: ListTargetsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListTargetsResult.filterSensitiveLog,
     };

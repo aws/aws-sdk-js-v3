@@ -46,6 +46,8 @@ export class UpdateWorkspaceImagePermissionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "WorkSpacesClient",
+      commandName: "UpdateWorkspaceImagePermissionCommand",
       inputFilterSensitiveLog: UpdateWorkspaceImagePermissionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateWorkspaceImagePermissionResult.filterSensitiveLog,
     };

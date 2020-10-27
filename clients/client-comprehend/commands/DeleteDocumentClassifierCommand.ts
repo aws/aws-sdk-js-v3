@@ -46,6 +46,8 @@ export class DeleteDocumentClassifierCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ComprehendClient",
+      commandName: "DeleteDocumentClassifierCommand",
       inputFilterSensitiveLog: DeleteDocumentClassifierRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteDocumentClassifierResponse.filterSensitiveLog,
     };

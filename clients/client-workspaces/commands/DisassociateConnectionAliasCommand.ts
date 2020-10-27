@@ -46,6 +46,8 @@ export class DisassociateConnectionAliasCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "WorkSpacesClient",
+      commandName: "DisassociateConnectionAliasCommand",
       inputFilterSensitiveLog: DisassociateConnectionAliasRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DisassociateConnectionAliasResult.filterSensitiveLog,
     };

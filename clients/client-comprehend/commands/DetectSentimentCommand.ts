@@ -46,6 +46,8 @@ export class DetectSentimentCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ComprehendClient",
+      commandName: "DetectSentimentCommand",
       inputFilterSensitiveLog: DetectSentimentRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DetectSentimentResponse.filterSensitiveLog,
     };

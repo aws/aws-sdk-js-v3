@@ -46,6 +46,8 @@ export class CreateKeyGroupCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CloudFrontClient",
+      commandName: "CreateKeyGroupCommand",
       inputFilterSensitiveLog: CreateKeyGroupRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateKeyGroupResult.filterSensitiveLog,
     };

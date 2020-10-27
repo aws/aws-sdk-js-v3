@@ -46,6 +46,8 @@ export class AbortEnvironmentUpdateCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ElasticBeanstalkClient",
+      commandName: "AbortEnvironmentUpdateCommand",
       inputFilterSensitiveLog: AbortEnvironmentUpdateMessage.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

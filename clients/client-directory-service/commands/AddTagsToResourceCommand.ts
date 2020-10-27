@@ -46,6 +46,8 @@ export class AddTagsToResourceCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "DirectoryServiceClient",
+      commandName: "AddTagsToResourceCommand",
       inputFilterSensitiveLog: AddTagsToResourceRequest.filterSensitiveLog,
       outputFilterSensitiveLog: AddTagsToResourceResult.filterSensitiveLog,
     };

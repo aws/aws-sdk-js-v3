@@ -46,6 +46,8 @@ export class UpdateInputCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "MediaLiveClient",
+      commandName: "UpdateInputCommand",
       inputFilterSensitiveLog: UpdateInputRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateInputResponse.filterSensitiveLog,
     };

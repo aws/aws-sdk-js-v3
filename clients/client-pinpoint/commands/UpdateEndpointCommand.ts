@@ -46,6 +46,8 @@ export class UpdateEndpointCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "PinpointClient",
+      commandName: "UpdateEndpointCommand",
       inputFilterSensitiveLog: UpdateEndpointRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateEndpointResponse.filterSensitiveLog,
     };

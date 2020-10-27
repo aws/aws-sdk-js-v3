@@ -46,6 +46,8 @@ export class DescribeServiceAccessPoliciesCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CloudSearchClient",
+      commandName: "DescribeServiceAccessPoliciesCommand",
       inputFilterSensitiveLog: DescribeServiceAccessPoliciesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeServiceAccessPoliciesResponse.filterSensitiveLog,
     };

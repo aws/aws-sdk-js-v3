@@ -46,6 +46,8 @@ export class TagResourceCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "DynamoDBClient",
+      commandName: "TagResourceCommand",
       inputFilterSensitiveLog: TagResourceInput.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

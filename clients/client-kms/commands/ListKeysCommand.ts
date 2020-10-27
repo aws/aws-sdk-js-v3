@@ -39,6 +39,8 @@ export class ListKeysCommand extends $Command<ListKeysCommandInput, ListKeysComm
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "KMSClient",
+      commandName: "ListKeysCommand",
       inputFilterSensitiveLog: ListKeysRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListKeysResponse.filterSensitiveLog,
     };

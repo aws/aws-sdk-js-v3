@@ -46,6 +46,8 @@ export class UpdateSchemaCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "CloudDirectoryClient",
+      commandName: "UpdateSchemaCommand",
       inputFilterSensitiveLog: UpdateSchemaRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateSchemaResponse.filterSensitiveLog,
     };

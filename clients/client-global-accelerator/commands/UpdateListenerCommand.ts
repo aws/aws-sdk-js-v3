@@ -50,6 +50,8 @@ export class UpdateListenerCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GlobalAcceleratorClient",
+      commandName: "UpdateListenerCommand",
       inputFilterSensitiveLog: UpdateListenerRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateListenerResponse.filterSensitiveLog,
     };

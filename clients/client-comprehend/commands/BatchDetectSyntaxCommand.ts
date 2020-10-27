@@ -46,6 +46,8 @@ export class BatchDetectSyntaxCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ComprehendClient",
+      commandName: "BatchDetectSyntaxCommand",
       inputFilterSensitiveLog: BatchDetectSyntaxRequest.filterSensitiveLog,
       outputFilterSensitiveLog: BatchDetectSyntaxResponse.filterSensitiveLog,
     };

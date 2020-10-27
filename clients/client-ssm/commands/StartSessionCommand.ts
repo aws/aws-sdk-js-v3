@@ -46,6 +46,8 @@ export class StartSessionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SSMClient",
+      commandName: "StartSessionCommand",
       inputFilterSensitiveLog: StartSessionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: StartSessionResponse.filterSensitiveLog,
     };

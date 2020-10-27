@@ -46,6 +46,8 @@ export class StartExecutionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SFNClient",
+      commandName: "StartExecutionCommand",
       inputFilterSensitiveLog: StartExecutionInput.filterSensitiveLog,
       outputFilterSensitiveLog: StartExecutionOutput.filterSensitiveLog,
     };

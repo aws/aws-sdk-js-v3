@@ -46,6 +46,8 @@ export class BatchDeletePhoneNumberCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ChimeClient",
+      commandName: "BatchDeletePhoneNumberCommand",
       inputFilterSensitiveLog: BatchDeletePhoneNumberRequest.filterSensitiveLog,
       outputFilterSensitiveLog: BatchDeletePhoneNumberResponse.filterSensitiveLog,
     };

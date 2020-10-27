@@ -46,6 +46,8 @@ export class DescribeUpdateActionsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ElastiCacheClient",
+      commandName: "DescribeUpdateActionsCommand",
       inputFilterSensitiveLog: DescribeUpdateActionsMessage.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateActionsMessage.filterSensitiveLog,
     };

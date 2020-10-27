@@ -50,6 +50,8 @@ export class AdvertiseByoipCidrCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GlobalAcceleratorClient",
+      commandName: "AdvertiseByoipCidrCommand",
       inputFilterSensitiveLog: AdvertiseByoipCidrRequest.filterSensitiveLog,
       outputFilterSensitiveLog: AdvertiseByoipCidrResponse.filterSensitiveLog,
     };

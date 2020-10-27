@@ -46,6 +46,8 @@ export class DescribeGameSessionPlacementCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "GameLiftClient",
+      commandName: "DescribeGameSessionPlacementCommand",
       inputFilterSensitiveLog: DescribeGameSessionPlacementInput.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeGameSessionPlacementOutput.filterSensitiveLog,
     };

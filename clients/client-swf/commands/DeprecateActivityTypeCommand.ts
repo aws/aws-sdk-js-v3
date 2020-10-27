@@ -46,6 +46,8 @@ export class DeprecateActivityTypeCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SWFClient",
+      commandName: "DeprecateActivityTypeCommand",
       inputFilterSensitiveLog: DeprecateActivityTypeInput.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

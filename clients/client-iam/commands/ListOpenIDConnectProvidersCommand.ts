@@ -46,6 +46,8 @@ export class ListOpenIDConnectProvidersCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "IAMClient",
+      commandName: "ListOpenIDConnectProvidersCommand",
       inputFilterSensitiveLog: ListOpenIDConnectProvidersRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListOpenIDConnectProvidersResponse.filterSensitiveLog,
     };

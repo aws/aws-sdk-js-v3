@@ -46,6 +46,8 @@ export class ListUniqueProblemsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "DeviceFarmClient",
+      commandName: "ListUniqueProblemsCommand",
       inputFilterSensitiveLog: ListUniqueProblemsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListUniqueProblemsResult.filterSensitiveLog,
     };

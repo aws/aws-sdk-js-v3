@@ -46,6 +46,8 @@ export class DescribeUploadBufferCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "StorageGatewayClient",
+      commandName: "DescribeUploadBufferCommand",
       inputFilterSensitiveLog: DescribeUploadBufferInput.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeUploadBufferOutput.filterSensitiveLog,
     };

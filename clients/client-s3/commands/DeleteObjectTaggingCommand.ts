@@ -48,6 +48,8 @@ export class DeleteObjectTaggingCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "S3Client",
+      commandName: "DeleteObjectTaggingCommand",
       inputFilterSensitiveLog: DeleteObjectTaggingRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteObjectTaggingOutput.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class ModifyVolumeAttributeCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EC2Client",
+      commandName: "ModifyVolumeAttributeCommand",
       inputFilterSensitiveLog: ModifyVolumeAttributeRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

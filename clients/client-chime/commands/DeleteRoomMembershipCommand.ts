@@ -46,6 +46,8 @@ export class DeleteRoomMembershipCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ChimeClient",
+      commandName: "DeleteRoomMembershipCommand",
       inputFilterSensitiveLog: DeleteRoomMembershipRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

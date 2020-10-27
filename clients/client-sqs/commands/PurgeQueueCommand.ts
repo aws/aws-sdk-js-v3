@@ -43,6 +43,8 @@ export class PurgeQueueCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "SQSClient",
+      commandName: "PurgeQueueCommand",
       inputFilterSensitiveLog: PurgeQueueRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };

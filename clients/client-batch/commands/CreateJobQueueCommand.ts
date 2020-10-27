@@ -46,6 +46,8 @@ export class CreateJobQueueCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "BatchClient",
+      commandName: "CreateJobQueueCommand",
       inputFilterSensitiveLog: CreateJobQueueRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateJobQueueResponse.filterSensitiveLog,
     };

@@ -46,6 +46,8 @@ export class DescribeComplianceByResourceCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "ConfigServiceClient",
+      commandName: "DescribeComplianceByResourceCommand",
       inputFilterSensitiveLog: DescribeComplianceByResourceRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeComplianceByResourceResponse.filterSensitiveLog,
     };

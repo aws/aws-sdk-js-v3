@@ -46,6 +46,8 @@ export class DescribePublicIpv4PoolsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "EC2Client",
+      commandName: "DescribePublicIpv4PoolsCommand",
       inputFilterSensitiveLog: DescribePublicIpv4PoolsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribePublicIpv4PoolsResult.filterSensitiveLog,
     };

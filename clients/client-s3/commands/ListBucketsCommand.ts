@@ -46,6 +46,8 @@ export class ListBucketsCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "S3Client",
+      commandName: "ListBucketsCommand",
       inputFilterSensitiveLog: (input: any) => input,
       outputFilterSensitiveLog: ListBucketsOutput.filterSensitiveLog,
     };

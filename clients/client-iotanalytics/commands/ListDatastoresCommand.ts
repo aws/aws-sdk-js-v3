@@ -46,6 +46,8 @@ export class ListDatastoresCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "IoTAnalyticsClient",
+      commandName: "ListDatastoresCommand",
       inputFilterSensitiveLog: ListDatastoresRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListDatastoresResponse.filterSensitiveLog,
     };

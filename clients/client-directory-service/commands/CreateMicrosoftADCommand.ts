@@ -46,6 +46,8 @@ export class CreateMicrosoftADCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "DirectoryServiceClient",
+      commandName: "CreateMicrosoftADCommand",
       inputFilterSensitiveLog: CreateMicrosoftADRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateMicrosoftADResult.filterSensitiveLog,
     };

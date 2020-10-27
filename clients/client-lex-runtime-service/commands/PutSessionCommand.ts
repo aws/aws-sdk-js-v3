@@ -50,6 +50,8 @@ export class PutSessionCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "LexRuntimeServiceClient",
+      commandName: "PutSessionCommand",
       inputFilterSensitiveLog: PutSessionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: PutSessionResponse.filterSensitiveLog,
     };

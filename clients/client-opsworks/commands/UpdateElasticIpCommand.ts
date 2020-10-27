@@ -46,6 +46,8 @@ export class UpdateElasticIpCommand extends $Command<
     const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName: "OpsWorksClient",
+      commandName: "UpdateElasticIpCommand",
       inputFilterSensitiveLog: UpdateElasticIpRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
