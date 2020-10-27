@@ -1,16 +1,20 @@
 import { HttpRequest } from "@aws-sdk/protocol-http";
-import { BuildMiddleware, MetadataBearer } from "@aws-sdk/types";
 import { formatUrl } from "@aws-sdk/util-format-url";
 
-import { Polly, PollyClient, SynthesizeSpeechCommand } from "@aws-sdk/client-polly";
-import { PollyPresigner } from "./PollyPresigner";
+import { PollyClient, SynthesizeSpeechCommand } from "@aws-sdk/client-polly";
+import { SignatureV4 } from "@aws-sdk/signature-v4";
 
 export const getSignedUrl = async (
-  client: Polly | PollyClient,
+  client: PollyClient,
   command: SynthesizeSpeechCommand,
   options: any = {}
 ): Promise<string> => {
-  let pollypresign = new PollyPresigner({ ...client.config });
+  let signer = new SignatureV4({
+    service: options.service || "polly",
+    uriEscapePath: options.uriEscapePath || false,
+    ...client.config,
+  });
+
   const presignInterceptMiddleware = (next: any, context: any) => async (args: any) => {
     const { request } = args;
     if (!HttpRequest.isInstance(request)) {
@@ -28,7 +32,11 @@ export const getSignedUrl = async (
       ...args.input,
     };
 
-    const presigned = await pollypresign.presign(request, {
+    let unsignableHeaders = new Set();
+    unsignableHeaders.add("content-type");
+    const presigned = await signer.presign(request, {
+      expiresIn: 3600,
+      unsignableHeaders,
       ...options,
       signingRegion: options.signingRegion ?? context["signing_region"],
       signingService: options.signingService ?? context["signing_service"],

@@ -8,12 +8,11 @@ export type PollyPresignerOptions = PartialBy<SignatureV4Init & SignatureV4Crypt
 export class PollyPresigner implements RequestPresigner {
   private readonly signer: SignatureV4;
   constructor(options: PollyPresignerOptions) {
-    const resolvedOptions = {
+    this.signer = new SignatureV4({
       service: options.service || "polly",
       uriEscapePath: options.uriEscapePath || false,
       ...options,
-    };
-    this.signer = new SignatureV4(resolvedOptions);
+    });
   }
 
   public async presign(
