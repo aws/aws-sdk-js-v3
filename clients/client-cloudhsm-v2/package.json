@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/client-cloudhsm-v2",
-  "description": "@aws-sdk/client-cloudhsm-v2 client",
+  "description": "AWS SDK for JavaScript Cloudhsm V2 Client for Node.js, Browser and React Native",
   "version": "1.0.0-rc.2",
   "scripts": {
     "clean": "npm run remove-definitions && npm run remove-dist",

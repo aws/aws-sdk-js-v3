@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/client-ivs",
-  "description": "@aws-sdk/client-ivs client",
+  "description": "AWS SDK for JavaScript Ivs Client for Node.js, Browser and React Native",
   "version": "1.0.0-rc.2",
   "scripts": {
     "clean": "npm run remove-definitions && npm run remove-dist",

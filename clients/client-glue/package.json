@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/client-glue",
-  "description": "@aws-sdk/client-glue client",
+  "description": "AWS SDK for JavaScript Glue Client for Node.js, Browser and React Native",
   "version": "1.0.0-rc.2",
   "scripts": {
     "clean": "npm run remove-definitions && npm run remove-dist",

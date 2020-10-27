@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/client-groundstation",
-  "description": "@aws-sdk/client-groundstation client",
+  "description": "AWS SDK for JavaScript Groundstation Client for Node.js, Browser and React Native",
   "version": "1.0.0-rc.2",
   "scripts": {
     "clean": "npm run remove-definitions && npm run remove-dist",

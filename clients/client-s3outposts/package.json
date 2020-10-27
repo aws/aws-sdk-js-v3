@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/client-s3outposts",
-  "description": "@aws-sdk/client-s3outposts client",
+  "description": "AWS SDK for JavaScript S3outposts Client for Node.js, Browser and React Native",
   "version": "1.0.0-rc.2",
   "scripts": {
     "clean": "npm run remove-definitions && npm run remove-dist",

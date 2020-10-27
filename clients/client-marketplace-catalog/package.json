@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/client-marketplace-catalog",
-  "description": "@aws-sdk/client-marketplace-catalog client",
+  "description": "AWS SDK for JavaScript Marketplace Catalog Client for Node.js, Browser and React Native",
   "version": "1.0.0-rc.2",
   "scripts": {
     "clean": "npm run remove-definitions && npm run remove-dist",

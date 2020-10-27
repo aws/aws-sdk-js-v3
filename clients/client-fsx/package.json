@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/client-fsx",
-  "description": "@aws-sdk/client-fsx client",
+  "description": "AWS SDK for JavaScript Fsx Client for Node.js, Browser and React Native",
   "version": "1.0.0-rc.2",
   "scripts": {
     "clean": "npm run remove-definitions && npm run remove-dist",

@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/client-resource-groups-tagging-api",
-  "description": "@aws-sdk/client-resource-groups-tagging-api client",
+  "description": "AWS SDK for JavaScript Resource Groups Tagging Api Client for Node.js, Browser and React Native",
   "version": "1.0.0-rc.2",
   "scripts": {
     "clean": "npm run remove-definitions && npm run remove-dist",

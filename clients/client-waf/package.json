@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/client-waf",
-  "description": "@aws-sdk/client-waf client",
+  "description": "AWS SDK for JavaScript Waf Client for Node.js, Browser and React Native",
   "version": "1.0.0-rc.2",
   "scripts": {
     "clean": "npm run remove-definitions && npm run remove-dist",
