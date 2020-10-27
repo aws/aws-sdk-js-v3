@@ -24,9 +24,11 @@ import java.util.Set;
 import software.amazon.smithy.aws.traits.ServiceTrait;
 import software.amazon.smithy.model.Model;
 import software.amazon.smithy.model.knowledge.OperationIndex;
+import software.amazon.smithy.model.knowledge.TopDownIndex;
 import software.amazon.smithy.model.shapes.OperationShape;
 import software.amazon.smithy.model.shapes.ServiceShape;
 import software.amazon.smithy.model.shapes.Shape;
+import software.amazon.smithy.model.traits.OptionalAuthTrait;
 import software.amazon.smithy.typescript.codegen.TypeScriptDependency;
 import software.amazon.smithy.typescript.codegen.integration.RuntimeClientPlugin;
 import software.amazon.smithy.typescript.codegen.integration.TypeScriptIntegration;
@@ -82,8 +84,9 @@ public class AddBuiltinPlugins implements TypeScriptIntegration {
                 RuntimeClientPlugin.builder()
                         .withConventions(AwsDependency.MIDDLEWARE_SIGNING.dependency, "AwsAuth", HAS_MIDDLEWARE)
                         // See operationUsesAwsAuth() below for AwsAuth Middleware customizations.
-                        .servicePredicate((m, s) -> !testServiceId(s, "Cognito Identity"))
-                        .build(),
+                        .servicePredicate(
+                            (m, s) -> !testServiceId(s, "Cognito Identity") && !hasOptionalAuthOperation(m, s)
+                        ).build(),
                 RuntimeClientPlugin.builder()
                         .withConventions(TypeScriptDependency.MIDDLEWARE_RETRY.dependency, "Retry")
                         .build(),
@@ -235,6 +238,21 @@ public class AddBuiltinPlugins implements TypeScriptIntegration {
                     .of("GetId", "GetOpenIdToken", "GetCredentialsForIdentity", "UnlinkIdentity")
                     .contains(operation.getId().getName());
             return !isUnsignedCommand;
+        }
+        // optionalAuth trait doesn't require authentication.
+        if (hasOptionalAuthOperation(model, service)) {
+            return !operation.getTrait(OptionalAuthTrait.class).isPresent();
+        }
+        return false;
+    }
+
+    private static boolean hasOptionalAuthOperation(Model model, ServiceShape service) {
+        TopDownIndex topDownIndex = model.getKnowledge(TopDownIndex.class);
+        Set<OperationShape> operations = topDownIndex.getContainedOperations(service);
+        for (OperationShape operation : operations) {
+            if (operation.getTrait(OptionalAuthTrait.class).isPresent()) {
+                return true;
+            }
         }
         return false;
     }
