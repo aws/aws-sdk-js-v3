@@ -10,10 +10,10 @@ generate signed url for polly audio.
 
 Example Usage:
 
-```
+```js
 import { Polly, PollyClient } from "@aws-sdk/client-polly";
 
-import { getSynthesizeSpeechUrl } from "../src/index";
+import { getSynthesizeSpeechUrl } from "@aws-sdk/polly-request-presigner";
 
 const synthesizeSpeechParams = {
   Text: "Hello world, the polly presigner is really cool!",
@@ -21,21 +21,19 @@ const synthesizeSpeechParams = {
   VoiceId: "Kimberly",
 };
 
-// do Synthesize with full poly
+// Synthesize with full polly.
 (async () => {
   let url = await getSynthesizeSpeechUrl({
-    client: new Polly({
-      region: "us-east-1",
-    }),
+    client: new Polly({ region: "us-east-1" }),
     params: synthesizeSpeechParams,
   });
   console.log(url);
 })();
 
-// do Synthesize with poly client
+// Synthesize with polly client.
 (async () => {
   let url = await getSynthesizeSpeechUrl({
-    client: new PollyClient({}),
+    client: new PollyClient({ region: "us-east-1" }),
     params: synthesizeSpeechParams,
   });
   console.log(url);
