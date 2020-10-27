@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/eventstream-serde-browser",
-  "version": "1.0.0-rc.2",
+  "version": "1.0.0-rc.3",
   "scripts": {
     "prepublishOnly": "yarn build:cjs && yarn build:es",
     "pretest": "yarn build:cjs",
@@ -18,9 +18,9 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/eventstream-marshaller": "1.0.0-rc.2",
-    "@aws-sdk/eventstream-serde-universal": "1.0.0-rc.2",
-    "@aws-sdk/types": "1.0.0-rc.2",
+    "@aws-sdk/eventstream-marshaller": "1.0.0-rc.3",
+    "@aws-sdk/eventstream-serde-universal": "1.0.0-rc.3",
+    "@aws-sdk/types": "1.0.0-rc.3",
     "tslib": "^1.8.0"
   },
   "devDependencies": {
