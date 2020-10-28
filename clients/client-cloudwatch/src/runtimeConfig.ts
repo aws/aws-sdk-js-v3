@@ -1,5 +1,3 @@
-import packageInfo from "../package.json";
-
 import { NODE_REGION_CONFIG_FILE_OPTIONS, NODE_REGION_CONFIG_OPTIONS } from "@aws-sdk/config-resolver";
 import { defaultProvider as credentialDefaultProvider } from "@aws-sdk/credential-provider-node";
 import { Hash } from "@aws-sdk/hash-node";
@@ -11,6 +9,10 @@ import { fromBase64, toBase64 } from "@aws-sdk/util-base64-node";
 import { calculateBodyLength } from "@aws-sdk/util-body-length-node";
 import { defaultUserAgent } from "@aws-sdk/util-user-agent-node";
 import { fromUtf8, toUtf8 } from "@aws-sdk/util-utf8-node";
+
+// @ts-ignore package.json will exist in dist, hack to avoid 'package.json' is not under 'rootDir'
+import packageInfo from "./package.json";
+
 import { ClientDefaults } from "./CloudWatchClient";
 import { ClientSharedValues } from "./runtimeConfig.shared";
 

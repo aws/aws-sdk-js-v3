@@ -1,5 +1,3 @@
-import packageInfo from "../package.json";
-
 import { Sha256 } from "@aws-crypto/sha256-browser";
 import { FetchHttpHandler, streamCollector } from "@aws-sdk/fetch-http-handler";
 import { invalidFunction } from "@aws-sdk/invalid-dependency";
@@ -9,6 +7,10 @@ import { fromBase64, toBase64 } from "@aws-sdk/util-base64-browser";
 import { calculateBodyLength } from "@aws-sdk/util-body-length-browser";
 import { defaultUserAgent } from "@aws-sdk/util-user-agent-browser";
 import { fromUtf8, toUtf8 } from "@aws-sdk/util-utf8-browser";
+
+// @ts-ignore package.json will exist in dist, hack to avoid 'package.json' is not under 'rootDir'
+import packageInfo from "./package.json";
+
 import { ClientDefaults } from "./SyntheticsClient";
 import { ClientSharedValues } from "./runtimeConfig.shared";
 
