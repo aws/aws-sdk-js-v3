@@ -13,6 +13,7 @@
     "resolveJsonModule": true,
     "esModuleInterop": true,
     "declarationDir": "./types",
+    "rootDir": "src",
     "outDir": "dist/cjs"
   },
   "typedocOptions": {
