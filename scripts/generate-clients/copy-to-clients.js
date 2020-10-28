@@ -96,7 +96,7 @@ const copyToClients = async (sourceDir, destinationDir) => {
           },
         };
         writeFileSync(destSubPath, JSON.stringify(mergedManifest, null, 2).concat(`\n`));
-      } else if (packageSub.startsWith("src/") || !existsSync(destSubPath)) {
+      } else if (["src", "tests", "LICENSE"].includes(packageSub) || !existsSync(destSubPath)) {
         if (lstatSync(packageSubPath).isDirectory()) removeSync(destSubPath);
         copySync(packageSubPath, destSubPath, {
           overwrite: true,
