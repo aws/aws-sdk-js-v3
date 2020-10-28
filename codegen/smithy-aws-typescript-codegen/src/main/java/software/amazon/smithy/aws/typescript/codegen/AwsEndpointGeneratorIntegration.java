@@ -66,7 +66,7 @@ public final class AwsEndpointGeneratorIntegration implements TypeScriptIntegrat
         switch (target) {
             case SHARED:
                 return MapUtils.of("regionInfoProvider", writer -> {
-                    writer.addImport("defaultRegionInfoProvider", "defaultRegionInfoProvider", "./endpoints");
+                    writer.addImport("defaultRegionInfoProvider", "defaultRegionInfoProvider", "./src/endpoints");
                     writer.write("regionInfoProvider: defaultRegionInfoProvider,");
                 });
             default:
