@@ -1,7 +1,7 @@
-import { JsonProtocolClient } from "../../src/JsonProtocolClient";
-import { EmptyOperationCommand } from "../../src/commands/EmptyOperationCommand";
-import { KitchenSinkOperationCommand } from "../../src/commands/KitchenSinkOperationCommand";
-import { OperationWithOptionalInputOutputCommand } from "../../src/commands/OperationWithOptionalInputOutputCommand";
+import { JsonProtocolClient } from "../../JsonProtocolClient";
+import { EmptyOperationCommand } from "../../commands/EmptyOperationCommand";
+import { KitchenSinkOperationCommand } from "../../commands/KitchenSinkOperationCommand";
+import { OperationWithOptionalInputOutputCommand } from "../../commands/OperationWithOptionalInputOutputCommand";
 import { HttpHandlerOptions, HeaderBag } from "@aws-sdk/types";
 import { HttpHandler, HttpRequest, HttpResponse } from "@aws-sdk/protocol-http";
 import { Readable } from "stream";
