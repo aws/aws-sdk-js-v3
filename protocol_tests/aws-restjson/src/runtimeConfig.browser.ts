@@ -9,7 +9,7 @@ import { defaultUserAgent } from "@aws-sdk/util-user-agent-browser";
 import { fromUtf8, toUtf8 } from "@aws-sdk/util-utf8-browser";
 
 // @ts-ignore hack to avoid 'package.json' is not under 'rootDir', package.json will exist in dist
-import packageInfo from "./package.json";
+import packageInfo from "../../package.json";
 
 import { ClientDefaults } from "./RestJsonProtocolClient";
 import { ClientSharedValues } from "./runtimeConfig.shared";

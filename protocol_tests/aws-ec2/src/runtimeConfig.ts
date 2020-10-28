@@ -11,7 +11,7 @@ import { defaultUserAgent } from "@aws-sdk/util-user-agent-node";
 import { fromUtf8, toUtf8 } from "@aws-sdk/util-utf8-node";
 
 // @ts-ignore hack to avoid 'package.json' is not under 'rootDir', package.json will exist in dist
-import packageInfo from "./package.json";
+import packageInfo from "../../package.json";
 
 import { ClientDefaults } from "./EC2ProtocolClient";
 import { ClientSharedValues } from "./runtimeConfig.shared";

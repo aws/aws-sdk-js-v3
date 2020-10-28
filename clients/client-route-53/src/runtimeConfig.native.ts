@@ -1,8 +1,8 @@
 import { Sha256 } from "@aws-crypto/sha256-js";
 import { parseUrl } from "@aws-sdk/url-parser-node";
 
-// @ts-ignore package.json will exist in dist, hack to avoid 'package.json' is not under 'rootDir'
-import packageInfo from "./package.json";
+// @ts-ignore hack to avoid 'package.json' is not under 'rootDir', package.json will exist in dist
+import packageInfo from "../../package.json";
 
 import { ClientDefaults } from "./Route53Client";
 import { ClientDefaultValues as BrowserDefaults } from "./runtimeConfig.browser";
