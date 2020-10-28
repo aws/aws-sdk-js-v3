@@ -39,7 +39,7 @@ public final class AwsEndpointGeneratorIntegration implements TypeScriptIntegrat
             SymbolProvider symbolProvider,
             BiConsumer<String, Consumer<TypeScriptWriter>> writerFactory
     ) {
-        writerFactory.accept("endpoints.ts", writer -> {
+        writerFactory.accept("src/endpoints.ts", writer -> {
             new EndpointGenerator(settings.getService(model), writer).run();
         });
     }
@@ -66,7 +66,7 @@ public final class AwsEndpointGeneratorIntegration implements TypeScriptIntegrat
         switch (target) {
             case SHARED:
                 return MapUtils.of("regionInfoProvider", writer -> {
-                    writer.addImport("defaultRegionInfoProvider", "defaultRegionInfoProvider", "./endpoints");
+                    writer.addImport("defaultRegionInfoProvider", "defaultRegionInfoProvider", "./src/endpoints");
                     writer.write("regionInfoProvider: defaultRegionInfoProvider,");
                 });
             default:
