@@ -1,0 +1,75 @@
+import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient";
+import { DescribeInstancePatchStatesRequest, DescribeInstancePatchStatesResult } from "../models/models_0";
+import {
+  deserializeAws_json1_1DescribeInstancePatchStatesCommand,
+  serializeAws_json1_1DescribeInstancePatchStatesCommand,
+} from "../protocols/Aws_json1_1";
+import { getSerdePlugin } from "@aws-sdk/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
+import { Command as $Command } from "@aws-sdk/smithy-client";
+import {
+  FinalizeHandlerArguments,
+  Handler,
+  HandlerExecutionContext,
+  MiddlewareStack,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
+  SerdeContext as __SerdeContext,
+} from "@aws-sdk/types";
+
+export type DescribeInstancePatchStatesCommandInput = DescribeInstancePatchStatesRequest;
+export type DescribeInstancePatchStatesCommandOutput = DescribeInstancePatchStatesResult & __MetadataBearer;
+
+export class DescribeInstancePatchStatesCommand extends $Command<
+  DescribeInstancePatchStatesCommandInput,
+  DescribeInstancePatchStatesCommandOutput,
+  SSMClientResolvedConfig
+> {
+  // Start section: command_properties
+  // End section: command_properties
+
+  constructor(readonly input: DescribeInstancePatchStatesCommandInput) {
+    // Start section: command_constructor
+    super();
+    // End section: command_constructor
+  }
+
+  resolveMiddleware(
+    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
+    configuration: SSMClientResolvedConfig,
+    options?: __HttpHandlerOptions
+  ): Handler<DescribeInstancePatchStatesCommandInput, DescribeInstancePatchStatesCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+
+    const stack = clientStack.concat(this.middlewareStack);
+
+    const { logger } = configuration;
+    const handlerExecutionContext: HandlerExecutionContext = {
+      logger,
+      clientName: "SSMClient",
+      commandName: "DescribeInstancePatchStatesCommand",
+      inputFilterSensitiveLog: DescribeInstancePatchStatesRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeInstancePatchStatesResult.filterSensitiveLog,
+    };
+    const { requestHandler } = configuration;
+    return stack.resolve(
+      (request: FinalizeHandlerArguments<any>) =>
+        requestHandler.handle(request.request as __HttpRequest, options || {}),
+      handlerExecutionContext
+    );
+  }
+
+  private serialize(input: DescribeInstancePatchStatesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_json1_1DescribeInstancePatchStatesCommand(input, context);
+  }
+
+  private deserialize(
+    output: __HttpResponse,
+    context: __SerdeContext
+  ): Promise<DescribeInstancePatchStatesCommandOutput> {
+    return deserializeAws_json1_1DescribeInstancePatchStatesCommand(output, context);
+  }
+
+  // Start section: command_body_extra
+  // End section: command_body_extra
+}
