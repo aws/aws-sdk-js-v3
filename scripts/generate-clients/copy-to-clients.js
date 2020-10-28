@@ -3,30 +3,6 @@ const { normalize, join } = require("path");
 const { copySync, removeSync } = require("fs-extra");
 const { readdirSync, lstatSync, readFileSync, existsSync, writeFileSync } = require("fs");
 
-const getOverwritablePredicate = (packageName) => (pathName) => {
-  const overwritablePathnames = [
-    "commands",
-    "models",
-    "protocols",
-    "pagination",
-    "tests",
-    "LICENCE",
-    "runtimeConfig.ts",
-    "runtimeConfig.browser.ts",
-    "runtimeConfig.shared.ts",
-    "runtimeConfig.native.ts",
-    "index.ts",
-    "endpoints.ts",
-  ];
-  return (
-    pathName
-      .toLowerCase()
-      .startsWith(
-        packageName.toLowerCase().replace("@aws-sdk/client-", "").replace("@aws-sdk/aws-", "").replace(/-/g, "")
-      ) || overwritablePathnames.indexOf(pathName) >= 0
-  );
-};
-
 /**
  * Copy the keys from newly-generated package.json to
  * existing package.json. For each keys in new package.json
@@ -102,7 +78,6 @@ const copyToClients = async (sourceDir, destinationDir) => {
 
     console.log(`copying ${packageName} from ${artifactPath} to ${destinationDir}`);
     const destPath = join(destinationDir, clientName);
-    const overwritablePredicate = getOverwritablePredicate(packageName);
 
     for (const packageSub of readdirSync(artifactPath)) {
       const packageSubPath = join(artifactPath, packageSub);
@@ -121,7 +96,7 @@ const copyToClients = async (sourceDir, destinationDir) => {
           },
         };
         writeFileSync(destSubPath, JSON.stringify(mergedManifest, null, 2).concat(`\n`));
-      } else if (overwritablePredicate(packageSub) || !existsSync(destSubPath)) {
+      } else if (packageSub.startsWith("src/") || !existsSync(destSubPath)) {
         if (lstatSync(packageSubPath).isDirectory()) removeSync(destSubPath);
         copySync(packageSubPath, destSubPath, {
           overwrite: true,
