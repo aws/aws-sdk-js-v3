@@ -29,6 +29,7 @@ describe("fromCognitoIdentity", () => {
         customRoleArn: "myArn",
       })()
     ).toEqual({
+      identityId: identityId,
       accessKeyId: "foo",
       secretAccessKey: "bar",
       sessionToken: "baz",
