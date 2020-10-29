@@ -1,18 +1,21 @@
+import { HttpResponse } from "@aws-sdk/protocol-http";
 import {
   AbsoluteLocation,
-  BuildHandler,
-  BuildHandlerArguments,
-  BuildHandlerOptions,
-  BuildHandlerOutput,
   HandlerExecutionContext,
+  InitializeHandler,
+  InitializeHandlerArguments,
+  InitializeHandlerOptions,
+  InitializeHandlerOutput,
   MetadataBearer,
   Pluggable,
 } from "@aws-sdk/types";
 
 export const loggerMiddleware = () => <Output extends MetadataBearer = MetadataBearer>(
-  next: BuildHandler<any, Output>,
+  next: InitializeHandler<any, Output>,
   context: HandlerExecutionContext
-): BuildHandler<any, Output> => async (args: BuildHandlerArguments<any>): Promise<BuildHandlerOutput<Output>> => {
+): InitializeHandler<any, Output> => async (
+  args: InitializeHandlerArguments<any>
+): Promise<InitializeHandlerOutput<Output>> => {
   const { logger } = context;
 
   const response = await next(args);
@@ -21,25 +24,26 @@ export const loggerMiddleware = () => <Output extends MetadataBearer = MetadataB
     return response;
   }
 
-  const {
-    output: { $metadata },
-  } = response;
+  const httpResponse = response.response as HttpResponse;
 
-  // TODO: Populate custom metadata in https://github.com/aws/aws-sdk-js-v3/issues/1491#issuecomment-692174256
-  // $metadata will be removed in https://github.com/aws/aws-sdk-js-v3/issues/1490
   if (typeof logger.info === "function") {
     logger.info({
-      $metadata,
+      metadata: {
+        statusCode: httpResponse.statusCode,
+        requestId: httpResponse.headers["x-amzn-requestid"] ?? httpResponse.headers["x-amzn-request-id"],
+        extendedRequestId: httpResponse.headers["x-amz-id-2"],
+        cfId: httpResponse.headers["x-amz-cf-id"],
+      },
     });
   }
 
   return response;
 };
 
-export const loggerMiddlewareOptions: BuildHandlerOptions & AbsoluteLocation = {
+export const loggerMiddlewareOptions: InitializeHandlerOptions & AbsoluteLocation = {
   name: "loggerMiddleware",
   tags: ["LOGGER"],
-  step: "build",
+  step: "initialize",
 };
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
