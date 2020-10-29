@@ -206,6 +206,8 @@
   "Support": "support",
   "SWF": "swf",
   "Textract": "textract",
+  "Timestream Query": "query.timestream",
+  "Timestream Write": "ingest.timestream",
   "Transcribe": "transcribe",
   "Transcribe Streaming": "transcribestreaming",
   "Transfer": "transfer",

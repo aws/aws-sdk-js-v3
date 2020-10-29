@@ -1,11 +1,11 @@
 import { RegionInfo, RegionInfoProvider } from "@aws-sdk/types";
 
 // Partition default templates
-const AWS_TEMPLATE = "timestream.{region}.amazonaws.com";
-const AWS_CN_TEMPLATE = "timestream.{region}.amazonaws.com.cn";
-const AWS_ISO_TEMPLATE = "timestream.{region}.c2s.ic.gov";
-const AWS_ISO_B_TEMPLATE = "timestream.{region}.sc2s.sgov.gov";
-const AWS_US_GOV_TEMPLATE = "timestream.{region}.amazonaws.com";
+const AWS_TEMPLATE = "ingest.timestream.{region}.amazonaws.com";
+const AWS_CN_TEMPLATE = "ingest.timestream.{region}.amazonaws.com.cn";
+const AWS_ISO_TEMPLATE = "ingest.timestream.{region}.c2s.ic.gov";
+const AWS_ISO_B_TEMPLATE = "ingest.timestream.{region}.sc2s.sgov.gov";
+const AWS_US_GOV_TEMPLATE = "ingest.timestream.{region}.amazonaws.com";
 
 // Partition regions
 const AWS_REGIONS = new Set([
