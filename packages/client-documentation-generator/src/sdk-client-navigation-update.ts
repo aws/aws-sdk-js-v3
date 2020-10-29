@@ -1,22 +1,18 @@
 import { ReferenceType } from "typedoc/dist/lib/models";
 import { DeclarationReflection, Reflection, ReflectionKind } from "typedoc/dist/lib/models/reflections";
 import { Component, RendererComponent } from "typedoc/dist/lib/output/components";
-import { PageEvent } from "typedoc/dist/lib/output/events";
+import { PageEvent, RendererEvent } from "typedoc/dist/lib/output/events";
 import { NavigationItem } from "typedoc/dist/lib/output/models/NavigationItem";
 
-@Component({ name: "SdkClientTocPlugin" })
-export class SdkClientTocPlugin extends RendererComponent {
+@Component({ name: "SdkClientNavigationUpdatePlugin" })
+export class SdkClientNavigationUpdatePlugin extends RendererComponent {
   private commandToNavigationItems: Map<string, NavigationItem> = new Map();
   private commandsNavigationItem?: NavigationItem;
   private exceptionsNavigationItem?: NavigationItem;
 
   initialize() {
-    // disable existing toc plugin
-    const tocPlugin = <any>this.owner.application.renderer.getComponent("toc");
-    this.owner.off(PageEvent.BEGIN, tocPlugin.onRendererBeginPage);
-
     this.listenTo(this.owner, {
-      [PageEvent.BEGIN]: this.onRendererBeginPage,
+      [RendererEvent.BEGIN]: this.onBeginRenderer,
     });
   }
 
@@ -24,27 +20,10 @@ export class SdkClientTocPlugin extends RendererComponent {
    * Generates a table of contents for a page.
    * @param page Contains project details and contextual data about the page being rendered.
    */
-  private onRendererBeginPage(page: PageEvent) {
-    let model = page.model;
-    if (!model.constructor.name.endsWith("Reflection")) {
-      return;
-    }
-
-    const trail: Reflection[] = [];
-    while (model.constructor.name !== "ProjectReflection" && !model.kindOf(ReflectionKind.SomeModule)) {
-      trail.unshift(model);
-      model = model.parent;
-    }
-
-    const tocRestriction = this.owner.toc;
-    page.toc = new NavigationItem(model.name);
-
-    if (!model.parent && !trail.length) {
-      this.commandsNavigationItem = new NavigationItem("Commands", void 0, page.toc);
-      this.exceptionsNavigationItem = new NavigationItem("Exceptions", void 0, page.toc);
-    }
-
-    this.buildToc(model, trail, page.toc, tocRestriction);
+  private onBeginRenderer(event: RendererEvent) {
+    const navigation = this.owner.theme!.getNavigation(event.project);
+    console.log("|||||||", navigation);
+    // navigation.children.forEach(child => child.title)
   }
 
   private isCommand({ implementedTypes = [] }: DeclarationReflection): boolean {
@@ -63,8 +42,6 @@ export class SdkClientTocPlugin extends RendererComponent {
       (extendedTypes[0] as ReferenceType).name === "ServiceException"
     );
   }
-
-  private isClient(model: DeclarationReflection): boolean {}
 
   private isUnion(model: DeclarationReflection): boolean {
     return model.type?.type === "union";
