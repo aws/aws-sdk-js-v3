@@ -44,13 +44,23 @@ export class ListTagsForResourceCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "NeptuneClient";
+    const commandName = "ListTagsForResourceCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "NeptuneClient",
-      commandName: "ListTagsForResourceCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListTagsForResourceMessage.filterSensitiveLog,
       outputFilterSensitiveLog: TagListMessage.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

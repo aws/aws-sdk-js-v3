@@ -44,13 +44,23 @@ export class GetCanaryCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SyntheticsClient";
+    const commandName = "GetCanaryCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "SyntheticsClient",
-      commandName: "GetCanaryCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetCanaryRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetCanaryResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

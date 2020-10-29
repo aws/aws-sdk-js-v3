@@ -44,13 +44,23 @@ export class GetCatalogImportStatusCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "GlueClient";
+    const commandName = "GetCatalogImportStatusCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "GlueClient",
-      commandName: "GetCatalogImportStatusCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetCatalogImportStatusRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetCatalogImportStatusResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

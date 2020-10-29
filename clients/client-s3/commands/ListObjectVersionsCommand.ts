@@ -46,13 +46,23 @@ export class ListObjectVersionsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "S3Client";
+    const commandName = "ListObjectVersionsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "S3Client",
-      commandName: "ListObjectVersionsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListObjectVersionsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListObjectVersionsOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -44,13 +44,23 @@ export class CreatePortfolioShareCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ServiceCatalogClient";
+    const commandName = "CreatePortfolioShareCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ServiceCatalogClient",
-      commandName: "CreatePortfolioShareCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreatePortfolioShareInput.filterSensitiveLog,
       outputFilterSensitiveLog: CreatePortfolioShareOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -45,13 +45,23 @@ export class ImportInstallationMediaCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "RDSClient";
+    const commandName = "ImportInstallationMediaCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "RDSClient",
-      commandName: "ImportInstallationMediaCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ImportInstallationMediaMessage.filterSensitiveLog,
       outputFilterSensitiveLog: InstallationMedia.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

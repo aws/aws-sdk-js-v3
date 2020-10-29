@@ -44,13 +44,23 @@ export class CreateDomainNameCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ApiGatewayV2Client";
+    const commandName = "CreateDomainNameCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ApiGatewayV2Client",
-      commandName: "CreateDomainNameCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreateDomainNameRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateDomainNameResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

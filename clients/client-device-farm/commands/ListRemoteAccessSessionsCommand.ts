@@ -44,13 +44,23 @@ export class ListRemoteAccessSessionsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "DeviceFarmClient";
+    const commandName = "ListRemoteAccessSessionsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "DeviceFarmClient",
-      commandName: "ListRemoteAccessSessionsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListRemoteAccessSessionsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListRemoteAccessSessionsResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

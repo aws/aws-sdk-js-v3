@@ -44,13 +44,23 @@ export class UpdateEmailChannelCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "PinpointClient";
+    const commandName = "UpdateEmailChannelCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "PinpointClient",
-      commandName: "UpdateEmailChannelCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UpdateEmailChannelRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateEmailChannelResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

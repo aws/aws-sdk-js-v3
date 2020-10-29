@@ -44,13 +44,23 @@ export class GetDevEndpointsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "GlueClient";
+    const commandName = "GetDevEndpointsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "GlueClient",
-      commandName: "GetDevEndpointsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetDevEndpointsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetDevEndpointsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

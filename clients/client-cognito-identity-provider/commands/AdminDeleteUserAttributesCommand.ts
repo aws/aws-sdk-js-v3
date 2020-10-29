@@ -50,13 +50,23 @@ export class AdminDeleteUserAttributesCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CognitoIdentityProviderClient";
+    const commandName = "AdminDeleteUserAttributesCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CognitoIdentityProviderClient",
-      commandName: "AdminDeleteUserAttributesCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: AdminDeleteUserAttributesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: AdminDeleteUserAttributesResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

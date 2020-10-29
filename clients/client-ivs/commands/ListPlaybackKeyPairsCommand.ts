@@ -44,13 +44,23 @@ export class ListPlaybackKeyPairsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "IvsClient";
+    const commandName = "ListPlaybackKeyPairsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "IvsClient",
-      commandName: "ListPlaybackKeyPairsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListPlaybackKeyPairsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListPlaybackKeyPairsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

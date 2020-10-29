@@ -44,13 +44,23 @@ export class DeleteConferenceProviderCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "AlexaForBusinessClient";
+    const commandName = "DeleteConferenceProviderCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "AlexaForBusinessClient",
-      commandName: "DeleteConferenceProviderCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteConferenceProviderRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteConferenceProviderResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

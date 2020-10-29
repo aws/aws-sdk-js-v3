@@ -46,13 +46,23 @@ export class GetBucketAclCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "S3Client";
+    const commandName = "GetBucketAclCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "S3Client",
-      commandName: "GetBucketAclCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetBucketAclRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetBucketAclOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

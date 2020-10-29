@@ -44,13 +44,23 @@ export class BatchAssociateScramSecretCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "KafkaClient";
+    const commandName = "BatchAssociateScramSecretCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "KafkaClient",
-      commandName: "BatchAssociateScramSecretCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: BatchAssociateScramSecretRequest.filterSensitiveLog,
       outputFilterSensitiveLog: BatchAssociateScramSecretResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

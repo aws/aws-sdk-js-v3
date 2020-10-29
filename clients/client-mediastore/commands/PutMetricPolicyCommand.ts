@@ -44,13 +44,23 @@ export class PutMetricPolicyCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "MediaStoreClient";
+    const commandName = "PutMetricPolicyCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "MediaStoreClient",
-      commandName: "PutMetricPolicyCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: PutMetricPolicyInput.filterSensitiveLog,
       outputFilterSensitiveLog: PutMetricPolicyOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

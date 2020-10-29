@@ -48,13 +48,23 @@ export class DescribePlacementCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "IoT1ClickProjectsClient";
+    const commandName = "DescribePlacementCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "IoT1ClickProjectsClient",
-      commandName: "DescribePlacementCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribePlacementRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribePlacementResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

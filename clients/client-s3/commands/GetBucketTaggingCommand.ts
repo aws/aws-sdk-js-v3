@@ -46,13 +46,23 @@ export class GetBucketTaggingCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "S3Client";
+    const commandName = "GetBucketTaggingCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "S3Client",
-      commandName: "GetBucketTaggingCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetBucketTaggingRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetBucketTaggingOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

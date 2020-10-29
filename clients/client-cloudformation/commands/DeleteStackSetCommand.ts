@@ -44,13 +44,23 @@ export class DeleteStackSetCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CloudFormationClient";
+    const commandName = "DeleteStackSetCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CloudFormationClient",
-      commandName: "DeleteStackSetCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteStackSetInput.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteStackSetOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

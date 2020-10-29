@@ -44,13 +44,23 @@ export class RevokeDBSecurityGroupIngressCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "RDSClient";
+    const commandName = "RevokeDBSecurityGroupIngressCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "RDSClient",
-      commandName: "RevokeDBSecurityGroupIngressCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: RevokeDBSecurityGroupIngressMessage.filterSensitiveLog,
       outputFilterSensitiveLog: RevokeDBSecurityGroupIngressResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

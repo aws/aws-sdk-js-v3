@@ -44,13 +44,23 @@ export class FlushApiCacheCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "AppSyncClient";
+    const commandName = "FlushApiCacheCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "AppSyncClient",
-      commandName: "FlushApiCacheCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: FlushApiCacheRequest.filterSensitiveLog,
       outputFilterSensitiveLog: FlushApiCacheResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

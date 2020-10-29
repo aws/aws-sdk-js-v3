@@ -48,13 +48,23 @@ export class AssociateDeviceWithPlacementCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "IoT1ClickProjectsClient";
+    const commandName = "AssociateDeviceWithPlacementCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "IoT1ClickProjectsClient",
-      commandName: "AssociateDeviceWithPlacementCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: AssociateDeviceWithPlacementRequest.filterSensitiveLog,
       outputFilterSensitiveLog: AssociateDeviceWithPlacementResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

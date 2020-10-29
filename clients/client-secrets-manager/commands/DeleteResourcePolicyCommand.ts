@@ -44,13 +44,23 @@ export class DeleteResourcePolicyCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SecretsManagerClient";
+    const commandName = "DeleteResourcePolicyCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "SecretsManagerClient",
-      commandName: "DeleteResourcePolicyCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteResourcePolicyRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteResourcePolicyResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

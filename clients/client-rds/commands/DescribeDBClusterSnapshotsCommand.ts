@@ -44,13 +44,23 @@ export class DescribeDBClusterSnapshotsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "RDSClient";
+    const commandName = "DescribeDBClusterSnapshotsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "RDSClient",
-      commandName: "DescribeDBClusterSnapshotsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeDBClusterSnapshotsMessage.filterSensitiveLog,
       outputFilterSensitiveLog: DBClusterSnapshotMessage.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

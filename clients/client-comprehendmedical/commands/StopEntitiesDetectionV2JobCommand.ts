@@ -48,13 +48,23 @@ export class StopEntitiesDetectionV2JobCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ComprehendMedicalClient";
+    const commandName = "StopEntitiesDetectionV2JobCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ComprehendMedicalClient",
-      commandName: "StopEntitiesDetectionV2JobCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: StopEntitiesDetectionV2JobRequest.filterSensitiveLog,
       outputFilterSensitiveLog: StopEntitiesDetectionV2JobResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

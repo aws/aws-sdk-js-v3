@@ -44,13 +44,23 @@ export class DescribeGameSessionQueuesCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "GameLiftClient";
+    const commandName = "DescribeGameSessionQueuesCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "GameLiftClient",
-      commandName: "DescribeGameSessionQueuesCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeGameSessionQueuesInput.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeGameSessionQueuesOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

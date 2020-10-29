@@ -44,13 +44,23 @@ export class GetRelationalDatabaseLogEventsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "LightsailClient";
+    const commandName = "GetRelationalDatabaseLogEventsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "LightsailClient",
-      commandName: "GetRelationalDatabaseLogEventsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetRelationalDatabaseLogEventsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetRelationalDatabaseLogEventsResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

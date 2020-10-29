@@ -44,13 +44,23 @@ export class DetachClassicLinkVpcCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "EC2Client";
+    const commandName = "DetachClassicLinkVpcCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "EC2Client",
-      commandName: "DetachClassicLinkVpcCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DetachClassicLinkVpcRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DetachClassicLinkVpcResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

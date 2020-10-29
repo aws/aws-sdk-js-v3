@@ -48,13 +48,23 @@ export class GetPersonalizedRankingCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "PersonalizeRuntimeClient";
+    const commandName = "GetPersonalizedRankingCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "PersonalizeRuntimeClient",
-      commandName: "GetPersonalizedRankingCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetPersonalizedRankingRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetPersonalizedRankingResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

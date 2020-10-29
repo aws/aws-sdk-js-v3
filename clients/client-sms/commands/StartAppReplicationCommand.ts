@@ -44,13 +44,23 @@ export class StartAppReplicationCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SMSClient";
+    const commandName = "StartAppReplicationCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "SMSClient",
-      commandName: "StartAppReplicationCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: StartAppReplicationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: StartAppReplicationResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -44,13 +44,23 @@ export class ListRetirableGrantsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "KMSClient";
+    const commandName = "ListRetirableGrantsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "KMSClient",
-      commandName: "ListRetirableGrantsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListRetirableGrantsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListGrantsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

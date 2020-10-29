@@ -44,13 +44,23 @@ export class DescribeGameServerCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "GameLiftClient";
+    const commandName = "DescribeGameServerCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "GameLiftClient",
-      commandName: "DescribeGameServerCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeGameServerInput.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeGameServerOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

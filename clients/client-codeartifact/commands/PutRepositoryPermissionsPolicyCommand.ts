@@ -44,13 +44,23 @@ export class PutRepositoryPermissionsPolicyCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CodeartifactClient";
+    const commandName = "PutRepositoryPermissionsPolicyCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CodeartifactClient",
-      commandName: "PutRepositoryPermissionsPolicyCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: PutRepositoryPermissionsPolicyRequest.filterSensitiveLog,
       outputFilterSensitiveLog: PutRepositoryPermissionsPolicyResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

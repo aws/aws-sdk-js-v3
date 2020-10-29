@@ -48,13 +48,23 @@ export class DescribeOrganizationConfigurationCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "Macie2Client";
+    const commandName = "DescribeOrganizationConfigurationCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "Macie2Client",
-      commandName: "DescribeOrganizationConfigurationCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeOrganizationConfigurationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeOrganizationConfigurationResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

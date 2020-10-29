@@ -44,13 +44,23 @@ export class DescribeRecommendationExportJobsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ComputeOptimizerClient";
+    const commandName = "DescribeRecommendationExportJobsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ComputeOptimizerClient",
-      commandName: "DescribeRecommendationExportJobsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeRecommendationExportJobsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeRecommendationExportJobsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

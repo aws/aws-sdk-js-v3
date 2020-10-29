@@ -37,13 +37,23 @@ export class SubscribeCommand extends $Command<SubscribeCommandInput, SubscribeC
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SNSClient";
+    const commandName = "SubscribeCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "SNSClient",
-      commandName: "SubscribeCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: SubscribeInput.filterSensitiveLog,
       outputFilterSensitiveLog: SubscribeResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

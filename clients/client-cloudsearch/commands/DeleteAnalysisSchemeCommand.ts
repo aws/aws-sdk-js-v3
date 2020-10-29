@@ -44,13 +44,23 @@ export class DeleteAnalysisSchemeCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CloudSearchClient";
+    const commandName = "DeleteAnalysisSchemeCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CloudSearchClient",
-      commandName: "DeleteAnalysisSchemeCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteAnalysisSchemeRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteAnalysisSchemeResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

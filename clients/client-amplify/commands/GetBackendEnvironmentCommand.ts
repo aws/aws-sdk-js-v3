@@ -44,13 +44,23 @@ export class GetBackendEnvironmentCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "AmplifyClient";
+    const commandName = "GetBackendEnvironmentCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "AmplifyClient",
-      commandName: "GetBackendEnvironmentCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetBackendEnvironmentRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetBackendEnvironmentResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

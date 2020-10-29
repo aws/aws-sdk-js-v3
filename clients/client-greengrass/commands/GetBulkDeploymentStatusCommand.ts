@@ -44,13 +44,23 @@ export class GetBulkDeploymentStatusCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "GreengrassClient";
+    const commandName = "GetBulkDeploymentStatusCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "GreengrassClient",
-      commandName: "GetBulkDeploymentStatusCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetBulkDeploymentStatusRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetBulkDeploymentStatusResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

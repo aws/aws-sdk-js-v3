@@ -44,13 +44,23 @@ export class IgnoresWrappingXmlNameCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "QueryProtocolClient";
+    const commandName = "IgnoresWrappingXmlNameCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "QueryProtocolClient",
-      commandName: "IgnoresWrappingXmlNameCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: (input: any) => input,
       outputFilterSensitiveLog: IgnoresWrappingXmlNameOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

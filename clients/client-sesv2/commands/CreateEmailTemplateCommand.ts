@@ -44,13 +44,23 @@ export class CreateEmailTemplateCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SESv2Client";
+    const commandName = "CreateEmailTemplateCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "SESv2Client",
-      commandName: "CreateEmailTemplateCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreateEmailTemplateRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateEmailTemplateResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

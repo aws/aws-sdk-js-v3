@@ -44,13 +44,23 @@ export class CreateDataSourceFromS3Command extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "MachineLearningClient";
+    const commandName = "CreateDataSourceFromS3Command";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "MachineLearningClient",
-      commandName: "CreateDataSourceFromS3Command",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreateDataSourceFromS3Input.filterSensitiveLog,
       outputFilterSensitiveLog: CreateDataSourceFromS3Output.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

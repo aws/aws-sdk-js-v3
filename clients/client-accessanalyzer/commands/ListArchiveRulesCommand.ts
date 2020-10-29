@@ -44,13 +44,23 @@ export class ListArchiveRulesCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "AccessAnalyzerClient";
+    const commandName = "ListArchiveRulesCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "AccessAnalyzerClient",
-      commandName: "ListArchiveRulesCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListArchiveRulesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListArchiveRulesResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -44,13 +44,23 @@ export class ListFindingsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "AccessAnalyzerClient";
+    const commandName = "ListFindingsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "AccessAnalyzerClient",
-      commandName: "ListFindingsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListFindingsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListFindingsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

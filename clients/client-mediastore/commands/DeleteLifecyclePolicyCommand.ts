@@ -44,13 +44,23 @@ export class DeleteLifecyclePolicyCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "MediaStoreClient";
+    const commandName = "DeleteLifecyclePolicyCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "MediaStoreClient",
-      commandName: "DeleteLifecyclePolicyCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteLifecyclePolicyInput.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteLifecyclePolicyOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

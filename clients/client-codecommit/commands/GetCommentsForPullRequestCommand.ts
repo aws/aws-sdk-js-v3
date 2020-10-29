@@ -44,13 +44,23 @@ export class GetCommentsForPullRequestCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CodeCommitClient";
+    const commandName = "GetCommentsForPullRequestCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CodeCommitClient",
-      commandName: "GetCommentsForPullRequestCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetCommentsForPullRequestInput.filterSensitiveLog,
       outputFilterSensitiveLog: GetCommentsForPullRequestOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

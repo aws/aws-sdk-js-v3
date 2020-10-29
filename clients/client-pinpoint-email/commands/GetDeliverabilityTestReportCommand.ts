@@ -44,13 +44,23 @@ export class GetDeliverabilityTestReportCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "PinpointEmailClient";
+    const commandName = "GetDeliverabilityTestReportCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "PinpointEmailClient",
-      commandName: "GetDeliverabilityTestReportCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetDeliverabilityTestReportRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetDeliverabilityTestReportResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

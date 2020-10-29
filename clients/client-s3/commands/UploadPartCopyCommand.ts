@@ -48,13 +48,23 @@ export class UploadPartCopyCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "S3Client";
+    const commandName = "UploadPartCopyCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "S3Client",
-      commandName: "UploadPartCopyCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UploadPartCopyRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UploadPartCopyOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

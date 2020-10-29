@@ -44,13 +44,23 @@ export class DeleteUsageReportSubscriptionCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "AppStreamClient";
+    const commandName = "DeleteUsageReportSubscriptionCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "AppStreamClient",
-      commandName: "DeleteUsageReportSubscriptionCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteUsageReportSubscriptionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteUsageReportSubscriptionResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

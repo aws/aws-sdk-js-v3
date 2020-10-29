@@ -44,13 +44,23 @@ export class DisassociateConnectionAliasCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "WorkSpacesClient";
+    const commandName = "DisassociateConnectionAliasCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "WorkSpacesClient",
-      commandName: "DisassociateConnectionAliasCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DisassociateConnectionAliasRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DisassociateConnectionAliasResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

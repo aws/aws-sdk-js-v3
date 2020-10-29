@@ -48,13 +48,23 @@ export class ListNetworksCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ManagedBlockchainClient";
+    const commandName = "ListNetworksCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ManagedBlockchainClient",
-      commandName: "ListNetworksCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListNetworksInput.filterSensitiveLog,
       outputFilterSensitiveLog: ListNetworksOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

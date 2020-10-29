@@ -44,13 +44,23 @@ export class BatchSuspendUserCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ChimeClient";
+    const commandName = "BatchSuspendUserCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ChimeClient",
-      commandName: "BatchSuspendUserCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: BatchSuspendUserRequest.filterSensitiveLog,
       outputFilterSensitiveLog: BatchSuspendUserResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

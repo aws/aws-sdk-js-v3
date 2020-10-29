@@ -44,13 +44,23 @@ export class CreateWorkspacesCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "WorkSpacesClient";
+    const commandName = "CreateWorkspacesCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "WorkSpacesClient",
-      commandName: "CreateWorkspacesCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreateWorkspacesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateWorkspacesResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

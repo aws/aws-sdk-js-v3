@@ -44,13 +44,23 @@ export class DescribeBackupsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "FSxClient";
+    const commandName = "DescribeBackupsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "FSxClient",
-      commandName: "DescribeBackupsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeBackupsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeBackupsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

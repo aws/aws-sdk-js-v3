@@ -44,13 +44,23 @@ export class AddCommunicationToCaseCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SupportClient";
+    const commandName = "AddCommunicationToCaseCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "SupportClient",
-      commandName: "AddCommunicationToCaseCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: AddCommunicationToCaseRequest.filterSensitiveLog,
       outputFilterSensitiveLog: AddCommunicationToCaseResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

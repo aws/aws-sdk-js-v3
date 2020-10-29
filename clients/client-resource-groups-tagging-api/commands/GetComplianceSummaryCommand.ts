@@ -48,13 +48,23 @@ export class GetComplianceSummaryCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ResourceGroupsTaggingAPIClient";
+    const commandName = "GetComplianceSummaryCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ResourceGroupsTaggingAPIClient",
-      commandName: "GetComplianceSummaryCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetComplianceSummaryInput.filterSensitiveLog,
       outputFilterSensitiveLog: GetComplianceSummaryOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

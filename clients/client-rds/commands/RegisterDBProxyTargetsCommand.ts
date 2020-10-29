@@ -44,13 +44,23 @@ export class RegisterDBProxyTargetsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "RDSClient";
+    const commandName = "RegisterDBProxyTargetsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "RDSClient",
-      commandName: "RegisterDBProxyTargetsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: RegisterDBProxyTargetsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: RegisterDBProxyTargetsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

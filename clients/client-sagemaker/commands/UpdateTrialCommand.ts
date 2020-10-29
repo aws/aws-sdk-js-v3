@@ -44,13 +44,23 @@ export class UpdateTrialCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SageMakerClient";
+    const commandName = "UpdateTrialCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "SageMakerClient",
-      commandName: "UpdateTrialCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UpdateTrialRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateTrialResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

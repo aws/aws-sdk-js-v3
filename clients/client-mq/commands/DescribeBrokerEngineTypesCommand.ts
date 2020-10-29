@@ -44,13 +44,23 @@ export class DescribeBrokerEngineTypesCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "MqClient";
+    const commandName = "DescribeBrokerEngineTypesCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "MqClient",
-      commandName: "DescribeBrokerEngineTypesCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeBrokerEngineTypesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeBrokerEngineTypesResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

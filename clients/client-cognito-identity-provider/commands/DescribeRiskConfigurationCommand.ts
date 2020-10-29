@@ -50,13 +50,23 @@ export class DescribeRiskConfigurationCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CognitoIdentityProviderClient";
+    const commandName = "DescribeRiskConfigurationCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CognitoIdentityProviderClient",
-      commandName: "DescribeRiskConfigurationCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeRiskConfigurationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeRiskConfigurationResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

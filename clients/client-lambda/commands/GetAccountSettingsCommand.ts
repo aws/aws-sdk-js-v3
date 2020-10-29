@@ -44,13 +44,23 @@ export class GetAccountSettingsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "LambdaClient";
+    const commandName = "GetAccountSettingsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "LambdaClient",
-      commandName: "GetAccountSettingsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetAccountSettingsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetAccountSettingsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -44,13 +44,23 @@ export class DeleteConnectorProfileCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "AppflowClient";
+    const commandName = "DeleteConnectorProfileCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "AppflowClient",
-      commandName: "DeleteConnectorProfileCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteConnectorProfileRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteConnectorProfileResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

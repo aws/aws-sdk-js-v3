@@ -44,13 +44,23 @@ export class DeleteResolverQueryLogConfigCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "Route53ResolverClient";
+    const commandName = "DeleteResolverQueryLogConfigCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "Route53ResolverClient",
-      commandName: "DeleteResolverQueryLogConfigCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteResolverQueryLogConfigRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteResolverQueryLogConfigResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -44,13 +44,23 @@ export class UpdateSmsTemplateCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "PinpointClient";
+    const commandName = "UpdateSmsTemplateCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "PinpointClient",
-      commandName: "UpdateSmsTemplateCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UpdateSmsTemplateRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateSmsTemplateResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

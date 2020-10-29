@@ -44,13 +44,23 @@ export class GetIdentityDkimAttributesCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SESClient";
+    const commandName = "GetIdentityDkimAttributesCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "SESClient",
-      commandName: "GetIdentityDkimAttributesCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetIdentityDkimAttributesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetIdentityDkimAttributesResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

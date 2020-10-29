@@ -44,13 +44,23 @@ export class ListPullRequestsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CodeCommitClient";
+    const commandName = "ListPullRequestsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CodeCommitClient",
-      commandName: "ListPullRequestsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListPullRequestsInput.filterSensitiveLog,
       outputFilterSensitiveLog: ListPullRequestsOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

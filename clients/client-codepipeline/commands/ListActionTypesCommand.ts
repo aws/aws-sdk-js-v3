@@ -44,13 +44,23 @@ export class ListActionTypesCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CodePipelineClient";
+    const commandName = "ListActionTypesCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CodePipelineClient",
-      commandName: "ListActionTypesCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListActionTypesInput.filterSensitiveLog,
       outputFilterSensitiveLog: ListActionTypesOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

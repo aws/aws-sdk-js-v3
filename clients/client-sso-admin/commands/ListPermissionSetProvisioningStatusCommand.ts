@@ -48,13 +48,23 @@ export class ListPermissionSetProvisioningStatusCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SSOAdminClient";
+    const commandName = "ListPermissionSetProvisioningStatusCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "SSOAdminClient",
-      commandName: "ListPermissionSetProvisioningStatusCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListPermissionSetProvisioningStatusRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListPermissionSetProvisioningStatusResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

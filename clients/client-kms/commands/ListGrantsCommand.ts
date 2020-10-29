@@ -44,13 +44,23 @@ export class ListGrantsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "KMSClient";
+    const commandName = "ListGrantsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "KMSClient",
-      commandName: "ListGrantsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListGrantsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListGrantsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

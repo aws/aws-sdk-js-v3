@@ -44,13 +44,23 @@ export class UpdateInputCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "MediaLiveClient";
+    const commandName = "UpdateInputCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "MediaLiveClient",
-      commandName: "UpdateInputCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UpdateInputRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateInputResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

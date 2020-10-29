@@ -44,13 +44,23 @@ export class StopCrawlerScheduleCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "GlueClient";
+    const commandName = "StopCrawlerScheduleCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "GlueClient",
-      commandName: "StopCrawlerScheduleCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: StopCrawlerScheduleRequest.filterSensitiveLog,
       outputFilterSensitiveLog: StopCrawlerScheduleResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

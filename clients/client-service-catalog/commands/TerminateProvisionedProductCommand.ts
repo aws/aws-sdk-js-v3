@@ -44,13 +44,23 @@ export class TerminateProvisionedProductCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ServiceCatalogClient";
+    const commandName = "TerminateProvisionedProductCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ServiceCatalogClient",
-      commandName: "TerminateProvisionedProductCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: TerminateProvisionedProductInput.filterSensitiveLog,
       outputFilterSensitiveLog: TerminateProvisionedProductOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

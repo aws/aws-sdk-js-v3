@@ -44,13 +44,23 @@ export class CreateServiceCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ECSClient";
+    const commandName = "CreateServiceCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ECSClient",
-      commandName: "CreateServiceCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreateServiceRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateServiceResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

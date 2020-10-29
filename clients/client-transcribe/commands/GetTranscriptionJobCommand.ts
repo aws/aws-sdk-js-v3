@@ -44,13 +44,23 @@ export class GetTranscriptionJobCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "TranscribeClient";
+    const commandName = "GetTranscriptionJobCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "TranscribeClient",
-      commandName: "GetTranscriptionJobCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetTranscriptionJobRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetTranscriptionJobResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

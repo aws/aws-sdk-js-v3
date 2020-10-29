@@ -40,13 +40,23 @@ export class GetAliasCommand extends $Command<GetAliasCommandInput, GetAliasComm
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "LambdaClient";
+    const commandName = "GetAliasCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "LambdaClient",
-      commandName: "GetAliasCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetAliasRequest.filterSensitiveLog,
       outputFilterSensitiveLog: AliasConfiguration.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

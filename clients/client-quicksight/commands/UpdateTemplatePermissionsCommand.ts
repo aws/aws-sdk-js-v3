@@ -44,13 +44,23 @@ export class UpdateTemplatePermissionsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "QuickSightClient";
+    const commandName = "UpdateTemplatePermissionsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "QuickSightClient",
-      commandName: "UpdateTemplatePermissionsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UpdateTemplatePermissionsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateTemplatePermissionsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -44,13 +44,23 @@ export class GetTransitGatewayRegistrationsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "NetworkManagerClient";
+    const commandName = "GetTransitGatewayRegistrationsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "NetworkManagerClient",
-      commandName: "GetTransitGatewayRegistrationsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetTransitGatewayRegistrationsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetTransitGatewayRegistrationsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

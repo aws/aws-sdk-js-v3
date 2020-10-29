@@ -44,13 +44,23 @@ export class StopTextTranslationJobCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "TranslateClient";
+    const commandName = "StopTextTranslationJobCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "TranslateClient",
-      commandName: "StopTextTranslationJobCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: StopTextTranslationJobRequest.filterSensitiveLog,
       outputFilterSensitiveLog: StopTextTranslationJobResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

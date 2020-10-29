@@ -44,13 +44,23 @@ export class DeleteSecretCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SecretsManagerClient";
+    const commandName = "DeleteSecretCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "SecretsManagerClient",
-      commandName: "DeleteSecretCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteSecretRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteSecretResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

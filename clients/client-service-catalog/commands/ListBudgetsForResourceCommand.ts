@@ -44,13 +44,23 @@ export class ListBudgetsForResourceCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ServiceCatalogClient";
+    const commandName = "ListBudgetsForResourceCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ServiceCatalogClient",
-      commandName: "ListBudgetsForResourceCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListBudgetsForResourceInput.filterSensitiveLog,
       outputFilterSensitiveLog: ListBudgetsForResourceOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

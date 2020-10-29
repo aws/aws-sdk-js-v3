@@ -44,13 +44,23 @@ export class DescribeDomainControllersCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "DirectoryServiceClient";
+    const commandName = "DescribeDomainControllersCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "DirectoryServiceClient",
-      commandName: "DescribeDomainControllersCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeDomainControllersRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeDomainControllersResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

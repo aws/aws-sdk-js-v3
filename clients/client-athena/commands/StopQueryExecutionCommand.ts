@@ -44,13 +44,23 @@ export class StopQueryExecutionCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "AthenaClient";
+    const commandName = "StopQueryExecutionCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "AthenaClient",
-      commandName: "StopQueryExecutionCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: StopQueryExecutionInput.filterSensitiveLog,
       outputFilterSensitiveLog: StopQueryExecutionOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

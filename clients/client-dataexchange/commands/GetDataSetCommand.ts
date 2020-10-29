@@ -44,13 +44,23 @@ export class GetDataSetCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "DataExchangeClient";
+    const commandName = "GetDataSetCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "DataExchangeClient",
-      commandName: "GetDataSetCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetDataSetRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetDataSetResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

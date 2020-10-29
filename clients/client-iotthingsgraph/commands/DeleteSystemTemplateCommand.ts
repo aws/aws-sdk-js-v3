@@ -44,13 +44,23 @@ export class DeleteSystemTemplateCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "IoTThingsGraphClient";
+    const commandName = "DeleteSystemTemplateCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "IoTThingsGraphClient",
-      commandName: "DeleteSystemTemplateCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteSystemTemplateRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteSystemTemplateResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

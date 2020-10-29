@@ -44,13 +44,23 @@ export class DescribePatchGroupStateCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SSMClient";
+    const commandName = "DescribePatchGroupStateCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "SSMClient",
-      commandName: "DescribePatchGroupStateCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribePatchGroupStateRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribePatchGroupStateResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

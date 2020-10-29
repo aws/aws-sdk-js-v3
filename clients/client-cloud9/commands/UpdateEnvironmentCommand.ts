@@ -44,13 +44,23 @@ export class UpdateEnvironmentCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "Cloud9Client";
+    const commandName = "UpdateEnvironmentCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "Cloud9Client",
-      commandName: "UpdateEnvironmentCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UpdateEnvironmentRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateEnvironmentResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

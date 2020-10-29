@@ -44,13 +44,23 @@ export class UpdateVirtualNodeCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "AppMeshClient";
+    const commandName = "UpdateVirtualNodeCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "AppMeshClient",
-      commandName: "UpdateVirtualNodeCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UpdateVirtualNodeInput.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateVirtualNodeOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -44,13 +44,23 @@ export class CreateUsageLimitCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "RedshiftClient";
+    const commandName = "CreateUsageLimitCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "RedshiftClient",
-      commandName: "CreateUsageLimitCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreateUsageLimitMessage.filterSensitiveLog,
       outputFilterSensitiveLog: UsageLimit.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

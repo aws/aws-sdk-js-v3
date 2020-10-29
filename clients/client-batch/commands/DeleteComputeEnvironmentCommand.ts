@@ -44,13 +44,23 @@ export class DeleteComputeEnvironmentCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "BatchClient";
+    const commandName = "DeleteComputeEnvironmentCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "BatchClient",
-      commandName: "DeleteComputeEnvironmentCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteComputeEnvironmentRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteComputeEnvironmentResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

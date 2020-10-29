@@ -44,13 +44,23 @@ export class GetChangeTokenStatusCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "WAFRegionalClient";
+    const commandName = "GetChangeTokenStatusCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "WAFRegionalClient",
-      commandName: "GetChangeTokenStatusCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetChangeTokenStatusRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetChangeTokenStatusResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

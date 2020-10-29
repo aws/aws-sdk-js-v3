@@ -44,13 +44,23 @@ export class CreateWebACLMigrationStackCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "WAFClient";
+    const commandName = "CreateWebACLMigrationStackCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "WAFClient",
-      commandName: "CreateWebACLMigrationStackCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreateWebACLMigrationStackRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateWebACLMigrationStackResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -44,13 +44,23 @@ export class WriteRecordsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "TimestreamWriteClient";
+    const commandName = "WriteRecordsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "TimestreamWriteClient",
-      commandName: "WriteRecordsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: WriteRecordsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

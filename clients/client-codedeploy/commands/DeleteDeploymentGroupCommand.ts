@@ -44,13 +44,23 @@ export class DeleteDeploymentGroupCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CodeDeployClient";
+    const commandName = "DeleteDeploymentGroupCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CodeDeployClient",
-      commandName: "DeleteDeploymentGroupCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteDeploymentGroupInput.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteDeploymentGroupOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

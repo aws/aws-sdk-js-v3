@@ -44,13 +44,23 @@ export class DescribeWorldCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "RoboMakerClient";
+    const commandName = "DescribeWorldCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "RoboMakerClient",
-      commandName: "DescribeWorldCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeWorldRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeWorldResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

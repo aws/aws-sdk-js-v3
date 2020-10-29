@@ -44,13 +44,23 @@ export class DeleteResourcesByExternalIdCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CodeDeployClient";
+    const commandName = "DeleteResourcesByExternalIdCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CodeDeployClient",
-      commandName: "DeleteResourcesByExternalIdCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteResourcesByExternalIdInput.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteResourcesByExternalIdOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

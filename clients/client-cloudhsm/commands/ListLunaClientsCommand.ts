@@ -44,13 +44,23 @@ export class ListLunaClientsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CloudHSMClient";
+    const commandName = "ListLunaClientsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CloudHSMClient",
-      commandName: "ListLunaClientsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListLunaClientsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListLunaClientsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -44,13 +44,23 @@ export class RevokeDomainAccessCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "WorkLinkClient";
+    const commandName = "RevokeDomainAccessCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "WorkLinkClient",
-      commandName: "RevokeDomainAccessCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: RevokeDomainAccessRequest.filterSensitiveLog,
       outputFilterSensitiveLog: RevokeDomainAccessResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

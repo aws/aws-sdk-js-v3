@@ -44,13 +44,23 @@ export class ListAttacksCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ShieldClient";
+    const commandName = "ListAttacksCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ShieldClient",
-      commandName: "ListAttacksCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListAttacksRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListAttacksResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

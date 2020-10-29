@@ -44,13 +44,23 @@ export class ListInstanceProfilesForRoleCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "IAMClient";
+    const commandName = "ListInstanceProfilesForRoleCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "IAMClient",
-      commandName: "ListInstanceProfilesForRoleCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListInstanceProfilesForRoleRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListInstanceProfilesForRoleResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

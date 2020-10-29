@@ -48,13 +48,23 @@ export class GetSessionCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "LexRuntimeServiceClient";
+    const commandName = "GetSessionCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "LexRuntimeServiceClient",
-      commandName: "GetSessionCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetSessionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetSessionResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

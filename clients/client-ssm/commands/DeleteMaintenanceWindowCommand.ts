@@ -44,13 +44,23 @@ export class DeleteMaintenanceWindowCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SSMClient";
+    const commandName = "DeleteMaintenanceWindowCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "SSMClient",
-      commandName: "DeleteMaintenanceWindowCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteMaintenanceWindowRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteMaintenanceWindowResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

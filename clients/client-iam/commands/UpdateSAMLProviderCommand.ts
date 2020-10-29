@@ -44,13 +44,23 @@ export class UpdateSAMLProviderCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "IAMClient";
+    const commandName = "UpdateSAMLProviderCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "IAMClient",
-      commandName: "UpdateSAMLProviderCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UpdateSAMLProviderRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateSAMLProviderResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

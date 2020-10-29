@@ -44,13 +44,23 @@ export class DeleteGeoMatchSetCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "WAFClient";
+    const commandName = "DeleteGeoMatchSetCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "WAFClient",
-      commandName: "DeleteGeoMatchSetCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteGeoMatchSetRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteGeoMatchSetResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

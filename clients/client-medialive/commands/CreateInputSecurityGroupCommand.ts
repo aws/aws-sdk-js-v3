@@ -44,13 +44,23 @@ export class CreateInputSecurityGroupCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "MediaLiveClient";
+    const commandName = "CreateInputSecurityGroupCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "MediaLiveClient",
-      commandName: "CreateInputSecurityGroupCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreateInputSecurityGroupRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateInputSecurityGroupResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

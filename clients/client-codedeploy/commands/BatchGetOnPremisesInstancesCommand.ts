@@ -44,13 +44,23 @@ export class BatchGetOnPremisesInstancesCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CodeDeployClient";
+    const commandName = "BatchGetOnPremisesInstancesCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CodeDeployClient",
-      commandName: "BatchGetOnPremisesInstancesCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: BatchGetOnPremisesInstancesInput.filterSensitiveLog,
       outputFilterSensitiveLog: BatchGetOnPremisesInstancesOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

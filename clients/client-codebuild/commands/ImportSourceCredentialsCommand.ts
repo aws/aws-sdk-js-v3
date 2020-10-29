@@ -44,13 +44,23 @@ export class ImportSourceCredentialsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CodeBuildClient";
+    const commandName = "ImportSourceCredentialsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CodeBuildClient",
-      commandName: "ImportSourceCredentialsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ImportSourceCredentialsInput.filterSensitiveLog,
       outputFilterSensitiveLog: ImportSourceCredentialsOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

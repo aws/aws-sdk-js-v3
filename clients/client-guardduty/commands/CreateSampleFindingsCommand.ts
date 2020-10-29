@@ -44,13 +44,23 @@ export class CreateSampleFindingsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "GuardDutyClient";
+    const commandName = "CreateSampleFindingsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "GuardDutyClient",
-      commandName: "CreateSampleFindingsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreateSampleFindingsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateSampleFindingsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

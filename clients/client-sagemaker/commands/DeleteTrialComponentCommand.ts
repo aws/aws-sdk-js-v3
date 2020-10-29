@@ -44,13 +44,23 @@ export class DeleteTrialComponentCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SageMakerClient";
+    const commandName = "DeleteTrialComponentCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "SageMakerClient",
-      commandName: "DeleteTrialComponentCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteTrialComponentRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteTrialComponentResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

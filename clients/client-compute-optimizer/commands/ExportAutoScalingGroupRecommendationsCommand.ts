@@ -48,13 +48,23 @@ export class ExportAutoScalingGroupRecommendationsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ComputeOptimizerClient";
+    const commandName = "ExportAutoScalingGroupRecommendationsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ComputeOptimizerClient",
-      commandName: "ExportAutoScalingGroupRecommendationsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ExportAutoScalingGroupRecommendationsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ExportAutoScalingGroupRecommendationsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

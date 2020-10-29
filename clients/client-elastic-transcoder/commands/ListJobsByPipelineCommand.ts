@@ -48,13 +48,23 @@ export class ListJobsByPipelineCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ElasticTranscoderClient";
+    const commandName = "ListJobsByPipelineCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ElasticTranscoderClient",
-      commandName: "ListJobsByPipelineCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListJobsByPipelineRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListJobsByPipelineResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

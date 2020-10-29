@@ -44,13 +44,23 @@ export class PutThirdPartyJobFailureResultCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CodePipelineClient";
+    const commandName = "PutThirdPartyJobFailureResultCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CodePipelineClient",
-      commandName: "PutThirdPartyJobFailureResultCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: PutThirdPartyJobFailureResultInput.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

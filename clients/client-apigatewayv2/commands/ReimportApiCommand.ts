@@ -44,13 +44,23 @@ export class ReimportApiCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ApiGatewayV2Client";
+    const commandName = "ReimportApiCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ApiGatewayV2Client",
-      commandName: "ReimportApiCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ReimportApiRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ReimportApiResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

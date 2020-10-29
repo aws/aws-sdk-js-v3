@@ -44,13 +44,23 @@ export class ListAccountsForParentCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "OrganizationsClient";
+    const commandName = "ListAccountsForParentCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "OrganizationsClient",
-      commandName: "ListAccountsForParentCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListAccountsForParentRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListAccountsForParentResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

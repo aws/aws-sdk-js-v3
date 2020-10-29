@@ -44,13 +44,23 @@ export class ListDatabasesCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "RedshiftDataClient";
+    const commandName = "ListDatabasesCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "RedshiftDataClient",
-      commandName: "ListDatabasesCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListDatabasesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListDatabasesResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

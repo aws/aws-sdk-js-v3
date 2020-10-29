@@ -44,13 +44,23 @@ export class CreateCacheParameterGroupCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ElastiCacheClient";
+    const commandName = "CreateCacheParameterGroupCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ElastiCacheClient",
-      commandName: "CreateCacheParameterGroupCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreateCacheParameterGroupMessage.filterSensitiveLog,
       outputFilterSensitiveLog: CreateCacheParameterGroupResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

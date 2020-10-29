@@ -44,13 +44,23 @@ export class DescribeEnvironmentResourcesCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ElasticBeanstalkClient";
+    const commandName = "DescribeEnvironmentResourcesCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ElasticBeanstalkClient",
-      commandName: "DescribeEnvironmentResourcesCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeEnvironmentResourcesMessage.filterSensitiveLog,
       outputFilterSensitiveLog: EnvironmentResourceDescriptionsMessage.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

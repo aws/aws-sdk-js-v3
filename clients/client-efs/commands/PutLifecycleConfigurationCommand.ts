@@ -44,13 +44,23 @@ export class PutLifecycleConfigurationCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "EFSClient";
+    const commandName = "PutLifecycleConfigurationCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "EFSClient",
-      commandName: "PutLifecycleConfigurationCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: PutLifecycleConfigurationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: LifecycleConfigurationDescription.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

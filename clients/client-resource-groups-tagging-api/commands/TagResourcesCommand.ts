@@ -48,13 +48,23 @@ export class TagResourcesCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ResourceGroupsTaggingAPIClient";
+    const commandName = "TagResourcesCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ResourceGroupsTaggingAPIClient",
-      commandName: "TagResourcesCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: TagResourcesInput.filterSensitiveLog,
       outputFilterSensitiveLog: TagResourcesOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

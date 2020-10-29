@@ -44,13 +44,23 @@ export class ListBootstrapActionsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "EMRClient";
+    const commandName = "ListBootstrapActionsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "EMRClient",
-      commandName: "ListBootstrapActionsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListBootstrapActionsInput.filterSensitiveLog,
       outputFilterSensitiveLog: ListBootstrapActionsOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

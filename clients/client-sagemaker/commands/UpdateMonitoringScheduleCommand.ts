@@ -44,13 +44,23 @@ export class UpdateMonitoringScheduleCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SageMakerClient";
+    const commandName = "UpdateMonitoringScheduleCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "SageMakerClient",
-      commandName: "UpdateMonitoringScheduleCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UpdateMonitoringScheduleRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateMonitoringScheduleResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

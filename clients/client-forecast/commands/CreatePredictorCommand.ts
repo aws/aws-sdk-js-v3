@@ -44,13 +44,23 @@ export class CreatePredictorCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ForecastClient";
+    const commandName = "CreatePredictorCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ForecastClient",
-      commandName: "CreatePredictorCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreatePredictorRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreatePredictorResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -44,13 +44,23 @@ export class DeleteUserDefinedFunctionCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "GlueClient";
+    const commandName = "DeleteUserDefinedFunctionCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "GlueClient",
-      commandName: "DeleteUserDefinedFunctionCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteUserDefinedFunctionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteUserDefinedFunctionResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -44,13 +44,23 @@ export class ImportKeyMaterialCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "KMSClient";
+    const commandName = "ImportKeyMaterialCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "KMSClient",
-      commandName: "ImportKeyMaterialCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ImportKeyMaterialRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ImportKeyMaterialResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

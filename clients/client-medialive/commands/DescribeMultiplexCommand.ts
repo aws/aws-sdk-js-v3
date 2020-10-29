@@ -44,13 +44,23 @@ export class DescribeMultiplexCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "MediaLiveClient";
+    const commandName = "DescribeMultiplexCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "MediaLiveClient",
-      commandName: "DescribeMultiplexCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeMultiplexRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeMultiplexResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

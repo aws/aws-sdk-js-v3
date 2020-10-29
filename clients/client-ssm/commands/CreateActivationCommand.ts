@@ -44,13 +44,23 @@ export class CreateActivationCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SSMClient";
+    const commandName = "CreateActivationCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "SSMClient",
-      commandName: "CreateActivationCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreateActivationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateActivationResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

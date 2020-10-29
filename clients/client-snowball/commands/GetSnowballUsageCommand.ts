@@ -44,13 +44,23 @@ export class GetSnowballUsageCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SnowballClient";
+    const commandName = "GetSnowballUsageCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "SnowballClient",
-      commandName: "GetSnowballUsageCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetSnowballUsageRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetSnowballUsageResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

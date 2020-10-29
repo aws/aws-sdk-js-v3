@@ -44,13 +44,23 @@ export class ListGroupMembershipsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "QuickSightClient";
+    const commandName = "ListGroupMembershipsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "QuickSightClient",
-      commandName: "ListGroupMembershipsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListGroupMembershipsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListGroupMembershipsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

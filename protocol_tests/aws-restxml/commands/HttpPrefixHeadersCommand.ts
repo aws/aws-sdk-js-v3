@@ -44,13 +44,23 @@ export class HttpPrefixHeadersCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "RestXmlProtocolClient";
+    const commandName = "HttpPrefixHeadersCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "RestXmlProtocolClient",
-      commandName: "HttpPrefixHeadersCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: HttpPrefixHeadersInputOutput.filterSensitiveLog,
       outputFilterSensitiveLog: HttpPrefixHeadersInputOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

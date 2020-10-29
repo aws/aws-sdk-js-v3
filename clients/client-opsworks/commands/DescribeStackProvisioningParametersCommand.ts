@@ -48,13 +48,23 @@ export class DescribeStackProvisioningParametersCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "OpsWorksClient";
+    const commandName = "DescribeStackProvisioningParametersCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "OpsWorksClient",
-      commandName: "DescribeStackProvisioningParametersCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeStackProvisioningParametersRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeStackProvisioningParametersResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

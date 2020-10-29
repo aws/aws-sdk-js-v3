@@ -44,13 +44,23 @@ export class CreateIndexCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "KendraClient";
+    const commandName = "CreateIndexCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "KendraClient",
-      commandName: "CreateIndexCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreateIndexRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateIndexResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

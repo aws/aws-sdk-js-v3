@@ -44,13 +44,23 @@ export class GetContentModerationCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "RekognitionClient";
+    const commandName = "GetContentModerationCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "RekognitionClient",
-      commandName: "GetContentModerationCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetContentModerationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetContentModerationResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

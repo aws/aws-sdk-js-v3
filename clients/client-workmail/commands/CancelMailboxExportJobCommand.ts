@@ -44,13 +44,23 @@ export class CancelMailboxExportJobCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "WorkMailClient";
+    const commandName = "CancelMailboxExportJobCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "WorkMailClient",
-      commandName: "CancelMailboxExportJobCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CancelMailboxExportJobRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CancelMailboxExportJobResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

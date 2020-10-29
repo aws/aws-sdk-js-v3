@@ -44,13 +44,23 @@ export class DescribeBundleCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "MobileClient";
+    const commandName = "DescribeBundleCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "MobileClient",
-      commandName: "DescribeBundleCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeBundleRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeBundleResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

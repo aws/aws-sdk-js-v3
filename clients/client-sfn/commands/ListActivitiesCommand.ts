@@ -44,13 +44,23 @@ export class ListActivitiesCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SFNClient";
+    const commandName = "ListActivitiesCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "SFNClient",
-      commandName: "ListActivitiesCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListActivitiesInput.filterSensitiveLog,
       outputFilterSensitiveLog: ListActivitiesOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

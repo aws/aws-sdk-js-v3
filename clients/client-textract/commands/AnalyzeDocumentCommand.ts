@@ -44,13 +44,23 @@ export class AnalyzeDocumentCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "TextractClient";
+    const commandName = "AnalyzeDocumentCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "TextractClient",
-      commandName: "AnalyzeDocumentCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: AnalyzeDocumentRequest.filterSensitiveLog,
       outputFilterSensitiveLog: AnalyzeDocumentResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

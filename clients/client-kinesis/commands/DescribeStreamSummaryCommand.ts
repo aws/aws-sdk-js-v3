@@ -44,13 +44,23 @@ export class DescribeStreamSummaryCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "KinesisClient";
+    const commandName = "DescribeStreamSummaryCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "KinesisClient",
-      commandName: "DescribeStreamSummaryCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeStreamSummaryInput.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeStreamSummaryOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

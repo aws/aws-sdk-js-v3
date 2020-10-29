@@ -44,13 +44,23 @@ export class GetTraceGraphCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "XRayClient";
+    const commandName = "GetTraceGraphCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "XRayClient",
-      commandName: "GetTraceGraphCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetTraceGraphRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetTraceGraphResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

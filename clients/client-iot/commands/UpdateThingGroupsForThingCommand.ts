@@ -44,13 +44,23 @@ export class UpdateThingGroupsForThingCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "IoTClient";
+    const commandName = "UpdateThingGroupsForThingCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "IoTClient",
-      commandName: "UpdateThingGroupsForThingCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UpdateThingGroupsForThingRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateThingGroupsForThingResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

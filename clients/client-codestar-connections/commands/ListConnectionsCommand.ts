@@ -48,13 +48,23 @@ export class ListConnectionsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CodeStarConnectionsClient";
+    const commandName = "ListConnectionsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CodeStarConnectionsClient",
-      commandName: "ListConnectionsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListConnectionsInput.filterSensitiveLog,
       outputFilterSensitiveLog: ListConnectionsOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

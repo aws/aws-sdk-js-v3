@@ -44,13 +44,23 @@ export class GetGatewayResponseCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "APIGatewayClient";
+    const commandName = "GetGatewayResponseCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "APIGatewayClient",
-      commandName: "GetGatewayResponseCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetGatewayResponseRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GatewayResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

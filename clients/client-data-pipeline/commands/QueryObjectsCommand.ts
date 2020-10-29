@@ -44,13 +44,23 @@ export class QueryObjectsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "DataPipelineClient";
+    const commandName = "QueryObjectsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "DataPipelineClient",
-      commandName: "QueryObjectsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: QueryObjectsInput.filterSensitiveLog,
       outputFilterSensitiveLog: QueryObjectsOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

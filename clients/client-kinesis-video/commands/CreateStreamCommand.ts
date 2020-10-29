@@ -44,13 +44,23 @@ export class CreateStreamCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "KinesisVideoClient";
+    const commandName = "CreateStreamCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "KinesisVideoClient",
-      commandName: "CreateStreamCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreateStreamInput.filterSensitiveLog,
       outputFilterSensitiveLog: CreateStreamOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

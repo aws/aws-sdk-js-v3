@@ -44,13 +44,23 @@ export class CreateExperimentCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SageMakerClient";
+    const commandName = "CreateExperimentCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "SageMakerClient",
-      commandName: "CreateExperimentCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreateExperimentRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateExperimentResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

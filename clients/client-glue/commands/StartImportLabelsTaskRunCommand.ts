@@ -44,13 +44,23 @@ export class StartImportLabelsTaskRunCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "GlueClient";
+    const commandName = "StartImportLabelsTaskRunCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "GlueClient",
-      commandName: "StartImportLabelsTaskRunCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: StartImportLabelsTaskRunRequest.filterSensitiveLog,
       outputFilterSensitiveLog: StartImportLabelsTaskRunResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

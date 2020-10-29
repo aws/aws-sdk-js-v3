@@ -44,13 +44,23 @@ export class DescribeSnapshotCopyGrantsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "RedshiftClient";
+    const commandName = "DescribeSnapshotCopyGrantsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "RedshiftClient",
-      commandName: "DescribeSnapshotCopyGrantsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeSnapshotCopyGrantsMessage.filterSensitiveLog,
       outputFilterSensitiveLog: SnapshotCopyGrantMessage.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

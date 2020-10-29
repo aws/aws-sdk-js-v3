@@ -44,13 +44,23 @@ export class GetBackupVaultAccessPolicyCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "BackupClient";
+    const commandName = "GetBackupVaultAccessPolicyCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "BackupClient",
-      commandName: "GetBackupVaultAccessPolicyCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetBackupVaultAccessPolicyInput.filterSensitiveLog,
       outputFilterSensitiveLog: GetBackupVaultAccessPolicyOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

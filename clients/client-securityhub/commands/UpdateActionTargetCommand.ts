@@ -44,13 +44,23 @@ export class UpdateActionTargetCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SecurityHubClient";
+    const commandName = "UpdateActionTargetCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "SecurityHubClient",
-      commandName: "UpdateActionTargetCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UpdateActionTargetRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateActionTargetResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -44,13 +44,23 @@ export class TagCertificateAuthorityCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ACMPCAClient";
+    const commandName = "TagCertificateAuthorityCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ACMPCAClient",
-      commandName: "TagCertificateAuthorityCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: TagCertificateAuthorityRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

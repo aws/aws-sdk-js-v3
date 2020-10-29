@@ -44,13 +44,23 @@ export class SendTaskSuccessCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SFNClient";
+    const commandName = "SendTaskSuccessCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "SFNClient",
-      commandName: "SendTaskSuccessCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: SendTaskSuccessInput.filterSensitiveLog,
       outputFilterSensitiveLog: SendTaskSuccessOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

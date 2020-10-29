@@ -44,13 +44,23 @@ export class DescribeSubnetGroupsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "DAXClient";
+    const commandName = "DescribeSubnetGroupsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "DAXClient",
-      commandName: "DescribeSubnetGroupsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeSubnetGroupsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeSubnetGroupsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

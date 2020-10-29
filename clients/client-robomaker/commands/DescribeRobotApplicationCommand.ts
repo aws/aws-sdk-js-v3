@@ -44,13 +44,23 @@ export class DescribeRobotApplicationCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "RoboMakerClient";
+    const commandName = "DescribeRobotApplicationCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "RoboMakerClient",
-      commandName: "DescribeRobotApplicationCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeRobotApplicationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeRobotApplicationResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

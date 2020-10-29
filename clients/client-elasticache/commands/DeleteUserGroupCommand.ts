@@ -44,13 +44,23 @@ export class DeleteUserGroupCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ElastiCacheClient";
+    const commandName = "DeleteUserGroupCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ElastiCacheClient",
-      commandName: "DeleteUserGroupCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteUserGroupMessage.filterSensitiveLog,
       outputFilterSensitiveLog: UserGroup.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

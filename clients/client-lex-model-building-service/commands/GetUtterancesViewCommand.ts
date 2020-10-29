@@ -48,13 +48,23 @@ export class GetUtterancesViewCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "LexModelBuildingServiceClient";
+    const commandName = "GetUtterancesViewCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "LexModelBuildingServiceClient",
-      commandName: "GetUtterancesViewCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetUtterancesViewRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetUtterancesViewResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

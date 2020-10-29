@@ -44,13 +44,23 @@ export class DeleteDBInstanceCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "NeptuneClient";
+    const commandName = "DeleteDBInstanceCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "NeptuneClient",
-      commandName: "DeleteDBInstanceCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteDBInstanceMessage.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteDBInstanceResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

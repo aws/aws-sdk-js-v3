@@ -44,13 +44,23 @@ export class GetDocumentationPartsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "APIGatewayClient";
+    const commandName = "GetDocumentationPartsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "APIGatewayClient",
-      commandName: "GetDocumentationPartsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetDocumentationPartsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DocumentationParts.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

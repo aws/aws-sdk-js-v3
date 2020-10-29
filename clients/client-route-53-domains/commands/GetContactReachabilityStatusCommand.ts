@@ -44,13 +44,23 @@ export class GetContactReachabilityStatusCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "Route53DomainsClient";
+    const commandName = "GetContactReachabilityStatusCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "Route53DomainsClient",
-      commandName: "GetContactReachabilityStatusCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetContactReachabilityStatusRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetContactReachabilityStatusResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

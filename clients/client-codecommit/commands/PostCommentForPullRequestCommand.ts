@@ -44,13 +44,23 @@ export class PostCommentForPullRequestCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CodeCommitClient";
+    const commandName = "PostCommentForPullRequestCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CodeCommitClient",
-      commandName: "PostCommentForPullRequestCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: PostCommentForPullRequestInput.filterSensitiveLog,
       outputFilterSensitiveLog: PostCommentForPullRequestOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

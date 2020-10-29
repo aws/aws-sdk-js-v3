@@ -44,13 +44,23 @@ export class DeleteVPCEConfigurationCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "DeviceFarmClient";
+    const commandName = "DeleteVPCEConfigurationCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "DeviceFarmClient",
-      commandName: "DeleteVPCEConfigurationCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteVPCEConfigurationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteVPCEConfigurationResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -44,13 +44,23 @@ export class GetJobManifestCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SnowballClient";
+    const commandName = "GetJobManifestCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "SnowballClient",
-      commandName: "GetJobManifestCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetJobManifestRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetJobManifestResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

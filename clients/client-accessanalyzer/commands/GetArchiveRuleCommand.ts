@@ -44,13 +44,23 @@ export class GetArchiveRuleCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "AccessAnalyzerClient";
+    const commandName = "GetArchiveRuleCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "AccessAnalyzerClient",
-      commandName: "GetArchiveRuleCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetArchiveRuleRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetArchiveRuleResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -44,13 +44,23 @@ export class DeleteCustomAvailabilityZoneCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "RDSClient";
+    const commandName = "DeleteCustomAvailabilityZoneCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "RDSClient",
-      commandName: "DeleteCustomAvailabilityZoneCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteCustomAvailabilityZoneMessage.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteCustomAvailabilityZoneResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -51,13 +51,23 @@ export class ListAccountsForProvisionedPermissionSetCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SSOAdminClient";
+    const commandName = "ListAccountsForProvisionedPermissionSetCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "SSOAdminClient",
-      commandName: "ListAccountsForProvisionedPermissionSetCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListAccountsForProvisionedPermissionSetRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListAccountsForProvisionedPermissionSetResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

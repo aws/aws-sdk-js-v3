@@ -44,13 +44,23 @@ export class AssociateTransitGatewayRouteTableCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "EC2Client";
+    const commandName = "AssociateTransitGatewayRouteTableCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "EC2Client",
-      commandName: "AssociateTransitGatewayRouteTableCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: AssociateTransitGatewayRouteTableRequest.filterSensitiveLog,
       outputFilterSensitiveLog: AssociateTransitGatewayRouteTableResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

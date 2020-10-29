@@ -44,13 +44,23 @@ export class PutDeliverabilityDashboardOptionCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "PinpointEmailClient";
+    const commandName = "PutDeliverabilityDashboardOptionCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "PinpointEmailClient",
-      commandName: "PutDeliverabilityDashboardOptionCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: PutDeliverabilityDashboardOptionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: PutDeliverabilityDashboardOptionResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

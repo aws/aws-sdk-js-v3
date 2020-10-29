@@ -44,13 +44,23 @@ export class UpdateUserProfileCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CodeStarClient";
+    const commandName = "UpdateUserProfileCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CodeStarClient",
-      commandName: "UpdateUserProfileCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UpdateUserProfileRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateUserProfileResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

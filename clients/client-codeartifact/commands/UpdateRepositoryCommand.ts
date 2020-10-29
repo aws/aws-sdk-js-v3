@@ -44,13 +44,23 @@ export class UpdateRepositoryCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CodeartifactClient";
+    const commandName = "UpdateRepositoryCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CodeartifactClient",
-      commandName: "UpdateRepositoryCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UpdateRepositoryRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateRepositoryResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

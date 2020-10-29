@@ -44,13 +44,23 @@ export class UpdatePermissionSetCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SSOAdminClient";
+    const commandName = "UpdatePermissionSetCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "SSOAdminClient",
-      commandName: "UpdatePermissionSetCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UpdatePermissionSetRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdatePermissionSetResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -44,13 +44,23 @@ export class RebootNodeCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "DAXClient";
+    const commandName = "RebootNodeCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "DAXClient",
-      commandName: "RebootNodeCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: RebootNodeRequest.filterSensitiveLog,
       outputFilterSensitiveLog: RebootNodeResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

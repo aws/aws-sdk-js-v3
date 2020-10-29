@@ -44,13 +44,23 @@ export class DescribeWorkteamCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SageMakerClient";
+    const commandName = "DescribeWorkteamCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "SageMakerClient",
-      commandName: "DescribeWorkteamCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeWorkteamRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeWorkteamResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

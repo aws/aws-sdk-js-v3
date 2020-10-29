@@ -44,13 +44,23 @@ export class UpdatePresetCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "MediaConvertClient";
+    const commandName = "UpdatePresetCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "MediaConvertClient",
-      commandName: "UpdatePresetCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UpdatePresetRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdatePresetResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

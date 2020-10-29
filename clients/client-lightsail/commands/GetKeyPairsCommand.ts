@@ -44,13 +44,23 @@ export class GetKeyPairsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "LightsailClient";
+    const commandName = "GetKeyPairsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "LightsailClient",
-      commandName: "GetKeyPairsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetKeyPairsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetKeyPairsResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

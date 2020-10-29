@@ -44,13 +44,23 @@ export class DeleteDBClusterCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "DocDBClient";
+    const commandName = "DeleteDBClusterCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "DocDBClient",
-      commandName: "DeleteDBClusterCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteDBClusterMessage.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteDBClusterResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

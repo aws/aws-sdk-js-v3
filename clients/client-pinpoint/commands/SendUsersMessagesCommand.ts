@@ -44,13 +44,23 @@ export class SendUsersMessagesCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "PinpointClient";
+    const commandName = "SendUsersMessagesCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "PinpointClient",
-      commandName: "SendUsersMessagesCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: SendUsersMessagesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: SendUsersMessagesResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

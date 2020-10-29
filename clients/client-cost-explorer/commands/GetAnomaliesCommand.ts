@@ -44,13 +44,23 @@ export class GetAnomaliesCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CostExplorerClient";
+    const commandName = "GetAnomaliesCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CostExplorerClient",
-      commandName: "GetAnomaliesCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetAnomaliesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetAnomaliesResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

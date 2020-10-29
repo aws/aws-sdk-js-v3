@@ -44,13 +44,23 @@ export class DeleteConstraintCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ServiceCatalogClient";
+    const commandName = "DeleteConstraintCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ServiceCatalogClient",
-      commandName: "DeleteConstraintCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteConstraintInput.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteConstraintOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

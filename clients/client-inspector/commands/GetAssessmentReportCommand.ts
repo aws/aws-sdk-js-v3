@@ -44,13 +44,23 @@ export class GetAssessmentReportCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "InspectorClient";
+    const commandName = "GetAssessmentReportCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "InspectorClient",
-      commandName: "GetAssessmentReportCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetAssessmentReportRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetAssessmentReportResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

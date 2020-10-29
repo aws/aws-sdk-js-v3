@@ -48,13 +48,23 @@ export class DescribeAgentsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ApplicationDiscoveryServiceClient";
+    const commandName = "DescribeAgentsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ApplicationDiscoveryServiceClient",
-      commandName: "DescribeAgentsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeAgentsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeAgentsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

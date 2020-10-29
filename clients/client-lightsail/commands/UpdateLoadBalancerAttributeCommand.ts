@@ -44,13 +44,23 @@ export class UpdateLoadBalancerAttributeCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "LightsailClient";
+    const commandName = "UpdateLoadBalancerAttributeCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "LightsailClient",
-      commandName: "UpdateLoadBalancerAttributeCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UpdateLoadBalancerAttributeRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateLoadBalancerAttributeResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

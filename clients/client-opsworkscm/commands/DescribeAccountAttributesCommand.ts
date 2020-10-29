@@ -44,13 +44,23 @@ export class DescribeAccountAttributesCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "OpsWorksCMClient";
+    const commandName = "DescribeAccountAttributesCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "OpsWorksCMClient",
-      commandName: "DescribeAccountAttributesCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeAccountAttributesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeAccountAttributesResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

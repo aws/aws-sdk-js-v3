@@ -44,13 +44,23 @@ export class DeleteProfilingGroupCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CodeGuruProfilerClient";
+    const commandName = "DeleteProfilingGroupCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CodeGuruProfilerClient",
-      commandName: "DeleteProfilingGroupCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteProfilingGroupRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteProfilingGroupResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

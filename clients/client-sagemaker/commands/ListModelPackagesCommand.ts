@@ -44,13 +44,23 @@ export class ListModelPackagesCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SageMakerClient";
+    const commandName = "ListModelPackagesCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "SageMakerClient",
-      commandName: "ListModelPackagesCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListModelPackagesInput.filterSensitiveLog,
       outputFilterSensitiveLog: ListModelPackagesOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

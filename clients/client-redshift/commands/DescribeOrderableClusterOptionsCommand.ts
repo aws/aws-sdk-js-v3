@@ -44,13 +44,23 @@ export class DescribeOrderableClusterOptionsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "RedshiftClient";
+    const commandName = "DescribeOrderableClusterOptionsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "RedshiftClient",
-      commandName: "DescribeOrderableClusterOptionsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeOrderableClusterOptionsMessage.filterSensitiveLog,
       outputFilterSensitiveLog: OrderableClusterOptionsMessage.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

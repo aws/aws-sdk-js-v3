@@ -44,13 +44,23 @@ export class StopBuildBatchCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CodeBuildClient";
+    const commandName = "StopBuildBatchCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CodeBuildClient",
-      commandName: "StopBuildBatchCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: StopBuildBatchInput.filterSensitiveLog,
       outputFilterSensitiveLog: StopBuildBatchOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

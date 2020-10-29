@@ -44,13 +44,23 @@ export class ListShardsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "KinesisClient";
+    const commandName = "ListShardsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "KinesisClient",
-      commandName: "ListShardsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListShardsInput.filterSensitiveLog,
       outputFilterSensitiveLog: ListShardsOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

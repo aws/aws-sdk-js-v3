@@ -44,13 +44,23 @@ export class ListItemsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "MediaStoreDataClient";
+    const commandName = "ListItemsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "MediaStoreDataClient",
-      commandName: "ListItemsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListItemsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListItemsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

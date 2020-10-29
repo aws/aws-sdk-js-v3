@@ -44,13 +44,23 @@ export class RequestCancelWorkflowExecutionCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SWFClient";
+    const commandName = "RequestCancelWorkflowExecutionCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "SWFClient",
-      commandName: "RequestCancelWorkflowExecutionCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: RequestCancelWorkflowExecutionInput.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

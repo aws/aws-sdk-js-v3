@@ -44,13 +44,23 @@ export class UpdateMultiplexProgramCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "MediaLiveClient";
+    const commandName = "UpdateMultiplexProgramCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "MediaLiveClient",
-      commandName: "UpdateMultiplexProgramCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UpdateMultiplexProgramRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateMultiplexProgramResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

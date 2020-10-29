@@ -41,13 +41,23 @@ export class DeleteQueueCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SQSClient";
+    const commandName = "DeleteQueueCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "SQSClient",
-      commandName: "DeleteQueueCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteQueueRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

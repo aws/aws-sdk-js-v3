@@ -44,13 +44,23 @@ export class DescribeRecoveryPointCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "BackupClient";
+    const commandName = "DescribeRecoveryPointCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "BackupClient",
-      commandName: "DescribeRecoveryPointCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeRecoveryPointInput.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeRecoveryPointOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

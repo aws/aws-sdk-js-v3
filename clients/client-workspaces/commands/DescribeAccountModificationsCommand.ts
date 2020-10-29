@@ -44,13 +44,23 @@ export class DescribeAccountModificationsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "WorkSpacesClient";
+    const commandName = "DescribeAccountModificationsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "WorkSpacesClient",
-      commandName: "DescribeAccountModificationsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeAccountModificationsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeAccountModificationsResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

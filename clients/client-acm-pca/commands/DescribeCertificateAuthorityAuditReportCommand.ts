@@ -51,13 +51,23 @@ export class DescribeCertificateAuthorityAuditReportCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ACMPCAClient";
+    const commandName = "DescribeCertificateAuthorityAuditReportCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ACMPCAClient",
-      commandName: "DescribeCertificateAuthorityAuditReportCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeCertificateAuthorityAuditReportRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeCertificateAuthorityAuditReportResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

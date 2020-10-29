@@ -44,13 +44,23 @@ export class CancelMLTaskRunCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "GlueClient";
+    const commandName = "CancelMLTaskRunCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "GlueClient",
-      commandName: "CancelMLTaskRunCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CancelMLTaskRunRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CancelMLTaskRunResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

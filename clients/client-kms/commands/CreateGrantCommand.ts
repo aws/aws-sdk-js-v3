@@ -44,13 +44,23 @@ export class CreateGrantCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "KMSClient";
+    const commandName = "CreateGrantCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "KMSClient",
-      commandName: "CreateGrantCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreateGrantRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateGrantResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

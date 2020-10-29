@@ -44,13 +44,23 @@ export class DescribeTableCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "TimestreamWriteClient";
+    const commandName = "DescribeTableCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "TimestreamWriteClient",
-      commandName: "DescribeTableCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeTableRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeTableResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

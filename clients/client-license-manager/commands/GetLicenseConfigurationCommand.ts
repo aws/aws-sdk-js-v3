@@ -44,13 +44,23 @@ export class GetLicenseConfigurationCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "LicenseManagerClient";
+    const commandName = "GetLicenseConfigurationCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "LicenseManagerClient",
-      commandName: "GetLicenseConfigurationCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetLicenseConfigurationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetLicenseConfigurationResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

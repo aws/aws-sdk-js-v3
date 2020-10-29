@@ -44,13 +44,23 @@ export class ListDistributionConfigurationsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ImagebuilderClient";
+    const commandName = "ListDistributionConfigurationsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ImagebuilderClient",
-      commandName: "ListDistributionConfigurationsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListDistributionConfigurationsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListDistributionConfigurationsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

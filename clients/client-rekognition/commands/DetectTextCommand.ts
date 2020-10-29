@@ -44,13 +44,23 @@ export class DetectTextCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "RekognitionClient";
+    const commandName = "DetectTextCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "RekognitionClient",
-      commandName: "DetectTextCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DetectTextRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DetectTextResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

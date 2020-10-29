@@ -44,13 +44,23 @@ export class CreateReturnShippingLabelCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SnowballClient";
+    const commandName = "CreateReturnShippingLabelCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "SnowballClient",
-      commandName: "CreateReturnShippingLabelCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreateReturnShippingLabelRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateReturnShippingLabelResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

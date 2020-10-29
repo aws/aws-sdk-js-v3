@@ -44,13 +44,23 @@ export class UpdateScriptCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "GameLiftClient";
+    const commandName = "UpdateScriptCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "GameLiftClient",
-      commandName: "UpdateScriptCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UpdateScriptInput.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateScriptOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

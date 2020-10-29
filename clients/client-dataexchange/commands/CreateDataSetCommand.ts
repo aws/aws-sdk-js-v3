@@ -44,13 +44,23 @@ export class CreateDataSetCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "DataExchangeClient";
+    const commandName = "CreateDataSetCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "DataExchangeClient",
-      commandName: "CreateDataSetCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreateDataSetRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateDataSetResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

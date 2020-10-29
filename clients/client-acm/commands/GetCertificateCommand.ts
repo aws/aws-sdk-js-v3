@@ -44,13 +44,23 @@ export class GetCertificateCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ACMClient";
+    const commandName = "GetCertificateCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ACMClient",
-      commandName: "GetCertificateCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetCertificateRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetCertificateResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

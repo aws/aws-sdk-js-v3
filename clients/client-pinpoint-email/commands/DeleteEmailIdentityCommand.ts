@@ -44,13 +44,23 @@ export class DeleteEmailIdentityCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "PinpointEmailClient";
+    const commandName = "DeleteEmailIdentityCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "PinpointEmailClient",
-      commandName: "DeleteEmailIdentityCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteEmailIdentityRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteEmailIdentityResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

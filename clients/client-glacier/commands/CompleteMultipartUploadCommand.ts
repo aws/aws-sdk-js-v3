@@ -44,13 +44,23 @@ export class CompleteMultipartUploadCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "GlacierClient";
+    const commandName = "CompleteMultipartUploadCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "GlacierClient",
-      commandName: "CompleteMultipartUploadCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CompleteMultipartUploadInput.filterSensitiveLog,
       outputFilterSensitiveLog: ArchiveCreationOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

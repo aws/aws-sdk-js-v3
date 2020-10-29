@@ -44,13 +44,23 @@ export class CreateVirtualRouterCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "AppMeshClient";
+    const commandName = "CreateVirtualRouterCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "AppMeshClient",
-      commandName: "CreateVirtualRouterCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreateVirtualRouterInput.filterSensitiveLog,
       outputFilterSensitiveLog: CreateVirtualRouterOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

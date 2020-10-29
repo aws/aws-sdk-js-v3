@@ -44,13 +44,23 @@ export class DescribeEnvironmentStatusCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "Cloud9Client";
+    const commandName = "DescribeEnvironmentStatusCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "Cloud9Client",
-      commandName: "DescribeEnvironmentStatusCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeEnvironmentStatusRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeEnvironmentStatusResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -44,13 +44,23 @@ export class DescribeSubscriptionFiltersCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CloudWatchLogsClient";
+    const commandName = "DescribeSubscriptionFiltersCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CloudWatchLogsClient",
-      commandName: "DescribeSubscriptionFiltersCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeSubscriptionFiltersRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeSubscriptionFiltersResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -44,13 +44,23 @@ export class DescribeLedgerCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "QLDBClient";
+    const commandName = "DescribeLedgerCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "QLDBClient",
-      commandName: "DescribeLedgerCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeLedgerRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeLedgerResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

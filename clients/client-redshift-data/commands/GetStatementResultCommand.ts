@@ -44,13 +44,23 @@ export class GetStatementResultCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "RedshiftDataClient";
+    const commandName = "GetStatementResultCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "RedshiftDataClient",
-      commandName: "GetStatementResultCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetStatementResultRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetStatementResultResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

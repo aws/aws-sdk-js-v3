@@ -44,13 +44,23 @@ export class CreateMatchmakingRuleSetCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "GameLiftClient";
+    const commandName = "CreateMatchmakingRuleSetCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "GameLiftClient",
-      commandName: "CreateMatchmakingRuleSetCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreateMatchmakingRuleSetInput.filterSensitiveLog,
       outputFilterSensitiveLog: CreateMatchmakingRuleSetOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

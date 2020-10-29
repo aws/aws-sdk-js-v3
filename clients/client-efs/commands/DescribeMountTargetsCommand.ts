@@ -44,13 +44,23 @@ export class DescribeMountTargetsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "EFSClient";
+    const commandName = "DescribeMountTargetsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "EFSClient",
-      commandName: "DescribeMountTargetsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeMountTargetsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeMountTargetsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

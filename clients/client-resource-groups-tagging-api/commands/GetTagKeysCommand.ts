@@ -48,13 +48,23 @@ export class GetTagKeysCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ResourceGroupsTaggingAPIClient";
+    const commandName = "GetTagKeysCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ResourceGroupsTaggingAPIClient",
-      commandName: "GetTagKeysCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetTagKeysInput.filterSensitiveLog,
       outputFilterSensitiveLog: GetTagKeysOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

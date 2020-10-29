@@ -44,13 +44,23 @@ export class ListQueryExecutionsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "AthenaClient";
+    const commandName = "ListQueryExecutionsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "AthenaClient",
-      commandName: "ListQueryExecutionsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListQueryExecutionsInput.filterSensitiveLog,
       outputFilterSensitiveLog: ListQueryExecutionsOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

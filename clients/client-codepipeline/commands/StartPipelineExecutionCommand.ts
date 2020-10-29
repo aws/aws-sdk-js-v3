@@ -44,13 +44,23 @@ export class StartPipelineExecutionCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CodePipelineClient";
+    const commandName = "StartPipelineExecutionCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CodePipelineClient",
-      commandName: "StartPipelineExecutionCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: StartPipelineExecutionInput.filterSensitiveLog,
       outputFilterSensitiveLog: StartPipelineExecutionOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

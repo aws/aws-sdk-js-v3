@@ -44,13 +44,23 @@ export class UpdateDataSetCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "QuickSightClient";
+    const commandName = "UpdateDataSetCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "QuickSightClient",
-      commandName: "UpdateDataSetCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UpdateDataSetRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateDataSetResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

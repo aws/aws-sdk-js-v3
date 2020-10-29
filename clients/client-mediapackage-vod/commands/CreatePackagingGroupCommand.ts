@@ -44,13 +44,23 @@ export class CreatePackagingGroupCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "MediaPackageVodClient";
+    const commandName = "CreatePackagingGroupCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "MediaPackageVodClient",
-      commandName: "CreatePackagingGroupCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreatePackagingGroupRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreatePackagingGroupResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

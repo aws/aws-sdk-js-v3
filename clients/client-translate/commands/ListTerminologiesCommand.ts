@@ -44,13 +44,23 @@ export class ListTerminologiesCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "TranslateClient";
+    const commandName = "ListTerminologiesCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "TranslateClient",
-      commandName: "ListTerminologiesCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListTerminologiesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListTerminologiesResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

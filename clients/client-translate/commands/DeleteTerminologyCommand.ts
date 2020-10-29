@@ -44,13 +44,23 @@ export class DeleteTerminologyCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "TranslateClient";
+    const commandName = "DeleteTerminologyCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "TranslateClient",
-      commandName: "DeleteTerminologyCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteTerminologyRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -44,13 +44,23 @@ export class DeleteVoiceChannelCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "PinpointClient";
+    const commandName = "DeleteVoiceChannelCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "PinpointClient",
-      commandName: "DeleteVoiceChannelCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteVoiceChannelRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteVoiceChannelResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

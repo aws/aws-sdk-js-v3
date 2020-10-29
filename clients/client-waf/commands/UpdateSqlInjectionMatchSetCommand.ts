@@ -44,13 +44,23 @@ export class UpdateSqlInjectionMatchSetCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "WAFClient";
+    const commandName = "UpdateSqlInjectionMatchSetCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "WAFClient",
-      commandName: "UpdateSqlInjectionMatchSetCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UpdateSqlInjectionMatchSetRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateSqlInjectionMatchSetResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

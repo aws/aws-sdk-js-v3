@@ -44,13 +44,23 @@ export class DeletePackagingGroupCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "MediaPackageVodClient";
+    const commandName = "DeletePackagingGroupCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "MediaPackageVodClient",
-      commandName: "DeletePackagingGroupCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeletePackagingGroupRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeletePackagingGroupResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

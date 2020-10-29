@@ -44,13 +44,23 @@ export class CreateScriptCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "GlueClient";
+    const commandName = "CreateScriptCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "GlueClient",
-      commandName: "CreateScriptCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreateScriptRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateScriptResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

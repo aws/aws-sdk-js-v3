@@ -44,13 +44,23 @@ export class SearchAvailablePhoneNumbersCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ChimeClient";
+    const commandName = "SearchAvailablePhoneNumbersCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ChimeClient",
-      commandName: "SearchAvailablePhoneNumbersCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: SearchAvailablePhoneNumbersRequest.filterSensitiveLog,
       outputFilterSensitiveLog: SearchAvailablePhoneNumbersResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

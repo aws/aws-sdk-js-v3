@@ -44,13 +44,23 @@ export class CreateDeploymentJobCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "RoboMakerClient";
+    const commandName = "CreateDeploymentJobCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "RoboMakerClient",
-      commandName: "CreateDeploymentJobCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreateDeploymentJobRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateDeploymentJobResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

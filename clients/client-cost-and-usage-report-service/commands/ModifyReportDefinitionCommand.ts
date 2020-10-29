@@ -48,13 +48,23 @@ export class ModifyReportDefinitionCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CostAndUsageReportServiceClient";
+    const commandName = "ModifyReportDefinitionCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CostAndUsageReportServiceClient",
-      commandName: "ModifyReportDefinitionCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ModifyReportDefinitionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ModifyReportDefinitionResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

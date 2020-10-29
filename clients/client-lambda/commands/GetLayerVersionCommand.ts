@@ -44,13 +44,23 @@ export class GetLayerVersionCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "LambdaClient";
+    const commandName = "GetLayerVersionCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "LambdaClient",
-      commandName: "GetLayerVersionCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetLayerVersionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetLayerVersionResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

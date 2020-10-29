@@ -44,13 +44,23 @@ export class DeleteCoreDefinitionCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "GreengrassClient";
+    const commandName = "DeleteCoreDefinitionCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "GreengrassClient",
-      commandName: "DeleteCoreDefinitionCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteCoreDefinitionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteCoreDefinitionResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

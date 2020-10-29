@@ -44,13 +44,23 @@ export class GetRuleGroupCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "WAFClient";
+    const commandName = "GetRuleGroupCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "WAFClient",
-      commandName: "GetRuleGroupCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetRuleGroupRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetRuleGroupResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

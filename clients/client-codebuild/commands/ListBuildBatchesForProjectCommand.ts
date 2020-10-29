@@ -44,13 +44,23 @@ export class ListBuildBatchesForProjectCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CodeBuildClient";
+    const commandName = "ListBuildBatchesForProjectCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CodeBuildClient",
-      commandName: "ListBuildBatchesForProjectCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListBuildBatchesForProjectInput.filterSensitiveLog,
       outputFilterSensitiveLog: ListBuildBatchesForProjectOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

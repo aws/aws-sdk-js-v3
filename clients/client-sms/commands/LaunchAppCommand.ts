@@ -37,13 +37,23 @@ export class LaunchAppCommand extends $Command<LaunchAppCommandInput, LaunchAppC
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SMSClient";
+    const commandName = "LaunchAppCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "SMSClient",
-      commandName: "LaunchAppCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: LaunchAppRequest.filterSensitiveLog,
       outputFilterSensitiveLog: LaunchAppResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

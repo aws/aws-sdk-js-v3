@@ -44,13 +44,23 @@ export class CreateDefaultVpcCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "EC2Client";
+    const commandName = "CreateDefaultVpcCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "EC2Client",
-      commandName: "CreateDefaultVpcCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreateDefaultVpcRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateDefaultVpcResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

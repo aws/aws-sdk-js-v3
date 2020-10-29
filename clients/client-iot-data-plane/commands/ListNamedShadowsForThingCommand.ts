@@ -44,13 +44,23 @@ export class ListNamedShadowsForThingCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "IoTDataPlaneClient";
+    const commandName = "ListNamedShadowsForThingCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "IoTDataPlaneClient",
-      commandName: "ListNamedShadowsForThingCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListNamedShadowsForThingRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListNamedShadowsForThingResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

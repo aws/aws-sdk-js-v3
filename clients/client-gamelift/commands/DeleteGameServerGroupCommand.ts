@@ -44,13 +44,23 @@ export class DeleteGameServerGroupCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "GameLiftClient";
+    const commandName = "DeleteGameServerGroupCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "GameLiftClient",
-      commandName: "DeleteGameServerGroupCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteGameServerGroupInput.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteGameServerGroupOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -44,13 +44,23 @@ export class DescribeClusterSubnetGroupsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "RedshiftClient";
+    const commandName = "DescribeClusterSubnetGroupsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "RedshiftClient",
-      commandName: "DescribeClusterSubnetGroupsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeClusterSubnetGroupsMessage.filterSensitiveLog,
       outputFilterSensitiveLog: ClusterSubnetGroupMessage.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

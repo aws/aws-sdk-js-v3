@@ -48,13 +48,23 @@ export class GenerateDataSetCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "MarketplaceCommerceAnalyticsClient";
+    const commandName = "GenerateDataSetCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "MarketplaceCommerceAnalyticsClient",
-      commandName: "GenerateDataSetCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GenerateDataSetRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GenerateDataSetResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

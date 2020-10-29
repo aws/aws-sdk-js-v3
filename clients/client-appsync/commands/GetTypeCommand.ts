@@ -40,13 +40,23 @@ export class GetTypeCommand extends $Command<GetTypeCommandInput, GetTypeCommand
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "AppSyncClient";
+    const commandName = "GetTypeCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "AppSyncClient",
-      commandName: "GetTypeCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetTypeRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetTypeResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

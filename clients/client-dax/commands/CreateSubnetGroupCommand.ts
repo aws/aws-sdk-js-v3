@@ -44,13 +44,23 @@ export class CreateSubnetGroupCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "DAXClient";
+    const commandName = "CreateSubnetGroupCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "DAXClient",
-      commandName: "CreateSubnetGroupCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreateSubnetGroupRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateSubnetGroupResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

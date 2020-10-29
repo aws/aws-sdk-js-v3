@@ -44,13 +44,23 @@ export class DescribeAffectedEntitiesCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "HealthClient";
+    const commandName = "DescribeAffectedEntitiesCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "HealthClient",
-      commandName: "DescribeAffectedEntitiesCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeAffectedEntitiesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeAffectedEntitiesResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

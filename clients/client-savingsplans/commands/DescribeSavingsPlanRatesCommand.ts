@@ -44,13 +44,23 @@ export class DescribeSavingsPlanRatesCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SavingsplansClient";
+    const commandName = "DescribeSavingsPlanRatesCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "SavingsplansClient",
-      commandName: "DescribeSavingsPlanRatesCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeSavingsPlanRatesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeSavingsPlanRatesResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -44,13 +44,23 @@ export class DeleteIAMPolicyAssignmentCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "QuickSightClient";
+    const commandName = "DeleteIAMPolicyAssignmentCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "QuickSightClient",
-      commandName: "DeleteIAMPolicyAssignmentCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteIAMPolicyAssignmentRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteIAMPolicyAssignmentResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

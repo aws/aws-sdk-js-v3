@@ -44,13 +44,23 @@ export class ModifyDefaultCreditSpecificationCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "EC2Client";
+    const commandName = "ModifyDefaultCreditSpecificationCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "EC2Client",
-      commandName: "ModifyDefaultCreditSpecificationCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ModifyDefaultCreditSpecificationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ModifyDefaultCreditSpecificationResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

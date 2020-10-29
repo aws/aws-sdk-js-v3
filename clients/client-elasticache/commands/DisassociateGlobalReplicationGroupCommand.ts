@@ -48,13 +48,23 @@ export class DisassociateGlobalReplicationGroupCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ElastiCacheClient";
+    const commandName = "DisassociateGlobalReplicationGroupCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ElastiCacheClient",
-      commandName: "DisassociateGlobalReplicationGroupCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DisassociateGlobalReplicationGroupMessage.filterSensitiveLog,
       outputFilterSensitiveLog: DisassociateGlobalReplicationGroupResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

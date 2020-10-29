@@ -48,13 +48,23 @@ export class ListPackagesForDomainCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ElasticsearchServiceClient";
+    const commandName = "ListPackagesForDomainCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ElasticsearchServiceClient",
-      commandName: "ListPackagesForDomainCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListPackagesForDomainRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListPackagesForDomainResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

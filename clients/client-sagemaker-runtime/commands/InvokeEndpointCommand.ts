@@ -44,13 +44,23 @@ export class InvokeEndpointCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SageMakerRuntimeClient";
+    const commandName = "InvokeEndpointCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "SageMakerRuntimeClient",
-      commandName: "InvokeEndpointCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: InvokeEndpointInput.filterSensitiveLog,
       outputFilterSensitiveLog: InvokeEndpointOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

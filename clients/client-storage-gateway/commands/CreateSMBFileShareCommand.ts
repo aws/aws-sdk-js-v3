@@ -44,13 +44,23 @@ export class CreateSMBFileShareCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "StorageGatewayClient";
+    const commandName = "CreateSMBFileShareCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "StorageGatewayClient",
-      commandName: "CreateSMBFileShareCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreateSMBFileShareInput.filterSensitiveLog,
       outputFilterSensitiveLog: CreateSMBFileShareOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

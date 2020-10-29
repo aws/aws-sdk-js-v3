@@ -44,13 +44,23 @@ export class DescribeConnectorProfilesCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "AppflowClient";
+    const commandName = "DescribeConnectorProfilesCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "AppflowClient",
-      commandName: "DescribeConnectorProfilesCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeConnectorProfilesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeConnectorProfilesResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

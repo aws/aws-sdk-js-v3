@@ -44,13 +44,23 @@ export class CreateExclusionsPreviewCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "InspectorClient";
+    const commandName = "CreateExclusionsPreviewCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "InspectorClient",
-      commandName: "CreateExclusionsPreviewCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreateExclusionsPreviewRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateExclusionsPreviewResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

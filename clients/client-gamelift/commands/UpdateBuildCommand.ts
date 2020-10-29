@@ -44,13 +44,23 @@ export class UpdateBuildCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "GameLiftClient";
+    const commandName = "UpdateBuildCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "GameLiftClient",
-      commandName: "UpdateBuildCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UpdateBuildInput.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateBuildOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

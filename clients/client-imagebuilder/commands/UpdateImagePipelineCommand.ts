@@ -44,13 +44,23 @@ export class UpdateImagePipelineCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ImagebuilderClient";
+    const commandName = "UpdateImagePipelineCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ImagebuilderClient",
-      commandName: "UpdateImagePipelineCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UpdateImagePipelineRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateImagePipelineResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

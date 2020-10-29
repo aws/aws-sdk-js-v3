@@ -44,13 +44,23 @@ export class UpdateAddressBookCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "AlexaForBusinessClient";
+    const commandName = "UpdateAddressBookCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "AlexaForBusinessClient",
-      commandName: "UpdateAddressBookCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UpdateAddressBookRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateAddressBookResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -44,13 +44,23 @@ export class UpdateVpcLinkCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ApiGatewayV2Client";
+    const commandName = "UpdateVpcLinkCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ApiGatewayV2Client",
-      commandName: "UpdateVpcLinkCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UpdateVpcLinkRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateVpcLinkResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

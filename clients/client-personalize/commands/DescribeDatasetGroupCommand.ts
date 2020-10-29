@@ -44,13 +44,23 @@ export class DescribeDatasetGroupCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "PersonalizeClient";
+    const commandName = "DescribeDatasetGroupCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "PersonalizeClient",
-      commandName: "DescribeDatasetGroupCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeDatasetGroupRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeDatasetGroupResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

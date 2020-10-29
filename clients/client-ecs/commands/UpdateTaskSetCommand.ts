@@ -44,13 +44,23 @@ export class UpdateTaskSetCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ECSClient";
+    const commandName = "UpdateTaskSetCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ECSClient",
-      commandName: "UpdateTaskSetCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UpdateTaskSetRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateTaskSetResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

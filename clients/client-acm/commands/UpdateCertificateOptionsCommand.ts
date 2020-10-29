@@ -44,13 +44,23 @@ export class UpdateCertificateOptionsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ACMClient";
+    const commandName = "UpdateCertificateOptionsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ACMClient",
-      commandName: "UpdateCertificateOptionsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UpdateCertificateOptionsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

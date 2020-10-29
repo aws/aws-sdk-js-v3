@@ -44,13 +44,23 @@ export class AcknowledgeThirdPartyJobCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CodePipelineClient";
+    const commandName = "AcknowledgeThirdPartyJobCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CodePipelineClient",
-      commandName: "AcknowledgeThirdPartyJobCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: AcknowledgeThirdPartyJobInput.filterSensitiveLog,
       outputFilterSensitiveLog: AcknowledgeThirdPartyJobOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

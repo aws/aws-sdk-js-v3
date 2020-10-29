@@ -44,13 +44,23 @@ export class CreateSecurityConfigurationCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "GlueClient";
+    const commandName = "CreateSecurityConfigurationCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "GlueClient",
-      commandName: "CreateSecurityConfigurationCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreateSecurityConfigurationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateSecurityConfigurationResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

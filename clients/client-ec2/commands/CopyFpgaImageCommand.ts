@@ -41,13 +41,23 @@ export class CopyFpgaImageCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "EC2Client";
+    const commandName = "CopyFpgaImageCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "EC2Client",
-      commandName: "CopyFpgaImageCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CopyFpgaImageRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CopyFpgaImageResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

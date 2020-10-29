@@ -44,13 +44,23 @@ export class GetShardIteratorCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "DynamoDBStreamsClient";
+    const commandName = "GetShardIteratorCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "DynamoDBStreamsClient",
-      commandName: "GetShardIteratorCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetShardIteratorInput.filterSensitiveLog,
       outputFilterSensitiveLog: GetShardIteratorOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

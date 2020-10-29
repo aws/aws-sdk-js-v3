@@ -48,13 +48,23 @@ export class StartReportCreationCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ResourceGroupsTaggingAPIClient";
+    const commandName = "StartReportCreationCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ResourceGroupsTaggingAPIClient",
-      commandName: "StartReportCreationCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: StartReportCreationInput.filterSensitiveLog,
       outputFilterSensitiveLog: StartReportCreationOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

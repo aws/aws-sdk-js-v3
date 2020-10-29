@@ -44,13 +44,23 @@ export class GetJobDocumentCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "IoTClient";
+    const commandName = "GetJobDocumentCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "IoTClient",
-      commandName: "GetJobDocumentCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetJobDocumentRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetJobDocumentResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

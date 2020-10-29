@@ -44,13 +44,23 @@ export class DescribeDomainEndpointOptionsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CloudSearchClient";
+    const commandName = "DescribeDomainEndpointOptionsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CloudSearchClient",
-      commandName: "DescribeDomainEndpointOptionsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeDomainEndpointOptionsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeDomainEndpointOptionsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -48,13 +48,23 @@ export class ListPipelinesCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ElasticTranscoderClient";
+    const commandName = "ListPipelinesCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ElasticTranscoderClient",
-      commandName: "ListPipelinesCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListPipelinesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListPipelinesResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

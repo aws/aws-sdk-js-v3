@@ -37,13 +37,23 @@ export class QueryCommand extends $Command<QueryCommandInput, QueryCommandOutput
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "TimestreamQueryClient";
+    const commandName = "QueryCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "TimestreamQueryClient",
-      commandName: "QueryCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: QueryRequest.filterSensitiveLog,
       outputFilterSensitiveLog: QueryResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

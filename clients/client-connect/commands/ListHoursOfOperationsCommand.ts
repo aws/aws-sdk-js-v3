@@ -44,13 +44,23 @@ export class ListHoursOfOperationsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ConnectClient";
+    const commandName = "ListHoursOfOperationsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ConnectClient",
-      commandName: "ListHoursOfOperationsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListHoursOfOperationsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListHoursOfOperationsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

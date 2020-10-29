@@ -44,13 +44,23 @@ export class ListCustomDataIdentifiersCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "Macie2Client";
+    const commandName = "ListCustomDataIdentifiersCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "Macie2Client",
-      commandName: "ListCustomDataIdentifiersCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListCustomDataIdentifiersRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListCustomDataIdentifiersResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

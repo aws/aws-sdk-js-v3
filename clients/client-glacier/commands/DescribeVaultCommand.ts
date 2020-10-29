@@ -44,13 +44,23 @@ export class DescribeVaultCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "GlacierClient";
+    const commandName = "DescribeVaultCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "GlacierClient",
-      commandName: "DescribeVaultCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeVaultInput.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeVaultOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

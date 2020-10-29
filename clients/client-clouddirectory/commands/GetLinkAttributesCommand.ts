@@ -44,13 +44,23 @@ export class GetLinkAttributesCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CloudDirectoryClient";
+    const commandName = "GetLinkAttributesCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CloudDirectoryClient",
-      commandName: "GetLinkAttributesCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetLinkAttributesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetLinkAttributesResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -44,13 +44,23 @@ export class CreateEmailIdentityCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "PinpointEmailClient";
+    const commandName = "CreateEmailIdentityCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "PinpointEmailClient",
-      commandName: "CreateEmailIdentityCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreateEmailIdentityRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateEmailIdentityResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

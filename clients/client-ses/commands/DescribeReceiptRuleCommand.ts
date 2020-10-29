@@ -44,13 +44,23 @@ export class DescribeReceiptRuleCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SESClient";
+    const commandName = "DescribeReceiptRuleCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "SESClient",
-      commandName: "DescribeReceiptRuleCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeReceiptRuleRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeReceiptRuleResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

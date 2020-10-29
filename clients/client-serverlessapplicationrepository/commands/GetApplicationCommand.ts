@@ -48,13 +48,23 @@ export class GetApplicationCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ServerlessApplicationRepositoryClient";
+    const commandName = "GetApplicationCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ServerlessApplicationRepositoryClient",
-      commandName: "GetApplicationCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetApplicationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetApplicationResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -44,13 +44,23 @@ export class UpdateJourneyStateCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "PinpointClient";
+    const commandName = "UpdateJourneyStateCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "PinpointClient",
-      commandName: "UpdateJourneyStateCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UpdateJourneyStateRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateJourneyStateResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

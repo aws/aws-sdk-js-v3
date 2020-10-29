@@ -44,13 +44,23 @@ export class DescribeVpcEndpointServicesCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "EC2Client";
+    const commandName = "DescribeVpcEndpointServicesCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "EC2Client",
-      commandName: "DescribeVpcEndpointServicesCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeVpcEndpointServicesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeVpcEndpointServicesResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

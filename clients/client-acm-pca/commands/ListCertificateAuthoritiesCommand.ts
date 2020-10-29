@@ -44,13 +44,23 @@ export class ListCertificateAuthoritiesCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ACMPCAClient";
+    const commandName = "ListCertificateAuthoritiesCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ACMPCAClient",
-      commandName: "ListCertificateAuthoritiesCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListCertificateAuthoritiesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListCertificateAuthoritiesResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

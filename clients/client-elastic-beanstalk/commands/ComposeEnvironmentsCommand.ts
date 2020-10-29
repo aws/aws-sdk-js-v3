@@ -44,13 +44,23 @@ export class ComposeEnvironmentsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ElasticBeanstalkClient";
+    const commandName = "ComposeEnvironmentsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ElasticBeanstalkClient",
-      commandName: "ComposeEnvironmentsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ComposeEnvironmentsMessage.filterSensitiveLog,
       outputFilterSensitiveLog: EnvironmentDescriptionsMessage.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

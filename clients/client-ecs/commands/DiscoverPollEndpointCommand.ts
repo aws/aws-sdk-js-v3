@@ -44,13 +44,23 @@ export class DiscoverPollEndpointCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ECSClient";
+    const commandName = "DiscoverPollEndpointCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ECSClient",
-      commandName: "DiscoverPollEndpointCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DiscoverPollEndpointRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DiscoverPollEndpointResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

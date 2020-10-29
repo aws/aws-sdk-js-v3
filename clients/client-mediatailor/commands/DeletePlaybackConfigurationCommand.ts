@@ -44,13 +44,23 @@ export class DeletePlaybackConfigurationCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "MediaTailorClient";
+    const commandName = "DeletePlaybackConfigurationCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "MediaTailorClient",
-      commandName: "DeletePlaybackConfigurationCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeletePlaybackConfigurationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeletePlaybackConfigurationResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

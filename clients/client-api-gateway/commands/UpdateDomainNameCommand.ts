@@ -44,13 +44,23 @@ export class UpdateDomainNameCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "APIGatewayClient";
+    const commandName = "UpdateDomainNameCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "APIGatewayClient",
-      commandName: "UpdateDomainNameCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UpdateDomainNameRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DomainName.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

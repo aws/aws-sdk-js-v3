@@ -44,13 +44,23 @@ export class ListStackSetOperationResultsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CloudFormationClient";
+    const commandName = "ListStackSetOperationResultsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CloudFormationClient",
-      commandName: "ListStackSetOperationResultsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListStackSetOperationResultsInput.filterSensitiveLog,
       outputFilterSensitiveLog: ListStackSetOperationResultsOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

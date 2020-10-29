@@ -44,13 +44,23 @@ export class PutRepositoryTriggersCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CodeCommitClient";
+    const commandName = "PutRepositoryTriggersCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CodeCommitClient",
-      commandName: "PutRepositoryTriggersCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: PutRepositoryTriggersInput.filterSensitiveLog,
       outputFilterSensitiveLog: PutRepositoryTriggersOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

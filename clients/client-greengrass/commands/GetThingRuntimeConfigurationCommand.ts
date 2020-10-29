@@ -44,13 +44,23 @@ export class GetThingRuntimeConfigurationCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "GreengrassClient";
+    const commandName = "GetThingRuntimeConfigurationCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "GreengrassClient",
-      commandName: "GetThingRuntimeConfigurationCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetThingRuntimeConfigurationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetThingRuntimeConfigurationResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

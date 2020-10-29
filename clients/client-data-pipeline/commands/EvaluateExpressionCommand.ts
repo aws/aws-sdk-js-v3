@@ -44,13 +44,23 @@ export class EvaluateExpressionCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "DataPipelineClient";
+    const commandName = "EvaluateExpressionCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "DataPipelineClient",
-      commandName: "EvaluateExpressionCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: EvaluateExpressionInput.filterSensitiveLog,
       outputFilterSensitiveLog: EvaluateExpressionOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -44,13 +44,23 @@ export class DescribeVirtualServiceCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "AppMeshClient";
+    const commandName = "DescribeVirtualServiceCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "AppMeshClient",
-      commandName: "DescribeVirtualServiceCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeVirtualServiceInput.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeVirtualServiceOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -44,13 +44,23 @@ export class CreateMicrosoftADCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "DirectoryServiceClient";
+    const commandName = "CreateMicrosoftADCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "DirectoryServiceClient",
-      commandName: "CreateMicrosoftADCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreateMicrosoftADRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateMicrosoftADResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

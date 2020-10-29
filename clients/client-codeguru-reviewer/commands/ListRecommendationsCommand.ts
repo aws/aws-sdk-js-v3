@@ -44,13 +44,23 @@ export class ListRecommendationsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CodeGuruReviewerClient";
+    const commandName = "ListRecommendationsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CodeGuruReviewerClient",
-      commandName: "ListRecommendationsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListRecommendationsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListRecommendationsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

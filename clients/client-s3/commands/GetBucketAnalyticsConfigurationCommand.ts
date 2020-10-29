@@ -46,13 +46,23 @@ export class GetBucketAnalyticsConfigurationCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "S3Client";
+    const commandName = "GetBucketAnalyticsConfigurationCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "S3Client",
-      commandName: "GetBucketAnalyticsConfigurationCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetBucketAnalyticsConfigurationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetBucketAnalyticsConfigurationOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

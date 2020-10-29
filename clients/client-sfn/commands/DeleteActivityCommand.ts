@@ -44,13 +44,23 @@ export class DeleteActivityCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SFNClient";
+    const commandName = "DeleteActivityCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "SFNClient",
-      commandName: "DeleteActivityCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteActivityInput.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteActivityOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

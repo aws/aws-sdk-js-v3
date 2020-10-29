@@ -50,13 +50,23 @@ export class AdminGetDeviceCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CognitoIdentityProviderClient";
+    const commandName = "AdminGetDeviceCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CognitoIdentityProviderClient",
-      commandName: "AdminGetDeviceCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: AdminGetDeviceRequest.filterSensitiveLog,
       outputFilterSensitiveLog: AdminGetDeviceResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

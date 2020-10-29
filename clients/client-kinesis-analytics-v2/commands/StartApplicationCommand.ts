@@ -48,13 +48,23 @@ export class StartApplicationCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "KinesisAnalyticsV2Client";
+    const commandName = "StartApplicationCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "KinesisAnalyticsV2Client",
-      commandName: "StartApplicationCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: StartApplicationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: StartApplicationResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

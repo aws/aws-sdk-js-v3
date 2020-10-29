@@ -50,13 +50,23 @@ export class ListUsersInGroupCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CognitoIdentityProviderClient";
+    const commandName = "ListUsersInGroupCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CognitoIdentityProviderClient",
-      commandName: "ListUsersInGroupCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListUsersInGroupRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListUsersInGroupResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -48,13 +48,23 @@ export class ModifyLoadBalancerAttributesCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ElasticLoadBalancingV2Client";
+    const commandName = "ModifyLoadBalancerAttributesCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ElasticLoadBalancingV2Client",
-      commandName: "ModifyLoadBalancerAttributesCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ModifyLoadBalancerAttributesInput.filterSensitiveLog,
       outputFilterSensitiveLog: ModifyLoadBalancerAttributesOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

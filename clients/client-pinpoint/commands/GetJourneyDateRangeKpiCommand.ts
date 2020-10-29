@@ -44,13 +44,23 @@ export class GetJourneyDateRangeKpiCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "PinpointClient";
+    const commandName = "GetJourneyDateRangeKpiCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "PinpointClient",
-      commandName: "GetJourneyDateRangeKpiCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetJourneyDateRangeKpiRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetJourneyDateRangeKpiResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

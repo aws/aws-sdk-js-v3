@@ -44,13 +44,23 @@ export class XmlMapsXmlNameCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "RestXmlProtocolClient";
+    const commandName = "XmlMapsXmlNameCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "RestXmlProtocolClient",
-      commandName: "XmlMapsXmlNameCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: XmlMapsXmlNameInputOutput.filterSensitiveLog,
       outputFilterSensitiveLog: XmlMapsXmlNameInputOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

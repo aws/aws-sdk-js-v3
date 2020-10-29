@@ -48,13 +48,23 @@ export class GetClassificationExportConfigurationCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "Macie2Client";
+    const commandName = "GetClassificationExportConfigurationCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "Macie2Client",
-      commandName: "GetClassificationExportConfigurationCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetClassificationExportConfigurationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetClassificationExportConfigurationResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

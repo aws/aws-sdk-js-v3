@@ -44,13 +44,23 @@ export class PutAccountDetailsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SESv2Client";
+    const commandName = "PutAccountDetailsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "SESv2Client",
-      commandName: "PutAccountDetailsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: PutAccountDetailsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: PutAccountDetailsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

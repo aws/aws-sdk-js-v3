@@ -44,13 +44,23 @@ export class DescribeAcceleratorTypesCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ElasticInferenceClient";
+    const commandName = "DescribeAcceleratorTypesCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ElasticInferenceClient",
-      commandName: "DescribeAcceleratorTypesCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeAcceleratorTypesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeAcceleratorTypesResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

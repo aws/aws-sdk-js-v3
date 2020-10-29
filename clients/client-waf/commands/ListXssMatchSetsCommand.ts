@@ -44,13 +44,23 @@ export class ListXssMatchSetsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "WAFClient";
+    const commandName = "ListXssMatchSetsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "WAFClient",
-      commandName: "ListXssMatchSetsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListXssMatchSetsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListXssMatchSetsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

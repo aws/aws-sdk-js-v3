@@ -44,13 +44,23 @@ export class CreateStackInstancesCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CloudFormationClient";
+    const commandName = "CreateStackInstancesCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CloudFormationClient",
-      commandName: "CreateStackInstancesCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreateStackInstancesInput.filterSensitiveLog,
       outputFilterSensitiveLog: CreateStackInstancesOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

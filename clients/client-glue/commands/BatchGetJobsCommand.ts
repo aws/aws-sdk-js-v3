@@ -44,13 +44,23 @@ export class BatchGetJobsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "GlueClient";
+    const commandName = "BatchGetJobsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "GlueClient",
-      commandName: "BatchGetJobsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: BatchGetJobsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: BatchGetJobsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

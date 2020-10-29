@@ -44,13 +44,23 @@ export class PurchaseOfferingCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "MediaLiveClient";
+    const commandName = "PurchaseOfferingCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "MediaLiveClient",
-      commandName: "PurchaseOfferingCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: PurchaseOfferingRequest.filterSensitiveLog,
       outputFilterSensitiveLog: PurchaseOfferingResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

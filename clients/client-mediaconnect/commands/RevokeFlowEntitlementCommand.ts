@@ -44,13 +44,23 @@ export class RevokeFlowEntitlementCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "MediaConnectClient";
+    const commandName = "RevokeFlowEntitlementCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "MediaConnectClient",
-      commandName: "RevokeFlowEntitlementCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: RevokeFlowEntitlementRequest.filterSensitiveLog,
       outputFilterSensitiveLog: RevokeFlowEntitlementResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

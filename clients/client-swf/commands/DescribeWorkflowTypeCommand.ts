@@ -44,13 +44,23 @@ export class DescribeWorkflowTypeCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SWFClient";
+    const commandName = "DescribeWorkflowTypeCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "SWFClient",
-      commandName: "DescribeWorkflowTypeCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeWorkflowTypeInput.filterSensitiveLog,
       outputFilterSensitiveLog: WorkflowTypeDetail.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

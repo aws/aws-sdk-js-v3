@@ -44,13 +44,23 @@ export class PutLifecycleHookCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "AutoScalingClient";
+    const commandName = "PutLifecycleHookCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "AutoScalingClient",
-      commandName: "PutLifecycleHookCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: PutLifecycleHookType.filterSensitiveLog,
       outputFilterSensitiveLog: PutLifecycleHookAnswer.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

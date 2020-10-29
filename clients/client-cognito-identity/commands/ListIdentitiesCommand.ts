@@ -46,13 +46,23 @@ export class ListIdentitiesCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CognitoIdentityClient";
+    const commandName = "ListIdentitiesCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CognitoIdentityClient",
-      commandName: "ListIdentitiesCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListIdentitiesInput.filterSensitiveLog,
       outputFilterSensitiveLog: ListIdentitiesResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

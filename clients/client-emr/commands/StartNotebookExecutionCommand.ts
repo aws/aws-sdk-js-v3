@@ -44,13 +44,23 @@ export class StartNotebookExecutionCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "EMRClient";
+    const commandName = "StartNotebookExecutionCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "EMRClient",
-      commandName: "StartNotebookExecutionCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: StartNotebookExecutionInput.filterSensitiveLog,
       outputFilterSensitiveLog: StartNotebookExecutionOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

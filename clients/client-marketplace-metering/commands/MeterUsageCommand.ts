@@ -48,13 +48,23 @@ export class MeterUsageCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "MarketplaceMeteringClient";
+    const commandName = "MeterUsageCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "MarketplaceMeteringClient",
-      commandName: "MeterUsageCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: MeterUsageRequest.filterSensitiveLog,
       outputFilterSensitiveLog: MeterUsageResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

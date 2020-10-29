@@ -48,13 +48,23 @@ export class UpdateMemberCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ManagedBlockchainClient";
+    const commandName = "UpdateMemberCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ManagedBlockchainClient",
-      commandName: "UpdateMemberCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UpdateMemberInput.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateMemberOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

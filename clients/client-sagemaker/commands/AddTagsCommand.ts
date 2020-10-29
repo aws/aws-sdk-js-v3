@@ -37,13 +37,23 @@ export class AddTagsCommand extends $Command<AddTagsCommandInput, AddTagsCommand
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SageMakerClient";
+    const commandName = "AddTagsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "SageMakerClient",
-      commandName: "AddTagsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: AddTagsInput.filterSensitiveLog,
       outputFilterSensitiveLog: AddTagsOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

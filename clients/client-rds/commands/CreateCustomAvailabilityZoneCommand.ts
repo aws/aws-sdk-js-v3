@@ -44,13 +44,23 @@ export class CreateCustomAvailabilityZoneCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "RDSClient";
+    const commandName = "CreateCustomAvailabilityZoneCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "RDSClient",
-      commandName: "CreateCustomAvailabilityZoneCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreateCustomAvailabilityZoneMessage.filterSensitiveLog,
       outputFilterSensitiveLog: CreateCustomAvailabilityZoneResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

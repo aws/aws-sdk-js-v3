@@ -48,13 +48,23 @@ export class StartReplicationTaskAssessmentCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "DatabaseMigrationServiceClient";
+    const commandName = "StartReplicationTaskAssessmentCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "DatabaseMigrationServiceClient",
-      commandName: "StartReplicationTaskAssessmentCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: StartReplicationTaskAssessmentMessage.filterSensitiveLog,
       outputFilterSensitiveLog: StartReplicationTaskAssessmentResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

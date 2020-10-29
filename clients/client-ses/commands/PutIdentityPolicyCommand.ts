@@ -44,13 +44,23 @@ export class PutIdentityPolicyCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SESClient";
+    const commandName = "PutIdentityPolicyCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "SESClient",
-      commandName: "PutIdentityPolicyCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: PutIdentityPolicyRequest.filterSensitiveLog,
       outputFilterSensitiveLog: PutIdentityPolicyResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -44,13 +44,23 @@ export class GetResourceShareInvitationsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "RAMClient";
+    const commandName = "GetResourceShareInvitationsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "RAMClient",
-      commandName: "GetResourceShareInvitationsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetResourceShareInvitationsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetResourceShareInvitationsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -44,13 +44,23 @@ export class SetIdentityNotificationTopicCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SESClient";
+    const commandName = "SetIdentityNotificationTopicCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "SESClient",
-      commandName: "SetIdentityNotificationTopicCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: SetIdentityNotificationTopicRequest.filterSensitiveLog,
       outputFilterSensitiveLog: SetIdentityNotificationTopicResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

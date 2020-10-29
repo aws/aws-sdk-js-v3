@@ -44,13 +44,23 @@ export class CreateInstancesFromSnapshotCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "LightsailClient";
+    const commandName = "CreateInstancesFromSnapshotCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "LightsailClient",
-      commandName: "CreateInstancesFromSnapshotCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreateInstancesFromSnapshotRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateInstancesFromSnapshotResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

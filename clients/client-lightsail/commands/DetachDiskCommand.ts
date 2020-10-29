@@ -44,13 +44,23 @@ export class DetachDiskCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "LightsailClient";
+    const commandName = "DetachDiskCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "LightsailClient",
-      commandName: "DetachDiskCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DetachDiskRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DetachDiskResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

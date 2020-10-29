@@ -44,13 +44,23 @@ export class GetCalendarStateCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SSMClient";
+    const commandName = "GetCalendarStateCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "SSMClient",
-      commandName: "GetCalendarStateCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetCalendarStateRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetCalendarStateResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

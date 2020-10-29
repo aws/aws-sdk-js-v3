@@ -44,13 +44,23 @@ export class AssociateContactWithAddressBookCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "AlexaForBusinessClient";
+    const commandName = "AssociateContactWithAddressBookCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "AlexaForBusinessClient",
-      commandName: "AssociateContactWithAddressBookCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: AssociateContactWithAddressBookRequest.filterSensitiveLog,
       outputFilterSensitiveLog: AssociateContactWithAddressBookResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

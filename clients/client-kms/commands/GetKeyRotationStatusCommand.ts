@@ -44,13 +44,23 @@ export class GetKeyRotationStatusCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "KMSClient";
+    const commandName = "GetKeyRotationStatusCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "KMSClient",
-      commandName: "GetKeyRotationStatusCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetKeyRotationStatusRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetKeyRotationStatusResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

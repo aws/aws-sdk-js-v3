@@ -40,13 +40,23 @@ export class ListBotsCommand extends $Command<ListBotsCommandInput, ListBotsComm
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ChimeClient";
+    const commandName = "ListBotsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ChimeClient",
-      commandName: "ListBotsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListBotsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListBotsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

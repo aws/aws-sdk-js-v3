@@ -44,13 +44,23 @@ export class RevokeSnapshotAccessCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "RedshiftClient";
+    const commandName = "RevokeSnapshotAccessCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "RedshiftClient",
-      commandName: "RevokeSnapshotAccessCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: RevokeSnapshotAccessMessage.filterSensitiveLog,
       outputFilterSensitiveLog: RevokeSnapshotAccessResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

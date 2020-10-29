@@ -44,13 +44,23 @@ export class GetInstanceProfileCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "DeviceFarmClient";
+    const commandName = "GetInstanceProfileCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "DeviceFarmClient",
-      commandName: "GetInstanceProfileCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetInstanceProfileRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetInstanceProfileResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

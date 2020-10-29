@@ -44,13 +44,23 @@ export class CreateScalingPlanCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "AutoScalingPlansClient";
+    const commandName = "CreateScalingPlanCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "AutoScalingPlansClient",
-      commandName: "CreateScalingPlanCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreateScalingPlanRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateScalingPlanResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

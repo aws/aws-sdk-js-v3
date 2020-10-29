@@ -44,13 +44,23 @@ export class SynthesizeSpeechCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "PollyClient";
+    const commandName = "SynthesizeSpeechCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "PollyClient",
-      commandName: "SynthesizeSpeechCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: SynthesizeSpeechInput.filterSensitiveLog,
       outputFilterSensitiveLog: SynthesizeSpeechOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

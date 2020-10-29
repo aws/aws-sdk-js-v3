@@ -44,13 +44,23 @@ export class EvaluatePullRequestApprovalRulesCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CodeCommitClient";
+    const commandName = "EvaluatePullRequestApprovalRulesCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CodeCommitClient",
-      commandName: "EvaluatePullRequestApprovalRulesCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: EvaluatePullRequestApprovalRulesInput.filterSensitiveLog,
       outputFilterSensitiveLog: EvaluatePullRequestApprovalRulesOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

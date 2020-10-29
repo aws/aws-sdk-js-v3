@@ -44,13 +44,23 @@ export class PutFunctionConcurrencyCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "LambdaClient";
+    const commandName = "PutFunctionConcurrencyCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "LambdaClient",
-      commandName: "PutFunctionConcurrencyCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: PutFunctionConcurrencyRequest.filterSensitiveLog,
       outputFilterSensitiveLog: Concurrency.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -44,13 +44,23 @@ export class GetCelebrityRecognitionCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "RekognitionClient";
+    const commandName = "GetCelebrityRecognitionCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "RekognitionClient",
-      commandName: "GetCelebrityRecognitionCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetCelebrityRecognitionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetCelebrityRecognitionResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

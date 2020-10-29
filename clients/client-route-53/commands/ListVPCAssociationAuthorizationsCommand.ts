@@ -46,13 +46,23 @@ export class ListVPCAssociationAuthorizationsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "Route53Client";
+    const commandName = "ListVPCAssociationAuthorizationsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "Route53Client",
-      commandName: "ListVPCAssociationAuthorizationsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListVPCAssociationAuthorizationsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListVPCAssociationAuthorizationsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

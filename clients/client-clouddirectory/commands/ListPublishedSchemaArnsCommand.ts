@@ -44,13 +44,23 @@ export class ListPublishedSchemaArnsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CloudDirectoryClient";
+    const commandName = "ListPublishedSchemaArnsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CloudDirectoryClient",
-      commandName: "ListPublishedSchemaArnsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListPublishedSchemaArnsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListPublishedSchemaArnsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -44,13 +44,23 @@ export class GetGroupCertificateAuthorityCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "GreengrassClient";
+    const commandName = "GetGroupCertificateAuthorityCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "GreengrassClient",
-      commandName: "GetGroupCertificateAuthorityCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetGroupCertificateAuthorityRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetGroupCertificateAuthorityResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

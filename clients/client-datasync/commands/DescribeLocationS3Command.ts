@@ -44,13 +44,23 @@ export class DescribeLocationS3Command extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "DataSyncClient";
+    const commandName = "DescribeLocationS3Command";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "DataSyncClient",
-      commandName: "DescribeLocationS3Command",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeLocationS3Request.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeLocationS3Response.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

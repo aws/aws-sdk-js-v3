@@ -44,13 +44,23 @@ export class DeleteBaiduChannelCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "PinpointClient";
+    const commandName = "DeleteBaiduChannelCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "PinpointClient",
-      commandName: "DeleteBaiduChannelCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteBaiduChannelRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteBaiduChannelResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

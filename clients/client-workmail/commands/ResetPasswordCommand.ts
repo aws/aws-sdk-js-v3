@@ -44,13 +44,23 @@ export class ResetPasswordCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "WorkMailClient";
+    const commandName = "ResetPasswordCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "WorkMailClient",
-      commandName: "ResetPasswordCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ResetPasswordRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ResetPasswordResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

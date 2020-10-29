@@ -44,13 +44,23 @@ export class DescribeScalingParametersCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CloudSearchClient";
+    const commandName = "DescribeScalingParametersCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CloudSearchClient",
-      commandName: "DescribeScalingParametersCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeScalingParametersRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeScalingParametersResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

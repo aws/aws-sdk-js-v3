@@ -44,13 +44,23 @@ export class DescribeDataSetPermissionsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "QuickSightClient";
+    const commandName = "DescribeDataSetPermissionsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "QuickSightClient",
-      commandName: "DescribeDataSetPermissionsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeDataSetPermissionsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeDataSetPermissionsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

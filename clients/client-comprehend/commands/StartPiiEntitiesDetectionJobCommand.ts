@@ -44,13 +44,23 @@ export class StartPiiEntitiesDetectionJobCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ComprehendClient";
+    const commandName = "StartPiiEntitiesDetectionJobCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ComprehendClient",
-      commandName: "StartPiiEntitiesDetectionJobCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: StartPiiEntitiesDetectionJobRequest.filterSensitiveLog,
       outputFilterSensitiveLog: StartPiiEntitiesDetectionJobResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

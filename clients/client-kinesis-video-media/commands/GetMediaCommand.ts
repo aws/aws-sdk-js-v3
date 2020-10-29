@@ -48,13 +48,23 @@ export class GetMediaCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "KinesisVideoMediaClient";
+    const commandName = "GetMediaCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "KinesisVideoMediaClient",
-      commandName: "GetMediaCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetMediaInput.filterSensitiveLog,
       outputFilterSensitiveLog: GetMediaOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

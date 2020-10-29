@@ -50,13 +50,23 @@ export class SetUserMFAPreferenceCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CognitoIdentityProviderClient";
+    const commandName = "SetUserMFAPreferenceCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CognitoIdentityProviderClient",
-      commandName: "SetUserMFAPreferenceCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: SetUserMFAPreferenceRequest.filterSensitiveLog,
       outputFilterSensitiveLog: SetUserMFAPreferenceResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -44,13 +44,23 @@ export class StartImageScanCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ECRClient";
+    const commandName = "StartImageScanCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ECRClient",
-      commandName: "StartImageScanCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: StartImageScanRequest.filterSensitiveLog,
       outputFilterSensitiveLog: StartImageScanResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

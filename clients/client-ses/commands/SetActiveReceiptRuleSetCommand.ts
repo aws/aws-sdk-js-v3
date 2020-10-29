@@ -44,13 +44,23 @@ export class SetActiveReceiptRuleSetCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SESClient";
+    const commandName = "SetActiveReceiptRuleSetCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "SESClient",
-      commandName: "SetActiveReceiptRuleSetCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: SetActiveReceiptRuleSetRequest.filterSensitiveLog,
       outputFilterSensitiveLog: SetActiveReceiptRuleSetResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

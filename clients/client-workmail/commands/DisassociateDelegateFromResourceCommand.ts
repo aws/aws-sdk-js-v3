@@ -44,13 +44,23 @@ export class DisassociateDelegateFromResourceCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "WorkMailClient";
+    const commandName = "DisassociateDelegateFromResourceCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "WorkMailClient",
-      commandName: "DisassociateDelegateFromResourceCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DisassociateDelegateFromResourceRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DisassociateDelegateFromResourceResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

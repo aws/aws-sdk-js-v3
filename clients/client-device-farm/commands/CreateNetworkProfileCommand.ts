@@ -44,13 +44,23 @@ export class CreateNetworkProfileCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "DeviceFarmClient";
+    const commandName = "CreateNetworkProfileCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "DeviceFarmClient",
-      commandName: "CreateNetworkProfileCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreateNetworkProfileRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateNetworkProfileResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

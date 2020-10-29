@@ -44,13 +44,23 @@ export class NullAndEmptyHeadersServerCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "RestJsonProtocolClient";
+    const commandName = "NullAndEmptyHeadersServerCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "RestJsonProtocolClient",
-      commandName: "NullAndEmptyHeadersServerCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: NullAndEmptyHeadersIO.filterSensitiveLog,
       outputFilterSensitiveLog: NullAndEmptyHeadersIO.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

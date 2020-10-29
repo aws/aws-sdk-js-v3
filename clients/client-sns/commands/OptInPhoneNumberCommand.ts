@@ -44,13 +44,23 @@ export class OptInPhoneNumberCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SNSClient";
+    const commandName = "OptInPhoneNumberCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "SNSClient",
-      commandName: "OptInPhoneNumberCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: OptInPhoneNumberInput.filterSensitiveLog,
       outputFilterSensitiveLog: OptInPhoneNumberResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

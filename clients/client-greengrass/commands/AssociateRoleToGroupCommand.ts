@@ -44,13 +44,23 @@ export class AssociateRoleToGroupCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "GreengrassClient";
+    const commandName = "AssociateRoleToGroupCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "GreengrassClient",
-      commandName: "AssociateRoleToGroupCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: AssociateRoleToGroupRequest.filterSensitiveLog,
       outputFilterSensitiveLog: AssociateRoleToGroupResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

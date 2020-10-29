@@ -44,13 +44,23 @@ export class UpdateGcmChannelCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "PinpointClient";
+    const commandName = "UpdateGcmChannelCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "PinpointClient",
-      commandName: "UpdateGcmChannelCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UpdateGcmChannelRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateGcmChannelResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

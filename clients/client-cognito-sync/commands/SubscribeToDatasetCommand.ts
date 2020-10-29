@@ -44,13 +44,23 @@ export class SubscribeToDatasetCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CognitoSyncClient";
+    const commandName = "SubscribeToDatasetCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CognitoSyncClient",
-      commandName: "SubscribeToDatasetCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: SubscribeToDatasetRequest.filterSensitiveLog,
       outputFilterSensitiveLog: SubscribeToDatasetResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

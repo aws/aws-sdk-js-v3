@@ -44,13 +44,23 @@ export class UpdateParameterGroupCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "DAXClient";
+    const commandName = "UpdateParameterGroupCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "DAXClient",
-      commandName: "UpdateParameterGroupCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UpdateParameterGroupRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateParameterGroupResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

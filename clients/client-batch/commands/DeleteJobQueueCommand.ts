@@ -44,13 +44,23 @@ export class DeleteJobQueueCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "BatchClient";
+    const commandName = "DeleteJobQueueCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "BatchClient",
-      commandName: "DeleteJobQueueCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteJobQueueRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteJobQueueResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

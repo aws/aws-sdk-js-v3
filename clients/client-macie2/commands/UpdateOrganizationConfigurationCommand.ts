@@ -44,13 +44,23 @@ export class UpdateOrganizationConfigurationCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "Macie2Client";
+    const commandName = "UpdateOrganizationConfigurationCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "Macie2Client",
-      commandName: "UpdateOrganizationConfigurationCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UpdateOrganizationConfigurationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateOrganizationConfigurationResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

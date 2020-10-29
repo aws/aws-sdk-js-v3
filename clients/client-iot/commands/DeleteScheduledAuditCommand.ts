@@ -44,13 +44,23 @@ export class DeleteScheduledAuditCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "IoTClient";
+    const commandName = "DeleteScheduledAuditCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "IoTClient",
-      commandName: "DeleteScheduledAuditCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteScheduledAuditRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteScheduledAuditResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

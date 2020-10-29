@@ -44,13 +44,23 @@ export class DescribeExportImageTasksCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "EC2Client";
+    const commandName = "DescribeExportImageTasksCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "EC2Client",
-      commandName: "DescribeExportImageTasksCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeExportImageTasksRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeExportImageTasksResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

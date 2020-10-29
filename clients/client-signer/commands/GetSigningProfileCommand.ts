@@ -44,13 +44,23 @@ export class GetSigningProfileCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SignerClient";
+    const commandName = "GetSigningProfileCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "SignerClient",
-      commandName: "GetSigningProfileCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetSigningProfileRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetSigningProfileResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -44,13 +44,23 @@ export class DeleteFindingsFilterCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "Macie2Client";
+    const commandName = "DeleteFindingsFilterCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "Macie2Client",
-      commandName: "DeleteFindingsFilterCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteFindingsFilterRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteFindingsFilterResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -44,13 +44,23 @@ export class DescribeDBEngineVersionsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "NeptuneClient";
+    const commandName = "DescribeDBEngineVersionsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "NeptuneClient",
-      commandName: "DescribeDBEngineVersionsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeDBEngineVersionsMessage.filterSensitiveLog,
       outputFilterSensitiveLog: DBEngineVersionMessage.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

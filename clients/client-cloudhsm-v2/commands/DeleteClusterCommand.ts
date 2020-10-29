@@ -44,13 +44,23 @@ export class DeleteClusterCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CloudHSMV2Client";
+    const commandName = "DeleteClusterCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CloudHSMV2Client",
-      commandName: "DeleteClusterCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteClusterRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteClusterResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

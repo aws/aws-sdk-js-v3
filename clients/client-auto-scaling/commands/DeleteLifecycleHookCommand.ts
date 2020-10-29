@@ -44,13 +44,23 @@ export class DeleteLifecycleHookCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "AutoScalingClient";
+    const commandName = "DeleteLifecycleHookCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "AutoScalingClient",
-      commandName: "DeleteLifecycleHookCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteLifecycleHookType.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteLifecycleHookAnswer.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

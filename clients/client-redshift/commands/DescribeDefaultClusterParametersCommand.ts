@@ -44,13 +44,23 @@ export class DescribeDefaultClusterParametersCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "RedshiftClient";
+    const commandName = "DescribeDefaultClusterParametersCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "RedshiftClient",
-      commandName: "DescribeDefaultClusterParametersCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeDefaultClusterParametersMessage.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeDefaultClusterParametersResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

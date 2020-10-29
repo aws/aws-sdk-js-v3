@@ -44,13 +44,23 @@ export class AcceptHandshakeCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "OrganizationsClient";
+    const commandName = "AcceptHandshakeCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "OrganizationsClient",
-      commandName: "AcceptHandshakeCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: AcceptHandshakeRequest.filterSensitiveLog,
       outputFilterSensitiveLog: AcceptHandshakeResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

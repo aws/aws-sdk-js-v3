@@ -44,13 +44,23 @@ export class DescribeFeatureTransformationCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "PersonalizeClient";
+    const commandName = "DescribeFeatureTransformationCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "PersonalizeClient",
-      commandName: "DescribeFeatureTransformationCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeFeatureTransformationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeFeatureTransformationResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

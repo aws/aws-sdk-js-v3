@@ -48,13 +48,23 @@ export class GetCustomVerificationEmailTemplateCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SESv2Client";
+    const commandName = "GetCustomVerificationEmailTemplateCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "SESv2Client",
-      commandName: "GetCustomVerificationEmailTemplateCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetCustomVerificationEmailTemplateRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetCustomVerificationEmailTemplateResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

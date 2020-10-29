@@ -44,13 +44,23 @@ export class DeleteVirtualNodeCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "AppMeshClient";
+    const commandName = "DeleteVirtualNodeCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "AppMeshClient",
-      commandName: "DeleteVirtualNodeCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteVirtualNodeInput.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteVirtualNodeOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

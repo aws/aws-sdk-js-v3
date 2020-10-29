@@ -44,13 +44,23 @@ export class AttachTypedLinkCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CloudDirectoryClient";
+    const commandName = "AttachTypedLinkCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CloudDirectoryClient",
-      commandName: "AttachTypedLinkCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: AttachTypedLinkRequest.filterSensitiveLog,
       outputFilterSensitiveLog: AttachTypedLinkResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -44,13 +44,23 @@ export class GetOTAUpdateCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "IoTClient";
+    const commandName = "GetOTAUpdateCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "IoTClient",
-      commandName: "GetOTAUpdateCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetOTAUpdateRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetOTAUpdateResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

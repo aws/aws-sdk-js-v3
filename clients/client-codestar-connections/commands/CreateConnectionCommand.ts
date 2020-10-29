@@ -48,13 +48,23 @@ export class CreateConnectionCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CodeStarConnectionsClient";
+    const commandName = "CreateConnectionCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CodeStarConnectionsClient",
-      commandName: "CreateConnectionCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreateConnectionInput.filterSensitiveLog,
       outputFilterSensitiveLog: CreateConnectionOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

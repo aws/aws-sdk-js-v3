@@ -44,13 +44,23 @@ export class AddAttachmentsToSetCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SupportClient";
+    const commandName = "AddAttachmentsToSetCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "SupportClient",
-      commandName: "AddAttachmentsToSetCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: AddAttachmentsToSetRequest.filterSensitiveLog,
       outputFilterSensitiveLog: AddAttachmentsToSetResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -41,13 +41,23 @@ export class UpdateJobCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SnowballClient";
+    const commandName = "UpdateJobCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "SnowballClient",
-      commandName: "UpdateJobCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UpdateJobRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateJobResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -44,13 +44,23 @@ export class GetIdentityPoliciesCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SESClient";
+    const commandName = "GetIdentityPoliciesCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "SESClient",
-      commandName: "GetIdentityPoliciesCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetIdentityPoliciesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetIdentityPoliciesResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

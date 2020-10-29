@@ -44,13 +44,23 @@ export class CreateVoiceTemplateCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "PinpointClient";
+    const commandName = "CreateVoiceTemplateCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "PinpointClient",
-      commandName: "CreateVoiceTemplateCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreateVoiceTemplateRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateVoiceTemplateResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

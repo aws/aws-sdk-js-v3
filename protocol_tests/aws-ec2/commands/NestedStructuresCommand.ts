@@ -44,13 +44,23 @@ export class NestedStructuresCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "EC2ProtocolClient";
+    const commandName = "NestedStructuresCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "EC2ProtocolClient",
-      commandName: "NestedStructuresCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: NestedStructuresInput.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

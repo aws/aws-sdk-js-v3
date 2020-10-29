@@ -44,13 +44,23 @@ export class DescribeGlobalTableSettingsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "DynamoDBClient";
+    const commandName = "DescribeGlobalTableSettingsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "DynamoDBClient",
-      commandName: "DescribeGlobalTableSettingsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeGlobalTableSettingsInput.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeGlobalTableSettingsOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

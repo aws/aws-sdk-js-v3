@@ -44,13 +44,23 @@ export class UpdateSystemTemplateCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "IoTThingsGraphClient";
+    const commandName = "UpdateSystemTemplateCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "IoTThingsGraphClient",
-      commandName: "UpdateSystemTemplateCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UpdateSystemTemplateRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateSystemTemplateResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

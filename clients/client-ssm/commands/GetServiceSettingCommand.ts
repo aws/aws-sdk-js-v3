@@ -44,13 +44,23 @@ export class GetServiceSettingCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SSMClient";
+    const commandName = "GetServiceSettingCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "SSMClient",
-      commandName: "GetServiceSettingCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetServiceSettingRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetServiceSettingResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

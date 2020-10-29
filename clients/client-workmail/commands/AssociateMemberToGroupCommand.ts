@@ -44,13 +44,23 @@ export class AssociateMemberToGroupCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "WorkMailClient";
+    const commandName = "AssociateMemberToGroupCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "WorkMailClient",
-      commandName: "AssociateMemberToGroupCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: AssociateMemberToGroupRequest.filterSensitiveLog,
       outputFilterSensitiveLog: AssociateMemberToGroupResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -44,13 +44,23 @@ export class ListPlatformBranchesCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ElasticBeanstalkClient";
+    const commandName = "ListPlatformBranchesCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ElasticBeanstalkClient",
-      commandName: "ListPlatformBranchesCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListPlatformBranchesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListPlatformBranchesResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

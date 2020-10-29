@@ -44,13 +44,23 @@ export class TerminateJobCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "BatchClient";
+    const commandName = "TerminateJobCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "BatchClient",
-      commandName: "TerminateJobCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: TerminateJobRequest.filterSensitiveLog,
       outputFilterSensitiveLog: TerminateJobResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

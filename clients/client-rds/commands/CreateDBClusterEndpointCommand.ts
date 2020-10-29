@@ -44,13 +44,23 @@ export class CreateDBClusterEndpointCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "RDSClient";
+    const commandName = "CreateDBClusterEndpointCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "RDSClient",
-      commandName: "CreateDBClusterEndpointCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreateDBClusterEndpointMessage.filterSensitiveLog,
       outputFilterSensitiveLog: DBClusterEndpoint.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

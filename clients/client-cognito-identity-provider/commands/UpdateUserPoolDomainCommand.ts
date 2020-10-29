@@ -50,13 +50,23 @@ export class UpdateUserPoolDomainCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CognitoIdentityProviderClient";
+    const commandName = "UpdateUserPoolDomainCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CognitoIdentityProviderClient",
-      commandName: "UpdateUserPoolDomainCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UpdateUserPoolDomainRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateUserPoolDomainResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

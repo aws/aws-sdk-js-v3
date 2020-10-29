@@ -45,13 +45,23 @@ export class BatchPutScheduledUpdateGroupActionCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "AutoScalingClient";
+    const commandName = "BatchPutScheduledUpdateGroupActionCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "AutoScalingClient",
-      commandName: "BatchPutScheduledUpdateGroupActionCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: BatchPutScheduledUpdateGroupActionType.filterSensitiveLog,
       outputFilterSensitiveLog: BatchPutScheduledUpdateGroupActionAnswer.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

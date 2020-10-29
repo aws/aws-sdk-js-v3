@@ -44,13 +44,23 @@ export class ListOriginRequestPoliciesCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CloudFrontClient";
+    const commandName = "ListOriginRequestPoliciesCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CloudFrontClient",
-      commandName: "ListOriginRequestPoliciesCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListOriginRequestPoliciesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListOriginRequestPoliciesResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

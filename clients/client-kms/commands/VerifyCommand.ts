@@ -37,13 +37,23 @@ export class VerifyCommand extends $Command<VerifyCommandInput, VerifyCommandOut
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "KMSClient";
+    const commandName = "VerifyCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "KMSClient",
-      commandName: "VerifyCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: VerifyRequest.filterSensitiveLog,
       outputFilterSensitiveLog: VerifyResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

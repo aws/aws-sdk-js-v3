@@ -44,13 +44,23 @@ export class UploadSigningCertificateCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "IAMClient";
+    const commandName = "UploadSigningCertificateCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "IAMClient",
-      commandName: "UploadSigningCertificateCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UploadSigningCertificateRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UploadSigningCertificateResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

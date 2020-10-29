@@ -44,13 +44,23 @@ export class ModifyEventSubscriptionCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "RedshiftClient";
+    const commandName = "ModifyEventSubscriptionCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "RedshiftClient",
-      commandName: "ModifyEventSubscriptionCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ModifyEventSubscriptionMessage.filterSensitiveLog,
       outputFilterSensitiveLog: ModifyEventSubscriptionResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

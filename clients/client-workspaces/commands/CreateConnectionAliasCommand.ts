@@ -44,13 +44,23 @@ export class CreateConnectionAliasCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "WorkSpacesClient";
+    const commandName = "CreateConnectionAliasCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "WorkSpacesClient",
-      commandName: "CreateConnectionAliasCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreateConnectionAliasRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateConnectionAliasResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

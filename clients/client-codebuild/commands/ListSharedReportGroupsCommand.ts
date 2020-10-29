@@ -44,13 +44,23 @@ export class ListSharedReportGroupsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CodeBuildClient";
+    const commandName = "ListSharedReportGroupsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CodeBuildClient",
-      commandName: "ListSharedReportGroupsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListSharedReportGroupsInput.filterSensitiveLog,
       outputFilterSensitiveLog: ListSharedReportGroupsOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

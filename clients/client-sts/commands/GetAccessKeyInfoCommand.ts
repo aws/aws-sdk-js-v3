@@ -44,13 +44,23 @@ export class GetAccessKeyInfoCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "STSClient";
+    const commandName = "GetAccessKeyInfoCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "STSClient",
-      commandName: "GetAccessKeyInfoCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetAccessKeyInfoRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetAccessKeyInfoResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

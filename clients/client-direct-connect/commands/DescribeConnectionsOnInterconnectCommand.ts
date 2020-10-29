@@ -44,13 +44,23 @@ export class DescribeConnectionsOnInterconnectCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "DirectConnectClient";
+    const commandName = "DescribeConnectionsOnInterconnectCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "DirectConnectClient",
-      commandName: "DescribeConnectionsOnInterconnectCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeConnectionsOnInterconnectRequest.filterSensitiveLog,
       outputFilterSensitiveLog: Connections.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

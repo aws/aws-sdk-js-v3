@@ -48,13 +48,23 @@ export class ConfigureHealthCheckCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ElasticLoadBalancingClient";
+    const commandName = "ConfigureHealthCheckCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ElasticLoadBalancingClient",
-      commandName: "ConfigureHealthCheckCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ConfigureHealthCheckInput.filterSensitiveLog,
       outputFilterSensitiveLog: ConfigureHealthCheckOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

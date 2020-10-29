@@ -44,13 +44,23 @@ export class StopMultiplexCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "MediaLiveClient";
+    const commandName = "StopMultiplexCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "MediaLiveClient",
-      commandName: "StopMultiplexCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: StopMultiplexRequest.filterSensitiveLog,
       outputFilterSensitiveLog: StopMultiplexResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

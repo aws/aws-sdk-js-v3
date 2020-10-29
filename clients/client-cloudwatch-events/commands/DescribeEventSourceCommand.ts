@@ -44,13 +44,23 @@ export class DescribeEventSourceCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CloudWatchEventsClient";
+    const commandName = "DescribeEventSourceCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CloudWatchEventsClient",
-      commandName: "DescribeEventSourceCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeEventSourceRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeEventSourceResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

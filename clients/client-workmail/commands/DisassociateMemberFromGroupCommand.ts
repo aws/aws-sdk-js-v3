@@ -44,13 +44,23 @@ export class DisassociateMemberFromGroupCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "WorkMailClient";
+    const commandName = "DisassociateMemberFromGroupCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "WorkMailClient",
-      commandName: "DisassociateMemberFromGroupCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DisassociateMemberFromGroupRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DisassociateMemberFromGroupResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

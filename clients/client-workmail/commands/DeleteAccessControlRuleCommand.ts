@@ -44,13 +44,23 @@ export class DeleteAccessControlRuleCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "WorkMailClient";
+    const commandName = "DeleteAccessControlRuleCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "WorkMailClient",
-      commandName: "DeleteAccessControlRuleCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteAccessControlRuleRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteAccessControlRuleResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -44,13 +44,23 @@ export class DeleteOutpostCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "OutpostsClient";
+    const commandName = "DeleteOutpostCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "OutpostsClient",
-      commandName: "DeleteOutpostCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteOutpostInput.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteOutpostOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

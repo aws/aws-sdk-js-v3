@@ -44,13 +44,23 @@ export class PutSchemaFromJsonCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CloudDirectoryClient";
+    const commandName = "PutSchemaFromJsonCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CloudDirectoryClient",
-      commandName: "PutSchemaFromJsonCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: PutSchemaFromJsonRequest.filterSensitiveLog,
       outputFilterSensitiveLog: PutSchemaFromJsonResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

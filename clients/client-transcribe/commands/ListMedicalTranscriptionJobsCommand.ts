@@ -44,13 +44,23 @@ export class ListMedicalTranscriptionJobsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "TranscribeClient";
+    const commandName = "ListMedicalTranscriptionJobsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "TranscribeClient",
-      commandName: "ListMedicalTranscriptionJobsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListMedicalTranscriptionJobsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListMedicalTranscriptionJobsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

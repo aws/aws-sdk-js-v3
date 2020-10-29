@@ -44,13 +44,23 @@ export class RemoveTagsFromResourceCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "StorageGatewayClient";
+    const commandName = "RemoveTagsFromResourceCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "StorageGatewayClient",
-      commandName: "RemoveTagsFromResourceCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: RemoveTagsFromResourceInput.filterSensitiveLog,
       outputFilterSensitiveLog: RemoveTagsFromResourceOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -44,13 +44,23 @@ export class DescribeTemplatePermissionsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "QuickSightClient";
+    const commandName = "DescribeTemplatePermissionsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "QuickSightClient",
-      commandName: "DescribeTemplatePermissionsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeTemplatePermissionsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeTemplatePermissionsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

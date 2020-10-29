@@ -44,13 +44,23 @@ export class SearchSchemasCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SchemasClient";
+    const commandName = "SearchSchemasCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "SchemasClient",
-      commandName: "SearchSchemasCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: SearchSchemasRequest.filterSensitiveLog,
       outputFilterSensitiveLog: SearchSchemasResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

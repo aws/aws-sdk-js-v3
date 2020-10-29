@@ -48,13 +48,23 @@ export class ListHumanLoopsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SageMakerA2IRuntimeClient";
+    const commandName = "ListHumanLoopsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "SageMakerA2IRuntimeClient",
-      commandName: "ListHumanLoopsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListHumanLoopsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListHumanLoopsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

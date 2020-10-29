@@ -44,13 +44,23 @@ export class GetLifecyclePoliciesCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "DLMClient";
+    const commandName = "GetLifecyclePoliciesCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "DLMClient",
-      commandName: "GetLifecyclePoliciesCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetLifecyclePoliciesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetLifecyclePoliciesResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

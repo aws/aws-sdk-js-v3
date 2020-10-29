@@ -48,13 +48,23 @@ export class StopPHIDetectionJobCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ComprehendMedicalClient";
+    const commandName = "StopPHIDetectionJobCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ComprehendMedicalClient",
-      commandName: "StopPHIDetectionJobCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: StopPHIDetectionJobRequest.filterSensitiveLog,
       outputFilterSensitiveLog: StopPHIDetectionJobResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

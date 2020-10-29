@@ -48,13 +48,23 @@ export class DeleteTargetGroupCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ElasticLoadBalancingV2Client";
+    const commandName = "DeleteTargetGroupCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ElasticLoadBalancingV2Client",
-      commandName: "DeleteTargetGroupCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteTargetGroupInput.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteTargetGroupOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -45,13 +45,23 @@ export class ModifySnapshotScheduleCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "RedshiftClient";
+    const commandName = "ModifySnapshotScheduleCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "RedshiftClient",
-      commandName: "ModifySnapshotScheduleCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ModifySnapshotScheduleMessage.filterSensitiveLog,
       outputFilterSensitiveLog: SnapshotSchedule.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

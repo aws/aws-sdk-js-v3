@@ -44,13 +44,23 @@ export class PutPermissionPolicyCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "WAFV2Client";
+    const commandName = "PutPermissionPolicyCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "WAFV2Client",
-      commandName: "PutPermissionPolicyCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: PutPermissionPolicyRequest.filterSensitiveLog,
       outputFilterSensitiveLog: PutPermissionPolicyResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

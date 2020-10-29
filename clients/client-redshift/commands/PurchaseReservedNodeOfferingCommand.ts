@@ -44,13 +44,23 @@ export class PurchaseReservedNodeOfferingCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "RedshiftClient";
+    const commandName = "PurchaseReservedNodeOfferingCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "RedshiftClient",
-      commandName: "PurchaseReservedNodeOfferingCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: PurchaseReservedNodeOfferingMessage.filterSensitiveLog,
       outputFilterSensitiveLog: PurchaseReservedNodeOfferingResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

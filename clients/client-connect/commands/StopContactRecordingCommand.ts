@@ -44,13 +44,23 @@ export class StopContactRecordingCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ConnectClient";
+    const commandName = "StopContactRecordingCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ConnectClient",
-      commandName: "StopContactRecordingCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: StopContactRecordingRequest.filterSensitiveLog,
       outputFilterSensitiveLog: StopContactRecordingResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

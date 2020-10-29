@@ -44,13 +44,23 @@ export class UpdateDeploymentStrategyCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "AppConfigClient";
+    const commandName = "UpdateDeploymentStrategyCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "AppConfigClient",
-      commandName: "UpdateDeploymentStrategyCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UpdateDeploymentStrategyRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeploymentStrategy.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

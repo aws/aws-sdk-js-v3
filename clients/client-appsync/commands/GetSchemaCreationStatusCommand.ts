@@ -44,13 +44,23 @@ export class GetSchemaCreationStatusCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "AppSyncClient";
+    const commandName = "GetSchemaCreationStatusCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "AppSyncClient",
-      commandName: "GetSchemaCreationStatusCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetSchemaCreationStatusRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetSchemaCreationStatusResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

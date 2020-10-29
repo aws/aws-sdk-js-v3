@@ -44,13 +44,23 @@ export class UpdatePullRequestStatusCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CodeCommitClient";
+    const commandName = "UpdatePullRequestStatusCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CodeCommitClient",
-      commandName: "UpdatePullRequestStatusCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UpdatePullRequestStatusInput.filterSensitiveLog,
       outputFilterSensitiveLog: UpdatePullRequestStatusOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

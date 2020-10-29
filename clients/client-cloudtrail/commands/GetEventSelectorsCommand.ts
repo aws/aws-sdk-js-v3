@@ -44,13 +44,23 @@ export class GetEventSelectorsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CloudTrailClient";
+    const commandName = "GetEventSelectorsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CloudTrailClient",
-      commandName: "GetEventSelectorsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetEventSelectorsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetEventSelectorsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -44,13 +44,23 @@ export class DescribeJobExecutionCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "IoTJobsDataPlaneClient";
+    const commandName = "DescribeJobExecutionCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "IoTJobsDataPlaneClient",
-      commandName: "DescribeJobExecutionCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeJobExecutionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeJobExecutionResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

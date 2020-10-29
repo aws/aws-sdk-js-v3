@@ -44,13 +44,23 @@ export class PutKMSEncryptionKeyCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "FraudDetectorClient";
+    const commandName = "PutKMSEncryptionKeyCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "FraudDetectorClient",
-      commandName: "PutKMSEncryptionKeyCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: PutKMSEncryptionKeyRequest.filterSensitiveLog,
       outputFilterSensitiveLog: PutKMSEncryptionKeyResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

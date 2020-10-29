@@ -48,13 +48,23 @@ export class DescribeNotificationSubscriptionsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "WorkDocsClient";
+    const commandName = "DescribeNotificationSubscriptionsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "WorkDocsClient",
-      commandName: "DescribeNotificationSubscriptionsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeNotificationSubscriptionsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeNotificationSubscriptionsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -44,13 +44,23 @@ export class CreateSiteCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "NetworkManagerClient";
+    const commandName = "CreateSiteCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "NetworkManagerClient",
-      commandName: "CreateSiteCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreateSiteRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateSiteResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

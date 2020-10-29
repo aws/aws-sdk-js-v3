@@ -44,13 +44,23 @@ export class DeleteBackupCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "DynamoDBClient";
+    const commandName = "DeleteBackupCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "DynamoDBClient",
-      commandName: "DeleteBackupCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteBackupInput.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteBackupOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

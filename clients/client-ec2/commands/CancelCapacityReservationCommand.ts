@@ -44,13 +44,23 @@ export class CancelCapacityReservationCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "EC2Client";
+    const commandName = "CancelCapacityReservationCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "EC2Client",
-      commandName: "CancelCapacityReservationCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CancelCapacityReservationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CancelCapacityReservationResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

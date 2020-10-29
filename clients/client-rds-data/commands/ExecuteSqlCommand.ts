@@ -44,13 +44,23 @@ export class ExecuteSqlCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "RDSDataClient";
+    const commandName = "ExecuteSqlCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "RDSDataClient",
-      commandName: "ExecuteSqlCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ExecuteSqlRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ExecuteSqlResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

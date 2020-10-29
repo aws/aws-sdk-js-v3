@@ -44,13 +44,23 @@ export class AddFlowSourcesCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "MediaConnectClient";
+    const commandName = "AddFlowSourcesCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "MediaConnectClient",
-      commandName: "AddFlowSourcesCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: AddFlowSourcesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: AddFlowSourcesResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

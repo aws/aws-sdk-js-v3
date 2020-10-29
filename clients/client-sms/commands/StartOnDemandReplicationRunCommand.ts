@@ -44,13 +44,23 @@ export class StartOnDemandReplicationRunCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SMSClient";
+    const commandName = "StartOnDemandReplicationRunCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "SMSClient",
-      commandName: "StartOnDemandReplicationRunCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: StartOnDemandReplicationRunRequest.filterSensitiveLog,
       outputFilterSensitiveLog: StartOnDemandReplicationRunResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

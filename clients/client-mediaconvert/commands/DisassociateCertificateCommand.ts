@@ -44,13 +44,23 @@ export class DisassociateCertificateCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "MediaConvertClient";
+    const commandName = "DisassociateCertificateCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "MediaConvertClient",
-      commandName: "DisassociateCertificateCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DisassociateCertificateRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DisassociateCertificateResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

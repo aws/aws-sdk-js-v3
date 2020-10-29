@@ -44,13 +44,23 @@ export class StopCanaryCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SyntheticsClient";
+    const commandName = "StopCanaryCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "SyntheticsClient",
-      commandName: "StopCanaryCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: StopCanaryRequest.filterSensitiveLog,
       outputFilterSensitiveLog: StopCanaryResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

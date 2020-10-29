@@ -44,13 +44,23 @@ export class CreateContactMethodCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "LightsailClient";
+    const commandName = "CreateContactMethodCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "LightsailClient",
-      commandName: "CreateContactMethodCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreateContactMethodRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateContactMethodResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

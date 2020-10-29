@@ -44,13 +44,23 @@ export class UpdateDetectorVersionStatusCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "FraudDetectorClient";
+    const commandName = "UpdateDetectorVersionStatusCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "FraudDetectorClient",
-      commandName: "UpdateDetectorVersionStatusCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UpdateDetectorVersionStatusRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateDetectorVersionStatusResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

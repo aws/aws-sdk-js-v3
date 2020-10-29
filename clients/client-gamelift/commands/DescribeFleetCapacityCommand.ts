@@ -44,13 +44,23 @@ export class DescribeFleetCapacityCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "GameLiftClient";
+    const commandName = "DescribeFleetCapacityCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "GameLiftClient",
-      commandName: "DescribeFleetCapacityCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeFleetCapacityInput.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeFleetCapacityOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

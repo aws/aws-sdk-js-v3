@@ -44,13 +44,23 @@ export class EmptyInputAndEmptyOutputCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "EC2ProtocolClient";
+    const commandName = "EmptyInputAndEmptyOutputCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "EC2ProtocolClient",
-      commandName: "EmptyInputAndEmptyOutputCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: EmptyInputAndEmptyOutputInput.filterSensitiveLog,
       outputFilterSensitiveLog: EmptyInputAndEmptyOutputOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

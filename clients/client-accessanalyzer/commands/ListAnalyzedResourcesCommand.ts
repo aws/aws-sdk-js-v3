@@ -44,13 +44,23 @@ export class ListAnalyzedResourcesCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "AccessAnalyzerClient";
+    const commandName = "ListAnalyzedResourcesCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "AccessAnalyzerClient",
-      commandName: "ListAnalyzedResourcesCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListAnalyzedResourcesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListAnalyzedResourcesResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -44,13 +44,23 @@ export class DeleteNatGatewayCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "EC2Client";
+    const commandName = "DeleteNatGatewayCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "EC2Client",
-      commandName: "DeleteNatGatewayCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteNatGatewayRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteNatGatewayResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -44,13 +44,23 @@ export class ListAccessControlRulesCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "WorkMailClient";
+    const commandName = "ListAccessControlRulesCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "WorkMailClient",
-      commandName: "ListAccessControlRulesCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListAccessControlRulesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListAccessControlRulesResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

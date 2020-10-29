@@ -44,13 +44,23 @@ export class ImportAppCatalogCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SMSClient";
+    const commandName = "ImportAppCatalogCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "SMSClient",
-      commandName: "ImportAppCatalogCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ImportAppCatalogRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ImportAppCatalogResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

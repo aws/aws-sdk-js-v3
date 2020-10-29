@@ -44,13 +44,23 @@ export class CreateAccessPointCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "EFSClient";
+    const commandName = "CreateAccessPointCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "EFSClient",
-      commandName: "CreateAccessPointCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreateAccessPointRequest.filterSensitiveLog,
       outputFilterSensitiveLog: AccessPointDescription.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

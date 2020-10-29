@@ -47,13 +47,23 @@ export class AssociateApprovalRuleTemplateWithRepositoryCommand extends $Command
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CodeCommitClient";
+    const commandName = "AssociateApprovalRuleTemplateWithRepositoryCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CodeCommitClient",
-      commandName: "AssociateApprovalRuleTemplateWithRepositoryCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: AssociateApprovalRuleTemplateWithRepositoryInput.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

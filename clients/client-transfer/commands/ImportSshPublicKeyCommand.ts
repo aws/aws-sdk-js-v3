@@ -44,13 +44,23 @@ export class ImportSshPublicKeyCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "TransferClient";
+    const commandName = "ImportSshPublicKeyCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "TransferClient",
-      commandName: "ImportSshPublicKeyCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ImportSshPublicKeyRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ImportSshPublicKeyResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

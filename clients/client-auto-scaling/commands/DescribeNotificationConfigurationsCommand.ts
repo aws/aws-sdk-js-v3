@@ -45,13 +45,23 @@ export class DescribeNotificationConfigurationsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "AutoScalingClient";
+    const commandName = "DescribeNotificationConfigurationsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "AutoScalingClient",
-      commandName: "DescribeNotificationConfigurationsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeNotificationConfigurationsType.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeNotificationConfigurationsAnswer.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

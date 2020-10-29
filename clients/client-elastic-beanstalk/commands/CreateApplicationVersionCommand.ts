@@ -44,13 +44,23 @@ export class CreateApplicationVersionCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ElasticBeanstalkClient";
+    const commandName = "CreateApplicationVersionCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ElasticBeanstalkClient",
-      commandName: "CreateApplicationVersionCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreateApplicationVersionMessage.filterSensitiveLog,
       outputFilterSensitiveLog: ApplicationVersionDescriptionMessage.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

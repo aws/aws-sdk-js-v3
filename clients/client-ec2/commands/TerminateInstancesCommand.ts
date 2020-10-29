@@ -44,13 +44,23 @@ export class TerminateInstancesCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "EC2Client";
+    const commandName = "TerminateInstancesCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "EC2Client",
-      commandName: "TerminateInstancesCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: TerminateInstancesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: TerminateInstancesResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

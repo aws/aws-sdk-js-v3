@@ -44,13 +44,23 @@ export class GetRightsizingRecommendationCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CostExplorerClient";
+    const commandName = "GetRightsizingRecommendationCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CostExplorerClient",
-      commandName: "GetRightsizingRecommendationCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetRightsizingRecommendationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetRightsizingRecommendationResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -44,13 +44,23 @@ export class DeleteMonitoringSubscriptionCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CloudFrontClient";
+    const commandName = "DeleteMonitoringSubscriptionCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CloudFrontClient",
-      commandName: "DeleteMonitoringSubscriptionCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteMonitoringSubscriptionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteMonitoringSubscriptionResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

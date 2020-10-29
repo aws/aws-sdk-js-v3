@@ -44,13 +44,23 @@ export class ListOutgoingCertificatesCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "IoTClient";
+    const commandName = "ListOutgoingCertificatesCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "IoTClient",
-      commandName: "ListOutgoingCertificatesCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListOutgoingCertificatesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListOutgoingCertificatesResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

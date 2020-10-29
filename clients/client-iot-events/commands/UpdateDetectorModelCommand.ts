@@ -44,13 +44,23 @@ export class UpdateDetectorModelCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "IoTEventsClient";
+    const commandName = "UpdateDetectorModelCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "IoTEventsClient",
-      commandName: "UpdateDetectorModelCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UpdateDetectorModelRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateDetectorModelResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

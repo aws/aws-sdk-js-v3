@@ -44,13 +44,23 @@ export class BatchDescribeMergeConflictsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CodeCommitClient";
+    const commandName = "BatchDescribeMergeConflictsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CodeCommitClient",
-      commandName: "BatchDescribeMergeConflictsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: BatchDescribeMergeConflictsInput.filterSensitiveLog,
       outputFilterSensitiveLog: BatchDescribeMergeConflictsOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

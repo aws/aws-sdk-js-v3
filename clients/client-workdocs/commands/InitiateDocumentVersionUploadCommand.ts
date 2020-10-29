@@ -44,13 +44,23 @@ export class InitiateDocumentVersionUploadCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "WorkDocsClient";
+    const commandName = "InitiateDocumentVersionUploadCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "WorkDocsClient",
-      commandName: "InitiateDocumentVersionUploadCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: InitiateDocumentVersionUploadRequest.filterSensitiveLog,
       outputFilterSensitiveLog: InitiateDocumentVersionUploadResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

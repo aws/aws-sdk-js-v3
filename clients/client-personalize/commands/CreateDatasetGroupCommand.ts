@@ -44,13 +44,23 @@ export class CreateDatasetGroupCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "PersonalizeClient";
+    const commandName = "CreateDatasetGroupCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "PersonalizeClient",
-      commandName: "CreateDatasetGroupCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreateDatasetGroupRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateDatasetGroupResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

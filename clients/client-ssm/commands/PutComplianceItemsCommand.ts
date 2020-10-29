@@ -44,13 +44,23 @@ export class PutComplianceItemsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SSMClient";
+    const commandName = "PutComplianceItemsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "SSMClient",
-      commandName: "PutComplianceItemsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: PutComplianceItemsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: PutComplianceItemsResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

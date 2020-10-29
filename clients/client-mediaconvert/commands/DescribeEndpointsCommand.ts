@@ -44,13 +44,23 @@ export class DescribeEndpointsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "MediaConvertClient";
+    const commandName = "DescribeEndpointsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "MediaConvertClient",
-      commandName: "DescribeEndpointsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeEndpointsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeEndpointsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

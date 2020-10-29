@@ -44,13 +44,23 @@ export class DescribeClusterCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "KafkaClient";
+    const commandName = "DescribeClusterCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "KafkaClient",
-      commandName: "DescribeClusterCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeClusterRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeClusterResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

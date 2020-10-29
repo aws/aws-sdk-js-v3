@@ -44,13 +44,23 @@ export class DescribeRoutingProfileCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ConnectClient";
+    const commandName = "DescribeRoutingProfileCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ConnectClient",
-      commandName: "DescribeRoutingProfileCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeRoutingProfileRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeRoutingProfileResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

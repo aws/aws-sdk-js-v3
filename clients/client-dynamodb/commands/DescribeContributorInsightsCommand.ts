@@ -44,13 +44,23 @@ export class DescribeContributorInsightsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "DynamoDBClient";
+    const commandName = "DescribeContributorInsightsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "DynamoDBClient",
-      commandName: "DescribeContributorInsightsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeContributorInsightsInput.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeContributorInsightsOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

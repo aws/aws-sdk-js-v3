@@ -44,13 +44,23 @@ export class CreateApiMappingCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ApiGatewayV2Client";
+    const commandName = "CreateApiMappingCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ApiGatewayV2Client",
-      commandName: "CreateApiMappingCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreateApiMappingRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateApiMappingResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

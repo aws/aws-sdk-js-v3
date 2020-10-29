@@ -44,13 +44,23 @@ export class DescribeInputCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "IoTEventsClient";
+    const commandName = "DescribeInputCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "IoTEventsClient",
-      commandName: "DescribeInputCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeInputRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeInputResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

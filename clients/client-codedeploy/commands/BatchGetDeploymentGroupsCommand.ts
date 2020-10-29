@@ -44,13 +44,23 @@ export class BatchGetDeploymentGroupsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CodeDeployClient";
+    const commandName = "BatchGetDeploymentGroupsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CodeDeployClient",
-      commandName: "BatchGetDeploymentGroupsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: BatchGetDeploymentGroupsInput.filterSensitiveLog,
       outputFilterSensitiveLog: BatchGetDeploymentGroupsOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

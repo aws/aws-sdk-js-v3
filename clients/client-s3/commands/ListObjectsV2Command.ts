@@ -46,13 +46,23 @@ export class ListObjectsV2Command extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "S3Client";
+    const commandName = "ListObjectsV2Command";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "S3Client",
-      commandName: "ListObjectsV2Command",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListObjectsV2Request.filterSensitiveLog,
       outputFilterSensitiveLog: ListObjectsV2Output.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -44,13 +44,23 @@ export class ListVirtualMFADevicesCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "IAMClient";
+    const commandName = "ListVirtualMFADevicesCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "IAMClient",
-      commandName: "ListVirtualMFADevicesCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListVirtualMFADevicesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListVirtualMFADevicesResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

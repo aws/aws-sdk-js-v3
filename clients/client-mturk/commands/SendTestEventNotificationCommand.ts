@@ -44,13 +44,23 @@ export class SendTestEventNotificationCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "MTurkClient";
+    const commandName = "SendTestEventNotificationCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "MTurkClient",
-      commandName: "SendTestEventNotificationCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: SendTestEventNotificationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: SendTestEventNotificationResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

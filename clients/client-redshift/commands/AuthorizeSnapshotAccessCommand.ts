@@ -44,13 +44,23 @@ export class AuthorizeSnapshotAccessCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "RedshiftClient";
+    const commandName = "AuthorizeSnapshotAccessCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "RedshiftClient",
-      commandName: "AuthorizeSnapshotAccessCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: AuthorizeSnapshotAccessMessage.filterSensitiveLog,
       outputFilterSensitiveLog: AuthorizeSnapshotAccessResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -44,13 +44,23 @@ export class PutBackupPolicyCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "EFSClient";
+    const commandName = "PutBackupPolicyCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "EFSClient",
-      commandName: "PutBackupPolicyCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: PutBackupPolicyRequest.filterSensitiveLog,
       outputFilterSensitiveLog: BackupPolicyDescription.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

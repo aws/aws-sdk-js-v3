@@ -46,13 +46,23 @@ export class GetBucketVersioningCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "S3Client";
+    const commandName = "GetBucketVersioningCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "S3Client",
-      commandName: "GetBucketVersioningCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetBucketVersioningRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetBucketVersioningOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -44,13 +44,23 @@ export class DeleteCollectionCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "RekognitionClient";
+    const commandName = "DeleteCollectionCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "RekognitionClient",
-      commandName: "DeleteCollectionCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteCollectionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteCollectionResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

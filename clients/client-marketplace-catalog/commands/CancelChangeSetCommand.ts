@@ -48,13 +48,23 @@ export class CancelChangeSetCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "MarketplaceCatalogClient";
+    const commandName = "CancelChangeSetCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "MarketplaceCatalogClient",
-      commandName: "CancelChangeSetCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CancelChangeSetRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CancelChangeSetResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

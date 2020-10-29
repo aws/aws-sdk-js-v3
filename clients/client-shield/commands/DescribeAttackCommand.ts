@@ -44,13 +44,23 @@ export class DescribeAttackCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ShieldClient";
+    const commandName = "DescribeAttackCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ShieldClient",
-      commandName: "DescribeAttackCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeAttackRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeAttackResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

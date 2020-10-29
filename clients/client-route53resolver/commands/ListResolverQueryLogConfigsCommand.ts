@@ -44,13 +44,23 @@ export class ListResolverQueryLogConfigsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "Route53ResolverClient";
+    const commandName = "ListResolverQueryLogConfigsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "Route53ResolverClient",
-      commandName: "ListResolverQueryLogConfigsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListResolverQueryLogConfigsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListResolverQueryLogConfigsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

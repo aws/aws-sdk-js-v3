@@ -44,13 +44,23 @@ export class CreateProvisioningTemplateCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "IoTClient";
+    const commandName = "CreateProvisioningTemplateCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "IoTClient",
-      commandName: "CreateProvisioningTemplateCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreateProvisioningTemplateRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateProvisioningTemplateResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

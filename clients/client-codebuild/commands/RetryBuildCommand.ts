@@ -44,13 +44,23 @@ export class RetryBuildCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CodeBuildClient";
+    const commandName = "RetryBuildCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CodeBuildClient",
-      commandName: "RetryBuildCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: RetryBuildInput.filterSensitiveLog,
       outputFilterSensitiveLog: RetryBuildOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

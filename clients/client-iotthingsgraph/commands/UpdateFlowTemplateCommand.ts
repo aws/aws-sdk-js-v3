@@ -44,13 +44,23 @@ export class UpdateFlowTemplateCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "IoTThingsGraphClient";
+    const commandName = "UpdateFlowTemplateCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "IoTThingsGraphClient",
-      commandName: "UpdateFlowTemplateCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UpdateFlowTemplateRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateFlowTemplateResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

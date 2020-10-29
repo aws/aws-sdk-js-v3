@@ -44,13 +44,23 @@ export class UpdateRuleVersionCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "FraudDetectorClient";
+    const commandName = "UpdateRuleVersionCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "FraudDetectorClient",
-      commandName: "UpdateRuleVersionCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UpdateRuleVersionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateRuleVersionResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

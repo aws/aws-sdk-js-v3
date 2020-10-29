@@ -44,13 +44,23 @@ export class DeleteDeliveryStreamCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "FirehoseClient";
+    const commandName = "DeleteDeliveryStreamCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "FirehoseClient",
-      commandName: "DeleteDeliveryStreamCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteDeliveryStreamInput.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteDeliveryStreamOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

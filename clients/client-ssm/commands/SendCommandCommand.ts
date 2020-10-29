@@ -44,13 +44,23 @@ export class SendCommandCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SSMClient";
+    const commandName = "SendCommandCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "SSMClient",
-      commandName: "SendCommandCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: SendCommandRequest.filterSensitiveLog,
       outputFilterSensitiveLog: SendCommandResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

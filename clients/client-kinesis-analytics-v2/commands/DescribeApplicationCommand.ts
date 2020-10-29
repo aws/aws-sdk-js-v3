@@ -48,13 +48,23 @@ export class DescribeApplicationCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "KinesisAnalyticsV2Client";
+    const commandName = "DescribeApplicationCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "KinesisAnalyticsV2Client",
-      commandName: "DescribeApplicationCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeApplicationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeApplicationResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

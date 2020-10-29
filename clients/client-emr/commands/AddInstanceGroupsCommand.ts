@@ -44,13 +44,23 @@ export class AddInstanceGroupsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "EMRClient";
+    const commandName = "AddInstanceGroupsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "EMRClient",
-      commandName: "AddInstanceGroupsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: AddInstanceGroupsInput.filterSensitiveLog,
       outputFilterSensitiveLog: AddInstanceGroupsOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

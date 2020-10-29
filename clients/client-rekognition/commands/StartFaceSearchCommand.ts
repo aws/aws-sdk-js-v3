@@ -44,13 +44,23 @@ export class StartFaceSearchCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "RekognitionClient";
+    const commandName = "StartFaceSearchCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "RekognitionClient",
-      commandName: "StartFaceSearchCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: StartFaceSearchRequest.filterSensitiveLog,
       outputFilterSensitiveLog: StartFaceSearchResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

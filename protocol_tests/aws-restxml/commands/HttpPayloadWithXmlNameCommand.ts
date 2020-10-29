@@ -44,13 +44,23 @@ export class HttpPayloadWithXmlNameCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "RestXmlProtocolClient";
+    const commandName = "HttpPayloadWithXmlNameCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "RestXmlProtocolClient",
-      commandName: "HttpPayloadWithXmlNameCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: HttpPayloadWithXmlNameInputOutput.filterSensitiveLog,
       outputFilterSensitiveLog: HttpPayloadWithXmlNameInputOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

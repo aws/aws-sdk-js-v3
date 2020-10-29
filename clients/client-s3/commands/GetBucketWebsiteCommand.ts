@@ -46,13 +46,23 @@ export class GetBucketWebsiteCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "S3Client";
+    const commandName = "GetBucketWebsiteCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "S3Client",
-      commandName: "GetBucketWebsiteCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetBucketWebsiteRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetBucketWebsiteOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

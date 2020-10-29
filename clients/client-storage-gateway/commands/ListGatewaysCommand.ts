@@ -44,13 +44,23 @@ export class ListGatewaysCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "StorageGatewayClient";
+    const commandName = "ListGatewaysCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "StorageGatewayClient",
-      commandName: "ListGatewaysCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListGatewaysInput.filterSensitiveLog,
       outputFilterSensitiveLog: ListGatewaysOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

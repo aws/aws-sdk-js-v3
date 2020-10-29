@@ -44,13 +44,23 @@ export class CountOpenWorkflowExecutionsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SWFClient";
+    const commandName = "CountOpenWorkflowExecutionsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "SWFClient",
-      commandName: "CountOpenWorkflowExecutionsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CountOpenWorkflowExecutionsInput.filterSensitiveLog,
       outputFilterSensitiveLog: WorkflowExecutionCount.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

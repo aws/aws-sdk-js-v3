@@ -44,13 +44,23 @@ export class CreateClientVpnEndpointCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "EC2Client";
+    const commandName = "CreateClientVpnEndpointCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "EC2Client",
-      commandName: "CreateClientVpnEndpointCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreateClientVpnEndpointRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateClientVpnEndpointResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

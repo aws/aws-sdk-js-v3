@@ -44,13 +44,23 @@ export class DeleteWorkerBlockCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "MTurkClient";
+    const commandName = "DeleteWorkerBlockCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "MTurkClient",
-      commandName: "DeleteWorkerBlockCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteWorkerBlockRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteWorkerBlockResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

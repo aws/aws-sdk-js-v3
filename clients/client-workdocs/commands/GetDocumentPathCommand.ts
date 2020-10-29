@@ -44,13 +44,23 @@ export class GetDocumentPathCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "WorkDocsClient";
+    const commandName = "GetDocumentPathCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "WorkDocsClient",
-      commandName: "GetDocumentPathCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetDocumentPathRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetDocumentPathResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

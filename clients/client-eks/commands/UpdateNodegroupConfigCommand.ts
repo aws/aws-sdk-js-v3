@@ -44,13 +44,23 @@ export class UpdateNodegroupConfigCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "EKSClient";
+    const commandName = "UpdateNodegroupConfigCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "EKSClient",
-      commandName: "UpdateNodegroupConfigCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UpdateNodegroupConfigRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateNodegroupConfigResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

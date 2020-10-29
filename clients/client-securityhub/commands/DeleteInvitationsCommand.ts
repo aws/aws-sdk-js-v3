@@ -44,13 +44,23 @@ export class DeleteInvitationsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SecurityHubClient";
+    const commandName = "DeleteInvitationsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "SecurityHubClient",
-      commandName: "DeleteInvitationsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteInvitationsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteInvitationsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

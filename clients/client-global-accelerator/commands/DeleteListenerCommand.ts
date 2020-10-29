@@ -48,13 +48,23 @@ export class DeleteListenerCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "GlobalAcceleratorClient";
+    const commandName = "DeleteListenerCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "GlobalAcceleratorClient",
-      commandName: "DeleteListenerCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteListenerRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

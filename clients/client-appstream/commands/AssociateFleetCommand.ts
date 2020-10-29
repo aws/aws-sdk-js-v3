@@ -44,13 +44,23 @@ export class AssociateFleetCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "AppStreamClient";
+    const commandName = "AssociateFleetCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "AppStreamClient",
-      commandName: "AssociateFleetCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: AssociateFleetRequest.filterSensitiveLog,
       outputFilterSensitiveLog: AssociateFleetResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

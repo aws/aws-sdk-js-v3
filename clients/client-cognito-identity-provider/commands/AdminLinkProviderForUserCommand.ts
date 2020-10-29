@@ -50,13 +50,23 @@ export class AdminLinkProviderForUserCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CognitoIdentityProviderClient";
+    const commandName = "AdminLinkProviderForUserCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CognitoIdentityProviderClient",
-      commandName: "AdminLinkProviderForUserCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: AdminLinkProviderForUserRequest.filterSensitiveLog,
       outputFilterSensitiveLog: AdminLinkProviderForUserResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

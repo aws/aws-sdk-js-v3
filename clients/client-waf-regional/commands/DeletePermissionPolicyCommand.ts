@@ -44,13 +44,23 @@ export class DeletePermissionPolicyCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "WAFRegionalClient";
+    const commandName = "DeletePermissionPolicyCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "WAFRegionalClient",
-      commandName: "DeletePermissionPolicyCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeletePermissionPolicyRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeletePermissionPolicyResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

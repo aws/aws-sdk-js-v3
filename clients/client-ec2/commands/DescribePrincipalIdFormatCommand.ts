@@ -44,13 +44,23 @@ export class DescribePrincipalIdFormatCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "EC2Client";
+    const commandName = "DescribePrincipalIdFormatCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "EC2Client",
-      commandName: "DescribePrincipalIdFormatCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribePrincipalIdFormatRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribePrincipalIdFormatResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

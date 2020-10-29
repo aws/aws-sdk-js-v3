@@ -48,13 +48,23 @@ export class BatchMeterUsageCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "MarketplaceMeteringClient";
+    const commandName = "BatchMeterUsageCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "MarketplaceMeteringClient",
-      commandName: "BatchMeterUsageCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: BatchMeterUsageRequest.filterSensitiveLog,
       outputFilterSensitiveLog: BatchMeterUsageResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

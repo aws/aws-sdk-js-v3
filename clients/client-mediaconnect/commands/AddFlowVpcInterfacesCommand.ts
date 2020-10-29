@@ -44,13 +44,23 @@ export class AddFlowVpcInterfacesCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "MediaConnectClient";
+    const commandName = "AddFlowVpcInterfacesCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "MediaConnectClient",
-      commandName: "AddFlowVpcInterfacesCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: AddFlowVpcInterfacesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: AddFlowVpcInterfacesResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

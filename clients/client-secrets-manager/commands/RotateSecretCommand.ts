@@ -44,13 +44,23 @@ export class RotateSecretCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SecretsManagerClient";
+    const commandName = "RotateSecretCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "SecretsManagerClient",
-      commandName: "RotateSecretCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: RotateSecretRequest.filterSensitiveLog,
       outputFilterSensitiveLog: RotateSecretResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

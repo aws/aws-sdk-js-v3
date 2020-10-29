@@ -44,13 +44,23 @@ export class GetSubscriptionStateCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ShieldClient";
+    const commandName = "GetSubscriptionStateCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ShieldClient",
-      commandName: "GetSubscriptionStateCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetSubscriptionStateRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetSubscriptionStateResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

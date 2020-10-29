@@ -48,13 +48,23 @@ export class ForgotPasswordCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CognitoIdentityProviderClient";
+    const commandName = "ForgotPasswordCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CognitoIdentityProviderClient",
-      commandName: "ForgotPasswordCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ForgotPasswordRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ForgotPasswordResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

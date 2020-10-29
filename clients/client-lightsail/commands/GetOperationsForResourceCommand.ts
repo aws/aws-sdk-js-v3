@@ -44,13 +44,23 @@ export class GetOperationsForResourceCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "LightsailClient";
+    const commandName = "GetOperationsForResourceCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "LightsailClient",
-      commandName: "GetOperationsForResourceCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetOperationsForResourceRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetOperationsForResourceResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

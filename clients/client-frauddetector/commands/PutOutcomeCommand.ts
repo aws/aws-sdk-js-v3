@@ -44,13 +44,23 @@ export class PutOutcomeCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "FraudDetectorClient";
+    const commandName = "PutOutcomeCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "FraudDetectorClient",
-      commandName: "PutOutcomeCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: PutOutcomeRequest.filterSensitiveLog,
       outputFilterSensitiveLog: PutOutcomeResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

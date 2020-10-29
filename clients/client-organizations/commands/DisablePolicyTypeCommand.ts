@@ -44,13 +44,23 @@ export class DisablePolicyTypeCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "OrganizationsClient";
+    const commandName = "DisablePolicyTypeCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "OrganizationsClient",
-      commandName: "DisablePolicyTypeCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DisablePolicyTypeRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DisablePolicyTypeResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

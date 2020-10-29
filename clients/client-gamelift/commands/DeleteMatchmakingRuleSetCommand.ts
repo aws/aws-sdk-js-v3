@@ -44,13 +44,23 @@ export class DeleteMatchmakingRuleSetCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "GameLiftClient";
+    const commandName = "DeleteMatchmakingRuleSetCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "GameLiftClient",
-      commandName: "DeleteMatchmakingRuleSetCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteMatchmakingRuleSetInput.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteMatchmakingRuleSetOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

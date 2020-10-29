@@ -44,13 +44,23 @@ export class ListOrganizationsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "WorkMailClient";
+    const commandName = "ListOrganizationsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "WorkMailClient",
-      commandName: "ListOrganizationsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListOrganizationsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListOrganizationsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

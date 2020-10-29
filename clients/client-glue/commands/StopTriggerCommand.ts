@@ -44,13 +44,23 @@ export class StopTriggerCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "GlueClient";
+    const commandName = "StopTriggerCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "GlueClient",
-      commandName: "StopTriggerCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: StopTriggerRequest.filterSensitiveLog,
       outputFilterSensitiveLog: StopTriggerResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

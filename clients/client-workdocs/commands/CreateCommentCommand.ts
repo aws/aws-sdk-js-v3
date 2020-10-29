@@ -44,13 +44,23 @@ export class CreateCommentCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "WorkDocsClient";
+    const commandName = "CreateCommentCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "WorkDocsClient",
-      commandName: "CreateCommentCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreateCommentRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateCommentResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

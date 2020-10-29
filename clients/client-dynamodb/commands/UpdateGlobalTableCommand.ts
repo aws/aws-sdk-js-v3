@@ -44,13 +44,23 @@ export class UpdateGlobalTableCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "DynamoDBClient";
+    const commandName = "UpdateGlobalTableCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "DynamoDBClient",
-      commandName: "UpdateGlobalTableCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UpdateGlobalTableInput.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateGlobalTableOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

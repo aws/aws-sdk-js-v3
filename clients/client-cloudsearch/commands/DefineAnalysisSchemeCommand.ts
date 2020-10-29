@@ -44,13 +44,23 @@ export class DefineAnalysisSchemeCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CloudSearchClient";
+    const commandName = "DefineAnalysisSchemeCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CloudSearchClient",
-      commandName: "DefineAnalysisSchemeCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DefineAnalysisSchemeRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DefineAnalysisSchemeResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

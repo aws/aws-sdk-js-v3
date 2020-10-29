@@ -44,13 +44,23 @@ export class StartMLEvaluationTaskRunCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "GlueClient";
+    const commandName = "StartMLEvaluationTaskRunCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "GlueClient",
-      commandName: "StartMLEvaluationTaskRunCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: StartMLEvaluationTaskRunRequest.filterSensitiveLog,
       outputFilterSensitiveLog: StartMLEvaluationTaskRunResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

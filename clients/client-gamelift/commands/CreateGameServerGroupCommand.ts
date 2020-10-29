@@ -44,13 +44,23 @@ export class CreateGameServerGroupCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "GameLiftClient";
+    const commandName = "CreateGameServerGroupCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "GameLiftClient",
-      commandName: "CreateGameServerGroupCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreateGameServerGroupInput.filterSensitiveLog,
       outputFilterSensitiveLog: CreateGameServerGroupOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

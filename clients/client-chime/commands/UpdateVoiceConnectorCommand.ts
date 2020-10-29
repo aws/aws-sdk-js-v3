@@ -44,13 +44,23 @@ export class UpdateVoiceConnectorCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ChimeClient";
+    const commandName = "UpdateVoiceConnectorCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ChimeClient",
-      commandName: "UpdateVoiceConnectorCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UpdateVoiceConnectorRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateVoiceConnectorResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

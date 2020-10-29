@@ -44,13 +44,23 @@ export class ListApiKeysCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "AppSyncClient";
+    const commandName = "ListApiKeysCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "AppSyncClient",
-      commandName: "ListApiKeysCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListApiKeysRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListApiKeysResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

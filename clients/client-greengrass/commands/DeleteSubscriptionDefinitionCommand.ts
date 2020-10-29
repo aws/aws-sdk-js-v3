@@ -44,13 +44,23 @@ export class DeleteSubscriptionDefinitionCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "GreengrassClient";
+    const commandName = "DeleteSubscriptionDefinitionCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "GreengrassClient",
-      commandName: "DeleteSubscriptionDefinitionCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteSubscriptionDefinitionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteSubscriptionDefinitionResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

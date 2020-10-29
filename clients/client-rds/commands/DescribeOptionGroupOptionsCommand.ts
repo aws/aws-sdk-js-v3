@@ -44,13 +44,23 @@ export class DescribeOptionGroupOptionsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "RDSClient";
+    const commandName = "DescribeOptionGroupOptionsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "RDSClient",
-      commandName: "DescribeOptionGroupOptionsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeOptionGroupOptionsMessage.filterSensitiveLog,
       outputFilterSensitiveLog: OptionGroupOptionsMessage.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

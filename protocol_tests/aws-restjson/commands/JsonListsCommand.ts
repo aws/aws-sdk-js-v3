@@ -44,13 +44,23 @@ export class JsonListsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "RestJsonProtocolClient";
+    const commandName = "JsonListsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "RestJsonProtocolClient",
-      commandName: "JsonListsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: JsonListsInputOutput.filterSensitiveLog,
       outputFilterSensitiveLog: JsonListsInputOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

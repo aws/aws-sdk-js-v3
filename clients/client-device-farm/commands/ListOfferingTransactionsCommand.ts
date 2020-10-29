@@ -44,13 +44,23 @@ export class ListOfferingTransactionsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "DeviceFarmClient";
+    const commandName = "ListOfferingTransactionsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "DeviceFarmClient",
-      commandName: "ListOfferingTransactionsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListOfferingTransactionsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListOfferingTransactionsResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

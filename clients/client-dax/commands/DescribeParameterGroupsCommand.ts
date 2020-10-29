@@ -44,13 +44,23 @@ export class DescribeParameterGroupsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "DAXClient";
+    const commandName = "DescribeParameterGroupsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "DAXClient",
-      commandName: "DescribeParameterGroupsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeParameterGroupsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeParameterGroupsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

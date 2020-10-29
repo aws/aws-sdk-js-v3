@@ -44,13 +44,23 @@ export class DeleteDocumentClassifierCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ComprehendClient";
+    const commandName = "DeleteDocumentClassifierCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ComprehendClient",
-      commandName: "DeleteDocumentClassifierCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteDocumentClassifierRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteDocumentClassifierResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

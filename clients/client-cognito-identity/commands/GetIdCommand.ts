@@ -37,13 +37,23 @@ export class GetIdCommand extends $Command<GetIdCommandInput, GetIdCommandOutput
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CognitoIdentityClient";
+    const commandName = "GetIdCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CognitoIdentityClient",
-      commandName: "GetIdCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetIdInput.filterSensitiveLog,
       outputFilterSensitiveLog: GetIdResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

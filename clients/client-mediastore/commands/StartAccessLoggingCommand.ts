@@ -44,13 +44,23 @@ export class StartAccessLoggingCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "MediaStoreClient";
+    const commandName = "StartAccessLoggingCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "MediaStoreClient",
-      commandName: "StartAccessLoggingCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: StartAccessLoggingInput.filterSensitiveLog,
       outputFilterSensitiveLog: StartAccessLoggingOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

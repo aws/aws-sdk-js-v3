@@ -44,13 +44,23 @@ export class ListCrawlersCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "GlueClient";
+    const commandName = "ListCrawlersCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "GlueClient",
-      commandName: "ListCrawlersCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListCrawlersRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListCrawlersResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

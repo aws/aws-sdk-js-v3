@@ -44,13 +44,23 @@ export class CreateBudgetCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "BudgetsClient";
+    const commandName = "CreateBudgetCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "BudgetsClient",
-      commandName: "CreateBudgetCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreateBudgetRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateBudgetResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

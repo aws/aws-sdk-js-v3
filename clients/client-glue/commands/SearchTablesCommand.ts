@@ -44,13 +44,23 @@ export class SearchTablesCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "GlueClient";
+    const commandName = "SearchTablesCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "GlueClient",
-      commandName: "SearchTablesCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: SearchTablesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: SearchTablesResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

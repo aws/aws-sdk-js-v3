@@ -44,13 +44,23 @@ export class DescribeCustomKeyStoresCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "KMSClient";
+    const commandName = "DescribeCustomKeyStoresCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "KMSClient",
-      commandName: "DescribeCustomKeyStoresCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeCustomKeyStoresRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeCustomKeyStoresResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -44,13 +44,23 @@ export class GetRegexPatternSetCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "WAFRegionalClient";
+    const commandName = "GetRegexPatternSetCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "WAFRegionalClient",
-      commandName: "GetRegexPatternSetCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetRegexPatternSetRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetRegexPatternSetResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

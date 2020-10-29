@@ -44,13 +44,23 @@ export class LabelParameterVersionCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SSMClient";
+    const commandName = "LabelParameterVersionCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "SSMClient",
-      commandName: "LabelParameterVersionCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: LabelParameterVersionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: LabelParameterVersionResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

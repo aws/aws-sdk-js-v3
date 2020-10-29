@@ -44,13 +44,23 @@ export class GetQuantumTaskCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "BraketClient";
+    const commandName = "GetQuantumTaskCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "BraketClient",
-      commandName: "GetQuantumTaskCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetQuantumTaskRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetQuantumTaskResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

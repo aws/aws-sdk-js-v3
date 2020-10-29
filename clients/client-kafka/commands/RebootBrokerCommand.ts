@@ -44,13 +44,23 @@ export class RebootBrokerCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "KafkaClient";
+    const commandName = "RebootBrokerCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "KafkaClient",
-      commandName: "RebootBrokerCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: RebootBrokerRequest.filterSensitiveLog,
       outputFilterSensitiveLog: RebootBrokerResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

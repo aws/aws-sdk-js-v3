@@ -44,13 +44,23 @@ export class GetConnectionStatusCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SSMClient";
+    const commandName = "GetConnectionStatusCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "SSMClient",
-      commandName: "GetConnectionStatusCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetConnectionStatusRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetConnectionStatusResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

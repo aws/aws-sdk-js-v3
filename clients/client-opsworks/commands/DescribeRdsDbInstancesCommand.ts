@@ -44,13 +44,23 @@ export class DescribeRdsDbInstancesCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "OpsWorksClient";
+    const commandName = "DescribeRdsDbInstancesCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "OpsWorksClient",
-      commandName: "DescribeRdsDbInstancesCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeRdsDbInstancesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeRdsDbInstancesResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

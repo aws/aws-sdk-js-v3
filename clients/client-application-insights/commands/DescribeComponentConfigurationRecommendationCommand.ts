@@ -55,13 +55,23 @@ export class DescribeComponentConfigurationRecommendationCommand extends $Comman
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ApplicationInsightsClient";
+    const commandName = "DescribeComponentConfigurationRecommendationCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ApplicationInsightsClient",
-      commandName: "DescribeComponentConfigurationRecommendationCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeComponentConfigurationRecommendationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeComponentConfigurationRecommendationResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

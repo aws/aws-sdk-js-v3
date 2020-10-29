@@ -48,13 +48,23 @@ export class ModifyReplicationSubnetGroupCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "DatabaseMigrationServiceClient";
+    const commandName = "ModifyReplicationSubnetGroupCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "DatabaseMigrationServiceClient",
-      commandName: "ModifyReplicationSubnetGroupCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ModifyReplicationSubnetGroupMessage.filterSensitiveLog,
       outputFilterSensitiveLog: ModifyReplicationSubnetGroupResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

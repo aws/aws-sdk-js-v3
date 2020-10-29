@@ -44,13 +44,23 @@ export class DeleteBackupCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "FSxClient";
+    const commandName = "DeleteBackupCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "FSxClient",
-      commandName: "DeleteBackupCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteBackupRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteBackupResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

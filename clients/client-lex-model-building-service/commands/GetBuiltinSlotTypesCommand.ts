@@ -48,13 +48,23 @@ export class GetBuiltinSlotTypesCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "LexModelBuildingServiceClient";
+    const commandName = "GetBuiltinSlotTypesCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "LexModelBuildingServiceClient",
-      commandName: "GetBuiltinSlotTypesCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetBuiltinSlotTypesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetBuiltinSlotTypesResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

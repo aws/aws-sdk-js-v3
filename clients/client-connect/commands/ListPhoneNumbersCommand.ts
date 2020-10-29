@@ -44,13 +44,23 @@ export class ListPhoneNumbersCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ConnectClient";
+    const commandName = "ListPhoneNumbersCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ConnectClient",
-      commandName: "ListPhoneNumbersCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListPhoneNumbersRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListPhoneNumbersResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

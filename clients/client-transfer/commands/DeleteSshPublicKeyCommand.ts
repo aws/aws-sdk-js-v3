@@ -44,13 +44,23 @@ export class DeleteSshPublicKeyCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "TransferClient";
+    const commandName = "DeleteSshPublicKeyCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "TransferClient",
-      commandName: "DeleteSshPublicKeyCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteSshPublicKeyRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

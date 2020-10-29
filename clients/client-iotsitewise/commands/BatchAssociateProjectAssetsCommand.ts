@@ -44,13 +44,23 @@ export class BatchAssociateProjectAssetsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "IoTSiteWiseClient";
+    const commandName = "BatchAssociateProjectAssetsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "IoTSiteWiseClient",
-      commandName: "BatchAssociateProjectAssetsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: BatchAssociateProjectAssetsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: BatchAssociateProjectAssetsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

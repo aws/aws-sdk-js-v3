@@ -44,13 +44,23 @@ export class GetApplicationDateRangeKpiCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "PinpointClient";
+    const commandName = "GetApplicationDateRangeKpiCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "PinpointClient",
-      commandName: "GetApplicationDateRangeKpiCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetApplicationDateRangeKpiRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetApplicationDateRangeKpiResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -44,13 +44,23 @@ export class AssociateRepositoryCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CodeGuruReviewerClient";
+    const commandName = "AssociateRepositoryCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CodeGuruReviewerClient",
-      commandName: "AssociateRepositoryCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: AssociateRepositoryRequest.filterSensitiveLog,
       outputFilterSensitiveLog: AssociateRepositoryResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

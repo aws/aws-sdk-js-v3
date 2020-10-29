@@ -48,13 +48,23 @@ export class GetClipCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "KinesisVideoArchivedMediaClient";
+    const commandName = "GetClipCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "KinesisVideoArchivedMediaClient",
-      commandName: "GetClipCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetClipInput.filterSensitiveLog,
       outputFilterSensitiveLog: GetClipOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

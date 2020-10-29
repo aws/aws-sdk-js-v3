@@ -50,13 +50,23 @@ export class AdminUpdateUserAttributesCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CognitoIdentityProviderClient";
+    const commandName = "AdminUpdateUserAttributesCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CognitoIdentityProviderClient",
-      commandName: "AdminUpdateUserAttributesCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: AdminUpdateUserAttributesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: AdminUpdateUserAttributesResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

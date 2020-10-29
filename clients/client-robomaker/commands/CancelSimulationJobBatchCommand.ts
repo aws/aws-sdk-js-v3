@@ -44,13 +44,23 @@ export class CancelSimulationJobBatchCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "RoboMakerClient";
+    const commandName = "CancelSimulationJobBatchCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "RoboMakerClient",
-      commandName: "CancelSimulationJobBatchCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CancelSimulationJobBatchRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CancelSimulationJobBatchResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

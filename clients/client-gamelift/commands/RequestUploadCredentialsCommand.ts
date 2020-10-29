@@ -44,13 +44,23 @@ export class RequestUploadCredentialsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "GameLiftClient";
+    const commandName = "RequestUploadCredentialsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "GameLiftClient",
-      commandName: "RequestUploadCredentialsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: RequestUploadCredentialsInput.filterSensitiveLog,
       outputFilterSensitiveLog: RequestUploadCredentialsOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

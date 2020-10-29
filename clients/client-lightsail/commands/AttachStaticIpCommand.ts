@@ -44,13 +44,23 @@ export class AttachStaticIpCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "LightsailClient";
+    const commandName = "AttachStaticIpCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "LightsailClient",
-      commandName: "AttachStaticIpCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: AttachStaticIpRequest.filterSensitiveLog,
       outputFilterSensitiveLog: AttachStaticIpResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -44,13 +44,23 @@ export class ModifyWorkspaceStateCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "WorkSpacesClient";
+    const commandName = "ModifyWorkspaceStateCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "WorkSpacesClient",
-      commandName: "ModifyWorkspaceStateCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ModifyWorkspaceStateRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ModifyWorkspaceStateResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

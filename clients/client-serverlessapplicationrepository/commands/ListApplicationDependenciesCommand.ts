@@ -48,13 +48,23 @@ export class ListApplicationDependenciesCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ServerlessApplicationRepositoryClient";
+    const commandName = "ListApplicationDependenciesCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ServerlessApplicationRepositoryClient",
-      commandName: "ListApplicationDependenciesCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListApplicationDependenciesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListApplicationDependenciesResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

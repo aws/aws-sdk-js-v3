@@ -44,13 +44,23 @@ export class CreateAssociationBatchCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SSMClient";
+    const commandName = "CreateAssociationBatchCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "SSMClient",
-      commandName: "CreateAssociationBatchCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreateAssociationBatchRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateAssociationBatchResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -44,13 +44,23 @@ export class DeleteParameterGroupCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "DAXClient";
+    const commandName = "DeleteParameterGroupCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "DAXClient",
-      commandName: "DeleteParameterGroupCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteParameterGroupRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteParameterGroupResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

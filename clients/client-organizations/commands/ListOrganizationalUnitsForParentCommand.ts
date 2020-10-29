@@ -44,13 +44,23 @@ export class ListOrganizationalUnitsForParentCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "OrganizationsClient";
+    const commandName = "ListOrganizationalUnitsForParentCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "OrganizationsClient",
-      commandName: "ListOrganizationalUnitsForParentCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListOrganizationalUnitsForParentRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListOrganizationalUnitsForParentResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -44,13 +44,23 @@ export class DescribeBudgetActionHistoriesCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "BudgetsClient";
+    const commandName = "DescribeBudgetActionHistoriesCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "BudgetsClient",
-      commandName: "DescribeBudgetActionHistoriesCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeBudgetActionHistoriesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeBudgetActionHistoriesResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

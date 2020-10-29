@@ -44,13 +44,23 @@ export class DeleteSubscriberCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "BudgetsClient";
+    const commandName = "DeleteSubscriberCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "BudgetsClient",
-      commandName: "DeleteSubscriberCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteSubscriberRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteSubscriberResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

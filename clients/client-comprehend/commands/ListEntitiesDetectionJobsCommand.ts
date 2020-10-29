@@ -44,13 +44,23 @@ export class ListEntitiesDetectionJobsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ComprehendClient";
+    const commandName = "ListEntitiesDetectionJobsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ComprehendClient",
-      commandName: "ListEntitiesDetectionJobsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListEntitiesDetectionJobsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListEntitiesDetectionJobsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

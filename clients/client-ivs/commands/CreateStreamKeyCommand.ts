@@ -44,13 +44,23 @@ export class CreateStreamKeyCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "IvsClient";
+    const commandName = "CreateStreamKeyCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "IvsClient",
-      commandName: "CreateStreamKeyCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreateStreamKeyRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateStreamKeyResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

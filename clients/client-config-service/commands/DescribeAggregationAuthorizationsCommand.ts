@@ -48,13 +48,23 @@ export class DescribeAggregationAuthorizationsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ConfigServiceClient";
+    const commandName = "DescribeAggregationAuthorizationsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ConfigServiceClient",
-      commandName: "DescribeAggregationAuthorizationsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeAggregationAuthorizationsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeAggregationAuthorizationsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

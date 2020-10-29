@@ -44,13 +44,23 @@ export class DescribeFileSystemsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "FSxClient";
+    const commandName = "DescribeFileSystemsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "FSxClient",
-      commandName: "DescribeFileSystemsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeFileSystemsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeFileSystemsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

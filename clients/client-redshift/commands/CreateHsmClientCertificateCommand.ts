@@ -44,13 +44,23 @@ export class CreateHsmClientCertificateCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "RedshiftClient";
+    const commandName = "CreateHsmClientCertificateCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "RedshiftClient",
-      commandName: "CreateHsmClientCertificateCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreateHsmClientCertificateMessage.filterSensitiveLog,
       outputFilterSensitiveLog: CreateHsmClientCertificateResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

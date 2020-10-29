@@ -48,13 +48,23 @@ export class CreateEndpointGroupCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "GlobalAcceleratorClient";
+    const commandName = "CreateEndpointGroupCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "GlobalAcceleratorClient",
-      commandName: "CreateEndpointGroupCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreateEndpointGroupRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateEndpointGroupResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

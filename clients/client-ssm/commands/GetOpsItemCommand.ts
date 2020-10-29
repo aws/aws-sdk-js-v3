@@ -44,13 +44,23 @@ export class GetOpsItemCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SSMClient";
+    const commandName = "GetOpsItemCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "SSMClient",
-      commandName: "GetOpsItemCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetOpsItemRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetOpsItemResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

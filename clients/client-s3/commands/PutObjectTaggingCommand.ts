@@ -46,13 +46,23 @@ export class PutObjectTaggingCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "S3Client";
+    const commandName = "PutObjectTaggingCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "S3Client",
-      commandName: "PutObjectTaggingCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: PutObjectTaggingRequest.filterSensitiveLog,
       outputFilterSensitiveLog: PutObjectTaggingOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

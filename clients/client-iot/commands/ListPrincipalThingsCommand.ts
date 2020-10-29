@@ -44,13 +44,23 @@ export class ListPrincipalThingsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "IoTClient";
+    const commandName = "ListPrincipalThingsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "IoTClient",
-      commandName: "ListPrincipalThingsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListPrincipalThingsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListPrincipalThingsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

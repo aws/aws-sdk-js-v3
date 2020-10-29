@@ -44,13 +44,23 @@ export class DescribeBandwidthRateLimitCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "StorageGatewayClient";
+    const commandName = "DescribeBandwidthRateLimitCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "StorageGatewayClient",
-      commandName: "DescribeBandwidthRateLimitCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeBandwidthRateLimitInput.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeBandwidthRateLimitOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

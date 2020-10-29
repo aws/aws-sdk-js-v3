@@ -44,13 +44,23 @@ export class PutEntityTypeCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "FraudDetectorClient";
+    const commandName = "PutEntityTypeCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "FraudDetectorClient",
-      commandName: "PutEntityTypeCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: PutEntityTypeRequest.filterSensitiveLog,
       outputFilterSensitiveLog: PutEntityTypeResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

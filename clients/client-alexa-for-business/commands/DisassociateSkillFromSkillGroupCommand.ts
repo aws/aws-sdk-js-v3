@@ -44,13 +44,23 @@ export class DisassociateSkillFromSkillGroupCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "AlexaForBusinessClient";
+    const commandName = "DisassociateSkillFromSkillGroupCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "AlexaForBusinessClient",
-      commandName: "DisassociateSkillFromSkillGroupCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DisassociateSkillFromSkillGroupRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DisassociateSkillFromSkillGroupResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -44,13 +44,23 @@ export class ListMemberAccountsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "MacieClient";
+    const commandName = "ListMemberAccountsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "MacieClient",
-      commandName: "ListMemberAccountsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListMemberAccountsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListMemberAccountsResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

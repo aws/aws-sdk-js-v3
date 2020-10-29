@@ -44,13 +44,23 @@ export class UpdateServerEngineAttributesCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "OpsWorksCMClient";
+    const commandName = "UpdateServerEngineAttributesCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "OpsWorksCMClient",
-      commandName: "UpdateServerEngineAttributesCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UpdateServerEngineAttributesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateServerEngineAttributesResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

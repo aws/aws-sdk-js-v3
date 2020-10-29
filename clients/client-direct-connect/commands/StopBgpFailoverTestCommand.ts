@@ -44,13 +44,23 @@ export class StopBgpFailoverTestCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "DirectConnectClient";
+    const commandName = "StopBgpFailoverTestCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "DirectConnectClient",
-      commandName: "StopBgpFailoverTestCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: StopBgpFailoverTestRequest.filterSensitiveLog,
       outputFilterSensitiveLog: StopBgpFailoverTestResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -48,13 +48,23 @@ export class DescribeEntityCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "MarketplaceCatalogClient";
+    const commandName = "DescribeEntityCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "MarketplaceCatalogClient",
-      commandName: "DescribeEntityCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeEntityRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeEntityResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

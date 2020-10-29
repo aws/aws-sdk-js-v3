@@ -44,13 +44,23 @@ export class ListSigningPlatformsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SignerClient";
+    const commandName = "ListSigningPlatformsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "SignerClient",
-      commandName: "ListSigningPlatformsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListSigningPlatformsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListSigningPlatformsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -44,13 +44,23 @@ export class RestartSimulationJobCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "RoboMakerClient";
+    const commandName = "RestartSimulationJobCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "RoboMakerClient",
-      commandName: "RestartSimulationJobCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: RestartSimulationJobRequest.filterSensitiveLog,
       outputFilterSensitiveLog: RestartSimulationJobResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

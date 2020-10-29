@@ -44,13 +44,23 @@ export class GetProductsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "PricingClient";
+    const commandName = "GetProductsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "PricingClient",
-      commandName: "GetProductsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetProductsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetProductsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

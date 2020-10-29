@@ -45,13 +45,23 @@ export class UpdateProvisionedProductPropertiesCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ServiceCatalogClient";
+    const commandName = "UpdateProvisionedProductPropertiesCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ServiceCatalogClient",
-      commandName: "UpdateProvisionedProductPropertiesCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UpdateProvisionedProductPropertiesInput.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateProvisionedProductPropertiesOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -44,13 +44,23 @@ export class ListApprovalRuleTemplatesCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CodeCommitClient";
+    const commandName = "ListApprovalRuleTemplatesCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CodeCommitClient",
-      commandName: "ListApprovalRuleTemplatesCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListApprovalRuleTemplatesInput.filterSensitiveLog,
       outputFilterSensitiveLog: ListApprovalRuleTemplatesOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

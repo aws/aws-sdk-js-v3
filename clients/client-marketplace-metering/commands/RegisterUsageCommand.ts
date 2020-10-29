@@ -48,13 +48,23 @@ export class RegisterUsageCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "MarketplaceMeteringClient";
+    const commandName = "RegisterUsageCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "MarketplaceMeteringClient",
-      commandName: "RegisterUsageCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: RegisterUsageRequest.filterSensitiveLog,
       outputFilterSensitiveLog: RegisterUsageResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

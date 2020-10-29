@@ -44,13 +44,23 @@ export class CancelReservedInstancesListingCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "EC2Client";
+    const commandName = "CancelReservedInstancesListingCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "EC2Client",
-      commandName: "CancelReservedInstancesListingCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CancelReservedInstancesListingRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CancelReservedInstancesListingResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

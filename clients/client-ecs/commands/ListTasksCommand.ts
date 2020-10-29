@@ -37,13 +37,23 @@ export class ListTasksCommand extends $Command<ListTasksCommandInput, ListTasksC
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ECSClient";
+    const commandName = "ListTasksCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ECSClient",
-      commandName: "ListTasksCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListTasksRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListTasksResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

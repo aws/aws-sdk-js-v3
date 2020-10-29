@@ -44,13 +44,23 @@ export class ListPlaybackConfigurationsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "MediaTailorClient";
+    const commandName = "ListPlaybackConfigurationsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "MediaTailorClient",
-      commandName: "ListPlaybackConfigurationsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListPlaybackConfigurationsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListPlaybackConfigurationsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

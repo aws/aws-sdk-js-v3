@@ -44,13 +44,23 @@ export class GetAppliedSchemaVersionCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CloudDirectoryClient";
+    const commandName = "GetAppliedSchemaVersionCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CloudDirectoryClient",
-      commandName: "GetAppliedSchemaVersionCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetAppliedSchemaVersionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetAppliedSchemaVersionResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

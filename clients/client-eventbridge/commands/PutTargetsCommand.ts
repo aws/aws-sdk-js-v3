@@ -44,13 +44,23 @@ export class PutTargetsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "EventBridgeClient";
+    const commandName = "PutTargetsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "EventBridgeClient",
-      commandName: "PutTargetsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: PutTargetsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: PutTargetsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

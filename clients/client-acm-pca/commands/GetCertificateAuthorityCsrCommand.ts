@@ -44,13 +44,23 @@ export class GetCertificateAuthorityCsrCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ACMPCAClient";
+    const commandName = "GetCertificateAuthorityCsrCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ACMPCAClient",
-      commandName: "GetCertificateAuthorityCsrCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetCertificateAuthorityCsrRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetCertificateAuthorityCsrResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

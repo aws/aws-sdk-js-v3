@@ -44,13 +44,23 @@ export class PutAppValidationConfigurationCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SMSClient";
+    const commandName = "PutAppValidationConfigurationCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "SMSClient",
-      commandName: "PutAppValidationConfigurationCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: PutAppValidationConfigurationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: PutAppValidationConfigurationResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

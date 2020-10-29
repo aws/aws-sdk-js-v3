@@ -44,13 +44,23 @@ export class StartStreamProcessorCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "RekognitionClient";
+    const commandName = "StartStreamProcessorCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "RekognitionClient",
-      commandName: "StartStreamProcessorCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: StartStreamProcessorRequest.filterSensitiveLog,
       outputFilterSensitiveLog: StartStreamProcessorResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

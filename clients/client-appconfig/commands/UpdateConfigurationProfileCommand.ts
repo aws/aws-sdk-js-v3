@@ -44,13 +44,23 @@ export class UpdateConfigurationProfileCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "AppConfigClient";
+    const commandName = "UpdateConfigurationProfileCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "AppConfigClient",
-      commandName: "UpdateConfigurationProfileCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UpdateConfigurationProfileRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ConfigurationProfile.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

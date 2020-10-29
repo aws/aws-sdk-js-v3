@@ -44,13 +44,23 @@ export class ListThemeAliasesCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "QuickSightClient";
+    const commandName = "ListThemeAliasesCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "QuickSightClient",
-      commandName: "ListThemeAliasesCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListThemeAliasesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListThemeAliasesResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -41,13 +41,23 @@ export class CreateTopicCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SNSClient";
+    const commandName = "CreateTopicCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "SNSClient",
-      commandName: "CreateTopicCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreateTopicInput.filterSensitiveLog,
       outputFilterSensitiveLog: CreateTopicResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

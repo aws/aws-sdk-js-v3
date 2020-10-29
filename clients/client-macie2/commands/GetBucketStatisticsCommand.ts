@@ -44,13 +44,23 @@ export class GetBucketStatisticsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "Macie2Client";
+    const commandName = "GetBucketStatisticsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "Macie2Client",
-      commandName: "GetBucketStatisticsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetBucketStatisticsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetBucketStatisticsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -44,13 +44,23 @@ export class GetCertificatesCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "LightsailClient";
+    const commandName = "GetCertificatesCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "LightsailClient",
-      commandName: "GetCertificatesCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetCertificatesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetCertificatesResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

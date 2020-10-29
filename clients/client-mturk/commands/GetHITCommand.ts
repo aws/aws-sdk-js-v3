@@ -37,13 +37,23 @@ export class GetHITCommand extends $Command<GetHITCommandInput, GetHITCommandOut
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "MTurkClient";
+    const commandName = "GetHITCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "MTurkClient",
-      commandName: "GetHITCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetHITRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetHITResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

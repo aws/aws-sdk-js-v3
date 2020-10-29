@@ -44,13 +44,23 @@ export class CreateCrawlerCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "GlueClient";
+    const commandName = "CreateCrawlerCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "GlueClient",
-      commandName: "CreateCrawlerCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreateCrawlerRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateCrawlerResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

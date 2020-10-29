@@ -44,13 +44,23 @@ export class UpdateGroupQueryCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ResourceGroupsClient";
+    const commandName = "UpdateGroupQueryCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ResourceGroupsClient",
-      commandName: "UpdateGroupQueryCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UpdateGroupQueryInput.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateGroupQueryOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -44,13 +44,23 @@ export class GetCurrentUserCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "WorkDocsClient";
+    const commandName = "GetCurrentUserCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "WorkDocsClient",
-      commandName: "GetCurrentUserCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetCurrentUserRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetCurrentUserResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

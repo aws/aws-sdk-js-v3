@@ -44,13 +44,23 @@ export class CreateLocationSmbCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "DataSyncClient";
+    const commandName = "CreateLocationSmbCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "DataSyncClient",
-      commandName: "CreateLocationSmbCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreateLocationSmbRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateLocationSmbResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

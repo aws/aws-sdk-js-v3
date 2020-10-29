@@ -44,13 +44,23 @@ export class CreateCloudFormationStackCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "LightsailClient";
+    const commandName = "CreateCloudFormationStackCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "LightsailClient",
-      commandName: "CreateCloudFormationStackCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreateCloudFormationStackRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateCloudFormationStackResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

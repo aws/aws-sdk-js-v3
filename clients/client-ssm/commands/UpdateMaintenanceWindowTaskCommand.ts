@@ -44,13 +44,23 @@ export class UpdateMaintenanceWindowTaskCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SSMClient";
+    const commandName = "UpdateMaintenanceWindowTaskCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "SSMClient",
-      commandName: "UpdateMaintenanceWindowTaskCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UpdateMaintenanceWindowTaskRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateMaintenanceWindowTaskResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -44,13 +44,23 @@ export class DeleteLunaClientCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CloudHSMClient";
+    const commandName = "DeleteLunaClientCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CloudHSMClient",
-      commandName: "DeleteLunaClientCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteLunaClientRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteLunaClientResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

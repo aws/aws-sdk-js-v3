@@ -44,13 +44,23 @@ export class DescribeAuditSuppressionCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "IoTClient";
+    const commandName = "DescribeAuditSuppressionCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "IoTClient",
-      commandName: "DescribeAuditSuppressionCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeAuditSuppressionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeAuditSuppressionResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

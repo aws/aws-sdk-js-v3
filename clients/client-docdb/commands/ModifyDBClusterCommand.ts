@@ -44,13 +44,23 @@ export class ModifyDBClusterCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "DocDBClient";
+    const commandName = "ModifyDBClusterCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "DocDBClient",
-      commandName: "ModifyDBClusterCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ModifyDBClusterMessage.filterSensitiveLog,
       outputFilterSensitiveLog: ModifyDBClusterResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

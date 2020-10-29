@@ -44,13 +44,23 @@ export class GetDataLakeSettingsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "LakeFormationClient";
+    const commandName = "GetDataLakeSettingsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "LakeFormationClient",
-      commandName: "GetDataLakeSettingsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetDataLakeSettingsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetDataLakeSettingsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

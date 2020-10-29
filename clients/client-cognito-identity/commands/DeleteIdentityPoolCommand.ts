@@ -46,13 +46,23 @@ export class DeleteIdentityPoolCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CognitoIdentityClient";
+    const commandName = "DeleteIdentityPoolCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CognitoIdentityClient",
-      commandName: "DeleteIdentityPoolCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteIdentityPoolInput.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

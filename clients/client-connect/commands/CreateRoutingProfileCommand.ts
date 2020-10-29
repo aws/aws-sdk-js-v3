@@ -44,13 +44,23 @@ export class CreateRoutingProfileCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ConnectClient";
+    const commandName = "CreateRoutingProfileCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ConnectClient",
-      commandName: "CreateRoutingProfileCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreateRoutingProfileRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateRoutingProfileResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -44,13 +44,23 @@ export class StopAppReplicationCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SMSClient";
+    const commandName = "StopAppReplicationCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "SMSClient",
-      commandName: "StopAppReplicationCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: StopAppReplicationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: StopAppReplicationResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

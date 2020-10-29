@@ -44,13 +44,23 @@ export class ListTargetsByRuleCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "EventBridgeClient";
+    const commandName = "ListTargetsByRuleCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "EventBridgeClient",
-      commandName: "ListTargetsByRuleCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListTargetsByRuleRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListTargetsByRuleResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

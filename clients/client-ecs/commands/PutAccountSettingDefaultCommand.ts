@@ -44,13 +44,23 @@ export class PutAccountSettingDefaultCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ECSClient";
+    const commandName = "PutAccountSettingDefaultCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ECSClient",
-      commandName: "PutAccountSettingDefaultCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: PutAccountSettingDefaultRequest.filterSensitiveLog,
       outputFilterSensitiveLog: PutAccountSettingDefaultResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -45,13 +45,23 @@ export class DisassociatePrincipalFromPortfolioCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ServiceCatalogClient";
+    const commandName = "DisassociatePrincipalFromPortfolioCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ServiceCatalogClient",
-      commandName: "DisassociatePrincipalFromPortfolioCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DisassociatePrincipalFromPortfolioInput.filterSensitiveLog,
       outputFilterSensitiveLog: DisassociatePrincipalFromPortfolioOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

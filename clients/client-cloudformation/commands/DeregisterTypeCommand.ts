@@ -44,13 +44,23 @@ export class DeregisterTypeCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CloudFormationClient";
+    const commandName = "DeregisterTypeCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CloudFormationClient",
-      commandName: "DeregisterTypeCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeregisterTypeInput.filterSensitiveLog,
       outputFilterSensitiveLog: DeregisterTypeOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -48,13 +48,23 @@ export class ListJobsByStatusCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ElasticTranscoderClient";
+    const commandName = "ListJobsByStatusCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ElasticTranscoderClient",
-      commandName: "ListJobsByStatusCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListJobsByStatusRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListJobsByStatusResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

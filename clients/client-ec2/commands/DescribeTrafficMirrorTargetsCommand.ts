@@ -44,13 +44,23 @@ export class DescribeTrafficMirrorTargetsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "EC2Client";
+    const commandName = "DescribeTrafficMirrorTargetsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "EC2Client",
-      commandName: "DescribeTrafficMirrorTargetsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeTrafficMirrorTargetsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeTrafficMirrorTargetsResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

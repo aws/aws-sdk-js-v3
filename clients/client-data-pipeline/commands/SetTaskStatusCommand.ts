@@ -44,13 +44,23 @@ export class SetTaskStatusCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "DataPipelineClient";
+    const commandName = "SetTaskStatusCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "DataPipelineClient",
-      commandName: "SetTaskStatusCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: SetTaskStatusInput.filterSensitiveLog,
       outputFilterSensitiveLog: SetTaskStatusOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

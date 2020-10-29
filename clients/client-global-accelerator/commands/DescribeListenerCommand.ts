@@ -48,13 +48,23 @@ export class DescribeListenerCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "GlobalAcceleratorClient";
+    const commandName = "DescribeListenerCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "GlobalAcceleratorClient",
-      commandName: "DescribeListenerCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeListenerRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeListenerResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

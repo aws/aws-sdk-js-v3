@@ -44,13 +44,23 @@ export class AddJobFlowStepsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "EMRClient";
+    const commandName = "AddJobFlowStepsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "EMRClient",
-      commandName: "AddJobFlowStepsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: AddJobFlowStepsInput.filterSensitiveLog,
       outputFilterSensitiveLog: AddJobFlowStepsOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

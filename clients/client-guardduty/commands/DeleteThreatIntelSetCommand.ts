@@ -44,13 +44,23 @@ export class DeleteThreatIntelSetCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "GuardDutyClient";
+    const commandName = "DeleteThreatIntelSetCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "GuardDutyClient",
-      commandName: "DeleteThreatIntelSetCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteThreatIntelSetRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteThreatIntelSetResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -52,13 +52,23 @@ export class DescribeElasticsearchDomainConfigCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ElasticsearchServiceClient";
+    const commandName = "DescribeElasticsearchDomainConfigCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ElasticsearchServiceClient",
-      commandName: "DescribeElasticsearchDomainConfigCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeElasticsearchDomainConfigRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeElasticsearchDomainConfigResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

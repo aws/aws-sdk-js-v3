@@ -44,13 +44,23 @@ export class GetDedicatedIpsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "PinpointEmailClient";
+    const commandName = "GetDedicatedIpsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "PinpointEmailClient",
-      commandName: "GetDedicatedIpsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetDedicatedIpsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetDedicatedIpsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

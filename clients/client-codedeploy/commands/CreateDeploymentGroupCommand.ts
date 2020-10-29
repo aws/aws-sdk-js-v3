@@ -44,13 +44,23 @@ export class CreateDeploymentGroupCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CodeDeployClient";
+    const commandName = "CreateDeploymentGroupCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CodeDeployClient",
-      commandName: "CreateDeploymentGroupCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreateDeploymentGroupInput.filterSensitiveLog,
       outputFilterSensitiveLog: CreateDeploymentGroupOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

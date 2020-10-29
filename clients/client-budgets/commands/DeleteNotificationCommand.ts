@@ -44,13 +44,23 @@ export class DeleteNotificationCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "BudgetsClient";
+    const commandName = "DeleteNotificationCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "BudgetsClient",
-      commandName: "DeleteNotificationCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteNotificationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteNotificationResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -44,13 +44,23 @@ export class GetPermissionCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "RAMClient";
+    const commandName = "GetPermissionCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "RAMClient",
-      commandName: "GetPermissionCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetPermissionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetPermissionResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

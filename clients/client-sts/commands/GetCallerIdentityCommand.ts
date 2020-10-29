@@ -44,13 +44,23 @@ export class GetCallerIdentityCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "STSClient";
+    const commandName = "GetCallerIdentityCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "STSClient",
-      commandName: "GetCallerIdentityCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetCallerIdentityRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetCallerIdentityResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

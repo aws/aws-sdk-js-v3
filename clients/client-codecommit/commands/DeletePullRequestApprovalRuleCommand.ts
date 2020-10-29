@@ -44,13 +44,23 @@ export class DeletePullRequestApprovalRuleCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CodeCommitClient";
+    const commandName = "DeletePullRequestApprovalRuleCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CodeCommitClient",
-      commandName: "DeletePullRequestApprovalRuleCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeletePullRequestApprovalRuleInput.filterSensitiveLog,
       outputFilterSensitiveLog: DeletePullRequestApprovalRuleOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -44,13 +44,23 @@ export class DeleteTapePoolCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "StorageGatewayClient";
+    const commandName = "DeleteTapePoolCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "StorageGatewayClient",
-      commandName: "DeleteTapePoolCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteTapePoolInput.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteTapePoolOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

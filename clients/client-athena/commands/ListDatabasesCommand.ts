@@ -44,13 +44,23 @@ export class ListDatabasesCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "AthenaClient";
+    const commandName = "ListDatabasesCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "AthenaClient",
-      commandName: "ListDatabasesCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListDatabasesInput.filterSensitiveLog,
       outputFilterSensitiveLog: ListDatabasesOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

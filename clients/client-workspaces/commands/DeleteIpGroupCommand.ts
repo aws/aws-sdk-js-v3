@@ -44,13 +44,23 @@ export class DeleteIpGroupCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "WorkSpacesClient";
+    const commandName = "DeleteIpGroupCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "WorkSpacesClient",
-      commandName: "DeleteIpGroupCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteIpGroupRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteIpGroupResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

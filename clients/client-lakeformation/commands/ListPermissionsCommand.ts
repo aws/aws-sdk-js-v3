@@ -44,13 +44,23 @@ export class ListPermissionsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "LakeFormationClient";
+    const commandName = "ListPermissionsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "LakeFormationClient",
-      commandName: "ListPermissionsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListPermissionsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListPermissionsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

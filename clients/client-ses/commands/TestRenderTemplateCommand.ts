@@ -44,13 +44,23 @@ export class TestRenderTemplateCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SESClient";
+    const commandName = "TestRenderTemplateCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "SESClient",
-      commandName: "TestRenderTemplateCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: TestRenderTemplateRequest.filterSensitiveLog,
       outputFilterSensitiveLog: TestRenderTemplateResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

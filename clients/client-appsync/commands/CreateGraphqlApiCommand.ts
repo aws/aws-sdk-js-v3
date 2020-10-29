@@ -44,13 +44,23 @@ export class CreateGraphqlApiCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "AppSyncClient";
+    const commandName = "CreateGraphqlApiCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "AppSyncClient",
-      commandName: "CreateGraphqlApiCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreateGraphqlApiRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateGraphqlApiResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

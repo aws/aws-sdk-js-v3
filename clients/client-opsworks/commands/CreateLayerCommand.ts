@@ -44,13 +44,23 @@ export class CreateLayerCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "OpsWorksClient";
+    const commandName = "CreateLayerCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "OpsWorksClient",
-      commandName: "CreateLayerCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreateLayerRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateLayerResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

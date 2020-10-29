@@ -44,13 +44,23 @@ export class ListSolutionsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "PersonalizeClient";
+    const commandName = "ListSolutionsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "PersonalizeClient",
-      commandName: "ListSolutionsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListSolutionsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListSolutionsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
