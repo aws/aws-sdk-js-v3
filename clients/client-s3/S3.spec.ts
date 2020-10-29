@@ -87,8 +87,9 @@ describe("Accesspoint ARN", async () => {
       Body: "body",
     });
     expect(result.request.hostname).to.eql(`abc-111-${AccountId}.${OutpostId}.s3-outposts.us-west-2.amazonaws.com`);
+    const date = new Date().toISOString().substr(0, 10).replace(/-/g, ""); //20201029
     expect(result.request.headers["authorization"]).contains(
-      `Credential=${credentials.accessKeyId}/20200928/${region}/s3-outposts/aws4_request`
+      `Credential=${credentials.accessKeyId}/${date}/${region}/s3-outposts/aws4_request`
     );
   });
 });
