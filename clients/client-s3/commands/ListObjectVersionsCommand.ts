@@ -21,6 +21,38 @@ import {
 export type ListObjectVersionsCommandInput = ListObjectVersionsRequest;
 export type ListObjectVersionsCommandOutput = ListObjectVersionsOutput & __MetadataBearer;
 
+/**
+ * <p>Returns metadata about all of the versions of objects in a bucket. You can also use request parameters as selection criteria to return metadata about a subset of all the object versions. </p>
+ *
+ *          <note>
+ *             <p> A 200 OK response can contain valid or invalid XML. Make sure to design your application to parse the contents of the response and handle it appropriately.</p>
+ *          </note>
+ *          <p>To use this operation, you must have READ access to the bucket.</p>
+ *
+ *          <p>The following operations are related to <code>ListObjectVersions</code>:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a>ListObjectsV2</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>GetObject</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>PutObject</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>DeleteObject</a>
+ *                </p>
+ *             </li>
+ *          </ul>
+ */
 export class ListObjectVersionsCommand extends $Command<
   ListObjectVersionsCommandInput,
   ListObjectVersionsCommandOutput,
@@ -35,6 +67,9 @@ export class ListObjectVersionsCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: S3ClientResolvedConfig,

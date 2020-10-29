@@ -21,6 +21,26 @@ import {
 export type GetObjectTorrentCommandInput = GetObjectTorrentRequest;
 export type GetObjectTorrentCommandOutput = GetObjectTorrentOutput & __MetadataBearer;
 
+/**
+ * <p>Return torrent files from a bucket. BitTorrent can save you bandwidth when you're distributing large files. For more information about BitTorrent, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/S3Torrent.html">Amazon S3 Torrent</a>.</p>
+ *
+ *          <note>
+ *             <p>You can get torrent only for objects that are less than 5 GB in size and that are not encrypted using server-side encryption with customer-provided encryption key.</p>
+ *          </note>
+ *
+ *
+ *
+ *          <p>To use GET, you must have READ access to the object.</p>
+ *
+ *          <p>The following operation is related to <code>GetObjectTorrent</code>:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a>GetObject</a>
+ *                </p>
+ *             </li>
+ *          </ul>
+ */
 export class GetObjectTorrentCommand extends $Command<
   GetObjectTorrentCommandInput,
   GetObjectTorrentCommandOutput,
@@ -35,6 +55,9 @@ export class GetObjectTorrentCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: S3ClientResolvedConfig,

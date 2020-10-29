@@ -21,6 +21,38 @@ import {
 export type GetBucketReplicationCommandInput = GetBucketReplicationRequest;
 export type GetBucketReplicationCommandOutput = GetBucketReplicationOutput & __MetadataBearer;
 
+/**
+ * <p>Returns the replication configuration of a bucket.</p>
+ *          <note>
+ *             <p>
+ *         It can take a while to propagate the put or delete a replication configuration to all Amazon S3 systems. Therefore,
+ *         a get request soon after put or delete can return a wrong result.
+ *       </p>
+ *          </note>
+ *          <p> For information about replication configuration, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/replication.html">Replication</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
+ *
+ *          <p>This operation requires permissions for the <code>s3:GetReplicationConfiguration</code> action. For more information about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-iam-policies.html">Using Bucket Policies and User Policies</a>.</p>
+ *
+ *          <p>If you include the <code>Filter</code> element in a replication configuration, you must also include the <code>DeleteMarkerReplication</code> and <code>Priority</code> elements. The response also returns those elements.</p>
+ *
+ *          <p>For information about <code>GetBucketReplication</code> errors, see <a>ReplicationErrorCodeList</a>
+ *          </p>
+ *
+ *
+ *          <p>The following operations are related to <code>GetBucketReplication</code>:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a>PutBucketReplication</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>DeleteBucketReplication</a>
+ *                </p>
+ *             </li>
+ *          </ul>
+ */
 export class GetBucketReplicationCommand extends $Command<
   GetBucketReplicationCommandInput,
   GetBucketReplicationCommandOutput,
@@ -35,6 +67,9 @@ export class GetBucketReplicationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: S3ClientResolvedConfig,

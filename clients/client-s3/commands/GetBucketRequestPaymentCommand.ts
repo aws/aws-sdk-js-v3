@@ -21,6 +21,20 @@ import {
 export type GetBucketRequestPaymentCommandInput = GetBucketRequestPaymentRequest;
 export type GetBucketRequestPaymentCommandOutput = GetBucketRequestPaymentOutput & __MetadataBearer;
 
+/**
+ * <p>Returns the request payment configuration of a bucket.
+ *       To use this version of the operation, you must be the bucket owner. For more information, see
+ *       <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html">Requester Pays Buckets</a>.</p>
+ *
+ *          <p>The following operations are related to <code>GetBucketRequestPayment</code>:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a>ListObjects</a>
+ *                </p>
+ *             </li>
+ *          </ul>
+ */
 export class GetBucketRequestPaymentCommand extends $Command<
   GetBucketRequestPaymentCommandInput,
   GetBucketRequestPaymentCommandOutput,
@@ -35,6 +49,9 @@ export class GetBucketRequestPaymentCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: S3ClientResolvedConfig,

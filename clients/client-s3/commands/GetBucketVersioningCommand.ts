@@ -21,6 +21,33 @@ import {
 export type GetBucketVersioningCommandInput = GetBucketVersioningRequest;
 export type GetBucketVersioningCommandOutput = GetBucketVersioningOutput & __MetadataBearer;
 
+/**
+ * <p>Returns the versioning state of a bucket.</p>
+ *          <p>To retrieve the versioning state of a bucket, you must be the bucket owner.</p>
+ *
+ *          <p>This implementation also returns the MFA Delete status of the versioning state. If the
+ *          MFA Delete status is <code>enabled</code>, the bucket owner must use an authentication
+ *          device to change the versioning state of the bucket.</p>
+ *
+ *          <p>The following operations are related to <code>GetBucketVersioning</code>:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a>GetObject</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>PutObject</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>DeleteObject</a>
+ *                </p>
+ *             </li>
+ *          </ul>
+ */
 export class GetBucketVersioningCommand extends $Command<
   GetBucketVersioningCommandInput,
   GetBucketVersioningCommandOutput,
@@ -35,6 +62,9 @@ export class GetBucketVersioningCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: S3ClientResolvedConfig,

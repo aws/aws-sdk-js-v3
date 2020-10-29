@@ -18,6 +18,9 @@ import { fromUtf8, toUtf8 } from "@aws-sdk/util-utf8-node";
 import { ClientDefaults } from "./S3Client";
 import { ClientSharedValues } from "./runtimeConfig.shared";
 
+/**
+ * @internal
+ */
 export const ClientDefaultValues: Required<ClientDefaults> = {
   ...ClientSharedValues,
   runtime: "node",

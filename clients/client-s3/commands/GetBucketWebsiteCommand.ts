@@ -21,6 +21,24 @@ import {
 export type GetBucketWebsiteCommandInput = GetBucketWebsiteRequest;
 export type GetBucketWebsiteCommandOutput = GetBucketWebsiteOutput & __MetadataBearer;
 
+/**
+ * <p>Returns the website configuration for a bucket. To host website on Amazon S3, you can configure a bucket as website by adding a website configuration. For more information about hosting websites, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html">Hosting Websites on Amazon S3</a>.
+ *      </p>
+ *          <p>This GET operation requires the <code>S3:GetBucketWebsite</code> permission. By default, only the bucket owner can read the bucket website configuration. However, bucket owners can allow other users to read the website configuration by writing a bucket policy granting them the <code>S3:GetBucketWebsite</code> permission.</p>
+ *          <p>The following operations are related to <code>DeleteBucketWebsite</code>:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a>DeleteBucketWebsite</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>PutBucketWebsite</a>
+ *                </p>
+ *             </li>
+ *          </ul>
+ */
 export class GetBucketWebsiteCommand extends $Command<
   GetBucketWebsiteCommandInput,
   GetBucketWebsiteCommandOutput,
@@ -35,6 +53,9 @@ export class GetBucketWebsiteCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: S3ClientResolvedConfig,

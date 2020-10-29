@@ -21,6 +21,9 @@ import {
 export type GetObjectLockConfigurationCommandInput = GetObjectLockConfigurationRequest;
 export type GetObjectLockConfigurationCommandOutput = GetObjectLockConfigurationOutput & __MetadataBearer;
 
+/**
+ * <p>Gets the Object Lock configuration for a bucket. The rule specified in the Object Lock configuration will be applied by default to every new object placed in the specified bucket. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html">Locking Objects</a>.</p>
+ */
 export class GetObjectLockConfigurationCommand extends $Command<
   GetObjectLockConfigurationCommandInput,
   GetObjectLockConfigurationCommandOutput,
@@ -35,6 +38,9 @@ export class GetObjectLockConfigurationCommand extends $Command<
     // End section: command_constructor
   }
 
+  /**
+   * @internal
+   */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: S3ClientResolvedConfig,
