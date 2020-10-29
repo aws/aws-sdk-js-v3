@@ -44,13 +44,23 @@ export class CreateSolutionCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "PersonalizeClient";
+    const commandName = "CreateSolutionCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "PersonalizeClient",
-      commandName: "CreateSolutionCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreateSolutionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateSolutionResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

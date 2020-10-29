@@ -44,13 +44,23 @@ export class ListWorldsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "RoboMakerClient";
+    const commandName = "ListWorldsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "RoboMakerClient",
-      commandName: "ListWorldsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListWorldsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListWorldsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

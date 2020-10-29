@@ -44,13 +44,23 @@ export class DeleteRateBasedRuleCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "WAFClient";
+    const commandName = "DeleteRateBasedRuleCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "WAFClient",
-      commandName: "DeleteRateBasedRuleCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteRateBasedRuleRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteRateBasedRuleResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

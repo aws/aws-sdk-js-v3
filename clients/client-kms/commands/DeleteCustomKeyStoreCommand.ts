@@ -44,13 +44,23 @@ export class DeleteCustomKeyStoreCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "KMSClient";
+    const commandName = "DeleteCustomKeyStoreCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "KMSClient",
-      commandName: "DeleteCustomKeyStoreCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteCustomKeyStoreRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteCustomKeyStoreResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

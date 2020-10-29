@@ -44,13 +44,23 @@ export class ListCertificatesByCACommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "IoTClient";
+    const commandName = "ListCertificatesByCACommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "IoTClient",
-      commandName: "ListCertificatesByCACommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListCertificatesByCARequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListCertificatesByCAResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

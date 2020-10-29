@@ -44,13 +44,23 @@ export class CreateDataSourceCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "AppSyncClient";
+    const commandName = "CreateDataSourceCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "AppSyncClient",
-      commandName: "CreateDataSourceCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreateDataSourceRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateDataSourceResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

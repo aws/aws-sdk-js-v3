@@ -48,13 +48,23 @@ export class GetDASHStreamingSessionURLCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "KinesisVideoArchivedMediaClient";
+    const commandName = "GetDASHStreamingSessionURLCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "KinesisVideoArchivedMediaClient",
-      commandName: "GetDASHStreamingSessionURLCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetDASHStreamingSessionURLInput.filterSensitiveLog,
       outputFilterSensitiveLog: GetDASHStreamingSessionURLOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

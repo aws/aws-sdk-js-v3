@@ -44,13 +44,23 @@ export class GetServiceRoleForAccountCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "GreengrassClient";
+    const commandName = "GetServiceRoleForAccountCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "GreengrassClient",
-      commandName: "GetServiceRoleForAccountCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetServiceRoleForAccountRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetServiceRoleForAccountResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

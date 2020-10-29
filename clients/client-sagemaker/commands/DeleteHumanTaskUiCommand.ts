@@ -44,13 +44,23 @@ export class DeleteHumanTaskUiCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SageMakerClient";
+    const commandName = "DeleteHumanTaskUiCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "SageMakerClient",
-      commandName: "DeleteHumanTaskUiCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteHumanTaskUiRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteHumanTaskUiResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

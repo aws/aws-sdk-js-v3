@@ -45,13 +45,23 @@ export class GetHostCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CodeStarConnectionsClient";
+    const commandName = "GetHostCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CodeStarConnectionsClient",
-      commandName: "GetHostCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetHostInput.filterSensitiveLog,
       outputFilterSensitiveLog: GetHostOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

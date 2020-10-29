@@ -44,13 +44,23 @@ export class CreateLoggerDefinitionCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "GreengrassClient";
+    const commandName = "CreateLoggerDefinitionCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "GreengrassClient",
-      commandName: "CreateLoggerDefinitionCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreateLoggerDefinitionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateLoggerDefinitionResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

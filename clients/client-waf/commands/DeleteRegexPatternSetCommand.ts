@@ -44,13 +44,23 @@ export class DeleteRegexPatternSetCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "WAFClient";
+    const commandName = "DeleteRegexPatternSetCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "WAFClient",
-      commandName: "DeleteRegexPatternSetCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteRegexPatternSetRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteRegexPatternSetResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

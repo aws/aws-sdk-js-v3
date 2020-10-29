@@ -52,13 +52,23 @@ export class DeleteApplicationVpcConfigurationCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "KinesisAnalyticsV2Client";
+    const commandName = "DeleteApplicationVpcConfigurationCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "KinesisAnalyticsV2Client",
-      commandName: "DeleteApplicationVpcConfigurationCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteApplicationVpcConfigurationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteApplicationVpcConfigurationResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

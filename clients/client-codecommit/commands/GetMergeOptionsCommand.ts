@@ -44,13 +44,23 @@ export class GetMergeOptionsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CodeCommitClient";
+    const commandName = "GetMergeOptionsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CodeCommitClient",
-      commandName: "GetMergeOptionsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetMergeOptionsInput.filterSensitiveLog,
       outputFilterSensitiveLog: GetMergeOptionsOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

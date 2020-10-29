@@ -48,13 +48,23 @@ export class GetConfigurationSetEventDestinationsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "PinpointSMSVoiceClient";
+    const commandName = "GetConfigurationSetEventDestinationsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "PinpointSMSVoiceClient",
-      commandName: "GetConfigurationSetEventDestinationsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetConfigurationSetEventDestinationsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetConfigurationSetEventDestinationsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

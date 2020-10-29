@@ -44,13 +44,23 @@ export class UpdateNotificationCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "BudgetsClient";
+    const commandName = "UpdateNotificationCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "BudgetsClient",
-      commandName: "UpdateNotificationCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UpdateNotificationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateNotificationResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

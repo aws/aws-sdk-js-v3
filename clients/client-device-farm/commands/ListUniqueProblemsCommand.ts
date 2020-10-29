@@ -44,13 +44,23 @@ export class ListUniqueProblemsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "DeviceFarmClient";
+    const commandName = "ListUniqueProblemsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "DeviceFarmClient",
-      commandName: "ListUniqueProblemsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListUniqueProblemsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListUniqueProblemsResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

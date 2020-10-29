@@ -44,13 +44,23 @@ export class GetTimeSeriesServiceStatisticsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "XRayClient";
+    const commandName = "GetTimeSeriesServiceStatisticsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "XRayClient",
-      commandName: "GetTimeSeriesServiceStatisticsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetTimeSeriesServiceStatisticsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetTimeSeriesServiceStatisticsResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

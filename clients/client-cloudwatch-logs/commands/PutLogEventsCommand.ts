@@ -44,13 +44,23 @@ export class PutLogEventsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CloudWatchLogsClient";
+    const commandName = "PutLogEventsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CloudWatchLogsClient",
-      commandName: "PutLogEventsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: PutLogEventsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: PutLogEventsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

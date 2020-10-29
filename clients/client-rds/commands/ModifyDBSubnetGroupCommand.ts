@@ -44,13 +44,23 @@ export class ModifyDBSubnetGroupCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "RDSClient";
+    const commandName = "ModifyDBSubnetGroupCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "RDSClient",
-      commandName: "ModifyDBSubnetGroupCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ModifyDBSubnetGroupMessage.filterSensitiveLog,
       outputFilterSensitiveLog: ModifyDBSubnetGroupResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -44,13 +44,23 @@ export class DescribeEventTypesCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "HealthClient";
+    const commandName = "DescribeEventTypesCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "HealthClient",
-      commandName: "DescribeEventTypesCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeEventTypesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeEventTypesResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

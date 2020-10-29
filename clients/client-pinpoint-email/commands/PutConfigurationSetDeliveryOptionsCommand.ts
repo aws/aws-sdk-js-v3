@@ -48,13 +48,23 @@ export class PutConfigurationSetDeliveryOptionsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "PinpointEmailClient";
+    const commandName = "PutConfigurationSetDeliveryOptionsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "PinpointEmailClient",
-      commandName: "PutConfigurationSetDeliveryOptionsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: PutConfigurationSetDeliveryOptionsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: PutConfigurationSetDeliveryOptionsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

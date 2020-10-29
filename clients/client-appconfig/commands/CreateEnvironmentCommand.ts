@@ -44,13 +44,23 @@ export class CreateEnvironmentCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "AppConfigClient";
+    const commandName = "CreateEnvironmentCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "AppConfigClient",
-      commandName: "CreateEnvironmentCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreateEnvironmentRequest.filterSensitiveLog,
       outputFilterSensitiveLog: Environment.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

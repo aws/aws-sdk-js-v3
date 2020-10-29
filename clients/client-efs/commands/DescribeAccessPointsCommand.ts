@@ -44,13 +44,23 @@ export class DescribeAccessPointsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "EFSClient";
+    const commandName = "DescribeAccessPointsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "EFSClient",
-      commandName: "DescribeAccessPointsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeAccessPointsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeAccessPointsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

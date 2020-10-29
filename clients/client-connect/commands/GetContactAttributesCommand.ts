@@ -44,13 +44,23 @@ export class GetContactAttributesCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ConnectClient";
+    const commandName = "GetContactAttributesCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ConnectClient",
-      commandName: "GetContactAttributesCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetContactAttributesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetContactAttributesResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

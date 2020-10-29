@@ -44,13 +44,23 @@ export class DescribeIdentityUsageCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CognitoSyncClient";
+    const commandName = "DescribeIdentityUsageCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CognitoSyncClient",
-      commandName: "DescribeIdentityUsageCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeIdentityUsageRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeIdentityUsageResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

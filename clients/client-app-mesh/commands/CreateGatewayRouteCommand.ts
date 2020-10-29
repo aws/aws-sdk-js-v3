@@ -44,13 +44,23 @@ export class CreateGatewayRouteCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "AppMeshClient";
+    const commandName = "CreateGatewayRouteCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "AppMeshClient",
-      commandName: "CreateGatewayRouteCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreateGatewayRouteInput.filterSensitiveLog,
       outputFilterSensitiveLog: CreateGatewayRouteOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

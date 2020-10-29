@@ -44,13 +44,23 @@ export class CreateDocumentCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SSMClient";
+    const commandName = "CreateDocumentCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "SSMClient",
-      commandName: "CreateDocumentCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreateDocumentRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateDocumentResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -44,13 +44,23 @@ export class DeregisterInstanceCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ServiceDiscoveryClient";
+    const commandName = "DeregisterInstanceCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ServiceDiscoveryClient",
-      commandName: "DeregisterInstanceCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeregisterInstanceRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeregisterInstanceResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

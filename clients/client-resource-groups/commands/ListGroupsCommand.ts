@@ -44,13 +44,23 @@ export class ListGroupsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ResourceGroupsClient";
+    const commandName = "ListGroupsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ResourceGroupsClient",
-      commandName: "ListGroupsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListGroupsInput.filterSensitiveLog,
       outputFilterSensitiveLog: ListGroupsOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

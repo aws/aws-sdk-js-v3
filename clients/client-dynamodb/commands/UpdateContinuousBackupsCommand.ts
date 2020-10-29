@@ -44,13 +44,23 @@ export class UpdateContinuousBackupsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "DynamoDBClient";
+    const commandName = "UpdateContinuousBackupsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "DynamoDBClient",
-      commandName: "UpdateContinuousBackupsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UpdateContinuousBackupsInput.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateContinuousBackupsOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

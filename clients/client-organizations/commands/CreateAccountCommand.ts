@@ -44,13 +44,23 @@ export class CreateAccountCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "OrganizationsClient";
+    const commandName = "CreateAccountCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "OrganizationsClient",
-      commandName: "CreateAccountCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreateAccountRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateAccountResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

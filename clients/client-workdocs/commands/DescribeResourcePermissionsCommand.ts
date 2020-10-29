@@ -44,13 +44,23 @@ export class DescribeResourcePermissionsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "WorkDocsClient";
+    const commandName = "DescribeResourcePermissionsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "WorkDocsClient",
-      commandName: "DescribeResourcePermissionsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeResourcePermissionsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeResourcePermissionsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

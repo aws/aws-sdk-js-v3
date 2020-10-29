@@ -52,13 +52,23 @@ export class GetCompatibleElasticsearchVersionsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ElasticsearchServiceClient";
+    const commandName = "GetCompatibleElasticsearchVersionsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ElasticsearchServiceClient",
-      commandName: "GetCompatibleElasticsearchVersionsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetCompatibleElasticsearchVersionsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetCompatibleElasticsearchVersionsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

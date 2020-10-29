@@ -44,13 +44,23 @@ export class ListActiveViolationsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "IoTClient";
+    const commandName = "ListActiveViolationsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "IoTClient",
-      commandName: "ListActiveViolationsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListActiveViolationsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListActiveViolationsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

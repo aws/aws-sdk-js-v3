@@ -44,13 +44,23 @@ export class CreateAnomalySubscriptionCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CostExplorerClient";
+    const commandName = "CreateAnomalySubscriptionCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CostExplorerClient",
-      commandName: "CreateAnomalySubscriptionCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreateAnomalySubscriptionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateAnomalySubscriptionResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

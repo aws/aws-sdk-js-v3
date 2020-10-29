@@ -44,13 +44,23 @@ export class ListMedicalVocabulariesCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "TranscribeClient";
+    const commandName = "ListMedicalVocabulariesCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "TranscribeClient",
-      commandName: "ListMedicalVocabulariesCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListMedicalVocabulariesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListMedicalVocabulariesResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -44,13 +44,23 @@ export class UpdateClientCertificateCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "APIGatewayClient";
+    const commandName = "UpdateClientCertificateCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "APIGatewayClient",
-      commandName: "UpdateClientCertificateCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UpdateClientCertificateRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ClientCertificate.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -44,13 +44,23 @@ export class ConstantQueryStringCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "RestXmlProtocolClient";
+    const commandName = "ConstantQueryStringCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "RestXmlProtocolClient",
-      commandName: "ConstantQueryStringCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ConstantQueryStringInput.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

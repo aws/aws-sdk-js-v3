@@ -44,13 +44,23 @@ export class GetEndpointAttributesCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SNSClient";
+    const commandName = "GetEndpointAttributesCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "SNSClient",
-      commandName: "GetEndpointAttributesCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetEndpointAttributesInput.filterSensitiveLog,
       outputFilterSensitiveLog: GetEndpointAttributesResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

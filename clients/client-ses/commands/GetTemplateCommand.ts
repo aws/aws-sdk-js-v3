@@ -41,13 +41,23 @@ export class GetTemplateCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SESClient";
+    const commandName = "GetTemplateCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "SESClient",
-      commandName: "GetTemplateCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetTemplateRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetTemplateResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

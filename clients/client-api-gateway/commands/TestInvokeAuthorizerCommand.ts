@@ -44,13 +44,23 @@ export class TestInvokeAuthorizerCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "APIGatewayClient";
+    const commandName = "TestInvokeAuthorizerCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "APIGatewayClient",
-      commandName: "TestInvokeAuthorizerCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: TestInvokeAuthorizerRequest.filterSensitiveLog,
       outputFilterSensitiveLog: TestInvokeAuthorizerResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

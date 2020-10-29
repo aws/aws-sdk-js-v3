@@ -44,13 +44,23 @@ export class DescribeStepCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "EMRClient";
+    const commandName = "DescribeStepCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "EMRClient",
-      commandName: "DescribeStepCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeStepInput.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeStepOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

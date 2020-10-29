@@ -44,13 +44,23 @@ export class CreateRepositoryCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ECRClient";
+    const commandName = "CreateRepositoryCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ECRClient",
-      commandName: "CreateRepositoryCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreateRepositoryRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateRepositoryResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

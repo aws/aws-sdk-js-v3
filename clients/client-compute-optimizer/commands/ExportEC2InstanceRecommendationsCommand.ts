@@ -44,13 +44,23 @@ export class ExportEC2InstanceRecommendationsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ComputeOptimizerClient";
+    const commandName = "ExportEC2InstanceRecommendationsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ComputeOptimizerClient",
-      commandName: "ExportEC2InstanceRecommendationsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ExportEC2InstanceRecommendationsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ExportEC2InstanceRecommendationsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

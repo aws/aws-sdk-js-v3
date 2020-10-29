@@ -44,13 +44,23 @@ export class GetManagedPrefixListAssociationsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "EC2Client";
+    const commandName = "GetManagedPrefixListAssociationsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "EC2Client",
-      commandName: "GetManagedPrefixListAssociationsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetManagedPrefixListAssociationsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetManagedPrefixListAssociationsResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -44,13 +44,23 @@ export class CreateVirtualServiceCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "AppMeshClient";
+    const commandName = "CreateVirtualServiceCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "AppMeshClient",
-      commandName: "CreateVirtualServiceCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreateVirtualServiceInput.filterSensitiveLog,
       outputFilterSensitiveLog: CreateVirtualServiceOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

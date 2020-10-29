@@ -47,13 +47,23 @@ export class DisassociateApprovalRuleTemplateFromRepositoryCommand extends $Comm
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CodeCommitClient";
+    const commandName = "DisassociateApprovalRuleTemplateFromRepositoryCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CodeCommitClient",
-      commandName: "DisassociateApprovalRuleTemplateFromRepositoryCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DisassociateApprovalRuleTemplateFromRepositoryInput.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

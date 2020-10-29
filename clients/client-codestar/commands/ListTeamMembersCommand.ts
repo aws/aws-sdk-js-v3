@@ -44,13 +44,23 @@ export class ListTeamMembersCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CodeStarClient";
+    const commandName = "ListTeamMembersCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CodeStarClient",
-      commandName: "ListTeamMembersCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListTeamMembersRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListTeamMembersResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

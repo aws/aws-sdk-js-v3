@@ -44,13 +44,23 @@ export class UpdateSegmentCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "PinpointClient";
+    const commandName = "UpdateSegmentCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "PinpointClient",
-      commandName: "UpdateSegmentCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UpdateSegmentRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateSegmentResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

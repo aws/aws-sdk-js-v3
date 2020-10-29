@@ -44,13 +44,23 @@ export class DescribeReplicationGroupsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ElastiCacheClient";
+    const commandName = "DescribeReplicationGroupsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ElastiCacheClient",
-      commandName: "DescribeReplicationGroupsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeReplicationGroupsMessage.filterSensitiveLog,
       outputFilterSensitiveLog: ReplicationGroupMessage.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -44,13 +44,23 @@ export class ListClusterJobsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SnowballClient";
+    const commandName = "ListClusterJobsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "SnowballClient",
-      commandName: "ListClusterJobsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListClusterJobsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListClusterJobsResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

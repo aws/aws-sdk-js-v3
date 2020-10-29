@@ -44,13 +44,23 @@ export class GetDomainsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "LightsailClient";
+    const commandName = "GetDomainsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "LightsailClient",
-      commandName: "GetDomainsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetDomainsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetDomainsResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

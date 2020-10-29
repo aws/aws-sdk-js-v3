@@ -44,13 +44,23 @@ export class ListExclusionsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "InspectorClient";
+    const commandName = "ListExclusionsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "InspectorClient",
-      commandName: "ListExclusionsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListExclusionsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListExclusionsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -44,13 +44,23 @@ export class PutAnomalyDetectorCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CloudWatchClient";
+    const commandName = "PutAnomalyDetectorCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CloudWatchClient",
-      commandName: "PutAnomalyDetectorCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: PutAnomalyDetectorInput.filterSensitiveLog,
       outputFilterSensitiveLog: PutAnomalyDetectorOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -44,13 +44,23 @@ export class AssociateCertificateCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "MediaConvertClient";
+    const commandName = "AssociateCertificateCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "MediaConvertClient",
-      commandName: "AssociateCertificateCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: AssociateCertificateRequest.filterSensitiveLog,
       outputFilterSensitiveLog: AssociateCertificateResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

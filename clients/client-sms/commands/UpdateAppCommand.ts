@@ -37,13 +37,23 @@ export class UpdateAppCommand extends $Command<UpdateAppCommandInput, UpdateAppC
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SMSClient";
+    const commandName = "UpdateAppCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "SMSClient",
-      commandName: "UpdateAppCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UpdateAppRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateAppResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

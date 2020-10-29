@@ -44,13 +44,23 @@ export class StartOnDemandAuditTaskCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "IoTClient";
+    const commandName = "StartOnDemandAuditTaskCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "IoTClient",
-      commandName: "StartOnDemandAuditTaskCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: StartOnDemandAuditTaskRequest.filterSensitiveLog,
       outputFilterSensitiveLog: StartOnDemandAuditTaskResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

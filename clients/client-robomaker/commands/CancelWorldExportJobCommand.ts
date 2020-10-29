@@ -44,13 +44,23 @@ export class CancelWorldExportJobCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "RoboMakerClient";
+    const commandName = "CancelWorldExportJobCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "RoboMakerClient",
-      commandName: "CancelWorldExportJobCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CancelWorldExportJobRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CancelWorldExportJobResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

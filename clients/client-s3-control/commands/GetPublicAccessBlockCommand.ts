@@ -46,13 +46,23 @@ export class GetPublicAccessBlockCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "S3ControlClient";
+    const commandName = "GetPublicAccessBlockCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "S3ControlClient",
-      commandName: "GetPublicAccessBlockCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetPublicAccessBlockRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetPublicAccessBlockOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

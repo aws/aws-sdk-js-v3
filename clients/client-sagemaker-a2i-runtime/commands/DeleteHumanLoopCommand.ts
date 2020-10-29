@@ -48,13 +48,23 @@ export class DeleteHumanLoopCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SageMakerA2IRuntimeClient";
+    const commandName = "DeleteHumanLoopCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "SageMakerA2IRuntimeClient",
-      commandName: "DeleteHumanLoopCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteHumanLoopRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteHumanLoopResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

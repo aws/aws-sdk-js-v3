@@ -44,13 +44,23 @@ export class DescribeProtectedResourceCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "BackupClient";
+    const commandName = "DescribeProtectedResourceCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "BackupClient",
-      commandName: "DescribeProtectedResourceCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeProtectedResourceInput.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeProtectedResourceOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -44,13 +44,23 @@ export class UpdateFleetAttributesCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "GameLiftClient";
+    const commandName = "UpdateFleetAttributesCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "GameLiftClient",
-      commandName: "UpdateFleetAttributesCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UpdateFleetAttributesInput.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateFleetAttributesOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

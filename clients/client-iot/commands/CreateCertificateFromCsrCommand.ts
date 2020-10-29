@@ -44,13 +44,23 @@ export class CreateCertificateFromCsrCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "IoTClient";
+    const commandName = "CreateCertificateFromCsrCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "IoTClient",
-      commandName: "CreateCertificateFromCsrCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreateCertificateFromCsrRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateCertificateFromCsrResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

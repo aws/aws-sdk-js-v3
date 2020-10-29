@@ -48,13 +48,23 @@ export class ListEndpointsByPlatformApplicationCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SNSClient";
+    const commandName = "ListEndpointsByPlatformApplicationCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "SNSClient",
-      commandName: "ListEndpointsByPlatformApplicationCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListEndpointsByPlatformApplicationInput.filterSensitiveLog,
       outputFilterSensitiveLog: ListEndpointsByPlatformApplicationResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

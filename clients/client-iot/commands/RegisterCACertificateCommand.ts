@@ -44,13 +44,23 @@ export class RegisterCACertificateCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "IoTClient";
+    const commandName = "RegisterCACertificateCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "IoTClient",
-      commandName: "RegisterCACertificateCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: RegisterCACertificateRequest.filterSensitiveLog,
       outputFilterSensitiveLog: RegisterCACertificateResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

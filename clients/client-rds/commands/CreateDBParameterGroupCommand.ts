@@ -44,13 +44,23 @@ export class CreateDBParameterGroupCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "RDSClient";
+    const commandName = "CreateDBParameterGroupCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "RDSClient",
-      commandName: "CreateDBParameterGroupCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreateDBParameterGroupMessage.filterSensitiveLog,
       outputFilterSensitiveLog: CreateDBParameterGroupResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

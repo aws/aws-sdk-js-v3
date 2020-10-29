@@ -44,13 +44,23 @@ export class ListScriptsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "GameLiftClient";
+    const commandName = "ListScriptsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "GameLiftClient",
-      commandName: "ListScriptsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListScriptsInput.filterSensitiveLog,
       outputFilterSensitiveLog: ListScriptsOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

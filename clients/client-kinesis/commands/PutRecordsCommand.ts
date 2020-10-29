@@ -44,13 +44,23 @@ export class PutRecordsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "KinesisClient";
+    const commandName = "PutRecordsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "KinesisClient",
-      commandName: "PutRecordsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: PutRecordsInput.filterSensitiveLog,
       outputFilterSensitiveLog: PutRecordsOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

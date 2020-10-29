@@ -44,13 +44,23 @@ export class GetLexiconCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "PollyClient";
+    const commandName = "GetLexiconCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "PollyClient",
-      commandName: "GetLexiconCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetLexiconInput.filterSensitiveLog,
       outputFilterSensitiveLog: GetLexiconOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

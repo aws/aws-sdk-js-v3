@@ -48,13 +48,23 @@ export class GetTranscriptCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ConnectParticipantClient";
+    const commandName = "GetTranscriptCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ConnectParticipantClient",
-      commandName: "GetTranscriptCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetTranscriptRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetTranscriptResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

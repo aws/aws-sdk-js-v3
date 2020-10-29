@@ -44,13 +44,23 @@ export class DescribeRuntimeVersionsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SyntheticsClient";
+    const commandName = "DescribeRuntimeVersionsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "SyntheticsClient",
-      commandName: "DescribeRuntimeVersionsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeRuntimeVersionsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeRuntimeVersionsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

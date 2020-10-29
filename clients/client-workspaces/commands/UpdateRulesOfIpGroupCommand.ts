@@ -44,13 +44,23 @@ export class UpdateRulesOfIpGroupCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "WorkSpacesClient";
+    const commandName = "UpdateRulesOfIpGroupCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "WorkSpacesClient",
-      commandName: "UpdateRulesOfIpGroupCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UpdateRulesOfIpGroupRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateRulesOfIpGroupResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

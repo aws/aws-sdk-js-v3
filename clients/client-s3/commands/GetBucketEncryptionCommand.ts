@@ -46,13 +46,23 @@ export class GetBucketEncryptionCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "S3Client";
+    const commandName = "GetBucketEncryptionCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "S3Client",
-      commandName: "GetBucketEncryptionCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetBucketEncryptionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetBucketEncryptionOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

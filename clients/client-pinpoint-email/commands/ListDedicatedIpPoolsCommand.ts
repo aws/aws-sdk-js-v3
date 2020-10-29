@@ -44,13 +44,23 @@ export class ListDedicatedIpPoolsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "PinpointEmailClient";
+    const commandName = "ListDedicatedIpPoolsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "PinpointEmailClient",
-      commandName: "ListDedicatedIpPoolsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListDedicatedIpPoolsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListDedicatedIpPoolsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

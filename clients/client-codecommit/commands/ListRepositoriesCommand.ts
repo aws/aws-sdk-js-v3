@@ -44,13 +44,23 @@ export class ListRepositoriesCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CodeCommitClient";
+    const commandName = "ListRepositoriesCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CodeCommitClient",
-      commandName: "ListRepositoriesCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListRepositoriesInput.filterSensitiveLog,
       outputFilterSensitiveLog: ListRepositoriesOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

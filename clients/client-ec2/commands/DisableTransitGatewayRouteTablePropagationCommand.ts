@@ -51,13 +51,23 @@ export class DisableTransitGatewayRouteTablePropagationCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "EC2Client";
+    const commandName = "DisableTransitGatewayRouteTablePropagationCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "EC2Client",
-      commandName: "DisableTransitGatewayRouteTablePropagationCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DisableTransitGatewayRouteTablePropagationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DisableTransitGatewayRouteTablePropagationResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

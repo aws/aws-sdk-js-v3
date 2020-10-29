@@ -40,13 +40,23 @@ export class GetStreamCommand extends $Command<GetStreamCommandInput, GetStreamC
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "IvsClient";
+    const commandName = "GetStreamCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "IvsClient",
-      commandName: "GetStreamCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetStreamRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetStreamResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

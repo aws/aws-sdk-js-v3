@@ -44,13 +44,23 @@ export class DeleteConnectionCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "DirectConnectClient";
+    const commandName = "DeleteConnectionCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "DirectConnectClient",
-      commandName: "DeleteConnectionCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteConnectionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: Connection.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

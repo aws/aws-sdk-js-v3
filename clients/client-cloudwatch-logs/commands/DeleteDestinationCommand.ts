@@ -44,13 +44,23 @@ export class DeleteDestinationCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CloudWatchLogsClient";
+    const commandName = "DeleteDestinationCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CloudWatchLogsClient",
-      commandName: "DeleteDestinationCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteDestinationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

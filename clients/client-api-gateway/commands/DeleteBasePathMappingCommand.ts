@@ -44,13 +44,23 @@ export class DeleteBasePathMappingCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "APIGatewayClient";
+    const commandName = "DeleteBasePathMappingCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "APIGatewayClient",
-      commandName: "DeleteBasePathMappingCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteBasePathMappingRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

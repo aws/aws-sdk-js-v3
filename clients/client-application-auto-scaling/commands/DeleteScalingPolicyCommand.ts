@@ -48,13 +48,23 @@ export class DeleteScalingPolicyCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ApplicationAutoScalingClient";
+    const commandName = "DeleteScalingPolicyCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ApplicationAutoScalingClient",
-      commandName: "DeleteScalingPolicyCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteScalingPolicyRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteScalingPolicyResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

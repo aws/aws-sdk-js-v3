@@ -44,13 +44,23 @@ export class DescribeWorkspaceImagePermissionsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "WorkSpacesClient";
+    const commandName = "DescribeWorkspaceImagePermissionsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "WorkSpacesClient",
-      commandName: "DescribeWorkspaceImagePermissionsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeWorkspaceImagePermissionsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeWorkspaceImagePermissionsResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -44,13 +44,23 @@ export class RegisterUserCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "QuickSightClient";
+    const commandName = "RegisterUserCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "QuickSightClient",
-      commandName: "RegisterUserCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: RegisterUserRequest.filterSensitiveLog,
       outputFilterSensitiveLog: RegisterUserResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

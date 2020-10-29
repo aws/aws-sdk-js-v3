@@ -44,13 +44,23 @@ export class ListProjectAssetsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "IoTSiteWiseClient";
+    const commandName = "ListProjectAssetsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "IoTSiteWiseClient",
-      commandName: "ListProjectAssetsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListProjectAssetsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListProjectAssetsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

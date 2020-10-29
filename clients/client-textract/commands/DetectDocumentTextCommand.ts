@@ -44,13 +44,23 @@ export class DetectDocumentTextCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "TextractClient";
+    const commandName = "DetectDocumentTextCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "TextractClient",
-      commandName: "DetectDocumentTextCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DetectDocumentTextRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DetectDocumentTextResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

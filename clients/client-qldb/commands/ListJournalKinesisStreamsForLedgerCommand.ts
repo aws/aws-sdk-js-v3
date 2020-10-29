@@ -48,13 +48,23 @@ export class ListJournalKinesisStreamsForLedgerCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "QLDBClient";
+    const commandName = "ListJournalKinesisStreamsForLedgerCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "QLDBClient",
-      commandName: "ListJournalKinesisStreamsForLedgerCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListJournalKinesisStreamsForLedgerRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListJournalKinesisStreamsForLedgerResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

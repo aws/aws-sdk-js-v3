@@ -44,13 +44,23 @@ export class UpdateEventSourceMappingCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "LambdaClient";
+    const commandName = "UpdateEventSourceMappingCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "LambdaClient",
-      commandName: "UpdateEventSourceMappingCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UpdateEventSourceMappingRequest.filterSensitiveLog,
       outputFilterSensitiveLog: EventSourceMappingConfiguration.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

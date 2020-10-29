@@ -44,13 +44,23 @@ export class AssociateS3ResourcesCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "MacieClient";
+    const commandName = "AssociateS3ResourcesCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "MacieClient",
-      commandName: "AssociateS3ResourcesCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: AssociateS3ResourcesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: AssociateS3ResourcesResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

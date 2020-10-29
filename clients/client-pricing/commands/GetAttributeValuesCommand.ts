@@ -44,13 +44,23 @@ export class GetAttributeValuesCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "PricingClient";
+    const commandName = "GetAttributeValuesCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "PricingClient",
-      commandName: "GetAttributeValuesCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetAttributeValuesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetAttributeValuesResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

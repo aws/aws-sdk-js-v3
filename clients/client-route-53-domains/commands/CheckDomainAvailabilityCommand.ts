@@ -44,13 +44,23 @@ export class CheckDomainAvailabilityCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "Route53DomainsClient";
+    const commandName = "CheckDomainAvailabilityCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "Route53DomainsClient",
-      commandName: "CheckDomainAvailabilityCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CheckDomainAvailabilityRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CheckDomainAvailabilityResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -44,13 +44,23 @@ export class DescribePendingMaintenanceActionsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "RDSClient";
+    const commandName = "DescribePendingMaintenanceActionsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "RDSClient",
-      commandName: "DescribePendingMaintenanceActionsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribePendingMaintenanceActionsMessage.filterSensitiveLog,
       outputFilterSensitiveLog: PendingMaintenanceActionsMessage.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -44,13 +44,23 @@ export class ListTrainingJobsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SageMakerClient";
+    const commandName = "ListTrainingJobsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "SageMakerClient",
-      commandName: "ListTrainingJobsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListTrainingJobsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListTrainingJobsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

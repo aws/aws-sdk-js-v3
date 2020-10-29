@@ -44,13 +44,23 @@ export class DescribeDetectorCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "FraudDetectorClient";
+    const commandName = "DescribeDetectorCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "FraudDetectorClient",
-      commandName: "DescribeDetectorCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeDetectorRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeDetectorResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -44,13 +44,23 @@ export class RegisterDeviceCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CognitoSyncClient";
+    const commandName = "RegisterDeviceCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CognitoSyncClient",
-      commandName: "RegisterDeviceCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: RegisterDeviceRequest.filterSensitiveLog,
       outputFilterSensitiveLog: RegisterDeviceResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

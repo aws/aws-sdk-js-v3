@@ -44,13 +44,23 @@ export class GetDatabaseCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "GlueClient";
+    const commandName = "GetDatabaseCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "GlueClient",
-      commandName: "GetDatabaseCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetDatabaseRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetDatabaseResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

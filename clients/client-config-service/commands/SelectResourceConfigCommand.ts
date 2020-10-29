@@ -44,13 +44,23 @@ export class SelectResourceConfigCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ConfigServiceClient";
+    const commandName = "SelectResourceConfigCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ConfigServiceClient",
-      commandName: "SelectResourceConfigCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: SelectResourceConfigRequest.filterSensitiveLog,
       outputFilterSensitiveLog: SelectResourceConfigResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

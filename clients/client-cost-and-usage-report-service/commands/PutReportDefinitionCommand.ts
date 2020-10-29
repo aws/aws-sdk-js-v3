@@ -48,13 +48,23 @@ export class PutReportDefinitionCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CostAndUsageReportServiceClient";
+    const commandName = "PutReportDefinitionCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CostAndUsageReportServiceClient",
-      commandName: "PutReportDefinitionCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: PutReportDefinitionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: PutReportDefinitionResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

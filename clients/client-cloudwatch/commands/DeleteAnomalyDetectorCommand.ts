@@ -44,13 +44,23 @@ export class DeleteAnomalyDetectorCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CloudWatchClient";
+    const commandName = "DeleteAnomalyDetectorCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CloudWatchClient",
-      commandName: "DeleteAnomalyDetectorCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteAnomalyDetectorInput.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteAnomalyDetectorOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

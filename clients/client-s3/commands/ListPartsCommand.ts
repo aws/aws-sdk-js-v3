@@ -39,13 +39,23 @@ export class ListPartsCommand extends $Command<ListPartsCommandInput, ListPartsC
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "S3Client";
+    const commandName = "ListPartsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "S3Client",
-      commandName: "ListPartsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListPartsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListPartsOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

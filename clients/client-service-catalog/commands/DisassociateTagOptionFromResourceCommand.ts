@@ -44,13 +44,23 @@ export class DisassociateTagOptionFromResourceCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ServiceCatalogClient";
+    const commandName = "DisassociateTagOptionFromResourceCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ServiceCatalogClient",
-      commandName: "DisassociateTagOptionFromResourceCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DisassociateTagOptionFromResourceInput.filterSensitiveLog,
       outputFilterSensitiveLog: DisassociateTagOptionFromResourceOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

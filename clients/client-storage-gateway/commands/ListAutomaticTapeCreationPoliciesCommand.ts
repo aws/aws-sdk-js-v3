@@ -44,13 +44,23 @@ export class ListAutomaticTapeCreationPoliciesCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "StorageGatewayClient";
+    const commandName = "ListAutomaticTapeCreationPoliciesCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "StorageGatewayClient",
-      commandName: "ListAutomaticTapeCreationPoliciesCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListAutomaticTapeCreationPoliciesInput.filterSensitiveLog,
       outputFilterSensitiveLog: ListAutomaticTapeCreationPoliciesOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

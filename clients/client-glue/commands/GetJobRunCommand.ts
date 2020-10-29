@@ -41,13 +41,23 @@ export class GetJobRunCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "GlueClient";
+    const commandName = "GetJobRunCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "GlueClient",
-      commandName: "GetJobRunCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetJobRunRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetJobRunResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

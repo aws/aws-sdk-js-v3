@@ -48,13 +48,23 @@ export class ListProvisionedConcurrencyConfigsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "LambdaClient";
+    const commandName = "ListProvisionedConcurrencyConfigsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "LambdaClient",
-      commandName: "ListProvisionedConcurrencyConfigsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListProvisionedConcurrencyConfigsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListProvisionedConcurrencyConfigsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -48,13 +48,23 @@ export class AttachManagedPolicyToPermissionSetCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SSOAdminClient";
+    const commandName = "AttachManagedPolicyToPermissionSetCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "SSOAdminClient",
-      commandName: "AttachManagedPolicyToPermissionSetCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: AttachManagedPolicyToPermissionSetRequest.filterSensitiveLog,
       outputFilterSensitiveLog: AttachManagedPolicyToPermissionSetResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

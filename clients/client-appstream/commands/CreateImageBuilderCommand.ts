@@ -44,13 +44,23 @@ export class CreateImageBuilderCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "AppStreamClient";
+    const commandName = "CreateImageBuilderCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "AppStreamClient",
-      commandName: "CreateImageBuilderCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreateImageBuilderRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateImageBuilderResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

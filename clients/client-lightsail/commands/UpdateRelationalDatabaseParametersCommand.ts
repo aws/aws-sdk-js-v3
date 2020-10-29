@@ -48,13 +48,23 @@ export class UpdateRelationalDatabaseParametersCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "LightsailClient";
+    const commandName = "UpdateRelationalDatabaseParametersCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "LightsailClient",
-      commandName: "UpdateRelationalDatabaseParametersCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UpdateRelationalDatabaseParametersRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateRelationalDatabaseParametersResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

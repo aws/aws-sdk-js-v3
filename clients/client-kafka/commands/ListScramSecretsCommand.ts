@@ -44,13 +44,23 @@ export class ListScramSecretsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "KafkaClient";
+    const commandName = "ListScramSecretsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "KafkaClient",
-      commandName: "ListScramSecretsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListScramSecretsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListScramSecretsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -44,13 +44,23 @@ export class CreatePrivateDnsNamespaceCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ServiceDiscoveryClient";
+    const commandName = "CreatePrivateDnsNamespaceCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ServiceDiscoveryClient",
-      commandName: "CreatePrivateDnsNamespaceCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreatePrivateDnsNamespaceRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreatePrivateDnsNamespaceResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

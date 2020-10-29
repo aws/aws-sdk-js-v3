@@ -44,13 +44,23 @@ export class CreateNamedQueryCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "AthenaClient";
+    const commandName = "CreateNamedQueryCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "AthenaClient",
-      commandName: "CreateNamedQueryCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreateNamedQueryInput.filterSensitiveLog,
       outputFilterSensitiveLog: CreateNamedQueryOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

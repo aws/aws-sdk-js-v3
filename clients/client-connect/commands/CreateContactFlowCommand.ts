@@ -44,13 +44,23 @@ export class CreateContactFlowCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ConnectClient";
+    const commandName = "CreateContactFlowCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ConnectClient",
-      commandName: "CreateContactFlowCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreateContactFlowRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateContactFlowResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

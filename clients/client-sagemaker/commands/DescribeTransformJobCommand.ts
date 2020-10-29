@@ -44,13 +44,23 @@ export class DescribeTransformJobCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SageMakerClient";
+    const commandName = "DescribeTransformJobCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "SageMakerClient",
-      commandName: "DescribeTransformJobCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeTransformJobRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeTransformJobResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

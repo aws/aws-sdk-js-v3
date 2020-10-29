@@ -46,13 +46,23 @@ export class GetBucketPolicyStatusCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "S3Client";
+    const commandName = "GetBucketPolicyStatusCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "S3Client",
-      commandName: "GetBucketPolicyStatusCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetBucketPolicyStatusRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetBucketPolicyStatusOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

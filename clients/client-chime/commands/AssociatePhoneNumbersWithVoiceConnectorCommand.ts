@@ -51,13 +51,23 @@ export class AssociatePhoneNumbersWithVoiceConnectorCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ChimeClient";
+    const commandName = "AssociatePhoneNumbersWithVoiceConnectorCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ChimeClient",
-      commandName: "AssociatePhoneNumbersWithVoiceConnectorCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: AssociatePhoneNumbersWithVoiceConnectorRequest.filterSensitiveLog,
       outputFilterSensitiveLog: AssociatePhoneNumbersWithVoiceConnectorResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

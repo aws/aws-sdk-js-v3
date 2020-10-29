@@ -44,13 +44,23 @@ export class CreateMeetingWithAttendeesCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ChimeClient";
+    const commandName = "CreateMeetingWithAttendeesCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ChimeClient",
-      commandName: "CreateMeetingWithAttendeesCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreateMeetingWithAttendeesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateMeetingWithAttendeesResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

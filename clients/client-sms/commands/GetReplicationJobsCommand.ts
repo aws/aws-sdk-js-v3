@@ -44,13 +44,23 @@ export class GetReplicationJobsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SMSClient";
+    const commandName = "GetReplicationJobsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "SMSClient",
-      commandName: "GetReplicationJobsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetReplicationJobsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetReplicationJobsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

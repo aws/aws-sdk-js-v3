@@ -44,13 +44,23 @@ export class ListProvisionedProductPlansCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ServiceCatalogClient";
+    const commandName = "ListProvisionedProductPlansCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ServiceCatalogClient",
-      commandName: "ListProvisionedProductPlansCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListProvisionedProductPlansInput.filterSensitiveLog,
       outputFilterSensitiveLog: ListProvisionedProductPlansOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

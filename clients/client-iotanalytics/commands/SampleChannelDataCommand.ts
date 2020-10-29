@@ -44,13 +44,23 @@ export class SampleChannelDataCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "IoTAnalyticsClient";
+    const commandName = "SampleChannelDataCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "IoTAnalyticsClient",
-      commandName: "SampleChannelDataCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: SampleChannelDataRequest.filterSensitiveLog,
       outputFilterSensitiveLog: SampleChannelDataResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

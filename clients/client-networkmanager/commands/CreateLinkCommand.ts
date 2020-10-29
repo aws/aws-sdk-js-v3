@@ -44,13 +44,23 @@ export class CreateLinkCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "NetworkManagerClient";
+    const commandName = "CreateLinkCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "NetworkManagerClient",
-      commandName: "CreateLinkCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreateLinkRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateLinkResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

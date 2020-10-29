@@ -44,13 +44,23 @@ export class ChangeMessageVisibilityBatchCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SQSClient";
+    const commandName = "ChangeMessageVisibilityBatchCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "SQSClient",
-      commandName: "ChangeMessageVisibilityBatchCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ChangeMessageVisibilityBatchRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ChangeMessageVisibilityBatchResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -44,13 +44,23 @@ export class SetInstanceHealthCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "AutoScalingClient";
+    const commandName = "SetInstanceHealthCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "AutoScalingClient",
-      commandName: "SetInstanceHealthCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: SetInstanceHealthQuery.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

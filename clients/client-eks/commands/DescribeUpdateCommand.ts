@@ -44,13 +44,23 @@ export class DescribeUpdateCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "EKSClient";
+    const commandName = "DescribeUpdateCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "EKSClient",
-      commandName: "DescribeUpdateCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeUpdateRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeUpdateResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

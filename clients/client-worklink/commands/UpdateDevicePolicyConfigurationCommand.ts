@@ -44,13 +44,23 @@ export class UpdateDevicePolicyConfigurationCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "WorkLinkClient";
+    const commandName = "UpdateDevicePolicyConfigurationCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "WorkLinkClient",
-      commandName: "UpdateDevicePolicyConfigurationCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UpdateDevicePolicyConfigurationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateDevicePolicyConfigurationResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

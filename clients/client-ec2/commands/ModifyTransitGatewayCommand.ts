@@ -44,13 +44,23 @@ export class ModifyTransitGatewayCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "EC2Client";
+    const commandName = "ModifyTransitGatewayCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "EC2Client",
-      commandName: "ModifyTransitGatewayCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ModifyTransitGatewayRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ModifyTransitGatewayResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

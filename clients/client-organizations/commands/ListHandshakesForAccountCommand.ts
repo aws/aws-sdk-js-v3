@@ -44,13 +44,23 @@ export class ListHandshakesForAccountCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "OrganizationsClient";
+    const commandName = "ListHandshakesForAccountCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "OrganizationsClient",
-      commandName: "ListHandshakesForAccountCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListHandshakesForAccountRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListHandshakesForAccountResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

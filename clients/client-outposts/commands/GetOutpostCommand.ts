@@ -44,13 +44,23 @@ export class GetOutpostCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "OutpostsClient";
+    const commandName = "GetOutpostCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "OutpostsClient",
-      commandName: "GetOutpostCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetOutpostInput.filterSensitiveLog,
       outputFilterSensitiveLog: GetOutpostOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

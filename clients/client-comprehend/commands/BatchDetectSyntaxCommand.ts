@@ -44,13 +44,23 @@ export class BatchDetectSyntaxCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ComprehendClient";
+    const commandName = "BatchDetectSyntaxCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ComprehendClient",
-      commandName: "BatchDetectSyntaxCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: BatchDetectSyntaxRequest.filterSensitiveLog,
       outputFilterSensitiveLog: BatchDetectSyntaxResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

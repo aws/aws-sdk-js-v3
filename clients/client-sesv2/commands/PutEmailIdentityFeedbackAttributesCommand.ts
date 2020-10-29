@@ -48,13 +48,23 @@ export class PutEmailIdentityFeedbackAttributesCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SESv2Client";
+    const commandName = "PutEmailIdentityFeedbackAttributesCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "SESv2Client",
-      commandName: "PutEmailIdentityFeedbackAttributesCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: PutEmailIdentityFeedbackAttributesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: PutEmailIdentityFeedbackAttributesResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

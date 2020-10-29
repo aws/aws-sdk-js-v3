@@ -44,13 +44,23 @@ export class GetRandomPasswordCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SecretsManagerClient";
+    const commandName = "GetRandomPasswordCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "SecretsManagerClient",
-      commandName: "GetRandomPasswordCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetRandomPasswordRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetRandomPasswordResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

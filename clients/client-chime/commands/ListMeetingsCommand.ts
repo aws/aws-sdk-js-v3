@@ -44,13 +44,23 @@ export class ListMeetingsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ChimeClient";
+    const commandName = "ListMeetingsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ChimeClient",
-      commandName: "ListMeetingsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListMeetingsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListMeetingsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

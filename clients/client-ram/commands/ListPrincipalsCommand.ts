@@ -44,13 +44,23 @@ export class ListPrincipalsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "RAMClient";
+    const commandName = "ListPrincipalsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "RAMClient",
-      commandName: "ListPrincipalsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListPrincipalsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListPrincipalsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

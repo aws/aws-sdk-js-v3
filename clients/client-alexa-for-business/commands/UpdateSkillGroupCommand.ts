@@ -44,13 +44,23 @@ export class UpdateSkillGroupCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "AlexaForBusinessClient";
+    const commandName = "UpdateSkillGroupCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "AlexaForBusinessClient",
-      commandName: "UpdateSkillGroupCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UpdateSkillGroupRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateSkillGroupResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

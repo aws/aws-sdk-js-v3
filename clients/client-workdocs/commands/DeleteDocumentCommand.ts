@@ -44,13 +44,23 @@ export class DeleteDocumentCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "WorkDocsClient";
+    const commandName = "DeleteDocumentCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "WorkDocsClient",
-      commandName: "DeleteDocumentCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteDocumentRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

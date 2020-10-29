@@ -44,13 +44,23 @@ export class ListEventSubscriptionsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "InspectorClient";
+    const commandName = "ListEventSubscriptionsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "InspectorClient",
-      commandName: "ListEventSubscriptionsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListEventSubscriptionsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListEventSubscriptionsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

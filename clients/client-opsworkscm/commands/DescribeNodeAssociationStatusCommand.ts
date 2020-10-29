@@ -44,13 +44,23 @@ export class DescribeNodeAssociationStatusCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "OpsWorksCMClient";
+    const commandName = "DescribeNodeAssociationStatusCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "OpsWorksCMClient",
-      commandName: "DescribeNodeAssociationStatusCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeNodeAssociationStatusRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeNodeAssociationStatusResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

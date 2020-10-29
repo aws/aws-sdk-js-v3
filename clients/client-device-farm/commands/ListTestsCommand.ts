@@ -41,13 +41,23 @@ export class ListTestsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "DeviceFarmClient";
+    const commandName = "ListTestsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "DeviceFarmClient",
-      commandName: "ListTestsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListTestsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListTestsResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

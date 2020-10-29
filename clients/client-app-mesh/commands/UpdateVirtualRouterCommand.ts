@@ -44,13 +44,23 @@ export class UpdateVirtualRouterCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "AppMeshClient";
+    const commandName = "UpdateVirtualRouterCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "AppMeshClient",
-      commandName: "UpdateVirtualRouterCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UpdateVirtualRouterInput.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateVirtualRouterOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

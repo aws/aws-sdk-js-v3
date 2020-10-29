@@ -44,13 +44,23 @@ export class CreateSystemInstanceCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "IoTThingsGraphClient";
+    const commandName = "CreateSystemInstanceCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "IoTThingsGraphClient",
-      commandName: "CreateSystemInstanceCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreateSystemInstanceRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateSystemInstanceResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

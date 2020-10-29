@@ -44,13 +44,23 @@ export class DescribeEngineDefaultParametersCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "NeptuneClient";
+    const commandName = "DescribeEngineDefaultParametersCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "NeptuneClient",
-      commandName: "DescribeEngineDefaultParametersCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeEngineDefaultParametersMessage.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeEngineDefaultParametersResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

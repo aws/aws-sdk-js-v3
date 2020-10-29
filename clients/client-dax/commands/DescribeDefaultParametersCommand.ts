@@ -44,13 +44,23 @@ export class DescribeDefaultParametersCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "DAXClient";
+    const commandName = "DescribeDefaultParametersCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "DAXClient",
-      commandName: "DescribeDefaultParametersCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeDefaultParametersRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeDefaultParametersResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -44,13 +44,23 @@ export class DescribeScalingPlansCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "AutoScalingPlansClient";
+    const commandName = "DescribeScalingPlansCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "AutoScalingPlansClient",
-      commandName: "DescribeScalingPlansCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeScalingPlansRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeScalingPlansResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

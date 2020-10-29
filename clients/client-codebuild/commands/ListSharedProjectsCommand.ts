@@ -44,13 +44,23 @@ export class ListSharedProjectsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CodeBuildClient";
+    const commandName = "ListSharedProjectsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CodeBuildClient",
-      commandName: "ListSharedProjectsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListSharedProjectsInput.filterSensitiveLog,
       outputFilterSensitiveLog: ListSharedProjectsOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

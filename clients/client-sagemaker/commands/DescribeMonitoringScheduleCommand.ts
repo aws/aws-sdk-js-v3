@@ -44,13 +44,23 @@ export class DescribeMonitoringScheduleCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SageMakerClient";
+    const commandName = "DescribeMonitoringScheduleCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "SageMakerClient",
-      commandName: "DescribeMonitoringScheduleCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeMonitoringScheduleRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeMonitoringScheduleResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

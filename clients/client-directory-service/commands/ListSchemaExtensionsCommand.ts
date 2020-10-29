@@ -44,13 +44,23 @@ export class ListSchemaExtensionsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "DirectoryServiceClient";
+    const commandName = "ListSchemaExtensionsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "DirectoryServiceClient",
-      commandName: "ListSchemaExtensionsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListSchemaExtensionsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListSchemaExtensionsResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

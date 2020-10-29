@@ -44,13 +44,23 @@ export class DeleteProvisioningTemplateCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "IoTClient";
+    const commandName = "DeleteProvisioningTemplateCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "IoTClient",
-      commandName: "DeleteProvisioningTemplateCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteProvisioningTemplateRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteProvisioningTemplateResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

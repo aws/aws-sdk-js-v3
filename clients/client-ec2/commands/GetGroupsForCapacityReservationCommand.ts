@@ -44,13 +44,23 @@ export class GetGroupsForCapacityReservationCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "EC2Client";
+    const commandName = "GetGroupsForCapacityReservationCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "EC2Client",
-      commandName: "GetGroupsForCapacityReservationCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetGroupsForCapacityReservationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetGroupsForCapacityReservationResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

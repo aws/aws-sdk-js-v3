@@ -44,13 +44,23 @@ export class DisassociatePhoneNumberFromUserCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ChimeClient";
+    const commandName = "DisassociatePhoneNumberFromUserCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ChimeClient",
-      commandName: "DisassociatePhoneNumberFromUserCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DisassociatePhoneNumberFromUserRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DisassociatePhoneNumberFromUserResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

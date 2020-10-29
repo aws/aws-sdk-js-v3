@@ -55,13 +55,23 @@ export class DescribeReservedElasticsearchInstanceOfferingsCommand extends $Comm
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ElasticsearchServiceClient";
+    const commandName = "DescribeReservedElasticsearchInstanceOfferingsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ElasticsearchServiceClient",
-      commandName: "DescribeReservedElasticsearchInstanceOfferingsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeReservedElasticsearchInstanceOfferingsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeReservedElasticsearchInstanceOfferingsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -44,13 +44,23 @@ export class PutResolverRulePolicyCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "Route53ResolverClient";
+    const commandName = "PutResolverRulePolicyCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "Route53ResolverClient",
-      commandName: "PutResolverRulePolicyCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: PutResolverRulePolicyRequest.filterSensitiveLog,
       outputFilterSensitiveLog: PutResolverRulePolicyResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

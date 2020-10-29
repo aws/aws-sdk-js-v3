@@ -44,13 +44,23 @@ export class CreateClassificationJobCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "Macie2Client";
+    const commandName = "CreateClassificationJobCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "Macie2Client",
-      commandName: "CreateClassificationJobCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreateClassificationJobRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateClassificationJobResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

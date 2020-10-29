@@ -48,13 +48,23 @@ export class SendSSHPublicKeyCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "EC2InstanceConnectClient";
+    const commandName = "SendSSHPublicKeyCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "EC2InstanceConnectClient",
-      commandName: "SendSSHPublicKeyCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: SendSSHPublicKeyRequest.filterSensitiveLog,
       outputFilterSensitiveLog: SendSSHPublicKeyResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

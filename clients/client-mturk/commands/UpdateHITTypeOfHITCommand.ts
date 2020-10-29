@@ -44,13 +44,23 @@ export class UpdateHITTypeOfHITCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "MTurkClient";
+    const commandName = "UpdateHITTypeOfHITCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "MTurkClient",
-      commandName: "UpdateHITTypeOfHITCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UpdateHITTypeOfHITRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateHITTypeOfHITResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -41,13 +41,23 @@ export class CancelResizeCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "RedshiftClient";
+    const commandName = "CancelResizeCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "RedshiftClient",
-      commandName: "CancelResizeCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CancelResizeMessage.filterSensitiveLog,
       outputFilterSensitiveLog: ResizeProgressMessage.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

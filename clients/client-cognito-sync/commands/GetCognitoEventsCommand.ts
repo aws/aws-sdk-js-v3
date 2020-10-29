@@ -44,13 +44,23 @@ export class GetCognitoEventsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CognitoSyncClient";
+    const commandName = "GetCognitoEventsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CognitoSyncClient",
-      commandName: "GetCognitoEventsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetCognitoEventsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetCognitoEventsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

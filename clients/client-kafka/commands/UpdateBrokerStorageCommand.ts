@@ -44,13 +44,23 @@ export class UpdateBrokerStorageCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "KafkaClient";
+    const commandName = "UpdateBrokerStorageCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "KafkaClient",
-      commandName: "UpdateBrokerStorageCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UpdateBrokerStorageRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateBrokerStorageResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

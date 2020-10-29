@@ -44,13 +44,23 @@ export class AssociateDelegateToResourceCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "WorkMailClient";
+    const commandName = "AssociateDelegateToResourceCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "WorkMailClient",
-      commandName: "AssociateDelegateToResourceCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: AssociateDelegateToResourceRequest.filterSensitiveLog,
       outputFilterSensitiveLog: AssociateDelegateToResourceResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

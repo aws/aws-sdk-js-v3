@@ -44,13 +44,23 @@ export class UpdatePortalCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "IoTSiteWiseClient";
+    const commandName = "UpdatePortalCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "IoTSiteWiseClient",
-      commandName: "UpdatePortalCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UpdatePortalRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdatePortalResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

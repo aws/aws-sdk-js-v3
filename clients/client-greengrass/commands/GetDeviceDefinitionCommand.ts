@@ -44,13 +44,23 @@ export class GetDeviceDefinitionCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "GreengrassClient";
+    const commandName = "GetDeviceDefinitionCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "GreengrassClient",
-      commandName: "GetDeviceDefinitionCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetDeviceDefinitionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetDeviceDefinitionResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

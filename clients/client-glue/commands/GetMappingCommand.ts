@@ -44,13 +44,23 @@ export class GetMappingCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "GlueClient";
+    const commandName = "GetMappingCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "GlueClient",
-      commandName: "GetMappingCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetMappingRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetMappingResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

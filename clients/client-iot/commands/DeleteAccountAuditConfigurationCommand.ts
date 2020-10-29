@@ -44,13 +44,23 @@ export class DeleteAccountAuditConfigurationCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "IoTClient";
+    const commandName = "DeleteAccountAuditConfigurationCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "IoTClient",
-      commandName: "DeleteAccountAuditConfigurationCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteAccountAuditConfigurationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteAccountAuditConfigurationResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -44,13 +44,23 @@ export class DisableSecurityHubCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SecurityHubClient";
+    const commandName = "DisableSecurityHubCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "SecurityHubClient",
-      commandName: "DisableSecurityHubCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DisableSecurityHubRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DisableSecurityHubResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

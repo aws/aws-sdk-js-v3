@@ -48,13 +48,23 @@ export class ListProposalVotesCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ManagedBlockchainClient";
+    const commandName = "ListProposalVotesCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ManagedBlockchainClient",
-      commandName: "ListProposalVotesCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListProposalVotesInput.filterSensitiveLog,
       outputFilterSensitiveLog: ListProposalVotesOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -44,13 +44,23 @@ export class CreateRouteCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "AppMeshClient";
+    const commandName = "CreateRouteCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "AppMeshClient",
-      commandName: "CreateRouteCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreateRouteInput.filterSensitiveLog,
       outputFilterSensitiveLog: CreateRouteOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

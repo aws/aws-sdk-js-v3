@@ -44,13 +44,23 @@ export class UpdateRegexMatchSetCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "WAFRegionalClient";
+    const commandName = "UpdateRegexMatchSetCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "WAFRegionalClient",
-      commandName: "UpdateRegexMatchSetCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UpdateRegexMatchSetRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateRegexMatchSetResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

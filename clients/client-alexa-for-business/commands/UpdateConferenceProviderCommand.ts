@@ -44,13 +44,23 @@ export class UpdateConferenceProviderCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "AlexaForBusinessClient";
+    const commandName = "UpdateConferenceProviderCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "AlexaForBusinessClient",
-      commandName: "UpdateConferenceProviderCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UpdateConferenceProviderRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateConferenceProviderResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

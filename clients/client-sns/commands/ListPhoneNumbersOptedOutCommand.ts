@@ -44,13 +44,23 @@ export class ListPhoneNumbersOptedOutCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SNSClient";
+    const commandName = "ListPhoneNumbersOptedOutCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "SNSClient",
-      commandName: "ListPhoneNumbersOptedOutCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListPhoneNumbersOptedOutInput.filterSensitiveLog,
       outputFilterSensitiveLog: ListPhoneNumbersOptedOutResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

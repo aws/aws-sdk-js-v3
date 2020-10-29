@@ -44,13 +44,23 @@ export class ListAssetsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "MediaPackageVodClient";
+    const commandName = "ListAssetsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "MediaPackageVodClient",
-      commandName: "ListAssetsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListAssetsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListAssetsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

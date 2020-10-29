@@ -44,13 +44,23 @@ export class ListClustersCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "EKSClient";
+    const commandName = "ListClustersCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "EKSClient",
-      commandName: "ListClustersCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListClustersRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListClustersResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

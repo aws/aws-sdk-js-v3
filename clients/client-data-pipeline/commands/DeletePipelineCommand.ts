@@ -44,13 +44,23 @@ export class DeletePipelineCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "DataPipelineClient";
+    const commandName = "DeletePipelineCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "DataPipelineClient",
-      commandName: "DeletePipelineCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeletePipelineInput.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

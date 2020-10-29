@@ -44,13 +44,23 @@ export class ListTrialsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SageMakerClient";
+    const commandName = "ListTrialsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "SageMakerClient",
-      commandName: "ListTrialsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListTrialsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListTrialsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

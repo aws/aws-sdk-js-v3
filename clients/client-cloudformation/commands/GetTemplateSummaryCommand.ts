@@ -44,13 +44,23 @@ export class GetTemplateSummaryCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CloudFormationClient";
+    const commandName = "GetTemplateSummaryCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CloudFormationClient",
-      commandName: "GetTemplateSummaryCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetTemplateSummaryInput.filterSensitiveLog,
       outputFilterSensitiveLog: GetTemplateSummaryOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

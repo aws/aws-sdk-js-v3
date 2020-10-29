@@ -44,13 +44,23 @@ export class GetInstanceAccessCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "GameLiftClient";
+    const commandName = "GetInstanceAccessCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "GameLiftClient",
-      commandName: "GetInstanceAccessCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetInstanceAccessInput.filterSensitiveLog,
       outputFilterSensitiveLog: GetInstanceAccessOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

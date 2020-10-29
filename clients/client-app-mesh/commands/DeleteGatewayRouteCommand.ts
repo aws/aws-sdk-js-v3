@@ -44,13 +44,23 @@ export class DeleteGatewayRouteCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "AppMeshClient";
+    const commandName = "DeleteGatewayRouteCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "AppMeshClient",
-      commandName: "DeleteGatewayRouteCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteGatewayRouteInput.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteGatewayRouteOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

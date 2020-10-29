@@ -48,13 +48,23 @@ export class CreateApplicationVersionCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ServerlessApplicationRepositoryClient";
+    const commandName = "CreateApplicationVersionCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ServerlessApplicationRepositoryClient",
-      commandName: "CreateApplicationVersionCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreateApplicationVersionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateApplicationVersionResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -44,13 +44,23 @@ export class CreateSecurityConfigurationCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "EMRClient";
+    const commandName = "CreateSecurityConfigurationCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "EMRClient",
-      commandName: "CreateSecurityConfigurationCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreateSecurityConfigurationInput.filterSensitiveLog,
       outputFilterSensitiveLog: CreateSecurityConfigurationOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

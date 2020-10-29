@@ -44,13 +44,23 @@ export class UpdateMethodCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "APIGatewayClient";
+    const commandName = "UpdateMethodCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "APIGatewayClient",
-      commandName: "UpdateMethodCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UpdateMethodRequest.filterSensitiveLog,
       outputFilterSensitiveLog: Method.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

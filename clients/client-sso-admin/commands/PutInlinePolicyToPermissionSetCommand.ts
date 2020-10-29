@@ -44,13 +44,23 @@ export class PutInlinePolicyToPermissionSetCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SSOAdminClient";
+    const commandName = "PutInlinePolicyToPermissionSetCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "SSOAdminClient",
-      commandName: "PutInlinePolicyToPermissionSetCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: PutInlinePolicyToPermissionSetRequest.filterSensitiveLog,
       outputFilterSensitiveLog: PutInlinePolicyToPermissionSetResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

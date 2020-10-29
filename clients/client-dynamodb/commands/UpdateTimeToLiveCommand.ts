@@ -44,13 +44,23 @@ export class UpdateTimeToLiveCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "DynamoDBClient";
+    const commandName = "UpdateTimeToLiveCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "DynamoDBClient",
-      commandName: "UpdateTimeToLiveCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UpdateTimeToLiveInput.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateTimeToLiveOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

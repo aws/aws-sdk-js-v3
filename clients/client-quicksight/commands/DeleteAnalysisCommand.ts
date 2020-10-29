@@ -44,13 +44,23 @@ export class DeleteAnalysisCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "QuickSightClient";
+    const commandName = "DeleteAnalysisCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "QuickSightClient",
-      commandName: "DeleteAnalysisCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteAnalysisRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteAnalysisResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

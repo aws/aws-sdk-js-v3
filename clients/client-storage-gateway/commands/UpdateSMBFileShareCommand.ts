@@ -44,13 +44,23 @@ export class UpdateSMBFileShareCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "StorageGatewayClient";
+    const commandName = "UpdateSMBFileShareCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "StorageGatewayClient",
-      commandName: "UpdateSMBFileShareCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UpdateSMBFileShareInput.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateSMBFileShareOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -44,13 +44,23 @@ export class BatchGetApplicationRevisionsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CodeDeployClient";
+    const commandName = "BatchGetApplicationRevisionsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CodeDeployClient",
-      commandName: "BatchGetApplicationRevisionsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: BatchGetApplicationRevisionsInput.filterSensitiveLog,
       outputFilterSensitiveLog: BatchGetApplicationRevisionsOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -44,13 +44,23 @@ export class ListNotebookExecutionsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "EMRClient";
+    const commandName = "ListNotebookExecutionsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "EMRClient",
-      commandName: "ListNotebookExecutionsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListNotebookExecutionsInput.filterSensitiveLog,
       outputFilterSensitiveLog: ListNotebookExecutionsOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

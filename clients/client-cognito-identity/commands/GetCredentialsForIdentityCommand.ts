@@ -44,13 +44,23 @@ export class GetCredentialsForIdentityCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CognitoIdentityClient";
+    const commandName = "GetCredentialsForIdentityCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CognitoIdentityClient",
-      commandName: "GetCredentialsForIdentityCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetCredentialsForIdentityInput.filterSensitiveLog,
       outputFilterSensitiveLog: GetCredentialsForIdentityResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

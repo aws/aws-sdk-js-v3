@@ -44,13 +44,23 @@ export class UntagStreamCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "KinesisVideoClient";
+    const commandName = "UntagStreamCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "KinesisVideoClient",
-      commandName: "UntagStreamCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UntagStreamInput.filterSensitiveLog,
       outputFilterSensitiveLog: UntagStreamOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -44,13 +44,23 @@ export class DeleteByteMatchSetCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "WAFRegionalClient";
+    const commandName = "DeleteByteMatchSetCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "WAFRegionalClient",
-      commandName: "DeleteByteMatchSetCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteByteMatchSetRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteByteMatchSetResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

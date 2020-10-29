@@ -41,13 +41,23 @@ export class DescribeTagsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "EC2Client";
+    const commandName = "DescribeTagsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "EC2Client",
-      commandName: "DescribeTagsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeTagsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeTagsResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

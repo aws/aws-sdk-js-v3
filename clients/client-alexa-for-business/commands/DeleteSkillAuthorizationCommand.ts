@@ -44,13 +44,23 @@ export class DeleteSkillAuthorizationCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "AlexaForBusinessClient";
+    const commandName = "DeleteSkillAuthorizationCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "AlexaForBusinessClient",
-      commandName: "DeleteSkillAuthorizationCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteSkillAuthorizationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteSkillAuthorizationResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

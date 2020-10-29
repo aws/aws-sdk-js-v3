@@ -48,13 +48,23 @@ export class UnsubscribeCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CodestarNotificationsClient";
+    const commandName = "UnsubscribeCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CodestarNotificationsClient",
-      commandName: "UnsubscribeCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UnsubscribeRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UnsubscribeResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

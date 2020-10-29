@@ -44,13 +44,23 @@ export class GetUsageTotalsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "Macie2Client";
+    const commandName = "GetUsageTotalsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "Macie2Client",
-      commandName: "GetUsageTotalsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetUsageTotalsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetUsageTotalsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -44,13 +44,23 @@ export class UpdateApplicationCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ElasticBeanstalkClient";
+    const commandName = "UpdateApplicationCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ElasticBeanstalkClient",
-      commandName: "UpdateApplicationCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UpdateApplicationMessage.filterSensitiveLog,
       outputFilterSensitiveLog: ApplicationDescriptionMessage.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

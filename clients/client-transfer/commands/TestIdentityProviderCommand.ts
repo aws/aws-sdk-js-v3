@@ -44,13 +44,23 @@ export class TestIdentityProviderCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "TransferClient";
+    const commandName = "TestIdentityProviderCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "TransferClient",
-      commandName: "TestIdentityProviderCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: TestIdentityProviderRequest.filterSensitiveLog,
       outputFilterSensitiveLog: TestIdentityProviderResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

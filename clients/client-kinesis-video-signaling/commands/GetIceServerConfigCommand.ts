@@ -48,13 +48,23 @@ export class GetIceServerConfigCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "KinesisVideoSignalingClient";
+    const commandName = "GetIceServerConfigCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "KinesisVideoSignalingClient",
-      commandName: "GetIceServerConfigCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetIceServerConfigRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetIceServerConfigResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

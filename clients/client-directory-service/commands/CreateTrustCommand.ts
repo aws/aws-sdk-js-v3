@@ -44,13 +44,23 @@ export class CreateTrustCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "DirectoryServiceClient";
+    const commandName = "CreateTrustCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "DirectoryServiceClient",
-      commandName: "CreateTrustCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreateTrustRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateTrustResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

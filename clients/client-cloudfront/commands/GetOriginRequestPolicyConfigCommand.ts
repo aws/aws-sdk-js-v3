@@ -44,13 +44,23 @@ export class GetOriginRequestPolicyConfigCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CloudFrontClient";
+    const commandName = "GetOriginRequestPolicyConfigCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CloudFrontClient",
-      commandName: "GetOriginRequestPolicyConfigCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetOriginRequestPolicyConfigRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetOriginRequestPolicyConfigResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

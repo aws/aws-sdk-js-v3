@@ -44,13 +44,23 @@ export class BatchEnableStandardsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SecurityHubClient";
+    const commandName = "BatchEnableStandardsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "SecurityHubClient",
-      commandName: "BatchEnableStandardsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: BatchEnableStandardsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: BatchEnableStandardsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

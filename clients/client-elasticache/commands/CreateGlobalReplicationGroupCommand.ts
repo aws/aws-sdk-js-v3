@@ -44,13 +44,23 @@ export class CreateGlobalReplicationGroupCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ElastiCacheClient";
+    const commandName = "CreateGlobalReplicationGroupCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ElastiCacheClient",
-      commandName: "CreateGlobalReplicationGroupCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreateGlobalReplicationGroupMessage.filterSensitiveLog,
       outputFilterSensitiveLog: CreateGlobalReplicationGroupResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

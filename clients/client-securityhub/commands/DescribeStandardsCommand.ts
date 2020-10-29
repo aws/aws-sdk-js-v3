@@ -44,13 +44,23 @@ export class DescribeStandardsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SecurityHubClient";
+    const commandName = "DescribeStandardsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "SecurityHubClient",
-      commandName: "DescribeStandardsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeStandardsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeStandardsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -48,13 +48,23 @@ export class UntagResourcesCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ResourceGroupsTaggingAPIClient";
+    const commandName = "UntagResourcesCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ResourceGroupsTaggingAPIClient",
-      commandName: "UntagResourcesCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UntagResourcesInput.filterSensitiveLog,
       outputFilterSensitiveLog: UntagResourcesOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

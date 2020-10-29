@@ -44,13 +44,23 @@ export class ListProtocolsListsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "FMSClient";
+    const commandName = "ListProtocolsListsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "FMSClient",
-      commandName: "ListProtocolsListsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListProtocolsListsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListProtocolsListsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

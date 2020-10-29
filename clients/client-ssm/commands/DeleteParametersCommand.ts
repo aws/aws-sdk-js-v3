@@ -44,13 +44,23 @@ export class DeleteParametersCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SSMClient";
+    const commandName = "DeleteParametersCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "SSMClient",
-      commandName: "DeleteParametersCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteParametersRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteParametersResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -44,13 +44,23 @@ export class ListV2LoggingLevelsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "IoTClient";
+    const commandName = "ListV2LoggingLevelsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "IoTClient",
-      commandName: "ListV2LoggingLevelsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListV2LoggingLevelsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListV2LoggingLevelsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

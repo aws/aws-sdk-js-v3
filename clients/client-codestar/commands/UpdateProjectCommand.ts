@@ -44,13 +44,23 @@ export class UpdateProjectCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CodeStarClient";
+    const commandName = "UpdateProjectCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CodeStarClient",
-      commandName: "UpdateProjectCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UpdateProjectRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateProjectResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

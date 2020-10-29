@@ -44,13 +44,23 @@ export class UpdatePushTemplateCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "PinpointClient";
+    const commandName = "UpdatePushTemplateCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "PinpointClient",
-      commandName: "UpdatePushTemplateCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UpdatePushTemplateRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdatePushTemplateResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

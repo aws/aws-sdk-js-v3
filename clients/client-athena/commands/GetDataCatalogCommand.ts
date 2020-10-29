@@ -44,13 +44,23 @@ export class GetDataCatalogCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "AthenaClient";
+    const commandName = "GetDataCatalogCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "AthenaClient",
-      commandName: "GetDataCatalogCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetDataCatalogInput.filterSensitiveLog,
       outputFilterSensitiveLog: GetDataCatalogOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

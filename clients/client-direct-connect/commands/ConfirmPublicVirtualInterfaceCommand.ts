@@ -44,13 +44,23 @@ export class ConfirmPublicVirtualInterfaceCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "DirectConnectClient";
+    const commandName = "ConfirmPublicVirtualInterfaceCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "DirectConnectClient",
-      commandName: "ConfirmPublicVirtualInterfaceCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ConfirmPublicVirtualInterfaceRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ConfirmPublicVirtualInterfaceResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

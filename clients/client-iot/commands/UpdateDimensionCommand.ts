@@ -44,13 +44,23 @@ export class UpdateDimensionCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "IoTClient";
+    const commandName = "UpdateDimensionCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "IoTClient",
-      commandName: "UpdateDimensionCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UpdateDimensionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateDimensionResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

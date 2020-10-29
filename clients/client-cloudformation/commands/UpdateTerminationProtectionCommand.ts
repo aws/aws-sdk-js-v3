@@ -44,13 +44,23 @@ export class UpdateTerminationProtectionCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CloudFormationClient";
+    const commandName = "UpdateTerminationProtectionCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CloudFormationClient",
-      commandName: "UpdateTerminationProtectionCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UpdateTerminationProtectionInput.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateTerminationProtectionOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

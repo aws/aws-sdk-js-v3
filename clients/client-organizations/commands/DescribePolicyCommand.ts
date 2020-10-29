@@ -44,13 +44,23 @@ export class DescribePolicyCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "OrganizationsClient";
+    const commandName = "DescribePolicyCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "OrganizationsClient",
-      commandName: "DescribePolicyCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribePolicyRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribePolicyResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

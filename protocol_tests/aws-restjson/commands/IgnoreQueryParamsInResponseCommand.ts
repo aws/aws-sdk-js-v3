@@ -44,13 +44,23 @@ export class IgnoreQueryParamsInResponseCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "RestJsonProtocolClient";
+    const commandName = "IgnoreQueryParamsInResponseCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "RestJsonProtocolClient",
-      commandName: "IgnoreQueryParamsInResponseCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: (input: any) => input,
       outputFilterSensitiveLog: IgnoreQueryParamsInResponseOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

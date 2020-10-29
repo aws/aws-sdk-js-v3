@@ -44,13 +44,23 @@ export class DeleteHapgCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CloudHSMClient";
+    const commandName = "DeleteHapgCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CloudHSMClient",
-      commandName: "DeleteHapgCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteHapgRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteHapgResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -44,13 +44,23 @@ export class UpdateEndpointCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ComprehendClient";
+    const commandName = "UpdateEndpointCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ComprehendClient",
-      commandName: "UpdateEndpointCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UpdateEndpointRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateEndpointResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

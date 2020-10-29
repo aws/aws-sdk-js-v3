@@ -44,13 +44,23 @@ export class ListPolicyPrincipalsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "IoTClient";
+    const commandName = "ListPolicyPrincipalsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "IoTClient",
-      commandName: "ListPolicyPrincipalsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListPolicyPrincipalsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListPolicyPrincipalsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

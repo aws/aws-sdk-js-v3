@@ -44,13 +44,23 @@ export class RestoreFromSnapshotCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "DirectoryServiceClient";
+    const commandName = "RestoreFromSnapshotCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "DirectoryServiceClient",
-      commandName: "RestoreFromSnapshotCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: RestoreFromSnapshotRequest.filterSensitiveLog,
       outputFilterSensitiveLog: RestoreFromSnapshotResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -44,13 +44,23 @@ export class DescribeMaintenanceWindowsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SSMClient";
+    const commandName = "DescribeMaintenanceWindowsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "SSMClient",
-      commandName: "DescribeMaintenanceWindowsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeMaintenanceWindowsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeMaintenanceWindowsResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

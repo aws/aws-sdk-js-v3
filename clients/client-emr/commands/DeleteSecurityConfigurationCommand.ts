@@ -44,13 +44,23 @@ export class DeleteSecurityConfigurationCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "EMRClient";
+    const commandName = "DeleteSecurityConfigurationCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "EMRClient",
-      commandName: "DeleteSecurityConfigurationCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteSecurityConfigurationInput.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteSecurityConfigurationOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

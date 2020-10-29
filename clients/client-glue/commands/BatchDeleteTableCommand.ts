@@ -44,13 +44,23 @@ export class BatchDeleteTableCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "GlueClient";
+    const commandName = "BatchDeleteTableCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "GlueClient",
-      commandName: "BatchDeleteTableCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: BatchDeleteTableRequest.filterSensitiveLog,
       outputFilterSensitiveLog: BatchDeleteTableResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

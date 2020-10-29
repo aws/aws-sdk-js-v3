@@ -44,13 +44,23 @@ export class UpdateConnectionAliasPermissionCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "WorkSpacesClient";
+    const commandName = "UpdateConnectionAliasPermissionCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "WorkSpacesClient",
-      commandName: "UpdateConnectionAliasPermissionCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UpdateConnectionAliasPermissionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateConnectionAliasPermissionResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

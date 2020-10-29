@@ -44,13 +44,23 @@ export class CreateByteMatchSetCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "WAFClient";
+    const commandName = "CreateByteMatchSetCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "WAFClient",
-      commandName: "CreateByteMatchSetCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreateByteMatchSetRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateByteMatchSetResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

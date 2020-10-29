@@ -44,13 +44,23 @@ export class StopFleetActionsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "GameLiftClient";
+    const commandName = "StopFleetActionsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "GameLiftClient",
-      commandName: "StopFleetActionsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: StopFleetActionsInput.filterSensitiveLog,
       outputFilterSensitiveLog: StopFleetActionsOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

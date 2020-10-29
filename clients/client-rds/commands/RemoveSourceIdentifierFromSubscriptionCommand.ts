@@ -48,13 +48,23 @@ export class RemoveSourceIdentifierFromSubscriptionCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "RDSClient";
+    const commandName = "RemoveSourceIdentifierFromSubscriptionCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "RDSClient",
-      commandName: "RemoveSourceIdentifierFromSubscriptionCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: RemoveSourceIdentifierFromSubscriptionMessage.filterSensitiveLog,
       outputFilterSensitiveLog: RemoveSourceIdentifierFromSubscriptionResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

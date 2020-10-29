@@ -44,13 +44,23 @@ export class AttachClassicLinkVpcCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "EC2Client";
+    const commandName = "AttachClassicLinkVpcCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "EC2Client",
-      commandName: "AttachClassicLinkVpcCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: AttachClassicLinkVpcRequest.filterSensitiveLog,
       outputFilterSensitiveLog: AttachClassicLinkVpcResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

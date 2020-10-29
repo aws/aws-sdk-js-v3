@@ -44,13 +44,23 @@ export class CreateTokenCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SSOOIDCClient";
+    const commandName = "CreateTokenCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "SSOOIDCClient",
-      commandName: "CreateTokenCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreateTokenRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateTokenResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

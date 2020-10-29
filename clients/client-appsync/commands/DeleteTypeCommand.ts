@@ -44,13 +44,23 @@ export class DeleteTypeCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "AppSyncClient";
+    const commandName = "DeleteTypeCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "AppSyncClient",
-      commandName: "DeleteTypeCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteTypeRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteTypeResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

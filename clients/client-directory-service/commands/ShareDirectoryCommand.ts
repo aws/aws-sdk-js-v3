@@ -44,13 +44,23 @@ export class ShareDirectoryCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "DirectoryServiceClient";
+    const commandName = "ShareDirectoryCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "DirectoryServiceClient",
-      commandName: "ShareDirectoryCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ShareDirectoryRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ShareDirectoryResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

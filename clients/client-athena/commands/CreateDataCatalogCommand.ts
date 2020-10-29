@@ -44,13 +44,23 @@ export class CreateDataCatalogCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "AthenaClient";
+    const commandName = "CreateDataCatalogCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "AthenaClient",
-      commandName: "CreateDataCatalogCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreateDataCatalogInput.filterSensitiveLog,
       outputFilterSensitiveLog: CreateDataCatalogOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

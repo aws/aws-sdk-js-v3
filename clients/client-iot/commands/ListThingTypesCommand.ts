@@ -44,13 +44,23 @@ export class ListThingTypesCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "IoTClient";
+    const commandName = "ListThingTypesCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "IoTClient",
-      commandName: "ListThingTypesCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListThingTypesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListThingTypesResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

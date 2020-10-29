@@ -44,13 +44,23 @@ export class GetSamplingStatisticSummariesCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "XRayClient";
+    const commandName = "GetSamplingStatisticSummariesCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "XRayClient",
-      commandName: "GetSamplingStatisticSummariesCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetSamplingStatisticSummariesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetSamplingStatisticSummariesResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -44,13 +44,23 @@ export class DescribeContinuousBackupsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "DynamoDBClient";
+    const commandName = "DescribeContinuousBackupsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "DynamoDBClient",
-      commandName: "DescribeContinuousBackupsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeContinuousBackupsInput.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeContinuousBackupsOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

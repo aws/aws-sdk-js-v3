@@ -37,13 +37,23 @@ export class InvokeCommand extends $Command<InvokeCommandInput, InvokeCommandOut
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "LambdaClient";
+    const commandName = "InvokeCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "LambdaClient",
-      commandName: "InvokeCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: InvocationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: InvocationResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -44,13 +44,23 @@ export class ListGatewayRoutesCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "AppMeshClient";
+    const commandName = "ListGatewayRoutesCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "AppMeshClient",
-      commandName: "ListGatewayRoutesCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListGatewayRoutesInput.filterSensitiveLog,
       outputFilterSensitiveLog: ListGatewayRoutesOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

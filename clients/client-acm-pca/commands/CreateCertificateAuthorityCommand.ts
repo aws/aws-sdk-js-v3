@@ -44,13 +44,23 @@ export class CreateCertificateAuthorityCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ACMPCAClient";
+    const commandName = "CreateCertificateAuthorityCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ACMPCAClient",
-      commandName: "CreateCertificateAuthorityCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreateCertificateAuthorityRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateCertificateAuthorityResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

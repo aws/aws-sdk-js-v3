@@ -44,13 +44,23 @@ export class ListProvisioningTemplatesCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "IoTClient";
+    const commandName = "ListProvisioningTemplatesCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "IoTClient",
-      commandName: "ListProvisioningTemplatesCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListProvisioningTemplatesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListProvisioningTemplatesResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

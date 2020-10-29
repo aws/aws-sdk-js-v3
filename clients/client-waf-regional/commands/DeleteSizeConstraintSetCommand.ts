@@ -44,13 +44,23 @@ export class DeleteSizeConstraintSetCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "WAFRegionalClient";
+    const commandName = "DeleteSizeConstraintSetCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "WAFRegionalClient",
-      commandName: "DeleteSizeConstraintSetCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteSizeConstraintSetRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteSizeConstraintSetResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

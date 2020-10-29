@@ -44,13 +44,23 @@ export class CreateServiceLinkedRoleCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "IAMClient";
+    const commandName = "CreateServiceLinkedRoleCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "IAMClient",
-      commandName: "CreateServiceLinkedRoleCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreateServiceLinkedRoleRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateServiceLinkedRoleResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

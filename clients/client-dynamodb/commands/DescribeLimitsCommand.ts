@@ -44,13 +44,23 @@ export class DescribeLimitsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "DynamoDBClient";
+    const commandName = "DescribeLimitsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "DynamoDBClient",
-      commandName: "DescribeLimitsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeLimitsInput.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeLimitsOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

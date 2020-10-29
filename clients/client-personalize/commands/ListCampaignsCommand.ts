@@ -44,13 +44,23 @@ export class ListCampaignsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "PersonalizeClient";
+    const commandName = "ListCampaignsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "PersonalizeClient",
-      commandName: "ListCampaignsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListCampaignsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListCampaignsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

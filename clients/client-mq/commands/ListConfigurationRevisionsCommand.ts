@@ -44,13 +44,23 @@ export class ListConfigurationRevisionsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "MqClient";
+    const commandName = "ListConfigurationRevisionsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "MqClient",
-      commandName: "ListConfigurationRevisionsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListConfigurationRevisionsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListConfigurationRevisionsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

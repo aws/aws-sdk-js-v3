@@ -44,13 +44,23 @@ export class PutTelemetryRecordsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "XRayClient";
+    const commandName = "PutTelemetryRecordsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "XRayClient",
-      commandName: "PutTelemetryRecordsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: PutTelemetryRecordsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: PutTelemetryRecordsResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

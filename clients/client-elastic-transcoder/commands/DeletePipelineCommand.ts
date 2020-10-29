@@ -48,13 +48,23 @@ export class DeletePipelineCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ElasticTranscoderClient";
+    const commandName = "DeletePipelineCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ElasticTranscoderClient",
-      commandName: "DeletePipelineCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeletePipelineRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeletePipelineResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

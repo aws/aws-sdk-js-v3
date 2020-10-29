@@ -55,13 +55,23 @@ export class RejectInboundCrossClusterSearchConnectionCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ElasticsearchServiceClient";
+    const commandName = "RejectInboundCrossClusterSearchConnectionCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ElasticsearchServiceClient",
-      commandName: "RejectInboundCrossClusterSearchConnectionCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: RejectInboundCrossClusterSearchConnectionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: RejectInboundCrossClusterSearchConnectionResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

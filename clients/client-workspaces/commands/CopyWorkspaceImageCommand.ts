@@ -44,13 +44,23 @@ export class CopyWorkspaceImageCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "WorkSpacesClient";
+    const commandName = "CopyWorkspaceImageCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "WorkSpacesClient",
-      commandName: "CopyWorkspaceImageCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CopyWorkspaceImageRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CopyWorkspaceImageResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

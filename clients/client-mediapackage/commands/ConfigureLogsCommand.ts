@@ -44,13 +44,23 @@ export class ConfigureLogsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "MediaPackageClient";
+    const commandName = "ConfigureLogsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "MediaPackageClient",
-      commandName: "ConfigureLogsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ConfigureLogsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ConfigureLogsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

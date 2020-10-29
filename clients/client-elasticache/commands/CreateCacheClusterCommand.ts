@@ -44,13 +44,23 @@ export class CreateCacheClusterCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ElastiCacheClient";
+    const commandName = "CreateCacheClusterCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ElastiCacheClient",
-      commandName: "CreateCacheClusterCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreateCacheClusterMessage.filterSensitiveLog,
       outputFilterSensitiveLog: CreateCacheClusterResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

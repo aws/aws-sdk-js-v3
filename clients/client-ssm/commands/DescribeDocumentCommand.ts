@@ -44,13 +44,23 @@ export class DescribeDocumentCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SSMClient";
+    const commandName = "DescribeDocumentCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "SSMClient",
-      commandName: "DescribeDocumentCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeDocumentRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeDocumentResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -41,13 +41,23 @@ export class CreatePolicyCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "IAMClient";
+    const commandName = "CreatePolicyCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "IAMClient",
-      commandName: "CreatePolicyCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreatePolicyRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreatePolicyResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

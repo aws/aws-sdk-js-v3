@@ -44,13 +44,23 @@ export class CreateVPCEConfigurationCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "DeviceFarmClient";
+    const commandName = "CreateVPCEConfigurationCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "DeviceFarmClient",
-      commandName: "CreateVPCEConfigurationCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreateVPCEConfigurationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateVPCEConfigurationResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

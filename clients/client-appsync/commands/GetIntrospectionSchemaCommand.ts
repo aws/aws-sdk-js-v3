@@ -44,13 +44,23 @@ export class GetIntrospectionSchemaCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "AppSyncClient";
+    const commandName = "GetIntrospectionSchemaCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "AppSyncClient",
-      commandName: "GetIntrospectionSchemaCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetIntrospectionSchemaRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetIntrospectionSchemaResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

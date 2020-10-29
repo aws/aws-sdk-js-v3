@@ -44,13 +44,23 @@ export class CreateThingCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "IoTClient";
+    const commandName = "CreateThingCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "IoTClient",
-      commandName: "CreateThingCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreateThingRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateThingResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -37,13 +37,23 @@ export class PutImageCommand extends $Command<PutImageCommandInput, PutImageComm
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ECRClient";
+    const commandName = "PutImageCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ECRClient",
-      commandName: "PutImageCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: PutImageRequest.filterSensitiveLog,
       outputFilterSensitiveLog: PutImageResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

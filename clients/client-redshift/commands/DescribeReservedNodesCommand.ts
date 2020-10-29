@@ -44,13 +44,23 @@ export class DescribeReservedNodesCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "RedshiftClient";
+    const commandName = "DescribeReservedNodesCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "RedshiftClient",
-      commandName: "DescribeReservedNodesCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeReservedNodesMessage.filterSensitiveLog,
       outputFilterSensitiveLog: ReservedNodesMessage.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

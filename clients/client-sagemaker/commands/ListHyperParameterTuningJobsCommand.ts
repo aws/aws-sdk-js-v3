@@ -44,13 +44,23 @@ export class ListHyperParameterTuningJobsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SageMakerClient";
+    const commandName = "ListHyperParameterTuningJobsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "SageMakerClient",
-      commandName: "ListHyperParameterTuningJobsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListHyperParameterTuningJobsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListHyperParameterTuningJobsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

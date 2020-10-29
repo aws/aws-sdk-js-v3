@@ -44,13 +44,23 @@ export class GetFindingsStatisticsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "GuardDutyClient";
+    const commandName = "GetFindingsStatisticsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "GuardDutyClient",
-      commandName: "GetFindingsStatisticsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetFindingsStatisticsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetFindingsStatisticsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

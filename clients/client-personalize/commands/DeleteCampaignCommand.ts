@@ -44,13 +44,23 @@ export class DeleteCampaignCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "PersonalizeClient";
+    const commandName = "DeleteCampaignCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "PersonalizeClient",
-      commandName: "DeleteCampaignCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteCampaignRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

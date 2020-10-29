@@ -44,13 +44,23 @@ export class CreateBrokerCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "MqClient";
+    const commandName = "CreateBrokerCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "MqClient",
-      commandName: "CreateBrokerCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreateBrokerRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateBrokerResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

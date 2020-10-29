@@ -44,13 +44,23 @@ export class DeletePackageVersionsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CodeartifactClient";
+    const commandName = "DeletePackageVersionsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CodeartifactClient",
-      commandName: "DeletePackageVersionsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeletePackageVersionsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeletePackageVersionsResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

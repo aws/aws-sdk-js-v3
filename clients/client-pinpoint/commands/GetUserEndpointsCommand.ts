@@ -44,13 +44,23 @@ export class GetUserEndpointsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "PinpointClient";
+    const commandName = "GetUserEndpointsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "PinpointClient",
-      commandName: "GetUserEndpointsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetUserEndpointsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetUserEndpointsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

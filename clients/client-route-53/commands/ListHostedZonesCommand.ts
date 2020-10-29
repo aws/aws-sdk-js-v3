@@ -46,13 +46,23 @@ export class ListHostedZonesCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "Route53Client";
+    const commandName = "ListHostedZonesCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "Route53Client",
-      commandName: "ListHostedZonesCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListHostedZonesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListHostedZonesResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

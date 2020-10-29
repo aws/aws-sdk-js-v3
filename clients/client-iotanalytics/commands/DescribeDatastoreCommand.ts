@@ -44,13 +44,23 @@ export class DescribeDatastoreCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "IoTAnalyticsClient";
+    const commandName = "DescribeDatastoreCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "IoTAnalyticsClient",
-      commandName: "DescribeDatastoreCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeDatastoreRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeDatastoreResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

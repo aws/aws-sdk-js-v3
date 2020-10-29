@@ -44,13 +44,23 @@ export class GetGroupCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ResourceGroupsClient";
+    const commandName = "GetGroupCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ResourceGroupsClient",
-      commandName: "GetGroupCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetGroupInput.filterSensitiveLog,
       outputFilterSensitiveLog: GetGroupOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

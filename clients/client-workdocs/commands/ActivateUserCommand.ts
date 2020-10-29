@@ -44,13 +44,23 @@ export class ActivateUserCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "WorkDocsClient";
+    const commandName = "ActivateUserCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "WorkDocsClient",
-      commandName: "ActivateUserCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ActivateUserRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ActivateUserResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

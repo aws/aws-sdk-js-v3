@@ -44,13 +44,23 @@ export class GetAWSOrganizationsAccessStatusCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ServiceCatalogClient";
+    const commandName = "GetAWSOrganizationsAccessStatusCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ServiceCatalogClient",
-      commandName: "GetAWSOrganizationsAccessStatusCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetAWSOrganizationsAccessStatusInput.filterSensitiveLog,
       outputFilterSensitiveLog: GetAWSOrganizationsAccessStatusOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

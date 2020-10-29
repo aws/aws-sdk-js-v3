@@ -44,13 +44,23 @@ export class ReportTaskProgressCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "DataPipelineClient";
+    const commandName = "ReportTaskProgressCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "DataPipelineClient",
-      commandName: "ReportTaskProgressCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ReportTaskProgressInput.filterSensitiveLog,
       outputFilterSensitiveLog: ReportTaskProgressOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

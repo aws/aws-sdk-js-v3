@@ -44,13 +44,23 @@ export class ListAccountSettingsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ECSClient";
+    const commandName = "ListAccountSettingsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ECSClient",
-      commandName: "ListAccountSettingsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListAccountSettingsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListAccountSettingsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

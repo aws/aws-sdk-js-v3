@@ -48,13 +48,23 @@ export class DisassociateResolverQueryLogConfigCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "Route53ResolverClient";
+    const commandName = "DisassociateResolverQueryLogConfigCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "Route53ResolverClient",
-      commandName: "DisassociateResolverQueryLogConfigCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DisassociateResolverQueryLogConfigRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DisassociateResolverQueryLogConfigResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

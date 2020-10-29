@@ -44,13 +44,23 @@ export class CreateServerCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "TransferClient";
+    const commandName = "CreateServerCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "TransferClient",
-      commandName: "CreateServerCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreateServerRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateServerResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

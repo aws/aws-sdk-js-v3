@@ -44,13 +44,23 @@ export class RemoveAttributesFromFindingsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "InspectorClient";
+    const commandName = "RemoveAttributesFromFindingsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "InspectorClient",
-      commandName: "RemoveAttributesFromFindingsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: RemoveAttributesFromFindingsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: RemoveAttributesFromFindingsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

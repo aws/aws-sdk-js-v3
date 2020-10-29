@@ -37,13 +37,23 @@ export class GetPlanCommand extends $Command<GetPlanCommandInput, GetPlanCommand
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "GlueClient";
+    const commandName = "GetPlanCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "GlueClient",
-      commandName: "GetPlanCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetPlanRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetPlanResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

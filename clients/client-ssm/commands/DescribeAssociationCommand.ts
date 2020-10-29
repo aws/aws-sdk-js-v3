@@ -44,13 +44,23 @@ export class DescribeAssociationCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SSMClient";
+    const commandName = "DescribeAssociationCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "SSMClient",
-      commandName: "DescribeAssociationCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeAssociationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeAssociationResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

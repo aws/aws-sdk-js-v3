@@ -44,13 +44,23 @@ export class ListResourcesCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "WorkMailClient";
+    const commandName = "ListResourcesCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "WorkMailClient",
-      commandName: "ListResourcesCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListResourcesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListResourcesResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

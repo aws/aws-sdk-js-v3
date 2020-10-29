@@ -44,13 +44,23 @@ export class PostCommentForComparedCommitCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CodeCommitClient";
+    const commandName = "PostCommentForComparedCommitCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CodeCommitClient",
-      commandName: "PostCommentForComparedCommitCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: PostCommentForComparedCommitInput.filterSensitiveLog,
       outputFilterSensitiveLog: PostCommentForComparedCommitOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

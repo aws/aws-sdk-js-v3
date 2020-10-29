@@ -48,13 +48,23 @@ export class DescribeHomeRegionControlsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "MigrationHubConfigClient";
+    const commandName = "DescribeHomeRegionControlsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "MigrationHubConfigClient",
-      commandName: "DescribeHomeRegionControlsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeHomeRegionControlsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeHomeRegionControlsResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

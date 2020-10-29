@@ -44,13 +44,23 @@ export class AddInstanceFleetCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "EMRClient";
+    const commandName = "AddInstanceFleetCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "EMRClient",
-      commandName: "AddInstanceFleetCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: AddInstanceFleetInput.filterSensitiveLog,
       outputFilterSensitiveLog: AddInstanceFleetOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

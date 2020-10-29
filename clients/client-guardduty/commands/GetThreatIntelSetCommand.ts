@@ -44,13 +44,23 @@ export class GetThreatIntelSetCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "GuardDutyClient";
+    const commandName = "GetThreatIntelSetCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "GuardDutyClient",
-      commandName: "GetThreatIntelSetCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetThreatIntelSetRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetThreatIntelSetResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

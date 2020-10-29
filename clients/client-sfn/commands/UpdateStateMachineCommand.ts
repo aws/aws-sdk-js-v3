@@ -44,13 +44,23 @@ export class UpdateStateMachineCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SFNClient";
+    const commandName = "UpdateStateMachineCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "SFNClient",
-      commandName: "UpdateStateMachineCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UpdateStateMachineInput.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateStateMachineOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

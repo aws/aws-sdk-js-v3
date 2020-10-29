@@ -44,13 +44,23 @@ export class UpdateClusterConfigurationCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "KafkaClient";
+    const commandName = "UpdateClusterConfigurationCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "KafkaClient",
-      commandName: "UpdateClusterConfigurationCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UpdateClusterConfigurationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateClusterConfigurationResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

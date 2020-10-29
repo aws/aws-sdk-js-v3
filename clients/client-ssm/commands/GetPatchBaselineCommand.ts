@@ -44,13 +44,23 @@ export class GetPatchBaselineCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SSMClient";
+    const commandName = "GetPatchBaselineCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "SSMClient",
-      commandName: "GetPatchBaselineCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetPatchBaselineRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetPatchBaselineResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

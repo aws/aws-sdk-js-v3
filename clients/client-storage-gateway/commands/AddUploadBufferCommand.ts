@@ -44,13 +44,23 @@ export class AddUploadBufferCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "StorageGatewayClient";
+    const commandName = "AddUploadBufferCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "StorageGatewayClient",
-      commandName: "AddUploadBufferCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: AddUploadBufferInput.filterSensitiveLog,
       outputFilterSensitiveLog: AddUploadBufferOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

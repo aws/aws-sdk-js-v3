@@ -48,13 +48,23 @@ export class ListLicenseSpecificationsForResourceCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "LicenseManagerClient";
+    const commandName = "ListLicenseSpecificationsForResourceCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "LicenseManagerClient",
-      commandName: "ListLicenseSpecificationsForResourceCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListLicenseSpecificationsForResourceRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListLicenseSpecificationsForResourceResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

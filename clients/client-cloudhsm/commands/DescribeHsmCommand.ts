@@ -44,13 +44,23 @@ export class DescribeHsmCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CloudHSMClient";
+    const commandName = "DescribeHsmCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CloudHSMClient",
-      commandName: "DescribeHsmCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeHsmRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeHsmResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

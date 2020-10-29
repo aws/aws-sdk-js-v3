@@ -46,13 +46,23 @@ export class PutSnapshotBlockCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "EBSClient";
+    const commandName = "PutSnapshotBlockCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "EBSClient",
-      commandName: "PutSnapshotBlockCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: PutSnapshotBlockRequest.filterSensitiveLog,
       outputFilterSensitiveLog: PutSnapshotBlockResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

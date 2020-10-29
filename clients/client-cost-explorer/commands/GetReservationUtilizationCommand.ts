@@ -44,13 +44,23 @@ export class GetReservationUtilizationCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CostExplorerClient";
+    const commandName = "GetReservationUtilizationCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CostExplorerClient",
-      commandName: "GetReservationUtilizationCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetReservationUtilizationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetReservationUtilizationResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -44,13 +44,23 @@ export class CreateConstraintCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ServiceCatalogClient";
+    const commandName = "CreateConstraintCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ServiceCatalogClient",
-      commandName: "CreateConstraintCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreateConstraintInput.filterSensitiveLog,
       outputFilterSensitiveLog: CreateConstraintOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -44,13 +44,23 @@ export class DescribeDRTAccessCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ShieldClient";
+    const commandName = "DescribeDRTAccessCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ShieldClient",
-      commandName: "DescribeDRTAccessCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeDRTAccessRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeDRTAccessResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

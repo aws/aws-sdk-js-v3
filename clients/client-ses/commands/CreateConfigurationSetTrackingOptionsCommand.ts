@@ -48,13 +48,23 @@ export class CreateConfigurationSetTrackingOptionsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SESClient";
+    const commandName = "CreateConfigurationSetTrackingOptionsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "SESClient",
-      commandName: "CreateConfigurationSetTrackingOptionsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreateConfigurationSetTrackingOptionsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateConfigurationSetTrackingOptionsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

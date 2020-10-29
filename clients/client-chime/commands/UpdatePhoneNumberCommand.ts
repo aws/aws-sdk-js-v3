@@ -44,13 +44,23 @@ export class UpdatePhoneNumberCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ChimeClient";
+    const commandName = "UpdatePhoneNumberCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ChimeClient",
-      commandName: "UpdatePhoneNumberCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UpdatePhoneNumberRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdatePhoneNumberResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

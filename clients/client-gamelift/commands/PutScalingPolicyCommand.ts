@@ -44,13 +44,23 @@ export class PutScalingPolicyCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "GameLiftClient";
+    const commandName = "PutScalingPolicyCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "GameLiftClient",
-      commandName: "PutScalingPolicyCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: PutScalingPolicyInput.filterSensitiveLog,
       outputFilterSensitiveLog: PutScalingPolicyOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

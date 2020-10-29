@@ -48,13 +48,23 @@ export class ReadPresetCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ElasticTranscoderClient";
+    const commandName = "ReadPresetCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ElasticTranscoderClient",
-      commandName: "ReadPresetCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ReadPresetRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ReadPresetResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

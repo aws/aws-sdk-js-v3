@@ -44,13 +44,23 @@ export class DeleteDeviceDefinitionCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "GreengrassClient";
+    const commandName = "DeleteDeviceDefinitionCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "GreengrassClient",
-      commandName: "DeleteDeviceDefinitionCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteDeviceDefinitionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteDeviceDefinitionResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

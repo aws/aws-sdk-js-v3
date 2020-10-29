@@ -44,13 +44,23 @@ export class DisassociateConnectionFromLagCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "DirectConnectClient";
+    const commandName = "DisassociateConnectionFromLagCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "DirectConnectClient",
-      commandName: "DisassociateConnectionFromLagCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DisassociateConnectionFromLagRequest.filterSensitiveLog,
       outputFilterSensitiveLog: Connection.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

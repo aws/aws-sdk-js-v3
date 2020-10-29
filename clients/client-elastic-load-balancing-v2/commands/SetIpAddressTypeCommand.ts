@@ -48,13 +48,23 @@ export class SetIpAddressTypeCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ElasticLoadBalancingV2Client";
+    const commandName = "SetIpAddressTypeCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ElasticLoadBalancingV2Client",
-      commandName: "SetIpAddressTypeCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: SetIpAddressTypeInput.filterSensitiveLog,
       outputFilterSensitiveLog: SetIpAddressTypeOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -37,13 +37,23 @@ export class GetPolicyCommand extends $Command<GetPolicyCommandInput, GetPolicyC
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "FMSClient";
+    const commandName = "GetPolicyCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "FMSClient",
-      commandName: "GetPolicyCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetPolicyRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetPolicyResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

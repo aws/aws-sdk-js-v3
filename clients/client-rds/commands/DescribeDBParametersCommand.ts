@@ -44,13 +44,23 @@ export class DescribeDBParametersCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "RDSClient";
+    const commandName = "DescribeDBParametersCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "RDSClient",
-      commandName: "DescribeDBParametersCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeDBParametersMessage.filterSensitiveLog,
       outputFilterSensitiveLog: DBParameterGroupDetails.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

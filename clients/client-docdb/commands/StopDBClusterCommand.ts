@@ -44,13 +44,23 @@ export class StopDBClusterCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "DocDBClient";
+    const commandName = "StopDBClusterCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "DocDBClient",
-      commandName: "StopDBClusterCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: StopDBClusterMessage.filterSensitiveLog,
       outputFilterSensitiveLog: StopDBClusterResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

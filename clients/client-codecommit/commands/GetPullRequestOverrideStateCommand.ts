@@ -44,13 +44,23 @@ export class GetPullRequestOverrideStateCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CodeCommitClient";
+    const commandName = "GetPullRequestOverrideStateCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CodeCommitClient",
-      commandName: "GetPullRequestOverrideStateCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetPullRequestOverrideStateInput.filterSensitiveLog,
       outputFilterSensitiveLog: GetPullRequestOverrideStateOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

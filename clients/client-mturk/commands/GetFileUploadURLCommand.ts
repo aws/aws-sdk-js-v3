@@ -44,13 +44,23 @@ export class GetFileUploadURLCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "MTurkClient";
+    const commandName = "GetFileUploadURLCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "MTurkClient",
-      commandName: "GetFileUploadURLCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetFileUploadURLRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetFileUploadURLResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

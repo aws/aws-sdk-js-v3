@@ -43,13 +43,23 @@ export class PredictCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "MachineLearningClient";
+    const commandName = "PredictCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "MachineLearningClient",
-      commandName: "PredictCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: PredictInput.filterSensitiveLog,
       outputFilterSensitiveLog: PredictOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

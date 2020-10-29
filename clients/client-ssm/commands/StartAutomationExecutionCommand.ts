@@ -44,13 +44,23 @@ export class StartAutomationExecutionCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SSMClient";
+    const commandName = "StartAutomationExecutionCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "SSMClient",
-      commandName: "StartAutomationExecutionCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: StartAutomationExecutionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: StartAutomationExecutionResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

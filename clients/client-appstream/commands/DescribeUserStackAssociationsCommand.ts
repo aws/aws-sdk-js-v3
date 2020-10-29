@@ -44,13 +44,23 @@ export class DescribeUserStackAssociationsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "AppStreamClient";
+    const commandName = "DescribeUserStackAssociationsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "AppStreamClient",
-      commandName: "DescribeUserStackAssociationsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeUserStackAssociationsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeUserStackAssociationsResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

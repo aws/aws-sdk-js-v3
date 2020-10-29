@@ -44,13 +44,23 @@ export class DiscoverInputSchemaCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "KinesisAnalyticsClient";
+    const commandName = "DiscoverInputSchemaCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "KinesisAnalyticsClient",
-      commandName: "DiscoverInputSchemaCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DiscoverInputSchemaRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DiscoverInputSchemaResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

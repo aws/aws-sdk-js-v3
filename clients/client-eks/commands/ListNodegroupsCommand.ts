@@ -44,13 +44,23 @@ export class ListNodegroupsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "EKSClient";
+    const commandName = "ListNodegroupsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "EKSClient",
-      commandName: "ListNodegroupsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListNodegroupsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListNodegroupsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

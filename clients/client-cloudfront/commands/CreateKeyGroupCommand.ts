@@ -44,13 +44,23 @@ export class CreateKeyGroupCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CloudFrontClient";
+    const commandName = "CreateKeyGroupCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CloudFrontClient",
-      commandName: "CreateKeyGroupCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreateKeyGroupRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateKeyGroupResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

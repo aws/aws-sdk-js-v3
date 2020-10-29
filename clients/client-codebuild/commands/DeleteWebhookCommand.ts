@@ -44,13 +44,23 @@ export class DeleteWebhookCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CodeBuildClient";
+    const commandName = "DeleteWebhookCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CodeBuildClient",
-      commandName: "DeleteWebhookCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteWebhookInput.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteWebhookOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

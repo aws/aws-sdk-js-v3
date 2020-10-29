@@ -50,13 +50,23 @@ export class AdminListUserAuthEventsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CognitoIdentityProviderClient";
+    const commandName = "AdminListUserAuthEventsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CognitoIdentityProviderClient",
-      commandName: "AdminListUserAuthEventsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: AdminListUserAuthEventsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: AdminListUserAuthEventsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

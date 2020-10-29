@@ -44,13 +44,23 @@ export class DisableAddOnCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "LightsailClient";
+    const commandName = "DisableAddOnCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "LightsailClient",
-      commandName: "DisableAddOnCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DisableAddOnRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DisableAddOnResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -44,13 +44,23 @@ export class DeleteMLTransformCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "GlueClient";
+    const commandName = "DeleteMLTransformCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "GlueClient",
-      commandName: "DeleteMLTransformCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteMLTransformRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteMLTransformResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -44,13 +44,23 @@ export class AssociateIamInstanceProfileCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "EC2Client";
+    const commandName = "AssociateIamInstanceProfileCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "EC2Client",
-      commandName: "AssociateIamInstanceProfileCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: AssociateIamInstanceProfileRequest.filterSensitiveLog,
       outputFilterSensitiveLog: AssociateIamInstanceProfileResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

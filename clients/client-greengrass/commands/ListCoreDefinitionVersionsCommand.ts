@@ -44,13 +44,23 @@ export class ListCoreDefinitionVersionsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "GreengrassClient";
+    const commandName = "ListCoreDefinitionVersionsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "GreengrassClient",
-      commandName: "ListCoreDefinitionVersionsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListCoreDefinitionVersionsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListCoreDefinitionVersionsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

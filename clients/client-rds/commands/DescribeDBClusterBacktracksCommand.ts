@@ -44,13 +44,23 @@ export class DescribeDBClusterBacktracksCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "RDSClient";
+    const commandName = "DescribeDBClusterBacktracksCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "RDSClient",
-      commandName: "DescribeDBClusterBacktracksCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeDBClusterBacktracksMessage.filterSensitiveLog,
       outputFilterSensitiveLog: DBClusterBacktrackMessage.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

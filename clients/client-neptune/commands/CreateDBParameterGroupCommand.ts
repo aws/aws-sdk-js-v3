@@ -44,13 +44,23 @@ export class CreateDBParameterGroupCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "NeptuneClient";
+    const commandName = "CreateDBParameterGroupCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "NeptuneClient",
-      commandName: "CreateDBParameterGroupCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreateDBParameterGroupMessage.filterSensitiveLog,
       outputFilterSensitiveLog: CreateDBParameterGroupResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

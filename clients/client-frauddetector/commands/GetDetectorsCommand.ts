@@ -44,13 +44,23 @@ export class GetDetectorsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "FraudDetectorClient";
+    const commandName = "GetDetectorsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "FraudDetectorClient",
-      commandName: "GetDetectorsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetDetectorsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetDetectorsResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -44,13 +44,23 @@ export class DescribeTapesCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "StorageGatewayClient";
+    const commandName = "DescribeTapesCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "StorageGatewayClient",
-      commandName: "DescribeTapesCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeTapesInput.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeTapesOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

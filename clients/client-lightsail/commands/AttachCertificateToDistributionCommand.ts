@@ -44,13 +44,23 @@ export class AttachCertificateToDistributionCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "LightsailClient";
+    const commandName = "AttachCertificateToDistributionCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "LightsailClient",
-      commandName: "AttachCertificateToDistributionCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: AttachCertificateToDistributionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: AttachCertificateToDistributionResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

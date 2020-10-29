@@ -44,13 +44,23 @@ export class DeleteMeshCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "AppMeshClient";
+    const commandName = "DeleteMeshCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "AppMeshClient",
-      commandName: "DeleteMeshCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteMeshInput.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteMeshOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

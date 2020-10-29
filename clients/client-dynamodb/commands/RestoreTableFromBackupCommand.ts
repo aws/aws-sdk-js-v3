@@ -44,13 +44,23 @@ export class RestoreTableFromBackupCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "DynamoDBClient";
+    const commandName = "RestoreTableFromBackupCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "DynamoDBClient",
-      commandName: "RestoreTableFromBackupCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: RestoreTableFromBackupInput.filterSensitiveLog,
       outputFilterSensitiveLog: RestoreTableFromBackupOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

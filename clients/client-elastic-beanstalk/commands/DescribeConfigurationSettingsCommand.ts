@@ -44,13 +44,23 @@ export class DescribeConfigurationSettingsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ElasticBeanstalkClient";
+    const commandName = "DescribeConfigurationSettingsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ElasticBeanstalkClient",
-      commandName: "DescribeConfigurationSettingsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeConfigurationSettingsMessage.filterSensitiveLog,
       outputFilterSensitiveLog: ConfigurationSettingsDescriptions.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

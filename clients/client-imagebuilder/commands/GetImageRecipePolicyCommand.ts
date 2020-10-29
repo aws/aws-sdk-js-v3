@@ -44,13 +44,23 @@ export class GetImageRecipePolicyCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ImagebuilderClient";
+    const commandName = "GetImageRecipePolicyCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ImagebuilderClient",
-      commandName: "GetImageRecipePolicyCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetImageRecipePolicyRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetImageRecipePolicyResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

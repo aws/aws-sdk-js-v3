@@ -44,13 +44,23 @@ export class DeleteGroupCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "WorkMailClient";
+    const commandName = "DeleteGroupCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "WorkMailClient",
-      commandName: "DeleteGroupCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteGroupRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteGroupResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

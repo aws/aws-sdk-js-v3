@@ -44,13 +44,23 @@ export class ExpireSessionCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "AppStreamClient";
+    const commandName = "ExpireSessionCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "AppStreamClient",
-      commandName: "ExpireSessionCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ExpireSessionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ExpireSessionResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

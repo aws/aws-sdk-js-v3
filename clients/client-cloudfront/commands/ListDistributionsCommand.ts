@@ -44,13 +44,23 @@ export class ListDistributionsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CloudFrontClient";
+    const commandName = "ListDistributionsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CloudFrontClient",
-      commandName: "ListDistributionsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListDistributionsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListDistributionsResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

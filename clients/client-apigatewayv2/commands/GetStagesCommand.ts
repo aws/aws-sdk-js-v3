@@ -44,13 +44,23 @@ export class GetStagesCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ApiGatewayV2Client";
+    const commandName = "GetStagesCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ApiGatewayV2Client",
-      commandName: "GetStagesCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetStagesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetStagesResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

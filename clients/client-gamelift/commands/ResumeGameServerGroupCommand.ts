@@ -44,13 +44,23 @@ export class ResumeGameServerGroupCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "GameLiftClient";
+    const commandName = "ResumeGameServerGroupCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "GameLiftClient",
-      commandName: "ResumeGameServerGroupCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ResumeGameServerGroupInput.filterSensitiveLog,
       outputFilterSensitiveLog: ResumeGameServerGroupOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

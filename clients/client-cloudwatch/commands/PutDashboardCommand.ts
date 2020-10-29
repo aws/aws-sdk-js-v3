@@ -41,13 +41,23 @@ export class PutDashboardCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CloudWatchClient";
+    const commandName = "PutDashboardCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CloudWatchClient",
-      commandName: "PutDashboardCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: PutDashboardInput.filterSensitiveLog,
       outputFilterSensitiveLog: PutDashboardOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

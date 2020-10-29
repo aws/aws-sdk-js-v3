@@ -44,13 +44,23 @@ export class GetLoginProfileCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "IAMClient";
+    const commandName = "GetLoginProfileCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "IAMClient",
-      commandName: "GetLoginProfileCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetLoginProfileRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetLoginProfileResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

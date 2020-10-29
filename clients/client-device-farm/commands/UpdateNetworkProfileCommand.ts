@@ -44,13 +44,23 @@ export class UpdateNetworkProfileCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "DeviceFarmClient";
+    const commandName = "UpdateNetworkProfileCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "DeviceFarmClient",
-      commandName: "UpdateNetworkProfileCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UpdateNetworkProfileRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateNetworkProfileResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

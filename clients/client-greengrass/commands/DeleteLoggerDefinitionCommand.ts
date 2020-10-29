@@ -44,13 +44,23 @@ export class DeleteLoggerDefinitionCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "GreengrassClient";
+    const commandName = "DeleteLoggerDefinitionCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "GreengrassClient",
-      commandName: "DeleteLoggerDefinitionCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteLoggerDefinitionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteLoggerDefinitionResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

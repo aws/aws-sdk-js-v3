@@ -44,13 +44,23 @@ export class UpdateTemplateCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SESClient";
+    const commandName = "UpdateTemplateCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "SESClient",
-      commandName: "UpdateTemplateCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UpdateTemplateRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateTemplateResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -48,13 +48,23 @@ export class InferICD10CMCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ComprehendMedicalClient";
+    const commandName = "InferICD10CMCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ComprehendMedicalClient",
-      commandName: "InferICD10CMCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: InferICD10CMRequest.filterSensitiveLog,
       outputFilterSensitiveLog: InferICD10CMResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -44,13 +44,23 @@ export class DescribeGlobalNetworksCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "NetworkManagerClient";
+    const commandName = "DescribeGlobalNetworksCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "NetworkManagerClient",
-      commandName: "DescribeGlobalNetworksCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeGlobalNetworksRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeGlobalNetworksResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

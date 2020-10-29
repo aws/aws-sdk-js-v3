@@ -44,13 +44,23 @@ export class DescribePullRequestEventsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CodeCommitClient";
+    const commandName = "DescribePullRequestEventsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CodeCommitClient",
-      commandName: "DescribePullRequestEventsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribePullRequestEventsInput.filterSensitiveLog,
       outputFilterSensitiveLog: DescribePullRequestEventsOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

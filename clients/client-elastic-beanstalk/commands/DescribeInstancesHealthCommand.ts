@@ -44,13 +44,23 @@ export class DescribeInstancesHealthCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ElasticBeanstalkClient";
+    const commandName = "DescribeInstancesHealthCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ElasticBeanstalkClient",
-      commandName: "DescribeInstancesHealthCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeInstancesHealthRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeInstancesHealthResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -44,13 +44,23 @@ export class GetDatasetContentCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "IoTAnalyticsClient";
+    const commandName = "GetDatasetContentCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "IoTAnalyticsClient",
-      commandName: "GetDatasetContentCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetDatasetContentRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetDatasetContentResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

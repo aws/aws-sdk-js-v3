@@ -44,13 +44,23 @@ export class DescribeBucketsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "Macie2Client";
+    const commandName = "DescribeBucketsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "Macie2Client",
-      commandName: "DescribeBucketsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeBucketsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeBucketsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

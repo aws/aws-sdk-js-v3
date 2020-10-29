@@ -48,13 +48,23 @@ export class CopyObjectCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "S3Client";
+    const commandName = "CopyObjectCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "S3Client",
-      commandName: "CopyObjectCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CopyObjectRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CopyObjectOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -50,13 +50,23 @@ export class SetUICustomizationCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CognitoIdentityProviderClient";
+    const commandName = "SetUICustomizationCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CognitoIdentityProviderClient",
-      commandName: "SetUICustomizationCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: SetUICustomizationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: SetUICustomizationResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -44,13 +44,23 @@ export class CreateHITWithHITTypeCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "MTurkClient";
+    const commandName = "CreateHITWithHITTypeCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "MTurkClient",
-      commandName: "CreateHITWithHITTypeCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreateHITWithHITTypeRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateHITWithHITTypeResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

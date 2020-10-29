@@ -44,13 +44,23 @@ export class DescribeStorageCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "RedshiftClient";
+    const commandName = "DescribeStorageCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "RedshiftClient",
-      commandName: "DescribeStorageCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: (input: any) => input,
       outputFilterSensitiveLog: CustomerStorageMessage.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

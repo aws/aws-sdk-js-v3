@@ -44,13 +44,23 @@ export class SearchAddressBooksCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "AlexaForBusinessClient";
+    const commandName = "SearchAddressBooksCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "AlexaForBusinessClient",
-      commandName: "SearchAddressBooksCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: SearchAddressBooksRequest.filterSensitiveLog,
       outputFilterSensitiveLog: SearchAddressBooksResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -44,13 +44,23 @@ export class AssociateExternalConnectionCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CodeartifactClient";
+    const commandName = "AssociateExternalConnectionCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CodeartifactClient",
-      commandName: "AssociateExternalConnectionCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: AssociateExternalConnectionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: AssociateExternalConnectionResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -48,13 +48,23 @@ export class GetMediaForFragmentListCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "KinesisVideoArchivedMediaClient";
+    const commandName = "GetMediaForFragmentListCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "KinesisVideoArchivedMediaClient",
-      commandName: "GetMediaForFragmentListCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetMediaForFragmentListInput.filterSensitiveLog,
       outputFilterSensitiveLog: GetMediaForFragmentListOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

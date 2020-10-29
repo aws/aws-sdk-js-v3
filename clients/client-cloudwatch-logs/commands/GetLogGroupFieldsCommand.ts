@@ -44,13 +44,23 @@ export class GetLogGroupFieldsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CloudWatchLogsClient";
+    const commandName = "GetLogGroupFieldsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CloudWatchLogsClient",
-      commandName: "GetLogGroupFieldsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetLogGroupFieldsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetLogGroupFieldsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

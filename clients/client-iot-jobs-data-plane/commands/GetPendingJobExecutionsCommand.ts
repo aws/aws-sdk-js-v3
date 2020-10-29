@@ -44,13 +44,23 @@ export class GetPendingJobExecutionsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "IoTJobsDataPlaneClient";
+    const commandName = "GetPendingJobExecutionsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "IoTJobsDataPlaneClient",
-      commandName: "GetPendingJobExecutionsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetPendingJobExecutionsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetPendingJobExecutionsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

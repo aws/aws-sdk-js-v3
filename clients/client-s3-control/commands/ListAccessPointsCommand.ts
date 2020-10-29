@@ -46,13 +46,23 @@ export class ListAccessPointsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "S3ControlClient";
+    const commandName = "ListAccessPointsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "S3ControlClient",
-      commandName: "ListAccessPointsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListAccessPointsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListAccessPointsResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

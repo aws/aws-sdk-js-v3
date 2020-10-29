@@ -44,13 +44,23 @@ export class DeleteTableVersionCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "GlueClient";
+    const commandName = "DeleteTableVersionCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "GlueClient",
-      commandName: "DeleteTableVersionCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteTableVersionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteTableVersionResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

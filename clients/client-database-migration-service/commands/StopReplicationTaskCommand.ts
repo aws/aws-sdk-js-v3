@@ -48,13 +48,23 @@ export class StopReplicationTaskCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "DatabaseMigrationServiceClient";
+    const commandName = "StopReplicationTaskCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "DatabaseMigrationServiceClient",
-      commandName: "StopReplicationTaskCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: StopReplicationTaskMessage.filterSensitiveLog,
       outputFilterSensitiveLog: StopReplicationTaskResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

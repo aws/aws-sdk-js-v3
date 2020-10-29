@@ -37,13 +37,23 @@ export class SearchCommand extends $Command<SearchCommandInput, SearchCommandOut
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SageMakerClient";
+    const commandName = "SearchCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "SageMakerClient",
-      commandName: "SearchCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: SearchRequest.filterSensitiveLog,
       outputFilterSensitiveLog: SearchResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

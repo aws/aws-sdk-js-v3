@@ -44,13 +44,23 @@ export class CreateWorkflowCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "GlueClient";
+    const commandName = "CreateWorkflowCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "GlueClient",
-      commandName: "CreateWorkflowCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreateWorkflowRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateWorkflowResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

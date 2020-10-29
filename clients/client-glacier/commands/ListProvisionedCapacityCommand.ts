@@ -44,13 +44,23 @@ export class ListProvisionedCapacityCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "GlacierClient";
+    const commandName = "ListProvisionedCapacityCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "GlacierClient",
-      commandName: "ListProvisionedCapacityCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListProvisionedCapacityInput.filterSensitiveLog,
       outputFilterSensitiveLog: ListProvisionedCapacityOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

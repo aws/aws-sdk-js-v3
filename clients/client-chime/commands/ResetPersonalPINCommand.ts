@@ -44,13 +44,23 @@ export class ResetPersonalPINCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ChimeClient";
+    const commandName = "ResetPersonalPINCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ChimeClient",
-      commandName: "ResetPersonalPINCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ResetPersonalPINRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ResetPersonalPINResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

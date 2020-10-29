@@ -48,13 +48,23 @@ export class AssociateProactiveEngagementDetailsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ShieldClient";
+    const commandName = "AssociateProactiveEngagementDetailsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ShieldClient",
-      commandName: "AssociateProactiveEngagementDetailsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: AssociateProactiveEngagementDetailsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: AssociateProactiveEngagementDetailsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

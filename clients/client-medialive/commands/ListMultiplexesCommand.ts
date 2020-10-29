@@ -44,13 +44,23 @@ export class ListMultiplexesCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "MediaLiveClient";
+    const commandName = "ListMultiplexesCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "MediaLiveClient",
-      commandName: "ListMultiplexesCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListMultiplexesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListMultiplexesResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

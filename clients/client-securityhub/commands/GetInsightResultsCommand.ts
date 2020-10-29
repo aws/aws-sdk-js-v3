@@ -44,13 +44,23 @@ export class GetInsightResultsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SecurityHubClient";
+    const commandName = "GetInsightResultsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "SecurityHubClient",
-      commandName: "GetInsightResultsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetInsightResultsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetInsightResultsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

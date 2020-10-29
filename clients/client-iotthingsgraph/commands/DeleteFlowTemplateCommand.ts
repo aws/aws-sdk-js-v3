@@ -44,13 +44,23 @@ export class DeleteFlowTemplateCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "IoTThingsGraphClient";
+    const commandName = "DeleteFlowTemplateCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "IoTThingsGraphClient",
-      commandName: "DeleteFlowTemplateCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteFlowTemplateRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteFlowTemplateResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

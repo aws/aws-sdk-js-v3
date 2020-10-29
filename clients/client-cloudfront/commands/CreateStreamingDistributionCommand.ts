@@ -44,13 +44,23 @@ export class CreateStreamingDistributionCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CloudFrontClient";
+    const commandName = "CreateStreamingDistributionCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CloudFrontClient",
-      commandName: "CreateStreamingDistributionCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreateStreamingDistributionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateStreamingDistributionResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

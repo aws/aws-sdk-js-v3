@@ -46,13 +46,23 @@ export class UpdateHostedZoneCommentCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "Route53Client";
+    const commandName = "UpdateHostedZoneCommentCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "Route53Client",
-      commandName: "UpdateHostedZoneCommentCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UpdateHostedZoneCommentRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateHostedZoneCommentResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -44,13 +44,23 @@ export class DescribeLocationFsxWindowsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "DataSyncClient";
+    const commandName = "DescribeLocationFsxWindowsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "DataSyncClient",
-      commandName: "DescribeLocationFsxWindowsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeLocationFsxWindowsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeLocationFsxWindowsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

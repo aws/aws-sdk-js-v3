@@ -44,13 +44,23 @@ export class UpdateFacetCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CloudDirectoryClient";
+    const commandName = "UpdateFacetCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CloudDirectoryClient",
-      commandName: "UpdateFacetCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UpdateFacetRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateFacetResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

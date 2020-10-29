@@ -44,13 +44,23 @@ export class DeleteThemeAliasCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "QuickSightClient";
+    const commandName = "DeleteThemeAliasCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "QuickSightClient",
-      commandName: "DeleteThemeAliasCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteThemeAliasRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteThemeAliasResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -44,13 +44,23 @@ export class DescribeAnalysisCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "QuickSightClient";
+    const commandName = "DescribeAnalysisCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "QuickSightClient",
-      commandName: "DescribeAnalysisCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeAnalysisRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeAnalysisResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -44,13 +44,23 @@ export class RotateIngestEndpointCredentialsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "MediaPackageClient";
+    const commandName = "RotateIngestEndpointCredentialsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "MediaPackageClient",
-      commandName: "RotateIngestEndpointCredentialsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: RotateIngestEndpointCredentialsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: RotateIngestEndpointCredentialsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

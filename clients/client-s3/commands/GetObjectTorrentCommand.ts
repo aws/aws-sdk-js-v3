@@ -46,13 +46,23 @@ export class GetObjectTorrentCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "S3Client";
+    const commandName = "GetObjectTorrentCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "S3Client",
-      commandName: "GetObjectTorrentCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetObjectTorrentRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetObjectTorrentOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -44,13 +44,23 @@ export class DeleteMitigationActionCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "IoTClient";
+    const commandName = "DeleteMitigationActionCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "IoTClient",
-      commandName: "DeleteMitigationActionCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteMitigationActionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteMitigationActionResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

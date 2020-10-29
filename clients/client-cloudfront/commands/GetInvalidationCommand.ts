@@ -44,13 +44,23 @@ export class GetInvalidationCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CloudFrontClient";
+    const commandName = "GetInvalidationCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CloudFrontClient",
-      commandName: "GetInvalidationCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetInvalidationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetInvalidationResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

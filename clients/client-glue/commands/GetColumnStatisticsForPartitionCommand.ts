@@ -44,13 +44,23 @@ export class GetColumnStatisticsForPartitionCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "GlueClient";
+    const commandName = "GetColumnStatisticsForPartitionCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "GlueClient",
-      commandName: "GetColumnStatisticsForPartitionCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetColumnStatisticsForPartitionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetColumnStatisticsForPartitionResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

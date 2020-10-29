@@ -44,13 +44,23 @@ export class ListSkillsStoreCategoriesCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "AlexaForBusinessClient";
+    const commandName = "ListSkillsStoreCategoriesCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "AlexaForBusinessClient",
-      commandName: "ListSkillsStoreCategoriesCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListSkillsStoreCategoriesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListSkillsStoreCategoriesResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

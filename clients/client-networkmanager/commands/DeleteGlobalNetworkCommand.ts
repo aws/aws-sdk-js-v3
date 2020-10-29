@@ -44,13 +44,23 @@ export class DeleteGlobalNetworkCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "NetworkManagerClient";
+    const commandName = "DeleteGlobalNetworkCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "NetworkManagerClient",
-      commandName: "DeleteGlobalNetworkCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteGlobalNetworkRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteGlobalNetworkResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

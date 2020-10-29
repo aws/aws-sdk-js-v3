@@ -46,13 +46,23 @@ export class UploadArchiveCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "GlacierClient";
+    const commandName = "UploadArchiveCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "GlacierClient",
-      commandName: "UploadArchiveCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UploadArchiveInput.filterSensitiveLog,
       outputFilterSensitiveLog: ArchiveCreationOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

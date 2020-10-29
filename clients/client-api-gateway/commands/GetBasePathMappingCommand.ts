@@ -44,13 +44,23 @@ export class GetBasePathMappingCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "APIGatewayClient";
+    const commandName = "GetBasePathMappingCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "APIGatewayClient",
-      commandName: "GetBasePathMappingCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetBasePathMappingRequest.filterSensitiveLog,
       outputFilterSensitiveLog: BasePathMapping.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

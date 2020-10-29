@@ -44,13 +44,23 @@ export class DeleteRemediationExceptionsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ConfigServiceClient";
+    const commandName = "DeleteRemediationExceptionsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ConfigServiceClient",
-      commandName: "DeleteRemediationExceptionsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteRemediationExceptionsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteRemediationExceptionsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

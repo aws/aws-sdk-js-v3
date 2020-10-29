@@ -44,13 +44,23 @@ export class DeleteApnsChannelCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "PinpointClient";
+    const commandName = "DeleteApnsChannelCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "PinpointClient",
-      commandName: "DeleteApnsChannelCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteApnsChannelRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteApnsChannelResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

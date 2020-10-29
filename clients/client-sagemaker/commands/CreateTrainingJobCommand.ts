@@ -44,13 +44,23 @@ export class CreateTrainingJobCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SageMakerClient";
+    const commandName = "CreateTrainingJobCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "SageMakerClient",
-      commandName: "CreateTrainingJobCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreateTrainingJobRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateTrainingJobResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

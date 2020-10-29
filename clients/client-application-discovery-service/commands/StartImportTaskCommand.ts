@@ -48,13 +48,23 @@ export class StartImportTaskCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ApplicationDiscoveryServiceClient";
+    const commandName = "StartImportTaskCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ApplicationDiscoveryServiceClient",
-      commandName: "StartImportTaskCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: StartImportTaskRequest.filterSensitiveLog,
       outputFilterSensitiveLog: StartImportTaskResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

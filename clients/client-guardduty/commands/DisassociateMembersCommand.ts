@@ -44,13 +44,23 @@ export class DisassociateMembersCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "GuardDutyClient";
+    const commandName = "DisassociateMembersCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "GuardDutyClient",
-      commandName: "DisassociateMembersCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DisassociateMembersRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DisassociateMembersResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -44,13 +44,23 @@ export class CreateModelCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ApiGatewayV2Client";
+    const commandName = "CreateModelCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ApiGatewayV2Client",
-      commandName: "CreateModelCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreateModelRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateModelResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

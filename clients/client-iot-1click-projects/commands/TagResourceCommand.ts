@@ -48,13 +48,23 @@ export class TagResourceCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "IoT1ClickProjectsClient";
+    const commandName = "TagResourceCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "IoT1ClickProjectsClient",
-      commandName: "TagResourceCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: TagResourceRequest.filterSensitiveLog,
       outputFilterSensitiveLog: TagResourceResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

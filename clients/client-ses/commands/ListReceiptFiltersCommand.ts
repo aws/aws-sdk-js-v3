@@ -44,13 +44,23 @@ export class ListReceiptFiltersCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SESClient";
+    const commandName = "ListReceiptFiltersCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "SESClient",
-      commandName: "ListReceiptFiltersCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListReceiptFiltersRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListReceiptFiltersResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

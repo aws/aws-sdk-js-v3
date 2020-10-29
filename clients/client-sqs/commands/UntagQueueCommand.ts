@@ -41,13 +41,23 @@ export class UntagQueueCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SQSClient";
+    const commandName = "UntagQueueCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "SQSClient",
-      commandName: "UntagQueueCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UntagQueueRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

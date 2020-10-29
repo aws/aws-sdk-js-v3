@@ -48,13 +48,23 @@ export class DescribeDeviceCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "IoT1ClickDevicesServiceClient";
+    const commandName = "DescribeDeviceCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "IoT1ClickDevicesServiceClient",
-      commandName: "DescribeDeviceCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeDeviceRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeDeviceResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

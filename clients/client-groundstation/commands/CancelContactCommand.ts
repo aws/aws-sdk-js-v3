@@ -44,13 +44,23 @@ export class CancelContactCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "GroundStationClient";
+    const commandName = "CancelContactCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "GroundStationClient",
-      commandName: "CancelContactCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CancelContactRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ContactIdResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

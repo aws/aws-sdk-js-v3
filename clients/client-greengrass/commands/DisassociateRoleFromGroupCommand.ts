@@ -44,13 +44,23 @@ export class DisassociateRoleFromGroupCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "GreengrassClient";
+    const commandName = "DisassociateRoleFromGroupCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "GreengrassClient",
-      commandName: "DisassociateRoleFromGroupCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DisassociateRoleFromGroupRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DisassociateRoleFromGroupResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

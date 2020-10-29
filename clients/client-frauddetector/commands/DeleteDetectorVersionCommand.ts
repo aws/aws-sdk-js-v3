@@ -44,13 +44,23 @@ export class DeleteDetectorVersionCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "FraudDetectorClient";
+    const commandName = "DeleteDetectorVersionCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "FraudDetectorClient",
-      commandName: "DeleteDetectorVersionCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteDetectorVersionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteDetectorVersionResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -48,13 +48,23 @@ export class DeleteInfrastructureConfigurationCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ImagebuilderClient";
+    const commandName = "DeleteInfrastructureConfigurationCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ImagebuilderClient",
-      commandName: "DeleteInfrastructureConfigurationCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteInfrastructureConfigurationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteInfrastructureConfigurationResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

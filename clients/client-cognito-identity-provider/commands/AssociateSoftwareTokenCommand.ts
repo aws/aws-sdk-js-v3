@@ -50,13 +50,23 @@ export class AssociateSoftwareTokenCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CognitoIdentityProviderClient";
+    const commandName = "AssociateSoftwareTokenCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CognitoIdentityProviderClient",
-      commandName: "AssociateSoftwareTokenCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: AssociateSoftwareTokenRequest.filterSensitiveLog,
       outputFilterSensitiveLog: AssociateSoftwareTokenResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -44,13 +44,23 @@ export class GetRequestedServiceQuotaChangeCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ServiceQuotasClient";
+    const commandName = "GetRequestedServiceQuotaChangeCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ServiceQuotasClient",
-      commandName: "GetRequestedServiceQuotaChangeCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetRequestedServiceQuotaChangeRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetRequestedServiceQuotaChangeResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

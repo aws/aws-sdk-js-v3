@@ -44,13 +44,23 @@ export class ListAttachedUserPoliciesCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "IAMClient";
+    const commandName = "ListAttachedUserPoliciesCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "IAMClient",
-      commandName: "ListAttachedUserPoliciesCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListAttachedUserPoliciesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListAttachedUserPoliciesResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

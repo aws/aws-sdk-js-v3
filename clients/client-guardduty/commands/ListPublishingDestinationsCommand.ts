@@ -44,13 +44,23 @@ export class ListPublishingDestinationsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "GuardDutyClient";
+    const commandName = "ListPublishingDestinationsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "GuardDutyClient",
-      commandName: "ListPublishingDestinationsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListPublishingDestinationsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListPublishingDestinationsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

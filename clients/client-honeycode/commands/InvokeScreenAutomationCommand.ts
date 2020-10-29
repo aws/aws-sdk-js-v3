@@ -44,13 +44,23 @@ export class InvokeScreenAutomationCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "HoneycodeClient";
+    const commandName = "InvokeScreenAutomationCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "HoneycodeClient",
-      commandName: "InvokeScreenAutomationCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: InvokeScreenAutomationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: InvokeScreenAutomationResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

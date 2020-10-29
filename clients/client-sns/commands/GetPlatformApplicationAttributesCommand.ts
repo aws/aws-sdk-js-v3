@@ -44,13 +44,23 @@ export class GetPlatformApplicationAttributesCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SNSClient";
+    const commandName = "GetPlatformApplicationAttributesCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "SNSClient",
-      commandName: "GetPlatformApplicationAttributesCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetPlatformApplicationAttributesInput.filterSensitiveLog,
       outputFilterSensitiveLog: GetPlatformApplicationAttributesResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

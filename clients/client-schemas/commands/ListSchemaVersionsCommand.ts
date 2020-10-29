@@ -44,13 +44,23 @@ export class ListSchemaVersionsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SchemasClient";
+    const commandName = "ListSchemaVersionsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "SchemasClient",
-      commandName: "ListSchemaVersionsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListSchemaVersionsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListSchemaVersionsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

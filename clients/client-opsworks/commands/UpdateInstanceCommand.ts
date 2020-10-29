@@ -44,13 +44,23 @@ export class UpdateInstanceCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "OpsWorksClient";
+    const commandName = "UpdateInstanceCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "OpsWorksClient",
-      commandName: "UpdateInstanceCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UpdateInstanceRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

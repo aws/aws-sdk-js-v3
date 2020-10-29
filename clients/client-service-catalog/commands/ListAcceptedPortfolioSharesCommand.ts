@@ -44,13 +44,23 @@ export class ListAcceptedPortfolioSharesCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ServiceCatalogClient";
+    const commandName = "ListAcceptedPortfolioSharesCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ServiceCatalogClient",
-      commandName: "ListAcceptedPortfolioSharesCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListAcceptedPortfolioSharesInput.filterSensitiveLog,
       outputFilterSensitiveLog: ListAcceptedPortfolioSharesOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

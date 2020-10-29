@@ -44,13 +44,23 @@ export class StopProjectVersionCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "RekognitionClient";
+    const commandName = "StopProjectVersionCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "RekognitionClient",
-      commandName: "StopProjectVersionCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: StopProjectVersionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: StopProjectVersionResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

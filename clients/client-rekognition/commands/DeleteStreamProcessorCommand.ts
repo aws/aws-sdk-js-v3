@@ -44,13 +44,23 @@ export class DeleteStreamProcessorCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "RekognitionClient";
+    const commandName = "DeleteStreamProcessorCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "RekognitionClient",
-      commandName: "DeleteStreamProcessorCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteStreamProcessorRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteStreamProcessorResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

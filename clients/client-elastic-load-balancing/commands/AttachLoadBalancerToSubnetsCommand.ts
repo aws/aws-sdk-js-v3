@@ -48,13 +48,23 @@ export class AttachLoadBalancerToSubnetsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ElasticLoadBalancingClient";
+    const commandName = "AttachLoadBalancerToSubnetsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ElasticLoadBalancingClient",
-      commandName: "AttachLoadBalancerToSubnetsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: AttachLoadBalancerToSubnetsInput.filterSensitiveLog,
       outputFilterSensitiveLog: AttachLoadBalancerToSubnetsOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

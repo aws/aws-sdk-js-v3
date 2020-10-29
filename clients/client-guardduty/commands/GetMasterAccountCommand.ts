@@ -44,13 +44,23 @@ export class GetMasterAccountCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "GuardDutyClient";
+    const commandName = "GetMasterAccountCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "GuardDutyClient",
-      commandName: "GetMasterAccountCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetMasterAccountRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetMasterAccountResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

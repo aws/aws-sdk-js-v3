@@ -44,13 +44,23 @@ export class CreateTopicRuleDestinationCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "IoTClient";
+    const commandName = "CreateTopicRuleDestinationCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "IoTClient",
-      commandName: "CreateTopicRuleDestinationCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreateTopicRuleDestinationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateTopicRuleDestinationResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

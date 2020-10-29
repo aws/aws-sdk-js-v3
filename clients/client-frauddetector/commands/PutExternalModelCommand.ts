@@ -44,13 +44,23 @@ export class PutExternalModelCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "FraudDetectorClient";
+    const commandName = "PutExternalModelCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "FraudDetectorClient",
-      commandName: "PutExternalModelCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: PutExternalModelRequest.filterSensitiveLog,
       outputFilterSensitiveLog: PutExternalModelResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

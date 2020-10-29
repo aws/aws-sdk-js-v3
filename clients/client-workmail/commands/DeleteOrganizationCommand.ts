@@ -44,13 +44,23 @@ export class DeleteOrganizationCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "WorkMailClient";
+    const commandName = "DeleteOrganizationCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "WorkMailClient",
-      commandName: "DeleteOrganizationCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteOrganizationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteOrganizationResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

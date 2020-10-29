@@ -44,13 +44,23 @@ export class GetCheckerIpRangesCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "Route53Client";
+    const commandName = "GetCheckerIpRangesCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "Route53Client",
-      commandName: "GetCheckerIpRangesCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetCheckerIpRangesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetCheckerIpRangesResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

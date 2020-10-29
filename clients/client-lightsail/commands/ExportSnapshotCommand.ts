@@ -44,13 +44,23 @@ export class ExportSnapshotCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "LightsailClient";
+    const commandName = "ExportSnapshotCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "LightsailClient",
-      commandName: "ExportSnapshotCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ExportSnapshotRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ExportSnapshotResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

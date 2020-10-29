@@ -44,13 +44,23 @@ export class CreateCarrierGatewayCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "EC2Client";
+    const commandName = "CreateCarrierGatewayCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "EC2Client",
-      commandName: "CreateCarrierGatewayCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreateCarrierGatewayRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateCarrierGatewayResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

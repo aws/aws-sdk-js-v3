@@ -44,13 +44,23 @@ export class DeleteClusterCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "DAXClient";
+    const commandName = "DeleteClusterCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "DAXClient",
-      commandName: "DeleteClusterCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteClusterRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteClusterResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

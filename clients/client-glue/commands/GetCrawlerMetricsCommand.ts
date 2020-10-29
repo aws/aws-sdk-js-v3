@@ -44,13 +44,23 @@ export class GetCrawlerMetricsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "GlueClient";
+    const commandName = "GetCrawlerMetricsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "GlueClient",
-      commandName: "GetCrawlerMetricsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetCrawlerMetricsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetCrawlerMetricsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

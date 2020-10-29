@@ -44,13 +44,23 @@ export class GetVpcLinkCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "APIGatewayClient";
+    const commandName = "GetVpcLinkCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "APIGatewayClient",
-      commandName: "GetVpcLinkCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetVpcLinkRequest.filterSensitiveLog,
       outputFilterSensitiveLog: VpcLink.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

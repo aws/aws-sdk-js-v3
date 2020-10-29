@@ -41,13 +41,23 @@ export class GetSuiteCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "DeviceFarmClient";
+    const commandName = "GetSuiteCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "DeviceFarmClient",
-      commandName: "GetSuiteCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetSuiteRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetSuiteResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

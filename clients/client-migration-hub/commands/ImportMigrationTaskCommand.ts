@@ -44,13 +44,23 @@ export class ImportMigrationTaskCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "MigrationHubClient";
+    const commandName = "ImportMigrationTaskCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "MigrationHubClient",
-      commandName: "ImportMigrationTaskCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ImportMigrationTaskRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ImportMigrationTaskResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

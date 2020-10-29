@@ -41,13 +41,23 @@ export class TestFailoverCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ElastiCacheClient";
+    const commandName = "TestFailoverCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ElastiCacheClient",
-      commandName: "TestFailoverCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: TestFailoverMessage.filterSensitiveLog,
       outputFilterSensitiveLog: TestFailoverResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

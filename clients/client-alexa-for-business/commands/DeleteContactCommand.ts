@@ -44,13 +44,23 @@ export class DeleteContactCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "AlexaForBusinessClient";
+    const commandName = "DeleteContactCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "AlexaForBusinessClient",
-      commandName: "DeleteContactCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteContactRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteContactResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

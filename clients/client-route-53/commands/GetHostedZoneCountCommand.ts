@@ -44,13 +44,23 @@ export class GetHostedZoneCountCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "Route53Client";
+    const commandName = "GetHostedZoneCountCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "Route53Client",
-      commandName: "GetHostedZoneCountCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetHostedZoneCountRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetHostedZoneCountResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

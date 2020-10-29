@@ -44,13 +44,23 @@ export class ListRulesPackagesCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "InspectorClient";
+    const commandName = "ListRulesPackagesCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "InspectorClient",
-      commandName: "ListRulesPackagesCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListRulesPackagesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListRulesPackagesResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

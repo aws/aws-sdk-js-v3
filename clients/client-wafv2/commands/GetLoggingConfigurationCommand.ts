@@ -44,13 +44,23 @@ export class GetLoggingConfigurationCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "WAFV2Client";
+    const commandName = "GetLoggingConfigurationCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "WAFV2Client",
-      commandName: "GetLoggingConfigurationCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetLoggingConfigurationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetLoggingConfigurationResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -44,13 +44,23 @@ export class DescribeConstraintCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ServiceCatalogClient";
+    const commandName = "DescribeConstraintCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ServiceCatalogClient",
-      commandName: "DescribeConstraintCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeConstraintInput.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeConstraintOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

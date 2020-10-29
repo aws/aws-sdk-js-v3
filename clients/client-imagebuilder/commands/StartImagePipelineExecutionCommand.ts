@@ -44,13 +44,23 @@ export class StartImagePipelineExecutionCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ImagebuilderClient";
+    const commandName = "StartImagePipelineExecutionCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ImagebuilderClient",
-      commandName: "StartImagePipelineExecutionCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: StartImagePipelineExecutionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: StartImagePipelineExecutionResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

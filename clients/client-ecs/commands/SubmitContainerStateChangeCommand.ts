@@ -44,13 +44,23 @@ export class SubmitContainerStateChangeCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ECSClient";
+    const commandName = "SubmitContainerStateChangeCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ECSClient",
-      commandName: "SubmitContainerStateChangeCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: SubmitContainerStateChangeRequest.filterSensitiveLog,
       outputFilterSensitiveLog: SubmitContainerStateChangeResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

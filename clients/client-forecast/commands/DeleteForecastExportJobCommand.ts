@@ -44,13 +44,23 @@ export class DeleteForecastExportJobCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ForecastClient";
+    const commandName = "DeleteForecastExportJobCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ForecastClient",
-      commandName: "DeleteForecastExportJobCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteForecastExportJobRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

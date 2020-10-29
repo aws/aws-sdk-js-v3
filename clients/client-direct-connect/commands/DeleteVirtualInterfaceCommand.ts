@@ -44,13 +44,23 @@ export class DeleteVirtualInterfaceCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "DirectConnectClient";
+    const commandName = "DeleteVirtualInterfaceCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "DirectConnectClient",
-      commandName: "DeleteVirtualInterfaceCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteVirtualInterfaceRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteVirtualInterfaceResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

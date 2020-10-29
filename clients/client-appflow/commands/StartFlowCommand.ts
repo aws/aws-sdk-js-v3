@@ -44,13 +44,23 @@ export class StartFlowCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "AppflowClient";
+    const commandName = "StartFlowCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "AppflowClient",
-      commandName: "StartFlowCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: StartFlowRequest.filterSensitiveLog,
       outputFilterSensitiveLog: StartFlowResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

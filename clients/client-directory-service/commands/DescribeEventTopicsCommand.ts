@@ -44,13 +44,23 @@ export class DescribeEventTopicsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "DirectoryServiceClient";
+    const commandName = "DescribeEventTopicsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "DirectoryServiceClient",
-      commandName: "DescribeEventTopicsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeEventTopicsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeEventTopicsResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

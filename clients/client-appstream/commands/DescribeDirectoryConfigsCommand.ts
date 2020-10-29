@@ -44,13 +44,23 @@ export class DescribeDirectoryConfigsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "AppStreamClient";
+    const commandName = "DescribeDirectoryConfigsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "AppStreamClient",
-      commandName: "DescribeDirectoryConfigsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeDirectoryConfigsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeDirectoryConfigsResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

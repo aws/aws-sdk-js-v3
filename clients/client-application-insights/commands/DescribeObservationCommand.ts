@@ -48,13 +48,23 @@ export class DescribeObservationCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ApplicationInsightsClient";
+    const commandName = "DescribeObservationCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ApplicationInsightsClient",
-      commandName: "DescribeObservationCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeObservationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeObservationResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

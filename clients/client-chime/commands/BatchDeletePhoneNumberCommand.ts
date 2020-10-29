@@ -44,13 +44,23 @@ export class BatchDeletePhoneNumberCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ChimeClient";
+    const commandName = "BatchDeletePhoneNumberCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ChimeClient",
-      commandName: "BatchDeletePhoneNumberCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: BatchDeletePhoneNumberRequest.filterSensitiveLog,
       outputFilterSensitiveLog: BatchDeletePhoneNumberResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

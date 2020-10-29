@@ -44,13 +44,23 @@ export class GreetingWithErrorsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "RestXmlProtocolClient";
+    const commandName = "GreetingWithErrorsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "RestXmlProtocolClient",
-      commandName: "GreetingWithErrorsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: (input: any) => input,
       outputFilterSensitiveLog: GreetingWithErrorsOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

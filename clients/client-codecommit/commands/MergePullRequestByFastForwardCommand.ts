@@ -44,13 +44,23 @@ export class MergePullRequestByFastForwardCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CodeCommitClient";
+    const commandName = "MergePullRequestByFastForwardCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CodeCommitClient",
-      commandName: "MergePullRequestByFastForwardCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: MergePullRequestByFastForwardInput.filterSensitiveLog,
       outputFilterSensitiveLog: MergePullRequestByFastForwardOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

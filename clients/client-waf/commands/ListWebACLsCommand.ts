@@ -44,13 +44,23 @@ export class ListWebACLsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "WAFClient";
+    const commandName = "ListWebACLsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "WAFClient",
-      commandName: "ListWebACLsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListWebACLsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListWebACLsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

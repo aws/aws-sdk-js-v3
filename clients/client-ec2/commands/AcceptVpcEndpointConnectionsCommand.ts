@@ -44,13 +44,23 @@ export class AcceptVpcEndpointConnectionsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "EC2Client";
+    const commandName = "AcceptVpcEndpointConnectionsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "EC2Client",
-      commandName: "AcceptVpcEndpointConnectionsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: AcceptVpcEndpointConnectionsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: AcceptVpcEndpointConnectionsResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

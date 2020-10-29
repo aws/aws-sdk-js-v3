@@ -48,13 +48,23 @@ export class GetEC2RecommendationProjectedMetricsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ComputeOptimizerClient";
+    const commandName = "GetEC2RecommendationProjectedMetricsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ComputeOptimizerClient",
-      commandName: "GetEC2RecommendationProjectedMetricsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetEC2RecommendationProjectedMetricsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetEC2RecommendationProjectedMetricsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

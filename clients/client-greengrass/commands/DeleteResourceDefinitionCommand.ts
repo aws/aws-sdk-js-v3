@@ -44,13 +44,23 @@ export class DeleteResourceDefinitionCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "GreengrassClient";
+    const commandName = "DeleteResourceDefinitionCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "GreengrassClient",
-      commandName: "DeleteResourceDefinitionCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteResourceDefinitionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteResourceDefinitionResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

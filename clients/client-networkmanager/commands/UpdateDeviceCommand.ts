@@ -44,13 +44,23 @@ export class UpdateDeviceCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "NetworkManagerClient";
+    const commandName = "UpdateDeviceCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "NetworkManagerClient",
-      commandName: "UpdateDeviceCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UpdateDeviceRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateDeviceResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

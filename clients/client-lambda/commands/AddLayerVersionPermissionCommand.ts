@@ -44,13 +44,23 @@ export class AddLayerVersionPermissionCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "LambdaClient";
+    const commandName = "AddLayerVersionPermissionCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "LambdaClient",
-      commandName: "AddLayerVersionPermissionCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: AddLayerVersionPermissionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: AddLayerVersionPermissionResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

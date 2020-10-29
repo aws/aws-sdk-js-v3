@@ -51,15 +51,25 @@ export class DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsComm
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "EC2Client";
+    const commandName = "DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "EC2Client",
-      commandName: "DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog:
         DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsRequest.filterSensitiveLog,
       outputFilterSensitiveLog:
         DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -44,13 +44,23 @@ export class UpdateAnomalyMonitorCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CostExplorerClient";
+    const commandName = "UpdateAnomalyMonitorCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CostExplorerClient",
-      commandName: "UpdateAnomalyMonitorCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UpdateAnomalyMonitorRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateAnomalyMonitorResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

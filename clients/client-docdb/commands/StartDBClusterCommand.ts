@@ -44,13 +44,23 @@ export class StartDBClusterCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "DocDBClient";
+    const commandName = "StartDBClusterCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "DocDBClient",
-      commandName: "StartDBClusterCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: StartDBClusterMessage.filterSensitiveLog,
       outputFilterSensitiveLog: StartDBClusterResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

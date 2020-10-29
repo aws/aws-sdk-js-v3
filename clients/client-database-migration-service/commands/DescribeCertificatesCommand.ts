@@ -48,13 +48,23 @@ export class DescribeCertificatesCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "DatabaseMigrationServiceClient";
+    const commandName = "DescribeCertificatesCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "DatabaseMigrationServiceClient",
-      commandName: "DescribeCertificatesCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeCertificatesMessage.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeCertificatesResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

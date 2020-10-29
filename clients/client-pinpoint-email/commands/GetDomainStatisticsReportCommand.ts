@@ -44,13 +44,23 @@ export class GetDomainStatisticsReportCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "PinpointEmailClient";
+    const commandName = "GetDomainStatisticsReportCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "PinpointEmailClient",
-      commandName: "GetDomainStatisticsReportCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetDomainStatisticsReportRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetDomainStatisticsReportResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

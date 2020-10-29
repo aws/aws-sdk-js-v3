@@ -48,13 +48,23 @@ export class GetRawMessageContentCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "WorkMailMessageFlowClient";
+    const commandName = "GetRawMessageContentCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "WorkMailMessageFlowClient",
-      commandName: "GetRawMessageContentCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetRawMessageContentRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetRawMessageContentResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -48,13 +48,23 @@ export class ModifyEndpointCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "DatabaseMigrationServiceClient";
+    const commandName = "ModifyEndpointCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "DatabaseMigrationServiceClient",
-      commandName: "ModifyEndpointCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ModifyEndpointMessage.filterSensitiveLog,
       outputFilterSensitiveLog: ModifyEndpointResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

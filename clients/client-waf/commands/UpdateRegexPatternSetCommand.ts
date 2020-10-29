@@ -44,13 +44,23 @@ export class UpdateRegexPatternSetCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "WAFClient";
+    const commandName = "UpdateRegexPatternSetCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "WAFClient",
-      commandName: "UpdateRegexPatternSetCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UpdateRegexPatternSetRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateRegexPatternSetResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

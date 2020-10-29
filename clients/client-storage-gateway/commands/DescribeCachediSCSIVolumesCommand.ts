@@ -44,13 +44,23 @@ export class DescribeCachediSCSIVolumesCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "StorageGatewayClient";
+    const commandName = "DescribeCachediSCSIVolumesCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "StorageGatewayClient",
-      commandName: "DescribeCachediSCSIVolumesCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeCachediSCSIVolumesInput.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeCachediSCSIVolumesOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

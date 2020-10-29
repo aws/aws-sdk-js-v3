@@ -52,13 +52,23 @@ export class DescribeOrderableReplicationInstancesCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "DatabaseMigrationServiceClient";
+    const commandName = "DescribeOrderableReplicationInstancesCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "DatabaseMigrationServiceClient",
-      commandName: "DescribeOrderableReplicationInstancesCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeOrderableReplicationInstancesMessage.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeOrderableReplicationInstancesResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

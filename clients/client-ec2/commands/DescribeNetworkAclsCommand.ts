@@ -44,13 +44,23 @@ export class DescribeNetworkAclsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "EC2Client";
+    const commandName = "DescribeNetworkAclsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "EC2Client",
-      commandName: "DescribeNetworkAclsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeNetworkAclsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeNetworkAclsResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

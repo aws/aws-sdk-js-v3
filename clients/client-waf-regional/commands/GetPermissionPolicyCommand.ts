@@ -44,13 +44,23 @@ export class GetPermissionPolicyCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "WAFRegionalClient";
+    const commandName = "GetPermissionPolicyCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "WAFRegionalClient",
-      commandName: "GetPermissionPolicyCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetPermissionPolicyRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetPermissionPolicyResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

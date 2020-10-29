@@ -44,13 +44,23 @@ export class UpdateServiceSettingsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "LicenseManagerClient";
+    const commandName = "UpdateServiceSettingsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "LicenseManagerClient",
-      commandName: "UpdateServiceSettingsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UpdateServiceSettingsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateServiceSettingsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

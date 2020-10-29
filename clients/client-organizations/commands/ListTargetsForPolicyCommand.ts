@@ -44,13 +44,23 @@ export class ListTargetsForPolicyCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "OrganizationsClient";
+    const commandName = "ListTargetsForPolicyCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "OrganizationsClient",
-      commandName: "ListTargetsForPolicyCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListTargetsForPolicyRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListTargetsForPolicyResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

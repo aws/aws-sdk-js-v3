@@ -44,13 +44,23 @@ export class GetRateBasedStatementManagedKeysCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "WAFV2Client";
+    const commandName = "GetRateBasedStatementManagedKeysCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "WAFV2Client",
-      commandName: "GetRateBasedStatementManagedKeysCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetRateBasedStatementManagedKeysRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetRateBasedStatementManagedKeysResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

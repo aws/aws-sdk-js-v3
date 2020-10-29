@@ -44,13 +44,23 @@ export class DescribeComplianceByConfigRuleCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ConfigServiceClient";
+    const commandName = "DescribeComplianceByConfigRuleCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ConfigServiceClient",
-      commandName: "DescribeComplianceByConfigRuleCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeComplianceByConfigRuleRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeComplianceByConfigRuleResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -46,13 +46,23 @@ export class GetBucketLocationCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "S3Client";
+    const commandName = "GetBucketLocationCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "S3Client",
-      commandName: "GetBucketLocationCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetBucketLocationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetBucketLocationOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

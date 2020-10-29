@@ -44,13 +44,23 @@ export class UpdateInstanceCustomHealthStatusCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ServiceDiscoveryClient";
+    const commandName = "UpdateInstanceCustomHealthStatusCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ServiceDiscoveryClient",
-      commandName: "UpdateInstanceCustomHealthStatusCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UpdateInstanceCustomHealthStatusRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

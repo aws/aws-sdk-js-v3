@@ -44,13 +44,23 @@ export class StartExecutionCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SFNClient";
+    const commandName = "StartExecutionCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "SFNClient",
-      commandName: "StartExecutionCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: StartExecutionInput.filterSensitiveLog,
       outputFilterSensitiveLog: StartExecutionOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

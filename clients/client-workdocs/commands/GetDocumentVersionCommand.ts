@@ -44,13 +44,23 @@ export class GetDocumentVersionCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "WorkDocsClient";
+    const commandName = "GetDocumentVersionCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "WorkDocsClient",
-      commandName: "GetDocumentVersionCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetDocumentVersionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetDocumentVersionResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

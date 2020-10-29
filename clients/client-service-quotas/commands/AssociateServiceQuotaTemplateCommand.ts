@@ -44,13 +44,23 @@ export class AssociateServiceQuotaTemplateCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ServiceQuotasClient";
+    const commandName = "AssociateServiceQuotaTemplateCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ServiceQuotasClient",
-      commandName: "AssociateServiceQuotaTemplateCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: AssociateServiceQuotaTemplateRequest.filterSensitiveLog,
       outputFilterSensitiveLog: AssociateServiceQuotaTemplateResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -44,13 +44,23 @@ export class CopyPackageVersionsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CodeartifactClient";
+    const commandName = "CopyPackageVersionsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CodeartifactClient",
-      commandName: "CopyPackageVersionsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CopyPackageVersionsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CopyPackageVersionsResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

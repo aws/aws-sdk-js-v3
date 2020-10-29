@@ -44,13 +44,23 @@ export class GetArtifactUrlCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "AmplifyClient";
+    const commandName = "GetArtifactUrlCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "AmplifyClient",
-      commandName: "GetArtifactUrlCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetArtifactUrlRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetArtifactUrlResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

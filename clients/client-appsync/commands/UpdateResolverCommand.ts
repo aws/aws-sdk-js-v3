@@ -44,13 +44,23 @@ export class UpdateResolverCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "AppSyncClient";
+    const commandName = "UpdateResolverCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "AppSyncClient",
-      commandName: "UpdateResolverCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UpdateResolverRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateResolverResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

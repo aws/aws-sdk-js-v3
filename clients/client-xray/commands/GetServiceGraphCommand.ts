@@ -44,13 +44,23 @@ export class GetServiceGraphCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "XRayClient";
+    const commandName = "GetServiceGraphCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "XRayClient",
-      commandName: "GetServiceGraphCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetServiceGraphRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetServiceGraphResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

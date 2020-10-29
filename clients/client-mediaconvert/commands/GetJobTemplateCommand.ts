@@ -44,13 +44,23 @@ export class GetJobTemplateCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "MediaConvertClient";
+    const commandName = "GetJobTemplateCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "MediaConvertClient",
-      commandName: "GetJobTemplateCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetJobTemplateRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetJobTemplateResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

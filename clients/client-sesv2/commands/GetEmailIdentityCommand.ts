@@ -44,13 +44,23 @@ export class GetEmailIdentityCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SESv2Client";
+    const commandName = "GetEmailIdentityCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "SESv2Client",
-      commandName: "GetEmailIdentityCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetEmailIdentityRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetEmailIdentityResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

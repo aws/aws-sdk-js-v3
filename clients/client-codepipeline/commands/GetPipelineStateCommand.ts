@@ -44,13 +44,23 @@ export class GetPipelineStateCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CodePipelineClient";
+    const commandName = "GetPipelineStateCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CodePipelineClient",
-      commandName: "GetPipelineStateCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetPipelineStateInput.filterSensitiveLog,
       outputFilterSensitiveLog: GetPipelineStateOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

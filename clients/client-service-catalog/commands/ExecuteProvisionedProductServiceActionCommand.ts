@@ -48,13 +48,23 @@ export class ExecuteProvisionedProductServiceActionCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ServiceCatalogClient";
+    const commandName = "ExecuteProvisionedProductServiceActionCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ServiceCatalogClient",
-      commandName: "ExecuteProvisionedProductServiceActionCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ExecuteProvisionedProductServiceActionInput.filterSensitiveLog,
       outputFilterSensitiveLog: ExecuteProvisionedProductServiceActionOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

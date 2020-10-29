@@ -44,13 +44,23 @@ export class DescribeIndexCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "KendraClient";
+    const commandName = "DescribeIndexCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "KendraClient",
-      commandName: "DescribeIndexCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeIndexRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeIndexResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

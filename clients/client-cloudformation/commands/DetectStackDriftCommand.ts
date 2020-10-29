@@ -44,13 +44,23 @@ export class DetectStackDriftCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CloudFormationClient";
+    const commandName = "DetectStackDriftCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CloudFormationClient",
-      commandName: "DetectStackDriftCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DetectStackDriftInput.filterSensitiveLog,
       outputFilterSensitiveLog: DetectStackDriftOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

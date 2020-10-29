@@ -44,13 +44,23 @@ export class CreateAuthorizerCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ApiGatewayV2Client";
+    const commandName = "CreateAuthorizerCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ApiGatewayV2Client",
-      commandName: "CreateAuthorizerCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreateAuthorizerRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateAuthorizerResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

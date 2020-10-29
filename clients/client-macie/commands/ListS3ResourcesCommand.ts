@@ -44,13 +44,23 @@ export class ListS3ResourcesCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "MacieClient";
+    const commandName = "ListS3ResourcesCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "MacieClient",
-      commandName: "ListS3ResourcesCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListS3ResourcesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListS3ResourcesResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

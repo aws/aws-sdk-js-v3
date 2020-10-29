@@ -44,13 +44,23 @@ export class UpdateApplicationSettingsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "PinpointClient";
+    const commandName = "UpdateApplicationSettingsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "PinpointClient",
-      commandName: "UpdateApplicationSettingsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UpdateApplicationSettingsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateApplicationSettingsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

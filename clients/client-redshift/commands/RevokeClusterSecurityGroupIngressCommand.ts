@@ -44,13 +44,23 @@ export class RevokeClusterSecurityGroupIngressCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "RedshiftClient";
+    const commandName = "RevokeClusterSecurityGroupIngressCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "RedshiftClient",
-      commandName: "RevokeClusterSecurityGroupIngressCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: RevokeClusterSecurityGroupIngressMessage.filterSensitiveLog,
       outputFilterSensitiveLog: RevokeClusterSecurityGroupIngressResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

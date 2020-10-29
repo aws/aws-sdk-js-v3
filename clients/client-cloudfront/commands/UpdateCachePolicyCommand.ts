@@ -44,13 +44,23 @@ export class UpdateCachePolicyCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CloudFrontClient";
+    const commandName = "UpdateCachePolicyCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CloudFrontClient",
-      commandName: "UpdateCachePolicyCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UpdateCachePolicyRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateCachePolicyResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

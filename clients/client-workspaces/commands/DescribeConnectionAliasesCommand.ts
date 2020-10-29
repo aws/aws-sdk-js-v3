@@ -44,13 +44,23 @@ export class DescribeConnectionAliasesCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "WorkSpacesClient";
+    const commandName = "DescribeConnectionAliasesCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "WorkSpacesClient",
-      commandName: "DescribeConnectionAliasesCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeConnectionAliasesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeConnectionAliasesResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -44,13 +44,23 @@ export class ListConfigsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "GroundStationClient";
+    const commandName = "ListConfigsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "GroundStationClient",
-      commandName: "ListConfigsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListConfigsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListConfigsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

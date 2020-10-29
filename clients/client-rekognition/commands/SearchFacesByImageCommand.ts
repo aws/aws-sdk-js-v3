@@ -44,13 +44,23 @@ export class SearchFacesByImageCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "RekognitionClient";
+    const commandName = "SearchFacesByImageCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "RekognitionClient",
-      commandName: "SearchFacesByImageCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: SearchFacesByImageRequest.filterSensitiveLog,
       outputFilterSensitiveLog: SearchFacesByImageResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

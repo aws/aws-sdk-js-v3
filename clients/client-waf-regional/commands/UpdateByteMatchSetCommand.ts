@@ -44,13 +44,23 @@ export class UpdateByteMatchSetCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "WAFRegionalClient";
+    const commandName = "UpdateByteMatchSetCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "WAFRegionalClient",
-      commandName: "UpdateByteMatchSetCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UpdateByteMatchSetRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateByteMatchSetResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

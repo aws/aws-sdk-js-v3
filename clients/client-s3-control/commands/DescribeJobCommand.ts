@@ -46,13 +46,23 @@ export class DescribeJobCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "S3ControlClient";
+    const commandName = "DescribeJobCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "S3ControlClient",
-      commandName: "DescribeJobCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeJobRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeJobResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

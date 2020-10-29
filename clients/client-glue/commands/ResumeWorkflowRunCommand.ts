@@ -44,13 +44,23 @@ export class ResumeWorkflowRunCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "GlueClient";
+    const commandName = "ResumeWorkflowRunCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "GlueClient",
-      commandName: "ResumeWorkflowRunCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ResumeWorkflowRunRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ResumeWorkflowRunResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

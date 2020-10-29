@@ -44,13 +44,23 @@ export class DeleteBusinessReportScheduleCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "AlexaForBusinessClient";
+    const commandName = "DeleteBusinessReportScheduleCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "AlexaForBusinessClient",
-      commandName: "DeleteBusinessReportScheduleCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteBusinessReportScheduleRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteBusinessReportScheduleResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

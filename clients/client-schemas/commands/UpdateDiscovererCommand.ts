@@ -44,13 +44,23 @@ export class UpdateDiscovererCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SchemasClient";
+    const commandName = "UpdateDiscovererCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "SchemasClient",
-      commandName: "UpdateDiscovererCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UpdateDiscovererRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateDiscovererResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

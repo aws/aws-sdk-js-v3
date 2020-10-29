@@ -44,13 +44,23 @@ export class DescribeBackupCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "DynamoDBClient";
+    const commandName = "DescribeBackupCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "DynamoDBClient",
-      commandName: "DescribeBackupCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeBackupInput.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeBackupOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -44,13 +44,23 @@ export class GetSystemTemplateRevisionsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "IoTThingsGraphClient";
+    const commandName = "GetSystemTemplateRevisionsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "IoTThingsGraphClient",
-      commandName: "GetSystemTemplateRevisionsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetSystemTemplateRevisionsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetSystemTemplateRevisionsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

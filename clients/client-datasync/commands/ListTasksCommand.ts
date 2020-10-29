@@ -41,13 +41,23 @@ export class ListTasksCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "DataSyncClient";
+    const commandName = "ListTasksCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "DataSyncClient",
-      commandName: "ListTasksCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListTasksRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListTasksResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

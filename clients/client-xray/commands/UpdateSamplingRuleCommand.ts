@@ -44,13 +44,23 @@ export class UpdateSamplingRuleCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "XRayClient";
+    const commandName = "UpdateSamplingRuleCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "XRayClient",
-      commandName: "UpdateSamplingRuleCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UpdateSamplingRuleRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateSamplingRuleResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

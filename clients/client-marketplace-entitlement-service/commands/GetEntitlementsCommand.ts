@@ -48,13 +48,23 @@ export class GetEntitlementsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "MarketplaceEntitlementServiceClient";
+    const commandName = "GetEntitlementsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "MarketplaceEntitlementServiceClient",
-      commandName: "GetEntitlementsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetEntitlementsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetEntitlementsResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

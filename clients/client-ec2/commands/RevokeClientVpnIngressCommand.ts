@@ -44,13 +44,23 @@ export class RevokeClientVpnIngressCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "EC2Client";
+    const commandName = "RevokeClientVpnIngressCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "EC2Client",
-      commandName: "RevokeClientVpnIngressCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: RevokeClientVpnIngressRequest.filterSensitiveLog,
       outputFilterSensitiveLog: RevokeClientVpnIngressResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -44,13 +44,23 @@ export class CreateInvitationsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "Macie2Client";
+    const commandName = "CreateInvitationsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "Macie2Client",
-      commandName: "CreateInvitationsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreateInvitationsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateInvitationsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

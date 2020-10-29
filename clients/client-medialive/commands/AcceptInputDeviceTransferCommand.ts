@@ -44,13 +44,23 @@ export class AcceptInputDeviceTransferCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "MediaLiveClient";
+    const commandName = "AcceptInputDeviceTransferCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "MediaLiveClient",
-      commandName: "AcceptInputDeviceTransferCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: AcceptInputDeviceTransferRequest.filterSensitiveLog,
       outputFilterSensitiveLog: AcceptInputDeviceTransferResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

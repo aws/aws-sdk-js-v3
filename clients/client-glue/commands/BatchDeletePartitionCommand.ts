@@ -44,13 +44,23 @@ export class BatchDeletePartitionCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "GlueClient";
+    const commandName = "BatchDeletePartitionCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "GlueClient",
-      commandName: "BatchDeletePartitionCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: BatchDeletePartitionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: BatchDeletePartitionResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

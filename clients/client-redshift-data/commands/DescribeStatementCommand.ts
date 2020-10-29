@@ -44,13 +44,23 @@ export class DescribeStatementCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "RedshiftDataClient";
+    const commandName = "DescribeStatementCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "RedshiftDataClient",
-      commandName: "DescribeStatementCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeStatementRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeStatementResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

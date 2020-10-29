@@ -44,13 +44,23 @@ export class CreateFilterCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "PersonalizeClient";
+    const commandName = "CreateFilterCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "PersonalizeClient",
-      commandName: "CreateFilterCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreateFilterRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateFilterResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

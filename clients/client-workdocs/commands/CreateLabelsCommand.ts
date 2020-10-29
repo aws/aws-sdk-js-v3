@@ -44,13 +44,23 @@ export class CreateLabelsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "WorkDocsClient";
+    const commandName = "CreateLabelsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "WorkDocsClient",
-      commandName: "CreateLabelsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreateLabelsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateLabelsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -37,13 +37,23 @@ export class ListFaqsCommand extends $Command<ListFaqsCommandInput, ListFaqsComm
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "KendraClient";
+    const commandName = "ListFaqsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "KendraClient",
-      commandName: "ListFaqsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListFaqsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListFaqsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

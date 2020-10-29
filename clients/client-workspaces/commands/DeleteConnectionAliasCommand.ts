@@ -44,13 +44,23 @@ export class DeleteConnectionAliasCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "WorkSpacesClient";
+    const commandName = "DeleteConnectionAliasCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "WorkSpacesClient",
-      commandName: "DeleteConnectionAliasCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteConnectionAliasRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteConnectionAliasResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

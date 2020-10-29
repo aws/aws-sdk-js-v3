@@ -44,13 +44,23 @@ export class UpdateKeyGroupCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CloudFrontClient";
+    const commandName = "UpdateKeyGroupCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CloudFrontClient",
-      commandName: "UpdateKeyGroupCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UpdateKeyGroupRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateKeyGroupResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

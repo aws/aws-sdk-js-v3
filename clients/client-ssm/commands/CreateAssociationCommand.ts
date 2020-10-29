@@ -44,13 +44,23 @@ export class CreateAssociationCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SSMClient";
+    const commandName = "CreateAssociationCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "SSMClient",
-      commandName: "CreateAssociationCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreateAssociationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateAssociationResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

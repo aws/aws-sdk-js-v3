@@ -44,13 +44,23 @@ export class DeleteFleetCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "WorkLinkClient";
+    const commandName = "DeleteFleetCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "WorkLinkClient",
-      commandName: "DeleteFleetCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteFleetRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteFleetResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

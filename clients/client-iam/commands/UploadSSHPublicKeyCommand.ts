@@ -44,13 +44,23 @@ export class UploadSSHPublicKeyCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "IAMClient";
+    const commandName = "UploadSSHPublicKeyCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "IAMClient",
-      commandName: "UploadSSHPublicKeyCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UploadSSHPublicKeyRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UploadSSHPublicKeyResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

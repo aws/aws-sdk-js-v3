@@ -44,13 +44,23 @@ export class StartAssociationsOnceCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SSMClient";
+    const commandName = "StartAssociationsOnceCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "SSMClient",
-      commandName: "StartAssociationsOnceCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: StartAssociationsOnceRequest.filterSensitiveLog,
       outputFilterSensitiveLog: StartAssociationsOnceResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

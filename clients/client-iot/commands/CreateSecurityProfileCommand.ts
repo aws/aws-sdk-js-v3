@@ -44,13 +44,23 @@ export class CreateSecurityProfileCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "IoTClient";
+    const commandName = "CreateSecurityProfileCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "IoTClient",
-      commandName: "CreateSecurityProfileCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreateSecurityProfileRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateSecurityProfileResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

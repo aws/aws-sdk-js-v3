@@ -44,13 +44,23 @@ export class DeleteVolumeCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "StorageGatewayClient";
+    const commandName = "DeleteVolumeCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "StorageGatewayClient",
-      commandName: "DeleteVolumeCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteVolumeInput.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteVolumeOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

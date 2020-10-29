@@ -44,13 +44,23 @@ export class GetWorkflowRunsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "GlueClient";
+    const commandName = "GetWorkflowRunsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "GlueClient",
-      commandName: "GetWorkflowRunsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetWorkflowRunsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetWorkflowRunsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

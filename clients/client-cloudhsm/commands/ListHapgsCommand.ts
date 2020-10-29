@@ -41,13 +41,23 @@ export class ListHapgsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CloudHSMClient";
+    const commandName = "ListHapgsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CloudHSMClient",
-      commandName: "ListHapgsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListHapgsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListHapgsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

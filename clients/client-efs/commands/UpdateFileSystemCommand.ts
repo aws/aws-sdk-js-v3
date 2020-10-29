@@ -44,13 +44,23 @@ export class UpdateFileSystemCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "EFSClient";
+    const commandName = "UpdateFileSystemCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "EFSClient",
-      commandName: "UpdateFileSystemCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UpdateFileSystemRequest.filterSensitiveLog,
       outputFilterSensitiveLog: FileSystemDescription.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

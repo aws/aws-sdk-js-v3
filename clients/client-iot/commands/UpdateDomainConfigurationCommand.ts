@@ -44,13 +44,23 @@ export class UpdateDomainConfigurationCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "IoTClient";
+    const commandName = "UpdateDomainConfigurationCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "IoTClient",
-      commandName: "UpdateDomainConfigurationCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UpdateDomainConfigurationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateDomainConfigurationResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

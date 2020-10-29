@@ -44,13 +44,23 @@ export class ListSizeConstraintSetsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "WAFRegionalClient";
+    const commandName = "ListSizeConstraintSetsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "WAFRegionalClient",
-      commandName: "ListSizeConstraintSetsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListSizeConstraintSetsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListSizeConstraintSetsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

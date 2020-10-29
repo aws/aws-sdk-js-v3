@@ -37,13 +37,23 @@ export class EncryptCommand extends $Command<EncryptCommandInput, EncryptCommand
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "KMSClient";
+    const commandName = "EncryptCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "KMSClient",
-      commandName: "EncryptCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: EncryptRequest.filterSensitiveLog,
       outputFilterSensitiveLog: EncryptResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

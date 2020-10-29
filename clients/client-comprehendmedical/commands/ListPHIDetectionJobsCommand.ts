@@ -48,13 +48,23 @@ export class ListPHIDetectionJobsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ComprehendMedicalClient";
+    const commandName = "ListPHIDetectionJobsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ComprehendMedicalClient",
-      commandName: "ListPHIDetectionJobsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListPHIDetectionJobsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListPHIDetectionJobsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

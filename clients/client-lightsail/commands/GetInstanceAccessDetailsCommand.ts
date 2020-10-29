@@ -44,13 +44,23 @@ export class GetInstanceAccessDetailsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "LightsailClient";
+    const commandName = "GetInstanceAccessDetailsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "LightsailClient",
-      commandName: "GetInstanceAccessDetailsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetInstanceAccessDetailsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetInstanceAccessDetailsResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -44,13 +44,23 @@ export class DeleteTestGridProjectCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "DeviceFarmClient";
+    const commandName = "DeleteTestGridProjectCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "DeviceFarmClient",
-      commandName: "DeleteTestGridProjectCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteTestGridProjectRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteTestGridProjectResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

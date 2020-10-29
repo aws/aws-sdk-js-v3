@@ -44,13 +44,23 @@ export class ListCollectionsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "RekognitionClient";
+    const commandName = "ListCollectionsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "RekognitionClient",
-      commandName: "ListCollectionsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListCollectionsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListCollectionsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

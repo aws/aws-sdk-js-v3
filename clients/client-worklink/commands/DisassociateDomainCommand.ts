@@ -44,13 +44,23 @@ export class DisassociateDomainCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "WorkLinkClient";
+    const commandName = "DisassociateDomainCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "WorkLinkClient",
-      commandName: "DisassociateDomainCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DisassociateDomainRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DisassociateDomainResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

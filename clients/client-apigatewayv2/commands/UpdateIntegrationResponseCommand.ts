@@ -44,13 +44,23 @@ export class UpdateIntegrationResponseCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ApiGatewayV2Client";
+    const commandName = "UpdateIntegrationResponseCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ApiGatewayV2Client",
-      commandName: "UpdateIntegrationResponseCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UpdateIntegrationResponseRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateIntegrationResponseResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

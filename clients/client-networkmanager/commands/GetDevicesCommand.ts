@@ -44,13 +44,23 @@ export class GetDevicesCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "NetworkManagerClient";
+    const commandName = "GetDevicesCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "NetworkManagerClient",
-      commandName: "GetDevicesCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetDevicesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetDevicesResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

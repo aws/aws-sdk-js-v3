@@ -48,13 +48,23 @@ export class ClaimDevicesByClaimCodeCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "IoT1ClickDevicesServiceClient";
+    const commandName = "ClaimDevicesByClaimCodeCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "IoT1ClickDevicesServiceClient",
-      commandName: "ClaimDevicesByClaimCodeCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ClaimDevicesByClaimCodeRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ClaimDevicesByClaimCodeResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

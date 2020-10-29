@@ -44,13 +44,23 @@ export class CreateDatabaseCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "TimestreamWriteClient";
+    const commandName = "CreateDatabaseCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "TimestreamWriteClient",
-      commandName: "CreateDatabaseCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreateDatabaseRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateDatabaseResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

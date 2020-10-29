@@ -48,13 +48,23 @@ export class CreateProjectCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "IoT1ClickProjectsClient";
+    const commandName = "CreateProjectCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "IoT1ClickProjectsClient",
-      commandName: "CreateProjectCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreateProjectRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateProjectResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

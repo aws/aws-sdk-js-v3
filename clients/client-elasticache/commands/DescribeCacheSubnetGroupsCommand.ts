@@ -44,13 +44,23 @@ export class DescribeCacheSubnetGroupsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ElastiCacheClient";
+    const commandName = "DescribeCacheSubnetGroupsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ElastiCacheClient",
-      commandName: "DescribeCacheSubnetGroupsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeCacheSubnetGroupsMessage.filterSensitiveLog,
       outputFilterSensitiveLog: CacheSubnetGroupMessage.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

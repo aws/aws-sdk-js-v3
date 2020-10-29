@@ -44,13 +44,23 @@ export class CreateDistributionWithTagsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CloudFrontClient";
+    const commandName = "CreateDistributionWithTagsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CloudFrontClient",
-      commandName: "CreateDistributionWithTagsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreateDistributionWithTagsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateDistributionWithTagsResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

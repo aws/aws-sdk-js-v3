@@ -44,13 +44,23 @@ export class StartDBInstanceCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "RDSClient";
+    const commandName = "StartDBInstanceCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "RDSClient",
-      commandName: "StartDBInstanceCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: StartDBInstanceMessage.filterSensitiveLog,
       outputFilterSensitiveLog: StartDBInstanceResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

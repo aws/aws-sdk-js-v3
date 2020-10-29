@@ -44,13 +44,23 @@ export class DescribeCodeBindingCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SchemasClient";
+    const commandName = "DescribeCodeBindingCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "SchemasClient",
-      commandName: "DescribeCodeBindingCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeCodeBindingRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeCodeBindingResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

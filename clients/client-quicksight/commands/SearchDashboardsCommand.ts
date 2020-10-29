@@ -44,13 +44,23 @@ export class SearchDashboardsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "QuickSightClient";
+    const commandName = "SearchDashboardsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "QuickSightClient",
-      commandName: "SearchDashboardsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: SearchDashboardsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: SearchDashboardsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

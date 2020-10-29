@@ -44,13 +44,23 @@ export class ListObjectPoliciesCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CloudDirectoryClient";
+    const commandName = "ListObjectPoliciesCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CloudDirectoryClient",
-      commandName: "ListObjectPoliciesCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListObjectPoliciesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListObjectPoliciesResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

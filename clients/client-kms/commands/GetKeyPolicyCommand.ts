@@ -44,13 +44,23 @@ export class GetKeyPolicyCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "KMSClient";
+    const commandName = "GetKeyPolicyCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "KMSClient",
-      commandName: "GetKeyPolicyCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetKeyPolicyRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetKeyPolicyResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

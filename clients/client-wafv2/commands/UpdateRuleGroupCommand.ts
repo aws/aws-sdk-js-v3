@@ -44,13 +44,23 @@ export class UpdateRuleGroupCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "WAFV2Client";
+    const commandName = "UpdateRuleGroupCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "WAFV2Client",
-      commandName: "UpdateRuleGroupCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UpdateRuleGroupRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateRuleGroupResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

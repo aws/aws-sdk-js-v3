@@ -44,13 +44,23 @@ export class GetPartitionIndexesCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "GlueClient";
+    const commandName = "GetPartitionIndexesCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "GlueClient",
-      commandName: "GetPartitionIndexesCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetPartitionIndexesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetPartitionIndexesResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

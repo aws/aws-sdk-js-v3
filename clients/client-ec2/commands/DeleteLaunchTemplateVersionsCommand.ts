@@ -44,13 +44,23 @@ export class DeleteLaunchTemplateVersionsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "EC2Client";
+    const commandName = "DeleteLaunchTemplateVersionsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "EC2Client",
-      commandName: "DeleteLaunchTemplateVersionsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteLaunchTemplateVersionsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteLaunchTemplateVersionsResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

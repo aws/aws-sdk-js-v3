@@ -37,13 +37,23 @@ export class GetRuleCommand extends $Command<GetRuleCommandInput, GetRuleCommand
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "WAFClient";
+    const commandName = "GetRuleCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "WAFClient",
-      commandName: "GetRuleCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetRuleRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetRuleResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

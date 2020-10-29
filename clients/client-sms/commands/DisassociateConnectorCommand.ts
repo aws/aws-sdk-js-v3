@@ -44,13 +44,23 @@ export class DisassociateConnectorCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SMSClient";
+    const commandName = "DisassociateConnectorCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "SMSClient",
-      commandName: "DisassociateConnectorCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DisassociateConnectorRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DisassociateConnectorResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

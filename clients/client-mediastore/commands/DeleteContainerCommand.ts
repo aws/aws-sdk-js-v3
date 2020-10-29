@@ -44,13 +44,23 @@ export class DeleteContainerCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "MediaStoreClient";
+    const commandName = "DeleteContainerCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "MediaStoreClient",
-      commandName: "DeleteContainerCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteContainerInput.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteContainerOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

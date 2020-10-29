@@ -44,13 +44,23 @@ export class ModifyClusterSnapshotCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "RedshiftClient";
+    const commandName = "ModifyClusterSnapshotCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "RedshiftClient",
-      commandName: "ModifyClusterSnapshotCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ModifyClusterSnapshotMessage.filterSensitiveLog,
       outputFilterSensitiveLog: ModifyClusterSnapshotResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

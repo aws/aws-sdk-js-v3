@@ -44,13 +44,23 @@ export class DescribePlacementGroupsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "EC2Client";
+    const commandName = "DescribePlacementGroupsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "EC2Client",
-      commandName: "DescribePlacementGroupsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribePlacementGroupsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribePlacementGroupsResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -44,13 +44,23 @@ export class ListTestGridProjectsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "DeviceFarmClient";
+    const commandName = "ListTestGridProjectsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "DeviceFarmClient",
-      commandName: "ListTestGridProjectsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListTestGridProjectsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListTestGridProjectsResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

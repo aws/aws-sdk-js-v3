@@ -48,13 +48,23 @@ export class UpdateComponentCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ApplicationInsightsClient";
+    const commandName = "UpdateComponentCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ApplicationInsightsClient",
-      commandName: "UpdateComponentCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UpdateComponentRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateComponentResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

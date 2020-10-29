@@ -50,13 +50,23 @@ export class UpdateDeviceStatusCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CognitoIdentityProviderClient";
+    const commandName = "UpdateDeviceStatusCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CognitoIdentityProviderClient",
-      commandName: "UpdateDeviceStatusCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UpdateDeviceStatusRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateDeviceStatusResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

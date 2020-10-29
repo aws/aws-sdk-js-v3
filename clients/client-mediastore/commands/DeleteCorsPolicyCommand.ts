@@ -44,13 +44,23 @@ export class DeleteCorsPolicyCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "MediaStoreClient";
+    const commandName = "DeleteCorsPolicyCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "MediaStoreClient",
-      commandName: "DeleteCorsPolicyCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteCorsPolicyInput.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteCorsPolicyOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

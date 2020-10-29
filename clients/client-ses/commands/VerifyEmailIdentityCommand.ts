@@ -44,13 +44,23 @@ export class VerifyEmailIdentityCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SESClient";
+    const commandName = "VerifyEmailIdentityCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "SESClient",
-      commandName: "VerifyEmailIdentityCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: VerifyEmailIdentityRequest.filterSensitiveLog,
       outputFilterSensitiveLog: VerifyEmailIdentityResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

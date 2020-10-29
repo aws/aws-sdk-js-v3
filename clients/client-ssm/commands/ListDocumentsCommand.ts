@@ -44,13 +44,23 @@ export class ListDocumentsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SSMClient";
+    const commandName = "ListDocumentsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "SSMClient",
-      commandName: "ListDocumentsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListDocumentsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListDocumentsResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

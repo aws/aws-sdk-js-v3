@@ -44,13 +44,23 @@ export class RevokeCertificateCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ACMPCAClient";
+    const commandName = "RevokeCertificateCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ACMPCAClient",
-      commandName: "RevokeCertificateCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: RevokeCertificateRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

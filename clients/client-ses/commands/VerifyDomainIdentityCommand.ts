@@ -44,13 +44,23 @@ export class VerifyDomainIdentityCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SESClient";
+    const commandName = "VerifyDomainIdentityCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "SESClient",
-      commandName: "VerifyDomainIdentityCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: VerifyDomainIdentityRequest.filterSensitiveLog,
       outputFilterSensitiveLog: VerifyDomainIdentityResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

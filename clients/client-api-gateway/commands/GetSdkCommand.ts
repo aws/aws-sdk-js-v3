@@ -37,13 +37,23 @@ export class GetSdkCommand extends $Command<GetSdkCommandInput, GetSdkCommandOut
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "APIGatewayClient";
+    const commandName = "GetSdkCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "APIGatewayClient",
-      commandName: "GetSdkCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetSdkRequest.filterSensitiveLog,
       outputFilterSensitiveLog: SdkResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

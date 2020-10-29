@@ -48,13 +48,23 @@ export class ListEntitiesCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "MarketplaceCatalogClient";
+    const commandName = "ListEntitiesCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "MarketplaceCatalogClient",
-      commandName: "ListEntitiesCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListEntitiesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListEntitiesResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

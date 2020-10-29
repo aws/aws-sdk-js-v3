@@ -44,13 +44,23 @@ export class ListQualificationRequestsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "MTurkClient";
+    const commandName = "ListQualificationRequestsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "MTurkClient",
-      commandName: "ListQualificationRequestsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListQualificationRequestsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListQualificationRequestsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

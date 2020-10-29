@@ -44,13 +44,23 @@ export class DescribeEventsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "DocDBClient";
+    const commandName = "DescribeEventsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "DocDBClient",
-      commandName: "DescribeEventsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeEventsMessage.filterSensitiveLog,
       outputFilterSensitiveLog: EventsMessage.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

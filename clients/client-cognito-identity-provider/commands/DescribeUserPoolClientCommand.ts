@@ -50,13 +50,23 @@ export class DescribeUserPoolClientCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CognitoIdentityProviderClient";
+    const commandName = "DescribeUserPoolClientCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CognitoIdentityProviderClient",
-      commandName: "DescribeUserPoolClientCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeUserPoolClientRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeUserPoolClientResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

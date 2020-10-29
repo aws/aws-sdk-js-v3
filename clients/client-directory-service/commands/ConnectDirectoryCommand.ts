@@ -44,13 +44,23 @@ export class ConnectDirectoryCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "DirectoryServiceClient";
+    const commandName = "ConnectDirectoryCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "DirectoryServiceClient",
-      commandName: "ConnectDirectoryCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ConnectDirectoryRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ConnectDirectoryResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

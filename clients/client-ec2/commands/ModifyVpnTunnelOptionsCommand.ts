@@ -44,13 +44,23 @@ export class ModifyVpnTunnelOptionsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "EC2Client";
+    const commandName = "ModifyVpnTunnelOptionsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "EC2Client",
-      commandName: "ModifyVpnTunnelOptionsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ModifyVpnTunnelOptionsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ModifyVpnTunnelOptionsResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

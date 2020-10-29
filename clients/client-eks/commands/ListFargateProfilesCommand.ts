@@ -44,13 +44,23 @@ export class ListFargateProfilesCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "EKSClient";
+    const commandName = "ListFargateProfilesCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "EKSClient",
-      commandName: "ListFargateProfilesCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListFargateProfilesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListFargateProfilesResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

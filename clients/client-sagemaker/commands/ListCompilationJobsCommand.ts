@@ -44,13 +44,23 @@ export class ListCompilationJobsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SageMakerClient";
+    const commandName = "ListCompilationJobsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "SageMakerClient",
-      commandName: "ListCompilationJobsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListCompilationJobsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListCompilationJobsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

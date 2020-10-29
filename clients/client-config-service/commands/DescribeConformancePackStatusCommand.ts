@@ -44,13 +44,23 @@ export class DescribeConformancePackStatusCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ConfigServiceClient";
+    const commandName = "DescribeConformancePackStatusCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ConfigServiceClient",
-      commandName: "DescribeConformancePackStatusCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeConformancePackStatusRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeConformancePackStatusResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

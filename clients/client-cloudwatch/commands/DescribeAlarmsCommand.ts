@@ -44,13 +44,23 @@ export class DescribeAlarmsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CloudWatchClient";
+    const commandName = "DescribeAlarmsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CloudWatchClient",
-      commandName: "DescribeAlarmsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeAlarmsInput.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeAlarmsOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -50,13 +50,23 @@ export class AdminCreateUserCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CognitoIdentityProviderClient";
+    const commandName = "AdminCreateUserCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CognitoIdentityProviderClient",
-      commandName: "AdminCreateUserCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: AdminCreateUserRequest.filterSensitiveLog,
       outputFilterSensitiveLog: AdminCreateUserResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

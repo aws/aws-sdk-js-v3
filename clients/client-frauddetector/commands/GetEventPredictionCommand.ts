@@ -44,13 +44,23 @@ export class GetEventPredictionCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "FraudDetectorClient";
+    const commandName = "GetEventPredictionCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "FraudDetectorClient",
-      commandName: "GetEventPredictionCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetEventPredictionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetEventPredictionResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

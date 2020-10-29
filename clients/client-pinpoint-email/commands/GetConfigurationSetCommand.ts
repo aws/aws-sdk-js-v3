@@ -44,13 +44,23 @@ export class GetConfigurationSetCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "PinpointEmailClient";
+    const commandName = "GetConfigurationSetCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "PinpointEmailClient",
-      commandName: "GetConfigurationSetCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetConfigurationSetRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetConfigurationSetResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

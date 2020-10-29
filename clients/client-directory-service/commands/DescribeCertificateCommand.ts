@@ -44,13 +44,23 @@ export class DescribeCertificateCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "DirectoryServiceClient";
+    const commandName = "DescribeCertificateCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "DirectoryServiceClient",
-      commandName: "DescribeCertificateCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeCertificateRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeCertificateResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

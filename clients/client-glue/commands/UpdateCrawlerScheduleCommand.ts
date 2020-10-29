@@ -44,13 +44,23 @@ export class UpdateCrawlerScheduleCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "GlueClient";
+    const commandName = "UpdateCrawlerScheduleCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "GlueClient",
-      commandName: "UpdateCrawlerScheduleCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UpdateCrawlerScheduleRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateCrawlerScheduleResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

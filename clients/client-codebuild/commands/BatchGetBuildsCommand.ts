@@ -44,13 +44,23 @@ export class BatchGetBuildsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CodeBuildClient";
+    const commandName = "BatchGetBuildsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CodeBuildClient",
-      commandName: "BatchGetBuildsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: BatchGetBuildsInput.filterSensitiveLog,
       outputFilterSensitiveLog: BatchGetBuildsOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

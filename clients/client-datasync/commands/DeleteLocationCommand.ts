@@ -44,13 +44,23 @@ export class DeleteLocationCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "DataSyncClient";
+    const commandName = "DeleteLocationCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "DataSyncClient",
-      commandName: "DeleteLocationCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteLocationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteLocationResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

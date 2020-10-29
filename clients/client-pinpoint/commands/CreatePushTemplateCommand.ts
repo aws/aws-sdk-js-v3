@@ -44,13 +44,23 @@ export class CreatePushTemplateCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "PinpointClient";
+    const commandName = "CreatePushTemplateCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "PinpointClient",
-      commandName: "CreatePushTemplateCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreatePushTemplateRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreatePushTemplateResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

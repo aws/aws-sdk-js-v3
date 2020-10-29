@@ -44,13 +44,23 @@ export class DescribeCapacityProvidersCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ECSClient";
+    const commandName = "DescribeCapacityProvidersCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ECSClient",
-      commandName: "DescribeCapacityProvidersCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeCapacityProvidersRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeCapacityProvidersResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

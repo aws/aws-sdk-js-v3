@@ -44,13 +44,23 @@ export class ListPublicKeysCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CloudFrontClient";
+    const commandName = "ListPublicKeysCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CloudFrontClient",
-      commandName: "ListPublicKeysCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListPublicKeysRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListPublicKeysResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

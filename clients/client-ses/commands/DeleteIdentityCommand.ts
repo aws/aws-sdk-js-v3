@@ -44,13 +44,23 @@ export class DeleteIdentityCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SESClient";
+    const commandName = "DeleteIdentityCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "SESClient",
-      commandName: "DeleteIdentityCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteIdentityRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteIdentityResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

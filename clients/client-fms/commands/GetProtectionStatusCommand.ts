@@ -44,13 +44,23 @@ export class GetProtectionStatusCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "FMSClient";
+    const commandName = "GetProtectionStatusCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "FMSClient",
-      commandName: "GetProtectionStatusCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetProtectionStatusRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetProtectionStatusResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

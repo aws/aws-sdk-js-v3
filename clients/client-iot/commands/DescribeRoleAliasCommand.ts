@@ -44,13 +44,23 @@ export class DescribeRoleAliasCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "IoTClient";
+    const commandName = "DescribeRoleAliasCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "IoTClient",
-      commandName: "DescribeRoleAliasCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeRoleAliasRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeRoleAliasResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

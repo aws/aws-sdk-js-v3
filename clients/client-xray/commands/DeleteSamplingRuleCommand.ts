@@ -44,13 +44,23 @@ export class DeleteSamplingRuleCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "XRayClient";
+    const commandName = "DeleteSamplingRuleCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "XRayClient",
-      commandName: "DeleteSamplingRuleCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteSamplingRuleRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteSamplingRuleResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

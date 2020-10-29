@@ -44,13 +44,23 @@ export class DescribeTableReplicaAutoScalingCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "DynamoDBClient";
+    const commandName = "DescribeTableReplicaAutoScalingCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "DynamoDBClient",
-      commandName: "DescribeTableReplicaAutoScalingCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeTableReplicaAutoScalingInput.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeTableReplicaAutoScalingOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

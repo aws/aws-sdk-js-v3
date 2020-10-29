@@ -48,13 +48,23 @@ export class DescribeReservedInstancesModificationsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "EC2Client";
+    const commandName = "DescribeReservedInstancesModificationsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "EC2Client",
-      commandName: "DescribeReservedInstancesModificationsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeReservedInstancesModificationsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeReservedInstancesModificationsResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

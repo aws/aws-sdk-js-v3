@@ -44,13 +44,23 @@ export class GetDeploymentsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "APIGatewayClient";
+    const commandName = "GetDeploymentsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "APIGatewayClient",
-      commandName: "GetDeploymentsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetDeploymentsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: Deployments.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -44,13 +44,23 @@ export class ListFindingsFiltersCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "Macie2Client";
+    const commandName = "ListFindingsFiltersCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "Macie2Client",
-      commandName: "ListFindingsFiltersCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListFindingsFiltersRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListFindingsFiltersResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -44,13 +44,23 @@ export class GetCodeBindingSourceCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SchemasClient";
+    const commandName = "GetCodeBindingSourceCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "SchemasClient",
-      commandName: "GetCodeBindingSourceCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetCodeBindingSourceRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetCodeBindingSourceResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -44,13 +44,23 @@ export class DeleteIPSetCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "GuardDutyClient";
+    const commandName = "DeleteIPSetCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "GuardDutyClient",
-      commandName: "DeleteIPSetCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteIPSetRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteIPSetResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -44,13 +44,23 @@ export class DeleteObjectCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "MediaStoreDataClient";
+    const commandName = "DeleteObjectCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "MediaStoreDataClient",
-      commandName: "DeleteObjectCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteObjectRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteObjectResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

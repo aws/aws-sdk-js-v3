@@ -44,13 +44,23 @@ export class UpdateResolverEndpointCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "Route53ResolverClient";
+    const commandName = "UpdateResolverEndpointCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "Route53ResolverClient",
-      commandName: "UpdateResolverEndpointCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UpdateResolverEndpointRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateResolverEndpointResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -44,13 +44,23 @@ export class UpdateFlowCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "MediaConnectClient";
+    const commandName = "UpdateFlowCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "MediaConnectClient",
-      commandName: "UpdateFlowCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UpdateFlowRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateFlowResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

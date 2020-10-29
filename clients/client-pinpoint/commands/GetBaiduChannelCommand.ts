@@ -44,13 +44,23 @@ export class GetBaiduChannelCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "PinpointClient";
+    const commandName = "GetBaiduChannelCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "PinpointClient",
-      commandName: "GetBaiduChannelCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetBaiduChannelRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetBaiduChannelResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

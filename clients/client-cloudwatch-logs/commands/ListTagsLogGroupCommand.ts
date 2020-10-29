@@ -44,13 +44,23 @@ export class ListTagsLogGroupCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CloudWatchLogsClient";
+    const commandName = "ListTagsLogGroupCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CloudWatchLogsClient",
-      commandName: "ListTagsLogGroupCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListTagsLogGroupRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListTagsLogGroupResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

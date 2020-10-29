@@ -44,13 +44,23 @@ export class ListTemplatesCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SESClient";
+    const commandName = "ListTemplatesCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "SESClient",
-      commandName: "ListTemplatesCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListTemplatesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListTemplatesResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

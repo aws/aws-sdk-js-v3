@@ -50,13 +50,23 @@ export class AdminUserGlobalSignOutCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CognitoIdentityProviderClient";
+    const commandName = "AdminUserGlobalSignOutCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CognitoIdentityProviderClient",
-      commandName: "AdminUserGlobalSignOutCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: AdminUserGlobalSignOutRequest.filterSensitiveLog,
       outputFilterSensitiveLog: AdminUserGlobalSignOutResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

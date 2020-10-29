@@ -44,13 +44,23 @@ export class NotifyWhenUploadedCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "StorageGatewayClient";
+    const commandName = "NotifyWhenUploadedCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "StorageGatewayClient",
-      commandName: "NotifyWhenUploadedCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: NotifyWhenUploadedInput.filterSensitiveLog,
       outputFilterSensitiveLog: NotifyWhenUploadedOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

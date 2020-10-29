@@ -44,13 +44,23 @@ export class DeleteCommentContentCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CodeCommitClient";
+    const commandName = "DeleteCommentContentCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CodeCommitClient",
-      commandName: "DeleteCommentContentCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteCommentContentInput.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteCommentContentOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

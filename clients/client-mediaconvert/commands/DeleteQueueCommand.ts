@@ -44,13 +44,23 @@ export class DeleteQueueCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "MediaConvertClient";
+    const commandName = "DeleteQueueCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "MediaConvertClient",
-      commandName: "DeleteQueueCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteQueueRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteQueueResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

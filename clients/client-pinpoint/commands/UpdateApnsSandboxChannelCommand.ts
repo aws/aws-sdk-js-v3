@@ -44,13 +44,23 @@ export class UpdateApnsSandboxChannelCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "PinpointClient";
+    const commandName = "UpdateApnsSandboxChannelCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "PinpointClient",
-      commandName: "UpdateApnsSandboxChannelCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UpdateApnsSandboxChannelRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateApnsSandboxChannelResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

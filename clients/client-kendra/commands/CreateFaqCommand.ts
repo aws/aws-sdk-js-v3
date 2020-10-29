@@ -41,13 +41,23 @@ export class CreateFaqCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "KendraClient";
+    const commandName = "CreateFaqCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "KendraClient",
-      commandName: "CreateFaqCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreateFaqRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateFaqResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

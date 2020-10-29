@@ -44,13 +44,23 @@ export class DeleteRouteCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "AppMeshClient";
+    const commandName = "DeleteRouteCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "AppMeshClient",
-      commandName: "DeleteRouteCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteRouteInput.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteRouteOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

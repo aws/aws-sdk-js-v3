@@ -44,13 +44,23 @@ export class ListResolverRuleAssociationsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "Route53ResolverClient";
+    const commandName = "ListResolverRuleAssociationsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "Route53ResolverClient",
-      commandName: "ListResolverRuleAssociationsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListResolverRuleAssociationsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListResolverRuleAssociationsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

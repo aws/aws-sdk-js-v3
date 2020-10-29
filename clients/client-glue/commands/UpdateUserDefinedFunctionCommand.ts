@@ -44,13 +44,23 @@ export class UpdateUserDefinedFunctionCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "GlueClient";
+    const commandName = "UpdateUserDefinedFunctionCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "GlueClient",
-      commandName: "UpdateUserDefinedFunctionCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UpdateUserDefinedFunctionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateUserDefinedFunctionResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

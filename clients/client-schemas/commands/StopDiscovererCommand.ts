@@ -44,13 +44,23 @@ export class StopDiscovererCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SchemasClient";
+    const commandName = "StopDiscovererCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "SchemasClient",
-      commandName: "StopDiscovererCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: StopDiscovererRequest.filterSensitiveLog,
       outputFilterSensitiveLog: StopDiscovererResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

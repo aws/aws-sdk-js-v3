@@ -44,13 +44,23 @@ export class CreateResourceDefinitionCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "GreengrassClient";
+    const commandName = "CreateResourceDefinitionCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "GreengrassClient",
-      commandName: "CreateResourceDefinitionCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreateResourceDefinitionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateResourceDefinitionResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

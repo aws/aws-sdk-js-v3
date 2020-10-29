@@ -44,13 +44,23 @@ export class DescribeBackupJobCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "BackupClient";
+    const commandName = "DescribeBackupJobCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "BackupClient",
-      commandName: "DescribeBackupJobCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeBackupJobInput.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeBackupJobOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

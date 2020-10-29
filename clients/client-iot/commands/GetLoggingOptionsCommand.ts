@@ -44,13 +44,23 @@ export class GetLoggingOptionsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "IoTClient";
+    const commandName = "GetLoggingOptionsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "IoTClient",
-      commandName: "GetLoggingOptionsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetLoggingOptionsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetLoggingOptionsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -44,13 +44,23 @@ export class AssociateCreatedArtifactCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "MigrationHubClient";
+    const commandName = "AssociateCreatedArtifactCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "MigrationHubClient",
-      commandName: "AssociateCreatedArtifactCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: AssociateCreatedArtifactRequest.filterSensitiveLog,
       outputFilterSensitiveLog: AssociateCreatedArtifactResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

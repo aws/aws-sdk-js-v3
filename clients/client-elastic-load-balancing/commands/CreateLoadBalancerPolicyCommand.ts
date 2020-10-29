@@ -48,13 +48,23 @@ export class CreateLoadBalancerPolicyCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ElasticLoadBalancingClient";
+    const commandName = "CreateLoadBalancerPolicyCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ElasticLoadBalancingClient",
-      commandName: "CreateLoadBalancerPolicyCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreateLoadBalancerPolicyInput.filterSensitiveLog,
       outputFilterSensitiveLog: CreateLoadBalancerPolicyOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

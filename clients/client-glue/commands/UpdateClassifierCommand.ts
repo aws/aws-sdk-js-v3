@@ -44,13 +44,23 @@ export class UpdateClassifierCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "GlueClient";
+    const commandName = "UpdateClassifierCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "GlueClient",
-      commandName: "UpdateClassifierCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UpdateClassifierRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateClassifierResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

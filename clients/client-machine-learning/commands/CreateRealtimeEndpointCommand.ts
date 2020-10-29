@@ -44,13 +44,23 @@ export class CreateRealtimeEndpointCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "MachineLearningClient";
+    const commandName = "CreateRealtimeEndpointCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "MachineLearningClient",
-      commandName: "CreateRealtimeEndpointCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreateRealtimeEndpointInput.filterSensitiveLog,
       outputFilterSensitiveLog: CreateRealtimeEndpointOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -44,13 +44,23 @@ export class DescribeGatewayCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "IoTSiteWiseClient";
+    const commandName = "DescribeGatewayCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "IoTSiteWiseClient",
-      commandName: "DescribeGatewayCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeGatewayRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeGatewayResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

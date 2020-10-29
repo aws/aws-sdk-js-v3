@@ -44,13 +44,23 @@ export class GetFunctionDefinitionVersionCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "GreengrassClient";
+    const commandName = "GetFunctionDefinitionVersionCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "GreengrassClient",
-      commandName: "GetFunctionDefinitionVersionCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetFunctionDefinitionVersionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetFunctionDefinitionVersionResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

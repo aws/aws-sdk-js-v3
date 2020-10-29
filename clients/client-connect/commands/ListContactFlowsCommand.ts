@@ -44,13 +44,23 @@ export class ListContactFlowsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ConnectClient";
+    const commandName = "ListContactFlowsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ConnectClient",
-      commandName: "ListContactFlowsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListContactFlowsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListContactFlowsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

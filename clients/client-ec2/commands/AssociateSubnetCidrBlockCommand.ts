@@ -44,13 +44,23 @@ export class AssociateSubnetCidrBlockCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "EC2Client";
+    const commandName = "AssociateSubnetCidrBlockCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "EC2Client",
-      commandName: "AssociateSubnetCidrBlockCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: AssociateSubnetCidrBlockRequest.filterSensitiveLog,
       outputFilterSensitiveLog: AssociateSubnetCidrBlockResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

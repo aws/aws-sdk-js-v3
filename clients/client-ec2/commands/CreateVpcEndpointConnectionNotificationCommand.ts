@@ -51,13 +51,23 @@ export class CreateVpcEndpointConnectionNotificationCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "EC2Client";
+    const commandName = "CreateVpcEndpointConnectionNotificationCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "EC2Client",
-      commandName: "CreateVpcEndpointConnectionNotificationCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreateVpcEndpointConnectionNotificationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateVpcEndpointConnectionNotificationResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

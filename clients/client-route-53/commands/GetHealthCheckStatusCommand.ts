@@ -44,13 +44,23 @@ export class GetHealthCheckStatusCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "Route53Client";
+    const commandName = "GetHealthCheckStatusCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "Route53Client",
-      commandName: "GetHealthCheckStatusCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetHealthCheckStatusRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetHealthCheckStatusResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

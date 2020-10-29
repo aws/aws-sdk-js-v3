@@ -44,13 +44,23 @@ export class GetObjectInformationCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CloudDirectoryClient";
+    const commandName = "GetObjectInformationCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CloudDirectoryClient",
-      commandName: "GetObjectInformationCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetObjectInformationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetObjectInformationResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

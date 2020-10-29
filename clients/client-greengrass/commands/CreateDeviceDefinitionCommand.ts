@@ -44,13 +44,23 @@ export class CreateDeviceDefinitionCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "GreengrassClient";
+    const commandName = "CreateDeviceDefinitionCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "GreengrassClient",
-      commandName: "CreateDeviceDefinitionCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreateDeviceDefinitionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateDeviceDefinitionResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -41,13 +41,23 @@ export class GetQueueUrlCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SQSClient";
+    const commandName = "GetQueueUrlCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "SQSClient",
-      commandName: "GetQueueUrlCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetQueueUrlRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetQueueUrlResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

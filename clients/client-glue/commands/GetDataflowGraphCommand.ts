@@ -44,13 +44,23 @@ export class GetDataflowGraphCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "GlueClient";
+    const commandName = "GetDataflowGraphCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "GlueClient",
-      commandName: "GetDataflowGraphCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetDataflowGraphRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetDataflowGraphResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

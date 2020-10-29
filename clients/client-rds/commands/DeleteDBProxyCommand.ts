@@ -44,13 +44,23 @@ export class DeleteDBProxyCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "RDSClient";
+    const commandName = "DeleteDBProxyCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "RDSClient",
-      commandName: "DeleteDBProxyCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteDBProxyRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteDBProxyResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

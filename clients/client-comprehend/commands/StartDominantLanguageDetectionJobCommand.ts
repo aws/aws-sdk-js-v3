@@ -48,13 +48,23 @@ export class StartDominantLanguageDetectionJobCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ComprehendClient";
+    const commandName = "StartDominantLanguageDetectionJobCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ComprehendClient",
-      commandName: "StartDominantLanguageDetectionJobCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: StartDominantLanguageDetectionJobRequest.filterSensitiveLog,
       outputFilterSensitiveLog: StartDominantLanguageDetectionJobResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

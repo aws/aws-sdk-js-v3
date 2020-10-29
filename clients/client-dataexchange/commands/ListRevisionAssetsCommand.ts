@@ -44,13 +44,23 @@ export class ListRevisionAssetsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "DataExchangeClient";
+    const commandName = "ListRevisionAssetsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "DataExchangeClient",
-      commandName: "ListRevisionAssetsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListRevisionAssetsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListRevisionAssetsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

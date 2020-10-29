@@ -44,13 +44,23 @@ export class DefineSuggesterCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CloudSearchClient";
+    const commandName = "DefineSuggesterCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CloudSearchClient",
-      commandName: "DefineSuggesterCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DefineSuggesterRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DefineSuggesterResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

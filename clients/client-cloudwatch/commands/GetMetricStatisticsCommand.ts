@@ -44,13 +44,23 @@ export class GetMetricStatisticsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CloudWatchClient";
+    const commandName = "GetMetricStatisticsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CloudWatchClient",
-      commandName: "GetMetricStatisticsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetMetricStatisticsInput.filterSensitiveLog,
       outputFilterSensitiveLog: GetMetricStatisticsOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

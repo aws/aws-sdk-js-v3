@@ -44,13 +44,23 @@ export class UpdateTableCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "GlueClient";
+    const commandName = "UpdateTableCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "GlueClient",
-      commandName: "UpdateTableCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UpdateTableRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateTableResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

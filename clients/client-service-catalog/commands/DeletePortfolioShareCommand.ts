@@ -44,13 +44,23 @@ export class DeletePortfolioShareCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ServiceCatalogClient";
+    const commandName = "DeletePortfolioShareCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ServiceCatalogClient",
-      commandName: "DeletePortfolioShareCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeletePortfolioShareInput.filterSensitiveLog,
       outputFilterSensitiveLog: DeletePortfolioShareOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

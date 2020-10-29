@@ -41,13 +41,23 @@ export class PutRuleCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CloudWatchEventsClient";
+    const commandName = "PutRuleCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CloudWatchEventsClient",
-      commandName: "PutRuleCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: PutRuleRequest.filterSensitiveLog,
       outputFilterSensitiveLog: PutRuleResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

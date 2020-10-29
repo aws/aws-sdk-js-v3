@@ -48,13 +48,23 @@ export class ConfirmForgotPasswordCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CognitoIdentityProviderClient";
+    const commandName = "ConfirmForgotPasswordCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CognitoIdentityProviderClient",
-      commandName: "ConfirmForgotPasswordCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ConfirmForgotPasswordRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ConfirmForgotPasswordResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

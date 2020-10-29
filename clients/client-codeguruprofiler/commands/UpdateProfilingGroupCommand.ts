@@ -44,13 +44,23 @@ export class UpdateProfilingGroupCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CodeGuruProfilerClient";
+    const commandName = "UpdateProfilingGroupCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CodeGuruProfilerClient",
-      commandName: "UpdateProfilingGroupCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UpdateProfilingGroupRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateProfilingGroupResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

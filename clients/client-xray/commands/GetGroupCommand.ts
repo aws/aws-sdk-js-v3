@@ -40,13 +40,23 @@ export class GetGroupCommand extends $Command<GetGroupCommandInput, GetGroupComm
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "XRayClient";
+    const commandName = "GetGroupCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "XRayClient",
-      commandName: "GetGroupCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetGroupRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetGroupResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

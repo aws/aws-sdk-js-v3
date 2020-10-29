@@ -44,13 +44,23 @@ export class DescribeDiscovererCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SchemasClient";
+    const commandName = "DescribeDiscovererCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "SchemasClient",
-      commandName: "DescribeDiscovererCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeDiscovererRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeDiscovererResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

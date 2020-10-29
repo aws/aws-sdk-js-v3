@@ -44,13 +44,23 @@ export class StopRelationalDatabaseCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "LightsailClient";
+    const commandName = "StopRelationalDatabaseCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "LightsailClient",
-      commandName: "StopRelationalDatabaseCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: StopRelationalDatabaseRequest.filterSensitiveLog,
       outputFilterSensitiveLog: StopRelationalDatabaseResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

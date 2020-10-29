@@ -44,13 +44,23 @@ export class StartGameSessionPlacementCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "GameLiftClient";
+    const commandName = "StartGameSessionPlacementCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "GameLiftClient",
-      commandName: "StartGameSessionPlacementCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: StartGameSessionPlacementInput.filterSensitiveLog,
       outputFilterSensitiveLog: StartGameSessionPlacementOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

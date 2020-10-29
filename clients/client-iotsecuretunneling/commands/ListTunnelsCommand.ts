@@ -48,13 +48,23 @@ export class ListTunnelsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "IoTSecureTunnelingClient";
+    const commandName = "ListTunnelsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "IoTSecureTunnelingClient",
-      commandName: "ListTunnelsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListTunnelsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListTunnelsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

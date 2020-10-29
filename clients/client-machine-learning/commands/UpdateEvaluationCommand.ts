@@ -44,13 +44,23 @@ export class UpdateEvaluationCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "MachineLearningClient";
+    const commandName = "UpdateEvaluationCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "MachineLearningClient",
-      commandName: "UpdateEvaluationCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UpdateEvaluationInput.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateEvaluationOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -44,13 +44,23 @@ export class GetParametersByPathCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SSMClient";
+    const commandName = "GetParametersByPathCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "SSMClient",
-      commandName: "GetParametersByPathCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetParametersByPathRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetParametersByPathResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

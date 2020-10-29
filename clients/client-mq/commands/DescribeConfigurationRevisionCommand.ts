@@ -44,13 +44,23 @@ export class DescribeConfigurationRevisionCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "MqClient";
+    const commandName = "DescribeConfigurationRevisionCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "MqClient",
-      commandName: "DescribeConfigurationRevisionCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeConfigurationRevisionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeConfigurationRevisionResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

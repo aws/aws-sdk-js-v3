@@ -44,13 +44,23 @@ export class BatchAssociateUserStackCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "AppStreamClient";
+    const commandName = "BatchAssociateUserStackCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "AppStreamClient",
-      commandName: "BatchAssociateUserStackCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: BatchAssociateUserStackRequest.filterSensitiveLog,
       outputFilterSensitiveLog: BatchAssociateUserStackResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

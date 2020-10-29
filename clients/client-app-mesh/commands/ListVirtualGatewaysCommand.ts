@@ -44,13 +44,23 @@ export class ListVirtualGatewaysCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "AppMeshClient";
+    const commandName = "ListVirtualGatewaysCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "AppMeshClient",
-      commandName: "ListVirtualGatewaysCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListVirtualGatewaysInput.filterSensitiveLog,
       outputFilterSensitiveLog: ListVirtualGatewaysOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

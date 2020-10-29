@@ -44,13 +44,23 @@ export class DescribeTrailsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CloudTrailClient";
+    const commandName = "DescribeTrailsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CloudTrailClient",
-      commandName: "DescribeTrailsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeTrailsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeTrailsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

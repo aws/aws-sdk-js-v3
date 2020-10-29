@@ -44,13 +44,23 @@ export class UpdateMailboxQuotaCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "WorkMailClient";
+    const commandName = "UpdateMailboxQuotaCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "WorkMailClient",
-      commandName: "UpdateMailboxQuotaCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UpdateMailboxQuotaRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateMailboxQuotaResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

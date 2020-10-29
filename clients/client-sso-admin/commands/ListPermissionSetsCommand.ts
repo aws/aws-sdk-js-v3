@@ -44,13 +44,23 @@ export class ListPermissionSetsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SSOAdminClient";
+    const commandName = "ListPermissionSetsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "SSOAdminClient",
-      commandName: "ListPermissionSetsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListPermissionSetsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListPermissionSetsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

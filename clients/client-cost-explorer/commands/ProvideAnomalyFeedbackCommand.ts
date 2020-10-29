@@ -44,13 +44,23 @@ export class ProvideAnomalyFeedbackCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CostExplorerClient";
+    const commandName = "ProvideAnomalyFeedbackCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CostExplorerClient",
-      commandName: "ProvideAnomalyFeedbackCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ProvideAnomalyFeedbackRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ProvideAnomalyFeedbackResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -44,13 +44,23 @@ export class AssociateNodeCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "OpsWorksCMClient";
+    const commandName = "AssociateNodeCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "OpsWorksCMClient",
-      commandName: "AssociateNodeCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: AssociateNodeRequest.filterSensitiveLog,
       outputFilterSensitiveLog: AssociateNodeResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

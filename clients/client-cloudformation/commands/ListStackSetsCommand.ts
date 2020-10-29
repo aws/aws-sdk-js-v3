@@ -44,13 +44,23 @@ export class ListStackSetsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CloudFormationClient";
+    const commandName = "ListStackSetsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CloudFormationClient",
-      commandName: "ListStackSetsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListStackSetsInput.filterSensitiveLog,
       outputFilterSensitiveLog: ListStackSetsOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

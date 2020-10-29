@@ -44,13 +44,23 @@ export class DescribeContainerCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "MediaStoreClient";
+    const commandName = "DescribeContainerCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "MediaStoreClient",
-      commandName: "DescribeContainerCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeContainerInput.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeContainerOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -44,13 +44,23 @@ export class PutEventsConfigurationCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ChimeClient";
+    const commandName = "PutEventsConfigurationCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ChimeClient",
-      commandName: "PutEventsConfigurationCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: PutEventsConfigurationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: PutEventsConfigurationResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

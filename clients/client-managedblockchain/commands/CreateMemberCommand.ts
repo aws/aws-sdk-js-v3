@@ -48,13 +48,23 @@ export class CreateMemberCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ManagedBlockchainClient";
+    const commandName = "CreateMemberCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ManagedBlockchainClient",
-      commandName: "CreateMemberCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreateMemberInput.filterSensitiveLog,
       outputFilterSensitiveLog: CreateMemberOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

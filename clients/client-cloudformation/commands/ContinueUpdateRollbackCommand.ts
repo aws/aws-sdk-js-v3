@@ -44,13 +44,23 @@ export class ContinueUpdateRollbackCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CloudFormationClient";
+    const commandName = "ContinueUpdateRollbackCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CloudFormationClient",
-      commandName: "ContinueUpdateRollbackCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ContinueUpdateRollbackInput.filterSensitiveLog,
       outputFilterSensitiveLog: ContinueUpdateRollbackOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

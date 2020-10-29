@@ -48,13 +48,23 @@ export class GetBuiltinIntentCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "LexModelBuildingServiceClient";
+    const commandName = "GetBuiltinIntentCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "LexModelBuildingServiceClient",
-      commandName: "GetBuiltinIntentCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetBuiltinIntentRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetBuiltinIntentResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

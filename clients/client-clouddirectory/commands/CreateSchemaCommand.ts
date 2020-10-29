@@ -44,13 +44,23 @@ export class CreateSchemaCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CloudDirectoryClient";
+    const commandName = "CreateSchemaCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CloudDirectoryClient",
-      commandName: "CreateSchemaCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreateSchemaRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateSchemaResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

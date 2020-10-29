@@ -48,13 +48,23 @@ export class CreateSlotTypeVersionCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "LexModelBuildingServiceClient";
+    const commandName = "CreateSlotTypeVersionCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "LexModelBuildingServiceClient",
-      commandName: "CreateSlotTypeVersionCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreateSlotTypeVersionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateSlotTypeVersionResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

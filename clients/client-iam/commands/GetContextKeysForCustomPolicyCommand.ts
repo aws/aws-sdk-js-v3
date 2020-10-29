@@ -44,13 +44,23 @@ export class GetContextKeysForCustomPolicyCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "IAMClient";
+    const commandName = "GetContextKeysForCustomPolicyCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "IAMClient",
-      commandName: "GetContextKeysForCustomPolicyCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetContextKeysForCustomPolicyRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetContextKeysForPolicyResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

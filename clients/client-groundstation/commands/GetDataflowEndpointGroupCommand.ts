@@ -44,13 +44,23 @@ export class GetDataflowEndpointGroupCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "GroundStationClient";
+    const commandName = "GetDataflowEndpointGroupCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "GroundStationClient",
-      commandName: "GetDataflowEndpointGroupCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetDataflowEndpointGroupRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetDataflowEndpointGroupResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

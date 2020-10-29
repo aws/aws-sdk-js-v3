@@ -44,13 +44,23 @@ export class DescribeRepositoryCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CodeartifactClient";
+    const commandName = "DescribeRepositoryCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CodeartifactClient",
-      commandName: "DescribeRepositoryCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeRepositoryRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeRepositoryResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

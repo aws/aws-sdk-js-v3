@@ -44,13 +44,23 @@ export class CreateSystemTemplateCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "IoTThingsGraphClient";
+    const commandName = "CreateSystemTemplateCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "IoTThingsGraphClient",
-      commandName: "CreateSystemTemplateCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreateSystemTemplateRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateSystemTemplateResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -44,13 +44,23 @@ export class ListPackagesCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CodeartifactClient";
+    const commandName = "ListPackagesCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CodeartifactClient",
-      commandName: "ListPackagesCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListPackagesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListPackagesResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

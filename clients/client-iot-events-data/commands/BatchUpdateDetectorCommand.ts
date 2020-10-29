@@ -44,13 +44,23 @@ export class BatchUpdateDetectorCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "IoTEventsDataClient";
+    const commandName = "BatchUpdateDetectorCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "IoTEventsDataClient",
-      commandName: "BatchUpdateDetectorCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: BatchUpdateDetectorRequest.filterSensitiveLog,
       outputFilterSensitiveLog: BatchUpdateDetectorResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

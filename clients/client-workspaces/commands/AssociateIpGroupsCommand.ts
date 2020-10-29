@@ -44,13 +44,23 @@ export class AssociateIpGroupsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "WorkSpacesClient";
+    const commandName = "AssociateIpGroupsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "WorkSpacesClient",
-      commandName: "AssociateIpGroupsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: AssociateIpGroupsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: AssociateIpGroupsResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -44,13 +44,23 @@ export class GetDefaultRetentionPolicyCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "WorkMailClient";
+    const commandName = "GetDefaultRetentionPolicyCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "WorkMailClient",
-      commandName: "GetDefaultRetentionPolicyCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetDefaultRetentionPolicyRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetDefaultRetentionPolicyResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

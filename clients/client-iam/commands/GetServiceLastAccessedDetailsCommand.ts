@@ -44,13 +44,23 @@ export class GetServiceLastAccessedDetailsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "IAMClient";
+    const commandName = "GetServiceLastAccessedDetailsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "IAMClient",
-      commandName: "GetServiceLastAccessedDetailsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetServiceLastAccessedDetailsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetServiceLastAccessedDetailsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

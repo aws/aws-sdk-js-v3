@@ -44,13 +44,23 @@ export class DeleteAnomalyMonitorCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CostExplorerClient";
+    const commandName = "DeleteAnomalyMonitorCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CostExplorerClient",
-      commandName: "DeleteAnomalyMonitorCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteAnomalyMonitorRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteAnomalyMonitorResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -44,13 +44,23 @@ export class ListResolversByFunctionCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "AppSyncClient";
+    const commandName = "ListResolversByFunctionCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "AppSyncClient",
-      commandName: "ListResolversByFunctionCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListResolversByFunctionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListResolversByFunctionResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

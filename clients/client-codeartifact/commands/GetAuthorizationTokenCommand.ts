@@ -44,13 +44,23 @@ export class GetAuthorizationTokenCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CodeartifactClient";
+    const commandName = "GetAuthorizationTokenCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CodeartifactClient",
-      commandName: "GetAuthorizationTokenCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetAuthorizationTokenRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetAuthorizationTokenResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -48,13 +48,23 @@ export class DeleteLoadBalancerCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ElasticLoadBalancingClient";
+    const commandName = "DeleteLoadBalancerCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ElasticLoadBalancingClient",
-      commandName: "DeleteLoadBalancerCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteAccessPointInput.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteAccessPointOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

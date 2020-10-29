@@ -44,13 +44,23 @@ export class CancelQueryCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "TimestreamQueryClient";
+    const commandName = "CancelQueryCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "TimestreamQueryClient",
-      commandName: "CancelQueryCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CancelQueryRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CancelQueryResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

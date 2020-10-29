@@ -44,13 +44,23 @@ export class GetSamplingTargetsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "XRayClient";
+    const commandName = "GetSamplingTargetsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "XRayClient",
-      commandName: "GetSamplingTargetsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetSamplingTargetsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetSamplingTargetsResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

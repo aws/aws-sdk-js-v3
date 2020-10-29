@@ -44,13 +44,23 @@ export class DeleteFilterCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "GuardDutyClient";
+    const commandName = "DeleteFilterCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "GuardDutyClient",
-      commandName: "DeleteFilterCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteFilterRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteFilterResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

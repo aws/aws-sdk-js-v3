@@ -48,13 +48,23 @@ export class UpdateAcceleratorCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "GlobalAcceleratorClient";
+    const commandName = "UpdateAcceleratorCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "GlobalAcceleratorClient",
-      commandName: "UpdateAcceleratorCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UpdateAcceleratorRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateAcceleratorResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

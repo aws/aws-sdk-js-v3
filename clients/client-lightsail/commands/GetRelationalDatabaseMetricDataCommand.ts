@@ -44,13 +44,23 @@ export class GetRelationalDatabaseMetricDataCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "LightsailClient";
+    const commandName = "GetRelationalDatabaseMetricDataCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "LightsailClient",
-      commandName: "GetRelationalDatabaseMetricDataCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetRelationalDatabaseMetricDataRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetRelationalDatabaseMetricDataResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -44,13 +44,23 @@ export class ListRecoveryPointsByBackupVaultCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "BackupClient";
+    const commandName = "ListRecoveryPointsByBackupVaultCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "BackupClient",
-      commandName: "ListRecoveryPointsByBackupVaultCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListRecoveryPointsByBackupVaultInput.filterSensitiveLog,
       outputFilterSensitiveLog: ListRecoveryPointsByBackupVaultOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

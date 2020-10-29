@@ -44,13 +44,23 @@ export class UpdateMedicalVocabularyCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "TranscribeClient";
+    const commandName = "UpdateMedicalVocabularyCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "TranscribeClient",
-      commandName: "UpdateMedicalVocabularyCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UpdateMedicalVocabularyRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateMedicalVocabularyResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

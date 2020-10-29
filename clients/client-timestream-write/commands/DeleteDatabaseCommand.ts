@@ -44,13 +44,23 @@ export class DeleteDatabaseCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "TimestreamWriteClient";
+    const commandName = "DeleteDatabaseCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "TimestreamWriteClient",
-      commandName: "DeleteDatabaseCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteDatabaseRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

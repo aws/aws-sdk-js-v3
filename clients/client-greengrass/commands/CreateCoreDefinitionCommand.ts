@@ -44,13 +44,23 @@ export class CreateCoreDefinitionCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "GreengrassClient";
+    const commandName = "CreateCoreDefinitionCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "GreengrassClient",
-      commandName: "CreateCoreDefinitionCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreateCoreDefinitionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateCoreDefinitionResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

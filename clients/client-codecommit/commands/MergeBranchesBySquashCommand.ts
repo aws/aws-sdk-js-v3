@@ -44,13 +44,23 @@ export class MergeBranchesBySquashCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CodeCommitClient";
+    const commandName = "MergeBranchesBySquashCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CodeCommitClient",
-      commandName: "MergeBranchesBySquashCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: MergeBranchesBySquashInput.filterSensitiveLog,
       outputFilterSensitiveLog: MergeBranchesBySquashOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

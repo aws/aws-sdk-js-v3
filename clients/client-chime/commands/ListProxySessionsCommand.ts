@@ -44,13 +44,23 @@ export class ListProxySessionsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ChimeClient";
+    const commandName = "ListProxySessionsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ChimeClient",
-      commandName: "ListProxySessionsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListProxySessionsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListProxySessionsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

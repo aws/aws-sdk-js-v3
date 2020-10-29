@@ -44,13 +44,23 @@ export class StartDeliveryStreamEncryptionCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "FirehoseClient";
+    const commandName = "StartDeliveryStreamEncryptionCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "FirehoseClient",
-      commandName: "StartDeliveryStreamEncryptionCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: StartDeliveryStreamEncryptionInput.filterSensitiveLog,
       outputFilterSensitiveLog: StartDeliveryStreamEncryptionOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

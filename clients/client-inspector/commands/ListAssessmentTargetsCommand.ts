@@ -44,13 +44,23 @@ export class ListAssessmentTargetsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "InspectorClient";
+    const commandName = "ListAssessmentTargetsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "InspectorClient",
-      commandName: "ListAssessmentTargetsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListAssessmentTargetsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListAssessmentTargetsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

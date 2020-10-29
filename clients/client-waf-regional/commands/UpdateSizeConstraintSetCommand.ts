@@ -44,13 +44,23 @@ export class UpdateSizeConstraintSetCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "WAFRegionalClient";
+    const commandName = "UpdateSizeConstraintSetCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "WAFRegionalClient",
-      commandName: "UpdateSizeConstraintSetCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UpdateSizeConstraintSetRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateSizeConstraintSetResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

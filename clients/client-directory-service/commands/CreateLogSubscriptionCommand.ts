@@ -44,13 +44,23 @@ export class CreateLogSubscriptionCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "DirectoryServiceClient";
+    const commandName = "CreateLogSubscriptionCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "DirectoryServiceClient",
-      commandName: "CreateLogSubscriptionCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreateLogSubscriptionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateLogSubscriptionResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

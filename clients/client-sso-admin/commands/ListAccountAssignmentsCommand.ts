@@ -44,13 +44,23 @@ export class ListAccountAssignmentsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SSOAdminClient";
+    const commandName = "ListAccountAssignmentsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "SSOAdminClient",
-      commandName: "ListAccountAssignmentsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListAccountAssignmentsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListAccountAssignmentsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -44,13 +44,23 @@ export class DeleteProvisioningArtifactCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ServiceCatalogClient";
+    const commandName = "DeleteProvisioningArtifactCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ServiceCatalogClient",
-      commandName: "DeleteProvisioningArtifactCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteProvisioningArtifactInput.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteProvisioningArtifactOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

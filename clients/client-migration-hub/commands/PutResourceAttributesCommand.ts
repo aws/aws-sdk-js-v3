@@ -44,13 +44,23 @@ export class PutResourceAttributesCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "MigrationHubClient";
+    const commandName = "PutResourceAttributesCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "MigrationHubClient",
-      commandName: "PutResourceAttributesCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: PutResourceAttributesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: PutResourceAttributesResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

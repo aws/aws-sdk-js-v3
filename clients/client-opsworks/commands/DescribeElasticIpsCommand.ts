@@ -44,13 +44,23 @@ export class DescribeElasticIpsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "OpsWorksClient";
+    const commandName = "DescribeElasticIpsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "OpsWorksClient",
-      commandName: "DescribeElasticIpsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeElasticIpsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeElasticIpsResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

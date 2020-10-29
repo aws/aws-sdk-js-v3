@@ -44,13 +44,23 @@ export class ClassifyDocumentCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ComprehendClient";
+    const commandName = "ClassifyDocumentCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ComprehendClient",
-      commandName: "ClassifyDocumentCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ClassifyDocumentRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ClassifyDocumentResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -44,13 +44,23 @@ export class GetGeoMatchSetCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "WAFRegionalClient";
+    const commandName = "GetGeoMatchSetCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "WAFRegionalClient",
-      commandName: "GetGeoMatchSetCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetGeoMatchSetRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetGeoMatchSetResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

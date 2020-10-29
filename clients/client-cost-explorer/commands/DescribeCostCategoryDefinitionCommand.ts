@@ -44,13 +44,23 @@ export class DescribeCostCategoryDefinitionCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CostExplorerClient";
+    const commandName = "DescribeCostCategoryDefinitionCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CostExplorerClient",
-      commandName: "DescribeCostCategoryDefinitionCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeCostCategoryDefinitionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeCostCategoryDefinitionResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

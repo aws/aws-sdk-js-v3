@@ -44,13 +44,23 @@ export class ListOfferingsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "MediaConnectClient";
+    const commandName = "ListOfferingsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "MediaConnectClient",
-      commandName: "ListOfferingsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListOfferingsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListOfferingsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

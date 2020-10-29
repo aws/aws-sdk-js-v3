@@ -44,13 +44,23 @@ export class DescribeProductAsAdminCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ServiceCatalogClient";
+    const commandName = "DescribeProductAsAdminCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ServiceCatalogClient",
-      commandName: "DescribeProductAsAdminCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeProductAsAdminInput.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeProductAsAdminOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

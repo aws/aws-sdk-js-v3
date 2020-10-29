@@ -44,13 +44,23 @@ export class DescribeUserHierarchyStructureCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ConnectClient";
+    const commandName = "DescribeUserHierarchyStructureCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ConnectClient",
-      commandName: "DescribeUserHierarchyStructureCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeUserHierarchyStructureRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeUserHierarchyStructureResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -44,13 +44,23 @@ export class ListStateMachinesCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SFNClient";
+    const commandName = "ListStateMachinesCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "SFNClient",
-      commandName: "ListStateMachinesCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListStateMachinesInput.filterSensitiveLog,
       outputFilterSensitiveLog: ListStateMachinesOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

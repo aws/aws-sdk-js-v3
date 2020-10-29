@@ -44,13 +44,23 @@ export class GetUsagePlansCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "APIGatewayClient";
+    const commandName = "GetUsagePlansCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "APIGatewayClient",
-      commandName: "GetUsagePlansCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetUsagePlansRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UsagePlans.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

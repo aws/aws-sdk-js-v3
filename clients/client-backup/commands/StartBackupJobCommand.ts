@@ -44,13 +44,23 @@ export class StartBackupJobCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "BackupClient";
+    const commandName = "StartBackupJobCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "BackupClient",
-      commandName: "StartBackupJobCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: StartBackupJobInput.filterSensitiveLog,
       outputFilterSensitiveLog: StartBackupJobOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

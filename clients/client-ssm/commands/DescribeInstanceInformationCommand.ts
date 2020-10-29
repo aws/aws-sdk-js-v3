@@ -44,13 +44,23 @@ export class DescribeInstanceInformationCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SSMClient";
+    const commandName = "DescribeInstanceInformationCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "SSMClient",
-      commandName: "DescribeInstanceInformationCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeInstanceInformationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeInstanceInformationResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

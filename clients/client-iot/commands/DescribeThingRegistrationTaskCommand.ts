@@ -44,13 +44,23 @@ export class DescribeThingRegistrationTaskCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "IoTClient";
+    const commandName = "DescribeThingRegistrationTaskCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "IoTClient",
-      commandName: "DescribeThingRegistrationTaskCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeThingRegistrationTaskRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeThingRegistrationTaskResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

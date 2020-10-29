@@ -44,13 +44,23 @@ export class DescribeSignalingChannelCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "KinesisVideoClient";
+    const commandName = "DescribeSignalingChannelCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "KinesisVideoClient",
-      commandName: "DescribeSignalingChannelCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeSignalingChannelInput.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeSignalingChannelOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

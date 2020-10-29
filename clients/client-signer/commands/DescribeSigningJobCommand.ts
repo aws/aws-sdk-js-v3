@@ -44,13 +44,23 @@ export class DescribeSigningJobCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SignerClient";
+    const commandName = "DescribeSigningJobCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "SignerClient",
-      commandName: "DescribeSigningJobCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeSigningJobRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeSigningJobResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

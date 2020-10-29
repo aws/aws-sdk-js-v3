@@ -44,13 +44,23 @@ export class GetBlacklistReportsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "PinpointEmailClient";
+    const commandName = "GetBlacklistReportsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "PinpointEmailClient",
-      commandName: "GetBlacklistReportsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetBlacklistReportsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetBlacklistReportsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

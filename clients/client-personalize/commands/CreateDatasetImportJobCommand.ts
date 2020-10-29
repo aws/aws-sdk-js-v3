@@ -44,13 +44,23 @@ export class CreateDatasetImportJobCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "PersonalizeClient";
+    const commandName = "CreateDatasetImportJobCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "PersonalizeClient",
-      commandName: "CreateDatasetImportJobCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreateDatasetImportJobRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateDatasetImportJobResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

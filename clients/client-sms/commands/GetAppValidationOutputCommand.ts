@@ -44,13 +44,23 @@ export class GetAppValidationOutputCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SMSClient";
+    const commandName = "GetAppValidationOutputCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "SMSClient",
-      commandName: "GetAppValidationOutputCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetAppValidationOutputRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetAppValidationOutputResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

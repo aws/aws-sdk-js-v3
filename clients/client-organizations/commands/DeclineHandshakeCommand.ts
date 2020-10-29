@@ -44,13 +44,23 @@ export class DeclineHandshakeCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "OrganizationsClient";
+    const commandName = "DeclineHandshakeCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "OrganizationsClient",
-      commandName: "DeclineHandshakeCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeclineHandshakeRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeclineHandshakeResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

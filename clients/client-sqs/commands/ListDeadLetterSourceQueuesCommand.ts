@@ -44,13 +44,23 @@ export class ListDeadLetterSourceQueuesCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SQSClient";
+    const commandName = "ListDeadLetterSourceQueuesCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "SQSClient",
-      commandName: "ListDeadLetterSourceQueuesCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListDeadLetterSourceQueuesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListDeadLetterSourceQueuesResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

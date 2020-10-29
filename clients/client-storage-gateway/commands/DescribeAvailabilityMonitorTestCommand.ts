@@ -44,13 +44,23 @@ export class DescribeAvailabilityMonitorTestCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "StorageGatewayClient";
+    const commandName = "DescribeAvailabilityMonitorTestCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "StorageGatewayClient",
-      commandName: "DescribeAvailabilityMonitorTestCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeAvailabilityMonitorTestInput.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeAvailabilityMonitorTestOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -48,13 +48,23 @@ export class GetDevicesInPlacementCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "IoT1ClickProjectsClient";
+    const commandName = "GetDevicesInPlacementCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "IoT1ClickProjectsClient",
-      commandName: "GetDevicesInPlacementCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetDevicesInPlacementRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetDevicesInPlacementResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

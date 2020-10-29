@@ -44,13 +44,23 @@ export class GetAccountBalanceCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "MTurkClient";
+    const commandName = "GetAccountBalanceCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "MTurkClient",
-      commandName: "GetAccountBalanceCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetAccountBalanceRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetAccountBalanceResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -48,13 +48,23 @@ export class GetUpgradeHistoryCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ElasticsearchServiceClient";
+    const commandName = "GetUpgradeHistoryCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ElasticsearchServiceClient",
-      commandName: "GetUpgradeHistoryCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetUpgradeHistoryRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetUpgradeHistoryResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

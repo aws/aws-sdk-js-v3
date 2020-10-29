@@ -44,13 +44,23 @@ export class InitializeClusterCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CloudHSMV2Client";
+    const commandName = "InitializeClusterCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CloudHSMV2Client",
-      commandName: "InitializeClusterCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: InitializeClusterRequest.filterSensitiveLog,
       outputFilterSensitiveLog: InitializeClusterResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

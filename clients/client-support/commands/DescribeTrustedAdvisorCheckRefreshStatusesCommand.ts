@@ -51,13 +51,23 @@ export class DescribeTrustedAdvisorCheckRefreshStatusesCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SupportClient";
+    const commandName = "DescribeTrustedAdvisorCheckRefreshStatusesCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "SupportClient",
-      commandName: "DescribeTrustedAdvisorCheckRefreshStatusesCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeTrustedAdvisorCheckRefreshStatusesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeTrustedAdvisorCheckRefreshStatusesResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

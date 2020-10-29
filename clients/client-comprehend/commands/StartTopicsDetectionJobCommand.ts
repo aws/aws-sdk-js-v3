@@ -44,13 +44,23 @@ export class StartTopicsDetectionJobCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ComprehendClient";
+    const commandName = "StartTopicsDetectionJobCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ComprehendClient",
-      commandName: "StartTopicsDetectionJobCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: StartTopicsDetectionJobRequest.filterSensitiveLog,
       outputFilterSensitiveLog: StartTopicsDetectionJobResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -44,13 +44,23 @@ export class CreateLaunchTemplateVersionCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "EC2Client";
+    const commandName = "CreateLaunchTemplateVersionCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "EC2Client",
-      commandName: "CreateLaunchTemplateVersionCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreateLaunchTemplateVersionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateLaunchTemplateVersionResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

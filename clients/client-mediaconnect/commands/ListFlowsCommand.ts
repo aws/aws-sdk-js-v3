@@ -44,13 +44,23 @@ export class ListFlowsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "MediaConnectClient";
+    const commandName = "ListFlowsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "MediaConnectClient",
-      commandName: "ListFlowsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListFlowsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListFlowsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

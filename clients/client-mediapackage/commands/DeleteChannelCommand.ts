@@ -44,13 +44,23 @@ export class DeleteChannelCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "MediaPackageClient";
+    const commandName = "DeleteChannelCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "MediaPackageClient",
-      commandName: "DeleteChannelCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteChannelRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteChannelResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

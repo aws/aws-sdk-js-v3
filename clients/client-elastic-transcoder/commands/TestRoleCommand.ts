@@ -48,13 +48,23 @@ export class TestRoleCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ElasticTranscoderClient";
+    const commandName = "TestRoleCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ElasticTranscoderClient",
-      commandName: "TestRoleCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: TestRoleRequest.filterSensitiveLog,
       outputFilterSensitiveLog: TestRoleResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

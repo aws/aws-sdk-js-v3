@@ -37,13 +37,23 @@ export class CreateAppCommand extends $Command<CreateAppCommandInput, CreateAppC
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SMSClient";
+    const commandName = "CreateAppCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "SMSClient",
-      commandName: "CreateAppCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreateAppRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateAppResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -44,13 +44,23 @@ export class RebootDBInstanceCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "NeptuneClient";
+    const commandName = "RebootDBInstanceCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "NeptuneClient",
-      commandName: "RebootDBInstanceCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: RebootDBInstanceMessage.filterSensitiveLog,
       outputFilterSensitiveLog: RebootDBInstanceResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -48,13 +48,23 @@ export class GetConformancePackComplianceSummaryCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ConfigServiceClient";
+    const commandName = "GetConformancePackComplianceSummaryCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ConfigServiceClient",
-      commandName: "GetConformancePackComplianceSummaryCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetConformancePackComplianceSummaryRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetConformancePackComplianceSummaryResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

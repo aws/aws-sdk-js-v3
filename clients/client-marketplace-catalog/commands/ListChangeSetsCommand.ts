@@ -48,13 +48,23 @@ export class ListChangeSetsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "MarketplaceCatalogClient";
+    const commandName = "ListChangeSetsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "MarketplaceCatalogClient",
-      commandName: "ListChangeSetsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListChangeSetsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListChangeSetsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

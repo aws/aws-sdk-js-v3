@@ -44,13 +44,23 @@ export class DeleteApiCacheCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "AppSyncClient";
+    const commandName = "DeleteApiCacheCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "AppSyncClient",
-      commandName: "DeleteApiCacheCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteApiCacheRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteApiCacheResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

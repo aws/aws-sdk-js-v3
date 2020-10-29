@@ -44,13 +44,23 @@ export class DescribeAssetPropertyCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "IoTSiteWiseClient";
+    const commandName = "DescribeAssetPropertyCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "IoTSiteWiseClient",
-      commandName: "DescribeAssetPropertyCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeAssetPropertyRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeAssetPropertyResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

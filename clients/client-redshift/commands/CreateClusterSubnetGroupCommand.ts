@@ -44,13 +44,23 @@ export class CreateClusterSubnetGroupCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "RedshiftClient";
+    const commandName = "CreateClusterSubnetGroupCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "RedshiftClient",
-      commandName: "CreateClusterSubnetGroupCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreateClusterSubnetGroupMessage.filterSensitiveLog,
       outputFilterSensitiveLog: CreateClusterSubnetGroupResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

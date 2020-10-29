@@ -44,13 +44,23 @@ export class ExportSchemaCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SchemasClient";
+    const commandName = "ExportSchemaCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "SchemasClient",
-      commandName: "ExportSchemaCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ExportSchemaRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ExportSchemaResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

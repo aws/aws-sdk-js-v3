@@ -44,13 +44,23 @@ export class GetCommentReactionsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CodeCommitClient";
+    const commandName = "GetCommentReactionsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CodeCommitClient",
-      commandName: "GetCommentReactionsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetCommentReactionsInput.filterSensitiveLog,
       outputFilterSensitiveLog: GetCommentReactionsOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

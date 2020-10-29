@@ -44,13 +44,23 @@ export class PutClusterCapacityProvidersCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ECSClient";
+    const commandName = "PutClusterCapacityProvidersCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ECSClient",
-      commandName: "PutClusterCapacityProvidersCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: PutClusterCapacityProvidersRequest.filterSensitiveLog,
       outputFilterSensitiveLog: PutClusterCapacityProvidersResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

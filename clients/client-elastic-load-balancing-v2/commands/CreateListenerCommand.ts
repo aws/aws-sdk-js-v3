@@ -48,13 +48,23 @@ export class CreateListenerCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ElasticLoadBalancingV2Client";
+    const commandName = "CreateListenerCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ElasticLoadBalancingV2Client",
-      commandName: "CreateListenerCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreateListenerInput.filterSensitiveLog,
       outputFilterSensitiveLog: CreateListenerOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -44,13 +44,23 @@ export class ListEmailTemplatesCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SESv2Client";
+    const commandName = "ListEmailTemplatesCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "SESv2Client",
-      commandName: "ListEmailTemplatesCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListEmailTemplatesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListEmailTemplatesResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

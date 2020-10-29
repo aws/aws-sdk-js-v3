@@ -44,13 +44,23 @@ export class OperationWithOptionalInputOutputCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "JsonProtocolClient";
+    const commandName = "OperationWithOptionalInputOutputCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "JsonProtocolClient",
-      commandName: "OperationWithOptionalInputOutputCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: SimpleStruct.filterSensitiveLog,
       outputFilterSensitiveLog: SimpleStruct.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

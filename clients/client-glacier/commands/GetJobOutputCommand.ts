@@ -44,13 +44,23 @@ export class GetJobOutputCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "GlacierClient";
+    const commandName = "GetJobOutputCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "GlacierClient",
-      commandName: "GetJobOutputCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetJobOutputInput.filterSensitiveLog,
       outputFilterSensitiveLog: GetJobOutputOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

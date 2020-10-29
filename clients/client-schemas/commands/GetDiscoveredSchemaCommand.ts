@@ -44,13 +44,23 @@ export class GetDiscoveredSchemaCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SchemasClient";
+    const commandName = "GetDiscoveredSchemaCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "SchemasClient",
-      commandName: "GetDiscoveredSchemaCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetDiscoveredSchemaRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetDiscoveredSchemaResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

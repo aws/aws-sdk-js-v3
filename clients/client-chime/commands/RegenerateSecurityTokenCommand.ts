@@ -44,13 +44,23 @@ export class RegenerateSecurityTokenCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ChimeClient";
+    const commandName = "RegenerateSecurityTokenCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ChimeClient",
-      commandName: "RegenerateSecurityTokenCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: RegenerateSecurityTokenRequest.filterSensitiveLog,
       outputFilterSensitiveLog: RegenerateSecurityTokenResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

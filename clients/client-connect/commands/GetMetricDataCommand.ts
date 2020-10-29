@@ -44,13 +44,23 @@ export class GetMetricDataCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ConnectClient";
+    const commandName = "GetMetricDataCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ConnectClient",
-      commandName: "GetMetricDataCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetMetricDataRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetMetricDataResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

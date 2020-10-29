@@ -44,13 +44,23 @@ export class ListDataSetRevisionsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "DataExchangeClient";
+    const commandName = "ListDataSetRevisionsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "DataExchangeClient",
-      commandName: "ListDataSetRevisionsCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListDataSetRevisionsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListDataSetRevisionsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

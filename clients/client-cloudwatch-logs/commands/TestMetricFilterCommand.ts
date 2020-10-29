@@ -44,13 +44,23 @@ export class TestMetricFilterCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CloudWatchLogsClient";
+    const commandName = "TestMetricFilterCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CloudWatchLogsClient",
-      commandName: "TestMetricFilterCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: TestMetricFilterRequest.filterSensitiveLog,
       outputFilterSensitiveLog: TestMetricFilterResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

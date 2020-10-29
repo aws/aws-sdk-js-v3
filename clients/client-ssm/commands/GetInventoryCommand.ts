@@ -44,13 +44,23 @@ export class GetInventoryCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SSMClient";
+    const commandName = "GetInventoryCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "SSMClient",
-      commandName: "GetInventoryCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetInventoryRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetInventoryResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

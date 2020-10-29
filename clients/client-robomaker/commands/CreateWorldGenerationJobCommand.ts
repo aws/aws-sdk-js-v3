@@ -44,13 +44,23 @@ export class CreateWorldGenerationJobCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "RoboMakerClient";
+    const commandName = "CreateWorldGenerationJobCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "RoboMakerClient",
-      commandName: "CreateWorldGenerationJobCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreateWorldGenerationJobRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateWorldGenerationJobResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

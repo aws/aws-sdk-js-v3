@@ -44,13 +44,23 @@ export class AssociateHealthCheckCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ShieldClient";
+    const commandName = "AssociateHealthCheckCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ShieldClient",
-      commandName: "AssociateHealthCheckCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: AssociateHealthCheckRequest.filterSensitiveLog,
       outputFilterSensitiveLog: AssociateHealthCheckResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

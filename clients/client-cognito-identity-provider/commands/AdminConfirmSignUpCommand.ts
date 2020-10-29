@@ -50,13 +50,23 @@ export class AdminConfirmSignUpCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CognitoIdentityProviderClient";
+    const commandName = "AdminConfirmSignUpCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "CognitoIdentityProviderClient",
-      commandName: "AdminConfirmSignUpCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: AdminConfirmSignUpRequest.filterSensitiveLog,
       outputFilterSensitiveLog: AdminConfirmSignUpResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

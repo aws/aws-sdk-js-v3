@@ -44,13 +44,23 @@ export class GetSubscriptionAttributesCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SNSClient";
+    const commandName = "GetSubscriptionAttributesCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "SNSClient",
-      commandName: "GetSubscriptionAttributesCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetSubscriptionAttributesInput.filterSensitiveLog,
       outputFilterSensitiveLog: GetSubscriptionAttributesResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

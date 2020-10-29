@@ -44,13 +44,23 @@ export class GetJobUnlockCodeCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SnowballClient";
+    const commandName = "GetJobUnlockCodeCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "SnowballClient",
-      commandName: "GetJobUnlockCodeCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetJobUnlockCodeRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetJobUnlockCodeResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -44,13 +44,23 @@ export class PutResourcePolicyCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SecretsManagerClient";
+    const commandName = "PutResourcePolicyCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "SecretsManagerClient",
-      commandName: "PutResourcePolicyCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: PutResourcePolicyRequest.filterSensitiveLog,
       outputFilterSensitiveLog: PutResourcePolicyResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

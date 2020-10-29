@@ -44,13 +44,23 @@ export class DeleteWorkspaceImageCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "WorkSpacesClient";
+    const commandName = "DeleteWorkspaceImageCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "WorkSpacesClient",
-      commandName: "DeleteWorkspaceImageCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteWorkspaceImageRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteWorkspaceImageResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

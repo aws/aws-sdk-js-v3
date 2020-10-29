@@ -44,13 +44,23 @@ export class InviteAccountToOrganizationCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "OrganizationsClient";
+    const commandName = "InviteAccountToOrganizationCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "OrganizationsClient",
-      commandName: "InviteAccountToOrganizationCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: InviteAccountToOrganizationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: InviteAccountToOrganizationResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

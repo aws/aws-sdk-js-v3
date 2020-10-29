@@ -45,13 +45,23 @@ export class DetectPHICommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ComprehendMedicalClient";
+    const commandName = "DetectPHICommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "ComprehendMedicalClient",
-      commandName: "DetectPHICommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DetectPHIRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DetectPHIResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

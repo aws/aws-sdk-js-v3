@@ -44,13 +44,23 @@ export class DeleteLinkCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "NetworkManagerClient";
+    const commandName = "DeleteLinkCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
-      clientName: "NetworkManagerClient",
-      commandName: "DeleteLinkCommand",
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteLinkRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteLinkResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
