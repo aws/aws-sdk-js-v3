@@ -13,7 +13,8 @@
     "resolveJsonModule": true,
     "esModuleInterop": true,
     "declarationDir": "./types",
-    "outDir": "dist/cjs"
+    "rootDir": "src",
+    "outDir": "dist-cjs"
   },
   "typedocOptions": {
     "exclude": "**/node_modules/**",
