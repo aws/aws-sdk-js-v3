@@ -100,7 +100,7 @@ const copyToClients = async (sourceDir, destinationDir) => {
         if (existsSync(destSubPath) && packageSub === "src") {
           // Remove only non-tests from src folder
           for (const fileName of readdirSync(destSubPath)) {
-            if (["test", "e2e"].includes(fileName)) continue;
+            if (["test", "e2e"].includes(fileName) || fileName.endsWith(".spec.ts")) continue;
             removeSync(join(destSubPath, fileName));
           }
         } else if (lstatSync(packageSubPath).isDirectory()) removeSync(destSubPath);
