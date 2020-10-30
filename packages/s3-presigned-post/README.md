@@ -31,13 +31,13 @@ For example:
 const Conditions = [{ acl: "public-read" }, { bucket: "johnsmith" }, ["starts-with", "$key", "user/eric/"]];
 ```
 
-More supported policy elements are documented in [S3 POST documentation](https://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-HTTPPOSTConstructPolicy.html).
-Note that if you include a condition, you must specify the valid value in the `Fields` parameter as well. A value will
-not be added automatically to the fields dictionary according to the conditions.
+Visit [S3 POST documentation](https://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-HTTPPOSTConstructPolicy.html)
+for supported policy elements. If you include a condition, you must specify the valid value in the `Fields` parameter
+as well. A value will not be added automatically to the fields dictionary according to the conditions.
 
 ### Generate a Presigned Post
 
-Users can generate required url and fields for POST request as bellow:
+Users can generate required url and fields for POST request:
 
 ```typescript
 const client = new S3Client({ region: "us-west-2" });
@@ -86,7 +86,7 @@ You can also post a file with HTML form:
 
 ### Post File using FormData in Node.js
 
-You can use Node.js `request` module to post a file as bellow:
+In Node.js, use `form-data` package to post a file:
 
 ```typescript
 const { createReadStream } = require("fs");

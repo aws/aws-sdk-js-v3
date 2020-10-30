@@ -30,7 +30,7 @@ export interface PresignedPost {
 }
 
 /**
- * Builds the url and the form fields used for a presigned s3 post
+ * Builds the url and the form fields used for a presigned s3 post.
  */
 export const createPresignedPost = async (
   client: S3Client,
@@ -38,11 +38,13 @@ export const createPresignedPost = async (
 ): Promise<PresignedPost> => {
   const { systemClockOffset, base64Encoder, utf8Decoder, sha256 } = client.config;
   const now = new Date(Date.now() + systemClockOffset);
-  // signingDate in format like '20201028T070711Z'
+
+  // signingDate in format like '20201028T070711Z'.
   const signingDate = iso8601(now).replace(/[\-:]/g, "");
   const shortDate = signingDate.substr(0, 8);
   const clientRegion = await client.config.region();
-  // prepare credentials
+
+  // Prepare credentials.
   const credentialScope = createScope(shortDate, clientRegion, "s3");
   const clientCredentials = await client.config.credentials();
   const credential = `${clientCredentials.accessKeyId}/${credentialScope}`;
@@ -56,7 +58,7 @@ export const createPresignedPost = async (
     ...(clientCredentials.sessionToken ? { [TOKEN_QUERY_PARAM]: clientCredentials.sessionToken } : {}),
   };
 
-  // prepare policies
+  // Prepare policies.
   const expiration = new Date(now.valueOf() + Expires * 1000);
   const conditions: PolicyEntry[] = [
     ...Conditions,
@@ -73,7 +75,8 @@ export const createPresignedPost = async (
       })
     )
   );
-  // sign the request
+
+  // Sign the request.
   const signingKey = await getSigningKey(sha256, clientCredentials, shortDate, clientRegion, "s3");
   const signature = await hmac(sha256, signingKey, encodedPolicy);
 
@@ -81,6 +84,7 @@ export const createPresignedPost = async (
   if (!client.config.bucketEndpoint) {
     endpoint.path = `/${Bucket}`;
   }
+
   return {
     url: formatUrl(endpoint),
     fields: {
