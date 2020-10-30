@@ -1,6 +1,7 @@
 /node_modules/
 /build/
-/dist/
+/dist-cjs/
+/dist-es/
 /coverage/
 /docs/
 *.tsbuildinfo

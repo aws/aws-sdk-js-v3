@@ -5,8 +5,8 @@
   "engines": {
     "node": ">=10.0.0"
   },
-  "main": "./dist/cjs/index.js",
-  "module": "./dist/es/index.js",
+  "main": "./dist-cjs/index.js",
+  "module": "./dist-es/index.js",
   "scripts": {
     "prepublishOnly": "yarn build:cjs && yarn build:es",
     "pretest": "yarn build:cjs",
@@ -40,7 +40,7 @@
     "jest": "^26.1.0",
     "typescript": "~4.0.2"
   },
-  "types": "./dist/cjs/index.d.ts",
+  "types": "./dist-cjs/index.d.ts",
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/master/packages/credential-provider-node",
   "repository": {
     "type": "git",

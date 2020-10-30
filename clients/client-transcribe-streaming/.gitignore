@@ -3,7 +3,8 @@
 /coverage/
 /docs/
 /types/
-/dist/
+/dist-cjs/
+/dist-es/
 *.tsbuildinfo
 *.tgz
 *.log

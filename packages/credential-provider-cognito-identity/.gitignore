@@ -1,7 +1,8 @@
 /node_modules/
 /build/
 /coverage/
-/dist/
+/dist-cjs/
+/dist-es/
 /docs/
 *.tsbuildinfo
 *.tgz
