@@ -54,6 +54,15 @@ import {
   ClickFeedback,
   ColumnConfiguration,
   ConflictException,
+  ConfluenceAttachmentConfiguration,
+  ConfluenceAttachmentToIndexFieldMapping,
+  ConfluenceBlogConfiguration,
+  ConfluenceBlogToIndexFieldMapping,
+  ConfluenceConfiguration,
+  ConfluencePageConfiguration,
+  ConfluencePageToIndexFieldMapping,
+  ConfluenceSpaceConfiguration,
+  ConfluenceSpaceToIndexFieldMapping,
   ConnectionConfiguration,
   CreateDataSourceRequest,
   CreateDataSourceResponse,
@@ -2973,6 +2982,170 @@ const serializeAws_json1_1ColumnConfiguration = (input: ColumnConfiguration, con
   };
 };
 
+const serializeAws_json1_1ConfluenceAttachmentConfiguration = (
+  input: ConfluenceAttachmentConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AttachmentFieldMappings !== undefined && {
+      AttachmentFieldMappings: serializeAws_json1_1ConfluenceAttachmentFieldMappingsList(
+        input.AttachmentFieldMappings,
+        context
+      ),
+    }),
+    ...(input.CrawlAttachments !== undefined && { CrawlAttachments: input.CrawlAttachments }),
+  };
+};
+
+const serializeAws_json1_1ConfluenceAttachmentFieldMappingsList = (
+  input: ConfluenceAttachmentToIndexFieldMapping[],
+  context: __SerdeContext
+): any => {
+  return input.map((entry) => serializeAws_json1_1ConfluenceAttachmentToIndexFieldMapping(entry, context));
+};
+
+const serializeAws_json1_1ConfluenceAttachmentToIndexFieldMapping = (
+  input: ConfluenceAttachmentToIndexFieldMapping,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.DataSourceFieldName !== undefined && { DataSourceFieldName: input.DataSourceFieldName }),
+    ...(input.DateFieldFormat !== undefined && { DateFieldFormat: input.DateFieldFormat }),
+    ...(input.IndexFieldName !== undefined && { IndexFieldName: input.IndexFieldName }),
+  };
+};
+
+const serializeAws_json1_1ConfluenceBlogConfiguration = (
+  input: ConfluenceBlogConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.BlogFieldMappings !== undefined && {
+      BlogFieldMappings: serializeAws_json1_1ConfluenceBlogFieldMappingsList(input.BlogFieldMappings, context),
+    }),
+  };
+};
+
+const serializeAws_json1_1ConfluenceBlogFieldMappingsList = (
+  input: ConfluenceBlogToIndexFieldMapping[],
+  context: __SerdeContext
+): any => {
+  return input.map((entry) => serializeAws_json1_1ConfluenceBlogToIndexFieldMapping(entry, context));
+};
+
+const serializeAws_json1_1ConfluenceBlogToIndexFieldMapping = (
+  input: ConfluenceBlogToIndexFieldMapping,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.DataSourceFieldName !== undefined && { DataSourceFieldName: input.DataSourceFieldName }),
+    ...(input.DateFieldFormat !== undefined && { DateFieldFormat: input.DateFieldFormat }),
+    ...(input.IndexFieldName !== undefined && { IndexFieldName: input.IndexFieldName }),
+  };
+};
+
+const serializeAws_json1_1ConfluenceConfiguration = (input: ConfluenceConfiguration, context: __SerdeContext): any => {
+  return {
+    ...(input.AttachmentConfiguration !== undefined && {
+      AttachmentConfiguration: serializeAws_json1_1ConfluenceAttachmentConfiguration(
+        input.AttachmentConfiguration,
+        context
+      ),
+    }),
+    ...(input.BlogConfiguration !== undefined && {
+      BlogConfiguration: serializeAws_json1_1ConfluenceBlogConfiguration(input.BlogConfiguration, context),
+    }),
+    ...(input.ExclusionPatterns !== undefined && {
+      ExclusionPatterns: serializeAws_json1_1DataSourceInclusionsExclusionsStrings(input.ExclusionPatterns, context),
+    }),
+    ...(input.InclusionPatterns !== undefined && {
+      InclusionPatterns: serializeAws_json1_1DataSourceInclusionsExclusionsStrings(input.InclusionPatterns, context),
+    }),
+    ...(input.PageConfiguration !== undefined && {
+      PageConfiguration: serializeAws_json1_1ConfluencePageConfiguration(input.PageConfiguration, context),
+    }),
+    ...(input.SecretArn !== undefined && { SecretArn: input.SecretArn }),
+    ...(input.ServerUrl !== undefined && { ServerUrl: input.ServerUrl }),
+    ...(input.SpaceConfiguration !== undefined && {
+      SpaceConfiguration: serializeAws_json1_1ConfluenceSpaceConfiguration(input.SpaceConfiguration, context),
+    }),
+    ...(input.Version !== undefined && { Version: input.Version }),
+    ...(input.VpcConfiguration !== undefined && {
+      VpcConfiguration: serializeAws_json1_1DataSourceVpcConfiguration(input.VpcConfiguration, context),
+    }),
+  };
+};
+
+const serializeAws_json1_1ConfluencePageConfiguration = (
+  input: ConfluencePageConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.PageFieldMappings !== undefined && {
+      PageFieldMappings: serializeAws_json1_1ConfluencePageFieldMappingsList(input.PageFieldMappings, context),
+    }),
+  };
+};
+
+const serializeAws_json1_1ConfluencePageFieldMappingsList = (
+  input: ConfluencePageToIndexFieldMapping[],
+  context: __SerdeContext
+): any => {
+  return input.map((entry) => serializeAws_json1_1ConfluencePageToIndexFieldMapping(entry, context));
+};
+
+const serializeAws_json1_1ConfluencePageToIndexFieldMapping = (
+  input: ConfluencePageToIndexFieldMapping,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.DataSourceFieldName !== undefined && { DataSourceFieldName: input.DataSourceFieldName }),
+    ...(input.DateFieldFormat !== undefined && { DateFieldFormat: input.DateFieldFormat }),
+    ...(input.IndexFieldName !== undefined && { IndexFieldName: input.IndexFieldName }),
+  };
+};
+
+const serializeAws_json1_1ConfluenceSpaceConfiguration = (
+  input: ConfluenceSpaceConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.CrawlArchivedSpaces !== undefined && { CrawlArchivedSpaces: input.CrawlArchivedSpaces }),
+    ...(input.CrawlPersonalSpaces !== undefined && { CrawlPersonalSpaces: input.CrawlPersonalSpaces }),
+    ...(input.ExcludeSpaces !== undefined && {
+      ExcludeSpaces: serializeAws_json1_1ConfluenceSpaceList(input.ExcludeSpaces, context),
+    }),
+    ...(input.IncludeSpaces !== undefined && {
+      IncludeSpaces: serializeAws_json1_1ConfluenceSpaceList(input.IncludeSpaces, context),
+    }),
+    ...(input.SpaceFieldMappings !== undefined && {
+      SpaceFieldMappings: serializeAws_json1_1ConfluenceSpaceFieldMappingsList(input.SpaceFieldMappings, context),
+    }),
+  };
+};
+
+const serializeAws_json1_1ConfluenceSpaceFieldMappingsList = (
+  input: ConfluenceSpaceToIndexFieldMapping[],
+  context: __SerdeContext
+): any => {
+  return input.map((entry) => serializeAws_json1_1ConfluenceSpaceToIndexFieldMapping(entry, context));
+};
+
+const serializeAws_json1_1ConfluenceSpaceList = (input: string[], context: __SerdeContext): any => {
+  return input.map((entry) => entry);
+};
+
+const serializeAws_json1_1ConfluenceSpaceToIndexFieldMapping = (
+  input: ConfluenceSpaceToIndexFieldMapping,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.DataSourceFieldName !== undefined && { DataSourceFieldName: input.DataSourceFieldName }),
+    ...(input.DateFieldFormat !== undefined && { DateFieldFormat: input.DateFieldFormat }),
+    ...(input.IndexFieldName !== undefined && { IndexFieldName: input.IndexFieldName }),
+  };
+};
+
 const serializeAws_json1_1ConnectionConfiguration = (input: ConnectionConfiguration, context: __SerdeContext): any => {
   return {
     ...(input.DatabaseHost !== undefined && { DatabaseHost: input.DatabaseHost }),
@@ -3052,6 +3225,9 @@ const serializeAws_json1_1DatabaseConfiguration = (input: DatabaseConfiguration,
 
 const serializeAws_json1_1DataSourceConfiguration = (input: DataSourceConfiguration, context: __SerdeContext): any => {
   return {
+    ...(input.ConfluenceConfiguration !== undefined && {
+      ConfluenceConfiguration: serializeAws_json1_1ConfluenceConfiguration(input.ConfluenceConfiguration, context),
+    }),
     ...(input.DatabaseConfiguration !== undefined && {
       DatabaseConfiguration: serializeAws_json1_1DatabaseConfiguration(input.DatabaseConfiguration, context),
     }),
@@ -4019,6 +4195,209 @@ const deserializeAws_json1_1ConflictException = (output: any, context: __SerdeCo
   } as any;
 };
 
+const deserializeAws_json1_1ConfluenceAttachmentConfiguration = (
+  output: any,
+  context: __SerdeContext
+): ConfluenceAttachmentConfiguration => {
+  return {
+    AttachmentFieldMappings:
+      output.AttachmentFieldMappings !== undefined && output.AttachmentFieldMappings !== null
+        ? deserializeAws_json1_1ConfluenceAttachmentFieldMappingsList(output.AttachmentFieldMappings, context)
+        : undefined,
+    CrawlAttachments:
+      output.CrawlAttachments !== undefined && output.CrawlAttachments !== null ? output.CrawlAttachments : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ConfluenceAttachmentFieldMappingsList = (
+  output: any,
+  context: __SerdeContext
+): ConfluenceAttachmentToIndexFieldMapping[] => {
+  return (output || []).map((entry: any) =>
+    deserializeAws_json1_1ConfluenceAttachmentToIndexFieldMapping(entry, context)
+  );
+};
+
+const deserializeAws_json1_1ConfluenceAttachmentToIndexFieldMapping = (
+  output: any,
+  context: __SerdeContext
+): ConfluenceAttachmentToIndexFieldMapping => {
+  return {
+    DataSourceFieldName:
+      output.DataSourceFieldName !== undefined && output.DataSourceFieldName !== null
+        ? output.DataSourceFieldName
+        : undefined,
+    DateFieldFormat:
+      output.DateFieldFormat !== undefined && output.DateFieldFormat !== null ? output.DateFieldFormat : undefined,
+    IndexFieldName:
+      output.IndexFieldName !== undefined && output.IndexFieldName !== null ? output.IndexFieldName : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ConfluenceBlogConfiguration = (
+  output: any,
+  context: __SerdeContext
+): ConfluenceBlogConfiguration => {
+  return {
+    BlogFieldMappings:
+      output.BlogFieldMappings !== undefined && output.BlogFieldMappings !== null
+        ? deserializeAws_json1_1ConfluenceBlogFieldMappingsList(output.BlogFieldMappings, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ConfluenceBlogFieldMappingsList = (
+  output: any,
+  context: __SerdeContext
+): ConfluenceBlogToIndexFieldMapping[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1ConfluenceBlogToIndexFieldMapping(entry, context));
+};
+
+const deserializeAws_json1_1ConfluenceBlogToIndexFieldMapping = (
+  output: any,
+  context: __SerdeContext
+): ConfluenceBlogToIndexFieldMapping => {
+  return {
+    DataSourceFieldName:
+      output.DataSourceFieldName !== undefined && output.DataSourceFieldName !== null
+        ? output.DataSourceFieldName
+        : undefined,
+    DateFieldFormat:
+      output.DateFieldFormat !== undefined && output.DateFieldFormat !== null ? output.DateFieldFormat : undefined,
+    IndexFieldName:
+      output.IndexFieldName !== undefined && output.IndexFieldName !== null ? output.IndexFieldName : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ConfluenceConfiguration = (
+  output: any,
+  context: __SerdeContext
+): ConfluenceConfiguration => {
+  return {
+    AttachmentConfiguration:
+      output.AttachmentConfiguration !== undefined && output.AttachmentConfiguration !== null
+        ? deserializeAws_json1_1ConfluenceAttachmentConfiguration(output.AttachmentConfiguration, context)
+        : undefined,
+    BlogConfiguration:
+      output.BlogConfiguration !== undefined && output.BlogConfiguration !== null
+        ? deserializeAws_json1_1ConfluenceBlogConfiguration(output.BlogConfiguration, context)
+        : undefined,
+    ExclusionPatterns:
+      output.ExclusionPatterns !== undefined && output.ExclusionPatterns !== null
+        ? deserializeAws_json1_1DataSourceInclusionsExclusionsStrings(output.ExclusionPatterns, context)
+        : undefined,
+    InclusionPatterns:
+      output.InclusionPatterns !== undefined && output.InclusionPatterns !== null
+        ? deserializeAws_json1_1DataSourceInclusionsExclusionsStrings(output.InclusionPatterns, context)
+        : undefined,
+    PageConfiguration:
+      output.PageConfiguration !== undefined && output.PageConfiguration !== null
+        ? deserializeAws_json1_1ConfluencePageConfiguration(output.PageConfiguration, context)
+        : undefined,
+    SecretArn: output.SecretArn !== undefined && output.SecretArn !== null ? output.SecretArn : undefined,
+    ServerUrl: output.ServerUrl !== undefined && output.ServerUrl !== null ? output.ServerUrl : undefined,
+    SpaceConfiguration:
+      output.SpaceConfiguration !== undefined && output.SpaceConfiguration !== null
+        ? deserializeAws_json1_1ConfluenceSpaceConfiguration(output.SpaceConfiguration, context)
+        : undefined,
+    Version: output.Version !== undefined && output.Version !== null ? output.Version : undefined,
+    VpcConfiguration:
+      output.VpcConfiguration !== undefined && output.VpcConfiguration !== null
+        ? deserializeAws_json1_1DataSourceVpcConfiguration(output.VpcConfiguration, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ConfluencePageConfiguration = (
+  output: any,
+  context: __SerdeContext
+): ConfluencePageConfiguration => {
+  return {
+    PageFieldMappings:
+      output.PageFieldMappings !== undefined && output.PageFieldMappings !== null
+        ? deserializeAws_json1_1ConfluencePageFieldMappingsList(output.PageFieldMappings, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ConfluencePageFieldMappingsList = (
+  output: any,
+  context: __SerdeContext
+): ConfluencePageToIndexFieldMapping[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1ConfluencePageToIndexFieldMapping(entry, context));
+};
+
+const deserializeAws_json1_1ConfluencePageToIndexFieldMapping = (
+  output: any,
+  context: __SerdeContext
+): ConfluencePageToIndexFieldMapping => {
+  return {
+    DataSourceFieldName:
+      output.DataSourceFieldName !== undefined && output.DataSourceFieldName !== null
+        ? output.DataSourceFieldName
+        : undefined,
+    DateFieldFormat:
+      output.DateFieldFormat !== undefined && output.DateFieldFormat !== null ? output.DateFieldFormat : undefined,
+    IndexFieldName:
+      output.IndexFieldName !== undefined && output.IndexFieldName !== null ? output.IndexFieldName : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ConfluenceSpaceConfiguration = (
+  output: any,
+  context: __SerdeContext
+): ConfluenceSpaceConfiguration => {
+  return {
+    CrawlArchivedSpaces:
+      output.CrawlArchivedSpaces !== undefined && output.CrawlArchivedSpaces !== null
+        ? output.CrawlArchivedSpaces
+        : undefined,
+    CrawlPersonalSpaces:
+      output.CrawlPersonalSpaces !== undefined && output.CrawlPersonalSpaces !== null
+        ? output.CrawlPersonalSpaces
+        : undefined,
+    ExcludeSpaces:
+      output.ExcludeSpaces !== undefined && output.ExcludeSpaces !== null
+        ? deserializeAws_json1_1ConfluenceSpaceList(output.ExcludeSpaces, context)
+        : undefined,
+    IncludeSpaces:
+      output.IncludeSpaces !== undefined && output.IncludeSpaces !== null
+        ? deserializeAws_json1_1ConfluenceSpaceList(output.IncludeSpaces, context)
+        : undefined,
+    SpaceFieldMappings:
+      output.SpaceFieldMappings !== undefined && output.SpaceFieldMappings !== null
+        ? deserializeAws_json1_1ConfluenceSpaceFieldMappingsList(output.SpaceFieldMappings, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ConfluenceSpaceFieldMappingsList = (
+  output: any,
+  context: __SerdeContext
+): ConfluenceSpaceToIndexFieldMapping[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1ConfluenceSpaceToIndexFieldMapping(entry, context));
+};
+
+const deserializeAws_json1_1ConfluenceSpaceList = (output: any, context: __SerdeContext): string[] => {
+  return (output || []).map((entry: any) => entry);
+};
+
+const deserializeAws_json1_1ConfluenceSpaceToIndexFieldMapping = (
+  output: any,
+  context: __SerdeContext
+): ConfluenceSpaceToIndexFieldMapping => {
+  return {
+    DataSourceFieldName:
+      output.DataSourceFieldName !== undefined && output.DataSourceFieldName !== null
+        ? output.DataSourceFieldName
+        : undefined,
+    DateFieldFormat:
+      output.DateFieldFormat !== undefined && output.DateFieldFormat !== null ? output.DateFieldFormat : undefined,
+    IndexFieldName:
+      output.IndexFieldName !== undefined && output.IndexFieldName !== null ? output.IndexFieldName : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1ConnectionConfiguration = (
   output: any,
   context: __SerdeContext
@@ -4087,6 +4466,10 @@ const deserializeAws_json1_1DataSourceConfiguration = (
   context: __SerdeContext
 ): DataSourceConfiguration => {
   return {
+    ConfluenceConfiguration:
+      output.ConfluenceConfiguration !== undefined && output.ConfluenceConfiguration !== null
+        ? deserializeAws_json1_1ConfluenceConfiguration(output.ConfluenceConfiguration, context)
+        : undefined,
     DatabaseConfiguration:
       output.DatabaseConfiguration !== undefined && output.DatabaseConfiguration !== null
         ? deserializeAws_json1_1DatabaseConfiguration(output.DatabaseConfiguration, context)

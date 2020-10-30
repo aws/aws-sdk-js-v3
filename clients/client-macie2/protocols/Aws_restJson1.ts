@@ -1267,8 +1267,8 @@ export const serializeAws_restJson1ListFindingsFiltersCommand = async (
   };
   let resolvedPath = "/findingsfilters";
   const query: any = {
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1293,8 +1293,8 @@ export const serializeAws_restJson1ListInvitationsCommand = async (
   };
   let resolvedPath = "/invitations";
   const query: any = {
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1319,9 +1319,9 @@ export const serializeAws_restJson1ListMembersCommand = async (
   };
   let resolvedPath = "/members";
   const query: any = {
+    ...(input.onlyAssociated !== undefined && { onlyAssociated: input.onlyAssociated }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
-    ...(input.onlyAssociated !== undefined && { onlyAssociated: input.onlyAssociated }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1346,8 +1346,8 @@ export const serializeAws_restJson1ListOrganizationAdminAccountsCommand = async 
   };
   let resolvedPath = "/admin";
   const query: any = {
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -7223,6 +7223,9 @@ const serializeAws_restJson1CriterionAdditionalProperties = (
 ): any => {
   return {
     ...(input.eq !== undefined && { eq: serializeAws_restJson1__listOf__string(input.eq, context) }),
+    ...(input.eqExactMatch !== undefined && {
+      eqExactMatch: serializeAws_restJson1__listOf__string(input.eqExactMatch, context),
+    }),
     ...(input.gt !== undefined && { gt: input.gt }),
     ...(input.gte !== undefined && { gte: input.gte }),
     ...(input.lt !== undefined && { lt: input.lt }),
@@ -7857,6 +7860,10 @@ const deserializeAws_restJson1CriterionAdditionalProperties = (
     eq:
       output.eq !== undefined && output.eq !== null
         ? deserializeAws_restJson1__listOf__string(output.eq, context)
+        : undefined,
+    eqExactMatch:
+      output.eqExactMatch !== undefined && output.eqExactMatch !== null
+        ? deserializeAws_restJson1__listOf__string(output.eqExactMatch, context)
         : undefined,
     gt: output.gt !== undefined && output.gt !== null ? output.gt : undefined,
     gte: output.gte !== undefined && output.gte !== null ? output.gte : undefined,

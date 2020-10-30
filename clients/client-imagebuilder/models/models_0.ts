@@ -20,14 +20,14 @@ export enum ImageStatus {
  */
 export interface ImageState {
   /**
-   * <p>The status of the image. </p>
-   */
-  status?: ImageStatus | string;
-
-  /**
    * <p>The reason for the image's status. </p>
    */
   reason?: string;
+
+  /**
+   * <p>The status of the image. </p>
+   */
+  status?: ImageStatus | string;
 }
 
 export namespace ImageState {
@@ -46,24 +46,14 @@ export interface Ami {
   state?: ImageState;
 
   /**
-   * <p>The description of the EC2 AMI. </p>
-   */
-  description?: string;
-
-  /**
-   * <p>The AWS Region of the EC2 AMI. </p>
-   */
-  region?: string;
-
-  /**
    * <p>The name of the EC2 AMI. </p>
    */
   name?: string;
 
   /**
-   * <p>The AMI ID of the EC2 AMI. </p>
+   * <p>The description of the EC2 AMI. Minimum and maximum length are in characters.</p>
    */
-  image?: string;
+  description?: string;
 
   /**
    * <p>
@@ -71,6 +61,16 @@ export interface Ami {
    *     </p>
    */
   accountId?: string;
+
+  /**
+   * <p>The AWS Region of the EC2 AMI. </p>
+   */
+  region?: string;
+
+  /**
+   * <p>The AMI ID of the EC2 AMI. </p>
+   */
+  image?: string;
 }
 
 export namespace Ami {
@@ -107,6 +107,16 @@ export namespace LaunchPermissionConfiguration {
  */
 export interface AmiDistributionConfiguration {
   /**
+   * <p>The tags to apply to AMIs distributed to this Region. </p>
+   */
+  amiTags?: { [key: string]: string };
+
+  /**
+   * <p>The name of the distribution configuration. </p>
+   */
+  name?: string;
+
+  /**
    * <p>
    *       The ID of an account to which you want to distribute an image.
    *     </p>
@@ -127,17 +137,7 @@ export interface AmiDistributionConfiguration {
   kmsKeyId?: string;
 
   /**
-   * <p>The name of the distribution configuration. </p>
-   */
-  name?: string;
-
-  /**
-   * <p>The tags to apply to AMIs distributed to this Region. </p>
-   */
-  amiTags?: { [key: string]: string };
-
-  /**
-   * <p>The description of the distribution configuration. </p>
+   * <p>The description of the distribution configuration. Minimum and maximum length are in characters.</p>
    */
   description?: string;
 }
@@ -165,14 +165,14 @@ export namespace CallRateLimitExceededException {
 
 export interface CancelImageCreationRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the image whose creation you want to cancel.</p>
-   */
-  imageBuildVersionArn: string | undefined;
-
-  /**
    * <p>The idempotency token used to make this request idempotent.</p>
    */
   clientToken?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the image whose creation you want to cancel.</p>
+   */
+  imageBuildVersionArn: string | undefined;
 }
 
 export namespace CancelImageCreationRequest {
@@ -183,9 +183,9 @@ export namespace CancelImageCreationRequest {
 
 export interface CancelImageCreationResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the image whose creation has been cancelled.</p>
+   * <p>The request ID that uniquely identifies this request.</p>
    */
-  imageBuildVersionArn?: string;
+  requestId?: string;
 
   /**
    * <p>The idempotency token used to make this request idempotent.</p>
@@ -193,9 +193,9 @@ export interface CancelImageCreationResponse {
   clientToken?: string;
 
   /**
-   * <p>The request ID that uniquely identifies this request.</p>
+   * <p>The Amazon Resource Name (ARN) of the image whose creation has been cancelled.</p>
    */
-  requestId?: string;
+  imageBuildVersionArn?: string;
 }
 
 export namespace CancelImageCreationResponse {
@@ -328,21 +328,14 @@ export enum ComponentType {
  */
 export interface Component {
   /**
-   * <p>The operating system (OS) version supported by the component. If the OS information is
-   *       available, a prefix match is performed against the parent image OS version during image recipe
-   *       creation. </p>
+   * <p>The description of the component.</p>
    */
-  supportedOsVersions?: string[];
+  description?: string;
 
   /**
-   * <p>The KMS key identifier used to encrypt the component.</p>
+   * <p>The version of the component.</p>
    */
-  kmsKeyId?: string;
-
-  /**
-   * <p>The name of the component.</p>
-   */
-  name?: string;
+  version?: string;
 
   /**
    * <p>The date that the component was created.</p>
@@ -350,19 +343,21 @@ export interface Component {
   dateCreated?: string;
 
   /**
-   * <p>The change description of the component.</p>
-   */
-  changeDescription?: string;
-
-  /**
    * <p>The owner of the component.</p>
    */
   owner?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the component.</p>
+   * <p>The operating system (OS) version supported by the component. If the OS information is
+   *       available, a prefix match is performed against the parent image OS version during image recipe
+   *       creation. </p>
    */
-  arn?: string;
+  supportedOsVersions?: string[];
+
+  /**
+   * <p>The name of the component.</p>
+   */
+  name?: string;
 
   /**
    * <p>The data of the component.</p>
@@ -375,9 +370,24 @@ export interface Component {
   platform?: Platform | string;
 
   /**
-   * <p>The encryption status of the component.</p>
+   * <p>The Amazon Resource Name (ARN) of the component.</p>
    */
-  encrypted?: boolean;
+  arn?: string;
+
+  /**
+   * <p>The KMS key identifier used to encrypt the component.</p>
+   */
+  kmsKeyId?: string;
+
+  /**
+   * <p>The change description of the component.</p>
+   */
+  changeDescription?: string;
+
+  /**
+   * <p>The tags associated with the component.</p>
+   */
+  tags?: { [key: string]: string };
 
   /**
    * <p>The type of the component denotes whether the component is used to build the image or only
@@ -386,19 +396,9 @@ export interface Component {
   type?: ComponentType | string;
 
   /**
-   * <p>The version of the component.</p>
+   * <p>The encryption status of the component.</p>
    */
-  version?: string;
-
-  /**
-   * <p>The tags associated with the component.</p>
-   */
-  tags?: { [key: string]: string };
-
-  /**
-   * <p>The description of the component.</p>
-   */
-  description?: string;
+  encrypted?: boolean;
 }
 
 export namespace Component {
@@ -432,21 +432,6 @@ export enum ComponentFormat {
  */
 export interface ComponentSummary {
   /**
-   * <p>The platform of the component.</p>
-   */
-  platform?: Platform | string;
-
-  /**
-   * <p>The name of the component.</p>
-   */
-  name?: string;
-
-  /**
-   * <p>The version of the component.</p>
-   */
-  version?: string;
-
-  /**
    * <p>The operating system (OS) version supported by the component. If the OS information is
    *       available, a prefix match is performed against the parent image OS version during image recipe
    *       creation. </p>
@@ -454,29 +439,9 @@ export interface ComponentSummary {
   supportedOsVersions?: string[];
 
   /**
-   * <p>The owner of the component.</p>
+   * <p>The version of the component.</p>
    */
-  owner?: string;
-
-  /**
-   * <p>The date that the component was created.</p>
-   */
-  dateCreated?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the component.</p>
-   */
-  arn?: string;
-
-  /**
-   * <p>The change description of the component.</p>
-   */
-  changeDescription?: string;
-
-  /**
-   * <p>The tags associated with the component.</p>
-   */
-  tags?: { [key: string]: string };
+  version?: string;
 
   /**
    * <p>The type of the component denotes whether the component is used to build the image or only
@@ -485,9 +450,44 @@ export interface ComponentSummary {
   type?: ComponentType | string;
 
   /**
+   * <p>The owner of the component.</p>
+   */
+  owner?: string;
+
+  /**
+   * <p>The tags associated with the component.</p>
+   */
+  tags?: { [key: string]: string };
+
+  /**
+   * <p>The change description of the component.</p>
+   */
+  changeDescription?: string;
+
+  /**
+   * <p>The name of the component.</p>
+   */
+  name?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the component.</p>
+   */
+  arn?: string;
+
+  /**
+   * <p>The platform of the component.</p>
+   */
+  platform?: Platform | string;
+
+  /**
    * <p>The description of the component.</p>
    */
   description?: string;
+
+  /**
+   * <p>The date that the component was created.</p>
+   */
+  dateCreated?: string;
 }
 
 export namespace ComponentSummary {
@@ -501,19 +501,14 @@ export namespace ComponentSummary {
  */
 export interface ComponentVersion {
   /**
-   * <p>The name of the component.</p>
-   */
-  name?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the component.</p>
-   */
-  arn?: string;
-
-  /**
    * <p>The platform of the component.</p>
    */
   platform?: Platform | string;
+
+  /**
+   * <p>The description of the component.</p>
+   */
+  description?: string;
 
   /**
    * <p>The type of the component denotes whether the component is used to build the image or only
@@ -522,9 +517,24 @@ export interface ComponentVersion {
   type?: ComponentType | string;
 
   /**
-   * <p>The description of the component.</p>
+   * <p>The name of the component.</p>
    */
-  description?: string;
+  name?: string;
+
+  /**
+   * <p>The date that the component was created.</p>
+   */
+  dateCreated?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the component.</p>
+   */
+  arn?: string;
+
+  /**
+   * <p>The owner of the component.</p>
+   */
+  owner?: string;
 
   /**
    * <p>
@@ -536,19 +546,9 @@ export interface ComponentVersion {
   supportedOsVersions?: string[];
 
   /**
-   * <p>The date that the component was created.</p>
-   */
-  dateCreated?: string;
-
-  /**
    * <p>The semantic version of the component.</p>
    */
   version?: string;
-
-  /**
-   * <p>The owner of the component.</p>
-   */
-  owner?: string;
 }
 
 export namespace ComponentVersion {
@@ -558,6 +558,18 @@ export namespace ComponentVersion {
 }
 
 export interface CreateComponentRequest {
+  /**
+   * <p>The change description of the component. Describes what change has been made in this
+   *       version, or what makes this version different from other versions of this component.</p>
+   */
+  changeDescription?: string;
+
+  /**
+   * <p>The data of the component. Used to specify the data inline. Either <code>data</code> or
+   *         <code>uri</code> can be used to specify the data within the component.</p>
+   */
+  data?: string;
+
   /**
    * <p> The operating system (OS) version supported by the component. If the OS information is
    *       available, a prefix match is performed against the parent image OS version during image recipe
@@ -571,9 +583,9 @@ export interface CreateComponentRequest {
   clientToken?: string;
 
   /**
-   * <p>The name of the component.</p>
+   * <p>The ID of the KMS key that should be used to encrypt this component.</p>
    */
-  name: string | undefined;
+  kmsKeyId?: string;
 
   /**
    * <p>The semantic version of the component. This version follows the semantic version syntax.
@@ -583,9 +595,9 @@ export interface CreateComponentRequest {
   semanticVersion: string | undefined;
 
   /**
-   * <p>The platform of the component.</p>
+   * <p>The name of the component.</p>
    */
-  platform: Platform | string | undefined;
+  name: string | undefined;
 
   /**
    * <p>The description of the component. Describes the contents of the component.</p>
@@ -593,26 +605,9 @@ export interface CreateComponentRequest {
   description?: string;
 
   /**
-   * <p>The data of the component. Used to specify the data inline. Either <code>data</code> or
-   *         <code>uri</code> can be used to specify the data within the component.</p>
+   * <p>The platform of the component.</p>
    */
-  data?: string;
-
-  /**
-   * <p>The change description of the component. Describes what change has been made in this
-   *       version, or what makes this version different from other versions of this component.</p>
-   */
-  changeDescription?: string;
-
-  /**
-   * <p>The tags of the component.</p>
-   */
-  tags?: { [key: string]: string };
-
-  /**
-   * <p>The ID of the KMS key that should be used to encrypt this component.</p>
-   */
-  kmsKeyId?: string;
+  platform: Platform | string | undefined;
 
   /**
    * <p>The uri of the component. Must be an S3 URL and the requester must have permission to
@@ -621,6 +616,11 @@ export interface CreateComponentRequest {
    *       component.</p>
    */
   uri?: string;
+
+  /**
+   * <p>The tags of the component.</p>
+   */
+  tags?: { [key: string]: string };
 }
 
 export namespace CreateComponentRequest {
@@ -631,11 +631,6 @@ export namespace CreateComponentRequest {
 
 export interface CreateComponentResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the component that was created by this request.</p>
-   */
-  componentBuildVersionArn?: string;
-
-  /**
    * <p>The idempotency token used to make this request idempotent.</p>
    */
   clientToken?: string;
@@ -644,6 +639,11 @@ export interface CreateComponentResponse {
    * <p>The request ID that uniquely identifies this request.</p>
    */
   requestId?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the component that was created by this request.</p>
+   */
+  componentBuildVersionArn?: string;
 }
 
 export namespace CreateComponentResponse {
@@ -727,9 +727,9 @@ export namespace Distribution {
 
 export interface CreateDistributionConfigurationRequest {
   /**
-   * <p> The idempotency token of the distribution configuration. </p>
+   * <p> The tags of the distribution configuration. </p>
    */
-  clientToken?: string;
+  tags?: { [key: string]: string };
 
   /**
    * <p> The name of the distribution configuration. </p>
@@ -737,14 +737,14 @@ export interface CreateDistributionConfigurationRequest {
   name: string | undefined;
 
   /**
+   * <p> The idempotency token of the distribution configuration. </p>
+   */
+  clientToken?: string;
+
+  /**
    * <p> The distributions of the distribution configuration. </p>
    */
   distributions: Distribution[] | undefined;
-
-  /**
-   * <p> The tags of the distribution configuration. </p>
-   */
-  tags?: { [key: string]: string };
 
   /**
    * <p> The description of the distribution configuration. </p>
@@ -760,12 +760,6 @@ export namespace CreateDistributionConfigurationRequest {
 
 export interface CreateDistributionConfigurationResponse {
   /**
-   * <p> The Amazon Resource Name (ARN) of the distribution configuration that was created by this
-   *       request. </p>
-   */
-  distributionConfigurationArn?: string;
-
-  /**
    * <p> The request ID that uniquely identifies this request. </p>
    */
   requestId?: string;
@@ -774,6 +768,12 @@ export interface CreateDistributionConfigurationResponse {
    * <p> The idempotency token used to make this request idempotent. </p>
    */
   clientToken?: string;
+
+  /**
+   * <p> The Amazon Resource Name (ARN) of the distribution configuration that was created by this
+   *       request. </p>
+   */
+  distributionConfigurationArn?: string;
 }
 
 export namespace CreateDistributionConfigurationResponse {
@@ -802,14 +802,14 @@ export namespace ResourceAlreadyExistsException {
  */
 export interface ImageTestsConfiguration {
   /**
-   * <p>The maximum time in minutes that tests are permitted to run.</p>
-   */
-  timeoutMinutes?: number;
-
-  /**
    * <p>Defines if tests should be executed when building this image.</p>
    */
   imageTestsEnabled?: boolean;
+
+  /**
+   * <p>The maximum time in minutes that tests are permitted to run.</p>
+   */
+  timeoutMinutes?: number;
 }
 
 export namespace ImageTestsConfiguration {
@@ -820,10 +820,20 @@ export namespace ImageTestsConfiguration {
 
 export interface CreateImageRequest {
   /**
-   * <p> The Amazon Resource Name (ARN) of the infrastructure configuration that defines the
-   *       environment in which your image will be built and tested. </p>
+   * <p> The Amazon Resource Name (ARN) of the image recipe that defines how images are
+   *       configured, tested, and assessed. </p>
    */
-  infrastructureConfigurationArn: string | undefined;
+  imageRecipeArn: string | undefined;
+
+  /**
+   * <p> The image tests configuration of the image. </p>
+   */
+  imageTestsConfiguration?: ImageTestsConfiguration;
+
+  /**
+   * <p> The tags of the image. </p>
+   */
+  tags?: { [key: string]: string };
 
   /**
    * <p> The idempotency token used to make this request idempotent. </p>
@@ -837,20 +847,10 @@ export interface CreateImageRequest {
   distributionConfigurationArn?: string;
 
   /**
-   * <p> The image tests configuration of the image. </p>
+   * <p> The Amazon Resource Name (ARN) of the infrastructure configuration that defines the
+   *       environment in which your image will be built and tested. </p>
    */
-  imageTestsConfiguration?: ImageTestsConfiguration;
-
-  /**
-   * <p> The Amazon Resource Name (ARN) of the image recipe that defines how images are
-   *       configured, tested, and assessed. </p>
-   */
-  imageRecipeArn: string | undefined;
-
-  /**
-   * <p> The tags of the image. </p>
-   */
-  tags?: { [key: string]: string };
+  infrastructureConfigurationArn: string | undefined;
 
   /**
    * <p> Collects additional information about the image being created, including the operating
@@ -868,14 +868,14 @@ export namespace CreateImageRequest {
 
 export interface CreateImageResponse {
   /**
-   * <p> The idempotency token used to make this request idempotent. </p>
-   */
-  clientToken?: string;
-
-  /**
    * <p> The Amazon Resource Name (ARN) of the image that was created by this request. </p>
    */
   imageBuildVersionArn?: string;
+
+  /**
+   * <p> The idempotency token used to make this request idempotent. </p>
+   */
+  clientToken?: string;
 
   /**
    * <p> The request ID that uniquely identifies this request. </p>
@@ -933,29 +933,10 @@ export enum PipelineStatus {
 
 export interface CreateImagePipelineRequest {
   /**
-   * <p> The tags of the image pipeline. </p>
+   * <p> The Amazon Resource Name (ARN) of the image recipe that will be used to configure images
+   *       created by this image pipeline. </p>
    */
-  tags?: { [key: string]: string };
-
-  /**
-   * <p> The image test configuration of the image pipeline. </p>
-   */
-  imageTestsConfiguration?: ImageTestsConfiguration;
-
-  /**
-   * <p> The status of the image pipeline. </p>
-   */
-  status?: PipelineStatus | string;
-
-  /**
-   * <p> The schedule of the image pipeline. </p>
-   */
-  schedule?: Schedule;
-
-  /**
-   * <p> The idempotency token used to make this request idempotent. </p>
-   */
-  clientToken?: string;
+  imageRecipeArn: string | undefined;
 
   /**
    * <p> The description of the image pipeline. </p>
@@ -963,10 +944,24 @@ export interface CreateImagePipelineRequest {
   description?: string;
 
   /**
-   * <p> The Amazon Resource Name (ARN) of the image recipe that will be used to configure images
-   *       created by this image pipeline. </p>
+   * <p> The idempotency token used to make this request idempotent. </p>
    */
-  imageRecipeArn: string | undefined;
+  clientToken?: string;
+
+  /**
+   * <p> The name of the image pipeline. </p>
+   */
+  name: string | undefined;
+
+  /**
+   * <p> The status of the image pipeline. </p>
+   */
+  status?: PipelineStatus | string;
+
+  /**
+   * <p> The tags of the image pipeline. </p>
+   */
+  tags?: { [key: string]: string };
 
   /**
    * <p> Collects additional information about the image being created, including the operating
@@ -976,9 +971,10 @@ export interface CreateImagePipelineRequest {
   enhancedImageMetadataEnabled?: boolean;
 
   /**
-   * <p> The name of the image pipeline. </p>
+   * <p> The Amazon Resource Name (ARN) of the infrastructure configuration that will be used to
+   *       build images created by this image pipeline. </p>
    */
-  name: string | undefined;
+  infrastructureConfigurationArn: string | undefined;
 
   /**
    * <p> The Amazon Resource Name (ARN) of the distribution configuration that will be used to
@@ -987,10 +983,14 @@ export interface CreateImagePipelineRequest {
   distributionConfigurationArn?: string;
 
   /**
-   * <p> The Amazon Resource Name (ARN) of the infrastructure configuration that will be used to
-   *       build images created by this image pipeline. </p>
+   * <p> The schedule of the image pipeline. </p>
    */
-  infrastructureConfigurationArn: string | undefined;
+  schedule?: Schedule;
+
+  /**
+   * <p> The image test configuration of the image pipeline. </p>
+   */
+  imageTestsConfiguration?: ImageTestsConfiguration;
 }
 
 export namespace CreateImagePipelineRequest {
@@ -1001,9 +1001,10 @@ export namespace CreateImagePipelineRequest {
 
 export interface CreateImagePipelineResponse {
   /**
-   * <p> The idempotency token used to make this request idempotent. </p>
+   * <p> The Amazon Resource Name (ARN) of the image pipeline that was created by this request.
+   *     </p>
    */
-  clientToken?: string;
+  imagePipelineArn?: string;
 
   /**
    * <p> The request ID that uniquely identifies this request. </p>
@@ -1011,10 +1012,9 @@ export interface CreateImagePipelineResponse {
   requestId?: string;
 
   /**
-   * <p> The Amazon Resource Name (ARN) of the image pipeline that was created by this request.
-   *     </p>
+   * <p> The idempotency token used to make this request idempotent. </p>
    */
-  imagePipelineArn?: string;
+  clientToken?: string;
 }
 
 export namespace CreateImagePipelineResponse {
@@ -1037,19 +1037,9 @@ export enum EbsVolumeType {
  */
 export interface EbsInstanceBlockDeviceSpecification {
   /**
-   * <p>Use to configure delete on termination of the associated device.</p>
-   */
-  deleteOnTermination?: boolean;
-
-  /**
    * <p>Use to override the device's volume size.</p>
    */
   volumeSize?: number;
-
-  /**
-   * <p>The snapshot that defines the device contents.</p>
-   */
-  snapshotId?: string;
 
   /**
    * <p>Use to configure device encryption.</p>
@@ -1057,9 +1047,9 @@ export interface EbsInstanceBlockDeviceSpecification {
   encrypted?: boolean;
 
   /**
-   * <p>Use to configure the KMS key to use when encrypting the device.</p>
+   * <p>Use to override the device's volume type.</p>
    */
-  kmsKeyId?: string;
+  volumeType?: EbsVolumeType | string;
 
   /**
    * <p>Use to configure device IOPS.</p>
@@ -1067,9 +1057,19 @@ export interface EbsInstanceBlockDeviceSpecification {
   iops?: number;
 
   /**
-   * <p>Use to override the device's volume type.</p>
+   * <p>Use to configure the KMS key to use when encrypting the device.</p>
    */
-  volumeType?: EbsVolumeType | string;
+  kmsKeyId?: string;
+
+  /**
+   * <p>Use to configure delete on termination of the associated device.</p>
+   */
+  deleteOnTermination?: boolean;
+
+  /**
+   * <p>The snapshot that defines the device contents.</p>
+   */
+  snapshotId?: string;
 }
 
 export namespace EbsInstanceBlockDeviceSpecification {
@@ -1088,11 +1088,6 @@ export interface InstanceBlockDeviceMapping {
   virtualName?: string;
 
   /**
-   * <p>The device to which these mappings apply.</p>
-   */
-  deviceName?: string;
-
-  /**
    * <p>Use to manage Amazon EBS-specific configuration for this mapping.</p>
    */
   ebs?: EbsInstanceBlockDeviceSpecification;
@@ -1101,6 +1096,11 @@ export interface InstanceBlockDeviceMapping {
    * <p>Use to remove a mapping from the parent image.</p>
    */
   noDevice?: string;
+
+  /**
+   * <p>The device to which these mappings apply.</p>
+   */
+  deviceName?: string;
 }
 
 export namespace InstanceBlockDeviceMapping {
@@ -1111,14 +1111,19 @@ export namespace InstanceBlockDeviceMapping {
 
 export interface CreateImageRecipeRequest {
   /**
-   * <p>The components of the image recipe. </p>
+   * <p>The block device mappings of the image recipe. </p>
    */
-  components: ComponentConfiguration[] | undefined;
+  blockDeviceMappings?: InstanceBlockDeviceMapping[];
 
   /**
-   * <p> The tags of the image recipe. </p>
+   * <p>The semantic version of the image recipe. </p>
    */
-  tags?: { [key: string]: string };
+  semanticVersion: string | undefined;
+
+  /**
+   * <p> The description of the image recipe. </p>
+   */
+  description?: string;
 
   /**
    * <p> The name of the image recipe. </p>
@@ -1126,9 +1131,24 @@ export interface CreateImageRecipeRequest {
   name: string | undefined;
 
   /**
-   * <p> The description of the image recipe. </p>
+   * <p> The tags of the image recipe. </p>
    */
-  description?: string;
+  tags?: { [key: string]: string };
+
+  /**
+   * <p>The working directory to be used during build and test workflows.</p>
+   */
+  workingDirectory?: string;
+
+  /**
+   * <p>The components of the image recipe. </p>
+   */
+  components: ComponentConfiguration[] | undefined;
+
+  /**
+   * <p>The idempotency token used to make this request idempotent. </p>
+   */
+  clientToken?: string;
 
   /**
    * <p>The parent image of the image recipe. The value of the string can be the ARN of the parent
@@ -1139,26 +1159,6 @@ export interface CreateImageRecipeRequest {
    *       the AMI must be in the same Region in which you are using Image Builder. </p>
    */
   parentImage: string | undefined;
-
-  /**
-   * <p>The semantic version of the image recipe. </p>
-   */
-  semanticVersion: string | undefined;
-
-  /**
-   * <p>The block device mappings of the image recipe. </p>
-   */
-  blockDeviceMappings?: InstanceBlockDeviceMapping[];
-
-  /**
-   * <p>The working directory to be used during build and test workflows.</p>
-   */
-  workingDirectory?: string;
-
-  /**
-   * <p>The idempotency token used to make this request idempotent. </p>
-   */
-  clientToken?: string;
 }
 
 export namespace CreateImageRecipeRequest {
@@ -1174,14 +1174,14 @@ export interface CreateImageRecipeResponse {
   clientToken?: string;
 
   /**
-   * <p>The request ID that uniquely identifies this request. </p>
-   */
-  requestId?: string;
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the image recipe that was created by this request. </p>
    */
   imageRecipeArn?: string;
+
+  /**
+   * <p>The request ID that uniquely identifies this request. </p>
+   */
+  requestId?: string;
 }
 
 export namespace CreateImageRecipeResponse {
@@ -1229,34 +1229,19 @@ export namespace Logging {
 
 export interface CreateInfrastructureConfigurationRequest {
   /**
-   * <p>The description of the infrastructure configuration. </p>
-   */
-  description?: string;
-
-  /**
-   * <p>The instance profile to associate with the instance used to customize your EC2 AMI. </p>
-   */
-  instanceProfileName: string | undefined;
-
-  /**
-   * <p>The tags of the infrastructure configuration. </p>
-   */
-  tags?: { [key: string]: string };
-
-  /**
    * <p>The security group IDs to associate with the instance used to customize your EC2 AMI. </p>
    */
   securityGroupIds?: string[];
 
   /**
-   * <p>The subnet ID in which to place the instance used to customize your EC2 AMI. </p>
+   * <p>The description of the infrastructure configuration. </p>
    */
-  subnetId?: string;
+  description?: string;
 
   /**
-   * <p>The logging configuration of the infrastructure configuration. </p>
+   * <p>The idempotency token used to make this request idempotent. </p>
    */
-  logging?: Logging;
+  clientToken?: string;
 
   /**
    * <p>The instance types of the infrastructure configuration. You can specify one or more
@@ -1266,24 +1251,29 @@ export interface CreateInfrastructureConfigurationRequest {
   instanceTypes?: string[];
 
   /**
-   * <p>The idempotency token used to make this request idempotent. </p>
+   * <p>The subnet ID in which to place the instance used to customize your EC2 AMI. </p>
    */
-  clientToken?: string;
+  subnetId?: string;
 
   /**
-   * <p>The name of the infrastructure configuration. </p>
+   * <p>The tags of the infrastructure configuration. </p>
    */
-  name: string | undefined;
+  tags?: { [key: string]: string };
+
+  /**
+   * <p>The instance profile to associate with the instance used to customize your EC2 AMI. </p>
+   */
+  instanceProfileName: string | undefined;
+
+  /**
+   * <p>The logging configuration of the infrastructure configuration. </p>
+   */
+  logging?: Logging;
 
   /**
    * <p>The SNS topic on which to send image build events. </p>
    */
   snsTopicArn?: string;
-
-  /**
-   * <p>The tags attached to the resource created by Image Builder.</p>
-   */
-  resourceTags?: { [key: string]: string };
 
   /**
    * <p>The terminate instance on failure setting of the infrastructure configuration. Set to
@@ -1297,6 +1287,16 @@ export interface CreateInfrastructureConfigurationRequest {
    *       the instance used to create your image. </p>
    */
   keyPair?: string;
+
+  /**
+   * <p>The name of the infrastructure configuration. </p>
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The tags attached to the resource created by Image Builder.</p>
+   */
+  resourceTags?: { [key: string]: string };
 }
 
 export namespace CreateInfrastructureConfigurationRequest {
@@ -1307,10 +1307,9 @@ export namespace CreateInfrastructureConfigurationRequest {
 
 export interface CreateInfrastructureConfigurationResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the infrastructure configuration that was created by
-   *       this request. </p>
+   * <p>The request ID that uniquely identifies this request. </p>
    */
-  infrastructureConfigurationArn?: string;
+  requestId?: string;
 
   /**
    * <p>The idempotency token used to make this request idempotent. </p>
@@ -1318,9 +1317,10 @@ export interface CreateInfrastructureConfigurationResponse {
   clientToken?: string;
 
   /**
-   * <p>The request ID that uniquely identifies this request. </p>
+   * <p>The Amazon Resource Name (ARN) of the infrastructure configuration that was created by
+   *       this request. </p>
    */
-  requestId?: string;
+  infrastructureConfigurationArn?: string;
 }
 
 export namespace CreateInfrastructureConfigurationResponse {
@@ -1344,14 +1344,14 @@ export namespace DeleteComponentRequest {
 
 export interface DeleteComponentResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the component build version that was deleted. </p>
-   */
-  componentBuildVersionArn?: string;
-
-  /**
    * <p>The request ID that uniquely identifies this request. </p>
    */
   requestId?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the component build version that was deleted. </p>
+   */
+  componentBuildVersionArn?: string;
 }
 
 export namespace DeleteComponentResponse {
@@ -1391,14 +1391,14 @@ export namespace DeleteDistributionConfigurationRequest {
 
 export interface DeleteDistributionConfigurationResponse {
   /**
-   * <p>The request ID that uniquely identifies this request. </p>
-   */
-  requestId?: string;
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the distribution configuration that was deleted. </p>
    */
   distributionConfigurationArn?: string;
+
+  /**
+   * <p>The request ID that uniquely identifies this request. </p>
+   */
+  requestId?: string;
 }
 
 export namespace DeleteDistributionConfigurationResponse {
@@ -1515,14 +1515,14 @@ export namespace DeleteInfrastructureConfigurationRequest {
 
 export interface DeleteInfrastructureConfigurationResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the infrastructure configuration that was deleted. </p>
-   */
-  infrastructureConfigurationArn?: string;
-
-  /**
    * <p>The request ID that uniquely identifies this request. </p>
    */
   requestId?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the infrastructure configuration that was deleted. </p>
+   */
+  infrastructureConfigurationArn?: string;
 }
 
 export namespace DeleteInfrastructureConfigurationResponse {
@@ -1536,34 +1536,9 @@ export namespace DeleteInfrastructureConfigurationResponse {
  */
 export interface DistributionConfiguration {
   /**
-   * <p>The Amazon Resource Name (ARN) of the distribution configuration.</p>
-   */
-  arn?: string;
-
-  /**
    * <p>The date on which this distribution configuration was created.</p>
    */
   dateCreated?: string;
-
-  /**
-   * <p>The maximum duration in minutes for this distribution configuration.</p>
-   */
-  timeoutMinutes: number | undefined;
-
-  /**
-   * <p>The name of the distribution configuration.</p>
-   */
-  name?: string;
-
-  /**
-   * <p>The description of the distribution configuration.</p>
-   */
-  description?: string;
-
-  /**
-   * <p>The date on which this distribution configuration was last updated.</p>
-   */
-  dateUpdated?: string;
 
   /**
    * <p>The tags of the distribution configuration.</p>
@@ -1571,9 +1546,34 @@ export interface DistributionConfiguration {
   tags?: { [key: string]: string };
 
   /**
+   * <p>The date on which this distribution configuration was last updated.</p>
+   */
+  dateUpdated?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the distribution configuration.</p>
+   */
+  arn?: string;
+
+  /**
+   * <p>The name of the distribution configuration.</p>
+   */
+  name?: string;
+
+  /**
    * <p>The distributions of the distribution configuration.</p>
    */
   distributions?: Distribution[];
+
+  /**
+   * <p>The description of the distribution configuration.</p>
+   */
+  description?: string;
+
+  /**
+   * <p>The maximum duration in minutes for this distribution configuration.</p>
+   */
+  timeoutMinutes: number | undefined;
 }
 
 export namespace DistributionConfiguration {
@@ -1587,9 +1587,14 @@ export namespace DistributionConfiguration {
  */
 export interface DistributionConfigurationSummary {
   /**
-   * <p>The Amazon Resource Name (ARN) of the distribution configuration.</p>
+   * <p>The description of the distribution configuration.</p>
    */
-  arn?: string;
+  description?: string;
+
+  /**
+   * <p>The tags associated with the distribution configuration.</p>
+   */
+  tags?: { [key: string]: string };
 
   /**
    * <p>The date on which the distribution configuration was updated.</p>
@@ -1602,14 +1607,9 @@ export interface DistributionConfigurationSummary {
   name?: string;
 
   /**
-   * <p>The description of the distribution configuration.</p>
+   * <p>The Amazon Resource Name (ARN) of the distribution configuration.</p>
    */
-  description?: string;
-
-  /**
-   * <p>The tags associated with the distribution configuration.</p>
-   */
-  tags?: { [key: string]: string };
+  arn?: string;
 
   /**
    * <p>The date on which the distribution configuration was created.</p>
@@ -1740,14 +1740,14 @@ export namespace GetDistributionConfigurationRequest {
 
 export interface GetDistributionConfigurationResponse {
   /**
-   * <p>The request ID that uniquely identifies this request. </p>
-   */
-  requestId?: string;
-
-  /**
    * <p>The distribution configuration object. </p>
    */
   distributionConfiguration?: DistributionConfiguration;
+
+  /**
+   * <p>The request ID that uniquely identifies this request. </p>
+   */
+  requestId?: string;
 }
 
 export namespace GetDistributionConfigurationResponse {
@@ -1774,39 +1774,9 @@ export namespace GetImageRequest {
  */
 export interface ImageRecipe {
   /**
-   * <p>The owner of the image recipe.</p>
-   */
-  owner?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the image recipe.</p>
-   */
-  arn?: string;
-
-  /**
    * <p>The block device mappings to apply when creating images from this recipe.</p>
    */
   blockDeviceMappings?: InstanceBlockDeviceMapping[];
-
-  /**
-   * <p>The date on which this image recipe was created.</p>
-   */
-  dateCreated?: string;
-
-  /**
-   * <p>The tags of the image recipe.</p>
-   */
-  tags?: { [key: string]: string };
-
-  /**
-   * <p>The description of the image recipe.</p>
-   */
-  description?: string;
-
-  /**
-   * <p>The platform of the image recipe.</p>
-   */
-  platform?: Platform | string;
 
   /**
    * <p>The name of the image recipe.</p>
@@ -1814,9 +1784,29 @@ export interface ImageRecipe {
   name?: string;
 
   /**
-   * <p>The working directory to be used during build and test workflows.</p>
+   * <p>The Amazon Resource Name (ARN) of the image recipe.</p>
    */
-  workingDirectory?: string;
+  arn?: string;
+
+  /**
+   * <p>The platform of the image recipe.</p>
+   */
+  platform?: Platform | string;
+
+  /**
+   * <p>The description of the image recipe.</p>
+   */
+  description?: string;
+
+  /**
+   * <p>The date on which this image recipe was created.</p>
+   */
+  dateCreated?: string;
+
+  /**
+   * <p>The components of the image recipe.</p>
+   */
+  components?: ComponentConfiguration[];
 
   /**
    * <p>The version of the image recipe.</p>
@@ -1824,9 +1814,19 @@ export interface ImageRecipe {
   version?: string;
 
   /**
-   * <p>The components of the image recipe.</p>
+   * <p>The working directory to be used during build and test workflows.</p>
    */
-  components?: ComponentConfiguration[];
+  workingDirectory?: string;
+
+  /**
+   * <p>The tags of the image recipe.</p>
+   */
+  tags?: { [key: string]: string };
+
+  /**
+   * <p>The owner of the image recipe.</p>
+   */
+  owner?: string;
 
   /**
    * <p>The parent image of the image recipe.</p>
@@ -1845,14 +1845,20 @@ export namespace ImageRecipe {
  */
 export interface InfrastructureConfiguration {
   /**
-   * <p>The EC2 key pair of the infrastructure configuration.</p>
+   * <p>The tags attached to the resource created by Image Builder.</p>
    */
-  keyPair?: string;
+  resourceTags?: { [key: string]: string };
 
   /**
    * <p>The SNS topic Amazon Resource Name (ARN) of the infrastructure configuration.</p>
    */
   snsTopicArn?: string;
+
+  /**
+   * <p>The terminate instance on failure configuration of the infrastructure
+   *       configuration.</p>
+   */
+  terminateInstanceOnFailure?: boolean;
 
   /**
    * <p>The date on which the infrastructure configuration was created.</p>
@@ -1865,9 +1871,14 @@ export interface InfrastructureConfiguration {
   instanceProfileName?: string;
 
   /**
-   * <p>The logging configuration of the infrastructure configuration.</p>
+   * <p>The security group IDs of the infrastructure configuration.</p>
    */
-  logging?: Logging;
+  securityGroupIds?: string[];
+
+  /**
+   * <p>The description of the infrastructure configuration.</p>
+   */
+  description?: string;
 
   /**
    * <p>The subnet ID of the infrastructure configuration.</p>
@@ -1885,25 +1896,19 @@ export interface InfrastructureConfiguration {
   dateUpdated?: string;
 
   /**
-   * <p>The description of the infrastructure configuration.</p>
-   */
-  description?: string;
-
-  /**
-   * <p>The security group IDs of the infrastructure configuration.</p>
-   */
-  securityGroupIds?: string[];
-
-  /**
    * <p>The instance types of the infrastructure configuration.</p>
    */
   instanceTypes?: string[];
 
   /**
-   * <p>The terminate instance on failure configuration of the infrastructure
-   *       configuration.</p>
+   * <p>The logging configuration of the infrastructure configuration.</p>
    */
-  terminateInstanceOnFailure?: boolean;
+  logging?: Logging;
+
+  /**
+   * <p>The EC2 key pair of the infrastructure configuration.</p>
+   */
+  keyPair?: string;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the infrastructure configuration.</p>
@@ -1914,11 +1919,6 @@ export interface InfrastructureConfiguration {
    * <p>The name of the infrastructure configuration.</p>
    */
   name?: string;
-
-  /**
-   * <p>The tags attached to the resource created by Image Builder.</p>
-   */
-  resourceTags?: { [key: string]: string };
 }
 
 export namespace InfrastructureConfiguration {
@@ -1948,9 +1948,19 @@ export namespace OutputResources {
  */
 export interface Image {
   /**
-   * <p>The infrastructure used when creating this image.</p>
+   * <p>The state of the image.</p>
    */
-  infrastructureConfiguration?: InfrastructureConfiguration;
+  state?: ImageState;
+
+  /**
+   * <p>The tags of the image.</p>
+   */
+  tags?: { [key: string]: string };
+
+  /**
+   * <p>The output resources produced when creating this image.</p>
+   */
+  outputResources?: OutputResources;
 
   /**
    * <p>The image recipe used when creating the image.</p>
@@ -1963,9 +1973,9 @@ export interface Image {
   imageTestsConfiguration?: ImageTestsConfiguration;
 
   /**
-   * <p>The output resources produced when creating this image.</p>
+   * <p>The semantic version of the image.</p>
    */
-  outputResources?: OutputResources;
+  version?: string;
 
   /**
    * <p>The date on which this image was created.</p>
@@ -1978,14 +1988,24 @@ export interface Image {
   distributionConfiguration?: DistributionConfiguration;
 
   /**
+   * <p>The name of the image pipeline that created this image.</p>
+   */
+  sourcePipelineName?: string;
+
+  /**
+   * <p>The name of the image.</p>
+   */
+  name?: string;
+
+  /**
    * <p>The Amazon Resource Name (ARN) of the image pipeline that created this image.</p>
    */
   sourcePipelineArn?: string;
 
   /**
-   * <p>The tags of the image.</p>
+   * <p>The Amazon Resource Name (ARN) of the image.</p>
    */
-  tags?: { [key: string]: string };
+  arn?: string;
 
   /**
    * <p> Collects additional information about the image being created, including the operating
@@ -1995,40 +2015,20 @@ export interface Image {
   enhancedImageMetadataEnabled?: boolean;
 
   /**
-   * <p>The semantic version of the image.</p>
-   */
-  version?: string;
-
-  /**
-   * <p>The name of the image.</p>
-   */
-  name?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the image.</p>
-   */
-  arn?: string;
-
-  /**
    * <p>The platform of the image.</p>
    */
   platform?: Platform | string;
-
-  /**
-   * <p>The state of the image.</p>
-   */
-  state?: ImageState;
-
-  /**
-   * <p>The name of the image pipeline that created this image.</p>
-   */
-  sourcePipelineName?: string;
 
   /**
    * <p>The operating system version of the instance. For example, Amazon Linux 2, Ubuntu 18, or
    *       Microsoft Windows Server 2019. </p>
    */
   osVersion?: string;
+
+  /**
+   * <p>The infrastructure used when creating this image.</p>
+   */
+  infrastructureConfiguration?: InfrastructureConfiguration;
 }
 
 export namespace Image {
@@ -2039,14 +2039,14 @@ export namespace Image {
 
 export interface GetImageResponse {
   /**
-   * <p>The image object. </p>
-   */
-  image?: Image;
-
-  /**
    * <p>The request ID that uniquely identifies this request. </p>
    */
   requestId?: string;
+
+  /**
+   * <p>The image object. </p>
+   */
+  image?: Image;
 }
 
 export namespace GetImageResponse {
@@ -2073,6 +2073,22 @@ export namespace GetImagePipelineRequest {
  */
 export interface ImagePipeline {
   /**
+   * <p>The Amazon Resource Name (ARN) of the distribution configuration associated with this
+   *       image pipeline.</p>
+   */
+  distributionConfigurationArn?: string;
+
+  /**
+   * <p>The date on which this image pipeline was last updated.</p>
+   */
+  dateUpdated?: string;
+
+  /**
+   * <p>The status of the image pipeline.</p>
+   */
+  status?: PipelineStatus | string;
+
+  /**
    * <p>The schedule of the image pipeline.</p>
    */
   schedule?: Schedule;
@@ -2083,22 +2099,6 @@ export interface ImagePipeline {
   dateCreated?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the distribution configuration associated with this
-   *       image pipeline.</p>
-   */
-  distributionConfigurationArn?: string;
-
-  /**
-   * <p>The date on which this image pipeline will next be run.</p>
-   */
-  dateNextRun?: string;
-
-  /**
-   * <p>The name of the image pipeline.</p>
-   */
-  name?: string;
-
-  /**
    * <p> Collects additional information about the image being created, including the operating
    *       system (OS) version and package list. This information is used to enhance the overall
    *       experience of using EC2 Image Builder. Enabled by default. </p>
@@ -2106,14 +2106,24 @@ export interface ImagePipeline {
   enhancedImageMetadataEnabled?: boolean;
 
   /**
+   * <p>The date on which this image pipeline was last run.</p>
+   */
+  dateLastRun?: string;
+
+  /**
+   * <p>The name of the image pipeline.</p>
+   */
+  name?: string;
+
+  /**
    * <p>The Amazon Resource Name (ARN) of the image pipeline.</p>
    */
   arn?: string;
 
   /**
-   * <p>The status of the image pipeline.</p>
+   * <p>The date on which this image pipeline will next be run.</p>
    */
-  status?: PipelineStatus | string;
+  dateNextRun?: string;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the infrastructure configuration associated with this
@@ -2122,9 +2132,14 @@ export interface ImagePipeline {
   infrastructureConfigurationArn?: string;
 
   /**
-   * <p>The description of the image pipeline.</p>
+   * <p>The image tests configuration of the image pipeline.</p>
    */
-  description?: string;
+  imageTestsConfiguration?: ImageTestsConfiguration;
+
+  /**
+   * <p>The tags of this image pipeline.</p>
+   */
+  tags?: { [key: string]: string };
 
   /**
    * <p>The Amazon Resource Name (ARN) of the image recipe associated with this image
@@ -2133,24 +2148,9 @@ export interface ImagePipeline {
   imageRecipeArn?: string;
 
   /**
-   * <p>The date on which this image pipeline was last run.</p>
+   * <p>The description of the image pipeline.</p>
    */
-  dateLastRun?: string;
-
-  /**
-   * <p>The date on which this image pipeline was last updated.</p>
-   */
-  dateUpdated?: string;
-
-  /**
-   * <p>The tags of this image pipeline.</p>
-   */
-  tags?: { [key: string]: string };
-
-  /**
-   * <p>The image tests configuration of the image pipeline.</p>
-   */
-  imageTestsConfiguration?: ImageTestsConfiguration;
+  description?: string;
 
   /**
    * <p>The platform of the image pipeline.</p>
@@ -2228,14 +2228,14 @@ export namespace GetImageRecipeRequest {
 
 export interface GetImageRecipeResponse {
   /**
-   * <p>The request ID that uniquely identifies this request. </p>
-   */
-  requestId?: string;
-
-  /**
    * <p>The image recipe object. </p>
    */
   imageRecipe?: ImageRecipe;
+
+  /**
+   * <p>The request ID that uniquely identifies this request. </p>
+   */
+  requestId?: string;
 }
 
 export namespace GetImageRecipeResponse {
@@ -2297,14 +2297,14 @@ export namespace GetInfrastructureConfigurationRequest {
  */
 export interface GetInfrastructureConfigurationResponse {
   /**
-   * <p>The request ID that uniquely identifies this request. </p>
-   */
-  requestId?: string;
-
-  /**
    * <p>The infrastructure configuration object. </p>
    */
   infrastructureConfiguration?: InfrastructureConfiguration;
+
+  /**
+   * <p>The request ID that uniquely identifies this request. </p>
+   */
+  requestId?: string;
 }
 
 export namespace GetInfrastructureConfigurationResponse {
@@ -2315,11 +2315,35 @@ export namespace GetInfrastructureConfigurationResponse {
 
 export interface ImportComponentRequest {
   /**
-   * <p>The semantic version of the component. This version follows the semantic version syntax.
-   *       For example, major.minor.patch. This could be versioned like software (2.0.1) or like a date
-   *       (2019.12.01).</p>
+   * <p>The idempotency token of the component. </p>
    */
-  semanticVersion: string | undefined;
+  clientToken?: string;
+
+  /**
+   * <p>The tags of the component. </p>
+   */
+  tags?: { [key: string]: string };
+
+  /**
+   * <p>The description of the component. Describes the contents of the component. </p>
+   */
+  description?: string;
+
+  /**
+   * <p>The type of the component denotes whether the component is used to build the image or only
+   *       to test it. </p>
+   */
+  type: ComponentType | string | undefined;
+
+  /**
+   * <p>The platform of the component. </p>
+   */
+  platform: Platform | string | undefined;
+
+  /**
+   * <p> The name of the component. </p>
+   */
+  name: string | undefined;
 
   /**
    * <p>The uri of the component. Must be an S3 URL and the requester must have permission to
@@ -2330,19 +2354,16 @@ export interface ImportComponentRequest {
   uri?: string;
 
   /**
-   * <p>The format of the resource that you want to import as a component. </p>
+   * <p>The ID of the KMS key that should be used to encrypt this component. </p>
    */
-  format: ComponentFormat | string | undefined;
+  kmsKeyId?: string;
 
   /**
-   * <p>The idempotency token of the component. </p>
+   * <p>The semantic version of the component. This version follows the semantic version syntax.
+   *       For example, major.minor.patch. This could be versioned like software (2.0.1) or like a date
+   *       (2019.12.01).</p>
    */
-  clientToken?: string;
-
-  /**
-   * <p> The name of the component. </p>
-   */
-  name: string | undefined;
+  semanticVersion: string | undefined;
 
   /**
    * <p>The change description of the component. Describes what change has been made in this
@@ -2357,30 +2378,9 @@ export interface ImportComponentRequest {
   data?: string;
 
   /**
-   * <p>The ID of the KMS key that should be used to encrypt this component. </p>
+   * <p>The format of the resource that you want to import as a component. </p>
    */
-  kmsKeyId?: string;
-
-  /**
-   * <p>The tags of the component. </p>
-   */
-  tags?: { [key: string]: string };
-
-  /**
-   * <p>The platform of the component. </p>
-   */
-  platform: Platform | string | undefined;
-
-  /**
-   * <p>The type of the component denotes whether the component is used to build the image or only
-   *       to test it. </p>
-   */
-  type: ComponentType | string | undefined;
-
-  /**
-   * <p>The description of the component. Describes the contents of the component. </p>
-   */
-  description?: string;
+  format: ComponentFormat | string | undefined;
 }
 
 export namespace ImportComponentRequest {
@@ -2391,11 +2391,6 @@ export namespace ImportComponentRequest {
 
 export interface ImportComponentResponse {
   /**
-   * <p>The request ID that uniquely identifies this request. </p>
-   */
-  requestId?: string;
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the imported component. </p>
    */
   componentBuildVersionArn?: string;
@@ -2404,6 +2399,11 @@ export interface ImportComponentResponse {
    * <p>The idempotency token used to make this request idempotent. </p>
    */
   clientToken?: string;
+
+  /**
+   * <p>The request ID that uniquely identifies this request. </p>
+   */
+  requestId?: string;
 }
 
 export namespace ImportComponentResponse {
@@ -2429,15 +2429,15 @@ export namespace InvalidPaginationTokenException {
 
 export interface ListComponentBuildVersionsRequest {
   /**
-   * <p>The component version Amazon Resource Name (ARN) whose versions you want to list. </p>
-   */
-  componentVersionArn: string | undefined;
-
-  /**
    * <p>A token to specify where to start paginating. This is the NextToken from a previously
    *       truncated response. </p>
    */
   nextToken?: string;
+
+  /**
+   * <p>The component version Amazon Resource Name (ARN) whose versions you want to list. </p>
+   */
+  componentVersionArn: string | undefined;
 
   /**
    * <p>The maximum items to return in a request. </p>
@@ -2453,14 +2453,14 @@ export namespace ListComponentBuildVersionsRequest {
 
 export interface ListComponentBuildVersionsResponse {
   /**
-   * <p>The request ID that uniquely identifies this request. </p>
-   */
-  requestId?: string;
-
-  /**
    * <p>The list of component summaries for the specified semantic version. </p>
    */
   componentSummaryList?: ComponentSummary[];
+
+  /**
+   * <p>The request ID that uniquely identifies this request. </p>
+   */
+  requestId?: string;
 
   /**
    * <p>The next token used for paginated responses. When this is not empty, there are additional
@@ -2484,6 +2484,11 @@ export enum Ownership {
 
 export interface ListComponentsRequest {
   /**
+   * <p>The filters. </p>
+   */
+  filters?: Filter[];
+
+  /**
    * <p>The owner defines which components you want to list. By default, this request will only
    *       show components owned by your account. You can use this field to specify if you want to view
    *       components owned by yourself, by Amazon, or those components that have been shared with you by
@@ -2492,20 +2497,15 @@ export interface ListComponentsRequest {
   owner?: Ownership | string;
 
   /**
-   * <p>The maximum items to return in a request. </p>
-   */
-  maxResults?: number;
-
-  /**
-   * <p>The filters. </p>
-   */
-  filters?: Filter[];
-
-  /**
    * <p>A token to specify where to start paginating. This is the NextToken from a previously
    *       truncated response. </p>
    */
   nextToken?: string;
+
+  /**
+   * <p>The maximum items to return in a request. </p>
+   */
+  maxResults?: number;
 }
 
 export namespace ListComponentsRequest {
@@ -2541,15 +2541,15 @@ export namespace ListComponentsResponse {
 
 export interface ListDistributionConfigurationsRequest {
   /**
-   * <p>The maximum items to return in a request. </p>
-   */
-  maxResults?: number;
-
-  /**
    * <p>A token to specify where to start paginating. This is the NextToken from a previously
    *       truncated response. </p>
    */
   nextToken?: string;
+
+  /**
+   * <p>The maximum items to return in a request. </p>
+   */
+  maxResults?: number;
 
   /**
    * <p>The filters. </p>
@@ -2571,11 +2571,9 @@ export namespace ListDistributionConfigurationsRequest {
 
 export interface ListDistributionConfigurationsResponse {
   /**
-   * <p>The next token used for paginated responses. When this is not empty, there are additional
-   *       elements that the service has not included in this request. Use this token with the next
-   *       request to retrieve additional objects. </p>
+   * <p>The list of distributions. </p>
    */
-  nextToken?: string;
+  distributionConfigurationSummaryList?: DistributionConfigurationSummary[];
 
   /**
    * <p>The request ID that uniquely identifies this request. </p>
@@ -2583,9 +2581,11 @@ export interface ListDistributionConfigurationsResponse {
   requestId?: string;
 
   /**
-   * <p>The list of distributions. </p>
+   * <p>The next token used for paginated responses. When this is not empty, there are additional
+   *       elements that the service has not included in this request. Use this token with the next
+   *       request to retrieve additional objects. </p>
    */
-  distributionConfigurationSummaryList?: DistributionConfigurationSummary[];
+  nextToken?: string;
 }
 
 export namespace ListDistributionConfigurationsResponse {
@@ -2602,11 +2602,6 @@ export interface ListImageBuildVersionsRequest {
   nextToken?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the image whose build versions you want to retrieve. </p>
-   */
-  imageVersionArn: string | undefined;
-
-  /**
    * <p>The maximum items to return in a request. </p>
    */
   maxResults?: number;
@@ -2615,6 +2610,11 @@ export interface ListImageBuildVersionsRequest {
    * <p>The filters. </p>
    */
   filters?: Filter[];
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the image whose build versions you want to retrieve. </p>
+   */
+  imageVersionArn: string | undefined;
 }
 
 export namespace ListImageBuildVersionsRequest {
@@ -2627,6 +2627,36 @@ export namespace ListImageBuildVersionsRequest {
  * <p>An image summary.</p>
  */
 export interface ImageSummary {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the image.</p>
+   */
+  arn?: string;
+
+  /**
+   * <p>The name of the image.</p>
+   */
+  name?: string;
+
+  /**
+   * <p>The state of the image.</p>
+   */
+  state?: ImageState;
+
+  /**
+   * <p>The version of the image.</p>
+   */
+  version?: string;
+
+  /**
+   * <p>The tags of the image.</p>
+   */
+  tags?: { [key: string]: string };
+
+  /**
+   * <p>The platform of the image.</p>
+   */
+  platform?: Platform | string;
+
   /**
    * <p>The date on which this image was created.</p>
    */
@@ -2643,40 +2673,10 @@ export interface ImageSummary {
   owner?: string;
 
   /**
-   * <p>The tags of the image.</p>
-   */
-  tags?: { [key: string]: string };
-
-  /**
-   * <p>The version of the image.</p>
-   */
-  version?: string;
-
-  /**
-   * <p>The state of the image.</p>
-   */
-  state?: ImageState;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the image.</p>
-   */
-  arn?: string;
-
-  /**
-   * <p>The name of the image.</p>
-   */
-  name?: string;
-
-  /**
    * <p>The operating system version of the instance. For example, Amazon Linux 2, Ubuntu 18, or
    *       Microsoft Windows Server 2019. </p>
    */
   osVersion?: string;
-
-  /**
-   * <p>The platform of the image.</p>
-   */
-  platform?: Platform | string;
 }
 
 export namespace ImageSummary {
@@ -2712,14 +2712,9 @@ export namespace ListImageBuildVersionsResponse {
 
 export interface ListImagePipelineImagesRequest {
   /**
-   * <p>The maximum items to return in a request. </p>
+   * <p>The filters. </p>
    */
-  maxResults?: number;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the image pipeline whose images you want to view. </p>
-   */
-  imagePipelineArn: string | undefined;
+  filters?: Filter[];
 
   /**
    * <p>A token to specify where to start paginating. This is the NextToken from a previously
@@ -2728,9 +2723,14 @@ export interface ListImagePipelineImagesRequest {
   nextToken?: string;
 
   /**
-   * <p>The filters. </p>
+   * <p>The maximum items to return in a request. </p>
    */
-  filters?: Filter[];
+  maxResults?: number;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the image pipeline whose images you want to view. </p>
+   */
+  imagePipelineArn: string | undefined;
 }
 
 export namespace ListImagePipelineImagesRequest {
@@ -2740,11 +2740,6 @@ export namespace ListImagePipelineImagesRequest {
 }
 
 export interface ListImagePipelineImagesResponse {
-  /**
-   * <p>The list of images built by this pipeline. </p>
-   */
-  imageSummaryList?: ImageSummary[];
-
   /**
    * <p>The request ID that uniquely identifies this request. </p>
    */
@@ -2756,6 +2751,11 @@ export interface ListImagePipelineImagesResponse {
    *       request to retrieve additional objects. </p>
    */
   nextToken?: string;
+
+  /**
+   * <p>The list of images built by this pipeline. </p>
+   */
+  imageSummaryList?: ImageSummary[];
 }
 
 export namespace ListImagePipelineImagesResponse {
@@ -2771,15 +2771,15 @@ export interface ListImagePipelinesRequest {
   maxResults?: number;
 
   /**
+   * <p>The filters. </p>
+   */
+  filters?: Filter[];
+
+  /**
    * <p>A token to specify where to start paginating. This is the NextToken from a previously
    *       truncated response. </p>
    */
   nextToken?: string;
-
-  /**
-   * <p>The filters. </p>
-   */
-  filters?: Filter[];
 }
 
 export namespace ListImagePipelinesRequest {
@@ -2790,14 +2790,14 @@ export namespace ListImagePipelinesRequest {
 
 export interface ListImagePipelinesResponse {
   /**
-   * <p>The request ID that uniquely identifies this request. </p>
-   */
-  requestId?: string;
-
-  /**
    * <p>The list of image pipelines. </p>
    */
   imagePipelineList?: ImagePipeline[];
+
+  /**
+   * <p>The request ID that uniquely identifies this request. </p>
+   */
+  requestId?: string;
 
   /**
    * <p>The next token used for paginated responses. When this is not empty, there are additional
@@ -2815,6 +2815,11 @@ export namespace ListImagePipelinesResponse {
 
 export interface ListImageRecipesRequest {
   /**
+   * <p>The filters. </p>
+   */
+  filters?: Filter[];
+
+  /**
    * <p>The owner defines which image recipes you want to list. By default, this request will only
    *       show image recipes owned by your account. You can use this field to specify if you want to
    *       view image recipes owned by yourself, by Amazon, or those image recipes that have been shared
@@ -2823,20 +2828,15 @@ export interface ListImageRecipesRequest {
   owner?: Ownership | string;
 
   /**
-   * <p>The maximum items to return in a request. </p>
-   */
-  maxResults?: number;
-
-  /**
    * <p>A token to specify where to start paginating. This is the NextToken from a previously
    *       truncated response. </p>
    */
   nextToken?: string;
 
   /**
-   * <p>The filters. </p>
+   * <p>The maximum items to return in a request. </p>
    */
-  filters?: Filter[];
+  maxResults?: number;
 }
 
 export namespace ListImageRecipesRequest {
@@ -2850,16 +2850,6 @@ export namespace ListImageRecipesRequest {
  */
 export interface ImageRecipeSummary {
   /**
-   * <p>The tags of the image recipe.</p>
-   */
-  tags?: { [key: string]: string };
-
-  /**
-   * <p>The platform of the image recipe.</p>
-   */
-  platform?: Platform | string;
-
-  /**
    * <p>The owner of the image recipe.</p>
    */
   owner?: string;
@@ -2870,11 +2860,6 @@ export interface ImageRecipeSummary {
   dateCreated?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the image recipe.</p>
-   */
-  arn?: string;
-
-  /**
    * <p>The parent image of the image recipe.</p>
    */
   parentImage?: string;
@@ -2883,6 +2868,21 @@ export interface ImageRecipeSummary {
    * <p>The name of the image recipe.</p>
    */
   name?: string;
+
+  /**
+   * <p>The platform of the image recipe.</p>
+   */
+  platform?: Platform | string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the image recipe.</p>
+   */
+  arn?: string;
+
+  /**
+   * <p>The tags of the image recipe.</p>
+   */
+  tags?: { [key: string]: string };
 }
 
 export namespace ImageRecipeSummary {
@@ -2893,14 +2893,14 @@ export namespace ImageRecipeSummary {
 
 export interface ListImageRecipesResponse {
   /**
-   * <p>The request ID that uniquely identifies this request. </p>
-   */
-  requestId?: string;
-
-  /**
    * <p>The list of image pipelines. </p>
    */
   imageRecipeSummaryList?: ImageRecipeSummary[];
+
+  /**
+   * <p>The request ID that uniquely identifies this request. </p>
+   */
+  requestId?: string;
 
   /**
    * <p>The next token used for paginated responses. When this is not empty, there are additional
@@ -2918,17 +2918,14 @@ export namespace ListImageRecipesResponse {
 
 export interface ListImagesRequest {
   /**
+   * <p>The maximum items to return in a request. </p>
+   */
+  maxResults?: number;
+
+  /**
    * <p>The filters. </p>
    */
   filters?: Filter[];
-
-  /**
-   * <p>The owner defines which images you want to list. By default, this request will only show
-   *       images owned by your account. You can use this field to specify if you want to view images
-   *       owned by yourself, by Amazon, or those images that have been shared with you by other
-   *       customers. </p>
-   */
-  owner?: Ownership | string;
 
   /**
    * <p>A token to specify where to start paginating. This is the NextToken from a previously
@@ -2937,9 +2934,12 @@ export interface ListImagesRequest {
   nextToken?: string;
 
   /**
-   * <p>The maximum items to return in a request. </p>
+   * <p>The owner defines which images you want to list. By default, this request will only show
+   *       images owned by your account. You can use this field to specify if you want to view images
+   *       owned by yourself, by Amazon, or those images that have been shared with you by other
+   *       customers. </p>
    */
-  maxResults?: number;
+  owner?: Ownership | string;
 }
 
 export namespace ListImagesRequest {
@@ -2953,9 +2953,14 @@ export namespace ListImagesRequest {
  */
 export interface ImageVersion {
   /**
-   * <p>The semantic version of the image semantic version.</p>
+   * <p>The date at which this image semantic version was created.</p>
    */
-  version?: string;
+  dateCreated?: string;
+
+  /**
+   * <p>The owner of the image semantic version.</p>
+   */
+  owner?: string;
 
   /**
    * <p>
@@ -2966,14 +2971,14 @@ export interface ImageVersion {
   osVersion?: string;
 
   /**
+   * <p>The name of the image semantic version.</p>
+   */
+  name?: string;
+
+  /**
    * <p>The platform of the image semantic version.</p>
    */
   platform?: Platform | string;
-
-  /**
-   * <p>The date at which this image semantic version was created.</p>
-   */
-  dateCreated?: string;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the image semantic version.</p>
@@ -2981,14 +2986,9 @@ export interface ImageVersion {
   arn?: string;
 
   /**
-   * <p>The owner of the image semantic version.</p>
+   * <p>The semantic version of the image semantic version.</p>
    */
-  owner?: string;
-
-  /**
-   * <p>The name of the image semantic version.</p>
-   */
-  name?: string;
+  version?: string;
 }
 
 export namespace ImageVersion {
@@ -2998,6 +2998,11 @@ export namespace ImageVersion {
 }
 
 export interface ListImagesResponse {
+  /**
+   * <p>The list of image semantic versions. </p>
+   */
+  imageVersionList?: ImageVersion[];
+
   /**
    * <p>The request ID that uniquely identifies this request. </p>
    */
@@ -3009,11 +3014,6 @@ export interface ListImagesResponse {
    *       request to retrieve additional objects. </p>
    */
   nextToken?: string;
-
-  /**
-   * <p>The list of image semantic versions. </p>
-   */
-  imageVersionList?: ImageVersion[];
 }
 
 export namespace ListImagesResponse {
@@ -3024,15 +3024,15 @@ export namespace ListImagesResponse {
 
 export interface ListInfrastructureConfigurationsRequest {
   /**
-   * <p>The maximum items to return in a request. </p>
-   */
-  maxResults?: number;
-
-  /**
    * <p>A token to specify where to start paginating. This is the NextToken from a previously
    *       truncated response. </p>
    */
   nextToken?: string;
+
+  /**
+   * <p>The maximum items to return in a request. </p>
+   */
+  maxResults?: number;
 
   /**
    * <p>The filters. </p>
@@ -3051,11 +3051,6 @@ export namespace ListInfrastructureConfigurationsRequest {
  */
 export interface InfrastructureConfigurationSummary {
   /**
-   * <p>The description of the infrastructure configuration.</p>
-   */
-  description?: string;
-
-  /**
    * <p>The date on which the infrastructure configuration was created.</p>
    */
   dateCreated?: string;
@@ -3066,14 +3061,9 @@ export interface InfrastructureConfigurationSummary {
   resourceTags?: { [key: string]: string };
 
   /**
-   * <p>The tags of the infrastructure configuration.</p>
+   * <p>The name of the infrastructure configuration.</p>
    */
-  tags?: { [key: string]: string };
-
-  /**
-   * <p>The date on which the infrastructure configuration was last updated.</p>
-   */
-  dateUpdated?: string;
+  name?: string;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the infrastructure configuration.</p>
@@ -3081,9 +3071,19 @@ export interface InfrastructureConfigurationSummary {
   arn?: string;
 
   /**
-   * <p>The name of the infrastructure configuration.</p>
+   * <p>The tags of the infrastructure configuration.</p>
    */
-  name?: string;
+  tags?: { [key: string]: string };
+
+  /**
+   * <p>The description of the infrastructure configuration.</p>
+   */
+  description?: string;
+
+  /**
+   * <p>The date on which the infrastructure configuration was last updated.</p>
+   */
+  dateUpdated?: string;
 }
 
 export namespace InfrastructureConfigurationSummary {
@@ -3093,11 +3093,6 @@ export namespace InfrastructureConfigurationSummary {
 }
 
 export interface ListInfrastructureConfigurationsResponse {
-  /**
-   * <p>The list of infrastructure configurations. </p>
-   */
-  infrastructureConfigurationSummaryList?: InfrastructureConfigurationSummary[];
-
   /**
    * <p>The next token used for paginated responses. When this is not empty, there are additional
    *       elements that the service has not included in this request. Use this token with the next
@@ -3109,6 +3104,11 @@ export interface ListInfrastructureConfigurationsResponse {
    * <p>The request ID that uniquely identifies this request. </p>
    */
   requestId?: string;
+
+  /**
+   * <p>The list of infrastructure configurations. </p>
+   */
+  infrastructureConfigurationSummaryList?: InfrastructureConfigurationSummary[];
 }
 
 export namespace ListInfrastructureConfigurationsResponse {
@@ -3176,14 +3176,14 @@ export namespace InvalidParameterValueException {
 
 export interface PutComponentPolicyRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the component that this policy should be applied to. </p>
-   */
-  componentArn: string | undefined;
-
-  /**
    * <p>The policy to apply. </p>
    */
   policy: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the component that this policy should be applied to. </p>
+   */
+  componentArn: string | undefined;
 }
 
 export namespace PutComponentPolicyRequest {
@@ -3230,14 +3230,14 @@ export namespace PutImagePolicyRequest {
 
 export interface PutImagePolicyResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the image that this policy was applied to. </p>
-   */
-  imageArn?: string;
-
-  /**
    * <p>The request ID that uniquely identifies this request. </p>
    */
   requestId?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the image that this policy was applied to. </p>
+   */
+  imageArn?: string;
 }
 
 export namespace PutImagePolicyResponse {
@@ -3248,14 +3248,14 @@ export namespace PutImagePolicyResponse {
 
 export interface PutImageRecipePolicyRequest {
   /**
-   * <p>The policy to apply. </p>
-   */
-  policy: string | undefined;
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the image recipe that this policy should be applied to. </p>
    */
   imageRecipeArn: string | undefined;
+
+  /**
+   * <p>The policy to apply. </p>
+   */
+  policy: string | undefined;
 }
 
 export namespace PutImageRecipePolicyRequest {
@@ -3284,14 +3284,14 @@ export namespace PutImageRecipePolicyResponse {
 
 export interface StartImagePipelineExecutionRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the image pipeline that you want to manually invoke. </p>
-   */
-  imagePipelineArn: string | undefined;
-
-  /**
    * <p>The idempotency token used to make this request idempotent. </p>
    */
   clientToken?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the image pipeline that you want to manually invoke. </p>
+   */
+  imagePipelineArn: string | undefined;
 }
 
 export namespace StartImagePipelineExecutionRequest {
@@ -3377,9 +3377,9 @@ export namespace UntagResourceResponse {
 
 export interface UpdateDistributionConfigurationRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the distribution configuration that you want to update. </p>
+   * <p>The description of the distribution configuration. </p>
    */
-  distributionConfigurationArn: string | undefined;
+  description?: string;
 
   /**
    * <p>The idempotency token of the distribution configuration. </p>
@@ -3387,9 +3387,9 @@ export interface UpdateDistributionConfigurationRequest {
   clientToken?: string;
 
   /**
-   * <p>The description of the distribution configuration. </p>
+   * <p>The Amazon Resource Name (ARN) of the distribution configuration that you want to update. </p>
    */
-  description?: string;
+  distributionConfigurationArn: string | undefined;
 
   /**
    * <p>The distributions of the distribution configuration. </p>
@@ -3429,19 +3429,9 @@ export namespace UpdateDistributionConfigurationResponse {
 
 export interface UpdateImagePipelineRequest {
   /**
-   * <p>The description of the image pipeline. </p>
+   * <p>The image test configuration of the image pipeline. </p>
    */
-  description?: string;
-
-  /**
-   * <p>The idempotency token used to make this request idempotent. </p>
-   */
-  clientToken?: string;
-
-  /**
-   * <p>The status of the image pipeline. </p>
-   */
-  status?: PipelineStatus | string;
+  imageTestsConfiguration?: ImageTestsConfiguration;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the image recipe that will be used to configure images
@@ -3450,15 +3440,9 @@ export interface UpdateImagePipelineRequest {
   imageRecipeArn: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the image pipeline that you want to update. </p>
+   * <p>The idempotency token used to make this request idempotent. </p>
    */
-  imagePipelineArn: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the distribution configuration that will be used to
-   *       configure and distribute images updated by this image pipeline. </p>
-   */
-  distributionConfigurationArn?: string;
+  clientToken?: string;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the infrastructure configuration that will be used to
@@ -3467,11 +3451,25 @@ export interface UpdateImagePipelineRequest {
   infrastructureConfigurationArn: string | undefined;
 
   /**
-   * <p> Collects additional information about the image being created, including the operating
-   *       system (OS) version and package list. This information is used to enhance the overall
-   *       experience of using EC2 Image Builder. Enabled by default. </p>
+   * <p>The Amazon Resource Name (ARN) of the distribution configuration that will be used to
+   *       configure and distribute images updated by this image pipeline. </p>
    */
-  enhancedImageMetadataEnabled?: boolean;
+  distributionConfigurationArn?: string;
+
+  /**
+   * <p>The description of the image pipeline. </p>
+   */
+  description?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the image pipeline that you want to update. </p>
+   */
+  imagePipelineArn: string | undefined;
+
+  /**
+   * <p>The status of the image pipeline. </p>
+   */
+  status?: PipelineStatus | string;
 
   /**
    * <p>The schedule of the image pipeline. </p>
@@ -3479,9 +3477,11 @@ export interface UpdateImagePipelineRequest {
   schedule?: Schedule;
 
   /**
-   * <p>The image test configuration of the image pipeline. </p>
+   * <p> Collects additional information about the image being created, including the operating
+   *       system (OS) version and package list. This information is used to enhance the overall
+   *       experience of using EC2 Image Builder. Enabled by default. </p>
    */
-  imageTestsConfiguration?: ImageTestsConfiguration;
+  enhancedImageMetadataEnabled?: boolean;
 }
 
 export namespace UpdateImagePipelineRequest {
@@ -3492,11 +3492,6 @@ export namespace UpdateImagePipelineRequest {
 
 export interface UpdateImagePipelineResponse {
   /**
-   * <p>The idempotency token used to make this request idempotent. </p>
-   */
-  clientToken?: string;
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the image pipeline that was updated by this request. </p>
    */
   imagePipelineArn?: string;
@@ -3505,6 +3500,11 @@ export interface UpdateImagePipelineResponse {
    * <p>The request ID that uniquely identifies this request. </p>
    */
   requestId?: string;
+
+  /**
+   * <p>The idempotency token used to make this request idempotent. </p>
+   */
+  clientToken?: string;
 }
 
 export namespace UpdateImagePipelineResponse {
@@ -3514,6 +3514,38 @@ export namespace UpdateImagePipelineResponse {
 }
 
 export interface UpdateInfrastructureConfigurationRequest {
+  /**
+   * <p>The security group IDs to associate with the instance used to customize your EC2 AMI. </p>
+   */
+  securityGroupIds?: string[];
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the infrastructure configuration that you want to
+   *       update. </p>
+   */
+  infrastructureConfigurationArn: string | undefined;
+
+  /**
+   * <p>The logging configuration of the infrastructure configuration. </p>
+   */
+  logging?: Logging;
+
+  /**
+   * <p>The instance profile to associate with the instance used to customize your EC2 AMI. </p>
+   */
+  instanceProfileName: string | undefined;
+
+  /**
+   * <p>The description of the infrastructure configuration. </p>
+   */
+  description?: string;
+
+  /**
+   * <p>The key pair of the infrastructure configuration. This can be used to log on to and debug
+   *       the instance used to create your image. </p>
+   */
+  keyPair?: string;
+
   /**
    * <p>The terminate instance on failure setting of the infrastructure configuration. Set to
    *       false if you want Image Builder to retain the instance used to configure your AMI if the build
@@ -3527,9 +3559,9 @@ export interface UpdateInfrastructureConfigurationRequest {
   resourceTags?: { [key: string]: string };
 
   /**
-   * <p>The security group IDs to associate with the instance used to customize your EC2 AMI. </p>
+   * <p>The subnet ID to place the instance used to customize your EC2 AMI in. </p>
    */
-  securityGroupIds?: string[];
+  subnetId?: string;
 
   /**
    * <p>The SNS topic on which to send image build events. </p>
@@ -3537,10 +3569,9 @@ export interface UpdateInfrastructureConfigurationRequest {
   snsTopicArn?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the infrastructure configuration that you want to
-   *       update. </p>
+   * <p>The idempotency token used to make this request idempotent. </p>
    */
-  infrastructureConfigurationArn: string | undefined;
+  clientToken?: string;
 
   /**
    * <p>The instance types of the infrastructure configuration. You can specify one or more
@@ -3548,37 +3579,6 @@ export interface UpdateInfrastructureConfigurationRequest {
    *       on availability. </p>
    */
   instanceTypes?: string[];
-
-  /**
-   * <p>The key pair of the infrastructure configuration. This can be used to log on to and debug
-   *       the instance used to create your image. </p>
-   */
-  keyPair?: string;
-
-  /**
-   * <p>The instance profile to associate with the instance used to customize your EC2 AMI. </p>
-   */
-  instanceProfileName: string | undefined;
-
-  /**
-   * <p>The idempotency token used to make this request idempotent. </p>
-   */
-  clientToken?: string;
-
-  /**
-   * <p>The logging configuration of the infrastructure configuration. </p>
-   */
-  logging?: Logging;
-
-  /**
-   * <p>The description of the infrastructure configuration. </p>
-   */
-  description?: string;
-
-  /**
-   * <p>The subnet ID to place the instance used to customize your EC2 AMI in. </p>
-   */
-  subnetId?: string;
 }
 
 export namespace UpdateInfrastructureConfigurationRequest {

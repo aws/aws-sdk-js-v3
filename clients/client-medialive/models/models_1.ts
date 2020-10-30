@@ -9,8 +9,6 @@ import {
   ChannelState,
   ChannelSummary,
   DeviceSettingsSyncState,
-  HlsId3SegmentTaggingScheduleActionSettings,
-  HlsTimedMetadataScheduleActionSettings,
   Input,
   InputAttachment,
   InputClass,
@@ -32,11 +30,9 @@ import {
   InputSourceType,
   InputSpecification,
   InputState,
-  InputTimecodeSource,
   InputType,
   InputWhitelistRule,
   InputWhitelistRuleCidr,
-  LastFrameClippingBehavior,
   LogLevel,
   MediaConnectFlow,
   MediaConnectFlowRequest,
@@ -55,11 +51,68 @@ import {
   Reservation,
   ReservationResourceSpecification,
   ReservationState,
-  StartTimecode,
 } from "./models_0";
 import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 import { Readable } from "stream";
+
+/**
+ * Settings for the action to insert a user-defined ID3 tag in each HLS segment
+ */
+export interface HlsId3SegmentTaggingScheduleActionSettings {
+  /**
+   * ID3 tag to insert into each segment. Supports special keyword identifiers to substitute in segment-related values.\nSupported keyword identifiers: https://docs.aws.amazon.com/medialive/latest/ug/variable-data-identifiers.html
+   */
+  Tag: string | undefined;
+}
+
+export namespace HlsId3SegmentTaggingScheduleActionSettings {
+  export const filterSensitiveLog = (obj: HlsId3SegmentTaggingScheduleActionSettings): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * Settings for the action to emit HLS metadata
+ */
+export interface HlsTimedMetadataScheduleActionSettings {
+  /**
+   * Base64 string formatted according to the ID3 specification: http://id3.org/id3v2.4.0-structure
+   */
+  Id3: string | undefined;
+}
+
+export namespace HlsTimedMetadataScheduleActionSettings {
+  export const filterSensitiveLog = (obj: HlsTimedMetadataScheduleActionSettings): any => ({
+    ...obj,
+  });
+}
+
+export enum InputTimecodeSource {
+  EMBEDDED = "EMBEDDED",
+  ZEROBASED = "ZEROBASED",
+}
+
+/**
+ * Settings to identify the start of the clip.
+ */
+export interface StartTimecode {
+  /**
+   * The timecode for the frame where you want to start the clip. Optional; if not specified, the clip starts at first frame in the file. Enter the timecode as HH:MM:SS:FF or HH:MM:SS;FF.
+   */
+  Timecode?: string;
+}
+
+export namespace StartTimecode {
+  export const filterSensitiveLog = (obj: StartTimecode): any => ({
+    ...obj,
+  });
+}
+
+export enum LastFrameClippingBehavior {
+  EXCLUDE_LAST_FRAME = "EXCLUDE_LAST_FRAME",
+  INCLUDE_LAST_FRAME = "INCLUDE_LAST_FRAME",
+}
 
 /**
  * Settings to identify the end of the clip.

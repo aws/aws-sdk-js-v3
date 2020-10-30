@@ -252,6 +252,7 @@ import {
   DescribeTableStatisticsMessage,
   DescribeTableStatisticsResponse,
   DmsTransferSettings,
+  DocDbSettings,
   DynamoDbSettings,
   ElasticsearchSettings,
   Endpoint,
@@ -5120,6 +5121,9 @@ const serializeAws_json1_1CreateEndpointMessage = (input: CreateEndpointMessage,
     ...(input.DmsTransferSettings !== undefined && {
       DmsTransferSettings: serializeAws_json1_1DmsTransferSettings(input.DmsTransferSettings, context),
     }),
+    ...(input.DocDbSettings !== undefined && {
+      DocDbSettings: serializeAws_json1_1DocDbSettings(input.DocDbSettings, context),
+    }),
     ...(input.DynamoDbSettings !== undefined && {
       DynamoDbSettings: serializeAws_json1_1DynamoDbSettings(input.DynamoDbSettings, context),
     }),
@@ -5582,6 +5586,20 @@ const serializeAws_json1_1DmsTransferSettings = (input: DmsTransferSettings, con
   };
 };
 
+const serializeAws_json1_1DocDbSettings = (input: DocDbSettings, context: __SerdeContext): any => {
+  return {
+    ...(input.DatabaseName !== undefined && { DatabaseName: input.DatabaseName }),
+    ...(input.DocsToInvestigate !== undefined && { DocsToInvestigate: input.DocsToInvestigate }),
+    ...(input.ExtractDocId !== undefined && { ExtractDocId: input.ExtractDocId }),
+    ...(input.KmsKeyId !== undefined && { KmsKeyId: input.KmsKeyId }),
+    ...(input.NestingLevel !== undefined && { NestingLevel: input.NestingLevel }),
+    ...(input.Password !== undefined && { Password: input.Password }),
+    ...(input.Port !== undefined && { Port: input.Port }),
+    ...(input.ServerName !== undefined && { ServerName: input.ServerName }),
+    ...(input.Username !== undefined && { Username: input.Username }),
+  };
+};
+
 const serializeAws_json1_1DynamoDbSettings = (input: DynamoDbSettings, context: __SerdeContext): any => {
   return {
     ...(input.ServiceAccessRoleArn !== undefined && { ServiceAccessRoleArn: input.ServiceAccessRoleArn }),
@@ -5727,6 +5745,9 @@ const serializeAws_json1_1ModifyEndpointMessage = (input: ModifyEndpointMessage,
     ...(input.DatabaseName !== undefined && { DatabaseName: input.DatabaseName }),
     ...(input.DmsTransferSettings !== undefined && {
       DmsTransferSettings: serializeAws_json1_1DmsTransferSettings(input.DmsTransferSettings, context),
+    }),
+    ...(input.DocDbSettings !== undefined && {
+      DocDbSettings: serializeAws_json1_1DocDbSettings(input.DocDbSettings, context),
     }),
     ...(input.DynamoDbSettings !== undefined && {
       DynamoDbSettings: serializeAws_json1_1DynamoDbSettings(input.DynamoDbSettings, context),
@@ -6738,6 +6759,23 @@ const deserializeAws_json1_1DmsTransferSettings = (output: any, context: __Serde
   } as any;
 };
 
+const deserializeAws_json1_1DocDbSettings = (output: any, context: __SerdeContext): DocDbSettings => {
+  return {
+    DatabaseName: output.DatabaseName !== undefined && output.DatabaseName !== null ? output.DatabaseName : undefined,
+    DocsToInvestigate:
+      output.DocsToInvestigate !== undefined && output.DocsToInvestigate !== null
+        ? output.DocsToInvestigate
+        : undefined,
+    ExtractDocId: output.ExtractDocId !== undefined && output.ExtractDocId !== null ? output.ExtractDocId : undefined,
+    KmsKeyId: output.KmsKeyId !== undefined && output.KmsKeyId !== null ? output.KmsKeyId : undefined,
+    NestingLevel: output.NestingLevel !== undefined && output.NestingLevel !== null ? output.NestingLevel : undefined,
+    Password: output.Password !== undefined && output.Password !== null ? output.Password : undefined,
+    Port: output.Port !== undefined && output.Port !== null ? output.Port : undefined,
+    ServerName: output.ServerName !== undefined && output.ServerName !== null ? output.ServerName : undefined,
+    Username: output.Username !== undefined && output.Username !== null ? output.Username : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1DynamoDbSettings = (output: any, context: __SerdeContext): DynamoDbSettings => {
   return {
     ServiceAccessRoleArn:
@@ -6773,6 +6811,10 @@ const deserializeAws_json1_1Endpoint = (output: any, context: __SerdeContext): E
     DmsTransferSettings:
       output.DmsTransferSettings !== undefined && output.DmsTransferSettings !== null
         ? deserializeAws_json1_1DmsTransferSettings(output.DmsTransferSettings, context)
+        : undefined,
+    DocDbSettings:
+      output.DocDbSettings !== undefined && output.DocDbSettings !== null
+        ? deserializeAws_json1_1DocDbSettings(output.DocDbSettings, context)
         : undefined,
     DynamoDbSettings:
       output.DynamoDbSettings !== undefined && output.DynamoDbSettings !== null

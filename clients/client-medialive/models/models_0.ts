@@ -1821,6 +1821,54 @@ export namespace OutputDestination {
   });
 }
 
+/**
+ * MediaLive will perform a failover if content is not detected in this input for the specified period.
+ */
+export interface InputLossFailoverSettings {
+  /**
+   * The amount of time (in milliseconds) that no input is detected. After that time, an input failover will occur.
+   */
+  InputLossThresholdMsec?: number;
+}
+
+export namespace InputLossFailoverSettings {
+  export const filterSensitiveLog = (obj: InputLossFailoverSettings): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * Settings for one failover condition.
+ */
+export interface FailoverConditionSettings {
+  /**
+   * MediaLive will perform a failover if content is not detected in this input for the specified period.
+   */
+  InputLossSettings?: InputLossFailoverSettings;
+}
+
+export namespace FailoverConditionSettings {
+  export const filterSensitiveLog = (obj: FailoverConditionSettings): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * Failover Condition settings. There can be multiple failover conditions inside AutomaticInputFailoverSettings.
+ */
+export interface FailoverCondition {
+  /**
+   * Failover condition type-specific settings.
+   */
+  FailoverConditionSettings?: FailoverConditionSettings;
+}
+
+export namespace FailoverCondition {
+  export const filterSensitiveLog = (obj: FailoverCondition): any => ({
+    ...obj,
+  });
+}
+
 export enum InputPreference {
   EQUAL_INPUT_PREFERENCE = "EQUAL_INPUT_PREFERENCE",
   PRIMARY_INPUT_PREFERRED = "PRIMARY_INPUT_PREFERRED",
@@ -1830,6 +1878,16 @@ export enum InputPreference {
  * The settings for Automatic Input Failover.
  */
 export interface AutomaticInputFailoverSettings {
+  /**
+   * This clear time defines the requirement a recovered input must meet to be considered healthy. The input must have no failover conditions for this length of time. Enter a time in milliseconds. This value is particularly important if the input_preference for the failover pair is set to PRIMARY_INPUT_PREFERRED, because after this time, MediaLive will switch back to the primary input.
+   */
+  ErrorClearTimeMsec?: number;
+
+  /**
+   * A list of failover conditions. If any of these conditions occur, MediaLive will perform a failover to the other input.
+   */
+  FailoverConditions?: FailoverCondition[];
+
   /**
    * The input ID of the secondary input in the automatic input failover pair.
    */
@@ -4299,6 +4357,11 @@ export enum HlsDirectoryStructure {
   SUBDIRECTORY_PER_STREAM = "SUBDIRECTORY_PER_STREAM",
 }
 
+export enum HlsDiscontinuityTags {
+  INSERT = "INSERT",
+  NEVER_INSERT = "NEVER_INSERT",
+}
+
 export enum HlsEncryptionType {
   AES128 = "AES128",
   SAMPLE_AES = "SAMPLE_AES",
@@ -4508,6 +4571,11 @@ export enum IFrameOnlyPlaylistType {
   STANDARD = "STANDARD",
 }
 
+export enum HlsIncompleteSegmentBehavior {
+  AUTO = "AUTO",
+  SUPPRESS = "SUPPRESS",
+}
+
 export enum InputLossActionForHlsOut {
   EMIT_OUTPUT = "EMIT_OUTPUT",
   PAUSE_OUTPUT = "PAUSE_OUTPUT",
@@ -4709,6 +4777,13 @@ export interface HlsGroupSettings {
   SegmentLength?: number;
 
   /**
+   * Specifies whether to include the final (incomplete) segment in the media output when the pipeline stops producing output because of a channel stop, a channel pause or a loss of input to the pipeline.
+   * Auto means that MediaLive decides whether to include the final segment, depending on the channel class and the types of output groups.
+   * Suppress means to never include the incomplete segment. We recommend you choose Auto and let MediaLive control the behavior.
+   */
+  IncompleteSegmentBehavior?: HlsIncompleteSegmentBehavior | string;
+
+  /**
    * Period of insertion of EXT-X-PROGRAM-DATE-TIME entry, in seconds.
    */
   ProgramDateTimePeriod?: number;
@@ -4751,6 +4826,13 @@ export interface HlsGroupSettings {
    * Parameter that control output group behavior on input loss.
    */
   InputLossAction?: InputLossActionForHlsOut | string;
+
+  /**
+   * Specifies whether to insert EXT-X-DISCONTINUITY tags in the HLS child manifests for this output group.
+   * Typically, choose Insert because these tags are required in the manifest (according to the HLS specification) and serve an important purpose.
+   * Choose Never Insert only if the downstream system is doing real-time failover (without using the MediaLive automatic failover feature) and only if that downstream system has advised you to exclude the tags.
+   */
+  DiscontinuityTags?: HlsDiscontinuityTags | string;
 
   /**
    * Indicates whether the output manifest should use floating point or integer values for segment duration.
@@ -5375,62 +5457,4 @@ export namespace Reservation {
   export const filterSensitiveLog = (obj: Reservation): any => ({
     ...obj,
   });
-}
-
-/**
- * Settings for the action to insert a user-defined ID3 tag in each HLS segment
- */
-export interface HlsId3SegmentTaggingScheduleActionSettings {
-  /**
-   * ID3 tag to insert into each segment. Supports special keyword identifiers to substitute in segment-related values.\nSupported keyword identifiers: https://docs.aws.amazon.com/medialive/latest/ug/variable-data-identifiers.html
-   */
-  Tag: string | undefined;
-}
-
-export namespace HlsId3SegmentTaggingScheduleActionSettings {
-  export const filterSensitiveLog = (obj: HlsId3SegmentTaggingScheduleActionSettings): any => ({
-    ...obj,
-  });
-}
-
-/**
- * Settings for the action to emit HLS metadata
- */
-export interface HlsTimedMetadataScheduleActionSettings {
-  /**
-   * Base64 string formatted according to the ID3 specification: http://id3.org/id3v2.4.0-structure
-   */
-  Id3: string | undefined;
-}
-
-export namespace HlsTimedMetadataScheduleActionSettings {
-  export const filterSensitiveLog = (obj: HlsTimedMetadataScheduleActionSettings): any => ({
-    ...obj,
-  });
-}
-
-export enum InputTimecodeSource {
-  EMBEDDED = "EMBEDDED",
-  ZEROBASED = "ZEROBASED",
-}
-
-/**
- * Settings to identify the start of the clip.
- */
-export interface StartTimecode {
-  /**
-   * The timecode for the frame where you want to start the clip. Optional; if not specified, the clip starts at first frame in the file. Enter the timecode as HH:MM:SS:FF or HH:MM:SS;FF.
-   */
-  Timecode?: string;
-}
-
-export namespace StartTimecode {
-  export const filterSensitiveLog = (obj: StartTimecode): any => ({
-    ...obj,
-  });
-}
-
-export enum LastFrameClippingBehavior {
-  EXCLUDE_LAST_FRAME = "EXCLUDE_LAST_FRAME",
-  INCLUDE_LAST_FRAME = "INCLUDE_LAST_FRAME",
 }

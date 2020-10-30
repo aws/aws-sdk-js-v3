@@ -40,6 +40,11 @@ import {
   CreateDBClusterCommandOutput,
 } from "./commands/CreateDBClusterCommand";
 import {
+  CreateDBClusterEndpointCommand,
+  CreateDBClusterEndpointCommandInput,
+  CreateDBClusterEndpointCommandOutput,
+} from "./commands/CreateDBClusterEndpointCommand";
+import {
   CreateDBClusterParameterGroupCommand,
   CreateDBClusterParameterGroupCommandInput,
   CreateDBClusterParameterGroupCommandOutput,
@@ -75,6 +80,11 @@ import {
   DeleteDBClusterCommandOutput,
 } from "./commands/DeleteDBClusterCommand";
 import {
+  DeleteDBClusterEndpointCommand,
+  DeleteDBClusterEndpointCommandInput,
+  DeleteDBClusterEndpointCommandOutput,
+} from "./commands/DeleteDBClusterEndpointCommand";
+import {
   DeleteDBClusterParameterGroupCommand,
   DeleteDBClusterParameterGroupCommandInput,
   DeleteDBClusterParameterGroupCommandOutput,
@@ -104,6 +114,11 @@ import {
   DeleteEventSubscriptionCommandInput,
   DeleteEventSubscriptionCommandOutput,
 } from "./commands/DeleteEventSubscriptionCommand";
+import {
+  DescribeDBClusterEndpointsCommand,
+  DescribeDBClusterEndpointsCommandInput,
+  DescribeDBClusterEndpointsCommandOutput,
+} from "./commands/DescribeDBClusterEndpointsCommand";
 import {
   DescribeDBClusterParameterGroupsCommand,
   DescribeDBClusterParameterGroupsCommandInput,
@@ -209,6 +224,11 @@ import {
   ModifyDBClusterCommandInput,
   ModifyDBClusterCommandOutput,
 } from "./commands/ModifyDBClusterCommand";
+import {
+  ModifyDBClusterEndpointCommand,
+  ModifyDBClusterEndpointCommandInput,
+  ModifyDBClusterEndpointCommandOutput,
+} from "./commands/ModifyDBClusterEndpointCommand";
 import {
   ModifyDBClusterParameterGroupCommand,
   ModifyDBClusterParameterGroupCommandInput,
@@ -586,6 +606,38 @@ export class Neptune extends NeptuneClient {
   }
 
   /**
+   * <p>Creates a new custom endpoint and associates it with an Amazon Neptune DB cluster.</p>
+   */
+  public createDBClusterEndpoint(
+    args: CreateDBClusterEndpointCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateDBClusterEndpointCommandOutput>;
+  public createDBClusterEndpoint(
+    args: CreateDBClusterEndpointCommandInput,
+    cb: (err: any, data?: CreateDBClusterEndpointCommandOutput) => void
+  ): void;
+  public createDBClusterEndpoint(
+    args: CreateDBClusterEndpointCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateDBClusterEndpointCommandOutput) => void
+  ): void;
+  public createDBClusterEndpoint(
+    args: CreateDBClusterEndpointCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateDBClusterEndpointCommandOutput) => void),
+    cb?: (err: any, data?: CreateDBClusterEndpointCommandOutput) => void
+  ): Promise<CreateDBClusterEndpointCommandOutput> | void {
+    const command = new CreateDBClusterEndpointCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Creates a new DB cluster parameter group.</p>
    *          <p>Parameters in a DB cluster parameter group apply to all of the instances in a DB
    *       cluster.</p>
@@ -876,6 +928,38 @@ export class Neptune extends NeptuneClient {
   }
 
   /**
+   * <p>Deletes a custom endpoint and removes it from an Amazon Neptune DB cluster.</p>
+   */
+  public deleteDBClusterEndpoint(
+    args: DeleteDBClusterEndpointCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteDBClusterEndpointCommandOutput>;
+  public deleteDBClusterEndpoint(
+    args: DeleteDBClusterEndpointCommandInput,
+    cb: (err: any, data?: DeleteDBClusterEndpointCommandOutput) => void
+  ): void;
+  public deleteDBClusterEndpoint(
+    args: DeleteDBClusterEndpointCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteDBClusterEndpointCommandOutput) => void
+  ): void;
+  public deleteDBClusterEndpoint(
+    args: DeleteDBClusterEndpointCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteDBClusterEndpointCommandOutput) => void),
+    cb?: (err: any, data?: DeleteDBClusterEndpointCommandOutput) => void
+  ): Promise<DeleteDBClusterEndpointCommandOutput> | void {
+    const command = new DeleteDBClusterEndpointCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Deletes a specified DB cluster parameter group. The DB cluster parameter group to be
    *       deleted can't be associated with any DB clusters.</p>
    */
@@ -1080,6 +1164,42 @@ export class Neptune extends NeptuneClient {
     cb?: (err: any, data?: DeleteEventSubscriptionCommandOutput) => void
   ): Promise<DeleteEventSubscriptionCommandOutput> | void {
     const command = new DeleteEventSubscriptionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns information about endpoints for an Amazon Neptune DB cluster.</p>
+   *          <note>
+   *             <p>This operation can also return information for Amazon RDS clusters
+   *         and Amazon DocDB clusters.</p>
+   *          </note>
+   */
+  public describeDBClusterEndpoints(
+    args: DescribeDBClusterEndpointsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeDBClusterEndpointsCommandOutput>;
+  public describeDBClusterEndpoints(
+    args: DescribeDBClusterEndpointsCommandInput,
+    cb: (err: any, data?: DescribeDBClusterEndpointsCommandOutput) => void
+  ): void;
+  public describeDBClusterEndpoints(
+    args: DescribeDBClusterEndpointsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeDBClusterEndpointsCommandOutput) => void
+  ): void;
+  public describeDBClusterEndpoints(
+    args: DescribeDBClusterEndpointsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeDBClusterEndpointsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeDBClusterEndpointsCommandOutput) => void
+  ): Promise<DescribeDBClusterEndpointsCommandOutput> | void {
+    const command = new DescribeDBClusterEndpointsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1801,6 +1921,38 @@ export class Neptune extends NeptuneClient {
     cb?: (err: any, data?: ModifyDBClusterCommandOutput) => void
   ): Promise<ModifyDBClusterCommandOutput> | void {
     const command = new ModifyDBClusterCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Modifies the properties of an endpoint in an Amazon Neptune DB cluster.</p>
+   */
+  public modifyDBClusterEndpoint(
+    args: ModifyDBClusterEndpointCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ModifyDBClusterEndpointCommandOutput>;
+  public modifyDBClusterEndpoint(
+    args: ModifyDBClusterEndpointCommandInput,
+    cb: (err: any, data?: ModifyDBClusterEndpointCommandOutput) => void
+  ): void;
+  public modifyDBClusterEndpoint(
+    args: ModifyDBClusterEndpointCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ModifyDBClusterEndpointCommandOutput) => void
+  ): void;
+  public modifyDBClusterEndpoint(
+    args: ModifyDBClusterEndpointCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyDBClusterEndpointCommandOutput) => void),
+    cb?: (err: any, data?: ModifyDBClusterEndpointCommandOutput) => void
+  ): Promise<ModifyDBClusterEndpointCommandOutput> | void {
+    const command = new ModifyDBClusterEndpointCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

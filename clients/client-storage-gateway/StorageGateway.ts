@@ -362,6 +362,11 @@ import {
   UpdateSMBFileShareCommandOutput,
 } from "./commands/UpdateSMBFileShareCommand";
 import {
+  UpdateSMBFileShareVisibilityCommand,
+  UpdateSMBFileShareVisibilityCommandInput,
+  UpdateSMBFileShareVisibilityCommandOutput,
+} from "./commands/UpdateSMBFileShareVisibilityCommand";
+import {
   UpdateSMBSecurityStrategyCommand,
   UpdateSMBSecurityStrategyCommandInput,
   UpdateSMBSecurityStrategyCommandOutput,
@@ -1093,9 +1098,8 @@ export class StorageGateway extends StorageGatewayClient {
   }
 
   /**
-   * <p>Creates a new custom tape pool.
-   *          You can use custom tape pool to enable tape retention lock on tapes that are
-   *          archived in the custom pool.</p>
+   * <p>Creates a new custom tape pool. You can use custom tape pool to enable tape retention
+   *          lock on tapes that are archived in the custom pool.</p>
    */
   public createTapePool(
     args: CreateTapePoolCommandInput,
@@ -1389,9 +1393,10 @@ export class StorageGateway extends StorageGatewayClient {
    *
    *          <p>You can take snapshots of your gateway volumes on a scheduled or ad hoc basis. This API
    *          action enables you to delete a snapshot schedule for a volume. For more information, see
-   *             <a href="https://docs.aws.amazon.com/storagegateway/latest/userguide/backing-up-volumes.html">Backing up your volumes</a>. In the <code>DeleteSnapshotSchedule</code> request,
-   *          you identify the volume by providing its Amazon Resource Name (ARN). This operation is only
-   *          supported in stored and cached volume gateway types.</p>
+   *             <a href="https://docs.aws.amazon.com/storagegateway/latest/userguide/backing-up-volumes.html">Backing up your
+   *             volumes</a>. In the <code>DeleteSnapshotSchedule</code> request, you identify the
+   *          volume by providing its Amazon Resource Name (ARN). This operation is only supported in
+   *          stored and cached volume gateway types.</p>
    *
    *          <note>
    *
@@ -1490,9 +1495,9 @@ export class StorageGateway extends StorageGatewayClient {
   }
 
   /**
-   * <p>Delete a custom tape pool. A custom tape pool can only be deleted if
-   *       there are no tapes in the pool and if there are no automatic tape creation
-   *       policies that reference the custom tape pool.</p>
+   * <p>Delete a custom tape pool. A custom tape pool can only be deleted if there are no tapes
+   *          in the pool and if there are no automatic tape creation policies that reference the custom
+   *          tape pool.</p>
    */
   public deleteTapePool(
     args: DeleteTapePoolCommandInput,
@@ -2483,15 +2488,15 @@ export class StorageGateway extends StorageGatewayClient {
   }
 
   /**
-   * <p>Lists custom tape pools. You specify custom tape pools to list by specifying
-   *          one or more custom tape pool Amazon Resource Names (ARNs). If you don't specify a
-   *       custom tape pool ARN, the operation lists all custom tape pools.</p>
+   * <p>Lists custom tape pools. You specify custom tape pools to list by specifying one or more
+   *          custom tape pool Amazon Resource Names (ARNs). If you don't specify a custom tape pool ARN,
+   *          the operation lists all custom tape pools.</p>
    *
-   *          <p>This operation supports pagination. You can optionally specify the
-   *          <code>Limit</code> parameter in the body to limit the number of tape pools in the
-   *          response. If the number of tape pools returned in the response is truncated, the
-   *          response includes a <code>Marker</code> element that you can use in your subsequent
-   *          request to retrieve the next set of tape pools.</p>
+   *          <p>This operation supports pagination. You can optionally specify the <code>Limit</code>
+   *          parameter in the body to limit the number of tape pools in the response. If the number of
+   *          tape pools returned in the response is truncated, the response includes a
+   *             <code>Marker</code> element that you can use in your subsequent request to retrieve the
+   *          next set of tape pools.</p>
    */
   public listTapePools(
     args: ListTapePoolsCommandInput,
@@ -3374,7 +3379,7 @@ export class StorageGateway extends StorageGatewayClient {
    *             null.</p>
    *          </note>
    *
-   *          <p>Updates the following file share setting:</p>
+   *          <p>Updates the following file share settings:</p>
    *
    *          <ul>
    *             <li>
@@ -3393,11 +3398,6 @@ export class StorageGateway extends StorageGatewayClient {
    *                <p>Write status of your file share</p>
    *             </li>
    *          </ul>
-   *
-   *          <note>
-   *             <p>To leave a file share field unchanged, set the corresponding input field to null.
-   *             This operation is only supported in file gateways.</p>
-   *          </note>
    */
   public updateNFSFileShare(
     args: UpdateNFSFileShareCommandInput,
@@ -3429,11 +3429,12 @@ export class StorageGateway extends StorageGatewayClient {
   }
 
   /**
-   * <p>Updates a Server Message Block (SMB) file share.</p>
+   * <p>Updates a Server Message Block (SMB) file share. This operation is only supported for
+   *          file gateways.</p>
    *
    *          <note>
-   *             <p>To leave a file share field unchanged, set the corresponding input field to null.
-   *             This operation is only supported for file gateways.</p>
+   *             <p>To leave a file share field unchanged, set the corresponding input field to
+   *             null.</p>
    *          </note>
    *
    *          <important>
@@ -3467,6 +3468,39 @@ export class StorageGateway extends StorageGatewayClient {
     cb?: (err: any, data?: UpdateSMBFileShareCommandOutput) => void
   ): Promise<UpdateSMBFileShareCommandOutput> | void {
     const command = new UpdateSMBFileShareCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Controls whether the shares on a gateway are visible in a net view or browse
+   *          list.</p>
+   */
+  public updateSMBFileShareVisibility(
+    args: UpdateSMBFileShareVisibilityCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateSMBFileShareVisibilityCommandOutput>;
+  public updateSMBFileShareVisibility(
+    args: UpdateSMBFileShareVisibilityCommandInput,
+    cb: (err: any, data?: UpdateSMBFileShareVisibilityCommandOutput) => void
+  ): void;
+  public updateSMBFileShareVisibility(
+    args: UpdateSMBFileShareVisibilityCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateSMBFileShareVisibilityCommandOutput) => void
+  ): void;
+  public updateSMBFileShareVisibility(
+    args: UpdateSMBFileShareVisibilityCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateSMBFileShareVisibilityCommandOutput) => void),
+    cb?: (err: any, data?: UpdateSMBFileShareVisibilityCommandOutput) => void
+  ): Promise<UpdateSMBFileShareVisibilityCommandOutput> | void {
+    const command = new UpdateSMBFileShareVisibilityCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

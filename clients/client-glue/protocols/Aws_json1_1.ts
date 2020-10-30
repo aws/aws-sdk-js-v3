@@ -392,10 +392,8 @@ import {
   EncryptionConfiguration,
   EntityNotFoundException,
   ErrorDetail,
-  EvaluationMetrics,
   ExecutionProperty,
   ExportLabelsTaskRunProperties,
-  FindMatchesMetrics,
   FindMatchesParameters,
   FindMatchesTaskRunProperties,
   GetCatalogImportStatusRequest,
@@ -467,6 +465,7 @@ import {
   LastCrawlInfo,
   Location,
   LongColumnStatisticsData,
+  MLUserDataEncryption,
   MappingEntry,
   MongoDBTarget,
   Node,
@@ -491,7 +490,6 @@ import {
   Schedule,
   SchedulerTransitioningException,
   SchemaChangePolicy,
-  SchemaColumn,
   SerDeInfo,
   SkewedInfo,
   StorageDescriptor,
@@ -504,6 +502,7 @@ import {
   TaskRunFilterCriteria,
   TaskRunProperties,
   TaskRunSortCriteria,
+  TransformEncryption,
   TransformParameters,
   Trigger,
   TriggerNodeDetails,
@@ -522,6 +521,8 @@ import {
   CrawlerNotRunningException,
   CrawlerStoppingException,
   DevEndpointCustomLibraries,
+  EvaluationMetrics,
+  FindMatchesMetrics,
   GetMLTransformResponse,
   GetMLTransformsRequest,
   GetMLTransformsResponse,
@@ -602,6 +603,7 @@ import {
   ResumeWorkflowRunResponse,
   SchedulerNotRunningException,
   SchedulerRunningException,
+  SchemaColumn,
   SearchTablesRequest,
   SearchTablesResponse,
   SecurityConfiguration,
@@ -14457,6 +14459,9 @@ const serializeAws_json1_1CreateMLTransformRequest = (
     ...(input.Role !== undefined && { Role: input.Role }),
     ...(input.Tags !== undefined && { Tags: serializeAws_json1_1TagsMap(input.Tags, context) }),
     ...(input.Timeout !== undefined && { Timeout: input.Timeout }),
+    ...(input.TransformEncryption !== undefined && {
+      TransformEncryption: serializeAws_json1_1TransformEncryption(input.TransformEncryption, context),
+    }),
     ...(input.WorkerType !== undefined && { WorkerType: input.WorkerType }),
   };
 };
@@ -15519,6 +15524,13 @@ const serializeAws_json1_1MatchCriteria = (input: string[], context: __SerdeCont
   return input.map((entry) => entry);
 };
 
+const serializeAws_json1_1MLUserDataEncryption = (input: MLUserDataEncryption, context: __SerdeContext): any => {
+  return {
+    ...(input.KmsKeyId !== undefined && { KmsKeyId: input.KmsKeyId }),
+    ...(input.MlUserDataEncryptionMode !== undefined && { MlUserDataEncryptionMode: input.MlUserDataEncryptionMode }),
+  };
+};
+
 const serializeAws_json1_1MongoDBTarget = (input: MongoDBTarget, context: __SerdeContext): any => {
   return {
     ...(input.ConnectionName !== undefined && { ConnectionName: input.ConnectionName }),
@@ -16052,6 +16064,17 @@ const serializeAws_json1_1TaskRunSortCriteria = (input: TaskRunSortCriteria, con
   return {
     ...(input.Column !== undefined && { Column: input.Column }),
     ...(input.SortDirection !== undefined && { SortDirection: input.SortDirection }),
+  };
+};
+
+const serializeAws_json1_1TransformEncryption = (input: TransformEncryption, context: __SerdeContext): any => {
+  return {
+    ...(input.MlUserDataEncryption !== undefined && {
+      MlUserDataEncryption: serializeAws_json1_1MLUserDataEncryption(input.MlUserDataEncryption, context),
+    }),
+    ...(input.TaskRunSecurityConfigurationName !== undefined && {
+      TaskRunSecurityConfigurationName: input.TaskRunSecurityConfigurationName,
+    }),
   };
 };
 
@@ -18235,6 +18258,10 @@ const deserializeAws_json1_1GetMLTransformResponse = (output: any, context: __Se
         : undefined,
     Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
     Timeout: output.Timeout !== undefined && output.Timeout !== null ? output.Timeout : undefined,
+    TransformEncryption:
+      output.TransformEncryption !== undefined && output.TransformEncryption !== null
+        ? deserializeAws_json1_1TransformEncryption(output.TransformEncryption, context)
+        : undefined,
     TransformId: output.TransformId !== undefined && output.TransformId !== null ? output.TransformId : undefined,
     WorkerType: output.WorkerType !== undefined && output.WorkerType !== null ? output.WorkerType : undefined,
   } as any;
@@ -18993,6 +19020,10 @@ const deserializeAws_json1_1MLTransform = (output: any, context: __SerdeContext)
         : undefined,
     Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
     Timeout: output.Timeout !== undefined && output.Timeout !== null ? output.Timeout : undefined,
+    TransformEncryption:
+      output.TransformEncryption !== undefined && output.TransformEncryption !== null
+        ? deserializeAws_json1_1TransformEncryption(output.TransformEncryption, context)
+        : undefined,
     TransformId: output.TransformId !== undefined && output.TransformId !== null ? output.TransformId : undefined,
     WorkerType: output.WorkerType !== undefined && output.WorkerType !== null ? output.WorkerType : undefined,
   } as any;
@@ -19004,6 +19035,16 @@ const deserializeAws_json1_1MLTransformNotReadyException = (
 ): MLTransformNotReadyException => {
   return {
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1MLUserDataEncryption = (output: any, context: __SerdeContext): MLUserDataEncryption => {
+  return {
+    KmsKeyId: output.KmsKeyId !== undefined && output.KmsKeyId !== null ? output.KmsKeyId : undefined,
+    MlUserDataEncryptionMode:
+      output.MlUserDataEncryptionMode !== undefined && output.MlUserDataEncryptionMode !== null
+        ? output.MlUserDataEncryptionMode
+        : undefined,
   } as any;
 };
 
@@ -19798,6 +19839,19 @@ const deserializeAws_json1_1TaskRunProperties = (output: any, context: __SerdeCo
           )
         : undefined,
     TaskType: output.TaskType !== undefined && output.TaskType !== null ? output.TaskType : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1TransformEncryption = (output: any, context: __SerdeContext): TransformEncryption => {
+  return {
+    MlUserDataEncryption:
+      output.MlUserDataEncryption !== undefined && output.MlUserDataEncryption !== null
+        ? deserializeAws_json1_1MLUserDataEncryption(output.MlUserDataEncryption, context)
+        : undefined,
+    TaskRunSecurityConfigurationName:
+      output.TaskRunSecurityConfigurationName !== undefined && output.TaskRunSecurityConfigurationName !== null
+        ? output.TaskRunSecurityConfigurationName
+        : undefined,
   } as any;
 };
 

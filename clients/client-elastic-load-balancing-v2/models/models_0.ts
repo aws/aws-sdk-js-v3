@@ -800,18 +800,7 @@ export interface CreateListenerInput {
   AlpnPolicy?: string[];
 
   /**
-   * <p>The actions for the default rule. The rule must include one forward action or one or more fixed-response actions.</p>
-   *          <p>If the action type is <code>forward</code>, you specify one or more target groups.
-   *       The protocol of the target group must be HTTP or HTTPS for an Application Load Balancer.
-   *       The protocol of the target group must be TCP, TLS, UDP, or TCP_UDP for a Network Load Balancer.</p>
-   *          <p>[HTTPS listeners] If the action type is <code>authenticate-oidc</code>, you authenticate users through an identity provider
-   *       that is OpenID Connect (OIDC) compliant.</p>
-   *          <p>[HTTPS listeners] If the action type is <code>authenticate-cognito</code>, you authenticate users through the user pools
-   *       supported by Amazon Cognito.</p>
-   *          <p>[Application Load Balancer] If the action type is <code>redirect</code>, you redirect specified client requests
-   *       from one URL to another.</p>
-   *          <p>[Application Load Balancer] If the action type is <code>fixed-response</code>, you drop specified client requests
-   *       and return a custom HTTP response.</p>
+   * <p>The actions for the default rule.</p>
    */
   DefaultActions: Action[] | undefined;
 
@@ -1808,20 +1797,7 @@ export interface CreateRuleInput {
   Priority: number | undefined;
 
   /**
-   * <p>The actions. Each rule must include exactly one of the following types of actions:
-   *       <code>forward</code>, <code>fixed-response</code>, or <code>redirect</code>, and it must be the
-   *       last action to be performed.</p>
-   *          <p>If the action type is <code>forward</code>, you specify one or more target groups.
-   *       The protocol of the target group must be HTTP or HTTPS for an Application Load Balancer.
-   *       The protocol of the target group must be TCP, TLS, UDP, or TCP_UDP for a Network Load Balancer.</p>
-   *          <p>[HTTPS listeners] If the action type is <code>authenticate-oidc</code>, you authenticate users through an identity provider
-   *       that is OpenID Connect (OIDC) compliant.</p>
-   *          <p>[HTTPS listeners] If the action type is <code>authenticate-cognito</code>, you authenticate users through the user pools
-   *       supported by Amazon Cognito.</p>
-   *          <p>[Application Load Balancer] If the action type is <code>redirect</code>, you redirect specified client requests
-   *       from one URL to another.</p>
-   *          <p>[Application Load Balancer] If the action type is <code>fixed-response</code>, you drop specified client requests
-   *       and return a custom HTTP response.</p>
+   * <p>The actions.</p>
    */
   Actions: Action[] | undefined;
 
@@ -1836,11 +1812,7 @@ export interface CreateRuleInput {
   Tags?: Tag[];
 
   /**
-   * <p>The conditions.
-   *       Each rule can optionally include up to one of each of the following conditions:
-   *       <code>http-request-method</code>, <code>host-header</code>, <code>path-pattern</code>, and <code>source-ip</code>.
-   *       Each rule can also optionally include one or more of each of the following conditions:
-   *       <code>http-header</code> and <code>query-string</code>.</p>
+   * <p>The conditions.</p>
    */
   Conditions: RuleCondition[] | undefined;
 }
@@ -1950,17 +1922,24 @@ export namespace TooManyTargetGroupsException {
 }
 
 /**
- * <p>Information to use when checking for a successful response from a target.</p>
+ * <p>The codes to use when checking for a successful response from a target. If the protocol version
+ *       is gRPC, these are gRPC codes. Otherwise, these are HTTP codes.</p>
  */
 export interface Matcher {
   /**
-   * <p>The HTTP codes.</p>
-   *          <p>For Application Load Balancers, you can specify values between 200 and 499, and the
+   * <p>For Application Load Balancers, you can specify values between 200 and 499, and the
    *       default value is 200. You can specify multiple values (for example, "200,202") or a range of
    *       values (for example, "200-299").</p>
-   *          <p>For Network Load Balancers, this is 200–399.</p>
+   *          <p>For Network Load Balancers, this is "200–399".</p>
    */
-  HttpCode: string | undefined;
+  HttpCode?: string;
+
+  /**
+   * <p>You can specify values between 0 and 99. You can specify multiple values
+   *       (for example, "0,1") or a range of values (for example, "0-5"). The default
+   *        value is 12.</p>
+   */
+  GrpcCode?: string;
 }
 
 export namespace Matcher {
@@ -2009,6 +1988,14 @@ export interface CreateTargetGroupInput {
   UnhealthyThresholdCount?: number;
 
   /**
+   * <p>[HTTP/HTTPS protocol] The protocol version.
+   *       Specify <code>GRPC</code> to send requests to targets using gRPC.
+   *       Specify <code>HTTP2</code> to send requests to targets using HTTP/2.
+   *       The default is <code>HTTP1</code>, which sends requests to targets using HTTP/1.1.</p>
+   */
+  ProtocolVersion?: string;
+
+  /**
    * <p>Indicates whether health checks are enabled. If the target type is <code>lambda</code>,
    *       health checks are disabled by default but can be enabled. If the target type is <code>instance</code>
    *       or <code>ip</code>, health checks are always enabled and cannot be disabled.</p>
@@ -2025,13 +2012,16 @@ export interface CreateTargetGroupInput {
   HealthCheckTimeoutSeconds?: number;
 
   /**
-   * <p>[HTTP/HTTPS health checks] The ping path that is the destination on the targets for
-   *       health checks. The default is /.</p>
+   * <p>[HTTP/HTTPS health checks] The destination for health checks on the targets.</p>
+   *          <p>[HTTP1 or HTTP2 protocol version] The ping path. The default is /.</p>
+   *          <p>[GRPC protocol version] The path of a custom health check method with the format /package.service/method.
+   *       The default is /AWS.ALB/healthcheck.</p>
    */
   HealthCheckPath?: string;
 
   /**
-   * <p>[HTTP/HTTPS health checks] The HTTP codes to use when checking for a successful response from a target.</p>
+   * <p>[HTTP/HTTPS health checks] The HTTP or gRPC codes to use when checking for a successful
+   *       response from a target.</p>
    */
   Matcher?: Matcher;
 
@@ -2173,7 +2163,7 @@ export interface TargetGroup {
   HealthCheckTimeoutSeconds?: number;
 
   /**
-   * <p>The destination for the health check request.</p>
+   * <p>The destination for health checks on the targets.</p>
    */
   HealthCheckPath?: string;
 
@@ -2181,6 +2171,12 @@ export interface TargetGroup {
    * <p>The port on which the targets are listening. Not used if the target is a Lambda function.</p>
    */
   Port?: number;
+
+  /**
+   * <p>[HTTP/HTTPS protocol] The protocol version. The possible values are <code>GRPC</code>,
+   *       <code>HTTP1</code>, and <code>HTTP2</code>.</p>
+   */
+  ProtocolVersion?: string;
 
   /**
    * <p>The number of consecutive health check failures required before considering the target
@@ -2194,7 +2190,7 @@ export interface TargetGroup {
   HealthCheckEnabled?: boolean;
 
   /**
-   * <p>The HTTP codes to use when checking for a successful response from a target.</p>
+   * <p>The HTTP or gRPC codes to use when checking for a successful response from a target.</p>
    */
   Matcher?: Matcher;
 }
@@ -3359,18 +3355,7 @@ export interface ModifyListenerInput {
   Port?: number;
 
   /**
-   * <p>The actions for the default rule. The rule must include one forward action or one or more fixed-response actions.</p>
-   *          <p>If the action type is <code>forward</code>, you specify one or more target groups.
-   *       The protocol of the target group must be HTTP or HTTPS for an Application Load Balancer.
-   *       The protocol of the target group must be TCP, TLS, UDP, or TCP_UDP for a Network Load Balancer.</p>
-   *          <p>[HTTPS listeners] If the action type is <code>authenticate-oidc</code>, you authenticate users through an identity provider
-   *       that is OpenID Connect (OIDC) compliant.</p>
-   *          <p>[HTTPS listeners] If the action type is <code>authenticate-cognito</code>, you authenticate users through the user pools
-   *       supported by Amazon Cognito.</p>
-   *          <p>[Application Load Balancer] If the action type is <code>redirect</code>, you redirect specified client requests
-   *       from one URL to another.</p>
-   *          <p>[Application Load Balancer] If the action type is <code>fixed-response</code>, you drop specified client requests
-   *       and return a custom HTTP response.</p>
+   * <p>The actions for the default rule.</p>
    */
   DefaultActions?: Action[];
 
@@ -3482,28 +3467,12 @@ export namespace ModifyLoadBalancerAttributesOutput {
 
 export interface ModifyRuleInput {
   /**
-   * <p>The conditions. Each rule can include zero or one of the following conditions:
-   *       <code>http-request-method</code>, <code>host-header</code>, <code>path-pattern</code>,
-   *       and <code>source-ip</code>, and zero or more of the following conditions:
-   *       <code>http-header</code> and <code>query-string</code>.</p>
+   * <p>The conditions.</p>
    */
   Conditions?: RuleCondition[];
 
   /**
-   * <p>The actions. Each rule must include exactly one of the following types of actions:
-   *       <code>forward</code>, <code>fixed-response</code>, or <code>redirect</code>, and it must be the
-   *       last action to be performed.</p>
-   *          <p>If the action type is <code>forward</code>, you specify one or more target groups.
-   *       The protocol of the target group must be HTTP or HTTPS for an Application Load Balancer.
-   *       The protocol of the target group must be TCP, TLS, UDP, or TCP_UDP for a Network Load Balancer.</p>
-   *          <p>[HTTPS listeners] If the action type is <code>authenticate-oidc</code>, you authenticate users through an identity provider
-   *       that is OpenID Connect (OIDC) compliant.</p>
-   *          <p>[HTTPS listeners] If the action type is <code>authenticate-cognito</code>, you authenticate users through the user pools
-   *       supported by Amazon Cognito.</p>
-   *          <p>[Application Load Balancer] If the action type is <code>redirect</code>, you redirect specified client requests
-   *       from one URL to another.</p>
-   *          <p>[Application Load Balancer] If the action type is <code>fixed-response</code>, you drop specified client requests
-   *       and return a custom HTTP response.</p>
+   * <p>The actions.</p>
    */
   Actions?: Action[];
 
@@ -3540,8 +3509,8 @@ export interface ModifyTargetGroupInput {
 
   /**
    * <p>The approximate amount of time, in seconds, between health checks of an individual
-   *       target. For Application Load Balancers, the range is 5 to 300 seconds. For Network Load
-   *       Balancers, the supported values are 10 or 30 seconds.</p>
+   *       target. For HTTP and HTTPS health checks, the range is 5 to 300 seconds. For TPC
+   *       health checks, the supported values are 10 or 30 seconds.</p>
    *          <p>With Network Load Balancers, you can't modify this setting.</p>
    */
   HealthCheckIntervalSeconds?: number;
@@ -3573,8 +3542,10 @@ export interface ModifyTargetGroupInput {
   HealthyThresholdCount?: number;
 
   /**
-   * <p>[HTTP/HTTPS health checks] The ping path that is the destination for the health check
-   *       request.</p>
+   * <p>[HTTP/HTTPS health checks] The destination for health checks on the targets.</p>
+   *          <p>[HTTP1 or HTTP2 protocol version] The ping path. The default is /.</p>
+   *          <p>[GRPC protocol version] The path of a custom health check method with the format /package.service/method.
+   *       The default is /AWS.ALB/healthcheck.</p>
    */
   HealthCheckPath?: string;
 
@@ -3585,16 +3556,14 @@ export interface ModifyTargetGroupInput {
 
   /**
    * <p>The number of consecutive health check failures required before considering the target
-   *       unhealthy. For Network Load Balancers, this value must be the same as the healthy threshold
-   *       count.</p>
+   *       unhealthy. For target groups with a protocol of TCP or TLS, this value must be the same as
+   *       the healthy threshold count.</p>
    */
   UnhealthyThresholdCount?: number;
 
   /**
-   * <p>[HTTP/HTTPS health checks] The HTTP codes to use when checking for a successful
-   *       response from a target. The possible values are from 200 to 499. You can specify multiple
-   *       values (for example, "200,202") or a range of values (for example, "200-299"). The default
-   *       is 200.</p>
+   * <p>[HTTP/HTTPS health checks] The HTTP or gRPC codes to use when checking for a successful
+   *       response from a target.</p>
    *          <p>With Network Load Balancers, you can't modify this setting.</p>
    */
   Matcher?: Matcher;
@@ -3653,9 +3622,6 @@ export namespace ModifyTargetGroupAttributesOutput {
 export interface RegisterTargetsInput {
   /**
    * <p>The targets.</p>
-   *          <p>To register a target by instance ID, specify the instance ID.
-   *       To register a target by IP address, specify the IP address.
-   *       To register a Lambda function, specify the ARN of the Lambda function.</p>
    */
   Targets: TargetDescription[] | undefined;
 

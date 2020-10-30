@@ -70,6 +70,11 @@ import {
   AssociateDhcpOptionsCommandOutput,
 } from "./commands/AssociateDhcpOptionsCommand";
 import {
+  AssociateEnclaveCertificateIamRoleCommand,
+  AssociateEnclaveCertificateIamRoleCommandInput,
+  AssociateEnclaveCertificateIamRoleCommandOutput,
+} from "./commands/AssociateEnclaveCertificateIamRoleCommand";
+import {
   AssociateIamInstanceProfileCommand,
   AssociateIamInstanceProfileCommandInput,
   AssociateIamInstanceProfileCommandOutput,
@@ -1364,6 +1369,11 @@ import {
   DisassociateClientVpnTargetNetworkCommandOutput,
 } from "./commands/DisassociateClientVpnTargetNetworkCommand";
 import {
+  DisassociateEnclaveCertificateIamRoleCommand,
+  DisassociateEnclaveCertificateIamRoleCommandInput,
+  DisassociateEnclaveCertificateIamRoleCommandOutput,
+} from "./commands/DisassociateEnclaveCertificateIamRoleCommand";
+import {
   DisassociateIamInstanceProfileCommand,
   DisassociateIamInstanceProfileCommandInput,
   DisassociateIamInstanceProfileCommandOutput,
@@ -1444,6 +1454,11 @@ import {
   ExportTransitGatewayRoutesCommandInput,
   ExportTransitGatewayRoutesCommandOutput,
 } from "./commands/ExportTransitGatewayRoutesCommand";
+import {
+  GetAssociatedEnclaveCertificateIamRolesCommand,
+  GetAssociatedEnclaveCertificateIamRolesCommandInput,
+  GetAssociatedEnclaveCertificateIamRolesCommandOutput,
+} from "./commands/GetAssociatedEnclaveCertificateIamRolesCommand";
 import {
   GetAssociatedIpv6PoolCidrsCommand,
   GetAssociatedIpv6PoolCidrsCommandInput,
@@ -2597,6 +2612,52 @@ export class EC2 extends EC2Client {
     cb?: (err: any, data?: AssociateDhcpOptionsCommandOutput) => void
   ): Promise<AssociateDhcpOptionsCommandOutput> | void {
     const command = new AssociateDhcpOptionsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Associates an AWS Identity and Access Management (IAM) role with an AWS Certificate Manager (ACM) certificate.
+   * 			This enables the certificate to be used by the ACM for Nitro Enclaves application inside an enclave. For more
+   * 			information, see <a href="https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave-refapp.html">AWS Certificate
+   * 				Manager for Nitro Enclaves</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *
+   * 		       <p>When the IAM role is associated with the ACM certificate, places the certificate, certificate chain, and encrypted
+   * 			private key in an Amazon S3 bucket that only the associated IAM role can access. The private key of the certificate
+   * 			is encrypted with an AWS-managed KMS key that has an attached attestation-based key policy.</p>
+   *
+   * 		       <p>To enable the IAM role to access the Amazon S3 object, you must grant it permission to call <code>s3:GetObject</code>
+   * 			on the Amazon S3 bucket returned by the command. To enable the IAM role to access the AWS KMS key, you must
+   * 			grant it permission to call <code>kms:Decrypt</code> on AWS KMS key returned by the command. For more
+   * 			information, see <a href="https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave-refapp.html#add-policy">
+   * 				Grant the role permission to access the certificate and encryption key</a> in the
+   * 			<i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   */
+  public associateEnclaveCertificateIamRole(
+    args: AssociateEnclaveCertificateIamRoleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AssociateEnclaveCertificateIamRoleCommandOutput>;
+  public associateEnclaveCertificateIamRole(
+    args: AssociateEnclaveCertificateIamRoleCommandInput,
+    cb: (err: any, data?: AssociateEnclaveCertificateIamRoleCommandOutput) => void
+  ): void;
+  public associateEnclaveCertificateIamRole(
+    args: AssociateEnclaveCertificateIamRoleCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AssociateEnclaveCertificateIamRoleCommandOutput) => void
+  ): void;
+  public associateEnclaveCertificateIamRole(
+    args: AssociateEnclaveCertificateIamRoleCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssociateEnclaveCertificateIamRoleCommandOutput) => void),
+    cb?: (err: any, data?: AssociateEnclaveCertificateIamRoleCommandOutput) => void
+  ): Promise<AssociateEnclaveCertificateIamRoleCommandOutput> | void {
+    const command = new AssociateEnclaveCertificateIamRoleCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -12132,6 +12193,44 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * <p>Disassociates an IAM role from an AWS Certificate Manager (ACM) certificate. Disassociating an IAM role
+   * 			from an ACM certificate removes the Amazon S3 object that contains the certificate, certificate chain, and
+   * 			encrypted private key from the Amazon S3 bucket. It also revokes the IAM role's permission to use the
+   * 			AWS Key Management Service  (KMS) key used to encrypt the private key. This effectively revokes the role's
+   * 			permission to use the certificate. </p>
+   */
+  public disassociateEnclaveCertificateIamRole(
+    args: DisassociateEnclaveCertificateIamRoleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisassociateEnclaveCertificateIamRoleCommandOutput>;
+  public disassociateEnclaveCertificateIamRole(
+    args: DisassociateEnclaveCertificateIamRoleCommandInput,
+    cb: (err: any, data?: DisassociateEnclaveCertificateIamRoleCommandOutput) => void
+  ): void;
+  public disassociateEnclaveCertificateIamRole(
+    args: DisassociateEnclaveCertificateIamRoleCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisassociateEnclaveCertificateIamRoleCommandOutput) => void
+  ): void;
+  public disassociateEnclaveCertificateIamRole(
+    args: DisassociateEnclaveCertificateIamRoleCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DisassociateEnclaveCertificateIamRoleCommandOutput) => void),
+    cb?: (err: any, data?: DisassociateEnclaveCertificateIamRoleCommandOutput) => void
+  ): Promise<DisassociateEnclaveCertificateIamRoleCommandOutput> | void {
+    const command = new DisassociateEnclaveCertificateIamRoleCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Disassociates an IAM instance profile from a running or stopped instance.</p>
    *         <p>Use <a>DescribeIamInstanceProfileAssociations</a> to get the association
    *             ID.</p>
@@ -12713,6 +12812,43 @@ export class EC2 extends EC2Client {
     cb?: (err: any, data?: ExportTransitGatewayRoutesCommandOutput) => void
   ): Promise<ExportTransitGatewayRoutesCommandOutput> | void {
     const command = new ExportTransitGatewayRoutesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns the IAM roles that are associated with the specified AWS Certificate Manager (ACM) certificate.
+   * 			It also returns the name of the Amazon S3 bucket and the Amazon S3 object key where the certificate, certificate chain,
+   * 			and encrypted private key bundle are stored, and the ARN of the AWS Key Management Service (KMS) key
+   * 			that's used to encrypt the private key.</p>
+   */
+  public getAssociatedEnclaveCertificateIamRoles(
+    args: GetAssociatedEnclaveCertificateIamRolesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetAssociatedEnclaveCertificateIamRolesCommandOutput>;
+  public getAssociatedEnclaveCertificateIamRoles(
+    args: GetAssociatedEnclaveCertificateIamRolesCommandInput,
+    cb: (err: any, data?: GetAssociatedEnclaveCertificateIamRolesCommandOutput) => void
+  ): void;
+  public getAssociatedEnclaveCertificateIamRoles(
+    args: GetAssociatedEnclaveCertificateIamRolesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetAssociatedEnclaveCertificateIamRolesCommandOutput) => void
+  ): void;
+  public getAssociatedEnclaveCertificateIamRoles(
+    args: GetAssociatedEnclaveCertificateIamRolesCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetAssociatedEnclaveCertificateIamRolesCommandOutput) => void),
+    cb?: (err: any, data?: GetAssociatedEnclaveCertificateIamRolesCommandOutput) => void
+  ): Promise<GetAssociatedEnclaveCertificateIamRolesCommandOutput> | void {
+    const command = new GetAssociatedEnclaveCertificateIamRolesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

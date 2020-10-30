@@ -194,6 +194,10 @@ import {
 import { UpdateNFSFileShareCommandInput, UpdateNFSFileShareCommandOutput } from "./commands/UpdateNFSFileShareCommand";
 import { UpdateSMBFileShareCommandInput, UpdateSMBFileShareCommandOutput } from "./commands/UpdateSMBFileShareCommand";
 import {
+  UpdateSMBFileShareVisibilityCommandInput,
+  UpdateSMBFileShareVisibilityCommandOutput,
+} from "./commands/UpdateSMBFileShareVisibilityCommand";
+import {
   UpdateSMBSecurityStrategyCommandInput,
   UpdateSMBSecurityStrategyCommandOutput,
 } from "./commands/UpdateSMBSecurityStrategyCommand";
@@ -333,6 +337,7 @@ export type ServiceInputTypes =
   | UpdateMaintenanceStartTimeCommandInput
   | UpdateNFSFileShareCommandInput
   | UpdateSMBFileShareCommandInput
+  | UpdateSMBFileShareVisibilityCommandInput
   | UpdateSMBSecurityStrategyCommandInput
   | UpdateSnapshotScheduleCommandInput
   | UpdateVTLDeviceTypeCommandInput;
@@ -416,6 +421,7 @@ export type ServiceOutputTypes =
   | UpdateMaintenanceStartTimeCommandOutput
   | UpdateNFSFileShareCommandOutput
   | UpdateSMBFileShareCommandOutput
+  | UpdateSMBFileShareVisibilityCommandOutput
   | UpdateSMBSecurityStrategyCommandOutput
   | UpdateSnapshotScheduleCommandOutput
   | UpdateVTLDeviceTypeCommandOutput;

@@ -22,6 +22,10 @@ import {
 } from "./commands/CopyDBParameterGroupCommand";
 import { CreateDBClusterCommandInput, CreateDBClusterCommandOutput } from "./commands/CreateDBClusterCommand";
 import {
+  CreateDBClusterEndpointCommandInput,
+  CreateDBClusterEndpointCommandOutput,
+} from "./commands/CreateDBClusterEndpointCommand";
+import {
   CreateDBClusterParameterGroupCommandInput,
   CreateDBClusterParameterGroupCommandOutput,
 } from "./commands/CreateDBClusterParameterGroupCommand";
@@ -44,6 +48,10 @@ import {
 } from "./commands/CreateEventSubscriptionCommand";
 import { DeleteDBClusterCommandInput, DeleteDBClusterCommandOutput } from "./commands/DeleteDBClusterCommand";
 import {
+  DeleteDBClusterEndpointCommandInput,
+  DeleteDBClusterEndpointCommandOutput,
+} from "./commands/DeleteDBClusterEndpointCommand";
+import {
   DeleteDBClusterParameterGroupCommandInput,
   DeleteDBClusterParameterGroupCommandOutput,
 } from "./commands/DeleteDBClusterParameterGroupCommand";
@@ -64,6 +72,10 @@ import {
   DeleteEventSubscriptionCommandInput,
   DeleteEventSubscriptionCommandOutput,
 } from "./commands/DeleteEventSubscriptionCommand";
+import {
+  DescribeDBClusterEndpointsCommandInput,
+  DescribeDBClusterEndpointsCommandOutput,
+} from "./commands/DescribeDBClusterEndpointsCommand";
 import {
   DescribeDBClusterParameterGroupsCommandInput,
   DescribeDBClusterParameterGroupsCommandOutput,
@@ -136,6 +148,10 @@ import {
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import { ModifyDBClusterCommandInput, ModifyDBClusterCommandOutput } from "./commands/ModifyDBClusterCommand";
+import {
+  ModifyDBClusterEndpointCommandInput,
+  ModifyDBClusterEndpointCommandOutput,
+} from "./commands/ModifyDBClusterEndpointCommand";
 import {
   ModifyDBClusterParameterGroupCommandInput,
   ModifyDBClusterParameterGroupCommandOutput,
@@ -250,6 +266,7 @@ export type ServiceInputTypes =
   | CopyDBClusterSnapshotCommandInput
   | CopyDBParameterGroupCommandInput
   | CreateDBClusterCommandInput
+  | CreateDBClusterEndpointCommandInput
   | CreateDBClusterParameterGroupCommandInput
   | CreateDBClusterSnapshotCommandInput
   | CreateDBInstanceCommandInput
@@ -257,12 +274,14 @@ export type ServiceInputTypes =
   | CreateDBSubnetGroupCommandInput
   | CreateEventSubscriptionCommandInput
   | DeleteDBClusterCommandInput
+  | DeleteDBClusterEndpointCommandInput
   | DeleteDBClusterParameterGroupCommandInput
   | DeleteDBClusterSnapshotCommandInput
   | DeleteDBInstanceCommandInput
   | DeleteDBParameterGroupCommandInput
   | DeleteDBSubnetGroupCommandInput
   | DeleteEventSubscriptionCommandInput
+  | DescribeDBClusterEndpointsCommandInput
   | DescribeDBClusterParameterGroupsCommandInput
   | DescribeDBClusterParametersCommandInput
   | DescribeDBClusterSnapshotAttributesCommandInput
@@ -284,6 +303,7 @@ export type ServiceInputTypes =
   | FailoverDBClusterCommandInput
   | ListTagsForResourceCommandInput
   | ModifyDBClusterCommandInput
+  | ModifyDBClusterEndpointCommandInput
   | ModifyDBClusterParameterGroupCommandInput
   | ModifyDBClusterSnapshotAttributeCommandInput
   | ModifyDBInstanceCommandInput
@@ -311,6 +331,7 @@ export type ServiceOutputTypes =
   | CopyDBClusterSnapshotCommandOutput
   | CopyDBParameterGroupCommandOutput
   | CreateDBClusterCommandOutput
+  | CreateDBClusterEndpointCommandOutput
   | CreateDBClusterParameterGroupCommandOutput
   | CreateDBClusterSnapshotCommandOutput
   | CreateDBInstanceCommandOutput
@@ -318,12 +339,14 @@ export type ServiceOutputTypes =
   | CreateDBSubnetGroupCommandOutput
   | CreateEventSubscriptionCommandOutput
   | DeleteDBClusterCommandOutput
+  | DeleteDBClusterEndpointCommandOutput
   | DeleteDBClusterParameterGroupCommandOutput
   | DeleteDBClusterSnapshotCommandOutput
   | DeleteDBInstanceCommandOutput
   | DeleteDBParameterGroupCommandOutput
   | DeleteDBSubnetGroupCommandOutput
   | DeleteEventSubscriptionCommandOutput
+  | DescribeDBClusterEndpointsCommandOutput
   | DescribeDBClusterParameterGroupsCommandOutput
   | DescribeDBClusterParametersCommandOutput
   | DescribeDBClusterSnapshotAttributesCommandOutput
@@ -345,6 +368,7 @@ export type ServiceOutputTypes =
   | FailoverDBClusterCommandOutput
   | ListTagsForResourceCommandOutput
   | ModifyDBClusterCommandOutput
+  | ModifyDBClusterEndpointCommandOutput
   | ModifyDBClusterParameterGroupCommandOutput
   | ModifyDBClusterSnapshotAttributeCommandOutput
   | ModifyDBInstanceCommandOutput

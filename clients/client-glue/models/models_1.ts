@@ -3,6 +3,7 @@ import {
   CatalogEntry,
   Column,
   ColumnStatistics,
+  ConfusionMatrix,
   ConnectionInput,
   ConnectionsList,
   CrawlerTargets,
@@ -11,7 +12,6 @@ import {
   DatabaseInput,
   EncryptionConfiguration,
   ErrorDetail,
-  EvaluationMetrics,
   ExecutionProperty,
   GlueTable,
   JobBookmarkEntry,
@@ -28,11 +28,11 @@ import {
   ResourceShareType,
   ResourceUri,
   SchemaChangePolicy,
-  SchemaColumn,
   SortDirectionType,
   StorageDescriptor,
   TableIdentifier,
   TableInput,
+  TransformEncryption,
   TransformParameters,
   TransformType,
   Trigger,
@@ -43,6 +43,97 @@ import {
 } from "./models_0";
 import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+/**
+ * <p>The evaluation metrics for the find matches algorithm. The quality of your machine
+ *       learning transform is measured by getting your transform to predict some matches and comparing
+ *       the results to known matches from the same dataset. The quality metrics are based on a subset
+ *       of your data, so they are not precise.</p>
+ */
+export interface FindMatchesMetrics {
+  /**
+   * <p>The area under the precision/recall curve (AUPRC) is a single number measuring the overall
+   *       quality of the transform, that is independent of the choice made for precision vs. recall.
+   *       Higher values indicate that you have a more attractive precision vs. recall tradeoff.</p>
+   * 	        <p>For more information, see <a href="https://en.wikipedia.org/wiki/Precision_and_recall">Precision and recall</a> in Wikipedia.</p>
+   */
+  AreaUnderPRCurve?: number;
+
+  /**
+   * <p>The recall metric indicates that for an actual match, how often your transform predicts
+   *       the match. Specifically, it measures how well the transform finds true positives from the
+   *       total records in the source data.</p>
+   *          <p>For more information, see <a href="https://en.wikipedia.org/wiki/Precision_and_recall">Precision and recall</a> in Wikipedia.</p>
+   */
+  Recall?: number;
+
+  /**
+   * <p>The precision metric indicates when often your transform is correct when it predicts a match. Specifically, it measures how well the transform finds true positives from the total true positives possible.</p>
+   *          <p>For more information, see <a href="https://en.wikipedia.org/wiki/Precision_and_recall">Precision and recall</a> in Wikipedia.</p>
+   */
+  Precision?: number;
+
+  /**
+   * <p>The maximum F1 metric indicates the transform's accuracy between 0 and 1, where 1 is the best accuracy.</p>
+   *          <p>For more information, see <a href="https://en.wikipedia.org/wiki/F1_score">F1 score</a> in Wikipedia.</p>
+   */
+  F1?: number;
+
+  /**
+   * <p>The confusion matrix shows you what your transform is predicting accurately and what types of errors it is making.</p>
+   * 	        <p>For more information, see <a href="https://en.wikipedia.org/wiki/Confusion_matrix">Confusion matrix</a> in Wikipedia.</p>
+   */
+  ConfusionMatrix?: ConfusionMatrix;
+}
+
+export namespace FindMatchesMetrics {
+  export const filterSensitiveLog = (obj: FindMatchesMetrics): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Evaluation metrics provide an estimate of the quality of your machine learning transform.</p>
+ */
+export interface EvaluationMetrics {
+  /**
+   * <p>The evaluation metrics for the find matches algorithm.</p>
+   */
+  FindMatchesMetrics?: FindMatchesMetrics;
+
+  /**
+   * <p>The type of machine learning transform.</p>
+   */
+  TransformType: TransformType | string | undefined;
+}
+
+export namespace EvaluationMetrics {
+  export const filterSensitiveLog = (obj: EvaluationMetrics): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A key-value pair representing a column and data type that this transform can
+ *       run against. The <code>Schema</code> parameter of the <code>MLTransform</code> may contain up to 100 of these structures.</p>
+ */
+export interface SchemaColumn {
+  /**
+   * <p>The type of data in the column.</p>
+   */
+  DataType?: string;
+
+  /**
+   * <p>The name of the column.</p>
+   */
+  Name?: string;
+}
+
+export namespace SchemaColumn {
+  export const filterSensitiveLog = (obj: SchemaColumn): any => ({
+    ...obj,
+  });
+}
 
 export enum TransformStatusType {
   DELETING = "DELETING",
@@ -159,6 +250,11 @@ export interface GetMLTransformResponse {
    * <p>A description of the transform.</p>
    */
   Description?: string;
+
+  /**
+   * <p>The encryption-at-rest settings of the transform that apply to accessing user data. Machine learning transforms can access user data encrypted in Amazon S3 using KMS.</p>
+   */
+  TransformEncryption?: TransformEncryption;
 }
 
 export namespace GetMLTransformResponse {
@@ -294,6 +390,11 @@ export interface MLTransform {
    * <p>A list of AWS Glue table definitions used by the transform.</p>
    */
   InputRecordTables?: GlueTable[];
+
+  /**
+   * <p>The encryption-at-rest settings of the transform that apply to accessing user data. Machine learning transforms can access user data encrypted in Amazon S3 using KMS.</p>
+   */
+  TransformEncryption?: TransformEncryption;
 
   /**
    * <p>A <code>TransformParameters</code> object. You can use parameters to tune (customize) the
@@ -3270,16 +3371,16 @@ export namespace UpdateColumnStatisticsForPartitionRequest {
 }
 
 /**
- * <p>Defines a column containing error.</p>
+ * <p>Encapsulates a <code>ColumnStatistics</code> object that failed and the reason for failure.</p>
  */
 export interface ColumnStatisticsError {
   /**
-   * <p>The error message occurred during operation.</p>
+   * <p>An error message with the reason for the failure of an operation.</p>
    */
   Error?: ErrorDetail;
 
   /**
-   * <p>The ColumnStatistics of the column.</p>
+   * <p>The <code>ColumnStatistics</code> of the column.</p>
    */
   ColumnStatistics?: ColumnStatistics;
 }

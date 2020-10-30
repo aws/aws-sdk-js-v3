@@ -5,6 +5,10 @@ import {
 } from "./commands/AssociateTrialComponentCommand";
 import { CreateAlgorithmCommandInput, CreateAlgorithmCommandOutput } from "./commands/CreateAlgorithmCommand";
 import { CreateAppCommandInput, CreateAppCommandOutput } from "./commands/CreateAppCommand";
+import {
+  CreateAppImageConfigCommandInput,
+  CreateAppImageConfigCommandOutput,
+} from "./commands/CreateAppImageConfigCommand";
 import { CreateAutoMLJobCommandInput, CreateAutoMLJobCommandOutput } from "./commands/CreateAutoMLJobCommand";
 import {
   CreateCodeRepositoryCommandInput,
@@ -30,6 +34,8 @@ import {
   CreateHyperParameterTuningJobCommandInput,
   CreateHyperParameterTuningJobCommandOutput,
 } from "./commands/CreateHyperParameterTuningJobCommand";
+import { CreateImageCommandInput, CreateImageCommandOutput } from "./commands/CreateImageCommand";
+import { CreateImageVersionCommandInput, CreateImageVersionCommandOutput } from "./commands/CreateImageVersionCommand";
 import { CreateLabelingJobCommandInput, CreateLabelingJobCommandOutput } from "./commands/CreateLabelingJobCommand";
 import { CreateModelCommandInput, CreateModelCommandOutput } from "./commands/CreateModelCommand";
 import { CreateModelPackageCommandInput, CreateModelPackageCommandOutput } from "./commands/CreateModelPackageCommand";
@@ -70,6 +76,10 @@ import { CreateWorkteamCommandInput, CreateWorkteamCommandOutput } from "./comma
 import { DeleteAlgorithmCommandInput, DeleteAlgorithmCommandOutput } from "./commands/DeleteAlgorithmCommand";
 import { DeleteAppCommandInput, DeleteAppCommandOutput } from "./commands/DeleteAppCommand";
 import {
+  DeleteAppImageConfigCommandInput,
+  DeleteAppImageConfigCommandOutput,
+} from "./commands/DeleteAppImageConfigCommand";
+import {
   DeleteCodeRepositoryCommandInput,
   DeleteCodeRepositoryCommandOutput,
 } from "./commands/DeleteCodeRepositoryCommand";
@@ -85,6 +95,8 @@ import {
   DeleteFlowDefinitionCommandOutput,
 } from "./commands/DeleteFlowDefinitionCommand";
 import { DeleteHumanTaskUiCommandInput, DeleteHumanTaskUiCommandOutput } from "./commands/DeleteHumanTaskUiCommand";
+import { DeleteImageCommandInput, DeleteImageCommandOutput } from "./commands/DeleteImageCommand";
+import { DeleteImageVersionCommandInput, DeleteImageVersionCommandOutput } from "./commands/DeleteImageVersionCommand";
 import { DeleteModelCommandInput, DeleteModelCommandOutput } from "./commands/DeleteModelCommand";
 import { DeleteModelPackageCommandInput, DeleteModelPackageCommandOutput } from "./commands/DeleteModelPackageCommand";
 import {
@@ -110,6 +122,10 @@ import { DeleteWorkforceCommandInput, DeleteWorkforceCommandOutput } from "./com
 import { DeleteWorkteamCommandInput, DeleteWorkteamCommandOutput } from "./commands/DeleteWorkteamCommand";
 import { DescribeAlgorithmCommandInput, DescribeAlgorithmCommandOutput } from "./commands/DescribeAlgorithmCommand";
 import { DescribeAppCommandInput, DescribeAppCommandOutput } from "./commands/DescribeAppCommand";
+import {
+  DescribeAppImageConfigCommandInput,
+  DescribeAppImageConfigCommandOutput,
+} from "./commands/DescribeAppImageConfigCommand";
 import { DescribeAutoMLJobCommandInput, DescribeAutoMLJobCommandOutput } from "./commands/DescribeAutoMLJobCommand";
 import {
   DescribeCodeRepositoryCommandInput,
@@ -138,6 +154,11 @@ import {
   DescribeHyperParameterTuningJobCommandInput,
   DescribeHyperParameterTuningJobCommandOutput,
 } from "./commands/DescribeHyperParameterTuningJobCommand";
+import { DescribeImageCommandInput, DescribeImageCommandOutput } from "./commands/DescribeImageCommand";
+import {
+  DescribeImageVersionCommandInput,
+  DescribeImageVersionCommandOutput,
+} from "./commands/DescribeImageVersionCommand";
 import {
   DescribeLabelingJobCommandInput,
   DescribeLabelingJobCommandOutput,
@@ -195,6 +216,10 @@ import {
   GetSearchSuggestionsCommandOutput,
 } from "./commands/GetSearchSuggestionsCommand";
 import { ListAlgorithmsCommandInput, ListAlgorithmsCommandOutput } from "./commands/ListAlgorithmsCommand";
+import {
+  ListAppImageConfigsCommandInput,
+  ListAppImageConfigsCommandOutput,
+} from "./commands/ListAppImageConfigsCommand";
 import { ListAppsCommandInput, ListAppsCommandOutput } from "./commands/ListAppsCommand";
 import { ListAutoMLJobsCommandInput, ListAutoMLJobsCommandOutput } from "./commands/ListAutoMLJobsCommand";
 import {
@@ -225,6 +250,8 @@ import {
   ListHyperParameterTuningJobsCommandInput,
   ListHyperParameterTuningJobsCommandOutput,
 } from "./commands/ListHyperParameterTuningJobsCommand";
+import { ListImageVersionsCommandInput, ListImageVersionsCommandOutput } from "./commands/ListImageVersionsCommand";
+import { ListImagesCommandInput, ListImagesCommandOutput } from "./commands/ListImagesCommand";
 import { ListLabelingJobsCommandInput, ListLabelingJobsCommandOutput } from "./commands/ListLabelingJobsCommand";
 import {
   ListLabelingJobsForWorkteamCommandInput,
@@ -297,6 +324,10 @@ import { StopProcessingJobCommandInput, StopProcessingJobCommandOutput } from ".
 import { StopTrainingJobCommandInput, StopTrainingJobCommandOutput } from "./commands/StopTrainingJobCommand";
 import { StopTransformJobCommandInput, StopTransformJobCommandOutput } from "./commands/StopTransformJobCommand";
 import {
+  UpdateAppImageConfigCommandInput,
+  UpdateAppImageConfigCommandOutput,
+} from "./commands/UpdateAppImageConfigCommand";
+import {
   UpdateCodeRepositoryCommandInput,
   UpdateCodeRepositoryCommandOutput,
 } from "./commands/UpdateCodeRepositoryCommand";
@@ -307,6 +338,7 @@ import {
   UpdateEndpointWeightsAndCapacitiesCommandOutput,
 } from "./commands/UpdateEndpointWeightsAndCapacitiesCommand";
 import { UpdateExperimentCommandInput, UpdateExperimentCommandOutput } from "./commands/UpdateExperimentCommand";
+import { UpdateImageCommandInput, UpdateImageCommandOutput } from "./commands/UpdateImageCommand";
 import {
   UpdateMonitoringScheduleCommandInput,
   UpdateMonitoringScheduleCommandOutput,
@@ -381,6 +413,7 @@ export type ServiceInputTypes =
   | AssociateTrialComponentCommandInput
   | CreateAlgorithmCommandInput
   | CreateAppCommandInput
+  | CreateAppImageConfigCommandInput
   | CreateAutoMLJobCommandInput
   | CreateCodeRepositoryCommandInput
   | CreateCompilationJobCommandInput
@@ -391,6 +424,8 @@ export type ServiceInputTypes =
   | CreateFlowDefinitionCommandInput
   | CreateHumanTaskUiCommandInput
   | CreateHyperParameterTuningJobCommandInput
+  | CreateImageCommandInput
+  | CreateImageVersionCommandInput
   | CreateLabelingJobCommandInput
   | CreateModelCommandInput
   | CreateModelPackageCommandInput
@@ -409,6 +444,7 @@ export type ServiceInputTypes =
   | CreateWorkteamCommandInput
   | DeleteAlgorithmCommandInput
   | DeleteAppCommandInput
+  | DeleteAppImageConfigCommandInput
   | DeleteCodeRepositoryCommandInput
   | DeleteDomainCommandInput
   | DeleteEndpointCommandInput
@@ -416,6 +452,8 @@ export type ServiceInputTypes =
   | DeleteExperimentCommandInput
   | DeleteFlowDefinitionCommandInput
   | DeleteHumanTaskUiCommandInput
+  | DeleteImageCommandInput
+  | DeleteImageVersionCommandInput
   | DeleteModelCommandInput
   | DeleteModelPackageCommandInput
   | DeleteMonitoringScheduleCommandInput
@@ -429,6 +467,7 @@ export type ServiceInputTypes =
   | DeleteWorkteamCommandInput
   | DescribeAlgorithmCommandInput
   | DescribeAppCommandInput
+  | DescribeAppImageConfigCommandInput
   | DescribeAutoMLJobCommandInput
   | DescribeCodeRepositoryCommandInput
   | DescribeCompilationJobCommandInput
@@ -439,6 +478,8 @@ export type ServiceInputTypes =
   | DescribeFlowDefinitionCommandInput
   | DescribeHumanTaskUiCommandInput
   | DescribeHyperParameterTuningJobCommandInput
+  | DescribeImageCommandInput
+  | DescribeImageVersionCommandInput
   | DescribeLabelingJobCommandInput
   | DescribeModelCommandInput
   | DescribeModelPackageCommandInput
@@ -457,6 +498,7 @@ export type ServiceInputTypes =
   | DisassociateTrialComponentCommandInput
   | GetSearchSuggestionsCommandInput
   | ListAlgorithmsCommandInput
+  | ListAppImageConfigsCommandInput
   | ListAppsCommandInput
   | ListAutoMLJobsCommandInput
   | ListCandidatesForAutoMLJobCommandInput
@@ -469,6 +511,8 @@ export type ServiceInputTypes =
   | ListFlowDefinitionsCommandInput
   | ListHumanTaskUisCommandInput
   | ListHyperParameterTuningJobsCommandInput
+  | ListImageVersionsCommandInput
+  | ListImagesCommandInput
   | ListLabelingJobsCommandInput
   | ListLabelingJobsForWorkteamCommandInput
   | ListModelPackagesCommandInput
@@ -501,11 +545,13 @@ export type ServiceInputTypes =
   | StopProcessingJobCommandInput
   | StopTrainingJobCommandInput
   | StopTransformJobCommandInput
+  | UpdateAppImageConfigCommandInput
   | UpdateCodeRepositoryCommandInput
   | UpdateDomainCommandInput
   | UpdateEndpointCommandInput
   | UpdateEndpointWeightsAndCapacitiesCommandInput
   | UpdateExperimentCommandInput
+  | UpdateImageCommandInput
   | UpdateMonitoringScheduleCommandInput
   | UpdateNotebookInstanceCommandInput
   | UpdateNotebookInstanceLifecycleConfigCommandInput
@@ -520,6 +566,7 @@ export type ServiceOutputTypes =
   | AssociateTrialComponentCommandOutput
   | CreateAlgorithmCommandOutput
   | CreateAppCommandOutput
+  | CreateAppImageConfigCommandOutput
   | CreateAutoMLJobCommandOutput
   | CreateCodeRepositoryCommandOutput
   | CreateCompilationJobCommandOutput
@@ -530,6 +577,8 @@ export type ServiceOutputTypes =
   | CreateFlowDefinitionCommandOutput
   | CreateHumanTaskUiCommandOutput
   | CreateHyperParameterTuningJobCommandOutput
+  | CreateImageCommandOutput
+  | CreateImageVersionCommandOutput
   | CreateLabelingJobCommandOutput
   | CreateModelCommandOutput
   | CreateModelPackageCommandOutput
@@ -548,6 +597,7 @@ export type ServiceOutputTypes =
   | CreateWorkteamCommandOutput
   | DeleteAlgorithmCommandOutput
   | DeleteAppCommandOutput
+  | DeleteAppImageConfigCommandOutput
   | DeleteCodeRepositoryCommandOutput
   | DeleteDomainCommandOutput
   | DeleteEndpointCommandOutput
@@ -555,6 +605,8 @@ export type ServiceOutputTypes =
   | DeleteExperimentCommandOutput
   | DeleteFlowDefinitionCommandOutput
   | DeleteHumanTaskUiCommandOutput
+  | DeleteImageCommandOutput
+  | DeleteImageVersionCommandOutput
   | DeleteModelCommandOutput
   | DeleteModelPackageCommandOutput
   | DeleteMonitoringScheduleCommandOutput
@@ -568,6 +620,7 @@ export type ServiceOutputTypes =
   | DeleteWorkteamCommandOutput
   | DescribeAlgorithmCommandOutput
   | DescribeAppCommandOutput
+  | DescribeAppImageConfigCommandOutput
   | DescribeAutoMLJobCommandOutput
   | DescribeCodeRepositoryCommandOutput
   | DescribeCompilationJobCommandOutput
@@ -578,6 +631,8 @@ export type ServiceOutputTypes =
   | DescribeFlowDefinitionCommandOutput
   | DescribeHumanTaskUiCommandOutput
   | DescribeHyperParameterTuningJobCommandOutput
+  | DescribeImageCommandOutput
+  | DescribeImageVersionCommandOutput
   | DescribeLabelingJobCommandOutput
   | DescribeModelCommandOutput
   | DescribeModelPackageCommandOutput
@@ -596,6 +651,7 @@ export type ServiceOutputTypes =
   | DisassociateTrialComponentCommandOutput
   | GetSearchSuggestionsCommandOutput
   | ListAlgorithmsCommandOutput
+  | ListAppImageConfigsCommandOutput
   | ListAppsCommandOutput
   | ListAutoMLJobsCommandOutput
   | ListCandidatesForAutoMLJobCommandOutput
@@ -608,6 +664,8 @@ export type ServiceOutputTypes =
   | ListFlowDefinitionsCommandOutput
   | ListHumanTaskUisCommandOutput
   | ListHyperParameterTuningJobsCommandOutput
+  | ListImageVersionsCommandOutput
+  | ListImagesCommandOutput
   | ListLabelingJobsCommandOutput
   | ListLabelingJobsForWorkteamCommandOutput
   | ListModelPackagesCommandOutput
@@ -640,11 +698,13 @@ export type ServiceOutputTypes =
   | StopProcessingJobCommandOutput
   | StopTrainingJobCommandOutput
   | StopTransformJobCommandOutput
+  | UpdateAppImageConfigCommandOutput
   | UpdateCodeRepositoryCommandOutput
   | UpdateDomainCommandOutput
   | UpdateEndpointCommandOutput
   | UpdateEndpointWeightsAndCapacitiesCommandOutput
   | UpdateExperimentCommandOutput
+  | UpdateImageCommandOutput
   | UpdateMonitoringScheduleCommandOutput
   | UpdateNotebookInstanceCommandOutput
   | UpdateNotebookInstanceLifecycleConfigCommandOutput

@@ -1522,6 +1522,8 @@ export class Glue extends GlueClient {
 
   /**
    * <p>Delete the partition column statistics of a column.</p>
+   *
+   * 	        <p>The Identity and Access Management (IAM) permission required for this operation is <code>DeletePartition</code>.</p>
    */
   public deleteColumnStatisticsForPartition(
     args: DeleteColumnStatisticsForPartitionCommandInput,
@@ -1554,6 +1556,8 @@ export class Glue extends GlueClient {
 
   /**
    * <p>Retrieves table statistics of columns.</p>
+   *
+   * 	        <p>The Identity and Access Management (IAM) permission required for this operation is <code>DeleteTable</code>.</p>
    */
   public deleteColumnStatisticsForTable(
     args: DeleteColumnStatisticsForTableCommandInput,
@@ -2148,6 +2152,8 @@ export class Glue extends GlueClient {
 
   /**
    * <p>Retrieves partition statistics of columns.</p>
+   *
+   * 	        <p>The Identity and Access Management (IAM) permission required for this operation is <code>GetPartition</code>.</p>
    */
   public getColumnStatisticsForPartition(
     args: GetColumnStatisticsForPartitionCommandInput,
@@ -2180,6 +2186,8 @@ export class Glue extends GlueClient {
 
   /**
    * <p>Retrieves table statistics of columns.</p>
+   *
+   *          <p>The Identity and Access Management (IAM) permission required for this operation is <code>GetTable</code>.</p>
    */
   public getColumnStatisticsForTable(
     args: GetColumnStatisticsForTableCommandInput,
@@ -4464,6 +4472,8 @@ export class Glue extends GlueClient {
 
   /**
    * <p>Creates or updates partition statistics of columns.</p>
+   *
+   *          <p>The Identity and Access Management (IAM) permission required for this operation is <code>UpdatePartition</code>.</p>
    */
   public updateColumnStatisticsForPartition(
     args: UpdateColumnStatisticsForPartitionCommandInput,
@@ -4496,6 +4506,8 @@ export class Glue extends GlueClient {
 
   /**
    * <p>Creates or updates table statistics of columns.</p>
+   *
+   * 	        <p>The Identity and Access Management (IAM) permission required for this operation is <code>UpdateTable</code>.</p>
    */
   public updateColumnStatisticsForTable(
     args: UpdateColumnStatisticsForTableCommandInput,

@@ -4452,6 +4452,9 @@ const serializeAws_queryCreateTargetGroupInput = (input: CreateTargetGroupInput,
   if (input.UnhealthyThresholdCount !== undefined) {
     entries["UnhealthyThresholdCount"] = input.UnhealthyThresholdCount;
   }
+  if (input.ProtocolVersion !== undefined) {
+    entries["ProtocolVersion"] = input.ProtocolVersion;
+  }
   if (input.HealthCheckEnabled !== undefined) {
     entries["HealthCheckEnabled"] = input.HealthCheckEnabled;
   }
@@ -4897,6 +4900,9 @@ const serializeAws_queryMatcher = (input: Matcher, context: __SerdeContext): any
   const entries: any = {};
   if (input.HttpCode !== undefined) {
     entries["HttpCode"] = input.HttpCode;
+  }
+  if (input.GrpcCode !== undefined) {
+    entries["GrpcCode"] = input.GrpcCode;
   }
   return entries;
 };
@@ -6689,9 +6695,13 @@ const deserializeAws_queryLoadBalancerState = (output: any, context: __SerdeCont
 const deserializeAws_queryMatcher = (output: any, context: __SerdeContext): Matcher => {
   let contents: any = {
     HttpCode: undefined,
+    GrpcCode: undefined,
   };
   if (output["HttpCode"] !== undefined) {
     contents.HttpCode = output["HttpCode"];
+  }
+  if (output["GrpcCode"] !== undefined) {
+    contents.GrpcCode = output["GrpcCode"];
   }
   return contents;
 };
@@ -7212,6 +7222,7 @@ const deserializeAws_queryTargetGroup = (output: any, context: __SerdeContext): 
     HealthCheckTimeoutSeconds: undefined,
     HealthCheckPath: undefined,
     Port: undefined,
+    ProtocolVersion: undefined,
     UnhealthyThresholdCount: undefined,
     HealthCheckEnabled: undefined,
     Matcher: undefined,
@@ -7260,6 +7271,9 @@ const deserializeAws_queryTargetGroup = (output: any, context: __SerdeContext): 
   }
   if (output["Port"] !== undefined) {
     contents.Port = parseInt(output["Port"]);
+  }
+  if (output["ProtocolVersion"] !== undefined) {
+    contents.ProtocolVersion = output["ProtocolVersion"];
   }
   if (output["UnhealthyThresholdCount"] !== undefined) {
     contents.UnhealthyThresholdCount = parseInt(output["UnhealthyThresholdCount"]);

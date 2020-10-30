@@ -583,6 +583,416 @@ export namespace ServiceQuotaExceededException {
   });
 }
 
+export enum ConfluenceAttachmentFieldName {
+  AUTHOR = "AUTHOR",
+  CONTENT_TYPE = "CONTENT_TYPE",
+  CREATED_DATE = "CREATED_DATE",
+  DISPLAY_URL = "DISPLAY_URL",
+  FILE_SIZE = "FILE_SIZE",
+  ITEM_TYPE = "ITEM_TYPE",
+  PARENT_ID = "PARENT_ID",
+  SPACE_KEY = "SPACE_KEY",
+  SPACE_NAME = "SPACE_NAME",
+  URL = "URL",
+  VERSION = "VERSION",
+}
+
+/**
+ * <p>Defines the mapping between a field in the Confluence data source to a Amazon Kendra index
+ *             field.</p>
+ *         <p>You must first create the index field using the
+ *             operation. </p>
+ */
+export interface ConfluenceAttachmentToIndexFieldMapping {
+  /**
+   * <p>The format for date fields in the data source. If the field specified in
+   *                 <code>DataSourceFieldName</code> is a date field you must specify the date format.
+   *             If the field is not a date field, an exception is thrown.</p>
+   */
+  DateFieldFormat?: string;
+
+  /**
+   * <p>The name of the index field to map to the Confluence data source field. The index
+   *             field type must match the Confluence field type.</p>
+   */
+  IndexFieldName?: string;
+
+  /**
+   * <p>The name of the field in the data source. </p>
+   *         <p>You must first create the index field using the
+   *             operation. </p>
+   */
+  DataSourceFieldName?: ConfluenceAttachmentFieldName | string;
+}
+
+export namespace ConfluenceAttachmentToIndexFieldMapping {
+  export const filterSensitiveLog = (obj: ConfluenceAttachmentToIndexFieldMapping): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Specifies the attachment settings for the Confluence data source. Attachment settings
+ *             are optional, if you don't specify settings attachments, Amazon Kendra won't index them.</p>
+ */
+export interface ConfluenceAttachmentConfiguration {
+  /**
+   * <p>Indicates whether Amazon Kendra indexes attachments to the pages and blogs in the Confluence
+   *             data source. </p>
+   */
+  CrawlAttachments?: boolean;
+
+  /**
+   * <p>Defines how attachment metadata fields should be mapped to index fields. Before you
+   *             can map a field, you must first create an index field with a matching type using the
+   *             console or the <code>UpdateIndex</code> operation.</p>
+   *         <p>If you specify the <code>AttachentFieldMappings</code> parameter, you must specify at
+   *             least one field mapping.</p>
+   */
+  AttachmentFieldMappings?: ConfluenceAttachmentToIndexFieldMapping[];
+}
+
+export namespace ConfluenceAttachmentConfiguration {
+  export const filterSensitiveLog = (obj: ConfluenceAttachmentConfiguration): any => ({
+    ...obj,
+  });
+}
+
+export enum ConfluenceBlogFieldName {
+  AUTHOR = "AUTHOR",
+  DISPLAY_URL = "DISPLAY_URL",
+  ITEM_TYPE = "ITEM_TYPE",
+  LABELS = "LABELS",
+  PUBLISH_DATE = "PUBLISH_DATE",
+  SPACE_KEY = "SPACE_KEY",
+  SPACE_NAME = "SPACE_NAME",
+  URL = "URL",
+  VERSION = "VERSION",
+}
+
+/**
+ * <p>Defines the mapping between a blog field in the Confluence data source to a Amazon Kendra
+ *             index field.</p>
+ *         <p>You must first create the index field using the
+ *             operation. </p>
+ */
+export interface ConfluenceBlogToIndexFieldMapping {
+  /**
+   * <p>The name of the field in the data source. </p>
+   */
+  DataSourceFieldName?: ConfluenceBlogFieldName | string;
+
+  /**
+   * <p>The format for date fields in the data source. If the field specified in
+   *                 <code>DataSourceFieldName</code> is a date field you must specify the date format.
+   *             If the field is not a date field, an exception is thrown.</p>
+   */
+  DateFieldFormat?: string;
+
+  /**
+   * <p>The name of the index field to map to the Confluence data source field. The index
+   *             field type must match the Confluence field type.</p>
+   */
+  IndexFieldName?: string;
+}
+
+export namespace ConfluenceBlogToIndexFieldMapping {
+  export const filterSensitiveLog = (obj: ConfluenceBlogToIndexFieldMapping): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Specifies the blog settings for the Confluence data source. Blogs are always indexed
+ *             unless filtered from the index by the <code>ExclusionPatterns</code> or
+ *                 <code>InclusionPatterns</code> fields in the  data type.</p>
+ */
+export interface ConfluenceBlogConfiguration {
+  /**
+   * <p>Defines how blog metadata fields should be mapped to index fields. Before you can map
+   *             a field, you must first create an index field with a matching type using the console or
+   *             the <code>UpdateIndex</code> operation.</p>
+   *         <p>If you specify the <code>BlogFieldMappings</code> parameter, you must specify at least
+   *             one field mapping.</p>
+   */
+  BlogFieldMappings?: ConfluenceBlogToIndexFieldMapping[];
+}
+
+export namespace ConfluenceBlogConfiguration {
+  export const filterSensitiveLog = (obj: ConfluenceBlogConfiguration): any => ({
+    ...obj,
+  });
+}
+
+export enum ConfluencePageFieldName {
+  AUTHOR = "AUTHOR",
+  CONTENT_STATUS = "CONTENT_STATUS",
+  CREATED_DATE = "CREATED_DATE",
+  DISPLAY_URL = "DISPLAY_URL",
+  ITEM_TYPE = "ITEM_TYPE",
+  LABELS = "LABELS",
+  MODIFIED_DATE = "MODIFIED_DATE",
+  PARENT_ID = "PARENT_ID",
+  SPACE_KEY = "SPACE_KEY",
+  SPACE_NAME = "SPACE_NAME",
+  URL = "URL",
+  VERSION = "VERSION",
+}
+
+/**
+ * <p>Defines the mapping between a field in the Confluence data source to a Amazon Kendra index
+ *             field.</p>
+ *         <p>You must first create the index field using the
+ *             operation. </p>
+ */
+export interface ConfluencePageToIndexFieldMapping {
+  /**
+   * <p>The format for date fields in the data source. If the field specified in
+   *                 <code>DataSourceFieldName</code> is a date field you must specify the date format.
+   *             If the field is not a date field, an exception is thrown.</p>
+   */
+  DateFieldFormat?: string;
+
+  /**
+   * <p>The name of the field in the data source. </p>
+   */
+  DataSourceFieldName?: ConfluencePageFieldName | string;
+
+  /**
+   * <p>The name of the index field to map to the Confluence data source field. The index
+   *             field type must match the Confluence field type.</p>
+   */
+  IndexFieldName?: string;
+}
+
+export namespace ConfluencePageToIndexFieldMapping {
+  export const filterSensitiveLog = (obj: ConfluencePageToIndexFieldMapping): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Specifies the page settings for the Confluence data source.</p>
+ */
+export interface ConfluencePageConfiguration {
+  /**
+   * <p>Defines how page metadata fields should be mapped to index fields. Before you can map
+   *             a field, you must first create an index field with a matching type using the console or
+   *             the <code>UpdateIndex</code> operation.</p>
+   *         <p>If you specify the <code>PageFieldMappings</code> parameter, you must specify at least
+   *             one field mapping.</p>
+   */
+  PageFieldMappings?: ConfluencePageToIndexFieldMapping[];
+}
+
+export namespace ConfluencePageConfiguration {
+  export const filterSensitiveLog = (obj: ConfluencePageConfiguration): any => ({
+    ...obj,
+  });
+}
+
+export enum ConfluenceSpaceFieldName {
+  DISPLAY_URL = "DISPLAY_URL",
+  ITEM_TYPE = "ITEM_TYPE",
+  SPACE_KEY = "SPACE_KEY",
+  URL = "URL",
+}
+
+/**
+ * <p>Defines the mapping between a field in the Confluence data source to a Amazon Kendra index
+ *             field.</p>
+ *         <p>You must first create the index field using the
+ *             operation. </p>
+ */
+export interface ConfluenceSpaceToIndexFieldMapping {
+  /**
+   * <p>The format for date fields in the data source. If the field specified in
+   *                 <code>DataSourceFieldName</code> is a date field you must specify the date format.
+   *             If the field is not a date field, an exception is thrown.</p>
+   */
+  DateFieldFormat?: string;
+
+  /**
+   * <p>The name of the field in the data source. </p>
+   */
+  DataSourceFieldName?: ConfluenceSpaceFieldName | string;
+
+  /**
+   * <p>The name of the index field to map to the Confluence data source field. The index
+   *             field type must match the Confluence field type.</p>
+   */
+  IndexFieldName?: string;
+}
+
+export namespace ConfluenceSpaceToIndexFieldMapping {
+  export const filterSensitiveLog = (obj: ConfluenceSpaceToIndexFieldMapping): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Specifies the configuration for indexing Confluence spaces.</p>
+ */
+export interface ConfluenceSpaceConfiguration {
+  /**
+   * <p>Specifies whether Amazon Kendra should index personal spaces. Users can add restrictions to
+   *             items in personal spaces. If personal spaces are indexed, queries without user context
+   *             information may return restricted items from a personal space in their results. For more
+   *             information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/user-context-filter.html">Filtering on user context</a>.</p>
+   */
+  CrawlPersonalSpaces?: boolean;
+
+  /**
+   * <p>A list of space keys of Confluence spaces. If you include a key, the blogs, documents,
+   *             and attachments in the space are not indexed. If a space is in both the
+   *                 <code>ExcludeSpaces</code> and the <code>IncludeSpaces</code> list, the space is
+   *             excluded.</p>
+   */
+  ExcludeSpaces?: string[];
+
+  /**
+   * <p>Defines how space metadata fields should be mapped to index fields. Before you can map
+   *             a field, you must first create an index field with a matching type using the console or
+   *             the <code>UpdateIndex</code> operation.</p>
+   *         <p>If you specify the <code>SpaceFieldMappings</code> parameter, you must specify at
+   *             least one field mapping.</p>
+   */
+  SpaceFieldMappings?: ConfluenceSpaceToIndexFieldMapping[];
+
+  /**
+   * <p>A list of space keys for Confluence spaces. If you include a key, the blogs,
+   *             documents, and attachments in the space are indexed. Spaces that aren't in the list
+   *             aren't indexed. A space in the list must exist. Otherwise, Amazon Kendra logs an error when the
+   *             data source is synchronized. If a space is in both the <code>IncludeSpaces</code> and
+   *             the <code>ExcludeSpaces</code> list, the space is excluded.</p>
+   */
+  IncludeSpaces?: string[];
+
+  /**
+   * <p>Specifies whether Amazon Kendra should index archived spaces.</p>
+   */
+  CrawlArchivedSpaces?: boolean;
+}
+
+export namespace ConfluenceSpaceConfiguration {
+  export const filterSensitiveLog = (obj: ConfluenceSpaceConfiguration): any => ({
+    ...obj,
+  });
+}
+
+export enum ConfluenceVersion {
+  SERVER = "SERVER",
+}
+
+/**
+ * <p>Provides information for connecting to an Amazon VPC.</p>
+ */
+export interface DataSourceVpcConfiguration {
+  /**
+   * <p>A list of identifiers of security groups within your Amazon VPC. The security groups
+   *             should enable Amazon Kendra to connect to the data source.</p>
+   */
+  SecurityGroupIds: string[] | undefined;
+
+  /**
+   * <p>A list of identifiers for subnets within your Amazon VPC. The subnets should be able
+   *             to connect to each other in the VPC, and they should have outgoing access to the
+   *             Internet through a NAT device.</p>
+   */
+  SubnetIds: string[] | undefined;
+}
+
+export namespace DataSourceVpcConfiguration {
+  export const filterSensitiveLog = (obj: DataSourceVpcConfiguration): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Provides configuration information for data sources that connect to Confluence.</p>
+ */
+export interface ConfluenceConfiguration {
+  /**
+   * <p>A list of regular expression patterns that apply to a URL on the Confluence server. An
+   *             exclusion pattern can apply to a blog post, a page, a space, or an attachment. Items
+   *             that match the pattern are excluded from the index. Items that don't match the pattern
+   *             are included in the index. If a item matches both an exclusion pattern and an inclusion
+   *             pattern, the item isn't included in the index.</p>
+   */
+  ExclusionPatterns?: string[];
+
+  /**
+   * <p>Specifies configuration information for indexing Confluence pages.</p>
+   */
+  PageConfiguration?: ConfluencePageConfiguration;
+
+  /**
+   * <p>Specifies configuration information for indexing attachments to Confluence blogs and
+   *             pages.</p>
+   */
+  AttachmentConfiguration?: ConfluenceAttachmentConfiguration;
+
+  /**
+   * <p>Specifies configuration information for indexing Confluence spaces.</p>
+   */
+  SpaceConfiguration?: ConfluenceSpaceConfiguration;
+
+  /**
+   * <p> Specifies configuration information for indexing Confluence blogs.</p>
+   */
+  BlogConfiguration?: ConfluenceBlogConfiguration;
+
+  /**
+   * <p>The URL of your Confluence instance. Use the full URL of the server. For example,
+   *                 <code>https://server.example.com:port/</code>. You can also use an IP address, for
+   *             example, <code>https://192.168.1.113/</code>.</p>
+   */
+  ServerUrl: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of an AWS Secrets Manager secret that contains the
+   *             key/value pairs required to connect to your Confluence server. The secret must contain a
+   *             JSON structure with the following keys:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>username - The user name of a user with administrative privileges for the
+   *                     Confluence server.</p>
+   *             </li>
+   *             <li>
+   *                 <p>password - The password associated with the user logging in to the Confluence
+   *                     server.</p>
+   *             </li>
+   *          </ul>
+   */
+  SecretArn: string | undefined;
+
+  /**
+   * <p>Specifies the version of the Confluence installation that you are connecting
+   *             to.</p>
+   */
+  Version: ConfluenceVersion | string | undefined;
+
+  /**
+   * <p>Specifies the information for connecting to an Amazon VPC.</p>
+   */
+  VpcConfiguration?: DataSourceVpcConfiguration;
+
+  /**
+   * <p>A list of regular expression patterns that apply to a URL on the Confluence server. An
+   *             inclusion pattern can apply to a blog post, a page, a space, or an attachment. Items
+   *             that match the patterns are included in the index. Items that don't match the pattern
+   *             are excluded from the index. If an item matches both an inclusion pattern and an
+   *             exclusion pattern, the item isn't included in the index.</p>
+   */
+  InclusionPatterns?: string[];
+}
+
+export namespace ConfluenceConfiguration {
+  export const filterSensitiveLog = (obj: ConfluenceConfiguration): any => ({
+    ...obj,
+  });
+}
+
 /**
  * <p>Maps a column or attribute in the data source to an index field. You must first create
  *             the fields in the index using the <a>UpdateIndex</a> operation.</p>
@@ -723,30 +1133,6 @@ export interface SqlConfiguration {
 
 export namespace SqlConfiguration {
   export const filterSensitiveLog = (obj: SqlConfiguration): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Provides information for connecting to an Amazon VPC.</p>
- */
-export interface DataSourceVpcConfiguration {
-  /**
-   * <p>A list of identifiers of security groups within your Amazon VPC. The security groups
-   *             should enable Amazon Kendra to connect to the data source.</p>
-   */
-  SecurityGroupIds: string[] | undefined;
-
-  /**
-   * <p>A list of identifiers for subnets within your Amazon VPC. The subnets should be able
-   *             to connect to each other in the VPC, and they should have outgoing access to the
-   *             Internet through a NAT device.</p>
-   */
-  SubnetIds: string[] | undefined;
-}
-
-export namespace DataSourceVpcConfiguration {
-  export const filterSensitiveLog = (obj: DataSourceVpcConfiguration): any => ({
     ...obj,
   });
 }
@@ -1526,6 +1912,11 @@ export interface DataSourceConfiguration {
    * <p>Provides configuration for data sources that connect to ServiceNow instances.</p>
    */
   ServiceNowConfiguration?: ServiceNowConfiguration;
+
+  /**
+   * <p>Provides configuration information for connecting to a Confluence data source.</p>
+   */
+  ConfluenceConfiguration?: ConfluenceConfiguration;
 }
 
 export namespace DataSourceConfiguration {
@@ -1560,6 +1951,7 @@ export namespace Tag {
 }
 
 export enum DataSourceType {
+  CONFLUENCE = "CONFLUENCE",
   CUSTOM = "CUSTOM",
   DATABASE = "DATABASE",
   ONEDRIVE = "ONEDRIVE",
