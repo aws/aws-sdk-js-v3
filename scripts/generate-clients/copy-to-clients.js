@@ -97,7 +97,7 @@ const copyToClients = async (sourceDir, destinationDir) => {
         };
         writeFileSync(destSubPath, JSON.stringify(mergedManifest, null, 2).concat(`\n`));
       } else if (["src", "tests", "LICENSE"].includes(packageSub) || !existsSync(destSubPath)) {
-        if (packageSub === "src") {
+        if (existsSync(destSubPath) && packageSub === "src") {
           // Remove only non-tests from src folder
           for (const fileName of readdirSync(destSubPath)) {
             if (["test", "e2e"].includes(fileName)) continue;
