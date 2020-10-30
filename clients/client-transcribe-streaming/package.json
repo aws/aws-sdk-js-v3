@@ -15,7 +15,7 @@
     "build:cjs": "tsc -p tsconfig.json",
     "build:es": "tsc -p tsconfig.es.json",
     "build": "yarn build:cjs && yarn build:es",
-    "postbuild": "cp src/test/speech.wav dist/cjs/test"
+    "postbuild": "cp src/test/speech.wav dist-cjs/test"
   },
   "main": "./dist/cjs/index.js",
   "types": "./types/index.d.ts",
