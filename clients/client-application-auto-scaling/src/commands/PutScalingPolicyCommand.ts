@@ -1,0 +1,86 @@
+import {
+  ApplicationAutoScalingClientResolvedConfig,
+  ServiceInputTypes,
+  ServiceOutputTypes,
+} from "../ApplicationAutoScalingClient";
+import { PutScalingPolicyRequest, PutScalingPolicyResponse } from "../models/models_0";
+import {
+  deserializeAws_json1_1PutScalingPolicyCommand,
+  serializeAws_json1_1PutScalingPolicyCommand,
+} from "../protocols/Aws_json1_1";
+import { getSerdePlugin } from "@aws-sdk/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
+import { Command as $Command } from "@aws-sdk/smithy-client";
+import {
+  FinalizeHandlerArguments,
+  Handler,
+  HandlerExecutionContext,
+  MiddlewareStack,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
+  SerdeContext as __SerdeContext,
+} from "@aws-sdk/types";
+
+export type PutScalingPolicyCommandInput = PutScalingPolicyRequest;
+export type PutScalingPolicyCommandOutput = PutScalingPolicyResponse & __MetadataBearer;
+
+export class PutScalingPolicyCommand extends $Command<
+  PutScalingPolicyCommandInput,
+  PutScalingPolicyCommandOutput,
+  ApplicationAutoScalingClientResolvedConfig
+> {
+  // Start section: command_properties
+  // End section: command_properties
+
+  constructor(readonly input: PutScalingPolicyCommandInput) {
+    // Start section: command_constructor
+    super();
+    // End section: command_constructor
+  }
+
+  resolveMiddleware(
+    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
+    configuration: ApplicationAutoScalingClientResolvedConfig,
+    options?: __HttpHandlerOptions
+  ): Handler<PutScalingPolicyCommandInput, PutScalingPolicyCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+
+    const stack = clientStack.concat(this.middlewareStack);
+
+    const { logger } = configuration;
+    const clientName = "ApplicationAutoScalingClient";
+    const commandName = "PutScalingPolicyCommand";
+    const handlerExecutionContext: HandlerExecutionContext = {
+      logger,
+      clientName,
+      commandName,
+      inputFilterSensitiveLog: PutScalingPolicyRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: PutScalingPolicyResponse.filterSensitiveLog,
+    };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
+    const { requestHandler } = configuration;
+    return stack.resolve(
+      (request: FinalizeHandlerArguments<any>) =>
+        requestHandler.handle(request.request as __HttpRequest, options || {}),
+      handlerExecutionContext
+    );
+  }
+
+  private serialize(input: PutScalingPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_json1_1PutScalingPolicyCommand(input, context);
+  }
+
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutScalingPolicyCommandOutput> {
+    return deserializeAws_json1_1PutScalingPolicyCommand(output, context);
+  }
+
+  // Start section: command_body_extra
+  // End section: command_body_extra
+}
