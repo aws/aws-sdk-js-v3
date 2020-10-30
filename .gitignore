@@ -25,7 +25,8 @@ lerna-debug.log
 package-lock.json
 
 !serviceModels/logs
-dist
+dist-cjs
+dist-es
 
 .idea/
 *.iml
@@ -38,11 +39,9 @@ codegen/sdk-codegen/smithy-build.json
 */*/out/
 
 protocol_tests/*/coverage
-protocol_tests/*/dist
 protocol_tests/*/types
 
 lib/*/coverage
-lib/*/dist
 lib/*/types
 
 /verdaccio/*
