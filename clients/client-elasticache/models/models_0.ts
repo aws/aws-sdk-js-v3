@@ -7,14 +7,14 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
  */
 export interface Tag {
   /**
-   * <p>The tag's value. May be null.</p>
-   */
-  Value?: string;
-
-  /**
    * <p>The key for the tag. May not be null.</p>
    */
   Key?: string;
+
+  /**
+   * <p>The tag's value. May be null.</p>
+   */
+  Value?: string;
 }
 
 export namespace Tag {
@@ -28,6 +28,12 @@ export namespace Tag {
  */
 export interface AddTagsToResourceMessage {
   /**
+   * <p>A list of cost allocation tags to be added to this resource. A tag is a key-value pair.
+   *           A tag key must be accompanied by a tag value.</p>
+   */
+  Tags: Tag[] | undefined;
+
+  /**
    * <p>The Amazon Resource Name (ARN) of the resource to which the tags are to be added,
    *             for example <code>arn:aws:elasticache:us-west-2:0123456789:cluster:myCluster</code>
    *             or <code>arn:aws:elasticache:us-west-2:0123456789:snapshot:mySnapshot</code>.
@@ -35,12 +41,6 @@ export interface AddTagsToResourceMessage {
    *         <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and AWS Service Namespaces</a>.</p>
    */
   ResourceName: string | undefined;
-
-  /**
-   * <p>A list of cost allocation tags to be added to this resource. A tag is a key-value pair.
-   *           A tag key must be accompanied by a tag value.</p>
-   */
-  Tags: Tag[] | undefined;
 }
 
 export namespace AddTagsToResourceMessage {
@@ -173,11 +173,9 @@ export namespace AuthorizationAlreadyExistsFault {
  */
 export interface AuthorizeCacheSecurityGroupIngressMessage {
   /**
-   * <p>The AWS account number of the Amazon EC2 security group owner.
-   *             Note that this is not the same thing as an AWS access key ID -
-   *             you must provide a valid AWS account number for this parameter.</p>
+   * <p>The cache security group that allows network ingress.</p>
    */
-  EC2SecurityGroupOwnerId: string | undefined;
+  CacheSecurityGroupName: string | undefined;
 
   /**
    * <p>The Amazon EC2 security group to be authorized for ingress to the cache security group.</p>
@@ -185,9 +183,11 @@ export interface AuthorizeCacheSecurityGroupIngressMessage {
   EC2SecurityGroupName: string | undefined;
 
   /**
-   * <p>The cache security group that allows network ingress.</p>
+   * <p>The AWS account number of the Amazon EC2 security group owner.
+   *             Note that this is not the same thing as an AWS access key ID -
+   *             you must provide a valid AWS account number for this parameter.</p>
    */
-  CacheSecurityGroupName: string | undefined;
+  EC2SecurityGroupOwnerId: string | undefined;
 }
 
 export namespace AuthorizeCacheSecurityGroupIngressMessage {
@@ -201,14 +201,14 @@ export namespace AuthorizeCacheSecurityGroupIngressMessage {
  */
 export interface EC2SecurityGroup {
   /**
-   * <p>The status of the Amazon EC2 security group.</p>
-   */
-  Status?: string;
-
-  /**
    * <p>The AWS account ID of the Amazon EC2 security group owner.</p>
    */
   EC2SecurityGroupOwnerId?: string;
+
+  /**
+   * <p>The status of the Amazon EC2 security group.</p>
+   */
+  Status?: string;
 
   /**
    * <p>The name of the Amazon EC2 security group.</p>
@@ -244,14 +244,14 @@ export namespace EC2SecurityGroup {
  */
 export interface CacheSecurityGroup {
   /**
+   * <p>A list of Amazon EC2 security groups that are associated with this cache security group.</p>
+   */
+  EC2SecurityGroups?: EC2SecurityGroup[];
+
+  /**
    * <p>The description of the cache security group.</p>
    */
   Description?: string;
-
-  /**
-   * <p>The name of the cache security group.</p>
-   */
-  CacheSecurityGroupName?: string;
 
   /**
    * <p>The AWS account ID of the cache security group owner.</p>
@@ -259,9 +259,9 @@ export interface CacheSecurityGroup {
   OwnerId?: string;
 
   /**
-   * <p>A list of Amazon EC2 security groups that are associated with this cache security group.</p>
+   * <p>The name of the cache security group.</p>
    */
-  EC2SecurityGroups?: EC2SecurityGroup[];
+  CacheSecurityGroupName?: string;
 
   /**
    * <p>The ARN of the cache security group,</p>
@@ -373,14 +373,14 @@ export namespace InvalidParameterValueException {
 
 export interface BatchApplyUpdateActionMessage {
   /**
-   * <p>The cache cluster IDs</p>
-   */
-  CacheClusterIds?: string[];
-
-  /**
    * <p>The unique ID of the service update</p>
    */
   ServiceUpdateName: string | undefined;
+
+  /**
+   * <p>The cache cluster IDs</p>
+   */
+  CacheClusterIds?: string[];
 
   /**
    * <p>The replication group IDs</p>
@@ -426,14 +426,9 @@ export enum UpdateActionStatus {
  */
 export interface ProcessedUpdateAction {
   /**
-   * <p>The ID of the replication group</p>
+   * <p>The ID of the cache cluster</p>
    */
-  ReplicationGroupId?: string;
-
-  /**
-   * <p>The unique ID of the service update</p>
-   */
-  ServiceUpdateName?: string;
+  CacheClusterId?: string;
 
   /**
    * <p>The status of the update action on the Redis cluster</p>
@@ -441,9 +436,14 @@ export interface ProcessedUpdateAction {
   UpdateActionStatus?: UpdateActionStatus | string;
 
   /**
-   * <p>The ID of the cache cluster</p>
+   * <p>The unique ID of the service update</p>
    */
-  CacheClusterId?: string;
+  ServiceUpdateName?: string;
+
+  /**
+   * <p>The ID of the replication group</p>
+   */
+  ReplicationGroupId?: string;
 }
 
 export namespace ProcessedUpdateAction {
@@ -457,9 +457,9 @@ export namespace ProcessedUpdateAction {
  */
 export interface UnprocessedUpdateAction {
   /**
-   * <p>The replication group ID</p>
+   * <p>The error message that describes the reason the request was not processed</p>
    */
-  ReplicationGroupId?: string;
+  ErrorMessage?: string;
 
   /**
    * <p>The ID of the cache cluster</p>
@@ -477,9 +477,9 @@ export interface UnprocessedUpdateAction {
   ServiceUpdateName?: string;
 
   /**
-   * <p>The error message that describes the reason the request was not processed</p>
+   * <p>The replication group ID</p>
    */
-  ErrorMessage?: string;
+  ReplicationGroupId?: string;
 }
 
 export namespace UnprocessedUpdateAction {
@@ -490,14 +490,14 @@ export namespace UnprocessedUpdateAction {
 
 export interface UpdateActionResultsMessage {
   /**
-   * <p>Update actions that haven't been processed successfully</p>
-   */
-  UnprocessedUpdateActions?: UnprocessedUpdateAction[];
-
-  /**
    * <p>Update actions that have been processed successfully</p>
    */
   ProcessedUpdateActions?: ProcessedUpdateAction[];
+
+  /**
+   * <p>Update actions that haven't been processed successfully</p>
+   */
+  UnprocessedUpdateActions?: UnprocessedUpdateAction[];
 }
 
 export namespace UpdateActionResultsMessage {
@@ -513,14 +513,14 @@ export interface BatchStopUpdateActionMessage {
   CacheClusterIds?: string[];
 
   /**
-   * <p>The unique ID of the service update</p>
-   */
-  ServiceUpdateName: string | undefined;
-
-  /**
    * <p>The replication group IDs</p>
    */
   ReplicationGroupIds?: string[];
+
+  /**
+   * <p>The unique ID of the service update</p>
+   */
+  ServiceUpdateName: string | undefined;
 }
 
 export namespace BatchStopUpdateActionMessage {
@@ -531,14 +531,14 @@ export namespace BatchStopUpdateActionMessage {
 
 export interface CompleteMigrationMessage {
   /**
-   * <p>The ID of the replication group to which data is being migrated.</p>
-   */
-  ReplicationGroupId: string | undefined;
-
-  /**
    * <p>Forces the migration to stop without ensuring that data is in sync. It is recommended to use this option only to abort the migration and not recommended when application wants to continue migration to ElastiCache.</p>
    */
   Force?: boolean;
+
+  /**
+   * <p>The ID of the replication group to which data is being migrated.</p>
+   */
+  ReplicationGroupId: string | undefined;
 }
 
 export namespace CompleteMigrationMessage {
@@ -580,14 +580,14 @@ export namespace Endpoint {
  */
 export interface GlobalReplicationGroupInfo {
   /**
-   * <p>The name of the Global Datastore</p>
-   */
-  GlobalReplicationGroupId?: string;
-
-  /**
    * <p>The role of the replication group in a Global Datastore. Can be primary or secondary.</p>
    */
   GlobalReplicationGroupMemberRole?: string;
+
+  /**
+   * <p>The name of the Global Datastore</p>
+   */
+  GlobalReplicationGroupId?: string;
 }
 
 export namespace GlobalReplicationGroupInfo {
@@ -606,16 +606,14 @@ export enum MultiAZStatus {
  */
 export interface NodeGroupMember {
   /**
-   * <p>The role that is currently assigned to the node - <code>primary</code> or
-   *             <code>replica</code>. This member is only applicable for Redis (cluster mode disabled)
-   *             replication groups.</p>
+   * <p>The outpost ARN of the node group member.</p>
    */
-  CurrentRole?: string;
+  PreferredOutpostArn?: string;
 
   /**
-   * <p>The ID of the cluster to which the node belongs.</p>
+   * <p>The ID of the node within its cluster. A node ID is a numeric identifier (0001, 0002, etc.).</p>
    */
-  CacheClusterId?: string;
+  CacheNodeId?: string;
 
   /**
    * <p>The name of the Availability Zone in which the node is located.</p>
@@ -629,14 +627,16 @@ export interface NodeGroupMember {
   ReadEndpoint?: Endpoint;
 
   /**
-   * <p>The outpost ARN of the node group member.</p>
+   * <p>The role that is currently assigned to the node - <code>primary</code> or
+   *             <code>replica</code>. This member is only applicable for Redis (cluster mode disabled)
+   *             replication groups.</p>
    */
-  PreferredOutpostArn?: string;
+  CurrentRole?: string;
 
   /**
-   * <p>The ID of the node within its cluster. A node ID is a numeric identifier (0001, 0002, etc.).</p>
+   * <p>The ID of the cluster to which the node belongs.</p>
    */
-  CacheNodeId?: string;
+  CacheClusterId?: string;
 }
 
 export namespace NodeGroupMember {
@@ -652,6 +652,18 @@ export namespace NodeGroupMember {
  */
 export interface NodeGroup {
   /**
+   * <p>The identifier for the node group (shard). A Redis (cluster mode disabled) replication group contains only 1 node group; therefore, the node group ID is 0001.
+   *             A Redis (cluster mode enabled) replication group contains 1 to 90 node groups numbered 0001 to 0090. Optionally, the user can provide the id for
+   *             a node group. </p>
+   */
+  NodeGroupId?: string;
+
+  /**
+   * <p>The endpoint of the primary node in this node group (shard).</p>
+   */
+  PrimaryEndpoint?: Endpoint;
+
+  /**
    * <p>The current state of this replication group - <code>creating</code>,
    *             <code>available</code>, <code>modifying</code>, <code>deleting</code>.</p>
    */
@@ -663,26 +675,14 @@ export interface NodeGroup {
   ReaderEndpoint?: Endpoint;
 
   /**
-   * <p>The endpoint of the primary node in this node group (shard).</p>
+   * <p>The keyspace for this node group (shard).</p>
    */
-  PrimaryEndpoint?: Endpoint;
-
-  /**
-   * <p>The identifier for the node group (shard). A Redis (cluster mode disabled) replication group contains only 1 node group; therefore, the node group ID is 0001.
-   *             A Redis (cluster mode enabled) replication group contains 1 to 90 node groups numbered 0001 to 0090. Optionally, the user can provide the id for
-   *             a node group. </p>
-   */
-  NodeGroupId?: string;
+  Slots?: string;
 
   /**
    * <p>A list containing information about individual nodes within the node group (shard).</p>
    */
   NodeGroupMembers?: NodeGroupMember[];
-
-  /**
-   * <p>The keyspace for this node group (shard).</p>
-   */
-  Slots?: string;
 }
 
 export namespace NodeGroup {
@@ -735,14 +735,14 @@ export namespace ReshardingStatus {
  */
 export interface UserGroupsUpdateStatus {
   /**
-   * <p>The list of user group IDs to remove.</p>
-   */
-  UserGroupIdsToRemove?: string[];
-
-  /**
    * <p>The list of user group IDs to add.</p>
    */
   UserGroupIdsToAdd?: string[];
+
+  /**
+   * <p>The list of user group IDs to remove.</p>
+   */
+  UserGroupIdsToRemove?: string[];
 }
 
 export namespace UserGroupsUpdateStatus {
@@ -757,22 +757,6 @@ export namespace UserGroupsUpdateStatus {
  */
 export interface ReplicationGroupPendingModifiedValues {
   /**
-   * <p>The primary cluster ID that is applied immediately (if <code>--apply-immediately</code>
-   *             was specified), or during the next maintenance window.</p>
-   */
-  PrimaryClusterId?: string;
-
-  /**
-   * <p>The status of an online resharding operation.</p>
-   */
-  Resharding?: ReshardingStatus;
-
-  /**
-   * <p>The auth token status</p>
-   */
-  AuthTokenStatus?: AuthTokenUpdateStatus | string;
-
-  /**
    * <p>The user groups being modified.</p>
    */
   UserGroups?: UserGroupsUpdateStatus;
@@ -781,6 +765,22 @@ export interface ReplicationGroupPendingModifiedValues {
    * <p>Indicates the status of automatic failover for this Redis replication group.</p>
    */
   AutomaticFailoverStatus?: PendingAutomaticFailoverStatus | string;
+
+  /**
+   * <p>The auth token status</p>
+   */
+  AuthTokenStatus?: AuthTokenUpdateStatus | string;
+
+  /**
+   * <p>The status of an online resharding operation.</p>
+   */
+  Resharding?: ReshardingStatus;
+
+  /**
+   * <p>The primary cluster ID that is applied immediately (if <code>--apply-immediately</code>
+   *             was specified), or during the next maintenance window.</p>
+   */
+  PrimaryClusterId?: string;
 }
 
 export namespace ReplicationGroupPendingModifiedValues {
@@ -794,26 +794,51 @@ export namespace ReplicationGroupPendingModifiedValues {
  */
 export interface ReplicationGroup {
   /**
-   * <p>A group of settings to be applied to the replication group,
-   *             either immediately or during the next maintenance window.</p>
+   * <p>A flag indicating if you have Multi-AZ enabled to enhance fault tolerance. For more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/AutoFailover.html">Minimizing Downtime: Multi-AZ</a>
+   *          </p>
    */
-  PendingModifiedValues?: ReplicationGroupPendingModifiedValues;
+  MultiAZ?: MultiAZStatus | string;
 
   /**
-   * <p>The date the auth token was last modified</p>
+   * <p>The name of the Global Datastore and role of this replication group in the Global Datastore.</p>
    */
-  AuthTokenLastModifiedDate?: Date;
+  GlobalReplicationGroupInfo?: GlobalReplicationGroupInfo;
 
   /**
-   * <p>The number of days for which ElastiCache retains automatic cluster snapshots before
-   *             deleting them. For example, if you set <code>SnapshotRetentionLimit</code> to 5, a
-   *             snapshot that was taken today is retained for 5 days before being deleted.</p>
-   *         <important>
-   *             <p>
-   *             If the value of <code>SnapshotRetentionLimit</code> is set to zero (0), backups are turned off.</p>
-   *          </important>
+   * <p>The user supplied description of the replication group.</p>
    */
-  SnapshotRetentionLimit?: number;
+  Description?: string;
+
+  /**
+   * <p>The ARN (Amazon Resource Name) of the replication group.</p>
+   */
+  ARN?: string;
+
+  /**
+   * <p>The names of all the cache clusters that are part of this replication group.</p>
+   */
+  MemberClusters?: string[];
+
+  /**
+   * <p>The identifier for the replication group.</p>
+   */
+  ReplicationGroupId?: string;
+
+  /**
+   * <p>The current state of this replication group -
+   *             <code>creating</code>,
+   *             <code>available</code>,
+   *             <code>modifying</code>,
+   *             <code>deleting</code>,
+   *             <code>create-failed</code>,
+   *             <code>snapshotting</code>.</p>
+   */
+  Status?: string;
+
+  /**
+   * <p>The name of the compute and memory capacity node type for each node in the replication group.</p>
+   */
+  CacheNodeType?: string;
 
   /**
    * <p>The daily time range (in UTC) during which ElastiCache  begins taking a daily snapshot of your node group (shard).</p>
@@ -837,9 +862,12 @@ export interface ReplicationGroup {
   SnapshottingClusterId?: string;
 
   /**
-   * <p>The name of the compute and memory capacity node type for each node in the replication group.</p>
+   * <p>A flag that enables using an <code>AuthToken</code> (password)
+   *             when issuing Redis commands.</p>
+   *         <p>Default: <code>false</code>
+   *          </p>
    */
-  CacheNodeType?: string;
+  AuthTokenEnabled?: boolean;
 
   /**
    * <p>A flag that enables in-transit encryption when set to <code>true</code>.</p>
@@ -864,54 +892,9 @@ export interface ReplicationGroup {
   ClusterEnabled?: boolean;
 
   /**
-   * <p>The identifier for the replication group.</p>
+   * <p>The outpost ARNs of the replication group's member clusters.</p>
    */
-  ReplicationGroupId?: string;
-
-  /**
-   * <p>The names of all the cache clusters that are part of this replication group.</p>
-   */
-  MemberClusters?: string[];
-
-  /**
-   * <p>The current state of this replication group -
-   *             <code>creating</code>,
-   *             <code>available</code>,
-   *             <code>modifying</code>,
-   *             <code>deleting</code>,
-   *             <code>create-failed</code>,
-   *             <code>snapshotting</code>.</p>
-   */
-  Status?: string;
-
-  /**
-   * <p>A flag indicating if you have Multi-AZ enabled to enhance fault tolerance. For more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/AutoFailover.html">Minimizing Downtime: Multi-AZ</a>
-   *          </p>
-   */
-  MultiAZ?: MultiAZStatus | string;
-
-  /**
-   * <p>The ID of the KMS key used to encrypt the disk in the cluster.</p>
-   */
-  KmsKeyId?: string;
-
-  /**
-   * <p>The ARN (Amazon Resource Name) of the replication group.</p>
-   */
-  ARN?: string;
-
-  /**
-   * <p>A list of node groups in this replication group.
-   *             For Redis (cluster mode disabled) replication groups, this is a single-element list.
-   *             For Redis (cluster mode enabled) replication groups, the list contains an entry for each
-   *             node group (shard).</p>
-   */
-  NodeGroups?: NodeGroup[];
-
-  /**
-   * <p>The user supplied description of the replication group.</p>
-   */
-  Description?: string;
+  MemberClustersOutpostArns?: string[];
 
   /**
    * <p>A flag that enables encryption at-rest when set to <code>true</code>.</p>
@@ -928,22 +911,39 @@ export interface ReplicationGroup {
   AtRestEncryptionEnabled?: boolean;
 
   /**
-   * <p>The name of the Global Datastore and role of this replication group in the Global Datastore.</p>
+   * <p>The date the auth token was last modified</p>
    */
-  GlobalReplicationGroupInfo?: GlobalReplicationGroupInfo;
+  AuthTokenLastModifiedDate?: Date;
 
   /**
-   * <p>The outpost ARNs of the replication group's member clusters.</p>
+   * <p>The ID of the KMS key used to encrypt the disk in the cluster.</p>
    */
-  MemberClustersOutpostArns?: string[];
+  KmsKeyId?: string;
 
   /**
-   * <p>A flag that enables using an <code>AuthToken</code> (password)
-   *             when issuing Redis commands.</p>
-   *         <p>Default: <code>false</code>
-   *          </p>
+   * <p>A group of settings to be applied to the replication group,
+   *             either immediately or during the next maintenance window.</p>
    */
-  AuthTokenEnabled?: boolean;
+  PendingModifiedValues?: ReplicationGroupPendingModifiedValues;
+
+  /**
+   * <p>A list of node groups in this replication group.
+   *             For Redis (cluster mode disabled) replication groups, this is a single-element list.
+   *             For Redis (cluster mode enabled) replication groups, the list contains an entry for each
+   *             node group (shard).</p>
+   */
+  NodeGroups?: NodeGroup[];
+
+  /**
+   * <p>The number of days for which ElastiCache retains automatic cluster snapshots before
+   *             deleting them. For example, if you set <code>SnapshotRetentionLimit</code> to 5, a
+   *             snapshot that was taken today is retained for 5 days before being deleted.</p>
+   *         <important>
+   *             <p>
+   *             If the value of <code>SnapshotRetentionLimit</code> is set to zero (0), backups are turned off.</p>
+   *          </important>
+   */
+  SnapshotRetentionLimit?: number;
 
   /**
    * <p>The configuration endpoint for this replication group.
@@ -1026,20 +1026,25 @@ export namespace ReplicationGroupNotUnderMigrationFault {
  */
 export interface CopySnapshotMessage {
   /**
+   * <p>The Amazon S3 bucket to which the snapshot is exported.
+   *             This parameter is used only when exporting a snapshot for external access.</p>
+   *         <p>When using this parameter to export a snapshot,
+   *             be sure Amazon ElastiCache has the needed permissions to this S3 bucket.
+   *             For more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/backups-exporting.html#backups-exporting-grant-access">Step 2: Grant ElastiCache Access to Your Amazon S3 Bucket</a> in the <i>Amazon ElastiCache User Guide</i>.</p>
+   *
+   *         <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Snapshots.Exporting.html">Exporting a Snapshot</a> in the <i>Amazon ElastiCache User Guide</i>.</p>
+   */
+  TargetBucket?: string;
+
+  /**
    * <p>The name of an existing snapshot from which to make a copy.</p>
    */
   SourceSnapshotName: string | undefined;
 
   /**
-   * <p>The Amazon S3 bucket to which the snapshot is exported.
-   *             This parameter is used only when exporting a snapshot for external access.</p>
-   *         <p>When using this parameter to export a snapshot,
-   *             be sure Amazon ElastiCache has the needed permissions to this S3 bucket.
-   *             For more information, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/backups-exporting.html#backups-exporting-grant-access">Step 2: Grant ElastiCache Access to Your Amazon S3 Bucket</a> in the <i>Amazon ElastiCache User Guide</i>.</p>
-   *
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Snapshots.Exporting.html">Exporting a Snapshot</a> in the <i>Amazon ElastiCache User Guide</i>.</p>
+   * <p>The ID of the KMS key used to encrypt the target snapshot.</p>
    */
-  TargetBucket?: string;
+  KmsKeyId?: string;
 
   /**
    * <p>A name for the snapshot copy.
@@ -1047,11 +1052,6 @@ export interface CopySnapshotMessage {
    *             this name must be unique within its context - ElastiCache or an Amazon S3 bucket if exporting.</p>
    */
   TargetSnapshotName: string | undefined;
-
-  /**
-   * <p>The ID of the KMS key used to encrypt the target snapshot.</p>
-   */
-  KmsKeyId?: string;
 }
 
 export namespace CopySnapshotMessage {
@@ -1066,9 +1066,11 @@ export namespace CopySnapshotMessage {
  */
 export interface NodeGroupConfiguration {
   /**
-   * <p>The output ARN of the primary node.</p>
+   * <p>A list of Availability Zones to be used for the read replicas.
+   *             The number of Availability Zones in this list must match the value of <code>ReplicaCount</code>
+   *             or <code>ReplicasPerNodeGroup</code> if not specified.</p>
    */
-  PrimaryOutpostArn?: string;
+  ReplicaAvailabilityZones?: string[];
 
   /**
    * <p>A string that specifies the keyspace for a particular node group.
@@ -1080,14 +1082,19 @@ export interface NodeGroupConfiguration {
   Slots?: string;
 
   /**
-   * <p>The Availability Zone where the primary node of this node group (shard) is launched.</p>
-   */
-  PrimaryAvailabilityZone?: string;
-
-  /**
    * <p>The outpost ARN of the node replicas.</p>
    */
   ReplicaOutpostArns?: string[];
+
+  /**
+   * <p>The output ARN of the primary node.</p>
+   */
+  PrimaryOutpostArn?: string;
+
+  /**
+   * <p>The Availability Zone where the primary node of this node group (shard) is launched.</p>
+   */
+  PrimaryAvailabilityZone?: string;
 
   /**
    * <p>The number of read replica nodes in this node group (shard).</p>
@@ -1099,13 +1106,6 @@ export interface NodeGroupConfiguration {
    *             configuration values apply to.</p>
    */
   NodeGroupId?: string;
-
-  /**
-   * <p>A list of Availability Zones to be used for the read replicas.
-   *             The number of Availability Zones in this list must match the value of <code>ReplicaCount</code>
-   *             or <code>ReplicasPerNodeGroup</code> if not specified.</p>
-   */
-  ReplicaAvailabilityZones?: string[];
 }
 
 export namespace NodeGroupConfiguration {
@@ -1119,24 +1119,9 @@ export namespace NodeGroupConfiguration {
  */
 export interface NodeSnapshot {
   /**
-   * <p>A unique identifier for the source node group (shard).</p>
-   */
-  NodeGroupId?: string;
-
-  /**
-   * <p>The configuration for the source node group (shard).</p>
-   */
-  NodeGroupConfiguration?: NodeGroupConfiguration;
-
-  /**
    * <p>A unique identifier for the source cluster.</p>
    */
   CacheClusterId?: string;
-
-  /**
-   * <p>The cache node identifier for the node in the source cluster.</p>
-   */
-  CacheNodeId?: string;
 
   /**
    * <p>The date and time when the source node's metadata and cache data set was obtained for the snapshot.</p>
@@ -1144,14 +1129,29 @@ export interface NodeSnapshot {
   SnapshotCreateTime?: Date;
 
   /**
-   * <p>The size of the cache on the source cache node.</p>
-   */
-  CacheSize?: string;
-
-  /**
    * <p>The date and time when the cache node was created in the source cluster.</p>
    */
   CacheNodeCreateTime?: Date;
+
+  /**
+   * <p>The configuration for the source node group (shard).</p>
+   */
+  NodeGroupConfiguration?: NodeGroupConfiguration;
+
+  /**
+   * <p>A unique identifier for the source node group (shard).</p>
+   */
+  NodeGroupId?: string;
+
+  /**
+   * <p>The cache node identifier for the node in the source cluster.</p>
+   */
+  CacheNodeId?: string;
+
+  /**
+   * <p>The size of the cache on the source cache node.</p>
+   */
+  CacheSize?: string;
 }
 
 export namespace NodeSnapshot {
@@ -1165,31 +1165,14 @@ export namespace NodeSnapshot {
  */
 export interface Snapshot {
   /**
-   * <p>A description of the source replication group.</p>
+   * <p>The unique identifier of the source replication group.</p>
    */
-  ReplicationGroupDescription?: string;
-
-  /**
-   * <p>The number of node groups (shards) in this snapshot.
-   *             When restoring from a snapshot, the number of node groups (shards) in the snapshot and in the restored
-   *             replication group must be the same.</p>
-   */
-  NumNodeGroups?: number;
-
-  /**
-   * <p>Indicates the status of automatic failover for the source Redis replication group.</p>
-   */
-  AutomaticFailover?: AutomaticFailoverStatus | string;
+  ReplicationGroupId?: string;
 
   /**
    * <p>The ARN (Amazon Resource Name) of the preferred outpost.</p>
    */
   PreferredOutpostArn?: string;
-
-  /**
-   * <p>The unique identifier of the source replication group.</p>
-   */
-  ReplicationGroupId?: string;
 
   /**
    * <p>The port number used by each cache nodes in the source cluster.</p>
@@ -1202,11 +1185,9 @@ export interface Snapshot {
   CacheClusterId?: string;
 
   /**
-   * <p>The number of cache nodes in the source cluster.</p>
-   *         <p>For clusters running Redis, this value must be 1.
-   *             For clusters running Memcached, this value must be between 1 and 20.</p>
+   * <p>A description of the source replication group.</p>
    */
-  NumCacheNodes?: number;
+  ReplicationGroupDescription?: string;
 
   /**
    * <p>The name of the compute and memory capacity node type for the source cluster.</p>
@@ -1221,7 +1202,27 @@ export interface Snapshot {
    *                   <li>
    *                      <p>Current generation: </p>
    *
-   *     							          <p>
+   *     						           <p>
+   *                         <b>M6g node types</b> (available only for Redis engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward).</p>
+   * 						               <p>
+   *                         <code>cache.m6g.large</code>,
+   * 							<code>cache.m6g.xlarge</code>,
+   * 							<code>cache.m6g.2xlarge</code>,
+   * 							<code>cache.m6g.4xlarge</code>,
+   * 							<code>cache.m6g.8xlarge</code>,
+   * 							<code>cache.m6g.12xlarge</code>,
+   * 							<code>cache.m6g.16xlarge</code>
+   *
+   *
+   *
+   * 						               </p>
+   *
+   * 						               <note>
+   *                         <p>At this time, M6g node types are available in the following regions: us-east-1, us-west-2, us-east-2, eu-central-1, eu-west-1 and ap-northeast-1.</p>
+   *                      </note>
+   *
+   *
+   *     					            <p>
    *                         <b>M5 node types:</b>
    *     						              <code>cache.m5.large</code>,
    *     						<code>cache.m5.xlarge</code>,
@@ -1305,7 +1306,30 @@ export interface Snapshot {
    * 				           <ul>
    *                   <li>
    *                      <p>Current generation: </p>
+   * 											          <p>
+   *                         <b>R6g node types</b> (available only for Redis engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward).</p>
    *
+   *
+   *
+   *
+   * 						               <p>
+   * 							                 <code>cache.r6g.large</code>,
+   * 							<code>cache.r6g.xlarge</code>,
+   * 							<code>cache.r6g.2xlarge</code>,
+   * 							<code>cache.r6g.4xlarge</code>,
+   * 							<code>cache.r6g.8xlarge</code>,
+   * 							<code>cache.r6g.12xlarge</code>,
+   * 							<code>cache.r6g.16xlarge</code>
+   *
+   *
+   *
+   *
+   *
+   *
+   * 						               </p>
+   * 						               <note>
+   *                         <p>At this time, R6g node types are available in the following regions: us-east-1, us-west-2, us-east-2, eu-central-1, eu-west-1 and ap-northeast-1.</p>
+   *                      </note>
    * 					                <p>
    *                         <b>R5 node types:</b>
    *     					               <code>cache.r5.large</code>,
@@ -1382,22 +1406,65 @@ export interface Snapshot {
   CacheNodeType?: string;
 
   /**
-   * <p>The name of a snapshot.
-   *             For an automatic snapshot, the name is system-generated.
-   *             For a manual snapshot, this is the user-provided name.</p>
+   * <p>This parameter is currently disabled.</p>
    */
-  SnapshotName?: string;
+  AutoMinorVersionUpgrade?: boolean;
 
   /**
-   * <p>The name of the cache engine (<code>memcached</code> or
-   *             <code>redis</code>) used by the source cluster.</p>
+   * <p>The number of cache nodes in the source cluster.</p>
+   *         <p>For clusters running Redis, this value must be 1.
+   *             For clusters running Memcached, this value must be between 1 and 20.</p>
    */
-  Engine?: string;
+  NumCacheNodes?: number;
 
   /**
-   * <p>The Amazon Resource Name (ARN) for the topic used by the source cluster for publishing notifications.</p>
+   * <p>The number of node groups (shards) in this snapshot.
+   *             When restoring from a snapshot, the number of node groups (shards) in the snapshot and in the restored
+   *             replication group must be the same.</p>
    */
-  TopicArn?: string;
+  NumNodeGroups?: number;
+
+  /**
+   * <p>Indicates the status of automatic failover for the source Redis replication group.</p>
+   */
+  AutomaticFailover?: AutomaticFailoverStatus | string;
+
+  /**
+   * <p>The date and time when the source cluster was created.</p>
+   */
+  CacheClusterCreateTime?: Date;
+
+  /**
+   * <p>The daily time range during which ElastiCache takes daily snapshots of the source cluster.</p>
+   */
+  SnapshotWindow?: string;
+
+  /**
+   * <p>The name of the cache subnet group associated with the source cluster.</p>
+   */
+  CacheSubnetGroupName?: string;
+
+  /**
+   * <p>The ARN (Amazon Resource Name) of the snapshot.</p>
+   */
+  ARN?: string;
+
+  /**
+   * <p>The status of the snapshot. Valid values: <code>creating</code> | <code>available</code>
+   *             | <code>restoring</code> | <code>copying</code> | <code>deleting</code>.</p>
+   */
+  SnapshotStatus?: string;
+
+  /**
+   * <p>Indicates whether the snapshot is from an automatic backup (<code>automated</code>)
+   *             or was created manually (<code>manual</code>).</p>
+   */
+  SnapshotSource?: string;
+
+  /**
+   * <p>A list of the cache nodes in the source cluster.</p>
+   */
+  NodeSnapshots?: NodeSnapshot[];
 
   /**
    * <p>The ID of the KMS key used to encrypt the snapshot.</p>
@@ -1405,14 +1472,33 @@ export interface Snapshot {
   KmsKeyId?: string;
 
   /**
-   * <p>This parameter is currently disabled.</p>
+   * <p>The Amazon Virtual Private Cloud identifier (VPC ID) of the cache subnet group for the source cluster.</p>
    */
-  AutoMinorVersionUpgrade?: boolean;
+  VpcId?: string;
 
   /**
-   * <p>The cache parameter group that is associated with the source cluster.</p>
+   * <p>For an automatic snapshot, the number of days for which ElastiCache retains the snapshot before deleting it.</p>
+   *         <p>For manual snapshots, this field reflects the <code>SnapshotRetentionLimit</code> for the
+   *             source cluster when the snapshot was created. This field is otherwise ignored:
+   *             Manual snapshots do not expire, and can only be deleted using the <code>DeleteSnapshot</code>
+   *             operation. </p>
+   *         <p>
+   *             <b>Important</b>
+   *           If the value of SnapshotRetentionLimit is set to zero (0), backups are turned off.</p>
    */
-  CacheParameterGroupName?: string;
+  SnapshotRetentionLimit?: number;
+
+  /**
+   * <p>The name of a snapshot.
+   *             For an automatic snapshot, the name is system-generated.
+   *             For a manual snapshot, this is the user-provided name.</p>
+   */
+  SnapshotName?: string;
+
+  /**
+   * <p>The version of the cache engine version that is used by the source cluster.</p>
+   */
+  EngineVersion?: string;
 
   /**
    * <p>Specifies the weekly time range during which maintenance
@@ -1463,68 +1549,25 @@ export interface Snapshot {
   PreferredMaintenanceWindow?: string;
 
   /**
-   * <p>Indicates whether the snapshot is from an automatic backup (<code>automated</code>)
-   *             or was created manually (<code>manual</code>).</p>
-   */
-  SnapshotSource?: string;
-
-  /**
    * <p>The name of the Availability Zone in which the source cluster is located.</p>
    */
   PreferredAvailabilityZone?: string;
 
   /**
-   * <p>The version of the cache engine version that is used by the source cluster.</p>
+   * <p>The cache parameter group that is associated with the source cluster.</p>
    */
-  EngineVersion?: string;
+  CacheParameterGroupName?: string;
 
   /**
-   * <p>The daily time range during which ElastiCache takes daily snapshots of the source cluster.</p>
+   * <p>The name of the cache engine (<code>memcached</code> or
+   *             <code>redis</code>) used by the source cluster.</p>
    */
-  SnapshotWindow?: string;
+  Engine?: string;
 
   /**
-   * <p>The status of the snapshot. Valid values: <code>creating</code> | <code>available</code>
-   *             | <code>restoring</code> | <code>copying</code> | <code>deleting</code>.</p>
+   * <p>The Amazon Resource Name (ARN) for the topic used by the source cluster for publishing notifications.</p>
    */
-  SnapshotStatus?: string;
-
-  /**
-   * <p>The Amazon Virtual Private Cloud identifier (VPC ID) of the cache subnet group for the source cluster.</p>
-   */
-  VpcId?: string;
-
-  /**
-   * <p>The date and time when the source cluster was created.</p>
-   */
-  CacheClusterCreateTime?: Date;
-
-  /**
-   * <p>For an automatic snapshot, the number of days for which ElastiCache retains the snapshot before deleting it.</p>
-   *         <p>For manual snapshots, this field reflects the <code>SnapshotRetentionLimit</code> for the
-   *             source cluster when the snapshot was created. This field is otherwise ignored:
-   *             Manual snapshots do not expire, and can only be deleted using the <code>DeleteSnapshot</code>
-   *             operation. </p>
-   *         <p>
-   *             <b>Important</b>
-   *           If the value of SnapshotRetentionLimit is set to zero (0), backups are turned off.</p>
-   */
-  SnapshotRetentionLimit?: number;
-
-  /**
-   * <p>A list of the cache nodes in the source cluster.</p>
-   */
-  NodeSnapshots?: NodeSnapshot[];
-
-  /**
-   * <p>The ARN (Amazon Resource Name) of the snapshot.</p>
-   */
-  ARN?: string;
-
-  /**
-   * <p>The name of the cache subnet group associated with the source cluster.</p>
-   */
-  CacheSubnetGroupName?: string;
+  TopicArn?: string;
 }
 
 export namespace Snapshot {
@@ -1666,22 +1709,16 @@ export enum OutpostMode {
  */
 export interface CreateCacheClusterMessage {
   /**
-   * <p>The name of the cache engine to be used for this cluster.</p>
-   *         <p>Valid values for this parameter are: <code>memcached</code> | <code>redis</code>
-   *          </p>
+   * <p>The outpost ARNs in which the cache cluster is created.</p>
    */
-  Engine?: string;
+  PreferredOutpostArns?: string[];
 
   /**
-   * <p>One or more VPC security groups associated with the cluster.</p>
-   *         <p>Use this parameter only when you are creating a cluster in an Amazon Virtual Private Cloud (Amazon VPC).</p>
+   * <p>The name of the parameter group to associate with this cluster.
+   *             If this argument is omitted, the default parameter group for the specified engine is used.
+   *             You cannot use any parameter group which has <code>cluster-enabled='yes'</code> when creating a cluster.</p>
    */
-  SecurityGroupIds?: string[];
-
-  /**
-   * <p>This parameter is currently disabled.</p>
-   */
-  AutoMinorVersionUpgrade?: boolean;
+  CacheParameterGroupName?: string;
 
   /**
    * <p>The EC2 Availability Zone in which the cluster is created.</p>
@@ -1690,6 +1727,187 @@ export interface CreateCacheClusterMessage {
    *         <p>Default: System chosen Availability Zone.</p>
    */
   PreferredAvailabilityZone?: string;
+
+  /**
+   * <p>One or more VPC security groups associated with the cluster.</p>
+   *         <p>Use this parameter only when you are creating a cluster in an Amazon Virtual Private Cloud (Amazon VPC).</p>
+   */
+  SecurityGroupIds?: string[];
+
+  /**
+   * <p>Specifies the weekly time range during which maintenance
+   *             on the cluster is performed. It is specified as a range in
+   *             the format ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC). The minimum
+   *             maintenance window is a 60 minute period.
+   *             Valid values for <code>ddd</code> are:</p>
+   *
+   *          <p>Specifies the weekly time range during which maintenance
+   *    on the cluster is performed. It is specified as a range in
+   *    the format ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC). The minimum
+   *    maintenance window is a 60 minute period.</p>
+   *          <p>Valid values for <code>ddd</code> are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>sun</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>mon</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>tue</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>wed</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>thu</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>fri</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>sat</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *          <p>Example: <code>sun:23:00-mon:01:30</code>
+   *          </p>
+   */
+  PreferredMaintenanceWindow?: string;
+
+  /**
+   * <p>This parameter is currently disabled.</p>
+   */
+  AutoMinorVersionUpgrade?: boolean;
+
+  /**
+   * <p>The version number of the cache engine to be used for this cluster.
+   *             To view the supported cache engine versions, use the DescribeCacheEngineVersions operation.</p>
+   *
+   *         <p>
+   *             <b>Important:</b> You can upgrade to a newer engine version (see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/SelectEngine.html#VersionManagement">Selecting a Cache Engine and Version</a>), but you cannot downgrade to an earlier engine version.
+   *             If you want to use an earlier engine version,
+   *             you must delete the existing cluster or replication group and create it anew with the earlier engine version. </p>
+   */
+  EngineVersion?: string;
+
+  /**
+   * <p>Specifies whether the nodes in the cluster are created in a single outpost or across multiple outposts.</p>
+   */
+  OutpostMode?: OutpostMode | string;
+
+  /**
+   * <p>A list of cost allocation tags to be added to this resource.</p>
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>The name of a Redis snapshot from which to restore data into the new node group (shard).
+   *             The snapshot status changes to <code>restoring</code> while the new node group (shard) is being created.</p>
+   *         <note>
+   *             <p>This parameter is only valid if the <code>Engine</code> parameter is <code>redis</code>.</p>
+   *          </note>
+   */
+  SnapshotName?: string;
+
+  /**
+   * <p>The name of the cache engine to be used for this cluster.</p>
+   *         <p>Valid values for this parameter are: <code>memcached</code> | <code>redis</code>
+   *          </p>
+   */
+  Engine?: string;
+
+  /**
+   * <p>A list of security group names to associate with this cluster.</p>
+   *         <p>Use this parameter only when you are creating a cluster outside of an Amazon Virtual Private Cloud (Amazon VPC).</p>
+   */
+  CacheSecurityGroupNames?: string[];
+
+  /**
+   * <p>The node group (shard) identifier. This parameter is stored as a lowercase string.</p>
+   *          <p>
+   *             <b>Constraints:</b>
+   *          </p>
+   *          <ul>
+   *             <li>
+   *                <p>A name must contain from 1 to 50 alphanumeric characters or hyphens.</p>
+   *             </li>
+   *             <li>
+   *                <p>The first character must be a letter.</p>
+   *             </li>
+   *             <li>
+   *                <p>A name cannot end with a hyphen or contain two consecutive hyphens.</p>
+   *             </li>
+   *          </ul>
+   */
+  CacheClusterId: string | undefined;
+
+  /**
+   * <p>A single-element string list containing an Amazon Resource Name (ARN) that uniquely identifies
+   *             a Redis RDB snapshot file stored in Amazon S3.
+   *             The snapshot file is used to populate the node group (shard).
+   *             The Amazon S3 object name in the ARN cannot contain any commas.</p>
+   *         <note>
+   *             <p>This parameter is only valid if the <code>Engine</code> parameter is <code>redis</code>.</p>
+   *          </note>
+   *         <p>Example of an Amazon S3 ARN: <code>arn:aws:s3:::my_bucket/snapshot1.rdb</code>
+   *          </p>
+   */
+  SnapshotArns?: string[];
+
+  /**
+   * <p>The port number on which each of the cache nodes  accepts connections.</p>
+   */
+  Port?: number;
+
+  /**
+   * <p>The initial number of cache nodes that the cluster has.</p>
+   *         <p>For clusters running Redis, this value must be 1.
+   *     For clusters running Memcached, this value must be between 1 and 20.</p>
+   *         <p>If you need more than 20 nodes for your Memcached cluster,
+   *             please fill out the ElastiCache Limit Increase Request form at <a href="http://aws.amazon.com/contact-us/elasticache-node-limit-request/">http://aws.amazon.com/contact-us/elasticache-node-limit-request/</a>.</p>
+   */
+  NumCacheNodes?: number;
+
+  /**
+   * <p>Specifies whether the nodes in this Memcached cluster are created in a single Availability Zone or
+   *             created across multiple Availability Zones in the cluster's region.</p>
+   *         <p>This parameter is only supported for Memcached clusters.</p>
+   *         <p>If the <code>AZMode</code> and <code>PreferredAvailabilityZones</code> are not specified,
+   *             ElastiCache assumes <code>single-az</code> mode.</p>
+   */
+  AZMode?: AZMode | string;
+
+  /**
+   * <p>The ID of the replication group to which this cluster should belong. If this parameter is specified, the cluster is added to the specified replication group as a read replica; otherwise, the cluster is a standalone primary that is not part of any replication group.</p>
+   *         <p>If the specified replication group is Multi-AZ enabled and the Availability Zone is not specified, the cluster is created in Availability Zones that provide the best spread of read replicas across Availability Zones.</p>
+   *         <note>
+   *             <p>This parameter is only valid if the <code>Engine</code> parameter is <code>redis</code>.</p>
+   *          </note>
+   */
+  ReplicationGroupId?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon Simple Notification Service (SNS) topic
+   *           to which notifications are sent.</p>
+   *          <note>
+   *             <p>The Amazon SNS topic owner must be the same as the cluster owner.</p>
+   *          </note>
+   */
+  NotificationTopicArn?: string;
 
   /**
    * <p>A list of the Availability Zones in which cache nodes are created. The order of the zones in the list is not important.</p>
@@ -1705,22 +1923,6 @@ export interface CreateCacheClusterMessage {
   PreferredAvailabilityZones?: string[];
 
   /**
-   * <p>The outpost ARNs in which the cache cluster is created.</p>
-   */
-  PreferredOutpostArns?: string[];
-
-  /**
-   * <p>The version number of the cache engine to be used for this cluster.
-   *             To view the supported cache engine versions, use the DescribeCacheEngineVersions operation.</p>
-   *
-   *         <p>
-   *             <b>Important:</b> You can upgrade to a newer engine version (see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/SelectEngine.html#VersionManagement">Selecting a Cache Engine and Version</a>), but you cannot downgrade to an earlier engine version.
-   *             If you want to use an earlier engine version,
-   *             you must delete the existing cluster or replication group and create it anew with the earlier engine version. </p>
-   */
-  EngineVersion?: string;
-
-  /**
    * <p>The compute and memory capacity of the nodes in the node group (shard).</p>
    *         <p>The following node types are supported by ElastiCache.
    * 				Generally speaking, the current generation types provide more memory and computational power
@@ -1732,7 +1934,27 @@ export interface CreateCacheClusterMessage {
    *                   <li>
    *                      <p>Current generation: </p>
    *
-   *     							          <p>
+   *     						           <p>
+   *                         <b>M6g node types</b> (available only for Redis engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward).</p>
+   * 						               <p>
+   *                         <code>cache.m6g.large</code>,
+   * 							<code>cache.m6g.xlarge</code>,
+   * 							<code>cache.m6g.2xlarge</code>,
+   * 							<code>cache.m6g.4xlarge</code>,
+   * 							<code>cache.m6g.8xlarge</code>,
+   * 							<code>cache.m6g.12xlarge</code>,
+   * 							<code>cache.m6g.16xlarge</code>
+   *
+   *
+   *
+   * 						               </p>
+   *
+   * 						               <note>
+   *                         <p>At this time, M6g node types are available in the following regions: us-east-1, us-west-2, us-east-2, eu-central-1, eu-west-1 and ap-northeast-1.</p>
+   *                      </note>
+   *
+   *
+   *     					            <p>
    *                         <b>M5 node types:</b>
    *     						              <code>cache.m5.large</code>,
    *     						<code>cache.m5.xlarge</code>,
@@ -1816,7 +2038,30 @@ export interface CreateCacheClusterMessage {
    * 				           <ul>
    *                   <li>
    *                      <p>Current generation: </p>
+   * 											          <p>
+   *                         <b>R6g node types</b> (available only for Redis engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward).</p>
    *
+   *
+   *
+   *
+   * 						               <p>
+   * 							                 <code>cache.r6g.large</code>,
+   * 							<code>cache.r6g.xlarge</code>,
+   * 							<code>cache.r6g.2xlarge</code>,
+   * 							<code>cache.r6g.4xlarge</code>,
+   * 							<code>cache.r6g.8xlarge</code>,
+   * 							<code>cache.r6g.12xlarge</code>,
+   * 							<code>cache.r6g.16xlarge</code>
+   *
+   *
+   *
+   *
+   *
+   *
+   * 						               </p>
+   * 						               <note>
+   *                         <p>At this time, R6g node types are available in the following regions: us-east-1, us-west-2, us-east-2, eu-central-1, eu-west-1 and ap-northeast-1.</p>
+   *                      </note>
    * 					                <p>
    *                         <b>R5 node types:</b>
    *     					               <code>cache.r5.large</code>,
@@ -1893,74 +2138,9 @@ export interface CreateCacheClusterMessage {
   CacheNodeType?: string;
 
   /**
-   * <p>Specifies the weekly time range during which maintenance
-   *             on the cluster is performed. It is specified as a range in
-   *             the format ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC). The minimum
-   *             maintenance window is a 60 minute period.
-   *             Valid values for <code>ddd</code> are:</p>
-   *
-   *          <p>Specifies the weekly time range during which maintenance
-   *    on the cluster is performed. It is specified as a range in
-   *    the format ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC). The minimum
-   *    maintenance window is a 60 minute period.</p>
-   *          <p>Valid values for <code>ddd</code> are:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>sun</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>mon</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>tue</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>wed</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>thu</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>fri</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>sat</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   *          <p>Example: <code>sun:23:00-mon:01:30</code>
-   *          </p>
+   * <p>The outpost ARN in which the cache cluster is created.</p>
    */
-  PreferredMaintenanceWindow?: string;
-
-  /**
-   * <p>The name of the parameter group to associate with this cluster.
-   *             If this argument is omitted, the default parameter group for the specified engine is used.
-   *             You cannot use any parameter group which has <code>cluster-enabled='yes'</code> when creating a cluster.</p>
-   */
-  CacheParameterGroupName?: string;
-
-  /**
-   * <p>Specifies whether the nodes in this Memcached cluster are created in a single Availability Zone or
-   *             created across multiple Availability Zones in the cluster's region.</p>
-   *         <p>This parameter is only supported for Memcached clusters.</p>
-   *         <p>If the <code>AZMode</code> and <code>PreferredAvailabilityZones</code> are not specified,
-   *             ElastiCache assumes <code>single-az</code> mode.</p>
-   */
-  AZMode?: AZMode | string;
+  PreferredOutpostArn?: string;
 
   /**
    * <p>The number of days for which ElastiCache retains automatic snapshots before deleting them.
@@ -1974,28 +2154,15 @@ export interface CreateCacheClusterMessage {
   SnapshotRetentionLimit?: number;
 
   /**
-   * <p>A single-element string list containing an Amazon Resource Name (ARN) that uniquely identifies
-   *             a Redis RDB snapshot file stored in Amazon S3.
-   *             The snapshot file is used to populate the node group (shard).
-   *             The Amazon S3 object name in the ARN cannot contain any commas.</p>
+   * <p>The daily time range (in UTC) during which ElastiCache begins taking a daily snapshot of your node group (shard).</p>
+   *          <p>Example: <code>05:00-09:00</code>
+   *          </p>
+   *          <p>If you do not specify this parameter, ElastiCache  automatically chooses an appropriate time range.</p>
    *         <note>
    *             <p>This parameter is only valid if the <code>Engine</code> parameter is <code>redis</code>.</p>
    *          </note>
-   *         <p>Example of an Amazon S3 ARN: <code>arn:aws:s3:::my_bucket/snapshot1.rdb</code>
-   *          </p>
    */
-  SnapshotArns?: string[];
-
-  /**
-   * <p>The name of the subnet group to be used for the cluster.</p>
-   *         <p>Use this parameter only when you are creating a cluster in an Amazon Virtual Private Cloud (Amazon VPC).</p>
-   *         <important>
-   *             <p>If you're going to launch your cluster in an Amazon VPC,
-   *                 you need to create a subnet group before you start creating a cluster.
-   *                 For more information, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/SubnetGroups.html">Subnets and Subnet Groups</a>.</p>
-   *          </important>
-   */
-  CacheSubnetGroupName?: string;
+  SnapshotWindow?: string;
 
   /**
    * <p>
@@ -2019,96 +2186,15 @@ export interface CreateCacheClusterMessage {
   AuthToken?: string;
 
   /**
-   * <p>The daily time range (in UTC) during which ElastiCache begins taking a daily snapshot of your node group (shard).</p>
-   *          <p>Example: <code>05:00-09:00</code>
-   *          </p>
-   *          <p>If you do not specify this parameter, ElastiCache  automatically chooses an appropriate time range.</p>
-   *         <note>
-   *             <p>This parameter is only valid if the <code>Engine</code> parameter is <code>redis</code>.</p>
-   *          </note>
+   * <p>The name of the subnet group to be used for the cluster.</p>
+   *         <p>Use this parameter only when you are creating a cluster in an Amazon Virtual Private Cloud (Amazon VPC).</p>
+   *         <important>
+   *             <p>If you're going to launch your cluster in an Amazon VPC,
+   *                 you need to create a subnet group before you start creating a cluster.
+   *                 For more information, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/SubnetGroups.html">Subnets and Subnet Groups</a>.</p>
+   *          </important>
    */
-  SnapshotWindow?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon Simple Notification Service (SNS) topic
-   *           to which notifications are sent.</p>
-   *          <note>
-   *             <p>The Amazon SNS topic owner must be the same as the cluster owner.</p>
-   *          </note>
-   */
-  NotificationTopicArn?: string;
-
-  /**
-   * <p>The initial number of cache nodes that the cluster has.</p>
-   *         <p>For clusters running Redis, this value must be 1.
-   *     For clusters running Memcached, this value must be between 1 and 20.</p>
-   *         <p>If you need more than 20 nodes for your Memcached cluster,
-   *             please fill out the ElastiCache Limit Increase Request form at <a href="http://aws.amazon.com/contact-us/elasticache-node-limit-request/">http://aws.amazon.com/contact-us/elasticache-node-limit-request/</a>.</p>
-   */
-  NumCacheNodes?: number;
-
-  /**
-   * <p>The node group (shard) identifier. This parameter is stored as a lowercase string.</p>
-   *          <p>
-   *             <b>Constraints:</b>
-   *          </p>
-   *          <ul>
-   *             <li>
-   *                <p>A name must contain from 1 to 50 alphanumeric characters or hyphens.</p>
-   *             </li>
-   *             <li>
-   *                <p>The first character must be a letter.</p>
-   *             </li>
-   *             <li>
-   *                <p>A name cannot end with a hyphen or contain two consecutive hyphens.</p>
-   *             </li>
-   *          </ul>
-   */
-  CacheClusterId: string | undefined;
-
-  /**
-   * <p>The outpost ARN in which the cache cluster is created.</p>
-   */
-  PreferredOutpostArn?: string;
-
-  /**
-   * <p>The port number on which each of the cache nodes  accepts connections.</p>
-   */
-  Port?: number;
-
-  /**
-   * <p>The ID of the replication group to which this cluster should belong. If this parameter is specified, the cluster is added to the specified replication group as a read replica; otherwise, the cluster is a standalone primary that is not part of any replication group.</p>
-   *         <p>If the specified replication group is Multi-AZ enabled and the Availability Zone is not specified, the cluster is created in Availability Zones that provide the best spread of read replicas across Availability Zones.</p>
-   *         <note>
-   *             <p>This parameter is only valid if the <code>Engine</code> parameter is <code>redis</code>.</p>
-   *          </note>
-   */
-  ReplicationGroupId?: string;
-
-  /**
-   * <p>A list of cost allocation tags to be added to this resource.</p>
-   */
-  Tags?: Tag[];
-
-  /**
-   * <p>The name of a Redis snapshot from which to restore data into the new node group (shard).
-   *             The snapshot status changes to <code>restoring</code> while the new node group (shard) is being created.</p>
-   *         <note>
-   *             <p>This parameter is only valid if the <code>Engine</code> parameter is <code>redis</code>.</p>
-   *          </note>
-   */
-  SnapshotName?: string;
-
-  /**
-   * <p>Specifies whether the nodes in the cluster are created in a single outpost or across multiple outposts.</p>
-   */
-  OutpostMode?: OutpostMode | string;
-
-  /**
-   * <p>A list of security group names to associate with this cluster.</p>
-   *         <p>Use this parameter only when you are creating a cluster outside of an Amazon Virtual Private Cloud (Amazon VPC).</p>
-   */
-  CacheSecurityGroupNames?: string[];
+  CacheSubnetGroupName?: string;
 }
 
 export namespace CreateCacheClusterMessage {
@@ -2132,7 +2218,27 @@ export namespace CreateCacheClusterMessage {
  *                   <li>
  *                      <p>Current generation: </p>
  *
- *     							          <p>
+ *     						           <p>
+ *                         <b>M6g node types</b> (available only for Redis engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward).</p>
+ * 						               <p>
+ *                         <code>cache.m6g.large</code>,
+ * 							<code>cache.m6g.xlarge</code>,
+ * 							<code>cache.m6g.2xlarge</code>,
+ * 							<code>cache.m6g.4xlarge</code>,
+ * 							<code>cache.m6g.8xlarge</code>,
+ * 							<code>cache.m6g.12xlarge</code>,
+ * 							<code>cache.m6g.16xlarge</code>
+ *
+ *
+ *
+ * 						               </p>
+ *
+ * 						               <note>
+ *                         <p>At this time, M6g node types are available in the following regions: us-east-1, us-west-2, us-east-2, eu-central-1, eu-west-1 and ap-northeast-1.</p>
+ *                      </note>
+ *
+ *
+ *     					            <p>
  *                         <b>M5 node types:</b>
  *     						              <code>cache.m5.large</code>,
  *     						<code>cache.m5.xlarge</code>,
@@ -2216,7 +2322,30 @@ export namespace CreateCacheClusterMessage {
  * 				           <ul>
  *                   <li>
  *                      <p>Current generation: </p>
+ * 											          <p>
+ *                         <b>R6g node types</b> (available only for Redis engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward).</p>
  *
+ *
+ *
+ *
+ * 						               <p>
+ * 							                 <code>cache.r6g.large</code>,
+ * 							<code>cache.r6g.xlarge</code>,
+ * 							<code>cache.r6g.2xlarge</code>,
+ * 							<code>cache.r6g.4xlarge</code>,
+ * 							<code>cache.r6g.8xlarge</code>,
+ * 							<code>cache.r6g.12xlarge</code>,
+ * 							<code>cache.r6g.16xlarge</code>
+ *
+ *
+ *
+ *
+ *
+ *
+ * 						               </p>
+ * 						               <note>
+ *                         <p>At this time, R6g node types are available in the following regions: us-east-1, us-west-2, us-east-2, eu-central-1, eu-west-1 and ap-northeast-1.</p>
+ *                      </note>
  * 					                <p>
  *                         <b>R5 node types:</b>
  *     					               <code>cache.r5.large</code>,
@@ -2292,29 +2421,9 @@ export namespace CreateCacheClusterMessage {
  */
 export interface CacheNode {
   /**
-   * <p>The customer outpost ARN of the cache node.</p>
-   */
-  CustomerOutpostArn?: string;
-
-  /**
    * <p>The hostname for connecting to this cache node.</p>
    */
   Endpoint?: Endpoint;
-
-  /**
-   * <p>The status of the parameter group applied to this cache node.</p>
-   */
-  ParameterGroupStatus?: string;
-
-  /**
-   * <p>The Availability Zone where this node was created and now resides.</p>
-   */
-  CustomerAvailabilityZone?: string;
-
-  /**
-   * <p>The current state of this cache node, one of the following values: <code>available</code>, <code>creating</code>, <code>rebooting</code>, or <code>deleting</code>.</p>
-   */
-  CacheNodeStatus?: string;
 
   /**
    * <p>The cache node identifier. A node ID is a numeric identifier (0001, 0002, etc.). The combination of cluster ID and node ID uniquely identifies every cache node used in a customer's AWS account.</p>
@@ -2322,15 +2431,35 @@ export interface CacheNode {
   CacheNodeId?: string;
 
   /**
-   * <p>The date and time when the cache node was created.</p>
+   * <p>The Availability Zone where this node was created and now resides.</p>
    */
-  CacheNodeCreateTime?: Date;
+  CustomerAvailabilityZone?: string;
+
+  /**
+   * <p>The status of the parameter group applied to this cache node.</p>
+   */
+  ParameterGroupStatus?: string;
+
+  /**
+   * <p>The customer outpost ARN of the cache node.</p>
+   */
+  CustomerOutpostArn?: string;
+
+  /**
+   * <p>The current state of this cache node, one of the following values: <code>available</code>, <code>creating</code>, <code>rebooting</code>, or <code>deleting</code>.</p>
+   */
+  CacheNodeStatus?: string;
 
   /**
    * <p>The ID of the primary node to which this read replica node is synchronized.
    *             If this field is empty, this node is not associated with a primary cluster.</p>
    */
   SourceCacheNodeId?: string;
+
+  /**
+   * <p>The date and time when the cache node was created.</p>
+   */
+  CacheNodeCreateTime?: Date;
 }
 
 export namespace CacheNode {
@@ -2349,15 +2478,15 @@ export interface CacheParameterGroupStatus {
   ParameterApplyStatus?: string;
 
   /**
+   * <p>The name of the cache parameter group.</p>
+   */
+  CacheParameterGroupName?: string;
+
+  /**
    * <p>A list of the cache node IDs which need to be rebooted for parameter changes to be applied.
    *             A node ID is a numeric identifier (0001, 0002, etc.).</p>
    */
   CacheNodeIdsToReboot?: string[];
-
-  /**
-   * <p>The name of the cache parameter group.</p>
-   */
-  CacheParameterGroupName?: string;
 }
 
 export namespace CacheParameterGroupStatus {
@@ -2371,14 +2500,14 @@ export namespace CacheParameterGroupStatus {
  */
 export interface CacheSecurityGroupMembership {
   /**
-   * <p>The membership status in the cache security group. The status changes when a cache security group is modified, or when the cache security groups assigned to a cluster are modified.</p>
-   */
-  Status?: string;
-
-  /**
    * <p>The name of the cache security group.</p>
    */
   CacheSecurityGroupName?: string;
+
+  /**
+   * <p>The membership status in the cache security group. The status changes when a cache security group is modified, or when the cache security groups assigned to a cluster are modified.</p>
+   */
+  Status?: string;
 }
 
 export namespace CacheSecurityGroupMembership {
@@ -2416,6 +2545,12 @@ export namespace NotificationConfiguration {
  */
 export interface PendingModifiedValues {
   /**
+   * <p>A list of cache node IDs that are being removed (or will be removed) from the cluster.
+   *             A node ID is a 4-digit numeric identifier (0001, 0002, etc.).</p>
+   */
+  CacheNodeIdsToRemove?: string[];
+
+  /**
    * <p>The cache node type that this cluster or replication group is scaled to.</p>
    */
   CacheNodeType?: string;
@@ -2429,12 +2564,6 @@ export interface PendingModifiedValues {
    * <p>The new cache engine version that the cluster  runs.</p>
    */
   EngineVersion?: string;
-
-  /**
-   * <p>A list of cache node IDs that are being removed (or will be removed) from the cluster.
-   *             A node ID is a 4-digit numeric identifier (0001, 0002, etc.).</p>
-   */
-  CacheNodeIdsToRemove?: string[];
 
   /**
    * <p>The new number of cache nodes for the cluster.</p>
@@ -2478,31 +2607,9 @@ export namespace SecurityGroupMembership {
  */
 export interface CacheCluster {
   /**
-   * <p>The date the auth token was last modified</p>
+   * <p>The version of the cache engine that is used in this cluster.</p>
    */
-  AuthTokenLastModifiedDate?: Date;
-
-  /**
-   * <p>This parameter is currently disabled.</p>
-   */
-  AutoMinorVersionUpgrade?: boolean;
-
-  /**
-   * <p>Describes a notification topic and its status.
-   *             Notification topics are used for publishing ElastiCache events to subscribers using Amazon Simple Notification Service (SNS). </p>
-   */
-  NotificationConfiguration?: NotificationConfiguration;
-
-  /**
-   * <p>The name of the cache engine (<code>memcached</code> or
-   *             <code>redis</code>) to be used for this cluster.</p>
-   */
-  Engine?: string;
-
-  /**
-   * <p>Status of the cache parameter group.</p>
-   */
-  CacheParameterGroup?: CacheParameterGroupStatus;
+  EngineVersion?: string;
 
   /**
    * <p>The current state of this cluster, one of the following values:
@@ -2519,22 +2626,16 @@ export interface CacheCluster {
   CacheClusterStatus?: string;
 
   /**
-   * <p>The name of the cache subnet group associated with the cluster.</p>
+   * <p>The name of the Availability Zone in which the cluster is located or "Multiple"
+   *             if the cache nodes are located in different Availability Zones.</p>
    */
-  CacheSubnetGroupName?: string;
+  PreferredAvailabilityZone?: string;
 
   /**
-   * <p>The daily time range (in UTC) during which ElastiCache begins taking a
-   *             daily snapshot of your cluster.</p>
-   *         <p>Example: <code>05:00-09:00</code>
-   *          </p>
+   * <p>The name of the cache engine (<code>memcached</code> or
+   *             <code>redis</code>) to be used for this cluster.</p>
    */
-  SnapshotWindow?: string;
-
-  /**
-   * <p>The ARN (Amazon Resource Name) of the cache cluster.</p>
-   */
-  ARN?: string;
+  Engine?: string;
 
   /**
    * <p>A flag that enables encryption at-rest when set to <code>true</code>.</p>
@@ -2551,9 +2652,178 @@ export interface CacheCluster {
   AtRestEncryptionEnabled?: boolean;
 
   /**
-   * <p>A list of cache nodes that are members of the cluster.</p>
+   * <p>The name of the cache subnet group associated with the cluster.</p>
    */
-  CacheNodes?: CacheNode[];
+  CacheSubnetGroupName?: string;
+
+  /**
+   * <p>The daily time range (in UTC) during which ElastiCache begins taking a
+   *             daily snapshot of your cluster.</p>
+   *         <p>Example: <code>05:00-09:00</code>
+   *          </p>
+   */
+  SnapshotWindow?: string;
+
+  /**
+   * <p>The date and time when the cluster was created.</p>
+   */
+  CacheClusterCreateTime?: Date;
+
+  /**
+   * <p>The number of days for which ElastiCache retains automatic cluster snapshots before
+   *             deleting them. For example, if you set <code>SnapshotRetentionLimit</code> to 5,  a
+   *             snapshot that was taken today is retained for 5 days before being deleted.</p>
+   *         <important>
+   *             <p>
+   *           If the value of SnapshotRetentionLimit is set to zero (0), backups are turned off.</p>
+   *          </important>
+   */
+  SnapshotRetentionLimit?: number;
+
+  /**
+   * <p>This parameter is currently disabled.</p>
+   */
+  AutoMinorVersionUpgrade?: boolean;
+
+  /**
+   * <p>Describes a notification topic and its status.
+   *             Notification topics are used for publishing ElastiCache events to subscribers using Amazon Simple Notification Service (SNS). </p>
+   */
+  NotificationConfiguration?: NotificationConfiguration;
+
+  /**
+   * <p>Specifies the weekly time range during which maintenance
+   *    on the cluster is performed. It is specified as a range in
+   *    the format ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC). The minimum
+   *    maintenance window is a 60 minute period.</p>
+   *          <p>Valid values for <code>ddd</code> are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>sun</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>mon</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>tue</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>wed</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>thu</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>fri</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>sat</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *          <p>Example: <code>sun:23:00-mon:01:30</code>
+   *          </p>
+   */
+  PreferredMaintenanceWindow?: string;
+
+  /**
+   * <p>The replication group to which this cluster belongs.
+   *             If this field is empty, the cluster is not associated with any replication group.</p>
+   */
+  ReplicationGroupId?: string;
+
+  /**
+   * <p>The number of cache nodes in the cluster.</p>
+   *         <p>For clusters running Redis, this value must be 1. For clusters running Memcached,
+   *             this value must be between 1 and 20.</p>
+   */
+  NumCacheNodes?: number;
+
+  /**
+   * <p>The outpost ARN in which the cache cluster is created.</p>
+   */
+  PreferredOutpostArn?: string;
+
+  /**
+   * <p>A flag that enables using an <code>AuthToken</code> (password)
+   *             when issuing Redis commands.</p>
+   *         <p>Default: <code>false</code>
+   *          </p>
+   */
+  AuthTokenEnabled?: boolean;
+
+  /**
+   * <p>A list of VPC Security Groups associated with the cluster.</p>
+   */
+  SecurityGroups?: SecurityGroupMembership[];
+
+  /**
+   * <p>A flag that enables in-transit encryption when set to <code>true</code>.</p>
+   *         <p>You cannot modify the value of <code>TransitEncryptionEnabled</code>
+   *             after the cluster is created. To enable in-transit encryption on a cluster
+   *             you must set <code>TransitEncryptionEnabled</code> to <code>true</code>
+   *             when you create a cluster.</p>
+   *         <p>
+   *             <b>Required:</b>
+   *             Only available when creating a replication group in an Amazon VPC using redis version <code>3.2.6</code>, <code>4.x</code> or later.</p>
+   *         <p>Default: <code>false</code>
+   *          </p>
+   */
+  TransitEncryptionEnabled?: boolean;
+
+  /**
+   * <p>The user-supplied identifier of the cluster.
+   *             This identifier is a unique key that identifies a cluster.</p>
+   */
+  CacheClusterId?: string;
+
+  /**
+   * <p>A list of cache security group elements, composed of name and status sub-elements.</p>
+   */
+  CacheSecurityGroups?: CacheSecurityGroupMembership[];
+
+  /**
+   * <p>Represents a Memcached cluster endpoint which, if Automatic Discovery is enabled on
+   *             the cluster, can be used by an application to connect to any node in the cluster.
+   *             The configuration endpoint will always have <code>.cfg</code> in it.</p>
+   *         <p>Example: <code>mem-3.9dvc4r<u>.cfg</u>.usw2.cache.amazonaws.com:11211</code>
+   *          </p>
+   */
+  ConfigurationEndpoint?: Endpoint;
+
+  /**
+   * <p>The URL of the web page where you can download the latest ElastiCache client library.</p>
+   */
+  ClientDownloadLandingPage?: string;
+
+  /**
+   * <p>The ARN (Amazon Resource Name) of the cache cluster.</p>
+   */
+  ARN?: string;
+
+  /**
+   * <p>Status of the cache parameter group.</p>
+   */
+  CacheParameterGroup?: CacheParameterGroupStatus;
+
+  /**
+   * <p>A group of settings that are applied to the cluster in the future,
+   *             or that are currently being applied.</p>
+   */
+  PendingModifiedValues?: PendingModifiedValues;
 
   /**
    * <p>The name of the compute and memory capacity node type for the cluster.</p>
@@ -2568,7 +2838,27 @@ export interface CacheCluster {
    *                   <li>
    *                      <p>Current generation: </p>
    *
-   *     							          <p>
+   *     						           <p>
+   *                         <b>M6g node types</b> (available only for Redis engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward).</p>
+   * 						               <p>
+   *                         <code>cache.m6g.large</code>,
+   * 							<code>cache.m6g.xlarge</code>,
+   * 							<code>cache.m6g.2xlarge</code>,
+   * 							<code>cache.m6g.4xlarge</code>,
+   * 							<code>cache.m6g.8xlarge</code>,
+   * 							<code>cache.m6g.12xlarge</code>,
+   * 							<code>cache.m6g.16xlarge</code>
+   *
+   *
+   *
+   * 						               </p>
+   *
+   * 						               <note>
+   *                         <p>At this time, M6g node types are available in the following regions: us-east-1, us-west-2, us-east-2, eu-central-1, eu-west-1 and ap-northeast-1.</p>
+   *                      </note>
+   *
+   *
+   *     					            <p>
    *                         <b>M5 node types:</b>
    *     						              <code>cache.m5.large</code>,
    *     						<code>cache.m5.xlarge</code>,
@@ -2652,7 +2942,30 @@ export interface CacheCluster {
    * 				           <ul>
    *                   <li>
    *                      <p>Current generation: </p>
+   * 											          <p>
+   *                         <b>R6g node types</b> (available only for Redis engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward).</p>
    *
+   *
+   *
+   *
+   * 						               <p>
+   * 							                 <code>cache.r6g.large</code>,
+   * 							<code>cache.r6g.xlarge</code>,
+   * 							<code>cache.r6g.2xlarge</code>,
+   * 							<code>cache.r6g.4xlarge</code>,
+   * 							<code>cache.r6g.8xlarge</code>,
+   * 							<code>cache.r6g.12xlarge</code>,
+   * 							<code>cache.r6g.16xlarge</code>
+   *
+   *
+   *
+   *
+   *
+   *
+   * 						               </p>
+   * 						               <note>
+   *                         <p>At this time, R6g node types are available in the following regions: us-east-1, us-west-2, us-east-2, eu-central-1, eu-west-1 and ap-northeast-1.</p>
+   *                      </note>
    * 					                <p>
    *                         <b>R5 node types:</b>
    *     					               <code>cache.r5.large</code>,
@@ -2729,155 +3042,14 @@ export interface CacheCluster {
   CacheNodeType?: string;
 
   /**
-   * <p>The version of the cache engine that is used in this cluster.</p>
+   * <p>The date the auth token was last modified</p>
    */
-  EngineVersion?: string;
+  AuthTokenLastModifiedDate?: Date;
 
   /**
-   * <p>The date and time when the cluster was created.</p>
+   * <p>A list of cache nodes that are members of the cluster.</p>
    */
-  CacheClusterCreateTime?: Date;
-
-  /**
-   * <p>The number of days for which ElastiCache retains automatic cluster snapshots before
-   *             deleting them. For example, if you set <code>SnapshotRetentionLimit</code> to 5,  a
-   *             snapshot that was taken today is retained for 5 days before being deleted.</p>
-   *         <important>
-   *             <p>
-   *           If the value of SnapshotRetentionLimit is set to zero (0), backups are turned off.</p>
-   *          </important>
-   */
-  SnapshotRetentionLimit?: number;
-
-  /**
-   * <p>The URL of the web page where you can download the latest ElastiCache client library.</p>
-   */
-  ClientDownloadLandingPage?: string;
-
-  /**
-   * <p>Represents a Memcached cluster endpoint which, if Automatic Discovery is enabled on
-   *             the cluster, can be used by an application to connect to any node in the cluster.
-   *             The configuration endpoint will always have <code>.cfg</code> in it.</p>
-   *         <p>Example: <code>mem-3.9dvc4r<u>.cfg</u>.usw2.cache.amazonaws.com:11211</code>
-   *          </p>
-   */
-  ConfigurationEndpoint?: Endpoint;
-
-  /**
-   * <p>A group of settings that are applied to the cluster in the future,
-   *             or that are currently being applied.</p>
-   */
-  PendingModifiedValues?: PendingModifiedValues;
-
-  /**
-   * <p>The user-supplied identifier of the cluster.
-   *             This identifier is a unique key that identifies a cluster.</p>
-   */
-  CacheClusterId?: string;
-
-  /**
-   * <p>The number of cache nodes in the cluster.</p>
-   *         <p>For clusters running Redis, this value must be 1. For clusters running Memcached,
-   *             this value must be between 1 and 20.</p>
-   */
-  NumCacheNodes?: number;
-
-  /**
-   * <p>Specifies the weekly time range during which maintenance
-   *    on the cluster is performed. It is specified as a range in
-   *    the format ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC). The minimum
-   *    maintenance window is a 60 minute period.</p>
-   *          <p>Valid values for <code>ddd</code> are:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>sun</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>mon</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>tue</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>wed</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>thu</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>fri</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>sat</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   *          <p>Example: <code>sun:23:00-mon:01:30</code>
-   *          </p>
-   */
-  PreferredMaintenanceWindow?: string;
-
-  /**
-   * <p>A list of cache security group elements, composed of name and status sub-elements.</p>
-   */
-  CacheSecurityGroups?: CacheSecurityGroupMembership[];
-
-  /**
-   * <p>The name of the Availability Zone in which the cluster is located or "Multiple"
-   *             if the cache nodes are located in different Availability Zones.</p>
-   */
-  PreferredAvailabilityZone?: string;
-
-  /**
-   * <p>A list of VPC Security Groups associated with the cluster.</p>
-   */
-  SecurityGroups?: SecurityGroupMembership[];
-
-  /**
-   * <p>The replication group to which this cluster belongs.
-   *             If this field is empty, the cluster is not associated with any replication group.</p>
-   */
-  ReplicationGroupId?: string;
-
-  /**
-   * <p>The outpost ARN in which the cache cluster is created.</p>
-   */
-  PreferredOutpostArn?: string;
-
-  /**
-   * <p>A flag that enables using an <code>AuthToken</code> (password)
-   *             when issuing Redis commands.</p>
-   *         <p>Default: <code>false</code>
-   *          </p>
-   */
-  AuthTokenEnabled?: boolean;
-
-  /**
-   * <p>A flag that enables in-transit encryption when set to <code>true</code>.</p>
-   *         <p>You cannot modify the value of <code>TransitEncryptionEnabled</code>
-   *             after the cluster is created. To enable in-transit encryption on a cluster
-   *             you must set <code>TransitEncryptionEnabled</code> to <code>true</code>
-   *             when you create a cluster.</p>
-   *         <p>
-   *             <b>Required:</b>
-   *             Only available when creating a replication group in an Amazon VPC using redis version <code>3.2.6</code>, <code>4.x</code> or later.</p>
-   *         <p>Default: <code>false</code>
-   *          </p>
-   */
-  TransitEncryptionEnabled?: boolean;
+  CacheNodes?: CacheNode[];
 }
 
 export namespace CacheCluster {
@@ -2995,6 +3167,16 @@ export namespace CacheParameterGroupQuotaExceededFault {
  */
 export interface CreateCacheParameterGroupMessage {
   /**
+   * <p>A user-specified description for the cache parameter group.</p>
+   */
+  Description: string | undefined;
+
+  /**
+   * <p>A user-specified name for the cache parameter group.</p>
+   */
+  CacheParameterGroupName: string | undefined;
+
+  /**
    * <p>The name of the cache parameter group family that the cache parameter group can be used with.</p>
    *         <p>Valid values are:
    *     <code>memcached1.4</code> |
@@ -3004,19 +3186,10 @@ export interface CreateCacheParameterGroupMessage {
    *     <code>redis3.2</code> |
    *     <code>redis4.0</code> |
    *      <code>redis5.0</code> |
+   *       <code>redis6.0</code> |
    *     </p>
    */
   CacheParameterGroupFamily: string | undefined;
-
-  /**
-   * <p>A user-specified description for the cache parameter group.</p>
-   */
-  Description: string | undefined;
-
-  /**
-   * <p>A user-specified name for the cache parameter group.</p>
-   */
-  CacheParameterGroupName: string | undefined;
 }
 
 export namespace CreateCacheParameterGroupMessage {
@@ -3030,11 +3203,6 @@ export namespace CreateCacheParameterGroupMessage {
  */
 export interface CacheParameterGroup {
   /**
-   * <p>The name of the cache parameter group.</p>
-   */
-  CacheParameterGroupName?: string;
-
-  /**
    * <p>The name of the cache parameter group family that this cache parameter group is compatible with.</p>
    *         <p>Valid values are:
    *     <code>memcached1.4</code> |
@@ -3044,9 +3212,15 @@ export interface CacheParameterGroup {
    *     <code>redis3.2</code> |
    *     <code>redis4.0</code> |
    *      <code>redis5.0</code> |
+   *       <code>redis6.0</code> |
    *     </p>
    */
   CacheParameterGroupFamily?: string;
+
+  /**
+   * <p>Indicates whether the parameter group is associated with a Global Datastore</p>
+   */
+  IsGlobal?: boolean;
 
   /**
    * <p>The ARN (Amazon Resource Name) of the cache parameter group.</p>
@@ -3054,9 +3228,9 @@ export interface CacheParameterGroup {
   ARN?: string;
 
   /**
-   * <p>Indicates whether the parameter group is associated with a Global Datastore</p>
+   * <p>The name of the cache parameter group.</p>
    */
-  IsGlobal?: boolean;
+  CacheParameterGroupName?: string;
 
   /**
    * <p>The description for this cache parameter group.</p>
@@ -3133,17 +3307,17 @@ export namespace CacheSecurityGroupQuotaExceededFault {
  */
 export interface CreateCacheSecurityGroupMessage {
   /**
-   * <p>A description for the cache security group.</p>
-   */
-  Description: string | undefined;
-
-  /**
    * <p>A name for the cache security group. This value is stored as a lowercase string.</p>
    *         <p>Constraints: Must contain no more than 255 alphanumeric characters. Cannot be the word "Default".</p>
    *         <p>Example: <code>mysecuritygroup</code>
    *          </p>
    */
   CacheSecurityGroupName: string | undefined;
+
+  /**
+   * <p>A description for the cache security group.</p>
+   */
+  Description: string | undefined;
 }
 
 export namespace CreateCacheSecurityGroupMessage {
@@ -3232,17 +3406,17 @@ export namespace CacheSubnetQuotaExceededFault {
  */
 export interface CreateCacheSubnetGroupMessage {
   /**
-   * <p>A description for the cache subnet group.</p>
-   */
-  CacheSubnetGroupDescription: string | undefined;
-
-  /**
    * <p>A name for the cache subnet group. This value is stored as a lowercase string.</p>
    *         <p>Constraints: Must contain no more than 255 alphanumeric characters or hyphens.</p>
    *         <p>Example: <code>mysubnetgroup</code>
    *          </p>
    */
   CacheSubnetGroupName: string | undefined;
+
+  /**
+   * <p>A description for the cache subnet group.</p>
+   */
+  CacheSubnetGroupDescription: string | undefined;
 
   /**
    * <p>A list of VPC subnet IDs for the cache subnet group.</p>
@@ -3294,14 +3468,14 @@ export namespace SubnetOutpost {
  */
 export interface Subnet {
   /**
-   * <p>The unique identifier for the subnet.</p>
-   */
-  SubnetIdentifier?: string;
-
-  /**
    * <p>The outpost ARN of the subnet.</p>
    */
   SubnetOutpost?: SubnetOutpost;
+
+  /**
+   * <p>The unique identifier for the subnet.</p>
+   */
+  SubnetIdentifier?: string;
 
   /**
    * <p>The Availability Zone associated with the subnet.</p>
@@ -3332,16 +3506,6 @@ export namespace Subnet {
  */
 export interface CacheSubnetGroup {
   /**
-   * <p>The Amazon Virtual Private Cloud identifier (VPC ID) of the cache subnet group.</p>
-   */
-  VpcId?: string;
-
-  /**
-   * <p>A list of subnets associated with the cache subnet group.</p>
-   */
-  Subnets?: Subnet[];
-
-  /**
    * <p>The ARN (Amazon Resource Name) of the cache subnet group.</p>
    */
   ARN?: string;
@@ -3350,6 +3514,16 @@ export interface CacheSubnetGroup {
    * <p>The name of the cache subnet group.</p>
    */
   CacheSubnetGroupName?: string;
+
+  /**
+   * <p>A list of subnets associated with the cache subnet group.</p>
+   */
+  Subnets?: Subnet[];
+
+  /**
+   * <p>The Amazon Virtual Private Cloud identifier (VPC ID) of the cache subnet group.</p>
+   */
+  VpcId?: string;
 
   /**
    * <p>The description of the cache subnet group.</p>
@@ -3470,16 +3644,6 @@ export namespace GlobalNodeGroup {
  */
 export interface GlobalReplicationGroupMember {
   /**
-   * <p>The AWS region of the Global Datastore member.</p>
-   */
-  ReplicationGroupRegion?: string;
-
-  /**
-   * <p>Indicates whether automatic failover is enabled for the replication group.</p>
-   */
-  AutomaticFailover?: AutomaticFailoverStatus | string;
-
-  /**
    * <p>The status of the membership of the replication group.</p>
    */
   Status?: string;
@@ -3488,6 +3652,16 @@ export interface GlobalReplicationGroupMember {
    * <p>The replication group id of the Global Datastore member.</p>
    */
   ReplicationGroupId?: string;
+
+  /**
+   * <p>The AWS region of the Global Datastore member.</p>
+   */
+  ReplicationGroupRegion?: string;
+
+  /**
+   * <p>Indicates whether automatic failover is enabled for the replication group.</p>
+   */
+  AutomaticFailover?: AutomaticFailoverStatus | string;
 
   /**
    * <p>Indicates the role of the replication group, primary or secondary.</p>
@@ -3515,29 +3689,19 @@ export namespace GlobalReplicationGroupMember {
  */
 export interface GlobalReplicationGroup {
   /**
-   * <p>The replication groups that comprise the Global Datastore.</p>
-   */
-  Members?: GlobalReplicationGroupMember[];
-
-  /**
    * <p>The Elasticache engine. For Redis only.</p>
    */
   Engine?: string;
 
   /**
-   * <p>A flag that indicates whether the Global Datastore is cluster enabled.</p>
-   */
-  ClusterEnabled?: boolean;
-
-  /**
-   * <p>The optional description of the Global Datastore</p>
-   */
-  GlobalReplicationGroupDescription?: string;
-
-  /**
    * <p>The status of the Global Datastore</p>
    */
   Status?: string;
+
+  /**
+   * <p>The name of the Global Datastore</p>
+   */
+  GlobalReplicationGroupId?: string;
 
   /**
    * <p>Indicates the slot configuration and global identifier for each slice group.</p>
@@ -3550,6 +3714,21 @@ export interface GlobalReplicationGroup {
   ARN?: string;
 
   /**
+   * <p>A flag that indicates whether the Global Datastore is cluster enabled.</p>
+   */
+  ClusterEnabled?: boolean;
+
+  /**
+   * <p>The optional description of the Global Datastore</p>
+   */
+  GlobalReplicationGroupDescription?: string;
+
+  /**
+   * <p>The replication groups that comprise the Global Datastore.</p>
+   */
+  Members?: GlobalReplicationGroupMember[];
+
+  /**
    * <p>A flag that enables encryption at rest when set to <code>true</code>.</p>
    *             <p>You cannot modify the value of <code>AtRestEncryptionEnabled</code> after the replication
    *                 group is created.
@@ -3560,21 +3739,6 @@ export interface GlobalReplicationGroup {
    *                 Only available when creating a replication group in an Amazon VPC using redis version <code>3.2.6</code>, <code>4.x</code> or later.</p>
    */
   AtRestEncryptionEnabled?: boolean;
-
-  /**
-   * <p>The name of the Global Datastore</p>
-   */
-  GlobalReplicationGroupId?: string;
-
-  /**
-   * <p>The Elasticache Redis engine version. For preview, it is Redis version 5.0.5 only.</p>
-   */
-  EngineVersion?: string;
-
-  /**
-   * <p>The cache node type of the Global Datastore</p>
-   */
-  CacheNodeType?: string;
 
   /**
    * <p>A flag that enables in-transit encryption when set to true.
@@ -3590,6 +3754,16 @@ export interface GlobalReplicationGroup {
    *          </p>
    */
   AuthTokenEnabled?: boolean;
+
+  /**
+   * <p>The cache node type of the Global Datastore</p>
+   */
+  CacheNodeType?: string;
+
+  /**
+   * <p>The Elasticache Redis engine version.</p>
+   */
+  EngineVersion?: string;
 }
 
 export namespace GlobalReplicationGroup {
@@ -3655,112 +3829,6 @@ export namespace ServiceLinkedRoleNotFoundFault {
  */
 export interface CreateReplicationGroupMessage {
   /**
-   * <p>A list of cost allocation tags to be added to this resource.
-   *           Tags are comma-separated key,value pairs (e.g. Key=<code>myKey</code>, Value=<code>myKeyValue</code>. You can include multiple tags as shown following:
-   *           Key=<code>myKey</code>, Value=<code>myKeyValue</code> Key=<code>mySecondKey</code>, Value=<code>mySecondKeyValue</code>.</p>
-   */
-  Tags?: Tag[];
-
-  /**
-   * <p>The list of user groups to associate with the replication group.</p>
-   */
-  UserGroupIds?: string[];
-
-  /**
-   * <p>Specifies the weekly time range during which maintenance
-   *             on the cluster is performed. It is specified as a range in
-   *             the format ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC). The minimum
-   *             maintenance window is a 60 minute period.
-   *             Valid values for <code>ddd</code> are:</p>
-   *
-   *          <p>Specifies the weekly time range during which maintenance
-   *    on the cluster is performed. It is specified as a range in
-   *    the format ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC). The minimum
-   *    maintenance window is a 60 minute period.</p>
-   *          <p>Valid values for <code>ddd</code> are:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>sun</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>mon</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>tue</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>wed</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>thu</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>fri</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>sat</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   *          <p>Example: <code>sun:23:00-mon:01:30</code>
-   *          </p>
-   */
-  PreferredMaintenanceWindow?: string;
-
-  /**
-   * <p>The identifier of the cluster that serves as the primary for this replication
-   *             group. This cluster must already exist and have a status of <code>available</code>.</p>
-   *         <p>This parameter is not required if <code>NumCacheClusters</code>,
-   *             <code>NumNodeGroups</code>, or
-   *             <code>ReplicasPerNodeGroup</code> is specified.</p>
-   */
-  PrimaryClusterId?: string;
-
-  /**
-   * <p>An optional parameter that specifies the number of replica nodes in each node group (shard).
-   *             Valid values are 0 to 5.</p>
-   */
-  ReplicasPerNodeGroup?: number;
-
-  /**
-   * <p>The ID of the KMS key used to encrypt the disk in the cluster.</p>
-   */
-  KmsKeyId?: string;
-
-  /**
-   * <p>The name of a snapshot from which to restore data into the new replication group.
-   *             The snapshot status changes to <code>restoring</code> while the new replication group is being created.</p>
-   */
-  SnapshotName?: string;
-
-  /**
-   * <p>A flag that enables encryption at rest when set to <code>true</code>.</p>
-   *         <p>You cannot modify the value of <code>AtRestEncryptionEnabled</code> after the replication
-   *             group is created.
-   *             To enable encryption at rest on a replication group you must set <code>AtRestEncryptionEnabled</code> to
-   *             <code>true</code> when you create the replication group. </p>
-   *         <p>
-   *             <b>Required:</b>
-   *             Only available when creating a replication group in an Amazon VPC using redis version <code>3.2.6</code>, <code>4.x</code> or later.</p>
-   *         <p>Default: <code>false</code>
-   *          </p>
-   */
-  AtRestEncryptionEnabled?: boolean;
-
-  /**
    * <p>An optional parameter that specifies the number of node groups (shards) for this Redis (cluster mode enabled) replication group.
    *             For Redis (cluster mode disabled) either omit this parameter or set it to 1.</p>
    *         <p>Default: 1</p>
@@ -3768,69 +3836,10 @@ export interface CreateReplicationGroupMessage {
   NumNodeGroups?: number;
 
   /**
-   * <p>The number of days for which ElastiCache retains automatic snapshots before deleting them.
-   *             For example, if you set <code>SnapshotRetentionLimit</code> to 5,
-   *             a snapshot that was taken today is retained for 5 days before being deleted.</p>
-   *          <p>Default: 0 (i.e., automatic backups are disabled for this cluster).</p>
+   * <p>An optional parameter that specifies the number of replica nodes in each node group (shard).
+   *             Valid values are 0 to 5.</p>
    */
-  SnapshotRetentionLimit?: number;
-
-  /**
-   * <p>A list of cache security group names to associate with this replication group.</p>
-   */
-  CacheSecurityGroupNames?: string[];
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon Simple Notification Service (SNS)
-   *             topic to which notifications are sent.</p>
-   *         <note>
-   *             <p>The Amazon SNS topic owner must be the same as the cluster owner.</p>
-   *          </note>
-   */
-  NotificationTopicArn?: string;
-
-  /**
-   * <p>The name of the parameter group to associate with this replication group.
-   *             If this argument is omitted, the default cache parameter group for the specified engine is
-   *             used.</p>
-   *         <note>
-   *             <p>If you are restoring to an engine version that is different than the original, you must specify the default version of that version. For example, <code>CacheParameterGroupName=default.redis4.0</code>.</p>
-   *          </note>
-   *         <p>If you are running Redis version 3.2.4 or later, only one node group (shard), and want to use a default parameter group,
-   *             we recommend that you specify the parameter group by name. </p>
-   *         <ul>
-   *             <li>
-   *                <p>To create a Redis (cluster mode disabled) replication group, use <code>CacheParameterGroupName=default.redis3.2</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>To create a Redis (cluster mode enabled) replication group, use <code>CacheParameterGroupName=default.redis3.2.cluster.on</code>.</p>
-   *             </li>
-   *          </ul>
-   */
-  CacheParameterGroupName?: string;
-
-  /**
-   * <p>The replication group identifier. This parameter is stored as a lowercase string.</p>
-   *
-   *          <p>Constraints:</p>
-   *          <ul>
-   *             <li>
-   *                <p>A name must contain from 1 to 40 alphanumeric characters or hyphens.</p>
-   *             </li>
-   *             <li>
-   *                <p>The first character must be a letter.</p>
-   *             </li>
-   *             <li>
-   *                <p>A name cannot end with a hyphen or contain two consecutive hyphens.</p>
-   *             </li>
-   *          </ul>
-   */
-  ReplicationGroupId: string | undefined;
-
-  /**
-   * <p>The name of the cache engine to be used for the clusters in this replication group.</p>
-   */
-  Engine?: string;
+  ReplicasPerNodeGroup?: number;
 
   /**
    * <p>The number of clusters this replication group initially has.</p>
@@ -3844,40 +3853,70 @@ export interface CreateReplicationGroupMessage {
   NumCacheClusters?: number;
 
   /**
-   * <p>The daily time range (in UTC) during which ElastiCache begins taking a daily snapshot of your node group (shard).</p>
-   *          <p>Example: <code>05:00-09:00</code>
-   *          </p>
-   *          <p>If you do not specify this parameter, ElastiCache  automatically chooses an appropriate time range.</p>
+   * <p>A user-created description for the replication group.</p>
    */
-  SnapshotWindow?: string;
+  ReplicationGroupDescription: string | undefined;
 
   /**
-   * <p>A flag indicating if you have Multi-AZ enabled to enhance fault tolerance. For more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/AutoFailover.html">Minimizing Downtime: Multi-AZ</a>.</p>
+   * <p>The Amazon Resource Name (ARN) of the Amazon Simple Notification Service (SNS)
+   *             topic to which notifications are sent.</p>
+   *         <note>
+   *             <p>The Amazon SNS topic owner must be the same as the cluster owner.</p>
+   *          </note>
    */
-  MultiAZEnabled?: boolean;
+  NotificationTopicArn?: string;
 
   /**
-   * <p>A flag that enables in-transit encryption when set to <code>true</code>.</p>
-   *         <p>You cannot modify the value of <code>TransitEncryptionEnabled</code>
-   *             after the cluster is created. To enable in-transit encryption on a cluster
-   *             you must set <code>TransitEncryptionEnabled</code> to <code>true</code>
-   *             when you create a cluster.</p>
-   *         <p>This parameter is valid only if the <code>Engine</code> parameter is <code>redis</code>,
-   *             the <code>EngineVersion</code> parameter is <code>3.2.6</code>, <code>4.x</code> or later,
-   *             and the cluster is being created in an Amazon VPC.</p>
-   *         <p>If you enable in-transit encryption, you must also specify a value for
-   *             <code>CacheSubnetGroup</code>.</p>
-   *         <p>
-   *             <b>Required:</b>
-   *             Only available when creating a replication group in an Amazon VPC using redis version <code>3.2.6</code>, <code>4.x</code> or later.</p>
-   *         <p>Default: <code>false</code>
-   *          </p>
-   *         <important>
-   *             <p>For HIPAA compliance, you must specify <code>TransitEncryptionEnabled</code> as <code>true</code>,
-   *             an <code>AuthToken</code>, and a <code>CacheSubnetGroup</code>.</p>
-   *          </important>
+   * <p>The number of days for which ElastiCache retains automatic snapshots before deleting them.
+   *             For example, if you set <code>SnapshotRetentionLimit</code> to 5,
+   *             a snapshot that was taken today is retained for 5 days before being deleted.</p>
+   *          <p>Default: 0 (i.e., automatic backups are disabled for this cluster).</p>
    */
-  TransitEncryptionEnabled?: boolean;
+  SnapshotRetentionLimit?: number;
+
+  /**
+   * <p>A list of Amazon Resource Names (ARN) that uniquely identify
+   *           the Redis RDB snapshot files stored in Amazon S3.
+   *           The snapshot files are used to populate the new replication group.
+   *           The Amazon S3 object name in the ARN cannot contain any commas.
+   *           The new replication group will have the number of node groups (console: shards)
+   *           specified by the parameter <i>NumNodeGroups</i> or the number of
+   *           node groups configured by <i>NodeGroupConfiguration</i> regardless
+   *           of the number of ARNs specified here.</p>
+   *          <p>Example of an Amazon S3 ARN: <code>arn:aws:s3:::my_bucket/snapshot1.rdb</code>
+   *          </p>
+   */
+  SnapshotArns?: string[];
+
+  /**
+   * <p>The name of a snapshot from which to restore data into the new replication group.
+   *             The snapshot status changes to <code>restoring</code> while the new replication group is being created.</p>
+   */
+  SnapshotName?: string;
+
+  /**
+   * <p>The list of user groups to associate with the replication group.</p>
+   */
+  UserGroupIds?: string[];
+
+  /**
+   * <p>A list of node group (shard) configuration options.
+   *             Each node group (shard) configuration has the following members:
+   *             <code>PrimaryAvailabilityZone</code>,
+   *             <code>ReplicaAvailabilityZones</code>,
+   *             <code>ReplicaCount</code>, and
+   *             <code>Slots</code>.</p>
+   *         <p>If you're creating a Redis (cluster mode disabled) or a Redis (cluster mode enabled) replication group, you can use this parameter to
+   *             individually configure each node group (shard), or you can omit this parameter. However, it is required when seeding a
+   *             Redis (cluster mode enabled) cluster from a S3 rdb file. You must configure each node group (shard) using this parameter
+   *             because you must specify the slots for each node group.</p>
+   */
+  NodeGroupConfiguration?: NodeGroupConfiguration[];
+
+  /**
+   * <p>A list of cache security group names to associate with this replication group.</p>
+   */
+  CacheSecurityGroupNames?: string[];
 
   /**
    * <p>The compute and memory capacity of the nodes in the node group (shard).</p>
@@ -3891,7 +3930,27 @@ export interface CreateReplicationGroupMessage {
    *                   <li>
    *                      <p>Current generation: </p>
    *
-   *     							          <p>
+   *     						           <p>
+   *                         <b>M6g node types</b> (available only for Redis engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward).</p>
+   * 						               <p>
+   *                         <code>cache.m6g.large</code>,
+   * 							<code>cache.m6g.xlarge</code>,
+   * 							<code>cache.m6g.2xlarge</code>,
+   * 							<code>cache.m6g.4xlarge</code>,
+   * 							<code>cache.m6g.8xlarge</code>,
+   * 							<code>cache.m6g.12xlarge</code>,
+   * 							<code>cache.m6g.16xlarge</code>
+   *
+   *
+   *
+   * 						               </p>
+   *
+   * 						               <note>
+   *                         <p>At this time, M6g node types are available in the following regions: us-east-1, us-west-2, us-east-2, eu-central-1, eu-west-1 and ap-northeast-1.</p>
+   *                      </note>
+   *
+   *
+   *     					            <p>
    *                         <b>M5 node types:</b>
    *     						              <code>cache.m5.large</code>,
    *     						<code>cache.m5.xlarge</code>,
@@ -3975,7 +4034,30 @@ export interface CreateReplicationGroupMessage {
    * 				           <ul>
    *                   <li>
    *                      <p>Current generation: </p>
+   * 											          <p>
+   *                         <b>R6g node types</b> (available only for Redis engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward).</p>
    *
+   *
+   *
+   *
+   * 						               <p>
+   * 							                 <code>cache.r6g.large</code>,
+   * 							<code>cache.r6g.xlarge</code>,
+   * 							<code>cache.r6g.2xlarge</code>,
+   * 							<code>cache.r6g.4xlarge</code>,
+   * 							<code>cache.r6g.8xlarge</code>,
+   * 							<code>cache.r6g.12xlarge</code>,
+   * 							<code>cache.r6g.16xlarge</code>
+   *
+   *
+   *
+   *
+   *
+   *
+   * 						               </p>
+   * 						               <note>
+   *                         <p>At this time, R6g node types are available in the following regions: us-east-1, us-west-2, us-east-2, eu-central-1, eu-west-1 and ap-northeast-1.</p>
+   *                      </note>
    * 					                <p>
    *                         <b>R5 node types:</b>
    *     					               <code>cache.r5.large</code>,
@@ -4052,9 +4134,59 @@ export interface CreateReplicationGroupMessage {
   CacheNodeType?: string;
 
   /**
-   * <p>This parameter is currently disabled.</p>
+   * <p>Specifies whether a read-only replica is automatically promoted to read/write primary if the existing primary fails.</p>
+   *
+   *         <p>
+   *             <code>AutomaticFailoverEnabled</code> must be enabled for Redis (cluster mode enabled) replication groups.</p>
+   *
+   *         <p>Default: false</p>
    */
-  AutoMinorVersionUpgrade?: boolean;
+  AutomaticFailoverEnabled?: boolean;
+
+  /**
+   * <p>The identifier of the cluster that serves as the primary for this replication
+   *             group. This cluster must already exist and have a status of <code>available</code>.</p>
+   *         <p>This parameter is not required if <code>NumCacheClusters</code>,
+   *             <code>NumNodeGroups</code>, or
+   *             <code>ReplicasPerNodeGroup</code> is specified.</p>
+   */
+  PrimaryClusterId?: string;
+
+  /**
+   * <p>A list of EC2 Availability Zones in which the replication group's clusters are created.
+   *             The order of the Availability Zones in the list is the order in which clusters are allocated.
+   *             The primary cluster is created in the first AZ in the list.</p>
+   *         <p>This parameter is not used if there is more than one node group (shard).
+   *             You should use <code>NodeGroupConfiguration</code> instead.</p>
+   *         <note>
+   *             <p>If you are creating your replication group in an Amazon VPC (recommended),
+   *             you can only locate clusters in Availability Zones associated with the subnets in the selected subnet group.</p>
+   *             <p>The number of Availability Zones listed must equal the value of <code>NumCacheClusters</code>.</p>
+   *          </note>
+   *         <p>Default: system chosen Availability Zones.</p>
+   */
+  PreferredCacheClusterAZs?: string[];
+
+  /**
+   * <p>The name of the Global Datastore</p>
+   */
+  GlobalReplicationGroupId?: string;
+
+  /**
+   * <p>The port number on which each member of the replication group accepts connections.</p>
+   */
+  Port?: number;
+
+  /**
+   * <p>One or more Amazon VPC security groups associated with this replication group.</p>
+   *         <p>Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud (Amazon VPC).</p>
+   */
+  SecurityGroupIds?: string[];
+
+  /**
+   * <p>The name of the cache engine to be used for the clusters in this replication group.</p>
+   */
+  Engine?: string;
 
   /**
    * <p>
@@ -4085,83 +4217,9 @@ export interface CreateReplicationGroupMessage {
   AuthToken?: string;
 
   /**
-   * <p>Specifies whether a read-only replica is automatically promoted to read/write primary if the existing primary fails.</p>
-   *
-   *         <p>
-   *             <code>AutomaticFailoverEnabled</code> must be enabled for Redis (cluster mode enabled) replication groups.</p>
-   *
-   *         <p>Default: false</p>
+   * <p>This parameter is currently disabled.</p>
    */
-  AutomaticFailoverEnabled?: boolean;
-
-  /**
-   * <p>A list of node group (shard) configuration options.
-   *             Each node group (shard) configuration has the following members:
-   *             <code>PrimaryAvailabilityZone</code>,
-   *             <code>ReplicaAvailabilityZones</code>,
-   *             <code>ReplicaCount</code>, and
-   *             <code>Slots</code>.</p>
-   *         <p>If you're creating a Redis (cluster mode disabled) or a Redis (cluster mode enabled) replication group, you can use this parameter to
-   *             individually configure each node group (shard), or you can omit this parameter. However, it is required when seeding a
-   *             Redis (cluster mode enabled) cluster from a S3 rdb file. You must configure each node group (shard) using this parameter
-   *             because you must specify the slots for each node group.</p>
-   */
-  NodeGroupConfiguration?: NodeGroupConfiguration[];
-
-  /**
-   * <p>A list of EC2 Availability Zones in which the replication group's clusters are created.
-   *             The order of the Availability Zones in the list is the order in which clusters are allocated.
-   *             The primary cluster is created in the first AZ in the list.</p>
-   *         <p>This parameter is not used if there is more than one node group (shard).
-   *             You should use <code>NodeGroupConfiguration</code> instead.</p>
-   *         <note>
-   *             <p>If you are creating your replication group in an Amazon VPC (recommended),
-   *             you can only locate clusters in Availability Zones associated with the subnets in the selected subnet group.</p>
-   *             <p>The number of Availability Zones listed must equal the value of <code>NumCacheClusters</code>.</p>
-   *          </note>
-   *         <p>Default: system chosen Availability Zones.</p>
-   */
-  PreferredCacheClusterAZs?: string[];
-
-  /**
-   * <p>A list of Amazon Resource Names (ARN) that uniquely identify
-   *           the Redis RDB snapshot files stored in Amazon S3.
-   *           The snapshot files are used to populate the new replication group.
-   *           The Amazon S3 object name in the ARN cannot contain any commas.
-   *           The new replication group will have the number of node groups (console: shards)
-   *           specified by the parameter <i>NumNodeGroups</i> or the number of
-   *           node groups configured by <i>NodeGroupConfiguration</i> regardless
-   *           of the number of ARNs specified here.</p>
-   *          <p>Example of an Amazon S3 ARN: <code>arn:aws:s3:::my_bucket/snapshot1.rdb</code>
-   *          </p>
-   */
-  SnapshotArns?: string[];
-
-  /**
-   * <p>The name of the Global Datastore</p>
-   */
-  GlobalReplicationGroupId?: string;
-
-  /**
-   * <p>The name of the cache subnet group to be used for the replication group.</p>
-   *         <important>
-   *             <p>If you're going to launch your cluster in an Amazon VPC,
-   *                 you need to create a subnet group before you start creating a cluster.
-   *                 For more information, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/SubnetGroups.html">Subnets and Subnet Groups</a>.</p>
-   *          </important>
-   */
-  CacheSubnetGroupName?: string;
-
-  /**
-   * <p>A user-created description for the replication group.</p>
-   */
-  ReplicationGroupDescription: string | undefined;
-
-  /**
-   * <p>One or more Amazon VPC security groups associated with this replication group.</p>
-   *         <p>Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud (Amazon VPC).</p>
-   */
-  SecurityGroupIds?: string[];
+  AutoMinorVersionUpgrade?: boolean;
 
   /**
    * <p>The version number of the cache engine to be used for the clusters in this replication group.
@@ -4177,9 +4235,168 @@ export interface CreateReplicationGroupMessage {
   EngineVersion?: string;
 
   /**
-   * <p>The port number on which each member of the replication group accepts connections.</p>
+   * <p>The name of the cache subnet group to be used for the replication group.</p>
+   *         <important>
+   *             <p>If you're going to launch your cluster in an Amazon VPC,
+   *                 you need to create a subnet group before you start creating a cluster.
+   *                 For more information, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/SubnetGroups.html">Subnets and Subnet Groups</a>.</p>
+   *          </important>
    */
-  Port?: number;
+  CacheSubnetGroupName?: string;
+
+  /**
+   * <p>A flag that enables encryption at rest when set to <code>true</code>.</p>
+   *         <p>You cannot modify the value of <code>AtRestEncryptionEnabled</code> after the replication
+   *             group is created.
+   *             To enable encryption at rest on a replication group you must set <code>AtRestEncryptionEnabled</code> to
+   *             <code>true</code> when you create the replication group. </p>
+   *         <p>
+   *             <b>Required:</b>
+   *             Only available when creating a replication group in an Amazon VPC using redis version <code>3.2.6</code>, <code>4.x</code> or later.</p>
+   *         <p>Default: <code>false</code>
+   *          </p>
+   */
+  AtRestEncryptionEnabled?: boolean;
+
+  /**
+   * <p>The daily time range (in UTC) during which ElastiCache begins taking a daily snapshot of your node group (shard).</p>
+   *          <p>Example: <code>05:00-09:00</code>
+   *          </p>
+   *          <p>If you do not specify this parameter, ElastiCache  automatically chooses an appropriate time range.</p>
+   */
+  SnapshotWindow?: string;
+
+  /**
+   * <p>The ID of the KMS key used to encrypt the disk in the cluster.</p>
+   */
+  KmsKeyId?: string;
+
+  /**
+   * <p>A flag indicating if you have Multi-AZ enabled to enhance fault tolerance. For more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/AutoFailover.html">Minimizing Downtime: Multi-AZ</a>.</p>
+   */
+  MultiAZEnabled?: boolean;
+
+  /**
+   * <p>A list of cost allocation tags to be added to this resource.
+   *           Tags are comma-separated key,value pairs (e.g. Key=<code>myKey</code>, Value=<code>myKeyValue</code>. You can include multiple tags as shown following:
+   *           Key=<code>myKey</code>, Value=<code>myKeyValue</code> Key=<code>mySecondKey</code>, Value=<code>mySecondKeyValue</code>.</p>
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>The name of the parameter group to associate with this replication group.
+   *             If this argument is omitted, the default cache parameter group for the specified engine is
+   *             used.</p>
+   *         <note>
+   *             <p>If you are restoring to an engine version that is different than the original, you must specify the default version of that version. For example, <code>CacheParameterGroupName=default.redis4.0</code>.</p>
+   *          </note>
+   *         <p>If you are running Redis version 3.2.4 or later, only one node group (shard), and want to use a default parameter group,
+   *             we recommend that you specify the parameter group by name. </p>
+   *         <ul>
+   *             <li>
+   *                <p>To create a Redis (cluster mode disabled) replication group, use <code>CacheParameterGroupName=default.redis3.2</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>To create a Redis (cluster mode enabled) replication group, use <code>CacheParameterGroupName=default.redis3.2.cluster.on</code>.</p>
+   *             </li>
+   *          </ul>
+   */
+  CacheParameterGroupName?: string;
+
+  /**
+   * <p>Specifies the weekly time range during which maintenance
+   *             on the cluster is performed. It is specified as a range in
+   *             the format ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC). The minimum
+   *             maintenance window is a 60 minute period.
+   *             Valid values for <code>ddd</code> are:</p>
+   *
+   *          <p>Specifies the weekly time range during which maintenance
+   *    on the cluster is performed. It is specified as a range in
+   *    the format ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC). The minimum
+   *    maintenance window is a 60 minute period.</p>
+   *          <p>Valid values for <code>ddd</code> are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>sun</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>mon</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>tue</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>wed</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>thu</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>fri</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>sat</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *          <p>Example: <code>sun:23:00-mon:01:30</code>
+   *          </p>
+   */
+  PreferredMaintenanceWindow?: string;
+
+  /**
+   * <p>A flag that enables in-transit encryption when set to <code>true</code>.</p>
+   *         <p>You cannot modify the value of <code>TransitEncryptionEnabled</code>
+   *             after the cluster is created. To enable in-transit encryption on a cluster
+   *             you must set <code>TransitEncryptionEnabled</code> to <code>true</code>
+   *             when you create a cluster.</p>
+   *         <p>This parameter is valid only if the <code>Engine</code> parameter is <code>redis</code>,
+   *             the <code>EngineVersion</code> parameter is <code>3.2.6</code>, <code>4.x</code> or later,
+   *             and the cluster is being created in an Amazon VPC.</p>
+   *         <p>If you enable in-transit encryption, you must also specify a value for
+   *             <code>CacheSubnetGroup</code>.</p>
+   *         <p>
+   *             <b>Required:</b>
+   *             Only available when creating a replication group in an Amazon VPC using redis version <code>3.2.6</code>, <code>4.x</code> or later.</p>
+   *         <p>Default: <code>false</code>
+   *          </p>
+   *         <important>
+   *             <p>For HIPAA compliance, you must specify <code>TransitEncryptionEnabled</code> as <code>true</code>,
+   *             an <code>AuthToken</code>, and a <code>CacheSubnetGroup</code>.</p>
+   *          </important>
+   */
+  TransitEncryptionEnabled?: boolean;
+
+  /**
+   * <p>The replication group identifier. This parameter is stored as a lowercase string.</p>
+   *
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>A name must contain from 1 to 40 alphanumeric characters or hyphens.</p>
+   *             </li>
+   *             <li>
+   *                <p>The first character must be a letter.</p>
+   *             </li>
+   *             <li>
+   *                <p>A name cannot end with a hyphen or contain two consecutive hyphens.</p>
+   *             </li>
+   *          </ul>
+   */
+  ReplicationGroupId: string | undefined;
 }
 
 export namespace CreateReplicationGroupMessage {
@@ -4312,9 +4529,9 @@ export namespace UserGroupNotFoundFault {
  */
 export interface CreateSnapshotMessage {
   /**
-   * <p>A name for the snapshot being created.</p>
+   * <p>The identifier of an existing replication group. The snapshot is created from this replication group.</p>
    */
-  SnapshotName: string | undefined;
+  ReplicationGroupId?: string;
 
   /**
    * <p>The identifier of an existing cluster. The snapshot is created from this cluster.</p>
@@ -4322,14 +4539,14 @@ export interface CreateSnapshotMessage {
   CacheClusterId?: string;
 
   /**
+   * <p>A name for the snapshot being created.</p>
+   */
+  SnapshotName: string | undefined;
+
+  /**
    * <p>The ID of the KMS key used to encrypt the snapshot.</p>
    */
   KmsKeyId?: string;
-
-  /**
-   * <p>The identifier of an existing replication group. The snapshot is created from this replication group.</p>
-   */
-  ReplicationGroupId?: string;
 }
 
 export namespace CreateSnapshotMessage {
@@ -4378,16 +4595,6 @@ export namespace SnapshotFeatureNotSupportedFault {
 
 export interface CreateUserMessage {
   /**
-   * <p>Must be Redis. </p>
-   */
-  Engine: string | undefined;
-
-  /**
-   * <p>Indicates a password is not required for this user account.</p>
-   */
-  NoPasswordRequired?: boolean;
-
-  /**
    * <p>The username of the user.</p>
    */
   UserName: string | undefined;
@@ -4398,14 +4605,24 @@ export interface CreateUserMessage {
   AccessString: string | undefined;
 
   /**
-   * <p>The ID of the user.</p>
+   * <p>Indicates a password is not required for this user account.</p>
    */
-  UserId: string | undefined;
+  NoPasswordRequired?: boolean;
 
   /**
    * <p>Passwords used for this user account. You can create up to two passwords for each user.</p>
    */
   Passwords?: string[];
+
+  /**
+   * <p>Must be Redis. </p>
+   */
+  Engine: string | undefined;
+
+  /**
+   * <p>The ID of the user.</p>
+   */
+  UserId: string | undefined;
 }
 
 export namespace CreateUserMessage {
@@ -4439,14 +4656,14 @@ export enum AuthenticationType {
  */
 export interface Authentication {
   /**
-   * <p>The number of passwords belonging to the user. The maximum is two.</p>
-   */
-  PasswordCount?: number;
-
-  /**
    * <p>Indicates whether the user requires a password to authenticate.</p>
    */
   Type?: AuthenticationType | string;
+
+  /**
+   * <p>The number of passwords belonging to the user. The maximum is two.</p>
+   */
+  PasswordCount?: number;
 }
 
 export namespace Authentication {
@@ -4457,9 +4674,19 @@ export namespace Authentication {
 
 export interface User {
   /**
-   * <p>Indicates the user status. Can be "active", "modifying" or "deleting".</p>
+   * <p>Access permissions string used for this user account.</p>
    */
-  Status?: string;
+  AccessString?: string;
+
+  /**
+   * <p>Must be Redis. </p>
+   */
+  Engine?: string;
+
+  /**
+   * <p>The ID of the user.</p>
+   */
+  UserId?: string;
 
   /**
    * <p>The username of the user.</p>
@@ -4472,16 +4699,6 @@ export interface User {
   UserGroupIds?: string[];
 
   /**
-   * <p>Access permissions string used for this user account.</p>
-   */
-  AccessString?: string;
-
-  /**
-   * <p>The ID of the user.</p>
-   */
-  UserId?: string;
-
-  /**
    * <p>Denotes whether the user requires a password to authenticate.</p>
    */
   Authentication?: Authentication;
@@ -4492,9 +4709,9 @@ export interface User {
   ARN?: string;
 
   /**
-   * <p>Must be Redis. </p>
+   * <p>Indicates the user status. Can be "active", "modifying" or "deleting".</p>
    */
-  Engine?: string;
+  Status?: string;
 }
 
 export namespace User {
@@ -4535,14 +4752,14 @@ export namespace UserQuotaExceededFault {
 
 export interface CreateUserGroupMessage {
   /**
-   * <p>The list of user IDs that belong to the user group.</p>
-   */
-  UserIds?: string[];
-
-  /**
    * <p>Must be Redis. </p>
    */
   Engine: string | undefined;
+
+  /**
+   * <p>The list of user IDs that belong to the user group.</p>
+   */
+  UserIds?: string[];
 
   /**
    * <p>The ID of the user group.</p>
@@ -4594,9 +4811,9 @@ export namespace UserGroupPendingChanges {
 
 export interface UserGroup {
   /**
-   * <p>Indicates user group status. Can be "creating", "active", "modifying", "deleting".</p>
+   * <p>A list of replication groups that the user group can access.</p>
    */
-  Status?: string;
+  ReplicationGroups?: string[];
 
   /**
    * <p>Must be Redis. </p>
@@ -4604,9 +4821,19 @@ export interface UserGroup {
   Engine?: string;
 
   /**
+   * <p>The ID of the user group.</p>
+   */
+  UserGroupId?: string;
+
+  /**
    * <p>The list of user IDs that belong to the user group.</p>
    */
   UserIds?: string[];
+
+  /**
+   * <p>Indicates user group status. Can be "creating", "active", "modifying", "deleting".</p>
+   */
+  Status?: string;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the user group.</p>
@@ -4614,19 +4841,9 @@ export interface UserGroup {
   ARN?: string;
 
   /**
-   * <p>The ID of the user group.</p>
-   */
-  UserGroupId?: string;
-
-  /**
    * <p>A list of updates being applied to the user groups.</p>
    */
   PendingChanges?: UserGroupPendingChanges;
-
-  /**
-   * <p>A list of replication groups that the user group can access.</p>
-   */
-  ReplicationGroups?: string[];
 }
 
 export namespace UserGroup {
@@ -4682,9 +4899,11 @@ export namespace UserNotFoundFault {
 
 export interface DecreaseNodeGroupsInGlobalReplicationGroupMessage {
   /**
-   * <p>The name of the Global Datastore</p>
+   * <p>If the value of NodeGroupCount is less than the current number of node groups (shards), then either NodeGroupsToRemove or NodeGroupsToRetain is required. NodeGroupsToRemove is a list of NodeGroupIds to remove from the cluster.
+   *
+   *             ElastiCache for Redis will attempt to remove all node groups listed by NodeGroupsToRemove from the cluster. </p>
    */
-  GlobalReplicationGroupId: string | undefined;
+  GlobalNodeGroupsToRetain?: string[];
 
   /**
    * <p>Indicates that the shard reconfiguration process begins immediately. At present, the only permitted value for this parameter is true. </p>
@@ -4697,11 +4916,9 @@ export interface DecreaseNodeGroupsInGlobalReplicationGroupMessage {
   NodeGroupCount: number | undefined;
 
   /**
-   * <p>If the value of NodeGroupCount is less than the current number of node groups (shards), then either NodeGroupsToRemove or NodeGroupsToRetain is required. NodeGroupsToRemove is a list of NodeGroupIds to remove from the cluster.
-   *
-   *             ElastiCache for Redis will attempt to remove all node groups listed by NodeGroupsToRemove from the cluster. </p>
+   * <p>The name of the Global Datastore</p>
    */
-  GlobalNodeGroupsToRetain?: string[];
+  GlobalReplicationGroupId: string | undefined;
 
   /**
    * <p>If the value of NodeGroupCount is less than the current number of node groups (shards), then either NodeGroupsToRemove or NodeGroupsToRetain is required. NodeGroupsToRemove is a list of NodeGroupIds to remove from the cluster.
@@ -4745,13 +4962,11 @@ export namespace DecreaseNodeGroupsInGlobalReplicationGroupResult {
  */
 export interface ConfigureShard {
   /**
-   * <p>A list of <code>PreferredAvailabilityZone</code> strings that specify which availability zones the
-   *             replication group's nodes are to be in. The nummber of <code>PreferredAvailabilityZone</code> values must
-   *             equal the value of <code>NewReplicaCount</code> plus 1 to account for the primary node. If this member of
-   *             <code>ReplicaConfiguration</code> is omitted, ElastiCache for Redis selects the availability zone for
-   *             each of the replicas.</p>
+   * <p>The 4-digit id for the node group you are configuring. For Redis (cluster mode disabled)
+   *             replication groups, the node group id is always 0001. To find a Redis (cluster mode enabled)'s
+   *             node group's (shard's) id, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/shard-find-id.html">Finding a Shard's Id</a>.</p>
    */
-  PreferredAvailabilityZones?: string[];
+  NodeGroupId: string | undefined;
 
   /**
    * <p>The number of replicas you want  in this node group at the end of this operation.
@@ -4783,11 +4998,13 @@ export interface ConfigureShard {
   PreferredOutpostArns?: string[];
 
   /**
-   * <p>The 4-digit id for the node group you are configuring. For Redis (cluster mode disabled)
-   *             replication groups, the node group id is always 0001. To find a Redis (cluster mode enabled)'s
-   *             node group's (shard's) id, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/shard-find-id.html">Finding a Shard's Id</a>.</p>
+   * <p>A list of <code>PreferredAvailabilityZone</code> strings that specify which availability zones the
+   *             replication group's nodes are to be in. The nummber of <code>PreferredAvailabilityZone</code> values must
+   *             equal the value of <code>NewReplicaCount</code> plus 1 to account for the primary node. If this member of
+   *             <code>ReplicaConfiguration</code> is omitted, ElastiCache for Redis selects the availability zone for
+   *             each of the replicas.</p>
    */
-  NodeGroupId: string | undefined;
+  PreferredAvailabilityZones?: string[];
 }
 
 export namespace ConfigureShard {
@@ -4797,6 +5014,18 @@ export namespace ConfigureShard {
 }
 
 export interface DecreaseReplicaCountMessage {
+  /**
+   * <p>If <code>True</code>, the number of replica nodes is decreased immediately.
+   *
+   *             <code>ApplyImmediately=False</code> is not currently supported.</p>
+   */
+  ApplyImmediately: boolean | undefined;
+
+  /**
+   * <p>The id of the replication group from which you want to remove replica nodes.</p>
+   */
+  ReplicationGroupId: string | undefined;
+
   /**
    * <p>The number of read replica nodes you want at the completion of this operation.
    *             For Redis (cluster mode disabled) replication groups, this is the number of replica nodes in the
@@ -4828,23 +5057,11 @@ export interface DecreaseReplicaCountMessage {
   ReplicasToRemove?: string[];
 
   /**
-   * <p>The id of the replication group from which you want to remove replica nodes.</p>
-   */
-  ReplicationGroupId: string | undefined;
-
-  /**
    * <p>A list of <code>ConfigureShard</code> objects that can be used to configure each shard
    *             in a Redis (cluster mode enabled) replication group. The <code>ConfigureShard</code> has three members:
    *             <code>NewReplicaCount</code>, <code>NodeGroupId</code>, and <code>PreferredAvailabilityZones</code>.</p>
    */
   ReplicaConfiguration?: ConfigureShard[];
-
-  /**
-   * <p>If <code>True</code>, the number of replica nodes is decreased immediately.
-   *
-   *             <code>ApplyImmediately=False</code> is not currently supported.</p>
-   */
-  ApplyImmediately: boolean | undefined;
 }
 
 export namespace DecreaseReplicaCountMessage {
@@ -5031,14 +5248,6 @@ export namespace DeleteGlobalReplicationGroupResult {
  */
 export interface DeleteReplicationGroupMessage {
   /**
-   * <p>The name of a final node group (shard) snapshot.
-   *             ElastiCache creates the snapshot from the primary node in the cluster,
-   *             rather than one of the replicas; this is to ensure that it captures the freshest data.
-   *             After the final snapshot is taken, the replication group is immediately deleted.</p>
-   */
-  FinalSnapshotIdentifier?: string;
-
-  /**
    * <p>The identifier for the cluster to be deleted. This parameter is not case sensitive.</p>
    */
   ReplicationGroupId: string | undefined;
@@ -5048,6 +5257,14 @@ export interface DeleteReplicationGroupMessage {
    *             but the primary node is retained.</p>
    */
   RetainPrimaryCluster?: boolean;
+
+  /**
+   * <p>The name of a final node group (shard) snapshot.
+   *             ElastiCache creates the snapshot from the primary node in the cluster,
+   *             rather than one of the replicas; this is to ensure that it captures the freshest data.
+   *             After the final snapshot is taken, the replication group is immediately deleted.</p>
+   */
+  FinalSnapshotIdentifier?: string;
 }
 
 export namespace DeleteReplicationGroupMessage {
@@ -5180,19 +5397,6 @@ export namespace CacheClusterMessage {
  */
 export interface DescribeCacheClustersMessage {
   /**
-   * <p>An optional flag that can be included in the <code>DescribeCacheCluster</code> request
-   *             to show only nodes (API/CLI: clusters) that are not members of a replication group.
-   *             In practice, this mean Memcached and single node Redis clusters.</p>
-   */
-  ShowCacheClustersNotInReplicationGroups?: boolean;
-
-  /**
-   * <p>The user-supplied cluster identifier. If this parameter is specified, only information
-   *             about that specific cluster is returned. This parameter isn't case sensitive.</p>
-   */
-  CacheClusterId?: string;
-
-  /**
    * <p>An optional marker returned from a prior request.
    *             Use this marker for pagination of results from this operation. If this
    *             parameter is specified, the response includes only records beyond the marker, up to the
@@ -5215,6 +5419,19 @@ export interface DescribeCacheClustersMessage {
    *         <p>Constraints: minimum 20; maximum 100.</p>
    */
   MaxRecords?: number;
+
+  /**
+   * <p>The user-supplied cluster identifier. If this parameter is specified, only information
+   *             about that specific cluster is returned. This parameter isn't case sensitive.</p>
+   */
+  CacheClusterId?: string;
+
+  /**
+   * <p>An optional flag that can be included in the <code>DescribeCacheCluster</code> request
+   *             to show only nodes (API/CLI: clusters) that are not members of a replication group.
+   *             In practice, this mean Memcached and single node Redis clusters.</p>
+   */
+  ShowCacheClustersNotInReplicationGroups?: boolean;
 }
 
 export namespace DescribeCacheClustersMessage {
@@ -5228,19 +5445,14 @@ export namespace DescribeCacheClustersMessage {
  */
 export interface CacheEngineVersion {
   /**
-   * <p>The name of the cache engine.</p>
-   */
-  Engine?: string;
-
-  /**
-   * <p>The version number of the cache engine.</p>
-   */
-  EngineVersion?: string;
-
-  /**
    * <p>The description of the cache engine.</p>
    */
   CacheEngineDescription?: string;
+
+  /**
+   * <p>The name of the cache engine.</p>
+   */
+  Engine?: string;
 
   /**
    * <p>The name of the cache parameter group family associated with this cache engine.</p>
@@ -5252,9 +5464,15 @@ export interface CacheEngineVersion {
    *     <code>redis3.2</code> |
    *     <code>redis4.0</code> |
    *      <code>redis5.0</code> |
+   *       <code>redis6.0</code> |
    *     </p>
    */
   CacheParameterGroupFamily?: string;
+
+  /**
+   * <p>The version number of the cache engine.</p>
+   */
+  EngineVersion?: string;
 
   /**
    * <p>The description of the cache engine version.</p>
@@ -5273,15 +5491,15 @@ export namespace CacheEngineVersion {
  */
 export interface CacheEngineVersionMessage {
   /**
+   * <p>Provides an identifier to allow retrieval of paginated results.</p>
+   */
+  Marker?: string;
+
+  /**
    * <p>A list of cache engine version details.
    *             Each element in the list contains detailed information about one cache engine version.</p>
    */
   CacheEngineVersions?: CacheEngineVersion[];
-
-  /**
-   * <p>Provides an identifier to allow retrieval of paginated results.</p>
-   */
-  Marker?: string;
 }
 
 export namespace CacheEngineVersionMessage {
@@ -5295,34 +5513,11 @@ export namespace CacheEngineVersionMessage {
  */
 export interface DescribeCacheEngineVersionsMessage {
   /**
-   * <p>If <code>true</code>, specifies that only the default version of the specified engine or engine
-   *             and major version combination is to be returned.</p>
-   */
-  DefaultOnly?: boolean;
-
-  /**
-   * <p>The cache engine version to return.</p>
-   *         <p>Example: <code>1.4.14</code>
-   *          </p>
-   */
-  EngineVersion?: string;
-
-  /**
    * <p>An optional marker returned from a prior request. Use this marker for pagination of results from this operation.
    *             If this parameter is specified, the response includes only records beyond the marker, up to the
    *             value specified by <code>MaxRecords</code>.</p>
    */
   Marker?: string;
-
-  /**
-   * <p>The maximum number of records to include in the response. If more records exist than the
-   *             specified <code>MaxRecords</code> value, a marker is included in the response so that
-   *             the remaining results can be retrieved.</p>
-   *
-   *         <p>Default: 100</p>
-   *         <p>Constraints: minimum 20; maximum 100.</p>
-   */
-  MaxRecords?: number;
 
   /**
    * <p>The name of a specific cache parameter group family to return details for.</p>
@@ -5334,6 +5529,7 @@ export interface DescribeCacheEngineVersionsMessage {
    *     <code>redis3.2</code> |
    *     <code>redis4.0</code> |
    *      <code>redis5.0</code> |
+   *       <code>redis6.0</code> |
    *     </p>
    *         <p>Constraints:</p>
    *         <ul>
@@ -5349,6 +5545,29 @@ export interface DescribeCacheEngineVersionsMessage {
    *          </ul>
    */
   CacheParameterGroupFamily?: string;
+
+  /**
+   * <p>The cache engine version to return.</p>
+   *         <p>Example: <code>1.4.14</code>
+   *          </p>
+   */
+  EngineVersion?: string;
+
+  /**
+   * <p>If <code>true</code>, specifies that only the default version of the specified engine or engine
+   *             and major version combination is to be returned.</p>
+   */
+  DefaultOnly?: boolean;
+
+  /**
+   * <p>The maximum number of records to include in the response. If more records exist than the
+   *             specified <code>MaxRecords</code> value, a marker is included in the response so that
+   *             the remaining results can be retrieved.</p>
+   *
+   *         <p>Default: 100</p>
+   *         <p>Constraints: minimum 20; maximum 100.</p>
+   */
+  MaxRecords?: number;
 
   /**
    * <p>The cache engine to return. Valid values: <code>memcached</code> | <code>redis</code>
@@ -5390,16 +5609,16 @@ export namespace CacheParameterGroupsMessage {
  */
 export interface DescribeCacheParameterGroupsMessage {
   /**
+   * <p>The name of a specific cache parameter group to return details for.</p>
+   */
+  CacheParameterGroupName?: string;
+
+  /**
    * <p>An optional marker returned from a prior request. Use this marker for pagination of results from this operation.
    *             If this parameter is specified, the response includes only records beyond the marker, up to the
    *             value specified by <code>MaxRecords</code>.</p>
    */
   Marker?: string;
-
-  /**
-   * <p>The name of a specific cache parameter group to return details for.</p>
-   */
-  CacheParameterGroupName?: string;
 
   /**
    * <p>The maximum number of records to include in the response. If more records exist than the
@@ -5448,44 +5667,9 @@ export type ChangeType = "immediate" | "requires-reboot";
  */
 export interface CacheNodeTypeSpecificParameter {
   /**
-   * <p>A list of cache node types and their corresponding values for this parameter.</p>
-   */
-  CacheNodeTypeSpecificValues?: CacheNodeTypeSpecificValue[];
-
-  /**
-   * <p>The valid range of values for the parameter.</p>
-   */
-  AllowedValues?: string;
-
-  /**
-   * <p>Indicates whether (<code>true</code>) or not (<code>false</code>) the parameter can be
-   *             modified. Some parameters have security or operational implications that prevent them
-   *             from being changed.</p>
-   */
-  IsModifiable?: boolean;
-
-  /**
-   * <p>A description of the parameter.</p>
-   */
-  Description?: string;
-
-  /**
    * <p>The earliest cache engine version to which the parameter can apply.</p>
    */
   MinimumEngineVersion?: string;
-
-  /**
-   * <p>Indicates whether a change to the parameter is applied immediately
-   *             or requires a reboot for the change to be applied.
-   *             You can force a reboot or wait until the next maintenance window's reboot.
-   *             For more information, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.Rebooting.html">Rebooting a Cluster</a>.</p>
-   */
-  ChangeType?: ChangeType | string;
-
-  /**
-   * <p>The name of the parameter.</p>
-   */
-  ParameterName?: string;
 
   /**
    * <p>The source of the parameter value.</p>
@@ -5496,6 +5680,41 @@ export interface CacheNodeTypeSpecificParameter {
    * <p>The valid data type for the parameter.</p>
    */
   DataType?: string;
+
+  /**
+   * <p>Indicates whether a change to the parameter is applied immediately
+   *             or requires a reboot for the change to be applied.
+   *             You can force a reboot or wait until the next maintenance window's reboot.
+   *             For more information, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.Rebooting.html">Rebooting a Cluster</a>.</p>
+   */
+  ChangeType?: ChangeType | string;
+
+  /**
+   * <p>A description of the parameter.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>Indicates whether (<code>true</code>) or not (<code>false</code>) the parameter can be
+   *             modified. Some parameters have security or operational implications that prevent them
+   *             from being changed.</p>
+   */
+  IsModifiable?: boolean;
+
+  /**
+   * <p>The valid range of values for the parameter.</p>
+   */
+  AllowedValues?: string;
+
+  /**
+   * <p>A list of cache node types and their corresponding values for this parameter.</p>
+   */
+  CacheNodeTypeSpecificValues?: CacheNodeTypeSpecificValue[];
+
+  /**
+   * <p>The name of the parameter.</p>
+   */
+  ParameterName?: string;
 }
 
 export namespace CacheNodeTypeSpecificParameter {
@@ -5509,20 +5728,19 @@ export namespace CacheNodeTypeSpecificParameter {
  */
 export interface Parameter {
   /**
-   * <p>The valid range of values for the parameter.</p>
+   * <p>The valid data type for the parameter.</p>
    */
-  AllowedValues?: string;
+  DataType?: string;
 
   /**
-   * <p>Indicates whether (<code>true</code>) or not (<code>false</code>) the parameter can be modified.
-   *             Some parameters have security or operational implications that prevent them from being changed.</p>
+   * <p>The earliest cache engine version to which the parameter can apply.</p>
    */
-  IsModifiable?: boolean;
+  MinimumEngineVersion?: string;
 
   /**
-   * <p>A description of the parameter.</p>
+   * <p>The source of the parameter.</p>
    */
-  Description?: string;
+  Source?: string;
 
   /**
    * <p>Indicates whether a change to the parameter is applied immediately
@@ -5533,9 +5751,15 @@ export interface Parameter {
   ChangeType?: ChangeType | string;
 
   /**
-   * <p>The earliest cache engine version to which the parameter can apply.</p>
+   * <p>A description of the parameter.</p>
    */
-  MinimumEngineVersion?: string;
+  Description?: string;
+
+  /**
+   * <p>Indicates whether (<code>true</code>) or not (<code>false</code>) the parameter can be modified.
+   *             Some parameters have security or operational implications that prevent them from being changed.</p>
+   */
+  IsModifiable?: boolean;
 
   /**
    * <p>The value of the parameter.</p>
@@ -5543,19 +5767,14 @@ export interface Parameter {
   ParameterValue?: string;
 
   /**
+   * <p>The valid range of values for the parameter.</p>
+   */
+  AllowedValues?: string;
+
+  /**
    * <p>The name of the parameter.</p>
    */
   ParameterName?: string;
-
-  /**
-   * <p>The valid data type for the parameter.</p>
-   */
-  DataType?: string;
-
-  /**
-   * <p>The source of the parameter.</p>
-   */
-  Source?: string;
 }
 
 export namespace Parameter {
@@ -5569,10 +5788,9 @@ export namespace Parameter {
  */
 export interface CacheParameterGroupDetails {
   /**
-   * <p>A list of parameters specific to a particular cache node type.
-   *             Each element in the list contains detailed information about one parameter.</p>
+   * <p>Provides an identifier to allow retrieval of paginated results.</p>
    */
-  CacheNodeTypeSpecificParameters?: CacheNodeTypeSpecificParameter[];
+  Marker?: string;
 
   /**
    * <p>A list of <a>Parameter</a> instances.</p>
@@ -5580,9 +5798,10 @@ export interface CacheParameterGroupDetails {
   Parameters?: Parameter[];
 
   /**
-   * <p>Provides an identifier to allow retrieval of paginated results.</p>
+   * <p>A list of parameters specific to a particular cache node type.
+   *             Each element in the list contains detailed information about one parameter.</p>
    */
-  Marker?: string;
+  CacheNodeTypeSpecificParameters?: CacheNodeTypeSpecificParameter[];
 }
 
 export namespace CacheParameterGroupDetails {
@@ -5595,6 +5814,19 @@ export namespace CacheParameterGroupDetails {
  * <p>Represents the input of a <code>DescribeCacheParameters</code> operation.</p>
  */
 export interface DescribeCacheParametersMessage {
+  /**
+   * <p>The name of a specific cache parameter group to return details for.</p>
+   */
+  CacheParameterGroupName: string | undefined;
+
+  /**
+   * <p>An optional marker returned from a prior request.
+   *             Use this marker for pagination of results from this operation.
+   *             If this parameter is specified, the response includes only records beyond the marker, up to the
+   *             value specified by <code>MaxRecords</code>.</p>
+   */
+  Marker?: string;
+
   /**
    * <p>The maximum number of records to include in the response. If more records exist than the
    *             specified <code>MaxRecords</code> value, a marker is included in the response so that
@@ -5611,19 +5843,6 @@ export interface DescribeCacheParametersMessage {
    *          </p>
    */
   Source?: string;
-
-  /**
-   * <p>The name of a specific cache parameter group to return details for.</p>
-   */
-  CacheParameterGroupName: string | undefined;
-
-  /**
-   * <p>An optional marker returned from a prior request.
-   *             Use this marker for pagination of results from this operation.
-   *             If this parameter is specified, the response includes only records beyond the marker, up to the
-   *             value specified by <code>MaxRecords</code>.</p>
-   */
-  Marker?: string;
 }
 
 export namespace DescribeCacheParametersMessage {
@@ -5658,13 +5877,6 @@ export namespace CacheSecurityGroupMessage {
  */
 export interface DescribeCacheSecurityGroupsMessage {
   /**
-   * <p>An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this
-   *             parameter is specified, the response includes only records beyond the marker, up to the
-   *             value specified by <code>MaxRecords</code>.</p>
-   */
-  Marker?: string;
-
-  /**
    * <p>The maximum number of records to include in the response. If more records exist than the
    *             specified <code>MaxRecords</code> value, a marker is included in the response so that
    *             the remaining results can be retrieved.</p>
@@ -5673,6 +5885,13 @@ export interface DescribeCacheSecurityGroupsMessage {
    *         <p>Constraints: minimum 20; maximum 100.</p>
    */
   MaxRecords?: number;
+
+  /**
+   * <p>An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this
+   *             parameter is specified, the response includes only records beyond the marker, up to the
+   *             value specified by <code>MaxRecords</code>.</p>
+   */
+  Marker?: string;
 
   /**
    * <p>The name of the cache security group to return details for.</p>
@@ -5691,14 +5910,14 @@ export namespace DescribeCacheSecurityGroupsMessage {
  */
 export interface CacheSubnetGroupMessage {
   /**
-   * <p>A list of cache subnet groups. Each element in the list contains detailed information about one group.</p>
-   */
-  CacheSubnetGroups?: CacheSubnetGroup[];
-
-  /**
    * <p>Provides an identifier to allow retrieval of paginated results.</p>
    */
   Marker?: string;
+
+  /**
+   * <p>A list of cache subnet groups. Each element in the list contains detailed information about one group.</p>
+   */
+  CacheSubnetGroups?: CacheSubnetGroup[];
 }
 
 export namespace CacheSubnetGroupMessage {
@@ -5712,19 +5931,6 @@ export namespace CacheSubnetGroupMessage {
  */
 export interface DescribeCacheSubnetGroupsMessage {
   /**
-   * <p>An optional marker returned from a prior request.
-   *             Use this marker for pagination of results from this operation.
-   *             If this parameter is specified, the response includes only records beyond the marker, up to the
-   *             value specified by <code>MaxRecords</code>.</p>
-   */
-  Marker?: string;
-
-  /**
-   * <p>The name of the cache subnet group to return details for.</p>
-   */
-  CacheSubnetGroupName?: string;
-
-  /**
    * <p>The maximum number of records to include in the response. If more records exist than the
    *             specified <code>MaxRecords</code> value, a marker is included in the response so that
    *             the remaining results can be retrieved.</p>
@@ -5733,6 +5939,19 @@ export interface DescribeCacheSubnetGroupsMessage {
    *         <p>Constraints: minimum 20; maximum 100.</p>
    */
   MaxRecords?: number;
+
+  /**
+   * <p>The name of the cache subnet group to return details for.</p>
+   */
+  CacheSubnetGroupName?: string;
+
+  /**
+   * <p>An optional marker returned from a prior request.
+   *             Use this marker for pagination of results from this operation.
+   *             If this parameter is specified, the response includes only records beyond the marker, up to the
+   *             value specified by <code>MaxRecords</code>.</p>
+   */
+  Marker?: string;
 }
 
 export namespace DescribeCacheSubnetGroupsMessage {
@@ -5746,6 +5965,13 @@ export namespace DescribeCacheSubnetGroupsMessage {
  */
 export interface DescribeEngineDefaultParametersMessage {
   /**
+   * <p>An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this
+   *             parameter is specified, the response includes only records beyond the marker, up to the
+   *             value specified by <code>MaxRecords</code>.</p>
+   */
+  Marker?: string;
+
+  /**
    * <p>The maximum number of records to include in the response. If more records exist than the
    *             specified <code>MaxRecords</code> value, a marker is included in the response so that
    *             the remaining results can be retrieved.</p>
@@ -5754,13 +5980,6 @@ export interface DescribeEngineDefaultParametersMessage {
    *         <p>Constraints: minimum 20; maximum 100.</p>
    */
   MaxRecords?: number;
-
-  /**
-   * <p>An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this
-   *             parameter is specified, the response includes only records beyond the marker, up to the
-   *             value specified by <code>MaxRecords</code>.</p>
-   */
-  Marker?: string;
 
   /**
    * <p>The name of the cache parameter group family.</p>
@@ -5772,6 +5991,7 @@ export interface DescribeEngineDefaultParametersMessage {
    *     <code>redis3.2</code> |
    *     <code>redis4.0</code> |
    *      <code>redis5.0</code> |
+   *       <code>redis6.0</code> |
    *     </p>
    */
   CacheParameterGroupFamily: string | undefined;
@@ -5788,14 +6008,19 @@ export namespace DescribeEngineDefaultParametersMessage {
  */
 export interface EngineDefaults {
   /**
+   * <p>A list of parameters specific to a particular cache node type. Each element in the list contains detailed information about one parameter.</p>
+   */
+  CacheNodeTypeSpecificParameters?: CacheNodeTypeSpecificParameter[];
+
+  /**
    * <p>Contains a list of engine default parameters.</p>
    */
   Parameters?: Parameter[];
 
   /**
-   * <p>A list of parameters specific to a particular cache node type. Each element in the list contains detailed information about one parameter.</p>
+   * <p>Provides an identifier to allow retrieval of paginated results.</p>
    */
-  CacheNodeTypeSpecificParameters?: CacheNodeTypeSpecificParameter[];
+  Marker?: string;
 
   /**
    * <p>Specifies the name of the cache parameter group family to which the engine default parameters apply.</p>
@@ -5807,14 +6032,10 @@ export interface EngineDefaults {
    *     <code>redis3.2</code> |
    *     <code>redis4.0</code> |
    *      <code>redis5.0</code> |
+   *       <code>redis6.0</code> |
    *     </p>
    */
   CacheParameterGroupFamily?: string;
-
-  /**
-   * <p>Provides an identifier to allow retrieval of paginated results.</p>
-   */
-  Marker?: string;
 }
 
 export namespace EngineDefaults {
@@ -5850,6 +6071,26 @@ export type SourceType =
  */
 export interface DescribeEventsMessage {
   /**
+   * <p>The number of minutes worth of events to retrieve.</p>
+   */
+  Duration?: number;
+
+  /**
+   * <p>An optional marker returned from a prior request.
+   *             Use this marker for pagination of results from this operation.
+   *             If this parameter is specified, the response includes only records beyond the marker,
+   *             up to the value specified by <code>MaxRecords</code>.</p>
+   */
+  Marker?: string;
+
+  /**
+   * <p>The beginning of the time interval to retrieve events for, specified in ISO 8601 format.</p>
+   *         <p>
+   *             <b>Example:</b> 2017-03-30T07:03:49.555Z</p>
+   */
+  StartTime?: Date;
+
+  /**
    * <p>The event source to retrieve events for.
    *             If no value is specified, all events are returned.</p>
    */
@@ -5863,32 +6104,6 @@ export interface DescribeEventsMessage {
   EndTime?: Date;
 
   /**
-   * <p>The beginning of the time interval to retrieve events for, specified in ISO 8601 format.</p>
-   *         <p>
-   *             <b>Example:</b> 2017-03-30T07:03:49.555Z</p>
-   */
-  StartTime?: Date;
-
-  /**
-   * <p>The identifier of the event source for which events are returned.
-   *             If not specified, all sources are included in the response.</p>
-   */
-  SourceIdentifier?: string;
-
-  /**
-   * <p>An optional marker returned from a prior request.
-   *             Use this marker for pagination of results from this operation.
-   *             If this parameter is specified, the response includes only records beyond the marker,
-   *             up to the value specified by <code>MaxRecords</code>.</p>
-   */
-  Marker?: string;
-
-  /**
-   * <p>The number of minutes worth of events to retrieve.</p>
-   */
-  Duration?: number;
-
-  /**
    * <p>The maximum number of records to include in the response. If more records exist than the
    *             specified <code>MaxRecords</code> value, a marker is included in the response so that
    *             the remaining results can be retrieved.</p>
@@ -5897,6 +6112,12 @@ export interface DescribeEventsMessage {
    *         <p>Constraints: minimum 20; maximum 100.</p>
    */
   MaxRecords?: number;
+
+  /**
+   * <p>The identifier of the event source for which events are returned.
+   *             If not specified, all sources are included in the response.</p>
+   */
+  SourceIdentifier?: string;
 }
 
 export namespace DescribeEventsMessage {
@@ -5911,9 +6132,9 @@ export namespace DescribeEventsMessage {
  */
 export interface Event {
   /**
-   * <p>The date and time when the event occurred.</p>
+   * <p>The text of the event.</p>
    */
-  Date?: Date;
+  Message?: string;
 
   /**
    * <p>Specifies the origin of this event - a cluster, a parameter group, a security group, etc.</p>
@@ -5921,9 +6142,9 @@ export interface Event {
   SourceType?: SourceType | string;
 
   /**
-   * <p>The text of the event.</p>
+   * <p>The date and time when the event occurred.</p>
    */
-  Message?: string;
+  Date?: Date;
 
   /**
    * <p>The identifier for the source of the event.
@@ -5944,14 +6165,14 @@ export namespace Event {
  */
 export interface EventsMessage {
   /**
-   * <p>Provides an identifier to allow retrieval of paginated results.</p>
-   */
-  Marker?: string;
-
-  /**
    * <p>A list of events. Each element in the list contains detailed information about one event.</p>
    */
   Events?: Event[];
+
+  /**
+   * <p>Provides an identifier to allow retrieval of paginated results.</p>
+   */
+  Marker?: string;
 }
 
 export namespace EventsMessage {
@@ -5962,9 +6183,9 @@ export namespace EventsMessage {
 
 export interface DescribeGlobalReplicationGroupsMessage {
   /**
-   * <p>Returns the list of members that comprise the Global Datastore.</p>
+   * <p>The name of the Global Datastore</p>
    */
-  ShowMemberInfo?: boolean;
+  GlobalReplicationGroupId?: string;
 
   /**
    * <p>The maximum number of records to include in the response. If more records exist than the specified MaxRecords value, a marker is included in the response so that the remaining results can be retrieved. </p>
@@ -5972,9 +6193,9 @@ export interface DescribeGlobalReplicationGroupsMessage {
   MaxRecords?: number;
 
   /**
-   * <p>The name of the Global Datastore</p>
+   * <p>Returns the list of members that comprise the Global Datastore.</p>
    */
-  GlobalReplicationGroupId?: string;
+  ShowMemberInfo?: boolean;
 
   /**
    * <p>An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>. </p>
@@ -6011,12 +6232,6 @@ export namespace DescribeGlobalReplicationGroupsResult {
  */
 export interface DescribeReplicationGroupsMessage {
   /**
-   * <p>The identifier for the replication group to be described. This parameter is not case sensitive.</p>
-   *         <p>If you do not specify this parameter, information about all replication groups is returned.</p>
-   */
-  ReplicationGroupId?: string;
-
-  /**
    * <p>The maximum number of records to include in the response. If more records exist than the
    *             specified <code>MaxRecords</code> value, a marker is included in the response so that
    *             the remaining results can be retrieved.</p>
@@ -6025,6 +6240,12 @@ export interface DescribeReplicationGroupsMessage {
    *         <p>Constraints: minimum 20; maximum 100.</p>
    */
   MaxRecords?: number;
+
+  /**
+   * <p>The identifier for the replication group to be described. This parameter is not case sensitive.</p>
+   *         <p>If you do not specify this parameter, information about all replication groups is returned.</p>
+   */
+  ReplicationGroupId?: string;
 
   /**
    * <p>An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this
@@ -6066,6 +6287,57 @@ export namespace ReplicationGroupMessage {
  */
 export interface DescribeReservedCacheNodesMessage {
   /**
+   * <p>An optional marker returned from a prior request.
+   *             Use this marker for pagination of results from this operation.
+   *             If this parameter is specified, the response includes only records beyond the marker,
+   *             up to the value specified by <code>MaxRecords</code>.</p>
+   */
+  Marker?: string;
+
+  /**
+   * <p>The product description filter value. Use this parameter to show only those reservations matching the specified product description.</p>
+   */
+  ProductDescription?: string;
+
+  /**
+   * <p>The reserved cache node identifier filter value.
+   *             Use this parameter to show only the reservation that matches the specified reservation ID.</p>
+   */
+  ReservedCacheNodeId?: string;
+
+  /**
+   * <p>The maximum number of records to include in the response. If more records exist than the
+   *             specified <code>MaxRecords</code> value, a marker is included in the response so that
+   *             the remaining results can be retrieved.</p>
+   *
+   *         <p>Default: 100</p>
+   *         <p>Constraints: minimum 20; maximum 100.</p>
+   */
+  MaxRecords?: number;
+
+  /**
+   * <p>The duration filter value, specified in years or seconds.
+   *             Use this parameter to show only reservations for this duration.</p>
+   *         <p>Valid Values: <code>1 | 3 | 31536000 | 94608000</code>
+   *          </p>
+   */
+  Duration?: string;
+
+  /**
+   * <p>The offering type filter value.
+   *             Use this parameter to show only the available offerings matching the specified offering type.</p>
+   *         <p>Valid values: <code>"Light Utilization"|"Medium Utilization"|"Heavy Utilization"|"All Upfront"|"Partial Upfront"| "No Upfront"</code>
+   *          </p>
+   */
+  OfferingType?: string;
+
+  /**
+   * <p>The offering identifier filter value.
+   *             Use this parameter to show only purchased reservations matching the specified offering identifier.</p>
+   */
+  ReservedCacheNodesOfferingId?: string;
+
+  /**
    * <p>The cache node type filter value.
    *             Use this parameter to show only those reservations matching the specified cache node type.</p>
    *
@@ -6079,7 +6351,27 @@ export interface DescribeReservedCacheNodesMessage {
    *                   <li>
    *                      <p>Current generation: </p>
    *
-   *     							          <p>
+   *     						           <p>
+   *                         <b>M6g node types</b> (available only for Redis engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward).</p>
+   * 						               <p>
+   *                         <code>cache.m6g.large</code>,
+   * 							<code>cache.m6g.xlarge</code>,
+   * 							<code>cache.m6g.2xlarge</code>,
+   * 							<code>cache.m6g.4xlarge</code>,
+   * 							<code>cache.m6g.8xlarge</code>,
+   * 							<code>cache.m6g.12xlarge</code>,
+   * 							<code>cache.m6g.16xlarge</code>
+   *
+   *
+   *
+   * 						               </p>
+   *
+   * 						               <note>
+   *                         <p>At this time, M6g node types are available in the following regions: us-east-1, us-west-2, us-east-2, eu-central-1, eu-west-1 and ap-northeast-1.</p>
+   *                      </note>
+   *
+   *
+   *     					            <p>
    *                         <b>M5 node types:</b>
    *     						              <code>cache.m5.large</code>,
    *     						<code>cache.m5.xlarge</code>,
@@ -6163,7 +6455,30 @@ export interface DescribeReservedCacheNodesMessage {
    * 				           <ul>
    *                   <li>
    *                      <p>Current generation: </p>
+   * 											          <p>
+   *                         <b>R6g node types</b> (available only for Redis engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward).</p>
    *
+   *
+   *
+   *
+   * 						               <p>
+   * 							                 <code>cache.r6g.large</code>,
+   * 							<code>cache.r6g.xlarge</code>,
+   * 							<code>cache.r6g.2xlarge</code>,
+   * 							<code>cache.r6g.4xlarge</code>,
+   * 							<code>cache.r6g.8xlarge</code>,
+   * 							<code>cache.r6g.12xlarge</code>,
+   * 							<code>cache.r6g.16xlarge</code>
+   *
+   *
+   *
+   *
+   *
+   *
+   * 						               </p>
+   * 						               <note>
+   *                         <p>At this time, R6g node types are available in the following regions: us-east-1, us-west-2, us-east-2, eu-central-1, eu-west-1 and ap-northeast-1.</p>
+   *                      </note>
    * 					                <p>
    *                         <b>R5 node types:</b>
    *     					               <code>cache.r5.large</code>,
@@ -6238,57 +6553,6 @@ export interface DescribeReservedCacheNodesMessage {
    *          </ul>
    */
   CacheNodeType?: string;
-
-  /**
-   * <p>The duration filter value, specified in years or seconds.
-   *             Use this parameter to show only reservations for this duration.</p>
-   *         <p>Valid Values: <code>1 | 3 | 31536000 | 94608000</code>
-   *          </p>
-   */
-  Duration?: string;
-
-  /**
-   * <p>The offering type filter value.
-   *             Use this parameter to show only the available offerings matching the specified offering type.</p>
-   *         <p>Valid values: <code>"Light Utilization"|"Medium Utilization"|"Heavy Utilization"</code>
-   *          </p>
-   */
-  OfferingType?: string;
-
-  /**
-   * <p>The offering identifier filter value.
-   *             Use this parameter to show only purchased reservations matching the specified offering identifier.</p>
-   */
-  ReservedCacheNodesOfferingId?: string;
-
-  /**
-   * <p>The maximum number of records to include in the response. If more records exist than the
-   *             specified <code>MaxRecords</code> value, a marker is included in the response so that
-   *             the remaining results can be retrieved.</p>
-   *
-   *         <p>Default: 100</p>
-   *         <p>Constraints: minimum 20; maximum 100.</p>
-   */
-  MaxRecords?: number;
-
-  /**
-   * <p>The reserved cache node identifier filter value.
-   *             Use this parameter to show only the reservation that matches the specified reservation ID.</p>
-   */
-  ReservedCacheNodeId?: string;
-
-  /**
-   * <p>The product description filter value. Use this parameter to show only those reservations matching the specified product description.</p>
-   */
-  ProductDescription?: string;
-
-  /**
-   * <p>An optional marker returned from a prior request.
-   *             Use this marker for pagination of results from this operation.
-   *             If this parameter is specified, the response includes only records beyond the marker,
-   *             up to the value specified by <code>MaxRecords</code>.</p>
-   */
-  Marker?: string;
 }
 
 export namespace DescribeReservedCacheNodesMessage {
@@ -6324,9 +6588,14 @@ export namespace RecurringCharge {
  */
 export interface ReservedCacheNode {
   /**
-   * <p>The offering type of this reserved cache node.</p>
+   * <p>The state of the reserved cache node.</p>
    */
-  OfferingType?: string;
+  State?: string;
+
+  /**
+   * <p>The time the reservation started.</p>
+   */
+  StartTime?: Date;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the reserved cache node.</p>
@@ -6334,6 +6603,31 @@ export interface ReservedCacheNode {
    *          </p>
    */
   ReservationARN?: string;
+
+  /**
+   * <p>The offering type of this reserved cache node.</p>
+   */
+  OfferingType?: string;
+
+  /**
+   * <p>The hourly price charged for this reserved cache node.</p>
+   */
+  UsagePrice?: number;
+
+  /**
+   * <p>The offering identifier.</p>
+   */
+  ReservedCacheNodesOfferingId?: string;
+
+  /**
+   * <p>The recurring price charged to run this reserved cache node.</p>
+   */
+  RecurringCharges?: RecurringCharge[];
+
+  /**
+   * <p>The description of the reserved cache node.</p>
+   */
+  ProductDescription?: string;
 
   /**
    * <p>The duration of the reservation in seconds.</p>
@@ -6353,7 +6647,27 @@ export interface ReservedCacheNode {
    *                   <li>
    *                      <p>Current generation: </p>
    *
-   *     							          <p>
+   *     						           <p>
+   *                         <b>M6g node types</b> (available only for Redis engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward).</p>
+   * 						               <p>
+   *                         <code>cache.m6g.large</code>,
+   * 							<code>cache.m6g.xlarge</code>,
+   * 							<code>cache.m6g.2xlarge</code>,
+   * 							<code>cache.m6g.4xlarge</code>,
+   * 							<code>cache.m6g.8xlarge</code>,
+   * 							<code>cache.m6g.12xlarge</code>,
+   * 							<code>cache.m6g.16xlarge</code>
+   *
+   *
+   *
+   * 						               </p>
+   *
+   * 						               <note>
+   *                         <p>At this time, M6g node types are available in the following regions: us-east-1, us-west-2, us-east-2, eu-central-1, eu-west-1 and ap-northeast-1.</p>
+   *                      </note>
+   *
+   *
+   *     					            <p>
    *                         <b>M5 node types:</b>
    *     						              <code>cache.m5.large</code>,
    *     						<code>cache.m5.xlarge</code>,
@@ -6437,7 +6751,30 @@ export interface ReservedCacheNode {
    * 				           <ul>
    *                   <li>
    *                      <p>Current generation: </p>
+   * 											          <p>
+   *                         <b>R6g node types</b> (available only for Redis engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward).</p>
    *
+   *
+   *
+   *
+   * 						               <p>
+   * 							                 <code>cache.r6g.large</code>,
+   * 							<code>cache.r6g.xlarge</code>,
+   * 							<code>cache.r6g.2xlarge</code>,
+   * 							<code>cache.r6g.4xlarge</code>,
+   * 							<code>cache.r6g.8xlarge</code>,
+   * 							<code>cache.r6g.12xlarge</code>,
+   * 							<code>cache.r6g.16xlarge</code>
+   *
+   *
+   *
+   *
+   *
+   *
+   * 						               </p>
+   * 						               <note>
+   *                         <p>At this time, R6g node types are available in the following regions: us-east-1, us-west-2, us-east-2, eu-central-1, eu-west-1 and ap-northeast-1.</p>
+   *                      </note>
    * 					                <p>
    *                         <b>R5 node types:</b>
    *     					               <code>cache.r5.large</code>,
@@ -6514,49 +6851,19 @@ export interface ReservedCacheNode {
   CacheNodeType?: string;
 
   /**
-   * <p>The recurring price charged to run this reserved cache node.</p>
-   */
-  RecurringCharges?: RecurringCharge[];
-
-  /**
-   * <p>The hourly price charged for this reserved cache node.</p>
-   */
-  UsagePrice?: number;
-
-  /**
-   * <p>The offering identifier.</p>
-   */
-  ReservedCacheNodesOfferingId?: string;
-
-  /**
    * <p>The unique identifier for the reservation.</p>
    */
   ReservedCacheNodeId?: string;
 
   /**
-   * <p>The description of the reserved cache node.</p>
+   * <p>The number of cache nodes that have been reserved.</p>
    */
-  ProductDescription?: string;
-
-  /**
-   * <p>The time the reservation started.</p>
-   */
-  StartTime?: Date;
-
-  /**
-   * <p>The state of the reserved cache node.</p>
-   */
-  State?: string;
+  CacheNodeCount?: number;
 
   /**
    * <p>The fixed price charged for this reserved cache node.</p>
    */
   FixedPrice?: number;
-
-  /**
-   * <p>The number of cache nodes that have been reserved.</p>
-   */
-  CacheNodeCount?: number;
 }
 
 export namespace ReservedCacheNode {
@@ -6606,186 +6913,12 @@ export namespace ReservedCacheNodeNotFoundFault {
  */
 export interface DescribeReservedCacheNodesOfferingsMessage {
   /**
-   * <p>Duration filter value, specified in years or seconds.
-   *             Use this parameter to show only reservations for a given duration.</p>
-   *         <p>Valid Values: <code>1 | 3 | 31536000 | 94608000</code>
-   *          </p>
+   * <p>An optional marker returned from a prior request.
+   *             Use this marker for pagination of results from this operation.
+   *             If this parameter is specified, the response includes only records beyond the marker,
+   *             up to the value specified by <code>MaxRecords</code>.</p>
    */
-  Duration?: string;
-
-  /**
-   * <p>The cache node type filter value.
-   *             Use this parameter to show only the available offerings matching the specified cache node type.</p>
-   *
-   *         <p>The following node types are supported by ElastiCache.
-   * 				Generally speaking, the current generation types provide more memory and computational power
-   * 			at lower cost when compared to their equivalent previous generation counterparts.</p>
-   * 		       <ul>
-   *             <li>
-   *                <p>General purpose:</p>
-   * 				           <ul>
-   *                   <li>
-   *                      <p>Current generation: </p>
-   *
-   *     							          <p>
-   *                         <b>M5 node types:</b>
-   *     						              <code>cache.m5.large</code>,
-   *     						<code>cache.m5.xlarge</code>,
-   *     						<code>cache.m5.2xlarge</code>,
-   *     						<code>cache.m5.4xlarge</code>,
-   *     						<code>cache.m5.12xlarge</code>,
-   *     						<code>cache.m5.24xlarge</code>
-   *
-   *
-   *     						           </p>
-   *
-   *
-   * 						               <p>
-   *                         <b>M4 node types:</b>
-   *     						              <code>cache.m4.large</code>,
-   *     						<code>cache.m4.xlarge</code>,
-   *     						<code>cache.m4.2xlarge</code>,
-   *     						<code>cache.m4.4xlarge</code>,
-   *     						<code>cache.m4.10xlarge</code>
-   *                      </p>
-   *     					            <p>
-   *                         <b>T3 node types:</b>
-   * 					                   <code>cache.t3.micro</code>,
-   *     						<code>cache.t3.small</code>,
-   *     						<code>cache.t3.medium</code>
-   *                      </p>
-   *
-   *
-   *     				             <p>
-   *                         <b>T2 node types:</b>
-   * 					                   <code>cache.t2.micro</code>,
-   *     						<code>cache.t2.small</code>,
-   *     						<code>cache.t2.medium</code>
-   *                      </p>
-   *
-   *
-   *
-   *
-   *     						        </li>
-   *                   <li>
-   *                      <p>Previous generation: (not recommended)</p>
-   * 						               <p>
-   *                         <b>T1 node types:</b>
-   * 					                   <code>cache.t1.micro</code>
-   *                      </p>
-   *
-   * 						               <p>
-   *                         <b>M1 node types:</b>
-   * 						                  <code>cache.m1.small</code>,
-   * 						   <code>cache.m1.medium</code>,
-   * 						   <code>cache.m1.large</code>,
-   * 						   <code>cache.m1.xlarge</code>
-   *                      </p>
-   *
-   * 						               <p>
-   *                         <b>M3 node types:</b>
-   *     						              <code>cache.m3.medium</code>,
-   *     						<code>cache.m3.large</code>,
-   *     						<code>cache.m3.xlarge</code>,
-   *     						<code>cache.m3.2xlarge</code>
-   *                      </p>
-   *
-   * 						            </li>
-   *                </ul>
-   *             </li>
-   *             <li>
-   *                <p>Compute optimized:</p>
-   *
-   * 				           <ul>
-   *                   <li>
-   *                      <p>Previous generation: (not recommended)</p>
-   * 			                  <p>
-   *                         <b>C1 node types:</b>
-   * 			                     <code>cache.c1.xlarge</code>
-   *                      </p>
-   *                   </li>
-   *                </ul>
-   *             </li>
-   *             <li>
-   *                <p>Memory optimized:</p>
-   * 				           <ul>
-   *                   <li>
-   *                      <p>Current generation: </p>
-   *
-   * 					                <p>
-   *                         <b>R5 node types:</b>
-   *     					               <code>cache.r5.large</code>,
-   *     					   <code>cache.r5.xlarge</code>,
-   *     					   <code>cache.r5.2xlarge</code>,
-   *     					   <code>cache.r5.4xlarge</code>,
-   *     					   <code>cache.r5.12xlarge</code>,
-   *     					   <code>cache.r5.24xlarge</code>
-   *                      </p>
-   *
-   *     					            <p>
-   *                         <b>R4 node types:</b>
-   *     					               <code>cache.r4.large</code>,
-   *     					   <code>cache.r4.xlarge</code>,
-   *     					   <code>cache.r4.2xlarge</code>,
-   *     					   <code>cache.r4.4xlarge</code>,
-   *     					   <code>cache.r4.8xlarge</code>,
-   *     					   <code>cache.r4.16xlarge</code>
-   *                      </p>
-   *
-   *
-   *
-   *
-   *
-   *
-   *
-   *
-   *
-   *
-   *
-   *     					         </li>
-   *                   <li>
-   *                      <p>Previous generation: (not recommended)</p>
-   *                         <p>
-   *                         <b>M2 node types:</b>
-   *     					               <code>cache.m2.xlarge</code>,
-   *     						<code>cache.m2.2xlarge</code>,
-   *     						<code>cache.m2.4xlarge</code>
-   *                      </p>
-   *
-   *     						           <p>
-   *                         <b>R3 node types:</b>
-   *     					               <code>cache.r3.large</code>,
-   *     						<code>cache.r3.xlarge</code>,
-   *     						<code>cache.r3.2xlarge</code>,
-   *     						<code>cache.r3.4xlarge</code>,
-   *     						<code>cache.r3.8xlarge</code>
-   *                      </p>
-   *
-   *     						        </li>
-   *                </ul>
-   *             </li>
-   *          </ul>
-   *
-   * 		       <p>
-   *             <b>Additional node type info</b>
-   *          </p>
-   * 		       <ul>
-   *             <li>
-   *                <p>All current generation instance types are created in Amazon VPC by default.</p>
-   *             </li>
-   *             <li>
-   *                <p>Redis append-only files (AOF) are not supported for T1 or T2 instances.</p>
-   *             </li>
-   *             <li>
-   *                <p>Redis Multi-AZ with automatic failover is not supported on T1 instances.</p>
-   *             </li>
-   *             <li>
-   *                <p>Redis configuration variables <code>appendonly</code> and
-   * 				<code>appendfsync</code> are not supported on Redis version 2.8.22 and later.</p>
-   *             </li>
-   *          </ul>
-   */
-  CacheNodeType?: string;
+  Marker?: string;
 
   /**
    * <p>The product description filter value.
@@ -6794,12 +6927,12 @@ export interface DescribeReservedCacheNodesOfferingsMessage {
   ProductDescription?: string;
 
   /**
-   * <p>The offering type filter value.
-   *             Use this parameter to show only the available offerings matching the specified offering type.</p>
-   *         <p>Valid Values: <code>"Light Utilization"|"Medium Utilization"|"Heavy Utilization"</code>
+   * <p>Duration filter value, specified in years or seconds.
+   *             Use this parameter to show only reservations for a given duration.</p>
+   *         <p>Valid Values: <code>1 | 3 | 31536000 | 94608000</code>
    *          </p>
    */
-  OfferingType?: string;
+  Duration?: string;
 
   /**
    * <p>The offering identifier filter value.
@@ -6820,36 +6953,17 @@ export interface DescribeReservedCacheNodesOfferingsMessage {
   MaxRecords?: number;
 
   /**
-   * <p>An optional marker returned from a prior request.
-   *             Use this marker for pagination of results from this operation.
-   *             If this parameter is specified, the response includes only records beyond the marker,
-   *             up to the value specified by <code>MaxRecords</code>.</p>
+   * <p>The offering type filter value.
+   *             Use this parameter to show only the available offerings matching the specified offering type.</p>
+   *         <p>Valid Values: <code>"Light Utilization"|"Medium Utilization"|"Heavy Utilization"</code>
+   *          </p>
    */
-  Marker?: string;
-}
-
-export namespace DescribeReservedCacheNodesOfferingsMessage {
-  export const filterSensitiveLog = (obj: DescribeReservedCacheNodesOfferingsMessage): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes all of the attributes of a reserved cache node offering.</p>
- */
-export interface ReservedCacheNodesOffering {
-  /**
-   * <p>The cache engine used by the offering.</p>
-   */
-  ProductDescription?: string;
+  OfferingType?: string;
 
   /**
-   * <p>The recurring price charged to run this reserved cache node.</p>
-   */
-  RecurringCharges?: RecurringCharge[];
-
-  /**
-   * <p>The cache node type for the reserved cache node.</p>
+   * <p>The cache node type filter value.
+   *             Use this parameter to show only the available offerings matching the specified cache node type.</p>
+   *
    *         <p>The following node types are supported by ElastiCache.
    * 				Generally speaking, the current generation types provide more memory and computational power
    * 			at lower cost when compared to their equivalent previous generation counterparts.</p>
@@ -6860,7 +6974,27 @@ export interface ReservedCacheNodesOffering {
    *                   <li>
    *                      <p>Current generation: </p>
    *
-   *     							          <p>
+   *     						           <p>
+   *                         <b>M6g node types</b> (available only for Redis engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward).</p>
+   * 						               <p>
+   *                         <code>cache.m6g.large</code>,
+   * 							<code>cache.m6g.xlarge</code>,
+   * 							<code>cache.m6g.2xlarge</code>,
+   * 							<code>cache.m6g.4xlarge</code>,
+   * 							<code>cache.m6g.8xlarge</code>,
+   * 							<code>cache.m6g.12xlarge</code>,
+   * 							<code>cache.m6g.16xlarge</code>
+   *
+   *
+   *
+   * 						               </p>
+   *
+   * 						               <note>
+   *                         <p>At this time, M6g node types are available in the following regions: us-east-1, us-west-2, us-east-2, eu-central-1, eu-west-1 and ap-northeast-1.</p>
+   *                      </note>
+   *
+   *
+   *     					            <p>
    *                         <b>M5 node types:</b>
    *     						              <code>cache.m5.large</code>,
    *     						<code>cache.m5.xlarge</code>,
@@ -6944,7 +7078,276 @@ export interface ReservedCacheNodesOffering {
    * 				           <ul>
    *                   <li>
    *                      <p>Current generation: </p>
+   * 											          <p>
+   *                         <b>R6g node types</b> (available only for Redis engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward).</p>
    *
+   *
+   *
+   *
+   * 						               <p>
+   * 							                 <code>cache.r6g.large</code>,
+   * 							<code>cache.r6g.xlarge</code>,
+   * 							<code>cache.r6g.2xlarge</code>,
+   * 							<code>cache.r6g.4xlarge</code>,
+   * 							<code>cache.r6g.8xlarge</code>,
+   * 							<code>cache.r6g.12xlarge</code>,
+   * 							<code>cache.r6g.16xlarge</code>
+   *
+   *
+   *
+   *
+   *
+   *
+   * 						               </p>
+   * 						               <note>
+   *                         <p>At this time, R6g node types are available in the following regions: us-east-1, us-west-2, us-east-2, eu-central-1, eu-west-1 and ap-northeast-1.</p>
+   *                      </note>
+   * 					                <p>
+   *                         <b>R5 node types:</b>
+   *     					               <code>cache.r5.large</code>,
+   *     					   <code>cache.r5.xlarge</code>,
+   *     					   <code>cache.r5.2xlarge</code>,
+   *     					   <code>cache.r5.4xlarge</code>,
+   *     					   <code>cache.r5.12xlarge</code>,
+   *     					   <code>cache.r5.24xlarge</code>
+   *                      </p>
+   *
+   *     					            <p>
+   *                         <b>R4 node types:</b>
+   *     					               <code>cache.r4.large</code>,
+   *     					   <code>cache.r4.xlarge</code>,
+   *     					   <code>cache.r4.2xlarge</code>,
+   *     					   <code>cache.r4.4xlarge</code>,
+   *     					   <code>cache.r4.8xlarge</code>,
+   *     					   <code>cache.r4.16xlarge</code>
+   *                      </p>
+   *
+   *
+   *
+   *
+   *
+   *
+   *
+   *
+   *
+   *
+   *
+   *     					         </li>
+   *                   <li>
+   *                      <p>Previous generation: (not recommended)</p>
+   *                         <p>
+   *                         <b>M2 node types:</b>
+   *     					               <code>cache.m2.xlarge</code>,
+   *     						<code>cache.m2.2xlarge</code>,
+   *     						<code>cache.m2.4xlarge</code>
+   *                      </p>
+   *
+   *     						           <p>
+   *                         <b>R3 node types:</b>
+   *     					               <code>cache.r3.large</code>,
+   *     						<code>cache.r3.xlarge</code>,
+   *     						<code>cache.r3.2xlarge</code>,
+   *     						<code>cache.r3.4xlarge</code>,
+   *     						<code>cache.r3.8xlarge</code>
+   *                      </p>
+   *
+   *     						        </li>
+   *                </ul>
+   *             </li>
+   *          </ul>
+   *
+   * 		       <p>
+   *             <b>Additional node type info</b>
+   *          </p>
+   * 		       <ul>
+   *             <li>
+   *                <p>All current generation instance types are created in Amazon VPC by default.</p>
+   *             </li>
+   *             <li>
+   *                <p>Redis append-only files (AOF) are not supported for T1 or T2 instances.</p>
+   *             </li>
+   *             <li>
+   *                <p>Redis Multi-AZ with automatic failover is not supported on T1 instances.</p>
+   *             </li>
+   *             <li>
+   *                <p>Redis configuration variables <code>appendonly</code> and
+   * 				<code>appendfsync</code> are not supported on Redis version 2.8.22 and later.</p>
+   *             </li>
+   *          </ul>
+   */
+  CacheNodeType?: string;
+}
+
+export namespace DescribeReservedCacheNodesOfferingsMessage {
+  export const filterSensitiveLog = (obj: DescribeReservedCacheNodesOfferingsMessage): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes all of the attributes of a reserved cache node offering.</p>
+ */
+export interface ReservedCacheNodesOffering {
+  /**
+   * <p>The hourly price charged for this offering.</p>
+   */
+  UsagePrice?: number;
+
+  /**
+   * <p>The fixed price charged for this offering.</p>
+   */
+  FixedPrice?: number;
+
+  /**
+   * <p>The offering type.</p>
+   */
+  OfferingType?: string;
+
+  /**
+   * <p>A unique identifier for the reserved cache node offering.</p>
+   */
+  ReservedCacheNodesOfferingId?: string;
+
+  /**
+   * <p>The cache node type for the reserved cache node.</p>
+   *         <p>The following node types are supported by ElastiCache.
+   * 				Generally speaking, the current generation types provide more memory and computational power
+   * 			at lower cost when compared to their equivalent previous generation counterparts.</p>
+   * 		       <ul>
+   *             <li>
+   *                <p>General purpose:</p>
+   * 				           <ul>
+   *                   <li>
+   *                      <p>Current generation: </p>
+   *
+   *     						           <p>
+   *                         <b>M6g node types</b> (available only for Redis engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward).</p>
+   * 						               <p>
+   *                         <code>cache.m6g.large</code>,
+   * 							<code>cache.m6g.xlarge</code>,
+   * 							<code>cache.m6g.2xlarge</code>,
+   * 							<code>cache.m6g.4xlarge</code>,
+   * 							<code>cache.m6g.8xlarge</code>,
+   * 							<code>cache.m6g.12xlarge</code>,
+   * 							<code>cache.m6g.16xlarge</code>
+   *
+   *
+   *
+   * 						               </p>
+   *
+   * 						               <note>
+   *                         <p>At this time, M6g node types are available in the following regions: us-east-1, us-west-2, us-east-2, eu-central-1, eu-west-1 and ap-northeast-1.</p>
+   *                      </note>
+   *
+   *
+   *     					            <p>
+   *                         <b>M5 node types:</b>
+   *     						              <code>cache.m5.large</code>,
+   *     						<code>cache.m5.xlarge</code>,
+   *     						<code>cache.m5.2xlarge</code>,
+   *     						<code>cache.m5.4xlarge</code>,
+   *     						<code>cache.m5.12xlarge</code>,
+   *     						<code>cache.m5.24xlarge</code>
+   *
+   *
+   *     						           </p>
+   *
+   *
+   * 						               <p>
+   *                         <b>M4 node types:</b>
+   *     						              <code>cache.m4.large</code>,
+   *     						<code>cache.m4.xlarge</code>,
+   *     						<code>cache.m4.2xlarge</code>,
+   *     						<code>cache.m4.4xlarge</code>,
+   *     						<code>cache.m4.10xlarge</code>
+   *                      </p>
+   *     					            <p>
+   *                         <b>T3 node types:</b>
+   * 					                   <code>cache.t3.micro</code>,
+   *     						<code>cache.t3.small</code>,
+   *     						<code>cache.t3.medium</code>
+   *                      </p>
+   *
+   *
+   *     				             <p>
+   *                         <b>T2 node types:</b>
+   * 					                   <code>cache.t2.micro</code>,
+   *     						<code>cache.t2.small</code>,
+   *     						<code>cache.t2.medium</code>
+   *                      </p>
+   *
+   *
+   *
+   *
+   *     						        </li>
+   *                   <li>
+   *                      <p>Previous generation: (not recommended)</p>
+   * 						               <p>
+   *                         <b>T1 node types:</b>
+   * 					                   <code>cache.t1.micro</code>
+   *                      </p>
+   *
+   * 						               <p>
+   *                         <b>M1 node types:</b>
+   * 						                  <code>cache.m1.small</code>,
+   * 						   <code>cache.m1.medium</code>,
+   * 						   <code>cache.m1.large</code>,
+   * 						   <code>cache.m1.xlarge</code>
+   *                      </p>
+   *
+   * 						               <p>
+   *                         <b>M3 node types:</b>
+   *     						              <code>cache.m3.medium</code>,
+   *     						<code>cache.m3.large</code>,
+   *     						<code>cache.m3.xlarge</code>,
+   *     						<code>cache.m3.2xlarge</code>
+   *                      </p>
+   *
+   * 						            </li>
+   *                </ul>
+   *             </li>
+   *             <li>
+   *                <p>Compute optimized:</p>
+   *
+   * 				           <ul>
+   *                   <li>
+   *                      <p>Previous generation: (not recommended)</p>
+   * 			                  <p>
+   *                         <b>C1 node types:</b>
+   * 			                     <code>cache.c1.xlarge</code>
+   *                      </p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *             <li>
+   *                <p>Memory optimized:</p>
+   * 				           <ul>
+   *                   <li>
+   *                      <p>Current generation: </p>
+   * 											          <p>
+   *                         <b>R6g node types</b> (available only for Redis engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward).</p>
+   *
+   *
+   *
+   *
+   * 						               <p>
+   * 							                 <code>cache.r6g.large</code>,
+   * 							<code>cache.r6g.xlarge</code>,
+   * 							<code>cache.r6g.2xlarge</code>,
+   * 							<code>cache.r6g.4xlarge</code>,
+   * 							<code>cache.r6g.8xlarge</code>,
+   * 							<code>cache.r6g.12xlarge</code>,
+   * 							<code>cache.r6g.16xlarge</code>
+   *
+   *
+   *
+   *
+   *
+   *
+   * 						               </p>
+   * 						               <note>
+   *                         <p>At this time, R6g node types are available in the following regions: us-east-1, us-west-2, us-east-2, eu-central-1, eu-west-1 and ap-northeast-1.</p>
+   *                      </note>
    * 					                <p>
    *                         <b>R5 node types:</b>
    *     					               <code>cache.r5.large</code>,
@@ -7021,29 +7424,19 @@ export interface ReservedCacheNodesOffering {
   CacheNodeType?: string;
 
   /**
-   * <p>The offering type.</p>
+   * <p>The recurring price charged to run this reserved cache node.</p>
    */
-  OfferingType?: string;
-
-  /**
-   * <p>A unique identifier for the reserved cache node offering.</p>
-   */
-  ReservedCacheNodesOfferingId?: string;
-
-  /**
-   * <p>The fixed price charged for this offering.</p>
-   */
-  FixedPrice?: number;
-
-  /**
-   * <p>The hourly price charged for this offering.</p>
-   */
-  UsagePrice?: number;
+  RecurringCharges?: RecurringCharge[];
 
   /**
    * <p>The duration of the offering. in seconds.</p>
    */
   Duration?: number;
+
+  /**
+   * <p>The cache engine used by the offering.</p>
+   */
+  ProductDescription?: string;
 }
 
 export namespace ReservedCacheNodesOffering {
@@ -7057,14 +7450,14 @@ export namespace ReservedCacheNodesOffering {
  */
 export interface ReservedCacheNodesOfferingMessage {
   /**
-   * <p>Provides an identifier to allow retrieval of paginated results.</p>
-   */
-  Marker?: string;
-
-  /**
    * <p>A list of reserved cache node offerings. Each element in the list contains detailed information about one offering.</p>
    */
   ReservedCacheNodesOfferings?: ReservedCacheNodesOffering[];
+
+  /**
+   * <p>Provides an identifier to allow retrieval of paginated results.</p>
+   */
+  Marker?: string;
 }
 
 export namespace ReservedCacheNodesOfferingMessage {
@@ -7096,19 +7489,9 @@ export enum ServiceUpdateStatus {
 
 export interface DescribeServiceUpdatesMessage {
   /**
-   * <p>The maximum number of records to include in the response</p>
-   */
-  MaxRecords?: number;
-
-  /**
    * <p>The unique ID of the service update</p>
    */
   ServiceUpdateName?: string;
-
-  /**
-   * <p>The status of the service update</p>
-   */
-  ServiceUpdateStatus?: (ServiceUpdateStatus | string)[];
 
   /**
    * <p>An optional marker returned from a prior request.
@@ -7117,6 +7500,16 @@ export interface DescribeServiceUpdatesMessage {
    *            value specified by <code>MaxRecords</code>.</p>
    */
   Marker?: string;
+
+  /**
+   * <p>The maximum number of records to include in the response</p>
+   */
+  MaxRecords?: number;
+
+  /**
+   * <p>The status of the service update</p>
+   */
+  ServiceUpdateStatus?: (ServiceUpdateStatus | string)[];
 }
 
 export namespace DescribeServiceUpdatesMessage {
@@ -7141,9 +7534,14 @@ export enum ServiceUpdateType {
  */
 export interface ServiceUpdate {
   /**
-   * <p>Indicates whether the service update will be automatically applied once the recommended apply-by date has expired. </p>
+   * <p>Reflects the nature of the service update</p>
    */
-  AutoUpdateAfterRecommendedApplyByDate?: boolean;
+  ServiceUpdateType?: ServiceUpdateType | string;
+
+  /**
+   * <p>Provides details of the service update</p>
+   */
+  ServiceUpdateDescription?: string;
 
   /**
    * <p>The Elasticache engine version to which the update applies. Either Redis or Memcached engine version</p>
@@ -7151,19 +7549,29 @@ export interface ServiceUpdate {
   EngineVersion?: string;
 
   /**
-   * <p>Reflects the nature of the service update</p>
+   * <p>Indicates whether the service update will be automatically applied once the recommended apply-by date has expired. </p>
    */
-  ServiceUpdateType?: ServiceUpdateType | string;
+  AutoUpdateAfterRecommendedApplyByDate?: boolean;
 
   /**
-   * <p>The estimated length of time the service update will take</p>
+   * <p>The date after which the service update is no longer available</p>
    */
-  EstimatedUpdateTime?: string;
+  ServiceUpdateEndDate?: Date;
 
   /**
    * <p>The status of the service update</p>
    */
   ServiceUpdateStatus?: ServiceUpdateStatus | string;
+
+  /**
+   * <p>The unique ID of the service update</p>
+   */
+  ServiceUpdateName?: string;
+
+  /**
+   * <p>The estimated length of time the service update will take</p>
+   */
+  EstimatedUpdateTime?: string;
 
   /**
    * <p>The severity of the service update</p>
@@ -7184,21 +7592,6 @@ export interface ServiceUpdate {
    * <p>The date when the service update is initially available</p>
    */
   ServiceUpdateReleaseDate?: Date;
-
-  /**
-   * <p>The unique ID of the service update</p>
-   */
-  ServiceUpdateName?: string;
-
-  /**
-   * <p>Provides details of the service update</p>
-   */
-  ServiceUpdateDescription?: string;
-
-  /**
-   * <p>The date after which the service update is no longer available</p>
-   */
-  ServiceUpdateEndDate?: Date;
 }
 
 export namespace ServiceUpdate {
@@ -7233,17 +7626,17 @@ export namespace ServiceUpdatesMessage {
  */
 export interface DescribeSnapshotsListMessage {
   /**
+   * <p>A list of snapshots. Each item in the list contains detailed information about one snapshot.</p>
+   */
+  Snapshots?: Snapshot[];
+
+  /**
    * <p>An optional marker returned from a prior request.
    *             Use this marker for pagination of results from this operation.
    *             If this parameter is specified, the response includes only records beyond the marker,
    *             up to the value specified by <code>MaxRecords</code>.</p>
    */
   Marker?: string;
-
-  /**
-   * <p>A list of snapshots. Each item in the list contains detailed information about one snapshot.</p>
-   */
-  Snapshots?: Snapshot[];
 }
 
 export namespace DescribeSnapshotsListMessage {
@@ -7257,6 +7650,27 @@ export namespace DescribeSnapshotsListMessage {
  */
 export interface DescribeSnapshotsMessage {
   /**
+   * <p>A Boolean value which if true, the node group (shard) configuration is included in the snapshot description.</p>
+   */
+  ShowNodeGroupConfig?: boolean;
+
+  /**
+   * <p>The maximum number of records to include in the response. If more records exist than the
+   *             specified <code>MaxRecords</code> value, a marker is included in the response so that
+   *             the remaining results can be retrieved.</p>
+   *         <p>Default: 50</p>
+   *         <p>Constraints: minimum 20; maximum 50.</p>
+   */
+  MaxRecords?: number;
+
+  /**
+   * <p>If set to <code>system</code>, the output shows snapshots that were automatically created by ElastiCache.
+   *             If set to <code>user</code> the output shows snapshots that were manually created.
+   *             If omitted, the output shows both automatically and manually created snapshots.</p>
+   */
+  SnapshotSource?: string;
+
+  /**
    * <p>A user-supplied replication group identifier.
    *             If this parameter is specified, only snapshots associated with that specific replication group are described.</p>
    */
@@ -7269,24 +7683,10 @@ export interface DescribeSnapshotsMessage {
   SnapshotName?: string;
 
   /**
-   * <p>A Boolean value which if true, the node group (shard) configuration is included in the snapshot description.</p>
-   */
-  ShowNodeGroupConfig?: boolean;
-
-  /**
    * <p>A user-supplied cluster identifier.
    *             If this parameter is specified, only snapshots associated with that specific cluster are described.</p>
    */
   CacheClusterId?: string;
-
-  /**
-   * <p>The maximum number of records to include in the response. If more records exist than the
-   *             specified <code>MaxRecords</code> value, a marker is included in the response so that
-   *             the remaining results can be retrieved.</p>
-   *         <p>Default: 50</p>
-   *         <p>Constraints: minimum 20; maximum 50.</p>
-   */
-  MaxRecords?: number;
 
   /**
    * <p>An optional marker returned from a prior request.
@@ -7295,13 +7695,6 @@ export interface DescribeSnapshotsMessage {
    *             up to the value specified by <code>MaxRecords</code>.</p>
    */
   Marker?: string;
-
-  /**
-   * <p>If set to <code>system</code>, the output shows snapshots that were automatically created by ElastiCache.
-   *             If set to <code>user</code> the output shows snapshots that were manually created.
-   *             If omitted, the output shows both automatically and manually created snapshots.</p>
-   */
-  SnapshotSource?: string;
 }
 
 export namespace DescribeSnapshotsMessage {
@@ -7333,14 +7726,24 @@ export namespace TimeRangeFilter {
 
 export interface DescribeUpdateActionsMessage {
   /**
+   * <p>The status of the update action.</p>
+   */
+  UpdateActionStatus?: (UpdateActionStatus | string)[];
+
+  /**
    * <p>Dictates whether to include node level update status in the response </p>
    */
   ShowNodeLevelUpdateStatus?: boolean;
 
   /**
-   * <p>The status of the update action.</p>
+   * <p>The status of the service update</p>
    */
-  UpdateActionStatus?: (UpdateActionStatus | string)[];
+  ServiceUpdateStatus?: (ServiceUpdateStatus | string)[];
+
+  /**
+   * <p>The cache cluster IDs</p>
+   */
+  CacheClusterIds?: string[];
 
   /**
    * <p>An optional marker returned from a prior request.
@@ -7351,9 +7754,9 @@ export interface DescribeUpdateActionsMessage {
   Marker?: string;
 
   /**
-   * <p>The unique ID of the service update</p>
+   * <p>The replication group IDs</p>
    */
-  ServiceUpdateName?: string;
+  ReplicationGroupIds?: string[];
 
   /**
    * <p>The range of time specified to search for service updates that are in available status</p>
@@ -7361,29 +7764,19 @@ export interface DescribeUpdateActionsMessage {
   ServiceUpdateTimeRange?: TimeRangeFilter;
 
   /**
-   * <p>The status of the service update</p>
-   */
-  ServiceUpdateStatus?: (ServiceUpdateStatus | string)[];
-
-  /**
    * <p>The Elasticache engine to which the update applies. Either Redis or Memcached </p>
    */
   Engine?: string;
 
   /**
+   * <p>The unique ID of the service update</p>
+   */
+  ServiceUpdateName?: string;
+
+  /**
    * <p>The maximum number of records to include in the response</p>
    */
   MaxRecords?: number;
-
-  /**
-   * <p>The cache cluster IDs</p>
-   */
-  CacheClusterIds?: string[];
-
-  /**
-   * <p>The replication group IDs</p>
-   */
-  ReplicationGroupIds?: string[];
 }
 
 export namespace DescribeUpdateActionsMessage {
@@ -7411,19 +7804,9 @@ export enum NodeUpdateStatus {
  */
 export interface CacheNodeUpdateStatus {
   /**
-   * <p>The deletion date of the node</p>
+   * <p>Reflects whether the update was initiated by the customer or automatically applied</p>
    */
-  NodeDeletionDate?: Date;
-
-  /**
-   * <p>The date when the NodeUpdateStatus was last modified></p>
-   */
-  NodeUpdateStatusModifiedDate?: Date;
-
-  /**
-   * <p>The update status of the node</p>
-   */
-  NodeUpdateStatus?: NodeUpdateStatus | string;
+  NodeUpdateInitiatedBy?: NodeUpdateInitiatedBy | string;
 
   /**
    * <p>The end date of the update for a node</p>
@@ -7431,24 +7814,34 @@ export interface CacheNodeUpdateStatus {
   NodeUpdateEndDate?: Date;
 
   /**
-   * <p>The node ID of the cache cluster</p>
-   */
-  CacheNodeId?: string;
-
-  /**
    * <p>The start date of the update for a node</p>
    */
   NodeUpdateStartDate?: Date;
 
   /**
-   * <p>Reflects whether the update was initiated by the customer or automatically applied</p>
+   * <p>The update status of the node</p>
    */
-  NodeUpdateInitiatedBy?: NodeUpdateInitiatedBy | string;
+  NodeUpdateStatus?: NodeUpdateStatus | string;
+
+  /**
+   * <p>The date when the NodeUpdateStatus was last modified></p>
+   */
+  NodeUpdateStatusModifiedDate?: Date;
+
+  /**
+   * <p>The deletion date of the node</p>
+   */
+  NodeDeletionDate?: Date;
 
   /**
    * <p>The date when the update is triggered</p>
    */
   NodeUpdateInitiatedDate?: Date;
+
+  /**
+   * <p>The node ID of the cache cluster</p>
+   */
+  CacheNodeId?: string;
 }
 
 export namespace CacheNodeUpdateStatus {
@@ -7462,31 +7855,6 @@ export namespace CacheNodeUpdateStatus {
  */
 export interface NodeGroupMemberUpdateStatus {
   /**
-   * <p>The deletion date of the node</p>
-   */
-  NodeDeletionDate?: Date;
-
-  /**
-   * <p>The update status of the node</p>
-   */
-  NodeUpdateStatus?: NodeUpdateStatus | string;
-
-  /**
-   * <p>The date when the update is triggered</p>
-   */
-  NodeUpdateInitiatedDate?: Date;
-
-  /**
-   * <p>Reflects whether the update was initiated by the customer or automatically applied</p>
-   */
-  NodeUpdateInitiatedBy?: NodeUpdateInitiatedBy | string;
-
-  /**
-   * <p>The cache cluster ID</p>
-   */
-  CacheClusterId?: string;
-
-  /**
    * <p>The node ID of the cache cluster</p>
    */
   CacheNodeId?: string;
@@ -7497,9 +7865,34 @@ export interface NodeGroupMemberUpdateStatus {
   NodeUpdateEndDate?: Date;
 
   /**
+   * <p>The deletion date of the node</p>
+   */
+  NodeDeletionDate?: Date;
+
+  /**
+   * <p>Reflects whether the update was initiated by the customer or automatically applied</p>
+   */
+  NodeUpdateInitiatedBy?: NodeUpdateInitiatedBy | string;
+
+  /**
+   * <p>The date when the update is triggered</p>
+   */
+  NodeUpdateInitiatedDate?: Date;
+
+  /**
+   * <p>The cache cluster ID</p>
+   */
+  CacheClusterId?: string;
+
+  /**
    * <p>The date when the NodeUpdateStatus was last modified</p>
    */
   NodeUpdateStatusModifiedDate?: Date;
+
+  /**
+   * <p>The update status of the node</p>
+   */
+  NodeUpdateStatus?: NodeUpdateStatus | string;
 
   /**
    * <p>The start date of the update for a node</p>
@@ -7518,14 +7911,14 @@ export namespace NodeGroupMemberUpdateStatus {
  */
 export interface NodeGroupUpdateStatus {
   /**
-   * <p>The ID of the node group</p>
-   */
-  NodeGroupId?: string;
-
-  /**
    * <p>The status of the service update on the node group member</p>
    */
   NodeGroupMemberUpdateStatus?: NodeGroupMemberUpdateStatus[];
+
+  /**
+   * <p>The ID of the node group</p>
+   */
+  NodeGroupId?: string;
 }
 
 export namespace NodeGroupUpdateStatus {
@@ -7545,24 +7938,14 @@ export enum SlaMet {
  */
 export interface UpdateAction {
   /**
-   * <p>Reflects the nature of the service update  </p>
+   * <p>The severity of the service update</p>
    */
-  ServiceUpdateType?: ServiceUpdateType | string;
+  ServiceUpdateSeverity?: ServiceUpdateSeverity | string;
 
   /**
-   * <p>The status of the service update on the cache node</p>
+   * <p>The Elasticache engine to which the update applies. Either Redis or Memcached</p>
    */
-  CacheNodeUpdateStatus?: CacheNodeUpdateStatus[];
-
-  /**
-   * <p>The ID of the replication group</p>
-   */
-  ReplicationGroupId?: string;
-
-  /**
-   * <p>The status of the service update</p>
-   */
-  ServiceUpdateStatus?: ServiceUpdateStatus | string;
+  Engine?: string;
 
   /**
    * <p>The date that the service update is available to a replication group</p>
@@ -7570,24 +7953,9 @@ export interface UpdateAction {
   UpdateActionAvailableDate?: Date;
 
   /**
-   * <p>The progress of the service update on the replication group</p>
+   * <p>The date when the UpdateActionStatus was last modified</p>
    */
-  NodesUpdated?: string;
-
-  /**
-   * <p>The status of the update action</p>
-   */
-  UpdateActionStatus?: UpdateActionStatus | string;
-
-  /**
-   * <p>The date the update is first available</p>
-   */
-  ServiceUpdateReleaseDate?: Date;
-
-  /**
-   * <p>The ID of the cache cluster</p>
-   */
-  CacheClusterId?: string;
+  UpdateActionStatusModifiedDate?: Date;
 
   /**
    * <p>The estimated length of time for the update to complete</p>
@@ -7600,9 +7968,50 @@ export interface UpdateAction {
   ServiceUpdateName?: string;
 
   /**
-   * <p>The date when the UpdateActionStatus was last modified</p>
+   * <p>The date the update is first available</p>
    */
-  UpdateActionStatusModifiedDate?: Date;
+  ServiceUpdateReleaseDate?: Date;
+
+  /**
+   * <p>The ID of the cache cluster</p>
+   */
+  CacheClusterId?: string;
+
+  /**
+   * <p>The progress of the service update on the replication group</p>
+   */
+  NodesUpdated?: string;
+
+  /**
+   * <p>The status of the service update on the cache node</p>
+   */
+  CacheNodeUpdateStatus?: CacheNodeUpdateStatus[];
+
+  /**
+   * <p>The status of the update action</p>
+   */
+  UpdateActionStatus?: UpdateActionStatus | string;
+
+  /**
+   * <p>The status of the service update</p>
+   */
+  ServiceUpdateStatus?: ServiceUpdateStatus | string;
+
+  /**
+   * <p>If yes, all nodes in the replication group have been updated by the recommended apply-by date. If no, at least one node in the replication group have not been updated by the recommended apply-by date. If N/A, the replication group was created after the
+   *       recommended apply-by date.</p>
+   */
+  SlaMet?: SlaMet | string;
+
+  /**
+   * <p>The ID of the replication group</p>
+   */
+  ReplicationGroupId?: string;
+
+  /**
+   * <p>Reflects the nature of the service update  </p>
+   */
+  ServiceUpdateType?: ServiceUpdateType | string;
 
   /**
    * <p>The recommended date to apply the service update to ensure compliance. For information on compliance, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/elasticache-compliance.html#elasticache-compliance-self-service">Self-Service Security Updates for Compliance</a>.</p>
@@ -7610,25 +8019,9 @@ export interface UpdateAction {
   ServiceUpdateRecommendedApplyByDate?: Date;
 
   /**
-   * <p>The Elasticache engine to which the update applies. Either Redis or Memcached</p>
-   */
-  Engine?: string;
-
-  /**
    * <p>The status of the service update on the node group</p>
    */
   NodeGroupUpdateStatus?: NodeGroupUpdateStatus[];
-
-  /**
-   * <p>The severity of the service update</p>
-   */
-  ServiceUpdateSeverity?: ServiceUpdateSeverity | string;
-
-  /**
-   * <p>If yes, all nodes in the replication group have been updated by the recommended apply-by date. If no, at least one node in the replication group have not been updated by the recommended apply-by date. If N/A, the replication group was created after the
-   *       recommended apply-by date.</p>
-   */
-  SlaMet?: SlaMet | string;
 }
 
 export namespace UpdateAction {
@@ -7639,17 +8032,17 @@ export namespace UpdateAction {
 
 export interface UpdateActionsMessage {
   /**
+   * <p>Returns a list of update actions</p>
+   */
+  UpdateActions?: UpdateAction[];
+
+  /**
    * <p>An optional marker returned from a prior request.
    *            Use this marker for pagination of results from this operation. If this
    *            parameter is specified, the response includes only records beyond the marker, up to the
    *            value specified by <code>MaxRecords</code>.</p>
    */
   Marker?: string;
-
-  /**
-   * <p>Returns a list of update actions</p>
-   */
-  UpdateActions?: UpdateAction[];
 }
 
 export namespace UpdateActionsMessage {
@@ -7660,11 +8053,6 @@ export namespace UpdateActionsMessage {
 
 export interface DescribeUserGroupsMessage {
   /**
-   * <p>The maximum number of records to include in the response. If more records exist than the specified MaxRecords value, a marker is included in the response so that the remaining results can be retrieved. </p>
-   */
-  MaxRecords?: number;
-
-  /**
    * <p>The ID of the user group.</p>
    */
   UserGroupId?: string;
@@ -7673,6 +8061,11 @@ export interface DescribeUserGroupsMessage {
    * <p>An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by MaxRecords. ></p>
    */
   Marker?: string;
+
+  /**
+   * <p>The maximum number of records to include in the response. If more records exist than the specified MaxRecords value, a marker is included in the response so that the remaining results can be retrieved. </p>
+   */
+  MaxRecords?: number;
 }
 
 export namespace DescribeUserGroupsMessage {
@@ -7683,14 +8076,14 @@ export namespace DescribeUserGroupsMessage {
 
 export interface DescribeUserGroupsResult {
   /**
-   * <p>Returns a list of user groups.</p>
-   */
-  UserGroups?: UserGroup[];
-
-  /**
    * <p>An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by MaxRecords. ></p>
    */
   Marker?: string;
+
+  /**
+   * <p>Returns a list of user groups.</p>
+   */
+  UserGroups?: UserGroup[];
 }
 
 export namespace DescribeUserGroupsResult {
@@ -7704,14 +8097,14 @@ export namespace DescribeUserGroupsResult {
  */
 export interface Filter {
   /**
-   * <p>The property values to filter on. For example, "user-123".</p>
-   */
-  Values: string[] | undefined;
-
-  /**
    * <p>The property being filtered. For example, UserId.</p>
    */
   Name: string | undefined;
+
+  /**
+   * <p>The property values to filter on. For example, "user-123".</p>
+   */
+  Values: string[] | undefined;
 }
 
 export namespace Filter {
@@ -7722,19 +8115,9 @@ export namespace Filter {
 
 export interface DescribeUsersMessage {
   /**
-   * <p>The ID of the user.</p>
+   * <p>An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by MaxRecords. ></p>
    */
-  UserId?: string;
-
-  /**
-   * <p>The Redis engine. </p>
-   */
-  Engine?: string;
-
-  /**
-   * <p>Filter to determine the list of User IDs to return.</p>
-   */
-  Filters?: Filter[];
+  Marker?: string;
 
   /**
    * <p>The maximum number of records to include in the response. If more records exist than the specified MaxRecords value, a marker is included in the response so that the remaining results can be retrieved. </p>
@@ -7742,9 +8125,19 @@ export interface DescribeUsersMessage {
   MaxRecords?: number;
 
   /**
-   * <p>An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by MaxRecords. ></p>
+   * <p>The ID of the user.</p>
    */
-  Marker?: string;
+  UserId?: string;
+
+  /**
+   * <p>Filter to determine the list of User IDs to return.</p>
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>The Redis engine. </p>
+   */
+  Engine?: string;
 }
 
 export namespace DescribeUsersMessage {
@@ -7755,14 +8148,14 @@ export namespace DescribeUsersMessage {
 
 export interface DescribeUsersResult {
   /**
-   * <p>A list of users.</p>
-   */
-  Users?: User[];
-
-  /**
    * <p>An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by MaxRecords. ></p>
    */
   Marker?: string;
+
+  /**
+   * <p>A list of users.</p>
+   */
+  Users?: User[];
 }
 
 export namespace DescribeUsersResult {
@@ -7818,14 +8211,14 @@ export namespace DisassociateGlobalReplicationGroupResult {
 
 export interface FailoverGlobalReplicationGroupMessage {
   /**
-   * <p>The name of the Global Datastore</p>
-   */
-  GlobalReplicationGroupId: string | undefined;
-
-  /**
    * <p>The AWS region of the primary cluster of the Global Datastore</p>
    */
   PrimaryRegion: string | undefined;
+
+  /**
+   * <p>The name of the Global Datastore</p>
+   */
+  GlobalReplicationGroupId: string | undefined;
 
   /**
    * <p>The name of the primary replication group</p>
@@ -7912,6 +8305,11 @@ export namespace RegionalConfiguration {
 
 export interface IncreaseNodeGroupsInGlobalReplicationGroupMessage {
   /**
+   * <p>The number of node groups you wish to add</p>
+   */
+  NodeGroupCount: number | undefined;
+
+  /**
    * <p>The name of the Global Datastore</p>
    */
   GlobalReplicationGroupId: string | undefined;
@@ -7925,11 +8323,6 @@ export interface IncreaseNodeGroupsInGlobalReplicationGroupMessage {
    * <p>Indicates that the process begins immediately. At present, the only permitted value for this parameter is true.</p>
    */
   ApplyImmediately: boolean | undefined;
-
-  /**
-   * <p>The number of node groups you wish to add</p>
-   */
-  NodeGroupCount: number | undefined;
 }
 
 export namespace IncreaseNodeGroupsInGlobalReplicationGroupMessage {
@@ -7962,16 +8355,16 @@ export namespace IncreaseNodeGroupsInGlobalReplicationGroupResult {
 
 export interface IncreaseReplicaCountMessage {
   /**
+   * <p>The id of the replication group to which you want to add replica nodes.</p>
+   */
+  ReplicationGroupId: string | undefined;
+
+  /**
    * <p>If <code>True</code>, the number of replica nodes is increased immediately.
    *
    *             <code>ApplyImmediately=False</code> is not currently supported.</p>
    */
   ApplyImmediately: boolean | undefined;
-
-  /**
-   * <p>The id of the replication group to which you want to add replica nodes.</p>
-   */
-  ReplicationGroupId: string | undefined;
 
   /**
    * <p>A list of <code>ConfigureShard</code> objects that can be used to configure each shard
@@ -8083,9 +8476,142 @@ export type AuthTokenUpdateStrategyType = "DELETE" | "ROTATE" | "SET";
  */
 export interface ModifyCacheClusterMessage {
   /**
-   * <p>This parameter is currently disabled.</p>
+   * <p>The name of the cache parameter group to apply to this cluster. This change is
+   *             asynchronously applied as soon as possible for parameters when the
+   *             <code>ApplyImmediately</code> parameter is specified as <code>true</code> for this request.</p>
    */
-  AutoMinorVersionUpgrade?: boolean;
+  CacheParameterGroupName?: string;
+
+  /**
+   * <p>The cluster identifier. This value is stored as a lowercase string.</p>
+   */
+  CacheClusterId: string | undefined;
+
+  /**
+   * <p>A list of cache node IDs to be removed. A node ID is a numeric identifier (0001, 0002,
+   *             etc.). This parameter is only valid when <code>NumCacheNodes</code> is less than the existing number
+   *             of cache nodes. The number of cache node IDs supplied in this parameter must match the
+   *             difference between the existing number of cache nodes in the cluster or pending cache nodes, whichever is
+   *             greater, and the value of <code>NumCacheNodes</code> in the request.</p>
+   *         <p>For example: If you have 3 active cache nodes, 7 pending cache nodes, and the number of cache nodes in this
+   *         <code>ModifyCacheCluster</code> call is 5, you must list 2 (7 - 5) cache node IDs to remove.</p>
+   */
+  CacheNodeIdsToRemove?: string[];
+
+  /**
+   * <p>Specifies the strategy to use to update the AUTH token. This parameter must be specified with the <code>auth-token</code> parameter.
+   *             Possible values:</p>
+   *             <ul>
+   *             <li>
+   *                <p>Rotate</p>
+   *             </li>
+   *             <li>
+   *                <p>Set</p>
+   *             </li>
+   *          </ul>
+   *         <p>
+   *             For more information, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/auth.html">Authenticating Users with Redis AUTH</a>
+   *          </p>
+   */
+  AuthTokenUpdateStrategy?: AuthTokenUpdateStrategyType | string;
+
+  /**
+   * <p>The number of cache nodes that the cluster should have.
+   *             If the value for <code>NumCacheNodes</code> is greater than the sum of the number of current cache nodes and
+   *             the number of cache nodes pending creation (which may be zero), more nodes are added.
+   *             If the value is less than the number of existing cache nodes,  nodes are removed.
+   *             If the value is equal to the number of current cache nodes,
+   *              any pending add or remove requests are canceled.</p>
+   *         <p>If you are removing cache nodes, you must
+   *             use the <code>CacheNodeIdsToRemove</code> parameter to provide the IDs of the specific cache nodes to remove.</p>
+   *         <p>For clusters running Redis, this value must be 1.
+   *     For clusters running Memcached, this value must be between 1 and 20.</p>
+   *
+   *         <note>
+   *             <p>Adding or removing Memcached cache nodes can be applied immediately or as a pending operation (see <code>ApplyImmediately</code>).</p>
+   *             <p>A pending operation to modify the number of cache nodes in a cluster during its maintenance window,
+   *             whether by adding or removing nodes in accordance with the scale out architecture, is not queued.
+   *             The customer's latest request to add or remove nodes to the cluster overrides any previous pending operations to modify the
+   *             number of cache nodes in the cluster.
+   *             For example, a request to remove 2 nodes would override a previous pending operation to remove 3 nodes.
+   *             Similarly, a request to add 2 nodes would override a previous pending operation to remove 3 nodes and vice versa.
+   *             As Memcached cache nodes may now be provisioned in different Availability Zones with flexible cache node placement,
+   *             a request to add nodes does not automatically override a previous pending operation to add nodes.
+   *             The customer can modify the previous pending operation to add more nodes or explicitly cancel the pending request and
+   *             retry the new request.
+   *             To cancel pending operations to modify the number of cache nodes in a cluster,
+   *             use the <code>ModifyCacheCluster</code> request and
+   *             set <code>NumCacheNodes</code> equal to the number of cache nodes currently in the cluster.</p>
+   *          </note>
+   */
+  NumCacheNodes?: number;
+
+  /**
+   * <p>Specifies the weekly time range during which maintenance
+   *    on the cluster is performed. It is specified as a range in
+   *    the format ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC). The minimum
+   *    maintenance window is a 60 minute period.</p>
+   *          <p>Valid values for <code>ddd</code> are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>sun</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>mon</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>tue</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>wed</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>thu</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>fri</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>sat</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *          <p>Example: <code>sun:23:00-mon:01:30</code>
+   *          </p>
+   */
+  PreferredMaintenanceWindow?: string;
+
+  /**
+   * <p>Specifies whether the new nodes in this Memcached cluster are all created in a
+   *             single Availability Zone or created across multiple Availability Zones.</p>
+   *         <p>Valid values: <code>single-az</code> | <code>cross-az</code>.</p>
+   *         <p>This option is only supported for Memcached clusters.</p>
+   *         <note>
+   *             <p>You cannot specify <code>single-az</code> if the Memcached cluster already has cache nodes in different Availability Zones.
+   *             If <code>cross-az</code> is specified, existing Memcached nodes remain in their current Availability Zone.</p>
+   *             <p>Only newly created nodes are located in different Availability Zones.
+   *                 </p>
+   *         </note>
+   */
+  AZMode?: AZMode | string;
+
+  /**
+   * <p>A valid cache node type that you want to scale this cluster up to.</p>
+   */
+  CacheNodeType?: string;
 
   /**
    * <p>The upgraded version of the cache engine to be run on the cache nodes.</p>
@@ -8206,183 +8732,6 @@ export interface ModifyCacheClusterMessage {
   NewAvailabilityZones?: string[];
 
   /**
-   * <p>Specifies the VPC Security Groups associated with the cluster.</p>
-   *         <p>This parameter can be used only with clusters that are created in an Amazon Virtual Private Cloud (Amazon VPC).</p>
-   */
-  SecurityGroupIds?: string[];
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon SNS topic to which notifications are sent.</p>
-   *         <note>
-   *             <p>The Amazon SNS topic owner must be same as the cluster owner.</p>
-   *          </note>
-   */
-  NotificationTopicArn?: string;
-
-  /**
-   * <p>The number of cache nodes that the cluster should have.
-   *             If the value for <code>NumCacheNodes</code> is greater than the sum of the number of current cache nodes and
-   *             the number of cache nodes pending creation (which may be zero), more nodes are added.
-   *             If the value is less than the number of existing cache nodes,  nodes are removed.
-   *             If the value is equal to the number of current cache nodes,
-   *              any pending add or remove requests are canceled.</p>
-   *         <p>If you are removing cache nodes, you must
-   *             use the <code>CacheNodeIdsToRemove</code> parameter to provide the IDs of the specific cache nodes to remove.</p>
-   *         <p>For clusters running Redis, this value must be 1.
-   *     For clusters running Memcached, this value must be between 1 and 20.</p>
-   *
-   *         <note>
-   *             <p>Adding or removing Memcached cache nodes can be applied immediately or as a pending operation (see <code>ApplyImmediately</code>).</p>
-   *             <p>A pending operation to modify the number of cache nodes in a cluster during its maintenance window,
-   *             whether by adding or removing nodes in accordance with the scale out architecture, is not queued.
-   *             The customer's latest request to add or remove nodes to the cluster overrides any previous pending operations to modify the
-   *             number of cache nodes in the cluster.
-   *             For example, a request to remove 2 nodes would override a previous pending operation to remove 3 nodes.
-   *             Similarly, a request to add 2 nodes would override a previous pending operation to remove 3 nodes and vice versa.
-   *             As Memcached cache nodes may now be provisioned in different Availability Zones with flexible cache node placement,
-   *             a request to add nodes does not automatically override a previous pending operation to add nodes.
-   *             The customer can modify the previous pending operation to add more nodes or explicitly cancel the pending request and
-   *             retry the new request.
-   *             To cancel pending operations to modify the number of cache nodes in a cluster,
-   *             use the <code>ModifyCacheCluster</code> request and
-   *             set <code>NumCacheNodes</code> equal to the number of cache nodes currently in the cluster.</p>
-   *          </note>
-   */
-  NumCacheNodes?: number;
-
-  /**
-   * <p>If <code>true</code>, this parameter causes the modifications in this request and any
-   *             pending modifications to be applied, asynchronously and as soon as possible, regardless
-   *             of the <code>PreferredMaintenanceWindow</code> setting for the cluster.</p>
-   *         <p>If <code>false</code>, changes to the cluster are applied on the next
-   *             maintenance reboot, or the next failure reboot, whichever occurs first.</p>
-   *         <important>
-   *             <p>If you perform a <code>ModifyCacheCluster</code> before a pending modification is applied,
-   *             the pending modification is replaced by the newer modification.</p>
-   *          </important>
-   *         <p>Valid values: <code>true</code> | <code>false</code>
-   *          </p>
-   *         <p>Default: <code>false</code>
-   *          </p>
-   */
-  ApplyImmediately?: boolean;
-
-  /**
-   * <p>The status of the Amazon SNS notification topic. Notifications are sent only if the
-   *             status is <code>active</code>.</p>
-   *         <p>Valid values: <code>active</code> | <code>inactive</code>
-   *          </p>
-   */
-  NotificationTopicStatus?: string;
-
-  /**
-   * <p>The cluster identifier. This value is stored as a lowercase string.</p>
-   */
-  CacheClusterId: string | undefined;
-
-  /**
-   * <p>A list of cache node IDs to be removed. A node ID is a numeric identifier (0001, 0002,
-   *             etc.). This parameter is only valid when <code>NumCacheNodes</code> is less than the existing number
-   *             of cache nodes. The number of cache node IDs supplied in this parameter must match the
-   *             difference between the existing number of cache nodes in the cluster or pending cache nodes, whichever is
-   *             greater, and the value of <code>NumCacheNodes</code> in the request.</p>
-   *         <p>For example: If you have 3 active cache nodes, 7 pending cache nodes, and the number of cache nodes in this
-   *         <code>ModifyCacheCluster</code> call is 5, you must list 2 (7 - 5) cache node IDs to remove.</p>
-   */
-  CacheNodeIdsToRemove?: string[];
-
-  /**
-   * <p>Specifies the strategy to use to update the AUTH token. This parameter must be specified with the <code>auth-token</code> parameter.
-   *             Possible values:</p>
-   *             <ul>
-   *             <li>
-   *                <p>Rotate</p>
-   *             </li>
-   *             <li>
-   *                <p>Set</p>
-   *             </li>
-   *          </ul>
-   *         <p>
-   *             For more information, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/auth.html">Authenticating Users with Redis AUTH</a>
-   *          </p>
-   */
-  AuthTokenUpdateStrategy?: AuthTokenUpdateStrategyType | string;
-
-  /**
-   * <p>A valid cache node type that you want to scale this cluster up to.</p>
-   */
-  CacheNodeType?: string;
-
-  /**
-   * <p>Specifies whether the new nodes in this Memcached cluster are all created in a
-   *             single Availability Zone or created across multiple Availability Zones.</p>
-   *         <p>Valid values: <code>single-az</code> | <code>cross-az</code>.</p>
-   *         <p>This option is only supported for Memcached clusters.</p>
-   *         <note>
-   *             <p>You cannot specify <code>single-az</code> if the Memcached cluster already has cache nodes in different Availability Zones.
-   *             If <code>cross-az</code> is specified, existing Memcached nodes remain in their current Availability Zone.</p>
-   *             <p>Only newly created nodes are located in different Availability Zones.
-   *                 </p>
-   *         </note>
-   */
-  AZMode?: AZMode | string;
-
-  /**
-   * <p>Specifies the weekly time range during which maintenance
-   *    on the cluster is performed. It is specified as a range in
-   *    the format ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC). The minimum
-   *    maintenance window is a 60 minute period.</p>
-   *          <p>Valid values for <code>ddd</code> are:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>sun</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>mon</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>tue</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>wed</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>thu</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>fri</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>sat</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   *          <p>Example: <code>sun:23:00-mon:01:30</code>
-   *          </p>
-   */
-  PreferredMaintenanceWindow?: string;
-
-  /**
-   * <p>The name of the cache parameter group to apply to this cluster. This change is
-   *             asynchronously applied as soon as possible for parameters when the
-   *             <code>ApplyImmediately</code> parameter is specified as <code>true</code> for this request.</p>
-   */
-  CacheParameterGroupName?: string;
-
-  /**
    * <p>Reserved parameter. The password used to access a password protected server. This parameter must be specified with the <code>auth-token-update</code> parameter.
    *             Password constraints:</p>
    *             <ul>
@@ -8403,10 +8752,56 @@ export interface ModifyCacheClusterMessage {
   AuthToken?: string;
 
   /**
-   * <p>The daily time range (in UTC) during which ElastiCache  begins taking a daily snapshot of
-   *             your cluster. </p>
+   * <p>This parameter is currently disabled.</p>
    */
-  SnapshotWindow?: string;
+  AutoMinorVersionUpgrade?: boolean;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon SNS topic to which notifications are sent.</p>
+   *         <note>
+   *             <p>The Amazon SNS topic owner must be same as the cluster owner.</p>
+   *          </note>
+   */
+  NotificationTopicArn?: string;
+
+  /**
+   * <p>Specifies the VPC Security Groups associated with the cluster.</p>
+   *         <p>This parameter can be used only with clusters that are created in an Amazon Virtual Private Cloud (Amazon VPC).</p>
+   */
+  SecurityGroupIds?: string[];
+
+  /**
+   * <p>The status of the Amazon SNS notification topic. Notifications are sent only if the
+   *             status is <code>active</code>.</p>
+   *         <p>Valid values: <code>active</code> | <code>inactive</code>
+   *          </p>
+   */
+  NotificationTopicStatus?: string;
+
+  /**
+   * <p>If <code>true</code>, this parameter causes the modifications in this request and any
+   *             pending modifications to be applied, asynchronously and as soon as possible, regardless
+   *             of the <code>PreferredMaintenanceWindow</code> setting for the cluster.</p>
+   *         <p>If <code>false</code>, changes to the cluster are applied on the next
+   *             maintenance reboot, or the next failure reboot, whichever occurs first.</p>
+   *         <important>
+   *             <p>If you perform a <code>ModifyCacheCluster</code> before a pending modification is applied,
+   *             the pending modification is replaced by the newer modification.</p>
+   *          </important>
+   *         <p>Valid values: <code>true</code> | <code>false</code>
+   *          </p>
+   *         <p>Default: <code>false</code>
+   *          </p>
+   */
+  ApplyImmediately?: boolean;
+
+  /**
+   * <p>A list of cache security group names to authorize on this cluster.
+   *             This change is asynchronously applied as soon as possible.</p>
+   *         <p>You can use this parameter only with clusters that are created outside of an Amazon Virtual Private Cloud (Amazon VPC).</p>
+   *         <p>Constraints: Must contain no more than 255 alphanumeric characters. Must not be "Default".</p>
+   */
+  CacheSecurityGroupNames?: string[];
 
   /**
    * <p>The number of days for which ElastiCache retains automatic cluster snapshots before
@@ -8419,12 +8814,10 @@ export interface ModifyCacheClusterMessage {
   SnapshotRetentionLimit?: number;
 
   /**
-   * <p>A list of cache security group names to authorize on this cluster.
-   *             This change is asynchronously applied as soon as possible.</p>
-   *         <p>You can use this parameter only with clusters that are created outside of an Amazon Virtual Private Cloud (Amazon VPC).</p>
-   *         <p>Constraints: Must contain no more than 255 alphanumeric characters. Must not be "Default".</p>
+   * <p>The daily time range (in UTC) during which ElastiCache  begins taking a daily snapshot of
+   *             your cluster. </p>
    */
-  CacheSecurityGroupNames?: string[];
+  SnapshotWindow?: string;
 }
 
 export namespace ModifyCacheClusterMessage {
@@ -8479,14 +8872,14 @@ export namespace CacheParameterGroupNameMessage {
  */
 export interface ParameterNameValue {
   /**
-   * <p>The name of the parameter.</p>
-   */
-  ParameterName?: string;
-
-  /**
    * <p>The value of the parameter.</p>
    */
   ParameterValue?: string;
+
+  /**
+   * <p>The name of the parameter.</p>
+   */
+  ParameterName?: string;
 }
 
 export namespace ParameterNameValue {
@@ -8521,17 +8914,17 @@ export namespace ModifyCacheParameterGroupMessage {
  */
 export interface ModifyCacheSubnetGroupMessage {
   /**
+   * <p>The EC2 subnet IDs for the cache subnet group.</p>
+   */
+  SubnetIds?: string[];
+
+  /**
    * <p>The name for the cache subnet group. This value is stored as a lowercase string.</p>
    *         <p>Constraints: Must contain no more than 255 alphanumeric characters or hyphens.</p>
    *         <p>Example: <code>mysubnetgroup</code>
    *          </p>
    */
   CacheSubnetGroupName: string | undefined;
-
-  /**
-   * <p>The EC2 subnet IDs for the cache subnet group.</p>
-   */
-  SubnetIds?: string[];
 
   /**
    * <p>A description of the cache subnet group.</p>
@@ -8587,11 +8980,9 @@ export namespace SubnetInUse {
 
 export interface ModifyGlobalReplicationGroupMessage {
   /**
-   * <p>This parameter causes the modifications in this request and any pending modifications to be applied, asynchronously and as soon as possible. Modifications to Global
-   *             Replication Groups cannot be requested to be applied in PreferredMaintenceWindow.
-   *              </p>
+   * <p>Determines whether a read replica is automatically promoted to read/write primary if the existing primary encounters a failure. </p>
    */
-  ApplyImmediately: boolean | undefined;
+  AutomaticFailoverEnabled?: boolean;
 
   /**
    * <p>The upgraded version of the cache engine to be run on the clusters in the Global Datastore. </p>
@@ -8604,14 +8995,16 @@ export interface ModifyGlobalReplicationGroupMessage {
   CacheNodeType?: string;
 
   /**
+   * <p>This parameter causes the modifications in this request and any pending modifications to be applied, asynchronously and as soon as possible. Modifications to Global
+   *             Replication Groups cannot be requested to be applied in PreferredMaintenceWindow.
+   *              </p>
+   */
+  ApplyImmediately: boolean | undefined;
+
+  /**
    * <p>A description of the Global Datastore</p>
    */
   GlobalReplicationGroupDescription?: string;
-
-  /**
-   * <p>Determines whether a read replica is automatically promoted to read/write primary if the existing primary encounters a failure. </p>
-   */
-  AutomaticFailoverEnabled?: boolean;
 
   /**
    * <p>The name of the Global Datastore</p>
@@ -8652,51 +9045,30 @@ export namespace ModifyGlobalReplicationGroupResult {
  */
 export interface ModifyReplicationGroupMessage {
   /**
-   * <p>A flag indicating if you have Multi-AZ enabled to enhance fault tolerance. For more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/AutoFailover.html">Minimizing Downtime: Multi-AZ</a>.</p>
-   */
-  MultiAZEnabled?: boolean;
-
-  /**
-   * <p>A valid cache node type that you want to scale this replication group to.</p>
-   */
-  CacheNodeType?: string;
-
-  /**
-   * <p>The daily time range (in UTC) during which ElastiCache  begins taking a daily snapshot of
-   *             the node group (shard) specified by <code>SnapshottingClusterId</code>.</p>
-   *         <p>Example: <code>05:00-09:00</code>
-   *          </p>
-   *         <p>If you do not specify this parameter, ElastiCache  automatically chooses an appropriate time range.</p>
-   */
-  SnapshotWindow?: string;
-
-  /**
-   * <p>The cluster ID that is used as the daily snapshot source for the replication group.
-   *             This parameter cannot be set for Redis (cluster mode enabled) replication groups.</p>
-   */
-  SnapshottingClusterId?: string;
-
-  /**
-   * <p>Specifies the strategy to use to update the AUTH token. This parameter must be specified with the <code>auth-token</code> parameter.
-   *                 Possible values:</p>
-   *             <ul>
+   * <p>Reserved parameter. The password used to access a password protected server. This parameter must be specified with the <code>auth-token-update-strategy </code>
+   *             parameter.
+   *             Password constraints:</p>
+   *         <ul>
    *             <li>
-   *                <p>Rotate</p>
+   *                <p>Must be only printable ASCII characters</p>
    *             </li>
    *             <li>
-   *                <p>Set</p>
+   *                <p>Must be at least 16 characters and no more than 128 characters in length</p>
+   *             </li>
+   *             <li>
+   *                <p>Cannot contain any of the following characters: '/', '"', or '@', '%'</p>
    *             </li>
    *          </ul>
-   *             <p>
-   *                 For more information, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/auth.html">Authenticating Users with Redis AUTH</a>
-   *          </p>
+   *         <p>
+   *
+   *             For more information, see AUTH password at <a href="http://redis.io/commands/AUTH">AUTH</a>.</p>
    */
-  AuthTokenUpdateStrategy?: AuthTokenUpdateStrategyType | string;
+  AuthToken?: string;
 
   /**
-   * <p>The identifier of the replication group to modify.</p>
+   * <p>This parameter is currently disabled.</p>
    */
-  ReplicationGroupId: string | undefined;
+  AutoMinorVersionUpgrade?: boolean;
 
   /**
    * <p>A list of user group IDs.</p>
@@ -8704,9 +9076,10 @@ export interface ModifyReplicationGroupMessage {
   UserGroupIdsToAdd?: string[];
 
   /**
-   * <p>A list of users groups to remove, meaning the users in the group no longer can access thereplication group.</p>
+   * <p>The cluster ID that is used as the daily snapshot source for the replication group.
+   *             This parameter cannot be set for Redis (cluster mode enabled) replication groups.</p>
    */
-  UserGroupIdsToRemove?: string[];
+  SnapshottingClusterId?: string;
 
   /**
    * <p>The number of days for which ElastiCache retains automatic node group (shard) snapshots before
@@ -8724,16 +9097,56 @@ export interface ModifyReplicationGroupMessage {
   NodeGroupId?: string;
 
   /**
-   * <p>Determines whether a read replica is automatically promoted to read/write primary if the existing primary encounters a failure.</p>
-   *         <p>Valid values: <code>true</code> | <code>false</code>
-   *          </p>
+   * <p>A list of users groups to remove, meaning the users in the group no longer can access thereplication group.</p>
    */
-  AutomaticFailoverEnabled?: boolean;
+  UserGroupIdsToRemove?: string[];
 
   /**
-   * <p>Removes the user groups that can access this replication group.</p>
+   * <p>A list of cache security group names to authorize for the clusters in this replication group. This change is asynchronously applied as soon as possible.</p>
+   *         <p>This parameter can be used only with replication group containing clusters running outside of an Amazon Virtual Private Cloud (Amazon VPC).</p>
+   *         <p>Constraints: Must contain no more than 255 alphanumeric characters. Must not be <code>Default</code>.</p>
    */
-  RemoveUserGroups?: boolean;
+  CacheSecurityGroupNames?: string[];
+
+  /**
+   * <p>The upgraded version of the cache engine to be run on the clusters in the replication group.</p>
+   *
+   *         <p>
+   *             <b>Important:</b> You can upgrade to a newer engine version (see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/SelectEngine.html#VersionManagement">Selecting a Cache Engine and Version</a>), but you cannot downgrade to an earlier engine version.
+   *             If you want to use an earlier engine version,
+   *             you must delete the existing replication group and create it anew with the earlier engine version. </p>
+   */
+  EngineVersion?: string;
+
+  /**
+   * <p>A flag indicating if you have Multi-AZ enabled to enhance fault tolerance. For more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/AutoFailover.html">Minimizing Downtime: Multi-AZ</a>.</p>
+   */
+  MultiAZEnabled?: boolean;
+
+  /**
+   * <p>A valid cache node type that you want to scale this replication group to.</p>
+   */
+  CacheNodeType?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon SNS topic to which notifications are sent.</p>
+   *         <note>
+   *             <p>The Amazon SNS topic owner must be same as the replication group owner. </p>
+   *          </note>
+   */
+  NotificationTopicArn?: string;
+
+  /**
+   * <p>Specifies the VPC Security Groups associated with the clusters in the replication group.</p>
+   *         <p>This parameter can be used only with replication group containing clusters running in
+   *             an Amazon Virtual Private Cloud (Amazon VPC).</p>
+   */
+  SecurityGroupIds?: string[];
+
+  /**
+   * <p>A description for the replication group. Maximum length is 255 characters.</p>
+   */
+  ReplicationGroupDescription?: string;
 
   /**
    * <p>Specifies the weekly time range during which maintenance
@@ -8784,17 +9197,11 @@ export interface ModifyReplicationGroupMessage {
   PreferredMaintenanceWindow?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon SNS topic to which notifications are sent.</p>
-   *         <note>
-   *             <p>The Amazon SNS topic owner must be same as the replication group owner. </p>
-   *          </note>
+   * <p>Determines whether a read replica is automatically promoted to read/write primary if the existing primary encounters a failure.</p>
+   *         <p>Valid values: <code>true</code> | <code>false</code>
+   *          </p>
    */
-  NotificationTopicArn?: string;
-
-  /**
-   * <p>This parameter is currently disabled.</p>
-   */
-  AutoMinorVersionUpgrade?: boolean;
+  AutomaticFailoverEnabled?: boolean;
 
   /**
    * <p>For replication groups with a single primary,
@@ -8804,13 +9211,6 @@ export interface ModifyReplicationGroupMessage {
   PrimaryClusterId?: string;
 
   /**
-   * <p>Specifies the VPC Security Groups associated with the clusters in the replication group.</p>
-   *         <p>This parameter can be used only with replication group containing clusters running in
-   *             an Amazon Virtual Private Cloud (Amazon VPC).</p>
-   */
-  SecurityGroupIds?: string[];
-
-  /**
    * <p>The name of the cache parameter group to apply to all of the clusters in this replication group.
    *             This change is asynchronously applied as soon as possible for parameters when the
    *             <code>ApplyImmediately</code> parameter is specified as <code>true</code> for this request.</p>
@@ -8818,19 +9218,48 @@ export interface ModifyReplicationGroupMessage {
   CacheParameterGroupName?: string;
 
   /**
-   * <p>The upgraded version of the cache engine to be run on the clusters in the replication group.</p>
-   *
-   *         <p>
-   *             <b>Important:</b> You can upgrade to a newer engine version (see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/SelectEngine.html#VersionManagement">Selecting a Cache Engine and Version</a>), but you cannot downgrade to an earlier engine version.
-   *             If you want to use an earlier engine version,
-   *             you must delete the existing replication group and create it anew with the earlier engine version. </p>
+   * <p>Specifies the strategy to use to update the AUTH token. This parameter must be specified with the <code>auth-token</code> parameter.
+   *                 Possible values:</p>
+   *             <ul>
+   *             <li>
+   *                <p>Rotate</p>
+   *             </li>
+   *             <li>
+   *                <p>Set</p>
+   *             </li>
+   *          </ul>
+   *             <p>
+   *                 For more information, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/auth.html">Authenticating Users with Redis AUTH</a>
+   *          </p>
    */
-  EngineVersion?: string;
+  AuthTokenUpdateStrategy?: AuthTokenUpdateStrategyType | string;
 
   /**
-   * <p>A description for the replication group. Maximum length is 255 characters.</p>
+   * <p>Removes the user groups that can access this replication group.</p>
    */
-  ReplicationGroupDescription?: string;
+  RemoveUserGroups?: boolean;
+
+  /**
+   * <p>The identifier of the replication group to modify.</p>
+   */
+  ReplicationGroupId: string | undefined;
+
+  /**
+   * <p>The daily time range (in UTC) during which ElastiCache  begins taking a daily snapshot of
+   *             the node group (shard) specified by <code>SnapshottingClusterId</code>.</p>
+   *         <p>Example: <code>05:00-09:00</code>
+   *          </p>
+   *         <p>If you do not specify this parameter, ElastiCache  automatically chooses an appropriate time range.</p>
+   */
+  SnapshotWindow?: string;
+
+  /**
+   * <p>The status of the Amazon SNS notification topic for the replication group.
+   *             Notifications are sent only if the status is <code>active</code>.</p>
+   *         <p>Valid values: <code>active</code> | <code>inactive</code>
+   *          </p>
+   */
+  NotificationTopicStatus?: string;
 
   /**
    * <p>If <code>true</code>, this parameter causes the modifications in this request and any
@@ -8844,42 +9273,6 @@ export interface ModifyReplicationGroupMessage {
    *          </p>
    */
   ApplyImmediately?: boolean;
-
-  /**
-   * <p>A list of cache security group names to authorize for the clusters in this replication group. This change is asynchronously applied as soon as possible.</p>
-   *         <p>This parameter can be used only with replication group containing clusters running outside of an Amazon Virtual Private Cloud (Amazon VPC).</p>
-   *         <p>Constraints: Must contain no more than 255 alphanumeric characters. Must not be <code>Default</code>.</p>
-   */
-  CacheSecurityGroupNames?: string[];
-
-  /**
-   * <p>Reserved parameter. The password used to access a password protected server. This parameter must be specified with the <code>auth-token-update-strategy </code>
-   *             parameter.
-   *             Password constraints:</p>
-   *         <ul>
-   *             <li>
-   *                <p>Must be only printable ASCII characters</p>
-   *             </li>
-   *             <li>
-   *                <p>Must be at least 16 characters and no more than 128 characters in length</p>
-   *             </li>
-   *             <li>
-   *                <p>Cannot contain any of the following characters: '/', '"', or '@', '%'</p>
-   *             </li>
-   *          </ul>
-   *         <p>
-   *
-   *             For more information, see AUTH password at <a href="http://redis.io/commands/AUTH">AUTH</a>.</p>
-   */
-  AuthToken?: string;
-
-  /**
-   * <p>The status of the Amazon SNS notification topic for the replication group.
-   *             Notifications are sent only if the status is <code>active</code>.</p>
-   *         <p>Valid values: <code>active</code> | <code>inactive</code>
-   *          </p>
-   */
-  NotificationTopicStatus?: string;
 }
 
 export namespace ModifyReplicationGroupMessage {
@@ -8906,17 +9299,6 @@ export namespace ModifyReplicationGroupResult {
  */
 export interface ModifyReplicationGroupShardConfigurationMessage {
   /**
-   * <p>If the value of <code>NodeGroupCount</code> is less than the
-   *             current number of node groups (shards), then either <code>NodeGroupsToRemove</code> or
-   *             <code>NodeGroupsToRetain</code> is required.
-   *             <code>NodeGroupsToRemove</code> is a list of <code>NodeGroupId</code>s to remove
-   *             from the cluster.</p>
-   *         <p>ElastiCache for Redis will attempt to remove all node groups listed by <code>NodeGroupsToRemove</code>
-   *             from the cluster.</p>
-   */
-  NodeGroupsToRemove?: string[];
-
-  /**
    * <p>The name of the Redis (cluster mode enabled) cluster (replication group)
    *             on which the shards are to be configured.</p>
    */
@@ -8940,11 +9322,15 @@ export interface ModifyReplicationGroupShardConfigurationMessage {
   ReshardingConfiguration?: ReshardingConfiguration[];
 
   /**
-   * <p>Indicates that the shard reconfiguration process begins immediately.
-   *             At present, the only permitted value for this parameter is <code>true</code>.</p>
-   *         <p>Value: true</p>
+   * <p>If the value of <code>NodeGroupCount</code> is less than the
+   *             current number of node groups (shards), then either <code>NodeGroupsToRemove</code> or
+   *             <code>NodeGroupsToRetain</code> is required.
+   *             <code>NodeGroupsToRemove</code> is a list of <code>NodeGroupId</code>s to remove
+   *             from the cluster.</p>
+   *         <p>ElastiCache for Redis will attempt to remove all node groups listed by <code>NodeGroupsToRemove</code>
+   *             from the cluster.</p>
    */
-  ApplyImmediately: boolean | undefined;
+  NodeGroupsToRemove?: string[];
 
   /**
    * <p>If the value of <code>NodeGroupCount</code> is less than the
@@ -8956,6 +9342,13 @@ export interface ModifyReplicationGroupShardConfigurationMessage {
    *             from the cluster.</p>
    */
   NodeGroupsToRetain?: string[];
+
+  /**
+   * <p>Indicates that the shard reconfiguration process begins immediately.
+   *             At present, the only permitted value for this parameter is <code>true</code>.</p>
+   *         <p>Value: true</p>
+   */
+  ApplyImmediately: boolean | undefined;
 }
 
 export namespace ModifyReplicationGroupShardConfigurationMessage {
@@ -8979,14 +9372,14 @@ export namespace ModifyReplicationGroupShardConfigurationResult {
 
 export interface ModifyUserMessage {
   /**
-   * <p>The ID of the user.</p>
-   */
-  UserId: string | undefined;
-
-  /**
    * <p>Indicates no password is required for the user account.</p>
    */
   NoPasswordRequired?: boolean;
+
+  /**
+   * <p>Adds additional user permissions to the access string.</p>
+   */
+  AppendAccessString?: string;
 
   /**
    * <p>Access permissions string used for this user account.</p>
@@ -8994,9 +9387,9 @@ export interface ModifyUserMessage {
   AccessString?: string;
 
   /**
-   * <p>Adds additional user permissions to the access string.</p>
+   * <p>The ID of the user.</p>
    */
-  AppendAccessString?: string;
+  UserId: string | undefined;
 
   /**
    * <p>The passwords belonging to the user account. You are allowed up to two.</p>
@@ -9012,6 +9405,11 @@ export namespace ModifyUserMessage {
 
 export interface ModifyUserGroupMessage {
   /**
+   * <p>The list of user IDs to add to the user group.</p>
+   */
+  UserIdsToAdd?: string[];
+
+  /**
    * <p>The list of user IDs to remove from the user group.</p>
    */
   UserIdsToRemove?: string[];
@@ -9020,11 +9418,6 @@ export interface ModifyUserGroupMessage {
    * <p>The ID of the user group.</p>
    */
   UserGroupId: string | undefined;
-
-  /**
-   * <p>The list of user IDs to add to the user group.</p>
-   */
-  UserIdsToAdd?: string[];
 }
 
 export namespace ModifyUserGroupMessage {
@@ -9114,14 +9507,14 @@ export namespace ReservedCacheNodeQuotaExceededFault {
 
 export interface RebalanceSlotsInGlobalReplicationGroupMessage {
   /**
-   * <p>The name of the Global Datastore</p>
-   */
-  GlobalReplicationGroupId: string | undefined;
-
-  /**
    * <p>If <code>True</code>, redistribution is applied immediately.</p>
    */
   ApplyImmediately: boolean | undefined;
+
+  /**
+   * <p>The name of the Global Datastore</p>
+   */
+  GlobalReplicationGroupId: string | undefined;
 }
 
 export namespace RebalanceSlotsInGlobalReplicationGroupMessage {
@@ -9157,14 +9550,14 @@ export namespace RebalanceSlotsInGlobalReplicationGroupResult {
  */
 export interface RebootCacheClusterMessage {
   /**
-   * <p>The cluster identifier. This parameter is stored as a lowercase string.</p>
-   */
-  CacheClusterId: string | undefined;
-
-  /**
    * <p>A list of cache node IDs to reboot. A node ID is a numeric identifier (0001, 0002, etc.). To reboot an entire cluster, specify all of the cache node IDs.</p>
    */
   CacheNodeIdsToReboot: string[] | undefined;
+
+  /**
+   * <p>The cluster identifier. This parameter is stored as a lowercase string.</p>
+   */
+  CacheClusterId: string | undefined;
 }
 
 export namespace RebootCacheClusterMessage {
@@ -9230,11 +9623,6 @@ export namespace TagNotFoundFault {
  */
 export interface ResetCacheParameterGroupMessage {
   /**
-   * <p>The name of the cache parameter group to reset.</p>
-   */
-  CacheParameterGroupName: string | undefined;
-
-  /**
    * <p>An array of parameter names to reset to their default values.
    *             If <code>ResetAllParameters</code> is <code>true</code>,
    *             do not use <code>ParameterNameValues</code>.
@@ -9242,6 +9630,11 @@ export interface ResetCacheParameterGroupMessage {
    *             you must specify the name of at least one parameter to reset.</p>
    */
   ParameterNameValues?: ParameterNameValue[];
+
+  /**
+   * <p>The name of the cache parameter group to reset.</p>
+   */
+  CacheParameterGroupName: string | undefined;
 
   /**
    * <p>If <code>true</code>,
@@ -9287,14 +9680,14 @@ export interface RevokeCacheSecurityGroupIngressMessage {
   EC2SecurityGroupOwnerId: string | undefined;
 
   /**
-   * <p>The name of the cache security group to revoke ingress from.</p>
-   */
-  CacheSecurityGroupName: string | undefined;
-
-  /**
    * <p>The name of the Amazon EC2 security group to revoke access from.</p>
    */
   EC2SecurityGroupName: string | undefined;
+
+  /**
+   * <p>The name of the cache security group to revoke ingress from.</p>
+   */
+  CacheSecurityGroupName: string | undefined;
 }
 
 export namespace RevokeCacheSecurityGroupIngressMessage {
@@ -9371,14 +9764,14 @@ export namespace CustomerNodeEndpoint {
 
 export interface StartMigrationMessage {
   /**
-   * <p>The ID of the replication group to which data should be migrated.</p>
-   */
-  ReplicationGroupId: string | undefined;
-
-  /**
    * <p>List of endpoints from which data should be migrated. For Redis (cluster mode disabled), list should have only one element.</p>
    */
   CustomerNodeEndpointList: CustomerNodeEndpoint[] | undefined;
+
+  /**
+   * <p>The ID of the replication group to which data should be migrated.</p>
+   */
+  ReplicationGroupId: string | undefined;
 }
 
 export namespace StartMigrationMessage {
@@ -9433,17 +9826,17 @@ export namespace NodeGroupNotFoundFault {
 
 export interface TestFailoverMessage {
   /**
-   * <p>The name of the replication group (console: cluster) whose automatic failover is being
-   *             tested by this operation.</p>
-   */
-  ReplicationGroupId: string | undefined;
-
-  /**
    * <p>The name of the node group (called shard in the console) in this replication group on
    *             which automatic failover is to be tested.
    *             You may test automatic failover on up to 5 node groups in any rolling 24-hour period.</p>
    */
   NodeGroupId: string | undefined;
+
+  /**
+   * <p>The name of the replication group (console: cluster) whose automatic failover is being
+   *             tested by this operation.</p>
+   */
+  ReplicationGroupId: string | undefined;
 }
 
 export namespace TestFailoverMessage {

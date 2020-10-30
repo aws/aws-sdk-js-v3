@@ -80,6 +80,10 @@ import {
   ListRepositoriesInDomainCommandOutput,
 } from "./commands/ListRepositoriesInDomainCommand";
 import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "./commands/ListTagsForResourceCommand";
+import {
   PutDomainPermissionsPolicyCommandInput,
   PutDomainPermissionsPolicyCommandOutput,
 } from "./commands/PutDomainPermissionsPolicyCommand";
@@ -87,6 +91,8 @@ import {
   PutRepositoryPermissionsPolicyCommandInput,
   PutRepositoryPermissionsPolicyCommandOutput,
 } from "./commands/PutRepositoryPermissionsPolicyCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import {
   UpdatePackageVersionsStatusCommandInput,
   UpdatePackageVersionsStatusCommandOutput,
@@ -169,8 +175,11 @@ export type ServiceInputTypes =
   | ListPackagesCommandInput
   | ListRepositoriesCommandInput
   | ListRepositoriesInDomainCommandInput
+  | ListTagsForResourceCommandInput
   | PutDomainPermissionsPolicyCommandInput
   | PutRepositoryPermissionsPolicyCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput
   | UpdatePackageVersionsStatusCommandInput
   | UpdateRepositoryCommandInput;
 
@@ -202,8 +211,11 @@ export type ServiceOutputTypes =
   | ListPackagesCommandOutput
   | ListRepositoriesCommandOutput
   | ListRepositoriesInDomainCommandOutput
+  | ListTagsForResourceCommandOutput
   | PutDomainPermissionsPolicyCommandOutput
   | PutRepositoryPermissionsPolicyCommandOutput
+  | TagResourceCommandOutput
+  | UntagResourceCommandOutput
   | UpdatePackageVersionsStatusCommandOutput
   | UpdateRepositoryCommandOutput;
 
@@ -345,7 +357,7 @@ export type CodeartifactClientResolvedConfig = __SmithyResolvedConfiguration<__H
  *                      <code>mvn</code>
  *                   </b>), and <b>
  *                      <code>pip</code>
- *                   </b>. You can create up to 100 repositories per AWS account.</p>
+ *                   </b>.</p>
  *             </li>
  *             <li>
  *                <p>

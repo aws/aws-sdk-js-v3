@@ -194,6 +194,10 @@ import {
 import { UpdateNFSFileShareCommandInput, UpdateNFSFileShareCommandOutput } from "../commands/UpdateNFSFileShareCommand";
 import { UpdateSMBFileShareCommandInput, UpdateSMBFileShareCommandOutput } from "../commands/UpdateSMBFileShareCommand";
 import {
+  UpdateSMBFileShareVisibilityCommandInput,
+  UpdateSMBFileShareVisibilityCommandOutput,
+} from "../commands/UpdateSMBFileShareVisibilityCommand";
+import {
   UpdateSMBSecurityStrategyCommandInput,
   UpdateSMBSecurityStrategyCommandOutput,
 } from "../commands/UpdateSMBSecurityStrategyCommand";
@@ -386,6 +390,8 @@ import {
   UpdateNFSFileShareOutput,
   UpdateSMBFileShareInput,
   UpdateSMBFileShareOutput,
+  UpdateSMBFileShareVisibilityInput,
+  UpdateSMBFileShareVisibilityOutput,
   UpdateSMBSecurityStrategyInput,
   UpdateSMBSecurityStrategyOutput,
   UpdateSnapshotScheduleInput,
@@ -1418,6 +1424,19 @@ export const serializeAws_json1_1UpdateSMBFileShareCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateSMBFileShareInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1UpdateSMBFileShareVisibilityCommand = async (
+  input: UpdateSMBFileShareVisibilityCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "StorageGateway_20130630.UpdateSMBFileShareVisibility",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1UpdateSMBFileShareVisibilityInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -6390,6 +6409,69 @@ const deserializeAws_json1_1UpdateSMBFileShareCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1UpdateSMBFileShareVisibilityCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateSMBFileShareVisibilityCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1UpdateSMBFileShareVisibilityCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1UpdateSMBFileShareVisibilityOutput(data, context);
+  const response: UpdateSMBFileShareVisibilityCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1UpdateSMBFileShareVisibilityCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateSMBFileShareVisibilityCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InternalServerError":
+    case "com.amazonaws.storagegateway#InternalServerError":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidGatewayRequestException":
+    case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1UpdateSMBSecurityStrategyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -6764,6 +6846,7 @@ const serializeAws_json1_1CreateNFSFileShareInput = (input: CreateNFSFileShareIn
     ...(input.NFSFileShareDefaults !== undefined && {
       NFSFileShareDefaults: serializeAws_json1_1NFSFileShareDefaults(input.NFSFileShareDefaults, context),
     }),
+    ...(input.NotificationPolicy !== undefined && { NotificationPolicy: input.NotificationPolicy }),
     ...(input.ObjectACL !== undefined && { ObjectACL: input.ObjectACL }),
     ...(input.ReadOnly !== undefined && { ReadOnly: input.ReadOnly }),
     ...(input.RequesterPays !== undefined && { RequesterPays: input.RequesterPays }),
@@ -6775,6 +6858,7 @@ const serializeAws_json1_1CreateNFSFileShareInput = (input: CreateNFSFileShareIn
 
 const serializeAws_json1_1CreateSMBFileShareInput = (input: CreateSMBFileShareInput, context: __SerdeContext): any => {
   return {
+    ...(input.AccessBasedEnumeration !== undefined && { AccessBasedEnumeration: input.AccessBasedEnumeration }),
     ...(input.AdminUserList !== undefined && {
       AdminUserList: serializeAws_json1_1FileShareUserList(input.AdminUserList, context),
     }),
@@ -6795,6 +6879,7 @@ const serializeAws_json1_1CreateSMBFileShareInput = (input: CreateSMBFileShareIn
     ...(input.KMSEncrypted !== undefined && { KMSEncrypted: input.KMSEncrypted }),
     ...(input.KMSKey !== undefined && { KMSKey: input.KMSKey }),
     ...(input.LocationARN !== undefined && { LocationARN: input.LocationARN }),
+    ...(input.NotificationPolicy !== undefined && { NotificationPolicy: input.NotificationPolicy }),
     ...(input.ObjectACL !== undefined && { ObjectACL: input.ObjectACL }),
     ...(input.ReadOnly !== undefined && { ReadOnly: input.ReadOnly }),
     ...(input.RequesterPays !== undefined && { RequesterPays: input.RequesterPays }),
@@ -7489,6 +7574,7 @@ const serializeAws_json1_1UpdateNFSFileShareInput = (input: UpdateNFSFileShareIn
     ...(input.NFSFileShareDefaults !== undefined && {
       NFSFileShareDefaults: serializeAws_json1_1NFSFileShareDefaults(input.NFSFileShareDefaults, context),
     }),
+    ...(input.NotificationPolicy !== undefined && { NotificationPolicy: input.NotificationPolicy }),
     ...(input.ObjectACL !== undefined && { ObjectACL: input.ObjectACL }),
     ...(input.ReadOnly !== undefined && { ReadOnly: input.ReadOnly }),
     ...(input.RequesterPays !== undefined && { RequesterPays: input.RequesterPays }),
@@ -7498,6 +7584,7 @@ const serializeAws_json1_1UpdateNFSFileShareInput = (input: UpdateNFSFileShareIn
 
 const serializeAws_json1_1UpdateSMBFileShareInput = (input: UpdateSMBFileShareInput, context: __SerdeContext): any => {
   return {
+    ...(input.AccessBasedEnumeration !== undefined && { AccessBasedEnumeration: input.AccessBasedEnumeration }),
     ...(input.AdminUserList !== undefined && {
       AdminUserList: serializeAws_json1_1FileShareUserList(input.AdminUserList, context),
     }),
@@ -7515,6 +7602,7 @@ const serializeAws_json1_1UpdateSMBFileShareInput = (input: UpdateSMBFileShareIn
     }),
     ...(input.KMSEncrypted !== undefined && { KMSEncrypted: input.KMSEncrypted }),
     ...(input.KMSKey !== undefined && { KMSKey: input.KMSKey }),
+    ...(input.NotificationPolicy !== undefined && { NotificationPolicy: input.NotificationPolicy }),
     ...(input.ObjectACL !== undefined && { ObjectACL: input.ObjectACL }),
     ...(input.ReadOnly !== undefined && { ReadOnly: input.ReadOnly }),
     ...(input.RequesterPays !== undefined && { RequesterPays: input.RequesterPays }),
@@ -7522,6 +7610,16 @@ const serializeAws_json1_1UpdateSMBFileShareInput = (input: UpdateSMBFileShareIn
     ...(input.ValidUserList !== undefined && {
       ValidUserList: serializeAws_json1_1FileShareUserList(input.ValidUserList, context),
     }),
+  };
+};
+
+const serializeAws_json1_1UpdateSMBFileShareVisibilityInput = (
+  input: UpdateSMBFileShareVisibilityInput,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.FileSharesVisible !== undefined && { FileSharesVisible: input.FileSharesVisible }),
+    ...(input.GatewayARN !== undefined && { GatewayARN: input.GatewayARN }),
   };
 };
 
@@ -8086,6 +8184,10 @@ const deserializeAws_json1_1DescribeSMBSettingsOutput = (
         ? output.ActiveDirectoryStatus
         : undefined,
     DomainName: output.DomainName !== undefined && output.DomainName !== null ? output.DomainName : undefined,
+    FileSharesVisible:
+      output.FileSharesVisible !== undefined && output.FileSharesVisible !== null
+        ? output.FileSharesVisible
+        : undefined,
     GatewayARN: output.GatewayARN !== undefined && output.GatewayARN !== null ? output.GatewayARN : undefined,
     SMBGuestPasswordSet:
       output.SMBGuestPasswordSet !== undefined && output.SMBGuestPasswordSet !== null
@@ -8542,6 +8644,10 @@ const deserializeAws_json1_1NFSFileShareInfo = (output: any, context: __SerdeCon
       output.NFSFileShareDefaults !== undefined && output.NFSFileShareDefaults !== null
         ? deserializeAws_json1_1NFSFileShareDefaults(output.NFSFileShareDefaults, context)
         : undefined,
+    NotificationPolicy:
+      output.NotificationPolicy !== undefined && output.NotificationPolicy !== null
+        ? output.NotificationPolicy
+        : undefined,
     ObjectACL: output.ObjectACL !== undefined && output.ObjectACL !== null ? output.ObjectACL : undefined,
     Path: output.Path !== undefined && output.Path !== null ? output.Path : undefined,
     ReadOnly: output.ReadOnly !== undefined && output.ReadOnly !== null ? output.ReadOnly : undefined,
@@ -8670,6 +8776,10 @@ const deserializeAws_json1_1ShutdownGatewayOutput = (output: any, context: __Ser
 
 const deserializeAws_json1_1SMBFileShareInfo = (output: any, context: __SerdeContext): SMBFileShareInfo => {
   return {
+    AccessBasedEnumeration:
+      output.AccessBasedEnumeration !== undefined && output.AccessBasedEnumeration !== null
+        ? output.AccessBasedEnumeration
+        : undefined,
     AdminUserList:
       output.AdminUserList !== undefined && output.AdminUserList !== null
         ? deserializeAws_json1_1FileShareUserList(output.AdminUserList, context)
@@ -8708,6 +8818,10 @@ const deserializeAws_json1_1SMBFileShareInfo = (output: any, context: __SerdeCon
     KMSEncrypted: output.KMSEncrypted !== undefined && output.KMSEncrypted !== null ? output.KMSEncrypted : undefined,
     KMSKey: output.KMSKey !== undefined && output.KMSKey !== null ? output.KMSKey : undefined,
     LocationARN: output.LocationARN !== undefined && output.LocationARN !== null ? output.LocationARN : undefined,
+    NotificationPolicy:
+      output.NotificationPolicy !== undefined && output.NotificationPolicy !== null
+        ? output.NotificationPolicy
+        : undefined,
     ObjectACL: output.ObjectACL !== undefined && output.ObjectACL !== null ? output.ObjectACL : undefined,
     Path: output.Path !== undefined && output.Path !== null ? output.Path : undefined,
     ReadOnly: output.ReadOnly !== undefined && output.ReadOnly !== null ? output.ReadOnly : undefined,
@@ -8998,6 +9112,15 @@ const deserializeAws_json1_1UpdateSMBFileShareOutput = (
 ): UpdateSMBFileShareOutput => {
   return {
     FileShareARN: output.FileShareARN !== undefined && output.FileShareARN !== null ? output.FileShareARN : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1UpdateSMBFileShareVisibilityOutput = (
+  output: any,
+  context: __SerdeContext
+): UpdateSMBFileShareVisibilityOutput => {
+  return {
+    GatewayARN: output.GatewayARN !== undefined && output.GatewayARN !== null ? output.GatewayARN : undefined,
   } as any;
 };
 

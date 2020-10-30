@@ -131,6 +131,11 @@ import {
   ListRepositoriesInDomainCommandOutput,
 } from "./commands/ListRepositoriesInDomainCommand";
 import {
+  ListTagsForResourceCommand,
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "./commands/ListTagsForResourceCommand";
+import {
   PutDomainPermissionsPolicyCommand,
   PutDomainPermissionsPolicyCommandInput,
   PutDomainPermissionsPolicyCommandOutput,
@@ -140,6 +145,12 @@ import {
   PutRepositoryPermissionsPolicyCommandInput,
   PutRepositoryPermissionsPolicyCommandOutput,
 } from "./commands/PutRepositoryPermissionsPolicyCommand";
+import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import {
+  UntagResourceCommand,
+  UntagResourceCommandInput,
+  UntagResourceCommandOutput,
+} from "./commands/UntagResourceCommand";
 import {
   UpdatePackageVersionsStatusCommand,
   UpdatePackageVersionsStatusCommandInput,
@@ -178,7 +189,7 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  *                      <code>mvn</code>
  *                   </b>), and <b>
  *                      <code>pip</code>
- *                   </b>. You can create up to 100 repositories per AWS account.</p>
+ *                   </b>.</p>
  *             </li>
  *             <li>
  *                <p>
@@ -892,23 +903,19 @@ export class Codeartifact extends CodeartifactClient {
    *     </p>
    *
    *          <p>
-   *       To view all disposed package versions in a repository, use <code>
-   *                <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_ListPackageVersions.html">ListackageVersions</a>
-   *             </code> and set the
-   *       <code>
-   *                <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_ListPackageVersions.html#API_ListPackageVersions_RequestSyntax">status</a>
-   *             </code> parameter
+   *       To view all disposed package versions in a repository, use <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_ListPackageVersions.html">
+   *                <code>ListPackageVersions</code>
+   *             </a> and set the
+   *       <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_ListPackageVersions.html#API_ListPackageVersions_RequestSyntax">
+   *                <code>status</code>
+   *             </a> parameter
    *       to <code>Disposed</code>.
    *     </p>
    *
    *          <p>
-   *       To view information about a disposed package version, use <code>
-   *                <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_ListPackageVersions.html">ListPackageVersions</a>
-   *             </code> and set the
-   *         <code>
-   *                <a href="https://docs.aws.amazon.com/API_ListPackageVersions.html#codeartifact-ListPackageVersions-response-status">status</a>
-   *             </code> parameter
-   *       to <code>Disposed</code>.
+   *       To view information about a disposed package version, use <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_DescribePackageVersion.html">
+   *                <code>DescribePackageVersion</code>
+   *             </a>..
    *     </p>
    */
   public disposePackageVersions(
@@ -942,8 +949,10 @@ export class Codeartifact extends CodeartifactClient {
 
   /**
    * <p>
-   *         Generates a temporary authentication token for accessing repositories in the domain.
+   *         Generates a temporary authorization token for accessing repositories in the domain.
    *         This API requires the <code>codeartifact:GetAuthorizationToken</code> and <code>sts:GetServiceBearerToken</code> permissions.
+   *         For more information about authorization tokens, see
+   *         <a href="https://docs.aws.amazon.com/codeartifact/latest/ug/tokens-authentication.html">AWS CodeArtifact authentication and tokens</a>.
    *       </p>
    *          <note>
    *             <p>CodeArtifact authorization tokens are valid for a period of 12 hours when created with the <code>login</code> command.
@@ -1452,9 +1461,46 @@ export class Codeartifact extends CodeartifactClient {
   }
 
   /**
+   * <p>Gets information about AWS tags for a specified Amazon Resource Name (ARN) in AWS CodeArtifact.</p>
+   */
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTagsForResourceCommandOutput>;
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
+    cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): Promise<ListTagsForResourceCommandOutput> | void {
+    const command = new ListTagsForResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>
    *         Sets a resource policy on a domain that specifies permissions to access it.
    *       </p>
+   *          <p>
+   *        When you call <code>PutDomainPermissionsPolicy</code>, the resource policy on the domain is ignored when evaluting permissions.
+   *        This ensures that the owner of a domain cannot lock themselves out of the domain, which would prevent them from being
+   *        able to update the resource policy.
+   *      </p>
    */
   public putDomainPermissionsPolicy(
     args: PutDomainPermissionsPolicyCommandInput,
@@ -1489,6 +1535,11 @@ export class Codeartifact extends CodeartifactClient {
    * <p>
    *         Sets the resource policy on a repository that specifies permissions to access it.
    *       </p>
+   *          <p>
+   *        When you call <code>PutRepositoryPermissionsPolicy</code>, the resource policy on the repository is ignored when evaluting permissions.
+   *        This ensures that the owner of a repository cannot lock themselves out of the repository, which would prevent them from being
+   *        able to update the resource policy.
+   *      </p>
    */
   public putRepositoryPermissionsPolicy(
     args: PutRepositoryPermissionsPolicyCommandInput,
@@ -1509,6 +1560,64 @@ export class Codeartifact extends CodeartifactClient {
     cb?: (err: any, data?: PutRepositoryPermissionsPolicyCommandOutput) => void
   ): Promise<PutRepositoryPermissionsPolicyCommandOutput> | void {
     const command = new PutRepositoryPermissionsPolicyCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Adds or updates tags for a resource in AWS CodeArtifact.</p>
+   */
+  public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
+  public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  public tagResource(
+    args: TagResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
+  public tagResource(
+    args: TagResourceCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
+    cb?: (err: any, data?: TagResourceCommandOutput) => void
+  ): Promise<TagResourceCommandOutput> | void {
+    const command = new TagResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Removes tags from a resource in AWS CodeArtifact.</p>
+   */
+  public untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  public untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
+  public untagResource(
+    args: UntagResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
+  public untagResource(
+    args: UntagResourceCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
+    cb?: (err: any, data?: UntagResourceCommandOutput) => void
+  ): Promise<UntagResourceCommandOutput> | void {
+    const command = new UntagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

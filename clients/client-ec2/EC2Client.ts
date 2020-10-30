@@ -43,6 +43,10 @@ import {
   AssociateDhcpOptionsCommandOutput,
 } from "./commands/AssociateDhcpOptionsCommand";
 import {
+  AssociateEnclaveCertificateIamRoleCommandInput,
+  AssociateEnclaveCertificateIamRoleCommandOutput,
+} from "./commands/AssociateEnclaveCertificateIamRoleCommand";
+import {
   AssociateIamInstanceProfileCommandInput,
   AssociateIamInstanceProfileCommandOutput,
 } from "./commands/AssociateIamInstanceProfileCommand";
@@ -912,6 +916,10 @@ import {
   DisassociateClientVpnTargetNetworkCommandOutput,
 } from "./commands/DisassociateClientVpnTargetNetworkCommand";
 import {
+  DisassociateEnclaveCertificateIamRoleCommandInput,
+  DisassociateEnclaveCertificateIamRoleCommandOutput,
+} from "./commands/DisassociateEnclaveCertificateIamRoleCommand";
+import {
   DisassociateIamInstanceProfileCommandInput,
   DisassociateIamInstanceProfileCommandOutput,
 } from "./commands/DisassociateIamInstanceProfileCommand";
@@ -973,6 +981,10 @@ import {
   ExportTransitGatewayRoutesCommandInput,
   ExportTransitGatewayRoutesCommandOutput,
 } from "./commands/ExportTransitGatewayRoutesCommand";
+import {
+  GetAssociatedEnclaveCertificateIamRolesCommandInput,
+  GetAssociatedEnclaveCertificateIamRolesCommandOutput,
+} from "./commands/GetAssociatedEnclaveCertificateIamRolesCommand";
 import {
   GetAssociatedIpv6PoolCidrsCommandInput,
   GetAssociatedIpv6PoolCidrsCommandOutput,
@@ -1439,6 +1451,7 @@ export type ServiceInputTypes =
   | AssociateAddressCommandInput
   | AssociateClientVpnTargetNetworkCommandInput
   | AssociateDhcpOptionsCommandInput
+  | AssociateEnclaveCertificateIamRoleCommandInput
   | AssociateIamInstanceProfileCommandInput
   | AssociateRouteTableCommandInput
   | AssociateSubnetCidrBlockCommandInput
@@ -1705,6 +1718,7 @@ export type ServiceInputTypes =
   | DisableVpcClassicLinkDnsSupportCommandInput
   | DisassociateAddressCommandInput
   | DisassociateClientVpnTargetNetworkCommandInput
+  | DisassociateEnclaveCertificateIamRoleCommandInput
   | DisassociateIamInstanceProfileCommandInput
   | DisassociateRouteTableCommandInput
   | DisassociateSubnetCidrBlockCommandInput
@@ -1722,6 +1736,7 @@ export type ServiceInputTypes =
   | ExportClientVpnClientConfigurationCommandInput
   | ExportImageCommandInput
   | ExportTransitGatewayRoutesCommandInput
+  | GetAssociatedEnclaveCertificateIamRolesCommandInput
   | GetAssociatedIpv6PoolCidrsCommandInput
   | GetCapacityReservationUsageCommandInput
   | GetCoipPoolUsageCommandInput
@@ -1861,6 +1876,7 @@ export type ServiceOutputTypes =
   | AssociateAddressCommandOutput
   | AssociateClientVpnTargetNetworkCommandOutput
   | AssociateDhcpOptionsCommandOutput
+  | AssociateEnclaveCertificateIamRoleCommandOutput
   | AssociateIamInstanceProfileCommandOutput
   | AssociateRouteTableCommandOutput
   | AssociateSubnetCidrBlockCommandOutput
@@ -2127,6 +2143,7 @@ export type ServiceOutputTypes =
   | DisableVpcClassicLinkDnsSupportCommandOutput
   | DisassociateAddressCommandOutput
   | DisassociateClientVpnTargetNetworkCommandOutput
+  | DisassociateEnclaveCertificateIamRoleCommandOutput
   | DisassociateIamInstanceProfileCommandOutput
   | DisassociateRouteTableCommandOutput
   | DisassociateSubnetCidrBlockCommandOutput
@@ -2144,6 +2161,7 @@ export type ServiceOutputTypes =
   | ExportClientVpnClientConfigurationCommandOutput
   | ExportImageCommandOutput
   | ExportTransitGatewayRoutesCommandOutput
+  | GetAssociatedEnclaveCertificateIamRolesCommandOutput
   | GetAssociatedIpv6PoolCidrsCommandOutput
   | GetCapacityReservationUsageCommandOutput
   | GetCoipPoolUsageCommandOutput

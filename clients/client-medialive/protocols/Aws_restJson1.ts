@@ -155,6 +155,8 @@ import {
   EmbeddedDestinationSettings,
   EmbeddedPlusScte20DestinationSettings,
   EmbeddedSourceSettings,
+  FailoverCondition,
+  FailoverConditionSettings,
   FecOutputSettings,
   Fmp4HlsSettings,
   FrameCaptureGroupSettings,
@@ -164,12 +166,10 @@ import {
   HlsBasicPutSettings,
   HlsCdnSettings,
   HlsGroupSettings,
-  HlsId3SegmentTaggingScheduleActionSettings,
   HlsInputSettings,
   HlsMediaStoreSettings,
   HlsOutputSettings,
   HlsSettings,
-  HlsTimedMetadataScheduleActionSettings,
   HlsWebdavSettings,
   Input,
   InputAttachment,
@@ -183,6 +183,7 @@ import {
   InputDeviceSettings,
   InputDeviceSummary,
   InputLocation,
+  InputLossFailoverSettings,
   InputSecurityGroup,
   InputSettings,
   InputSource,
@@ -235,7 +236,6 @@ import {
   Scte27SourceSettings,
   SmpteTtDestinationSettings,
   StandardHlsSettings,
-  StartTimecode,
   StaticKeySettings,
   TeletextDestinationSettings,
   TeletextSourceSettings,
@@ -279,6 +279,8 @@ import {
   H265FilterSettings,
   H265Settings,
   Hdr10Settings,
+  HlsId3SegmentTaggingScheduleActionSettings,
+  HlsTimedMetadataScheduleActionSettings,
   ImmediateModeScheduleActionStartSettings,
   InputClippingSettings,
   InputDeviceConfigurableSettings,
@@ -314,6 +316,7 @@ import {
   Scte35SpliceInsertScheduleActionSettings,
   Scte35TimeSignalApos,
   Scte35TimeSignalScheduleActionSettings,
+  StartTimecode,
   StaticImageActivateScheduleActionSettings,
   StaticImageDeactivateScheduleActionSettings,
   StopTimecode,
@@ -8924,6 +8927,10 @@ const serializeAws_restJson1__listOfCaptionSelector = (input: CaptionSelector[],
   return input.map((entry) => serializeAws_restJson1CaptionSelector(entry, context));
 };
 
+const serializeAws_restJson1__listOfFailoverCondition = (input: FailoverCondition[], context: __SerdeContext): any => {
+  return input.map((entry) => serializeAws_restJson1FailoverCondition(entry, context));
+};
+
 const serializeAws_restJson1__listOfHlsAdMarkers = (input: (HlsAdMarkers | string)[], context: __SerdeContext): any => {
   return input.map((entry) => entry);
 };
@@ -9235,6 +9242,10 @@ const serializeAws_restJson1AutomaticInputFailoverSettings = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.ErrorClearTimeMsec !== undefined && { errorClearTimeMsec: input.ErrorClearTimeMsec }),
+    ...(input.FailoverConditions !== undefined && {
+      failoverConditions: serializeAws_restJson1__listOfFailoverCondition(input.FailoverConditions, context),
+    }),
     ...(input.InputPreference !== undefined && { inputPreference: input.InputPreference }),
     ...(input.SecondaryInputId !== undefined && { secondaryInputId: input.SecondaryInputId }),
   };
@@ -9632,6 +9643,28 @@ const serializeAws_restJson1EncoderSettings = (input: EncoderSettings, context: 
   };
 };
 
+const serializeAws_restJson1FailoverCondition = (input: FailoverCondition, context: __SerdeContext): any => {
+  return {
+    ...(input.FailoverConditionSettings !== undefined && {
+      failoverConditionSettings: serializeAws_restJson1FailoverConditionSettings(
+        input.FailoverConditionSettings,
+        context
+      ),
+    }),
+  };
+};
+
+const serializeAws_restJson1FailoverConditionSettings = (
+  input: FailoverConditionSettings,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.InputLossSettings !== undefined && {
+      inputLossSettings: serializeAws_restJson1InputLossFailoverSettings(input.InputLossSettings, context),
+    }),
+  };
+};
+
 const serializeAws_restJson1FeatureActivations = (input: FeatureActivations, context: __SerdeContext): any => {
   return {
     ...(input.InputPrepareScheduleActions !== undefined && {
@@ -9928,12 +9961,16 @@ const serializeAws_restJson1HlsGroupSettings = (input: HlsGroupSettings, context
       destination: serializeAws_restJson1OutputLocationRef(input.Destination, context),
     }),
     ...(input.DirectoryStructure !== undefined && { directoryStructure: input.DirectoryStructure }),
+    ...(input.DiscontinuityTags !== undefined && { discontinuityTags: input.DiscontinuityTags }),
     ...(input.EncryptionType !== undefined && { encryptionType: input.EncryptionType }),
     ...(input.HlsCdnSettings !== undefined && {
       hlsCdnSettings: serializeAws_restJson1HlsCdnSettings(input.HlsCdnSettings, context),
     }),
     ...(input.HlsId3SegmentTagging !== undefined && { hlsId3SegmentTagging: input.HlsId3SegmentTagging }),
     ...(input.IFrameOnlyPlaylists !== undefined && { iFrameOnlyPlaylists: input.IFrameOnlyPlaylists }),
+    ...(input.IncompleteSegmentBehavior !== undefined && {
+      incompleteSegmentBehavior: input.IncompleteSegmentBehavior,
+    }),
     ...(input.IndexNSegments !== undefined && { indexNSegments: input.IndexNSegments }),
     ...(input.InputLossAction !== undefined && { inputLossAction: input.InputLossAction }),
     ...(input.IvInManifest !== undefined && { ivInManifest: input.IvInManifest }),
@@ -10127,6 +10164,15 @@ const serializeAws_restJson1InputLossBehavior = (input: InputLossBehavior, conte
     }),
     ...(input.InputLossImageType !== undefined && { inputLossImageType: input.InputLossImageType }),
     ...(input.RepeatFrameMsec !== undefined && { repeatFrameMsec: input.RepeatFrameMsec }),
+  };
+};
+
+const serializeAws_restJson1InputLossFailoverSettings = (
+  input: InputLossFailoverSettings,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.InputLossThresholdMsec !== undefined && { inputLossThresholdMsec: input.InputLossThresholdMsec }),
   };
 };
 
@@ -11246,6 +11292,13 @@ const deserializeAws_restJson1__listOfChannelSummary = (output: any, context: __
   return (output || []).map((entry: any) => deserializeAws_restJson1ChannelSummary(entry, context));
 };
 
+const deserializeAws_restJson1__listOfFailoverCondition = (
+  output: any,
+  context: __SerdeContext
+): FailoverCondition[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1FailoverCondition(entry, context));
+};
+
 const deserializeAws_restJson1__listOfHlsAdMarkers = (
   output: any,
   context: __SerdeContext
@@ -11658,6 +11711,14 @@ const deserializeAws_restJson1AutomaticInputFailoverSettings = (
   context: __SerdeContext
 ): AutomaticInputFailoverSettings => {
   return {
+    ErrorClearTimeMsec:
+      output.errorClearTimeMsec !== undefined && output.errorClearTimeMsec !== null
+        ? output.errorClearTimeMsec
+        : undefined,
+    FailoverConditions:
+      output.failoverConditions !== undefined && output.failoverConditions !== null
+        ? deserializeAws_restJson1__listOfFailoverCondition(output.failoverConditions, context)
+        : undefined,
     InputPreference:
       output.inputPreference !== undefined && output.inputPreference !== null ? output.inputPreference : undefined,
     SecondaryInputId:
@@ -12270,6 +12331,27 @@ const deserializeAws_restJson1EncoderSettings = (output: any, context: __SerdeCo
   } as any;
 };
 
+const deserializeAws_restJson1FailoverCondition = (output: any, context: __SerdeContext): FailoverCondition => {
+  return {
+    FailoverConditionSettings:
+      output.failoverConditionSettings !== undefined && output.failoverConditionSettings !== null
+        ? deserializeAws_restJson1FailoverConditionSettings(output.failoverConditionSettings, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1FailoverConditionSettings = (
+  output: any,
+  context: __SerdeContext
+): FailoverConditionSettings => {
+  return {
+    InputLossSettings:
+      output.inputLossSettings !== undefined && output.inputLossSettings !== null
+        ? deserializeAws_restJson1InputLossFailoverSettings(output.inputLossSettings, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1FeatureActivations = (output: any, context: __SerdeContext): FeatureActivations => {
   return {
     InputPrepareScheduleActions:
@@ -12691,6 +12773,10 @@ const deserializeAws_restJson1HlsGroupSettings = (output: any, context: __SerdeC
       output.directoryStructure !== undefined && output.directoryStructure !== null
         ? output.directoryStructure
         : undefined,
+    DiscontinuityTags:
+      output.discontinuityTags !== undefined && output.discontinuityTags !== null
+        ? output.discontinuityTags
+        : undefined,
     EncryptionType:
       output.encryptionType !== undefined && output.encryptionType !== null ? output.encryptionType : undefined,
     HlsCdnSettings:
@@ -12704,6 +12790,10 @@ const deserializeAws_restJson1HlsGroupSettings = (output: any, context: __SerdeC
     IFrameOnlyPlaylists:
       output.iFrameOnlyPlaylists !== undefined && output.iFrameOnlyPlaylists !== null
         ? output.iFrameOnlyPlaylists
+        : undefined,
+    IncompleteSegmentBehavior:
+      output.incompleteSegmentBehavior !== undefined && output.incompleteSegmentBehavior !== null
+        ? output.incompleteSegmentBehavior
         : undefined,
     IndexNSegments:
       output.indexNSegments !== undefined && output.indexNSegments !== null ? output.indexNSegments : undefined,
@@ -13072,6 +13162,18 @@ const deserializeAws_restJson1InputLossBehavior = (output: any, context: __Serde
         : undefined,
     RepeatFrameMsec:
       output.repeatFrameMsec !== undefined && output.repeatFrameMsec !== null ? output.repeatFrameMsec : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1InputLossFailoverSettings = (
+  output: any,
+  context: __SerdeContext
+): InputLossFailoverSettings => {
+  return {
+    InputLossThresholdMsec:
+      output.inputLossThresholdMsec !== undefined && output.inputLossThresholdMsec !== null
+        ? output.inputLossThresholdMsec
+        : undefined,
   } as any;
 };
 

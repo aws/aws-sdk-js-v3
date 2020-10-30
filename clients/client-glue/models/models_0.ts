@@ -3925,7 +3925,7 @@ export enum TransformType {
 export interface TransformParameters {
   /**
    * <p>The type of machine learning transform.</p>
-   * 	        <p>For information about the types of machine learning transforms, see <a href="http://docs.aws.amazon.com/glue/latest/dg/add-job-machine-learning-transform.html">Creating Machine Learning Transforms</a>.</p>
+   * 	        <p>For information about the types of machine learning transforms, see <a href="https://docs.aws.amazon.com/glue/latest/dg/add-job-machine-learning-transform.html">Creating Machine Learning Transforms</a>.</p>
    */
   TransformType: TransformType | string | undefined;
 
@@ -3941,16 +3941,117 @@ export namespace TransformParameters {
   });
 }
 
+export enum MLUserDataEncryptionModeString {
+  DISABLED = "DISABLED",
+  SSEKMS = "SSE-KMS",
+}
+
+/**
+ * <p>The encryption-at-rest settings of the transform that apply to accessing user data.</p>
+ */
+export interface MLUserDataEncryption {
+  /**
+   * <p>The ID for the customer-provided KMS key.</p>
+   */
+  KmsKeyId?: string;
+
+  /**
+   * <p>The encryption mode applied to user data. Valid values are:</p>
+   *
+   * 	        <ul>
+   *             <li>
+   *                <p>DISABLED: encryption is disabled</p>
+   *             </li>
+   *             <li>
+   *                <p>SSEKMS: use of server-side encryption with AWS Key Management Service (SSE-KMS) for user data stored in Amazon S3.</p>
+   *             </li>
+   *          </ul>
+   */
+  MlUserDataEncryptionMode: MLUserDataEncryptionModeString | string | undefined;
+}
+
+export namespace MLUserDataEncryption {
+  export const filterSensitiveLog = (obj: MLUserDataEncryption): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The encryption-at-rest settings of the transform that apply to accessing user data. Machine learning transforms can access user data encrypted in Amazon S3 using KMS.</p>
+ *
+ * 	        <p>Additionally, imported labels and trained transforms can now be encrypted using a customer provided KMS key.</p>
+ */
+export interface TransformEncryption {
+  /**
+   * <p>The name of the security configuration.</p>
+   */
+  TaskRunSecurityConfigurationName?: string;
+
+  /**
+   * <p>An <code>MLUserDataEncryption</code> object containing the encryption mode and customer-provided KMS key ID.</p>
+   */
+  MlUserDataEncryption?: MLUserDataEncryption;
+}
+
+export namespace TransformEncryption {
+  export const filterSensitiveLog = (obj: TransformEncryption): any => ({
+    ...obj,
+  });
+}
+
 export interface CreateMLTransformRequest {
+  /**
+   * <p>The unique name that you give the transform when you create it.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The name or Amazon Resource Name (ARN) of the IAM role with the required permissions. The required permissions include both AWS Glue service role permissions to AWS Glue resources, and Amazon S3 permissions required by the transform. </p>
+   *
+   * 		       <ul>
+   *             <li>
+   *                <p>This role needs AWS Glue service role permissions to allow access to resources in AWS Glue. See <a href="https://docs.aws.amazon.com/glue/latest/dg/attach-policy-iam-user.html">Attach a Policy to IAM Users That Access AWS Glue</a>.</p>
+   *             </li>
+   *             <li>
+   *                <p>This role needs permission to your Amazon Simple Storage Service (Amazon S3) sources, targets, temporary directory, scripts, and any libraries used by the task run for this transform.</p>
+   *             </li>
+   *          </ul>
+   */
+  Role: string | undefined;
+
+  /**
+   * <p>The number of workers of a defined <code>workerType</code> that are allocated when this task runs.</p>
+   *
+   * 		       <p>If <code>WorkerType</code> is set, then <code>NumberOfWorkers</code> is required (and vice versa).</p>
+   */
+  NumberOfWorkers?: number;
+
+  /**
+   * <p>The encryption-at-rest settings of the transform that apply to accessing user data. Machine learning transforms can access user data encrypted in Amazon S3 using KMS.</p>
+   */
+  TransformEncryption?: TransformEncryption;
+
+  /**
+   * <p>The algorithmic parameters that are specific to the transform type used. Conditionally
+   *       dependent on the transform type.</p>
+   */
+  Parameters: TransformParameters | undefined;
+
+  /**
+   * <p>This value determines which version of AWS Glue this machine learning transform is compatible with. Glue 1.0 is recommended for most customers. If the value is not set, the Glue compatibility defaults to Glue 0.9.  For more information, see <a href="https://docs.aws.amazon.com/glue/latest/dg/release-notes.html#release-notes-versions">AWS Glue Versions</a> in the developer guide.</p>
+   */
+  GlueVersion?: string;
+
   /**
    * <p>The timeout of the task run for this transform in minutes. This is the maximum time that a task run for this transform can consume resources before it is terminated and enters <code>TIMEOUT</code> status. The default is 2,880 minutes (48 hours).</p>
    */
   Timeout?: number;
 
   /**
-   * <p>The unique name that you give the transform when you create it.</p>
+   * <p>A description of the machine learning transform that is being defined. The default is an
+   *       empty string.</p>
    */
-  Name: string | undefined;
+  Description?: string;
 
   /**
    * <p>The number of AWS Glue data processing units (DPUs) that are allocated to task runs for this transform. You can allocate from 2 to 100 DPUs; the default is 10. A DPU is a relative measure of
@@ -3984,33 +4085,6 @@ export interface CreateMLTransformRequest {
   MaxCapacity?: number;
 
   /**
-   * <p>A description of the machine learning transform that is being defined. The default is an
-   *       empty string.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The name or Amazon Resource Name (ARN) of the IAM role with the required permissions. The required permissions include both AWS Glue service role permissions to AWS Glue resources, and Amazon S3 permissions required by the transform. </p>
-   *
-   * 		       <ul>
-   *             <li>
-   *                <p>This role needs AWS Glue service role permissions to allow access to resources in AWS Glue. See <a href="https://docs.aws.amazon.com/glue/latest/dg/attach-policy-iam-user.html">Attach a Policy to IAM Users That Access AWS Glue</a>.</p>
-   *             </li>
-   *             <li>
-   *                <p>This role needs permission to your Amazon Simple Storage Service (Amazon S3) sources, targets, temporary directory, scripts, and any libraries used by the task run for this transform.</p>
-   *             </li>
-   *          </ul>
-   */
-  Role: string | undefined;
-
-  /**
-   * <p>The number of workers of a defined <code>workerType</code> that are allocated when this task runs.</p>
-   *
-   * 		       <p>If <code>WorkerType</code> is set, then <code>NumberOfWorkers</code> is required (and vice versa).</p>
-   */
-  NumberOfWorkers?: number;
-
-  /**
    * <p>The tags to use with this machine learning transform. You may use tags to limit access to the machine learning transform. For more information about tags in AWS Glue, see <a href="https://docs.aws.amazon.com/glue/latest/dg/monitor-tags.html">AWS Tags in AWS Glue</a> in the developer guide.</p>
    */
   Tags?: { [key: string]: string };
@@ -4019,12 +4093,6 @@ export interface CreateMLTransformRequest {
    * <p>A list of AWS Glue table definitions used by the transform.</p>
    */
   InputRecordTables: GlueTable[] | undefined;
-
-  /**
-   * <p>The algorithmic parameters that are specific to the transform type used. Conditionally
-   *       dependent on the transform type.</p>
-   */
-  Parameters: TransformParameters | undefined;
 
   /**
    * <p>The type of predefined worker that is allocated when this task runs. Accepts a value of Standard, G.1X, or G.2X.</p>
@@ -4059,11 +4127,6 @@ export interface CreateMLTransformRequest {
    *          </ul>
    */
   WorkerType?: WorkerType | string;
-
-  /**
-   * <p>This value determines which version of AWS Glue this machine learning transform is compatible with. Glue 1.0 is recommended for most customers. If the value is not set, the Glue compatibility defaults to Glue 0.9.  For more information, see <a href="https://docs.aws.amazon.com/glue/latest/dg/release-notes.html#release-notes-versions">AWS Glue Versions</a> in the developer guide.</p>
-   */
-  GlueVersion?: string;
 
   /**
    * <p>The maximum number of times to retry a task for this transform after a task run fails.</p>
@@ -5719,21 +5782,21 @@ export namespace GetColumnStatisticsForPartitionRequest {
 }
 
 /**
- * <p>Defines a binary column statistics data.</p>
+ * <p>Defines column statistics supported for bit sequence data values.</p>
  */
 export interface BinaryColumnStatisticsData {
   /**
-   * <p>Average length of the column.</p>
+   * <p>The average bit sequence length in the column.</p>
    */
   AverageLength: number | undefined;
 
   /**
-   * <p>Number of nulls.</p>
+   * <p>The number of null values in the column.</p>
    */
   NumberOfNulls: number | undefined;
 
   /**
-   * <p>Maximum length of the column.</p>
+   * <p>The size of the longest bit sequence in the column.</p>
    */
   MaximumLength: number | undefined;
 }
@@ -5745,21 +5808,21 @@ export namespace BinaryColumnStatisticsData {
 }
 
 /**
- * <p>Defines a boolean column statistics.</p>
+ * <p>Defines column statistics supported for Boolean data columns.</p>
  */
 export interface BooleanColumnStatisticsData {
   /**
-   * <p>Number of false value.</p>
+   * <p>The number of false values in the column.</p>
    */
   NumberOfFalses: number | undefined;
 
   /**
-   * <p>Number of true value.</p>
+   * <p>The number of true values in the column.</p>
    */
   NumberOfTrues: number | undefined;
 
   /**
-   * <p>Number of nulls.</p>
+   * <p>The number of null values in the column.</p>
    */
   NumberOfNulls: number | undefined;
 }
@@ -5771,26 +5834,26 @@ export namespace BooleanColumnStatisticsData {
 }
 
 /**
- * <p>Defines a date column statistics data.</p>
+ * <p>Defines column statistics supported for timestamp data columns.</p>
  */
 export interface DateColumnStatisticsData {
   /**
-   * <p>Number of distinct values.</p>
+   * <p>The number of distinct values in a column.</p>
    */
   NumberOfDistinctValues: number | undefined;
 
   /**
-   * <p>Minimum value of the column.</p>
+   * <p>The lowest value in the column.</p>
    */
   MinimumValue?: Date;
 
   /**
-   * <p>Maximum value of the column.</p>
+   * <p>The highest value in the column.</p>
    */
   MaximumValue?: Date;
 
   /**
-   * <p>Number of nulls.</p>
+   * <p>The number of null values in the column.</p>
    */
   NumberOfNulls: number | undefined;
 }
@@ -5824,26 +5887,26 @@ export namespace DecimalNumber {
 }
 
 /**
- * <p>Defines a decimal column statistics data.</p>
+ * <p>Defines column statistics supported for fixed-point number data columns.</p>
  */
 export interface DecimalColumnStatisticsData {
   /**
-   * <p>Maximum value of the column.</p>
+   * <p>The highest value in the column.</p>
    */
   MaximumValue?: DecimalNumber;
 
   /**
-   * <p>Minimum value of the column.</p>
+   * <p>The lowest value in the column.</p>
    */
   MinimumValue?: DecimalNumber;
 
   /**
-   * <p>Number of nulls.</p>
+   * <p>The number of null values in the column.</p>
    */
   NumberOfNulls: number | undefined;
 
   /**
-   * <p>Number of distinct values.</p>
+   * <p>The number of distinct values in a column.</p>
    */
   NumberOfDistinctValues: number | undefined;
 }
@@ -5855,26 +5918,26 @@ export namespace DecimalColumnStatisticsData {
 }
 
 /**
- * <p>Defines a double column statistics data.</p>
+ * <p>Defines column statistics supported for floating-point number data columns.</p>
  */
 export interface DoubleColumnStatisticsData {
   /**
-   * <p>Number of distinct values.</p>
+   * <p>The number of distinct values in a column.</p>
    */
   NumberOfDistinctValues: number | undefined;
 
   /**
-   * <p>Number of nulls.</p>
+   * <p>The number of null values in the column.</p>
    */
   NumberOfNulls: number | undefined;
 
   /**
-   * <p>Maximum value of the column.</p>
+   * <p>The highest value in the column.</p>
    */
   MaximumValue?: number;
 
   /**
-   * <p>Minimum value of the column.</p>
+   * <p>The lowest value in the column.</p>
    */
   MinimumValue?: number;
 }
@@ -5886,26 +5949,26 @@ export namespace DoubleColumnStatisticsData {
 }
 
 /**
- * <p>Defines a long column statistics data.</p>
+ * <p>Defines column statistics supported for integer data columns.</p>
  */
 export interface LongColumnStatisticsData {
   /**
-   * <p>Number of distinct values.</p>
+   * <p>The number of distinct values in a column.</p>
    */
   NumberOfDistinctValues: number | undefined;
 
   /**
-   * <p>Maximum value of the column.</p>
+   * <p>The highest value in the column.</p>
    */
   MaximumValue?: number;
 
   /**
-   * <p>Number of nulls.</p>
+   * <p>The number of null values in the column.</p>
    */
   NumberOfNulls: number | undefined;
 
   /**
-   * <p>Minimum value of the column.</p>
+   * <p>The lowest value in the column.</p>
    */
   MinimumValue?: number;
 }
@@ -5917,26 +5980,26 @@ export namespace LongColumnStatisticsData {
 }
 
 /**
- * <p>Defines a string column statistics data.</p>
+ * <p>Defines column statistics supported for character sequence data values.</p>
  */
 export interface StringColumnStatisticsData {
   /**
-   * <p>Number of distinct values.</p>
+   * <p>The number of distinct values in a column.</p>
    */
   NumberOfDistinctValues: number | undefined;
 
   /**
-   * <p>Maximum value of the column.</p>
+   * <p>The size of the longest string in the column.</p>
    */
   MaximumLength: number | undefined;
 
   /**
-   * <p>Average value of the column.</p>
+   * <p>The average string length in the column.</p>
    */
   AverageLength: number | undefined;
 
   /**
-   * <p>Number of nulls.</p>
+   * <p>The number of null values in the column.</p>
    */
   NumberOfNulls: number | undefined;
 }
@@ -5958,46 +6021,46 @@ export enum ColumnStatisticsType {
 }
 
 /**
- * <p>Defines a column statistics data.</p>
+ * <p>Contains the individual types of column statistics data. Only one data object should be set and indicated by the <code>Type</code> attribute.</p>
  */
 export interface ColumnStatisticsData {
   /**
-   * <p>Boolean Column Statistics Data.</p>
+   * <p>Boolean column statistics data.</p>
    */
   BooleanColumnStatisticsData?: BooleanColumnStatisticsData;
 
   /**
-   * <p>Decimal Column Statistics Data.</p>
+   * <p>Decimal column statistics data.</p>
    */
   DecimalColumnStatisticsData?: DecimalColumnStatisticsData;
 
   /**
-   * <p>Binary Column Statistics Data.</p>
+   * <p>Binary column statistics data.</p>
    */
   BinaryColumnStatisticsData?: BinaryColumnStatisticsData;
 
   /**
-   * <p>Double Column Statistics Data.</p>
+   * <p>Double column statistics data.</p>
    */
   DoubleColumnStatisticsData?: DoubleColumnStatisticsData;
 
   /**
-   * <p>Long Column Statistics Data.</p>
+   * <p>Long column statistics data.</p>
    */
   LongColumnStatisticsData?: LongColumnStatisticsData;
 
   /**
-   * <p>The name of the column.</p>
+   * <p>The type of column statistics data.</p>
    */
   Type: ColumnStatisticsType | string | undefined;
 
   /**
-   * <p>String Column Statistics Data.</p>
+   * <p>String column statistics data.</p>
    */
   StringColumnStatisticsData?: StringColumnStatisticsData;
 
   /**
-   * <p>Date Column Statistics Data.</p>
+   * <p>Date column statistics data.</p>
    */
   DateColumnStatisticsData?: DateColumnStatisticsData;
 }
@@ -6009,26 +6072,26 @@ export namespace ColumnStatisticsData {
 }
 
 /**
- * <p>Defines a column statistics.</p>
+ * <p>Represents the generated column-level statistics for a table or partition.</p>
  */
 export interface ColumnStatistics {
   /**
-   * <p>The name of the column.</p>
+   * <p>Name of column which statistics belong to.</p>
    */
   ColumnName: string | undefined;
 
   /**
-   * <p>The statistics of the column.</p>
+   * <p>A <code>ColumnStatisticData</code> object that contains the statistics data values.</p>
    */
   StatisticsData: ColumnStatisticsData | undefined;
 
   /**
-   * <p>The analyzed time of the column statistics.</p>
+   * <p>The timestamp of when column statistics were generated.</p>
    */
   AnalyzedTime: Date | undefined;
 
   /**
-   * <p>The type of the column.</p>
+   * <p>The data type of the column.</p>
    */
   ColumnType: string | undefined;
 }
@@ -6040,16 +6103,16 @@ export namespace ColumnStatistics {
 }
 
 /**
- * <p>Defines a column containing error.</p>
+ * <p>Encapsulates a column name that failed and the reason for failure.</p>
  */
 export interface ColumnError {
   /**
-   * <p>The name of the column.</p>
+   * <p>The name of the column that failed.</p>
    */
   ColumnName?: string;
 
   /**
-   * <p>The error message occurred during operation.</p>
+   * <p>An error message with the reason for the failure of an operation.</p>
    */
   Error?: ErrorDetail;
 }
@@ -7679,97 +7742,6 @@ export interface ConfusionMatrix {
 
 export namespace ConfusionMatrix {
   export const filterSensitiveLog = (obj: ConfusionMatrix): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The evaluation metrics for the find matches algorithm. The quality of your machine
- *       learning transform is measured by getting your transform to predict some matches and comparing
- *       the results to known matches from the same dataset. The quality metrics are based on a subset
- *       of your data, so they are not precise.</p>
- */
-export interface FindMatchesMetrics {
-  /**
-   * <p>The area under the precision/recall curve (AUPRC) is a single number measuring the overall
-   *       quality of the transform, that is independent of the choice made for precision vs. recall.
-   *       Higher values indicate that you have a more attractive precision vs. recall tradeoff.</p>
-   * 	        <p>For more information, see <a href="https://en.wikipedia.org/wiki/Precision_and_recall">Precision and recall</a> in Wikipedia.</p>
-   */
-  AreaUnderPRCurve?: number;
-
-  /**
-   * <p>The recall metric indicates that for an actual match, how often your transform predicts
-   *       the match. Specifically, it measures how well the transform finds true positives from the
-   *       total records in the source data.</p>
-   *          <p>For more information, see <a href="https://en.wikipedia.org/wiki/Precision_and_recall">Precision and recall</a> in Wikipedia.</p>
-   */
-  Recall?: number;
-
-  /**
-   * <p>The precision metric indicates when often your transform is correct when it predicts a match. Specifically, it measures how well the transform finds true positives from the total true positives possible.</p>
-   *          <p>For more information, see <a href="https://en.wikipedia.org/wiki/Precision_and_recall">Precision and recall</a> in Wikipedia.</p>
-   */
-  Precision?: number;
-
-  /**
-   * <p>The maximum F1 metric indicates the transform's accuracy between 0 and 1, where 1 is the best accuracy.</p>
-   *          <p>For more information, see <a href="https://en.wikipedia.org/wiki/F1_score">F1 score</a> in Wikipedia.</p>
-   */
-  F1?: number;
-
-  /**
-   * <p>The confusion matrix shows you what your transform is predicting accurately and what types of errors it is making.</p>
-   * 	        <p>For more information, see <a href="https://en.wikipedia.org/wiki/Confusion_matrix">Confusion matrix</a> in Wikipedia.</p>
-   */
-  ConfusionMatrix?: ConfusionMatrix;
-}
-
-export namespace FindMatchesMetrics {
-  export const filterSensitiveLog = (obj: FindMatchesMetrics): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Evaluation metrics provide an estimate of the quality of your machine learning transform.</p>
- */
-export interface EvaluationMetrics {
-  /**
-   * <p>The evaluation metrics for the find matches algorithm.</p>
-   */
-  FindMatchesMetrics?: FindMatchesMetrics;
-
-  /**
-   * <p>The type of machine learning transform.</p>
-   */
-  TransformType: TransformType | string | undefined;
-}
-
-export namespace EvaluationMetrics {
-  export const filterSensitiveLog = (obj: EvaluationMetrics): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>A key-value pair representing a column and data type that this transform can
- *       run against. The <code>Schema</code> parameter of the <code>MLTransform</code> may contain up to 100 of these structures.</p>
- */
-export interface SchemaColumn {
-  /**
-   * <p>The type of data in the column.</p>
-   */
-  DataType?: string;
-
-  /**
-   * <p>The name of the column.</p>
-   */
-  Name?: string;
-}
-
-export namespace SchemaColumn {
-  export const filterSensitiveLog = (obj: SchemaColumn): any => ({
     ...obj,
   });
 }

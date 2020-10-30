@@ -1,5 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { GetReservedInstancesExchangeQuoteRequest, GetReservedInstancesExchangeQuoteResult } from "../models/models_3";
+import { GetReservedInstancesExchangeQuoteRequest, GetReservedInstancesExchangeQuoteResult } from "../models/models_4";
 import {
   deserializeAws_ec2GetReservedInstancesExchangeQuoteCommand,
   serializeAws_ec2GetReservedInstancesExchangeQuoteCommand,

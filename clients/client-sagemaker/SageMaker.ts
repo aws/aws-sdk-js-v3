@@ -12,6 +12,11 @@ import {
 } from "./commands/CreateAlgorithmCommand";
 import { CreateAppCommand, CreateAppCommandInput, CreateAppCommandOutput } from "./commands/CreateAppCommand";
 import {
+  CreateAppImageConfigCommand,
+  CreateAppImageConfigCommandInput,
+  CreateAppImageConfigCommandOutput,
+} from "./commands/CreateAppImageConfigCommand";
+import {
   CreateAutoMLJobCommand,
   CreateAutoMLJobCommandInput,
   CreateAutoMLJobCommandOutput,
@@ -61,6 +66,12 @@ import {
   CreateHyperParameterTuningJobCommandInput,
   CreateHyperParameterTuningJobCommandOutput,
 } from "./commands/CreateHyperParameterTuningJobCommand";
+import { CreateImageCommand, CreateImageCommandInput, CreateImageCommandOutput } from "./commands/CreateImageCommand";
+import {
+  CreateImageVersionCommand,
+  CreateImageVersionCommandInput,
+  CreateImageVersionCommandOutput,
+} from "./commands/CreateImageVersionCommand";
 import {
   CreateLabelingJobCommand,
   CreateLabelingJobCommandInput,
@@ -140,6 +151,11 @@ import {
 } from "./commands/DeleteAlgorithmCommand";
 import { DeleteAppCommand, DeleteAppCommandInput, DeleteAppCommandOutput } from "./commands/DeleteAppCommand";
 import {
+  DeleteAppImageConfigCommand,
+  DeleteAppImageConfigCommandInput,
+  DeleteAppImageConfigCommandOutput,
+} from "./commands/DeleteAppImageConfigCommand";
+import {
   DeleteCodeRepositoryCommand,
   DeleteCodeRepositoryCommandInput,
   DeleteCodeRepositoryCommandOutput,
@@ -174,6 +190,12 @@ import {
   DeleteHumanTaskUiCommandInput,
   DeleteHumanTaskUiCommandOutput,
 } from "./commands/DeleteHumanTaskUiCommand";
+import { DeleteImageCommand, DeleteImageCommandInput, DeleteImageCommandOutput } from "./commands/DeleteImageCommand";
+import {
+  DeleteImageVersionCommand,
+  DeleteImageVersionCommandInput,
+  DeleteImageVersionCommandOutput,
+} from "./commands/DeleteImageVersionCommand";
 import { DeleteModelCommand, DeleteModelCommandInput, DeleteModelCommandOutput } from "./commands/DeleteModelCommand";
 import {
   DeleteModelPackageCommand,
@@ -224,6 +246,11 @@ import {
 } from "./commands/DescribeAlgorithmCommand";
 import { DescribeAppCommand, DescribeAppCommandInput, DescribeAppCommandOutput } from "./commands/DescribeAppCommand";
 import {
+  DescribeAppImageConfigCommand,
+  DescribeAppImageConfigCommandInput,
+  DescribeAppImageConfigCommandOutput,
+} from "./commands/DescribeAppImageConfigCommand";
+import {
   DescribeAutoMLJobCommand,
   DescribeAutoMLJobCommandInput,
   DescribeAutoMLJobCommandOutput,
@@ -273,6 +300,16 @@ import {
   DescribeHyperParameterTuningJobCommandInput,
   DescribeHyperParameterTuningJobCommandOutput,
 } from "./commands/DescribeHyperParameterTuningJobCommand";
+import {
+  DescribeImageCommand,
+  DescribeImageCommandInput,
+  DescribeImageCommandOutput,
+} from "./commands/DescribeImageCommand";
+import {
+  DescribeImageVersionCommand,
+  DescribeImageVersionCommandInput,
+  DescribeImageVersionCommandOutput,
+} from "./commands/DescribeImageVersionCommand";
 import {
   DescribeLabelingJobCommand,
   DescribeLabelingJobCommandInput,
@@ -363,6 +400,11 @@ import {
   ListAlgorithmsCommandInput,
   ListAlgorithmsCommandOutput,
 } from "./commands/ListAlgorithmsCommand";
+import {
+  ListAppImageConfigsCommand,
+  ListAppImageConfigsCommandInput,
+  ListAppImageConfigsCommandOutput,
+} from "./commands/ListAppImageConfigsCommand";
 import { ListAppsCommand, ListAppsCommandInput, ListAppsCommandOutput } from "./commands/ListAppsCommand";
 import {
   ListAutoMLJobsCommand,
@@ -415,6 +457,12 @@ import {
   ListHyperParameterTuningJobsCommandInput,
   ListHyperParameterTuningJobsCommandOutput,
 } from "./commands/ListHyperParameterTuningJobsCommand";
+import {
+  ListImageVersionsCommand,
+  ListImageVersionsCommandInput,
+  ListImageVersionsCommandOutput,
+} from "./commands/ListImageVersionsCommand";
+import { ListImagesCommand, ListImagesCommandInput, ListImagesCommandOutput } from "./commands/ListImagesCommand";
 import {
   ListLabelingJobsCommand,
   ListLabelingJobsCommandInput,
@@ -560,6 +608,11 @@ import {
   StopTransformJobCommandOutput,
 } from "./commands/StopTransformJobCommand";
 import {
+  UpdateAppImageConfigCommand,
+  UpdateAppImageConfigCommandInput,
+  UpdateAppImageConfigCommandOutput,
+} from "./commands/UpdateAppImageConfigCommand";
+import {
   UpdateCodeRepositoryCommand,
   UpdateCodeRepositoryCommandInput,
   UpdateCodeRepositoryCommandOutput,
@@ -584,6 +637,7 @@ import {
   UpdateExperimentCommandInput,
   UpdateExperimentCommandOutput,
 } from "./commands/UpdateExperimentCommand";
+import { UpdateImageCommand, UpdateImageCommandInput, UpdateImageCommandOutput } from "./commands/UpdateImageCommand";
 import {
   UpdateMonitoringScheduleCommand,
   UpdateMonitoringScheduleCommandInput,
@@ -781,6 +835,38 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
+   * <p>Creates a configuration for running an Amazon SageMaker image as a KernelGateway app.</p>
+   */
+  public createAppImageConfig(
+    args: CreateAppImageConfigCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateAppImageConfigCommandOutput>;
+  public createAppImageConfig(
+    args: CreateAppImageConfigCommandInput,
+    cb: (err: any, data?: CreateAppImageConfigCommandOutput) => void
+  ): void;
+  public createAppImageConfig(
+    args: CreateAppImageConfigCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateAppImageConfigCommandOutput) => void
+  ): void;
+  public createAppImageConfig(
+    args: CreateAppImageConfigCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateAppImageConfigCommandOutput) => void),
+    cb?: (err: any, data?: CreateAppImageConfigCommandOutput) => void
+  ): Promise<CreateAppImageConfigCommandOutput> | void {
+    const command = new CreateAppImageConfigCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Creates an Autopilot job.</p>
    *          <p>Find the best performing model after you run an Autopilot job by calling . Deploy that model by following the steps described in
    *             <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/ex1-deploy-model.html">Step 6.1:
@@ -926,7 +1012,6 @@ export class SageMaker extends SageMakerClient {
    *          <p>When a domain is created, an EFS volume is created for use by all of the users within the
    *     domain. Each user receives a private home directory within the EFS volume for notebooks,
    *     Git repositories, and data files.</p>
-   *
    *          <p>
    *             <b>VPC configuration</b>
    *          </p>
@@ -945,52 +1030,14 @@ export class SageMaker extends SageMakerClient {
    *                   <code>VpcOnly</code> - All Studio traffic is through the specified VPC and subnets.
    *         Internet access is disabled by default. To allow internet access, you must specify a
    *         NAT gateway.</p>
-   *                <p>When internet access is disabled, you won't be able to train or host models unless
-   *         your VPC has an interface endpoint (PrivateLink) or a NAT gateway and your security groups
-   *         allow outbound connections.</p>
+   *                <p>When internet access is disabled, you won't be able to run a Studio notebook or to
+   *         train or host models unless your VPC has an interface endpoint to the SageMaker API and runtime
+   *         or a NAT gateway and your security groups allow outbound connections.</p>
    *             </li>
    *          </ul>
-   *
-   *          <p>
-   *             <b>
-   *                <code>VpcOnly</code> network access type</b>
-   *          </p>
-   *          <p>When you choose <code>VpcOnly</code>, you must specify the following:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Security group inbound and outbound rules to allow NFS traffic over TCP on port 2049
-   *         between the domain and the EFS volume</p>
-   *
-   *             </li>
-   *             <li>
-   *                <p>Security group inbound and outbound rules to allow traffic between the JupyterServer
-   *         app and the KernelGateway apps</p>
-   *             </li>
-   *             <li>
-   *                <p>Interface endpoints to access the SageMaker API and SageMaker runtime</p>
-   *             </li>
-   *          </ul>
-   *          <p>For more information, see:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html">Security
-   *           groups for your VPC</a>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Scenario2.html">VPC with public
-   *           and private subnets (NAT)</a>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/interface-vpc-endpoint.html">Connect
-   *           to SageMaker through a VPC interface endpoint</a>
-   *                </p>
-   *             </li>
-   *          </ul>
+   *          <p>For more information, see
+   *     <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/studio-notebooks-and-internet-access.html">Connect
+   *       SageMaker Studio Notebooks to Resources in a VPC</a>.</p>
    */
   public createDomain(
     args: CreateDomainCommandInput,
@@ -1295,6 +1342,66 @@ export class SageMaker extends SageMakerClient {
     cb?: (err: any, data?: CreateHyperParameterTuningJobCommandOutput) => void
   ): Promise<CreateHyperParameterTuningJobCommandOutput> | void {
     const command = new CreateHyperParameterTuningJobCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates a SageMaker <code>Image</code>. A SageMaker image represents a set of container images.
+   *         Each of these container images is represented by a SageMaker <code>ImageVersion</code>.</p>
+   */
+  public createImage(args: CreateImageCommandInput, options?: __HttpHandlerOptions): Promise<CreateImageCommandOutput>;
+  public createImage(args: CreateImageCommandInput, cb: (err: any, data?: CreateImageCommandOutput) => void): void;
+  public createImage(
+    args: CreateImageCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateImageCommandOutput) => void
+  ): void;
+  public createImage(
+    args: CreateImageCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateImageCommandOutput) => void),
+    cb?: (err: any, data?: CreateImageCommandOutput) => void
+  ): Promise<CreateImageCommandOutput> | void {
+    const command = new CreateImageCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates a version of the SageMaker image specified by <code>ImageName</code>. The version
+   *         represents the Amazon Container Registry (ECR) container image specified by <code>BaseImage</code>.</p>
+   */
+  public createImageVersion(
+    args: CreateImageVersionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateImageVersionCommandOutput>;
+  public createImageVersion(
+    args: CreateImageVersionCommandInput,
+    cb: (err: any, data?: CreateImageVersionCommandOutput) => void
+  ): void;
+  public createImageVersion(
+    args: CreateImageVersionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateImageVersionCommandOutput) => void
+  ): void;
+  public createImageVersion(
+    args: CreateImageVersionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateImageVersionCommandOutput) => void),
+    cb?: (err: any, data?: CreateImageVersionCommandOutput) => void
+  ): Promise<CreateImageVersionCommandOutput> | void {
+    const command = new CreateImageVersionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -2155,6 +2262,38 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
+   * <p>Deletes an AppImageConfig.</p>
+   */
+  public deleteAppImageConfig(
+    args: DeleteAppImageConfigCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteAppImageConfigCommandOutput>;
+  public deleteAppImageConfig(
+    args: DeleteAppImageConfigCommandInput,
+    cb: (err: any, data?: DeleteAppImageConfigCommandOutput) => void
+  ): void;
+  public deleteAppImageConfig(
+    args: DeleteAppImageConfigCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteAppImageConfigCommandOutput) => void
+  ): void;
+  public deleteAppImageConfig(
+    args: DeleteAppImageConfigCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteAppImageConfigCommandOutput) => void),
+    cb?: (err: any, data?: DeleteAppImageConfigCommandOutput) => void
+  ): Promise<DeleteAppImageConfigCommandOutput> | void {
+    const command = new DeleteAppImageConfigCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Deletes the specified Git repository from your account.</p>
    */
   public deleteCodeRepository(
@@ -2386,6 +2525,66 @@ export class SageMaker extends SageMakerClient {
     cb?: (err: any, data?: DeleteHumanTaskUiCommandOutput) => void
   ): Promise<DeleteHumanTaskUiCommandOutput> | void {
     const command = new DeleteHumanTaskUiCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes a SageMaker image and all versions of the image. The container images aren't
+   *         deleted.</p>
+   */
+  public deleteImage(args: DeleteImageCommandInput, options?: __HttpHandlerOptions): Promise<DeleteImageCommandOutput>;
+  public deleteImage(args: DeleteImageCommandInput, cb: (err: any, data?: DeleteImageCommandOutput) => void): void;
+  public deleteImage(
+    args: DeleteImageCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteImageCommandOutput) => void
+  ): void;
+  public deleteImage(
+    args: DeleteImageCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteImageCommandOutput) => void),
+    cb?: (err: any, data?: DeleteImageCommandOutput) => void
+  ): Promise<DeleteImageCommandOutput> | void {
+    const command = new DeleteImageCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes a version of a SageMaker image. The container image the version represents isn't
+   *         deleted.</p>
+   */
+  public deleteImageVersion(
+    args: DeleteImageVersionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteImageVersionCommandOutput>;
+  public deleteImageVersion(
+    args: DeleteImageVersionCommandInput,
+    cb: (err: any, data?: DeleteImageVersionCommandOutput) => void
+  ): void;
+  public deleteImageVersion(
+    args: DeleteImageVersionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteImageVersionCommandOutput) => void
+  ): void;
+  public deleteImageVersion(
+    args: DeleteImageVersionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteImageVersionCommandOutput) => void),
+    cb?: (err: any, data?: DeleteImageVersionCommandOutput) => void
+  ): Promise<DeleteImageVersionCommandOutput> | void {
+    const command = new DeleteImageVersionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -2826,6 +3025,38 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
+   * <p>Describes an AppImageConfig.</p>
+   */
+  public describeAppImageConfig(
+    args: DescribeAppImageConfigCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeAppImageConfigCommandOutput>;
+  public describeAppImageConfig(
+    args: DescribeAppImageConfigCommandInput,
+    cb: (err: any, data?: DescribeAppImageConfigCommandOutput) => void
+  ): void;
+  public describeAppImageConfig(
+    args: DescribeAppImageConfigCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeAppImageConfigCommandOutput) => void
+  ): void;
+  public describeAppImageConfig(
+    args: DescribeAppImageConfigCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeAppImageConfigCommandOutput) => void),
+    cb?: (err: any, data?: DescribeAppImageConfigCommandOutput) => void
+  ): Promise<DescribeAppImageConfigCommandOutput> | void {
+    const command = new DescribeAppImageConfigCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Returns information about an Amazon SageMaker job.</p>
    */
   public describeAutoMLJob(
@@ -3139,6 +3370,70 @@ export class SageMaker extends SageMakerClient {
     cb?: (err: any, data?: DescribeHyperParameterTuningJobCommandOutput) => void
   ): Promise<DescribeHyperParameterTuningJobCommandOutput> | void {
     const command = new DescribeHyperParameterTuningJobCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Describes a SageMaker image.</p>
+   */
+  public describeImage(
+    args: DescribeImageCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeImageCommandOutput>;
+  public describeImage(
+    args: DescribeImageCommandInput,
+    cb: (err: any, data?: DescribeImageCommandOutput) => void
+  ): void;
+  public describeImage(
+    args: DescribeImageCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeImageCommandOutput) => void
+  ): void;
+  public describeImage(
+    args: DescribeImageCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeImageCommandOutput) => void),
+    cb?: (err: any, data?: DescribeImageCommandOutput) => void
+  ): Promise<DescribeImageCommandOutput> | void {
+    const command = new DescribeImageCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Describes a version of a SageMaker image.</p>
+   */
+  public describeImageVersion(
+    args: DescribeImageVersionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeImageVersionCommandOutput>;
+  public describeImageVersion(
+    args: DescribeImageVersionCommandInput,
+    cb: (err: any, data?: DescribeImageVersionCommandOutput) => void
+  ): void;
+  public describeImageVersion(
+    args: DescribeImageVersionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeImageVersionCommandOutput) => void
+  ): void;
+  public describeImageVersion(
+    args: DescribeImageVersionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeImageVersionCommandOutput) => void),
+    cb?: (err: any, data?: DescribeImageVersionCommandOutput) => void
+  ): Promise<DescribeImageVersionCommandOutput> | void {
+    const command = new DescribeImageVersionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -3750,6 +4045,40 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
+   * <p>Lists the AppImageConfigs in your account and their properties. The list can be
+   *         filtered by creation time or modified time, and whether the AppImageConfig name contains
+   *         a specified string.</p>
+   */
+  public listAppImageConfigs(
+    args: ListAppImageConfigsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAppImageConfigsCommandOutput>;
+  public listAppImageConfigs(
+    args: ListAppImageConfigsCommandInput,
+    cb: (err: any, data?: ListAppImageConfigsCommandOutput) => void
+  ): void;
+  public listAppImageConfigs(
+    args: ListAppImageConfigsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAppImageConfigsCommandOutput) => void
+  ): void;
+  public listAppImageConfigs(
+    args: ListAppImageConfigsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListAppImageConfigsCommandOutput) => void),
+    cb?: (err: any, data?: ListAppImageConfigsCommandOutput) => void
+  ): Promise<ListAppImageConfigsCommandOutput> | void {
+    const command = new ListAppImageConfigsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Lists apps.</p>
    */
   public listApps(args: ListAppsCommandInput, options?: __HttpHandlerOptions): Promise<ListAppsCommandOutput>;
@@ -4117,6 +4446,66 @@ export class SageMaker extends SageMakerClient {
     cb?: (err: any, data?: ListHyperParameterTuningJobsCommandOutput) => void
   ): Promise<ListHyperParameterTuningJobsCommandOutput> | void {
     const command = new ListHyperParameterTuningJobsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Lists the images in your account and their properties. The list can be filtered by
+   *         creation time or modified time, and whether the image name contains a specified string.</p>
+   */
+  public listImages(args: ListImagesCommandInput, options?: __HttpHandlerOptions): Promise<ListImagesCommandOutput>;
+  public listImages(args: ListImagesCommandInput, cb: (err: any, data?: ListImagesCommandOutput) => void): void;
+  public listImages(
+    args: ListImagesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListImagesCommandOutput) => void
+  ): void;
+  public listImages(
+    args: ListImagesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListImagesCommandOutput) => void),
+    cb?: (err: any, data?: ListImagesCommandOutput) => void
+  ): Promise<ListImagesCommandOutput> | void {
+    const command = new ListImagesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Lists the versions of a specified image and their properties. The list can be filtered
+   *         by creation time or modified time.</p>
+   */
+  public listImageVersions(
+    args: ListImageVersionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListImageVersionsCommandOutput>;
+  public listImageVersions(
+    args: ListImageVersionsCommandInput,
+    cb: (err: any, data?: ListImageVersionsCommandOutput) => void
+  ): void;
+  public listImageVersions(
+    args: ListImageVersionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListImageVersionsCommandOutput) => void
+  ): void;
+  public listImageVersions(
+    args: ListImageVersionsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListImageVersionsCommandOutput) => void),
+    cb?: (err: any, data?: ListImageVersionsCommandOutput) => void
+  ): Promise<ListImageVersionsCommandOutput> | void {
+    const command = new ListImageVersionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -5201,6 +5590,38 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
+   * <p>Updates the properties of an AppImageConfig.</p>
+   */
+  public updateAppImageConfig(
+    args: UpdateAppImageConfigCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateAppImageConfigCommandOutput>;
+  public updateAppImageConfig(
+    args: UpdateAppImageConfigCommandInput,
+    cb: (err: any, data?: UpdateAppImageConfigCommandOutput) => void
+  ): void;
+  public updateAppImageConfig(
+    args: UpdateAppImageConfigCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateAppImageConfigCommandOutput) => void
+  ): void;
+  public updateAppImageConfig(
+    args: UpdateAppImageConfigCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateAppImageConfigCommandOutput) => void),
+    cb?: (err: any, data?: UpdateAppImageConfigCommandOutput) => void
+  ): Promise<UpdateAppImageConfigCommandOutput> | void {
+    const command = new UpdateAppImageConfigCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Updates the specified Git repository with the specified values.</p>
    */
   public updateCodeRepository(
@@ -5368,6 +5789,33 @@ export class SageMaker extends SageMakerClient {
     cb?: (err: any, data?: UpdateExperimentCommandOutput) => void
   ): Promise<UpdateExperimentCommandOutput> | void {
     const command = new UpdateExperimentCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates the properties of a SageMaker image. To change the image's tags, use the
+   *         <a>AddTags</a> and <a>DeleteTags</a> APIs.</p>
+   */
+  public updateImage(args: UpdateImageCommandInput, options?: __HttpHandlerOptions): Promise<UpdateImageCommandOutput>;
+  public updateImage(args: UpdateImageCommandInput, cb: (err: any, data?: UpdateImageCommandOutput) => void): void;
+  public updateImage(
+    args: UpdateImageCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateImageCommandOutput) => void
+  ): void;
+  public updateImage(
+    args: UpdateImageCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateImageCommandOutput) => void),
+    cb?: (err: any, data?: UpdateImageCommandOutput) => void
+  ): Promise<UpdateImageCommandOutput> | void {
+    const command = new UpdateImageCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

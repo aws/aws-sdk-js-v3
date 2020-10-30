@@ -80,6 +80,10 @@ import {
   ListRepositoriesInDomainCommandOutput,
 } from "../commands/ListRepositoriesInDomainCommand";
 import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "../commands/ListTagsForResourceCommand";
+import {
   PutDomainPermissionsPolicyCommandInput,
   PutDomainPermissionsPolicyCommandOutput,
 } from "../commands/PutDomainPermissionsPolicyCommand";
@@ -87,6 +91,8 @@ import {
   PutRepositoryPermissionsPolicyCommandInput,
   PutRepositoryPermissionsPolicyCommandOutput,
 } from "../commands/PutRepositoryPermissionsPolicyCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import {
   UpdatePackageVersionsStatusCommandInput,
   UpdatePackageVersionsStatusCommandOutput,
@@ -113,6 +119,7 @@ import {
   ResourcePolicy,
   ServiceQuotaExceededException,
   SuccessfulPackageVersionInfo,
+  Tag,
   ThrottlingException,
   UpstreamRepository,
   UpstreamRepositoryInfo,
@@ -139,10 +146,10 @@ export const serializeAws_restJson1AssociateExternalConnectionCommand = async (
   };
   let resolvedPath = "/v1/repository/external-connection";
   const query: any = {
-    ...(input.repository !== undefined && { repository: input.repository }),
-    ...(input.domain !== undefined && { domain: input.domain }),
-    ...(input.domainOwner !== undefined && { "domain-owner": input.domainOwner }),
     ...(input.externalConnection !== undefined && { "external-connection": input.externalConnection }),
+    ...(input.domainOwner !== undefined && { "domain-owner": input.domainOwner }),
+    ...(input.domain !== undefined && { domain: input.domain }),
+    ...(input.repository !== undefined && { repository: input.repository }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -167,12 +174,12 @@ export const serializeAws_restJson1CopyPackageVersionsCommand = async (
   };
   let resolvedPath = "/v1/package/versions/copy";
   const query: any = {
-    ...(input.namespace !== undefined && { namespace: input.namespace }),
-    ...(input.domainOwner !== undefined && { "domain-owner": input.domainOwner }),
-    ...(input.format !== undefined && { format: input.format }),
     ...(input.sourceRepository !== undefined && { "source-repository": input.sourceRepository }),
-    ...(input.package !== undefined && { package: input.package }),
     ...(input.domain !== undefined && { domain: input.domain }),
+    ...(input.package !== undefined && { package: input.package }),
+    ...(input.format !== undefined && { format: input.format }),
+    ...(input.domainOwner !== undefined && { "domain-owner": input.domainOwner }),
+    ...(input.namespace !== undefined && { namespace: input.namespace }),
     ...(input.destinationRepository !== undefined && { "destination-repository": input.destinationRepository }),
   };
   let body: any;
@@ -213,6 +220,7 @@ export const serializeAws_restJson1CreateDomainCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.encryptionKey !== undefined && { encryptionKey: input.encryptionKey }),
+    ...(input.tags !== undefined && { tags: serializeAws_restJson1TagList(input.tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -236,13 +244,14 @@ export const serializeAws_restJson1CreateRepositoryCommand = async (
   };
   let resolvedPath = "/v1/repository";
   const query: any = {
-    ...(input.domain !== undefined && { domain: input.domain }),
-    ...(input.domainOwner !== undefined && { "domain-owner": input.domainOwner }),
     ...(input.repository !== undefined && { repository: input.repository }),
+    ...(input.domainOwner !== undefined && { "domain-owner": input.domainOwner }),
+    ...(input.domain !== undefined && { domain: input.domain }),
   };
   let body: any;
   body = JSON.stringify({
     ...(input.description !== undefined && { description: input.description }),
+    ...(input.tags !== undefined && { tags: serializeAws_restJson1TagList(input.tags, context) }),
     ...(input.upstreams !== undefined && {
       upstreams: serializeAws_restJson1UpstreamRepositoryList(input.upstreams, context),
     }),
@@ -269,8 +278,8 @@ export const serializeAws_restJson1DeleteDomainCommand = async (
   };
   let resolvedPath = "/v1/domain";
   const query: any = {
-    ...(input.domain !== undefined && { domain: input.domain }),
     ...(input.domainOwner !== undefined && { "domain-owner": input.domainOwner }),
+    ...(input.domain !== undefined && { domain: input.domain }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -295,8 +304,8 @@ export const serializeAws_restJson1DeleteDomainPermissionsPolicyCommand = async 
   };
   let resolvedPath = "/v1/domain/permissions/policy";
   const query: any = {
-    ...(input.domainOwner !== undefined && { "domain-owner": input.domainOwner }),
     ...(input.policyRevision !== undefined && { "policy-revision": input.policyRevision }),
+    ...(input.domainOwner !== undefined && { "domain-owner": input.domainOwner }),
     ...(input.domain !== undefined && { domain: input.domain }),
   };
   let body: any;
@@ -322,12 +331,12 @@ export const serializeAws_restJson1DeletePackageVersionsCommand = async (
   };
   let resolvedPath = "/v1/package/versions/delete";
   const query: any = {
-    ...(input.namespace !== undefined && { namespace: input.namespace }),
-    ...(input.format !== undefined && { format: input.format }),
-    ...(input.domainOwner !== undefined && { "domain-owner": input.domainOwner }),
-    ...(input.repository !== undefined && { repository: input.repository }),
-    ...(input.domain !== undefined && { domain: input.domain }),
     ...(input.package !== undefined && { package: input.package }),
+    ...(input.repository !== undefined && { repository: input.repository }),
+    ...(input.namespace !== undefined && { namespace: input.namespace }),
+    ...(input.domainOwner !== undefined && { "domain-owner": input.domainOwner }),
+    ...(input.domain !== undefined && { domain: input.domain }),
+    ...(input.format !== undefined && { format: input.format }),
   };
   let body: any;
   body = JSON.stringify({
@@ -358,9 +367,9 @@ export const serializeAws_restJson1DeleteRepositoryCommand = async (
   };
   let resolvedPath = "/v1/repository";
   const query: any = {
+    ...(input.domainOwner !== undefined && { "domain-owner": input.domainOwner }),
     ...(input.domain !== undefined && { domain: input.domain }),
     ...(input.repository !== undefined && { repository: input.repository }),
-    ...(input.domainOwner !== undefined && { "domain-owner": input.domainOwner }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -386,9 +395,9 @@ export const serializeAws_restJson1DeleteRepositoryPermissionsPolicyCommand = as
   let resolvedPath = "/v1/repository/permissions/policies";
   const query: any = {
     ...(input.repository !== undefined && { repository: input.repository }),
-    ...(input.domainOwner !== undefined && { "domain-owner": input.domainOwner }),
     ...(input.policyRevision !== undefined && { "policy-revision": input.policyRevision }),
     ...(input.domain !== undefined && { domain: input.domain }),
+    ...(input.domainOwner !== undefined && { "domain-owner": input.domainOwner }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -413,8 +422,8 @@ export const serializeAws_restJson1DescribeDomainCommand = async (
   };
   let resolvedPath = "/v1/domain";
   const query: any = {
-    ...(input.domain !== undefined && { domain: input.domain }),
     ...(input.domainOwner !== undefined && { "domain-owner": input.domainOwner }),
+    ...(input.domain !== undefined && { domain: input.domain }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -439,13 +448,13 @@ export const serializeAws_restJson1DescribePackageVersionCommand = async (
   };
   let resolvedPath = "/v1/package/version";
   const query: any = {
-    ...(input.packageVersion !== undefined && { version: input.packageVersion }),
-    ...(input.namespace !== undefined && { namespace: input.namespace }),
-    ...(input.package !== undefined && { package: input.package }),
     ...(input.domain !== undefined && { domain: input.domain }),
-    ...(input.repository !== undefined && { repository: input.repository }),
+    ...(input.packageVersion !== undefined && { version: input.packageVersion }),
+    ...(input.package !== undefined && { package: input.package }),
     ...(input.format !== undefined && { format: input.format }),
     ...(input.domainOwner !== undefined && { "domain-owner": input.domainOwner }),
+    ...(input.namespace !== undefined && { namespace: input.namespace }),
+    ...(input.repository !== undefined && { repository: input.repository }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -470,9 +479,9 @@ export const serializeAws_restJson1DescribeRepositoryCommand = async (
   };
   let resolvedPath = "/v1/repository";
   const query: any = {
-    ...(input.repository !== undefined && { repository: input.repository }),
     ...(input.domain !== undefined && { domain: input.domain }),
     ...(input.domainOwner !== undefined && { "domain-owner": input.domainOwner }),
+    ...(input.repository !== undefined && { repository: input.repository }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -497,10 +506,10 @@ export const serializeAws_restJson1DisassociateExternalConnectionCommand = async
   };
   let resolvedPath = "/v1/repository/external-connection";
   const query: any = {
-    ...(input.externalConnection !== undefined && { "external-connection": input.externalConnection }),
     ...(input.repository !== undefined && { repository: input.repository }),
-    ...(input.domainOwner !== undefined && { "domain-owner": input.domainOwner }),
+    ...(input.externalConnection !== undefined && { "external-connection": input.externalConnection }),
     ...(input.domain !== undefined && { domain: input.domain }),
+    ...(input.domainOwner !== undefined && { "domain-owner": input.domainOwner }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -525,12 +534,12 @@ export const serializeAws_restJson1DisposePackageVersionsCommand = async (
   };
   let resolvedPath = "/v1/package/versions/dispose";
   const query: any = {
-    ...(input.domain !== undefined && { domain: input.domain }),
     ...(input.repository !== undefined && { repository: input.repository }),
-    ...(input.format !== undefined && { format: input.format }),
-    ...(input.domainOwner !== undefined && { "domain-owner": input.domainOwner }),
     ...(input.namespace !== undefined && { namespace: input.namespace }),
     ...(input.package !== undefined && { package: input.package }),
+    ...(input.domainOwner !== undefined && { "domain-owner": input.domainOwner }),
+    ...(input.format !== undefined && { format: input.format }),
+    ...(input.domain !== undefined && { domain: input.domain }),
   };
   let body: any;
   body = JSON.stringify({
@@ -564,8 +573,8 @@ export const serializeAws_restJson1GetAuthorizationTokenCommand = async (
   };
   let resolvedPath = "/v1/authorization-token";
   const query: any = {
-    ...(input.domain !== undefined && { domain: input.domain }),
     ...(input.domainOwner !== undefined && { "domain-owner": input.domainOwner }),
+    ...(input.domain !== undefined && { domain: input.domain }),
     ...(input.durationSeconds !== undefined && { duration: input.durationSeconds.toString() }),
   };
   let body: any;
@@ -591,8 +600,8 @@ export const serializeAws_restJson1GetDomainPermissionsPolicyCommand = async (
   };
   let resolvedPath = "/v1/domain/permissions/policy";
   const query: any = {
-    ...(input.domainOwner !== undefined && { "domain-owner": input.domainOwner }),
     ...(input.domain !== undefined && { domain: input.domain }),
+    ...(input.domainOwner !== undefined && { "domain-owner": input.domainOwner }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -617,15 +626,15 @@ export const serializeAws_restJson1GetPackageVersionAssetCommand = async (
   };
   let resolvedPath = "/v1/package/version/asset";
   const query: any = {
-    ...(input.format !== undefined && { format: input.format }),
-    ...(input.packageVersionRevision !== undefined && { revision: input.packageVersionRevision }),
-    ...(input.packageVersion !== undefined && { version: input.packageVersion }),
     ...(input.domain !== undefined && { domain: input.domain }),
     ...(input.domainOwner !== undefined && { "domain-owner": input.domainOwner }),
-    ...(input.package !== undefined && { package: input.package }),
-    ...(input.asset !== undefined && { asset: input.asset }),
+    ...(input.packageVersionRevision !== undefined && { revision: input.packageVersionRevision }),
+    ...(input.format !== undefined && { format: input.format }),
     ...(input.repository !== undefined && { repository: input.repository }),
+    ...(input.package !== undefined && { package: input.package }),
+    ...(input.packageVersion !== undefined && { version: input.packageVersion }),
     ...(input.namespace !== undefined && { namespace: input.namespace }),
+    ...(input.asset !== undefined && { asset: input.asset }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -650,13 +659,13 @@ export const serializeAws_restJson1GetPackageVersionReadmeCommand = async (
   };
   let resolvedPath = "/v1/package/version/readme";
   const query: any = {
-    ...(input.packageVersion !== undefined && { version: input.packageVersion }),
-    ...(input.namespace !== undefined && { namespace: input.namespace }),
-    ...(input.repository !== undefined && { repository: input.repository }),
     ...(input.package !== undefined && { package: input.package }),
-    ...(input.format !== undefined && { format: input.format }),
+    ...(input.repository !== undefined && { repository: input.repository }),
     ...(input.domain !== undefined && { domain: input.domain }),
+    ...(input.namespace !== undefined && { namespace: input.namespace }),
     ...(input.domainOwner !== undefined && { "domain-owner": input.domainOwner }),
+    ...(input.packageVersion !== undefined && { version: input.packageVersion }),
+    ...(input.format !== undefined && { format: input.format }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -681,10 +690,10 @@ export const serializeAws_restJson1GetRepositoryEndpointCommand = async (
   };
   let resolvedPath = "/v1/repository/endpoint";
   const query: any = {
+    ...(input.domainOwner !== undefined && { "domain-owner": input.domainOwner }),
+    ...(input.format !== undefined && { format: input.format }),
     ...(input.repository !== undefined && { repository: input.repository }),
     ...(input.domain !== undefined && { domain: input.domain }),
-    ...(input.format !== undefined && { format: input.format }),
-    ...(input.domainOwner !== undefined && { "domain-owner": input.domainOwner }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -709,9 +718,9 @@ export const serializeAws_restJson1GetRepositoryPermissionsPolicyCommand = async
   };
   let resolvedPath = "/v1/repository/permissions/policy";
   const query: any = {
-    ...(input.repository !== undefined && { repository: input.repository }),
-    ...(input.domain !== undefined && { domain: input.domain }),
     ...(input.domainOwner !== undefined && { "domain-owner": input.domainOwner }),
+    ...(input.domain !== undefined && { domain: input.domain }),
+    ...(input.repository !== undefined && { repository: input.repository }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -761,14 +770,14 @@ export const serializeAws_restJson1ListPackagesCommand = async (
   };
   let resolvedPath = "/v1/packages";
   const query: any = {
-    ...(input.namespace !== undefined && { namespace: input.namespace }),
     ...(input.repository !== undefined && { repository: input.repository }),
+    ...(input.namespace !== undefined && { namespace: input.namespace }),
+    ...(input.domain !== undefined && { domain: input.domain }),
     ...(input.packagePrefix !== undefined && { "package-prefix": input.packagePrefix }),
     ...(input.maxResults !== undefined && { "max-results": input.maxResults.toString() }),
     ...(input.nextToken !== undefined && { "next-token": input.nextToken }),
-    ...(input.domainOwner !== undefined && { "domain-owner": input.domainOwner }),
     ...(input.format !== undefined && { format: input.format }),
-    ...(input.domain !== undefined && { domain: input.domain }),
+    ...(input.domainOwner !== undefined && { "domain-owner": input.domainOwner }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -793,15 +802,15 @@ export const serializeAws_restJson1ListPackageVersionAssetsCommand = async (
   };
   let resolvedPath = "/v1/package/version/assets";
   const query: any = {
-    ...(input.maxResults !== undefined && { "max-results": input.maxResults.toString() }),
-    ...(input.domain !== undefined && { domain: input.domain }),
-    ...(input.repository !== undefined && { repository: input.repository }),
+    ...(input.format !== undefined && { format: input.format }),
     ...(input.domainOwner !== undefined && { "domain-owner": input.domainOwner }),
     ...(input.namespace !== undefined && { namespace: input.namespace }),
-    ...(input.format !== undefined && { format: input.format }),
     ...(input.nextToken !== undefined && { "next-token": input.nextToken }),
+    ...(input.repository !== undefined && { repository: input.repository }),
+    ...(input.maxResults !== undefined && { "max-results": input.maxResults.toString() }),
     ...(input.packageVersion !== undefined && { version: input.packageVersion }),
     ...(input.package !== undefined && { package: input.package }),
+    ...(input.domain !== undefined && { domain: input.domain }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -826,14 +835,14 @@ export const serializeAws_restJson1ListPackageVersionDependenciesCommand = async
   };
   let resolvedPath = "/v1/package/version/dependencies";
   const query: any = {
+    ...(input.packageVersion !== undefined && { version: input.packageVersion }),
+    ...(input.domain !== undefined && { domain: input.domain }),
+    ...(input.domainOwner !== undefined && { "domain-owner": input.domainOwner }),
     ...(input.nextToken !== undefined && { "next-token": input.nextToken }),
     ...(input.format !== undefined && { format: input.format }),
-    ...(input.namespace !== undefined && { namespace: input.namespace }),
-    ...(input.domainOwner !== undefined && { "domain-owner": input.domainOwner }),
-    ...(input.packageVersion !== undefined && { version: input.packageVersion }),
-    ...(input.package !== undefined && { package: input.package }),
-    ...(input.domain !== undefined && { domain: input.domain }),
     ...(input.repository !== undefined && { repository: input.repository }),
+    ...(input.package !== undefined && { package: input.package }),
+    ...(input.namespace !== undefined && { namespace: input.namespace }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -858,16 +867,16 @@ export const serializeAws_restJson1ListPackageVersionsCommand = async (
   };
   let resolvedPath = "/v1/package/versions";
   const query: any = {
+    ...(input.domain !== undefined && { domain: input.domain }),
+    ...(input.package !== undefined && { package: input.package }),
+    ...(input.repository !== undefined && { repository: input.repository }),
+    ...(input.sortBy !== undefined && { sortBy: input.sortBy }),
     ...(input.format !== undefined && { format: input.format }),
     ...(input.domainOwner !== undefined && { "domain-owner": input.domainOwner }),
     ...(input.nextToken !== undefined && { "next-token": input.nextToken }),
     ...(input.maxResults !== undefined && { "max-results": input.maxResults.toString() }),
-    ...(input.domain !== undefined && { domain: input.domain }),
-    ...(input.repository !== undefined && { repository: input.repository }),
-    ...(input.package !== undefined && { package: input.package }),
-    ...(input.sortBy !== undefined && { sortBy: input.sortBy }),
-    ...(input.namespace !== undefined && { namespace: input.namespace }),
     ...(input.status !== undefined && { status: input.status }),
+    ...(input.namespace !== undefined && { namespace: input.namespace }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -892,8 +901,8 @@ export const serializeAws_restJson1ListRepositoriesCommand = async (
   };
   let resolvedPath = "/v1/repositories";
   const query: any = {
-    ...(input.nextToken !== undefined && { "next-token": input.nextToken }),
     ...(input.maxResults !== undefined && { "max-results": input.maxResults.toString() }),
+    ...(input.nextToken !== undefined && { "next-token": input.nextToken }),
     ...(input.repositoryPrefix !== undefined && { "repository-prefix": input.repositoryPrefix }),
   };
   let body: any;
@@ -919,12 +928,37 @@ export const serializeAws_restJson1ListRepositoriesInDomainCommand = async (
   };
   let resolvedPath = "/v1/domain/repositories";
   const query: any = {
-    ...(input.repositoryPrefix !== undefined && { "repository-prefix": input.repositoryPrefix }),
     ...(input.administratorAccount !== undefined && { "administrator-account": input.administratorAccount }),
     ...(input.domain !== undefined && { domain: input.domain }),
+    ...(input.repositoryPrefix !== undefined && { "repository-prefix": input.repositoryPrefix }),
     ...(input.domainOwner !== undefined && { "domain-owner": input.domainOwner }),
-    ...(input.nextToken !== undefined && { "next-token": input.nextToken }),
     ...(input.maxResults !== undefined && { "max-results": input.maxResults.toString() }),
+    ...(input.nextToken !== undefined && { "next-token": input.nextToken }),
+  };
+  let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1ListTagsForResourceCommand = async (
+  input: ListTagsForResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "",
+  };
+  let resolvedPath = "/v1/tags";
+  const query: any = {
+    ...(input.resourceArn !== undefined && { resourceArn: input.resourceArn }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -976,9 +1010,9 @@ export const serializeAws_restJson1PutRepositoryPermissionsPolicyCommand = async
   };
   let resolvedPath = "/v1/repository/permissions/policy";
   const query: any = {
-    ...(input.domain !== undefined && { domain: input.domain }),
-    ...(input.repository !== undefined && { repository: input.repository }),
     ...(input.domainOwner !== undefined && { "domain-owner": input.domainOwner }),
+    ...(input.repository !== undefined && { repository: input.repository }),
+    ...(input.domain !== undefined && { domain: input.domain }),
   };
   let body: any;
   body = JSON.stringify({
@@ -998,6 +1032,62 @@ export const serializeAws_restJson1PutRepositoryPermissionsPolicyCommand = async
   });
 };
 
+export const serializeAws_restJson1TagResourceCommand = async (
+  input: TagResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+  };
+  let resolvedPath = "/v1/tag";
+  const query: any = {
+    ...(input.resourceArn !== undefined && { resourceArn: input.resourceArn }),
+  };
+  let body: any;
+  body = JSON.stringify({
+    ...(input.tags !== undefined && { tags: serializeAws_restJson1TagList(input.tags, context) }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1UntagResourceCommand = async (
+  input: UntagResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+  };
+  let resolvedPath = "/v1/untag";
+  const query: any = {
+    ...(input.resourceArn !== undefined && { resourceArn: input.resourceArn }),
+  };
+  let body: any;
+  body = JSON.stringify({
+    ...(input.tagKeys !== undefined && { tagKeys: serializeAws_restJson1TagKeyList(input.tagKeys, context) }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
 export const serializeAws_restJson1UpdatePackageVersionsStatusCommand = async (
   input: UpdatePackageVersionsStatusCommandInput,
   context: __SerdeContext
@@ -1007,12 +1097,12 @@ export const serializeAws_restJson1UpdatePackageVersionsStatusCommand = async (
   };
   let resolvedPath = "/v1/package/versions/update_status";
   const query: any = {
-    ...(input.namespace !== undefined && { namespace: input.namespace }),
-    ...(input.domainOwner !== undefined && { "domain-owner": input.domainOwner }),
-    ...(input.format !== undefined && { format: input.format }),
     ...(input.domain !== undefined && { domain: input.domain }),
     ...(input.package !== undefined && { package: input.package }),
+    ...(input.domainOwner !== undefined && { "domain-owner": input.domainOwner }),
+    ...(input.format !== undefined && { format: input.format }),
     ...(input.repository !== undefined && { repository: input.repository }),
+    ...(input.namespace !== undefined && { namespace: input.namespace }),
   };
   let body: any;
   body = JSON.stringify({
@@ -1047,8 +1137,8 @@ export const serializeAws_restJson1UpdateRepositoryCommand = async (
   };
   let resolvedPath = "/v1/repository";
   const query: any = {
-    ...(input.domainOwner !== undefined && { "domain-owner": input.domainOwner }),
     ...(input.domain !== undefined && { domain: input.domain }),
+    ...(input.domainOwner !== undefined && { "domain-owner": input.domainOwner }),
     ...(input.repository !== undefined && { repository: input.repository }),
   };
   let body: any;
@@ -1540,14 +1630,6 @@ const deserializeAws_restJson1DeleteDomainCommandError = async (
     case "com.amazonaws.codeartifact#InternalServerException":
       response = {
         ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "ResourceNotFoundException":
-    case "com.amazonaws.codeartifact#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -2672,6 +2754,14 @@ const deserializeAws_restJson1GetPackageVersionAssetCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "ConflictException":
+    case "com.amazonaws.codeartifact#ConflictException":
+      response = {
+        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "InternalServerException":
     case "com.amazonaws.codeartifact#InternalServerException":
       response = {
@@ -3679,6 +3769,85 @@ const deserializeAws_restJson1ListRepositoriesInDomainCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1ListTagsForResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTagsForResourceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListTagsForResourceCommandError(output, context);
+  }
+  const contents: ListTagsForResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    tags: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.tags !== undefined && data.tags !== null) {
+    contents.tags = deserializeAws_restJson1TagList(data.tags, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1ListTagsForResourceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTagsForResourceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.codeartifact#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.codeartifact#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.codeartifact#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.codeartifact#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1PutDomainPermissionsPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -3848,6 +4017,164 @@ const deserializeAws_restJson1PutRepositoryPermissionsPolicyCommandError = async
     case "com.amazonaws.codeartifact#ServiceQuotaExceededException":
       response = {
         ...(await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.codeartifact#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.codeartifact#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1TagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TagResourceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1TagResourceCommandError(output, context);
+  }
+  const contents: TagResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1TagResourceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TagResourceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.codeartifact#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.codeartifact#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.codeartifact#ServiceQuotaExceededException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.codeartifact#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.codeartifact#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1UntagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UntagResourceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1UntagResourceCommandError(output, context);
+  }
+  const contents: UntagResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1UntagResourceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UntagResourceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.codeartifact#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.codeartifact#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -4258,6 +4585,21 @@ const serializeAws_restJson1PackageVersionRevisionMap = (
   );
 };
 
+const serializeAws_restJson1Tag = (input: Tag, context: __SerdeContext): any => {
+  return {
+    ...(input.key !== undefined && { key: input.key }),
+    ...(input.value !== undefined && { value: input.value }),
+  };
+};
+
+const serializeAws_restJson1TagKeyList = (input: string[], context: __SerdeContext): any => {
+  return input.map((entry) => entry);
+};
+
+const serializeAws_restJson1TagList = (input: Tag[], context: __SerdeContext): any => {
+  return input.map((entry) => serializeAws_restJson1Tag(entry, context));
+};
+
 const serializeAws_restJson1UpstreamRepository = (input: UpstreamRepository, context: __SerdeContext): any => {
   return {
     ...(input.repositoryName !== undefined && { repositoryName: input.repositoryName }),
@@ -4308,6 +4650,7 @@ const deserializeAws_restJson1DomainDescription = (output: any, context: __Serde
     owner: output.owner !== undefined && output.owner !== null ? output.owner : undefined,
     repositoryCount:
       output.repositoryCount !== undefined && output.repositoryCount !== null ? output.repositoryCount : undefined,
+    s3BucketArn: output.s3BucketArn !== undefined && output.s3BucketArn !== null ? output.s3BucketArn : undefined,
     status: output.status !== undefined && output.status !== null ? output.status : undefined,
   } as any;
 };
@@ -4526,6 +4869,17 @@ const deserializeAws_restJson1SuccessfulPackageVersionInfoMap = (
     }),
     {}
   );
+};
+
+const deserializeAws_restJson1Tag = (output: any, context: __SerdeContext): Tag => {
+  return {
+    key: output.key !== undefined && output.key !== null ? output.key : undefined,
+    value: output.value !== undefined && output.value !== null ? output.value : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1TagList = (output: any, context: __SerdeContext): Tag[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1Tag(entry, context));
 };
 
 const deserializeAws_restJson1UpstreamRepositoryInfo = (

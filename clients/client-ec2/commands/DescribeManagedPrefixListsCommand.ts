@@ -1,5 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DescribeManagedPrefixListsRequest, DescribeManagedPrefixListsResult } from "../models/models_2";
+import { DescribeManagedPrefixListsRequest, DescribeManagedPrefixListsResult } from "../models/models_3";
 import {
   deserializeAws_ec2DescribeManagedPrefixListsCommand,
   serializeAws_ec2DescribeManagedPrefixListsCommand,

@@ -5,6 +5,10 @@ import {
 } from "../commands/AssociateTrialComponentCommand";
 import { CreateAlgorithmCommandInput, CreateAlgorithmCommandOutput } from "../commands/CreateAlgorithmCommand";
 import { CreateAppCommandInput, CreateAppCommandOutput } from "../commands/CreateAppCommand";
+import {
+  CreateAppImageConfigCommandInput,
+  CreateAppImageConfigCommandOutput,
+} from "../commands/CreateAppImageConfigCommand";
 import { CreateAutoMLJobCommandInput, CreateAutoMLJobCommandOutput } from "../commands/CreateAutoMLJobCommand";
 import {
   CreateCodeRepositoryCommandInput,
@@ -30,6 +34,8 @@ import {
   CreateHyperParameterTuningJobCommandInput,
   CreateHyperParameterTuningJobCommandOutput,
 } from "../commands/CreateHyperParameterTuningJobCommand";
+import { CreateImageCommandInput, CreateImageCommandOutput } from "../commands/CreateImageCommand";
+import { CreateImageVersionCommandInput, CreateImageVersionCommandOutput } from "../commands/CreateImageVersionCommand";
 import { CreateLabelingJobCommandInput, CreateLabelingJobCommandOutput } from "../commands/CreateLabelingJobCommand";
 import { CreateModelCommandInput, CreateModelCommandOutput } from "../commands/CreateModelCommand";
 import { CreateModelPackageCommandInput, CreateModelPackageCommandOutput } from "../commands/CreateModelPackageCommand";
@@ -70,6 +76,10 @@ import { CreateWorkteamCommandInput, CreateWorkteamCommandOutput } from "../comm
 import { DeleteAlgorithmCommandInput, DeleteAlgorithmCommandOutput } from "../commands/DeleteAlgorithmCommand";
 import { DeleteAppCommandInput, DeleteAppCommandOutput } from "../commands/DeleteAppCommand";
 import {
+  DeleteAppImageConfigCommandInput,
+  DeleteAppImageConfigCommandOutput,
+} from "../commands/DeleteAppImageConfigCommand";
+import {
   DeleteCodeRepositoryCommandInput,
   DeleteCodeRepositoryCommandOutput,
 } from "../commands/DeleteCodeRepositoryCommand";
@@ -85,6 +95,8 @@ import {
   DeleteFlowDefinitionCommandOutput,
 } from "../commands/DeleteFlowDefinitionCommand";
 import { DeleteHumanTaskUiCommandInput, DeleteHumanTaskUiCommandOutput } from "../commands/DeleteHumanTaskUiCommand";
+import { DeleteImageCommandInput, DeleteImageCommandOutput } from "../commands/DeleteImageCommand";
+import { DeleteImageVersionCommandInput, DeleteImageVersionCommandOutput } from "../commands/DeleteImageVersionCommand";
 import { DeleteModelCommandInput, DeleteModelCommandOutput } from "../commands/DeleteModelCommand";
 import { DeleteModelPackageCommandInput, DeleteModelPackageCommandOutput } from "../commands/DeleteModelPackageCommand";
 import {
@@ -110,6 +122,10 @@ import { DeleteWorkforceCommandInput, DeleteWorkforceCommandOutput } from "../co
 import { DeleteWorkteamCommandInput, DeleteWorkteamCommandOutput } from "../commands/DeleteWorkteamCommand";
 import { DescribeAlgorithmCommandInput, DescribeAlgorithmCommandOutput } from "../commands/DescribeAlgorithmCommand";
 import { DescribeAppCommandInput, DescribeAppCommandOutput } from "../commands/DescribeAppCommand";
+import {
+  DescribeAppImageConfigCommandInput,
+  DescribeAppImageConfigCommandOutput,
+} from "../commands/DescribeAppImageConfigCommand";
 import { DescribeAutoMLJobCommandInput, DescribeAutoMLJobCommandOutput } from "../commands/DescribeAutoMLJobCommand";
 import {
   DescribeCodeRepositoryCommandInput,
@@ -138,6 +154,11 @@ import {
   DescribeHyperParameterTuningJobCommandInput,
   DescribeHyperParameterTuningJobCommandOutput,
 } from "../commands/DescribeHyperParameterTuningJobCommand";
+import { DescribeImageCommandInput, DescribeImageCommandOutput } from "../commands/DescribeImageCommand";
+import {
+  DescribeImageVersionCommandInput,
+  DescribeImageVersionCommandOutput,
+} from "../commands/DescribeImageVersionCommand";
 import {
   DescribeLabelingJobCommandInput,
   DescribeLabelingJobCommandOutput,
@@ -195,6 +216,10 @@ import {
   GetSearchSuggestionsCommandOutput,
 } from "../commands/GetSearchSuggestionsCommand";
 import { ListAlgorithmsCommandInput, ListAlgorithmsCommandOutput } from "../commands/ListAlgorithmsCommand";
+import {
+  ListAppImageConfigsCommandInput,
+  ListAppImageConfigsCommandOutput,
+} from "../commands/ListAppImageConfigsCommand";
 import { ListAppsCommandInput, ListAppsCommandOutput } from "../commands/ListAppsCommand";
 import { ListAutoMLJobsCommandInput, ListAutoMLJobsCommandOutput } from "../commands/ListAutoMLJobsCommand";
 import {
@@ -225,6 +250,8 @@ import {
   ListHyperParameterTuningJobsCommandInput,
   ListHyperParameterTuningJobsCommandOutput,
 } from "../commands/ListHyperParameterTuningJobsCommand";
+import { ListImageVersionsCommandInput, ListImageVersionsCommandOutput } from "../commands/ListImageVersionsCommand";
+import { ListImagesCommandInput, ListImagesCommandOutput } from "../commands/ListImagesCommand";
 import { ListLabelingJobsCommandInput, ListLabelingJobsCommandOutput } from "../commands/ListLabelingJobsCommand";
 import {
   ListLabelingJobsForWorkteamCommandInput,
@@ -297,6 +324,10 @@ import { StopProcessingJobCommandInput, StopProcessingJobCommandOutput } from ".
 import { StopTrainingJobCommandInput, StopTrainingJobCommandOutput } from "../commands/StopTrainingJobCommand";
 import { StopTransformJobCommandInput, StopTransformJobCommandOutput } from "../commands/StopTransformJobCommand";
 import {
+  UpdateAppImageConfigCommandInput,
+  UpdateAppImageConfigCommandOutput,
+} from "../commands/UpdateAppImageConfigCommand";
+import {
   UpdateCodeRepositoryCommandInput,
   UpdateCodeRepositoryCommandOutput,
 } from "../commands/UpdateCodeRepositoryCommand";
@@ -307,6 +338,7 @@ import {
   UpdateEndpointWeightsAndCapacitiesCommandOutput,
 } from "../commands/UpdateEndpointWeightsAndCapacitiesCommand";
 import { UpdateExperimentCommandInput, UpdateExperimentCommandOutput } from "../commands/UpdateExperimentCommand";
+import { UpdateImageCommandInput, UpdateImageCommandOutput } from "../commands/UpdateImageCommand";
 import {
   UpdateMonitoringScheduleCommandInput,
   UpdateMonitoringScheduleCommandOutput,
@@ -338,6 +370,7 @@ import {
   AlgorithmValidationSpecification,
   AnnotationConsolidationConfig,
   AppDetails,
+  AppImageConfigDetails,
   AppSpecification,
   AssociateTrialComponentRequest,
   AssociateTrialComponentResponse,
@@ -374,6 +407,8 @@ import {
   ContinuousParameterRangeSpecification,
   CreateAlgorithmInput,
   CreateAlgorithmOutput,
+  CreateAppImageConfigRequest,
+  CreateAppImageConfigResponse,
   CreateAppRequest,
   CreateAppResponse,
   CreateAutoMLJobRequest,
@@ -396,6 +431,10 @@ import {
   CreateHumanTaskUiResponse,
   CreateHyperParameterTuningJobRequest,
   CreateHyperParameterTuningJobResponse,
+  CreateImageRequest,
+  CreateImageResponse,
+  CreateImageVersionRequest,
+  CreateImageVersionResponse,
   CreateLabelingJobRequest,
   CreateLabelingJobResponse,
   CreateModelInput,
@@ -428,6 +467,7 @@ import {
   CreateWorkforceResponse,
   CreateWorkteamRequest,
   CreateWorkteamResponse,
+  CustomImage,
   DataCaptureConfig,
   DataCaptureConfigSummary,
   DataProcessing,
@@ -436,23 +476,12 @@ import {
   DebugRuleConfiguration,
   DebugRuleEvaluationStatus,
   DeleteAlgorithmInput,
+  DeleteAppImageConfigRequest,
   DeleteAppRequest,
   DeleteCodeRepositoryInput,
-  DeleteDomainRequest,
-  DeleteEndpointConfigInput,
-  DeleteEndpointInput,
-  DeleteExperimentRequest,
-  DeleteExperimentResponse,
-  DeleteFlowDefinitionRequest,
-  DeleteFlowDefinitionResponse,
-  DeleteHumanTaskUiRequest,
-  DeleteHumanTaskUiResponse,
-  DeleteModelInput,
-  DeleteModelPackageInput,
-  DeleteMonitoringScheduleRequest,
-  DeleteNotebookInstanceInput,
   EndpointInput,
   ExperimentConfig,
+  FileSystemConfig,
   FileSystemDataSource,
   FinalAutoMLJobObjectiveMetric,
   FlowDefinitionOutputConfig,
@@ -475,6 +504,8 @@ import {
   IntegerParameterRangeSpecification,
   JupyterServerAppSettings,
   KernelGatewayAppSettings,
+  KernelGatewayImageConfig,
+  KernelSpec,
   LabelingJobAlgorithmsConfig,
   LabelingJobDataAttributes,
   LabelingJobDataSource,
@@ -566,6 +597,23 @@ import {
   VpcConfig,
 } from "../models/models_0";
 import {
+  DeleteDomainRequest,
+  DeleteEndpointConfigInput,
+  DeleteEndpointInput,
+  DeleteExperimentRequest,
+  DeleteExperimentResponse,
+  DeleteFlowDefinitionRequest,
+  DeleteFlowDefinitionResponse,
+  DeleteHumanTaskUiRequest,
+  DeleteHumanTaskUiResponse,
+  DeleteImageRequest,
+  DeleteImageResponse,
+  DeleteImageVersionRequest,
+  DeleteImageVersionResponse,
+  DeleteModelInput,
+  DeleteModelPackageInput,
+  DeleteMonitoringScheduleRequest,
+  DeleteNotebookInstanceInput,
   DeleteNotebookInstanceLifecycleConfigInput,
   DeleteTagsInput,
   DeleteTagsOutput,
@@ -581,6 +629,8 @@ import {
   DeployedImage,
   DescribeAlgorithmInput,
   DescribeAlgorithmOutput,
+  DescribeAppImageConfigRequest,
+  DescribeAppImageConfigResponse,
   DescribeAppRequest,
   DescribeAppResponse,
   DescribeAutoMLJobRequest,
@@ -603,6 +653,10 @@ import {
   DescribeHumanTaskUiResponse,
   DescribeHyperParameterTuningJobRequest,
   DescribeHyperParameterTuningJobResponse,
+  DescribeImageRequest,
+  DescribeImageResponse,
+  DescribeImageVersionRequest,
+  DescribeImageVersionResponse,
   DescribeLabelingJobRequest,
   DescribeLabelingJobResponse,
   DescribeModelInput,
@@ -651,6 +705,8 @@ import {
   HumanTaskUiSummary,
   HyperParameterTrainingJobSummary,
   HyperParameterTuningJobSummary,
+  Image,
+  ImageVersion,
   LabelCounters,
   LabelCountersForWorkteam,
   LabelingJobForWorkteamSummary,
@@ -658,6 +714,8 @@ import {
   LabelingJobSummary,
   ListAlgorithmsInput,
   ListAlgorithmsOutput,
+  ListAppImageConfigsRequest,
+  ListAppImageConfigsResponse,
   ListAppsRequest,
   ListAppsResponse,
   ListAutoMLJobsRequest,
@@ -682,6 +740,10 @@ import {
   ListHumanTaskUisResponse,
   ListHyperParameterTuningJobsRequest,
   ListHyperParameterTuningJobsResponse,
+  ListImageVersionsRequest,
+  ListImageVersionsResponse,
+  ListImagesRequest,
+  ListImagesResponse,
   ListLabelingJobsForWorkteamRequest,
   ListLabelingJobsForWorkteamResponse,
   ListLabelingJobsRequest,
@@ -744,9 +806,7 @@ import {
   RenderableTask,
   RenderingError,
   ResolvedAttributes,
-  SearchExpression,
   SearchRecord,
-  SearchRequest,
   SearchResponse,
   SecondaryStatusTransition,
   StartMonitoringScheduleRequest,
@@ -777,16 +837,29 @@ import {
   TrialSource,
   TrialSummary,
   UiTemplateInfo,
+  UpdateAppImageConfigRequest,
+  UpdateAppImageConfigResponse,
   UpdateCodeRepositoryInput,
   UpdateCodeRepositoryOutput,
   UpdateDomainRequest,
   UpdateDomainResponse,
+  UserContext,
+  UserProfileDetails,
+  VariantProperty,
+  Workforce,
+  Workteam,
+} from "../models/models_1";
+import {
+  SearchExpression,
+  SearchRequest,
   UpdateEndpointInput,
   UpdateEndpointOutput,
   UpdateEndpointWeightsAndCapacitiesInput,
   UpdateEndpointWeightsAndCapacitiesOutput,
   UpdateExperimentRequest,
   UpdateExperimentResponse,
+  UpdateImageRequest,
+  UpdateImageResponse,
   UpdateMonitoringScheduleRequest,
   UpdateMonitoringScheduleResponse,
   UpdateNotebookInstanceInput,
@@ -803,12 +876,7 @@ import {
   UpdateWorkforceResponse,
   UpdateWorkteamRequest,
   UpdateWorkteamResponse,
-  UserContext,
-  UserProfileDetails,
-  VariantProperty,
-  Workforce,
-  Workteam,
-} from "../models/models_1";
+} from "../models/models_2";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { LazyJsonString as __LazyJsonString, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import {
@@ -818,6 +886,7 @@ import {
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+import { v4 as generateIdempotencyToken } from "uuid";
 
 export const serializeAws_json1_1AddTagsCommand = async (
   input: AddTagsCommandInput,
@@ -868,6 +937,19 @@ export const serializeAws_json1_1CreateAppCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateAppRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1CreateAppImageConfigCommand = async (
+  input: CreateAppImageConfigCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "SageMaker.CreateAppImageConfig",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1CreateAppImageConfigRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -998,6 +1080,32 @@ export const serializeAws_json1_1CreateHyperParameterTuningJobCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateHyperParameterTuningJobRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1CreateImageCommand = async (
+  input: CreateImageCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "SageMaker.CreateImage",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1CreateImageRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1CreateImageVersionCommand = async (
+  input: CreateImageVersionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "SageMaker.CreateImageVersion",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1CreateImageVersionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1235,6 +1343,19 @@ export const serializeAws_json1_1DeleteAppCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1DeleteAppImageConfigCommand = async (
+  input: DeleteAppImageConfigCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "SageMaker.DeleteAppImageConfig",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DeleteAppImageConfigRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1DeleteCodeRepositoryCommand = async (
   input: DeleteCodeRepositoryCommandInput,
   context: __SerdeContext
@@ -1323,6 +1444,32 @@ export const serializeAws_json1_1DeleteHumanTaskUiCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteHumanTaskUiRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DeleteImageCommand = async (
+  input: DeleteImageCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "SageMaker.DeleteImage",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DeleteImageRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DeleteImageVersionCommand = async (
+  input: DeleteImageVersionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "SageMaker.DeleteImageVersion",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DeleteImageVersionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1495,6 +1642,19 @@ export const serializeAws_json1_1DescribeAppCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1DescribeAppImageConfigCommand = async (
+  input: DescribeAppImageConfigCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "SageMaker.DescribeAppImageConfig",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DescribeAppImageConfigRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1DescribeAutoMLJobCommand = async (
   input: DescribeAutoMLJobCommandInput,
   context: __SerdeContext
@@ -1622,6 +1782,32 @@ export const serializeAws_json1_1DescribeHyperParameterTuningJobCommand = async 
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeHyperParameterTuningJobRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DescribeImageCommand = async (
+  input: DescribeImageCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "SageMaker.DescribeImage",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DescribeImageRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DescribeImageVersionCommand = async (
+  input: DescribeImageVersionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "SageMaker.DescribeImageVersion",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DescribeImageVersionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1859,6 +2045,19 @@ export const serializeAws_json1_1ListAlgorithmsCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1ListAppImageConfigsCommand = async (
+  input: ListAppImageConfigsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "SageMaker.ListAppImageConfigs",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ListAppImageConfigsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1ListAppsCommand = async (
   input: ListAppsCommandInput,
   context: __SerdeContext
@@ -2012,6 +2211,32 @@ export const serializeAws_json1_1ListHyperParameterTuningJobsCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListHyperParameterTuningJobsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1ListImagesCommand = async (
+  input: ListImagesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "SageMaker.ListImages",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ListImagesRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1ListImageVersionsCommand = async (
+  input: ListImageVersionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "SageMaker.ListImageVersions",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ListImageVersionsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -2431,6 +2656,19 @@ export const serializeAws_json1_1StopTransformJobCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1UpdateAppImageConfigCommand = async (
+  input: UpdateAppImageConfigCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "SageMaker.UpdateAppImageConfig",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1UpdateAppImageConfigRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1UpdateCodeRepositoryCommand = async (
   input: UpdateCodeRepositoryCommandInput,
   context: __SerdeContext
@@ -2493,6 +2731,19 @@ export const serializeAws_json1_1UpdateExperimentCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateExperimentRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1UpdateImageCommand = async (
+  input: UpdateImageCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "SageMaker.UpdateImage",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1UpdateImageRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -2799,6 +3050,61 @@ const deserializeAws_json1_1CreateAppCommandError = async (
     case "com.amazonaws.sagemaker#ResourceLimitExceeded":
       response = {
         ...(await deserializeAws_json1_1ResourceLimitExceededResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1CreateAppImageConfigCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateAppImageConfigCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1CreateAppImageConfigCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1CreateAppImageConfigResponse(data, context);
+  const response: CreateAppImageConfigCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1CreateAppImageConfigCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateAppImageConfigCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "ResourceInUse":
+    case "com.amazonaws.sagemaker#ResourceInUse":
+      response = {
+        ...(await deserializeAws_json1_1ResourceInUseResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -3410,6 +3716,140 @@ const deserializeAws_json1_1CreateHyperParameterTuningJobCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1CreateImageCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateImageCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1CreateImageCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1CreateImageResponse(data, context);
+  const response: CreateImageCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1CreateImageCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateImageCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "ResourceInUse":
+    case "com.amazonaws.sagemaker#ResourceInUse":
+      response = {
+        ...(await deserializeAws_json1_1ResourceInUseResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceLimitExceeded":
+    case "com.amazonaws.sagemaker#ResourceLimitExceeded":
+      response = {
+        ...(await deserializeAws_json1_1ResourceLimitExceededResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1CreateImageVersionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateImageVersionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1CreateImageVersionCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1CreateImageVersionResponse(data, context);
+  const response: CreateImageVersionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1CreateImageVersionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateImageVersionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "ResourceInUse":
+    case "com.amazonaws.sagemaker#ResourceInUse":
+      response = {
+        ...(await deserializeAws_json1_1ResourceInUseResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceLimitExceeded":
+    case "com.amazonaws.sagemaker#ResourceLimitExceeded":
+      response = {
+        ...(await deserializeAws_json1_1ResourceLimitExceededResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFound":
+    case "com.amazonaws.sagemaker#ResourceNotFound":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1CreateLabelingJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -3558,6 +3998,22 @@ const deserializeAws_json1_1CreateModelPackageCommandError = async (
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.sagemaker#ConflictException":
+      response = {
+        ...(await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceLimitExceeded":
+    case "com.amazonaws.sagemaker#ResourceLimitExceeded":
+      response = {
+        ...(await deserializeAws_json1_1ResourceLimitExceededResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     default:
       const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
@@ -4458,6 +4914,58 @@ const deserializeAws_json1_1DeleteAppCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1DeleteAppImageConfigCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteAppImageConfigCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DeleteAppImageConfigCommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: DeleteAppImageConfigCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DeleteAppImageConfigCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteAppImageConfigCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "ResourceNotFound":
+    case "com.amazonaws.sagemaker#ResourceNotFound":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1DeleteCodeRepositoryCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -4823,6 +5331,132 @@ const deserializeAws_json1_1DeleteHumanTaskUiCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1DeleteImageCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteImageCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DeleteImageCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DeleteImageResponse(data, context);
+  const response: DeleteImageCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DeleteImageCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteImageCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "ResourceInUse":
+    case "com.amazonaws.sagemaker#ResourceInUse":
+      response = {
+        ...(await deserializeAws_json1_1ResourceInUseResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFound":
+    case "com.amazonaws.sagemaker#ResourceNotFound":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1DeleteImageVersionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteImageVersionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DeleteImageVersionCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DeleteImageVersionResponse(data, context);
+  const response: DeleteImageVersionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DeleteImageVersionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteImageVersionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "ResourceInUse":
+    case "com.amazonaws.sagemaker#ResourceInUse":
+      response = {
+        ...(await deserializeAws_json1_1ResourceInUseResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFound":
+    case "com.amazonaws.sagemaker#ResourceNotFound":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1DeleteModelCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -4894,6 +5528,14 @@ const deserializeAws_json1_1DeleteModelPackageCommandError = async (
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.sagemaker#ConflictException":
+      response = {
+        ...(await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     default:
       const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
@@ -5472,6 +6114,61 @@ const deserializeAws_json1_1DescribeAppCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1DescribeAppImageConfigCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeAppImageConfigCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DescribeAppImageConfigCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeAppImageConfigResponse(data, context);
+  const response: DescribeAppImageConfigCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DescribeAppImageConfigCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeAppImageConfigCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "ResourceNotFound":
+    case "com.amazonaws.sagemaker#ResourceNotFound":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1DescribeAutoMLJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -5964,6 +6661,116 @@ const deserializeAws_json1_1DescribeHyperParameterTuningJobCommandError = async 
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeHyperParameterTuningJobCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "ResourceNotFound":
+    case "com.amazonaws.sagemaker#ResourceNotFound":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1DescribeImageCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeImageCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DescribeImageCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeImageResponse(data, context);
+  const response: DescribeImageCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DescribeImageCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeImageCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "ResourceNotFound":
+    case "com.amazonaws.sagemaker#ResourceNotFound":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1DescribeImageVersionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeImageVersionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DescribeImageVersionCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeImageVersionResponse(data, context);
+  const response: DescribeImageVersionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DescribeImageVersionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeImageVersionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -6916,6 +7723,53 @@ const deserializeAws_json1_1ListAlgorithmsCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1ListAppImageConfigsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAppImageConfigsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ListAppImageConfigsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListAppImageConfigsResponse(data, context);
+  const response: ListAppImageConfigsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListAppImageConfigsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAppImageConfigsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1ListAppsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -7471,6 +8325,108 @@ const deserializeAws_json1_1ListHyperParameterTuningJobsCommandError = async (
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1ListImagesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListImagesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ListImagesCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListImagesResponse(data, context);
+  const response: ListImagesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListImagesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListImagesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1ListImageVersionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListImageVersionsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ListImageVersionsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListImageVersionsResponse(data, context);
+  const response: ListImageVersionsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListImageVersionsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListImageVersionsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "ResourceNotFound":
+    case "com.amazonaws.sagemaker#ResourceNotFound":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     default:
       const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
@@ -9079,6 +10035,61 @@ const deserializeAws_json1_1StopTransformJobCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1UpdateAppImageConfigCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateAppImageConfigCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1UpdateAppImageConfigCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1UpdateAppImageConfigResponse(data, context);
+  const response: UpdateAppImageConfigCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1UpdateAppImageConfigCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateAppImageConfigCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "ResourceNotFound":
+    case "com.amazonaws.sagemaker#ResourceNotFound":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1UpdateCodeRepositoryCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -9341,6 +10352,69 @@ const deserializeAws_json1_1UpdateExperimentCommandError = async (
     case "com.amazonaws.sagemaker#ConflictException":
       response = {
         ...(await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFound":
+    case "com.amazonaws.sagemaker#ResourceNotFound":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1UpdateImageCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateImageCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1UpdateImageCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1UpdateImageResponse(data, context);
+  const response: UpdateImageCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1UpdateImageCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateImageCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "ResourceInUse":
+    case "com.amazonaws.sagemaker#ResourceInUse":
+      response = {
+        ...(await deserializeAws_json1_1ResourceInUseResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -10305,6 +11379,19 @@ const serializeAws_json1_1CreateAlgorithmInput = (input: CreateAlgorithmInput, c
   };
 };
 
+const serializeAws_json1_1CreateAppImageConfigRequest = (
+  input: CreateAppImageConfigRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AppImageConfigName !== undefined && { AppImageConfigName: input.AppImageConfigName }),
+    ...(input.KernelGatewayImageConfig !== undefined && {
+      KernelGatewayImageConfig: serializeAws_json1_1KernelGatewayImageConfig(input.KernelGatewayImageConfig, context),
+    }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+  };
+};
+
 const serializeAws_json1_1CreateAppRequest = (input: CreateAppRequest, context: __SerdeContext): any => {
   return {
     ...(input.AppName !== undefined && { AppName: input.AppName }),
@@ -10368,6 +11455,7 @@ const serializeAws_json1_1CreateCompilationJobRequest = (
     ...(input.StoppingCondition !== undefined && {
       StoppingCondition: serializeAws_json1_1StoppingCondition(input.StoppingCondition, context),
     }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
   };
 };
 
@@ -10489,6 +11577,27 @@ const serializeAws_json1_1CreateHyperParameterTuningJobRequest = (
     ...(input.WarmStartConfig !== undefined && {
       WarmStartConfig: serializeAws_json1_1HyperParameterTuningJobWarmStartConfig(input.WarmStartConfig, context),
     }),
+  };
+};
+
+const serializeAws_json1_1CreateImageRequest = (input: CreateImageRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.Description !== undefined && { Description: input.Description }),
+    ...(input.DisplayName !== undefined && { DisplayName: input.DisplayName }),
+    ...(input.ImageName !== undefined && { ImageName: input.ImageName }),
+    ...(input.RoleArn !== undefined && { RoleArn: input.RoleArn }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+  };
+};
+
+const serializeAws_json1_1CreateImageVersionRequest = (
+  input: CreateImageVersionRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.BaseImage !== undefined && { BaseImage: input.BaseImage }),
+    ClientToken: input.ClientToken ?? generateIdempotencyToken(),
+    ...(input.ImageName !== undefined && { ImageName: input.ImageName }),
   };
 };
 
@@ -10856,6 +11965,18 @@ const serializeAws_json1_1CsvContentTypes = (input: string[], context: __SerdeCo
   return input.map((entry) => entry);
 };
 
+const serializeAws_json1_1CustomImage = (input: CustomImage, context: __SerdeContext): any => {
+  return {
+    ...(input.AppImageConfigName !== undefined && { AppImageConfigName: input.AppImageConfigName }),
+    ...(input.ImageName !== undefined && { ImageName: input.ImageName }),
+    ...(input.ImageVersionNumber !== undefined && { ImageVersionNumber: input.ImageVersionNumber }),
+  };
+};
+
+const serializeAws_json1_1CustomImages = (input: CustomImage[], context: __SerdeContext): any => {
+  return input.map((entry) => serializeAws_json1_1CustomImage(entry, context));
+};
+
 const serializeAws_json1_1DataCaptureConfig = (input: DataCaptureConfig, context: __SerdeContext): any => {
   return {
     ...(input.CaptureContentTypeHeader !== undefined && {
@@ -10929,6 +12050,15 @@ const serializeAws_json1_1DeleteAlgorithmInput = (input: DeleteAlgorithmInput, c
   };
 };
 
+const serializeAws_json1_1DeleteAppImageConfigRequest = (
+  input: DeleteAppImageConfigRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AppImageConfigName !== undefined && { AppImageConfigName: input.AppImageConfigName }),
+  };
+};
+
 const serializeAws_json1_1DeleteAppRequest = (input: DeleteAppRequest, context: __SerdeContext): any => {
   return {
     ...(input.AppName !== undefined && { AppName: input.AppName }),
@@ -10992,6 +12122,22 @@ const serializeAws_json1_1DeleteHumanTaskUiRequest = (
 ): any => {
   return {
     ...(input.HumanTaskUiName !== undefined && { HumanTaskUiName: input.HumanTaskUiName }),
+  };
+};
+
+const serializeAws_json1_1DeleteImageRequest = (input: DeleteImageRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.ImageName !== undefined && { ImageName: input.ImageName }),
+  };
+};
+
+const serializeAws_json1_1DeleteImageVersionRequest = (
+  input: DeleteImageVersionRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ImageName !== undefined && { ImageName: input.ImageName }),
+    ...(input.Version !== undefined && { Version: input.Version }),
   };
 };
 
@@ -11083,6 +12229,15 @@ const serializeAws_json1_1DeleteWorkteamRequest = (input: DeleteWorkteamRequest,
 const serializeAws_json1_1DescribeAlgorithmInput = (input: DescribeAlgorithmInput, context: __SerdeContext): any => {
   return {
     ...(input.AlgorithmName !== undefined && { AlgorithmName: input.AlgorithmName }),
+  };
+};
+
+const serializeAws_json1_1DescribeAppImageConfigRequest = (
+  input: DescribeAppImageConfigRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AppImageConfigName !== undefined && { AppImageConfigName: input.AppImageConfigName }),
   };
 };
 
@@ -11178,6 +12333,22 @@ const serializeAws_json1_1DescribeHyperParameterTuningJobRequest = (
     ...(input.HyperParameterTuningJobName !== undefined && {
       HyperParameterTuningJobName: input.HyperParameterTuningJobName,
     }),
+  };
+};
+
+const serializeAws_json1_1DescribeImageRequest = (input: DescribeImageRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.ImageName !== undefined && { ImageName: input.ImageName }),
+  };
+};
+
+const serializeAws_json1_1DescribeImageVersionRequest = (
+  input: DescribeImageVersionRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ImageName !== undefined && { ImageName: input.ImageName }),
+    ...(input.Version !== undefined && { Version: input.Version }),
   };
 };
 
@@ -11364,6 +12535,14 @@ const serializeAws_json1_1ExperimentConfig = (input: ExperimentConfig, context: 
       TrialComponentDisplayName: input.TrialComponentDisplayName,
     }),
     ...(input.TrialName !== undefined && { TrialName: input.TrialName }),
+  };
+};
+
+const serializeAws_json1_1FileSystemConfig = (input: FileSystemConfig, context: __SerdeContext): any => {
+  return {
+    ...(input.DefaultGid !== undefined && { DefaultGid: input.DefaultGid }),
+    ...(input.DefaultUid !== undefined && { DefaultUid: input.DefaultUid }),
+    ...(input.MountPath !== undefined && { MountPath: input.MountPath }),
   };
 };
 
@@ -11694,6 +12873,10 @@ const serializeAws_json1_1ImageConfig = (input: ImageConfig, context: __SerdeCon
   };
 };
 
+const serializeAws_json1_1ImageDeletePropertyList = (input: string[], context: __SerdeContext): any => {
+  return input.map((entry) => entry);
+};
+
 const serializeAws_json1_1InferenceSpecification = (input: InferenceSpecification, context: __SerdeContext): any => {
   return {
     ...(input.Containers !== undefined && {
@@ -11779,10 +12962,38 @@ const serializeAws_json1_1KernelGatewayAppSettings = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.CustomImages !== undefined && {
+      CustomImages: serializeAws_json1_1CustomImages(input.CustomImages, context),
+    }),
     ...(input.DefaultResourceSpec !== undefined && {
       DefaultResourceSpec: serializeAws_json1_1ResourceSpec(input.DefaultResourceSpec, context),
     }),
   };
+};
+
+const serializeAws_json1_1KernelGatewayImageConfig = (
+  input: KernelGatewayImageConfig,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.FileSystemConfig !== undefined && {
+      FileSystemConfig: serializeAws_json1_1FileSystemConfig(input.FileSystemConfig, context),
+    }),
+    ...(input.KernelSpecs !== undefined && {
+      KernelSpecs: serializeAws_json1_1KernelSpecs(input.KernelSpecs, context),
+    }),
+  };
+};
+
+const serializeAws_json1_1KernelSpec = (input: KernelSpec, context: __SerdeContext): any => {
+  return {
+    ...(input.DisplayName !== undefined && { DisplayName: input.DisplayName }),
+    ...(input.Name !== undefined && { Name: input.Name }),
+  };
+};
+
+const serializeAws_json1_1KernelSpecs = (input: KernelSpec[], context: __SerdeContext): any => {
+  return input.map((entry) => serializeAws_json1_1KernelSpec(entry, context));
 };
 
 const serializeAws_json1_1LabelingJobAlgorithmsConfig = (
@@ -11893,6 +13104,31 @@ const serializeAws_json1_1ListAlgorithmsInput = (input: ListAlgorithmsInput, con
       CreationTimeBefore: Math.round(input.CreationTimeBefore.getTime() / 1000),
     }),
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NameContains !== undefined && { NameContains: input.NameContains }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.SortBy !== undefined && { SortBy: input.SortBy }),
+    ...(input.SortOrder !== undefined && { SortOrder: input.SortOrder }),
+  };
+};
+
+const serializeAws_json1_1ListAppImageConfigsRequest = (
+  input: ListAppImageConfigsRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.CreationTimeAfter !== undefined && {
+      CreationTimeAfter: Math.round(input.CreationTimeAfter.getTime() / 1000),
+    }),
+    ...(input.CreationTimeBefore !== undefined && {
+      CreationTimeBefore: Math.round(input.CreationTimeBefore.getTime() / 1000),
+    }),
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.ModifiedTimeAfter !== undefined && {
+      ModifiedTimeAfter: Math.round(input.ModifiedTimeAfter.getTime() / 1000),
+    }),
+    ...(input.ModifiedTimeBefore !== undefined && {
+      ModifiedTimeBefore: Math.round(input.ModifiedTimeBefore.getTime() / 1000),
+    }),
     ...(input.NameContains !== undefined && { NameContains: input.NameContains }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
     ...(input.SortBy !== undefined && { SortBy: input.SortBy }),
@@ -12114,6 +13350,53 @@ const serializeAws_json1_1ListHyperParameterTuningJobsRequest = (
     ...(input.SortBy !== undefined && { SortBy: input.SortBy }),
     ...(input.SortOrder !== undefined && { SortOrder: input.SortOrder }),
     ...(input.StatusEquals !== undefined && { StatusEquals: input.StatusEquals }),
+  };
+};
+
+const serializeAws_json1_1ListImagesRequest = (input: ListImagesRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.CreationTimeAfter !== undefined && {
+      CreationTimeAfter: Math.round(input.CreationTimeAfter.getTime() / 1000),
+    }),
+    ...(input.CreationTimeBefore !== undefined && {
+      CreationTimeBefore: Math.round(input.CreationTimeBefore.getTime() / 1000),
+    }),
+    ...(input.LastModifiedTimeAfter !== undefined && {
+      LastModifiedTimeAfter: Math.round(input.LastModifiedTimeAfter.getTime() / 1000),
+    }),
+    ...(input.LastModifiedTimeBefore !== undefined && {
+      LastModifiedTimeBefore: Math.round(input.LastModifiedTimeBefore.getTime() / 1000),
+    }),
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NameContains !== undefined && { NameContains: input.NameContains }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.SortBy !== undefined && { SortBy: input.SortBy }),
+    ...(input.SortOrder !== undefined && { SortOrder: input.SortOrder }),
+  };
+};
+
+const serializeAws_json1_1ListImageVersionsRequest = (
+  input: ListImageVersionsRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.CreationTimeAfter !== undefined && {
+      CreationTimeAfter: Math.round(input.CreationTimeAfter.getTime() / 1000),
+    }),
+    ...(input.CreationTimeBefore !== undefined && {
+      CreationTimeBefore: Math.round(input.CreationTimeBefore.getTime() / 1000),
+    }),
+    ...(input.ImageName !== undefined && { ImageName: input.ImageName }),
+    ...(input.LastModifiedTimeAfter !== undefined && {
+      LastModifiedTimeAfter: Math.round(input.LastModifiedTimeAfter.getTime() / 1000),
+    }),
+    ...(input.LastModifiedTimeBefore !== undefined && {
+      LastModifiedTimeBefore: Math.round(input.LastModifiedTimeBefore.getTime() / 1000),
+    }),
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.SortBy !== undefined && { SortBy: input.SortBy }),
+    ...(input.SortOrder !== undefined && { SortOrder: input.SortOrder }),
   };
 };
 
@@ -13069,6 +14352,7 @@ const serializeAws_json1_1ResourceSpec = (input: ResourceSpec, context: __SerdeC
   return {
     ...(input.InstanceType !== undefined && { InstanceType: input.InstanceType }),
     ...(input.SageMakerImageArn !== undefined && { SageMakerImageArn: input.SageMakerImageArn }),
+    ...(input.SageMakerImageVersionArn !== undefined && { SageMakerImageVersionArn: input.SageMakerImageVersionArn }),
   };
 };
 
@@ -13554,6 +14838,18 @@ const serializeAws_json1_1UiTemplate = (input: UiTemplate, context: __SerdeConte
   };
 };
 
+const serializeAws_json1_1UpdateAppImageConfigRequest = (
+  input: UpdateAppImageConfigRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AppImageConfigName !== undefined && { AppImageConfigName: input.AppImageConfigName }),
+    ...(input.KernelGatewayImageConfig !== undefined && {
+      KernelGatewayImageConfig: serializeAws_json1_1KernelGatewayImageConfig(input.KernelGatewayImageConfig, context),
+    }),
+  };
+};
+
 const serializeAws_json1_1UpdateCodeRepositoryInput = (
   input: UpdateCodeRepositoryInput,
   context: __SerdeContext
@@ -13611,6 +14907,18 @@ const serializeAws_json1_1UpdateExperimentRequest = (input: UpdateExperimentRequ
     ...(input.Description !== undefined && { Description: input.Description }),
     ...(input.DisplayName !== undefined && { DisplayName: input.DisplayName }),
     ...(input.ExperimentName !== undefined && { ExperimentName: input.ExperimentName }),
+  };
+};
+
+const serializeAws_json1_1UpdateImageRequest = (input: UpdateImageRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.DeleteProperties !== undefined && {
+      DeleteProperties: serializeAws_json1_1ImageDeletePropertyList(input.DeleteProperties, context),
+    }),
+    ...(input.Description !== undefined && { Description: input.Description }),
+    ...(input.DisplayName !== undefined && { DisplayName: input.DisplayName }),
+    ...(input.ImageName !== undefined && { ImageName: input.ImageName }),
+    ...(input.RoleArn !== undefined && { RoleArn: input.RoleArn }),
   };
 };
 
@@ -13953,6 +15261,35 @@ const deserializeAws_json1_1AppDetails = (output: any, context: __SerdeContext):
     UserProfileName:
       output.UserProfileName !== undefined && output.UserProfileName !== null ? output.UserProfileName : undefined,
   } as any;
+};
+
+const deserializeAws_json1_1AppImageConfigDetails = (output: any, context: __SerdeContext): AppImageConfigDetails => {
+  return {
+    AppImageConfigArn:
+      output.AppImageConfigArn !== undefined && output.AppImageConfigArn !== null
+        ? output.AppImageConfigArn
+        : undefined,
+    AppImageConfigName:
+      output.AppImageConfigName !== undefined && output.AppImageConfigName !== null
+        ? output.AppImageConfigName
+        : undefined,
+    CreationTime:
+      output.CreationTime !== undefined && output.CreationTime !== null
+        ? new Date(Math.round(output.CreationTime * 1000))
+        : undefined,
+    KernelGatewayImageConfig:
+      output.KernelGatewayImageConfig !== undefined && output.KernelGatewayImageConfig !== null
+        ? deserializeAws_json1_1KernelGatewayImageConfig(output.KernelGatewayImageConfig, context)
+        : undefined,
+    LastModifiedTime:
+      output.LastModifiedTime !== undefined && output.LastModifiedTime !== null
+        ? new Date(Math.round(output.LastModifiedTime * 1000))
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1AppImageConfigList = (output: any, context: __SerdeContext): AppImageConfigDetails[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1AppImageConfigDetails(entry, context));
 };
 
 const deserializeAws_json1_1AppList = (output: any, context: __SerdeContext): AppDetails[] => {
@@ -14552,6 +15889,18 @@ const deserializeAws_json1_1CreateAlgorithmOutput = (output: any, context: __Ser
   } as any;
 };
 
+const deserializeAws_json1_1CreateAppImageConfigResponse = (
+  output: any,
+  context: __SerdeContext
+): CreateAppImageConfigResponse => {
+  return {
+    AppImageConfigArn:
+      output.AppImageConfigArn !== undefined && output.AppImageConfigArn !== null
+        ? output.AppImageConfigArn
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1CreateAppResponse = (output: any, context: __SerdeContext): CreateAppResponse => {
   return {
     AppArn: output.AppArn !== undefined && output.AppArn !== null ? output.AppArn : undefined,
@@ -14657,6 +16006,22 @@ const deserializeAws_json1_1CreateHyperParameterTuningJobResponse = (
       output.HyperParameterTuningJobArn !== undefined && output.HyperParameterTuningJobArn !== null
         ? output.HyperParameterTuningJobArn
         : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1CreateImageResponse = (output: any, context: __SerdeContext): CreateImageResponse => {
+  return {
+    ImageArn: output.ImageArn !== undefined && output.ImageArn !== null ? output.ImageArn : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1CreateImageVersionResponse = (
+  output: any,
+  context: __SerdeContext
+): CreateImageVersionResponse => {
+  return {
+    ImageVersionArn:
+      output.ImageVersionArn !== undefined && output.ImageVersionArn !== null ? output.ImageVersionArn : undefined,
   } as any;
 };
 
@@ -14817,6 +16182,24 @@ const deserializeAws_json1_1CreateWorkteamResponse = (output: any, context: __Se
 
 const deserializeAws_json1_1CsvContentTypes = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
+};
+
+const deserializeAws_json1_1CustomImage = (output: any, context: __SerdeContext): CustomImage => {
+  return {
+    AppImageConfigName:
+      output.AppImageConfigName !== undefined && output.AppImageConfigName !== null
+        ? output.AppImageConfigName
+        : undefined,
+    ImageName: output.ImageName !== undefined && output.ImageName !== null ? output.ImageName : undefined,
+    ImageVersionNumber:
+      output.ImageVersionNumber !== undefined && output.ImageVersionNumber !== null
+        ? output.ImageVersionNumber
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1CustomImages = (output: any, context: __SerdeContext): CustomImage[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1CustomImage(entry, context));
 };
 
 const deserializeAws_json1_1DataCaptureConfig = (output: any, context: __SerdeContext): DataCaptureConfig => {
@@ -14982,6 +16365,17 @@ const deserializeAws_json1_1DeleteHumanTaskUiResponse = (
   return {} as any;
 };
 
+const deserializeAws_json1_1DeleteImageResponse = (output: any, context: __SerdeContext): DeleteImageResponse => {
+  return {} as any;
+};
+
+const deserializeAws_json1_1DeleteImageVersionResponse = (
+  output: any,
+  context: __SerdeContext
+): DeleteImageVersionResponse => {
+  return {} as any;
+};
+
 const deserializeAws_json1_1DeleteTagsOutput = (output: any, context: __SerdeContext): DeleteTagsOutput => {
   return {} as any;
 };
@@ -15072,6 +16466,34 @@ const deserializeAws_json1_1DescribeAlgorithmOutput = (
     ValidationSpecification:
       output.ValidationSpecification !== undefined && output.ValidationSpecification !== null
         ? deserializeAws_json1_1AlgorithmValidationSpecification(output.ValidationSpecification, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1DescribeAppImageConfigResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeAppImageConfigResponse => {
+  return {
+    AppImageConfigArn:
+      output.AppImageConfigArn !== undefined && output.AppImageConfigArn !== null
+        ? output.AppImageConfigArn
+        : undefined,
+    AppImageConfigName:
+      output.AppImageConfigName !== undefined && output.AppImageConfigName !== null
+        ? output.AppImageConfigName
+        : undefined,
+    CreationTime:
+      output.CreationTime !== undefined && output.CreationTime !== null
+        ? new Date(Math.round(output.CreationTime * 1000))
+        : undefined,
+    KernelGatewayImageConfig:
+      output.KernelGatewayImageConfig !== undefined && output.KernelGatewayImageConfig !== null
+        ? deserializeAws_json1_1KernelGatewayImageConfig(output.KernelGatewayImageConfig, context)
+        : undefined,
+    LastModifiedTime:
+      output.LastModifiedTime !== undefined && output.LastModifiedTime !== null
+        ? new Date(Math.round(output.LastModifiedTime * 1000))
         : undefined,
   } as any;
 };
@@ -15523,6 +16945,56 @@ const deserializeAws_json1_1DescribeHyperParameterTuningJobResponse = (
       output.WarmStartConfig !== undefined && output.WarmStartConfig !== null
         ? deserializeAws_json1_1HyperParameterTuningJobWarmStartConfig(output.WarmStartConfig, context)
         : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1DescribeImageResponse = (output: any, context: __SerdeContext): DescribeImageResponse => {
+  return {
+    CreationTime:
+      output.CreationTime !== undefined && output.CreationTime !== null
+        ? new Date(Math.round(output.CreationTime * 1000))
+        : undefined,
+    Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
+    DisplayName: output.DisplayName !== undefined && output.DisplayName !== null ? output.DisplayName : undefined,
+    FailureReason:
+      output.FailureReason !== undefined && output.FailureReason !== null ? output.FailureReason : undefined,
+    ImageArn: output.ImageArn !== undefined && output.ImageArn !== null ? output.ImageArn : undefined,
+    ImageName: output.ImageName !== undefined && output.ImageName !== null ? output.ImageName : undefined,
+    ImageStatus: output.ImageStatus !== undefined && output.ImageStatus !== null ? output.ImageStatus : undefined,
+    LastModifiedTime:
+      output.LastModifiedTime !== undefined && output.LastModifiedTime !== null
+        ? new Date(Math.round(output.LastModifiedTime * 1000))
+        : undefined,
+    RoleArn: output.RoleArn !== undefined && output.RoleArn !== null ? output.RoleArn : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1DescribeImageVersionResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeImageVersionResponse => {
+  return {
+    BaseImage: output.BaseImage !== undefined && output.BaseImage !== null ? output.BaseImage : undefined,
+    ContainerImage:
+      output.ContainerImage !== undefined && output.ContainerImage !== null ? output.ContainerImage : undefined,
+    CreationTime:
+      output.CreationTime !== undefined && output.CreationTime !== null
+        ? new Date(Math.round(output.CreationTime * 1000))
+        : undefined,
+    FailureReason:
+      output.FailureReason !== undefined && output.FailureReason !== null ? output.FailureReason : undefined,
+    ImageArn: output.ImageArn !== undefined && output.ImageArn !== null ? output.ImageArn : undefined,
+    ImageVersionArn:
+      output.ImageVersionArn !== undefined && output.ImageVersionArn !== null ? output.ImageVersionArn : undefined,
+    ImageVersionStatus:
+      output.ImageVersionStatus !== undefined && output.ImageVersionStatus !== null
+        ? output.ImageVersionStatus
+        : undefined,
+    LastModifiedTime:
+      output.LastModifiedTime !== undefined && output.LastModifiedTime !== null
+        ? new Date(Math.round(output.LastModifiedTime * 1000))
+        : undefined,
+    Version: output.Version !== undefined && output.Version !== null ? output.Version : undefined,
   } as any;
 };
 
@@ -16429,6 +17901,14 @@ const deserializeAws_json1_1ExperimentSummary = (output: any, context: __SerdeCo
   } as any;
 };
 
+const deserializeAws_json1_1FileSystemConfig = (output: any, context: __SerdeContext): FileSystemConfig => {
+  return {
+    DefaultGid: output.DefaultGid !== undefined && output.DefaultGid !== null ? output.DefaultGid : undefined,
+    DefaultUid: output.DefaultUid !== undefined && output.DefaultUid !== null ? output.DefaultUid : undefined,
+    MountPath: output.MountPath !== undefined && output.MountPath !== null ? output.MountPath : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1FileSystemDataSource = (output: any, context: __SerdeContext): FileSystemDataSource => {
   return {
     DirectoryPath:
@@ -16966,6 +18446,26 @@ const deserializeAws_json1_1HyperParameterTuningJobWarmStartConfig = (
   } as any;
 };
 
+const deserializeAws_json1_1Image = (output: any, context: __SerdeContext): Image => {
+  return {
+    CreationTime:
+      output.CreationTime !== undefined && output.CreationTime !== null
+        ? new Date(Math.round(output.CreationTime * 1000))
+        : undefined,
+    Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
+    DisplayName: output.DisplayName !== undefined && output.DisplayName !== null ? output.DisplayName : undefined,
+    FailureReason:
+      output.FailureReason !== undefined && output.FailureReason !== null ? output.FailureReason : undefined,
+    ImageArn: output.ImageArn !== undefined && output.ImageArn !== null ? output.ImageArn : undefined,
+    ImageName: output.ImageName !== undefined && output.ImageName !== null ? output.ImageName : undefined,
+    ImageStatus: output.ImageStatus !== undefined && output.ImageStatus !== null ? output.ImageStatus : undefined,
+    LastModifiedTime:
+      output.LastModifiedTime !== undefined && output.LastModifiedTime !== null
+        ? new Date(Math.round(output.LastModifiedTime * 1000))
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1ImageConfig = (output: any, context: __SerdeContext): ImageConfig => {
   return {
     RepositoryAccessMode:
@@ -16973,6 +18473,37 @@ const deserializeAws_json1_1ImageConfig = (output: any, context: __SerdeContext)
         ? output.RepositoryAccessMode
         : undefined,
   } as any;
+};
+
+const deserializeAws_json1_1Images = (output: any, context: __SerdeContext): Image[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1Image(entry, context));
+};
+
+const deserializeAws_json1_1ImageVersion = (output: any, context: __SerdeContext): ImageVersion => {
+  return {
+    CreationTime:
+      output.CreationTime !== undefined && output.CreationTime !== null
+        ? new Date(Math.round(output.CreationTime * 1000))
+        : undefined,
+    FailureReason:
+      output.FailureReason !== undefined && output.FailureReason !== null ? output.FailureReason : undefined,
+    ImageArn: output.ImageArn !== undefined && output.ImageArn !== null ? output.ImageArn : undefined,
+    ImageVersionArn:
+      output.ImageVersionArn !== undefined && output.ImageVersionArn !== null ? output.ImageVersionArn : undefined,
+    ImageVersionStatus:
+      output.ImageVersionStatus !== undefined && output.ImageVersionStatus !== null
+        ? output.ImageVersionStatus
+        : undefined,
+    LastModifiedTime:
+      output.LastModifiedTime !== undefined && output.LastModifiedTime !== null
+        ? new Date(Math.round(output.LastModifiedTime * 1000))
+        : undefined,
+    Version: output.Version !== undefined && output.Version !== null ? output.Version : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ImageVersions = (output: any, context: __SerdeContext): ImageVersion[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1ImageVersion(entry, context));
 };
 
 const deserializeAws_json1_1InferenceSpecification = (output: any, context: __SerdeContext): InferenceSpecification => {
@@ -17065,11 +18596,42 @@ const deserializeAws_json1_1KernelGatewayAppSettings = (
   context: __SerdeContext
 ): KernelGatewayAppSettings => {
   return {
+    CustomImages:
+      output.CustomImages !== undefined && output.CustomImages !== null
+        ? deserializeAws_json1_1CustomImages(output.CustomImages, context)
+        : undefined,
     DefaultResourceSpec:
       output.DefaultResourceSpec !== undefined && output.DefaultResourceSpec !== null
         ? deserializeAws_json1_1ResourceSpec(output.DefaultResourceSpec, context)
         : undefined,
   } as any;
+};
+
+const deserializeAws_json1_1KernelGatewayImageConfig = (
+  output: any,
+  context: __SerdeContext
+): KernelGatewayImageConfig => {
+  return {
+    FileSystemConfig:
+      output.FileSystemConfig !== undefined && output.FileSystemConfig !== null
+        ? deserializeAws_json1_1FileSystemConfig(output.FileSystemConfig, context)
+        : undefined,
+    KernelSpecs:
+      output.KernelSpecs !== undefined && output.KernelSpecs !== null
+        ? deserializeAws_json1_1KernelSpecs(output.KernelSpecs, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1KernelSpec = (output: any, context: __SerdeContext): KernelSpec => {
+  return {
+    DisplayName: output.DisplayName !== undefined && output.DisplayName !== null ? output.DisplayName : undefined,
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1KernelSpecs = (output: any, context: __SerdeContext): KernelSpec[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1KernelSpec(entry, context));
 };
 
 const deserializeAws_json1_1LabelCounters = (output: any, context: __SerdeContext): LabelCounters => {
@@ -17317,6 +18879,19 @@ const deserializeAws_json1_1ListAlgorithmsOutput = (output: any, context: __Serd
   } as any;
 };
 
+const deserializeAws_json1_1ListAppImageConfigsResponse = (
+  output: any,
+  context: __SerdeContext
+): ListAppImageConfigsResponse => {
+  return {
+    AppImageConfigs:
+      output.AppImageConfigs !== undefined && output.AppImageConfigs !== null
+        ? deserializeAws_json1_1AppImageConfigList(output.AppImageConfigs, context)
+        : undefined,
+    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1ListAppsResponse = (output: any, context: __SerdeContext): ListAppsResponse => {
   return {
     Apps:
@@ -17456,6 +19031,29 @@ const deserializeAws_json1_1ListHyperParameterTuningJobsResponse = (
     HyperParameterTuningJobSummaries:
       output.HyperParameterTuningJobSummaries !== undefined && output.HyperParameterTuningJobSummaries !== null
         ? deserializeAws_json1_1HyperParameterTuningJobSummaries(output.HyperParameterTuningJobSummaries, context)
+        : undefined,
+    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ListImagesResponse = (output: any, context: __SerdeContext): ListImagesResponse => {
+  return {
+    Images:
+      output.Images !== undefined && output.Images !== null
+        ? deserializeAws_json1_1Images(output.Images, context)
+        : undefined,
+    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ListImageVersionsResponse = (
+  output: any,
+  context: __SerdeContext
+): ListImageVersionsResponse => {
+  return {
+    ImageVersions:
+      output.ImageVersions !== undefined && output.ImageVersions !== null
+        ? deserializeAws_json1_1ImageVersions(output.ImageVersions, context)
         : undefined,
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
   } as any;
@@ -18847,6 +20445,10 @@ const deserializeAws_json1_1ResourceSpec = (output: any, context: __SerdeContext
       output.SageMakerImageArn !== undefined && output.SageMakerImageArn !== null
         ? output.SageMakerImageArn
         : undefined,
+    SageMakerImageVersionArn:
+      output.SageMakerImageVersionArn !== undefined && output.SageMakerImageVersionArn !== null
+        ? output.SageMakerImageVersionArn
+        : undefined,
   } as any;
 };
 
@@ -19883,6 +21485,18 @@ const deserializeAws_json1_1UiTemplateInfo = (output: any, context: __SerdeConte
   } as any;
 };
 
+const deserializeAws_json1_1UpdateAppImageConfigResponse = (
+  output: any,
+  context: __SerdeContext
+): UpdateAppImageConfigResponse => {
+  return {
+    AppImageConfigArn:
+      output.AppImageConfigArn !== undefined && output.AppImageConfigArn !== null
+        ? output.AppImageConfigArn
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1UpdateCodeRepositoryOutput = (
   output: any,
   context: __SerdeContext
@@ -19923,6 +21537,12 @@ const deserializeAws_json1_1UpdateExperimentResponse = (
   return {
     ExperimentArn:
       output.ExperimentArn !== undefined && output.ExperimentArn !== null ? output.ExperimentArn : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1UpdateImageResponse = (output: any, context: __SerdeContext): UpdateImageResponse => {
+  return {
+    ImageArn: output.ImageArn !== undefined && output.ImageArn !== null ? output.ImageArn : undefined,
   } as any;
 };
 

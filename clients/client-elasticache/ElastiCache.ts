@@ -838,6 +838,8 @@ export class ElastiCache extends ElastiCacheClient {
    *             If you need to increase or decrease the number of node groups (console: shards),
    *             you can avail yourself of ElastiCache for Redis' scaling. For more information,
    *             see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Scaling.html">Scaling ElastiCache for Redis Clusters</a> in the <i>ElastiCache User Guide</i>.</p>
+   *
+   *
    *         <note>
    *             <p>This operation is valid for Redis only.</p>
    *          </note>
@@ -909,7 +911,7 @@ export class ElastiCache extends ElastiCacheClient {
   }
 
   /**
-   * <p>For Redis engine version 6.04 onwards: Creates a Redis user. For more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html">Using Role Based Access Control (RBAC)</a>.</p>
+   * <p>For Redis engine version 6.x onwards: Creates a Redis user. For more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html">Using Role Based Access Control (RBAC)</a>.</p>
    */
   public createUser(args: CreateUserCommandInput, options?: __HttpHandlerOptions): Promise<CreateUserCommandOutput>;
   public createUser(args: CreateUserCommandInput, cb: (err: any, data?: CreateUserCommandOutput) => void): void;
@@ -935,7 +937,7 @@ export class ElastiCache extends ElastiCacheClient {
   }
 
   /**
-   * <p>For Redis engine version 6.04 onwards: Creates a Redis user group. For more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html">Using Role Based Access Control (RBAC)</a>
+   * <p>For Redis engine version 6.x onwards: Creates a Redis user group. For more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html">Using Role Based Access Control (RBAC)</a>
    *          </p>
    */
   public createUserGroup(
@@ -2719,11 +2721,11 @@ export class ElastiCache extends ElastiCacheClient {
    *                      </p>
    *                   </li>
    *                   <li>
-   *                         <p>Cache cluster message: <code>Failover from master node <primary-node-id> to replica node <node-id> completed</code>
+   *                         <p>Cache cluster message: <code>Failover from primary node <primary-node-id> to replica node <node-id> completed</code>
    *                      </p>
    *                   </li>
    *                   <li>
-   *                         <p>Replication group message: <code>Failover from master node <primary-node-id> to replica node <node-id> completed</code>
+   *                         <p>Replication group message: <code>Failover from primary node <primary-node-id> to replica node <node-id> completed</code>
    *                      </p>
    *                   </li>
    *                   <li>
