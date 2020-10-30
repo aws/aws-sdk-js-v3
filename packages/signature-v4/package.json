@@ -2,9 +2,9 @@
   "name": "@aws-sdk/signature-v4",
   "version": "1.0.0-rc.3",
   "description": "A standalone implementation of the AWS Signature V4 request signing algorithm",
-  "main": "./dist/cjs/index.js",
-  "module": "./dist/es/index.js",
-  "types": "./dist/cjs/index.d.ts",
+  "main": "./dist-cjs/index.js",
+  "module": "./dist-es/index.js",
+  "types": "./dist-cjs/index.d.ts",
   "scripts": {
     "build:cjs": "tsc -p tsconfig.cjs.json",
     "build:es": "tsc -p tsconfig.es.json",

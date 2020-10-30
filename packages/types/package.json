@@ -1,9 +1,9 @@
 {
   "name": "@aws-sdk/types",
   "version": "1.0.0-rc.3",
-  "main": "./dist/cjs/index.js",
-  "module": "./dist/es/index.js",
-  "types": "./dist/cjs/index.d.ts",
+  "main": "./dist-cjs/index.js",
+  "module": "./dist-es/index.js",
+  "types": "./dist-cjs/index.d.ts",
   "description": "Types for the AWS SDK",
   "devDependencies": {
     "typescript": "~4.0.2"

@@ -1,8 +1,8 @@
 {
   "compilerOptions": {
     "rootDir": "./src",
-    "outDir": "./dist/cjs",
-    "declarationDir": "./dist/cjs",
+    "outDir": "./dist-cjs",
+    "declarationDir": "./dist-cjs",
     "noUnusedLocals": true,
     "baseUrl": "."
   },

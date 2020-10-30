@@ -6,7 +6,7 @@
     "declaration": true,
     "stripInternal": true,
     "rootDir": "./src",
-    "outDir": "./dist/es",
+    "outDir": "./dist-es",
     "importHelpers": true,
     "noEmitHelpers": true,
     "inlineSourceMap": true,

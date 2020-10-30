@@ -15,8 +15,8 @@
     "url": "https://aws.amazon.com/javascript/"
   },
   "license": "Apache-2.0",
-  "main": "./dist/cjs/index.js",
-  "module": "./dist/es/index.js",
+  "main": "./dist-cjs/index.js",
+  "module": "./dist-es/index.js",
   "dependencies": {
     "tslib": "^1.8.0"
   },
@@ -25,7 +25,7 @@
     "jest": "^26.1.0",
     "typescript": "~4.0.2"
   },
-  "types": "./dist/cjs/index.d.ts",
+  "types": "./dist-cjs/index.d.ts",
   "engines": {
     "node": ">= 10.0.0"
   },

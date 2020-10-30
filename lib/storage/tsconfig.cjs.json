@@ -6,7 +6,7 @@
     "declaration": true,
     "stripInternal": true,
     "rootDir": "./src",
-    "outDir": "./dist/cjs",
+    "outDir": "./dist-cjs",
     "importHelpers": true,
     "noEmitHelpers": true,
     "inlineSourceMap": true,

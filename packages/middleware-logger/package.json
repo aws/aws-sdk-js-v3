@@ -15,9 +15,9 @@
     "url": "https://aws.amazon.com/javascript/"
   },
   "license": "Apache-2.0",
-  "main": "./dist/cjs/index.js",
-  "module": "./dist/es/index.js",
-  "types": "./dist/cjs/index.d.ts",
+  "main": "./dist-cjs/index.js",
+  "module": "./dist-es/index.js",
+  "types": "./dist-cjs/index.d.ts",
   "dependencies": {
     "@aws-sdk/types": "1.0.0-rc.3",
     "tslib": "^1.8.0"
