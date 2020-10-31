@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/middleware-bucket-endpoint",
-  "version": "1.0.0-rc.3",
+  "version": "1.0.0-rc.4",
   "scripts": {
     "prepublishOnly": "yarn build:cjs && yarn build:es",
     "pretest": "yarn build:cjs",
@@ -24,7 +24,7 @@
     "tslib": "^1.8.0"
   },
   "devDependencies": {
-    "@aws-sdk/middleware-stack": "1.0.0-rc.3",
+    "@aws-sdk/middleware-stack": "1.0.0-rc.4",
     "@aws-sdk/node-config-provider": "1.0.0-rc.3",
     "@types/jest": "^26.0.4",
     "jest": "^26.1.0",
