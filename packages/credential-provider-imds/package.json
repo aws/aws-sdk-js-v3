@@ -23,7 +23,6 @@
   "license": "Apache-2.0",
   "dependencies": {
     "@aws-sdk/property-provider": "1.0.0-rc.3",
-    "@aws-sdk/types": "1.0.0-rc.3",
     "tslib": "^1.8.0"
   },
   "devDependencies": {
@@ -31,7 +30,8 @@
     "@types/node": "^10.0.0",
     "jest": "^26.1.0",
     "nock": "^13.0.2",
-    "typescript": "~4.0.2"
+    "typescript": "~4.0.2",
+    "@aws-sdk/types": "1.0.0-rc.3"
   },
   "types": "./dist/cjs/index.d.ts",
   "engines": {

@@ -19,7 +19,6 @@
   "license": "Apache-2.0",
   "dependencies": {
     "@aws-sdk/signature-v4": "1.0.0-rc.3",
-    "@aws-sdk/types": "1.0.0-rc.3",
     "@aws-sdk/util-format-url": "1.0.0-rc.4",
     "@aws-sdk/util-hex-encoding": "1.0.0-rc.3",
     "tslib": "^1.8.0"
@@ -31,7 +30,8 @@
     "@types/jest": "^26.0.4",
     "@types/node": "^12.0.2",
     "jest": "^26.1.0",
-    "typescript": "~4.0.2"
+    "typescript": "~4.0.2",
+    "@aws-sdk/types": "1.0.0-rc.3"
   },
   "engines": {
     "node": ">= 10.0.0"
