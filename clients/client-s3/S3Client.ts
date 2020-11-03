@@ -593,8 +593,8 @@ export type S3ClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>
   AwsAuthInputConfig &
   RetryInputConfig &
   UserAgentInputConfig &
-  BucketEndpointInputConfig &
   HostHeaderInputConfig &
+  BucketEndpointInputConfig &
   EventStreamSerdeInputConfig;
 
 export type S3ClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
@@ -604,8 +604,8 @@ export type S3ClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandler
   AwsAuthResolvedConfig &
   RetryResolvedConfig &
   UserAgentResolvedConfig &
-  BucketEndpointResolvedConfig &
   HostHeaderResolvedConfig &
+  BucketEndpointResolvedConfig &
   EventStreamSerdeResolvedConfig;
 
 /**
@@ -629,8 +629,8 @@ export class S3Client extends __Client<
     let _config_3 = resolveAwsAuthConfig(_config_2);
     let _config_4 = resolveRetryConfig(_config_3);
     let _config_5 = resolveUserAgentConfig(_config_4);
-    let _config_6 = resolveBucketEndpointConfig(_config_5);
-    let _config_7 = resolveHostHeaderConfig(_config_6);
+    let _config_6 = resolveHostHeaderConfig(_config_5);
+    let _config_7 = resolveBucketEndpointConfig(_config_6);
     let _config_8 = resolveEventStreamSerdeConfig(_config_7);
     super(_config_8);
     this.config = _config_8;
@@ -638,11 +638,11 @@ export class S3Client extends __Client<
     this.middlewareStack.use(getRetryPlugin(this.config));
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
+    this.middlewareStack.use(getHostHeaderPlugin(this.config));
+    this.middlewareStack.use(getLoggerPlugin(this.config));
     this.middlewareStack.use(getValidateBucketNamePlugin(this.config));
     this.middlewareStack.use(getUseRegionalEndpointPlugin(this.config));
     this.middlewareStack.use(getAddExpectContinuePlugin(this.config));
-    this.middlewareStack.use(getHostHeaderPlugin(this.config));
-    this.middlewareStack.use(getLoggerPlugin(this.config));
   }
 
   destroy(): void {

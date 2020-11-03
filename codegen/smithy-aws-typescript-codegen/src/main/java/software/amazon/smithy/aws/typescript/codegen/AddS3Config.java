@@ -15,30 +15,58 @@
 
 package software.amazon.smithy.aws.typescript.codegen;
 
+import static software.amazon.smithy.typescript.codegen.integration.RuntimeClientPlugin.Convention.HAS_CONFIG;
+import static software.amazon.smithy.typescript.codegen.integration.RuntimeClientPlugin.Convention.HAS_MIDDLEWARE;
+
 import java.util.Collections;
+import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.function.Consumer;
 
 import software.amazon.smithy.aws.traits.ServiceTrait;
 import software.amazon.smithy.codegen.core.SymbolProvider;
 import software.amazon.smithy.model.Model;
-import software.amazon.smithy.model.shapes.ServiceShape;
+import software.amazon.smithy.model.knowledge.OperationIndex;
+import software.amazon.smithy.model.shapes.OperationShape;
+import software.amazon.smithy.model.shapes.Shape;
 import software.amazon.smithy.typescript.codegen.LanguageTarget;
 import software.amazon.smithy.typescript.codegen.TypeScriptDependency;
 import software.amazon.smithy.typescript.codegen.TypeScriptSettings;
 import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
+import software.amazon.smithy.typescript.codegen.integration.RuntimeClientPlugin;
 import software.amazon.smithy.typescript.codegen.integration.TypeScriptIntegration;
+import software.amazon.smithy.utils.ListUtils;
 import software.amazon.smithy.utils.MapUtils;
+import software.amazon.smithy.utils.SetUtils;
 
 /**
  * AWS S3 client configuration.
  */
 public final class AddS3Config implements TypeScriptIntegration {
 
+    private static final Set<String> S3_MD5_OPERATIONS = SetUtils.of(
+        "DeleteObjects",
+        "PutBucketCors",
+        "PutBucketLifecycle",
+        "PutBucketLifecycleConfiguration",
+        "PutBucketPolicy",
+        "PutBucketTagging",
+        "PutBucketReplication"
+    );
+
+    private static final Set<String> SSEC_OPERATIONS = SetUtils.of("SSECustomerKey", "CopySourceSSECustomerKey");
+
+    private static final Set<String> NON_BUCKET_ENDPOINT_OPERATIONS = SetUtils.of(
+        "CreateBucket",
+        "DeleteBucket",
+        "ListBuckets"
+    );
+
     @Override
     public void addConfigInterfaceFields(TypeScriptSettings settings, Model model, SymbolProvider symbolProvider,
             TypeScriptWriter writer) {
-        if (!needsS3Config(settings.getService(model))) {
+        if (!testServiceId(settings.getService(model))) {
             return;
         }
         writer.writeDocs("Whether to escape request path when signing the request.")
@@ -53,7 +81,7 @@ public final class AddS3Config implements TypeScriptIntegration {
     @Override
     public Map<String, Consumer<TypeScriptWriter>> getRuntimeConfigWriters(TypeScriptSettings settings, Model model,
             SymbolProvider symbolProvider, LanguageTarget target) {
-        if (!needsS3Config(settings.getService(model))) {
+        if (!testServiceId(settings.getService(model))) {
             return Collections.emptyMap();
         }
         switch (target) {
@@ -77,8 +105,71 @@ public final class AddS3Config implements TypeScriptIntegration {
         }
     }
 
-    private static boolean needsS3Config(ServiceShape service) {
-        String serviceId = service.getTrait(ServiceTrait.class).map(ServiceTrait::getSdkId).orElse("");
-        return serviceId.equals("S3");
+    @Override
+    public List<RuntimeClientPlugin> getClientPlugins() {
+        return ListUtils.of(
+                RuntimeClientPlugin.builder()
+                        .withConventions(AwsDependency.S3_MIDDLEWARE.dependency, "ValidateBucketName",
+                             HAS_MIDDLEWARE)
+                        .servicePredicate((m, s) -> testServiceId(s))
+                        .build(),
+                RuntimeClientPlugin.builder()
+                        .withConventions(AwsDependency.S3_MIDDLEWARE.dependency, "UseRegionalEndpoint",
+                                        HAS_MIDDLEWARE)
+                        .servicePredicate((m, s) -> testServiceId(s))
+                        .build(),
+                RuntimeClientPlugin.builder()
+                        .withConventions(AwsDependency.ADD_EXPECT_CONTINUE.dependency, "AddExpectContinue",
+                                        HAS_MIDDLEWARE)
+                        .servicePredicate((m, s) -> testServiceId(s))
+                        .build(),
+                RuntimeClientPlugin.builder()
+                        .withConventions(AwsDependency.SSEC_MIDDLEWARE.dependency, "Ssec", HAS_MIDDLEWARE)
+                        .operationPredicate((m, s, o) -> testInputContainsMember(m, o, SSEC_OPERATIONS)
+                                            && testServiceId(s))
+                        .build(),
+                RuntimeClientPlugin.builder()
+                        .withConventions(AwsDependency.LOCATION_CONSTRAINT.dependency, "LocationConstraint",
+                                         HAS_MIDDLEWARE)
+                        .operationPredicate((m, s, o) -> o.getId().getName().equals("CreateBucket")
+                                            && testServiceId(s))
+                        .build(),
+                 /**
+                 * BUCKET_ENDPOINT_MIDDLEWARE needs two separate plugins. The first resolves the config in the client.
+                 * The second applies the middleware to bucket endpoint operations.
+                 */
+                RuntimeClientPlugin.builder()
+                        .withConventions(AwsDependency.BUCKET_ENDPOINT_MIDDLEWARE.dependency, "BucketEndpoint",
+                                         HAS_CONFIG)
+                        .servicePredicate((m, s) -> testServiceId(s))
+                        .build(),
+                RuntimeClientPlugin.builder()
+                        .withConventions(AwsDependency.BUCKET_ENDPOINT_MIDDLEWARE.dependency, "BucketEndpoint",
+                                         HAS_MIDDLEWARE)
+                        .operationPredicate((m, s, o) -> !NON_BUCKET_ENDPOINT_OPERATIONS.contains(o.getId().getName())
+                                            && testServiceId(s))
+                        .build(),
+                RuntimeClientPlugin.builder()
+                        .withConventions(AwsDependency.BODY_CHECKSUM.dependency, "ApplyMd5BodyChecksum",
+                                         HAS_MIDDLEWARE)
+                        .operationPredicate((m, s, o) -> S3_MD5_OPERATIONS.contains(o.getId().getName())
+                                            && testServiceId(s))
+                        .build()
+        );
+    }
+
+    private static boolean testInputContainsMember(
+        Model model,
+        OperationShape operationShape,
+        Set<String> expectedMemberNames
+    ) {
+        OperationIndex operationIndex = OperationIndex.of(model);
+        return operationIndex.getInput(operationShape)
+                .filter(input -> input.getMemberNames().stream().anyMatch(expectedMemberNames::contains))
+                .isPresent();
+    }
+
+    private static boolean testServiceId(Shape serviceShape) {
+        return serviceShape.getTrait(ServiceTrait.class).map(ServiceTrait::getSdkId).orElse("").equals("S3");
     }
 }
