@@ -40,8 +40,6 @@ import software.amazon.smithy.utils.SetUtils;
  */
 public class AddBuiltinPlugins implements TypeScriptIntegration {
 
-    private static final Set<String> SSEC_OPERATIONS = SetUtils.of("SSECustomerKey", "CopySourceSSECustomerKey");
-
     private static final Set<String> ROUTE_53_ID_MEMBERS = SetUtils.of("DelegationSetId", "HostedZoneId", "Id");
 
     private static final Set<String> RDS_PRESIGNED_URL_OPERATIONS = SetUtils.of(
@@ -49,22 +47,6 @@ public class AddBuiltinPlugins implements TypeScriptIntegration {
         "CreateDBInstanceReadReplica",
         "CreateDBCluster",
         "CopyDBClusterSnapshot"
-    );
-
-    private static final Set<String> S3_MD5_OPERATIONS = SetUtils.of(
-            "DeleteObjects",
-            "PutBucketCors",
-            "PutBucketLifecycle",
-            "PutBucketLifecycleConfiguration",
-            "PutBucketPolicy",
-            "PutBucketTagging",
-            "PutBucketReplication"
-    );
-
-    private static final Set<String> NON_BUCKET_ENDPOINT_OPERATIONS = SetUtils.of(
-            "CreateBucket",
-            "DeleteBucket",
-            "ListBuckets"
     );
 
     @Override
@@ -103,21 +85,6 @@ public class AddBuiltinPlugins implements TypeScriptIntegration {
                         .servicePredicate((m, s) -> testServiceId(s, "API Gateway"))
                         .build(),
                 RuntimeClientPlugin.builder()
-                        .withConventions(AwsDependency.S3_MIDDLEWARE.dependency, "ValidateBucketName",
-                                         HAS_MIDDLEWARE)
-                        .servicePredicate((m, s) -> testServiceId(s, "S3"))
-                        .build(),
-                RuntimeClientPlugin.builder()
-                        .withConventions(AwsDependency.S3_MIDDLEWARE.dependency, "UseRegionalEndpoint",
-                                         HAS_MIDDLEWARE)
-                        .servicePredicate((m, s) -> testServiceId(s, "S3"))
-                        .build(),
-                RuntimeClientPlugin.builder()
-                        .withConventions(AwsDependency.ADD_EXPECT_CONTINUE.dependency, "AddExpectContinue",
-                                         HAS_MIDDLEWARE)
-                        .servicePredicate((m, s) -> testServiceId(s, "S3"))
-                        .build(),
-                RuntimeClientPlugin.builder()
                         .withConventions(AwsDependency.GLACIER_MIDDLEWARE.dependency,
                                          "Glacier", HAS_MIDDLEWARE)
                         .servicePredicate((m, s) -> testServiceId(s, "Glacier"))
@@ -129,42 +96,10 @@ public class AddBuiltinPlugins implements TypeScriptIntegration {
                                             && testServiceId(s, "EC2"))
                         .build(),
                 RuntimeClientPlugin.builder()
-                        .withConventions(AwsDependency.SSEC_MIDDLEWARE.dependency, "Ssec", HAS_MIDDLEWARE)
-                        .operationPredicate((m, s, o) -> testInputContainsMember(m, o, SSEC_OPERATIONS)
-                                            && testServiceId(s, "S3"))
-                        .build(),
-                RuntimeClientPlugin.builder()
-                        .withConventions(AwsDependency.LOCATION_CONSTRAINT.dependency, "LocationConstraint",
-                                         HAS_MIDDLEWARE)
-                        .operationPredicate((m, s, o) -> o.getId().getName().equals("CreateBucket")
-                                            && testServiceId(s, "S3"))
-                        .build(),
-                RuntimeClientPlugin.builder()
                         .withConventions(AwsDependency.MACHINELEARNING_MIDDLEWARE.dependency, "PredictEndpoint",
                                 HAS_MIDDLEWARE)
                         .operationPredicate((m, s, o) -> o.getId().getName().equals("Predict")
                                             && testServiceId(s, "Machine Learning"))
-                        .build(),
-                /**
-                 * BUCKET_ENDPOINT_MIDDLEWARE needs two separate plugins. The first resolves the config in the client.
-                 * The second applies the middleware to bucket endpoint operations.
-                 */
-                RuntimeClientPlugin.builder()
-                        .withConventions(AwsDependency.BUCKET_ENDPOINT_MIDDLEWARE.dependency, "BucketEndpoint",
-                                         HAS_CONFIG)
-                        .servicePredicate((m, s) -> testServiceId(s, "S3"))
-                        .build(),
-                RuntimeClientPlugin.builder()
-                        .withConventions(AwsDependency.BUCKET_ENDPOINT_MIDDLEWARE.dependency, "BucketEndpoint",
-                                         HAS_MIDDLEWARE)
-                        .operationPredicate((m, s, o) -> !NON_BUCKET_ENDPOINT_OPERATIONS.contains(o.getId().getName())
-                                            && testServiceId(s, "S3"))
-                        .build(),
-                RuntimeClientPlugin.builder()
-                        .withConventions(AwsDependency.BODY_CHECKSUM.dependency, "ApplyMd5BodyChecksum",
-                                         HAS_MIDDLEWARE)
-                        .operationPredicate((m, s, o) -> S3_MD5_OPERATIONS.contains(o.getId().getName())
-                                            && testServiceId(s, "S3"))
                         .build(),
                 RuntimeClientPlugin.builder()
                         .withConventions(AwsDependency.ROUTE53_MIDDLEWARE.dependency,
