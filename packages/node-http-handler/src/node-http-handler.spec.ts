@@ -18,12 +18,12 @@ import {
 describe("NodeHttpHandler", () => {
   describe("constructor", () => {
     it("can set httpAgent and httpsAgent", () => {
-      let maxSockets = Math.round(Math.random() * 50);
+      let maxSockets = Math.round(Math.random() * 50) + 1;
       let nodeHttpHandler = new NodeHttpHandler({
         httpAgent: new http.Agent({ maxSockets }),
       });
       expect((nodeHttpHandler as any).httpAgent.maxSockets).toEqual(maxSockets);
-      maxSockets = Math.round(Math.random() * 50);
+      maxSockets = Math.round(Math.random() * 50) + 1;
       nodeHttpHandler = new NodeHttpHandler({
         httpsAgent: new https.Agent({ maxSockets }),
       });
