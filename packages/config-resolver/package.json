@@ -22,11 +22,11 @@
     "@types/jest": "^26.0.4",
     "jest": "^26.1.0",
     "tslib": "^1.8.0",
-    "typescript": "~4.0.2"
+    "typescript": "~4.0.2",
+    "@aws-sdk/types": "1.0.0-rc.3"
   },
   "dependencies": {
     "@aws-sdk/signature-v4": "1.0.0-rc.3",
-    "@aws-sdk/types": "1.0.0-rc.3",
     "tslib": "^1.8.0"
   },
   "engines": {
