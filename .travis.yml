@@ -1,9 +1,9 @@
 language: java
 
 jdk:
-- oraclejdk8
-- openjdk8
-- openjdk11
+  - oraclejdk8
+  - openjdk8
+  - openjdk11
 
 sudo: true
 
@@ -11,4 +11,6 @@ dist: trusty
 
 install: /bin/true
 
-script: ./codegen/gradlew clean smithy-aws-typescript-codegen:build protocol-test-codegen:build -Plog-tests
+before_script: cd codegen
+
+script: ./gradlew clean smithy-aws-typescript-codegen:build protocol-test-codegen:build -Plog-tests
