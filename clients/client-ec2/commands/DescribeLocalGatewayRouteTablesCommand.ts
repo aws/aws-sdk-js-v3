@@ -1,5 +1,6 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DescribeLocalGatewayRouteTablesRequest, DescribeLocalGatewayRouteTablesResult } from "../models/models_2";
+import { DescribeLocalGatewayRouteTablesRequest } from "../models/models_2";
+import { DescribeLocalGatewayRouteTablesResult } from "../models/models_3";
 import {
   deserializeAws_ec2DescribeLocalGatewayRouteTablesCommand,
   serializeAws_ec2DescribeLocalGatewayRouteTablesCommand,

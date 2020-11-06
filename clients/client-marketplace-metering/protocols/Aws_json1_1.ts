@@ -15,7 +15,9 @@ import {
   InvalidProductCodeException,
   InvalidPublicKeyVersionException,
   InvalidRegionException,
+  InvalidTagException,
   InvalidTokenException,
+  InvalidUsageAllocationsException,
   InvalidUsageDimensionException,
   MeterUsageRequest,
   MeterUsageResult,
@@ -24,8 +26,10 @@ import {
   RegisterUsageResult,
   ResolveCustomerRequest,
   ResolveCustomerResult,
+  Tag,
   ThrottlingException,
   TimestampOutOfBoundsException,
+  UsageAllocation,
   UsageRecord,
   UsageRecordResult,
 } from "../models/models_0";
@@ -153,6 +157,22 @@ const deserializeAws_json1_1BatchMeterUsageCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "InvalidTagException":
+    case "com.amazonaws.marketplacemetering#InvalidTagException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidTagExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidUsageAllocationsException":
+    case "com.amazonaws.marketplacemetering#InvalidUsageAllocationsException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidUsageAllocationsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "InvalidUsageDimensionException":
     case "com.amazonaws.marketplacemetering#InvalidUsageDimensionException":
       response = {
@@ -260,6 +280,22 @@ const deserializeAws_json1_1MeterUsageCommandError = async (
     case "com.amazonaws.marketplacemetering#InvalidProductCodeException":
       response = {
         ...(await deserializeAws_json1_1InvalidProductCodeExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidTagException":
+    case "com.amazonaws.marketplacemetering#InvalidTagException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidTagExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidUsageAllocationsException":
+    case "com.amazonaws.marketplacemetering#InvalidUsageAllocationsException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidUsageAllocationsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -653,6 +689,21 @@ const deserializeAws_json1_1InvalidRegionExceptionResponse = async (
   return contents;
 };
 
+const deserializeAws_json1_1InvalidTagExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<InvalidTagException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1InvalidTagException(body, context);
+  const contents: InvalidTagException = {
+    name: "InvalidTagException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
 const deserializeAws_json1_1InvalidTokenExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -661,6 +712,21 @@ const deserializeAws_json1_1InvalidTokenExceptionResponse = async (
   const deserialized: any = deserializeAws_json1_1InvalidTokenException(body, context);
   const contents: InvalidTokenException = {
     name: "InvalidTokenException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
+const deserializeAws_json1_1InvalidUsageAllocationsExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<InvalidUsageAllocationsException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1InvalidUsageAllocationsException(body, context);
+  const contents: InvalidUsageAllocationsException = {
+    name: "InvalidUsageAllocationsException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -742,6 +808,9 @@ const serializeAws_json1_1MeterUsageRequest = (input: MeterUsageRequest, context
     ...(input.DryRun !== undefined && { DryRun: input.DryRun }),
     ...(input.ProductCode !== undefined && { ProductCode: input.ProductCode }),
     ...(input.Timestamp !== undefined && { Timestamp: Math.round(input.Timestamp.getTime() / 1000) }),
+    ...(input.UsageAllocations !== undefined && {
+      UsageAllocations: serializeAws_json1_1UsageAllocations(input.UsageAllocations, context),
+    }),
     ...(input.UsageDimension !== undefined && { UsageDimension: input.UsageDimension }),
     ...(input.UsageQuantity !== undefined && { UsageQuantity: input.UsageQuantity }),
   };
@@ -761,12 +830,37 @@ const serializeAws_json1_1ResolveCustomerRequest = (input: ResolveCustomerReques
   };
 };
 
+const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
+  return {
+    ...(input.Key !== undefined && { Key: input.Key }),
+    ...(input.Value !== undefined && { Value: input.Value }),
+  };
+};
+
+const serializeAws_json1_1TagList = (input: Tag[], context: __SerdeContext): any => {
+  return input.map((entry) => serializeAws_json1_1Tag(entry, context));
+};
+
+const serializeAws_json1_1UsageAllocation = (input: UsageAllocation, context: __SerdeContext): any => {
+  return {
+    ...(input.AllocatedUsageQuantity !== undefined && { AllocatedUsageQuantity: input.AllocatedUsageQuantity }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+  };
+};
+
+const serializeAws_json1_1UsageAllocations = (input: UsageAllocation[], context: __SerdeContext): any => {
+  return input.map((entry) => serializeAws_json1_1UsageAllocation(entry, context));
+};
+
 const serializeAws_json1_1UsageRecord = (input: UsageRecord, context: __SerdeContext): any => {
   return {
     ...(input.CustomerIdentifier !== undefined && { CustomerIdentifier: input.CustomerIdentifier }),
     ...(input.Dimension !== undefined && { Dimension: input.Dimension }),
     ...(input.Quantity !== undefined && { Quantity: input.Quantity }),
     ...(input.Timestamp !== undefined && { Timestamp: Math.round(input.Timestamp.getTime() / 1000) }),
+    ...(input.UsageAllocations !== undefined && {
+      UsageAllocations: serializeAws_json1_1UsageAllocations(input.UsageAllocations, context),
+    }),
   };
 };
 
@@ -868,7 +962,22 @@ const deserializeAws_json1_1InvalidRegionException = (output: any, context: __Se
   } as any;
 };
 
+const deserializeAws_json1_1InvalidTagException = (output: any, context: __SerdeContext): InvalidTagException => {
+  return {
+    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1InvalidTokenException = (output: any, context: __SerdeContext): InvalidTokenException => {
+  return {
+    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1InvalidUsageAllocationsException = (
+  output: any,
+  context: __SerdeContext
+): InvalidUsageAllocationsException => {
   return {
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
@@ -919,6 +1028,17 @@ const deserializeAws_json1_1ResolveCustomerResult = (output: any, context: __Ser
   } as any;
 };
 
+const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {
+  return {
+    Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
+    Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1TagList = (output: any, context: __SerdeContext): Tag[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1Tag(entry, context));
+};
+
 const deserializeAws_json1_1ThrottlingException = (output: any, context: __SerdeContext): ThrottlingException => {
   return {
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
@@ -934,6 +1054,23 @@ const deserializeAws_json1_1TimestampOutOfBoundsException = (
   } as any;
 };
 
+const deserializeAws_json1_1UsageAllocation = (output: any, context: __SerdeContext): UsageAllocation => {
+  return {
+    AllocatedUsageQuantity:
+      output.AllocatedUsageQuantity !== undefined && output.AllocatedUsageQuantity !== null
+        ? output.AllocatedUsageQuantity
+        : undefined,
+    Tags:
+      output.Tags !== undefined && output.Tags !== null
+        ? deserializeAws_json1_1TagList(output.Tags, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1UsageAllocations = (output: any, context: __SerdeContext): UsageAllocation[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1UsageAllocation(entry, context));
+};
+
 const deserializeAws_json1_1UsageRecord = (output: any, context: __SerdeContext): UsageRecord => {
   return {
     CustomerIdentifier:
@@ -945,6 +1082,10 @@ const deserializeAws_json1_1UsageRecord = (output: any, context: __SerdeContext)
     Timestamp:
       output.Timestamp !== undefined && output.Timestamp !== null
         ? new Date(Math.round(output.Timestamp * 1000))
+        : undefined,
+    UsageAllocations:
+      output.UsageAllocations !== undefined && output.UsageAllocations !== null
+        ? deserializeAws_json1_1UsageAllocations(output.UsageAllocations, context)
         : undefined,
   } as any;
 };

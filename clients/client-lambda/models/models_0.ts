@@ -7,18 +7,6 @@ import { Readable } from "stream";
  */
 export interface AccountLimit {
   /**
-   * <p>The maximum size of a deployment package when it's uploaded directly to AWS Lambda. Use Amazon S3 for larger
-   *       files.</p>
-   */
-  CodeSizeZipped?: number;
-
-  /**
-   * <p>The maximum number of simultaneous function executions, minus the capacity that's reserved for individual
-   *       functions with <a>PutFunctionConcurrency</a>.</p>
-   */
-  UnreservedConcurrentExecutions?: number;
-
-  /**
    * <p>The amount of storage space that you can use for all deployment packages and layer archives.</p>
    */
   TotalCodeSize?: number;
@@ -29,9 +17,21 @@ export interface AccountLimit {
   CodeSizeUnzipped?: number;
 
   /**
+   * <p>The maximum size of a deployment package when it's uploaded directly to AWS Lambda. Use Amazon S3 for larger
+   *       files.</p>
+   */
+  CodeSizeZipped?: number;
+
+  /**
    * <p>The maximum number of simultaneous function executions.</p>
    */
   ConcurrentExecutions?: number;
+
+  /**
+   * <p>The maximum number of simultaneous function executions, minus the capacity that's reserved for individual
+   *       functions with <a>PutFunctionConcurrency</a>.</p>
+   */
+  UnreservedConcurrentExecutions?: number;
 }
 
 export namespace AccountLimit {
@@ -63,28 +63,6 @@ export namespace AccountUsage {
 
 export interface AddLayerVersionPermissionRequest {
   /**
-   * <p>Only update the policy if the revision ID matches the ID specified. Use this option to avoid modifying a
-   *       policy that has changed since you last read it.</p>
-   */
-  RevisionId?: string;
-
-  /**
-   * <p>An account ID, or <code>*</code> to grant permission to all AWS accounts.</p>
-   */
-  Principal: string | undefined;
-
-  /**
-   * <p>An identifier that distinguishes the policy from others on the same layer version.</p>
-   */
-  StatementId: string | undefined;
-
-  /**
-   * <p>With the principal set to <code>*</code>, grant permission to all accounts in the specified
-   *       organization.</p>
-   */
-  OrganizationId?: string;
-
-  /**
    * <p>The name or Amazon Resource Name (ARN) of the layer.</p>
    */
   LayerName: string | undefined;
@@ -95,9 +73,31 @@ export interface AddLayerVersionPermissionRequest {
   VersionNumber: number | undefined;
 
   /**
+   * <p>An identifier that distinguishes the policy from others on the same layer version.</p>
+   */
+  StatementId: string | undefined;
+
+  /**
    * <p>The API action that grants access to the layer. For example, <code>lambda:GetLayerVersion</code>.</p>
    */
   Action: string | undefined;
+
+  /**
+   * <p>An account ID, or <code>*</code> to grant permission to all AWS accounts.</p>
+   */
+  Principal: string | undefined;
+
+  /**
+   * <p>With the principal set to <code>*</code>, grant permission to all accounts in the specified
+   *       organization.</p>
+   */
+  OrganizationId?: string;
+
+  /**
+   * <p>Only update the policy if the revision ID matches the ID specified. Use this option to avoid modifying a
+   *       policy that has changed since you last read it.</p>
+   */
+  RevisionId?: string;
 }
 
 export namespace AddLayerVersionPermissionRequest {
@@ -131,14 +131,14 @@ export interface InvalidParameterValueException extends __SmithyException, $Meta
   name: "InvalidParameterValueException";
   $fault: "client";
   /**
-   * <p>The exception message.</p>
-   */
-  message?: string;
-
-  /**
    * <p>The exception type.</p>
    */
   Type?: string;
+
+  /**
+   * <p>The exception message.</p>
+   */
+  message?: string;
 }
 
 export namespace InvalidParameterValueException {
@@ -196,14 +196,14 @@ export interface ResourceConflictException extends __SmithyException, $MetadataB
   name: "ResourceConflictException";
   $fault: "client";
   /**
-   * <p>The exception message.</p>
-   */
-  message?: string;
-
-  /**
    * <p>The exception type.</p>
    */
   Type?: string;
+
+  /**
+   * <p>The exception message.</p>
+   */
+  message?: string;
 }
 
 export namespace ResourceConflictException {
@@ -234,8 +234,8 @@ export namespace ResourceNotFoundException {
 export interface ServiceException extends __SmithyException, $MetadataBearer {
   name: "ServiceException";
   $fault: "server";
-  Message?: string;
   Type?: string;
+  Message?: string;
 }
 
 export namespace ServiceException {
@@ -264,8 +264,8 @@ export interface TooManyRequestsException extends __SmithyException, $MetadataBe
   retryAfterSeconds?: string;
 
   Type?: string;
-  Reason?: ThrottleReason | string;
   message?: string;
+  Reason?: ThrottleReason | string;
 }
 
 export namespace TooManyRequestsException {
@@ -275,52 +275,6 @@ export namespace TooManyRequestsException {
 }
 
 export interface AddPermissionRequest {
-  /**
-   * <p>For Alexa Smart Home functions, a token that must be supplied by the invoker.</p>
-   */
-  EventSourceToken?: string;
-
-  /**
-   * <p>Specify a version or alias to add permissions to a published version of the function.</p>
-   */
-  Qualifier?: string;
-
-  /**
-   * <p>The action that the principal can use on the function. For example, <code>lambda:InvokeFunction</code> or
-   *         <code>lambda:GetFunction</code>.</p>
-   */
-  Action: string | undefined;
-
-  /**
-   * <p>For AWS services, the ARN of the AWS resource that invokes the function. For example, an Amazon S3 bucket or
-   *       Amazon SNS topic.</p>
-   */
-  SourceArn?: string;
-
-  /**
-   * <p>For Amazon S3, the ID of the account that owns the resource. Use this together with <code>SourceArn</code> to
-   *       ensure that the resource is owned by the specified account. It is possible for an Amazon S3 bucket to be deleted
-   *       by its owner and recreated by another account.</p>
-   */
-  SourceAccount?: string;
-
-  /**
-   * <p>A statement identifier that differentiates the statement from others in the same policy.</p>
-   */
-  StatementId: string | undefined;
-
-  /**
-   * <p>Only update the policy if the revision ID matches the ID that's specified. Use this option to avoid modifying a
-   *       policy that has changed since you last read it.</p>
-   */
-  RevisionId?: string;
-
-  /**
-   * <p>The AWS service or account that invokes the function. If you specify a service, use <code>SourceArn</code> or
-   *         <code>SourceAccount</code> to limit who can invoke the function through that service.</p>
-   */
-  Principal: string | undefined;
-
   /**
    * <p>The name of the Lambda function, version, or alias.</p>
    *          <p class="title">
@@ -344,6 +298,52 @@ export interface AddPermissionRequest {
    *       If you specify only the function name, it is limited to 64 characters in length.</p>
    */
   FunctionName: string | undefined;
+
+  /**
+   * <p>A statement identifier that differentiates the statement from others in the same policy.</p>
+   */
+  StatementId: string | undefined;
+
+  /**
+   * <p>The action that the principal can use on the function. For example, <code>lambda:InvokeFunction</code> or
+   *         <code>lambda:GetFunction</code>.</p>
+   */
+  Action: string | undefined;
+
+  /**
+   * <p>The AWS service or account that invokes the function. If you specify a service, use <code>SourceArn</code> or
+   *         <code>SourceAccount</code> to limit who can invoke the function through that service.</p>
+   */
+  Principal: string | undefined;
+
+  /**
+   * <p>For AWS services, the ARN of the AWS resource that invokes the function. For example, an Amazon S3 bucket or
+   *       Amazon SNS topic.</p>
+   */
+  SourceArn?: string;
+
+  /**
+   * <p>For Amazon S3, the ID of the account that owns the resource. Use this together with <code>SourceArn</code> to
+   *       ensure that the resource is owned by the specified account. It is possible for an Amazon S3 bucket to be deleted
+   *       by its owner and recreated by another account.</p>
+   */
+  SourceAccount?: string;
+
+  /**
+   * <p>For Alexa Smart Home functions, a token that must be supplied by the invoker.</p>
+   */
+  EventSourceToken?: string;
+
+  /**
+   * <p>Specify a version or alias to add permissions to a published version of the function.</p>
+   */
+  Qualifier?: string;
+
+  /**
+   * <p>Only update the policy if the revision ID matches the ID that's specified. Use this option to avoid modifying a
+   *       policy that has changed since you last read it.</p>
+   */
+  RevisionId?: string;
 }
 
 export namespace AddPermissionRequest {
@@ -391,6 +391,11 @@ export interface AliasConfiguration {
   AliasArn?: string;
 
   /**
+   * <p>The name of the alias.</p>
+   */
+  Name?: string;
+
+  /**
    * <p>The function version that the alias invokes.</p>
    */
   FunctionVersion?: string;
@@ -401,20 +406,15 @@ export interface AliasConfiguration {
   Description?: string;
 
   /**
-   * <p>A unique identifier that changes when you update the alias.</p>
-   */
-  RevisionId?: string;
-
-  /**
    * <p>The <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-traffic-shifting-using-aliases.html">routing
    *         configuration</a> of the alias.</p>
    */
   RoutingConfig?: AliasRoutingConfiguration;
 
   /**
-   * <p>The name of the alias.</p>
+   * <p>A unique identifier that changes when you update the alias.</p>
    */
-  Name?: string;
+  RevisionId?: string;
 }
 
 export namespace AliasConfiguration {
@@ -424,22 +424,6 @@ export namespace AliasConfiguration {
 }
 
 export interface CreateAliasRequest {
-  /**
-   * <p>The name of the alias.</p>
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>The <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html#configuring-alias-routing">routing
-   *         configuration</a> of the alias.</p>
-   */
-  RoutingConfig?: AliasRoutingConfiguration;
-
-  /**
-   * <p>A description of the alias.</p>
-   */
-  Description?: string;
-
   /**
    * <p>The name of the Lambda function.</p>
    *          <p class="title">
@@ -465,9 +449,25 @@ export interface CreateAliasRequest {
   FunctionName: string | undefined;
 
   /**
+   * <p>The name of the alias.</p>
+   */
+  Name: string | undefined;
+
+  /**
    * <p>The function version that the alias invokes.</p>
    */
   FunctionVersion: string | undefined;
+
+  /**
+   * <p>A description of the alias.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html#configuring-alias-routing">routing
+   *         configuration</a> of the alias.</p>
+   */
+  RoutingConfig?: AliasRoutingConfiguration;
 }
 
 export namespace CreateAliasRequest {
@@ -513,18 +513,65 @@ export namespace OnSuccess {
  */
 export interface DestinationConfig {
   /**
-   * <p>The destination configuration for failed invocations.</p>
-   */
-  OnFailure?: OnFailure;
-
-  /**
    * <p>The destination configuration for successful invocations.</p>
    */
   OnSuccess?: OnSuccess;
+
+  /**
+   * <p>The destination configuration for failed invocations.</p>
+   */
+  OnFailure?: OnFailure;
 }
 
 export namespace DestinationConfig {
   export const filterSensitiveLog = (obj: DestinationConfig): any => ({
+    ...obj,
+  });
+}
+
+export enum SourceAccessType {
+  BASIC_AUTH = "BASIC_AUTH",
+}
+
+/**
+ * <p>
+ *       (MQ) The Secrets Manager secret that stores your broker credentials. To store your secret, use the following format:
+ *       <code>	  {
+ *         "username": "your username",
+ *         "password": "your password"
+ *         }</code>
+ *          </p>
+ */
+export interface SourceAccessConfiguration {
+  /**
+   * <p>To reference the secret, use the following format:
+   *       <code>[
+   *         {
+   *         "Type": "BASIC_AUTH",
+   *         "URI": "secretARN"
+   *         }
+   *         ]</code>
+   *          </p>
+   *          <p>The value of <code>Type</code> is always <code>BASIC_AUTH</code>. To encrypt the secret, you can use customer or service managed keys. When using a customer managed KMS key, the Lambda execution role requires <code>kms:Decrypt</code> permissions.</p>
+   */
+  Type?: SourceAccessType | string;
+
+  /**
+   * <p>To reference the secret, use the following format:
+   *       <code>[
+   *         {
+   *         "Type": "BASIC_AUTH",
+   *         "URI": "secretARN"
+   *         }
+   *         ]</code>
+   *          </p>
+   *          <p>The value of <code>Type</code> is always <code>BASIC_AUTH</code>. To encrypt the secret, you can use customer or service managed keys. When using a customer managed KMS key, the Lambda execution role requires <code>kms:Decrypt</code> permissions.</p>
+   */
+  URI?: string;
+}
+
+export namespace SourceAccessConfiguration {
+  export const filterSensitiveLog = (obj: SourceAccessConfiguration): any => ({
     ...obj,
   });
 }
@@ -536,23 +583,6 @@ export enum EventSourcePosition {
 }
 
 export interface CreateEventSourceMappingRequest {
-  /**
-   * <p>If true, the event source mapping is active. Set to false to pause polling and invocation.</p>
-   */
-  Enabled?: boolean;
-
-  /**
-   * <p>(Streams) Discard records after the specified number of retries. The default value is infinite (-1). When set to infinite (-1), failed records will be retried until the record expires.</p>
-   */
-  MaximumRetryAttempts?: number;
-
-  /**
-   * <p>
-   *       (MSK) The name of the Kafka topic.
-   *     </p>
-   */
-  Topics?: string[];
-
   /**
    * <p>The Amazon Resource Name (ARN) of the event source.</p>
    *          <ul>
@@ -575,29 +605,6 @@ export interface CreateEventSourceMappingRequest {
    *          </ul>
    */
   EventSourceArn: string | undefined;
-
-  /**
-   * <p>The maximum number of items to retrieve in a single batch.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <b>Amazon Kinesis</b> - Default 100. Max 10,000.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>Amazon DynamoDB Streams</b> - Default 100. Max 1,000.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>Amazon Simple Queue Service</b> - Default 10. Max 10.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>Amazon Managed Streaming for Apache Kafka</b> - Default 100. Max 10,000.</p>
-   *             </li>
-   *          </ul>
-   */
-  BatchSize?: number;
 
   /**
    * <p>The name of the Lambda function.</p>
@@ -628,14 +635,42 @@ export interface CreateEventSourceMappingRequest {
   FunctionName: string | undefined;
 
   /**
+   * <p>If true, the event source mapping is active. Set to false to pause polling and invocation.</p>
+   */
+  Enabled?: boolean;
+
+  /**
+   * <p>The maximum number of items to retrieve in a single batch.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <b>Amazon Kinesis</b> - Default 100. Max 10,000.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>Amazon DynamoDB Streams</b> - Default 100. Max 1,000.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>Amazon Simple Queue Service</b> - Default 10. Max 10.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>Amazon Managed Streaming for Apache Kafka</b> - Default 100. Max 10,000.</p>
+   *             </li>
+   *          </ul>
+   */
+  BatchSize?: number;
+
+  /**
+   * <p>(Streams) The maximum amount of time to gather records before invoking the function, in seconds.</p>
+   */
+  MaximumBatchingWindowInSeconds?: number;
+
+  /**
    * <p>(Streams) The number of batches to process from each shard concurrently.</p>
    */
   ParallelizationFactor?: number;
-
-  /**
-   * <p>(Streams) If the function returns an error, split the batch in two and retry.</p>
-   */
-  BisectBatchOnFunctionError?: boolean;
 
   /**
    * <p>The position in a stream from which to start reading. Required for Amazon Kinesis, Amazon DynamoDB, and Amazon MSK Streams
@@ -644,25 +679,65 @@ export interface CreateEventSourceMappingRequest {
   StartingPosition?: EventSourcePosition | string;
 
   /**
-   * <p>(Streams) An Amazon SQS queue or Amazon SNS topic destination for discarded records.</p>
-   */
-  DestinationConfig?: DestinationConfig;
-
-  /**
-   * <p>(Streams) The maximum amount of time to gather records before invoking the function, in seconds.</p>
-   */
-  MaximumBatchingWindowInSeconds?: number;
-
-  /**
    * <p>With <code>StartingPosition</code> set to <code>AT_TIMESTAMP</code>, the time from which to start
    *       reading.</p>
    */
   StartingPositionTimestamp?: Date;
 
   /**
+   * <p>(Streams) An Amazon SQS queue or Amazon SNS topic destination for discarded records.</p>
+   */
+  DestinationConfig?: DestinationConfig;
+
+  /**
    * <p>(Streams) Discard records older than the specified age. The default value is infinite (-1).</p>
    */
   MaximumRecordAgeInSeconds?: number;
+
+  /**
+   * <p>(Streams) If the function returns an error, split the batch in two and retry.</p>
+   */
+  BisectBatchOnFunctionError?: boolean;
+
+  /**
+   * <p>(Streams) Discard records after the specified number of retries. The default value is infinite (-1). When set to infinite (-1), failed records will be retried until the record expires.</p>
+   */
+  MaximumRetryAttempts?: number;
+
+  /**
+   * <p>
+   *       (MSK) The name of the Kafka topic.
+   *     </p>
+   */
+  Topics?: string[];
+
+  /**
+   * <p>
+   *       (MQ) The name of the Amazon MQ broker destination queue to consume.
+   *     </p>
+   */
+  Queues?: string[];
+
+  /**
+   * <p>
+   *       (MQ) The Secrets Manager secret that stores your broker credentials. To store your secret, use the following format:
+   *       <code>	  {
+   *         "username": "your username",
+   *         "password": "your password"
+   *         }</code>
+   *          </p>
+   *
+   *          <p>To reference the secret, use the following format:
+   *       <code>[
+   *         {
+   *         "Type": "BASIC_AUTH",
+   *         "URI": "secretARN"
+   *         }
+   *         ]</code>
+   *          </p>
+   *          <p>The value of <code>Type</code> is always <code>BASIC_AUTH</code>. To encrypt the secret, you can use customer or service managed keys. When using a customer managed KMS key, the Lambda execution role requires <code>kms:Decrypt</code> permissions.</p>
+   */
+  SourceAccessConfigurations?: SourceAccessConfiguration[];
 }
 
 export namespace CreateEventSourceMappingRequest {
@@ -677,16 +752,9 @@ export namespace CreateEventSourceMappingRequest {
  */
 export interface EventSourceMappingConfiguration {
   /**
-   * <p>
-   *       (MSK) The name of the Kafka topic.
-   *     </p>
+   * <p>The identifier of the event source mapping.</p>
    */
-  Topics?: string[];
-
-  /**
-   * <p>The ARN of the Lambda function.</p>
-   */
-  FunctionArn?: string;
+  UUID?: string;
 
   /**
    * <p>The maximum number of items to retrieve in a single batch.</p>
@@ -694,7 +762,12 @@ export interface EventSourceMappingConfiguration {
   BatchSize?: number;
 
   /**
-   * <p>(Streams) The number of batches to process from each shard concurrently.</p>
+   * <p>(Streams) The maximum amount of time to gather records before invoking the function, in seconds. The default value is zero.</p>
+   */
+  MaximumBatchingWindowInSeconds?: number;
+
+  /**
+   * <p>(Streams) The number of batches to process from each shard concurrently. The default value is 1.</p>
    */
   ParallelizationFactor?: number;
 
@@ -704,19 +777,19 @@ export interface EventSourceMappingConfiguration {
   EventSourceArn?: string;
 
   /**
+   * <p>The ARN of the Lambda function.</p>
+   */
+  FunctionArn?: string;
+
+  /**
    * <p>The date that the event source mapping was last updated, or its state changed.</p>
    */
   LastModified?: Date;
 
   /**
-   * <p>(Streams) An Amazon SQS queue or Amazon SNS topic destination for discarded records.</p>
+   * <p>The result of the last AWS Lambda invocation of your Lambda function.</p>
    */
-  DestinationConfig?: DestinationConfig;
-
-  /**
-   * <p>(Streams) If the function returns an error, split the batch in two and retry.</p>
-   */
-  BisectBatchOnFunctionError?: boolean;
+  LastProcessingResult?: string;
 
   /**
    * <p>The state of the event source mapping. It can be one of the following: <code>Creating</code>,
@@ -726,35 +799,65 @@ export interface EventSourceMappingConfiguration {
   State?: string;
 
   /**
-   * <p>(Streams) The maximum age of a record that Lambda sends to a function for processing.</p>
-   */
-  MaximumRecordAgeInSeconds?: number;
-
-  /**
-   * <p>(Streams) The maximum amount of time to gather records before invoking the function, in seconds.</p>
-   */
-  MaximumBatchingWindowInSeconds?: number;
-
-  /**
-   * <p>The identifier of the event source mapping.</p>
-   */
-  UUID?: string;
-
-  /**
-   * <p>The result of the last AWS Lambda invocation of your Lambda function.</p>
-   */
-  LastProcessingResult?: string;
-
-  /**
-   * <p>(Streams) The maximum number of times to retry when the function returns an error.</p>
-   */
-  MaximumRetryAttempts?: number;
-
-  /**
    * <p>Indicates whether the last change to the event source mapping was made by a user, or by the Lambda
    *       service.</p>
    */
   StateTransitionReason?: string;
+
+  /**
+   * <p>(Streams) An Amazon SQS queue or Amazon SNS topic destination for discarded records.</p>
+   */
+  DestinationConfig?: DestinationConfig;
+
+  /**
+   * <p>
+   *       (MSK) The name of the Kafka topic to consume.
+   *     </p>
+   */
+  Topics?: string[];
+
+  /**
+   * <p>
+   *       (MQ) The name of the Amazon MQ broker destination queue to consume.
+   *     </p>
+   */
+  Queues?: string[];
+
+  /**
+   * <p>
+   *       (MQ) The Secrets Manager secret that stores your broker credentials. To store your secret, use the following format:
+   *       <code>	  {
+   *         "username": "your username",
+   *         "password": "your password"
+   *         }</code>
+   *          </p>
+   *
+   *          <p>To reference the secret, use the following format:
+   *       <code>[
+   *         {
+   *         "Type": "BASIC_AUTH",
+   *         "URI": "secretARN"
+   *         }
+   *         ]</code>
+   *          </p>
+   *          <p>The value of <code>Type</code> is always <code>BASIC_AUTH</code>. To encrypt the secret, you can use customer or service managed keys. When using a customer managed KMS key, the Lambda execution role requires <code>kms:Decrypt</code> permissions.</p>
+   */
+  SourceAccessConfigurations?: SourceAccessConfiguration[];
+
+  /**
+   * <p>(Streams) Discard records older than the specified age. The default value is infinite (-1). When set to infinite (-1), failed records are retried until the record expires.</p>
+   */
+  MaximumRecordAgeInSeconds?: number;
+
+  /**
+   * <p>(Streams) If the function returns an error, split the batch in two and retry. The default value is false.</p>
+   */
+  BisectBatchOnFunctionError?: boolean;
+
+  /**
+   * <p>(Streams) Discard records after the specified number of retries. The default value is infinite (-1). When set to infinite (-1), failed records are retried until the record expires.</p>
+   */
+  MaximumRetryAttempts?: number;
 }
 
 export namespace EventSourceMappingConfiguration {
@@ -796,11 +899,6 @@ export interface FunctionCode {
   ZipFile?: Uint8Array;
 
   /**
-   * <p>For versioned objects, the version of the deployment package object to use.</p>
-   */
-  S3ObjectVersion?: string;
-
-  /**
    * <p>An Amazon S3 bucket in the same AWS Region as your function. The bucket can be in a different AWS account.</p>
    */
   S3Bucket?: string;
@@ -809,6 +907,11 @@ export interface FunctionCode {
    * <p>The Amazon S3 key of the deployment package.</p>
    */
   S3Key?: string;
+
+  /**
+   * <p>For versioned objects, the version of the deployment package object to use.</p>
+   */
+  S3ObjectVersion?: string;
 }
 
 export namespace FunctionCode {
@@ -857,14 +960,14 @@ export namespace Environment {
  */
 export interface FileSystemConfig {
   /**
-   * <p>The path where the function can access the file system, starting with <code>/mnt/</code>.</p>
-   */
-  LocalMountPath: string | undefined;
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the Amazon EFS access point that provides access to the file system.</p>
    */
   Arn: string | undefined;
+
+  /**
+   * <p>The path where the function can access the file system, starting with <code>/mnt/</code>.</p>
+   */
+  LocalMountPath: string | undefined;
 }
 
 export namespace FileSystemConfig {
@@ -926,14 +1029,14 @@ export namespace TracingConfig {
  */
 export interface VpcConfig {
   /**
-   * <p>A list of VPC security groups IDs.</p>
-   */
-  SecurityGroupIds?: string[];
-
-  /**
    * <p>A list of VPC subnet IDs.</p>
    */
   SubnetIds?: string[];
+
+  /**
+   * <p>A list of VPC security groups IDs.</p>
+   */
+  SecurityGroupIds?: string[];
 }
 
 export namespace VpcConfig {
@@ -943,17 +1046,6 @@ export namespace VpcConfig {
 }
 
 export interface CreateFunctionRequest {
-  /**
-   * <p>A list of <a href="https://docs.aws.amazon.com/lambda/latest/dg/tagging.html">tags</a> to apply to the
-   *       function.</p>
-   */
-  Tags?: { [key: string]: string };
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the function's execution role.</p>
-   */
-  Role: string | undefined;
-
   /**
    * <p>The name of the Lambda function.</p>
    *          <p class="title">
@@ -979,41 +1071,48 @@ export interface CreateFunctionRequest {
   FunctionName: string | undefined;
 
   /**
-   * <p>Connection settings for an Amazon EFS file system.</p>
-   */
-  FileSystemConfigs?: FileSystemConfig[];
-
-  /**
    * <p>The identifier of the function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html">runtime</a>.</p>
    */
   Runtime: Runtime | string | undefined;
 
   /**
-   * <p>Environment variables that are accessible from function code during execution.</p>
+   * <p>The Amazon Resource Name (ARN) of the function's execution role.</p>
    */
-  Environment?: Environment;
+  Role: string | undefined;
 
   /**
-   * <p>Set to true to publish the first version of the function during creation.</p>
+   * <p>The name of the method within your code that Lambda calls to execute your function. The format includes the
+   *       file name. It can also include namespaces and other qualifiers, depending on the runtime. For more information,
+   *       see <a href="https://docs.aws.amazon.com/lambda/latest/dg/programming-model-v2.html">Programming Model</a>.</p>
    */
-  Publish?: boolean;
+  Handler: string | undefined;
 
   /**
-   * <p>The ARN of the AWS Key Management Service (AWS KMS) key that's used to encrypt your function's environment
-   *       variables. If it's not provided, AWS Lambda uses a default service key.</p>
+   * <p>The code for the function.</p>
    */
-  KMSKeyArn?: string;
-
-  /**
-   * <p>A list of <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">function layers</a>
-   *       to add to the function's execution environment. Specify each layer by its ARN, including the version.</p>
-   */
-  Layers?: string[];
+  Code: FunctionCode | undefined;
 
   /**
    * <p>A description of the function.</p>
    */
   Description?: string;
+
+  /**
+   * <p>The amount of time that Lambda allows a function to run before stopping it. The default is 3 seconds. The
+   *       maximum allowed value is 900 seconds.</p>
+   */
+  Timeout?: number;
+
+  /**
+   * <p>The amount of memory that your function has access to. Increasing the function's memory also increases its CPU
+   *       allocation. The default value is 128 MB. The value must be a multiple of 64 MB.</p>
+   */
+  MemorySize?: number;
+
+  /**
+   * <p>Set to true to publish the first version of the function during creation.</p>
+   */
+  Publish?: boolean;
 
   /**
    * <p>For network connectivity to AWS resources in a VPC, specify a list of security groups and subnets in the VPC.
@@ -1023,47 +1122,51 @@ export interface CreateFunctionRequest {
   VpcConfig?: VpcConfig;
 
   /**
-   * <p>Set <code>Mode</code> to <code>Active</code> to sample and trace a subset of incoming requests with AWS
-   *       X-Ray.</p>
-   */
-  TracingConfig?: TracingConfig;
-
-  /**
-   * <p>The amount of memory that your function has access to. Increasing the function's memory also increases its CPU
-   *       allocation. The default value is 128 MB. The value must be a multiple of 64 MB.</p>
-   */
-  MemorySize?: number;
-
-  /**
    * <p>A dead letter queue configuration that specifies the queue or topic where Lambda sends asynchronous events
    *       when they fail processing. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#dlq">Dead Letter Queues</a>.</p>
    */
   DeadLetterConfig?: DeadLetterConfig;
 
   /**
-   * <p>The amount of time that Lambda allows a function to run before stopping it. The default is 3 seconds. The
-   *       maximum allowed value is 900 seconds.</p>
+   * <p>Environment variables that are accessible from function code during execution.</p>
    */
-  Timeout?: number;
+  Environment?: Environment;
 
   /**
-   * <p>The code for the function.</p>
+   * <p>The ARN of the AWS Key Management Service (AWS KMS) key that's used to encrypt your function's environment
+   *       variables. If it's not provided, AWS Lambda uses a default service key.</p>
    */
-  Code: FunctionCode | undefined;
+  KMSKeyArn?: string;
 
   /**
-   * <p>The name of the method within your code that Lambda calls to execute your function. The format includes the
-   *       file name. It can also include namespaces and other qualifiers, depending on the runtime. For more information,
-   *       see <a href="https://docs.aws.amazon.com/lambda/latest/dg/programming-model-v2.html">Programming Model</a>.</p>
+   * <p>Set <code>Mode</code> to <code>Active</code> to sample and trace a subset of incoming requests with AWS
+   *       X-Ray.</p>
    */
-  Handler: string | undefined;
+  TracingConfig?: TracingConfig;
+
+  /**
+   * <p>A list of <a href="https://docs.aws.amazon.com/lambda/latest/dg/tagging.html">tags</a> to apply to the
+   *       function.</p>
+   */
+  Tags?: { [key: string]: string };
+
+  /**
+   * <p>A list of <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">function layers</a>
+   *       to add to the function's execution environment. Specify each layer by its ARN, including the version.</p>
+   */
+  Layers?: string[];
+
+  /**
+   * <p>Connection settings for an Amazon EFS file system.</p>
+   */
+  FileSystemConfigs?: FileSystemConfig[];
 }
 
 export namespace CreateFunctionRequest {
   export const filterSensitiveLog = (obj: CreateFunctionRequest): any => ({
     ...obj,
-    ...(obj.Environment && { Environment: Environment.filterSensitiveLog(obj.Environment) }),
     ...(obj.Code && { Code: FunctionCode.filterSensitiveLog(obj.Code) }),
+    ...(obj.Environment && { Environment: Environment.filterSensitiveLog(obj.Environment) }),
   });
 }
 
@@ -1095,21 +1198,21 @@ export namespace EnvironmentError {
  */
 export interface EnvironmentResponse {
   /**
-   * <p>Error messages for environment variables that couldn't be applied.</p>
-   */
-  Error?: EnvironmentError;
-
-  /**
    * <p>Environment variable key-value pairs.</p>
    */
   Variables?: { [key: string]: string };
+
+  /**
+   * <p>Error messages for environment variables that couldn't be applied.</p>
+   */
+  Error?: EnvironmentError;
 }
 
 export namespace EnvironmentResponse {
   export const filterSensitiveLog = (obj: EnvironmentResponse): any => ({
     ...obj,
-    ...(obj.Error && { Error: EnvironmentError.filterSensitiveLog(obj.Error) }),
     ...(obj.Variables && { Variables: SENSITIVE_STRING }),
+    ...(obj.Error && { Error: EnvironmentError.filterSensitiveLog(obj.Error) }),
   });
 }
 
@@ -1197,14 +1300,14 @@ export interface VpcConfigResponse {
   SubnetIds?: string[];
 
   /**
-   * <p>The ID of the VPC.</p>
-   */
-  VpcId?: string;
-
-  /**
    * <p>A list of VPC security groups IDs.</p>
    */
   SecurityGroupIds?: string[];
+
+  /**
+   * <p>The ID of the VPC.</p>
+   */
+  VpcId?: string;
 }
 
 export namespace VpcConfigResponse {
@@ -1218,31 +1321,79 @@ export namespace VpcConfigResponse {
  */
 export interface FunctionConfiguration {
   /**
-   * <p>The current state of the function. When the state is <code>Inactive</code>, you can reactivate the function by
-   *       invoking it.</p>
+   * <p>The name of the function.</p>
    */
-  State?: State | string;
+  FunctionName?: string;
+
+  /**
+   * <p>The function's Amazon Resource Name (ARN).</p>
+   */
+  FunctionArn?: string;
+
+  /**
+   * <p>The runtime environment for the Lambda function.</p>
+   */
+  Runtime?: Runtime | string;
+
+  /**
+   * <p>The function's execution role.</p>
+   */
+  Role?: string;
+
+  /**
+   * <p>The function that Lambda calls to begin executing your function.</p>
+   */
+  Handler?: string;
+
+  /**
+   * <p>The size of the function's deployment package, in bytes.</p>
+   */
+  CodeSize?: number;
+
+  /**
+   * <p>The function's description.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The amount of time in seconds that Lambda allows a function to run before stopping it.</p>
+   */
+  Timeout?: number;
+
+  /**
+   * <p>The memory that's allocated to the function.</p>
+   */
+  MemorySize?: number;
+
+  /**
+   * <p>The date and time that the function was last updated, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>
+   */
+  LastModified?: string;
+
+  /**
+   * <p>The SHA256 hash of the function's deployment package.</p>
+   */
+  CodeSha256?: string;
+
+  /**
+   * <p>The version of the Lambda function.</p>
+   */
+  Version?: string;
+
+  /**
+   * <p>The function's networking configuration.</p>
+   */
+  VpcConfig?: VpcConfigResponse;
+
+  /**
+   * <p>The function's dead letter queue.</p>
+   */
+  DeadLetterConfig?: DeadLetterConfig;
 
   /**
    * <p>The function's environment variables.</p>
    */
   Environment?: EnvironmentResponse;
-
-  /**
-   * <p>The reason for the last update that was performed on the function.</p>
-   */
-  LastUpdateStatusReason?: string;
-
-  /**
-   * <p>For Lambda@Edge functions, the ARN of the master function.</p>
-   */
-  MasterArn?: string;
-
-  /**
-   * <p>The function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">
-   *       layers</a>.</p>
-   */
-  Layers?: Layer[];
 
   /**
    * <p>The KMS key that's used to encrypt the function's environment variables. This key is only returned if you've
@@ -1251,60 +1402,36 @@ export interface FunctionConfiguration {
   KMSKeyArn?: string;
 
   /**
-   * <p>The function's execution role.</p>
-   */
-  Role?: string;
-
-  /**
-   * <p>Connection settings for an Amazon EFS file system.</p>
-   */
-  FileSystemConfigs?: FileSystemConfig[];
-
-  /**
-   * <p>The SHA256 hash of the function's deployment package.</p>
-   */
-  CodeSha256?: string;
-
-  /**
-   * <p>The function's networking configuration.</p>
-   */
-  VpcConfig?: VpcConfigResponse;
-
-  /**
-   * <p>The name of the function.</p>
-   */
-  FunctionName?: string;
-
-  /**
-   * <p>The size of the function's deployment package, in bytes.</p>
-   */
-  CodeSize?: number;
-
-  /**
-   * <p>The version of the Lambda function.</p>
-   */
-  Version?: string;
-
-  /**
-   * <p>The status of the last update that was performed on the function. This is first set to <code>Successful</code>
-   *       after function creation completes.</p>
-   */
-  LastUpdateStatus?: LastUpdateStatus | string;
-
-  /**
-   * <p>The reason code for the last update that was performed on the function.</p>
-   */
-  LastUpdateStatusReasonCode?: LastUpdateStatusReasonCode | string;
-
-  /**
    * <p>The function's AWS X-Ray tracing configuration.</p>
    */
   TracingConfig?: TracingConfigResponse;
 
   /**
-   * <p>The runtime environment for the Lambda function.</p>
+   * <p>For Lambda@Edge functions, the ARN of the master function.</p>
    */
-  Runtime?: Runtime | string;
+  MasterArn?: string;
+
+  /**
+   * <p>The latest updated revision of the function or alias.</p>
+   */
+  RevisionId?: string;
+
+  /**
+   * <p>The function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">
+   *       layers</a>.</p>
+   */
+  Layers?: Layer[];
+
+  /**
+   * <p>The current state of the function. When the state is <code>Inactive</code>, you can reactivate the function by
+   *       invoking it.</p>
+   */
+  State?: State | string;
+
+  /**
+   * <p>The reason for the function's current state.</p>
+   */
+  StateReason?: string;
 
   /**
    * <p>The reason code for the function's current state. When the code is <code>Creating</code>, you can't invoke or
@@ -1313,49 +1440,25 @@ export interface FunctionConfiguration {
   StateReasonCode?: StateReasonCode | string;
 
   /**
-   * <p>The amount of time in seconds that Lambda allows a function to run before stopping it.</p>
+   * <p>The status of the last update that was performed on the function. This is first set to <code>Successful</code>
+   *       after function creation completes.</p>
    */
-  Timeout?: number;
+  LastUpdateStatus?: LastUpdateStatus | string;
 
   /**
-   * <p>The function's description.</p>
+   * <p>The reason for the last update that was performed on the function.</p>
    */
-  Description?: string;
+  LastUpdateStatusReason?: string;
 
   /**
-   * <p>The memory that's allocated to the function.</p>
+   * <p>The reason code for the last update that was performed on the function.</p>
    */
-  MemorySize?: number;
+  LastUpdateStatusReasonCode?: LastUpdateStatusReasonCode | string;
 
   /**
-   * <p>The reason for the function's current state.</p>
+   * <p>Connection settings for an Amazon EFS file system.</p>
    */
-  StateReason?: string;
-
-  /**
-   * <p>The function's dead letter queue.</p>
-   */
-  DeadLetterConfig?: DeadLetterConfig;
-
-  /**
-   * <p>The function's Amazon Resource Name (ARN).</p>
-   */
-  FunctionArn?: string;
-
-  /**
-   * <p>The date and time that the function was last updated, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>
-   */
-  LastModified?: string;
-
-  /**
-   * <p>The function that Lambda calls to begin executing your function.</p>
-   */
-  Handler?: string;
-
-  /**
-   * <p>The latest updated revision of the function or alias.</p>
-   */
-  RevisionId?: string;
+  FileSystemConfigs?: FileSystemConfig[];
 }
 
 export namespace FunctionConfiguration {
@@ -1366,11 +1469,6 @@ export namespace FunctionConfiguration {
 }
 
 export interface DeleteAliasRequest {
-  /**
-   * <p>The name of the alias.</p>
-   */
-  Name: string | undefined;
-
   /**
    * <p>The name of the Lambda function.</p>
    *          <p class="title">
@@ -1394,6 +1492,11 @@ export interface DeleteAliasRequest {
    *       characters in length.</p>
    */
   FunctionName: string | undefined;
+
+  /**
+   * <p>The name of the alias.</p>
+   */
+  Name: string | undefined;
 }
 
 export namespace DeleteAliasRequest {
@@ -1422,8 +1525,8 @@ export namespace DeleteEventSourceMappingRequest {
 export interface ResourceInUseException extends __SmithyException, $MetadataBearer {
   name: "ResourceInUseException";
   $fault: "client";
-  Message?: string;
   Type?: string;
+  Message?: string;
 }
 
 export namespace ResourceInUseException {
@@ -1540,14 +1643,14 @@ export namespace DeleteFunctionEventInvokeConfigRequest {
 
 export interface DeleteLayerVersionRequest {
   /**
-   * <p>The version number.</p>
-   */
-  VersionNumber: number | undefined;
-
-  /**
    * <p>The name or Amazon Resource Name (ARN) of the layer.</p>
    */
   LayerName: string | undefined;
+
+  /**
+   * <p>The version number.</p>
+   */
+  VersionNumber: number | undefined;
 }
 
 export namespace DeleteLayerVersionRequest {
@@ -1603,14 +1706,14 @@ export namespace GetAccountSettingsRequest {
 
 export interface GetAccountSettingsResponse {
   /**
-   * <p>The number of functions and amount of storage in use.</p>
-   */
-  AccountUsage?: AccountUsage;
-
-  /**
    * <p>Limits that are related to concurrency and code storage.</p>
    */
   AccountLimit?: AccountLimit;
+
+  /**
+   * <p>The number of functions and amount of storage in use.</p>
+   */
+  AccountUsage?: AccountUsage;
 }
 
 export namespace GetAccountSettingsResponse {
@@ -1620,11 +1723,6 @@ export namespace GetAccountSettingsResponse {
 }
 
 export interface GetAliasRequest {
-  /**
-   * <p>The name of the alias.</p>
-   */
-  Name: string | undefined;
-
   /**
    * <p>The name of the Lambda function.</p>
    *          <p class="title">
@@ -1648,6 +1746,11 @@ export interface GetAliasRequest {
    *       characters in length.</p>
    */
   FunctionName: string | undefined;
+
+  /**
+   * <p>The name of the alias.</p>
+   */
+  Name: string | undefined;
 }
 
 export namespace GetAliasRequest {
@@ -1671,11 +1774,6 @@ export namespace GetEventSourceMappingRequest {
 
 export interface GetFunctionRequest {
   /**
-   * <p>Specify a version or alias to get details about a published version of the function.</p>
-   */
-  Qualifier?: string;
-
-  /**
    * <p>The name of the Lambda function, version, or alias.</p>
    *          <p class="title">
    *             <b>Name formats</b>
@@ -1698,6 +1796,11 @@ export interface GetFunctionRequest {
    *       If you specify only the function name, it is limited to 64 characters in length.</p>
    */
   FunctionName: string | undefined;
+
+  /**
+   * <p>Specify a version or alias to get details about a published version of the function.</p>
+   */
+  Qualifier?: string;
 }
 
 export namespace GetFunctionRequest {
@@ -1742,17 +1845,6 @@ export namespace Concurrency {
 
 export interface GetFunctionResponse {
   /**
-   * <p>The function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html">reserved
-   *         concurrency</a>.</p>
-   */
-  Concurrency?: Concurrency;
-
-  /**
-   * <p>The function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/tagging.html">tags</a>.</p>
-   */
-  Tags?: { [key: string]: string };
-
-  /**
    * <p>The configuration of the function or version.</p>
    */
   Configuration?: FunctionConfiguration;
@@ -1761,6 +1853,17 @@ export interface GetFunctionResponse {
    * <p>The deployment package of the function or version.</p>
    */
   Code?: FunctionCodeLocation;
+
+  /**
+   * <p>The function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/tagging.html">tags</a>.</p>
+   */
+  Tags?: { [key: string]: string };
+
+  /**
+   * <p>The function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html">reserved
+   *         concurrency</a>.</p>
+   */
+  Concurrency?: Concurrency;
 }
 
 export namespace GetFunctionResponse {
@@ -1817,11 +1920,6 @@ export namespace GetFunctionConcurrencyResponse {
 
 export interface GetFunctionConfigurationRequest {
   /**
-   * <p>Specify a version or alias to get details about a published version of the function.</p>
-   */
-  Qualifier?: string;
-
-  /**
    * <p>The name of the Lambda function, version, or alias.</p>
    *          <p class="title">
    *             <b>Name formats</b>
@@ -1844,6 +1942,11 @@ export interface GetFunctionConfigurationRequest {
    *       If you specify only the function name, it is limited to 64 characters in length.</p>
    */
   FunctionName: string | undefined;
+
+  /**
+   * <p>Specify a version or alias to get details about a published version of the function.</p>
+   */
+  Qualifier?: string;
 }
 
 export namespace GetFunctionConfigurationRequest {
@@ -1867,6 +1970,11 @@ export interface FunctionEventInvokeConfig {
    * <p>The maximum number of times to retry when the function returns an error.</p>
    */
   MaximumRetryAttempts?: number;
+
+  /**
+   * <p>The maximum age of a request that Lambda sends to a function for processing.</p>
+   */
+  MaximumEventAgeInSeconds?: number;
 
   /**
    * <p>A destination for events after they have been sent to a function for processing.</p>
@@ -1893,11 +2001,6 @@ export interface FunctionEventInvokeConfig {
    *          </ul>
    */
   DestinationConfig?: DestinationConfig;
-
-  /**
-   * <p>The maximum age of a request that Lambda sends to a function for processing.</p>
-   */
-  MaximumEventAgeInSeconds?: number;
 }
 
 export namespace FunctionEventInvokeConfig {
@@ -1945,14 +2048,14 @@ export namespace GetFunctionEventInvokeConfigRequest {
 
 export interface GetLayerVersionRequest {
   /**
-   * <p>The version number.</p>
-   */
-  VersionNumber: number | undefined;
-
-  /**
    * <p>The name or Amazon Resource Name (ARN) of the layer.</p>
    */
   LayerName: string | undefined;
+
+  /**
+   * <p>The version number.</p>
+   */
+  VersionNumber: number | undefined;
 }
 
 export namespace GetLayerVersionRequest {
@@ -1967,11 +2070,6 @@ export namespace GetLayerVersionRequest {
  */
 export interface LayerVersionContentOutput {
   /**
-   * <p>The size of the layer archive in bytes.</p>
-   */
-  CodeSize?: number;
-
-  /**
    * <p>A link to the layer archive in Amazon S3 that is valid for 10 minutes.</p>
    */
   Location?: string;
@@ -1980,6 +2078,11 @@ export interface LayerVersionContentOutput {
    * <p>The SHA-256 hash of the layer archive.</p>
    */
   CodeSha256?: string;
+
+  /**
+   * <p>The size of the layer archive in bytes.</p>
+   */
+  CodeSize?: number;
 }
 
 export namespace LayerVersionContentOutput {
@@ -1990,9 +2093,9 @@ export namespace LayerVersionContentOutput {
 
 export interface GetLayerVersionResponse {
   /**
-   * <p>The ARN of the layer version.</p>
+   * <p>Details about the layer version.</p>
    */
-  LayerVersionArn?: string;
+  Content?: LayerVersionContentOutput;
 
   /**
    * <p>The ARN of the layer.</p>
@@ -2000,24 +2103,9 @@ export interface GetLayerVersionResponse {
   LayerArn?: string;
 
   /**
-   * <p>The layer's software license.</p>
+   * <p>The ARN of the layer version.</p>
    */
-  LicenseInfo?: string;
-
-  /**
-   * <p>The layer's compatible runtimes.</p>
-   */
-  CompatibleRuntimes?: (Runtime | string)[];
-
-  /**
-   * <p>The version number.</p>
-   */
-  Version?: number;
-
-  /**
-   * <p>Details about the layer version.</p>
-   */
-  Content?: LayerVersionContentOutput;
+  LayerVersionArn?: string;
 
   /**
    * <p>The description of the version.</p>
@@ -2028,6 +2116,21 @@ export interface GetLayerVersionResponse {
    * <p>The date that the layer version was created, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>
    */
   CreatedDate?: string;
+
+  /**
+   * <p>The version number.</p>
+   */
+  Version?: number;
+
+  /**
+   * <p>The layer's compatible runtimes.</p>
+   */
+  CompatibleRuntimes?: (Runtime | string)[];
+
+  /**
+   * <p>The layer's software license.</p>
+   */
+  LicenseInfo?: string;
 }
 
 export namespace GetLayerVersionResponse {
@@ -2051,14 +2154,14 @@ export namespace GetLayerVersionByArnRequest {
 
 export interface GetLayerVersionPolicyRequest {
   /**
-   * <p>The version number.</p>
-   */
-  VersionNumber: number | undefined;
-
-  /**
    * <p>The name or Amazon Resource Name (ARN) of the layer.</p>
    */
   LayerName: string | undefined;
+
+  /**
+   * <p>The version number.</p>
+   */
+  VersionNumber: number | undefined;
 }
 
 export namespace GetLayerVersionPolicyRequest {
@@ -2069,14 +2172,14 @@ export namespace GetLayerVersionPolicyRequest {
 
 export interface GetLayerVersionPolicyResponse {
   /**
-   * <p>A unique identifier for the current revision of the policy.</p>
-   */
-  RevisionId?: string;
-
-  /**
    * <p>The policy document.</p>
    */
   Policy?: string;
+
+  /**
+   * <p>A unique identifier for the current revision of the policy.</p>
+   */
+  RevisionId?: string;
 }
 
 export namespace GetLayerVersionPolicyResponse {
@@ -2086,11 +2189,6 @@ export namespace GetLayerVersionPolicyResponse {
 }
 
 export interface GetPolicyRequest {
-  /**
-   * <p>Specify a version or alias to get the policy for that resource.</p>
-   */
-  Qualifier?: string;
-
   /**
    * <p>The name of the Lambda function, version, or alias.</p>
    *          <p class="title">
@@ -2114,6 +2212,11 @@ export interface GetPolicyRequest {
    *       If you specify only the function name, it is limited to 64 characters in length.</p>
    */
   FunctionName: string | undefined;
+
+  /**
+   * <p>Specify a version or alias to get the policy for that resource.</p>
+   */
+  Qualifier?: string;
 }
 
 export namespace GetPolicyRequest {
@@ -2124,14 +2227,14 @@ export namespace GetPolicyRequest {
 
 export interface GetPolicyResponse {
   /**
-   * <p>A unique identifier for the current revision of the policy.</p>
-   */
-  RevisionId?: string;
-
-  /**
    * <p>The resource-based policy.</p>
    */
   Policy?: string;
+
+  /**
+   * <p>A unique identifier for the current revision of the policy.</p>
+   */
+  RevisionId?: string;
 }
 
 export namespace GetPolicyResponse {
@@ -2185,14 +2288,9 @@ export enum ProvisionedConcurrencyStatusEnum {
 
 export interface GetProvisionedConcurrencyConfigResponse {
   /**
-   * <p>The status of the allocation process.</p>
+   * <p>The amount of provisioned concurrency requested.</p>
    */
-  Status?: ProvisionedConcurrencyStatusEnum | string;
-
-  /**
-   * <p>The date and time that a user last updated the configuration, in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601 format</a>.</p>
-   */
-  LastModified?: string;
+  RequestedProvisionedConcurrentExecutions?: number;
 
   /**
    * <p>The amount of provisioned concurrency available.</p>
@@ -2205,14 +2303,19 @@ export interface GetProvisionedConcurrencyConfigResponse {
   AllocatedProvisionedConcurrentExecutions?: number;
 
   /**
+   * <p>The status of the allocation process.</p>
+   */
+  Status?: ProvisionedConcurrencyStatusEnum | string;
+
+  /**
    * <p>For failed allocations, the reason that provisioned concurrency could not be allocated.</p>
    */
   StatusReason?: string;
 
   /**
-   * <p>The amount of provisioned concurrency requested.</p>
+   * <p>The date and time that a user last updated the configuration, in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601 format</a>.</p>
    */
-  RequestedProvisionedConcurrentExecutions?: number;
+  LastModified?: string;
 }
 
 export namespace GetProvisionedConcurrencyConfigResponse {
@@ -2243,8 +2346,8 @@ export namespace ProvisionedConcurrencyConfigNotFoundException {
 export interface EC2AccessDeniedException extends __SmithyException, $MetadataBearer {
   name: "EC2AccessDeniedException";
   $fault: "server";
-  Message?: string;
   Type?: string;
+  Message?: string;
 }
 
 export namespace EC2AccessDeniedException {
@@ -2260,8 +2363,8 @@ export namespace EC2AccessDeniedException {
 export interface EC2ThrottledException extends __SmithyException, $MetadataBearer {
   name: "EC2ThrottledException";
   $fault: "server";
-  Message?: string;
   Type?: string;
+  Message?: string;
 }
 
 export namespace EC2ThrottledException {
@@ -2276,8 +2379,8 @@ export namespace EC2ThrottledException {
 export interface EC2UnexpectedException extends __SmithyException, $MetadataBearer {
   name: "EC2UnexpectedException";
   $fault: "server";
-  Message?: string;
   Type?: string;
+  Message?: string;
   EC2ErrorCode?: string;
 }
 
@@ -2309,8 +2412,8 @@ export namespace EFSIOException {
 export interface EFSMountConnectivityException extends __SmithyException, $MetadataBearer {
   name: "EFSMountConnectivityException";
   $fault: "client";
-  Message?: string;
   Type?: string;
+  Message?: string;
 }
 
 export namespace EFSMountConnectivityException {
@@ -2342,8 +2445,8 @@ export namespace EFSMountFailureException {
 export interface EFSMountTimeoutException extends __SmithyException, $MetadataBearer {
   name: "EFSMountTimeoutException";
   $fault: "client";
-  Message?: string;
   Type?: string;
+  Message?: string;
 }
 
 export namespace EFSMountTimeoutException {
@@ -2376,14 +2479,14 @@ export interface InvalidRequestContentException extends __SmithyException, $Meta
   name: "InvalidRequestContentException";
   $fault: "client";
   /**
-   * <p>The exception message.</p>
-   */
-  message?: string;
-
-  /**
    * <p>The exception type.</p>
    */
   Type?: string;
+
+  /**
+   * <p>The exception message.</p>
+   */
+  message?: string;
 }
 
 export namespace InvalidRequestContentException {
@@ -2398,8 +2501,8 @@ export namespace InvalidRequestContentException {
 export interface InvalidRuntimeException extends __SmithyException, $MetadataBearer {
   name: "InvalidRuntimeException";
   $fault: "server";
-  Message?: string;
   Type?: string;
+  Message?: string;
 }
 
 export namespace InvalidRuntimeException {
@@ -2414,8 +2517,8 @@ export namespace InvalidRuntimeException {
 export interface InvalidSecurityGroupIDException extends __SmithyException, $MetadataBearer {
   name: "InvalidSecurityGroupIDException";
   $fault: "server";
-  Message?: string;
   Type?: string;
+  Message?: string;
 }
 
 export namespace InvalidSecurityGroupIDException {
@@ -2430,8 +2533,8 @@ export namespace InvalidSecurityGroupIDException {
 export interface InvalidSubnetIDException extends __SmithyException, $MetadataBearer {
   name: "InvalidSubnetIDException";
   $fault: "server";
-  Message?: string;
   Type?: string;
+  Message?: string;
 }
 
 export namespace InvalidSubnetIDException {
@@ -2469,16 +2572,6 @@ export enum LogType {
 
 export interface InvocationRequest {
   /**
-   * <p>Specify a version or alias to invoke a published version of the function.</p>
-   */
-  Qualifier?: string;
-
-  /**
-   * <p>Set to <code>Tail</code> to include the execution log in the response.</p>
-   */
-  LogType?: LogType | string;
-
-  /**
    * <p>The name of the Lambda function, version, or alias.</p>
    *          <p class="title">
    *             <b>Name formats</b>
@@ -2503,17 +2596,6 @@ export interface InvocationRequest {
   FunctionName: string | undefined;
 
   /**
-   * <p>The JSON that you want to provide to your Lambda function as input.</p>
-   */
-  Payload?: Uint8Array;
-
-  /**
-   * <p>Up to 3583 bytes of base64-encoded data about the invoking client to pass to the function in the context
-   *       object.</p>
-   */
-  ClientContext?: string;
-
-  /**
    * <p>Choose from the following options.</p>
    *          <ul>
    *             <li>
@@ -2535,6 +2617,27 @@ export interface InvocationRequest {
    *          </ul>
    */
   InvocationType?: InvocationType | string;
+
+  /**
+   * <p>Set to <code>Tail</code> to include the execution log in the response.</p>
+   */
+  LogType?: LogType | string;
+
+  /**
+   * <p>Up to 3583 bytes of base64-encoded data about the invoking client to pass to the function in the context
+   *       object.</p>
+   */
+  ClientContext?: string;
+
+  /**
+   * <p>The JSON that you want to provide to your Lambda function as input.</p>
+   */
+  Payload?: Uint8Array;
+
+  /**
+   * <p>Specify a version or alias to invoke a published version of the function.</p>
+   */
+  Qualifier?: string;
 }
 
 export namespace InvocationRequest {
@@ -2546,9 +2649,11 @@ export namespace InvocationRequest {
 
 export interface InvocationResponse {
   /**
-   * <p>The last 4 KB of the execution log, which is base64 encoded.</p>
+   * <p>The HTTP status code is in the 200 range for a successful request. For the <code>RequestResponse</code>
+   *       invocation type, this status code is 200. For the <code>Event</code> invocation type, this status code is 202. For
+   *       the <code>DryRun</code> invocation type, the status code is 204.</p>
    */
-  LogResult?: string;
+  StatusCode?: number;
 
   /**
    * <p>If present, indicates that an error occurred during function execution. Details about the error are included
@@ -2557,22 +2662,20 @@ export interface InvocationResponse {
   FunctionError?: string;
 
   /**
-   * <p>The version of the function that executed. When you invoke a function with an alias, this indicates which
-   *       version the alias resolved to.</p>
+   * <p>The last 4 KB of the execution log, which is base64 encoded.</p>
    */
-  ExecutedVersion?: string;
-
-  /**
-   * <p>The HTTP status code is in the 200 range for a successful request. For the <code>RequestResponse</code>
-   *       invocation type, this status code is 200. For the <code>Event</code> invocation type, this status code is 202. For
-   *       the <code>DryRun</code> invocation type, the status code is 204.</p>
-   */
-  StatusCode?: number;
+  LogResult?: string;
 
   /**
    * <p>The response from the function, or an error object.</p>
    */
   Payload?: Uint8Array;
+
+  /**
+   * <p>The version of the function that executed. When you invoke a function with an alias, this indicates which
+   *       version the alias resolved to.</p>
+   */
+  ExecutedVersion?: string;
 }
 
 export namespace InvocationResponse {
@@ -2589,8 +2692,8 @@ export namespace InvocationResponse {
 export interface KMSAccessDeniedException extends __SmithyException, $MetadataBearer {
   name: "KMSAccessDeniedException";
   $fault: "server";
-  Message?: string;
   Type?: string;
+  Message?: string;
 }
 
 export namespace KMSAccessDeniedException {
@@ -2623,8 +2726,8 @@ export namespace KMSDisabledException {
 export interface KMSInvalidStateException extends __SmithyException, $MetadataBearer {
   name: "KMSInvalidStateException";
   $fault: "server";
-  Message?: string;
   Type?: string;
+  Message?: string;
 }
 
 export namespace KMSInvalidStateException {
@@ -2640,8 +2743,8 @@ export namespace KMSInvalidStateException {
 export interface KMSNotFoundException extends __SmithyException, $MetadataBearer {
   name: "KMSNotFoundException";
   $fault: "server";
-  Message?: string;
   Type?: string;
+  Message?: string;
 }
 
 export namespace KMSNotFoundException {
@@ -2657,8 +2760,8 @@ export namespace KMSNotFoundException {
 export interface RequestTooLargeException extends __SmithyException, $MetadataBearer {
   name: "RequestTooLargeException";
   $fault: "client";
-  message?: string;
   Type?: string;
+  message?: string;
 }
 
 export namespace RequestTooLargeException {
@@ -2698,8 +2801,8 @@ export namespace ResourceNotReadyException {
 export interface SubnetIPAddressLimitReachedException extends __SmithyException, $MetadataBearer {
   name: "SubnetIPAddressLimitReachedException";
   $fault: "server";
-  Message?: string;
   Type?: string;
+  Message?: string;
 }
 
 export namespace SubnetIPAddressLimitReachedException {
@@ -2714,8 +2817,8 @@ export namespace SubnetIPAddressLimitReachedException {
 export interface UnsupportedMediaTypeException extends __SmithyException, $MetadataBearer {
   name: "UnsupportedMediaTypeException";
   $fault: "client";
-  message?: string;
   Type?: string;
+  message?: string;
 }
 
 export namespace UnsupportedMediaTypeException {
@@ -2779,21 +2882,6 @@ export namespace InvokeAsyncResponse {
 
 export interface ListAliasesRequest {
   /**
-   * <p>Specify the pagination token that's returned by a previous request to retrieve the next page of results.</p>
-   */
-  Marker?: string;
-
-  /**
-   * <p>Specify a function version to only list aliases that invoke that version.</p>
-   */
-  FunctionVersion?: string;
-
-  /**
-   * <p>Limit the number of aliases returned.</p>
-   */
-  MaxItems?: number;
-
-  /**
    * <p>The name of the Lambda function.</p>
    *          <p class="title">
    *             <b>Name formats</b>
@@ -2816,6 +2904,21 @@ export interface ListAliasesRequest {
    *       characters in length.</p>
    */
   FunctionName: string | undefined;
+
+  /**
+   * <p>Specify a function version to only list aliases that invoke that version.</p>
+   */
+  FunctionVersion?: string;
+
+  /**
+   * <p>Specify the pagination token that's returned by a previous request to retrieve the next page of results.</p>
+   */
+  Marker?: string;
+
+  /**
+   * <p>Limit the number of aliases returned.</p>
+   */
+  MaxItems?: number;
 }
 
 export namespace ListAliasesRequest {
@@ -2843,16 +2946,6 @@ export namespace ListAliasesResponse {
 }
 
 export interface ListEventSourceMappingsRequest {
-  /**
-   * <p>A pagination token returned by a previous call.</p>
-   */
-  Marker?: string;
-
-  /**
-   * <p>The maximum number of event source mappings to return.</p>
-   */
-  MaxItems?: number;
-
   /**
    * <p>The Amazon Resource Name (ARN) of the event source.</p>
    *          <ul>
@@ -2903,6 +2996,16 @@ export interface ListEventSourceMappingsRequest {
    *       characters in length.</p>
    */
   FunctionName?: string;
+
+  /**
+   * <p>A pagination token returned by a previous call.</p>
+   */
+  Marker?: string;
+
+  /**
+   * <p>The maximum number of event source mappings to return.</p>
+   */
+  MaxItems?: number;
 }
 
 export namespace ListEventSourceMappingsRequest {
@@ -2973,14 +3076,14 @@ export namespace ListFunctionEventInvokeConfigsRequest {
 
 export interface ListFunctionEventInvokeConfigsResponse {
   /**
-   * <p>The pagination token that's included if more results are available.</p>
-   */
-  NextMarker?: string;
-
-  /**
    * <p>A list of configurations.</p>
    */
   FunctionEventInvokeConfigs?: FunctionEventInvokeConfig[];
+
+  /**
+   * <p>The pagination token that's included if more results are available.</p>
+   */
+  NextMarker?: string;
 }
 
 export namespace ListFunctionEventInvokeConfigsResponse {
@@ -2995,9 +3098,11 @@ export enum FunctionVersion {
 
 export interface ListFunctionsRequest {
   /**
-   * <p>Specify the pagination token that's returned by a previous request to retrieve the next page of results.</p>
+   * <p>For Lambda@Edge functions, the AWS Region of the master function. For example, <code>us-east-1</code> filters
+   *       the list of functions to only include Lambda@Edge functions replicated from a master function in US East (N.
+   *       Virginia). If specified, you must set <code>FunctionVersion</code> to <code>ALL</code>.</p>
    */
-  Marker?: string;
+  MasterRegion?: string;
 
   /**
    * <p>Set to <code>ALL</code> to include entries for all published versions of each function.</p>
@@ -3005,11 +3110,9 @@ export interface ListFunctionsRequest {
   FunctionVersion?: FunctionVersion | string;
 
   /**
-   * <p>For Lambda@Edge functions, the AWS Region of the master function. For example, <code>us-east-1</code> filters
-   *       the list of functions to only include Lambda@Edge functions replicated from a master function in US East (N.
-   *       Virginia). If specified, you must set <code>FunctionVersion</code> to <code>ALL</code>.</p>
+   * <p>Specify the pagination token that's returned by a previous request to retrieve the next page of results.</p>
    */
-  MasterRegion?: string;
+  Marker?: string;
 
   /**
    * <p>The maximum number of functions to return.</p>
@@ -3028,14 +3131,14 @@ export namespace ListFunctionsRequest {
  */
 export interface ListFunctionsResponse {
   /**
-   * <p>A list of Lambda functions.</p>
-   */
-  Functions?: FunctionConfiguration[];
-
-  /**
    * <p>The pagination token that's included if more results are available.</p>
    */
   NextMarker?: string;
+
+  /**
+   * <p>A list of Lambda functions.</p>
+   */
+  Functions?: FunctionConfiguration[];
 }
 
 export namespace ListFunctionsResponse {
@@ -3047,9 +3150,9 @@ export namespace ListFunctionsResponse {
 
 export interface ListLayersRequest {
   /**
-   * <p>The maximum number of layers to return.</p>
+   * <p>A runtime identifier. For example, <code>go1.x</code>.</p>
    */
-  MaxItems?: number;
+  CompatibleRuntime?: Runtime | string;
 
   /**
    * <p>A pagination token returned by a previous call.</p>
@@ -3057,9 +3160,9 @@ export interface ListLayersRequest {
   Marker?: string;
 
   /**
-   * <p>A runtime identifier. For example, <code>go1.x</code>.</p>
+   * <p>The maximum number of layers to return.</p>
    */
-  CompatibleRuntime?: Runtime | string;
+  MaxItems?: number;
 }
 
 export namespace ListLayersRequest {
@@ -3074,6 +3177,11 @@ export namespace ListLayersRequest {
  */
 export interface LayerVersionsListItem {
   /**
+   * <p>The ARN of the layer version.</p>
+   */
+  LayerVersionArn?: string;
+
+  /**
    * <p>The version number.</p>
    */
   Version?: number;
@@ -3087,11 +3195,6 @@ export interface LayerVersionsListItem {
    * <p>The date that the version was created, in ISO 8601 format. For example, <code>2018-11-27T15:10:45.123+0000</code>.</p>
    */
   CreatedDate?: string;
-
-  /**
-   * <p>The ARN of the layer version.</p>
-   */
-  LayerVersionArn?: string;
 
   /**
    * <p>The layer's compatible runtimes.</p>
@@ -3116,6 +3219,11 @@ export namespace LayerVersionsListItem {
  */
 export interface LayersListItem {
   /**
+   * <p>The name of the layer.</p>
+   */
+  LayerName?: string;
+
+  /**
    * <p>The Amazon Resource Name (ARN) of the function layer.</p>
    */
   LayerArn?: string;
@@ -3124,11 +3232,6 @@ export interface LayersListItem {
    * <p>The newest version of the layer.</p>
    */
   LatestMatchingVersion?: LayerVersionsListItem;
-
-  /**
-   * <p>The name of the layer.</p>
-   */
-  LayerName?: string;
 }
 
 export namespace LayersListItem {
@@ -3162,6 +3265,11 @@ export interface ListLayerVersionsRequest {
   CompatibleRuntime?: Runtime | string;
 
   /**
+   * <p>The name or Amazon Resource Name (ARN) of the layer.</p>
+   */
+  LayerName: string | undefined;
+
+  /**
    * <p>A pagination token returned by a previous call.</p>
    */
   Marker?: string;
@@ -3170,11 +3278,6 @@ export interface ListLayerVersionsRequest {
    * <p>The maximum number of versions to return.</p>
    */
   MaxItems?: number;
-
-  /**
-   * <p>The name or Amazon Resource Name (ARN) of the layer.</p>
-   */
-  LayerName: string | undefined;
 }
 
 export namespace ListLayerVersionsRequest {
@@ -3185,14 +3288,14 @@ export namespace ListLayerVersionsRequest {
 
 export interface ListLayerVersionsResponse {
   /**
-   * <p>A list of versions.</p>
-   */
-  LayerVersions?: LayerVersionsListItem[];
-
-  /**
    * <p>A pagination token returned when the response doesn't contain all versions.</p>
    */
   NextMarker?: string;
+
+  /**
+   * <p>A list of versions.</p>
+   */
+  LayerVersions?: LayerVersionsListItem[];
 }
 
 export namespace ListLayerVersionsResponse {
@@ -3227,14 +3330,14 @@ export interface ListProvisionedConcurrencyConfigsRequest {
   FunctionName: string | undefined;
 
   /**
-   * <p>Specify a number to limit the number of configurations returned.</p>
-   */
-  MaxItems?: number;
-
-  /**
    * <p>Specify the pagination token that's returned by a previous request to retrieve the next page of results.</p>
    */
   Marker?: string;
+
+  /**
+   * <p>Specify a number to limit the number of configurations returned.</p>
+   */
+  MaxItems?: number;
 }
 
 export namespace ListProvisionedConcurrencyConfigsRequest {
@@ -3253,24 +3356,9 @@ export interface ProvisionedConcurrencyConfigListItem {
   FunctionArn?: string;
 
   /**
-   * <p>For failed allocations, the reason that provisioned concurrency could not be allocated.</p>
-   */
-  StatusReason?: string;
-
-  /**
-   * <p>The status of the allocation process.</p>
-   */
-  Status?: ProvisionedConcurrencyStatusEnum | string;
-
-  /**
    * <p>The amount of provisioned concurrency requested.</p>
    */
   RequestedProvisionedConcurrentExecutions?: number;
-
-  /**
-   * <p>The date and time that a user last updated the configuration, in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601 format</a>.</p>
-   */
-  LastModified?: string;
 
   /**
    * <p>The amount of provisioned concurrency available.</p>
@@ -3281,6 +3369,21 @@ export interface ProvisionedConcurrencyConfigListItem {
    * <p>The amount of provisioned concurrency allocated.</p>
    */
   AllocatedProvisionedConcurrentExecutions?: number;
+
+  /**
+   * <p>The status of the allocation process.</p>
+   */
+  Status?: ProvisionedConcurrencyStatusEnum | string;
+
+  /**
+   * <p>For failed allocations, the reason that provisioned concurrency could not be allocated.</p>
+   */
+  StatusReason?: string;
+
+  /**
+   * <p>The date and time that a user last updated the configuration, in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601 format</a>.</p>
+   */
+  LastModified?: string;
 }
 
 export namespace ProvisionedConcurrencyConfigListItem {
@@ -3291,14 +3394,14 @@ export namespace ProvisionedConcurrencyConfigListItem {
 
 export interface ListProvisionedConcurrencyConfigsResponse {
   /**
-   * <p>The pagination token that's included if more results are available.</p>
-   */
-  NextMarker?: string;
-
-  /**
    * <p>A list of provisioned concurrency configurations.</p>
    */
   ProvisionedConcurrencyConfigs?: ProvisionedConcurrencyConfigListItem[];
+
+  /**
+   * <p>The pagination token that's included if more results are available.</p>
+   */
+  NextMarker?: string;
 }
 
 export namespace ListProvisionedConcurrencyConfigsResponse {
@@ -3359,14 +3462,14 @@ export interface ListVersionsByFunctionRequest {
   FunctionName: string | undefined;
 
   /**
-   * <p>The maximum number of versions to return.</p>
-   */
-  MaxItems?: number;
-
-  /**
    * <p>Specify the pagination token that's returned by a previous request to retrieve the next page of results.</p>
    */
   Marker?: string;
+
+  /**
+   * <p>The maximum number of versions to return.</p>
+   */
+  MaxItems?: number;
 }
 
 export namespace ListVersionsByFunctionRequest {
@@ -3401,25 +3504,25 @@ export namespace ListVersionsByFunctionResponse {
  */
 export interface LayerVersionContentInput {
   /**
+   * <p>The Amazon S3 bucket of the layer archive.</p>
+   */
+  S3Bucket?: string;
+
+  /**
    * <p>The Amazon S3 key of the layer archive.</p>
    */
   S3Key?: string;
+
+  /**
+   * <p>For versioned objects, the version of the layer archive object to use.</p>
+   */
+  S3ObjectVersion?: string;
 
   /**
    * <p>The base64-encoded contents of the layer archive. AWS SDK and AWS CLI clients handle the encoding for
    *       you.</p>
    */
   ZipFile?: Uint8Array;
-
-  /**
-   * <p>The Amazon S3 bucket of the layer archive.</p>
-   */
-  S3Bucket?: string;
-
-  /**
-   * <p>For versioned objects, the version of the layer archive object to use.</p>
-   */
-  S3ObjectVersion?: string;
 }
 
 export namespace LayerVersionContentInput {
@@ -3431,9 +3534,25 @@ export namespace LayerVersionContentInput {
 
 export interface PublishLayerVersionRequest {
   /**
+   * <p>The name or Amazon Resource Name (ARN) of the layer.</p>
+   */
+  LayerName: string | undefined;
+
+  /**
    * <p>The description of the version.</p>
    */
   Description?: string;
+
+  /**
+   * <p>The function layer archive.</p>
+   */
+  Content: LayerVersionContentInput | undefined;
+
+  /**
+   * <p>A list of compatible <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html">function
+   *         runtimes</a>. Used for filtering with <a>ListLayers</a> and <a>ListLayerVersions</a>.</p>
+   */
+  CompatibleRuntimes?: (Runtime | string)[];
 
   /**
    * <p>The layer's software license. It can be any of the following:</p>
@@ -3452,22 +3571,6 @@ export interface PublishLayerVersionRequest {
    *          </ul>
    */
   LicenseInfo?: string;
-
-  /**
-   * <p>A list of compatible <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html">function
-   *         runtimes</a>. Used for filtering with <a>ListLayers</a> and <a>ListLayerVersions</a>.</p>
-   */
-  CompatibleRuntimes?: (Runtime | string)[];
-
-  /**
-   * <p>The function layer archive.</p>
-   */
-  Content: LayerVersionContentInput | undefined;
-
-  /**
-   * <p>The name or Amazon Resource Name (ARN) of the layer.</p>
-   */
-  LayerName: string | undefined;
 }
 
 export namespace PublishLayerVersionRequest {
@@ -3479,31 +3582,6 @@ export namespace PublishLayerVersionRequest {
 
 export interface PublishLayerVersionResponse {
   /**
-   * <p>The ARN of the layer version.</p>
-   */
-  LayerVersionArn?: string;
-
-  /**
-   * <p>The layer's software license.</p>
-   */
-  LicenseInfo?: string;
-
-  /**
-   * <p>The layer's compatible runtimes.</p>
-   */
-  CompatibleRuntimes?: (Runtime | string)[];
-
-  /**
-   * <p>The description of the version.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The version number.</p>
-   */
-  Version?: number;
-
-  /**
    * <p>Details about the layer version.</p>
    */
   Content?: LayerVersionContentOutput;
@@ -3514,9 +3592,34 @@ export interface PublishLayerVersionResponse {
   LayerArn?: string;
 
   /**
+   * <p>The ARN of the layer version.</p>
+   */
+  LayerVersionArn?: string;
+
+  /**
+   * <p>The description of the version.</p>
+   */
+  Description?: string;
+
+  /**
    * <p>The date that the layer version was created, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>
    */
   CreatedDate?: string;
+
+  /**
+   * <p>The version number.</p>
+   */
+  Version?: number;
+
+  /**
+   * <p>The layer's compatible runtimes.</p>
+   */
+  CompatibleRuntimes?: (Runtime | string)[];
+
+  /**
+   * <p>The layer's software license.</p>
+   */
+  LicenseInfo?: string;
 }
 
 export namespace PublishLayerVersionResponse {
@@ -3526,12 +3629,6 @@ export namespace PublishLayerVersionResponse {
 }
 
 export interface PublishVersionRequest {
-  /**
-   * <p>Only update the function if the revision ID matches the ID that's specified. Use this option to avoid
-   *       publishing a version if the function configuration has changed since you last updated it.</p>
-   */
-  RevisionId?: string;
-
   /**
    * <p>The name of the Lambda function.</p>
    *          <p class="title">
@@ -3567,6 +3664,12 @@ export interface PublishVersionRequest {
    * <p>A description for the version to override the description in the function configuration.</p>
    */
   Description?: string;
+
+  /**
+   * <p>Only update the function if the revision ID matches the ID that's specified. Use this option to avoid
+   *       publishing a version if the function configuration has changed since you last updated it.</p>
+   */
+  RevisionId?: string;
 }
 
 export namespace PublishVersionRequest {
@@ -3576,11 +3679,6 @@ export namespace PublishVersionRequest {
 }
 
 export interface PutFunctionConcurrencyRequest {
-  /**
-   * <p>The number of simultaneous executions to reserve for the function.</p>
-   */
-  ReservedConcurrentExecutions: number | undefined;
-
   /**
    * <p>The name of the Lambda function.</p>
    *          <p class="title">
@@ -3604,6 +3702,11 @@ export interface PutFunctionConcurrencyRequest {
    *       characters in length.</p>
    */
   FunctionName: string | undefined;
+
+  /**
+   * <p>The number of simultaneous executions to reserve for the function.</p>
+   */
+  ReservedConcurrentExecutions: number | undefined;
 }
 
 export namespace PutFunctionConcurrencyRequest {
@@ -3613,6 +3716,40 @@ export namespace PutFunctionConcurrencyRequest {
 }
 
 export interface PutFunctionEventInvokeConfigRequest {
+  /**
+   * <p>The name of the Lambda function, version, or alias.</p>
+   *          <p class="title">
+   *             <b>Name formats</b>
+   *          </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <b>Function name</b> - <code>my-function</code> (name-only), <code>my-function:v1</code> (with alias).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p>
+   *             </li>
+   *          </ul>
+   *          <p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN.
+   *       If you specify only the function name, it is limited to 64 characters in length.</p>
+   */
+  FunctionName: string | undefined;
+
+  /**
+   * <p>A version number or alias name.</p>
+   */
+  Qualifier?: string;
+
+  /**
+   * <p>The maximum number of times to retry when the function returns an error.</p>
+   */
+  MaximumRetryAttempts?: number;
+
   /**
    * <p>The maximum age of a request that Lambda sends to a function for processing.</p>
    */
@@ -3643,40 +3780,6 @@ export interface PutFunctionEventInvokeConfigRequest {
    *          </ul>
    */
   DestinationConfig?: DestinationConfig;
-
-  /**
-   * <p>The maximum number of times to retry when the function returns an error.</p>
-   */
-  MaximumRetryAttempts?: number;
-
-  /**
-   * <p>The name of the Lambda function, version, or alias.</p>
-   *          <p class="title">
-   *             <b>Name formats</b>
-   *          </p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <b>Function name</b> - <code>my-function</code> (name-only), <code>my-function:v1</code> (with alias).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p>
-   *             </li>
-   *          </ul>
-   *          <p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN.
-   *       If you specify only the function name, it is limited to 64 characters in length.</p>
-   */
-  FunctionName: string | undefined;
-
-  /**
-   * <p>A version number or alias name.</p>
-   */
-  Qualifier?: string;
 }
 
 export namespace PutFunctionEventInvokeConfigRequest {
@@ -3686,16 +3789,6 @@ export namespace PutFunctionEventInvokeConfigRequest {
 }
 
 export interface PutProvisionedConcurrencyConfigRequest {
-  /**
-   * <p>The amount of provisioned concurrency to allocate for the version or alias.</p>
-   */
-  ProvisionedConcurrentExecutions: number | undefined;
-
-  /**
-   * <p>The version number or alias name.</p>
-   */
-  Qualifier: string | undefined;
-
   /**
    * <p>The name of the Lambda function.</p>
    *          <p class="title">
@@ -3719,6 +3812,16 @@ export interface PutProvisionedConcurrencyConfigRequest {
    *       characters in length.</p>
    */
   FunctionName: string | undefined;
+
+  /**
+   * <p>The version number or alias name.</p>
+   */
+  Qualifier: string | undefined;
+
+  /**
+   * <p>The amount of provisioned concurrency to allocate for the version or alias.</p>
+   */
+  ProvisionedConcurrentExecutions: number | undefined;
 }
 
 export namespace PutProvisionedConcurrencyConfigRequest {
@@ -3729,14 +3832,9 @@ export namespace PutProvisionedConcurrencyConfigRequest {
 
 export interface PutProvisionedConcurrencyConfigResponse {
   /**
-   * <p>The amount of provisioned concurrency allocated.</p>
+   * <p>The amount of provisioned concurrency requested.</p>
    */
-  AllocatedProvisionedConcurrentExecutions?: number;
-
-  /**
-   * <p>The date and time that a user last updated the configuration, in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601 format</a>.</p>
-   */
-  LastModified?: string;
+  RequestedProvisionedConcurrentExecutions?: number;
 
   /**
    * <p>The amount of provisioned concurrency available.</p>
@@ -3744,19 +3842,24 @@ export interface PutProvisionedConcurrencyConfigResponse {
   AvailableProvisionedConcurrentExecutions?: number;
 
   /**
-   * <p>For failed allocations, the reason that provisioned concurrency could not be allocated.</p>
+   * <p>The amount of provisioned concurrency allocated.</p>
    */
-  StatusReason?: string;
-
-  /**
-   * <p>The amount of provisioned concurrency requested.</p>
-   */
-  RequestedProvisionedConcurrentExecutions?: number;
+  AllocatedProvisionedConcurrentExecutions?: number;
 
   /**
    * <p>The status of the allocation process.</p>
    */
   Status?: ProvisionedConcurrencyStatusEnum | string;
+
+  /**
+   * <p>For failed allocations, the reason that provisioned concurrency could not be allocated.</p>
+   */
+  StatusReason?: string;
+
+  /**
+   * <p>The date and time that a user last updated the configuration, in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601 format</a>.</p>
+   */
+  LastModified?: string;
 }
 
 export namespace PutProvisionedConcurrencyConfigResponse {
@@ -3767,15 +3870,14 @@ export namespace PutProvisionedConcurrencyConfigResponse {
 
 export interface RemoveLayerVersionPermissionRequest {
   /**
+   * <p>The name or Amazon Resource Name (ARN) of the layer.</p>
+   */
+  LayerName: string | undefined;
+
+  /**
    * <p>The version number.</p>
    */
   VersionNumber: number | undefined;
-
-  /**
-   * <p>Only update the policy if the revision ID matches the ID specified. Use this option to avoid modifying a
-   *       policy that has changed since you last read it.</p>
-   */
-  RevisionId?: string;
 
   /**
    * <p>The identifier that was specified when the statement was added.</p>
@@ -3783,9 +3885,10 @@ export interface RemoveLayerVersionPermissionRequest {
   StatementId: string | undefined;
 
   /**
-   * <p>The name or Amazon Resource Name (ARN) of the layer.</p>
+   * <p>Only update the policy if the revision ID matches the ID specified. Use this option to avoid modifying a
+   *       policy that has changed since you last read it.</p>
    */
-  LayerName: string | undefined;
+  RevisionId?: string;
 }
 
 export namespace RemoveLayerVersionPermissionRequest {
@@ -3795,17 +3898,6 @@ export namespace RemoveLayerVersionPermissionRequest {
 }
 
 export interface RemovePermissionRequest {
-  /**
-   * <p>Specify a version or alias to remove permissions from a published version of the function.</p>
-   */
-  Qualifier?: string;
-
-  /**
-   * <p>Only update the policy if the revision ID matches the ID that's specified. Use this option to avoid modifying a
-   *       policy that has changed since you last read it.</p>
-   */
-  RevisionId?: string;
-
   /**
    * <p>The name of the Lambda function, version, or alias.</p>
    *          <p class="title">
@@ -3834,6 +3926,17 @@ export interface RemovePermissionRequest {
    * <p>Statement ID of the permission to remove.</p>
    */
   StatementId: string | undefined;
+
+  /**
+   * <p>Specify a version or alias to remove permissions from a published version of the function.</p>
+   */
+  Qualifier?: string;
+
+  /**
+   * <p>Only update the policy if the revision ID matches the ID that's specified. Use this option to avoid modifying a
+   *       policy that has changed since you last read it.</p>
+   */
+  RevisionId?: string;
 }
 
 export namespace RemovePermissionRequest {
@@ -3844,14 +3947,14 @@ export namespace RemovePermissionRequest {
 
 export interface TagResourceRequest {
   /**
-   * <p>A list of tags to apply to the function.</p>
-   */
-  Tags: { [key: string]: string } | undefined;
-
-  /**
    * <p>The function's Amazon Resource Name (ARN).</p>
    */
   Resource: string | undefined;
+
+  /**
+   * <p>A list of tags to apply to the function.</p>
+   */
+  Tags: { [key: string]: string } | undefined;
 }
 
 export namespace TagResourceRequest {
@@ -3862,14 +3965,14 @@ export namespace TagResourceRequest {
 
 export interface UntagResourceRequest {
   /**
-   * <p>A list of tag keys to remove from the function.</p>
-   */
-  TagKeys: string[] | undefined;
-
-  /**
    * <p>The function's Amazon Resource Name (ARN).</p>
    */
   Resource: string | undefined;
+
+  /**
+   * <p>A list of tag keys to remove from the function.</p>
+   */
+  TagKeys: string[] | undefined;
 }
 
 export namespace UntagResourceRequest {
@@ -3879,16 +3982,6 @@ export namespace UntagResourceRequest {
 }
 
 export interface UpdateAliasRequest {
-  /**
-   * <p>The function version that the alias invokes.</p>
-   */
-  FunctionVersion?: string;
-
-  /**
-   * <p>The name of the alias.</p>
-   */
-  Name: string | undefined;
-
   /**
    * <p>The name of the Lambda function.</p>
    *          <p class="title">
@@ -3914,6 +4007,21 @@ export interface UpdateAliasRequest {
   FunctionName: string | undefined;
 
   /**
+   * <p>The name of the alias.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The function version that the alias invokes.</p>
+   */
+  FunctionVersion?: string;
+
+  /**
+   * <p>A description of the alias.</p>
+   */
+  Description?: string;
+
+  /**
    * <p>The <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html#configuring-alias-routing">routing
    *         configuration</a> of the alias.</p>
    */
@@ -3924,11 +4032,6 @@ export interface UpdateAliasRequest {
    *       an alias that has changed since you last read it.</p>
    */
   RevisionId?: string;
-
-  /**
-   * <p>A description of the alias.</p>
-   */
-  Description?: string;
 }
 
 export namespace UpdateAliasRequest {
@@ -3939,42 +4042,9 @@ export namespace UpdateAliasRequest {
 
 export interface UpdateEventSourceMappingRequest {
   /**
-   * <p>(Streams) If the function returns an error, split the batch in two and retry.</p>
+   * <p>The identifier of the event source mapping.</p>
    */
-  BisectBatchOnFunctionError?: boolean;
-
-  /**
-   * <p>(Streams) An Amazon SQS queue or Amazon SNS topic destination for discarded records.</p>
-   */
-  DestinationConfig?: DestinationConfig;
-
-  /**
-   * <p>(Streams) Discard records older than the specified age. The default value is infinite (-1).</p>
-   */
-  MaximumRecordAgeInSeconds?: number;
-
-  /**
-   * <p>The maximum number of items to retrieve in a single batch.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <b>Amazon Kinesis</b> - Default 100. Max 10,000.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>Amazon DynamoDB Streams</b> - Default 100. Max 1,000.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>Amazon Simple Queue Service</b> - Default 10. Max 10.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>Amazon Managed Streaming for Apache Kafka</b> - Default 100. Max 10,000.</p>
-   *             </li>
-   *          </ul>
-   */
-  BatchSize?: number;
+  UUID: string | undefined;
 
   /**
    * <p>The name of the Lambda function.</p>
@@ -4010,9 +4080,27 @@ export interface UpdateEventSourceMappingRequest {
   Enabled?: boolean;
 
   /**
-   * <p>(Streams) The number of batches to process from each shard concurrently.</p>
+   * <p>The maximum number of items to retrieve in a single batch.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <b>Amazon Kinesis</b> - Default 100. Max 10,000.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>Amazon DynamoDB Streams</b> - Default 100. Max 1,000.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>Amazon Simple Queue Service</b> - Default 10. Max 10.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>Amazon Managed Streaming for Apache Kafka</b> - Default 100. Max 10,000.</p>
+   *             </li>
+   *          </ul>
    */
-  ParallelizationFactor?: number;
+  BatchSize?: number;
 
   /**
    * <p>(Streams) The maximum amount of time to gather records before invoking the function, in seconds.</p>
@@ -4020,14 +4108,50 @@ export interface UpdateEventSourceMappingRequest {
   MaximumBatchingWindowInSeconds?: number;
 
   /**
-   * <p>The identifier of the event source mapping.</p>
+   * <p>(Streams) An Amazon SQS queue or Amazon SNS topic destination for discarded records.</p>
    */
-  UUID: string | undefined;
+  DestinationConfig?: DestinationConfig;
+
+  /**
+   * <p>(Streams) Discard records older than the specified age. The default value is infinite (-1).</p>
+   */
+  MaximumRecordAgeInSeconds?: number;
+
+  /**
+   * <p>(Streams) If the function returns an error, split the batch in two and retry.</p>
+   */
+  BisectBatchOnFunctionError?: boolean;
 
   /**
    * <p>(Streams) Discard records after the specified number of retries. The default value is infinite (-1). When set to infinite (-1), failed records will be retried until the record expires.</p>
    */
   MaximumRetryAttempts?: number;
+
+  /**
+   * <p>(Streams) The number of batches to process from each shard concurrently.</p>
+   */
+  ParallelizationFactor?: number;
+
+  /**
+   * <p>
+   *       (MQ) The Secrets Manager secret that stores your broker credentials. To store your secret, use the following format:
+   *       <code>	  {
+   *         "username": "your username",
+   *         "password": "your password"
+   *         }</code>
+   *          </p>
+   *
+   *          <p>To reference the secret, use the following format:
+   *       <code>[
+   *         {
+   *         "Type": "BASIC_AUTH",
+   *         "URI": "secretARN"
+   *         }
+   *         ]</code>
+   *          </p>
+   *          <p>The value of <code>Type</code> is always <code>BASIC_AUTH</code>. To encrypt the secret, you can use customer or service managed keys. When using a customer managed KMS key, the Lambda execution role requires <code>kms:Decrypt</code> permissions.</p>
+   */
+  SourceAccessConfigurations?: SourceAccessConfiguration[];
 }
 
 export namespace UpdateEventSourceMappingRequest {
@@ -4037,45 +4161,6 @@ export namespace UpdateEventSourceMappingRequest {
 }
 
 export interface UpdateFunctionCodeRequest {
-  /**
-   * <p>For versioned objects, the version of the deployment package object to use.</p>
-   */
-  S3ObjectVersion?: string;
-
-  /**
-   * <p>Only update the function if the revision ID matches the ID that's specified. Use this option to avoid modifying a
-   *       function that has changed since you last read it.</p>
-   */
-  RevisionId?: string;
-
-  /**
-   * <p>Set to true to publish a new version of the function after updating the code. This has the same effect as
-   *       calling <a>PublishVersion</a> separately.</p>
-   */
-  Publish?: boolean;
-
-  /**
-   * <p>An Amazon S3 bucket in the same AWS Region as your function. The bucket can be in a different AWS account.</p>
-   */
-  S3Bucket?: string;
-
-  /**
-   * <p>Set to true to validate the request parameters and access permissions without modifying the function
-   *       code.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The Amazon S3 key of the deployment package.</p>
-   */
-  S3Key?: string;
-
-  /**
-   * <p>The base64-encoded contents of the deployment package. AWS SDK and AWS CLI clients handle the encoding for
-   *       you.</p>
-   */
-  ZipFile?: Uint8Array;
-
   /**
    * <p>The name of the Lambda function.</p>
    *          <p class="title">
@@ -4099,6 +4184,45 @@ export interface UpdateFunctionCodeRequest {
    *       characters in length.</p>
    */
   FunctionName: string | undefined;
+
+  /**
+   * <p>The base64-encoded contents of the deployment package. AWS SDK and AWS CLI clients handle the encoding for
+   *       you.</p>
+   */
+  ZipFile?: Uint8Array;
+
+  /**
+   * <p>An Amazon S3 bucket in the same AWS Region as your function. The bucket can be in a different AWS account.</p>
+   */
+  S3Bucket?: string;
+
+  /**
+   * <p>The Amazon S3 key of the deployment package.</p>
+   */
+  S3Key?: string;
+
+  /**
+   * <p>For versioned objects, the version of the deployment package object to use.</p>
+   */
+  S3ObjectVersion?: string;
+
+  /**
+   * <p>Set to true to publish a new version of the function after updating the code. This has the same effect as
+   *       calling <a>PublishVersion</a> separately.</p>
+   */
+  Publish?: boolean;
+
+  /**
+   * <p>Set to true to validate the request parameters and access permissions without modifying the function
+   *       code.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>Only update the function if the revision ID matches the ID that's specified. Use this option to avoid modifying a
+   *       function that has changed since you last read it.</p>
+   */
+  RevisionId?: string;
 }
 
 export namespace UpdateFunctionCodeRequest {
@@ -4134,72 +4258,9 @@ export interface UpdateFunctionConfigurationRequest {
   FunctionName: string | undefined;
 
   /**
-   * <p>For network connectivity to AWS resources in a VPC, specify a list of security groups and subnets in the VPC.
-   *       When you connect a function to a VPC, it can only access resources and the internet through that VPC. For more
-   *       information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html">VPC Settings</a>.</p>
-   */
-  VpcConfig?: VpcConfig;
-
-  /**
-   * <p>A description of the function.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The identifier of the function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html">runtime</a>.</p>
-   */
-  Runtime?: Runtime | string;
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the function's execution role.</p>
    */
   Role?: string;
-
-  /**
-   * <p>Connection settings for an Amazon EFS file system.</p>
-   */
-  FileSystemConfigs?: FileSystemConfig[];
-
-  /**
-   * <p>The ARN of the AWS Key Management Service (AWS KMS) key that's used to encrypt your function's environment
-   *       variables. If it's not provided, AWS Lambda uses a default service key.</p>
-   */
-  KMSKeyArn?: string;
-
-  /**
-   * <p>Environment variables that are accessible from function code during execution.</p>
-   */
-  Environment?: Environment;
-
-  /**
-   * <p>Set <code>Mode</code> to <code>Active</code> to sample and trace a subset of incoming requests with AWS
-   *       X-Ray.</p>
-   */
-  TracingConfig?: TracingConfig;
-
-  /**
-   * <p>A list of <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">function layers</a>
-   *       to add to the function's execution environment. Specify each layer by its ARN, including the version.</p>
-   */
-  Layers?: string[];
-
-  /**
-   * <p>The amount of memory that your function has access to. Increasing the function's memory also increases its CPU
-   *       allocation. The default value is 128 MB. The value must be a multiple of 64 MB.</p>
-   */
-  MemorySize?: number;
-
-  /**
-   * <p>A dead letter queue configuration that specifies the queue or topic where Lambda sends asynchronous events
-   *       when they fail processing. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#dlq">Dead Letter Queues</a>.</p>
-   */
-  DeadLetterConfig?: DeadLetterConfig;
-
-  /**
-   * <p>The amount of time that Lambda allows a function to run before stopping it. The default is 3 seconds. The
-   *       maximum allowed value is 900 seconds.</p>
-   */
-  Timeout?: number;
 
   /**
    * <p>The name of the method within your code that Lambda calls to execute your function. The format includes the
@@ -4209,10 +4270,73 @@ export interface UpdateFunctionConfigurationRequest {
   Handler?: string;
 
   /**
+   * <p>A description of the function.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The amount of time that Lambda allows a function to run before stopping it. The default is 3 seconds. The
+   *       maximum allowed value is 900 seconds.</p>
+   */
+  Timeout?: number;
+
+  /**
+   * <p>The amount of memory that your function has access to. Increasing the function's memory also increases its CPU
+   *       allocation. The default value is 128 MB. The value must be a multiple of 64 MB.</p>
+   */
+  MemorySize?: number;
+
+  /**
+   * <p>For network connectivity to AWS resources in a VPC, specify a list of security groups and subnets in the VPC.
+   *       When you connect a function to a VPC, it can only access resources and the internet through that VPC. For more
+   *       information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html">VPC Settings</a>.</p>
+   */
+  VpcConfig?: VpcConfig;
+
+  /**
+   * <p>Environment variables that are accessible from function code during execution.</p>
+   */
+  Environment?: Environment;
+
+  /**
+   * <p>The identifier of the function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html">runtime</a>.</p>
+   */
+  Runtime?: Runtime | string;
+
+  /**
+   * <p>A dead letter queue configuration that specifies the queue or topic where Lambda sends asynchronous events
+   *       when they fail processing. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#dlq">Dead Letter Queues</a>.</p>
+   */
+  DeadLetterConfig?: DeadLetterConfig;
+
+  /**
+   * <p>The ARN of the AWS Key Management Service (AWS KMS) key that's used to encrypt your function's environment
+   *       variables. If it's not provided, AWS Lambda uses a default service key.</p>
+   */
+  KMSKeyArn?: string;
+
+  /**
+   * <p>Set <code>Mode</code> to <code>Active</code> to sample and trace a subset of incoming requests with AWS
+   *       X-Ray.</p>
+   */
+  TracingConfig?: TracingConfig;
+
+  /**
    * <p>Only update the function if the revision ID matches the ID that's specified. Use this option to avoid modifying a
    *       function that has changed since you last read it.</p>
    */
   RevisionId?: string;
+
+  /**
+   * <p>A list of <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">function layers</a>
+   *       to add to the function's execution environment. Specify each layer by its ARN, including the version.</p>
+   */
+  Layers?: string[];
+
+  /**
+   * <p>Connection settings for an Amazon EFS file system.</p>
+   */
+  FileSystemConfigs?: FileSystemConfig[];
 }
 
 export namespace UpdateFunctionConfigurationRequest {
@@ -4248,6 +4372,21 @@ export interface UpdateFunctionEventInvokeConfigRequest {
   FunctionName: string | undefined;
 
   /**
+   * <p>A version number or alias name.</p>
+   */
+  Qualifier?: string;
+
+  /**
+   * <p>The maximum number of times to retry when the function returns an error.</p>
+   */
+  MaximumRetryAttempts?: number;
+
+  /**
+   * <p>The maximum age of a request that Lambda sends to a function for processing.</p>
+   */
+  MaximumEventAgeInSeconds?: number;
+
+  /**
    * <p>A destination for events after they have been sent to a function for processing.</p>
    *          <p class="title">
    *             <b>Destinations</b>
@@ -4272,21 +4411,6 @@ export interface UpdateFunctionEventInvokeConfigRequest {
    *          </ul>
    */
   DestinationConfig?: DestinationConfig;
-
-  /**
-   * <p>The maximum age of a request that Lambda sends to a function for processing.</p>
-   */
-  MaximumEventAgeInSeconds?: number;
-
-  /**
-   * <p>The maximum number of times to retry when the function returns an error.</p>
-   */
-  MaximumRetryAttempts?: number;
-
-  /**
-   * <p>A version number or alias name.</p>
-   */
-  Qualifier?: string;
 }
 
 export namespace UpdateFunctionEventInvokeConfigRequest {

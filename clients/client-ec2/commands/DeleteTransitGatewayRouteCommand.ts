@@ -1,6 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DeleteTransitGatewayRouteRequest } from "../models/models_1";
-import { DeleteTransitGatewayRouteResult } from "../models/models_2";
+import { DeleteTransitGatewayRouteRequest, DeleteTransitGatewayRouteResult } from "../models/models_2";
 import {
   deserializeAws_ec2DeleteTransitGatewayRouteCommand,
   serializeAws_ec2DeleteTransitGatewayRouteCommand,

@@ -17,12 +17,6 @@ export enum JobExecutionFailureType {
  */
 export interface AbortCriteria {
   /**
-   * <p>The minimum percentage of job execution failures that must occur to initiate the job abort.</p>
-   *         <p>AWS IoT supports up to two digits after the decimal (for example, 10.9 and 10.99, but not 10.999).</p>
-   */
-  thresholdPercentage: number | undefined;
-
-  /**
    * <p>The type of job execution failures that can initiate a job abort.</p>
    */
   failureType: JobExecutionFailureType | string | undefined;
@@ -31,6 +25,12 @@ export interface AbortCriteria {
    * <p>The type of job action to take to initiate the job abort.</p>
    */
   action: AbortAction | string | undefined;
+
+  /**
+   * <p>The minimum percentage of job execution failures that must occur to initiate the job abort.</p>
+   *         <p>AWS IoT supports up to two digits after the decimal (for example, 10.9 and 10.99, but not 10.999).</p>
+   */
+  thresholdPercentage: number | undefined;
 
   /**
    * <p>The minimum number of things which must receive job execution notifications before the job
@@ -215,25 +215,25 @@ export namespace UnauthorizedException {
  */
 export interface CloudwatchAlarmAction {
   /**
-   * <p>The reason for the alarm change.</p>
-   */
-  stateReason: string | undefined;
-
-  /**
    * <p>The IAM role that allows access to the CloudWatch alarm.</p>
    */
   roleArn: string | undefined;
+
+  /**
+   * <p>The CloudWatch alarm name.</p>
+   */
+  alarmName: string | undefined;
+
+  /**
+   * <p>The reason for the alarm change.</p>
+   */
+  stateReason: string | undefined;
 
   /**
    * <p>The value of the alarm state. Acceptable values are: OK, ALARM,
    *          INSUFFICIENT_DATA.</p>
    */
   stateValue: string | undefined;
-
-  /**
-   * <p>The CloudWatch alarm name.</p>
-   */
-  alarmName: string | undefined;
 }
 
 export namespace CloudwatchAlarmAction {
@@ -247,14 +247,14 @@ export namespace CloudwatchAlarmAction {
  */
 export interface CloudwatchLogsAction {
   /**
-   * <p>The CloudWatch log group to which the action sends data.</p>
-   */
-  logGroupName: string | undefined;
-
-  /**
    * <p>The IAM role that allows access to the CloudWatch log.</p>
    */
   roleArn: string | undefined;
+
+  /**
+   * <p>The CloudWatch log group to which the action sends data.</p>
+   */
+  logGroupName: string | undefined;
 }
 
 export namespace CloudwatchLogsAction {
@@ -268,14 +268,24 @@ export namespace CloudwatchLogsAction {
  */
 export interface CloudwatchMetricAction {
   /**
-   * <p>An optional <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#about_timestamp">Unix timestamp</a>.</p>
+   * <p>The IAM role that allows access to the CloudWatch metric.</p>
    */
-  metricTimestamp?: string;
+  roleArn: string | undefined;
+
+  /**
+   * <p>The CloudWatch metric namespace name.</p>
+   */
+  metricNamespace: string | undefined;
 
   /**
    * <p>The CloudWatch metric name.</p>
    */
   metricName: string | undefined;
+
+  /**
+   * <p>The CloudWatch metric value.</p>
+   */
+  metricValue: string | undefined;
 
   /**
    * <p>The <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#Unit">metric
@@ -284,19 +294,9 @@ export interface CloudwatchMetricAction {
   metricUnit: string | undefined;
 
   /**
-   * <p>The CloudWatch metric value.</p>
+   * <p>An optional <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#about_timestamp">Unix timestamp</a>.</p>
    */
-  metricValue: string | undefined;
-
-  /**
-   * <p>The CloudWatch metric namespace name.</p>
-   */
-  metricNamespace: string | undefined;
-
-  /**
-   * <p>The IAM role that allows access to the CloudWatch metric.</p>
-   */
-  roleArn: string | undefined;
+  metricTimestamp?: string;
 }
 
 export namespace CloudwatchMetricAction {
@@ -335,14 +335,9 @@ export interface DynamoDBAction {
   tableName: string | undefined;
 
   /**
-   * <p>The hash key value.</p>
+   * <p>The ARN of the IAM role that grants access to the DynamoDB table.</p>
    */
-  hashKeyValue: string | undefined;
-
-  /**
-   * <p>The action payload. This name can be customized.</p>
-   */
-  payloadField?: string;
+  roleArn: string | undefined;
 
   /**
    * <p>The type of operation to be performed. This follows the substitution template, so it
@@ -352,9 +347,14 @@ export interface DynamoDBAction {
   operation?: string;
 
   /**
-   * <p>The range key name.</p>
+   * <p>The hash key name.</p>
    */
-  rangeKeyField?: string;
+  hashKeyField: string | undefined;
+
+  /**
+   * <p>The hash key value.</p>
+   */
+  hashKeyValue: string | undefined;
 
   /**
    * <p>The hash key type. Valid values are "STRING" or "NUMBER"</p>
@@ -362,9 +362,14 @@ export interface DynamoDBAction {
   hashKeyType?: DynamoKeyType | string;
 
   /**
-   * <p>The ARN of the IAM role that grants access to the DynamoDB table.</p>
+   * <p>The range key name.</p>
    */
-  roleArn: string | undefined;
+  rangeKeyField?: string;
+
+  /**
+   * <p>The range key value.</p>
+   */
+  rangeKeyValue?: string;
 
   /**
    * <p>The range key type. Valid values are "STRING" or "NUMBER"</p>
@@ -372,14 +377,9 @@ export interface DynamoDBAction {
   rangeKeyType?: DynamoKeyType | string;
 
   /**
-   * <p>The hash key name.</p>
+   * <p>The action payload. This name can be customized.</p>
    */
-  hashKeyField: string | undefined;
-
-  /**
-   * <p>The range key value.</p>
-   */
-  rangeKeyValue?: string;
+  payloadField?: string;
 }
 
 export namespace DynamoDBAction {
@@ -441,19 +441,14 @@ export namespace DynamoDBv2Action {
  */
 export interface ElasticsearchAction {
   /**
-   * <p>The endpoint of your Elasticsearch domain.</p>
-   */
-  endpoint: string | undefined;
-
-  /**
-   * <p>The unique identifier for the document you are storing.</p>
-   */
-  id: string | undefined;
-
-  /**
    * <p>The IAM role ARN that has access to Elasticsearch.</p>
    */
   roleArn: string | undefined;
+
+  /**
+   * <p>The endpoint of your Elasticsearch domain.</p>
+   */
+  endpoint: string | undefined;
 
   /**
    * <p>The Elasticsearch index where you want to store your data.</p>
@@ -464,6 +459,11 @@ export interface ElasticsearchAction {
    * <p>The type of document you are storing.</p>
    */
   type: string | undefined;
+
+  /**
+   * <p>The unique identifier for the document you are storing.</p>
+   */
+  id: string | undefined;
 }
 
 export namespace ElasticsearchAction {
@@ -477,13 +477,6 @@ export namespace ElasticsearchAction {
  */
 export interface FirehoseAction {
   /**
-   * <p>A character separator that will be used to separate records written to the Firehose
-   *          stream. Valid values are: '\n' (newline), '\t' (tab), '\r\n' (Windows newline), ','
-   *          (comma).</p>
-   */
-  separator?: string;
-
-  /**
    * <p>The IAM role that grants access to the Amazon Kinesis Firehose stream.</p>
    */
   roleArn: string | undefined;
@@ -492,6 +485,13 @@ export interface FirehoseAction {
    * <p>The delivery stream name.</p>
    */
   deliveryStreamName: string | undefined;
+
+  /**
+   * <p>A character separator that will be used to separate records written to the Firehose
+   *          stream. Valid values are: '\n' (newline), '\t' (tab), '\r\n' (Windows newline), ','
+   *          (comma).</p>
+   */
+  separator?: string;
 }
 
 export namespace FirehoseAction {
@@ -505,9 +505,9 @@ export namespace FirehoseAction {
  */
 export interface SigV4Authorization {
   /**
-   * <p>The ARN of the signing role.</p>
+   * <p>The signing region.</p>
    */
-  roleArn: string | undefined;
+  signingRegion: string | undefined;
 
   /**
    * <p>The service name to use while signing with Sig V4.</p>
@@ -515,9 +515,9 @@ export interface SigV4Authorization {
   serviceName: string | undefined;
 
   /**
-   * <p>The signing region.</p>
+   * <p>The ARN of the signing role.</p>
    */
-  signingRegion: string | undefined;
+  roleArn: string | undefined;
 }
 
 export namespace SigV4Authorization {
@@ -569,11 +569,6 @@ export namespace HttpActionHeader {
  */
 export interface HttpAction {
   /**
-   * <p>The HTTP headers to send with the message data.</p>
-   */
-  headers?: HttpActionHeader[];
-
-  /**
    * <p>The endpoint URL. If substitution templates are used in the URL, you must also specify a
    *             <code>confirmationUrl</code>. If this is a new destination, a new
    *             <code>TopicRuleDestination</code> is created if possible.</p>
@@ -589,6 +584,11 @@ export interface HttpAction {
    *          URL.</p>
    */
   confirmationUrl?: string;
+
+  /**
+   * <p>The HTTP headers to send with the message data.</p>
+   */
+  headers?: HttpActionHeader[];
 
   /**
    * <p>The authentication method to use when sending data to an HTTPS endpoint.</p>
@@ -607,15 +607,15 @@ export namespace HttpAction {
  */
 export interface IotAnalyticsAction {
   /**
-   * <p>The name of the IoT Analytics channel to which message data will be sent.</p>
-   */
-  channelName?: string;
-
-  /**
    * <p>(deprecated) The ARN of the IoT Analytics channel to which message data will be
    *          sent.</p>
    */
   channelArn?: string;
+
+  /**
+   * <p>The name of the IoT Analytics channel to which message data will be sent.</p>
+   */
+  channelName?: string;
 
   /**
    * <p>The ARN of the role which has a policy that grants IoT Analytics permission to send
@@ -635,6 +635,11 @@ export namespace IotAnalyticsAction {
  */
 export interface IotEventsAction {
   /**
+   * <p>The name of the AWS IoT Events input.</p>
+   */
+  inputName: string | undefined;
+
+  /**
    * <p>[Optional] Use this to ensure that only one input (message) with a given messageId will
    *       be processed by an AWS IoT Events detector.</p>
    */
@@ -645,11 +650,6 @@ export interface IotEventsAction {
    *       Events detector. ("Action":"iotevents:BatchPutMessage").</p>
    */
   roleArn: string | undefined;
-
-  /**
-   * <p>The name of the AWS IoT Events input.</p>
-   */
-  inputName: string | undefined;
 }
 
 export namespace IotEventsAction {
@@ -663,16 +663,16 @@ export namespace IotEventsAction {
  */
 export interface AssetPropertyTimestamp {
   /**
-   * <p>Optional. A string that contains the nanosecond time offset. Accepts substitution
-   *       templates.</p>
-   */
-  offsetInNanos?: string;
-
-  /**
    * <p>A string that contains the time in seconds since epoch. Accepts substitution
    *       templates.</p>
    */
   timeInSeconds: string | undefined;
+
+  /**
+   * <p>Optional. A string that contains the nanosecond time offset. Accepts substitution
+   *       templates.</p>
+   */
+  offsetInNanos?: string;
 }
 
 export namespace AssetPropertyTimestamp {
@@ -686,16 +686,9 @@ export namespace AssetPropertyTimestamp {
  */
 export interface AssetPropertyVariant {
   /**
-   * <p>Optional. A string that contains the boolean value (<code>true</code> or
-   *         <code>false</code>) of the value entry. Accepts substitution templates.</p>
+   * <p>Optional. The string value of the value entry. Accepts substitution templates.</p>
    */
-  booleanValue?: string;
-
-  /**
-   * <p>Optional. A string that contains the double value of the value entry. Accepts substitution
-   *       templates.</p>
-   */
-  doubleValue?: string;
+  stringValue?: string;
 
   /**
    * <p>Optional. A string that contains the integer value of the value entry. Accepts
@@ -704,9 +697,16 @@ export interface AssetPropertyVariant {
   integerValue?: string;
 
   /**
-   * <p>Optional. The string value of the value entry. Accepts substitution templates.</p>
+   * <p>Optional. A string that contains the double value of the value entry. Accepts substitution
+   *       templates.</p>
    */
-  stringValue?: string;
+  doubleValue?: string;
+
+  /**
+   * <p>Optional. A string that contains the boolean value (<code>true</code> or
+   *         <code>false</code>) of the value entry. Accepts substitution templates.</p>
+   */
+  booleanValue?: string;
 }
 
 export namespace AssetPropertyVariant {
@@ -747,13 +747,6 @@ export namespace AssetPropertyValue {
  */
 export interface PutAssetPropertyValueEntry {
   /**
-   * <p>The ID of the AWS IoT SiteWise asset. You must specify either a <code>propertyAlias</code>
-   *       or both an <code>aliasId</code> and a <code>propertyId</code>. Accepts substitution
-   *       templates.</p>
-   */
-  assetId?: string;
-
-  /**
    * <p>Optional. A unique identifier for this entry that you can define to better track which
    *       message caused an error in case of failure. Accepts substitution templates. Defaults to a new
    *       UUID.</p>
@@ -761,10 +754,18 @@ export interface PutAssetPropertyValueEntry {
   entryId?: string;
 
   /**
-   * <p>A list of property values to insert that each contain timestamp, quality, and value (TQV)
-   *       information.</p>
+   * <p>The ID of the AWS IoT SiteWise asset. You must specify either a <code>propertyAlias</code>
+   *       or both an <code>aliasId</code> and a <code>propertyId</code>. Accepts substitution
+   *       templates.</p>
    */
-  propertyValues: AssetPropertyValue[] | undefined;
+  assetId?: string;
+
+  /**
+   * <p>The ID of the asset's property. You must specify either a <code>propertyAlias</code> or
+   *       both an <code>aliasId</code> and a <code>propertyId</code>. Accepts substitution
+   *       templates.</p>
+   */
+  propertyId?: string;
 
   /**
    * <p>The name of the property alias associated with your asset property. You must specify
@@ -774,11 +775,10 @@ export interface PutAssetPropertyValueEntry {
   propertyAlias?: string;
 
   /**
-   * <p>The ID of the asset's property. You must specify either a <code>propertyAlias</code> or
-   *       both an <code>aliasId</code> and a <code>propertyId</code>. Accepts substitution
-   *       templates.</p>
+   * <p>A list of property values to insert that each contain timestamp, quality, and value (TQV)
+   *       information.</p>
    */
-  propertyId?: string;
+  propertyValues: AssetPropertyValue[] | undefined;
 }
 
 export namespace PutAssetPropertyValueEntry {
@@ -793,16 +793,16 @@ export namespace PutAssetPropertyValueEntry {
  */
 export interface IotSiteWiseAction {
   /**
+   * <p>A list of asset property value entries.</p>
+   */
+  putAssetPropertyValueEntries: PutAssetPropertyValueEntry[] | undefined;
+
+  /**
    * <p>The ARN of the role that grants AWS IoT permission to send an asset property value to AWS
    *       IoTSiteWise. (<code>"Action": "iotsitewise:BatchPutAssetPropertyValue"</code>). The trust
    *       policy can restrict access to specific asset hierarchy paths.</p>
    */
   roleArn: string | undefined;
-
-  /**
-   * <p>A list of asset property value entries.</p>
-   */
-  putAssetPropertyValueEntries: PutAssetPropertyValueEntry[] | undefined;
 }
 
 export namespace IotSiteWiseAction {
@@ -821,14 +821,14 @@ export interface KinesisAction {
   roleArn: string | undefined;
 
   /**
-   * <p>The partition key.</p>
-   */
-  partitionKey?: string;
-
-  /**
    * <p>The name of the Amazon Kinesis stream.</p>
    */
   streamName: string | undefined;
+
+  /**
+   * <p>The partition key.</p>
+   */
+  partitionKey?: string;
 }
 
 export namespace KinesisAction {
@@ -858,12 +858,6 @@ export namespace LambdaAction {
  */
 export interface RepublishAction {
   /**
-   * <p>The Quality of Service (QoS) level to use when republishing messages. The default value
-   *          is 0.</p>
-   */
-  qos?: number;
-
-  /**
    * <p>The ARN of the IAM role that grants access.</p>
    */
   roleArn: string | undefined;
@@ -872,6 +866,12 @@ export interface RepublishAction {
    * <p>The name of the MQTT topic.</p>
    */
   topic: string | undefined;
+
+  /**
+   * <p>The Quality of Service (QoS) level to use when republishing messages. The default value
+   *          is 0.</p>
+   */
+  qos?: number;
 }
 
 export namespace RepublishAction {
@@ -896,6 +896,11 @@ export enum CannedAccessControlList {
  */
 export interface S3Action {
   /**
+   * <p>The ARN of the IAM role that grants access.</p>
+   */
+  roleArn: string | undefined;
+
+  /**
    * <p>The Amazon S3 bucket.</p>
    */
   bucketName: string | undefined;
@@ -910,11 +915,6 @@ export interface S3Action {
    *          key. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl">S3 canned ACLs</a>.</p>
    */
   cannedAcl?: CannedAccessControlList | string;
-
-  /**
-   * <p>The ARN of the IAM role that grants access.</p>
-   */
-  roleArn: string | undefined;
 }
 
 export namespace S3Action {
@@ -958,6 +958,11 @@ export enum MessageFormat {
  */
 export interface SnsAction {
   /**
+   * <p>The ARN of the SNS topic.</p>
+   */
+  targetArn: string | undefined;
+
+  /**
    * <p>The ARN of the IAM role that grants access.</p>
    */
   roleArn: string | undefined;
@@ -969,11 +974,6 @@ export interface SnsAction {
    *          be extracted. To read more about SNS message formats, see <a href="https://docs.aws.amazon.com/sns/latest/dg/json-formats.html">https://docs.aws.amazon.com/sns/latest/dg/json-formats.html</a> refer to their official documentation.</p>
    */
   messageFormat?: MessageFormat | string;
-
-  /**
-   * <p>The ARN of the SNS topic.</p>
-   */
-  targetArn: string | undefined;
 }
 
 export namespace SnsAction {
@@ -987,6 +987,11 @@ export namespace SnsAction {
  */
 export interface SqsAction {
   /**
+   * <p>The ARN of the IAM role that grants access.</p>
+   */
+  roleArn: string | undefined;
+
+  /**
    * <p>The URL of the Amazon SQS queue.</p>
    */
   queueUrl: string | undefined;
@@ -995,11 +1000,6 @@ export interface SqsAction {
    * <p>Specifies whether to use Base64 encoding.</p>
    */
   useBase64?: boolean;
-
-  /**
-   * <p>The ARN of the IAM role that grants access.</p>
-   */
-  roleArn: string | undefined;
 }
 
 export namespace SqsAction {
@@ -1013,6 +1013,13 @@ export namespace SqsAction {
  */
 export interface StepFunctionsAction {
   /**
+   * <p>(Optional) A name will be given to the state machine execution consisting of this
+   *       prefix followed by a UUID. Step Functions automatically creates a unique name for each state
+   *       machine execution if one is not provided.</p>
+   */
+  executionNamePrefix?: string;
+
+  /**
    * <p>The name of the Step Functions state machine whose execution will be started.</p>
    */
   stateMachineName: string | undefined;
@@ -1022,13 +1029,6 @@ export interface StepFunctionsAction {
    *       ("Action":"states:StartExecution").</p>
    */
   roleArn: string | undefined;
-
-  /**
-   * <p>(Optional) A name will be given to the state machine execution consisting of this
-   *       prefix followed by a UUID. Step Functions automatically creates a unique name for each state
-   *       machine execution if one is not provided.</p>
-   */
-  executionNamePrefix?: string;
 }
 
 export namespace StepFunctionsAction {
@@ -1071,6 +1071,11 @@ export namespace TimestreamDimension {
  */
 export interface TimestreamTimestamp {
   /**
+   * <p>An expression that returns a long epoch time value.</p>
+   */
+  value: string | undefined;
+
+  /**
    * <p>The precision of the timestamp value that results from the expression
    *          described in <code>value</code>.</p>
    *          <p>Valid values:  <code>SECONDS</code> | <code>MILLISECONDS</code> |
@@ -1078,11 +1083,6 @@ export interface TimestreamTimestamp {
    *             <code>MILLISECONDS</code>.</p>
    */
   unit: string | undefined;
-
-  /**
-   * <p>An expression that returns a long epoch time value.</p>
-   */
-  value: string | undefined;
 }
 
 export namespace TimestreamTimestamp {
@@ -1098,27 +1098,6 @@ export namespace TimestreamTimestamp {
  */
 export interface TimestreamAction {
   /**
-   * <p>Specifies an application-defined value to replace the default value assigned to the
-   *          Timestream record's timestamp in the <code>time</code> column.</p>
-   *          <p>You can use this property to specify the value and the precision of the Timestream
-   *          record's timestamp. You can specify a value from the message payload or a value computed by
-   *          a substitution template.</p>
-   *          <p>If omitted, the topic rule action assigns the timestamp, in milliseconds, at the time it
-   *          processed the rule. </p>
-   */
-  timestamp?: TimestreamTimestamp;
-
-  /**
-   * <p>Metadata attributes of the time series that are written in each measure record.</p>
-   */
-  dimensions: TimestreamDimension[] | undefined;
-
-  /**
-   * <p>The name of the database table into which to write the measure records.</p>
-   */
-  tableName: string | undefined;
-
-  /**
    * <p>The ARN of the role that grants permission to write to the
    *          Amazon Timestream database table.</p>
    */
@@ -1128,6 +1107,27 @@ export interface TimestreamAction {
    * <p>The name of an Amazon Timestream database.</p>
    */
   databaseName: string | undefined;
+
+  /**
+   * <p>The name of the database table into which to write the measure records.</p>
+   */
+  tableName: string | undefined;
+
+  /**
+   * <p>Metadata attributes of the time series that are written in each measure record.</p>
+   */
+  dimensions: TimestreamDimension[] | undefined;
+
+  /**
+   * <p>Specifies an application-defined value to replace the default value assigned to the
+   *          Timestream record's timestamp in the <code>time</code> column.</p>
+   *          <p>You can use this property to specify the value and the precision of the Timestream
+   *          record's timestamp. You can specify a value from the message payload or a value computed by
+   *          a substitution template.</p>
+   *          <p>If omitted, the topic rule action assigns the timestamp, in milliseconds, at the time it
+   *          processed the rule. </p>
+   */
+  timestamp?: TimestreamTimestamp;
 }
 
 export namespace TimestreamAction {
@@ -1141,25 +1141,9 @@ export namespace TimestreamAction {
  */
 export interface Action {
   /**
-   * <p>Publish to an Amazon SNS topic.</p>
+   * <p>Write to a DynamoDB table.</p>
    */
-  sns?: SnsAction;
-
-  /**
-   * <p>Sends data from the MQTT message that triggered the rule to AWS IoT SiteWise asset
-   *       properties.</p>
-   */
-  iotSiteWise?: IotSiteWiseAction;
-
-  /**
-   * <p>Change the state of a CloudWatch alarm.</p>
-   */
-  cloudwatchAlarm?: CloudwatchAlarmAction;
-
-  /**
-   * <p>Send data to an HTTPS endpoint.</p>
-   */
-  http?: HttpAction;
+  dynamoDB?: DynamoDBAction;
 
   /**
    * <p>Write to a DynamoDB table. This is a new version of the DynamoDB action. It allows
@@ -1169,54 +1153,14 @@ export interface Action {
   dynamoDBv2?: DynamoDBv2Action;
 
   /**
-   * <p>Sends an input to an AWS IoT Events detector.</p>
-   */
-  iotEvents?: IotEventsAction;
-
-  /**
-   * <p>Write data to an Amazon Elasticsearch Service domain.</p>
-   */
-  elasticsearch?: ElasticsearchAction;
-
-  /**
-   * <p>Write to an Amazon Kinesis Firehose stream.</p>
-   */
-  firehose?: FirehoseAction;
-
-  /**
-   * <p>Publish to another MQTT topic.</p>
-   */
-  republish?: RepublishAction;
-
-  /**
    * <p>Invoke a Lambda function.</p>
    */
   lambda?: LambdaAction;
 
   /**
-   * <p>Write to an Amazon S3 bucket.</p>
+   * <p>Publish to an Amazon SNS topic.</p>
    */
-  s3?: S3Action;
-
-  /**
-   * <p>Capture a CloudWatch metric.</p>
-   */
-  cloudwatchMetric?: CloudwatchMetricAction;
-
-  /**
-   * <p>Starts execution of a Step Functions state machine.</p>
-   */
-  stepFunctions?: StepFunctionsAction;
-
-  /**
-   * <p>Write data to an Amazon Kinesis stream.</p>
-   */
-  kinesis?: KinesisAction;
-
-  /**
-   * <p>Sends message data to an AWS IoT Analytics channel.</p>
-   */
-  iotAnalytics?: IotAnalyticsAction;
+  sns?: SnsAction;
 
   /**
    * <p>Publish to an Amazon SQS queue.</p>
@@ -1224,14 +1168,34 @@ export interface Action {
   sqs?: SqsAction;
 
   /**
-   * <p>Write to a DynamoDB table.</p>
+   * <p>Write data to an Amazon Kinesis stream.</p>
    */
-  dynamoDB?: DynamoDBAction;
+  kinesis?: KinesisAction;
 
   /**
-   * <p>Send a message to a Salesforce IoT Cloud Input Stream.</p>
+   * <p>Publish to another MQTT topic.</p>
    */
-  salesforce?: SalesforceAction;
+  republish?: RepublishAction;
+
+  /**
+   * <p>Write to an Amazon S3 bucket.</p>
+   */
+  s3?: S3Action;
+
+  /**
+   * <p>Write to an Amazon Kinesis Firehose stream.</p>
+   */
+  firehose?: FirehoseAction;
+
+  /**
+   * <p>Capture a CloudWatch metric.</p>
+   */
+  cloudwatchMetric?: CloudwatchMetricAction;
+
+  /**
+   * <p>Change the state of a CloudWatch alarm.</p>
+   */
+  cloudwatchAlarm?: CloudwatchAlarmAction;
 
   /**
    * <p>Send data to CloudWatch Logs.</p>
@@ -1239,11 +1203,47 @@ export interface Action {
   cloudwatchLogs?: CloudwatchLogsAction;
 
   /**
+   * <p>Write data to an Amazon Elasticsearch Service domain.</p>
+   */
+  elasticsearch?: ElasticsearchAction;
+
+  /**
+   * <p>Send a message to a Salesforce IoT Cloud Input Stream.</p>
+   */
+  salesforce?: SalesforceAction;
+
+  /**
+   * <p>Sends message data to an AWS IoT Analytics channel.</p>
+   */
+  iotAnalytics?: IotAnalyticsAction;
+
+  /**
+   * <p>Sends an input to an AWS IoT Events detector.</p>
+   */
+  iotEvents?: IotEventsAction;
+
+  /**
+   * <p>Sends data from the MQTT message that triggered the rule to AWS IoT SiteWise asset
+   *       properties.</p>
+   */
+  iotSiteWise?: IotSiteWiseAction;
+
+  /**
+   * <p>Starts execution of a Step Functions state machine.</p>
+   */
+  stepFunctions?: StepFunctionsAction;
+
+  /**
    * <p>The Timestream rule action writes attributes (measures) from an MQTT message
    *          into an Amazon Timestream table. For more information, see the <a href="https://docs.aws.amazon.com/iot/latest/developerguide/timestream-rule-action.html">Timestream</a>
    *             topic rule action documentation.</p>
    */
   timestream?: TimestreamAction;
+
+  /**
+   * <p>Send data to an HTTPS endpoint.</p>
+   */
+  http?: HttpAction;
 }
 
 export namespace Action {
@@ -1304,16 +1304,16 @@ export interface MetricValue {
   count?: number;
 
   /**
-   * <p>If the <code>comparisonOperator</code> calls for a set of ports, use this
-   *           to specify that set to be compared with the <code>metric</code>.</p>
-   */
-  ports?: number[];
-
-  /**
    * <p>If the <code>comparisonOperator</code> calls for a set of CIDRs, use this
    *           to specify that set to be compared with the <code>metric</code>.</p>
    */
   cidrs?: string[];
+
+  /**
+   * <p>If the <code>comparisonOperator</code> calls for a set of ports, use this
+   *           to specify that set to be compared with the <code>metric</code>.</p>
+   */
+  ports?: number[];
 }
 
 export namespace MetricValue {
@@ -1327,6 +1327,17 @@ export namespace MetricValue {
  */
 export interface BehaviorCriteria {
   /**
+   * <p>The operator that relates the thing measured (<code>metric</code>) to the criteria
+   *           (containing a <code>value</code> or <code>statisticalThreshold</code>).</p>
+   */
+  comparisonOperator?: ComparisonOperator | string;
+
+  /**
+   * <p>The value to be compared with the <code>metric</code>.</p>
+   */
+  value?: MetricValue;
+
+  /**
    * <p>Use this to specify the time duration over which the behavior is evaluated,
    *           for those criteria which have a time dimension (for example, <code>NUM_MESSAGES_SENT</code>).
    *           For a <code>statisticalThreshhold</code> metric comparison, measurements from all devices are
@@ -1337,10 +1348,10 @@ export interface BehaviorCriteria {
   durationSeconds?: number;
 
   /**
-   * <p>A statistical ranking (percentile) which indicates a threshold value by which a behavior
-   *           is determined to be in compliance or in violation of the behavior.</p>
+   * <p>If a device is in violation of the behavior for the specified number of consecutive
+   *           datapoints, an alarm occurs. If not specified, the default is 1.</p>
    */
-  statisticalThreshold?: StatisticalThreshold;
+  consecutiveDatapointsToAlarm?: number;
 
   /**
    * <p>If an alarm has occurred and the offending device is no longer in violation of the behavior
@@ -1350,21 +1361,10 @@ export interface BehaviorCriteria {
   consecutiveDatapointsToClear?: number;
 
   /**
-   * <p>If a device is in violation of the behavior for the specified number of consecutive
-   *           datapoints, an alarm occurs. If not specified, the default is 1.</p>
+   * <p>A statistical ranking (percentile) which indicates a threshold value by which a behavior
+   *           is determined to be in compliance or in violation of the behavior.</p>
    */
-  consecutiveDatapointsToAlarm?: number;
-
-  /**
-   * <p>The operator that relates the thing measured (<code>metric</code>) to the criteria
-   *           (containing a <code>value</code> or <code>statisticalThreshold</code>).</p>
-   */
-  comparisonOperator?: ComparisonOperator | string;
-
-  /**
-   * <p>The value to be compared with the <code>metric</code>.</p>
-   */
-  value?: MetricValue;
+  statisticalThreshold?: StatisticalThreshold;
 }
 
 export namespace BehaviorCriteria {
@@ -1404,25 +1404,25 @@ export namespace MetricDimension {
  */
 export interface Behavior {
   /**
+   * <p>The name you have given to the behavior.</p>
+   */
+  name: string | undefined;
+
+  /**
    * <p>What is measured by the behavior.</p>
    */
   metric?: string;
 
   /**
-   * <p>The name you have given to the behavior.</p>
+   * <p>The dimension for a metric in your behavior. For example, using a <code>TOPIC_FILTER</code> dimension, you can narrow down the scope of the metric only to MQTT topics whose name match the pattern specified in the dimension.</p>
    */
-  name: string | undefined;
+  metricDimension?: MetricDimension;
 
   /**
    * <p>The criteria that determine if a device is behaving normally in regard to
    *           the <code>metric</code>.</p>
    */
   criteria?: BehaviorCriteria;
-
-  /**
-   * <p>The dimension for a metric in your behavior. For example, using a <code>TOPIC_FILTER</code> dimension, you can narrow down the scope of the metric only to MQTT topics whose name match the pattern specified in the dimension.</p>
-   */
-  metricDimension?: MetricDimension;
 }
 
 export namespace Behavior {
@@ -1436,14 +1436,9 @@ export namespace Behavior {
  */
 export interface ActiveViolation {
   /**
-   * <p>The time the violation started.</p>
+   * <p>The ID of the active violation.</p>
    */
-  violationStartTime?: Date;
-
-  /**
-   * <p>The security profile whose behavior is in violation.</p>
-   */
-  securityProfileName?: string;
+  violationId?: string;
 
   /**
    * <p>The name of the thing responsible for the active violation.</p>
@@ -1451,9 +1446,9 @@ export interface ActiveViolation {
   thingName?: string;
 
   /**
-   * <p>The ID of the active violation.</p>
+   * <p>The security profile whose behavior is in violation.</p>
    */
-  violationId?: string;
+  securityProfileName?: string;
 
   /**
    * <p>The behavior which is being violated.</p>
@@ -1469,6 +1464,11 @@ export interface ActiveViolation {
    * <p>The time the most recent violation occurred.</p>
    */
   lastViolationTime?: Date;
+
+  /**
+   * <p>The time the violation started.</p>
+   */
+  violationStartTime?: Date;
 }
 
 export namespace ActiveViolation {
@@ -1503,14 +1503,14 @@ export namespace MetricToRetain {
  */
 export interface AddThingsToThingGroupParams {
   /**
-   * <p>Specifies if this mitigation action can move the things that triggered the mitigation action even if they are part of one or more dynamic things groups.</p>
-   */
-  overrideDynamicGroups?: boolean;
-
-  /**
    * <p>The list of groups to which you want to add the things that triggered the mitigation action. You can add a thing to a maximum of 10 groups, but you cannot add a thing to more than one group in the same hierarchy.</p>
    */
   thingGroupNames: string[] | undefined;
+
+  /**
+   * <p>Specifies if this mitigation action can move the things that triggered the mitigation action even if they are part of one or more dynamic things groups.</p>
+   */
+  overrideDynamicGroups?: boolean;
 }
 
 export namespace AddThingsToThingGroupParams {
@@ -1521,14 +1521,9 @@ export namespace AddThingsToThingGroupParams {
 
 export interface AddThingToBillingGroupRequest {
   /**
-   * <p>The ARN of the thing to be added to the billing group.</p>
+   * <p>The name of the billing group.</p>
    */
-  thingArn?: string;
-
-  /**
-   * <p>The name of the thing to be added to the billing group.</p>
-   */
-  thingName?: string;
+  billingGroupName?: string;
 
   /**
    * <p>The ARN of the billing group.</p>
@@ -1536,9 +1531,14 @@ export interface AddThingToBillingGroupRequest {
   billingGroupArn?: string;
 
   /**
-   * <p>The name of the billing group.</p>
+   * <p>The name of the thing to be added to the billing group.</p>
    */
-  billingGroupName?: string;
+  thingName?: string;
+
+  /**
+   * <p>The ARN of the thing to be added to the billing group.</p>
+   */
+  thingArn?: string;
 }
 
 export namespace AddThingToBillingGroupRequest {
@@ -1557,9 +1557,24 @@ export namespace AddThingToBillingGroupResponse {
 
 export interface AddThingToThingGroupRequest {
   /**
+   * <p>The name of the group to which you are adding a thing.</p>
+   */
+  thingGroupName?: string;
+
+  /**
+   * <p>The ARN of the group to which you are adding a thing.</p>
+   */
+  thingGroupArn?: string;
+
+  /**
    * <p>The name of the thing to add to a group.</p>
    */
   thingName?: string;
+
+  /**
+   * <p>The ARN of the thing to add to a group.</p>
+   */
+  thingArn?: string;
 
   /**
    * <p>Override dynamic thing groups with static thing groups when 10-group limit is
@@ -1568,21 +1583,6 @@ export interface AddThingToThingGroupRequest {
    * 			dynamic group.</p>
    */
   overrideDynamicGroups?: boolean;
-
-  /**
-   * <p>The ARN of the group to which you are adding a thing.</p>
-   */
-  thingGroupArn?: string;
-
-  /**
-   * <p>The ARN of the thing to add to a group.</p>
-   */
-  thingArn?: string;
-
-  /**
-   * <p>The name of the group to which you are adding a thing.</p>
-   */
-  thingGroupName?: string;
 }
 
 export namespace AddThingToThingGroupRequest {
@@ -1604,15 +1604,15 @@ export namespace AddThingToThingGroupResponse {
  */
 export interface AlertTarget {
   /**
+   * <p>The ARN of the notification target to which alerts are sent.</p>
+   */
+  alertTargetArn: string | undefined;
+
+  /**
    * <p>The ARN of the role that grants permission to send alerts to the
    *         notification target.</p>
    */
   roleArn: string | undefined;
-
-  /**
-   * <p>The ARN of the notification target to which alerts are sent.</p>
-   */
-  alertTargetArn: string | undefined;
 }
 
 export namespace AlertTarget {
@@ -1630,14 +1630,14 @@ export enum AlertTargetType {
  */
 export interface Policy {
   /**
-   * <p>The policy ARN.</p>
-   */
-  policyArn?: string;
-
-  /**
    * <p>The policy name.</p>
    */
   policyName?: string;
+
+  /**
+   * <p>The policy ARN.</p>
+   */
+  policyArn?: string;
 }
 
 export namespace Policy {
@@ -1664,6 +1664,16 @@ export namespace Allowed {
 
 export interface AssociateTargetsWithJobRequest {
   /**
+   * <p>A list of thing group ARNs that define the targets of the job.</p>
+   */
+  targets: string[] | undefined;
+
+  /**
+   * <p>The unique identifier you assigned to this job when it was created.</p>
+   */
+  jobId: string | undefined;
+
+  /**
    * <p>An optional comment string describing why the job was associated with the targets.</p>
    */
   comment?: string;
@@ -1680,16 +1690,6 @@ export interface AssociateTargetsWithJobRequest {
    *          </note>
    */
   namespaceId?: string;
-
-  /**
-   * <p>A list of thing group ARNs that define the targets of the job.</p>
-   */
-  targets: string[] | undefined;
-
-  /**
-   * <p>The unique identifier you assigned to this job when it was created.</p>
-   */
-  jobId: string | undefined;
 }
 
 export namespace AssociateTargetsWithJobRequest {
@@ -1700,6 +1700,11 @@ export namespace AssociateTargetsWithJobRequest {
 
 export interface AssociateTargetsWithJobResponse {
   /**
+   * <p>An ARN identifying the job.</p>
+   */
+  jobArn?: string;
+
+  /**
    * <p>The unique identifier you assigned to this job when it was created.</p>
    */
   jobId?: string;
@@ -1708,11 +1713,6 @@ export interface AssociateTargetsWithJobResponse {
    * <p>A short text description of the job.</p>
    */
   description?: string;
-
-  /**
-   * <p>An ARN identifying the job.</p>
-   */
-  jobArn?: string;
 }
 
 export namespace AssociateTargetsWithJobResponse {
@@ -1741,14 +1741,14 @@ export namespace LimitExceededException {
 
 export interface AttachPolicyRequest {
   /**
-   * <p>The <a href="https://docs.aws.amazon.com/iot/latest/developerguide/security-iam.html">identity</a> to which the policy is attached.</p>
-   */
-  target: string | undefined;
-
-  /**
    * <p>The name of the policy to attach.</p>
    */
   policyName: string | undefined;
+
+  /**
+   * <p>The <a href="https://docs.aws.amazon.com/iot/latest/developerguide/security-iam.html">identity</a> to which the policy is attached.</p>
+   */
+  target: string | undefined;
 }
 
 export namespace AttachPolicyRequest {
@@ -1762,15 +1762,15 @@ export namespace AttachPolicyRequest {
  */
 export interface AttachPrincipalPolicyRequest {
   /**
+   * <p>The policy name.</p>
+   */
+  policyName: string | undefined;
+
+  /**
    * <p>The principal, which can be a certificate ARN (as returned from the CreateCertificate
    *          operation) or an Amazon Cognito ID.</p>
    */
   principal: string | undefined;
-
-  /**
-   * <p>The policy name.</p>
-   */
-  policyName: string | undefined;
 }
 
 export namespace AttachPrincipalPolicyRequest {
@@ -1830,15 +1830,15 @@ export namespace VersionConflictException {
  */
 export interface AttachThingPrincipalRequest {
   /**
+   * <p>The name of the thing.</p>
+   */
+  thingName: string | undefined;
+
+  /**
    * <p>The principal, which can be a certificate ARN (as returned from the
    * 			CreateCertificate operation) or an Amazon Cognito ID.</p>
    */
   principal: string | undefined;
-
-  /**
-   * <p>The name of the thing.</p>
-   */
-  thingName: string | undefined;
 }
 
 export namespace AttachThingPrincipalRequest {
@@ -1917,11 +1917,10 @@ export enum AuditCheckRunStatus {
  */
 export interface AuditCheckDetails {
   /**
-   * <p>
-   *             Describes how many of the non-compliant resources created during the evaluation of an audit check were marked as suppressed.
-   *         </p>
+   * <p>The completion status of this check. One of "IN_PROGRESS", "WAITING_FOR_DATA_COLLECTION",
+   *         "CANCELED", "COMPLETED_COMPLIANT", "COMPLETED_NON_COMPLIANT", or "FAILED".</p>
    */
-  suppressedNonCompliantResourcesCount?: number;
+  checkRunStatus?: AuditCheckRunStatus | string;
 
   /**
    * <p>True if the check is complete and found all resources compliant.</p>
@@ -1934,26 +1933,27 @@ export interface AuditCheckDetails {
   totalResourcesCount?: number;
 
   /**
+   * <p>The number of resources that were found noncompliant during the check.</p>
+   */
+  nonCompliantResourcesCount?: number;
+
+  /**
+   * <p>
+   *             Describes how many of the non-compliant resources created during the evaluation of an audit check were marked as suppressed.
+   *         </p>
+   */
+  suppressedNonCompliantResourcesCount?: number;
+
+  /**
    * <p>The code of any error encountered when this check is performed during this audit.
    *           One of "INSUFFICIENT_PERMISSIONS" or "AUDIT_CHECK_DISABLED".</p>
    */
   errorCode?: string;
 
   /**
-   * <p>The number of resources that were found noncompliant during the check.</p>
-   */
-  nonCompliantResourcesCount?: number;
-
-  /**
    * <p>The message associated with any error encountered when this check is performed during this audit.</p>
    */
   message?: string;
-
-  /**
-   * <p>The completion status of this check. One of "IN_PROGRESS", "WAITING_FOR_DATA_COLLECTION",
-   *         "CANCELED", "COMPLETED_COMPLIANT", "COMPLETED_NON_COMPLIANT", or "FAILED".</p>
-   */
-  checkRunStatus?: AuditCheckRunStatus | string;
 }
 
 export namespace AuditCheckDetails {
@@ -1967,14 +1967,14 @@ export namespace AuditCheckDetails {
  */
 export interface PolicyVersionIdentifier {
   /**
-   * <p>The ID of the version of the policy associated with the resource.</p>
-   */
-  policyVersionId?: string;
-
-  /**
    * <p>The name of the policy.</p>
    */
   policyName?: string;
+
+  /**
+   * <p>The ID of the version of the policy associated with the resource.</p>
+   */
+  policyVersionId?: string;
 }
 
 export namespace PolicyVersionIdentifier {
@@ -1988,14 +1988,24 @@ export namespace PolicyVersionIdentifier {
  */
 export interface ResourceIdentifier {
   /**
-   * <p>The ARN of the IAM role that has overly permissive actions.</p>
+   * <p>The ID of the certificate attached to the resource.</p>
    */
-  iamRoleArn?: string;
+  deviceCertificateId?: string;
 
   /**
    * <p>The ID of the CA certificate used to authorize the certificate.</p>
    */
   caCertificateId?: string;
+
+  /**
+   * <p>The ID of the Amazon Cognito identity pool.</p>
+   */
+  cognitoIdentityPoolId?: string;
+
+  /**
+   * <p>The client ID.</p>
+   */
+  clientId?: string;
 
   /**
    * <p>The version of the policy associated with the resource.</p>
@@ -2008,19 +2018,9 @@ export interface ResourceIdentifier {
   account?: string;
 
   /**
-   * <p>The ID of the certificate attached to the resource.</p>
+   * <p>The ARN of the IAM role that has overly permissive actions.</p>
    */
-  deviceCertificateId?: string;
-
-  /**
-   * <p>The ID of the Amazon Cognito identity pool.</p>
-   */
-  cognitoIdentityPoolId?: string;
-
-  /**
-   * <p>The client ID.</p>
-   */
-  clientId?: string;
+  iamRoleArn?: string;
 
   /**
    * <p>The ARN of the role alias that has overly permissive actions.</p>
@@ -2050,6 +2050,11 @@ export enum ResourceType {
  */
 export interface NonCompliantResource {
   /**
+   * <p>The type of the noncompliant resource.</p>
+   */
+  resourceType?: ResourceType | string;
+
+  /**
    * <p>Information that identifies the noncompliant resource.</p>
    */
   resourceIdentifier?: ResourceIdentifier;
@@ -2058,11 +2063,6 @@ export interface NonCompliantResource {
    * <p>Other information about the noncompliant resource.</p>
    */
   additionalInfo?: { [key: string]: string };
-
-  /**
-   * <p>The type of the noncompliant resource.</p>
-   */
-  resourceType?: ResourceType | string;
 }
 
 export namespace NonCompliantResource {
@@ -2076,6 +2076,11 @@ export namespace NonCompliantResource {
  */
 export interface RelatedResource {
   /**
+   * <p>The type of resource.</p>
+   */
+  resourceType?: ResourceType | string;
+
+  /**
    * <p>Information that identifies the resource.</p>
    */
   resourceIdentifier?: ResourceIdentifier;
@@ -2084,11 +2089,6 @@ export interface RelatedResource {
    * <p>Other information about the resource.</p>
    */
   additionalInfo?: { [key: string]: string };
-
-  /**
-   * <p>The type of resource.</p>
-   */
-  resourceType?: ResourceType | string;
 }
 
 export namespace RelatedResource {
@@ -2115,37 +2115,9 @@ export interface AuditFinding {
   findingId?: string;
 
   /**
-   * <p>The resource that was found to be noncompliant with the
-   *         audit check.</p>
+   * <p>The ID of the audit that generated this result (finding).</p>
    */
-  nonCompliantResource?: NonCompliantResource;
-
-  /**
-   * <p>
-   *             Indicates whether the audit finding was suppressed or not during reporting.
-   *         </p>
-   */
-  isSuppressed?: boolean;
-
-  /**
-   * <p>The time the result (finding) was discovered.</p>
-   */
-  findingTime?: Date;
-
-  /**
-   * <p>The severity of the result (finding).</p>
-   */
-  severity?: AuditFindingSeverity | string;
-
-  /**
-   * <p>The reason the resource was noncompliant.</p>
-   */
-  reasonForNonCompliance?: string;
-
-  /**
-   * <p>A code that indicates the reason that the resource was noncompliant.</p>
-   */
-  reasonForNonComplianceCode?: string;
+  taskId?: string;
 
   /**
    * <p>The audit check that generated this result.</p>
@@ -2158,14 +2130,42 @@ export interface AuditFinding {
   taskStartTime?: Date;
 
   /**
-   * <p>The ID of the audit that generated this result (finding).</p>
+   * <p>The time the result (finding) was discovered.</p>
    */
-  taskId?: string;
+  findingTime?: Date;
+
+  /**
+   * <p>The severity of the result (finding).</p>
+   */
+  severity?: AuditFindingSeverity | string;
+
+  /**
+   * <p>The resource that was found to be noncompliant with the
+   *         audit check.</p>
+   */
+  nonCompliantResource?: NonCompliantResource;
 
   /**
    * <p>The list of related resources.</p>
    */
   relatedResources?: RelatedResource[];
+
+  /**
+   * <p>The reason the resource was noncompliant.</p>
+   */
+  reasonForNonCompliance?: string;
+
+  /**
+   * <p>A code that indicates the reason that the resource was noncompliant.</p>
+   */
+  reasonForNonComplianceCode?: string;
+
+  /**
+   * <p>
+   *             Indicates whether the audit finding was suppressed or not during reporting.
+   *         </p>
+   */
+  isSuppressed?: boolean;
 }
 
 export namespace AuditFinding {
@@ -2195,14 +2195,39 @@ export enum AuditMitigationActionsExecutionStatus {
  */
 export interface AuditMitigationActionExecutionMetadata {
   /**
-   * <p>The date and time when the task was started.</p>
+   * <p>The unique identifier for the task that applies the mitigation action.</p>
    */
-  startTime?: Date;
+  taskId?: string;
 
   /**
    * <p>The unique identifier for the findings to which the task and associated mitigation action are applied.</p>
    */
   findingId?: string;
+
+  /**
+   * <p>The friendly name of the mitigation action being applied by the task.</p>
+   */
+  actionName?: string;
+
+  /**
+   * <p>The unique identifier for the mitigation action being applied by the task.</p>
+   */
+  actionId?: string;
+
+  /**
+   * <p>The current status of the task being executed.</p>
+   */
+  status?: AuditMitigationActionsExecutionStatus | string;
+
+  /**
+   * <p>The date and time when the task was started.</p>
+   */
+  startTime?: Date;
+
+  /**
+   * <p>The date and time when the task was completed or canceled. Blank if the task is still running.</p>
+   */
+  endTime?: Date;
 
   /**
    * <p>If an error occurred, the code that indicates which type of error occurred.</p>
@@ -2213,31 +2238,6 @@ export interface AuditMitigationActionExecutionMetadata {
    * <p>If an error occurred, a message that describes the error.</p>
    */
   message?: string;
-
-  /**
-   * <p>The friendly name of the mitigation action being applied by the task.</p>
-   */
-  actionName?: string;
-
-  /**
-   * <p>The current status of the task being executed.</p>
-   */
-  status?: AuditMitigationActionsExecutionStatus | string;
-
-  /**
-   * <p>The date and time when the task was completed or canceled. Blank if the task is still running.</p>
-   */
-  endTime?: Date;
-
-  /**
-   * <p>The unique identifier for the task that applies the mitigation action.</p>
-   */
-  taskId?: string;
-
-  /**
-   * <p>The unique identifier for the mitigation action being applied by the task.</p>
-   */
-  actionId?: string;
 }
 
 export namespace AuditMitigationActionExecutionMetadata {
@@ -2258,6 +2258,11 @@ export enum AuditMitigationActionsTaskStatus {
  */
 export interface AuditMitigationActionsTaskMetadata {
   /**
+   * <p>The unique identifier for the task.</p>
+   */
+  taskId?: string;
+
+  /**
    * <p>The time at which the audit mitigation actions task was started.</p>
    */
   startTime?: Date;
@@ -2266,11 +2271,6 @@ export interface AuditMitigationActionsTaskMetadata {
    * <p>The current state of the audit mitigation actions task.</p>
    */
   taskStatus?: AuditMitigationActionsTaskStatus | string;
-
-  /**
-   * <p>The unique identifier for the task.</p>
-   */
-  taskId?: string;
 }
 
 export namespace AuditMitigationActionsTaskMetadata {
@@ -2284,19 +2284,14 @@ export namespace AuditMitigationActionsTaskMetadata {
  */
 export interface TaskStatisticsForAuditCheck {
   /**
-   * <p>The number of findings to which the mitigation action task was canceled when applied.</p>
-   */
-  canceledFindingsCount?: number;
-
-  /**
    * <p>The total number of findings to which a task is being applied.</p>
    */
   totalFindingsCount?: number;
 
   /**
-   * <p>The number of findings skipped because of filter conditions provided in the parameters to the command.</p>
+   * <p>The number of findings for which at least one of the actions failed when applied.</p>
    */
-  skippedFindingsCount?: number;
+  failedFindingsCount?: number;
 
   /**
    * <p>The number of findings for which all mitigation actions succeeded when applied.</p>
@@ -2304,9 +2299,14 @@ export interface TaskStatisticsForAuditCheck {
   succeededFindingsCount?: number;
 
   /**
-   * <p>The number of findings for which at least one of the actions failed when applied.</p>
+   * <p>The number of findings skipped because of filter conditions provided in the parameters to the command.</p>
    */
-  failedFindingsCount?: number;
+  skippedFindingsCount?: number;
+
+  /**
+   * <p>The number of findings to which the mitigation action task was canceled when applied.</p>
+   */
+  canceledFindingsCount?: number;
 }
 
 export namespace TaskStatisticsForAuditCheck {
@@ -2351,14 +2351,14 @@ export interface AuditNotificationTarget {
   targetArn?: string;
 
   /**
-   * <p>True if notifications to the target are enabled.</p>
-   */
-  enabled?: boolean;
-
-  /**
    * <p>The ARN of the role that grants permission to send notifications to the target.</p>
    */
   roleArn?: string;
+
+  /**
+   * <p>True if notifications to the target are enabled.</p>
+   */
+  enabled?: boolean;
 }
 
 export namespace AuditNotificationTarget {
@@ -2378,6 +2378,14 @@ export enum AuditNotificationType {
  */
 export interface AuditSuppression {
   /**
+   * <p>An audit check name. Checks must be enabled
+   *         for your account. (Use <code>DescribeAccountAuditConfiguration</code> to see the list
+   *         of all checks, including those that are enabled or use <code>UpdateAccountAuditConfiguration</code>
+   *         to select which checks are enabled.)</p>
+   */
+  checkName: string | undefined;
+
+  /**
    * <p>Information that identifies the noncompliant resource.</p>
    */
   resourceIdentifier: ResourceIdentifier | undefined;
@@ -2395,14 +2403,6 @@ export interface AuditSuppression {
    *         </p>
    */
   suppressIndefinitely?: boolean;
-
-  /**
-   * <p>An audit check name. Checks must be enabled
-   *         for your account. (Use <code>DescribeAccountAuditConfiguration</code> to see the list
-   *         of all checks, including those that are enabled or use <code>UpdateAccountAuditConfiguration</code>
-   *         to select which checks are enabled.)</p>
-   */
-  checkName: string | undefined;
 
   /**
    * <p>
@@ -2435,6 +2435,11 @@ export enum AuditTaskType {
  */
 export interface AuditTaskMetadata {
   /**
+   * <p>The ID of this audit.</p>
+   */
+  taskId?: string;
+
+  /**
    * <p>The status of this audit. One of "IN_PROGRESS", "COMPLETED",
    *         "FAILED", or "CANCELED".</p>
    */
@@ -2444,11 +2449,6 @@ export interface AuditTaskMetadata {
    * <p>The type of this audit. One of "ON_DEMAND_AUDIT_TASK" or "SCHEDULED_AUDIT_TASK".</p>
    */
   taskType?: AuditTaskType | string;
-
-  /**
-   * <p>The ID of this audit.</p>
-   */
-  taskId?: string;
 }
 
 export namespace AuditTaskMetadata {
@@ -2490,14 +2490,14 @@ export namespace AuthInfo {
  */
 export interface AuthorizerConfig {
   /**
-   * <p>A Boolean that specifies whether the domain configuration's authorization service can be overridden.</p>
-   */
-  allowAuthorizerOverride?: boolean;
-
-  /**
    * <p>The name of the authorization service for a domain configuration.</p>
    */
   defaultAuthorizerName?: string;
+
+  /**
+   * <p>A Boolean that specifies whether the domain configuration's authorization service can be overridden.</p>
+   */
+  allowAuthorizerOverride?: boolean;
 }
 
 export namespace AuthorizerConfig {
@@ -2516,34 +2516,24 @@ export enum AuthorizerStatus {
  */
 export interface AuthorizerDescription {
   /**
-   * <p>The authorizer's Lambda function ARN.</p>
-   */
-  authorizerFunctionArn?: string;
-
-  /**
-   * <p>Specifies whether AWS IoT validates the token signature in an authorization request.</p>
-   */
-  signingDisabled?: boolean;
-
-  /**
-   * <p>The UNIX timestamp of when the authorizer was created.</p>
-   */
-  creationDate?: Date;
-
-  /**
    * <p>The authorizer name.</p>
    */
   authorizerName?: string;
 
   /**
-   * <p>The status of the authorizer.</p>
-   */
-  status?: AuthorizerStatus | string;
-
-  /**
    * <p>The authorizer ARN.</p>
    */
   authorizerArn?: string;
+
+  /**
+   * <p>The authorizer's Lambda function ARN.</p>
+   */
+  authorizerFunctionArn?: string;
+
+  /**
+   * <p>The key used to extract the token from the HTTP headers.</p>
+   */
+  tokenKeyName?: string;
 
   /**
    * <p>The public keys used to validate the token signature returned by your custom
@@ -2552,14 +2542,24 @@ export interface AuthorizerDescription {
   tokenSigningPublicKeys?: { [key: string]: string };
 
   /**
+   * <p>The status of the authorizer.</p>
+   */
+  status?: AuthorizerStatus | string;
+
+  /**
+   * <p>The UNIX timestamp of when the authorizer was created.</p>
+   */
+  creationDate?: Date;
+
+  /**
    * <p>The UNIX timestamp of when the authorizer was last updated.</p>
    */
   lastModifiedDate?: Date;
 
   /**
-   * <p>The key used to extract the token from the HTTP headers.</p>
+   * <p>Specifies whether AWS IoT validates the token signature in an authorization request.</p>
    */
-  tokenKeyName?: string;
+  signingDisabled?: boolean;
 }
 
 export namespace AuthorizerDescription {
@@ -2573,14 +2573,14 @@ export namespace AuthorizerDescription {
  */
 export interface AuthorizerSummary {
   /**
-   * <p>The authorizer ARN.</p>
-   */
-  authorizerArn?: string;
-
-  /**
    * <p>The authorizer name.</p>
    */
   authorizerName?: string;
+
+  /**
+   * <p>The authorizer ARN.</p>
+   */
+  authorizerArn?: string;
 }
 
 export namespace AuthorizerSummary {
@@ -2628,16 +2628,16 @@ export namespace ImplicitDeny {
  */
 export interface Denied {
   /**
-   * <p>Information that explicitly denies the authorization. </p>
-   */
-  explicitDeny?: ExplicitDeny;
-
-  /**
    * <p>Information that implicitly denies the authorization. When a policy doesn't
    *          explicitly deny or allow an action on a resource it is considered an implicit
    *          deny.</p>
    */
   implicitDeny?: ImplicitDeny;
+
+  /**
+   * <p>Information that explicitly denies the authorization. </p>
+   */
+  explicitDeny?: ExplicitDeny;
 }
 
 export namespace Denied {
@@ -2651,21 +2651,14 @@ export namespace Denied {
  */
 export interface AuthResult {
   /**
-   * <p>The final authorization decision of this scenario. Multiple statements are taken into
-   *          account when determining the authorization decision. An explicit deny statement can
-   *          override multiple allow statements.</p>
-   */
-  authDecision?: AuthDecision | string;
-
-  /**
    * <p>Authorization information.</p>
    */
   authInfo?: AuthInfo;
 
   /**
-   * <p>Contains any missing context values found while evaluating policy.</p>
+   * <p>The policies and statements that allowed the specified action.</p>
    */
-  missingContextValues?: string[];
+  allowed?: Allowed;
 
   /**
    * <p>The policies and statements that denied the specified action.</p>
@@ -2673,9 +2666,16 @@ export interface AuthResult {
   denied?: Denied;
 
   /**
-   * <p>The policies and statements that allowed the specified action.</p>
+   * <p>The final authorization decision of this scenario. Multiple statements are taken into
+   *          account when determining the authorization decision. An explicit deny statement can
+   *          override multiple allow statements.</p>
    */
-  allowed?: Allowed;
+  authDecision?: AuthDecision | string;
+
+  /**
+   * <p>Contains any missing context values found while evaluating policy.</p>
+   */
+  missingContextValues?: string[];
 }
 
 export namespace AuthResult {
@@ -2756,6 +2756,11 @@ export interface CancelJobRequest {
   jobId: string | undefined;
 
   /**
+   * <p>(Optional)A reason code string that explains why the job was canceled.</p>
+   */
+  reasonCode?: string;
+
+  /**
    * <p>An optional comment string describing why the job was canceled.</p>
    */
   comment?: string;
@@ -2769,11 +2774,6 @@ export interface CancelJobRequest {
    *           device executing a job which is canceled is able to recover to a valid state.</p>
    */
   force?: boolean;
-
-  /**
-   * <p>(Optional)A reason code string that explains why the job was canceled.</p>
-   */
-  reasonCode?: string;
 }
 
 export namespace CancelJobRequest {
@@ -2784,6 +2784,11 @@ export namespace CancelJobRequest {
 
 export interface CancelJobResponse {
   /**
+   * <p>The job ARN.</p>
+   */
+  jobArn?: string;
+
+  /**
    * <p>The unique identifier you assigned to this job when it was created.</p>
    */
   jobId?: string;
@@ -2792,11 +2797,6 @@ export interface CancelJobResponse {
    * <p>A short text description of the job.</p>
    */
   description?: string;
-
-  /**
-   * <p>The job ARN.</p>
-   */
-  jobArn?: string;
 }
 
 export namespace CancelJobResponse {
@@ -2806,6 +2806,16 @@ export namespace CancelJobResponse {
 }
 
 export interface CancelJobExecutionRequest {
+  /**
+   * <p>The ID of the job to be canceled.</p>
+   */
+  jobId: string | undefined;
+
+  /**
+   * <p>The name of the thing whose execution of the job will be canceled.</p>
+   */
+  thingName: string | undefined;
+
   /**
    * <p>(Optional) If <code>true</code> the job execution will be canceled if it has status
    *           IN_PROGRESS or QUEUED, otherwise the job execution will be canceled only if it has status
@@ -2817,16 +2827,6 @@ export interface CancelJobExecutionRequest {
    *           recover to a valid state.</p>
    */
   force?: boolean;
-
-  /**
-   * <p>The name of the thing whose execution of the job will be canceled.</p>
-   */
-  thingName: string | undefined;
-
-  /**
-   * <p>The ID of the job to be canceled.</p>
-   */
-  jobId: string | undefined;
 
   /**
    * <p>(Optional) The expected current version of the job execution. Each time you update the job
@@ -2947,27 +2947,6 @@ export namespace InternalException {
 
 export interface CreateAuditSuppressionRequest {
   /**
-   * <p>
-   *       Indicates whether a suppression should exist indefinitely or not.
-   *     </p>
-   */
-  suppressIndefinitely?: boolean;
-
-  /**
-   * <p>
-   *       The epoch timestamp in seconds at which this suppression expires.
-   *     </p>
-   */
-  clientRequestToken?: string;
-
-  /**
-   * <p>
-   *       The description of the audit suppression.
-   *     </p>
-   */
-  description?: string;
-
-  /**
    * <p>An audit check name. Checks must be enabled
    *         for your account. (Use <code>DescribeAccountAuditConfiguration</code> to see the list
    *         of all checks, including those that are enabled or use <code>UpdateAccountAuditConfiguration</code>
@@ -2986,6 +2965,27 @@ export interface CreateAuditSuppressionRequest {
    *     </p>
    */
   expirationDate?: Date;
+
+  /**
+   * <p>
+   *       Indicates whether a suppression should exist indefinitely or not.
+   *     </p>
+   */
+  suppressIndefinitely?: boolean;
+
+  /**
+   * <p>
+   *       The description of the audit suppression.
+   *     </p>
+   */
+  description?: string;
+
+  /**
+   * <p>
+   *       The epoch timestamp in seconds at which this suppression expires.
+   *     </p>
+   */
+  clientRequestToken?: string;
 }
 
 export namespace CreateAuditSuppressionRequest {
@@ -3035,14 +3035,14 @@ export namespace ResourceAlreadyExistsException {
  */
 export interface Tag {
   /**
-   * <p>The tag's value.</p>
-   */
-  Value?: string;
-
-  /**
    * <p>The tag's key.</p>
    */
   Key: string | undefined;
+
+  /**
+   * <p>The tag's value.</p>
+   */
+  Value?: string;
 }
 
 export namespace Tag {
@@ -3052,6 +3052,32 @@ export namespace Tag {
 }
 
 export interface CreateAuthorizerRequest {
+  /**
+   * <p>The authorizer name.</p>
+   */
+  authorizerName: string | undefined;
+
+  /**
+   * <p>The ARN of the authorizer's Lambda function.</p>
+   */
+  authorizerFunctionArn: string | undefined;
+
+  /**
+   * <p>The name of the token key used to extract the token from the HTTP headers.</p>
+   */
+  tokenKeyName?: string;
+
+  /**
+   * <p>The public keys used to verify the digital signature returned by your custom
+   *          authentication service.</p>
+   */
+  tokenSigningPublicKeys?: { [key: string]: string };
+
+  /**
+   * <p>The status of the create authorizer request.</p>
+   */
+  status?: AuthorizerStatus | string;
+
   /**
    * <p>Metadata which can be used to manage the custom authorizer.</p>
    *          <note>
@@ -3068,32 +3094,6 @@ export interface CreateAuthorizerRequest {
    * <p>Specifies whether AWS IoT validates the token signature in an authorization request.</p>
    */
   signingDisabled?: boolean;
-
-  /**
-   * <p>The name of the token key used to extract the token from the HTTP headers.</p>
-   */
-  tokenKeyName?: string;
-
-  /**
-   * <p>The ARN of the authorizer's Lambda function.</p>
-   */
-  authorizerFunctionArn: string | undefined;
-
-  /**
-   * <p>The public keys used to verify the digital signature returned by your custom
-   *          authentication service.</p>
-   */
-  tokenSigningPublicKeys?: { [key: string]: string };
-
-  /**
-   * <p>The status of the create authorizer request.</p>
-   */
-  status?: AuthorizerStatus | string;
-
-  /**
-   * <p>The authorizer name.</p>
-   */
-  authorizerName: string | undefined;
 }
 
 export namespace CreateAuthorizerRequest {
@@ -3104,14 +3104,14 @@ export namespace CreateAuthorizerRequest {
 
 export interface CreateAuthorizerResponse {
   /**
-   * <p>The authorizer ARN.</p>
-   */
-  authorizerArn?: string;
-
-  /**
    * <p>The authorizer's name.</p>
    */
   authorizerName?: string;
+
+  /**
+   * <p>The authorizer ARN.</p>
+   */
+  authorizerArn?: string;
 }
 
 export namespace CreateAuthorizerResponse {
@@ -3138,9 +3138,9 @@ export namespace BillingGroupProperties {
 
 export interface CreateBillingGroupRequest {
   /**
-   * <p>Metadata which can be used to manage the billing group.</p>
+   * <p>The name you wish to give to the billing group.</p>
    */
-  tags?: Tag[];
+  billingGroupName: string | undefined;
 
   /**
    * <p>The properties of the billing group.</p>
@@ -3148,9 +3148,9 @@ export interface CreateBillingGroupRequest {
   billingGroupProperties?: BillingGroupProperties;
 
   /**
-   * <p>The name you wish to give to the billing group.</p>
+   * <p>Metadata which can be used to manage the billing group.</p>
    */
-  billingGroupName: string | undefined;
+  tags?: Tag[];
 }
 
 export namespace CreateBillingGroupRequest {
@@ -3161,11 +3161,6 @@ export namespace CreateBillingGroupRequest {
 
 export interface CreateBillingGroupResponse {
   /**
-   * <p>The ID of the billing group.</p>
-   */
-  billingGroupId?: string;
-
-  /**
    * <p>The name you gave to the billing group.</p>
    */
   billingGroupName?: string;
@@ -3174,6 +3169,11 @@ export interface CreateBillingGroupResponse {
    * <p>The ARN of the billing group.</p>
    */
   billingGroupArn?: string;
+
+  /**
+   * <p>The ID of the billing group.</p>
+   */
+  billingGroupId?: string;
 }
 
 export namespace CreateBillingGroupResponse {
@@ -3237,14 +3237,9 @@ export enum DimensionType {
 
 export interface CreateDimensionRequest {
   /**
-   * <p>Specifies the value or list of values for the dimension. For <code>TOPIC_FILTER</code> dimensions, this is a pattern used to match the MQTT topic (for example, "admin/#").</p>
+   * <p>A unique identifier for the dimension. Choose something that describes the type and value to make it easy to remember what it does.</p>
    */
-  stringValues: string[] | undefined;
-
-  /**
-   * <p>Metadata that can be used to manage the dimension.</p>
-   */
-  tags?: Tag[];
+  name: string | undefined;
 
   /**
    * <p>Specifies the type of dimension. Supported types: <code>TOPIC_FILTER.</code>
@@ -3253,9 +3248,14 @@ export interface CreateDimensionRequest {
   type: DimensionType | string | undefined;
 
   /**
-   * <p>A unique identifier for the dimension. Choose something that describes the type and value to make it easy to remember what it does.</p>
+   * <p>Specifies the value or list of values for the dimension. For <code>TOPIC_FILTER</code> dimensions, this is a pattern used to match the MQTT topic (for example, "admin/#").</p>
    */
-  name: string | undefined;
+  stringValues: string[] | undefined;
+
+  /**
+   * <p>Metadata that can be used to manage the dimension.</p>
+   */
+  tags?: Tag[];
 
   /**
    * <p>Each dimension must have a unique client request token. If you try to create a new dimension with the same token as a dimension that already exists, an exception occurs. If you omit this value, AWS SDKs will automatically generate a unique client request.</p>
@@ -3313,15 +3313,9 @@ export enum ServiceType {
 
 export interface CreateDomainConfigurationRequest {
   /**
-   * <p>An object that specifies the authorization service for a domain.</p>
+   * <p>The name of the domain configuration. This value must be unique to a region.</p>
    */
-  authorizerConfig?: AuthorizerConfig;
-
-  /**
-   * <p>The certificate used to validate the server certificate and prove domain name ownership. This certificate must be signed by a public certificate authority.
-   *          This value is not required for AWS-managed domains.</p>
-   */
-  validationCertificateArn?: string;
+  domainConfigurationName: string | undefined;
 
   /**
    * <p>The name of the domain.</p>
@@ -3335,9 +3329,15 @@ export interface CreateDomainConfigurationRequest {
   serverCertificateArns?: string[];
 
   /**
-   * <p>The name of the domain configuration. This value must be unique to a region.</p>
+   * <p>The certificate used to validate the server certificate and prove domain name ownership. This certificate must be signed by a public certificate authority.
+   *          This value is not required for AWS-managed domains.</p>
    */
-  domainConfigurationName: string | undefined;
+  validationCertificateArn?: string;
+
+  /**
+   * <p>An object that specifies the authorization service for a domain.</p>
+   */
+  authorizerConfig?: AuthorizerConfig;
 
   /**
    * <p>The type of service delivered by the endpoint.</p>
@@ -3389,14 +3389,14 @@ export namespace CreateDomainConfigurationResponse {
  */
 export interface ThingGroupProperties {
   /**
-   * <p>The thing group attributes in JSON format.</p>
-   */
-  attributePayload?: AttributePayload;
-
-  /**
    * <p>The thing group description.</p>
    */
   thingGroupDescription?: string;
+
+  /**
+   * <p>The thing group attributes in JSON format.</p>
+   */
+  attributePayload?: AttributePayload;
 }
 
 export namespace ThingGroupProperties {
@@ -3406,6 +3406,11 @@ export namespace ThingGroupProperties {
 }
 
 export interface CreateDynamicThingGroupRequest {
+  /**
+   * <p>The dynamic thing group name to create.</p>
+   */
+  thingGroupName: string | undefined;
+
   /**
    * <p>The dynamic thing group properties.</p>
    */
@@ -3420,6 +3425,12 @@ export interface CreateDynamicThingGroupRequest {
   indexName?: string;
 
   /**
+   * <p>The dynamic thing group search query string.</p>
+   * 		       <p>See <a href="https://docs.aws.amazon.com/iot/latest/developerguide/query-syntax.html">Query Syntax</a> for information about query string syntax.</p>
+   */
+  queryString: string | undefined;
+
+  /**
    * <p>The dynamic thing group query version.</p>
    * 		       <note>
    * 			         <p>Currently one query version is supported: "2017-09-30". If not specified, the
@@ -3432,17 +3443,6 @@ export interface CreateDynamicThingGroupRequest {
    * <p>Metadata which can be used to manage the dynamic thing group.</p>
    */
   tags?: Tag[];
-
-  /**
-   * <p>The dynamic thing group name to create.</p>
-   */
-  thingGroupName: string | undefined;
-
-  /**
-   * <p>The dynamic thing group search query string.</p>
-   * 		       <p>See <a href="https://docs.aws.amazon.com/iot/latest/developerguide/query-syntax.html">Query Syntax</a> for information about query string syntax.</p>
-   */
-  queryString: string | undefined;
 }
 
 export namespace CreateDynamicThingGroupRequest {
@@ -3458,9 +3458,19 @@ export interface CreateDynamicThingGroupResponse {
   thingGroupName?: string;
 
   /**
+   * <p>The dynamic thing group ARN.</p>
+   */
+  thingGroupArn?: string;
+
+  /**
    * <p>The dynamic thing group ID.</p>
    */
   thingGroupId?: string;
+
+  /**
+   * <p>The dynamic thing group index name.</p>
+   */
+  indexName?: string;
 
   /**
    * <p>The dynamic thing group search query string.</p>
@@ -3471,16 +3481,6 @@ export interface CreateDynamicThingGroupResponse {
    * <p>The dynamic thing group query version.</p>
    */
   queryVersion?: string;
-
-  /**
-   * <p>The dynamic thing group index name.</p>
-   */
-  indexName?: string;
-
-  /**
-   * <p>The dynamic thing group ARN.</p>
-   */
-  thingGroupArn?: string;
 }
 
 export namespace CreateDynamicThingGroupResponse {
@@ -3533,6 +3533,12 @@ export namespace RateIncreaseCriteria {
  */
 export interface ExponentialRolloutRate {
   /**
+   * <p>The minimum number of things that will be notified of a pending job, per minute at the start of job rollout.
+   *             This parameter allows you to define the initial rate of rollout.</p>
+   */
+  baseRatePerMinute: number | undefined;
+
+  /**
    * <p>The exponential factor to increase the rate of rollout for a job.</p>
    *         <p>AWS IoT supports up to one digit after the decimal (for example, 1.5, but not 1.55).</p>
    */
@@ -3542,12 +3548,6 @@ export interface ExponentialRolloutRate {
    * <p>The criteria to initiate the increase in rate of rollout for a job.</p>
    */
   rateIncreaseCriteria: RateIncreaseCriteria | undefined;
-
-  /**
-   * <p>The minimum number of things that will be notified of a pending job, per minute at the start of job rollout.
-   *             This parameter allows you to define the initial rate of rollout.</p>
-   */
-  baseRatePerMinute: number | undefined;
 }
 
 export namespace ExponentialRolloutRate {
@@ -3561,16 +3561,16 @@ export namespace ExponentialRolloutRate {
  */
 export interface JobExecutionsRolloutConfig {
   /**
-   * <p>The rate of increase for a job rollout.
-   *             This parameter allows you to define an exponential rate for a job rollout.</p>
-   */
-  exponentialRate?: ExponentialRolloutRate;
-
-  /**
    * <p>The maximum number of things that will be notified of a pending job, per minute.
    *         This parameter allows you to create a staged rollout.</p>
    */
   maximumPerMinute?: number;
+
+  /**
+   * <p>The rate of increase for a job rollout.
+   *             This parameter allows you to define an exponential rate for a job rollout.</p>
+   */
+  exponentialRate?: ExponentialRolloutRate;
 }
 
 export namespace JobExecutionsRolloutConfig {
@@ -3632,66 +3632,20 @@ export namespace TimeoutConfig {
 
 export interface CreateJobRequest {
   /**
-   * <p>A list of things and thing groups to which the job should be sent.</p>
-   */
-  targets: string[] | undefined;
-
-  /**
-   * <p>The namespace used to indicate that a job is a customer-managed job.</p>
-   *         <p>When you specify a value for this parameter, AWS IoT Core sends jobs notifications to MQTT topics that
-   *             contain the value in the following format.</p>
-   *         <p>
-   *             <code>$aws/things/<i>THING_NAME</i>/jobs/<i>JOB_ID</i>/notify-namespace-<i>NAMESPACE_ID</i>/</code>
-   *          </p>
-   *         <note>
-   *             <p>The <code>namespaceId</code> feature is in public preview.</p>
-   *          </note>
-   */
-  namespaceId?: string;
-
-  /**
-   * <p>Allows you to create criteria to abort a job.</p>
-   */
-  abortConfig?: AbortConfig;
-
-  /**
-   * <p>A short text description of the job.</p>
-   */
-  description?: string;
-
-  /**
    * <p>A job identifier which must be unique for your AWS account. We recommend using a UUID. Alpha-numeric
    *             characters, "-" and "_" are valid for use here.</p>
    */
   jobId: string | undefined;
 
   /**
-   * <p>Specifies whether the job will continue to run (CONTINUOUS), or will be complete after all those things
-   *             specified as targets have completed the job (SNAPSHOT). If continuous, the job may also be run on a thing
-   *             when a change is detected in a target. For example, a job will run on a thing when the thing is added to a
-   *             target group, even after the job was completed by all things originally in the group.</p>
+   * <p>A list of things and thing groups to which the job should be sent.</p>
    */
-  targetSelection?: TargetSelection | string;
+  targets: string[] | undefined;
 
   /**
    * <p>An S3 link to the job document.</p>
    */
   documentSource?: string;
-
-  /**
-   * <p>Allows you to create a staged rollout of the job.</p>
-   */
-  jobExecutionsRolloutConfig?: JobExecutionsRolloutConfig;
-
-  /**
-   * <p>Metadata which can be used to manage the job.</p>
-   */
-  tags?: Tag[];
-
-  /**
-   * <p>Configuration information for pre-signed S3 URLs.</p>
-   */
-  presignedUrlConfig?: PresignedUrlConfig;
 
   /**
    * <p>The job document.</p>
@@ -3707,12 +3661,58 @@ export interface CreateJobRequest {
   document?: string;
 
   /**
+   * <p>A short text description of the job.</p>
+   */
+  description?: string;
+
+  /**
+   * <p>Configuration information for pre-signed S3 URLs.</p>
+   */
+  presignedUrlConfig?: PresignedUrlConfig;
+
+  /**
+   * <p>Specifies whether the job will continue to run (CONTINUOUS), or will be complete after all those things
+   *             specified as targets have completed the job (SNAPSHOT). If continuous, the job may also be run on a thing
+   *             when a change is detected in a target. For example, a job will run on a thing when the thing is added to a
+   *             target group, even after the job was completed by all things originally in the group.</p>
+   */
+  targetSelection?: TargetSelection | string;
+
+  /**
+   * <p>Allows you to create a staged rollout of the job.</p>
+   */
+  jobExecutionsRolloutConfig?: JobExecutionsRolloutConfig;
+
+  /**
+   * <p>Allows you to create criteria to abort a job.</p>
+   */
+  abortConfig?: AbortConfig;
+
+  /**
    * <p>Specifies the amount of time each device has to finish its execution of the job. The timer
    *            is started when the job execution status is set to <code>IN_PROGRESS</code>. If the job
    *            execution status is not set to another terminal state before the time expires, it will be
    *            automatically set to <code>TIMED_OUT</code>.</p>
    */
   timeoutConfig?: TimeoutConfig;
+
+  /**
+   * <p>Metadata which can be used to manage the job.</p>
+   */
+  tags?: Tag[];
+
+  /**
+   * <p>The namespace used to indicate that a job is a customer-managed job.</p>
+   *         <p>When you specify a value for this parameter, AWS IoT Core sends jobs notifications to MQTT topics that
+   *             contain the value in the following format.</p>
+   *         <p>
+   *             <code>$aws/things/<i>THING_NAME</i>/jobs/<i>JOB_ID</i>/notify-namespace-<i>NAMESPACE_ID</i>/</code>
+   *          </p>
+   *         <note>
+   *             <p>The <code>namespaceId</code> feature is in public preview.</p>
+   *          </note>
+   */
+  namespaceId?: string;
 }
 
 export namespace CreateJobRequest {
@@ -3723,9 +3723,9 @@ export namespace CreateJobRequest {
 
 export interface CreateJobResponse {
   /**
-   * <p>The job description.</p>
+   * <p>The job ARN.</p>
    */
-  description?: string;
+  jobArn?: string;
 
   /**
    * <p>The unique identifier you assigned to this job.</p>
@@ -3733,9 +3733,9 @@ export interface CreateJobResponse {
   jobId?: string;
 
   /**
-   * <p>The job ARN.</p>
+   * <p>The job description.</p>
    */
-  jobArn?: string;
+  description?: string;
 }
 
 export namespace CreateJobResponse {
@@ -3925,14 +3925,9 @@ export namespace UpdateDeviceCertificateParams {
  */
 export interface MitigationActionParams {
   /**
-   * <p>Parameters to define a mitigation action that enables AWS IoT logging at a specified level of detail.</p>
+   * <p>Parameters to define a mitigation action that changes the state of the device certificate to inactive.</p>
    */
-  enableIoTLoggingParams?: EnableIoTLoggingParams;
-
-  /**
-   * <p>Parameters to define a mitigation action that adds a blank policy to restrict permissions.</p>
-   */
-  replaceDefaultPolicyVersionParams?: ReplaceDefaultPolicyVersionParams;
+  updateDeviceCertificateParams?: UpdateDeviceCertificateParams;
 
   /**
    * <p>Parameters to define a mitigation action that changes the state of the CA certificate to inactive.</p>
@@ -3940,19 +3935,24 @@ export interface MitigationActionParams {
   updateCACertificateParams?: UpdateCACertificateParams;
 
   /**
-   * <p>Parameters to define a mitigation action that changes the state of the device certificate to inactive.</p>
+   * <p>Parameters to define a mitigation action that moves devices associated with a certificate to one or more specified thing groups, typically for quarantine.</p>
    */
-  updateDeviceCertificateParams?: UpdateDeviceCertificateParams;
+  addThingsToThingGroupParams?: AddThingsToThingGroupParams;
+
+  /**
+   * <p>Parameters to define a mitigation action that adds a blank policy to restrict permissions.</p>
+   */
+  replaceDefaultPolicyVersionParams?: ReplaceDefaultPolicyVersionParams;
+
+  /**
+   * <p>Parameters to define a mitigation action that enables AWS IoT logging at a specified level of detail.</p>
+   */
+  enableIoTLoggingParams?: EnableIoTLoggingParams;
 
   /**
    * <p>Parameters to define a mitigation action that publishes findings to Amazon SNS. You can implement your own custom actions in response to the Amazon SNS messages.</p>
    */
   publishFindingToSnsParams?: PublishFindingToSnsParams;
-
-  /**
-   * <p>Parameters to define a mitigation action that moves devices associated with a certificate to one or more specified thing groups, typically for quarantine.</p>
-   */
-  addThingsToThingGroupParams?: AddThingsToThingGroupParams;
 }
 
 export namespace MitigationActionParams {
@@ -3963,24 +3963,24 @@ export namespace MitigationActionParams {
 
 export interface CreateMitigationActionRequest {
   /**
-   * <p>Defines the type of action and the parameters for that action.</p>
-   */
-  actionParams: MitigationActionParams | undefined;
-
-  /**
    * <p>A friendly name for the action. Choose a friendly name that accurately describes the action (for example, <code>EnableLoggingAction</code>).</p>
    */
   actionName: string | undefined;
 
   /**
-   * <p>Metadata that can be used to manage the mitigation action.</p>
-   */
-  tags?: Tag[];
-
-  /**
    * <p>The ARN of the IAM role that is used to apply the mitigation action.</p>
    */
   roleArn: string | undefined;
+
+  /**
+   * <p>Defines the type of action and the parameters for that action.</p>
+   */
+  actionParams: MitigationActionParams | undefined;
+
+  /**
+   * <p>Metadata that can be used to manage the mitigation action.</p>
+   */
+  tags?: Tag[];
 }
 
 export namespace CreateMitigationActionRequest {
@@ -4028,6 +4028,11 @@ export interface AwsJobAbortCriteria {
   failureType: AwsJobAbortCriteriaFailureType | string | undefined;
 
   /**
+   * <p>The type of job action to take to initiate the job abort.</p>
+   */
+  action: AwsJobAbortCriteriaAbortAction | string | undefined;
+
+  /**
    * <p>The minimum percentage of job execution failures that must occur to initiate the job abort.</p>
    *          <p>AWS IoT supports up to two digits after the decimal (for example, 10.9 and 10.99, but not 10.999).</p>
    */
@@ -4038,11 +4043,6 @@ export interface AwsJobAbortCriteria {
    *           can be aborted.</p>
    */
   minNumberOfExecutedThings: number | undefined;
-
-  /**
-   * <p>The type of job action to take to initiate the job abort.</p>
-   */
-  action: AwsJobAbortCriteriaAbortAction | string | undefined;
 }
 
 export namespace AwsJobAbortCriteria {
@@ -4072,16 +4072,16 @@ export namespace AwsJobAbortConfig {
  */
 export interface AwsJobRateIncreaseCriteria {
   /**
-   * <p>When this number of things have succeeded in their job execution, it will initiate an
-   *             increase in the rollout rate.</p>
-   */
-  numberOfSucceededThings?: number;
-
-  /**
    * <p>When this number of things have been notified, it will initiate an increase in the rollout
    *             rate.</p>
    */
   numberOfNotifiedThings?: number;
+
+  /**
+   * <p>When this number of things have succeeded in their job execution, it will initiate an
+   *             increase in the rollout rate.</p>
+   */
+  numberOfSucceededThings?: number;
 }
 
 export namespace AwsJobRateIncreaseCriteria {
@@ -4188,14 +4188,14 @@ export namespace AwsJobTimeoutConfig {
  */
 export interface CodeSigningCertificateChain {
   /**
-   * <p>A base64 encoded binary representation of the code signing certificate chain.</p>
-   */
-  inlineDocument?: string;
-
-  /**
    * <p>The name of the certificate.</p>
    */
   certificateName?: string;
+
+  /**
+   * <p>A base64 encoded binary representation of the code signing certificate chain.</p>
+   */
+  inlineDocument?: string;
 }
 
 export namespace CodeSigningCertificateChain {
@@ -4225,9 +4225,9 @@ export namespace CodeSigningSignature {
  */
 export interface CustomCodeSigning {
   /**
-   * <p>The hash algorithm used to code sign the file.</p>
+   * <p>The signature for the file.</p>
    */
-  hashAlgorithm?: string;
+  signature?: CodeSigningSignature;
 
   /**
    * <p>The certificate chain.</p>
@@ -4235,9 +4235,9 @@ export interface CustomCodeSigning {
   certificateChain?: CodeSigningCertificateChain;
 
   /**
-   * <p>The signature for the file.</p>
+   * <p>The hash algorithm used to code sign the file.</p>
    */
-  signature?: CodeSigningSignature;
+  hashAlgorithm?: string;
 
   /**
    * <p>The signature algorithm used to code sign the file.</p>
@@ -4256,14 +4256,14 @@ export namespace CustomCodeSigning {
  */
 export interface S3Destination {
   /**
-   * <p>The S3 prefix.</p>
-   */
-  prefix?: string;
-
-  /**
    * <p>The S3 bucket that contains the updated firmware.</p>
    */
   bucket?: string;
+
+  /**
+   * <p>The S3 prefix.</p>
+   */
+  prefix?: string;
 }
 
 export namespace S3Destination {
@@ -4293,11 +4293,6 @@ export namespace Destination {
  */
 export interface SigningProfileParameter {
   /**
-   * <p>The location of the code-signing certificate on your device.</p>
-   */
-  certificatePathOnDevice?: string;
-
-  /**
    * <p>Certificate ARN.</p>
    */
   certificateArn?: string;
@@ -4306,6 +4301,11 @@ export interface SigningProfileParameter {
    * <p>The hardware platform of your device.</p>
    */
   platform?: string;
+
+  /**
+   * <p>The location of the code-signing certificate on your device.</p>
+   */
+  certificatePathOnDevice?: string;
 }
 
 export namespace SigningProfileParameter {
@@ -4319,14 +4319,14 @@ export namespace SigningProfileParameter {
  */
 export interface StartSigningJobParameter {
   /**
-   * <p>The code-signing profile name.</p>
-   */
-  signingProfileName?: string;
-
-  /**
    * <p>Describes the code-signing profile.</p>
    */
   signingProfileParameter?: SigningProfileParameter;
+
+  /**
+   * <p>The code-signing profile name.</p>
+   */
+  signingProfileName?: string;
 
   /**
    * <p>The location to write the code-signed file.</p>
@@ -4350,14 +4350,14 @@ export interface CodeSigning {
   awsSignerJobId?: string;
 
   /**
-   * <p>A custom method for code signing a file.</p>
-   */
-  customCodeSigning?: CustomCodeSigning;
-
-  /**
    * <p>Describes the code-signing job.</p>
    */
   startSigningJobParameter?: StartSigningJobParameter;
+
+  /**
+   * <p>A custom method for code signing a file.</p>
+   */
+  customCodeSigning?: CustomCodeSigning;
 }
 
 export namespace CodeSigning {
@@ -4371,9 +4371,9 @@ export namespace CodeSigning {
  */
 export interface S3Location {
   /**
-   * <p>The S3 bucket version.</p>
+   * <p>The S3 bucket.</p>
    */
-  version?: string;
+  bucket?: string;
 
   /**
    * <p>The S3 key.</p>
@@ -4381,9 +4381,9 @@ export interface S3Location {
   key?: string;
 
   /**
-   * <p>The S3 bucket.</p>
+   * <p>The S3 bucket version.</p>
    */
-  bucket?: string;
+  version?: string;
 }
 
 export namespace S3Location {
@@ -4418,14 +4418,14 @@ export namespace _Stream {
  */
 export interface FileLocation {
   /**
-   * <p>The location of the updated firmware in S3.</p>
-   */
-  s3Location?: S3Location;
-
-  /**
    * <p>The stream that contains the OTA update.</p>
    */
   stream?: _Stream;
+
+  /**
+   * <p>The location of the updated firmware in S3.</p>
+   */
+  s3Location?: S3Location;
 }
 
 export namespace FileLocation {
@@ -4439,9 +4439,9 @@ export namespace FileLocation {
  */
 export interface OTAUpdateFile {
   /**
-   * <p>The code signing method of the file.</p>
+   * <p>The name of the file.</p>
    */
-  codeSigning?: CodeSigning;
+  fileName?: string;
 
   /**
    * <p>The file version.</p>
@@ -4449,14 +4449,14 @@ export interface OTAUpdateFile {
   fileVersion?: string;
 
   /**
-   * <p>The name of the file.</p>
-   */
-  fileName?: string;
-
-  /**
    * <p>The location of the updated firmware.</p>
    */
   fileLocation?: FileLocation;
+
+  /**
+   * <p>The code signing method of the file.</p>
+   */
+  codeSigning?: CodeSigning;
 
   /**
    * <p>A list of name/attribute pairs.</p>
@@ -4477,9 +4477,25 @@ export enum Protocol {
 
 export interface CreateOTAUpdateRequest {
   /**
-   * <p>The files to be streamed by the OTA update.</p>
+   * <p>The ID of the OTA update to be created.</p>
    */
-  files: OTAUpdateFile[] | undefined;
+  otaUpdateId: string | undefined;
+
+  /**
+   * <p>The description of the OTA update.</p>
+   */
+  description?: string;
+
+  /**
+   * <p>The devices targeted to receive OTA updates.</p>
+   */
+  targets: string[] | undefined;
+
+  /**
+   * <p>The protocol used to transfer the OTA update image. Valid values are [HTTP], [MQTT], [HTTP, MQTT]. When both
+   *            HTTP and MQTT are specified, the target device can choose the protocol.</p>
+   */
+  protocols?: (Protocol | string)[];
 
   /**
    * <p>Specifies whether the update will continue to run (CONTINUOUS), or will be complete after all the things
@@ -4491,36 +4507,9 @@ export interface CreateOTAUpdateRequest {
   targetSelection?: TargetSelection | string;
 
   /**
-   * <p>The description of the OTA update.</p>
-   */
-  description?: string;
-
-  /**
-   * <p>A list of additional OTA update parameters which are name-value pairs.</p>
-   */
-  additionalParameters?: { [key: string]: string };
-
-  /**
    * <p>Configuration for the rollout of OTA updates.</p>
    */
   awsJobExecutionsRolloutConfig?: AwsJobExecutionsRolloutConfig;
-
-  /**
-   * <p>The IAM role that grants AWS IoT access to the Amazon S3, AWS IoT jobs and AWS Code Signing resources
-   *             to create an OTA update job.</p>
-   */
-  roleArn: string | undefined;
-
-  /**
-   * <p>The protocol used to transfer the OTA update image. Valid values are [HTTP], [MQTT], [HTTP, MQTT]. When both
-   *            HTTP and MQTT are specified, the target device can choose the protocol.</p>
-   */
-  protocols?: (Protocol | string)[];
-
-  /**
-   * <p>The criteria that determine when and how a job abort takes place.</p>
-   */
-  awsJobAbortConfig?: AwsJobAbortConfig;
 
   /**
    * <p>Configuration information for pre-signed URLs.</p>
@@ -4528,19 +4517,9 @@ export interface CreateOTAUpdateRequest {
   awsJobPresignedUrlConfig?: AwsJobPresignedUrlConfig;
 
   /**
-   * <p>The devices targeted to receive OTA updates.</p>
+   * <p>The criteria that determine when and how a job abort takes place.</p>
    */
-  targets: string[] | undefined;
-
-  /**
-   * <p>The ID of the OTA update to be created.</p>
-   */
-  otaUpdateId: string | undefined;
-
-  /**
-   * <p>Metadata which can be used to manage updates.</p>
-   */
-  tags?: Tag[];
+  awsJobAbortConfig?: AwsJobAbortConfig;
 
   /**
    * <p>Specifies the amount of time each device has to finish its execution of the job.  A timer is
@@ -4549,6 +4528,27 @@ export interface CreateOTAUpdateRequest {
    *             set to <code>TIMED_OUT</code>.</p>
    */
   awsJobTimeoutConfig?: AwsJobTimeoutConfig;
+
+  /**
+   * <p>The files to be streamed by the OTA update.</p>
+   */
+  files: OTAUpdateFile[] | undefined;
+
+  /**
+   * <p>The IAM role that grants AWS IoT access to the Amazon S3, AWS IoT jobs and AWS Code Signing resources
+   *             to create an OTA update job.</p>
+   */
+  roleArn: string | undefined;
+
+  /**
+   * <p>A list of additional OTA update parameters which are name-value pairs.</p>
+   */
+  additionalParameters?: { [key: string]: string };
+
+  /**
+   * <p>Metadata which can be used to manage updates.</p>
+   */
+  tags?: Tag[];
 }
 
 export namespace CreateOTAUpdateRequest {
@@ -4576,14 +4576,14 @@ export interface CreateOTAUpdateResponse {
   awsIotJobId?: string;
 
   /**
-   * <p>The AWS IoT job ARN associated with the OTA update.</p>
-   */
-  awsIotJobArn?: string;
-
-  /**
    * <p>The OTA update ARN.</p>
    */
   otaUpdateArn?: string;
+
+  /**
+   * <p>The AWS IoT job ARN associated with the OTA update.</p>
+   */
+  awsIotJobArn?: string;
 
   /**
    * <p>The OTA update status.</p>
@@ -4636,6 +4636,16 @@ export namespace CreatePolicyRequest {
  */
 export interface CreatePolicyResponse {
   /**
+   * <p>The policy name.</p>
+   */
+  policyName?: string;
+
+  /**
+   * <p>The policy ARN.</p>
+   */
+  policyArn?: string;
+
+  /**
    * <p>The JSON document that describes the policy.</p>
    */
   policyDocument?: string;
@@ -4644,16 +4654,6 @@ export interface CreatePolicyResponse {
    * <p>The policy version ID.</p>
    */
   policyVersionId?: string;
-
-  /**
-   * <p>The policy ARN.</p>
-   */
-  policyArn?: string;
-
-  /**
-   * <p>The policy name.</p>
-   */
-  policyName?: string;
 }
 
 export namespace CreatePolicyResponse {
@@ -4685,11 +4685,9 @@ export namespace MalformedPolicyException {
  */
 export interface CreatePolicyVersionRequest {
   /**
-   * <p>Specifies whether the policy version is set as the default. When this parameter is
-   *          true, the new policy version becomes the operative version (that is, the version that is in
-   *          effect for the certificates to which the policy is attached).</p>
+   * <p>The policy name.</p>
    */
-  setAsDefault?: boolean;
+  policyName: string | undefined;
 
   /**
    * <p>The JSON document that describes the policy. Minimum length of 1. Maximum length of
@@ -4698,9 +4696,11 @@ export interface CreatePolicyVersionRequest {
   policyDocument: string | undefined;
 
   /**
-   * <p>The policy name.</p>
+   * <p>Specifies whether the policy version is set as the default. When this parameter is
+   *          true, the new policy version becomes the operative version (that is, the version that is in
+   *          effect for the certificates to which the policy is attached).</p>
    */
-  policyName: string | undefined;
+  setAsDefault?: boolean;
 }
 
 export namespace CreatePolicyVersionRequest {
@@ -4714,14 +4714,9 @@ export namespace CreatePolicyVersionRequest {
  */
 export interface CreatePolicyVersionResponse {
   /**
-   * <p>Specifies whether the policy version is the default.</p>
+   * <p>The policy ARN.</p>
    */
-  isDefaultVersion?: boolean;
-
-  /**
-   * <p>The policy version ID.</p>
-   */
-  policyVersionId?: string;
+  policyArn?: string;
 
   /**
    * <p>The JSON document that describes the policy.</p>
@@ -4729,9 +4724,14 @@ export interface CreatePolicyVersionResponse {
   policyDocument?: string;
 
   /**
-   * <p>The policy ARN.</p>
+   * <p>The policy version ID.</p>
    */
-  policyArn?: string;
+  policyVersionId?: string;
+
+  /**
+   * <p>Specifies whether the policy version is the default.</p>
+   */
+  isDefaultVersion?: boolean;
 }
 
 export namespace CreatePolicyVersionResponse {
@@ -4773,24 +4773,24 @@ export namespace CreateProvisioningClaimRequest {
 
 export interface CreateProvisioningClaimResponse {
   /**
-   * <p>The provisioning claim certificate.</p>
-   */
-  certificatePem?: string;
-
-  /**
-   * <p>The provisioning claim expiration time.</p>
-   */
-  expiration?: Date;
-
-  /**
    * <p>The ID of the certificate.</p>
    */
   certificateId?: string;
 
   /**
+   * <p>The provisioning claim certificate.</p>
+   */
+  certificatePem?: string;
+
+  /**
    * <p>The provisioning claim key pair.</p>
    */
   keyPair?: KeyPair;
+
+  /**
+   * <p>The provisioning claim expiration time.</p>
+   */
+  expiration?: Date;
 }
 
 export namespace CreateProvisioningClaimResponse {
@@ -4806,18 +4806,18 @@ export namespace CreateProvisioningClaimResponse {
  */
 export interface ProvisioningHook {
   /**
-   * <p>The ARN of the target function.</p>
-   *          <p>
-   *             <i>Note:</i> Only Lambda functions are currently supported.</p>
-   */
-  targetArn: string | undefined;
-
-  /**
    * <p>The payload that was sent to the target function.</p>
    *          <p>
    *             <i>Note:</i> Only Lambda functions are currently supported.</p>
    */
   payloadVersion?: string;
+
+  /**
+   * <p>The ARN of the target function.</p>
+   *          <p>
+   *             <i>Note:</i> Only Lambda functions are currently supported.</p>
+   */
+  targetArn: string | undefined;
 }
 
 export namespace ProvisioningHook {
@@ -4828,14 +4828,24 @@ export namespace ProvisioningHook {
 
 export interface CreateProvisioningTemplateRequest {
   /**
-   * <p>Creates a pre-provisioning hook template.</p>
+   * <p>The name of the fleet provisioning template.</p>
    */
-  preProvisioningHook?: ProvisioningHook;
+  templateName: string | undefined;
 
   /**
    * <p>The description of the fleet provisioning template.</p>
    */
   description?: string;
+
+  /**
+   * <p>The JSON formatted contents of the fleet provisioning template.</p>
+   */
+  templateBody: string | undefined;
+
+  /**
+   * <p>True to enable the fleet provisioning template, otherwise false.</p>
+   */
+  enabled?: boolean;
 
   /**
    * <p>The role ARN for the role associated with the fleet provisioning template. This IoT role
@@ -4844,9 +4854,9 @@ export interface CreateProvisioningTemplateRequest {
   provisioningRoleArn: string | undefined;
 
   /**
-   * <p>True to enable the fleet provisioning template, otherwise false.</p>
+   * <p>Creates a pre-provisioning hook template.</p>
    */
-  enabled?: boolean;
+  preProvisioningHook?: ProvisioningHook;
 
   /**
    * <p>Metadata which can be used to manage the fleet provisioning template.</p>
@@ -4859,16 +4869,6 @@ export interface CreateProvisioningTemplateRequest {
    *          </note>
    */
   tags?: Tag[];
-
-  /**
-   * <p>The JSON formatted contents of the fleet provisioning template.</p>
-   */
-  templateBody: string | undefined;
-
-  /**
-   * <p>The name of the fleet provisioning template.</p>
-   */
-  templateName: string | undefined;
 }
 
 export namespace CreateProvisioningTemplateRequest {
@@ -4884,14 +4884,14 @@ export interface CreateProvisioningTemplateResponse {
   templateArn?: string;
 
   /**
-   * <p>The default version of the fleet provisioning template.</p>
-   */
-  defaultVersionId?: number;
-
-  /**
    * <p>The name of the fleet provisioning template.</p>
    */
   templateName?: string;
+
+  /**
+   * <p>The default version of the fleet provisioning template.</p>
+   */
+  defaultVersionId?: number;
 }
 
 export namespace CreateProvisioningTemplateResponse {
@@ -4902,14 +4902,14 @@ export namespace CreateProvisioningTemplateResponse {
 
 export interface CreateProvisioningTemplateVersionRequest {
   /**
-   * <p>The JSON formatted contents of the fleet provisioning template.</p>
-   */
-  templateBody: string | undefined;
-
-  /**
    * <p>The name of the fleet provisioning template.</p>
    */
   templateName: string | undefined;
+
+  /**
+   * <p>The JSON formatted contents of the fleet provisioning template.</p>
+   */
+  templateBody: string | undefined;
 
   /**
    * <p>Sets a fleet provision template version as the default version.</p>
@@ -4925,10 +4925,9 @@ export namespace CreateProvisioningTemplateVersionRequest {
 
 export interface CreateProvisioningTemplateVersionResponse {
   /**
-   * <p>True if the fleet provisioning template version is the default version, otherwise
-   *          false.</p>
+   * <p>The ARN that identifies the provisioning template.</p>
    */
-  isDefaultVersion?: boolean;
+  templateArn?: string;
 
   /**
    * <p>The name of the fleet provisioning template.</p>
@@ -4941,9 +4940,10 @@ export interface CreateProvisioningTemplateVersionResponse {
   versionId?: number;
 
   /**
-   * <p>The ARN that identifies the provisioning template.</p>
+   * <p>True if the fleet provisioning template version is the default version, otherwise
+   *          false.</p>
    */
-  templateArn?: string;
+  isDefaultVersion?: boolean;
 }
 
 export namespace CreateProvisioningTemplateVersionResponse {
@@ -4960,6 +4960,16 @@ export interface CreateRoleAliasRequest {
   roleAlias: string | undefined;
 
   /**
+   * <p>The role ARN.</p>
+   */
+  roleArn: string | undefined;
+
+  /**
+   * <p>How long (in seconds) the credentials will be valid.</p>
+   */
+  credentialDurationSeconds?: number;
+
+  /**
    * <p>Metadata which can be used to manage the role alias.</p>
    *          <note>
    *             <p>For URI Request parameters use format: ...key1=value1&key2=value2...</p>
@@ -4970,16 +4980,6 @@ export interface CreateRoleAliasRequest {
    *          </note>
    */
   tags?: Tag[];
-
-  /**
-   * <p>How long (in seconds) the credentials will be valid.</p>
-   */
-  credentialDurationSeconds?: number;
-
-  /**
-   * <p>The role ARN.</p>
-   */
-  roleArn: string | undefined;
 }
 
 export namespace CreateRoleAliasRequest {
@@ -4990,14 +4990,14 @@ export namespace CreateRoleAliasRequest {
 
 export interface CreateRoleAliasResponse {
   /**
-   * <p>The role alias ARN.</p>
-   */
-  roleAliasArn?: string;
-
-  /**
    * <p>The role alias.</p>
    */
   roleAlias?: string;
+
+  /**
+   * <p>The role alias ARN.</p>
+   */
+  roleAliasArn?: string;
 }
 
 export namespace CreateRoleAliasResponse {
@@ -5018,24 +5018,19 @@ export enum DayOfWeek {
 
 export interface CreateScheduledAuditRequest {
   /**
+   * <p>How often the scheduled audit takes place. Can be one of "DAILY", "WEEKLY",
+   *             "BIWEEKLY" or "MONTHLY". The start time of each audit is determined by
+   *             the system.</p>
+   */
+  frequency: AuditFrequency | string | undefined;
+
+  /**
    * <p>The day of the month on which the scheduled audit takes place. Can be "1"
    *             through "31" or "LAST". This field is required if the "frequency" parameter is
    *             set to "MONTHLY". If days 29-31 are specified, and the month does not have that many
    *             days, the audit takes place on the "LAST" day of the month.</p>
    */
   dayOfMonth?: string;
-
-  /**
-   * <p>Metadata that can be used to manage the scheduled audit.</p>
-   */
-  tags?: Tag[];
-
-  /**
-   * <p>How often the scheduled audit takes place. Can be one of "DAILY", "WEEKLY",
-   *             "BIWEEKLY" or "MONTHLY". The start time of each audit is determined by
-   *             the system.</p>
-   */
-  frequency: AuditFrequency | string | undefined;
 
   /**
    * <p>The day of the week on which the scheduled audit takes place. Can be one of
@@ -5056,6 +5051,11 @@ export interface CreateScheduledAuditRequest {
    * <p>The name you want to give to the scheduled audit. (Max. 128 chars)</p>
    */
   scheduledAuditName: string | undefined;
+
+  /**
+   * <p>Metadata that can be used to manage the scheduled audit.</p>
+   */
+  tags?: Tag[];
 }
 
 export namespace CreateScheduledAuditRequest {
@@ -5079,9 +5079,14 @@ export namespace CreateScheduledAuditResponse {
 
 export interface CreateSecurityProfileRequest {
   /**
-   * <p>A list of metrics whose data is retained (stored). By default, data is retained for any metric used in the profile's <code>behaviors</code>, but it is also retained for any metric specified here.</p>
+   * <p>The name you are giving to the security profile.</p>
    */
-  additionalMetricsToRetainV2?: MetricToRetain[];
+  securityProfileName: string | undefined;
+
+  /**
+   * <p>A description of the security profile.</p>
+   */
+  securityProfileDescription?: string;
 
   /**
    * <p>Specifies the behaviors that, when violated by a device (thing), cause an alert.</p>
@@ -5089,9 +5094,10 @@ export interface CreateSecurityProfileRequest {
   behaviors?: Behavior[];
 
   /**
-   * <p>A description of the security profile.</p>
+   * <p>Specifies the destinations to which alerts are sent. (Alerts are always sent to the
+   *         console.) Alerts are generated when a device (thing) violates a behavior.</p>
    */
-  securityProfileDescription?: string;
+  alertTargets?: { [key: string]: AlertTarget };
 
   /**
    * <p>
@@ -5104,20 +5110,14 @@ export interface CreateSecurityProfileRequest {
   additionalMetricsToRetain?: string[];
 
   /**
+   * <p>A list of metrics whose data is retained (stored). By default, data is retained for any metric used in the profile's <code>behaviors</code>, but it is also retained for any metric specified here.</p>
+   */
+  additionalMetricsToRetainV2?: MetricToRetain[];
+
+  /**
    * <p>Metadata that can be used to manage the security profile.</p>
    */
   tags?: Tag[];
-
-  /**
-   * <p>The name you are giving to the security profile.</p>
-   */
-  securityProfileName: string | undefined;
-
-  /**
-   * <p>Specifies the destinations to which alerts are sent. (Alerts are always sent to the
-   *         console.) Alerts are generated when a device (thing) violates a behavior.</p>
-   */
-  alertTargets?: { [key: string]: AlertTarget };
 }
 
 export namespace CreateSecurityProfileRequest {
@@ -5128,14 +5128,14 @@ export namespace CreateSecurityProfileRequest {
 
 export interface CreateSecurityProfileResponse {
   /**
-   * <p>The ARN of the security profile.</p>
-   */
-  securityProfileArn?: string;
-
-  /**
    * <p>The name you gave to the security profile.</p>
    */
   securityProfileName?: string;
+
+  /**
+   * <p>The ARN of the security profile.</p>
+   */
+  securityProfileArn?: string;
 }
 
 export namespace CreateSecurityProfileResponse {
@@ -5149,14 +5149,14 @@ export namespace CreateSecurityProfileResponse {
  */
 export interface StreamFile {
   /**
-   * <p>The location of the file in S3.</p>
-   */
-  s3Location?: S3Location;
-
-  /**
    * <p>The file ID.</p>
    */
   fileId?: number;
+
+  /**
+   * <p>The location of the file in S3.</p>
+   */
+  s3Location?: S3Location;
 }
 
 export namespace StreamFile {
@@ -5177,9 +5177,9 @@ export interface CreateStreamRequest {
   description?: string;
 
   /**
-   * <p>Metadata which can be used to manage streams.</p>
+   * <p>The files to stream.</p>
    */
-  tags?: Tag[];
+  files: StreamFile[] | undefined;
 
   /**
    * <p>An IAM role that allows the IoT service principal assumes to access your S3 files.</p>
@@ -5187,9 +5187,9 @@ export interface CreateStreamRequest {
   roleArn: string | undefined;
 
   /**
-   * <p>The files to stream.</p>
+   * <p>Metadata which can be used to manage streams.</p>
    */
-  files: StreamFile[] | undefined;
+  tags?: Tag[];
 }
 
 export namespace CreateStreamRequest {
@@ -5200,14 +5200,9 @@ export namespace CreateStreamRequest {
 
 export interface CreateStreamResponse {
   /**
-   * <p>The version of the stream.</p>
+   * <p>The stream ID.</p>
    */
-  streamVersion?: number;
-
-  /**
-   * <p>A description of the stream.</p>
-   */
-  description?: string;
+  streamId?: string;
 
   /**
    * <p>The stream ARN.</p>
@@ -5215,9 +5210,14 @@ export interface CreateStreamResponse {
   streamArn?: string;
 
   /**
-   * <p>The stream ID.</p>
+   * <p>A description of the stream.</p>
    */
-  streamId?: string;
+  description?: string;
+
+  /**
+   * <p>The version of the stream.</p>
+   */
+  streamVersion?: number;
 }
 
 export namespace CreateStreamResponse {
@@ -5243,11 +5243,6 @@ export interface CreateThingRequest {
   thingTypeName?: string;
 
   /**
-   * <p>The name of the billing group the thing will be added to.</p>
-   */
-  billingGroupName?: string;
-
-  /**
    * <p>The attribute payload, which consists of up to three name/value pairs in a JSON
    * 			document. For example:</p>
    * 		       <p>
@@ -5255,6 +5250,11 @@ export interface CreateThingRequest {
    * 		       </p>
    */
   attributePayload?: AttributePayload;
+
+  /**
+   * <p>The name of the billing group the thing will be added to.</p>
+   */
+  billingGroupName?: string;
 }
 
 export namespace CreateThingRequest {
@@ -5273,14 +5273,14 @@ export interface CreateThingResponse {
   thingName?: string;
 
   /**
-   * <p>The thing ID.</p>
-   */
-  thingId?: string;
-
-  /**
    * <p>The ARN of the new thing.</p>
    */
   thingArn?: string;
+
+  /**
+   * <p>The thing ID.</p>
+   */
+  thingId?: string;
 }
 
 export namespace CreateThingResponse {
@@ -5291,9 +5291,9 @@ export namespace CreateThingResponse {
 
 export interface CreateThingGroupRequest {
   /**
-   * <p>Metadata which can be used to manage the thing group.</p>
+   * <p>The thing group name to create.</p>
    */
-  tags?: Tag[];
+  thingGroupName: string | undefined;
 
   /**
    * <p>The name of the parent thing group.</p>
@@ -5306,9 +5306,9 @@ export interface CreateThingGroupRequest {
   thingGroupProperties?: ThingGroupProperties;
 
   /**
-   * <p>The thing group name to create.</p>
+   * <p>Metadata which can be used to manage the thing group.</p>
    */
-  thingGroupName: string | undefined;
+  tags?: Tag[];
 }
 
 export namespace CreateThingGroupRequest {
@@ -5319,14 +5319,14 @@ export namespace CreateThingGroupRequest {
 
 export interface CreateThingGroupResponse {
   /**
-   * <p>The thing group ARN.</p>
-   */
-  thingGroupArn?: string;
-
-  /**
    * <p>The thing group name.</p>
    */
   thingGroupName?: string;
+
+  /**
+   * <p>The thing group ARN.</p>
+   */
+  thingGroupArn?: string;
 
   /**
    * <p>The thing group ID.</p>
@@ -5367,9 +5367,9 @@ export namespace ThingTypeProperties {
  */
 export interface CreateThingTypeRequest {
   /**
-   * <p>Metadata which can be used to manage the thing type.</p>
+   * <p>The name of the thing type.</p>
    */
-  tags?: Tag[];
+  thingTypeName: string | undefined;
 
   /**
    * <p>The ThingTypeProperties for the thing type to create. It contains information about
@@ -5379,9 +5379,9 @@ export interface CreateThingTypeRequest {
   thingTypeProperties?: ThingTypeProperties;
 
   /**
-   * <p>The name of the thing type.</p>
+   * <p>Metadata which can be used to manage the thing type.</p>
    */
-  thingTypeName: string | undefined;
+  tags?: Tag[];
 }
 
 export namespace CreateThingTypeRequest {
@@ -5421,24 +5421,10 @@ export namespace CreateThingTypeResponse {
  */
 export interface TopicRulePayload {
   /**
-   * <p>The version of the SQL rules engine to use when evaluating the rule.</p>
+   * <p>The SQL statement used to query the topic. For more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/iot-sql-reference.html">AWS IoT SQL
+   *             Reference</a> in the <i>AWS IoT Developer Guide</i>.</p>
    */
-  awsIotSqlVersion?: string;
-
-  /**
-   * <p>Specifies whether the rule is disabled.</p>
-   */
-  ruleDisabled?: boolean;
-
-  /**
-   * <p>The action to take when an error occurs.</p>
-   */
-  errorAction?: Action;
-
-  /**
-   * <p>The actions associated with the rule.</p>
-   */
-  actions: Action[] | undefined;
+  sql: string | undefined;
 
   /**
    * <p>The description of the rule.</p>
@@ -5446,10 +5432,24 @@ export interface TopicRulePayload {
   description?: string;
 
   /**
-   * <p>The SQL statement used to query the topic. For more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/iot-sql-reference.html">AWS IoT SQL
-   *             Reference</a> in the <i>AWS IoT Developer Guide</i>.</p>
+   * <p>The actions associated with the rule.</p>
    */
-  sql: string | undefined;
+  actions: Action[] | undefined;
+
+  /**
+   * <p>Specifies whether the rule is disabled.</p>
+   */
+  ruleDisabled?: boolean;
+
+  /**
+   * <p>The version of the SQL rules engine to use when evaluating the rule.</p>
+   */
+  awsIotSqlVersion?: string;
+
+  /**
+   * <p>The action to take when an error occurs.</p>
+   */
+  errorAction?: Action;
 }
 
 export namespace TopicRulePayload {
@@ -5583,10 +5583,9 @@ export enum TopicRuleDestinationStatus {
  */
 export interface TopicRuleDestination {
   /**
-   * <p>Additional details or reason why the topic rule destination is in the current
-   *          status.</p>
+   * <p>The topic rule destination URL.</p>
    */
-  statusReason?: string;
+  arn?: string;
 
   /**
    * <p>The status of the topic rule destination. Valid values are:</p>
@@ -5625,9 +5624,10 @@ export interface TopicRuleDestination {
   status?: TopicRuleDestinationStatus | string;
 
   /**
-   * <p>The topic rule destination URL.</p>
+   * <p>Additional details or reason why the topic rule destination is in the current
+   *          status.</p>
    */
-  arn?: string;
+  statusReason?: string;
 
   /**
    * <p>Properties of the HTTP URL.</p>
@@ -5824,16 +5824,16 @@ export namespace DeleteCACertificateResponse {
  */
 export interface DeleteCertificateRequest {
   /**
-   * <p>Forces the deletion of a certificate if it is inactive and is not attached to an IoT
-   *          thing.</p>
-   */
-  forceDelete?: boolean;
-
-  /**
    * <p>The ID of the certificate. (The last part of the certificate ARN contains the
    *          certificate ID.)</p>
    */
   certificateId: string | undefined;
+
+  /**
+   * <p>Forces the deletion of a certificate if it is inactive and is not attached to an IoT
+   *          thing.</p>
+   */
+  forceDelete?: boolean;
 }
 
 export namespace DeleteCertificateRequest {
@@ -5920,19 +5920,6 @@ export interface DeleteJobRequest {
   jobId: string | undefined;
 
   /**
-   * <p>The namespace used to indicate that a job is a customer-managed job.</p>
-   *         <p>When you specify a value for this parameter, AWS IoT Core sends jobs notifications to MQTT topics that
-   *             contain the value in the following format.</p>
-   *         <p>
-   *             <code>$aws/things/<i>THING_NAME</i>/jobs/<i>JOB_ID</i>/notify-namespace-<i>NAMESPACE_ID</i>/</code>
-   *          </p>
-   *         <note>
-   *             <p>The <code>namespaceId</code> feature is in public preview.</p>
-   *          </note>
-   */
-  namespaceId?: string;
-
-  /**
    * <p>(Optional) When true, you can delete a job which is "IN_PROGRESS". Otherwise, you can
    *         only delete a job which is in a terminal state ("COMPLETED" or "CANCELED") or an exception
    *         will occur. The default is false.</p>
@@ -5944,6 +5931,19 @@ export interface DeleteJobRequest {
    *          </note>
    */
   force?: boolean;
+
+  /**
+   * <p>The namespace used to indicate that a job is a customer-managed job.</p>
+   *         <p>When you specify a value for this parameter, AWS IoT Core sends jobs notifications to MQTT topics that
+   *             contain the value in the following format.</p>
+   *         <p>
+   *             <code>$aws/things/<i>THING_NAME</i>/jobs/<i>JOB_ID</i>/notify-namespace-<i>NAMESPACE_ID</i>/</code>
+   *          </p>
+   *         <note>
+   *             <p>The <code>namespaceId</code> feature is in public preview.</p>
+   *          </note>
+   */
+  namespaceId?: string;
 }
 
 export namespace DeleteJobRequest {
@@ -5954,9 +5954,22 @@ export namespace DeleteJobRequest {
 
 export interface DeleteJobExecutionRequest {
   /**
+   * <p>The ID of the job whose execution on a particular device will be deleted.</p>
+   */
+  jobId: string | undefined;
+
+  /**
    * <p>The name of the thing whose job execution will be deleted.</p>
    */
   thingName: string | undefined;
+
+  /**
+   * <p>The ID of the job execution to be deleted. The <code>executionNumber</code> refers to the
+   *         execution of a particular job on a particular device.</p>
+   *          <p>Note that once a job execution is deleted, the <code>executionNumber</code> may be reused
+   *         by IoT, so be sure you get and use the correct value here.</p>
+   */
+  executionNumber: number | undefined;
 
   /**
    * <p>(Optional) When true, you can delete a job execution which is "IN_PROGRESS". Otherwise,
@@ -5969,19 +5982,6 @@ export interface DeleteJobExecutionRequest {
    *          </note>
    */
   force?: boolean;
-
-  /**
-   * <p>The ID of the job execution to be deleted. The <code>executionNumber</code> refers to the
-   *         execution of a particular job on a particular device.</p>
-   *          <p>Note that once a job execution is deleted, the <code>executionNumber</code> may be reused
-   *         by IoT, so be sure you get and use the correct value here.</p>
-   */
-  executionNumber: number | undefined;
-
-  /**
-   * <p>The ID of the job whose execution on a particular device will be deleted.</p>
-   */
-  jobId: string | undefined;
 
   /**
    * <p>The namespace used to indicate that a job is a customer-managed job.</p>
@@ -6026,11 +6026,6 @@ export namespace DeleteMitigationActionResponse {
 
 export interface DeleteOTAUpdateRequest {
   /**
-   * <p>Specifies if the AWS Job associated with the OTA update should be deleted when the OTA update is deleted.</p>
-   */
-  forceDeleteAWSJob?: boolean;
-
-  /**
    * <p>The ID of the OTA update to delete.</p>
    */
   otaUpdateId: string | undefined;
@@ -6039,6 +6034,11 @@ export interface DeleteOTAUpdateRequest {
    * <p>Specifies if the stream associated with an OTA update should be deleted when the OTA update is deleted.</p>
    */
   deleteStream?: boolean;
+
+  /**
+   * <p>Specifies if the AWS Job associated with the OTA update should be deleted when the OTA update is deleted.</p>
+   */
+  forceDeleteAWSJob?: boolean;
 }
 
 export namespace DeleteOTAUpdateRequest {
@@ -6076,14 +6076,14 @@ export namespace DeletePolicyRequest {
  */
 export interface DeletePolicyVersionRequest {
   /**
-   * <p>The policy version ID.</p>
-   */
-  policyVersionId: string | undefined;
-
-  /**
    * <p>The name of the policy.</p>
    */
   policyName: string | undefined;
+
+  /**
+   * <p>The policy version ID.</p>
+   */
+  policyVersionId: string | undefined;
 }
 
 export namespace DeletePolicyVersionRequest {
@@ -6205,16 +6205,16 @@ export namespace DeleteScheduledAuditResponse {
 
 export interface DeleteSecurityProfileRequest {
   /**
+   * <p>The name of the security profile to be deleted.</p>
+   */
+  securityProfileName: string | undefined;
+
+  /**
    * <p>The expected version of the security profile. A new version is generated whenever
    *         the security profile is updated. If you specify a value that is different from the actual
    *         version, a <code>VersionConflictException</code> is thrown.</p>
    */
   expectedVersion?: number;
-
-  /**
-   * <p>The name of the security profile to be deleted.</p>
-   */
-  securityProfileName: string | undefined;
 }
 
 export namespace DeleteSecurityProfileRequest {
@@ -6257,17 +6257,17 @@ export namespace DeleteStreamResponse {
  */
 export interface DeleteThingRequest {
   /**
+   * <p>The name of the thing to delete.</p>
+   */
+  thingName: string | undefined;
+
+  /**
    * <p>The expected version of the thing record in the registry. If the version of the
    * 			record in the registry does not match the expected version specified in the request, the
    * 				<code>DeleteThing</code> request is rejected with a
    * 				<code>VersionConflictException</code>.</p>
    */
   expectedVersion?: number;
-
-  /**
-   * <p>The name of the thing to delete.</p>
-   */
-  thingName: string | undefined;
 }
 
 export namespace DeleteThingRequest {
@@ -6289,14 +6289,14 @@ export namespace DeleteThingResponse {
 
 export interface DeleteThingGroupRequest {
   /**
-   * <p>The expected version of the thing group to delete.</p>
-   */
-  expectedVersion?: number;
-
-  /**
    * <p>The name of the thing group to delete.</p>
    */
   thingGroupName: string | undefined;
+
+  /**
+   * <p>The expected version of the thing group to delete.</p>
+   */
+  expectedVersion?: number;
 }
 
 export namespace DeleteThingGroupRequest {
@@ -6406,15 +6406,15 @@ export namespace DeleteV2LoggingLevelRequest {
  */
 export interface DeprecateThingTypeRequest {
   /**
+   * <p>The name of the thing type to deprecate.</p>
+   */
+  thingTypeName: string | undefined;
+
+  /**
    * <p>Whether to undeprecate a deprecated thing type. If <b>true</b>, the thing type will not be deprecated anymore and you can
    * 			associate it with things.</p>
    */
   undoDeprecate?: boolean;
-
-  /**
-   * <p>The name of the thing type to deprecate.</p>
-   */
-  thingTypeName: string | undefined;
 }
 
 export namespace DeprecateThingTypeRequest {
@@ -6444,11 +6444,6 @@ export namespace DescribeAccountAuditConfigurationRequest {
 
 export interface DescribeAccountAuditConfigurationResponse {
   /**
-   * <p>Which audit checks are enabled and disabled for this account.</p>
-   */
-  auditCheckConfigurations?: { [key: string]: AuditCheckConfiguration };
-
-  /**
    * <p>The ARN of the role that grants permission to AWS IoT to access information
    *             about your devices, policies, certificates, and other items as required when
    *             performing an audit.</p>
@@ -6462,6 +6457,11 @@ export interface DescribeAccountAuditConfigurationResponse {
    *             this account.</p>
    */
   auditNotificationTargetConfigurations?: { [key: string]: AuditNotificationTarget };
+
+  /**
+   * <p>Which audit checks are enabled and disabled for this account.</p>
+   */
+  auditCheckConfigurations?: { [key: string]: AuditCheckConfiguration };
 }
 
 export namespace DescribeAccountAuditConfigurationResponse {
@@ -6514,14 +6514,9 @@ export namespace DescribeAuditMitigationActionsTaskRequest {
  */
 export interface MitigationAction {
   /**
-   * <p>The set of parameters for this mitigation action. The parameters vary, depending on the kind of action you apply.</p>
+   * <p>A user-friendly name for the mitigation action.</p>
    */
-  actionParams?: MitigationActionParams;
-
-  /**
-   * <p>The IAM role ARN used to apply this mitigation action.</p>
-   */
-  roleArn?: string;
+  name?: string;
 
   /**
    * <p>A unique identifier for the mitigation action.</p>
@@ -6529,9 +6524,14 @@ export interface MitigationAction {
   id?: string;
 
   /**
-   * <p>A user-friendly name for the mitigation action.</p>
+   * <p>The IAM role ARN used to apply this mitigation action.</p>
    */
-  name?: string;
+  roleArn?: string;
+
+  /**
+   * <p>The set of parameters for this mitigation action. The parameters vary, depending on the kind of action you apply.</p>
+   */
+  actionParams?: MitigationActionParams;
 }
 
 export namespace MitigationAction {
@@ -6542,14 +6542,14 @@ export namespace MitigationAction {
 
 export interface DescribeAuditMitigationActionsTaskResponse {
   /**
-   * <p>Specifies the mitigation actions and their parameters that are applied as part of this task.</p>
+   * <p>The current status of the task.</p>
    */
-  actionsDefinition?: MitigationAction[];
+  taskStatus?: AuditMitigationActionsTaskStatus | string;
 
   /**
-   * <p>Specifies the mitigation actions that should be applied to specific audit checks.</p>
+   * <p>The date and time when the task was started.</p>
    */
-  auditCheckToActionsMapping?: { [key: string]: string[] };
+  startTime?: Date;
 
   /**
    * <p>The date and time when the task was completed or canceled.</p>
@@ -6567,14 +6567,14 @@ export interface DescribeAuditMitigationActionsTaskResponse {
   target?: AuditMitigationActionsTaskTarget;
 
   /**
-   * <p>The current status of the task.</p>
+   * <p>Specifies the mitigation actions that should be applied to specific audit checks.</p>
    */
-  taskStatus?: AuditMitigationActionsTaskStatus | string;
+  auditCheckToActionsMapping?: { [key: string]: string[] };
 
   /**
-   * <p>The date and time when the task was started.</p>
+   * <p>Specifies the mitigation actions and their parameters that are applied as part of this task.</p>
    */
-  startTime?: Date;
+  actionsDefinition?: MitigationAction[];
 }
 
 export namespace DescribeAuditMitigationActionsTaskResponse {
@@ -6585,17 +6585,17 @@ export namespace DescribeAuditMitigationActionsTaskResponse {
 
 export interface DescribeAuditSuppressionRequest {
   /**
-   * <p>Information that identifies the noncompliant resource.</p>
-   */
-  resourceIdentifier: ResourceIdentifier | undefined;
-
-  /**
    * <p>An audit check name. Checks must be enabled
    *         for your account. (Use <code>DescribeAccountAuditConfiguration</code> to see the list
    *         of all checks, including those that are enabled or use <code>UpdateAccountAuditConfiguration</code>
    *         to select which checks are enabled.)</p>
    */
   checkName: string | undefined;
+
+  /**
+   * <p>Information that identifies the noncompliant resource.</p>
+   */
+  resourceIdentifier: ResourceIdentifier | undefined;
 }
 
 export namespace DescribeAuditSuppressionRequest {
@@ -6605,6 +6605,26 @@ export namespace DescribeAuditSuppressionRequest {
 }
 
 export interface DescribeAuditSuppressionResponse {
+  /**
+   * <p>An audit check name. Checks must be enabled
+   *         for your account. (Use <code>DescribeAccountAuditConfiguration</code> to see the list
+   *         of all checks, including those that are enabled or use <code>UpdateAccountAuditConfiguration</code>
+   *         to select which checks are enabled.)</p>
+   */
+  checkName?: string;
+
+  /**
+   * <p>Information that identifies the noncompliant resource.</p>
+   */
+  resourceIdentifier?: ResourceIdentifier;
+
+  /**
+   * <p>
+   *       The epoch timestamp in seconds at which this suppression expires.
+   *     </p>
+   */
+  expirationDate?: Date;
+
   /**
    * <p>
    *       Indicates whether a suppression should exist indefinitely or not.
@@ -6618,26 +6638,6 @@ export interface DescribeAuditSuppressionResponse {
    *     </p>
    */
   description?: string;
-
-  /**
-   * <p>
-   *       The epoch timestamp in seconds at which this suppression expires.
-   *     </p>
-   */
-  expirationDate?: Date;
-
-  /**
-   * <p>Information that identifies the noncompliant resource.</p>
-   */
-  resourceIdentifier?: ResourceIdentifier;
-
-  /**
-   * <p>An audit check name. Checks must be enabled
-   *         for your account. (Use <code>DescribeAccountAuditConfiguration</code> to see the list
-   *         of all checks, including those that are enabled or use <code>UpdateAccountAuditConfiguration</code>
-   *         to select which checks are enabled.)</p>
-   */
-  checkName?: string;
 }
 
 export namespace DescribeAuditSuppressionResponse {
@@ -6664,24 +6664,19 @@ export namespace DescribeAuditTaskRequest {
  */
 export interface TaskStatistics {
   /**
-   * <p>The number of checks waiting for data collection.</p>
+   * <p>The number of checks in this audit.</p>
    */
-  waitingForDataCollectionChecks?: number;
-
-  /**
-   * <p>The number of checks that did not run because the audit was canceled.</p>
-   */
-  canceledChecks?: number;
-
-  /**
-   * <p>The number of checks.</p>
-   */
-  failedChecks?: number;
+  totalChecks?: number;
 
   /**
    * <p>The number of checks in progress.</p>
    */
   inProgressChecks?: number;
+
+  /**
+   * <p>The number of checks waiting for data collection.</p>
+   */
+  waitingForDataCollectionChecks?: number;
 
   /**
    * <p>The number of checks that found compliant resources.</p>
@@ -6694,9 +6689,14 @@ export interface TaskStatistics {
   nonCompliantChecks?: number;
 
   /**
-   * <p>The number of checks in this audit.</p>
+   * <p>The number of checks.</p>
    */
-  totalChecks?: number;
+  failedChecks?: number;
+
+  /**
+   * <p>The number of checks that did not run because the audit was canceled.</p>
+   */
+  canceledChecks?: number;
 }
 
 export namespace TaskStatistics {

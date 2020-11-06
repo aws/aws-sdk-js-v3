@@ -170,6 +170,9 @@ import {
   ReservedElasticsearchInstanceOffering,
   ResourceAlreadyExistsException,
   ResourceNotFoundException,
+  SAMLIdp,
+  SAMLOptionsInput,
+  SAMLOptionsOutput,
   ServiceSoftwareOptions,
   SnapshotOptions,
   SnapshotOptionsStatus,
@@ -259,15 +262,6 @@ export const serializeAws_restJson1AssociatePackageCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/2015-01-01/packages/associate/{PackageID}/{DomainName}";
-  if (input.DomainName !== undefined) {
-    const labelValue: string = input.DomainName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: DomainName.");
-    }
-    resolvedPath = resolvedPath.replace("{DomainName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: DomainName.");
-  }
   if (input.PackageID !== undefined) {
     const labelValue: string = input.PackageID;
     if (labelValue.length <= 0) {
@@ -276,6 +270,15 @@ export const serializeAws_restJson1AssociatePackageCommand = async (
     resolvedPath = resolvedPath.replace("{PackageID}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: PackageID.");
+  }
+  if (input.DomainName !== undefined) {
+    const labelValue: string = input.DomainName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: DomainName.");
+    }
+    resolvedPath = resolvedPath.replace("{DomainName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: DomainName.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -673,15 +676,6 @@ export const serializeAws_restJson1DescribeElasticsearchInstanceTypeLimitsComman
     "Content-Type": "",
   };
   let resolvedPath = "/2015-01-01/es/instanceTypeLimits/{ElasticsearchVersion}/{InstanceType}";
-  if (input.ElasticsearchVersion !== undefined) {
-    const labelValue: string = input.ElasticsearchVersion;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: ElasticsearchVersion.");
-    }
-    resolvedPath = resolvedPath.replace("{ElasticsearchVersion}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: ElasticsearchVersion.");
-  }
   if (input.InstanceType !== undefined) {
     const labelValue: string = input.InstanceType;
     if (labelValue.length <= 0) {
@@ -690,6 +684,15 @@ export const serializeAws_restJson1DescribeElasticsearchInstanceTypeLimitsComman
     resolvedPath = resolvedPath.replace("{InstanceType}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: InstanceType.");
+  }
+  if (input.ElasticsearchVersion !== undefined) {
+    const labelValue: string = input.ElasticsearchVersion;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: ElasticsearchVersion.");
+    }
+    resolvedPath = resolvedPath.replace("{ElasticsearchVersion}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: ElasticsearchVersion.");
   }
   const query: any = {
     ...(input.DomainName !== undefined && { domainName: input.DomainName }),
@@ -797,11 +800,11 @@ export const serializeAws_restJson1DescribeReservedElasticsearchInstanceOffering
   };
   let resolvedPath = "/2015-01-01/es/reservedInstanceOfferings";
   const query: any = {
-    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
-    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.ReservedElasticsearchInstanceOfferingId !== undefined && {
       offeringId: input.ReservedElasticsearchInstanceOfferingId,
     }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -854,15 +857,6 @@ export const serializeAws_restJson1DissociatePackageCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/2015-01-01/packages/dissociate/{PackageID}/{DomainName}";
-  if (input.DomainName !== undefined) {
-    const labelValue: string = input.DomainName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: DomainName.");
-    }
-    resolvedPath = resolvedPath.replace("{DomainName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: DomainName.");
-  }
   if (input.PackageID !== undefined) {
     const labelValue: string = input.PackageID;
     if (labelValue.length <= 0) {
@@ -871,6 +865,15 @@ export const serializeAws_restJson1DissociatePackageCommand = async (
     resolvedPath = resolvedPath.replace("{PackageID}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: PackageID.");
+  }
+  if (input.DomainName !== undefined) {
+    const labelValue: string = input.DomainName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: DomainName.");
+    }
+    resolvedPath = resolvedPath.replace("{DomainName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: DomainName.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -928,8 +931,8 @@ export const serializeAws_restJson1GetUpgradeHistoryCommand = async (
     throw new Error("No value provided for input HTTP label: DomainName.");
   }
   const query: any = {
-    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
     ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1015,8 +1018,8 @@ export const serializeAws_restJson1ListDomainsForPackageCommand = async (
     throw new Error("No value provided for input HTTP label: PackageID.");
   }
   const query: any = {
-    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
     ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1050,9 +1053,9 @@ export const serializeAws_restJson1ListElasticsearchInstanceTypesCommand = async
     throw new Error("No value provided for input HTTP label: ElasticsearchVersion.");
   }
   const query: any = {
+    ...(input.DomainName !== undefined && { domainName: input.DomainName }),
     ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
-    ...(input.DomainName !== undefined && { domainName: input.DomainName }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -4676,6 +4679,9 @@ const serializeAws_restJson1AdvancedSecurityOptionsInput = (
     ...(input.MasterUserOptions !== undefined && {
       MasterUserOptions: serializeAws_restJson1MasterUserOptions(input.MasterUserOptions, context),
     }),
+    ...(input.SAMLOptions !== undefined && {
+      SAMLOptions: serializeAws_restJson1SAMLOptionsInput(input.SAMLOptions, context),
+    }),
   };
 };
 
@@ -4710,6 +4716,11 @@ const serializeAws_restJson1DescribePackagesFilterValues = (input: string[], con
 
 const serializeAws_restJson1DomainEndpointOptions = (input: DomainEndpointOptions, context: __SerdeContext): any => {
   return {
+    ...(input.CustomEndpoint !== undefined && { CustomEndpoint: input.CustomEndpoint }),
+    ...(input.CustomEndpointCertificateArn !== undefined && {
+      CustomEndpointCertificateArn: input.CustomEndpointCertificateArn,
+    }),
+    ...(input.CustomEndpointEnabled !== undefined && { CustomEndpointEnabled: input.CustomEndpointEnabled }),
     ...(input.EnforceHTTPS !== undefined && { EnforceHTTPS: input.EnforceHTTPS }),
     ...(input.TLSSecurityPolicy !== undefined && { TLSSecurityPolicy: input.TLSSecurityPolicy }),
   };
@@ -4823,6 +4834,25 @@ const serializeAws_restJson1PackageSource = (input: PackageSource, context: __Se
   };
 };
 
+const serializeAws_restJson1SAMLIdp = (input: SAMLIdp, context: __SerdeContext): any => {
+  return {
+    ...(input.EntityId !== undefined && { EntityId: input.EntityId }),
+    ...(input.MetadataContent !== undefined && { MetadataContent: input.MetadataContent }),
+  };
+};
+
+const serializeAws_restJson1SAMLOptionsInput = (input: SAMLOptionsInput, context: __SerdeContext): any => {
+  return {
+    ...(input.Enabled !== undefined && { Enabled: input.Enabled }),
+    ...(input.Idp !== undefined && { Idp: serializeAws_restJson1SAMLIdp(input.Idp, context) }),
+    ...(input.MasterBackendRole !== undefined && { MasterBackendRole: input.MasterBackendRole }),
+    ...(input.MasterUserName !== undefined && { MasterUserName: input.MasterUserName }),
+    ...(input.RolesKey !== undefined && { RolesKey: input.RolesKey }),
+    ...(input.SessionTimeoutMinutes !== undefined && { SessionTimeoutMinutes: input.SessionTimeoutMinutes }),
+    ...(input.SubjectKey !== undefined && { SubjectKey: input.SubjectKey }),
+  };
+};
+
 const serializeAws_restJson1SnapshotOptions = (input: SnapshotOptions, context: __SerdeContext): any => {
   return {
     ...(input.AutomatedSnapshotStartHour !== undefined && {
@@ -4922,6 +4952,10 @@ const deserializeAws_restJson1AdvancedSecurityOptions = (
       output.InternalUserDatabaseEnabled !== undefined && output.InternalUserDatabaseEnabled !== null
         ? output.InternalUserDatabaseEnabled
         : undefined,
+    SAMLOptions:
+      output.SAMLOptions !== undefined && output.SAMLOptions !== null
+        ? deserializeAws_restJson1SAMLOptionsOutput(output.SAMLOptions, context)
+        : undefined,
   } as any;
 };
 
@@ -4984,6 +5018,16 @@ const deserializeAws_restJson1CompatibleVersionsMap = (output: any, context: __S
 
 const deserializeAws_restJson1DomainEndpointOptions = (output: any, context: __SerdeContext): DomainEndpointOptions => {
   return {
+    CustomEndpoint:
+      output.CustomEndpoint !== undefined && output.CustomEndpoint !== null ? output.CustomEndpoint : undefined,
+    CustomEndpointCertificateArn:
+      output.CustomEndpointCertificateArn !== undefined && output.CustomEndpointCertificateArn !== null
+        ? output.CustomEndpointCertificateArn
+        : undefined,
+    CustomEndpointEnabled:
+      output.CustomEndpointEnabled !== undefined && output.CustomEndpointEnabled !== null
+        ? output.CustomEndpointEnabled
+        : undefined,
     EnforceHTTPS: output.EnforceHTTPS !== undefined && output.EnforceHTTPS !== null ? output.EnforceHTTPS : undefined,
     TLSSecurityPolicy:
       output.TLSSecurityPolicy !== undefined && output.TLSSecurityPolicy !== null
@@ -5692,6 +5736,30 @@ const deserializeAws_restJson1ReservedElasticsearchInstanceOfferingList = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1ReservedElasticsearchInstanceOffering(entry, context)
   );
+};
+
+const deserializeAws_restJson1SAMLIdp = (output: any, context: __SerdeContext): SAMLIdp => {
+  return {
+    EntityId: output.EntityId !== undefined && output.EntityId !== null ? output.EntityId : undefined,
+    MetadataContent:
+      output.MetadataContent !== undefined && output.MetadataContent !== null ? output.MetadataContent : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1SAMLOptionsOutput = (output: any, context: __SerdeContext): SAMLOptionsOutput => {
+  return {
+    Enabled: output.Enabled !== undefined && output.Enabled !== null ? output.Enabled : undefined,
+    Idp:
+      output.Idp !== undefined && output.Idp !== null
+        ? deserializeAws_restJson1SAMLIdp(output.Idp, context)
+        : undefined,
+    RolesKey: output.RolesKey !== undefined && output.RolesKey !== null ? output.RolesKey : undefined,
+    SessionTimeoutMinutes:
+      output.SessionTimeoutMinutes !== undefined && output.SessionTimeoutMinutes !== null
+        ? output.SessionTimeoutMinutes
+        : undefined,
+    SubjectKey: output.SubjectKey !== undefined && output.SubjectKey !== null ? output.SubjectKey : undefined,
+  } as any;
 };
 
 const deserializeAws_restJson1ServiceSoftwareOptions = (

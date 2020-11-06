@@ -23,6 +23,22 @@ import {
 } from "./commands/GetEncryptionConfigCommand";
 import { GetGroupCommand, GetGroupCommandInput, GetGroupCommandOutput } from "./commands/GetGroupCommand";
 import { GetGroupsCommand, GetGroupsCommandInput, GetGroupsCommandOutput } from "./commands/GetGroupsCommand";
+import { GetInsightCommand, GetInsightCommandInput, GetInsightCommandOutput } from "./commands/GetInsightCommand";
+import {
+  GetInsightEventsCommand,
+  GetInsightEventsCommandInput,
+  GetInsightEventsCommandOutput,
+} from "./commands/GetInsightEventsCommand";
+import {
+  GetInsightImpactGraphCommand,
+  GetInsightImpactGraphCommandInput,
+  GetInsightImpactGraphCommandOutput,
+} from "./commands/GetInsightImpactGraphCommand";
+import {
+  GetInsightSummariesCommand,
+  GetInsightSummariesCommandInput,
+  GetInsightSummariesCommandOutput,
+} from "./commands/GetInsightSummariesCommand";
 import {
   GetSamplingRulesCommand,
   GetSamplingRulesCommandInput,
@@ -327,6 +343,133 @@ export class XRay extends XRayClient {
     cb?: (err: any, data?: GetGroupsCommandOutput) => void
   ): Promise<GetGroupsCommandOutput> | void {
     const command = new GetGroupsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Retrieves the summary information of an insight. This includes impact to clients and
+   *          root cause services, the top anomalous services, the category, the state of the insight,
+   *          and the start and end time of the insight.</p>
+   */
+  public getInsight(args: GetInsightCommandInput, options?: __HttpHandlerOptions): Promise<GetInsightCommandOutput>;
+  public getInsight(args: GetInsightCommandInput, cb: (err: any, data?: GetInsightCommandOutput) => void): void;
+  public getInsight(
+    args: GetInsightCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetInsightCommandOutput) => void
+  ): void;
+  public getInsight(
+    args: GetInsightCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetInsightCommandOutput) => void),
+    cb?: (err: any, data?: GetInsightCommandOutput) => void
+  ): Promise<GetInsightCommandOutput> | void {
+    const command = new GetInsightCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>X-Ray reevaluates insights periodically until they're resolved, and records each intermediate state as an
+   *          event. You can review an insight's events in the Impact Timeline on the Inspect page in the X-Ray
+   *          console.</p>
+   */
+  public getInsightEvents(
+    args: GetInsightEventsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetInsightEventsCommandOutput>;
+  public getInsightEvents(
+    args: GetInsightEventsCommandInput,
+    cb: (err: any, data?: GetInsightEventsCommandOutput) => void
+  ): void;
+  public getInsightEvents(
+    args: GetInsightEventsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetInsightEventsCommandOutput) => void
+  ): void;
+  public getInsightEvents(
+    args: GetInsightEventsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetInsightEventsCommandOutput) => void),
+    cb?: (err: any, data?: GetInsightEventsCommandOutput) => void
+  ): Promise<GetInsightEventsCommandOutput> | void {
+    const command = new GetInsightEventsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Retrieves a service graph structure filtered by the specified insight. The service graph is limited to only
+   *          structural information. For a complete service graph, use this API with the GetServiceGraph API.</p>
+   */
+  public getInsightImpactGraph(
+    args: GetInsightImpactGraphCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetInsightImpactGraphCommandOutput>;
+  public getInsightImpactGraph(
+    args: GetInsightImpactGraphCommandInput,
+    cb: (err: any, data?: GetInsightImpactGraphCommandOutput) => void
+  ): void;
+  public getInsightImpactGraph(
+    args: GetInsightImpactGraphCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetInsightImpactGraphCommandOutput) => void
+  ): void;
+  public getInsightImpactGraph(
+    args: GetInsightImpactGraphCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetInsightImpactGraphCommandOutput) => void),
+    cb?: (err: any, data?: GetInsightImpactGraphCommandOutput) => void
+  ): Promise<GetInsightImpactGraphCommandOutput> | void {
+    const command = new GetInsightImpactGraphCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Retrieves the summaries of all insights in the specified group matching the provided filter values.</p>
+   */
+  public getInsightSummaries(
+    args: GetInsightSummariesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetInsightSummariesCommandOutput>;
+  public getInsightSummaries(
+    args: GetInsightSummariesCommandInput,
+    cb: (err: any, data?: GetInsightSummariesCommandOutput) => void
+  ): void;
+  public getInsightSummaries(
+    args: GetInsightSummariesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetInsightSummariesCommandOutput) => void
+  ): void;
+  public getInsightSummaries(
+    args: GetInsightSummariesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetInsightSummariesCommandOutput) => void),
+    cb?: (err: any, data?: GetInsightSummariesCommandOutput) => void
+  ): Promise<GetInsightSummariesCommandOutput> | void {
+    const command = new GetInsightSummariesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

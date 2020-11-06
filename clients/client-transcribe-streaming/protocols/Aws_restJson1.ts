@@ -34,30 +34,30 @@ export const serializeAws_restJson1StartStreamTranscriptionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "",
-    ...(isSerializableHeaderValue(input.VocabularyFilterName) && {
-      "x-amzn-transcribe-vocabulary-filter-name": input.VocabularyFilterName!,
+    ...(isSerializableHeaderValue(input.MediaEncoding) && { "x-amzn-transcribe-media-encoding": input.MediaEncoding! }),
+    ...(isSerializableHeaderValue(input.VocabularyFilterMethod) && {
+      "x-amzn-transcribe-vocabulary-filter-method": input.VocabularyFilterMethod!,
     }),
     ...(isSerializableHeaderValue(input.ShowSpeakerLabel) && {
       "x-amzn-transcribe-show-speaker-label": input.ShowSpeakerLabel!.toString(),
     }),
-    ...(isSerializableHeaderValue(input.EnableChannelIdentification) && {
-      "x-amzn-transcribe-enable-channel-identification": input.EnableChannelIdentification!.toString(),
+    ...(isSerializableHeaderValue(input.SessionId) && { "x-amzn-transcribe-session-id": input.SessionId! }),
+    ...(isSerializableHeaderValue(input.NumberOfChannels) && {
+      "x-amzn-transcribe-number-of-channels": input.NumberOfChannels!.toString(),
     }),
-    ...(isSerializableHeaderValue(input.MediaEncoding) && { "x-amzn-transcribe-media-encoding": input.MediaEncoding! }),
+    ...(isSerializableHeaderValue(input.LanguageCode) && { "x-amzn-transcribe-language-code": input.LanguageCode! }),
     ...(isSerializableHeaderValue(input.VocabularyName) && {
       "x-amzn-transcribe-vocabulary-name": input.VocabularyName!,
     }),
-    ...(isSerializableHeaderValue(input.VocabularyFilterMethod) && {
-      "x-amzn-transcribe-vocabulary-filter-method": input.VocabularyFilterMethod!,
-    }),
-    ...(isSerializableHeaderValue(input.NumberOfChannels) && {
-      "x-amzn-transcribe-number-of-channels": input.NumberOfChannels!.toString(),
+    ...(isSerializableHeaderValue(input.EnableChannelIdentification) && {
+      "x-amzn-transcribe-enable-channel-identification": input.EnableChannelIdentification!.toString(),
     }),
     ...(isSerializableHeaderValue(input.MediaSampleRateHertz) && {
       "x-amzn-transcribe-sample-rate": input.MediaSampleRateHertz!.toString(),
     }),
-    ...(isSerializableHeaderValue(input.SessionId) && { "x-amzn-transcribe-session-id": input.SessionId! }),
-    ...(isSerializableHeaderValue(input.LanguageCode) && { "x-amzn-transcribe-language-code": input.LanguageCode! }),
+    ...(isSerializableHeaderValue(input.VocabularyFilterName) && {
+      "x-amzn-transcribe-vocabulary-filter-name": input.VocabularyFilterName!,
+    }),
   };
   let resolvedPath = "/stream-transcription";
   let body: any;
@@ -103,9 +103,6 @@ export const deserializeAws_restJson1StartStreamTranscriptionCommand = async (
   if (output.headers["x-amzn-transcribe-vocabulary-filter-name"] !== undefined) {
     contents.VocabularyFilterName = output.headers["x-amzn-transcribe-vocabulary-filter-name"];
   }
-  if (output.headers["x-amzn-transcribe-language-code"] !== undefined) {
-    contents.LanguageCode = output.headers["x-amzn-transcribe-language-code"];
-  }
   if (output.headers["x-amzn-transcribe-media-encoding"] !== undefined) {
     contents.MediaEncoding = output.headers["x-amzn-transcribe-media-encoding"];
   }
@@ -115,23 +112,26 @@ export const deserializeAws_restJson1StartStreamTranscriptionCommand = async (
   if (output.headers["x-amzn-transcribe-vocabulary-filter-method"] !== undefined) {
     contents.VocabularyFilterMethod = output.headers["x-amzn-transcribe-vocabulary-filter-method"];
   }
-  if (output.headers["x-amzn-transcribe-session-id"] !== undefined) {
-    contents.SessionId = output.headers["x-amzn-transcribe-session-id"];
-  }
-  if (output.headers["x-amzn-transcribe-sample-rate"] !== undefined) {
-    contents.MediaSampleRateHertz = parseInt(output.headers["x-amzn-transcribe-sample-rate"], 10);
-  }
-  if (output.headers["x-amzn-transcribe-number-of-channels"] !== undefined) {
-    contents.NumberOfChannels = parseInt(output.headers["x-amzn-transcribe-number-of-channels"], 10);
-  }
-  if (output.headers["x-amzn-transcribe-enable-channel-identification"] !== undefined) {
-    contents.EnableChannelIdentification = output.headers["x-amzn-transcribe-enable-channel-identification"] === "true";
+  if (output.headers["x-amzn-transcribe-language-code"] !== undefined) {
+    contents.LanguageCode = output.headers["x-amzn-transcribe-language-code"];
   }
   if (output.headers["x-amzn-transcribe-show-speaker-label"] !== undefined) {
     contents.ShowSpeakerLabel = output.headers["x-amzn-transcribe-show-speaker-label"] === "true";
   }
   if (output.headers["x-amzn-request-id"] !== undefined) {
     contents.RequestId = output.headers["x-amzn-request-id"];
+  }
+  if (output.headers["x-amzn-transcribe-number-of-channels"] !== undefined) {
+    contents.NumberOfChannels = parseInt(output.headers["x-amzn-transcribe-number-of-channels"], 10);
+  }
+  if (output.headers["x-amzn-transcribe-session-id"] !== undefined) {
+    contents.SessionId = output.headers["x-amzn-transcribe-session-id"];
+  }
+  if (output.headers["x-amzn-transcribe-sample-rate"] !== undefined) {
+    contents.MediaSampleRateHertz = parseInt(output.headers["x-amzn-transcribe-sample-rate"], 10);
+  }
+  if (output.headers["x-amzn-transcribe-enable-channel-identification"] !== undefined) {
+    contents.EnableChannelIdentification = output.headers["x-amzn-transcribe-enable-channel-identification"] === "true";
   }
   const data: any = context.eventStreamMarshaller.deserialize(output.body, async (event) => {
     const eventName = Object.keys(event)[0];
@@ -231,30 +231,17 @@ const deserializeAws_restJson1TranscriptResultStream_event = async (
   output: any,
   context: __SerdeContext
 ): Promise<TranscriptResultStream> => {
-  if (output["TranscriptEvent"] !== undefined) {
-    return {
-      TranscriptEvent: await deserializeAws_restJson1TranscriptEvent_event(output["TranscriptEvent"], context),
-    };
-  }
-  if (output["LimitExceededException"] !== undefined) {
-    return {
-      LimitExceededException: await deserializeAws_restJson1LimitExceededException_event(
-        output["LimitExceededException"],
-        context
-      ),
-    };
-  }
-  if (output["ConflictException"] !== undefined) {
-    return {
-      ConflictException: await deserializeAws_restJson1ConflictException_event(output["ConflictException"], context),
-    };
-  }
   if (output["BadRequestException"] !== undefined) {
     return {
       BadRequestException: await deserializeAws_restJson1BadRequestException_event(
         output["BadRequestException"],
         context
       ),
+    };
+  }
+  if (output["TranscriptEvent"] !== undefined) {
+    return {
+      TranscriptEvent: await deserializeAws_restJson1TranscriptEvent_event(output["TranscriptEvent"], context),
     };
   }
   if (output["InternalFailureException"] !== undefined) {
@@ -265,10 +252,23 @@ const deserializeAws_restJson1TranscriptResultStream_event = async (
       ),
     };
   }
+  if (output["ConflictException"] !== undefined) {
+    return {
+      ConflictException: await deserializeAws_restJson1ConflictException_event(output["ConflictException"], context),
+    };
+  }
   if (output["ServiceUnavailableException"] !== undefined) {
     return {
       ServiceUnavailableException: await deserializeAws_restJson1ServiceUnavailableException_event(
         output["ServiceUnavailableException"],
+        context
+      ),
+    };
+  }
+  if (output["LimitExceededException"] !== undefined) {
+    return {
+      LimitExceededException: await deserializeAws_restJson1LimitExceededException_event(
+        output["LimitExceededException"],
         context
       ),
     };

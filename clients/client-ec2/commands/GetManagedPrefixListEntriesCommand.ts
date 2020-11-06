@@ -1,6 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { GetManagedPrefixListEntriesRequest } from "../models/models_3";
-import { GetManagedPrefixListEntriesResult } from "../models/models_4";
+import { GetManagedPrefixListEntriesRequest, GetManagedPrefixListEntriesResult } from "../models/models_4";
 import {
   deserializeAws_ec2GetManagedPrefixListEntriesCommand,
   serializeAws_ec2GetManagedPrefixListEntriesCommand,

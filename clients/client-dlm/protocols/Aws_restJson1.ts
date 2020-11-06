@@ -120,11 +120,11 @@ export const serializeAws_restJson1GetLifecyclePoliciesCommand = async (
   };
   let resolvedPath = "/policies";
   const query: any = {
-    ...(input.ResourceTypes !== undefined && { resourceTypes: (input.ResourceTypes || []).map((_entry) => _entry) }),
+    ...(input.State !== undefined && { state: input.State }),
     ...(input.TagsToAdd !== undefined && { tagsToAdd: (input.TagsToAdd || []).map((_entry) => _entry) }),
     ...(input.PolicyIds !== undefined && { policyIds: (input.PolicyIds || []).map((_entry) => _entry) }),
+    ...(input.ResourceTypes !== undefined && { resourceTypes: (input.ResourceTypes || []).map((_entry) => _entry) }),
     ...(input.TargetTags !== undefined && { targetTags: (input.TargetTags || []).map((_entry) => _entry) }),
-    ...(input.State !== undefined && { state: input.State }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1033,6 +1033,7 @@ const serializeAws_restJson1FastRestoreRule = (input: FastRestoreRule, context: 
 const serializeAws_restJson1_Parameters = (input: _Parameters, context: __SerdeContext): any => {
   return {
     ...(input.ExcludeBootVolume !== undefined && { ExcludeBootVolume: input.ExcludeBootVolume }),
+    ...(input.NoReboot !== undefined && { NoReboot: input.NoReboot }),
   };
 };
 
@@ -1213,6 +1214,7 @@ const deserializeAws_restJson1LifecyclePolicySummary = (
   return {
     Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
     PolicyId: output.PolicyId !== undefined && output.PolicyId !== null ? output.PolicyId : undefined,
+    PolicyType: output.PolicyType !== undefined && output.PolicyType !== null ? output.PolicyType : undefined,
     State: output.State !== undefined && output.State !== null ? output.State : undefined,
     Tags:
       output.Tags !== undefined && output.Tags !== null
@@ -1238,6 +1240,7 @@ const deserializeAws_restJson1_Parameters = (output: any, context: __SerdeContex
       output.ExcludeBootVolume !== undefined && output.ExcludeBootVolume !== null
         ? output.ExcludeBootVolume
         : undefined,
+    NoReboot: output.NoReboot !== undefined && output.NoReboot !== null ? output.NoReboot : undefined,
   } as any;
 };
 

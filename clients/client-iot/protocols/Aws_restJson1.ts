@@ -1190,15 +1190,6 @@ export const serializeAws_restJson1CancelJobExecutionCommand = async (
     "Content-Type": "application/json",
   };
   let resolvedPath = "/things/{thingName}/jobs/{jobId}/cancel";
-  if (input.thingName !== undefined) {
-    const labelValue: string = input.thingName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: thingName.");
-    }
-    resolvedPath = resolvedPath.replace("{thingName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: thingName.");
-  }
   if (input.jobId !== undefined) {
     const labelValue: string = input.jobId;
     if (labelValue.length <= 0) {
@@ -1207,6 +1198,15 @@ export const serializeAws_restJson1CancelJobExecutionCommand = async (
     resolvedPath = resolvedPath.replace("{jobId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: jobId.");
+  }
+  if (input.thingName !== undefined) {
+    const labelValue: string = input.thingName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: thingName.");
+    }
+    resolvedPath = resolvedPath.replace("{thingName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: thingName.");
   }
   const query: any = {
     ...(input.force !== undefined && { force: input.force.toString() }),
@@ -2521,8 +2521,8 @@ export const serializeAws_restJson1DeleteJobCommand = async (
     throw new Error("No value provided for input HTTP label: jobId.");
   }
   const query: any = {
-    ...(input.namespaceId !== undefined && { namespaceId: input.namespaceId }),
     ...(input.force !== undefined && { force: input.force.toString() }),
+    ...(input.namespaceId !== undefined && { namespaceId: input.namespaceId }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -2546,6 +2546,15 @@ export const serializeAws_restJson1DeleteJobExecutionCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/things/{thingName}/jobs/{jobId}/executionNumber/{executionNumber}";
+  if (input.jobId !== undefined) {
+    const labelValue: string = input.jobId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: jobId.");
+    }
+    resolvedPath = resolvedPath.replace("{jobId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: jobId.");
+  }
   if (input.thingName !== undefined) {
     const labelValue: string = input.thingName;
     if (labelValue.length <= 0) {
@@ -2563,15 +2572,6 @@ export const serializeAws_restJson1DeleteJobExecutionCommand = async (
     resolvedPath = resolvedPath.replace("{executionNumber}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: executionNumber.");
-  }
-  if (input.jobId !== undefined) {
-    const labelValue: string = input.jobId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: jobId.");
-    }
-    resolvedPath = resolvedPath.replace("{jobId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: jobId.");
   }
   const query: any = {
     ...(input.force !== undefined && { force: input.force.toString() }),
@@ -2639,8 +2639,8 @@ export const serializeAws_restJson1DeleteOTAUpdateCommand = async (
     throw new Error("No value provided for input HTTP label: otaUpdateId.");
   }
   const query: any = {
-    ...(input.forceDeleteAWSJob !== undefined && { forceDeleteAWSJob: input.forceDeleteAWSJob.toString() }),
     ...(input.deleteStream !== undefined && { deleteStream: input.deleteStream.toString() }),
+    ...(input.forceDeleteAWSJob !== undefined && { forceDeleteAWSJob: input.forceDeleteAWSJob.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -2694,15 +2694,6 @@ export const serializeAws_restJson1DeletePolicyVersionCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/policies/{policyName}/version/{policyVersionId}";
-  if (input.policyVersionId !== undefined) {
-    const labelValue: string = input.policyVersionId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: policyVersionId.");
-    }
-    resolvedPath = resolvedPath.replace("{policyVersionId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: policyVersionId.");
-  }
   if (input.policyName !== undefined) {
     const labelValue: string = input.policyName;
     if (labelValue.length <= 0) {
@@ -2711,6 +2702,15 @@ export const serializeAws_restJson1DeletePolicyVersionCommand = async (
     resolvedPath = resolvedPath.replace("{policyName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: policyName.");
+  }
+  if (input.policyVersionId !== undefined) {
+    const labelValue: string = input.policyVersionId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: policyVersionId.");
+    }
+    resolvedPath = resolvedPath.replace("{policyVersionId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: policyVersionId.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -3619,15 +3619,6 @@ export const serializeAws_restJson1DescribeJobExecutionCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/things/{thingName}/jobs/{jobId}";
-  if (input.thingName !== undefined) {
-    const labelValue: string = input.thingName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: thingName.");
-    }
-    resolvedPath = resolvedPath.replace("{thingName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: thingName.");
-  }
   if (input.jobId !== undefined) {
     const labelValue: string = input.jobId;
     if (labelValue.length <= 0) {
@@ -3636,6 +3627,15 @@ export const serializeAws_restJson1DescribeJobExecutionCommand = async (
     resolvedPath = resolvedPath.replace("{jobId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: jobId.");
+  }
+  if (input.thingName !== undefined) {
+    const labelValue: string = input.thingName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: thingName.");
+    }
+    resolvedPath = resolvedPath.replace("{thingName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: thingName.");
   }
   const query: any = {
     ...(input.executionNumber !== undefined && { executionNumber: input.executionNumber.toString() }),
@@ -3722,15 +3722,6 @@ export const serializeAws_restJson1DescribeProvisioningTemplateVersionCommand = 
     "Content-Type": "",
   };
   let resolvedPath = "/provisioning-templates/{templateName}/versions/{versionId}";
-  if (input.versionId !== undefined) {
-    const labelValue: string = input.versionId.toString();
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: versionId.");
-    }
-    resolvedPath = resolvedPath.replace("{versionId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: versionId.");
-  }
   if (input.templateName !== undefined) {
     const labelValue: string = input.templateName;
     if (labelValue.length <= 0) {
@@ -3739,6 +3730,15 @@ export const serializeAws_restJson1DescribeProvisioningTemplateVersionCommand = 
     resolvedPath = resolvedPath.replace("{templateName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: templateName.");
+  }
+  if (input.versionId !== undefined) {
+    const labelValue: string = input.versionId.toString();
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: versionId.");
+    }
+    resolvedPath = resolvedPath.replace("{versionId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: versionId.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -4585,10 +4585,10 @@ export const serializeAws_restJson1ListActiveViolationsCommand = async (
   };
   let resolvedPath = "/active-violations";
   const query: any = {
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
+    ...(input.thingName !== undefined && { thingName: input.thingName }),
     ...(input.securityProfileName !== undefined && { securityProfileName: input.securityProfileName }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
-    ...(input.thingName !== undefined && { thingName: input.thingName }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -4622,8 +4622,8 @@ export const serializeAws_restJson1ListAttachedPoliciesCommand = async (
     throw new Error("No value provided for input HTTP label: target.");
   }
   const query: any = {
-    ...(input.marker !== undefined && { marker: input.marker }),
     ...(input.recursive !== undefined && { recursive: input.recursive.toString() }),
+    ...(input.marker !== undefined && { marker: input.marker }),
     ...(input.pageSize !== undefined && { pageSize: input.pageSize.toString() }),
   };
   let body: any;
@@ -4682,11 +4682,11 @@ export const serializeAws_restJson1ListAuditMitigationActionsExecutionsCommand =
   };
   let resolvedPath = "/audit/mitigationactions/executions";
   const query: any = {
-    ...(input.actionStatus !== undefined && { actionStatus: input.actionStatus }),
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.taskId !== undefined && { taskId: input.taskId }),
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.actionStatus !== undefined && { actionStatus: input.actionStatus }),
     ...(input.findingId !== undefined && { findingId: input.findingId }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -4711,13 +4711,13 @@ export const serializeAws_restJson1ListAuditMitigationActionsTasksCommand = asyn
   };
   let resolvedPath = "/audit/mitigationactions/tasks";
   const query: any = {
-    ...(input.endTime !== undefined && { endTime: (input.endTime.toISOString().split(".")[0] + "Z").toString() }),
     ...(input.auditTaskId !== undefined && { auditTaskId: input.auditTaskId }),
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
-    ...(input.startTime !== undefined && { startTime: (input.startTime.toISOString().split(".")[0] + "Z").toString() }),
     ...(input.findingId !== undefined && { findingId: input.findingId }),
     ...(input.taskStatus !== undefined && { taskStatus: input.taskStatus }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.startTime !== undefined && { startTime: (input.startTime.toISOString().split(".")[0] + "Z").toString() }),
+    ...(input.endTime !== undefined && { endTime: (input.endTime.toISOString().split(".")[0] + "Z").toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -4772,12 +4772,12 @@ export const serializeAws_restJson1ListAuditTasksCommand = async (
   };
   let resolvedPath = "/audit/tasks";
   const query: any = {
+    ...(input.startTime !== undefined && { startTime: (input.startTime.toISOString().split(".")[0] + "Z").toString() }),
     ...(input.endTime !== undefined && { endTime: (input.endTime.toISOString().split(".")[0] + "Z").toString() }),
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
     ...(input.taskType !== undefined && { taskType: input.taskType }),
     ...(input.taskStatus !== undefined && { taskStatus: input.taskStatus }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
-    ...(input.startTime !== undefined && { startTime: (input.startTime.toISOString().split(".")[0] + "Z").toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -4803,9 +4803,9 @@ export const serializeAws_restJson1ListAuthorizersCommand = async (
   let resolvedPath = "/authorizers";
   const query: any = {
     ...(input.pageSize !== undefined && { pageSize: input.pageSize.toString() }),
-    ...(input.status !== undefined && { status: input.status }),
-    ...(input.ascendingOrder !== undefined && { isAscendingOrder: input.ascendingOrder.toString() }),
     ...(input.marker !== undefined && { marker: input.marker }),
+    ...(input.ascendingOrder !== undefined && { isAscendingOrder: input.ascendingOrder.toString() }),
+    ...(input.status !== undefined && { status: input.status }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -4831,8 +4831,8 @@ export const serializeAws_restJson1ListBillingGroupsCommand = async (
   let resolvedPath = "/billing-groups";
   const query: any = {
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
-    ...(input.namePrefixFilter !== undefined && { namePrefixFilter: input.namePrefixFilter }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
+    ...(input.namePrefixFilter !== undefined && { namePrefixFilter: input.namePrefixFilter }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -4857,9 +4857,9 @@ export const serializeAws_restJson1ListCACertificatesCommand = async (
   };
   let resolvedPath = "/cacertificates";
   const query: any = {
-    ...(input.ascendingOrder !== undefined && { isAscendingOrder: input.ascendingOrder.toString() }),
     ...(input.pageSize !== undefined && { pageSize: input.pageSize.toString() }),
     ...(input.marker !== undefined && { marker: input.marker }),
+    ...(input.ascendingOrder !== undefined && { isAscendingOrder: input.ascendingOrder.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -4885,8 +4885,8 @@ export const serializeAws_restJson1ListCertificatesCommand = async (
   let resolvedPath = "/certificates";
   const query: any = {
     ...(input.pageSize !== undefined && { pageSize: input.pageSize.toString() }),
-    ...(input.ascendingOrder !== undefined && { isAscendingOrder: input.ascendingOrder.toString() }),
     ...(input.marker !== undefined && { marker: input.marker }),
+    ...(input.ascendingOrder !== undefined && { isAscendingOrder: input.ascendingOrder.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -4920,9 +4920,9 @@ export const serializeAws_restJson1ListCertificatesByCACommand = async (
     throw new Error("No value provided for input HTTP label: caCertificateId.");
   }
   const query: any = {
-    ...(input.ascendingOrder !== undefined && { isAscendingOrder: input.ascendingOrder.toString() }),
-    ...(input.marker !== undefined && { marker: input.marker }),
     ...(input.pageSize !== undefined && { pageSize: input.pageSize.toString() }),
+    ...(input.marker !== undefined && { marker: input.marker }),
+    ...(input.ascendingOrder !== undefined && { isAscendingOrder: input.ascendingOrder.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -4947,8 +4947,8 @@ export const serializeAws_restJson1ListDimensionsCommand = async (
   };
   let resolvedPath = "/dimensions";
   const query: any = {
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -4973,9 +4973,9 @@ export const serializeAws_restJson1ListDomainConfigurationsCommand = async (
   };
   let resolvedPath = "/domainConfigurations";
   const query: any = {
-    ...(input.serviceType !== undefined && { serviceType: input.serviceType }),
-    ...(input.pageSize !== undefined && { pageSize: input.pageSize.toString() }),
     ...(input.marker !== undefined && { marker: input.marker }),
+    ...(input.pageSize !== undefined && { pageSize: input.pageSize.toString() }),
+    ...(input.serviceType !== undefined && { serviceType: input.serviceType }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -5035,9 +5035,9 @@ export const serializeAws_restJson1ListJobExecutionsForJobCommand = async (
     throw new Error("No value provided for input HTTP label: jobId.");
   }
   const query: any = {
+    ...(input.status !== undefined && { status: input.status }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
-    ...(input.status !== undefined && { status: input.status }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -5071,10 +5071,10 @@ export const serializeAws_restJson1ListJobExecutionsForThingCommand = async (
     throw new Error("No value provided for input HTTP label: thingName.");
   }
   const query: any = {
-    ...(input.namespaceId !== undefined && { namespaceId: input.namespaceId }),
     ...(input.status !== undefined && { status: input.status }),
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.namespaceId !== undefined && { namespaceId: input.namespaceId }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -5099,12 +5099,12 @@ export const serializeAws_restJson1ListJobsCommand = async (
   };
   let resolvedPath = "/jobs";
   const query: any = {
+    ...(input.status !== undefined && { status: input.status }),
     ...(input.targetSelection !== undefined && { targetSelection: input.targetSelection }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
     ...(input.thingGroupName !== undefined && { thingGroupName: input.thingGroupName }),
-    ...(input.status !== undefined && { status: input.status }),
     ...(input.thingGroupId !== undefined && { thingGroupId: input.thingGroupId }),
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.namespaceId !== undefined && { namespaceId: input.namespaceId }),
   };
   let body: any;
@@ -5130,9 +5130,9 @@ export const serializeAws_restJson1ListMitigationActionsCommand = async (
   };
   let resolvedPath = "/mitigationactions/actions";
   const query: any = {
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.actionType !== undefined && { actionType: input.actionType }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -5211,8 +5211,8 @@ export const serializeAws_restJson1ListPoliciesCommand = async (
   };
   let resolvedPath = "/policies";
   const query: any = {
-    ...(input.pageSize !== undefined && { pageSize: input.pageSize.toString() }),
     ...(input.marker !== undefined && { marker: input.marker }),
+    ...(input.pageSize !== undefined && { pageSize: input.pageSize.toString() }),
     ...(input.ascendingOrder !== undefined && { isAscendingOrder: input.ascendingOrder.toString() }),
   };
   let body: any;
@@ -5239,9 +5239,9 @@ export const serializeAws_restJson1ListPolicyPrincipalsCommand = async (
   };
   let resolvedPath = "/policy-principals";
   const query: any = {
-    ...(input.ascendingOrder !== undefined && { isAscendingOrder: input.ascendingOrder.toString() }),
-    ...(input.pageSize !== undefined && { pageSize: input.pageSize.toString() }),
     ...(input.marker !== undefined && { marker: input.marker }),
+    ...(input.pageSize !== undefined && { pageSize: input.pageSize.toString() }),
+    ...(input.ascendingOrder !== undefined && { isAscendingOrder: input.ascendingOrder.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -5298,8 +5298,8 @@ export const serializeAws_restJson1ListPrincipalPoliciesCommand = async (
   let resolvedPath = "/principal-policies";
   const query: any = {
     ...(input.marker !== undefined && { marker: input.marker }),
-    ...(input.ascendingOrder !== undefined && { isAscendingOrder: input.ascendingOrder.toString() }),
     ...(input.pageSize !== undefined && { pageSize: input.pageSize.toString() }),
+    ...(input.ascendingOrder !== undefined && { isAscendingOrder: input.ascendingOrder.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -5351,8 +5351,8 @@ export const serializeAws_restJson1ListProvisioningTemplatesCommand = async (
   };
   let resolvedPath = "/provisioning-templates";
   const query: any = {
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -5413,8 +5413,8 @@ export const serializeAws_restJson1ListRoleAliasesCommand = async (
   let resolvedPath = "/role-aliases";
   const query: any = {
     ...(input.pageSize !== undefined && { pageSize: input.pageSize.toString() }),
-    ...(input.ascendingOrder !== undefined && { isAscendingOrder: input.ascendingOrder.toString() }),
     ...(input.marker !== undefined && { marker: input.marker }),
+    ...(input.ascendingOrder !== undefined && { isAscendingOrder: input.ascendingOrder.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -5465,9 +5465,9 @@ export const serializeAws_restJson1ListSecurityProfilesCommand = async (
   };
   let resolvedPath = "/security-profiles";
   const query: any = {
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.dimensionName !== undefined && { dimensionName: input.dimensionName }),
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -5492,10 +5492,10 @@ export const serializeAws_restJson1ListSecurityProfilesForTargetCommand = async 
   };
   let resolvedPath = "/security-profiles-for-target";
   const query: any = {
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
-    ...(input.securityProfileTargetArn !== undefined && { securityProfileTargetArn: input.securityProfileTargetArn }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.recursive !== undefined && { recursive: input.recursive.toString() }),
+    ...(input.securityProfileTargetArn !== undefined && { securityProfileTargetArn: input.securityProfileTargetArn }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -5520,9 +5520,9 @@ export const serializeAws_restJson1ListStreamsCommand = async (
   };
   let resolvedPath = "/streams";
   const query: any = {
-    ...(input.ascendingOrder !== undefined && { isAscendingOrder: input.ascendingOrder.toString() }),
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.ascendingOrder !== undefined && { isAscendingOrder: input.ascendingOrder.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -5582,8 +5582,8 @@ export const serializeAws_restJson1ListTargetsForPolicyCommand = async (
     throw new Error("No value provided for input HTTP label: policyName.");
   }
   const query: any = {
-    ...(input.pageSize !== undefined && { pageSize: input.pageSize.toString() }),
     ...(input.marker !== undefined && { marker: input.marker }),
+    ...(input.pageSize !== undefined && { pageSize: input.pageSize.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -5643,10 +5643,10 @@ export const serializeAws_restJson1ListThingGroupsCommand = async (
   };
   let resolvedPath = "/thing-groups";
   const query: any = {
-    ...(input.parentGroup !== undefined && { parentGroup: input.parentGroup }),
-    ...(input.namePrefixFilter !== undefined && { namePrefixFilter: input.namePrefixFilter }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
+    ...(input.parentGroup !== undefined && { parentGroup: input.parentGroup }),
+    ...(input.namePrefixFilter !== undefined && { namePrefixFilter: input.namePrefixFilter }),
     ...(input.recursive !== undefined && { recursive: input.recursive.toString() }),
   };
   let body: any;
@@ -5715,6 +5715,10 @@ export const serializeAws_restJson1ListThingPrincipalsCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: thingName.");
   }
+  const query: any = {
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
+  };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -5724,6 +5728,7 @@ export const serializeAws_restJson1ListThingPrincipalsCommand = async (
     method: "GET",
     headers,
     path: resolvedPath,
+    query,
     body,
   });
 };
@@ -5746,9 +5751,9 @@ export const serializeAws_restJson1ListThingRegistrationTaskReportsCommand = asy
     throw new Error("No value provided for input HTTP label: taskId.");
   }
   const query: any = {
+    ...(input.reportType !== undefined && { reportType: input.reportType }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
-    ...(input.reportType !== undefined && { reportType: input.reportType }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -5773,9 +5778,9 @@ export const serializeAws_restJson1ListThingRegistrationTasksCommand = async (
   };
   let resolvedPath = "/thing-registration-tasks";
   const query: any = {
-    ...(input.status !== undefined && { status: input.status }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
+    ...(input.status !== undefined && { status: input.status }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -5800,8 +5805,8 @@ export const serializeAws_restJson1ListThingsCommand = async (
   };
   let resolvedPath = "/things";
   const query: any = {
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.attributeName !== undefined && { attributeName: input.attributeName }),
     ...(input.attributeValue !== undefined && { attributeValue: input.attributeValue }),
     ...(input.thingTypeName !== undefined && { thingTypeName: input.thingTypeName }),
@@ -5900,9 +5905,9 @@ export const serializeAws_restJson1ListThingTypesCommand = async (
   };
   let resolvedPath = "/thing-types";
   const query: any = {
-    ...(input.thingTypeName !== undefined && { thingTypeName: input.thingTypeName }),
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
+    ...(input.thingTypeName !== undefined && { thingTypeName: input.thingTypeName }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -5953,10 +5958,10 @@ export const serializeAws_restJson1ListTopicRulesCommand = async (
   };
   let resolvedPath = "/rules";
   const query: any = {
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
-    ...(input.ruleDisabled !== undefined && { ruleDisabled: input.ruleDisabled.toString() }),
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
     ...(input.topic !== undefined && { topic: input.topic }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.ruleDisabled !== undefined && { ruleDisabled: input.ruleDisabled.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -5982,8 +5987,8 @@ export const serializeAws_restJson1ListV2LoggingLevelsCommand = async (
   let resolvedPath = "/v2LoggingLevel";
   const query: any = {
     ...(input.targetType !== undefined && { targetType: input.targetType }),
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -6008,11 +6013,11 @@ export const serializeAws_restJson1ListViolationEventsCommand = async (
   };
   let resolvedPath = "/violation-events";
   const query: any = {
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
-    ...(input.endTime !== undefined && { endTime: (input.endTime.toISOString().split(".")[0] + "Z").toString() }),
     ...(input.startTime !== undefined && { startTime: (input.startTime.toISOString().split(".")[0] + "Z").toString() }),
+    ...(input.endTime !== undefined && { endTime: (input.endTime.toISOString().split(".")[0] + "Z").toString() }),
     ...(input.thingName !== undefined && { thingName: input.thingName }),
     ...(input.securityProfileName !== undefined && { securityProfileName: input.securityProfileName }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
   };
   let body: any;
@@ -6038,8 +6043,8 @@ export const serializeAws_restJson1RegisterCACertificateCommand = async (
   };
   let resolvedPath = "/cacertificate";
   const query: any = {
-    ...(input.allowAutoRegistration !== undefined && { allowAutoRegistration: input.allowAutoRegistration.toString() }),
     ...(input.setAsActive !== undefined && { setAsActive: input.setAsActive.toString() }),
+    ...(input.allowAutoRegistration !== undefined && { allowAutoRegistration: input.allowAutoRegistration.toString() }),
   };
   let body: any;
   body = JSON.stringify({
@@ -6327,15 +6332,6 @@ export const serializeAws_restJson1SetDefaultPolicyVersionCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/policies/{policyName}/version/{policyVersionId}";
-  if (input.policyVersionId !== undefined) {
-    const labelValue: string = input.policyVersionId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: policyVersionId.");
-    }
-    resolvedPath = resolvedPath.replace("{policyVersionId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: policyVersionId.");
-  }
   if (input.policyName !== undefined) {
     const labelValue: string = input.policyName;
     if (labelValue.length <= 0) {
@@ -6344,6 +6340,15 @@ export const serializeAws_restJson1SetDefaultPolicyVersionCommand = async (
     resolvedPath = resolvedPath.replace("{policyName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: policyName.");
+  }
+  if (input.policyVersionId !== undefined) {
+    const labelValue: string = input.policyVersionId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: policyVersionId.");
+    }
+    resolvedPath = resolvedPath.replace("{policyVersionId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: policyVersionId.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -21874,6 +21879,14 @@ const deserializeAws_restJson1ListThingGroupsCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "ThrottlingException":
+    case "com.amazonaws.iot#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     default:
       const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
@@ -21949,6 +21962,14 @@ const deserializeAws_restJson1ListThingGroupsForThingCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "ThrottlingException":
+    case "com.amazonaws.iot#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     default:
       const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
@@ -21975,9 +21996,13 @@ export const deserializeAws_restJson1ListThingPrincipalsCommand = async (
   }
   const contents: ListThingPrincipalsCommandOutput = {
     $metadata: deserializeMetadata(output),
+    nextToken: undefined,
     principals: undefined,
   };
   const data: any = await parseBody(output.body, context);
+  if (data.nextToken !== undefined && data.nextToken !== null) {
+    contents.nextToken = data.nextToken;
+  }
   if (data.principals !== undefined && data.principals !== null) {
     contents.principals = deserializeAws_restJson1Principals(data.principals, context);
   }
@@ -22459,6 +22484,14 @@ const deserializeAws_restJson1ListThingsInThingGroupCommandError = async (
     case "com.amazonaws.iot#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.iot#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };

@@ -46,11 +46,6 @@ import {
   CreatePortalCommandOutput,
 } from "./commands/CreatePortalCommand";
 import {
-  CreatePresignedPortalUrlCommand,
-  CreatePresignedPortalUrlCommandInput,
-  CreatePresignedPortalUrlCommandOutput,
-} from "./commands/CreatePresignedPortalUrlCommand";
-import {
   CreateProjectCommand,
   CreateProjectCommandInput,
   CreateProjectCommandOutput,
@@ -598,41 +593,6 @@ export class IoTSiteWise extends IoTSiteWiseClient {
     cb?: (err: any, data?: CreatePortalCommandOutput) => void
   ): Promise<CreatePortalCommandOutput> | void {
     const command = new CreatePortalCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
-   * <p>Creates a pre-signed URL to a portal. Use this operation to create URLs to portals that
-   *       use AWS Identity and Access Management (IAM) to authenticate users. An IAM user with access to a portal can call this API
-   *       to get a URL to that portal. The URL contains a session token that lets the IAM user access
-   *       the portal.</p>
-   */
-  public createPresignedPortalUrl(
-    args: CreatePresignedPortalUrlCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<CreatePresignedPortalUrlCommandOutput>;
-  public createPresignedPortalUrl(
-    args: CreatePresignedPortalUrlCommandInput,
-    cb: (err: any, data?: CreatePresignedPortalUrlCommandOutput) => void
-  ): void;
-  public createPresignedPortalUrl(
-    args: CreatePresignedPortalUrlCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreatePresignedPortalUrlCommandOutput) => void
-  ): void;
-  public createPresignedPortalUrl(
-    args: CreatePresignedPortalUrlCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreatePresignedPortalUrlCommandOutput) => void),
-    cb?: (err: any, data?: CreatePresignedPortalUrlCommandOutput) => void
-  ): Promise<CreatePresignedPortalUrlCommandOutput> | void {
-    const command = new CreatePresignedPortalUrlCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

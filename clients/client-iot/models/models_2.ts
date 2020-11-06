@@ -55,9 +55,9 @@ export namespace TlsContext {
 
 export interface TestInvokeAuthorizerRequest {
   /**
-   * <p>Specifies a test MQTT authorization request.</p>
+   * <p>The custom authorizer name.</p>
    */
-  mqttContext?: MqttContext;
+  authorizerName: string | undefined;
 
   /**
    * <p>The token returned by your custom authentication service.</p>
@@ -71,19 +71,19 @@ export interface TestInvokeAuthorizerRequest {
   tokenSignature?: string;
 
   /**
-   * <p>Specifies a test TLS authorization request.</p>
-   */
-  tlsContext?: TlsContext;
-
-  /**
-   * <p>The custom authorizer name.</p>
-   */
-  authorizerName: string | undefined;
-
-  /**
    * <p>Specifies a test HTTP authorization request.</p>
    */
   httpContext?: HttpContext;
+
+  /**
+   * <p>Specifies a test MQTT authorization request.</p>
+   */
+  mqttContext?: MqttContext;
+
+  /**
+   * <p>Specifies a test TLS authorization request.</p>
+   */
+  tlsContext?: TlsContext;
 }
 
 export namespace TestInvokeAuthorizerRequest {
@@ -94,19 +94,14 @@ export namespace TestInvokeAuthorizerRequest {
 
 export interface TestInvokeAuthorizerResponse {
   /**
-   * <p>The number of seconds after which the connection is terminated.</p>
-   */
-  disconnectAfterInSeconds?: number;
-
-  /**
    * <p>True if the token is authenticated, otherwise false.</p>
    */
   isAuthenticated?: boolean;
 
   /**
-   * <p>The number of seconds after which the temporary credentials are refreshed.</p>
+   * <p>The principal ID.</p>
    */
-  refreshAfterInSeconds?: number;
+  principalId?: string;
 
   /**
    * <p>IAM policy documents.</p>
@@ -114,9 +109,14 @@ export interface TestInvokeAuthorizerResponse {
   policyDocuments?: string[];
 
   /**
-   * <p>The principal ID.</p>
+   * <p>The number of seconds after which the temporary credentials are refreshed.</p>
    */
-  principalId?: string;
+  refreshAfterInSeconds?: number;
+
+  /**
+   * <p>The number of seconds after which the connection is terminated.</p>
+   */
+  disconnectAfterInSeconds?: number;
 }
 
 export namespace TestInvokeAuthorizerResponse {
@@ -215,6 +215,18 @@ export namespace UntagResourceResponse {
 
 export interface UpdateAccountAuditConfigurationRequest {
   /**
+   * <p>The ARN of the role that grants permission to AWS IoT to access information
+   *             about your devices, policies, certificates and other items as required when
+   *             performing an audit.</p>
+   */
+  roleArn?: string;
+
+  /**
+   * <p>Information about the targets to which audit notifications are sent.</p>
+   */
+  auditNotificationTargetConfigurations?: { [key: string]: AuditNotificationTarget };
+
+  /**
    * <p>Specifies which audit checks are enabled and disabled for this account. Use
    *             <code>DescribeAccountAuditConfiguration</code> to see the list of all checks, including those
    *             that are currently enabled.</p>
@@ -226,18 +238,6 @@ export interface UpdateAccountAuditConfigurationRequest {
    *             this parameter is required and must specify at least one enabled check.</p>
    */
   auditCheckConfigurations?: { [key: string]: AuditCheckConfiguration };
-
-  /**
-   * <p>Information about the targets to which audit notifications are sent.</p>
-   */
-  auditNotificationTargetConfigurations?: { [key: string]: AuditNotificationTarget };
-
-  /**
-   * <p>The ARN of the role that grants permission to AWS IoT to access information
-   *             about your devices, policies, certificates and other items as required when
-   *             performing an audit.</p>
-   */
-  roleArn?: string;
 }
 
 export namespace UpdateAccountAuditConfigurationRequest {
@@ -256,11 +256,12 @@ export namespace UpdateAccountAuditConfigurationResponse {
 
 export interface UpdateAuditSuppressionRequest {
   /**
-   * <p>
-   *       Indicates whether a suppression should exist indefinitely or not.
-   *     </p>
+   * <p>An audit check name. Checks must be enabled
+   *         for your account. (Use <code>DescribeAccountAuditConfiguration</code> to see the list
+   *         of all checks, including those that are enabled or use <code>UpdateAccountAuditConfiguration</code>
+   *         to select which checks are enabled.)</p>
    */
-  suppressIndefinitely?: boolean;
+  checkName: string | undefined;
 
   /**
    * <p>Information that identifies the noncompliant resource.</p>
@@ -275,12 +276,11 @@ export interface UpdateAuditSuppressionRequest {
   expirationDate?: Date;
 
   /**
-   * <p>An audit check name. Checks must be enabled
-   *         for your account. (Use <code>DescribeAccountAuditConfiguration</code> to see the list
-   *         of all checks, including those that are enabled or use <code>UpdateAccountAuditConfiguration</code>
-   *         to select which checks are enabled.)</p>
+   * <p>
+   *       Indicates whether a suppression should exist indefinitely or not.
+   *     </p>
    */
-  checkName: string | undefined;
+  suppressIndefinitely?: boolean;
 
   /**
    * <p>
@@ -306,14 +306,9 @@ export namespace UpdateAuditSuppressionResponse {
 
 export interface UpdateAuthorizerRequest {
   /**
-   * <p>The public keys used to verify the token signature.</p>
+   * <p>The authorizer name.</p>
    */
-  tokenSigningPublicKeys?: { [key: string]: string };
-
-  /**
-   * <p>The key used to extract the token from the HTTP headers. </p>
-   */
-  tokenKeyName?: string;
+  authorizerName: string | undefined;
 
   /**
    * <p>The ARN of the authorizer's Lambda function.</p>
@@ -321,9 +316,14 @@ export interface UpdateAuthorizerRequest {
   authorizerFunctionArn?: string;
 
   /**
-   * <p>The authorizer name.</p>
+   * <p>The key used to extract the token from the HTTP headers. </p>
    */
-  authorizerName: string | undefined;
+  tokenKeyName?: string;
+
+  /**
+   * <p>The public keys used to verify the token signature.</p>
+   */
+  tokenSigningPublicKeys?: { [key: string]: string };
 
   /**
    * <p>The status of the update authorizer request.</p>
@@ -357,12 +357,9 @@ export namespace UpdateAuthorizerResponse {
 
 export interface UpdateBillingGroupRequest {
   /**
-   * <p>The expected version of the billing group. If the version of the billing group does
-   * 			not match the expected version specified in the request, the
-   * 				<code>UpdateBillingGroup</code> request is rejected with a
-   * 				<code>VersionConflictException</code>.</p>
+   * <p>The name of the billing group.</p>
    */
-  expectedVersion?: number;
+  billingGroupName: string | undefined;
 
   /**
    * <p>The properties of the billing group.</p>
@@ -370,9 +367,12 @@ export interface UpdateBillingGroupRequest {
   billingGroupProperties: BillingGroupProperties | undefined;
 
   /**
-   * <p>The name of the billing group.</p>
+   * <p>The expected version of the billing group. If the version of the billing group does
+   * 			not match the expected version specified in the request, the
+   * 				<code>UpdateBillingGroup</code> request is rejected with a
+   * 				<code>VersionConflictException</code>.</p>
    */
-  billingGroupName: string | undefined;
+  expectedVersion?: number;
 }
 
 export namespace UpdateBillingGroupRequest {
@@ -399,6 +399,11 @@ export namespace UpdateBillingGroupResponse {
  */
 export interface UpdateCACertificateRequest {
   /**
+   * <p>The CA certificate identifier.</p>
+   */
+  certificateId: string | undefined;
+
+  /**
    * <p>The updated status of the CA certificate.</p>
    *          <p>
    *             <b>Note:</b> The status value REGISTER_INACTIVE is deprecated and
@@ -407,25 +412,20 @@ export interface UpdateCACertificateRequest {
   newStatus?: CACertificateStatus | string;
 
   /**
-   * <p>If true, removes auto registration.</p>
-   */
-  removeAutoRegistration?: boolean;
-
-  /**
    * <p>The new value for the auto registration status. Valid values are: "ENABLE" or
    *          "DISABLE".</p>
    */
   newAutoRegistrationStatus?: AutoRegistrationStatus | string;
 
   /**
-   * <p>The CA certificate identifier.</p>
-   */
-  certificateId: string | undefined;
-
-  /**
    * <p>Information about the registration configuration.</p>
    */
   registrationConfig?: RegistrationConfig;
+
+  /**
+   * <p>If true, removes auto registration.</p>
+   */
+  removeAutoRegistration?: boolean;
 }
 
 export namespace UpdateCACertificateRequest {
@@ -439,6 +439,12 @@ export namespace UpdateCACertificateRequest {
  */
 export interface UpdateCertificateRequest {
   /**
+   * <p>The ID of the certificate. (The last part of the certificate ARN contains the
+   *          certificate ID.)</p>
+   */
+  certificateId: string | undefined;
+
+  /**
    * <p>The new status.</p>
    *          <p>
    *             <b>Note:</b> Setting the status to PENDING_TRANSFER  or PENDING_ACTIVATION will result
@@ -449,12 +455,6 @@ export interface UpdateCertificateRequest {
    *          should not be used.</p>
    */
   newStatus: CertificateStatus | string | undefined;
-
-  /**
-   * <p>The ID of the certificate. (The last part of the certificate ARN contains the
-   *          certificate ID.)</p>
-   */
-  certificateId: string | undefined;
 }
 
 export namespace UpdateCertificateRequest {
@@ -488,19 +488,14 @@ export interface UpdateDimensionResponse {
   name?: string;
 
   /**
-   * <p>The date and time, in milliseconds since epoch, when the dimension was most recently updated.</p>
-   */
-  lastModifiedDate?: Date;
-
-  /**
    * <p>The ARN (Amazon resource name) of the created dimension.</p>
    */
   arn?: string;
 
   /**
-   * <p>The date and time, in milliseconds since epoch, when the dimension was initially created.</p>
+   * <p>The type of the dimension.</p>
    */
-  creationDate?: Date;
+  type?: DimensionType | string;
 
   /**
    * <p>The value or list of values used to scope the dimension. For example, for topic filters, this is the pattern used to match the MQTT topic name.</p>
@@ -508,9 +503,14 @@ export interface UpdateDimensionResponse {
   stringValues?: string[];
 
   /**
-   * <p>The type of the dimension.</p>
+   * <p>The date and time, in milliseconds since epoch, when the dimension was initially created.</p>
    */
-  type?: DimensionType | string;
+  creationDate?: Date;
+
+  /**
+   * <p>The date and time, in milliseconds since epoch, when the dimension was most recently updated.</p>
+   */
+  lastModifiedDate?: Date;
 }
 
 export namespace UpdateDimensionResponse {
@@ -521,14 +521,9 @@ export namespace UpdateDimensionResponse {
 
 export interface UpdateDomainConfigurationRequest {
   /**
-   * <p>Removes the authorization configuration from a domain.</p>
+   * <p>The name of the domain configuration to be updated.</p>
    */
-  removeAuthorizerConfig?: boolean;
-
-  /**
-   * <p>The status to which the domain configuration should be updated.</p>
-   */
-  domainConfigurationStatus?: DomainConfigurationStatus | string;
+  domainConfigurationName: string | undefined;
 
   /**
    * <p>An object that specifies the authorization service for a domain.</p>
@@ -536,9 +531,14 @@ export interface UpdateDomainConfigurationRequest {
   authorizerConfig?: AuthorizerConfig;
 
   /**
-   * <p>The name of the domain configuration to be updated.</p>
+   * <p>The status to which the domain configuration should be updated.</p>
    */
-  domainConfigurationName: string | undefined;
+  domainConfigurationStatus?: DomainConfigurationStatus | string;
+
+  /**
+   * <p>Removes the authorization configuration from a domain.</p>
+   */
+  removeAuthorizerConfig?: boolean;
 }
 
 export namespace UpdateDomainConfigurationRequest {
@@ -549,14 +549,14 @@ export namespace UpdateDomainConfigurationRequest {
 
 export interface UpdateDomainConfigurationResponse {
   /**
-   * <p>The ARN of the domain configuration that was updated.</p>
-   */
-  domainConfigurationArn?: string;
-
-  /**
    * <p>The name of the domain configuration that was updated.</p>
    */
   domainConfigurationName?: string;
+
+  /**
+   * <p>The ARN of the domain configuration that was updated.</p>
+   */
+  domainConfigurationArn?: string;
 }
 
 export namespace UpdateDomainConfigurationResponse {
@@ -567,28 +567,14 @@ export namespace UpdateDomainConfigurationResponse {
 
 export interface UpdateDynamicThingGroupRequest {
   /**
-   * <p>The dynamic thing group query version to update.</p>
-   * 		       <note>
-   * 			         <p>Currently one query version is supported: "2017-09-30". If not specified, the
-   * 				query version defaults to this value.</p>
-   * 		       </note>
+   * <p>The name of the dynamic thing group to update.</p>
    */
-  queryVersion?: string;
-
-  /**
-   * <p>The dynamic thing group search query string to update.</p>
-   */
-  queryString?: string;
+  thingGroupName: string | undefined;
 
   /**
    * <p>The dynamic thing group properties to update.</p>
    */
   thingGroupProperties: ThingGroupProperties | undefined;
-
-  /**
-   * <p>The name of the dynamic thing group to update.</p>
-   */
-  thingGroupName: string | undefined;
 
   /**
    * <p>The expected version of the dynamic thing group to update.</p>
@@ -602,6 +588,20 @@ export interface UpdateDynamicThingGroupRequest {
    * 		       </note>
    */
   indexName?: string;
+
+  /**
+   * <p>The dynamic thing group search query string to update.</p>
+   */
+  queryString?: string;
+
+  /**
+   * <p>The dynamic thing group query version to update.</p>
+   * 		       <note>
+   * 			         <p>Currently one query version is supported: "2017-09-30". If not specified, the
+   * 				query version defaults to this value.</p>
+   * 		       </note>
+   */
+  queryVersion?: string;
 }
 
 export namespace UpdateDynamicThingGroupRequest {
@@ -646,14 +646,14 @@ export namespace UpdateEventConfigurationsResponse {
 
 export interface UpdateIndexingConfigurationRequest {
   /**
-   * <p>Thing group indexing configuration.</p>
-   */
-  thingGroupIndexingConfiguration?: ThingGroupIndexingConfiguration;
-
-  /**
    * <p>Thing indexing configuration.</p>
    */
   thingIndexingConfiguration?: ThingIndexingConfiguration;
+
+  /**
+   * <p>Thing group indexing configuration.</p>
+   */
+  thingGroupIndexingConfiguration?: ThingGroupIndexingConfiguration;
 }
 
 export namespace UpdateIndexingConfigurationRequest {
@@ -672,9 +672,35 @@ export namespace UpdateIndexingConfigurationResponse {
 
 export interface UpdateJobRequest {
   /**
+   * <p>The ID of the job to be updated.</p>
+   */
+  jobId: string | undefined;
+
+  /**
+   * <p>A short text description of the job.</p>
+   */
+  description?: string;
+
+  /**
+   * <p>Configuration information for pre-signed S3 URLs.</p>
+   */
+  presignedUrlConfig?: PresignedUrlConfig;
+
+  /**
+   * <p>Allows you to create a staged rollout of the job.</p>
+   */
+  jobExecutionsRolloutConfig?: JobExecutionsRolloutConfig;
+
+  /**
    * <p>Allows you to create criteria to abort a job.</p>
    */
   abortConfig?: AbortConfig;
+
+  /**
+   * <p>Specifies the amount of time each device has to finish its execution of the job. The timer is started when the job execution status is set to <code>IN_PROGRESS</code>.
+   *             If the job execution status is not set to another terminal state before the time expires, it will be automatically set to <code>TIMED_OUT</code>. </p>
+   */
+  timeoutConfig?: TimeoutConfig;
 
   /**
    * <p>The namespace used to indicate that a job is a customer-managed job.</p>
@@ -688,32 +714,6 @@ export interface UpdateJobRequest {
    *          </note>
    */
   namespaceId?: string;
-
-  /**
-   * <p>The ID of the job to be updated.</p>
-   */
-  jobId: string | undefined;
-
-  /**
-   * <p>Specifies the amount of time each device has to finish its execution of the job. The timer is started when the job execution status is set to <code>IN_PROGRESS</code>.
-   *             If the job execution status is not set to another terminal state before the time expires, it will be automatically set to <code>TIMED_OUT</code>. </p>
-   */
-  timeoutConfig?: TimeoutConfig;
-
-  /**
-   * <p>Configuration information for pre-signed S3 URLs.</p>
-   */
-  presignedUrlConfig?: PresignedUrlConfig;
-
-  /**
-   * <p>A short text description of the job.</p>
-   */
-  description?: string;
-
-  /**
-   * <p>Allows you to create a staged rollout of the job.</p>
-   */
-  jobExecutionsRolloutConfig?: JobExecutionsRolloutConfig;
 }
 
 export namespace UpdateJobRequest {
@@ -729,14 +729,14 @@ export interface UpdateMitigationActionRequest {
   actionName: string | undefined;
 
   /**
-   * <p>Defines the type of action and the parameters for that action.</p>
-   */
-  actionParams?: MitigationActionParams;
-
-  /**
    * <p>The ARN of the IAM role that is used to apply the mitigation action.</p>
    */
   roleArn?: string;
+
+  /**
+   * <p>Defines the type of action and the parameters for that action.</p>
+   */
+  actionParams?: MitigationActionParams;
 }
 
 export namespace UpdateMitigationActionRequest {
@@ -765,29 +765,24 @@ export namespace UpdateMitigationActionResponse {
 
 export interface UpdateProvisioningTemplateRequest {
   /**
-   * <p>Updates the pre-provisioning hook template.</p>
-   */
-  preProvisioningHook?: ProvisioningHook;
-
-  /**
    * <p>The name of the fleet provisioning template.</p>
    */
   templateName: string | undefined;
 
   /**
-   * <p>The ID of the default provisioning template version.</p>
+   * <p>The description of the fleet provisioning template.</p>
    */
-  defaultVersionId?: number;
-
-  /**
-   * <p>Removes pre-provisioning hook template.</p>
-   */
-  removePreProvisioningHook?: boolean;
+  description?: string;
 
   /**
    * <p>True to enable the fleet provisioning template, otherwise false.</p>
    */
   enabled?: boolean;
+
+  /**
+   * <p>The ID of the default provisioning template version.</p>
+   */
+  defaultVersionId?: number;
 
   /**
    * <p>The ARN of the role associated with the provisioning template. This IoT role grants
@@ -796,9 +791,14 @@ export interface UpdateProvisioningTemplateRequest {
   provisioningRoleArn?: string;
 
   /**
-   * <p>The description of the fleet provisioning template.</p>
+   * <p>Updates the pre-provisioning hook template.</p>
    */
-  description?: string;
+  preProvisioningHook?: ProvisioningHook;
+
+  /**
+   * <p>Removes pre-provisioning hook template.</p>
+   */
+  removePreProvisioningHook?: boolean;
 }
 
 export namespace UpdateProvisioningTemplateRequest {
@@ -817,14 +817,14 @@ export namespace UpdateProvisioningTemplateResponse {
 
 export interface UpdateRoleAliasRequest {
   /**
-   * <p>The role ARN.</p>
-   */
-  roleArn?: string;
-
-  /**
    * <p>The role alias to update.</p>
    */
   roleAlias: string | undefined;
+
+  /**
+   * <p>The role ARN.</p>
+   */
+  roleArn?: string;
 
   /**
    * <p>The number of seconds the credential will be valid.</p>
@@ -873,9 +873,11 @@ export interface UpdateScheduledAuditRequest {
   dayOfMonth?: string;
 
   /**
-   * <p>The name of the scheduled audit. (Max. 128 chars)</p>
+   * <p>The day of the week on which the scheduled audit takes place. Can be one of
+   *             "SUN", "MON", "TUE", "WED", "THU", "FRI", or "SAT". This field is required if the
+   *             "frequency" parameter is set to "WEEKLY" or "BIWEEKLY".</p>
    */
-  scheduledAuditName: string | undefined;
+  dayOfWeek?: DayOfWeek | string;
 
   /**
    * <p>Which checks are performed during the scheduled audit. Checks must be enabled
@@ -886,11 +888,9 @@ export interface UpdateScheduledAuditRequest {
   targetCheckNames?: string[];
 
   /**
-   * <p>The day of the week on which the scheduled audit takes place. Can be one of
-   *             "SUN", "MON", "TUE", "WED", "THU", "FRI", or "SAT". This field is required if the
-   *             "frequency" parameter is set to "WEEKLY" or "BIWEEKLY".</p>
+   * <p>The name of the scheduled audit. (Max. 128 chars)</p>
    */
-  dayOfWeek?: DayOfWeek | string;
+  scheduledAuditName: string | undefined;
 }
 
 export namespace UpdateScheduledAuditRequest {
@@ -914,16 +914,14 @@ export namespace UpdateScheduledAuditResponse {
 
 export interface UpdateSecurityProfileRequest {
   /**
-   * <p>Where the alerts are sent. (Alerts are always sent to the console.)</p>
+   * <p>The name of the security profile you want to update.</p>
    */
-  alertTargets?: { [key: string]: AlertTarget };
+  securityProfileName: string | undefined;
 
   /**
-   * <p>The expected version of the security profile. A new version is generated whenever
-   *         the security profile is updated. If you specify a value that is different from the actual
-   *         version, a <code>VersionConflictException</code> is thrown.</p>
+   * <p>A description of the security profile.</p>
    */
-  expectedVersion?: number;
+  securityProfileDescription?: string;
 
   /**
    * <p>Specifies the behaviors that, when violated by a device (thing), cause an alert.</p>
@@ -931,32 +929,9 @@ export interface UpdateSecurityProfileRequest {
   behaviors?: Behavior[];
 
   /**
-   * <p>If true, delete all <code>additionalMetricsToRetain</code> defined for this
-   *         security profile. If any <code>additionalMetricsToRetain</code> are defined in the current
-   *         invocation, an exception occurs.</p>
+   * <p>Where the alerts are sent. (Alerts are always sent to the console.)</p>
    */
-  deleteAdditionalMetricsToRetain?: boolean;
-
-  /**
-   * <p>A list of metrics whose data is retained (stored). By default, data is retained for any metric used in the profile's behaviors, but it is also retained for any metric specified here.</p>
-   */
-  additionalMetricsToRetainV2?: MetricToRetain[];
-
-  /**
-   * <p>The name of the security profile you want to update.</p>
-   */
-  securityProfileName: string | undefined;
-
-  /**
-   * <p>If true, delete all <code>alertTargets</code> defined for this security profile.
-   *         If any <code>alertTargets</code> are defined in the current invocation, an exception occurs.</p>
-   */
-  deleteAlertTargets?: boolean;
-
-  /**
-   * <p>A description of the security profile.</p>
-   */
-  securityProfileDescription?: string;
+  alertTargets?: { [key: string]: AlertTarget };
 
   /**
    * <p>
@@ -969,10 +944,35 @@ export interface UpdateSecurityProfileRequest {
   additionalMetricsToRetain?: string[];
 
   /**
+   * <p>A list of metrics whose data is retained (stored). By default, data is retained for any metric used in the profile's behaviors, but it is also retained for any metric specified here.</p>
+   */
+  additionalMetricsToRetainV2?: MetricToRetain[];
+
+  /**
    * <p>If true, delete all <code>behaviors</code> defined for this security profile.
    *         If any <code>behaviors</code> are defined in the current invocation, an exception occurs.</p>
    */
   deleteBehaviors?: boolean;
+
+  /**
+   * <p>If true, delete all <code>alertTargets</code> defined for this security profile.
+   *         If any <code>alertTargets</code> are defined in the current invocation, an exception occurs.</p>
+   */
+  deleteAlertTargets?: boolean;
+
+  /**
+   * <p>If true, delete all <code>additionalMetricsToRetain</code> defined for this
+   *         security profile. If any <code>additionalMetricsToRetain</code> are defined in the current
+   *         invocation, an exception occurs.</p>
+   */
+  deleteAdditionalMetricsToRetain?: boolean;
+
+  /**
+   * <p>The expected version of the security profile. A new version is generated whenever
+   *         the security profile is updated. If you specify a value that is different from the actual
+   *         version, a <code>VersionConflictException</code> is thrown.</p>
+   */
+  expectedVersion?: number;
 }
 
 export namespace UpdateSecurityProfileRequest {
@@ -983,14 +983,29 @@ export namespace UpdateSecurityProfileRequest {
 
 export interface UpdateSecurityProfileResponse {
   /**
-   * <p>The updated version of the security profile.</p>
+   * <p>The name of the security profile that was updated.</p>
    */
-  version?: number;
+  securityProfileName?: string;
 
   /**
    * <p>The ARN of the security profile that was updated.</p>
    */
   securityProfileArn?: string;
+
+  /**
+   * <p>The description of the security profile.</p>
+   */
+  securityProfileDescription?: string;
+
+  /**
+   * <p>Specifies the behaviors that, when violated by a device (thing), cause an alert.</p>
+   */
+  behaviors?: Behavior[];
+
+  /**
+   * <p>Where the alerts are sent. (Alerts are always sent to the console.)</p>
+   */
+  alertTargets?: { [key: string]: AlertTarget };
 
   /**
    * <p>
@@ -1003,39 +1018,24 @@ export interface UpdateSecurityProfileResponse {
   additionalMetricsToRetain?: string[];
 
   /**
-   * <p>Where the alerts are sent. (Alerts are always sent to the console.)</p>
-   */
-  alertTargets?: { [key: string]: AlertTarget };
-
-  /**
-   * <p>The name of the security profile that was updated.</p>
-   */
-  securityProfileName?: string;
-
-  /**
-   * <p>The description of the security profile.</p>
-   */
-  securityProfileDescription?: string;
-
-  /**
-   * <p>The time the security profile was last modified.</p>
-   */
-  lastModifiedDate?: Date;
-
-  /**
    * <p>A list of metrics whose data is retained (stored). By default, data is retained for any metric used in the profile's behaviors, but it is also retained for any metric specified here.</p>
    */
   additionalMetricsToRetainV2?: MetricToRetain[];
 
   /**
-   * <p>Specifies the behaviors that, when violated by a device (thing), cause an alert.</p>
+   * <p>The updated version of the security profile.</p>
    */
-  behaviors?: Behavior[];
+  version?: number;
 
   /**
    * <p>The time the security profile was created.</p>
    */
   creationDate?: Date;
+
+  /**
+   * <p>The time the security profile was last modified.</p>
+   */
+  lastModifiedDate?: Date;
 }
 
 export namespace UpdateSecurityProfileResponse {
@@ -1051,6 +1051,11 @@ export interface UpdateStreamRequest {
   streamId: string | undefined;
 
   /**
+   * <p>The description of the stream.</p>
+   */
+  description?: string;
+
+  /**
    * <p>The files associated with the stream.</p>
    */
   files?: StreamFile[];
@@ -1059,11 +1064,6 @@ export interface UpdateStreamRequest {
    * <p>An IAM role that allows the IoT service principal assumes to access your S3 files.</p>
    */
   roleArn?: string;
-
-  /**
-   * <p>The description of the stream.</p>
-   */
-  description?: string;
 }
 
 export namespace UpdateStreamRequest {
@@ -1074,9 +1074,9 @@ export namespace UpdateStreamRequest {
 
 export interface UpdateStreamResponse {
   /**
-   * <p>A description of the stream.</p>
+   * <p>The stream ID.</p>
    */
-  description?: string;
+  streamId?: string;
 
   /**
    * <p>The stream ARN.</p>
@@ -1084,14 +1084,14 @@ export interface UpdateStreamResponse {
   streamArn?: string;
 
   /**
+   * <p>A description of the stream.</p>
+   */
+  description?: string;
+
+  /**
    * <p>The stream version.</p>
    */
   streamVersion?: number;
-
-  /**
-   * <p>The stream ID.</p>
-   */
-  streamId?: string;
 }
 
 export namespace UpdateStreamResponse {
@@ -1105,19 +1105,6 @@ export namespace UpdateStreamResponse {
  */
 export interface UpdateThingRequest {
   /**
-   * <p>The name of the thing type.</p>
-   */
-  thingTypeName?: string;
-
-  /**
-   * <p>The expected version of the thing record in the registry. If the version of the
-   * 			record in the registry does not match the expected version specified in the request, the
-   * 				<code>UpdateThing</code> request is rejected with a
-   * 				<code>VersionConflictException</code>.</p>
-   */
-  expectedVersion?: number;
-
-  /**
    * <p>The name of the thing to update.</p>
    * 		       <p>You can't change a thing's name. To change a thing's name, you must create a
    * 			new thing, give it the new name, and then delete the old thing.</p>
@@ -1125,10 +1112,9 @@ export interface UpdateThingRequest {
   thingName: string | undefined;
 
   /**
-   * <p>Remove a thing type association. If <b>true</b>, the
-   * 			association is removed.</p>
+   * <p>The name of the thing type.</p>
    */
-  removeThingType?: boolean;
+  thingTypeName?: string;
 
   /**
    * <p>A list of thing attributes, a JSON string containing name-value pairs. For
@@ -1139,6 +1125,20 @@ export interface UpdateThingRequest {
    * 		       <p>This data is used to add new attributes or update existing attributes.</p>
    */
   attributePayload?: AttributePayload;
+
+  /**
+   * <p>The expected version of the thing record in the registry. If the version of the
+   * 			record in the registry does not match the expected version specified in the request, the
+   * 				<code>UpdateThing</code> request is rejected with a
+   * 				<code>VersionConflictException</code>.</p>
+   */
+  expectedVersion?: number;
+
+  /**
+   * <p>Remove a thing type association. If <b>true</b>, the
+   * 			association is removed.</p>
+   */
+  removeThingType?: boolean;
 }
 
 export namespace UpdateThingRequest {
@@ -1160,6 +1160,11 @@ export namespace UpdateThingResponse {
 
 export interface UpdateThingGroupRequest {
   /**
+   * <p>The thing group to update.</p>
+   */
+  thingGroupName: string | undefined;
+
+  /**
    * <p>The thing group properties.</p>
    */
   thingGroupProperties: ThingGroupProperties | undefined;
@@ -1169,11 +1174,6 @@ export interface UpdateThingGroupRequest {
    * 			thing group being updated, the update will fail.</p>
    */
   expectedVersion?: number;
-
-  /**
-   * <p>The thing group to update.</p>
-   */
-  thingGroupName: string | undefined;
 }
 
 export namespace UpdateThingGroupRequest {
@@ -1197,19 +1197,6 @@ export namespace UpdateThingGroupResponse {
 
 export interface UpdateThingGroupsForThingRequest {
   /**
-   * <p>Override dynamic thing groups with static thing groups when 10-group limit is
-   * 			reached. If a thing belongs to 10 thing groups, and one or more of those groups are
-   * 			dynamic thing groups, adding a thing to a static group removes the thing from the last
-   * 			dynamic group.</p>
-   */
-  overrideDynamicGroups?: boolean;
-
-  /**
-   * <p>The groups from which the thing will be removed.</p>
-   */
-  thingGroupsToRemove?: string[];
-
-  /**
    * <p>The thing whose group memberships will be updated.</p>
    */
   thingName?: string;
@@ -1218,6 +1205,19 @@ export interface UpdateThingGroupsForThingRequest {
    * <p>The groups to which the thing will be added.</p>
    */
   thingGroupsToAdd?: string[];
+
+  /**
+   * <p>The groups from which the thing will be removed.</p>
+   */
+  thingGroupsToRemove?: string[];
+
+  /**
+   * <p>Override dynamic thing groups with static thing groups when 10-group limit is
+   * 			reached. If a thing belongs to 10 thing groups, and one or more of those groups are
+   * 			dynamic thing groups, adding a thing to a static group removes the thing from the last
+   * 			dynamic group.</p>
+   */
+  overrideDynamicGroups?: boolean;
 }
 
 export namespace UpdateThingGroupsForThingRequest {
@@ -1322,14 +1322,14 @@ export namespace ValidationError {
 
 export interface ValidateSecurityProfileBehaviorsResponse {
   /**
-   * <p>The list of any errors found in the behaviors.</p>
-   */
-  validationErrors?: ValidationError[];
-
-  /**
    * <p>True if the behaviors were valid.</p>
    */
   valid?: boolean;
+
+  /**
+   * <p>The list of any errors found in the behaviors.</p>
+   */
+  validationErrors?: ValidationError[];
 }
 
 export namespace ValidateSecurityProfileBehaviorsResponse {

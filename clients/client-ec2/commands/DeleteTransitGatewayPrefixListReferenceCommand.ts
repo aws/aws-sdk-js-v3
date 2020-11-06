@@ -2,7 +2,7 @@ import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 import {
   DeleteTransitGatewayPrefixListReferenceRequest,
   DeleteTransitGatewayPrefixListReferenceResult,
-} from "../models/models_1";
+} from "../models/models_2";
 import {
   deserializeAws_ec2DeleteTransitGatewayPrefixListReferenceCommand,
   serializeAws_ec2DeleteTransitGatewayPrefixListReferenceCommand,

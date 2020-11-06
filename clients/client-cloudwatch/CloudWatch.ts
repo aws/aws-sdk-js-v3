@@ -376,6 +376,9 @@ export class CloudWatch extends CloudWatchClient {
   /**
    * <p>Retrieves the alarms for the specified metric. To
    * 			filter the results, specify a statistic, period, or unit.</p>
+   * 		       <p>This operation retrieves only standard alarms that are based on
+   * 		the specified metric. It does not return alarms based on math expressions that
+   * 		use the specified metric, or composite alarms that use the specified metric.</p>
    */
   public describeAlarmsForMetric(
     args: DescribeAlarmsForMetricCommandInput,
@@ -441,8 +444,7 @@ export class CloudWatch extends CloudWatchClient {
   }
 
   /**
-   * <p>Returns a list of all the Contributor Insights rules in your account. All rules in your account are returned with a
-   * 		single operation.</p>
+   * <p>Returns a list of all the Contributor Insights rules in your account.</p>
    *
    * 		       <p>For more information about Contributor Insights, see
    * 		<a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/ContributorInsights.html">Using Contributor Insights to Analyze High-Cardinality Data</a>.</p>
@@ -1297,6 +1299,9 @@ export class CloudWatch extends CloudWatchClient {
    * 			consists of a Name and Value pair. For more information about specifying dimensions, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/publishingMetrics.html">Publishing Metrics</a> in the
    * 			<i>Amazon CloudWatch User Guide</i>.</p>
    *
+   * 		       <p>You specify the time stamp to be associated with each data point. You can specify
+   * 		time stamps that are as much as two weeks before the current date, and as much as 2 hours after
+   * 		the current day and time.</p>
    * 		       <p>Data points with time stamps from 24 hours ago or longer can take at least 48
    * 			hours to become available for <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetMetricData.html">GetMetricData</a> or
    * 			<a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetMetricStatistics.html">GetMetricStatistics</a> from the time they
