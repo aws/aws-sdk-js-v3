@@ -63,6 +63,12 @@ public final class AddS3Config implements TypeScriptIntegration {
         "ListBuckets"
     );
 
+    private static final Set<String> EXCEPTIONS_OF_200_OPERATIONS = SetUtils.of(
+        "CopyObject",
+        "UploadPartCopy",
+        "CompleteMultipartUpload"
+    );
+
     @Override
     public void addConfigInterfaceFields(TypeScriptSettings settings, Model model, SymbolProvider symbolProvider,
             TypeScriptWriter writer) {
@@ -118,6 +124,13 @@ public final class AddS3Config implements TypeScriptIntegration {
                                         HAS_MIDDLEWARE)
                         .servicePredicate((m, s) -> testServiceId(s))
                         .build(),
+                RuntimeClientPlugin.builder()
+                                .withConventions(AwsDependency.S3_MIDDLEWARE.dependency, "throw200Exceptions",
+                                        HAS_MIDDLEWARE)
+                                .operationPredicate(
+                                        (m, s, o) -> EXCEPTIONS_OF_200_OPERATIONS.contains(o.getId().getName())
+                                                && testServiceId(s))
+                                .build(),
                 RuntimeClientPlugin.builder()
                         .withConventions(AwsDependency.ADD_EXPECT_CONTINUE.dependency, "AddExpectContinue",
                                         HAS_MIDDLEWARE)

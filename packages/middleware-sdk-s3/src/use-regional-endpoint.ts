@@ -15,6 +15,9 @@ type PreviouslyResolved = {
   isCustomEndpoint: boolean;
 };
 
+/**
+ * @internal
+ */
 export const useRegionalEndpointMiddleware = (config: PreviouslyResolved): BuildMiddleware<any, any> => <
   Output extends MetadataBearer
 >(
@@ -30,12 +33,18 @@ export const useRegionalEndpointMiddleware = (config: PreviouslyResolved): Build
   return next({ ...args });
 };
 
+/**
+ * @internal
+ */
 export const useRegionalEndpointMiddlewareOptions: BuildHandlerOptions = {
   step: "build",
   tags: ["USE_REGIONAL_ENDPOINT", "S3"],
   name: "useRegionalEndpointMiddleware",
 };
 
+/**
+ * @internal
+ */
 export const getUseRegionalEndpointPlugin = (config: PreviouslyResolved): Pluggable<any, any> => ({
   applyToStack: (clientStack) => {
     clientStack.add(useRegionalEndpointMiddleware(config), useRegionalEndpointMiddlewareOptions);

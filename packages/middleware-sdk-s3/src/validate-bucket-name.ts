@@ -9,6 +9,9 @@ import {
 } from "@aws-sdk/types";
 import { validate as validateArn } from "@aws-sdk/util-arn-parser";
 
+/**
+ * @internal
+ */
 export function validateBucketNameMiddleware(): InitializeMiddleware<any, any> {
   return <Output extends MetadataBearer>(
     next: InitializeHandler<any, Output>
@@ -27,12 +30,18 @@ export function validateBucketNameMiddleware(): InitializeMiddleware<any, any> {
   };
 }
 
+/**
+ * @internal
+ */
 export const validateBucketNameMiddlewareOptions: InitializeHandlerOptions = {
   step: "initialize",
   tags: ["VALIDATE_BUCKET_NAME"],
   name: "validateBucketNameMiddleware",
 };
 
+/**
+ * @internal
+ */
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 export const getValidateBucketNamePlugin = (unused: any): Pluggable<any, any> => ({
   applyToStack: (clientStack) => {
