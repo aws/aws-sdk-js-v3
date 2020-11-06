@@ -2,6 +2,8 @@ import {
   ActivateEventSourceCommandInput,
   ActivateEventSourceCommandOutput,
 } from "./commands/ActivateEventSourceCommand";
+import { CancelReplayCommandInput, CancelReplayCommandOutput } from "./commands/CancelReplayCommand";
+import { CreateArchiveCommandInput, CreateArchiveCommandOutput } from "./commands/CreateArchiveCommand";
 import { CreateEventBusCommandInput, CreateEventBusCommandOutput } from "./commands/CreateEventBusCommand";
 import {
   CreatePartnerEventSourceCommandInput,
@@ -11,12 +13,14 @@ import {
   DeactivateEventSourceCommandInput,
   DeactivateEventSourceCommandOutput,
 } from "./commands/DeactivateEventSourceCommand";
+import { DeleteArchiveCommandInput, DeleteArchiveCommandOutput } from "./commands/DeleteArchiveCommand";
 import { DeleteEventBusCommandInput, DeleteEventBusCommandOutput } from "./commands/DeleteEventBusCommand";
 import {
   DeletePartnerEventSourceCommandInput,
   DeletePartnerEventSourceCommandOutput,
 } from "./commands/DeletePartnerEventSourceCommand";
 import { DeleteRuleCommandInput, DeleteRuleCommandOutput } from "./commands/DeleteRuleCommand";
+import { DescribeArchiveCommandInput, DescribeArchiveCommandOutput } from "./commands/DescribeArchiveCommand";
 import { DescribeEventBusCommandInput, DescribeEventBusCommandOutput } from "./commands/DescribeEventBusCommand";
 import {
   DescribeEventSourceCommandInput,
@@ -26,9 +30,11 @@ import {
   DescribePartnerEventSourceCommandInput,
   DescribePartnerEventSourceCommandOutput,
 } from "./commands/DescribePartnerEventSourceCommand";
+import { DescribeReplayCommandInput, DescribeReplayCommandOutput } from "./commands/DescribeReplayCommand";
 import { DescribeRuleCommandInput, DescribeRuleCommandOutput } from "./commands/DescribeRuleCommand";
 import { DisableRuleCommandInput, DisableRuleCommandOutput } from "./commands/DisableRuleCommand";
 import { EnableRuleCommandInput, EnableRuleCommandOutput } from "./commands/EnableRuleCommand";
+import { ListArchivesCommandInput, ListArchivesCommandOutput } from "./commands/ListArchivesCommand";
 import { ListEventBusesCommandInput, ListEventBusesCommandOutput } from "./commands/ListEventBusesCommand";
 import { ListEventSourcesCommandInput, ListEventSourcesCommandOutput } from "./commands/ListEventSourcesCommand";
 import {
@@ -39,6 +45,7 @@ import {
   ListPartnerEventSourcesCommandInput,
   ListPartnerEventSourcesCommandOutput,
 } from "./commands/ListPartnerEventSourcesCommand";
+import { ListReplaysCommandInput, ListReplaysCommandOutput } from "./commands/ListReplaysCommand";
 import {
   ListRuleNamesByTargetCommandInput,
   ListRuleNamesByTargetCommandOutput,
@@ -56,9 +63,11 @@ import { PutRuleCommandInput, PutRuleCommandOutput } from "./commands/PutRuleCom
 import { PutTargetsCommandInput, PutTargetsCommandOutput } from "./commands/PutTargetsCommand";
 import { RemovePermissionCommandInput, RemovePermissionCommandOutput } from "./commands/RemovePermissionCommand";
 import { RemoveTargetsCommandInput, RemoveTargetsCommandOutput } from "./commands/RemoveTargetsCommand";
+import { StartReplayCommandInput, StartReplayCommandOutput } from "./commands/StartReplayCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { TestEventPatternCommandInput, TestEventPatternCommandOutput } from "./commands/TestEventPatternCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import { UpdateArchiveCommandInput, UpdateArchiveCommandOutput } from "./commands/UpdateArchiveCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -110,22 +119,29 @@ import {
 
 export type ServiceInputTypes =
   | ActivateEventSourceCommandInput
+  | CancelReplayCommandInput
+  | CreateArchiveCommandInput
   | CreateEventBusCommandInput
   | CreatePartnerEventSourceCommandInput
   | DeactivateEventSourceCommandInput
+  | DeleteArchiveCommandInput
   | DeleteEventBusCommandInput
   | DeletePartnerEventSourceCommandInput
   | DeleteRuleCommandInput
+  | DescribeArchiveCommandInput
   | DescribeEventBusCommandInput
   | DescribeEventSourceCommandInput
   | DescribePartnerEventSourceCommandInput
+  | DescribeReplayCommandInput
   | DescribeRuleCommandInput
   | DisableRuleCommandInput
   | EnableRuleCommandInput
+  | ListArchivesCommandInput
   | ListEventBusesCommandInput
   | ListEventSourcesCommandInput
   | ListPartnerEventSourceAccountsCommandInput
   | ListPartnerEventSourcesCommandInput
+  | ListReplaysCommandInput
   | ListRuleNamesByTargetCommandInput
   | ListRulesCommandInput
   | ListTagsForResourceCommandInput
@@ -137,28 +153,37 @@ export type ServiceInputTypes =
   | PutTargetsCommandInput
   | RemovePermissionCommandInput
   | RemoveTargetsCommandInput
+  | StartReplayCommandInput
   | TagResourceCommandInput
   | TestEventPatternCommandInput
-  | UntagResourceCommandInput;
+  | UntagResourceCommandInput
+  | UpdateArchiveCommandInput;
 
 export type ServiceOutputTypes =
   | ActivateEventSourceCommandOutput
+  | CancelReplayCommandOutput
+  | CreateArchiveCommandOutput
   | CreateEventBusCommandOutput
   | CreatePartnerEventSourceCommandOutput
   | DeactivateEventSourceCommandOutput
+  | DeleteArchiveCommandOutput
   | DeleteEventBusCommandOutput
   | DeletePartnerEventSourceCommandOutput
   | DeleteRuleCommandOutput
+  | DescribeArchiveCommandOutput
   | DescribeEventBusCommandOutput
   | DescribeEventSourceCommandOutput
   | DescribePartnerEventSourceCommandOutput
+  | DescribeReplayCommandOutput
   | DescribeRuleCommandOutput
   | DisableRuleCommandOutput
   | EnableRuleCommandOutput
+  | ListArchivesCommandOutput
   | ListEventBusesCommandOutput
   | ListEventSourcesCommandOutput
   | ListPartnerEventSourceAccountsCommandOutput
   | ListPartnerEventSourcesCommandOutput
+  | ListReplaysCommandOutput
   | ListRuleNamesByTargetCommandOutput
   | ListRulesCommandOutput
   | ListTagsForResourceCommandOutput
@@ -170,9 +195,11 @@ export type ServiceOutputTypes =
   | PutTargetsCommandOutput
   | RemovePermissionCommandOutput
   | RemoveTargetsCommandOutput
+  | StartReplayCommandOutput
   | TagResourceCommandOutput
   | TestEventPatternCommandOutput
-  | UntagResourceCommandOutput;
+  | UntagResourceCommandOutput
+  | UpdateArchiveCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**

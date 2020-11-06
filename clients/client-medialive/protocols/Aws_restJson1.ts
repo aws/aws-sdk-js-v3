@@ -225,8 +225,8 @@ import {
   PipelinePauseStateSettings,
   RawSettings,
   RemixSettings,
-  Reservation,
   ReservationResourceSpecification,
+  RtmpAdMarkers,
   RtmpCaptionInfoDestinationSettings,
   RtmpGroupSettings,
   RtmpOutputSettings,
@@ -304,6 +304,7 @@ import {
   PauseStateScheduleActionSettings,
   Rec601Settings,
   Rec709Settings,
+  Reservation,
   ScheduleAction,
   ScheduleActionSettings,
   ScheduleActionStartSettings,
@@ -1378,9 +1379,9 @@ export const serializeAws_restJson1ListInputDeviceTransfersCommand = async (
   };
   let resolvedPath = "/prod/inputDeviceTransfers";
   const query: any = {
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
     ...(input.TransferType !== undefined && { transferType: input.TransferType }),
-    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1405,8 +1406,8 @@ export const serializeAws_restJson1ListInputsCommand = async (
   };
   let resolvedPath = "/prod/inputs";
   const query: any = {
-    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
     ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1431,8 +1432,8 @@ export const serializeAws_restJson1ListInputSecurityGroupsCommand = async (
   };
   let resolvedPath = "/prod/inputSecurityGroups";
   const query: any = {
-    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
     ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1492,8 +1493,8 @@ export const serializeAws_restJson1ListMultiplexProgramsCommand = async (
     throw new Error("No value provided for input HTTP label: MultiplexId.");
   }
   const query: any = {
-    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
     ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1519,17 +1520,17 @@ export const serializeAws_restJson1ListOfferingsCommand = async (
   let resolvedPath = "/prod/offerings";
   const query: any = {
     ...(input.ChannelClass !== undefined && { channelClass: input.ChannelClass }),
-    ...(input.MaximumFramerate !== undefined && { maximumFramerate: input.MaximumFramerate }),
-    ...(input.Duration !== undefined && { duration: input.Duration }),
-    ...(input.Resolution !== undefined && { resolution: input.Resolution }),
-    ...(input.SpecialFeature !== undefined && { specialFeature: input.SpecialFeature }),
-    ...(input.MaximumBitrate !== undefined && { maximumBitrate: input.MaximumBitrate }),
     ...(input.ChannelConfiguration !== undefined && { channelConfiguration: input.ChannelConfiguration }),
-    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
-    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.Codec !== undefined && { codec: input.Codec }),
-    ...(input.VideoQuality !== undefined && { videoQuality: input.VideoQuality }),
+    ...(input.Duration !== undefined && { duration: input.Duration }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
+    ...(input.MaximumBitrate !== undefined && { maximumBitrate: input.MaximumBitrate }),
+    ...(input.MaximumFramerate !== undefined && { maximumFramerate: input.MaximumFramerate }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
+    ...(input.Resolution !== undefined && { resolution: input.Resolution }),
     ...(input.ResourceType !== undefined && { resourceType: input.ResourceType }),
+    ...(input.SpecialFeature !== undefined && { specialFeature: input.SpecialFeature }),
+    ...(input.VideoQuality !== undefined && { videoQuality: input.VideoQuality }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1554,16 +1555,16 @@ export const serializeAws_restJson1ListReservationsCommand = async (
   };
   let resolvedPath = "/prod/reservations";
   const query: any = {
-    ...(input.ResourceType !== undefined && { resourceType: input.ResourceType }),
-    ...(input.Codec !== undefined && { codec: input.Codec }),
-    ...(input.MaximumBitrate !== undefined && { maximumBitrate: input.MaximumBitrate }),
-    ...(input.SpecialFeature !== undefined && { specialFeature: input.SpecialFeature }),
-    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
-    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
-    ...(input.VideoQuality !== undefined && { videoQuality: input.VideoQuality }),
     ...(input.ChannelClass !== undefined && { channelClass: input.ChannelClass }),
-    ...(input.Resolution !== undefined && { resolution: input.Resolution }),
+    ...(input.Codec !== undefined && { codec: input.Codec }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
+    ...(input.MaximumBitrate !== undefined && { maximumBitrate: input.MaximumBitrate }),
     ...(input.MaximumFramerate !== undefined && { maximumFramerate: input.MaximumFramerate }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
+    ...(input.Resolution !== undefined && { resolution: input.Resolution }),
+    ...(input.ResourceType !== undefined && { resourceType: input.ResourceType }),
+    ...(input.SpecialFeature !== undefined && { specialFeature: input.SpecialFeature }),
+    ...(input.VideoQuality !== undefined && { videoQuality: input.VideoQuality }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -4930,17 +4931,17 @@ export const deserializeAws_restJson1DescribeInputDeviceThumbnailCommand = async
     ETag: undefined,
     LastModified: undefined,
   };
-  if (output.headers["etag"] !== undefined) {
-    contents.ETag = output.headers["etag"];
-  }
   if (output.headers["content-type"] !== undefined) {
     contents.ContentType = output.headers["content-type"];
   }
-  if (output.headers["last-modified"] !== undefined) {
-    contents.LastModified = new Date(output.headers["last-modified"]);
-  }
   if (output.headers["content-length"] !== undefined) {
     contents.ContentLength = parseInt(output.headers["content-length"], 10);
+  }
+  if (output.headers["etag"] !== undefined) {
+    contents.ETag = output.headers["etag"];
+  }
+  if (output.headers["last-modified"] !== undefined) {
+    contents.LastModified = new Date(output.headers["last-modified"]);
   }
   const data: any = output.body;
   contents.Body = data;
@@ -9018,6 +9019,13 @@ const serializeAws_restJson1__listOfPipelinePauseStateSettings = (
   return input.map((entry) => serializeAws_restJson1PipelinePauseStateSettings(entry, context));
 };
 
+const serializeAws_restJson1__listOfRtmpAdMarkers = (
+  input: (RtmpAdMarkers | string)[],
+  context: __SerdeContext
+): any => {
+  return input.map((entry) => entry);
+};
+
 const serializeAws_restJson1__listOfScheduleAction = (input: ScheduleAction[], context: __SerdeContext): any => {
   return input.map((entry) => serializeAws_restJson1ScheduleAction(entry, context));
 };
@@ -10748,6 +10756,9 @@ const serializeAws_restJson1RtmpCaptionInfoDestinationSettings = (
 
 const serializeAws_restJson1RtmpGroupSettings = (input: RtmpGroupSettings, context: __SerdeContext): any => {
   return {
+    ...(input.AdMarkers !== undefined && {
+      adMarkers: serializeAws_restJson1__listOfRtmpAdMarkers(input.AdMarkers, context),
+    }),
     ...(input.AuthenticationScheme !== undefined && { authenticationScheme: input.AuthenticationScheme }),
     ...(input.CacheFullBehavior !== undefined && { cacheFullBehavior: input.CacheFullBehavior }),
     ...(input.CacheLength !== undefined && { cacheLength: input.CacheLength }),
@@ -11434,6 +11445,13 @@ const deserializeAws_restJson1__listOfPipelinePauseStateSettings = (
 
 const deserializeAws_restJson1__listOfReservation = (output: any, context: __SerdeContext): Reservation[] => {
   return (output || []).map((entry: any) => deserializeAws_restJson1Reservation(entry, context));
+};
+
+const deserializeAws_restJson1__listOfRtmpAdMarkers = (
+  output: any,
+  context: __SerdeContext
+): (RtmpAdMarkers | string)[] => {
+  return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_restJson1__listOfScheduleAction = (output: any, context: __SerdeContext): ScheduleAction[] => {
@@ -14197,6 +14215,10 @@ const deserializeAws_restJson1RtmpCaptionInfoDestinationSettings = (
 
 const deserializeAws_restJson1RtmpGroupSettings = (output: any, context: __SerdeContext): RtmpGroupSettings => {
   return {
+    AdMarkers:
+      output.adMarkers !== undefined && output.adMarkers !== null
+        ? deserializeAws_restJson1__listOfRtmpAdMarkers(output.adMarkers, context)
+        : undefined,
     AuthenticationScheme:
       output.authenticationScheme !== undefined && output.authenticationScheme !== null
         ? output.authenticationScheme

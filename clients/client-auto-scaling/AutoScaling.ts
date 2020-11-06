@@ -1963,6 +1963,8 @@ export class AutoScaling extends AutoScalingClient {
    *         <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ASGettingNotifications.html">Getting Amazon SNS
    *                 Notifications When Your Auto Scaling Group Scales</a> in the
    *                 <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+   *         <p>If you exceed your maximum limit of SNS topics, which is 10 per Auto Scaling group, the call
+   *             fails.</p>
    */
   public putNotificationConfiguration(
     args: PutNotificationConfigurationCommandInput,
@@ -2237,6 +2239,8 @@ export class AutoScaling extends AutoScalingClient {
    * <p>Updates the instance protection settings of the specified instances.</p>
    *         <p>For more information about preventing instances that are part of an Auto Scaling group from
    *             terminating on scale in, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-termination.html#instance-protection">Instance Protection</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+   *         <p>If you exceed your maximum limit of instance IDs, which is 50 per Auto Scaling group, the call
+   *             fails.</p>
    */
   public setInstanceProtection(
     args: SetInstanceProtectionCommandInput,

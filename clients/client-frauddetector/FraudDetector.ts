@@ -36,8 +36,40 @@ import {
   DeleteDetectorVersionCommandInput,
   DeleteDetectorVersionCommandOutput,
 } from "./commands/DeleteDetectorVersionCommand";
+import {
+  DeleteEntityTypeCommand,
+  DeleteEntityTypeCommandInput,
+  DeleteEntityTypeCommandOutput,
+} from "./commands/DeleteEntityTypeCommand";
 import { DeleteEventCommand, DeleteEventCommandInput, DeleteEventCommandOutput } from "./commands/DeleteEventCommand";
+import {
+  DeleteEventTypeCommand,
+  DeleteEventTypeCommandInput,
+  DeleteEventTypeCommandOutput,
+} from "./commands/DeleteEventTypeCommand";
+import {
+  DeleteExternalModelCommand,
+  DeleteExternalModelCommandInput,
+  DeleteExternalModelCommandOutput,
+} from "./commands/DeleteExternalModelCommand";
+import { DeleteLabelCommand, DeleteLabelCommandInput, DeleteLabelCommandOutput } from "./commands/DeleteLabelCommand";
+import { DeleteModelCommand, DeleteModelCommandInput, DeleteModelCommandOutput } from "./commands/DeleteModelCommand";
+import {
+  DeleteModelVersionCommand,
+  DeleteModelVersionCommandInput,
+  DeleteModelVersionCommandOutput,
+} from "./commands/DeleteModelVersionCommand";
+import {
+  DeleteOutcomeCommand,
+  DeleteOutcomeCommandInput,
+  DeleteOutcomeCommandOutput,
+} from "./commands/DeleteOutcomeCommand";
 import { DeleteRuleCommand, DeleteRuleCommandInput, DeleteRuleCommandOutput } from "./commands/DeleteRuleCommand";
+import {
+  DeleteVariableCommand,
+  DeleteVariableCommandInput,
+  DeleteVariableCommandOutput,
+} from "./commands/DeleteVariableCommand";
 import {
   DescribeDetectorCommand,
   DescribeDetectorCommandInput,
@@ -395,6 +427,7 @@ export class FraudDetector extends FraudDetectorClient {
 
   /**
    * <p>Deletes the detector. Before deleting a detector, you must first delete all detector versions and rule versions associated with the detector.</p>
+   * 	        <p>When you delete a detector, Amazon Fraud Detector permanently deletes the detector and the data is no longer stored in Amazon Fraud Detector.</p>
    */
   public deleteDetector(
     args: DeleteDetectorCommandInput,
@@ -427,6 +460,7 @@ export class FraudDetector extends FraudDetectorClient {
 
   /**
    * <p>Deletes the detector version. You cannot delete detector versions that are in <code>ACTIVE</code> status.</p>
+   * 	  	     <p>When you delete a detector version, Amazon Fraud Detector permanently deletes the detector and the data is no longer stored in Amazon Fraud Detector.</p>
    */
   public deleteDetectorVersion(
     args: DeleteDetectorVersionCommandInput,
@@ -458,7 +492,42 @@ export class FraudDetector extends FraudDetectorClient {
   }
 
   /**
+   * <p>Deletes an entity type.</p>
+   * 	        <p>You cannot delete an entity type that is included in an event type.</p>
+   * 	        <p>When you delete an entity type, Amazon Fraud Detector permanently deletes that entity type from the evaluation history, and the data is no longer stored in Amazon Fraud Detector.</p>
+   */
+  public deleteEntityType(
+    args: DeleteEntityTypeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteEntityTypeCommandOutput>;
+  public deleteEntityType(
+    args: DeleteEntityTypeCommandInput,
+    cb: (err: any, data?: DeleteEntityTypeCommandOutput) => void
+  ): void;
+  public deleteEntityType(
+    args: DeleteEntityTypeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteEntityTypeCommandOutput) => void
+  ): void;
+  public deleteEntityType(
+    args: DeleteEntityTypeCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteEntityTypeCommandOutput) => void),
+    cb?: (err: any, data?: DeleteEntityTypeCommandOutput) => void
+  ): Promise<DeleteEntityTypeCommandOutput> | void {
+    const command = new DeleteEntityTypeCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Deletes the specified event.</p>
+   * 	        <p>When you delete an event, Amazon Fraud Detector permanently deletes that event from the evaluation history, and the event data is no longer stored in Amazon Fraud Detector.</p>
    */
   public deleteEvent(args: DeleteEventCommandInput, options?: __HttpHandlerOptions): Promise<DeleteEventCommandOutput>;
   public deleteEvent(args: DeleteEventCommandInput, cb: (err: any, data?: DeleteEventCommandOutput) => void): void;
@@ -484,7 +553,201 @@ export class FraudDetector extends FraudDetectorClient {
   }
 
   /**
+   * <p>Deletes an event type.</p>
+   * 	        <p>You cannot delete an event type that is used in a detector or a model.</p>
+   * 	        <p>When you delete an entity type, Amazon Fraud Detector permanently deletes that entity type from the evaluation history, and the data is no longer stored in Amazon Fraud Detector.</p>
+   */
+  public deleteEventType(
+    args: DeleteEventTypeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteEventTypeCommandOutput>;
+  public deleteEventType(
+    args: DeleteEventTypeCommandInput,
+    cb: (err: any, data?: DeleteEventTypeCommandOutput) => void
+  ): void;
+  public deleteEventType(
+    args: DeleteEventTypeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteEventTypeCommandOutput) => void
+  ): void;
+  public deleteEventType(
+    args: DeleteEventTypeCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteEventTypeCommandOutput) => void),
+    cb?: (err: any, data?: DeleteEventTypeCommandOutput) => void
+  ): Promise<DeleteEventTypeCommandOutput> | void {
+    const command = new DeleteEventTypeCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Removes a SageMaker model from Amazon Fraud Detector.</p>
+   * 	        <p>You can remove an Amazon SageMaker model if it is not associated with a detector version. Removing a SageMaker model disconnects it from Amazon Fraud Detector, but the model remains available in SageMaker.</p>
+   */
+  public deleteExternalModel(
+    args: DeleteExternalModelCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteExternalModelCommandOutput>;
+  public deleteExternalModel(
+    args: DeleteExternalModelCommandInput,
+    cb: (err: any, data?: DeleteExternalModelCommandOutput) => void
+  ): void;
+  public deleteExternalModel(
+    args: DeleteExternalModelCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteExternalModelCommandOutput) => void
+  ): void;
+  public deleteExternalModel(
+    args: DeleteExternalModelCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteExternalModelCommandOutput) => void),
+    cb?: (err: any, data?: DeleteExternalModelCommandOutput) => void
+  ): Promise<DeleteExternalModelCommandOutput> | void {
+    const command = new DeleteExternalModelCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes a label.</p>
+   * 	        <p>You cannot delete labels that are included in an event type in Amazon Fraud Detector.</p>
+   *          <p>You cannot delete a label assigned to an event ID. You must first delete the relevant event ID.</p>
+   *
+   *          <p>When you delete a label, Amazon Fraud Detector permanently deletes that label from the evaluation history, and the data is no longer stored in Amazon Fraud Detector.</p>
+   */
+  public deleteLabel(args: DeleteLabelCommandInput, options?: __HttpHandlerOptions): Promise<DeleteLabelCommandOutput>;
+  public deleteLabel(args: DeleteLabelCommandInput, cb: (err: any, data?: DeleteLabelCommandOutput) => void): void;
+  public deleteLabel(
+    args: DeleteLabelCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteLabelCommandOutput) => void
+  ): void;
+  public deleteLabel(
+    args: DeleteLabelCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteLabelCommandOutput) => void),
+    cb?: (err: any, data?: DeleteLabelCommandOutput) => void
+  ): Promise<DeleteLabelCommandOutput> | void {
+    const command = new DeleteLabelCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes a model.</p>
+   * 	        <p>You can delete models and model versions in Amazon Fraud Detector, provided that they are not associated with a detector version.</p>
+   * 	        <p> When you delete a model, Amazon Fraud Detector permanently deletes that model from the evaluation history, and the data is no longer stored in Amazon Fraud Detector.</p>
+   */
+  public deleteModel(args: DeleteModelCommandInput, options?: __HttpHandlerOptions): Promise<DeleteModelCommandOutput>;
+  public deleteModel(args: DeleteModelCommandInput, cb: (err: any, data?: DeleteModelCommandOutput) => void): void;
+  public deleteModel(
+    args: DeleteModelCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteModelCommandOutput) => void
+  ): void;
+  public deleteModel(
+    args: DeleteModelCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteModelCommandOutput) => void),
+    cb?: (err: any, data?: DeleteModelCommandOutput) => void
+  ): Promise<DeleteModelCommandOutput> | void {
+    const command = new DeleteModelCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes a model version.</p>
+   * 	        <p>You can delete models and model versions in Amazon Fraud Detector, provided that they are not associated with a detector version.</p>
+   * 	        <p> When you delete a model version, Amazon Fraud Detector permanently deletes that model version from the evaluation history, and the data is no longer stored in Amazon Fraud Detector.</p>
+   */
+  public deleteModelVersion(
+    args: DeleteModelVersionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteModelVersionCommandOutput>;
+  public deleteModelVersion(
+    args: DeleteModelVersionCommandInput,
+    cb: (err: any, data?: DeleteModelVersionCommandOutput) => void
+  ): void;
+  public deleteModelVersion(
+    args: DeleteModelVersionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteModelVersionCommandOutput) => void
+  ): void;
+  public deleteModelVersion(
+    args: DeleteModelVersionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteModelVersionCommandOutput) => void),
+    cb?: (err: any, data?: DeleteModelVersionCommandOutput) => void
+  ): Promise<DeleteModelVersionCommandOutput> | void {
+    const command = new DeleteModelVersionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes an outcome.</p>
+   * 	        <p>You cannot delete an outcome that is used in a rule version.</p>
+   * 	        <p>When you delete an outcome, Amazon Fraud Detector permanently deletes that outcome from the evaluation history, and the data is no longer stored in Amazon Fraud Detector.</p>
+   */
+  public deleteOutcome(
+    args: DeleteOutcomeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteOutcomeCommandOutput>;
+  public deleteOutcome(
+    args: DeleteOutcomeCommandInput,
+    cb: (err: any, data?: DeleteOutcomeCommandOutput) => void
+  ): void;
+  public deleteOutcome(
+    args: DeleteOutcomeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteOutcomeCommandOutput) => void
+  ): void;
+  public deleteOutcome(
+    args: DeleteOutcomeCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteOutcomeCommandOutput) => void),
+    cb?: (err: any, data?: DeleteOutcomeCommandOutput) => void
+  ): Promise<DeleteOutcomeCommandOutput> | void {
+    const command = new DeleteOutcomeCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Deletes the rule. You cannot delete a rule if it is used by an <code>ACTIVE</code> or <code>INACTIVE</code> detector version.</p>
+   * 	  	     <p>When you delete a rule, Amazon Fraud Detector permanently deletes that rule from the evaluation history, and the data is no longer stored in Amazon Fraud Detector.</p>
    */
   public deleteRule(args: DeleteRuleCommandInput, options?: __HttpHandlerOptions): Promise<DeleteRuleCommandOutput>;
   public deleteRule(args: DeleteRuleCommandInput, cb: (err: any, data?: DeleteRuleCommandOutput) => void): void;
@@ -499,6 +762,41 @@ export class FraudDetector extends FraudDetectorClient {
     cb?: (err: any, data?: DeleteRuleCommandOutput) => void
   ): Promise<DeleteRuleCommandOutput> | void {
     const command = new DeleteRuleCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes a variable.</p>
+   * 	        <p>You can't delete variables that are included in an event type in Amazon Fraud Detector.</p>
+   * 	        <p>Amazon Fraud Detector automatically deletes model output variables and SageMaker model output variables when you delete the model. You can't delete these variables manually.</p>
+   * 	        <p>When you delete a variable, Amazon Fraud Detector permanently deletes that variable from the evaluation history, and the data is no longer stored in Amazon Fraud Detector.</p>
+   */
+  public deleteVariable(
+    args: DeleteVariableCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteVariableCommandOutput>;
+  public deleteVariable(
+    args: DeleteVariableCommandInput,
+    cb: (err: any, data?: DeleteVariableCommandOutput) => void
+  ): void;
+  public deleteVariable(
+    args: DeleteVariableCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteVariableCommandOutput) => void
+  ): void;
+  public deleteVariable(
+    args: DeleteVariableCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteVariableCommandOutput) => void),
+    cb?: (err: any, data?: DeleteVariableCommandOutput) => void
+  ): Promise<DeleteVariableCommandOutput> | void {
+    const command = new DeleteVariableCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

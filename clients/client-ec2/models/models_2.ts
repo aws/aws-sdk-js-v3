@@ -31,6 +31,7 @@ import {
   FleetLaunchTemplateOverrides,
   FleetLaunchTemplateSpecification,
   FleetOnDemandAllocationStrategy,
+  FleetReplacementStrategy,
   FleetType,
   HostRecovery,
   IamInstanceProfile,
@@ -45,6 +46,7 @@ import {
   SpotInstanceInterruptionBehavior,
   Tag,
   TrafficType,
+  TransitGatewayPeeringAttachment,
   TransitGatewayVpcAttachment,
   TransportProtocol,
   UnsuccessfulItem,
@@ -57,12 +59,88 @@ import {
   InstanceIpv6Address,
   LaunchTemplate,
   LaunchTemplateVersion,
-  LocalGatewayRouteTableVpcAssociation,
   NetworkInterfaceStatus,
+  TransitGatewayPrefixListReference,
   TransitGatewayRoute,
   TransitGatewayRouteTable,
 } from "./models_1";
 import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
+
+export interface DeleteTransitGatewayPeeringAttachmentResult {
+  /**
+   * <p>The transit gateway peering attachment.</p>
+   */
+  TransitGatewayPeeringAttachment?: TransitGatewayPeeringAttachment;
+}
+
+export namespace DeleteTransitGatewayPeeringAttachmentResult {
+  export const filterSensitiveLog = (obj: DeleteTransitGatewayPeeringAttachmentResult): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteTransitGatewayPrefixListReferenceRequest {
+  /**
+   * <p>The ID of the route table.</p>
+   */
+  TransitGatewayRouteTableId: string | undefined;
+
+  /**
+   * <p>The ID of the prefix list.</p>
+   */
+  PrefixListId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export namespace DeleteTransitGatewayPrefixListReferenceRequest {
+  export const filterSensitiveLog = (obj: DeleteTransitGatewayPrefixListReferenceRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteTransitGatewayPrefixListReferenceResult {
+  /**
+   * <p>Information about the deleted prefix list reference.</p>
+   */
+  TransitGatewayPrefixListReference?: TransitGatewayPrefixListReference;
+}
+
+export namespace DeleteTransitGatewayPrefixListReferenceResult {
+  export const filterSensitiveLog = (obj: DeleteTransitGatewayPrefixListReferenceResult): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteTransitGatewayRouteRequest {
+  /**
+   * <p>The ID of the transit gateway route table.</p>
+   */
+  TransitGatewayRouteTableId: string | undefined;
+
+  /**
+   * <p>The CIDR range for the route. This must match the CIDR for the route exactly.</p>
+   */
+  DestinationCidrBlock: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export namespace DeleteTransitGatewayRouteRequest {
+  export const filterSensitiveLog = (obj: DeleteTransitGatewayRouteRequest): any => ({
+    ...obj,
+  });
+}
 
 export interface DeleteTransitGatewayRouteResult {
   /**
@@ -79,16 +157,16 @@ export namespace DeleteTransitGatewayRouteResult {
 
 export interface DeleteTransitGatewayRouteTableRequest {
   /**
+   * <p>The ID of the transit gateway route table.</p>
+   */
+  TransitGatewayRouteTableId: string | undefined;
+
+  /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    */
   DryRun?: boolean;
-
-  /**
-   * <p>The ID of the transit gateway route table.</p>
-   */
-  TransitGatewayRouteTableId: string | undefined;
 }
 
 export namespace DeleteTransitGatewayRouteTableRequest {
@@ -112,16 +190,16 @@ export namespace DeleteTransitGatewayRouteTableResult {
 
 export interface DeleteTransitGatewayVpcAttachmentRequest {
   /**
+   * <p>The ID of the attachment.</p>
+   */
+  TransitGatewayAttachmentId: string | undefined;
+
+  /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    */
   DryRun?: boolean;
-
-  /**
-   * <p>The ID of the attachment.</p>
-   */
-  TransitGatewayAttachmentId: string | undefined;
 }
 
 export namespace DeleteTransitGatewayVpcAttachmentRequest {
@@ -145,16 +223,16 @@ export namespace DeleteTransitGatewayVpcAttachmentResult {
 
 export interface DeleteVolumeRequest {
   /**
+   * <p>The ID of the volume.</p>
+   */
+  VolumeId: string | undefined;
+
+  /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    */
   DryRun?: boolean;
-
-  /**
-   * <p>The ID of the volume.</p>
-   */
-  VolumeId: string | undefined;
 }
 
 export namespace DeleteVolumeRequest {
@@ -258,16 +336,16 @@ export namespace DeleteVpcEndpointsResult {
 
 export interface DeleteVpcEndpointServiceConfigurationsRequest {
   /**
-   * <p>The IDs of one or more services.</p>
-   */
-  ServiceIds: string[] | undefined;
-
-  /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    */
   DryRun?: boolean;
+
+  /**
+   * <p>The IDs of one or more services.</p>
+   */
+  ServiceIds: string[] | undefined;
 }
 
 export namespace DeleteVpcEndpointServiceConfigurationsRequest {
@@ -292,16 +370,16 @@ export namespace DeleteVpcEndpointServiceConfigurationsResult {
 
 export interface DeleteVpcPeeringConnectionRequest {
   /**
-   * <p>The ID of the VPC peering connection.</p>
-   */
-  VpcPeeringConnectionId: string | undefined;
-
-  /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    */
   DryRun?: boolean;
+
+  /**
+   * <p>The ID of the VPC peering connection.</p>
+   */
+  VpcPeeringConnectionId: string | undefined;
 }
 
 export namespace DeleteVpcPeeringConnectionRequest {
@@ -328,16 +406,16 @@ export namespace DeleteVpcPeeringConnectionResult {
  */
 export interface DeleteVpnConnectionRequest {
   /**
+   * <p>The ID of the VPN connection.</p>
+   */
+  VpnConnectionId: string | undefined;
+
+  /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *             and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *             Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    */
   DryRun?: boolean;
-
-  /**
-   * <p>The ID of the VPN connection.</p>
-   */
-  VpnConnectionId: string | undefined;
 }
 
 export namespace DeleteVpnConnectionRequest {
@@ -372,16 +450,16 @@ export namespace DeleteVpnConnectionRouteRequest {
  */
 export interface DeleteVpnGatewayRequest {
   /**
+   * <p>The ID of the virtual private gateway.</p>
+   */
+  VpnGatewayId: string | undefined;
+
+  /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *             and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *             Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    */
   DryRun?: boolean;
-
-  /**
-   * <p>The ID of the virtual private gateway.</p>
-   */
-  VpnGatewayId: string | undefined;
 }
 
 export namespace DeleteVpnGatewayRequest {
@@ -429,16 +507,16 @@ export namespace DeprovisionByoipCidrResult {
  */
 export interface DeregisterImageRequest {
   /**
+   * <p>The ID of the AMI.</p>
+   */
+  ImageId: string | undefined;
+
+  /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *        and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *        Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    */
   DryRun?: boolean;
-
-  /**
-   * <p>The ID of the AMI.</p>
-   */
-  ImageId: string | undefined;
 }
 
 export namespace DeregisterImageRequest {
@@ -528,6 +606,11 @@ export namespace DeregisterInstanceEventNotificationAttributesResult {
 
 export interface DeregisterTransitGatewayMulticastGroupMembersRequest {
   /**
+   * <p>The ID of the transit gateway multicast domain.</p>
+   */
+  TransitGatewayMulticastDomainId?: string;
+
+  /**
    * <p>The IP address assigned to the  transit gateway multicast group.</p>
    */
   GroupIpAddress?: string;
@@ -536,11 +619,6 @@ export interface DeregisterTransitGatewayMulticastGroupMembersRequest {
    * <p>The IDs of the group members' network interfaces.</p>
    */
   NetworkInterfaceIds?: string[];
-
-  /**
-   * <p>The ID of the transit gateway multicast domain.</p>
-   */
-  TransitGatewayMulticastDomainId?: string;
 
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -561,6 +639,11 @@ export namespace DeregisterTransitGatewayMulticastGroupMembersRequest {
  */
 export interface TransitGatewayMulticastDeregisteredGroupMembers {
   /**
+   * <p>The ID of the transit gateway multicast domain.</p>
+   */
+  TransitGatewayMulticastDomainId?: string;
+
+  /**
    * <p>The network interface IDs of the deregistered members.</p>
    */
   DeregisteredNetworkInterfaceIds?: string[];
@@ -569,11 +652,6 @@ export interface TransitGatewayMulticastDeregisteredGroupMembers {
    * <p>The IP address assigned to the  transit gateway multicast group.</p>
    */
   GroupIpAddress?: string;
-
-  /**
-   * <p>The ID of the transit gateway multicast domain.</p>
-   */
-  TransitGatewayMulticastDomainId?: string;
 }
 
 export namespace TransitGatewayMulticastDeregisteredGroupMembers {
@@ -602,6 +680,11 @@ export interface DeregisterTransitGatewayMulticastGroupSourcesRequest {
   TransitGatewayMulticastDomainId?: string;
 
   /**
+   * <p>The IP address assigned to the  transit gateway multicast group.</p>
+   */
+  GroupIpAddress?: string;
+
+  /**
    * <p>The IDs of the group sources' network interfaces.</p>
    */
   NetworkInterfaceIds?: string[];
@@ -612,11 +695,6 @@ export interface DeregisterTransitGatewayMulticastGroupSourcesRequest {
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    */
   DryRun?: boolean;
-
-  /**
-   * <p>The IP address assigned to the  transit gateway multicast group.</p>
-   */
-  GroupIpAddress?: string;
 }
 
 export namespace DeregisterTransitGatewayMulticastGroupSourcesRequest {
@@ -630,11 +708,6 @@ export namespace DeregisterTransitGatewayMulticastGroupSourcesRequest {
  */
 export interface TransitGatewayMulticastDeregisteredGroupSources {
   /**
-   * <p>The IP address assigned to the  transit gateway multicast group.</p>
-   */
-  GroupIpAddress?: string;
-
-  /**
    * <p>The ID of the transit gateway multicast domain.</p>
    */
   TransitGatewayMulticastDomainId?: string;
@@ -643,6 +716,11 @@ export interface TransitGatewayMulticastDeregisteredGroupSources {
    * <p>The network interface IDs of the non-registered members.</p>
    */
   DeregisteredNetworkInterfaceIds?: string[];
+
+  /**
+   * <p>The IP address assigned to the  transit gateway multicast group.</p>
+   */
+  GroupIpAddress?: string;
 }
 
 export namespace TransitGatewayMulticastDeregisteredGroupSources {
@@ -666,16 +744,16 @@ export namespace DeregisterTransitGatewayMulticastGroupSourcesResult {
 
 export interface DescribeAccountAttributesRequest {
   /**
+   * <p>The account attribute names.</p>
+   */
+  AttributeNames?: (AccountAttributeName | string)[];
+
+  /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *            and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *            Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    */
   DryRun?: boolean;
-
-  /**
-   * <p>The account attribute names.</p>
-   */
-  AttributeNames?: (AccountAttributeName | string)[];
 }
 
 export namespace DescribeAccountAttributesRequest {
@@ -756,14 +834,14 @@ export namespace DescribeAccountAttributesResult {
  */
 export interface Filter {
   /**
-   * <p>The filter values. Filter values are case-sensitive.</p>
-   */
-  Values?: string[];
-
-  /**
    * <p>The name of the filter. Filter names are case-sensitive.</p>
    */
   Name?: string;
+
+  /**
+   * <p>The filter values. Filter values are case-sensitive.</p>
+   */
+  Values?: string[];
 }
 
 export namespace Filter {
@@ -773,19 +851,6 @@ export namespace Filter {
 }
 
 export interface DescribeAddressesRequest {
-  /**
-   * <p>One or more Elastic IP addresses.</p>
-   *          <p>Default: Describes all your Elastic IP addresses.</p>
-   */
-  PublicIps?: string[];
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
   /**
    * <p>One or more filters. Filter names and values are case-sensitive.</p>
    *          <ul>
@@ -841,9 +906,22 @@ export interface DescribeAddressesRequest {
   Filters?: Filter[];
 
   /**
+   * <p>One or more Elastic IP addresses.</p>
+   *          <p>Default: Describes all your Elastic IP addresses.</p>
+   */
+  PublicIps?: string[];
+
+  /**
    * <p>[EC2-VPC] Information about the allocation IDs.</p>
    */
   AllocationIds?: string[];
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
 }
 
 export namespace DescribeAddressesRequest {
@@ -885,11 +963,6 @@ export namespace DescribeAggregateIdFormatRequest {
  */
 export interface IdFormat {
   /**
-   * <p>Indicates whether longer IDs (17-character IDs) are enabled for the resource.</p>
-   */
-  UseLongIds?: boolean;
-
-  /**
    * <p>The date in UTC at which you are permanently switched over to using longer IDs. If a deadline is not yet available for this resource type, this field is not returned.</p>
    */
   Deadline?: Date;
@@ -898,6 +971,11 @@ export interface IdFormat {
    * <p>The type of resource.</p>
    */
   Resource?: string;
+
+  /**
+   * <p>Indicates whether longer IDs (17-character IDs) are enabled for the resource.</p>
+   */
+  UseLongIds?: boolean;
 }
 
 export namespace IdFormat {
@@ -908,16 +986,16 @@ export namespace IdFormat {
 
 export interface DescribeAggregateIdFormatResult {
   /**
-   * <p>Information about each resource's ID format.</p>
-   */
-  Statuses?: IdFormat[];
-
-  /**
    * <p>Indicates whether all resource types in the Region are configured to use longer IDs.
    *             This value is only <code>true</code> if all users are configured to use longer IDs for
    *             all resources types in the Region.</p>
    */
   UseLongIdsAggregated?: boolean;
+
+  /**
+   * <p>Information about each resource's ID format.</p>
+   */
+  Statuses?: IdFormat[];
 }
 
 export namespace DescribeAggregateIdFormatResult {
@@ -1002,18 +1080,18 @@ export interface DescribeAvailabilityZonesRequest {
   ZoneIds?: string[];
 
   /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
    * <p>Include all Availability Zones, Local Zones, and Wavelength Zones regardless of your
    *       opt-in status.</p>
    *          <p>If you do not use this parameter, the results include only the zones for the Regions where you have chosen the option to opt in.</p>
    */
   AllAvailabilityZones?: boolean;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
 }
 
 export namespace DescribeAvailabilityZonesRequest {
@@ -1047,24 +1125,9 @@ export type AvailabilityZoneState = "available" | "impaired" | "information" | "
  */
 export interface AvailabilityZone {
   /**
-   * <p>The name of the Availability Zone, Local Zone, or Wavelength Zone.</p>
-   */
-  ZoneName?: string;
-
-  /**
    * <p>The state of the Availability Zone, Local Zone, or Wavelength Zone.</p>
    */
   State?: AvailabilityZoneState | string;
-
-  /**
-   * <p>The name of the network border group.</p>
-   */
-  NetworkBorderGroup?: string;
-
-  /**
-   * <p>Any messages about the Availability Zone, Local Zone, or Wavelength Zone.</p>
-   */
-  Messages?: AvailabilityZoneMessage[];
 
   /**
    * <p>For Availability Zones, this parameter always has the value of
@@ -1073,6 +1136,46 @@ export interface AvailabilityZone {
    *       values are <code>opted-in</code>, and <code>not-opted-in</code>.</p>
    */
   OptInStatus?: AvailabilityZoneOptInStatus | string;
+
+  /**
+   * <p>Any messages about the Availability Zone, Local Zone, or Wavelength Zone.</p>
+   */
+  Messages?: AvailabilityZoneMessage[];
+
+  /**
+   * <p>The name of the Region.</p>
+   */
+  RegionName?: string;
+
+  /**
+   * <p>The name of the Availability Zone, Local Zone, or Wavelength Zone.</p>
+   */
+  ZoneName?: string;
+
+  /**
+   * <p>The ID of the Availability Zone, Local Zone, or Wavelength Zone.</p>
+   */
+  ZoneId?: string;
+
+  /**
+   * <p> For Availability Zones, this parameter has the same value as the Region name.</p>
+   *          <p>For Local Zones, the name of the associated group, for example
+   *         <code>us-west-2-lax-1</code>.</p>
+   *          <p>For Wavelength Zones, the name of the associated group, for example
+   *         <code>us-east-1-wl1-bos-wlz-1</code>.</p>
+   */
+  GroupName?: string;
+
+  /**
+   * <p>The name of the network border group.</p>
+   */
+  NetworkBorderGroup?: string;
+
+  /**
+   * <p>The type of zone. The valid values are <code>availability-zone</code>,
+   *         <code>local-zone</code>, and <code>wavelength-zone</code>.</p>
+   */
+  ZoneType?: string;
 
   /**
    * <p>The name of the zone that handles some of the Local Zone or Wavelength Zone control plane
@@ -1085,31 +1188,6 @@ export interface AvailabilityZone {
    *       operations, such as API calls.</p>
    */
   ParentZoneId?: string;
-
-  /**
-   * <p> For Availability Zones, this parameter has the same value as the Region name.</p>
-   *          <p>For Local Zones, the name of the associated group, for example
-   *         <code>us-west-2-lax-1</code>.</p>
-   *          <p>For Wavelength Zones, the name of the associated group, for example
-   *         <code>us-east-1-wl1-bos-wlz-1</code>.</p>
-   */
-  GroupName?: string;
-
-  /**
-   * <p>The type of zone. The valid values are <code>availability-zone</code>,
-   *         <code>local-zone</code>, and <code>wavelength-zone</code>.</p>
-   */
-  ZoneType?: string;
-
-  /**
-   * <p>The name of the Region.</p>
-   */
-  RegionName?: string;
-
-  /**
-   * <p>The ID of the Availability Zone, Local Zone, or Wavelength Zone.</p>
-   */
-  ZoneId?: string;
 }
 
 export namespace AvailabilityZone {
@@ -1133,11 +1211,10 @@ export namespace DescribeAvailabilityZonesResult {
 
 export interface DescribeBundleTasksRequest {
   /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *        and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *        Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * <p>The bundle task IDs.</p>
+   *          <p>Default: Describes all your bundle tasks.</p>
    */
-  DryRun?: boolean;
+  BundleIds?: string[];
 
   /**
    * <p>The filters.</p>
@@ -1188,10 +1265,11 @@ export interface DescribeBundleTasksRequest {
   Filters?: Filter[];
 
   /**
-   * <p>The bundle task IDs.</p>
-   *          <p>Default: Describes all your bundle tasks.</p>
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *        and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *        Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    */
-  BundleIds?: string[];
+  DryRun?: boolean;
 }
 
 export namespace DescribeBundleTasksRequest {
@@ -1215,6 +1293,13 @@ export namespace DescribeBundleTasksResult {
 
 export interface DescribeByoipCidrsRequest {
   /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
    * <p>The maximum number of results to return with a single call.
    * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
    */
@@ -1224,13 +1309,6 @@ export interface DescribeByoipCidrsRequest {
    * <p>The token for the next page of results.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
 }
 
 export namespace DescribeByoipCidrsRequest {
@@ -1258,6 +1336,21 @@ export namespace DescribeByoipCidrsResult {
 }
 
 export interface DescribeCapacityReservationsRequest {
+  /**
+   * <p>The ID of the Capacity Reservation.</p>
+   */
+  CapacityReservationIds?: string[];
+
+  /**
+   * <p>The token to use to retrieve the next page of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the returned <code>nextToken</code> value. This value can be between 5 and 500. If <code>maxResults</code> is given a larger value than 500, you receive an error.</p>
+   */
+  MaxResults?: number;
+
   /**
    * <p>One or more filters.</p>
    * 	  	     <ul>
@@ -1368,24 +1461,9 @@ export interface DescribeCapacityReservationsRequest {
   Filters?: Filter[];
 
   /**
-   * <p>The ID of the Capacity Reservation.</p>
-   */
-  CapacityReservationIds?: string[];
-
-  /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    */
   DryRun?: boolean;
-
-  /**
-   * <p>The token to use to retrieve the next page of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the returned <code>nextToken</code> value. This value can be between 5 and 500. If <code>maxResults</code> is given a larger value than 500, you receive an error.</p>
-   */
-  MaxResults?: number;
 }
 
 export namespace DescribeCapacityReservationsRequest {
@@ -1396,14 +1474,14 @@ export namespace DescribeCapacityReservationsRequest {
 
 export interface DescribeCapacityReservationsResult {
   /**
-   * <p>Information about the Capacity Reservations.</p>
-   */
-  CapacityReservations?: CapacityReservation[];
-
-  /**
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>Information about the Capacity Reservations.</p>
+   */
+  CapacityReservations?: CapacityReservation[];
 }
 
 export namespace DescribeCapacityReservationsResult {
@@ -1414,22 +1492,9 @@ export namespace DescribeCapacityReservationsResult {
 
 export interface DescribeCarrierGatewaysRequest {
   /**
-   * <p>The token for the next page of results.</p>
+   * <p>One or more carrier gateway IDs.</p>
    */
-  NextToken?: string;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   */
-  MaxResults?: number;
+  CarrierGatewayIds?: string[];
 
   /**
    * <p>One or more filters.</p>
@@ -1465,9 +1530,22 @@ export interface DescribeCarrierGatewaysRequest {
   Filters?: Filter[];
 
   /**
-   * <p>One or more carrier gateway IDs.</p>
+   * <p>The maximum number of results to return with a single call.
+   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
    */
-  CarrierGatewayIds?: string[];
+  MaxResults?: number;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
 }
 
 export namespace DescribeCarrierGatewaysRequest {
@@ -1495,11 +1573,6 @@ export namespace DescribeCarrierGatewaysResult {
 }
 
 export interface DescribeClassicLinkInstancesRequest {
-  /**
-   * <p>The token for the next page of results.</p>
-   */
-  NextToken?: string;
-
   /**
    * <p>One or more filters.</p>
    * 		       <ul>
@@ -1535,11 +1608,11 @@ export interface DescribeClassicLinkInstancesRequest {
   Filters?: Filter[];
 
   /**
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   * 		       <p>Constraint: If the value is greater than 1000, we return only 1000 items.</p>
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    */
-  MaxResults?: number;
+  DryRun?: boolean;
 
   /**
    * <p>One or more instance IDs. Must be instances linked to a VPC through ClassicLink.</p>
@@ -1547,11 +1620,16 @@ export interface DescribeClassicLinkInstancesRequest {
   InstanceIds?: string[];
 
   /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * <p>The maximum number of results to return with a single call.
+   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   * 		       <p>Constraint: If the value is greater than 1000, we return only 1000 items.</p>
    */
-  DryRun?: boolean;
+  MaxResults?: number;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace DescribeClassicLinkInstancesRequest {
@@ -1570,14 +1648,14 @@ export interface ClassicLinkInstance {
   Groups?: GroupIdentifier[];
 
   /**
-   * <p>Any tags assigned to the instance.</p>
-   */
-  Tags?: Tag[];
-
-  /**
    * <p>The ID of the instance.</p>
    */
   InstanceId?: string;
+
+  /**
+   * <p>Any tags assigned to the instance.</p>
+   */
+  Tags?: Tag[];
 
   /**
    * <p>The ID of the VPC.</p>
@@ -1593,14 +1671,14 @@ export namespace ClassicLinkInstance {
 
 export interface DescribeClassicLinkInstancesResult {
   /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>Information about one or more linked EC2-Classic instances.</p>
    */
   Instances?: ClassicLinkInstance[];
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace DescribeClassicLinkInstancesResult {
@@ -1611,14 +1689,14 @@ export namespace DescribeClassicLinkInstancesResult {
 
 export interface DescribeClientVpnAuthorizationRulesRequest {
   /**
+   * <p>The ID of the Client VPN endpoint.</p>
+   */
+  ClientVpnEndpointId: string | undefined;
+
+  /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    */
   DryRun?: boolean;
-
-  /**
-   * <p>The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the nextToken value.</p>
-   */
-  MaxResults?: number;
 
   /**
    * <p>The token to retrieve the next page of results.</p>
@@ -1646,9 +1724,9 @@ export interface DescribeClientVpnAuthorizationRulesRequest {
   Filters?: Filter[];
 
   /**
-   * <p>The ID of the Client VPN endpoint.</p>
+   * <p>The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the nextToken value.</p>
    */
-  ClientVpnEndpointId: string | undefined;
+  MaxResults?: number;
 }
 
 export namespace DescribeClientVpnAuthorizationRulesRequest {
@@ -1662,26 +1740,6 @@ export namespace DescribeClientVpnAuthorizationRulesRequest {
  */
 export interface AuthorizationRule {
   /**
-   * <p>The current state of the authorization rule.</p>
-   */
-  Status?: ClientVpnAuthorizationRuleStatus;
-
-  /**
-   * <p>The IPv4 address range, in CIDR notation, of the network to which the authorization rule applies.</p>
-   */
-  DestinationCidr?: string;
-
-  /**
-   * <p>Indicates whether the authorization rule grants access to all clients.</p>
-   */
-  AccessAll?: boolean;
-
-  /**
-   * <p>The ID of the Active Directory group to which the authorization rule grants access.</p>
-   */
-  GroupId?: string;
-
-  /**
    * <p>The ID of the Client VPN endpoint with which the authorization rule is associated.</p>
    */
   ClientVpnEndpointId?: string;
@@ -1690,6 +1748,26 @@ export interface AuthorizationRule {
    * <p>A brief description of the authorization rule.</p>
    */
   Description?: string;
+
+  /**
+   * <p>The ID of the Active Directory group to which the authorization rule grants access.</p>
+   */
+  GroupId?: string;
+
+  /**
+   * <p>Indicates whether the authorization rule grants access to all clients.</p>
+   */
+  AccessAll?: boolean;
+
+  /**
+   * <p>The IPv4 address range, in CIDR notation, of the network to which the authorization rule applies.</p>
+   */
+  DestinationCidr?: string;
+
+  /**
+   * <p>The current state of the authorization rule.</p>
+   */
+  Status?: ClientVpnAuthorizationRuleStatus;
 }
 
 export namespace AuthorizationRule {
@@ -1700,14 +1778,14 @@ export namespace AuthorizationRule {
 
 export interface DescribeClientVpnAuthorizationRulesResult {
   /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>Information about the authorization rules.</p>
    */
   AuthorizationRules?: AuthorizationRule[];
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace DescribeClientVpnAuthorizationRulesResult {
@@ -1717,6 +1795,11 @@ export namespace DescribeClientVpnAuthorizationRulesResult {
 }
 
 export interface DescribeClientVpnConnectionsRequest {
+  /**
+   * <p>The ID of the Client VPN endpoint.</p>
+   */
+  ClientVpnEndpointId: string | undefined;
+
   /**
    * <p>One or more filters. Filter names and values are case-sensitive.</p>
    * 	        <ul>
@@ -1737,11 +1820,6 @@ export interface DescribeClientVpnConnectionsRequest {
    * <p>The token to retrieve the next page of results.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>The ID of the Client VPN endpoint.</p>
-   */
-  ClientVpnEndpointId: string | undefined;
 
   /**
    * <p>The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the nextToken value.</p>
@@ -1767,14 +1845,14 @@ export type ClientVpnConnectionStatusCode = "active" | "failed-to-terminate" | "
  */
 export interface ClientVpnConnectionStatus {
   /**
-   * <p>A message about the status of the client connection, if applicable.</p>
-   */
-  Message?: string;
-
-  /**
    * <p>The state of the client connection.</p>
    */
   Code?: ClientVpnConnectionStatusCode | string;
+
+  /**
+   * <p>A message about the status of the client connection, if applicable.</p>
+   */
+  Message?: string;
 }
 
 export namespace ClientVpnConnectionStatus {
@@ -1788,32 +1866,6 @@ export namespace ClientVpnConnectionStatus {
  */
 export interface ClientVpnConnection {
   /**
-   * <p>The common name associated with the client. This is either the name of the client certificate,
-   * 			or the Active Directory user name.</p>
-   */
-  CommonName?: string;
-
-  /**
-   * <p>The ID of the client connection.</p>
-   */
-  ConnectionId?: string;
-
-  /**
-   * <p>The number of packets received by the client.</p>
-   */
-  EgressPackets?: string;
-
-  /**
-   * <p>The date and time the client connection was established.</p>
-   */
-  ConnectionEstablishedTime?: string;
-
-  /**
-   * <p>The number of bytes received by the client.</p>
-   */
-  EgressBytes?: string;
-
-  /**
    * <p>The ID of the Client VPN endpoint to which the client is connected.</p>
    */
   ClientVpnEndpointId?: string;
@@ -1824,15 +1876,20 @@ export interface ClientVpnConnection {
   Timestamp?: string;
 
   /**
+   * <p>The ID of the client connection.</p>
+   */
+  ConnectionId?: string;
+
+  /**
    * <p>The username of the client who established the client connection. This information is only provided
    * 			if Active Directory client authentication is used.</p>
    */
   Username?: string;
 
   /**
-   * <p>The IP address of the client.</p>
+   * <p>The date and time the client connection was established.</p>
    */
-  ClientIp?: string;
+  ConnectionEstablishedTime?: string;
 
   /**
    * <p>The number of bytes sent by the client.</p>
@@ -1840,9 +1897,9 @@ export interface ClientVpnConnection {
   IngressBytes?: string;
 
   /**
-   * <p>The date and time the client connection was terminated.</p>
+   * <p>The number of bytes received by the client.</p>
    */
-  ConnectionEndTime?: string;
+  EgressBytes?: string;
 
   /**
    * <p>The number of packets sent by the client.</p>
@@ -1850,9 +1907,35 @@ export interface ClientVpnConnection {
   IngressPackets?: string;
 
   /**
+   * <p>The number of packets received by the client.</p>
+   */
+  EgressPackets?: string;
+
+  /**
+   * <p>The IP address of the client.</p>
+   */
+  ClientIp?: string;
+
+  /**
+   * <p>The common name associated with the client. This is either the name of the client certificate,
+   * 			or the Active Directory user name.</p>
+   */
+  CommonName?: string;
+
+  /**
    * <p>The current state of the client connection.</p>
    */
   Status?: ClientVpnConnectionStatus;
+
+  /**
+   * <p>The date and time the client connection was terminated.</p>
+   */
+  ConnectionEndTime?: string;
+
+  /**
+   * <p>The statuses returned by the client connect handler for posture compliance, if applicable.</p>
+   */
+  PostureComplianceStatuses?: string[];
 }
 
 export namespace ClientVpnConnection {
@@ -1863,14 +1946,14 @@ export namespace ClientVpnConnection {
 
 export interface DescribeClientVpnConnectionsResult {
   /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>Information about the active and terminated client connections.</p>
    */
   Connections?: ClientVpnConnection[];
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace DescribeClientVpnConnectionsResult {
@@ -1881,19 +1964,14 @@ export namespace DescribeClientVpnConnectionsResult {
 
 export interface DescribeClientVpnEndpointsRequest {
   /**
-   * <p>The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the nextToken value.</p>
-   */
-  MaxResults?: number;
-
-  /**
    * <p>The ID of the Client VPN endpoint.</p>
    */
   ClientVpnEndpointIds?: string[];
 
   /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * <p>The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the nextToken value.</p>
    */
-  DryRun?: boolean;
+  MaxResults?: number;
 
   /**
    * <p>The token to retrieve the next page of results.</p>
@@ -1915,6 +1993,11 @@ export interface DescribeClientVpnEndpointsRequest {
    *          </ul>
    */
   Filters?: Filter[];
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
 }
 
 export namespace DescribeClientVpnEndpointsRequest {
@@ -1930,14 +2013,14 @@ export type AssociatedNetworkType = "vpc";
  */
 export interface AssociatedTargetNetwork {
   /**
-   * <p>The target network type.</p>
-   */
-  NetworkType?: AssociatedNetworkType | string;
-
-  /**
    * <p>The ID of the subnet.</p>
    */
   NetworkId?: string;
+
+  /**
+   * <p>The target network type.</p>
+   */
+  NetworkType?: AssociatedNetworkType | string;
 }
 
 export namespace AssociatedTargetNetwork {
@@ -2010,14 +2093,14 @@ export interface ClientVpnAuthentication {
   Type?: ClientVpnAuthenticationType | string;
 
   /**
-   * <p>Information about the authentication certificates, if applicable.</p>
-   */
-  MutualAuthentication?: CertificateAuthentication;
-
-  /**
    * <p>Information about the Active Directory, if applicable.</p>
    */
   ActiveDirectory?: DirectoryServiceAuthentication;
+
+  /**
+   * <p>Information about the authentication certificates, if applicable.</p>
+   */
+  MutualAuthentication?: CertificateAuthentication;
 
   /**
    * <p>Information about the IAM SAML identity provider, if applicable.</p>
@@ -2031,15 +2114,59 @@ export namespace ClientVpnAuthentication {
   });
 }
 
+export type ClientVpnEndpointAttributeStatusCode = "applied" | "applying";
+
+/**
+ * <p>Describes the status of the Client VPN endpoint attribute.</p>
+ */
+export interface ClientVpnEndpointAttributeStatus {
+  /**
+   * <p>The status code.</p>
+   */
+  Code?: ClientVpnEndpointAttributeStatusCode | string;
+
+  /**
+   * <p>The status message.</p>
+   */
+  Message?: string;
+}
+
+export namespace ClientVpnEndpointAttributeStatus {
+  export const filterSensitiveLog = (obj: ClientVpnEndpointAttributeStatus): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The options for managing connection authorization for new client connections.</p>
+ */
+export interface ClientConnectResponseOptions {
+  /**
+   * <p>Indicates whether client connect options are enabled.</p>
+   */
+  Enabled?: boolean;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the AWS Lambda function used for connection authorization.</p>
+   */
+  LambdaFunctionArn?: string;
+
+  /**
+   * <p>The status of any updates to the client connect options.</p>
+   */
+  Status?: ClientVpnEndpointAttributeStatus;
+}
+
+export namespace ClientConnectResponseOptions {
+  export const filterSensitiveLog = (obj: ClientConnectResponseOptions): any => ({
+    ...obj,
+  });
+}
+
 /**
  * <p>Information about the client connection logging options for a Client VPN endpoint.</p>
  */
 export interface ConnectionLogResponseOptions {
-  /**
-   * <p>The name of the Amazon CloudWatch Logs log stream to which connection logging data is published.</p>
-   */
-  CloudwatchLogStream?: string;
-
   /**
    * <p>Indicates whether client connection logging is enabled for the Client VPN endpoint.</p>
    */
@@ -2049,6 +2176,11 @@ export interface ConnectionLogResponseOptions {
    * <p>The name of the Amazon CloudWatch Logs log group to which connection logging data is published.</p>
    */
   CloudwatchLogGroup?: string;
+
+  /**
+   * <p>The name of the Amazon CloudWatch Logs log stream to which connection logging data is published.</p>
+   */
+  CloudwatchLogStream?: string;
 }
 
 export namespace ConnectionLogResponseOptions {
@@ -2064,14 +2196,9 @@ export type VpnProtocol = "openvpn";
  */
 export interface ClientVpnEndpoint {
   /**
-   * <p>The current state of the Client VPN endpoint.</p>
+   * <p>The ID of the Client VPN endpoint.</p>
    */
-  Status?: ClientVpnEndpointStatus;
-
-  /**
-   * <p>Information about the authentication method used by the Client VPN endpoint.</p>
-   */
-  AuthenticationOptions?: ClientVpnAuthentication[];
+  ClientVpnEndpointId?: string;
 
   /**
    * <p>A brief description of the endpoint.</p>
@@ -2079,14 +2206,46 @@ export interface ClientVpnEndpoint {
   Description?: string;
 
   /**
-   * <p>The IDs of the security groups for the target network.</p>
+   * <p>The current state of the Client VPN endpoint.</p>
    */
-  SecurityGroupIds?: string[];
+  Status?: ClientVpnEndpointStatus;
 
   /**
-   * <p>The URL of the self-service portal.</p>
+   * <p>The date and time the Client VPN endpoint was created.</p>
    */
-  SelfServicePortalUrl?: string;
+  CreationTime?: string;
+
+  /**
+   * <p>The date and time the Client VPN endpoint was deleted, if applicable.</p>
+   */
+  DeletionTime?: string;
+
+  /**
+   * <p>The DNS name to be used by clients when connecting to the Client VPN endpoint.</p>
+   */
+  DnsName?: string;
+
+  /**
+   * <p>The IPv4 address range, in CIDR notation, from which client IP addresses are assigned.</p>
+   */
+  ClientCidrBlock?: string;
+
+  /**
+   * <p>Information about the DNS servers to be used for DNS resolution. </p>
+   */
+  DnsServers?: string[];
+
+  /**
+   * <p>Indicates whether split-tunnel is enabled in the AWS Client VPN endpoint.</p>
+   * 		       <p>For information about split-tunnel VPN endpoints, see <a href="https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/split-tunnel-vpn.html">Split-Tunnel AWS Client VPN Endpoint</a> in the <i>AWS
+   * 				Client VPN Administrator Guide</i>.</p>
+   */
+  SplitTunnel?: boolean;
+
+  /**
+   * <p>The protocol used by the VPN session.</p>
+   */
+  VpnProtocol?: VpnProtocol | string;
 
   /**
    * <p>The transport protocol used by the Client VPN endpoint.</p>
@@ -2099,51 +2258,9 @@ export interface ClientVpnEndpoint {
   VpnPort?: number;
 
   /**
-   * <p>The date and time the Client VPN endpoint was created.</p>
-   */
-  CreationTime?: string;
-
-  /**
-   * <p>Information about the DNS servers to be used for DNS resolution. </p>
-   */
-  DnsServers?: string[];
-
-  /**
-   * <p>The protocol used by the VPN session.</p>
-   */
-  VpnProtocol?: VpnProtocol | string;
-
-  /**
-   * <p>Information about the client connection logging options for the Client VPN endpoint.</p>
-   */
-  ConnectionLogOptions?: ConnectionLogResponseOptions;
-
-  /**
-   * <p>The IPv4 address range, in CIDR notation, from which client IP addresses are assigned.</p>
-   */
-  ClientCidrBlock?: string;
-
-  /**
-   * <p>The DNS name to be used by clients when connecting to the Client VPN endpoint.</p>
-   */
-  DnsName?: string;
-
-  /**
-   * <p>The ID of the VPC.</p>
-   */
-  VpcId?: string;
-
-  /**
    * <p>Information about the associated target networks. A target network is a subnet in a VPC.</p>
    */
   AssociatedTargetNetworks?: AssociatedTargetNetwork[];
-
-  /**
-   * <p>Indicates whether split-tunnel is enabled in the AWS Client VPN endpoint.</p>
-   * 		       <p>For information about split-tunnel VPN endpoints, see <a href="https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/split-tunnel-vpn.html">Split-Tunnel AWS Client VPN Endpoint</a> in the <i>AWS
-   * 				Client VPN Administrator Guide</i>.</p>
-   */
-  SplitTunnel?: boolean;
 
   /**
    * <p>The ARN of the server certificate.</p>
@@ -2151,19 +2268,39 @@ export interface ClientVpnEndpoint {
   ServerCertificateArn?: string;
 
   /**
-   * <p>The ID of the Client VPN endpoint.</p>
+   * <p>Information about the authentication method used by the Client VPN endpoint.</p>
    */
-  ClientVpnEndpointId?: string;
+  AuthenticationOptions?: ClientVpnAuthentication[];
 
   /**
-   * <p>The date and time the Client VPN endpoint was deleted, if applicable.</p>
+   * <p>Information about the client connection logging options for the Client VPN endpoint.</p>
    */
-  DeletionTime?: string;
+  ConnectionLogOptions?: ConnectionLogResponseOptions;
 
   /**
    * <p>Any tags assigned to the Client VPN endpoint.</p>
    */
   Tags?: Tag[];
+
+  /**
+   * <p>The IDs of the security groups for the target network.</p>
+   */
+  SecurityGroupIds?: string[];
+
+  /**
+   * <p>The ID of the VPC.</p>
+   */
+  VpcId?: string;
+
+  /**
+   * <p>The URL of the self-service portal.</p>
+   */
+  SelfServicePortalUrl?: string;
+
+  /**
+   * <p>The options for managing connection authorization for new client connections.</p>
+   */
+  ClientConnectOptions?: ClientConnectResponseOptions;
 }
 
 export namespace ClientVpnEndpoint {
@@ -2174,14 +2311,14 @@ export namespace ClientVpnEndpoint {
 
 export interface DescribeClientVpnEndpointsResult {
   /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>Information about the Client VPN endpoints.</p>
    */
   ClientVpnEndpoints?: ClientVpnEndpoint[];
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace DescribeClientVpnEndpointsResult {
@@ -2195,21 +2332,6 @@ export interface DescribeClientVpnRoutesRequest {
    * <p>The ID of the Client VPN endpoint.</p>
    */
   ClientVpnEndpointId: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the nextToken value.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The token to retrieve the next page of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
 
   /**
    * <p>One or more filters. Filter names and values are case-sensitive.</p>
@@ -2229,6 +2351,21 @@ export interface DescribeClientVpnRoutesRequest {
    *          </ul>
    */
   Filters?: Filter[];
+
+  /**
+   * <p>The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the nextToken value.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token to retrieve the next page of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
 }
 
 export namespace DescribeClientVpnRoutesRequest {
@@ -2242,34 +2379,24 @@ export namespace DescribeClientVpnRoutesRequest {
  */
 export interface ClientVpnRoute {
   /**
-   * <p>The IPv4 address range, in CIDR notation, of the route destination.</p>
-   */
-  DestinationCidr?: string;
-
-  /**
-   * <p>The current state of the route.</p>
-   */
-  Status?: ClientVpnRouteStatus;
-
-  /**
-   * <p>The route type.</p>
-   */
-  Type?: string;
-
-  /**
-   * <p>A brief description of the route.</p>
-   */
-  Description?: string;
-
-  /**
    * <p>The ID of the Client VPN endpoint with which the route is associated.</p>
    */
   ClientVpnEndpointId?: string;
 
   /**
+   * <p>The IPv4 address range, in CIDR notation, of the route destination.</p>
+   */
+  DestinationCidr?: string;
+
+  /**
    * <p>The ID of the subnet through which traffic is routed.</p>
    */
   TargetSubnet?: string;
+
+  /**
+   * <p>The route type.</p>
+   */
+  Type?: string;
 
   /**
    * <p>Indicates how the route was associated with the Client VPN endpoint.
@@ -2278,6 +2405,16 @@ export interface ClientVpnRoute {
    * 			was manually added using the <b>CreateClientVpnRoute</b> action.</p>
    */
   Origin?: string;
+
+  /**
+   * <p>The current state of the route.</p>
+   */
+  Status?: ClientVpnRouteStatus;
+
+  /**
+   * <p>A brief description of the route.</p>
+   */
+  Description?: string;
 }
 
 export namespace ClientVpnRoute {
@@ -2306,14 +2443,14 @@ export namespace DescribeClientVpnRoutesResult {
 
 export interface DescribeClientVpnTargetNetworksRequest {
   /**
+   * <p>The ID of the Client VPN endpoint.</p>
+   */
+  ClientVpnEndpointId: string | undefined;
+
+  /**
    * <p>The IDs of the target network associations.</p>
    */
   AssociationIds?: string[];
-
-  /**
-   * <p>The token to retrieve the next page of results.</p>
-   */
-  NextToken?: string;
 
   /**
    * <p>The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the nextToken value.</p>
@@ -2321,9 +2458,9 @@ export interface DescribeClientVpnTargetNetworksRequest {
   MaxResults?: number;
 
   /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * <p>The token to retrieve the next page of results.</p>
    */
-  DryRun?: boolean;
+  NextToken?: string;
 
   /**
    * <p>One or more filters. Filter names and values are case-sensitive.</p>
@@ -2345,9 +2482,9 @@ export interface DescribeClientVpnTargetNetworksRequest {
   Filters?: Filter[];
 
   /**
-   * <p>The ID of the Client VPN endpoint.</p>
+   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    */
-  ClientVpnEndpointId: string | undefined;
+  DryRun?: boolean;
 }
 
 export namespace DescribeClientVpnTargetNetworksRequest {
@@ -2366,6 +2503,16 @@ export interface TargetNetwork {
   AssociationId?: string;
 
   /**
+   * <p>The ID of the VPC in which the target network (subnet) is located.</p>
+   */
+  VpcId?: string;
+
+  /**
+   * <p>The ID of the subnet specified as the target network.</p>
+   */
+  TargetNetworkId?: string;
+
+  /**
    * <p>The ID of the Client VPN endpoint with which the target network is associated.</p>
    */
   ClientVpnEndpointId?: string;
@@ -2379,16 +2526,6 @@ export interface TargetNetwork {
    * <p>The IDs of the security groups applied to the target network association.</p>
    */
   SecurityGroups?: string[];
-
-  /**
-   * <p>The ID of the subnet specified as the target network.</p>
-   */
-  TargetNetworkId?: string;
-
-  /**
-   * <p>The ID of the VPC in which the target network (subnet) is located.</p>
-   */
-  VpcId?: string;
 }
 
 export namespace TargetNetwork {
@@ -2399,14 +2536,14 @@ export namespace TargetNetwork {
 
 export interface DescribeClientVpnTargetNetworksResult {
   /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>Information about the associated target networks.</p>
    */
   ClientVpnTargetNetworks?: TargetNetwork[];
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace DescribeClientVpnTargetNetworksResult {
@@ -2417,11 +2554,9 @@ export namespace DescribeClientVpnTargetNetworksResult {
 
 export interface DescribeCoipPoolsRequest {
   /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * <p>The IDs of the address pools.</p>
    */
-  DryRun?: boolean;
+  PoolIds?: string[];
 
   /**
    * <p>The filters. The following are the possible values:</p>
@@ -2443,11 +2578,6 @@ export interface DescribeCoipPoolsRequest {
   Filters?: Filter[];
 
   /**
-   * <p>The IDs of the address pools.</p>
-   */
-  PoolIds?: string[];
-
-  /**
    * <p>The maximum number of results to return with a single call.
    * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
    */
@@ -2457,6 +2587,13 @@ export interface DescribeCoipPoolsRequest {
    * <p>The token for the next page of results.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
 }
 
 export namespace DescribeCoipPoolsRequest {
@@ -2470,19 +2607,14 @@ export namespace DescribeCoipPoolsRequest {
  */
 export interface CoipPool {
   /**
-   * <p>The ARN of the address pool.</p>
+   * <p>The ID of the address pool.</p>
    */
-  PoolArn?: string;
+  PoolId?: string;
 
   /**
    * <p>The address ranges of the address pool.</p>
    */
   PoolCidrs?: string[];
-
-  /**
-   * <p>The ID of the address pool.</p>
-   */
-  PoolId?: string;
 
   /**
    * <p>The ID of the local gateway route table.</p>
@@ -2493,6 +2625,11 @@ export interface CoipPool {
    * <p>The tags.</p>
    */
   Tags?: Tag[];
+
+  /**
+   * <p>The ARN of the address pool.</p>
+   */
+  PoolArn?: string;
 }
 
 export namespace CoipPool {
@@ -2503,14 +2640,14 @@ export namespace CoipPool {
 
 export interface DescribeCoipPoolsResult {
   /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>Information about the address pools.</p>
    */
   CoipPools?: CoipPool[];
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace DescribeCoipPoolsResult {
@@ -2544,19 +2681,14 @@ export namespace DescribeConversionTasksRequest {
  */
 export interface DiskImageDescription {
   /**
-   * <p>The disk image format.</p>
-   */
-  Format?: DiskImageFormat | string;
-
-  /**
    * <p>The checksum computed for the disk image.</p>
    */
   Checksum?: string;
 
   /**
-   * <p>The size of the disk image, in GiB.</p>
+   * <p>The disk image format.</p>
    */
-  Size?: number;
+  Format?: DiskImageFormat | string;
 
   /**
    * <p>A presigned URL for the import manifest stored in Amazon S3. For information about creating a presigned URL for
@@ -2565,6 +2697,11 @@ export interface DiskImageDescription {
    *          <p>For information about the import manifest referenced by this API action, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/manifest.html">VM Import Manifest</a>.</p>
    */
   ImportManifestUrl?: string;
+
+  /**
+   * <p>The size of the disk image, in GiB.</p>
+   */
+  Size?: number;
 }
 
 export namespace DiskImageDescription {
@@ -2578,14 +2715,14 @@ export namespace DiskImageDescription {
  */
 export interface DiskImageVolumeDescription {
   /**
-   * <p>The size of the volume, in GiB.</p>
-   */
-  Size?: number;
-
-  /**
    * <p>The volume identifier.</p>
    */
   Id?: string;
+
+  /**
+   * <p>The size of the volume, in GiB.</p>
+   */
+  Size?: number;
 }
 
 export namespace DiskImageVolumeDescription {
@@ -2599,24 +2736,14 @@ export namespace DiskImageVolumeDescription {
  */
 export interface ImportInstanceVolumeDetailItem {
   /**
-   * <p>The volume.</p>
-   */
-  Volume?: DiskImageVolumeDescription;
-
-  /**
-   * <p>The image.</p>
-   */
-  Image?: DiskImageDescription;
-
-  /**
-   * <p>The status information or errors related to the disk image.</p>
-   */
-  StatusMessage?: string;
-
-  /**
    * <p>The Availability Zone where the resulting instance will reside.</p>
    */
   AvailabilityZone?: string;
+
+  /**
+   * <p>The number of bytes converted so far.</p>
+   */
+  BytesConverted?: number;
 
   /**
    * <p>A description of the task.</p>
@@ -2624,14 +2751,24 @@ export interface ImportInstanceVolumeDetailItem {
   Description?: string;
 
   /**
+   * <p>The image.</p>
+   */
+  Image?: DiskImageDescription;
+
+  /**
    * <p>The status of the import of this particular disk image.</p>
    */
   Status?: string;
 
   /**
-   * <p>The number of bytes converted so far.</p>
+   * <p>The status information or errors related to the disk image.</p>
    */
-  BytesConverted?: number;
+  StatusMessage?: string;
+
+  /**
+   * <p>The volume.</p>
+   */
+  Volume?: DiskImageVolumeDescription;
 }
 
 export namespace ImportInstanceVolumeDetailItem {
@@ -2645,24 +2782,24 @@ export namespace ImportInstanceVolumeDetailItem {
  */
 export interface ImportInstanceTaskDetails {
   /**
-   * <p>The ID of the instance.</p>
-   */
-  InstanceId?: string;
-
-  /**
    * <p>A description of the task.</p>
    */
   Description?: string;
 
   /**
-   * <p>The volumes.</p>
+   * <p>The ID of the instance.</p>
    */
-  Volumes?: ImportInstanceVolumeDetailItem[];
+  InstanceId?: string;
 
   /**
    * <p>The instance operating system.</p>
    */
   Platform?: PlatformValues | string;
+
+  /**
+   * <p>The volumes.</p>
+   */
+  Volumes?: ImportInstanceVolumeDetailItem[];
 }
 
 export namespace ImportInstanceTaskDetails {
@@ -2676,21 +2813,6 @@ export namespace ImportInstanceTaskDetails {
  */
 export interface ImportVolumeTaskDetails {
   /**
-   * <p>The description you provided when starting the import volume task.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The volume.</p>
-   */
-  Volume?: DiskImageVolumeDescription;
-
-  /**
-   * <p>The image.</p>
-   */
-  Image?: DiskImageDescription;
-
-  /**
    * <p>The Availability Zone where the resulting volume will reside.</p>
    */
   AvailabilityZone?: string;
@@ -2699,6 +2821,21 @@ export interface ImportVolumeTaskDetails {
    * <p>The number of bytes converted so far.</p>
    */
   BytesConverted?: number;
+
+  /**
+   * <p>The description you provided when starting the import volume task.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The image.</p>
+   */
+  Image?: DiskImageDescription;
+
+  /**
+   * <p>The volume.</p>
+   */
+  Volume?: DiskImageVolumeDescription;
 }
 
 export namespace ImportVolumeTaskDetails {
@@ -2714,30 +2851,20 @@ export type ConversionTaskState = "active" | "cancelled" | "cancelling" | "compl
  */
 export interface ConversionTask {
   /**
+   * <p>The ID of the conversion task.</p>
+   */
+  ConversionTaskId?: string;
+
+  /**
    * <p>The time when the task expires. If the upload isn't complete before the expiration time, we automatically cancel
    *    the task.</p>
    */
   ExpirationTime?: string;
 
   /**
-   * <p>The state of the conversion task.</p>
+   * <p>If the task is for importing an instance, this contains information about the import instance task.</p>
    */
-  State?: ConversionTaskState | string;
-
-  /**
-   * <p>Any tags assigned to the task.</p>
-   */
-  Tags?: Tag[];
-
-  /**
-   * <p>The status message related to the conversion task.</p>
-   */
-  StatusMessage?: string;
-
-  /**
-   * <p>The ID of the conversion task.</p>
-   */
-  ConversionTaskId?: string;
+  ImportInstance?: ImportInstanceTaskDetails;
 
   /**
    * <p>If the task is for importing a volume, this contains information about the import volume task.</p>
@@ -2745,9 +2872,19 @@ export interface ConversionTask {
   ImportVolume?: ImportVolumeTaskDetails;
 
   /**
-   * <p>If the task is for importing an instance, this contains information about the import instance task.</p>
+   * <p>The state of the conversion task.</p>
    */
-  ImportInstance?: ImportInstanceTaskDetails;
+  State?: ConversionTaskState | string;
+
+  /**
+   * <p>The status message related to the conversion task.</p>
+   */
+  StatusMessage?: string;
+
+  /**
+   * <p>Any tags assigned to the task.</p>
+   */
+  Tags?: Tag[];
 }
 
 export namespace ConversionTask {
@@ -2773,6 +2910,12 @@ export namespace DescribeConversionTasksResult {
  * <p>Contains the parameters for DescribeCustomerGateways.</p>
  */
 export interface DescribeCustomerGatewaysRequest {
+  /**
+   * <p>One or more customer gateway IDs.</p>
+   *         <p>Default: Describes all your customer gateways.</p>
+   */
+  CustomerGatewayIds?: string[];
+
   /**
    * <p>One or more filters.</p>
    *         <ul>
@@ -2815,12 +2958,6 @@ export interface DescribeCustomerGatewaysRequest {
    *             Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    */
   DryRun?: boolean;
-
-  /**
-   * <p>One or more customer gateway IDs.</p>
-   *         <p>Default: Describes all your customer gateways.</p>
-   */
-  CustomerGatewayIds?: string[];
 }
 
 export namespace DescribeCustomerGatewaysRequest {
@@ -2847,17 +2984,10 @@ export namespace DescribeCustomerGatewaysResult {
 
 export interface DescribeDhcpOptionsRequest {
   /**
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   * <p>The IDs of one or more DHCP options sets.</p>
+   * 		       <p>Default: Describes all your DHCP options sets.</p>
    */
-  MaxResults?: number;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
+  DhcpOptionsIds?: string[];
 
   /**
    * <p>One or more filters.</p>
@@ -2892,15 +3022,22 @@ export interface DescribeDhcpOptionsRequest {
   Filters?: Filter[];
 
   /**
-   * <p>The IDs of one or more DHCP options sets.</p>
-   * 		       <p>Default: Describes all your DHCP options sets.</p>
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    */
-  DhcpOptionsIds?: string[];
+  DryRun?: boolean;
 
   /**
    * <p>The token for the next page of results.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return with a single call.
+   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   */
+  MaxResults?: number;
 }
 
 export namespace DescribeDhcpOptionsRequest {
@@ -2929,9 +3066,11 @@ export namespace DescribeDhcpOptionsResult {
 
 export interface DescribeEgressOnlyInternetGatewaysRequest {
   /**
-   * <p>The token for the next page of results.</p>
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    */
-  NextToken?: string;
+  DryRun?: boolean;
 
   /**
    * <p>One or more egress-only internet gateway IDs.</p>
@@ -2945,11 +3084,9 @@ export interface DescribeEgressOnlyInternetGatewaysRequest {
   MaxResults?: number;
 
   /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * <p>The token for the next page of results.</p>
    */
-  DryRun?: boolean;
+  NextToken?: string;
 
   /**
    * <p>One or more filters.</p>
@@ -2994,6 +3131,18 @@ export namespace DescribeEgressOnlyInternetGatewaysResult {
 
 export interface DescribeElasticGpusRequest {
   /**
+   * <p>The Elastic Graphics accelerator IDs.</p>
+   */
+  ElasticGpuIds?: string[];
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
    * <p>The filters.</p>
    *         <ul>
    *             <li>
@@ -3033,21 +3182,9 @@ export interface DescribeElasticGpusRequest {
   MaxResults?: number;
 
   /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
    * <p>The token to request the next page of results.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>The Elastic Graphics accelerator IDs.</p>
-   */
-  ElasticGpuIds?: string[];
 }
 
 export namespace DescribeElasticGpusRequest {
@@ -3086,21 +3223,6 @@ export enum ElasticGpuState {
  */
 export interface ElasticGpus {
   /**
-   * <p>The state of the Elastic Graphics accelerator.</p>
-   */
-  ElasticGpuState?: ElasticGpuState | string;
-
-  /**
-   * <p>The tags assigned to the Elastic Graphics accelerator.</p>
-   */
-  Tags?: Tag[];
-
-  /**
-   * <p>The status of the Elastic Graphics accelerator.</p>
-   */
-  ElasticGpuHealth?: ElasticGpuHealth;
-
-  /**
    * <p>The ID of the Elastic Graphics accelerator.</p>
    */
   ElasticGpuId?: string;
@@ -3116,9 +3238,24 @@ export interface ElasticGpus {
   ElasticGpuType?: string;
 
   /**
+   * <p>The status of the Elastic Graphics accelerator.</p>
+   */
+  ElasticGpuHealth?: ElasticGpuHealth;
+
+  /**
+   * <p>The state of the Elastic Graphics accelerator.</p>
+   */
+  ElasticGpuState?: ElasticGpuState | string;
+
+  /**
    * <p>The ID of the instance to which the Elastic Graphics accelerator is attached.</p>
    */
   InstanceId?: string;
+
+  /**
+   * <p>The tags assigned to the Elastic Graphics accelerator.</p>
+   */
+  Tags?: Tag[];
 }
 
 export namespace ElasticGpus {
@@ -3134,17 +3271,17 @@ export interface DescribeElasticGpusResult {
   ElasticGpuSet?: ElasticGpus[];
 
   /**
-   * <p>The token to use to retrieve the next page of results. This value is
-   *                 <code>null</code> when there are no more results to return.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>The total number of items to return. If the total number of items available is more
    *             than the value specified in max-items then a Next-Token will be provided in the output
    *             that you can use to resume pagination.</p>
    */
   MaxResults?: number;
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is
+   *                 <code>null</code> when there are no more results to return.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace DescribeElasticGpusResult {
@@ -3155,14 +3292,11 @@ export namespace DescribeElasticGpusResult {
 
 export interface DescribeExportImageTasksRequest {
   /**
-   * <p>The maximum number of results to return in a single call.</p>
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    */
-  MaxResults?: number;
-
-  /**
-   * <p>A token that indicates the next page of results.</p>
-   */
-  NextToken?: string;
+  DryRun?: boolean;
 
   /**
    * <p>Filter tasks using the <code>task-state</code> filter and one of the following values: <code>active</code>,
@@ -3171,16 +3305,19 @@ export interface DescribeExportImageTasksRequest {
   Filters?: Filter[];
 
   /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
    * <p>The IDs of the export image tasks.</p>
    */
   ExportImageTaskIds?: string[];
+
+  /**
+   * <p>The maximum number of results to return in a single call.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>A token that indicates the next page of results.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace DescribeExportImageTasksRequest {
@@ -3215,10 +3352,9 @@ export namespace ExportTaskS3Location {
  */
 export interface ExportImageTask {
   /**
-   * <p>The status of the export image task. The possible values are <code>active</code>, <code>completed</code>,
-   *     <code>deleting</code>, and <code>deleted</code>.</p>
+   * <p>A description of the image being exported.</p>
    */
-  Status?: string;
+  Description?: string;
 
   /**
    * <p>The ID of the export image task.</p>
@@ -3226,19 +3362,9 @@ export interface ExportImageTask {
   ExportImageTaskId?: string;
 
   /**
-   * <p>Any tags assigned to the image being exported.</p>
-   */
-  Tags?: Tag[];
-
-  /**
    * <p>The ID of the image.</p>
    */
   ImageId?: string;
-
-  /**
-   * <p>Information about the destination Amazon S3 bucket.</p>
-   */
-  S3ExportLocation?: ExportTaskS3Location;
 
   /**
    * <p>The percent complete of the export image task.</p>
@@ -3246,14 +3372,25 @@ export interface ExportImageTask {
   Progress?: string;
 
   /**
+   * <p>Information about the destination Amazon S3 bucket.</p>
+   */
+  S3ExportLocation?: ExportTaskS3Location;
+
+  /**
+   * <p>The status of the export image task. The possible values are <code>active</code>, <code>completed</code>,
+   *     <code>deleting</code>, and <code>deleted</code>.</p>
+   */
+  Status?: string;
+
+  /**
    * <p>The status message for the export image task.</p>
    */
   StatusMessage?: string;
 
   /**
-   * <p>A description of the image being exported.</p>
+   * <p>Any tags assigned to the image being exported.</p>
    */
-  Description?: string;
+  Tags?: Tag[];
 }
 
 export namespace ExportImageTask {
@@ -3264,15 +3401,15 @@ export namespace ExportImageTask {
 
 export interface DescribeExportImageTasksResult {
   /**
+   * <p>Information about the export image tasks.</p>
+   */
+  ExportImageTasks?: ExportImageTask[];
+
+  /**
    * <p>The token to use to get the next page of results. This value is <code>null</code> when there are no more results
    *    to return.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>Information about the export image tasks.</p>
-   */
-  ExportImageTasks?: ExportImageTask[];
 }
 
 export namespace DescribeExportImageTasksResult {
@@ -3283,14 +3420,14 @@ export namespace DescribeExportImageTasksResult {
 
 export interface DescribeExportTasksRequest {
   /**
-   * <p>the filters for the export tasks.</p>
-   */
-  Filters?: Filter[];
-
-  /**
    * <p>The export task IDs.</p>
    */
   ExportTaskIds?: string[];
+
+  /**
+   * <p>the filters for the export tasks.</p>
+   */
+  Filters?: Filter[];
 }
 
 export namespace DescribeExportTasksRequest {
@@ -3342,13 +3479,6 @@ export interface DescribeFastSnapshotRestoresRequest {
   Filters?: Filter[];
 
   /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
    * <p>The maximum number of results to return with a single call.
    * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
    */
@@ -3358,6 +3488,13 @@ export interface DescribeFastSnapshotRestoresRequest {
    * <p>The token for the next page of results.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
 }
 
 export namespace DescribeFastSnapshotRestoresRequest {
@@ -3373,9 +3510,14 @@ export type FastSnapshotRestoreStateCode = "disabled" | "disabling" | "enabled" 
  */
 export interface DescribeFastSnapshotRestoreSuccessItem {
   /**
-   * <p>The time at which fast snapshot restores entered the <code>enabling</code> state.</p>
+   * <p>The ID of the snapshot.</p>
    */
-  EnablingTime?: Date;
+  SnapshotId?: string;
+
+  /**
+   * <p>The Availability Zone.</p>
+   */
+  AvailabilityZone?: string;
 
   /**
    * <p>The state of fast snapshot restores.</p>
@@ -3400,9 +3542,9 @@ export interface DescribeFastSnapshotRestoreSuccessItem {
   StateTransitionReason?: string;
 
   /**
-   * <p>The time at which fast snapshot restores entered the <code>enabled</code> state.</p>
+   * <p>The ID of the AWS account that enabled fast snapshot restores on the snapshot.</p>
    */
-  EnabledTime?: Date;
+  OwnerId?: string;
 
   /**
    * <p>The AWS owner alias that enabled fast snapshot restores on the snapshot. This is intended for future use.</p>
@@ -3410,14 +3552,9 @@ export interface DescribeFastSnapshotRestoreSuccessItem {
   OwnerAlias?: string;
 
   /**
-   * <p>The ID of the snapshot.</p>
+   * <p>The time at which fast snapshot restores entered the <code>enabling</code> state.</p>
    */
-  SnapshotId?: string;
-
-  /**
-   * <p>The time at which fast snapshot restores entered the <code>disabling</code> state.</p>
-   */
-  DisablingTime?: Date;
+  EnablingTime?: Date;
 
   /**
    * <p>The time at which fast snapshot restores entered the <code>optimizing</code> state.</p>
@@ -3425,19 +3562,19 @@ export interface DescribeFastSnapshotRestoreSuccessItem {
   OptimizingTime?: Date;
 
   /**
+   * <p>The time at which fast snapshot restores entered the <code>enabled</code> state.</p>
+   */
+  EnabledTime?: Date;
+
+  /**
+   * <p>The time at which fast snapshot restores entered the <code>disabling</code> state.</p>
+   */
+  DisablingTime?: Date;
+
+  /**
    * <p>The time at which fast snapshot restores entered the <code>disabled</code> state.</p>
    */
   DisabledTime?: Date;
-
-  /**
-   * <p>The Availability Zone.</p>
-   */
-  AvailabilityZone?: string;
-
-  /**
-   * <p>The ID of the AWS account that enabled fast snapshot restores on the snapshot.</p>
-   */
-  OwnerId?: string;
 }
 
 export namespace DescribeFastSnapshotRestoreSuccessItem {
@@ -3448,14 +3585,14 @@ export namespace DescribeFastSnapshotRestoreSuccessItem {
 
 export interface DescribeFastSnapshotRestoresResult {
   /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>Information about the state of fast snapshot restores.</p>
    */
   FastSnapshotRestores?: DescribeFastSnapshotRestoreSuccessItem[];
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace DescribeFastSnapshotRestoresResult {
@@ -3472,14 +3609,16 @@ export enum FleetEventType {
 
 export interface DescribeFleetHistoryRequest {
   /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
    * <p>The type of events to describe. By default, all events are described.</p>
    */
   EventType?: FleetEventType | string;
-
-  /**
-   * <p>The token for the next set of results.</p>
-   */
-  NextToken?: string;
 
   /**
    * <p>The maximum number of results to return in a single call. Specify a value between 1 and
@@ -3489,11 +3628,9 @@ export interface DescribeFleetHistoryRequest {
   MaxResults?: number;
 
   /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * <p>The token for the next set of results.</p>
    */
-  DryRun?: boolean;
+  NextToken?: string;
 
   /**
    * <p>The ID of the EC2 Fleet.</p>
@@ -3646,12 +3783,6 @@ export namespace EventInformation {
  */
 export interface HistoryRecordEntry {
   /**
-   * <p>The date and time of the event, in UTC format (for example,
-   *             <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).</p>
-   */
-  Timestamp?: Date;
-
-  /**
    * <p>Information about the event.</p>
    */
   EventInformation?: EventInformation;
@@ -3660,6 +3791,12 @@ export interface HistoryRecordEntry {
    * <p>The event type.</p>
    */
   EventType?: FleetEventType | string;
+
+  /**
+   * <p>The date and time of the event, in UTC format (for example,
+   *             <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).</p>
+   */
+  Timestamp?: Date;
 }
 
 export namespace HistoryRecordEntry {
@@ -3669,16 +3806,6 @@ export namespace HistoryRecordEntry {
 }
 
 export interface DescribeFleetHistoryResult {
-  /**
-   * <p>The ID of the EC Fleet.</p>
-   */
-  FleetId?: string;
-
-  /**
-   * <p>The token for the next set of results.</p>
-   */
-  NextToken?: string;
-
   /**
    * <p>Information about the events in the history of the EC2 Fleet.</p>
    */
@@ -3694,6 +3821,16 @@ export interface DescribeFleetHistoryResult {
   LastEvaluatedTime?: Date;
 
   /**
+   * <p>The token for the next set of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The ID of the EC Fleet.</p>
+   */
+  FleetId?: string;
+
+  /**
    * <p>The start date and time for the events, in UTC format (for example,
    *             <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).</p>
    */
@@ -3707,11 +3844,6 @@ export namespace DescribeFleetHistoryResult {
 }
 
 export interface DescribeFleetInstancesRequest {
-  /**
-   * <p>The ID of the EC2 Fleet.</p>
-   */
-  FleetId: string | undefined;
-
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
@@ -3730,6 +3862,11 @@ export interface DescribeFleetInstancesRequest {
    * <p>The token for the next set of results.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The ID of the EC2 Fleet.</p>
+   */
+  FleetId: string | undefined;
 
   /**
    * <p>The filters.</p>
@@ -3751,15 +3888,15 @@ export namespace DescribeFleetInstancesRequest {
 
 export interface DescribeFleetInstancesResult {
   /**
-   * <p>The token for the next set of results.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>The running instances. This list is refreshed periodically and might be out of
    *          date.</p>
    */
   ActiveInstances?: ActiveInstance[];
+
+  /**
+   * <p>The token for the next set of results.</p>
+   */
+  NextToken?: string;
 
   /**
    * <p>The ID of the EC2 Fleet.</p>
@@ -3780,6 +3917,18 @@ export interface DescribeFleetsRequest {
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    */
   DryRun?: boolean;
+
+  /**
+   * <p>The maximum number of results to return in a single call. Specify a value between 1 and
+   *          1000. The default value is 1000. To retrieve the remaining results, make another call with
+   *          the returned <code>NextToken</code> value.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token for the next set of results.</p>
+   */
+  NextToken?: string;
 
   /**
    * <p>The ID of the EC2 Fleets.</p>
@@ -3821,18 +3970,6 @@ export interface DescribeFleetsRequest {
    *          </ul>
    */
   Filters?: Filter[];
-
-  /**
-   * <p>The token for the next set of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of results to return in a single call. Specify a value between 1 and
-   *          1000. The default value is 1000. To retrieve the remaining results, make another call with
-   *          the returned <code>NextToken</code> value.</p>
-   */
-  MaxResults?: number;
 }
 
 export namespace DescribeFleetsRequest {
@@ -3859,6 +3996,11 @@ export interface DescribeFleetError {
   LaunchTemplateAndOverrides?: LaunchTemplateAndOverridesResponse;
 
   /**
+   * <p>Indicates if the instance that could not be launched was a Spot Instance or On-Demand Instance.</p>
+   */
+  Lifecycle?: InstanceLifecycle | string;
+
+  /**
    * <p>The error code that indicates why the instance could not be launched. For more
    *          information about error codes, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html.html">Error Codes</a>.</p>
    */
@@ -3869,11 +4011,6 @@ export interface DescribeFleetError {
    *          information about error messages, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html.html">Error Codes</a>.</p>
    */
   ErrorMessage?: string;
-
-  /**
-   * <p>Indicates if the instance that could not be launched was a Spot Instance or On-Demand Instance.</p>
-   */
-  Lifecycle?: InstanceLifecycle | string;
 }
 
 export namespace DescribeFleetError {
@@ -3887,6 +4024,12 @@ export namespace DescribeFleetError {
  */
 export interface DescribeFleetsInstances {
   /**
+   * <p>The launch templates and overrides that were used for launching the instances. The
+   *          values that you specify in the Overrides replace the values in the launch template.</p>
+   */
+  LaunchTemplateAndOverrides?: LaunchTemplateAndOverridesResponse;
+
+  /**
    * <p>Indicates if the instance that was launched is a Spot Instance or On-Demand Instance.</p>
    */
   Lifecycle?: InstanceLifecycle | string;
@@ -3895,12 +4038,6 @@ export interface DescribeFleetsInstances {
    * <p>The IDs of the instances.</p>
    */
   InstanceIds?: string[];
-
-  /**
-   * <p>The launch templates and overrides that were used for launching the instances. The
-   *          values that you specify in the Overrides replace the values in the launch template.</p>
-   */
-  LaunchTemplateAndOverrides?: LaunchTemplateAndOverridesResponse;
 
   /**
    * <p>The instance type.</p>
@@ -3951,8 +4088,8 @@ export namespace FleetLaunchTemplateConfig {
  *          </note>
  *          <p>For more information about Capacity Reservations, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-capacity-reservations.html">On-Demand Capacity
  *             Reservations</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>. For examples of using
- *          Capacity Reservations in an EC2 Fleet, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-examples.html">EC2 Fleet Example
- *             Configurations</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ *          Capacity Reservations in an EC2 Fleet, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-examples.html">EC2 Fleet example
+ *             configurations</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  */
 export interface CapacityReservationOptions {
   /**
@@ -3990,21 +4127,16 @@ export interface OnDemandOptions {
   AllocationStrategy?: FleetOnDemandAllocationStrategy | string;
 
   /**
-   * <p>Indicates that the fleet uses a single instance type to launch all On-Demand Instances in the fleet.
-   *          Supported only for fleets of type <code>instant</code>.</p>
-   */
-  SingleInstanceType?: boolean;
-
-  /**
    * <p>The strategy for using unused Capacity Reservations for fulfilling On-Demand capacity.
    *          Supported only for fleets of type <code>instant</code>.</p>
    */
   CapacityReservationOptions?: CapacityReservationOptions;
 
   /**
-   * <p>The maximum amount per hour for On-Demand Instances that you're willing to pay.</p>
+   * <p>Indicates that the fleet uses a single instance type to launch all On-Demand Instances in the fleet.
+   *          Supported only for fleets of type <code>instant</code>.</p>
    */
-  MaxTotalPrice?: string;
+  SingleInstanceType?: boolean;
 
   /**
    * <p>Indicates that the fleet launches all On-Demand Instances into a single Availability Zone. Supported
@@ -4017,10 +4149,57 @@ export interface OnDemandOptions {
    *          not reached, the fleet launches no instances.</p>
    */
   MinTargetCapacity?: number;
+
+  /**
+   * <p>The maximum amount per hour for On-Demand Instances that you're willing to pay.</p>
+   */
+  MaxTotalPrice?: string;
 }
 
 export namespace OnDemandOptions {
   export const filterSensitiveLog = (obj: OnDemandOptions): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The strategy to use when Amazon EC2 emits a signal that your Spot Instance is at an
+ *          elevated risk of being interrupted.</p>
+ */
+export interface FleetSpotCapacityRebalance {
+  /**
+   * <p>To allow EC2 Fleet to launch a replacement Spot Instance when an instance rebalance
+   *          notification is emitted for an existing Spot Instance in the fleet, specify
+   *             <code>launch</code>. Only available for fleets of type <code>maintain</code>.</p>
+   *          <note>
+   *             <p>When a replacement instance is launched, the instance marked for rebalance is not
+   *             automatically terminated. You can terminate it, or you can wait until Amazon EC2
+   *             interrupts it. You are charged for both instances while they are running.</p>
+   *          </note>
+   */
+  ReplacementStrategy?: FleetReplacementStrategy | string;
+}
+
+export namespace FleetSpotCapacityRebalance {
+  export const filterSensitiveLog = (obj: FleetSpotCapacityRebalance): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The strategies for managing your Spot Instances that are at an elevated risk of being
+ *          interrupted.</p>
+ */
+export interface FleetSpotMaintenanceStrategies {
+  /**
+   * <p>The strategy to use when Amazon EC2 emits a signal that your Spot Instance is at an
+   *          elevated risk of being interrupted.</p>
+   */
+  CapacityRebalance?: FleetSpotCapacityRebalance;
+}
+
+export namespace FleetSpotMaintenanceStrategies {
+  export const filterSensitiveLog = (obj: FleetSpotMaintenanceStrategies): any => ({
     ...obj,
   });
 }
@@ -4043,6 +4222,17 @@ export interface SpotOptions {
   AllocationStrategy?: SpotAllocationStrategy | string;
 
   /**
+   * <p>The strategies for managing your workloads on your Spot Instances that will be
+   *          interrupted. Currently only the capacity rebalance strategy is available.</p>
+   */
+  MaintenanceStrategies?: FleetSpotMaintenanceStrategies;
+
+  /**
+   * <p>The behavior when a Spot Instance is interrupted. The default is <code>terminate</code>.</p>
+   */
+  InstanceInterruptionBehavior?: SpotInstanceInterruptionBehavior | string;
+
+  /**
    * <p>The number of Spot pools across which to allocate your target Spot capacity. Valid only
    *          when <b>AllocationStrategy</b> is set to
    *             <code>lowest-price</code>. EC2 Fleet selects the cheapest Spot pools and evenly allocates
@@ -4057,11 +4247,6 @@ export interface SpotOptions {
   SingleInstanceType?: boolean;
 
   /**
-   * <p>The maximum amount per hour for Spot Instances that you're willing to pay.</p>
-   */
-  MaxTotalPrice?: string;
-
-  /**
    * <p>Indicates that the fleet launches all Spot Instances into a single Availability Zone. Supported
    *          only for fleets of type <code>instant</code>.</p>
    */
@@ -4074,9 +4259,9 @@ export interface SpotOptions {
   MinTargetCapacity?: number;
 
   /**
-   * <p>The behavior when a Spot Instance is interrupted. The default is <code>terminate</code>.</p>
+   * <p>The maximum amount per hour for Spot Instances that you're willing to pay.</p>
    */
-  InstanceInterruptionBehavior?: SpotInstanceInterruptionBehavior | string;
+  MaxTotalPrice?: string;
 }
 
 export namespace SpotOptions {
@@ -4107,14 +4292,14 @@ export interface TargetCapacitySpecification {
   TotalTargetCapacity?: number;
 
   /**
-   * <p>The maximum number of Spot units to launch. If you specify a target capacity for On-Demand units, you cannot specify a target capacity for Spot units.</p>
-   */
-  SpotTargetCapacity?: number;
-
-  /**
    * <p>The number of On-Demand units to request. If you specify a target capacity for Spot units, you cannot specify a target capacity for On-Demand units.</p>
    */
   OnDemandTargetCapacity?: number;
+
+  /**
+   * <p>The maximum number of Spot units to launch. If you specify a target capacity for On-Demand units, you cannot specify a target capacity for Spot units.</p>
+   */
+  SpotTargetCapacity?: number;
 
   /**
    * <p>The default <code>TotalTargetCapacity</code>, which is either <code>Spot</code> or
@@ -4134,36 +4319,28 @@ export namespace TargetCapacitySpecification {
  */
 export interface FleetData {
   /**
-   * <p>The launch template and overrides.</p>
+   * <p>The progress of the EC2 Fleet. If there is an error, the status is <code>error</code>. After
+   *          all requests are placed, the status is <code>pending_fulfillment</code>. If the size of the
+   *          EC2 Fleet is equal to or greater than its target capacity, the status is <code>fulfilled</code>.
+   *          If the size of the EC2 Fleet is decreased, the status is <code>pending_termination</code> while
+   *          instances are terminating.</p>
    */
-  LaunchTemplateConfigs?: FleetLaunchTemplateConfig[];
+  ActivityStatus?: FleetActivityStatus | string;
 
   /**
-   * <p>The start date and time of the request, in UTC format (for example,
-   *             <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).
-   *          The default is to start fulfilling the request immediately. </p>
+   * <p>The creation date and time of the EC2 Fleet.</p>
    */
-  ValidFrom?: Date;
+  CreateTime?: Date;
 
   /**
-   * <p>Information about the instances that could not be launched by the fleet. Valid only when
-   *             <b>Type</b> is set to <code>instant</code>.</p>
+   * <p>The ID of the EC2 Fleet.</p>
    */
-  Errors?: DescribeFleetError[];
+  FleetId?: string;
 
   /**
-   * <p>The number of units to request. You can choose to set the target capacity in terms of
-   *          instances or a performance characteristic that is important to your application workload,
-   *          such as vCPUs, memory, or I/O. If the request type is <code>maintain</code>, you can
-   *          specify a target capacity of 0 and add capacity later.</p>
+   * <p>The state of the EC2 Fleet.</p>
    */
-  TargetCapacitySpecification?: TargetCapacitySpecification;
-
-  /**
-   * <p>Information about the instances that were launched by the fleet. Valid only when
-   *             <b>Type</b> is set to <code>instant</code>.</p>
-   */
-  Instances?: DescribeFleetsInstances[];
+  FleetState?: FleetStateCode | string;
 
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
@@ -4174,37 +4351,40 @@ export interface FleetData {
   ClientToken?: string;
 
   /**
-   * <p>The allocation strategy of On-Demand Instances in an EC2 Fleet.</p>
+   * <p>Indicates whether running instances should be terminated if the target capacity of the
+   *          EC2 Fleet is decreased below the current size of the EC2 Fleet.</p>
    */
-  OnDemandOptions?: OnDemandOptions;
+  ExcessCapacityTerminationPolicy?: FleetExcessCapacityTerminationPolicy | string;
+
+  /**
+   * <p>The number of units fulfilled by this request compared to the set target
+   *          capacity.</p>
+   */
+  FulfilledCapacity?: number;
+
+  /**
+   * <p>The number of units fulfilled by this request compared to the set target On-Demand
+   *          capacity.</p>
+   */
+  FulfilledOnDemandCapacity?: number;
+
+  /**
+   * <p>The launch template and overrides.</p>
+   */
+  LaunchTemplateConfigs?: FleetLaunchTemplateConfig[];
+
+  /**
+   * <p>The number of units to request. You can choose to set the target capacity in terms of
+   *          instances or a performance characteristic that is important to your application workload,
+   *          such as vCPUs, memory, or I/O. If the request type is <code>maintain</code>, you can
+   *          specify a target capacity of 0 and add capacity later.</p>
+   */
+  TargetCapacitySpecification?: TargetCapacitySpecification;
 
   /**
    * <p>Indicates whether running instances should be terminated when the EC2 Fleet expires. </p>
    */
   TerminateInstancesWithExpiration?: boolean;
-
-  /**
-   * <p>The progress of the EC2 Fleet. If there is an error, the status is <code>error</code>. After
-   *          all requests are placed, the status is <code>pending_fulfillment</code>. If the size of the
-   *          EC2 Fleet is equal to or greater than its target capacity, the status is <code>fulfilled</code>.
-   *          If the size of the EC2 Fleet is decreased, the status is <code>pending_termination</code> while
-   *          instances are terminating.</p>
-   */
-  ActivityStatus?: FleetActivityStatus | string;
-
-  /**
-   * <p>The end date and time of the request, in UTC format (for example,
-   *             <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).
-   *          At this point, no new instance requests are placed or able to fulfill the request. The
-   *          default end date is 7 days from the current date. </p>
-   */
-  ValidUntil?: Date;
-
-  /**
-   * <p>Indicates whether running instances should be terminated if the target capacity of the
-   *          EC2 Fleet is decreased below the current size of the EC2 Fleet.</p>
-   */
-  ExcessCapacityTerminationPolicy?: FleetExcessCapacityTerminationPolicy | string;
 
   /**
    * <p>The type of request. Indicates whether the EC2 Fleet only <code>requests</code> the target
@@ -4218,31 +4398,19 @@ export interface FleetData {
   Type?: FleetType | string;
 
   /**
-   * <p>The ID of the EC2 Fleet.</p>
+   * <p>The start date and time of the request, in UTC format (for example,
+   *             <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).
+   *          The default is to start fulfilling the request immediately. </p>
    */
-  FleetId?: string;
+  ValidFrom?: Date;
 
   /**
-   * <p>The configuration of Spot Instances in an EC2 Fleet.</p>
+   * <p>The end date and time of the request, in UTC format (for example,
+   *             <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).
+   *          At this point, no new instance requests are placed or able to fulfill the request. The
+   *          default end date is 7 days from the current date. </p>
    */
-  SpotOptions?: SpotOptions;
-
-  /**
-   * <p>The number of units fulfilled by this request compared to the set target
-   *          capacity.</p>
-   */
-  FulfilledCapacity?: number;
-
-  /**
-   * <p>The tags for an EC2 Fleet resource.</p>
-   */
-  Tags?: Tag[];
-
-  /**
-   * <p>The number of units fulfilled by this request compared to the set target On-Demand
-   *          capacity.</p>
-   */
-  FulfilledOnDemandCapacity?: number;
+  ValidUntil?: Date;
 
   /**
    * <p>Indicates whether EC2 Fleet should replace unhealthy instances.</p>
@@ -4250,14 +4418,31 @@ export interface FleetData {
   ReplaceUnhealthyInstances?: boolean;
 
   /**
-   * <p>The state of the EC2 Fleet.</p>
+   * <p>The configuration of Spot Instances in an EC2 Fleet.</p>
    */
-  FleetState?: FleetStateCode | string;
+  SpotOptions?: SpotOptions;
 
   /**
-   * <p>The creation date and time of the EC2 Fleet.</p>
+   * <p>The allocation strategy of On-Demand Instances in an EC2 Fleet.</p>
    */
-  CreateTime?: Date;
+  OnDemandOptions?: OnDemandOptions;
+
+  /**
+   * <p>The tags for an EC2 Fleet resource.</p>
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>Information about the instances that could not be launched by the fleet. Valid only when
+   *             <b>Type</b> is set to <code>instant</code>.</p>
+   */
+  Errors?: DescribeFleetError[];
+
+  /**
+   * <p>Information about the instances that were launched by the fleet. Valid only when
+   *             <b>Type</b> is set to <code>instant</code>.</p>
+   */
+  Instances?: DescribeFleetsInstances[];
 }
 
 export namespace FleetData {
@@ -4286,11 +4471,6 @@ export namespace DescribeFleetsResult {
 
 export interface DescribeFlowLogsRequest {
   /**
-   * <p>The token for the next page of results.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -4309,7 +4489,7 @@ export interface DescribeFlowLogsRequest {
    *                 <p>
    *                     <code>log-destination-type</code> - The type of destination to which the flow
    *                     log publishes data. Possible destination types include
-   *                     <code>cloud-watch-logs</code> and <code>S3</code>.</p>
+   *                     <code>cloud-watch-logs</code> and <code>s3</code>.</p>
    *             </li>
    *             <li>
    *                 <p>
@@ -4342,16 +4522,21 @@ export interface DescribeFlowLogsRequest {
   Filter?: Filter[];
 
   /**
+   * <p>One or more flow log IDs.</p>
+   *         <p>Constraint: Maximum of 1000 flow log IDs.</p>
+   */
+  FlowLogIds?: string[];
+
+  /**
    * <p>The maximum number of results to return with a single call.
    * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
    */
   MaxResults?: number;
 
   /**
-   * <p>One or more flow log IDs.</p>
-   *         <p>Constraint: Maximum of 1000 flow log IDs.</p>
+   * <p>The token for the next page of results.</p>
    */
-  FlowLogIds?: string[];
+  NextToken?: string;
 }
 
 export namespace DescribeFlowLogsRequest {
@@ -4370,16 +4555,6 @@ export interface FlowLog {
   CreationTime?: Date;
 
   /**
-   * <p>The ARN of the IAM role that posts logs to CloudWatch Logs.</p>
-   */
-  DeliverLogsPermissionArn?: string;
-
-  /**
-   * <p>The flow log ID.</p>
-   */
-  FlowLogId?: string;
-
-  /**
    * <p>Information about the error that occurred. <code>Rate limited</code> indicates that
    *             CloudWatch Logs throttling has been applied for one or more network interfaces, or that you've
    *             reached the limit on the number of log groups that you can create. <code>Access
@@ -4388,6 +4563,47 @@ export interface FlowLog {
    *             internal error.</p>
    */
   DeliverLogsErrorMessage?: string;
+
+  /**
+   * <p>The ARN of the IAM role that posts logs to CloudWatch Logs.</p>
+   */
+  DeliverLogsPermissionArn?: string;
+
+  /**
+   * <p>The status of the logs delivery (<code>SUCCESS</code> | <code>FAILED</code>).</p>
+   */
+  DeliverLogsStatus?: string;
+
+  /**
+   * <p>The flow log ID.</p>
+   */
+  FlowLogId?: string;
+
+  /**
+   * <p>The status of the flow log (<code>ACTIVE</code>).</p>
+   */
+  FlowLogStatus?: string;
+
+  /**
+   * <p>The name of the flow log group.</p>
+   */
+  LogGroupName?: string;
+
+  /**
+   * <p>The ID of the resource on which the flow log was created.</p>
+   */
+  ResourceId?: string;
+
+  /**
+   * <p>The type of traffic captured for the flow log.</p>
+   */
+  TrafficType?: TrafficType | string;
+
+  /**
+   * <p>Specifies the type of destination to which the flow log data is published. Flow log data can be
+   *             published to CloudWatch Logs or Amazon S3.</p>
+   */
+  LogDestinationType?: LogDestinationType | string;
 
   /**
    * <p>Specifies the destination to which the flow log data is published. Flow log data can be
@@ -4399,45 +4615,14 @@ export interface FlowLog {
   LogDestination?: string;
 
   /**
-   * <p>Specifies the type of destination to which the flow log data is published. Flow log data can be
-   *             published to CloudWatch Logs or Amazon S3.</p>
-   */
-  LogDestinationType?: LogDestinationType | string;
-
-  /**
-   * <p>The ID of the resource on which the flow log was created.</p>
-   */
-  ResourceId?: string;
-
-  /**
-   * <p>The tags for the flow log.</p>
-   */
-  Tags?: Tag[];
-
-  /**
-   * <p>The name of the flow log group.</p>
-   */
-  LogGroupName?: string;
-
-  /**
    * <p>The format of the flow log record.</p>
    */
   LogFormat?: string;
 
   /**
-   * <p>The status of the logs delivery (<code>SUCCESS</code> | <code>FAILED</code>).</p>
+   * <p>The tags for the flow log.</p>
    */
-  DeliverLogsStatus?: string;
-
-  /**
-   * <p>The type of traffic captured for the flow log.</p>
-   */
-  TrafficType?: TrafficType | string;
-
-  /**
-   * <p>The status of the flow log (<code>ACTIVE</code>).</p>
-   */
-  FlowLogStatus?: string;
+  Tags?: Tag[];
 
   /**
    * <p>The maximum interval of time, in seconds, during which a flow of packets is captured and aggregated into a flow log record.</p>
@@ -4458,14 +4643,14 @@ export namespace FlowLog {
 
 export interface DescribeFlowLogsResult {
   /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>Information about the flow logs.</p>
    */
   FlowLogs?: FlowLog[];
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace DescribeFlowLogsResult {
@@ -4485,14 +4670,14 @@ export interface DescribeFpgaImageAttributeRequest {
   DryRun?: boolean;
 
   /**
-   * <p>The AFI attribute.</p>
-   */
-  Attribute: FpgaImageAttributeName | string | undefined;
-
-  /**
    * <p>The ID of the AFI.</p>
    */
   FpgaImageId: string | undefined;
+
+  /**
+   * <p>The AFI attribute.</p>
+   */
+  Attribute: FpgaImageAttributeName | string | undefined;
 }
 
 export namespace DescribeFpgaImageAttributeRequest {
@@ -4531,14 +4716,14 @@ export type ProductCodeValues = "devpay" | "marketplace";
  */
 export interface ProductCode {
   /**
-   * <p>The type of product code.</p>
-   */
-  ProductCodeType?: ProductCodeValues | string;
-
-  /**
    * <p>The product code.</p>
    */
   ProductCodeId?: string;
+
+  /**
+   * <p>The type of product code.</p>
+   */
+  ProductCodeType?: ProductCodeValues | string;
 }
 
 export namespace ProductCode {
@@ -4557,16 +4742,6 @@ export interface FpgaImageAttribute {
   FpgaImageId?: string;
 
   /**
-   * <p>The load permissions.</p>
-   */
-  LoadPermissions?: LoadPermission[];
-
-  /**
-   * <p>The product codes.</p>
-   */
-  ProductCodes?: ProductCode[];
-
-  /**
    * <p>The name of the AFI.</p>
    */
   Name?: string;
@@ -4575,6 +4750,16 @@ export interface FpgaImageAttribute {
    * <p>The description of the AFI.</p>
    */
   Description?: string;
+
+  /**
+   * <p>The load permissions.</p>
+   */
+  LoadPermissions?: LoadPermission[];
+
+  /**
+   * <p>The product codes.</p>
+   */
+  ProductCodes?: ProductCode[];
 }
 
 export namespace FpgaImageAttribute {
@@ -4597,6 +4782,13 @@ export namespace DescribeFpgaImageAttributeResult {
 }
 
 export interface DescribeFpgaImagesRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
   /**
    * <p>The AFI IDs.</p>
    */
@@ -4660,21 +4852,14 @@ export interface DescribeFpgaImagesRequest {
   Filters?: Filter[];
 
   /**
-   * <p>The maximum number of results to return in a single call.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
    * <p>The token to retrieve the next page of results.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return in a single call.</p>
+   */
+  MaxResults?: number;
 }
 
 export namespace DescribeFpgaImagesRequest {
@@ -4693,9 +4878,9 @@ export interface PciId {
   DeviceId?: string;
 
   /**
-   * <p>The ID of the vendor for the subsystem.</p>
+   * <p>The ID of the vendor.</p>
    */
-  SubsystemVendorId?: string;
+  VendorId?: string;
 
   /**
    * <p>The ID of the subsystem.</p>
@@ -4703,9 +4888,9 @@ export interface PciId {
   SubsystemId?: string;
 
   /**
-   * <p>The ID of the vendor.</p>
+   * <p>The ID of the vendor for the subsystem.</p>
    */
-  VendorId?: string;
+  SubsystemVendorId?: string;
 }
 
 export namespace PciId {
@@ -4760,9 +4945,9 @@ export namespace FpgaImageState {
  */
 export interface FpgaImage {
   /**
-   * <p>Any tags assigned to the AFI.</p>
+   * <p>The FPGA image identifier (AFI ID).</p>
    */
-  Tags?: Tag[];
+  FpgaImageId?: string;
 
   /**
    * <p>The global FPGA image identifier (AGFI ID).</p>
@@ -4770,14 +4955,9 @@ export interface FpgaImage {
   FpgaImageGlobalId?: string;
 
   /**
-   * <p>Information about the PCI bus.</p>
+   * <p>The name of the AFI.</p>
    */
-  PciId?: PciId;
-
-  /**
-   * <p>The time of the most recent update to the AFI.</p>
-   */
-  UpdateTime?: Date;
+  Name?: string;
 
   /**
    * <p>The description of the AFI.</p>
@@ -4785,44 +4965,14 @@ export interface FpgaImage {
   Description?: string;
 
   /**
-   * <p>The AWS account ID of the AFI owner.</p>
-   */
-  OwnerId?: string;
-
-  /**
-   * <p>Indicates whether data retention support is enabled for the AFI.</p>
-   */
-  DataRetentionSupport?: boolean;
-
-  /**
-   * <p>The alias of the AFI owner. Possible values include <code>self</code>, <code>amazon</code>, and <code>aws-marketplace</code>.</p>
-   */
-  OwnerAlias?: string;
-
-  /**
-   * <p>The date and time the AFI was created.</p>
-   */
-  CreateTime?: Date;
-
-  /**
-   * <p>Indicates whether the AFI is public.</p>
-   */
-  Public?: boolean;
-
-  /**
-   * <p>The FPGA image identifier (AFI ID).</p>
-   */
-  FpgaImageId?: string;
-
-  /**
    * <p>The version of the AWS Shell that was used to create the bitstream.</p>
    */
   ShellVersion?: string;
 
   /**
-   * <p>The product codes for the AFI.</p>
+   * <p>Information about the PCI bus.</p>
    */
-  ProductCodes?: ProductCode[];
+  PciId?: PciId;
 
   /**
    * <p>Information about the state of the AFI.</p>
@@ -4830,9 +4980,44 @@ export interface FpgaImage {
   State?: FpgaImageState;
 
   /**
-   * <p>The name of the AFI.</p>
+   * <p>The date and time the AFI was created.</p>
    */
-  Name?: string;
+  CreateTime?: Date;
+
+  /**
+   * <p>The time of the most recent update to the AFI.</p>
+   */
+  UpdateTime?: Date;
+
+  /**
+   * <p>The AWS account ID of the AFI owner.</p>
+   */
+  OwnerId?: string;
+
+  /**
+   * <p>The alias of the AFI owner. Possible values include <code>self</code>, <code>amazon</code>, and <code>aws-marketplace</code>.</p>
+   */
+  OwnerAlias?: string;
+
+  /**
+   * <p>The product codes for the AFI.</p>
+   */
+  ProductCodes?: ProductCode[];
+
+  /**
+   * <p>Any tags assigned to the AFI.</p>
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>Indicates whether the AFI is public.</p>
+   */
+  Public?: boolean;
+
+  /**
+   * <p>Indicates whether data retention support is enabled for the AFI.</p>
+   */
+  DataRetentionSupport?: boolean;
 }
 
 export namespace FpgaImage {
@@ -4861,11 +5046,6 @@ export namespace DescribeFpgaImagesResult {
 
 export interface DescribeHostReservationOfferingsRequest {
   /**
-   * <p>The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the returned <code>nextToken</code> value. This value can be between 5 and 500. If <code>maxResults</code> is given a larger value than 500, you receive an error.</p>
-   */
-  MaxResults?: number;
-
-  /**
    * <p>The filters.</p>
    *         <ul>
    *             <li>
@@ -4883,6 +5063,19 @@ export interface DescribeHostReservationOfferingsRequest {
   Filter?: Filter[];
 
   /**
+   * <p>This is the maximum duration of the reservation to purchase, specified in seconds.
+   *             Reservations are available in one-year and three-year terms. The number of seconds
+   *             specified must be the number of seconds in a year (365x24x60x60) times one of the
+   *             supported durations (1 or 3). For example, specify 94608000 for three years.</p>
+   */
+  MaxDuration?: number;
+
+  /**
+   * <p>The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the returned <code>nextToken</code> value. This value can be between 5 and 500. If <code>maxResults</code> is given a larger value than 500, you receive an error.</p>
+   */
+  MaxResults?: number;
+
+  /**
    * <p>This is the minimum duration of the reservation you'd like to purchase, specified
    *             in seconds. Reservations are available in one-year and three-year terms. The number of
    *             seconds specified must be the number of seconds in a year (365x24x60x60) times one of
@@ -4894,14 +5087,6 @@ export interface DescribeHostReservationOfferingsRequest {
    * <p>The token to use to retrieve the next page of results.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>This is the maximum duration of the reservation to purchase, specified in seconds.
-   *             Reservations are available in one-year and three-year terms. The number of seconds
-   *             specified must be the number of seconds in a year (365x24x60x60) times one of the
-   *             supported durations (1 or 3). For example, specify 94608000 for three years.</p>
-   */
-  MaxDuration?: number;
 
   /**
    * <p>The ID of the reservation offering.</p>
@@ -4931,6 +5116,11 @@ export interface HostOffering {
   CurrencyCode?: CurrencyCodeValues | string;
 
   /**
+   * <p>The duration of the offering (in seconds).</p>
+   */
+  Duration?: number;
+
+  /**
    * <p>The hourly price of the offering.</p>
    */
   HourlyPrice?: string;
@@ -4941,25 +5131,20 @@ export interface HostOffering {
   InstanceFamily?: string;
 
   /**
-   * <p>The available payment option.</p>
-   */
-  PaymentOption?: PaymentOption | string;
-
-  /**
    * <p>The ID of the offering.</p>
    */
   OfferingId?: string;
+
+  /**
+   * <p>The available payment option.</p>
+   */
+  PaymentOption?: PaymentOption | string;
 
   /**
    * <p>The upfront price of the offering. Does not apply to No Upfront
    *             offerings.</p>
    */
   UpfrontPrice?: string;
-
-  /**
-   * <p>The duration of the offering (in seconds).</p>
-   */
-  Duration?: number;
 }
 
 export namespace HostOffering {
@@ -5020,6 +5205,11 @@ export interface DescribeHostReservationsRequest {
   Filter?: Filter[];
 
   /**
+   * <p>The host reservation IDs.</p>
+   */
+  HostReservationIdSet?: string[];
+
+  /**
    * <p>The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the returned <code>nextToken</code> value. This value can be between 5 and 500. If <code>maxResults</code> is given a larger value than 500, you receive an error.</p>
    */
   MaxResults?: number;
@@ -5028,11 +5218,6 @@ export interface DescribeHostReservationsRequest {
    * <p>The token to use to retrieve the next page of results.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>The host reservation IDs.</p>
-   */
-  HostReservationIdSet?: string[];
 }
 
 export namespace DescribeHostReservationsRequest {
@@ -5054,14 +5239,42 @@ export enum ReservationState {
  */
 export interface HostReservation {
   /**
-   * <p>The date and time that the reservation started.</p>
+   * <p>The number of Dedicated Hosts the reservation is associated with.</p>
    */
-  Start?: Date;
+  Count?: number;
 
   /**
-   * <p>Any tags assigned to the Dedicated Host Reservation.</p>
+   * <p>The currency in which the <code>upfrontPrice</code> and <code>hourlyPrice</code>
+   *             amounts are specified. At this time, the only supported currency is
+   *             <code>USD</code>.</p>
    */
-  Tags?: Tag[];
+  CurrencyCode?: CurrencyCodeValues | string;
+
+  /**
+   * <p>The length of the reservation's term, specified in seconds. Can be <code>31536000
+   *                 (1 year)</code> | <code>94608000 (3 years)</code>.</p>
+   */
+  Duration?: number;
+
+  /**
+   * <p>The date and time that the reservation ends.</p>
+   */
+  End?: Date;
+
+  /**
+   * <p>The IDs of the Dedicated Hosts associated with the reservation.</p>
+   */
+  HostIdSet?: string[];
+
+  /**
+   * <p>The ID of the reservation that specifies the associated Dedicated Hosts.</p>
+   */
+  HostReservationId?: string;
+
+  /**
+   * <p>The hourly price of the reservation.</p>
+   */
+  HourlyPrice?: string;
 
   /**
    * <p>The instance family of the Dedicated Host Reservation. The instance family on the
@@ -5077,26 +5290,14 @@ export interface HostReservation {
   OfferingId?: string;
 
   /**
-   * <p>The IDs of the Dedicated Hosts associated with the reservation.</p>
+   * <p>The payment option selected for this reservation.</p>
    */
-  HostIdSet?: string[];
+  PaymentOption?: PaymentOption | string;
 
   /**
-   * <p>The upfront price of the reservation.</p>
+   * <p>The date and time that the reservation started.</p>
    */
-  UpfrontPrice?: string;
-
-  /**
-   * <p>The ID of the reservation that specifies the associated Dedicated Hosts.</p>
-   */
-  HostReservationId?: string;
-
-  /**
-   * <p>The currency in which the <code>upfrontPrice</code> and <code>hourlyPrice</code>
-   *             amounts are specified. At this time, the only supported currency is
-   *             <code>USD</code>.</p>
-   */
-  CurrencyCode?: CurrencyCodeValues | string;
+  Start?: Date;
 
   /**
    * <p>The state of the reservation.</p>
@@ -5104,30 +5305,14 @@ export interface HostReservation {
   State?: ReservationState | string;
 
   /**
-   * <p>The payment option selected for this reservation.</p>
+   * <p>The upfront price of the reservation.</p>
    */
-  PaymentOption?: PaymentOption | string;
+  UpfrontPrice?: string;
 
   /**
-   * <p>The number of Dedicated Hosts the reservation is associated with.</p>
+   * <p>Any tags assigned to the Dedicated Host Reservation.</p>
    */
-  Count?: number;
-
-  /**
-   * <p>The hourly price of the reservation.</p>
-   */
-  HourlyPrice?: string;
-
-  /**
-   * <p>The date and time that the reservation ends.</p>
-   */
-  End?: Date;
-
-  /**
-   * <p>The length of the reservation's term, specified in seconds. Can be <code>31536000
-   *                 (1 year)</code> | <code>94608000 (3 years)</code>.</p>
-   */
-  Duration?: number;
+  Tags?: Tag[];
 }
 
 export namespace HostReservation {
@@ -5138,14 +5323,14 @@ export namespace HostReservation {
 
 export interface DescribeHostReservationsResult {
   /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>Details about the reservation's configuration.</p>
    */
   HostReservationSet?: HostReservation[];
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace DescribeHostReservationsResult {
@@ -5199,16 +5384,16 @@ export interface DescribeHostsRequest {
   Filter?: Filter[];
 
   /**
-   * <p>The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the returned <code>nextToken</code> value. This value can be between 5 and 500. If <code>maxResults</code> is given a larger value than 500, you receive an error.</p>
-   *          <p>You cannot specify this parameter and the host IDs parameter in the same request.</p>
-   */
-  MaxResults?: number;
-
-  /**
    * <p>The IDs of the Dedicated Hosts. The IDs are used for targeted instance
    *             launches.</p>
    */
   HostIds?: string[];
+
+  /**
+   * <p>The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the returned <code>nextToken</code> value. This value can be between 5 and 500. If <code>maxResults</code> is given a larger value than 500, you receive an error.</p>
+   *          <p>You cannot specify this parameter and the host IDs parameter in the same request.</p>
+   */
+  MaxResults?: number;
 
   /**
    * <p>The token to use to retrieve the next page of results.</p>
@@ -5234,15 +5419,15 @@ export interface InstanceCapacity {
   AvailableCapacity?: number;
 
   /**
+   * <p>The instance type supported by the Dedicated Host.</p>
+   */
+  InstanceType?: string;
+
+  /**
    * <p>The total number of instances that can be launched onto the Dedicated Host if there
    *     		are no instances running on it.</p>
    */
   TotalCapacity?: number;
-
-  /**
-   * <p>The instance type supported by the Dedicated Host.</p>
-   */
-  InstanceType?: string;
 }
 
 export namespace InstanceCapacity {
@@ -5285,9 +5470,11 @@ export interface HostProperties {
   Cores?: number;
 
   /**
-   * <p>The number of sockets on the Dedicated Host.</p>
+   * <p>The instance type supported by the Dedicated Host. For example, <code>m5.large</code>.
+   *         	If the host supports multiple instance types, no <b>instanceType</b>
+   *         	is returned.</p>
    */
-  Sockets?: number;
+  InstanceType?: string;
 
   /**
    * <p>The instance family supported by the Dedicated Host. For example, <code>m5</code>.</p>
@@ -5295,11 +5482,9 @@ export interface HostProperties {
   InstanceFamily?: string;
 
   /**
-   * <p>The instance type supported by the Dedicated Host. For example, <code>m5.large</code>.
-   *         	If the host supports multiple instance types, no <b>instanceType</b>
-   *         	is returned.</p>
+   * <p>The number of sockets on the Dedicated Host.</p>
    */
-  InstanceType?: string;
+  Sockets?: number;
 
   /**
    * <p>The total number of vCPUs on the Dedicated Host.</p>
@@ -5318,11 +5503,6 @@ export namespace HostProperties {
  */
 export interface HostInstance {
   /**
-   * <p>The ID of the AWS account that owns the instance.</p>
-   */
-  OwnerId?: string;
-
-  /**
    * <p>The ID of instance that is running on the Dedicated Host.</p>
    */
   InstanceId?: string;
@@ -5331,6 +5511,11 @@ export interface HostInstance {
    * <p>The instance type (for example, <code>m3.medium</code>) of the running instance.</p>
    */
   InstanceType?: string;
+
+  /**
+   * <p>The ID of the AWS account that owns the instance.</p>
+   */
+  OwnerId?: string;
 }
 
 export namespace HostInstance {
@@ -5344,21 +5529,24 @@ export namespace HostInstance {
  */
 export interface Host {
   /**
-   * <p>The time that the Dedicated Host was allocated.</p>
-   */
-  AllocationTime?: Date;
-
-  /**
-   * <p>Indicates whether the Dedicated Host is in a host resource group. If
-   * 			<b>memberOfServiceLinkedResourceGroup</b> is
-   * 			<code>true</code>, the host is in a host resource group; otherwise, it is not.</p>
-   */
-  MemberOfServiceLinkedResourceGroup?: boolean;
-
-  /**
    * <p>Whether auto-placement is on or off.</p>
    */
   AutoPlacement?: AutoPlacement | string;
+
+  /**
+   * <p>The Availability Zone of the Dedicated Host.</p>
+   */
+  AvailabilityZone?: string;
+
+  /**
+   * <p>Information about the instances running on the Dedicated Host.</p>
+   */
+  AvailableCapacity?: AvailableCapacity;
+
+  /**
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How to Ensure Idempotency</a>.</p>
+   */
+  ClientToken?: string;
 
   /**
    * <p>The ID of the Dedicated Host.</p>
@@ -5366,23 +5554,15 @@ export interface Host {
   HostId?: string;
 
   /**
+   * <p>The hardware specifications of the Dedicated Host.</p>
+   */
+  HostProperties?: HostProperties;
+
+  /**
    * <p>The reservation ID of the Dedicated Host. This returns a <code>null</code> response
    *             if the Dedicated Host doesn't have an associated reservation.</p>
    */
   HostReservationId?: string;
-
-  /**
-   * <p>Indicates whether the Dedicated Host supports multiple instance types of the same instance family,
-   * 			or a specific instance type only. <code>one</code> indicates that the Dedicated Host supports
-   * 			multiple instance types in the instance family. <code>off</code> indicates that the Dedicated
-   * 			Host supports a single instance type only.</p>
-   */
-  AllowsMultipleInstanceTypes?: AllowsMultipleInstanceTypes | string;
-
-  /**
-   * <p>The Availability Zone of the Dedicated Host.</p>
-   */
-  AvailabilityZone?: string;
 
   /**
    * <p>The IDs and instance type that are currently running on the Dedicated
@@ -5396,29 +5576,9 @@ export interface Host {
   State?: AllocationState | string;
 
   /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How to Ensure Idempotency</a>.</p>
+   * <p>The time that the Dedicated Host was allocated.</p>
    */
-  ClientToken?: string;
-
-  /**
-   * <p>Any tags assigned to the Dedicated Host.</p>
-   */
-  Tags?: Tag[];
-
-  /**
-   * <p>The hardware specifications of the Dedicated Host.</p>
-   */
-  HostProperties?: HostProperties;
-
-  /**
-   * <p>The ID of the AWS account that owns the Dedicated Host.</p>
-   */
-  OwnerId?: string;
-
-  /**
-   * <p>Indicates whether host recovery is enabled or disabled for the Dedicated Host.</p>
-   */
-  HostRecovery?: HostRecovery | string;
+  AllocationTime?: Date;
 
   /**
    * <p>The time that the Dedicated Host was released.</p>
@@ -5426,14 +5586,39 @@ export interface Host {
   ReleaseTime?: Date;
 
   /**
-   * <p>Information about the instances running on the Dedicated Host.</p>
+   * <p>Any tags assigned to the Dedicated Host.</p>
    */
-  AvailableCapacity?: AvailableCapacity;
+  Tags?: Tag[];
+
+  /**
+   * <p>Indicates whether host recovery is enabled or disabled for the Dedicated Host.</p>
+   */
+  HostRecovery?: HostRecovery | string;
+
+  /**
+   * <p>Indicates whether the Dedicated Host supports multiple instance types of the same instance family,
+   * 			or a specific instance type only. <code>one</code> indicates that the Dedicated Host supports
+   * 			multiple instance types in the instance family. <code>off</code> indicates that the Dedicated
+   * 			Host supports a single instance type only.</p>
+   */
+  AllowsMultipleInstanceTypes?: AllowsMultipleInstanceTypes | string;
+
+  /**
+   * <p>The ID of the AWS account that owns the Dedicated Host.</p>
+   */
+  OwnerId?: string;
 
   /**
    * <p>The ID of the Availability Zone in which the Dedicated Host is allocated.</p>
    */
   AvailabilityZoneId?: string;
+
+  /**
+   * <p>Indicates whether the Dedicated Host is in a host resource group. If
+   * 			<b>memberOfServiceLinkedResourceGroup</b> is
+   * 			<code>true</code>, the host is in a host resource group; otherwise, it is not.</p>
+   */
+  MemberOfServiceLinkedResourceGroup?: boolean;
 }
 
 export namespace Host {
@@ -5462,6 +5647,11 @@ export namespace DescribeHostsResult {
 
 export interface DescribeIamInstanceProfileAssociationsRequest {
   /**
+   * <p>The IAM instance profile associations.</p>
+   */
+  AssociationIds?: string[];
+
+  /**
    * <p>The filters.</p>
    *         <ul>
    *             <li>
@@ -5478,20 +5668,15 @@ export interface DescribeIamInstanceProfileAssociationsRequest {
   Filters?: Filter[];
 
   /**
-   * <p>The IAM instance profile associations.</p>
+   * <p>The maximum number of results to return in a single call. To retrieve the remaining
+   *             results, make another call with the returned <code>NextToken</code> value.</p>
    */
-  AssociationIds?: string[];
+  MaxResults?: number;
 
   /**
    * <p>The token to request the next page of results.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>The maximum number of results to return in a single call. To retrieve the remaining
-   *             results, make another call with the returned <code>NextToken</code> value.</p>
-   */
-  MaxResults?: number;
 }
 
 export namespace DescribeIamInstanceProfileAssociationsRequest {
@@ -5615,18 +5800,6 @@ export type ImageAttributeName =
  */
 export interface DescribeImageAttributeRequest {
   /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *        and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *        Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The ID of the AMI.</p>
-   */
-  ImageId: string | undefined;
-
-  /**
    * <p>The AMI attribute.</p>
    *    	     <p>
    *             <b>Note</b>: Depending on your account privileges, the <code>blockDeviceMapping</code>
@@ -5634,6 +5807,18 @@ export interface DescribeImageAttributeRequest {
    *    		<a>DescribeImages</a> to get information about the block device mapping for the AMI.</p>
    */
   Attribute: ImageAttributeName | string | undefined;
+
+  /**
+   * <p>The ID of the AMI.</p>
+   */
+  ImageId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *        and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *        Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
 }
 
 export namespace DescribeImageAttributeRequest {
@@ -5647,14 +5832,14 @@ export namespace DescribeImageAttributeRequest {
  */
 export interface LaunchPermission {
   /**
-   * <p>The AWS account ID.</p>
-   */
-  UserId?: string;
-
-  /**
    * <p>The name of the group.</p>
    */
   Group?: PermissionGroup | string;
+
+  /**
+   * <p>The AWS account ID.</p>
+   */
+  UserId?: string;
 }
 
 export namespace LaunchPermission {
@@ -5668,19 +5853,14 @@ export namespace LaunchPermission {
  */
 export interface ImageAttribute {
   /**
-   * <p>A description for the AMI.</p>
-   */
-  Description?: AttributeValue;
-
-  /**
    * <p>The block device mapping entries.</p>
    */
   BlockDeviceMappings?: BlockDeviceMapping[];
 
   /**
-   * <p>Indicates whether enhanced networking with the Intel 82599 Virtual Function interface is enabled.</p>
+   * <p>The ID of the AMI.</p>
    */
-  SriovNetSupport?: AttributeValue;
+  ImageId?: string;
 
   /**
    * <p>The launch permissions.</p>
@@ -5693,9 +5873,9 @@ export interface ImageAttribute {
   ProductCodes?: ProductCode[];
 
   /**
-   * <p>The RAM disk ID.</p>
+   * <p>A description for the AMI.</p>
    */
-  RamdiskId?: AttributeValue;
+  Description?: AttributeValue;
 
   /**
    * <p>The kernel ID.</p>
@@ -5703,9 +5883,14 @@ export interface ImageAttribute {
   KernelId?: AttributeValue;
 
   /**
-   * <p>The ID of the AMI.</p>
+   * <p>The RAM disk ID.</p>
    */
-  ImageId?: string;
+  RamdiskId?: AttributeValue;
+
+  /**
+   * <p>Indicates whether enhanced networking with the Intel 82599 Virtual Function interface is enabled.</p>
+   */
+  SriovNetSupport?: AttributeValue;
 }
 
 export namespace ImageAttribute {
@@ -5715,6 +5900,13 @@ export namespace ImageAttribute {
 }
 
 export interface DescribeImagesRequest {
+  /**
+   * <p>Scopes the images by users with explicit launch permissions.
+   * 				Specify an AWS account ID, <code>self</code> (the sender of the request),
+   * 				or <code>all</code> (public AMIs).</p>
+   */
+  ExecutableUsers?: string[];
+
   /**
    * <p>The filters.</p>
    *          <ul>
@@ -5868,24 +6060,10 @@ export interface DescribeImagesRequest {
   Filters?: Filter[];
 
   /**
-   * <p>Scopes the images by users with explicit launch permissions.
-   * 				Specify an AWS account ID, <code>self</code> (the sender of the request),
-   * 				or <code>all</code> (public AMIs).</p>
-   */
-  ExecutableUsers?: string[];
-
-  /**
    * <p>The image IDs.</p>
    *          <p>Default: Describes all images available to you.</p>
    */
   ImageIds?: string[];
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *        and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *        Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
 
   /**
    * <p>Scopes the results to images with the specified owners. You can specify a combination of
@@ -5894,6 +6072,13 @@ export interface DescribeImagesRequest {
    *       regardless of ownership.</p>
    */
   Owners?: string[];
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *        and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *        Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
 }
 
 export namespace DescribeImagesRequest {
@@ -5916,6 +6101,11 @@ export type ImageState = "available" | "deregistered" | "error" | "failed" | "in
  * <p>Describes a state change.</p>
  */
 export interface StateReason {
+  /**
+   * <p>The reason code for the state change.</p>
+   */
+  Code?: string;
+
   /**
    * <p>The message for the state change.</p>
    *         <ul>
@@ -5987,11 +6177,6 @@ export interface StateReason {
    *          </ul>
    */
   Message?: string;
-
-  /**
-   * <p>The reason code for the state change.</p>
-   */
-  Code?: string;
 }
 
 export namespace StateReason {
@@ -6007,14 +6192,29 @@ export type VirtualizationType = "hvm" | "paravirtual";
  */
 export interface Image {
   /**
-   * <p>Any product codes associated with the AMI.</p>
+   * <p>The architecture of the image.</p>
    */
-  ProductCodes?: ProductCode[];
+  Architecture?: ArchitectureValues | string;
 
   /**
-   * <p>Any block device mapping entries.</p>
+   * <p>The date and time the image was created.</p>
    */
-  BlockDeviceMappings?: BlockDeviceMapping[];
+  CreationDate?: string;
+
+  /**
+   * <p>The ID of the AMI.</p>
+   */
+  ImageId?: string;
+
+  /**
+   * <p>The location of the AMI.</p>
+   */
+  ImageLocation?: string;
+
+  /**
+   * <p>The type of image.</p>
+   */
+  ImageType?: ImageTypeValues | string;
 
   /**
    * <p>Indicates whether the image has public launch permissions. The value is <code>true</code> if
@@ -6024,19 +6224,39 @@ export interface Image {
   Public?: boolean;
 
   /**
-   * <p>Any tags assigned to the image.</p>
+   * <p>The kernel associated with the image, if any. Only applicable for machine images.</p>
    */
-  Tags?: Tag[];
+  KernelId?: string;
 
   /**
-   * <p>The type of root device used by the AMI. The AMI can use an EBS volume or an instance store volume.</p>
+   * <p>The AWS account ID of the image owner.</p>
    */
-  RootDeviceType?: DeviceType | string;
+  OwnerId?: string;
 
   /**
-   * <p>The architecture of the image.</p>
+   * <p>This value is set to <code>windows</code> for Windows AMIs; otherwise, it is blank.</p>
    */
-  Architecture?: ArchitectureValues | string;
+  Platform?: PlatformValues | string;
+
+  /**
+   * <p>The platform details associated with the billing code of the AMI. For more information,
+   *       see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-billing-info.html">Obtaining
+   *         Billing Information</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   */
+  PlatformDetails?: string;
+
+  /**
+   * <p>The operation of the Amazon EC2 instance and the billing code that is associated with the AMI.
+   *         <code>usageOperation</code> corresponds to the <a href="https://docs.aws.amazon.com/cur/latest/userguide/Lineitem-columns.html#Lineitem-details-O-Operation">lineitem/Operation</a> column on your AWS Cost and Usage Report and in the <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/price-changes.html">AWS Price
+   *         List API</a>. For the list of <code>UsageOperation</code> codes, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-billing-info.html#billing-info">Platform Details and Usage Operation Billing Codes</a> in the
+   *         <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   */
+  UsageOperation?: string;
+
+  /**
+   * <p>Any product codes associated with the AMI.</p>
+   */
+  ProductCodes?: ProductCode[];
 
   /**
    * <p>The RAM disk associated with the image, if any. Only applicable for machine images.</p>
@@ -6044,9 +6264,29 @@ export interface Image {
   RamdiskId?: string;
 
   /**
-   * <p>The name of the AMI that was provided during image creation.</p>
+   * <p>The current state of the AMI. If the state is <code>available</code>, the image is successfully registered and can be used to launch an instance.</p>
    */
-  Name?: string;
+  State?: ImageState | string;
+
+  /**
+   * <p>Any block device mapping entries.</p>
+   */
+  BlockDeviceMappings?: BlockDeviceMapping[];
+
+  /**
+   * <p>The description of the AMI that was provided during image creation.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>Specifies whether enhanced networking with ENA is enabled.</p>
+   */
+  EnaSupport?: boolean;
+
+  /**
+   * <p>The hypervisor type of the image.</p>
+   */
+  Hypervisor?: HypervisorType | string;
 
   /**
    * <p>The AWS account alias (for example, <code>amazon</code>, <code>self</code>) or
@@ -6055,9 +6295,19 @@ export interface Image {
   ImageOwnerAlias?: string;
 
   /**
-   * <p>The current state of the AMI. If the state is <code>available</code>, the image is successfully registered and can be used to launch an instance.</p>
+   * <p>The name of the AMI that was provided during image creation.</p>
    */
-  State?: ImageState | string;
+  Name?: string;
+
+  /**
+   * <p>The device name of the root device volume (for example, <code>/dev/sda1</code>).</p>
+   */
+  RootDeviceName?: string;
+
+  /**
+   * <p>The type of root device used by the AMI. The AMI can use an EBS volume or an instance store volume.</p>
+   */
+  RootDeviceType?: DeviceType | string;
 
   /**
    * <p>Specifies whether enhanced networking with the Intel 82599 Virtual Function interface is enabled.</p>
@@ -6070,79 +6320,14 @@ export interface Image {
   StateReason?: StateReason;
 
   /**
-   * <p>The type of image.</p>
+   * <p>Any tags assigned to the image.</p>
    */
-  ImageType?: ImageTypeValues | string;
+  Tags?: Tag[];
 
   /**
    * <p>The type of virtualization of the AMI.</p>
    */
   VirtualizationType?: VirtualizationType | string;
-
-  /**
-   * <p>Specifies whether enhanced networking with ENA is enabled.</p>
-   */
-  EnaSupport?: boolean;
-
-  /**
-   * <p>The platform details associated with the billing code of the AMI. For more information,
-   *       see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-billing-info.html">Obtaining
-   *         Billing Information</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
-   */
-  PlatformDetails?: string;
-
-  /**
-   * <p>The description of the AMI that was provided during image creation.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The location of the AMI.</p>
-   */
-  ImageLocation?: string;
-
-  /**
-   * <p>The AWS account ID of the image owner.</p>
-   */
-  OwnerId?: string;
-
-  /**
-   * <p>The kernel associated with the image, if any. Only applicable for machine images.</p>
-   */
-  KernelId?: string;
-
-  /**
-   * <p>This value is set to <code>windows</code> for Windows AMIs; otherwise, it is blank.</p>
-   */
-  Platform?: PlatformValues | string;
-
-  /**
-   * <p>The ID of the AMI.</p>
-   */
-  ImageId?: string;
-
-  /**
-   * <p>The hypervisor type of the image.</p>
-   */
-  Hypervisor?: HypervisorType | string;
-
-  /**
-   * <p>The device name of the root device volume (for example, <code>/dev/sda1</code>).</p>
-   */
-  RootDeviceName?: string;
-
-  /**
-   * <p>The operation of the Amazon EC2 instance and the billing code that is associated with the AMI.
-   *         <code>usageOperation</code> corresponds to the <a href="https://docs.aws.amazon.com/cur/latest/userguide/Lineitem-columns.html#Lineitem-details-O-Operation">lineitem/Operation</a> column on your AWS Cost and Usage Report and in the <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/price-changes.html">AWS Price
-   *         List API</a>. For the list of <code>UsageOperation</code> codes, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-billing-info.html#billing-info">Platform Details and Usage Operation Billing Codes</a> in the
-   *         <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
-   */
-  UsageOperation?: string;
-
-  /**
-   * <p>The date and time the image was created.</p>
-   */
-  CreationDate?: string;
 }
 
 export namespace Image {
@@ -6173,25 +6358,25 @@ export interface DescribeImportImageTasksRequest {
   DryRun?: boolean;
 
   /**
-   * <p>The maximum number of results to return in a single call.</p>
-   */
-  MaxResults?: number;
-
-  /**
    * <p>Filter tasks using the <code>task-state</code> filter and one of the following values: <code>active</code>,
    *     <code>completed</code>, <code>deleting</code>, or <code>deleted</code>.</p>
    */
   Filters?: Filter[];
 
   /**
-   * <p>A token that indicates the next page of results.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>The IDs of the import image tasks.</p>
    */
   ImportTaskIds?: string[];
+
+  /**
+   * <p>The maximum number of results to return in a single call.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>A token that indicates the next page of results.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace DescribeImportImageTasksRequest {
@@ -6221,14 +6406,14 @@ export namespace ImportImageLicenseConfigurationResponse {
  */
 export interface UserBucketDetails {
   /**
-   * <p>The file name of the disk image.</p>
-   */
-  S3Key?: string;
-
-  /**
    * <p>The Amazon S3 bucket from which the disk image was created.</p>
    */
   S3Bucket?: string;
+
+  /**
+   * <p>The file name of the disk image.</p>
+   */
+  S3Key?: string;
 }
 
 export namespace UserBucketDetails {
@@ -6242,19 +6427,14 @@ export namespace UserBucketDetails {
  */
 export interface SnapshotDetail {
   /**
-   * <p>The format of the disk image from which the snapshot is created.</p>
-   */
-  Format?: string;
-
-  /**
    * <p>A description for the snapshot.</p>
    */
   Description?: string;
 
   /**
-   * <p>The percentage of progress for the task.</p>
+   * <p>The block device mapping for the snapshot.</p>
    */
-  Progress?: string;
+  DeviceName?: string;
 
   /**
    * <p>The size of the disk in the snapshot, in GiB.</p>
@@ -6262,19 +6442,14 @@ export interface SnapshotDetail {
   DiskImageSize?: number;
 
   /**
-   * <p>The URL used to access the disk image.</p>
+   * <p>The format of the disk image from which the snapshot is created.</p>
    */
-  Url?: string;
+  Format?: string;
 
   /**
-   * <p>The Amazon S3 bucket for the disk image.</p>
+   * <p>The percentage of progress for the task.</p>
    */
-  UserBucket?: UserBucketDetails;
-
-  /**
-   * <p>A detailed status message for the snapshot creation.</p>
-   */
-  StatusMessage?: string;
+  Progress?: string;
 
   /**
    * <p>The snapshot ID of the disk being imported.</p>
@@ -6287,9 +6462,19 @@ export interface SnapshotDetail {
   Status?: string;
 
   /**
-   * <p>The block device mapping for the snapshot.</p>
+   * <p>A detailed status message for the snapshot creation.</p>
    */
-  DeviceName?: string;
+  StatusMessage?: string;
+
+  /**
+   * <p>The URL used to access the disk image.</p>
+   */
+  Url?: string;
+
+  /**
+   * <p>The Amazon S3 bucket for the disk image.</p>
+   */
+  UserBucket?: UserBucketDetails;
 }
 
 export namespace SnapshotDetail {
@@ -6303,21 +6488,6 @@ export namespace SnapshotDetail {
  */
 export interface ImportImageTask {
   /**
-   * <p>Information about the snapshots.</p>
-   */
-  SnapshotDetails?: SnapshotDetail[];
-
-  /**
-   * <p>The license type of the virtual machine.</p>
-   */
-  LicenseType?: string;
-
-  /**
-   * <p>A brief status for the import image task.</p>
-   */
-  Status?: string;
-
-  /**
    * <p>The architecture of the virtual machine.</p>
    *          <p>Valid values: <code>i386</code> | <code>x86_64</code> | <code>arm64</code>
    *          </p>
@@ -6325,37 +6495,9 @@ export interface ImportImageTask {
   Architecture?: string;
 
   /**
-   * <p>The identifier for the AWS Key Management Service (AWS KMS) customer master key (CMK) that was used to create
-   *    the encrypted image.</p>
+   * <p>A description of the import task.</p>
    */
-  KmsKeyId?: string;
-
-  /**
-   * <p>A descriptive status message for the import image task.</p>
-   */
-  StatusMessage?: string;
-
-  /**
-   * <p>The percentage of progress of the import image task.</p>
-   */
-  Progress?: string;
-
-  /**
-   * <p>The target hypervisor for the import task.</p>
-   *          <p>Valid values: <code>xen</code>
-   *          </p>
-   */
-  Hypervisor?: string;
-
-  /**
-   * <p>The ARNs of the license configurations that are associated with the import image task.</p>
-   */
-  LicenseSpecifications?: ImportImageLicenseConfigurationResponse[];
-
-  /**
-   * <p>The tags for the import image task.</p>
-   */
-  Tags?: Tag[];
+  Description?: string;
 
   /**
    * <p>Indicates whether the image is encrypted.</p>
@@ -6363,14 +6505,11 @@ export interface ImportImageTask {
   Encrypted?: boolean;
 
   /**
-   * <p>The description string for the import image task.</p>
+   * <p>The target hypervisor for the import task.</p>
+   *          <p>Valid values: <code>xen</code>
+   *          </p>
    */
-  Platform?: string;
-
-  /**
-   * <p>A description of the import task.</p>
-   */
-  Description?: string;
+  Hypervisor?: string;
 
   /**
    * <p>The ID of the Amazon Machine Image (AMI) of the imported virtual machine.</p>
@@ -6381,6 +6520,52 @@ export interface ImportImageTask {
    * <p>The ID of the import image task.</p>
    */
   ImportTaskId?: string;
+
+  /**
+   * <p>The identifier for the AWS Key Management Service (AWS KMS) customer master key (CMK) that was used to create
+   *    the encrypted image.</p>
+   */
+  KmsKeyId?: string;
+
+  /**
+   * <p>The license type of the virtual machine.</p>
+   */
+  LicenseType?: string;
+
+  /**
+   * <p>The description string for the import image task.</p>
+   */
+  Platform?: string;
+
+  /**
+   * <p>The percentage of progress of the import image task.</p>
+   */
+  Progress?: string;
+
+  /**
+   * <p>Information about the snapshots.</p>
+   */
+  SnapshotDetails?: SnapshotDetail[];
+
+  /**
+   * <p>A brief status for the import image task.</p>
+   */
+  Status?: string;
+
+  /**
+   * <p>A descriptive status message for the import image task.</p>
+   */
+  StatusMessage?: string;
+
+  /**
+   * <p>The tags for the import image task.</p>
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>The ARNs of the license configurations that are associated with the import image task.</p>
+   */
+  LicenseSpecifications?: ImportImageLicenseConfigurationResponse[];
 }
 
 export namespace ImportImageTask {
@@ -6411,21 +6596,21 @@ export namespace DescribeImportImageTasksResult {
 
 export interface DescribeImportSnapshotTasksRequest {
   /**
-   * <p>The filters.</p>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>A token that indicates the next page of results.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    */
   DryRun?: boolean;
+
+  /**
+   * <p>The filters.</p>
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>A list of import snapshot task IDs.</p>
+   */
+  ImportTaskIds?: string[];
 
   /**
    * <p>The maximum number of results to return in a single call. To retrieve the remaining results, make another call
@@ -6434,9 +6619,9 @@ export interface DescribeImportSnapshotTasksRequest {
   MaxResults?: number;
 
   /**
-   * <p>A list of import snapshot task IDs.</p>
+   * <p>A token that indicates the next page of results.</p>
    */
-  ImportTaskIds?: string[];
+  NextToken?: string;
 }
 
 export namespace DescribeImportSnapshotTasksRequest {
@@ -6450,19 +6635,24 @@ export namespace DescribeImportSnapshotTasksRequest {
  */
 export interface SnapshotTaskDetail {
   /**
-   * <p>The Amazon S3 bucket for the disk image.</p>
+   * <p>The description of the snapshot.</p>
    */
-  UserBucket?: UserBucketDetails;
-
-  /**
-   * <p>A detailed status message for the import snapshot task.</p>
-   */
-  StatusMessage?: string;
+  Description?: string;
 
   /**
    * <p>The size of the disk in the snapshot, in GiB.</p>
    */
   DiskImageSize?: number;
+
+  /**
+   * <p>Indicates whether the snapshot is encrypted.</p>
+   */
+  Encrypted?: boolean;
+
+  /**
+   * <p>The format of the disk image from which the snapshot is created.</p>
+   */
+  Format?: string;
 
   /**
    * <p>The identifier for the AWS Key Management Service (AWS KMS) customer master key (CMK) that was used to create
@@ -6471,9 +6661,9 @@ export interface SnapshotTaskDetail {
   KmsKeyId?: string;
 
   /**
-   * <p>The format of the disk image from which the snapshot is created.</p>
+   * <p>The percentage of completion for the import snapshot task.</p>
    */
-  Format?: string;
+  Progress?: string;
 
   /**
    * <p>The snapshot ID of the disk being imported.</p>
@@ -6481,9 +6671,14 @@ export interface SnapshotTaskDetail {
   SnapshotId?: string;
 
   /**
-   * <p>Indicates whether the snapshot is encrypted.</p>
+   * <p>A brief status for the import snapshot task.</p>
    */
-  Encrypted?: boolean;
+  Status?: string;
+
+  /**
+   * <p>A detailed status message for the import snapshot task.</p>
+   */
+  StatusMessage?: string;
 
   /**
    * <p>The URL of the disk image from which the snapshot is created.</p>
@@ -6491,19 +6686,9 @@ export interface SnapshotTaskDetail {
   Url?: string;
 
   /**
-   * <p>A brief status for the import snapshot task.</p>
+   * <p>The Amazon S3 bucket for the disk image.</p>
    */
-  Status?: string;
-
-  /**
-   * <p>The percentage of completion for the import snapshot task.</p>
-   */
-  Progress?: string;
-
-  /**
-   * <p>The description of the snapshot.</p>
-   */
-  Description?: string;
+  UserBucket?: UserBucketDetails;
 }
 
 export namespace SnapshotTaskDetail {
@@ -6517,9 +6702,9 @@ export namespace SnapshotTaskDetail {
  */
 export interface ImportSnapshotTask {
   /**
-   * <p>Describes an import snapshot task.</p>
+   * <p>A description of the import snapshot task.</p>
    */
-  SnapshotTaskDetail?: SnapshotTaskDetail;
+  Description?: string;
 
   /**
    * <p>The ID of the import snapshot task.</p>
@@ -6527,9 +6712,9 @@ export interface ImportSnapshotTask {
   ImportTaskId?: string;
 
   /**
-   * <p>A description of the import snapshot task.</p>
+   * <p>Describes an import snapshot task.</p>
    */
-  Description?: string;
+  SnapshotTaskDetail?: SnapshotTaskDetail;
 
   /**
    * <p>The tags for the import snapshot task.</p>
@@ -6582,11 +6767,6 @@ export type InstanceAttributeName =
 
 export interface DescribeInstanceAttributeRequest {
   /**
-   * <p>The ID of the instance.</p>
-   */
-  InstanceId: string | undefined;
-
-  /**
    * <p>The instance attribute.</p>
    *         <p>Note: The <code>enaSupport</code> attribute is not supported at this time.</p>
    */
@@ -6598,6 +6778,11 @@ export interface DescribeInstanceAttributeRequest {
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    */
   DryRun?: boolean;
+
+  /**
+   * <p>The ID of the instance.</p>
+   */
+  InstanceId: string | undefined;
 }
 
 export namespace DescribeInstanceAttributeRequest {
@@ -6610,11 +6795,6 @@ export namespace DescribeInstanceAttributeRequest {
  * <p>Describes a parameter used to set up an EBS volume in a block device mapping.</p>
  */
 export interface EbsInstanceBlockDevice {
-  /**
-   * <p>The ID of the EBS volume.</p>
-   */
-  VolumeId?: string;
-
   /**
    * <p>The time stamp when the attachment initiated.</p>
    */
@@ -6629,6 +6809,11 @@ export interface EbsInstanceBlockDevice {
    * <p>The attachment state.</p>
    */
   Status?: AttachmentStatus | string;
+
+  /**
+   * <p>The ID of the EBS volume.</p>
+   */
+  VolumeId?: string;
 }
 
 export namespace EbsInstanceBlockDevice {
@@ -6642,15 +6827,15 @@ export namespace EbsInstanceBlockDevice {
  */
 export interface InstanceBlockDeviceMapping {
   /**
+   * <p>The device name (for example, <code>/dev/sdh</code> or <code>xvdh</code>).</p>
+   */
+  DeviceName?: string;
+
+  /**
    * <p>Parameters used to automatically set up EBS volumes when the instance is
    *             launched.</p>
    */
   Ebs?: EbsInstanceBlockDevice;
-
-  /**
-   * <p>The device name (for example, <code>/dev/sdh</code> or <code>xvdh</code>).</p>
-   */
-  DeviceName?: string;
 }
 
 export namespace InstanceBlockDeviceMapping {
@@ -6697,19 +6882,14 @@ export namespace EnclaveOptions {
  */
 export interface InstanceAttribute {
   /**
-   * <p>Indicates whether enhanced networking with ENA is enabled.</p>
+   * <p>The security groups associated with the instance.</p>
    */
-  EnaSupport?: AttributeBooleanValue;
+  Groups?: GroupIdentifier[];
 
   /**
    * <p>The block device mapping of the instance.</p>
    */
   BlockDeviceMappings?: InstanceBlockDeviceMapping[];
-
-  /**
-   * <p>The kernel ID.</p>
-   */
-  KernelId?: AttributeValue;
 
   /**
    * <p>If the value is <code>true</code>, you can't terminate the instance through the Amazon
@@ -6718,26 +6898,20 @@ export interface InstanceAttribute {
   DisableApiTermination?: AttributeBooleanValue;
 
   /**
-   * <p>The security groups associated with the instance.</p>
+   * <p>Indicates whether enhanced networking with ENA is enabled.</p>
    */
-  Groups?: GroupIdentifier[];
+  EnaSupport?: AttributeBooleanValue;
 
   /**
-   * <p>Indicates whether enhanced networking with the Intel 82599 Virtual Function interface
-   *             is enabled.</p>
+   * <p>To enable the instance for AWS Nitro Enclaves, set this parameter to <code>true</code>; otherwise,
+   * 		set it to <code>false</code>.</p>
    */
-  SriovNetSupport?: AttributeValue;
+  EnclaveOptions?: EnclaveOptions;
 
   /**
-   * <p>The instance type.</p>
+   * <p>Indicates whether the instance is optimized for Amazon EBS I/O.</p>
    */
-  InstanceType?: AttributeValue;
-
-  /**
-   * <p>The device name of the root device volume (for example,
-   *             <code>/dev/sda1</code>).</p>
-   */
-  RootDeviceName?: AttributeValue;
+  EbsOptimized?: AttributeBooleanValue;
 
   /**
    * <p>The ID of the instance.</p>
@@ -6745,9 +6919,36 @@ export interface InstanceAttribute {
   InstanceId?: string;
 
   /**
+   * <p>Indicates whether an instance stops or terminates when you initiate shutdown from the
+   *             instance (using the operating system command for system shutdown).</p>
+   */
+  InstanceInitiatedShutdownBehavior?: AttributeValue;
+
+  /**
+   * <p>The instance type.</p>
+   */
+  InstanceType?: AttributeValue;
+
+  /**
+   * <p>The kernel ID.</p>
+   */
+  KernelId?: AttributeValue;
+
+  /**
    * <p>A list of product codes.</p>
    */
   ProductCodes?: ProductCode[];
+
+  /**
+   * <p>The RAM disk ID.</p>
+   */
+  RamdiskId?: AttributeValue;
+
+  /**
+   * <p>The device name of the root device volume (for example,
+   *             <code>/dev/sda1</code>).</p>
+   */
+  RootDeviceName?: AttributeValue;
 
   /**
    * <p>Indicates whether source/destination checking is enabled. A value of <code>true</code>
@@ -6757,31 +6958,15 @@ export interface InstanceAttribute {
   SourceDestCheck?: AttributeBooleanValue;
 
   /**
-   * <p>To enable the instance for AWS Nitro Enclaves, set this parameter to <code>true</code>; otherwise,
-   * 		set it to <code>false</code>.</p>
+   * <p>Indicates whether enhanced networking with the Intel 82599 Virtual Function interface
+   *             is enabled.</p>
    */
-  EnclaveOptions?: EnclaveOptions;
-
-  /**
-   * <p>The RAM disk ID.</p>
-   */
-  RamdiskId?: AttributeValue;
+  SriovNetSupport?: AttributeValue;
 
   /**
    * <p>The user data.</p>
    */
   UserData?: AttributeValue;
-
-  /**
-   * <p>Indicates whether an instance stops or terminates when you initiate shutdown from the
-   *             instance (using the operating system command for system shutdown).</p>
-   */
-  InstanceInitiatedShutdownBehavior?: AttributeValue;
-
-  /**
-   * <p>Indicates whether the instance is optimized for Amazon EBS I/O.</p>
-   */
-  EbsOptimized?: AttributeBooleanValue;
 }
 
 export namespace InstanceAttribute {
@@ -6799,13 +6984,6 @@ export interface DescribeInstanceCreditSpecificationsRequest {
   DryRun?: boolean;
 
   /**
-   * <p>The instance IDs.</p>
-   *         <p>Default: Describes all your instances.</p>
-   *         <p>Constraints: Maximum 1000 explicitly specified instance IDs.</p>
-   */
-  InstanceIds?: string[];
-
-  /**
    * <p>The filters.</p>
    *         <ul>
    *             <li>
@@ -6815,6 +6993,13 @@ export interface DescribeInstanceCreditSpecificationsRequest {
    *          </ul>
    */
   Filters?: Filter[];
+
+  /**
+   * <p>The instance IDs.</p>
+   *         <p>Default: Describes all your instances.</p>
+   *         <p>Constraints: Maximum 1000 explicitly specified instance IDs.</p>
+   */
+  InstanceIds?: string[];
 
   /**
    * <p>The maximum number of results to return in a single call. To retrieve the remaining
@@ -6841,15 +7026,15 @@ export namespace DescribeInstanceCreditSpecificationsRequest {
  */
 export interface InstanceCreditSpecification {
   /**
+   * <p>The ID of the instance.</p>
+   */
+  InstanceId?: string;
+
+  /**
    * <p>The credit option for CPU usage of the instance. Valid values are
    *                 <code>standard</code> and <code>unlimited</code>.</p>
    */
   CpuCredits?: string;
-
-  /**
-   * <p>The ID of the instance.</p>
-   */
-  InstanceId?: string;
 }
 
 export namespace InstanceCreditSpecification {
@@ -6860,15 +7045,15 @@ export namespace InstanceCreditSpecification {
 
 export interface DescribeInstanceCreditSpecificationsResult {
   /**
+   * <p>Information about the credit option for CPU usage of an instance.</p>
+   */
+  InstanceCreditSpecifications?: InstanceCreditSpecification[];
+
+  /**
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code>
    *             when there are no more results to return.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>Information about the credit option for CPU usage of an instance.</p>
-   */
-  InstanceCreditSpecifications?: InstanceCreditSpecification[];
 }
 
 export namespace DescribeInstanceCreditSpecificationsResult {
@@ -7363,6 +7548,19 @@ export interface DescribeInstancesRequest {
   Filters?: Filter[];
 
   /**
+   * <p>The instance IDs.</p>
+   *         <p>Default: Describes all your instances.</p>
+   */
+  InstanceIds?: string[];
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
    * <p>The maximum number of results to return in a single call. To retrieve the remaining
    *             results, make another call with the returned <code>NextToken</code> value. This value
    *             can be between 5 and 1000. You cannot specify this parameter and the instance IDs
@@ -7374,19 +7572,6 @@ export interface DescribeInstancesRequest {
    * <p>The token to request the next page of results.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The instance IDs.</p>
-   *         <p>Default: Describes all your instances.</p>
-   */
-  InstanceIds?: string[];
 }
 
 export namespace DescribeInstancesRequest {
@@ -7438,14 +7623,14 @@ export namespace CapacityReservationSpecificationResponse {
  */
 export interface CpuOptions {
   /**
-   * <p>The number of threads per CPU core.</p>
-   */
-  ThreadsPerCore?: number;
-
-  /**
    * <p>The number of CPU cores for the instance.</p>
    */
   CoreCount?: number;
+
+  /**
+   * <p>The number of threads per CPU core.</p>
+   */
+  ThreadsPerCore?: number;
 }
 
 export namespace CpuOptions {
@@ -7459,9 +7644,9 @@ export namespace CpuOptions {
  */
 export interface ElasticGpuAssociation {
   /**
-   * <p>The time the Elastic Graphics accelerator was associated with the instance.</p>
+   * <p>The ID of the Elastic Graphics accelerator.</p>
    */
-  ElasticGpuAssociationTime?: string;
+  ElasticGpuId?: string;
 
   /**
    * <p>The ID of the association.</p>
@@ -7475,9 +7660,9 @@ export interface ElasticGpuAssociation {
   ElasticGpuAssociationState?: string;
 
   /**
-   * <p>The ID of the Elastic Graphics accelerator.</p>
+   * <p>The time the Elastic Graphics accelerator was associated with the instance.</p>
    */
-  ElasticGpuId?: string;
+  ElasticGpuAssociationTime?: string;
 }
 
 export namespace ElasticGpuAssociation {
@@ -7494,20 +7679,6 @@ export namespace ElasticGpuAssociation {
 export interface ElasticInferenceAcceleratorAssociation {
   /**
    * <p>
-   *             The time at which the elastic inference accelerator is associated with an instance.
-   *         </p>
-   */
-  ElasticInferenceAcceleratorAssociationTime?: Date;
-
-  /**
-   * <p>
-   *             The state of the elastic inference accelerator.
-   *         </p>
-   */
-  ElasticInferenceAcceleratorAssociationState?: string;
-
-  /**
-   * <p>
    *             The Amazon Resource Name (ARN) of the elastic inference accelerator.
    *         </p>
    */
@@ -7519,6 +7690,20 @@ export interface ElasticInferenceAcceleratorAssociation {
    *         </p>
    */
   ElasticInferenceAcceleratorAssociationId?: string;
+
+  /**
+   * <p>
+   *             The state of the elastic inference accelerator.
+   *         </p>
+   */
+  ElasticInferenceAcceleratorAssociationState?: string;
+
+  /**
+   * <p>
+   *             The time at which the elastic inference accelerator is associated with an instance.
+   *         </p>
+   */
+  ElasticInferenceAcceleratorAssociationTime?: Date;
 }
 
 export namespace ElasticInferenceAcceleratorAssociation {
@@ -7580,6 +7765,17 @@ export type InstanceMetadataOptionsState = "applied" | "pending";
  */
 export interface InstanceMetadataOptionsResponse {
   /**
+   * <p>The state of the metadata option changes.</p>
+   *         <p>
+   *             <code>pending</code> - The metadata options are being updated and the instance is not
+   *             ready to process metadata traffic with the new selection.</p>
+   *         <p>
+   *             <code>applied</code> - The metadata options have been successfully applied on the
+   *             instance.</p>
+   */
+  State?: InstanceMetadataOptionsState | string;
+
+  /**
    * <p>The state of token usage for your instance metadata requests. If the parameter is not
    *             specified in the request, the default state is <code>optional</code>.</p>
    *         <p>If the state is <code>optional</code>, you can choose to retrieve instance metadata
@@ -7595,6 +7791,14 @@ export interface InstanceMetadataOptionsResponse {
   HttpTokens?: HttpTokensState | string;
 
   /**
+   * <p>The desired HTTP PUT response hop limit for instance metadata requests. The larger the
+   *             number, the further instance metadata requests can travel.</p>
+   *         <p>Default: 1</p>
+   *         <p>Possible values: Integers from 1 to 64</p>
+   */
+  HttpPutResponseHopLimit?: number;
+
+  /**
    * <p>This parameter enables or disables the HTTP metadata endpoint on your instances. If
    *             the parameter is not specified, the default state is <code>enabled</code>.</p>
    *         <note>
@@ -7603,25 +7807,6 @@ export interface InstanceMetadataOptionsResponse {
    *         </note>
    */
   HttpEndpoint?: InstanceMetadataEndpointState | string;
-
-  /**
-   * <p>The state of the metadata option changes.</p>
-   *         <p>
-   *             <code>pending</code> - The metadata options are being updated and the instance is not
-   *             ready to process metadata traffic with the new selection.</p>
-   *         <p>
-   *             <code>applied</code> - The metadata options have been successfully applied on the
-   *             instance.</p>
-   */
-  State?: InstanceMetadataOptionsState | string;
-
-  /**
-   * <p>The desired HTTP PUT response hop limit for instance metadata requests. The larger the
-   *             number, the further instance metadata requests can travel.</p>
-   *         <p>Default: 1</p>
-   *         <p>Possible values: Integers from 1 to 64</p>
-   */
-  HttpPutResponseHopLimit?: number;
 }
 
 export namespace InstanceMetadataOptionsResponse {
@@ -7659,14 +7844,14 @@ export interface InstanceNetworkInterfaceAssociation {
   CarrierIp?: string;
 
   /**
-   * <p>The public DNS name.</p>
-   */
-  PublicDnsName?: string;
-
-  /**
    * <p>The ID of the owner of the Elastic IP address.</p>
    */
   IpOwnerId?: string;
+
+  /**
+   * <p>The public DNS name.</p>
+   */
+  PublicDnsName?: string;
 
   /**
    * <p>The public IP address or Elastic IP address bound to the network interface.</p>
@@ -7685,9 +7870,14 @@ export namespace InstanceNetworkInterfaceAssociation {
  */
 export interface InstanceNetworkInterfaceAttachment {
   /**
-   * <p>The attachment state.</p>
+   * <p>The time stamp when the attachment initiated.</p>
    */
-  Status?: AttachmentStatus | string;
+  AttachTime?: Date;
+
+  /**
+   * <p>The ID of the network interface attachment.</p>
+   */
+  AttachmentId?: string;
 
   /**
    * <p>Indicates whether the network interface is deleted when the instance is terminated.</p>
@@ -7695,19 +7885,19 @@ export interface InstanceNetworkInterfaceAttachment {
   DeleteOnTermination?: boolean;
 
   /**
-   * <p>The time stamp when the attachment initiated.</p>
-   */
-  AttachTime?: Date;
-
-  /**
    * <p>The index of the device on the instance for the network interface attachment.</p>
    */
   DeviceIndex?: number;
 
   /**
-   * <p>The ID of the network interface attachment.</p>
+   * <p>The attachment state.</p>
    */
-  AttachmentId?: string;
+  Status?: AttachmentStatus | string;
+
+  /**
+   * <p>The index of the network card.</p>
+   */
+  NetworkCardIndex?: number;
 }
 
 export namespace InstanceNetworkInterfaceAttachment {
@@ -7726,9 +7916,9 @@ export interface InstancePrivateIpAddress {
   Association?: InstanceNetworkInterfaceAssociation;
 
   /**
-   * <p>The private IPv4 address of the network interface.</p>
+   * <p>Indicates whether this IPv4 address is the primary private IP address of the network interface.</p>
    */
-  PrivateIpAddress?: string;
+  Primary?: boolean;
 
   /**
    * <p>The private IPv4 DNS name.</p>
@@ -7736,9 +7926,9 @@ export interface InstancePrivateIpAddress {
   PrivateDnsName?: string;
 
   /**
-   * <p>Indicates whether this IPv4 address is the primary private IP address of the network interface.</p>
+   * <p>The private IPv4 address of the network interface.</p>
    */
-  Primary?: boolean;
+  PrivateIpAddress?: string;
 }
 
 export namespace InstancePrivateIpAddress {
@@ -7752,6 +7942,62 @@ export namespace InstancePrivateIpAddress {
  */
 export interface InstanceNetworkInterface {
   /**
+   * <p>The association information for an Elastic IPv4 associated with the network
+   *             interface.</p>
+   */
+  Association?: InstanceNetworkInterfaceAssociation;
+
+  /**
+   * <p>The network interface attachment.</p>
+   */
+  Attachment?: InstanceNetworkInterfaceAttachment;
+
+  /**
+   * <p>The description.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>One or more security groups.</p>
+   */
+  Groups?: GroupIdentifier[];
+
+  /**
+   * <p>One or more IPv6 addresses associated with the network interface.</p>
+   */
+  Ipv6Addresses?: InstanceIpv6Address[];
+
+  /**
+   * <p>The MAC address.</p>
+   */
+  MacAddress?: string;
+
+  /**
+   * <p>The ID of the network interface.</p>
+   */
+  NetworkInterfaceId?: string;
+
+  /**
+   * <p>The ID of the AWS account that created the network interface.</p>
+   */
+  OwnerId?: string;
+
+  /**
+   * <p>The private DNS name.</p>
+   */
+  PrivateDnsName?: string;
+
+  /**
+   * <p>The IPv4 address of the network interface within the subnet.</p>
+   */
+  PrivateIpAddress?: string;
+
+  /**
+   * <p>One or more private IPv4 addresses associated with the network interface.</p>
+   */
+  PrivateIpAddresses?: InstancePrivateIpAddress[];
+
+  /**
    * <p>Indicates whether to validate network traffic to or from this network interface.</p>
    */
   SourceDestCheck?: boolean;
@@ -7762,34 +8008,9 @@ export interface InstanceNetworkInterface {
   Status?: NetworkInterfaceStatus | string;
 
   /**
-   * <p>One or more private IPv4 addresses associated with the network interface.</p>
-   */
-  PrivateIpAddresses?: InstancePrivateIpAddress[];
-
-  /**
    * <p>The ID of the subnet.</p>
    */
   SubnetId?: string;
-
-  /**
-   * <p>The description.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The network interface attachment.</p>
-   */
-  Attachment?: InstanceNetworkInterfaceAttachment;
-
-  /**
-   * <p>The MAC address.</p>
-   */
-  MacAddress?: string;
-
-  /**
-   * <p>The private DNS name.</p>
-   */
-  PrivateDnsName?: string;
 
   /**
    * <p>The ID of the VPC.</p>
@@ -7797,42 +8018,11 @@ export interface InstanceNetworkInterface {
   VpcId?: string;
 
   /**
-   * <p>One or more security groups.</p>
-   */
-  Groups?: GroupIdentifier[];
-
-  /**
    * <p>Describes the type of network interface.</p>
    * 		       <p>Valid values: <code>interface</code> | <code>efa</code>
    *          </p>
    */
   InterfaceType?: string;
-
-  /**
-   * <p>One or more IPv6 addresses associated with the network interface.</p>
-   */
-  Ipv6Addresses?: InstanceIpv6Address[];
-
-  /**
-   * <p>The ID of the AWS account that created the network interface.</p>
-   */
-  OwnerId?: string;
-
-  /**
-   * <p>The association information for an Elastic IPv4 associated with the network
-   *             interface.</p>
-   */
-  Association?: InstanceNetworkInterfaceAssociation;
-
-  /**
-   * <p>The IPv4 address of the network interface within the subnet.</p>
-   */
-  PrivateIpAddress?: string;
-
-  /**
-   * <p>The ID of the network interface.</p>
-   */
-  NetworkInterfaceId?: string;
 }
 
 export namespace InstanceNetworkInterface {
@@ -7916,26 +8106,9 @@ export interface Instance {
   AmiLaunchIndex?: number;
 
   /**
-   * <p>The Elastic GPU associated with the instance.</p>
+   * <p>The ID of the AMI used to launch the instance.</p>
    */
-  ElasticGpuAssociations?: ElasticGpuAssociation[];
-
-  /**
-   * <p>Indicates whether the instance is enabled for AWS Nitro Enclaves.</p>
-   */
-  EnclaveOptions?: EnclaveOptions;
-
-  /**
-   * <p>The root device type used by the AMI. The AMI can use an EBS volume or an instance
-   *             store volume.</p>
-   */
-  RootDeviceType?: DeviceType | string;
-
-  /**
-   * <p>Specifies whether enhanced networking with the Intel 82599 Virtual Function interface
-   *             is enabled.</p>
-   */
-  SriovNetSupport?: string;
+  ImageId?: string;
 
   /**
    * <p>The ID of the instance.</p>
@@ -7943,32 +8116,14 @@ export interface Instance {
   InstanceId?: string;
 
   /**
-   * <p>The metadata options for the instance.</p>
+   * <p>The instance type.</p>
    */
-  MetadataOptions?: InstanceMetadataOptionsResponse;
+  InstanceType?: _InstanceType | string;
 
   /**
-   * <p>The architecture of the image.</p>
+   * <p>The kernel associated with this instance, if applicable.</p>
    */
-  Architecture?: ArchitectureValues | string;
-
-  /**
-   * <p>[EC2-VPC] The network interfaces for the instance.</p>
-   */
-  NetworkInterfaces?: InstanceNetworkInterface[];
-
-  /**
-   * <p>Indicates whether the instance is optimized for Amazon EBS I/O. This optimization
-   *             provides dedicated throughput to Amazon EBS and an optimized configuration stack to
-   *             provide optimal I/O performance. This optimization isn't available with all instance
-   *             types. Additional usage charges apply when using an EBS Optimized instance.</p>
-   */
-  EbsOptimized?: boolean;
-
-  /**
-   * <p>The ID of the AMI used to launch the instance.</p>
-   */
-  ImageId?: string;
+  KernelId?: string;
 
   /**
    * <p>The name of the key pair, if this instance was launched with an associated key
@@ -7982,6 +8137,32 @@ export interface Instance {
   LaunchTime?: Date;
 
   /**
+   * <p>The monitoring for the instance.</p>
+   */
+  Monitoring?: Monitoring;
+
+  /**
+   * <p>The location where the instance launched, if applicable.</p>
+   */
+  Placement?: Placement;
+
+  /**
+   * <p>The value is <code>Windows</code> for Windows instances; otherwise blank.</p>
+   */
+  Platform?: PlatformValues | string;
+
+  /**
+   * <p>(IPv4 only) The private DNS hostname name assigned to the instance. This DNS hostname
+   *             can only be used inside the Amazon EC2 network. This name is not available until the
+   *             instance enters the <code>running</code> state. </p>
+   *         <p>[EC2-VPC] The Amazon-provided DNS server resolves Amazon-provided private DNS
+   *             hostnames if you've enabled DNS resolution and DNS hostnames in your VPC. If you are not
+   *             using the Amazon-provided DNS server in your VPC, your custom domain name servers must
+   *             resolve the hostname as appropriate.</p>
+   */
+  PrivateDnsName?: string;
+
+  /**
    * <p>The private IPv4 address assigned to the instance.</p>
    */
   PrivateIpAddress?: string;
@@ -7992,60 +8173,11 @@ export interface Instance {
   ProductCodes?: ProductCode[];
 
   /**
-   * <p>Any tags assigned to the instance.</p>
+   * <p>(IPv4 only) The public DNS name assigned to the instance. This name is not available
+   *             until the instance enters the <code>running</code> state. For EC2-VPC, this name is only
+   *             available if you've enabled DNS hostnames for your VPC.</p>
    */
-  Tags?: Tag[];
-
-  /**
-   * <p>Indicates whether the instance is enabled for hibernation.</p>
-   */
-  HibernationOptions?: HibernationOptions;
-
-  /**
-   * <p>Indicates whether this is a Spot Instance or a Scheduled Instance.</p>
-   */
-  InstanceLifecycle?: InstanceLifecycleType | string;
-
-  /**
-   * <p>The hypervisor type of the instance. The value <code>xen</code> is used for both Xen and
-   *             Nitro hypervisors.</p>
-   */
-  Hypervisor?: HypervisorType | string;
-
-  /**
-   * <p>The location where the instance launched, if applicable.</p>
-   */
-  Placement?: Placement;
-
-  /**
-   * <p>The IAM instance profile associated with the instance, if applicable.</p>
-   */
-  IamInstanceProfile?: IamInstanceProfile;
-
-  /**
-   * <p>The CPU options for the instance.</p>
-   */
-  CpuOptions?: CpuOptions;
-
-  /**
-   * <p>Specifies whether to enable an instance launched in a VPC to perform NAT. This
-   *             controls whether source/destination checking is enabled on the instance. A value of
-   *                 <code>true</code> means that checking is enabled, and <code>false</code> means that
-   *             checking is disabled. The value must be <code>false</code> for the instance to perform
-   *             NAT. For more information, see <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_NAT_Instance.html">NAT Instances</a> in the
-   *                 <i>Amazon Virtual Private Cloud User Guide</i>.</p>
-   */
-  SourceDestCheck?: boolean;
-
-  /**
-   * <p>The monitoring for the instance.</p>
-   */
-  Monitoring?: Monitoring;
-
-  /**
-   * <p>The license configurations.</p>
-   */
-  Licenses?: LicenseConfiguration[];
+  PublicDnsName?: string;
 
   /**
    * <p>The public IPv4 address, or the Carrier IP address assigned to the instance, if
@@ -8061,66 +8193,9 @@ export interface Instance {
   RamdiskId?: string;
 
   /**
-   * <p>The device name of the root device volume (for example,
-   *             <code>/dev/sda1</code>).</p>
+   * <p>The current state of the instance.</p>
    */
-  RootDeviceName?: string;
-
-  /**
-   * <p>The security groups for the instance.</p>
-   */
-  SecurityGroups?: GroupIdentifier[];
-
-  /**
-   * <p>Information about the Capacity Reservation targeting option.</p>
-   */
-  CapacityReservationSpecification?: CapacityReservationSpecificationResponse;
-
-  /**
-   * <p>(IPv4 only) The private DNS hostname name assigned to the instance. This DNS hostname
-   *             can only be used inside the Amazon EC2 network. This name is not available until the
-   *             instance enters the <code>running</code> state. </p>
-   *         <p>[EC2-VPC] The Amazon-provided DNS server resolves Amazon-provided private DNS
-   *             hostnames if you've enabled DNS resolution and DNS hostnames in your VPC. If you are not
-   *             using the Amazon-provided DNS server in your VPC, your custom domain name servers must
-   *             resolve the hostname as appropriate.</p>
-   */
-  PrivateDnsName?: string;
-
-  /**
-   * <p>The instance type.</p>
-   */
-  InstanceType?: _InstanceType | string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the Outpost.</p>
-   */
-  OutpostArn?: string;
-
-  /**
-   * <p>The virtualization type of the instance.</p>
-   */
-  VirtualizationType?: VirtualizationType | string;
-
-  /**
-   * <p>[EC2-VPC] The ID of the subnet in which the instance is running.</p>
-   */
-  SubnetId?: string;
-
-  /**
-   * <p>The value is <code>Windows</code> for Windows instances; otherwise blank.</p>
-   */
-  Platform?: PlatformValues | string;
-
-  /**
-   * <p> The elastic inference accelerator associated with the instance.</p>
-   */
-  ElasticInferenceAcceleratorAssociations?: ElasticInferenceAcceleratorAssociation[];
-
-  /**
-   * <p>The kernel associated with this instance, if applicable.</p>
-   */
-  KernelId?: string;
+  State?: InstanceState;
 
   /**
    * <p>The reason for the most recent state transition. This might be an empty string.</p>
@@ -8128,24 +8203,24 @@ export interface Instance {
   StateTransitionReason?: string;
 
   /**
-   * <p>The current state of the instance.</p>
+   * <p>[EC2-VPC] The ID of the subnet in which the instance is running.</p>
    */
-  State?: InstanceState;
+  SubnetId?: string;
 
   /**
-   * <p>Specifies whether enhanced networking with ENA is enabled.</p>
+   * <p>[EC2-VPC] The ID of the VPC in which the instance is running.</p>
    */
-  EnaSupport?: boolean;
+  VpcId?: string;
 
   /**
-   * <p>The reason for the most recent state transition.</p>
+   * <p>The architecture of the image.</p>
    */
-  StateReason?: StateReason;
+  Architecture?: ArchitectureValues | string;
 
   /**
-   * <p>The ID of the Capacity Reservation.</p>
+   * <p>Any block device mapping entries for the instance.</p>
    */
-  CapacityReservationId?: string;
+  BlockDeviceMappings?: InstanceBlockDeviceMapping[];
 
   /**
    * <p>The idempotency token you provided when you launched the instance, if
@@ -8154,16 +8229,80 @@ export interface Instance {
   ClientToken?: string;
 
   /**
-   * <p>(IPv4 only) The public DNS name assigned to the instance. This name is not available
-   *             until the instance enters the <code>running</code> state. For EC2-VPC, this name is only
-   *             available if you've enabled DNS hostnames for your VPC.</p>
+   * <p>Indicates whether the instance is optimized for Amazon EBS I/O. This optimization
+   *             provides dedicated throughput to Amazon EBS and an optimized configuration stack to
+   *             provide optimal I/O performance. This optimization isn't available with all instance
+   *             types. Additional usage charges apply when using an EBS Optimized instance.</p>
    */
-  PublicDnsName?: string;
+  EbsOptimized?: boolean;
 
   /**
-   * <p>Any block device mapping entries for the instance.</p>
+   * <p>Specifies whether enhanced networking with ENA is enabled.</p>
    */
-  BlockDeviceMappings?: InstanceBlockDeviceMapping[];
+  EnaSupport?: boolean;
+
+  /**
+   * <p>The hypervisor type of the instance. The value <code>xen</code> is used for both Xen and
+   *             Nitro hypervisors.</p>
+   */
+  Hypervisor?: HypervisorType | string;
+
+  /**
+   * <p>The IAM instance profile associated with the instance, if applicable.</p>
+   */
+  IamInstanceProfile?: IamInstanceProfile;
+
+  /**
+   * <p>Indicates whether this is a Spot Instance or a Scheduled Instance.</p>
+   */
+  InstanceLifecycle?: InstanceLifecycleType | string;
+
+  /**
+   * <p>The Elastic GPU associated with the instance.</p>
+   */
+  ElasticGpuAssociations?: ElasticGpuAssociation[];
+
+  /**
+   * <p> The elastic inference accelerator associated with the instance.</p>
+   */
+  ElasticInferenceAcceleratorAssociations?: ElasticInferenceAcceleratorAssociation[];
+
+  /**
+   * <p>[EC2-VPC] The network interfaces for the instance.</p>
+   */
+  NetworkInterfaces?: InstanceNetworkInterface[];
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Outpost.</p>
+   */
+  OutpostArn?: string;
+
+  /**
+   * <p>The device name of the root device volume (for example,
+   *             <code>/dev/sda1</code>).</p>
+   */
+  RootDeviceName?: string;
+
+  /**
+   * <p>The root device type used by the AMI. The AMI can use an EBS volume or an instance
+   *             store volume.</p>
+   */
+  RootDeviceType?: DeviceType | string;
+
+  /**
+   * <p>The security groups for the instance.</p>
+   */
+  SecurityGroups?: GroupIdentifier[];
+
+  /**
+   * <p>Specifies whether to enable an instance launched in a VPC to perform NAT. This
+   *             controls whether source/destination checking is enabled on the instance. A value of
+   *                 <code>true</code> means that checking is enabled, and <code>false</code> means that
+   *             checking is disabled. The value must be <code>false</code> for the instance to perform
+   *             NAT. For more information, see <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_NAT_Instance.html">NAT Instances</a> in the
+   *                 <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+   */
+  SourceDestCheck?: boolean;
 
   /**
    * <p>If the request is a Spot Instance request, the ID of the request.</p>
@@ -8171,9 +8310,60 @@ export interface Instance {
   SpotInstanceRequestId?: string;
 
   /**
-   * <p>[EC2-VPC] The ID of the VPC in which the instance is running.</p>
+   * <p>Specifies whether enhanced networking with the Intel 82599 Virtual Function interface
+   *             is enabled.</p>
    */
-  VpcId?: string;
+  SriovNetSupport?: string;
+
+  /**
+   * <p>The reason for the most recent state transition.</p>
+   */
+  StateReason?: StateReason;
+
+  /**
+   * <p>Any tags assigned to the instance.</p>
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>The virtualization type of the instance.</p>
+   */
+  VirtualizationType?: VirtualizationType | string;
+
+  /**
+   * <p>The CPU options for the instance.</p>
+   */
+  CpuOptions?: CpuOptions;
+
+  /**
+   * <p>The ID of the Capacity Reservation.</p>
+   */
+  CapacityReservationId?: string;
+
+  /**
+   * <p>Information about the Capacity Reservation targeting option.</p>
+   */
+  CapacityReservationSpecification?: CapacityReservationSpecificationResponse;
+
+  /**
+   * <p>Indicates whether the instance is enabled for hibernation.</p>
+   */
+  HibernationOptions?: HibernationOptions;
+
+  /**
+   * <p>The license configurations.</p>
+   */
+  Licenses?: LicenseConfiguration[];
+
+  /**
+   * <p>The metadata options for the instance.</p>
+   */
+  MetadataOptions?: InstanceMetadataOptionsResponse;
+
+  /**
+   * <p>Indicates whether the instance is enabled for AWS Nitro Enclaves.</p>
+   */
+  EnclaveOptions?: EnclaveOptions;
 }
 
 export namespace Instance {
@@ -8189,22 +8379,6 @@ export namespace Instance {
  */
 export interface Reservation {
   /**
-   * <p>The ID of the requester that launched the instances on your behalf (for example, AWS
-   *             Management Console or Auto Scaling).</p>
-   */
-  RequesterId?: string;
-
-  /**
-   * <p>The ID of the AWS account that owns the reservation.</p>
-   */
-  OwnerId?: string;
-
-  /**
-   * <p>The ID of the reservation.</p>
-   */
-  ReservationId?: string;
-
-  /**
    * <p>[EC2-Classic only] The security groups.</p>
    */
   Groups?: GroupIdentifier[];
@@ -8213,6 +8387,22 @@ export interface Reservation {
    * <p>The instances.</p>
    */
   Instances?: Instance[];
+
+  /**
+   * <p>The ID of the AWS account that owns the reservation.</p>
+   */
+  OwnerId?: string;
+
+  /**
+   * <p>The ID of the requester that launched the instances on your behalf (for example, AWS
+   *             Management Console or Auto Scaling).</p>
+   */
+  RequesterId?: string;
+
+  /**
+   * <p>The ID of the reservation.</p>
+   */
+  ReservationId?: string;
 }
 
 export namespace Reservation {
@@ -8223,15 +8413,15 @@ export namespace Reservation {
 
 export interface DescribeInstancesResult {
   /**
+   * <p>Information about the reservations.</p>
+   */
+  Reservations?: Reservation[];
+
+  /**
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code>
    *             when there are no more results to return.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>Information about the reservations.</p>
-   */
-  Reservations?: Reservation[];
 }
 
 export namespace DescribeInstancesResult {
@@ -8241,21 +8431,6 @@ export namespace DescribeInstancesResult {
 }
 
 export interface DescribeInstanceStatusRequest {
-  /**
-   * <p>The maximum number of results to return in a single call. To retrieve the remaining
-   *             results, make another call with the returned <code>NextToken</code> value. This value
-   *             can be between 5 and 1000. You cannot specify this parameter and the instance IDs
-   *             parameter in the same call.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
   /**
    * <p>The filters.</p>
    *         <ul>
@@ -8338,14 +8513,6 @@ export interface DescribeInstanceStatusRequest {
   Filters?: Filter[];
 
   /**
-   * <p>When <code>true</code>, includes the health status for all instances. When
-   *                 <code>false</code>, includes the health status for running instances only.</p>
-   *         <p>Default: <code>false</code>
-   *         </p>
-   */
-  IncludeAllInstances?: boolean;
-
-  /**
    * <p>The instance IDs.</p>
    *         <p>Default: Describes all your instances.</p>
    *         <p>Constraints: Maximum 100 explicitly specified instance IDs.</p>
@@ -8353,9 +8520,32 @@ export interface DescribeInstanceStatusRequest {
   InstanceIds?: string[];
 
   /**
+   * <p>The maximum number of results to return in a single call. To retrieve the remaining
+   *             results, make another call with the returned <code>NextToken</code> value. This value
+   *             can be between 5 and 1000. You cannot specify this parameter and the instance IDs
+   *             parameter in the same call.</p>
+   */
+  MaxResults?: number;
+
+  /**
    * <p>The token to retrieve the next page of results.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>When <code>true</code>, includes the health status for all instances. When
+   *                 <code>false</code>, includes the health status for running instances only.</p>
+   *         <p>Default: <code>false</code>
+   *         </p>
+   */
+  IncludeAllInstances?: boolean;
 }
 
 export namespace DescribeInstanceStatusRequest {
@@ -8376,9 +8566,14 @@ export type EventCode =
  */
 export interface InstanceStatusEvent {
   /**
-   * <p>The earliest scheduled start time for the event.</p>
+   * <p>The ID of the event.</p>
    */
-  NotBefore?: Date;
+  InstanceEventId?: string;
+
+  /**
+   * <p>The event code.</p>
+   */
+  Code?: EventCode | string;
 
   /**
    * <p>A description of the event.</p>
@@ -8389,24 +8584,19 @@ export interface InstanceStatusEvent {
   Description?: string;
 
   /**
-   * <p>The event code.</p>
-   */
-  Code?: EventCode | string;
-
-  /**
    * <p>The latest scheduled end time for the event.</p>
    */
   NotAfter?: Date;
 
   /**
+   * <p>The earliest scheduled start time for the event.</p>
+   */
+  NotBefore?: Date;
+
+  /**
    * <p>The deadline for starting the event.</p>
    */
   NotBeforeDeadline?: Date;
-
-  /**
-   * <p>The ID of the event.</p>
-   */
-  InstanceEventId?: string;
 }
 
 export namespace InstanceStatusEvent {
@@ -8474,9 +8664,19 @@ export namespace InstanceStatusSummary {
  */
 export interface InstanceStatus {
   /**
+   * <p>The Availability Zone of the instance.</p>
+   */
+  AvailabilityZone?: string;
+
+  /**
    * <p>The Amazon Resource Name (ARN) of the Outpost.</p>
    */
   OutpostArn?: string;
+
+  /**
+   * <p>Any scheduled events associated with the instance.</p>
+   */
+  Events?: InstanceStatusEvent[];
 
   /**
    * <p>The ID of the instance.</p>
@@ -8496,16 +8696,6 @@ export interface InstanceStatus {
   InstanceStatus?: InstanceStatusSummary;
 
   /**
-   * <p>The Availability Zone of the instance.</p>
-   */
-  AvailabilityZone?: string;
-
-  /**
-   * <p>Any scheduled events associated with the instance.</p>
-   */
-  Events?: InstanceStatusEvent[];
-
-  /**
    * <p>Reports impaired functionality that stems from issues related to the systems that
    *             support an instance, such as hardware failures and network connectivity problems.</p>
    */
@@ -8520,15 +8710,15 @@ export namespace InstanceStatus {
 
 export interface DescribeInstanceStatusResult {
   /**
+   * <p>Information about the status of the instances.</p>
+   */
+  InstanceStatuses?: InstanceStatus[];
+
+  /**
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code>
    *             when there are no more results to return.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>Information about the status of the instances.</p>
-   */
-  InstanceStatuses?: InstanceStatus[];
 }
 
 export namespace DescribeInstanceStatusResult {
@@ -8548,20 +8738,9 @@ export interface DescribeInstanceTypeOfferingsRequest {
   DryRun?: boolean;
 
   /**
-   * <p>The token to retrieve the next page of results.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>The location type.</p>
    */
   LocationType?: LocationType | string;
-
-  /**
-   * <p>The maximum number of results to return for the request in a single page. The remaining results
-   *          can be seen by sending another request with the next token value.</p>
-   */
-  MaxResults?: number;
 
   /**
    * <p>One or more filters. Filter names and values are case-sensitive.</p>
@@ -8573,11 +8752,23 @@ export interface DescribeInstanceTypeOfferingsRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>instance-type</code> - The instance type.</p>
+   *                   <code>instance-type</code> - The instance type. For example,
+   *      <code>c5.2xlarge</code>.</p>
    *             </li>
    *          </ul>
    */
   Filters?: Filter[];
+
+  /**
+   * <p>The maximum number of results to return for the request in a single page. The remaining results
+   *          can be seen by sending another request with the next token value.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token to retrieve the next page of results.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace DescribeInstanceTypeOfferingsRequest {
@@ -8591,15 +8782,15 @@ export namespace DescribeInstanceTypeOfferingsRequest {
  */
 export interface InstanceTypeOffering {
   /**
-   * <p>The location type.</p>
-   */
-  LocationType?: LocationType | string;
-
-  /**
    * <p>The instance type. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance Types</a> in the <i>Amazon Elastic Compute
    *     Cloud User Guide</i>.</p>
    */
   InstanceType?: _InstanceType | string;
+
+  /**
+   * <p>The location type.</p>
+   */
+  LocationType?: LocationType | string;
 
   /**
    * <p>The identifier for the location. This depends on the location type. For example, if the location type is
@@ -8635,6 +8826,13 @@ export namespace DescribeInstanceTypeOfferingsResult {
 
 export interface DescribeInstanceTypesRequest {
   /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *          and provides an error response. If you have the required permissions, the error response is
+   *          <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
    * <p>The instance types. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance Types</a> in the <i>Amazon Elastic Compute
    *     Cloud User Guide</i>.</p>
    */
@@ -8645,21 +8843,23 @@ export interface DescribeInstanceTypesRequest {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>auto-recovery-supported</code> - Indicates whether auto recovery is supported.  (<code>true</code> | <code>false</code>)</p>
+   *                   <code>auto-recovery-supported</code> - Indicates whether auto recovery is supported
+   *       (<code>true</code> | <code>false</code>).</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>bare-metal</code> - Indicates whether it is a bare metal instance type.  (<code>true</code> | <code>false</code>)</p>
+   *                   <code>bare-metal</code> - Indicates whether it is a bare metal instance type
+   *       (<code>true</code> | <code>false</code>).</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>burstable-performance-supported</code> - Indicates whether it is a burstable performance instance
-   *      type.  (<code>true</code> | <code>false</code>)</p>
+   *                   <code>burstable-performance-supported</code> - Indicates whether it is a burstable
+   *      performance instance type  (<code>true</code> | <code>false</code>).</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>current-generation</code> - Indicates whether this instance type is the latest generation instance type
-   *      of an instance family.  (<code>true</code> | <code>false</code>)</p>
+   *                   <code>current-generation</code> - Indicates whether this instance type is the latest
+   *      generation instance type of an instance family  (<code>true</code> | <code>false</code>).</p>
    *             </li>
    *             <li>
    *                <p>
@@ -8674,7 +8874,7 @@ export interface DescribeInstanceTypesRequest {
    *             <li>
    *                <p>
    *                   <code>ebs-info.ebs-optimized-info.baseline-throughput-in-mbps</code> - The baseline
-   *                     throughput performance for an EBS-optimized instance type, in MBps.</p>
+   *      throughput performance for an EBS-optimized instance type, in MB/s.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -8689,37 +8889,38 @@ export interface DescribeInstanceTypesRequest {
    *             <li>
    *                <p>
    *                   <code>ebs-info.ebs-optimized-info.maximum-throughput-in-mbps</code> - The maximum
-   *      throughput performance for an EBS-optimized instance type, in MBps.</p>
+   *      throughput performance for an EBS-optimized instance type, in MB/s.</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <code>ebs-info.ebs-optimized-support</code> - Indicates whether the instance type is
-   *      EBS-optimized. (<code>supported</code> | <code>unsupported</code> | <code>default</code>)</p>
+   *      EBS-optimized (<code>supported</code> | <code>unsupported</code> |
+   *      <code>default</code>).</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>ebs-info.encryption-support</code> - Indicates whether EBS encryption is supported.
-   *       (<code>supported</code> | <code>unsupported</code>)</p>
+   *                   <code>ebs-info.encryption-support</code> - Indicates whether EBS encryption is supported
+   *       (<code>supported</code> | <code>unsupported</code>).</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <code>ebs-info.nvme-support</code> - Indicates whether non-volatile memory express (NVMe)
-   *      is supported for EBS volumes. (<code>required</code> | <code>supported</code> |
-   *      <code>unsupported</code>)</p>
+   *      is supported for EBS volumes (<code>required</code> | <code>supported</code> |
+   *       <code>unsupported</code>).</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <code>free-tier-eligible</code> - Indicates whether the instance type is eligible to use
-   *      in the free tier.  (<code>true</code> | <code>false</code>)</p>
+   *      in the free tier  (<code>true</code> | <code>false</code>).</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>hibernation-supported</code> - Indicates whether On-Demand hibernation is supported.
-   *       (<code>true</code> | <code>false</code>)</p>
+   *                   <code>hibernation-supported</code> - Indicates whether On-Demand hibernation is supported
+   *       (<code>true</code> | <code>false</code>).</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>hypervisor</code> - The hypervisor. (<code>nitro</code> | <code>xen</code>)</p>
+   *                   <code>hypervisor</code> - The hypervisor (<code>nitro</code> | <code>xen</code>).</p>
    *             </li>
    *             <li>
    *                <p>
@@ -8732,13 +8933,14 @@ export interface DescribeInstanceTypesRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>instance-storage-info.disk.type</code> - The storage technology for the local instance storage disks.
-   *       (<code>hdd</code> | <code>ssd</code>)</p>
+   *                   <code>instance-storage-info.disk.type</code> - The storage technology for the local
+   *      instance storage disks (<code>hdd</code> | <code>ssd</code>).</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>instance-storage-info.nvme-support</code> - Indicates whether non-volatile memory express (NVMe)
-   *      is supported for instance store. (<code>required</code> | <code>supported</code>) | <code>unsupported</code>)</p>
+   *                   <code>instance-storage-info.nvme-support</code> - Indicates whether non-volatile memory
+   *      express (NVMe) is supported for instance store (<code>required</code> | <code>supported</code>)
+   *      | <code>unsupported</code>).</p>
    *             </li>
    *             <li>
    *                <p>
@@ -8747,8 +8949,8 @@ export interface DescribeInstanceTypesRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>instance-storage-supported</code> - Indicates whether the instance type has local instance
-   *      storage. (<code>true</code> | <code>false</code>)</p>
+   *                   <code>instance-storage-supported</code> - Indicates whether the instance type has local
+   *      instance storage  (<code>true</code> | <code>false</code>).</p>
    *             </li>
    *             <li>
    *                <p>
@@ -8761,12 +8963,14 @@ export interface DescribeInstanceTypesRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>network-info.efa-supported</code> - Indicates whether the instance type supports Elastic Fabric Adapter (EFA).  (<code>true</code> | <code>false</code>)</p>
+   *                   <code>network-info.efa-supported</code> - Indicates whether the instance type supports
+   *      Elastic Fabric Adapter (EFA)  (<code>true</code> | <code>false</code>).</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>network-info.ena-support</code> - Indicates whether Elastic Network Adapter (ENA) is supported or
-   *      required. (<code>required</code> | <code>supported</code> | <code>unsupported</code>)</p>
+   *                   <code>network-info.ena-support</code> - Indicates whether Elastic Network Adapter (ENA) is
+   *      supported or required (<code>required</code> | <code>supported</code> |
+   *       <code>unsupported</code>).</p>
    *             </li>
    *             <li>
    *                <p>
@@ -8780,7 +8984,8 @@ export interface DescribeInstanceTypesRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>network-info.ipv6-supported</code> - Indicates whether the instance type supports IPv6. (<code>true</code> | <code>false</code>)</p>
+   *                   <code>network-info.ipv6-supported</code> - Indicates whether the instance type supports
+   *      IPv6  (<code>true</code> | <code>false</code>).</p>
    *             </li>
    *             <li>
    *                <p>
@@ -8793,7 +8998,8 @@ export interface DescribeInstanceTypesRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>processor-info.supported-architecture</code> - The CPU architecture. (<code>arm64</code> | <code>i386</code> | <code>x86_64</code>)</p>
+   *                   <code>processor-info.supported-architecture</code> - The CPU architecture
+   *       (<code>arm64</code> | <code>i386</code> | <code>x86_64</code>).</p>
    *             </li>
    *             <li>
    *                <p>
@@ -8801,15 +9007,18 @@ export interface DescribeInstanceTypesRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>supported-root-device-type</code> - The root device type. (<code>ebs</code> | <code>instance-store</code>)</p>
+   *                   <code>supported-root-device-type</code> - The root device type (<code>ebs</code> |
+   *       <code>instance-store</code>).</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>supported-usage-class</code> - The usage class. (<code>on-demand</code> | <code>spot</code>)</p>
+   *                   <code>supported-usage-class</code> - The usage class (<code>on-demand</code> |
+   *       <code>spot</code>).</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>supported-virtualization-type</code> - The virtualization type. (<code>hvm</code> | <code>paravirtual</code>)</p>
+   *                   <code>supported-virtualization-type</code> - The virtualization type (<code>hvm</code> |
+   *       <code>paravirtual</code>).</p>
    *             </li>
    *             <li>
    *                <p>
@@ -8838,22 +9047,15 @@ export interface DescribeInstanceTypesRequest {
   Filters?: Filter[];
 
   /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *          and provides an error response. If you have the required permissions, the error response is
-   *          <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * <p>The maximum number of results to return for the request in a single page. The remaining results
+   *          can be seen by sending another request with the next token value.</p>
    */
-  DryRun?: boolean;
+  MaxResults?: number;
 
   /**
    * <p>The token to retrieve the next page of results.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>The maximum number of results to return for the request in a single page. The remaining results
-   *          can be seen by sending another request with the next token value.</p>
-   */
-  MaxResults?: number;
 }
 
 export namespace DescribeInstanceTypesRequest {
@@ -8872,17 +9074,7 @@ export interface EbsOptimizedInfo {
   BaselineBandwidthInMbps?: number;
 
   /**
-   * <p>The maximum input/output storage operations per second for an EBS-optimized instance type.</p>
-   */
-  MaximumIops?: number;
-
-  /**
-   * <p>The maximum throughput performance for an EBS-optimized instance type, in MBps.</p>
-   */
-  MaximumThroughputInMBps?: number;
-
-  /**
-   * <p>The baseline throughput performance for an EBS-optimized instance type, in MBps.</p>
+   * <p>The baseline throughput performance for an EBS-optimized instance type, in MB/s.</p>
    */
   BaselineThroughputInMBps?: number;
 
@@ -8895,6 +9087,16 @@ export interface EbsOptimizedInfo {
    * <p>The maximum bandwidth performance for an EBS-optimized instance type, in Mbps.</p>
    */
   MaximumBandwidthInMbps?: number;
+
+  /**
+   * <p>The maximum throughput performance for an EBS-optimized instance type, in MB/s.</p>
+   */
+  MaximumThroughputInMBps?: number;
+
+  /**
+   * <p>The maximum input/output storage operations per second for an EBS-optimized instance type.</p>
+   */
+  MaximumIops?: number;
 }
 
 export namespace EbsOptimizedInfo {
@@ -8918,13 +9120,8 @@ export enum EbsNvmeSupport {
  */
 export interface EbsInfo {
   /**
-   * <p>Describes the optimized EBS performance for the instance type.</p>
-   */
-  EbsOptimizedInfo?: EbsOptimizedInfo;
-
-  /**
-   * <p>Indicates that the instance type is Amazon EBS-optimized. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html">Amazon EBS-Optimized Instances</a> in <i>Amazon EC2 User Guide for
-   *     Linux Instances</i>.</p>
+   * <p>Indicates whether the instance type is Amazon EBS-optimized. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html">Amazon EBS-Optimized
+   *     Instances</a> in <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
    */
   EbsOptimizedSupport?: EbsOptimizedSupport | string;
 
@@ -8932,6 +9129,11 @@ export interface EbsInfo {
    * <p>Indicates whether Amazon EBS encryption is supported.</p>
    */
   EncryptionSupport?: EbsEncryptionSupport | string;
+
+  /**
+   * <p>Describes the optimized EBS performance for the instance type.</p>
+   */
+  EbsOptimizedInfo?: EbsOptimizedInfo;
 
   /**
    * <p>Indicates whether non-volatile memory express (NVMe) is supported.</p>
@@ -8950,7 +9152,7 @@ export namespace EbsInfo {
  */
 export interface FpgaDeviceMemoryInfo {
   /**
-   * <p>The size (in MiB) for the memory available to the FPGA accelerator.</p>
+   * <p>The size of the memory available to the FPGA accelerator, in MiB.</p>
    */
   SizeInMiB?: number;
 }
@@ -8966,6 +9168,11 @@ export namespace FpgaDeviceMemoryInfo {
  */
 export interface FpgaDeviceInfo {
   /**
+   * <p>The name of the FPGA accelerator.</p>
+   */
+  Name?: string;
+
+  /**
    * <p>The manufacturer of the FPGA accelerator.</p>
    */
   Manufacturer?: string;
@@ -8974,11 +9181,6 @@ export interface FpgaDeviceInfo {
    * <p>The count of FPGA accelerators for the instance type.</p>
    */
   Count?: number;
-
-  /**
-   * <p>The name of the FPGA accelerator.</p>
-   */
-  Name?: string;
 
   /**
    * <p>Describes the memory for the FPGA accelerator for the instance type.</p>
@@ -9018,7 +9220,7 @@ export namespace FpgaInfo {
  */
 export interface GpuDeviceMemoryInfo {
   /**
-   * <p>The size (in MiB) for the memory available to the GPU accelerator.</p>
+   * <p>The size of the memory available to the GPU accelerator, in MiB.</p>
    */
   SizeInMiB?: number;
 }
@@ -9034,16 +9236,6 @@ export namespace GpuDeviceMemoryInfo {
  */
 export interface GpuDeviceInfo {
   /**
-   * <p>Describes the memory available to the GPU accelerator.</p>
-   */
-  MemoryInfo?: GpuDeviceMemoryInfo;
-
-  /**
-   * <p>The number of GPUs for the instance type.</p>
-   */
-  Count?: number;
-
-  /**
    * <p>The name of the GPU accelerator.</p>
    */
   Name?: string;
@@ -9052,6 +9244,16 @@ export interface GpuDeviceInfo {
    * <p>The manufacturer of the GPU accelerator.</p>
    */
   Manufacturer?: string;
+
+  /**
+   * <p>The number of GPUs for the instance type.</p>
+   */
+  Count?: number;
+
+  /**
+   * <p>Describes the memory available to the GPU accelerator.</p>
+   */
+  MemoryInfo?: GpuDeviceMemoryInfo;
 }
 
 export namespace GpuDeviceInfo {
@@ -9070,7 +9272,7 @@ export interface GpuInfo {
   Gpus?: GpuDeviceInfo[];
 
   /**
-   * <p>The total size of the memory for the GPU accelerators for the instance type.</p>
+   * <p>The total size of the memory for the GPU accelerators for the instance type, in MiB.</p>
    */
   TotalGpuMemoryInMiB?: number;
 }
@@ -9091,11 +9293,6 @@ export enum InstanceTypeHypervisor {
  */
 export interface InferenceDeviceInfo {
   /**
-   * <p>The manufacturer of the Inference accelerator.</p>
-   */
-  Manufacturer?: string;
-
-  /**
    * <p>The number of Inference accelerators for the instance type.</p>
    */
   Count?: number;
@@ -9104,6 +9301,11 @@ export interface InferenceDeviceInfo {
    * <p>The name of the Inference accelerator.</p>
    */
   Name?: string;
+
+  /**
+   * <p>The manufacturer of the Inference accelerator.</p>
+   */
+  Manufacturer?: string;
 }
 
 export namespace InferenceDeviceInfo {
@@ -9135,9 +9337,9 @@ export type DiskType = "hdd" | "ssd";
  */
 export interface DiskInfo {
   /**
-   * <p>The type of disk.</p>
+   * <p>The size of the disk in GB.</p>
    */
-  Type?: DiskType | string;
+  SizeInGB?: number;
 
   /**
    * <p>The number of disks with this configuration.</p>
@@ -9145,9 +9347,9 @@ export interface DiskInfo {
   Count?: number;
 
   /**
-   * <p>The size of the disk in GB.</p>
+   * <p>The type of disk.</p>
    */
-  SizeInGB?: number;
+  Type?: DiskType | string;
 }
 
 export namespace DiskInfo {
@@ -9172,14 +9374,14 @@ export interface InstanceStorageInfo {
   TotalSizeInGB?: number;
 
   /**
+   * <p>Describes the disks that are available for the instance type.</p>
+   */
+  Disks?: DiskInfo[];
+
+  /**
    * <p>Indicates whether non-volatile memory express (NVMe) is supported for instance store.</p>
    */
   NvmeSupport?: EphemeralNvmeSupport | string;
-
-  /**
-   * <p>Array describing the disks that are available for the instance type.</p>
-   */
-  Disks?: DiskInfo[];
 }
 
 export namespace InstanceStorageInfo {
@@ -9193,7 +9395,7 @@ export namespace InstanceStorageInfo {
  */
 export interface MemoryInfo {
   /**
-   * <p>Size of the memory, in MiB.</p>
+   * <p>The size of the memory, in MiB.</p>
    */
   SizeInMiB?: number;
 }
@@ -9207,23 +9409,64 @@ export namespace MemoryInfo {
 export type EnaSupport = "required" | "supported" | "unsupported";
 
 /**
+ * <p>Describes the network card support of the instance type.</p>
+ */
+export interface NetworkCardInfo {
+  /**
+   * <p>The index of the network card.</p>
+   */
+  NetworkCardIndex?: number;
+
+  /**
+   * <p>The network performance of the network card.</p>
+   */
+  NetworkPerformance?: string;
+
+  /**
+   * <p>The maximum number of network interfaces for the network card.</p>
+   */
+  MaximumNetworkInterfaces?: number;
+}
+
+export namespace NetworkCardInfo {
+  export const filterSensitiveLog = (obj: NetworkCardInfo): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>Describes the networking features of the instance type.</p>
  */
 export interface NetworkInfo {
+  /**
+   * <p>The network performance.</p>
+   */
+  NetworkPerformance?: string;
+
   /**
    * <p>The maximum number of network interfaces for the instance type.</p>
    */
   MaximumNetworkInterfaces?: number;
 
   /**
-   * <p>Indicates whether IPv6 is supported.</p>
+   * <p>The maximum number of physical network cards that can be allocated to the instance.</p>
    */
-  Ipv6Supported?: boolean;
+  MaximumNetworkCards?: number;
 
   /**
-   * <p>Describes the network performance.</p>
+   * <p>The index of the default network card, starting at 0.</p>
    */
-  NetworkPerformance?: string;
+  DefaultNetworkCardIndex?: number;
+
+  /**
+   * <p>Describes the network cards for the instance type.</p>
+   */
+  NetworkCards?: NetworkCardInfo[];
+
+  /**
+   * <p>The maximum number of IPv4 addresses per network interface.</p>
+   */
+  Ipv4AddressesPerInterface?: number;
 
   /**
    * <p>The maximum number of IPv6 addresses per network interface.</p>
@@ -9231,9 +9474,9 @@ export interface NetworkInfo {
   Ipv6AddressesPerInterface?: number;
 
   /**
-   * <p>Indicates whether Elastic Fabric Adapter (EFA) is supported.</p>
+   * <p>Indicates whether IPv6 is supported.</p>
    */
-  EfaSupported?: boolean;
+  Ipv6Supported?: boolean;
 
   /**
    * <p>Indicates whether Elastic Network Adapter (ENA) is supported.</p>
@@ -9241,9 +9484,9 @@ export interface NetworkInfo {
   EnaSupport?: EnaSupport | string;
 
   /**
-   * <p>The maximum number of IPv4 addresses per network interface.</p>
+   * <p>Indicates whether Elastic Fabric Adapter (EFA) is supported.</p>
    */
-  Ipv4AddressesPerInterface?: number;
+  EfaSupported?: boolean;
 }
 
 export namespace NetworkInfo {
@@ -9259,7 +9502,7 @@ export type PlacementGroupStrategy = "cluster" | "partition" | "spread";
  */
 export interface PlacementGroupInfo {
   /**
-   * <p>A list of supported placement groups types.</p>
+   * <p>The supported placement group types.</p>
    */
   SupportedStrategies?: (PlacementGroupStrategy | string)[];
 }
@@ -9277,14 +9520,14 @@ export type ArchitectureType = "arm64" | "i386" | "x86_64";
  */
 export interface ProcessorInfo {
   /**
+   * <p>The architectures supported by the instance type.</p>
+   */
+  SupportedArchitectures?: (ArchitectureType | string)[];
+
+  /**
    * <p>The speed of the processor, in GHz.</p>
    */
   SustainedClockSpeedInGhz?: number;
-
-  /**
-   * <p>A list of architectures supported by the instance type.</p>
-   */
-  SupportedArchitectures?: (ArchitectureType | string)[];
 }
 
 export namespace ProcessorInfo {
@@ -9302,11 +9545,6 @@ export type UsageClassType = "on-demand" | "spot";
  */
 export interface VCpuInfo {
   /**
-   * <p>List of the valid number of cores that can be configured for the instance type.</p>
-   */
-  ValidCores?: number[];
-
-  /**
    * <p>The default number of vCPUs for the instance type.</p>
    */
   DefaultVCpus?: number;
@@ -9322,7 +9560,12 @@ export interface VCpuInfo {
   DefaultThreadsPerCore?: number;
 
   /**
-   * <p>List of the valid number of threads per core that can be configured for the instance type. </p>
+   * <p>The valid number of cores that can be configured for the instance type.</p>
+   */
+  ValidCores?: number[];
+
+  /**
+   * <p>The valid number of threads per core that can be configured for the instance type. </p>
    */
   ValidThreadsPerCore?: number[];
 }
@@ -9338,29 +9581,15 @@ export namespace VCpuInfo {
  */
 export interface InstanceTypeInfo {
   /**
-   * <p>Describes the processor.</p>
+   * <p>The instance type. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance Types</a> in the <i>Amazon Elastic Compute
+   *     Cloud User Guide</i>.</p>
    */
-  ProcessorInfo?: ProcessorInfo;
+  InstanceType?: _InstanceType | string;
 
   /**
-   * <p>Describes the Amazon EBS settings for the instance type.</p>
+   * <p>Indicates whether the instance type is current generation.</p>
    */
-  EbsInfo?: EbsInfo;
-
-  /**
-   * <p>Describes the disks for the instance type.</p>
-   */
-  InstanceStorageInfo?: InstanceStorageInfo;
-
-  /**
-   * <p>Indicates whether On-Demand hibernation is supported.</p>
-   */
-  HibernationSupported?: boolean;
-
-  /**
-   * <p>Indicates whether auto recovery is supported.</p>
-   */
-  AutoRecoverySupported?: boolean;
+  CurrentGeneration?: boolean;
 
   /**
    * <p>Indicates whether the instance type is eligible for the free tier.</p>
@@ -9368,75 +9597,14 @@ export interface InstanceTypeInfo {
   FreeTierEligible?: boolean;
 
   /**
-   * <p>Indicates whether the instance is bare metal.</p>
+   * <p>Indicates whether the instance type is offered for spot or On-Demand.</p>
    */
-  BareMetal?: boolean;
+  SupportedUsageClasses?: (UsageClassType | string)[];
 
   /**
-   * <p>Describes the GPU accelerator settings for the instance type.</p>
-   */
-  GpuInfo?: GpuInfo;
-
-  /**
-   * <p>Describes the Inference accelerator settings for the instance type.</p>
-   */
-  InferenceAcceleratorInfo?: InferenceAcceleratorInfo;
-
-  /**
-   * <p>Describes the network settings for the instance type.</p>
-   */
-  NetworkInfo?: NetworkInfo;
-
-  /**
-   * <p>Indicates whether the instance type is a current generation.</p>
-   */
-  CurrentGeneration?: boolean;
-
-  /**
-   * <p>Indicates whether the instance type is a burstable performance instance type.</p>
-   */
-  BurstablePerformanceSupported?: boolean;
-
-  /**
-   * <p>Indicates the supported root device types.</p>
+   * <p>The supported root device types.</p>
    */
   SupportedRootDeviceTypes?: (RootDeviceType | string)[];
-
-  /**
-   * <p>Indicates whether instance storage is supported.</p>
-   */
-  InstanceStorageSupported?: boolean;
-
-  /**
-   * <p>Describes the FPGA accelerator settings for the instance type.</p>
-   */
-  FpgaInfo?: FpgaInfo;
-
-  /**
-   * <p>Describes the memory for the instance type.</p>
-   */
-  MemoryInfo?: MemoryInfo;
-
-  /**
-   * <p>Describes the vCPU configurations for the instance type.</p>
-   */
-  VCpuInfo?: VCpuInfo;
-
-  /**
-   * <p>The instance type. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance Types</a> in the <i>Amazon Elastic Compute
-   *     Cloud User Guide</i>.</p>
-   */
-  InstanceType?: _InstanceType | string;
-
-  /**
-   * <p>Indicates the hypervisor used for the instance type.</p>
-   */
-  Hypervisor?: InstanceTypeHypervisor | string;
-
-  /**
-   * <p>Describes the placement group settings for the instance type.</p>
-   */
-  PlacementGroupInfo?: PlacementGroupInfo;
 
   /**
    * <p>The supported virtualization types.</p>
@@ -9444,14 +9612,89 @@ export interface InstanceTypeInfo {
   SupportedVirtualizationTypes?: (VirtualizationType | string)[];
 
   /**
+   * <p>Indicates whether the instance is a bare metal instance type.</p>
+   */
+  BareMetal?: boolean;
+
+  /**
+   * <p>The hypervisor for the instance type.</p>
+   */
+  Hypervisor?: InstanceTypeHypervisor | string;
+
+  /**
+   * <p>Describes the processor.</p>
+   */
+  ProcessorInfo?: ProcessorInfo;
+
+  /**
+   * <p>Describes the vCPU configurations for the instance type.</p>
+   */
+  VCpuInfo?: VCpuInfo;
+
+  /**
+   * <p>Describes the memory for the instance type.</p>
+   */
+  MemoryInfo?: MemoryInfo;
+
+  /**
+   * <p>Indicates whether instance storage is supported.</p>
+   */
+  InstanceStorageSupported?: boolean;
+
+  /**
+   * <p>Describes the instance storage for the instance type.</p>
+   */
+  InstanceStorageInfo?: InstanceStorageInfo;
+
+  /**
+   * <p>Describes the Amazon EBS settings for the instance type.</p>
+   */
+  EbsInfo?: EbsInfo;
+
+  /**
+   * <p>Describes the network settings for the instance type.</p>
+   */
+  NetworkInfo?: NetworkInfo;
+
+  /**
+   * <p>Describes the GPU accelerator settings for the instance type.</p>
+   */
+  GpuInfo?: GpuInfo;
+
+  /**
+   * <p>Describes the FPGA accelerator settings for the instance type.</p>
+   */
+  FpgaInfo?: FpgaInfo;
+
+  /**
+   * <p>Describes the placement group settings for the instance type.</p>
+   */
+  PlacementGroupInfo?: PlacementGroupInfo;
+
+  /**
+   * <p>Describes the Inference accelerator settings for the instance type.</p>
+   */
+  InferenceAcceleratorInfo?: InferenceAcceleratorInfo;
+
+  /**
+   * <p>Indicates whether On-Demand hibernation is supported.</p>
+   */
+  HibernationSupported?: boolean;
+
+  /**
+   * <p>Indicates whether the instance type is a burstable performance instance type.</p>
+   */
+  BurstablePerformanceSupported?: boolean;
+
+  /**
    * <p>Indicates whether Dedicated Hosts are supported on the instance type.</p>
    */
   DedicatedHostsSupported?: boolean;
 
   /**
-   * <p>Indicates whether the instance type is offered for spot or On-Demand.</p>
+   * <p>Indicates whether auto recovery is supported.</p>
    */
-  SupportedUsageClasses?: (UsageClassType | string)[];
+  AutoRecoverySupported?: boolean;
 }
 
 export namespace InstanceTypeInfo {
@@ -9481,11 +9724,6 @@ export namespace DescribeInstanceTypesResult {
 }
 
 export interface DescribeInternetGatewaysRequest {
-  /**
-   * <p>The token for the next page of results.</p>
-   */
-  NextToken?: string;
-
   /**
    * <p>One or more filters.</p>
    *         <ul>
@@ -9520,10 +9758,11 @@ export interface DescribeInternetGatewaysRequest {
   Filters?: Filter[];
 
   /**
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    */
-  MaxResults?: number;
+  DryRun?: boolean;
 
   /**
    * <p>One or more internet gateway IDs.</p>
@@ -9532,11 +9771,15 @@ export interface DescribeInternetGatewaysRequest {
   InternetGatewayIds?: string[];
 
   /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * <p>The token for the next page of results.</p>
    */
-  DryRun?: boolean;
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return with a single call.
+   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   */
+  MaxResults?: number;
 }
 
 export namespace DescribeInternetGatewaysRequest {
@@ -9565,6 +9808,11 @@ export namespace DescribeInternetGatewaysResult {
 
 export interface DescribeIpv6PoolsRequest {
   /**
+   * <p>The IDs of the IPv6 address pools.</p>
+   */
+  PoolIds?: string[];
+
+  /**
    * <p>The token for the next page of results.</p>
    */
   NextToken?: string;
@@ -9576,9 +9824,11 @@ export interface DescribeIpv6PoolsRequest {
   MaxResults?: number;
 
   /**
-   * <p>The IDs of the IPv6 address pools.</p>
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    */
-  PoolIds?: string[];
+  DryRun?: boolean;
 
   /**
    * <p>One or more filters.</p>
@@ -9595,13 +9845,6 @@ export interface DescribeIpv6PoolsRequest {
    *          </ul>
    */
   Filters?: Filter[];
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
 }
 
 export namespace DescribeIpv6PoolsRequest {
@@ -9631,14 +9874,14 @@ export namespace PoolCidrBlock {
  */
 export interface Ipv6Pool {
   /**
-   * <p>The description for the address pool.</p>
-   */
-  Description?: string;
-
-  /**
    * <p>The ID of the address pool.</p>
    */
   PoolId?: string;
+
+  /**
+   * <p>The description for the address pool.</p>
+   */
+  Description?: string;
 
   /**
    * <p>The CIDR blocks for the address pool.</p>
@@ -9705,15 +9948,15 @@ export interface DescribeKeyPairsRequest {
   Filters?: Filter[];
 
   /**
-   * <p>The IDs of the key pairs.</p>
-   */
-  KeyPairIds?: string[];
-
-  /**
    * <p>The key pair names.</p>
    *          <p>Default: Describes all your key pairs.</p>
    */
   KeyNames?: string[];
+
+  /**
+   * <p>The IDs of the key pairs.</p>
+   */
+  KeyPairIds?: string[];
 
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -9739,9 +9982,10 @@ export interface KeyPairInfo {
   KeyPairId?: string;
 
   /**
-   * <p>Any tags applied to the key pair.</p>
+   * <p>If you used <a>CreateKeyPair</a> to create the key pair, this is the SHA-1 digest of the DER encoded private key.
+   *         If you used <a>ImportKeyPair</a> to provide AWS the public key, this is the MD5 public key fingerprint as specified in section 4 of RFC4716.</p>
    */
-  Tags?: Tag[];
+  KeyFingerprint?: string;
 
   /**
    * <p>The name of the key pair.</p>
@@ -9749,10 +9993,9 @@ export interface KeyPairInfo {
   KeyName?: string;
 
   /**
-   * <p>If you used <a>CreateKeyPair</a> to create the key pair, this is the SHA-1 digest of the DER encoded private key.
-   *         If you used <a>ImportKeyPair</a> to provide AWS the public key, this is the MD5 public key fingerprint as specified in section 4 of RFC4716.</p>
+   * <p>Any tags applied to the key pair.</p>
    */
-  KeyFingerprint?: string;
+  Tags?: Tag[];
 }
 
 export namespace KeyPairInfo {
@@ -9776,16 +10019,6 @@ export namespace DescribeKeyPairsResult {
 
 export interface DescribeLaunchTemplatesRequest {
   /**
-   * <p>One or more launch template IDs.</p>
-   */
-  LaunchTemplateIds?: string[];
-
-  /**
-   * <p>The token to request the next page of results.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>Checks whether you have the required permissions for the action, without actually
    *             making the request, and provides an error response. If you have the required
    *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
@@ -9794,11 +10027,9 @@ export interface DescribeLaunchTemplatesRequest {
   DryRun?: boolean;
 
   /**
-   * <p>The maximum number of results to return in a single call. To retrieve the remaining
-   *             results, make another call with the returned <code>NextToken</code> value. This value
-   *             can be between 1 and 200.</p>
+   * <p>One or more launch template IDs.</p>
    */
-  MaxResults?: number;
+  LaunchTemplateIds?: string[];
 
   /**
    * <p>One or more launch template names.</p>
@@ -9828,6 +10059,18 @@ export interface DescribeLaunchTemplatesRequest {
    *          </ul>
    */
   Filters?: Filter[];
+
+  /**
+   * <p>The token to request the next page of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return in a single call. To retrieve the remaining
+   *             results, make another call with the returned <code>NextToken</code> value. This value
+   *             can be between 1 and 200.</p>
+   */
+  MaxResults?: number;
 }
 
 export namespace DescribeLaunchTemplatesRequest {
@@ -9838,15 +10081,15 @@ export namespace DescribeLaunchTemplatesRequest {
 
 export interface DescribeLaunchTemplatesResult {
   /**
+   * <p>Information about the launch templates.</p>
+   */
+  LaunchTemplates?: LaunchTemplate[];
+
+  /**
    * <p>The token to use to retrieve the next page of results. This value is
    *                 <code>null</code> when there are no more results to return.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>Information about the launch templates.</p>
-   */
-  LaunchTemplates?: LaunchTemplate[];
 }
 
 export namespace DescribeLaunchTemplatesResult {
@@ -9856,16 +10099,6 @@ export namespace DescribeLaunchTemplatesResult {
 }
 
 export interface DescribeLaunchTemplateVersionsRequest {
-  /**
-   * <p>The version number up to which to describe launch template versions.</p>
-   */
-  MaxVersion?: string;
-
-  /**
-   * <p>The token to request the next page of results.</p>
-   */
-  NextToken?: string;
-
   /**
    * <p>Checks whether you have the required permissions for the action, without actually
    *             making the request, and provides an error response. If you have the required
@@ -9883,16 +10116,45 @@ export interface DescribeLaunchTemplateVersionsRequest {
   LaunchTemplateId?: string;
 
   /**
-   * <p>The maximum number of results to return in a single call. To retrieve the remaining
-   *             results, make another call with the returned <code>NextToken</code> value. This value
-   *             can be between 1 and 200.</p>
+   * <p>The name of the launch template. To describe one or more versions of a specified
+   *             launch template, you must specify either the launch template ID or the launch template
+   *             name in the request. To describe all the latest or default launch template versions in
+   *             your account, you must omit this parameter.</p>
    */
-  MaxResults?: number;
+  LaunchTemplateName?: string;
+
+  /**
+   * <p>One or more versions of the launch template. Valid values depend on whether you are describing a specified launch template (by ID or name) or all launch templates in your account.</p>
+   *             <p>To describe one or more versions of a specified launch template, valid values are <code>$Latest</code>, <code>$Default</code>, and numbers.</p>
+   *             <p>To describe all launch templates in your account that are defined as the latest
+   *             version, the valid value is <code>$Latest</code>. To describe all launch templates in
+   *             your account that are defined as the default version, the valid value is
+   *                 <code>$Default</code>. You can specify <code>$Latest</code> and
+   *                 <code>$Default</code> in the same call. You cannot specify numbers.</p>
+   */
+  Versions?: string[];
 
   /**
    * <p>The version number after which to describe launch template versions.</p>
    */
   MinVersion?: string;
+
+  /**
+   * <p>The version number up to which to describe launch template versions.</p>
+   */
+  MaxVersion?: string;
+
+  /**
+   * <p>The token to request the next page of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return in a single call. To retrieve the remaining
+   *             results, make another call with the returned <code>NextToken</code> value. This value
+   *             can be between 1 and 200.</p>
+   */
+  MaxResults?: number;
 
   /**
    * <p>One or more filters.</p>
@@ -9935,25 +10197,6 @@ export interface DescribeLaunchTemplateVersionsRequest {
    *          </ul>
    */
   Filters?: Filter[];
-
-  /**
-   * <p>One or more versions of the launch template. Valid values depend on whether you are describing a specified launch template (by ID or name) or all launch templates in your account.</p>
-   *             <p>To describe one or more versions of a specified launch template, valid values are <code>$Latest</code>, <code>$Default</code>, and numbers.</p>
-   *             <p>To describe all launch templates in your account that are defined as the latest
-   *             version, the valid value is <code>$Latest</code>. To describe all launch templates in
-   *             your account that are defined as the default version, the valid value is
-   *                 <code>$Default</code>. You can specify <code>$Latest</code> and
-   *                 <code>$Default</code> in the same call. You cannot specify numbers.</p>
-   */
-  Versions?: string[];
-
-  /**
-   * <p>The name of the launch template. To describe one or more versions of a specified
-   *             launch template, you must specify either the launch template ID or the launch template
-   *             name in the request. To describe all the latest or default launch template versions in
-   *             your account, you must omit this parameter.</p>
-   */
-  LaunchTemplateName?: string;
 }
 
 export namespace DescribeLaunchTemplateVersionsRequest {
@@ -9964,15 +10207,15 @@ export namespace DescribeLaunchTemplateVersionsRequest {
 
 export interface DescribeLaunchTemplateVersionsResult {
   /**
+   * <p>Information about the launch template versions.</p>
+   */
+  LaunchTemplateVersions?: LaunchTemplateVersion[];
+
+  /**
    * <p>The token to use to retrieve the next page of results. This value is
    *                 <code>null</code> when there are no more results to return.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>Information about the launch template versions.</p>
-   */
-  LaunchTemplateVersions?: LaunchTemplateVersion[];
 }
 
 export namespace DescribeLaunchTemplateVersionsResult {
@@ -9983,27 +10226,9 @@ export namespace DescribeLaunchTemplateVersionsResult {
 
 export interface DescribeLocalGatewayRouteTablesRequest {
   /**
-   * <p>The token for the next page of results.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>The IDs of the local gateway route tables.</p>
    */
   LocalGatewayRouteTableIds?: string[];
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   */
-  MaxResults?: number;
 
   /**
    * <p>One or more filters.</p>
@@ -10027,6 +10252,24 @@ export interface DescribeLocalGatewayRouteTablesRequest {
    *          </ul>
    */
   Filters?: Filter[];
+
+  /**
+   * <p>The maximum number of results to return with a single call.
+   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
 }
 
 export namespace DescribeLocalGatewayRouteTablesRequest {
@@ -10045,14 +10288,14 @@ export interface LocalGatewayRouteTable {
   LocalGatewayRouteTableId?: string;
 
   /**
-   * <p>The state of the local gateway route table.</p>
-   */
-  State?: string;
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the local gateway route table.</p>
    */
   LocalGatewayRouteTableArn?: string;
+
+  /**
+   * <p>The ID of the local gateway.</p>
+   */
+  LocalGatewayId?: string;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the Outpost.</p>
@@ -10065,9 +10308,9 @@ export interface LocalGatewayRouteTable {
   OwnerId?: string;
 
   /**
-   * <p>The ID of the local gateway.</p>
+   * <p>The state of the local gateway route table.</p>
    */
-  LocalGatewayId?: string;
+  State?: string;
 
   /**
    * <p>The tags assigned to the local gateway route table.</p>
@@ -10077,397 +10320,6 @@ export interface LocalGatewayRouteTable {
 
 export namespace LocalGatewayRouteTable {
   export const filterSensitiveLog = (obj: LocalGatewayRouteTable): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeLocalGatewayRouteTablesResult {
-  /**
-   * <p>Information about the local gateway route tables.</p>
-   */
-  LocalGatewayRouteTables?: LocalGatewayRouteTable[];
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace DescribeLocalGatewayRouteTablesResult {
-  export const filterSensitiveLog = (obj: DescribeLocalGatewayRouteTablesResult): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>One or more filters.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>local-gateway-id</code> - The ID of a local gateway.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>local-gateway-route-table-id</code> - The ID of the local gateway route table.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>local-gateway-route-table-virtual-interface-group-association-id</code> - The ID of the association.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>local-gateway-route-table-virtual-interface-group-id</code> - The ID of the virtual interface group.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>state</code> - The state of the association.</p>
-   *             </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>The token for the next page of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The IDs of the associations.</p>
-   */
-  LocalGatewayRouteTableVirtualInterfaceGroupAssociationIds?: string[];
-}
-
-export namespace DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsRequest {
-  export const filterSensitiveLog = (
-    obj: DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsRequest
-  ): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes an association between a local gateway route table and a virtual interface group.</p>
- */
-export interface LocalGatewayRouteTableVirtualInterfaceGroupAssociation {
-  /**
-   * <p>The tags assigned to the association.</p>
-   */
-  Tags?: Tag[];
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the local gateway route table for the virtual interface group.</p>
-   */
-  LocalGatewayRouteTableArn?: string;
-
-  /**
-   * <p>The state of the association.</p>
-   */
-  State?: string;
-
-  /**
-   * <p>The ID of the local gateway route table.</p>
-   */
-  LocalGatewayRouteTableId?: string;
-
-  /**
-   * <p>The ID of the virtual interface group.</p>
-   */
-  LocalGatewayVirtualInterfaceGroupId?: string;
-
-  /**
-   * <p>The ID of the association.</p>
-   */
-  LocalGatewayRouteTableVirtualInterfaceGroupAssociationId?: string;
-
-  /**
-   * <p>The ID of the local gateway.</p>
-   */
-  LocalGatewayId?: string;
-
-  /**
-   * <p>The AWS account ID that owns the local gateway virtual interface group association.</p>
-   */
-  OwnerId?: string;
-}
-
-export namespace LocalGatewayRouteTableVirtualInterfaceGroupAssociation {
-  export const filterSensitiveLog = (obj: LocalGatewayRouteTableVirtualInterfaceGroupAssociation): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsResult {
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>Information about the associations.</p>
-   */
-  LocalGatewayRouteTableVirtualInterfaceGroupAssociations?: LocalGatewayRouteTableVirtualInterfaceGroupAssociation[];
-}
-
-export namespace DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsResult {
-  export const filterSensitiveLog = (
-    obj: DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsResult
-  ): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeLocalGatewayRouteTableVpcAssociationsRequest {
-  /**
-   * <p>The IDs of the associations.</p>
-   */
-  LocalGatewayRouteTableVpcAssociationIds?: string[];
-
-  /**
-   * <p>One or more filters.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>local-gateway-id</code> - The ID of a local gateway.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>local-gateway-route-table-id</code> - The ID of the local gateway route table.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>local-gateway-route-table-vpc-association-id</code> - The ID of the association.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>state</code> - The state of the association.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>vpc-id</code> - The ID of the VPC.</p>
-   *             </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>The token for the next page of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   */
-  MaxResults?: number;
-}
-
-export namespace DescribeLocalGatewayRouteTableVpcAssociationsRequest {
-  export const filterSensitiveLog = (obj: DescribeLocalGatewayRouteTableVpcAssociationsRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeLocalGatewayRouteTableVpcAssociationsResult {
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>Information about the associations.</p>
-   */
-  LocalGatewayRouteTableVpcAssociations?: LocalGatewayRouteTableVpcAssociation[];
-}
-
-export namespace DescribeLocalGatewayRouteTableVpcAssociationsResult {
-  export const filterSensitiveLog = (obj: DescribeLocalGatewayRouteTableVpcAssociationsResult): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeLocalGatewaysRequest {
-  /**
-   * <p>One or more filters.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>local-gateway-id</code> - The ID of a local gateway.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>local-gateway-route-table-id</code> - The ID of the local gateway route table.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>local-gateway-route-table-virtual-interface-group-association-id</code> - The ID of the association.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>local-gateway-route-table-virtual-interface-group-id</code> - The ID of the virtual interface group.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>outpost-arn</code> - The Amazon Resource Name (ARN) of the Outpost.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>state</code> - The state of the association.</p>
-   *             </li>
-   *          </ul>
-   */
-  LocalGatewayIds?: string[];
-
-  /**
-   * <p>One or more filters.</p>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>The token for the next page of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export namespace DescribeLocalGatewaysRequest {
-  export const filterSensitiveLog = (obj: DescribeLocalGatewaysRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes a local gateway.</p>
- */
-export interface LocalGateway {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the Outpost.</p>
-   */
-  OutpostArn?: string;
-
-  /**
-   * <p>The state of the local gateway.</p>
-   */
-  State?: string;
-
-  /**
-   * <p>The ID of the local gateway.</p>
-   */
-  LocalGatewayId?: string;
-
-  /**
-   * <p>The tags assigned to the local gateway.</p>
-   */
-  Tags?: Tag[];
-
-  /**
-   * <p>The AWS account ID that owns the local gateway.</p>
-   */
-  OwnerId?: string;
-}
-
-export namespace LocalGateway {
-  export const filterSensitiveLog = (obj: LocalGateway): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeLocalGatewaysResult {
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>Information about the local gateways.</p>
-   */
-  LocalGateways?: LocalGateway[];
-}
-
-export namespace DescribeLocalGatewaysResult {
-  export const filterSensitiveLog = (obj: DescribeLocalGatewaysResult): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeLocalGatewayVirtualInterfaceGroupsRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The token for the next page of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The IDs of the virtual interface groups.</p>
-   */
-  LocalGatewayVirtualInterfaceGroupIds?: string[];
-
-  /**
-   * <p>One or more filters.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>local-gateway-id</code> - The ID of a local gateway.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>local-gateway-virtual-interface-id</code> - The ID of the virtual interface.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>local-gateway-virtual-interface-group-id</code> - The ID of the virtual interface group.</p>
-   *             </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-}
-
-export namespace DescribeLocalGatewayVirtualInterfaceGroupsRequest {
-  export const filterSensitiveLog = (obj: DescribeLocalGatewayVirtualInterfaceGroupsRequest): any => ({
     ...obj,
   });
 }

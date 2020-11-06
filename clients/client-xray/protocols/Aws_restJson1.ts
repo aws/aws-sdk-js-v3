@@ -9,6 +9,16 @@ import {
 } from "../commands/GetEncryptionConfigCommand";
 import { GetGroupCommandInput, GetGroupCommandOutput } from "../commands/GetGroupCommand";
 import { GetGroupsCommandInput, GetGroupsCommandOutput } from "../commands/GetGroupsCommand";
+import { GetInsightCommandInput, GetInsightCommandOutput } from "../commands/GetInsightCommand";
+import { GetInsightEventsCommandInput, GetInsightEventsCommandOutput } from "../commands/GetInsightEventsCommand";
+import {
+  GetInsightImpactGraphCommandInput,
+  GetInsightImpactGraphCommandOutput,
+} from "../commands/GetInsightImpactGraphCommand";
+import {
+  GetInsightSummariesCommandInput,
+  GetInsightSummariesCommandOutput,
+} from "../commands/GetInsightSummariesCommand";
 import { GetSamplingRulesCommandInput, GetSamplingRulesCommandOutput } from "../commands/GetSamplingRulesCommand";
 import {
   GetSamplingStatisticSummariesCommandInput,
@@ -42,6 +52,7 @@ import { UpdateSamplingRuleCommandInput, UpdateSamplingRuleCommandOutput } from 
 import {
   Alias,
   AnnotationValue,
+  AnomalousService,
   AvailabilityZoneDetail,
   BackendConnectionErrors,
   Edge,
@@ -55,13 +66,22 @@ import {
   FaultRootCauseEntity,
   FaultRootCauseService,
   FaultStatistics,
+  ForecastStatistics,
   Group,
   GroupSummary,
   HistogramEntry,
   Http,
+  Insight,
+  InsightCategory,
+  InsightEvent,
+  InsightImpactGraphEdge,
+  InsightImpactGraphService,
+  InsightState,
+  InsightSummary,
   InsightsConfiguration,
   InstanceIdDetail,
   InvalidRequestException,
+  RequestImpactStatistics,
   ResourceARNDetail,
   ResourceNotFoundException,
   ResponseTimeRootCause,
@@ -303,6 +323,113 @@ export const serializeAws_restJson1GetGroupsCommand = async (
   });
 };
 
+export const serializeAws_restJson1GetInsightCommand = async (
+  input: GetInsightCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+  };
+  let resolvedPath = "/Insight";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.InsightId !== undefined && { InsightId: input.InsightId }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1GetInsightEventsCommand = async (
+  input: GetInsightEventsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+  };
+  let resolvedPath = "/InsightEvents";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.InsightId !== undefined && { InsightId: input.InsightId }),
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1GetInsightImpactGraphCommand = async (
+  input: GetInsightImpactGraphCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+  };
+  let resolvedPath = "/InsightImpactGraph";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.EndTime !== undefined && { EndTime: Math.round(input.EndTime.getTime() / 1000) }),
+    ...(input.InsightId !== undefined && { InsightId: input.InsightId }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.StartTime !== undefined && { StartTime: Math.round(input.StartTime.getTime() / 1000) }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1GetInsightSummariesCommand = async (
+  input: GetInsightSummariesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+  };
+  let resolvedPath = "/InsightSummaries";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.EndTime !== undefined && { EndTime: Math.round(input.EndTime.getTime() / 1000) }),
+    ...(input.GroupARN !== undefined && { GroupARN: input.GroupARN }),
+    ...(input.GroupName !== undefined && { GroupName: input.GroupName }),
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.StartTime !== undefined && { StartTime: Math.round(input.StartTime.getTime() / 1000) }),
+    ...(input.States !== undefined && { States: serializeAws_restJson1InsightStateList(input.States, context) }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1GetSamplingRulesCommand = async (
   input: GetSamplingRulesCommandInput,
   context: __SerdeContext
@@ -420,6 +547,7 @@ export const serializeAws_restJson1GetTimeSeriesServiceStatisticsCommand = async
   body = JSON.stringify({
     ...(input.EndTime !== undefined && { EndTime: Math.round(input.EndTime.getTime() / 1000) }),
     ...(input.EntitySelectorExpression !== undefined && { EntitySelectorExpression: input.EntitySelectorExpression }),
+    ...(input.ForecastStatistics !== undefined && { ForecastStatistics: input.ForecastStatistics }),
     ...(input.GroupARN !== undefined && { GroupARN: input.GroupARN }),
     ...(input.GroupName !== undefined && { GroupName: input.GroupName }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
@@ -1184,6 +1312,290 @@ const deserializeAws_restJson1GetGroupsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetGroupsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidRequestException":
+    case "com.amazonaws.xray#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottledException":
+    case "com.amazonaws.xray#ThrottledException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottledExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1GetInsightCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetInsightCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1GetInsightCommandError(output, context);
+  }
+  const contents: GetInsightCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    Insight: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.Insight !== undefined && data.Insight !== null) {
+    contents.Insight = deserializeAws_restJson1Insight(data.Insight, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1GetInsightCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetInsightCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidRequestException":
+    case "com.amazonaws.xray#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottledException":
+    case "com.amazonaws.xray#ThrottledException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottledExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1GetInsightEventsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetInsightEventsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1GetInsightEventsCommandError(output, context);
+  }
+  const contents: GetInsightEventsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    InsightEvents: undefined,
+    NextToken: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.InsightEvents !== undefined && data.InsightEvents !== null) {
+    contents.InsightEvents = deserializeAws_restJson1InsightEventList(data.InsightEvents, context);
+  }
+  if (data.NextToken !== undefined && data.NextToken !== null) {
+    contents.NextToken = data.NextToken;
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1GetInsightEventsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetInsightEventsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidRequestException":
+    case "com.amazonaws.xray#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottledException":
+    case "com.amazonaws.xray#ThrottledException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottledExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1GetInsightImpactGraphCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetInsightImpactGraphCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1GetInsightImpactGraphCommandError(output, context);
+  }
+  const contents: GetInsightImpactGraphCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    EndTime: undefined,
+    InsightId: undefined,
+    NextToken: undefined,
+    ServiceGraphEndTime: undefined,
+    ServiceGraphStartTime: undefined,
+    Services: undefined,
+    StartTime: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.EndTime !== undefined && data.EndTime !== null) {
+    contents.EndTime = new Date(Math.round(data.EndTime * 1000));
+  }
+  if (data.InsightId !== undefined && data.InsightId !== null) {
+    contents.InsightId = data.InsightId;
+  }
+  if (data.NextToken !== undefined && data.NextToken !== null) {
+    contents.NextToken = data.NextToken;
+  }
+  if (data.ServiceGraphEndTime !== undefined && data.ServiceGraphEndTime !== null) {
+    contents.ServiceGraphEndTime = new Date(Math.round(data.ServiceGraphEndTime * 1000));
+  }
+  if (data.ServiceGraphStartTime !== undefined && data.ServiceGraphStartTime !== null) {
+    contents.ServiceGraphStartTime = new Date(Math.round(data.ServiceGraphStartTime * 1000));
+  }
+  if (data.Services !== undefined && data.Services !== null) {
+    contents.Services = deserializeAws_restJson1InsightImpactGraphServiceList(data.Services, context);
+  }
+  if (data.StartTime !== undefined && data.StartTime !== null) {
+    contents.StartTime = new Date(Math.round(data.StartTime * 1000));
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1GetInsightImpactGraphCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetInsightImpactGraphCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidRequestException":
+    case "com.amazonaws.xray#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottledException":
+    case "com.amazonaws.xray#ThrottledException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottledExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1GetInsightSummariesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetInsightSummariesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1GetInsightSummariesCommandError(output, context);
+  }
+  const contents: GetInsightSummariesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    InsightSummaries: undefined,
+    NextToken: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.InsightSummaries !== undefined && data.InsightSummaries !== null) {
+    contents.InsightSummaries = deserializeAws_restJson1InsightSummaryList(data.InsightSummaries, context);
+  }
+  if (data.NextToken !== undefined && data.NextToken !== null) {
+    contents.NextToken = data.NextToken;
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1GetInsightSummariesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetInsightSummariesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -2389,6 +2801,10 @@ const serializeAws_restJson1InsightsConfiguration = (input: InsightsConfiguratio
   };
 };
 
+const serializeAws_restJson1InsightStateList = (input: (InsightState | string)[], context: __SerdeContext): any => {
+  return input.map((entry) => entry);
+};
+
 const serializeAws_restJson1SamplingRule = (input: SamplingRule, context: __SerdeContext): any => {
   return {
     ...(input.Attributes !== undefined && {
@@ -2534,6 +2950,19 @@ const deserializeAws_restJson1AnnotationValue = (output: any, context: __SerdeCo
     NumberValue: output.NumberValue !== undefined && output.NumberValue !== null ? output.NumberValue : undefined,
     StringValue: output.StringValue !== undefined && output.StringValue !== null ? output.StringValue : undefined,
   } as any;
+};
+
+const deserializeAws_restJson1AnomalousService = (output: any, context: __SerdeContext): AnomalousService => {
+  return {
+    ServiceId:
+      output.ServiceId !== undefined && output.ServiceId !== null
+        ? deserializeAws_restJson1ServiceId(output.ServiceId, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AnomalousServiceList = (output: any, context: __SerdeContext): AnomalousService[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1AnomalousService(entry, context));
 };
 
 const deserializeAws_restJson1AttributeMap = (output: any, context: __SerdeContext): { [key: string]: string } => {
@@ -2740,6 +3169,15 @@ const deserializeAws_restJson1FaultStatistics = (output: any, context: __SerdeCo
   } as any;
 };
 
+const deserializeAws_restJson1ForecastStatistics = (output: any, context: __SerdeContext): ForecastStatistics => {
+  return {
+    FaultCountHigh:
+      output.FaultCountHigh !== undefined && output.FaultCountHigh !== null ? output.FaultCountHigh : undefined,
+    FaultCountLow:
+      output.FaultCountLow !== undefined && output.FaultCountLow !== null ? output.FaultCountLow : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1Group = (output: any, context: __SerdeContext): Group => {
   return {
     FilterExpression:
@@ -2791,6 +3229,120 @@ const deserializeAws_restJson1Http = (output: any, context: __SerdeContext): Htt
   } as any;
 };
 
+const deserializeAws_restJson1Insight = (output: any, context: __SerdeContext): Insight => {
+  return {
+    Categories:
+      output.Categories !== undefined && output.Categories !== null
+        ? deserializeAws_restJson1InsightCategoryList(output.Categories, context)
+        : undefined,
+    ClientRequestImpactStatistics:
+      output.ClientRequestImpactStatistics !== undefined && output.ClientRequestImpactStatistics !== null
+        ? deserializeAws_restJson1RequestImpactStatistics(output.ClientRequestImpactStatistics, context)
+        : undefined,
+    EndTime:
+      output.EndTime !== undefined && output.EndTime !== null ? new Date(Math.round(output.EndTime * 1000)) : undefined,
+    GroupARN: output.GroupARN !== undefined && output.GroupARN !== null ? output.GroupARN : undefined,
+    GroupName: output.GroupName !== undefined && output.GroupName !== null ? output.GroupName : undefined,
+    InsightId: output.InsightId !== undefined && output.InsightId !== null ? output.InsightId : undefined,
+    RootCauseServiceId:
+      output.RootCauseServiceId !== undefined && output.RootCauseServiceId !== null
+        ? deserializeAws_restJson1ServiceId(output.RootCauseServiceId, context)
+        : undefined,
+    RootCauseServiceRequestImpactStatistics:
+      output.RootCauseServiceRequestImpactStatistics !== undefined &&
+      output.RootCauseServiceRequestImpactStatistics !== null
+        ? deserializeAws_restJson1RequestImpactStatistics(output.RootCauseServiceRequestImpactStatistics, context)
+        : undefined,
+    StartTime:
+      output.StartTime !== undefined && output.StartTime !== null
+        ? new Date(Math.round(output.StartTime * 1000))
+        : undefined,
+    State: output.State !== undefined && output.State !== null ? output.State : undefined,
+    Summary: output.Summary !== undefined && output.Summary !== null ? output.Summary : undefined,
+    TopAnomalousServices:
+      output.TopAnomalousServices !== undefined && output.TopAnomalousServices !== null
+        ? deserializeAws_restJson1AnomalousServiceList(output.TopAnomalousServices, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1InsightCategoryList = (
+  output: any,
+  context: __SerdeContext
+): (InsightCategory | string)[] => {
+  return (output || []).map((entry: any) => entry);
+};
+
+const deserializeAws_restJson1InsightEvent = (output: any, context: __SerdeContext): InsightEvent => {
+  return {
+    ClientRequestImpactStatistics:
+      output.ClientRequestImpactStatistics !== undefined && output.ClientRequestImpactStatistics !== null
+        ? deserializeAws_restJson1RequestImpactStatistics(output.ClientRequestImpactStatistics, context)
+        : undefined,
+    EventTime:
+      output.EventTime !== undefined && output.EventTime !== null
+        ? new Date(Math.round(output.EventTime * 1000))
+        : undefined,
+    RootCauseServiceRequestImpactStatistics:
+      output.RootCauseServiceRequestImpactStatistics !== undefined &&
+      output.RootCauseServiceRequestImpactStatistics !== null
+        ? deserializeAws_restJson1RequestImpactStatistics(output.RootCauseServiceRequestImpactStatistics, context)
+        : undefined,
+    Summary: output.Summary !== undefined && output.Summary !== null ? output.Summary : undefined,
+    TopAnomalousServices:
+      output.TopAnomalousServices !== undefined && output.TopAnomalousServices !== null
+        ? deserializeAws_restJson1AnomalousServiceList(output.TopAnomalousServices, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1InsightEventList = (output: any, context: __SerdeContext): InsightEvent[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1InsightEvent(entry, context));
+};
+
+const deserializeAws_restJson1InsightImpactGraphEdge = (
+  output: any,
+  context: __SerdeContext
+): InsightImpactGraphEdge => {
+  return {
+    ReferenceId: output.ReferenceId !== undefined && output.ReferenceId !== null ? output.ReferenceId : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1InsightImpactGraphEdgeList = (
+  output: any,
+  context: __SerdeContext
+): InsightImpactGraphEdge[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1InsightImpactGraphEdge(entry, context));
+};
+
+const deserializeAws_restJson1InsightImpactGraphService = (
+  output: any,
+  context: __SerdeContext
+): InsightImpactGraphService => {
+  return {
+    AccountId: output.AccountId !== undefined && output.AccountId !== null ? output.AccountId : undefined,
+    Edges:
+      output.Edges !== undefined && output.Edges !== null
+        ? deserializeAws_restJson1InsightImpactGraphEdgeList(output.Edges, context)
+        : undefined,
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+    Names:
+      output.Names !== undefined && output.Names !== null
+        ? deserializeAws_restJson1ServiceNames(output.Names, context)
+        : undefined,
+    ReferenceId: output.ReferenceId !== undefined && output.ReferenceId !== null ? output.ReferenceId : undefined,
+    Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1InsightImpactGraphServiceList = (
+  output: any,
+  context: __SerdeContext
+): InsightImpactGraphService[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1InsightImpactGraphService(entry, context));
+};
+
 const deserializeAws_restJson1InsightsConfiguration = (output: any, context: __SerdeContext): InsightsConfiguration => {
   return {
     InsightsEnabled:
@@ -2802,9 +3354,65 @@ const deserializeAws_restJson1InsightsConfiguration = (output: any, context: __S
   } as any;
 };
 
+const deserializeAws_restJson1InsightSummary = (output: any, context: __SerdeContext): InsightSummary => {
+  return {
+    Categories:
+      output.Categories !== undefined && output.Categories !== null
+        ? deserializeAws_restJson1InsightCategoryList(output.Categories, context)
+        : undefined,
+    ClientRequestImpactStatistics:
+      output.ClientRequestImpactStatistics !== undefined && output.ClientRequestImpactStatistics !== null
+        ? deserializeAws_restJson1RequestImpactStatistics(output.ClientRequestImpactStatistics, context)
+        : undefined,
+    EndTime:
+      output.EndTime !== undefined && output.EndTime !== null ? new Date(Math.round(output.EndTime * 1000)) : undefined,
+    GroupARN: output.GroupARN !== undefined && output.GroupARN !== null ? output.GroupARN : undefined,
+    GroupName: output.GroupName !== undefined && output.GroupName !== null ? output.GroupName : undefined,
+    InsightId: output.InsightId !== undefined && output.InsightId !== null ? output.InsightId : undefined,
+    LastUpdateTime:
+      output.LastUpdateTime !== undefined && output.LastUpdateTime !== null
+        ? new Date(Math.round(output.LastUpdateTime * 1000))
+        : undefined,
+    RootCauseServiceId:
+      output.RootCauseServiceId !== undefined && output.RootCauseServiceId !== null
+        ? deserializeAws_restJson1ServiceId(output.RootCauseServiceId, context)
+        : undefined,
+    RootCauseServiceRequestImpactStatistics:
+      output.RootCauseServiceRequestImpactStatistics !== undefined &&
+      output.RootCauseServiceRequestImpactStatistics !== null
+        ? deserializeAws_restJson1RequestImpactStatistics(output.RootCauseServiceRequestImpactStatistics, context)
+        : undefined,
+    StartTime:
+      output.StartTime !== undefined && output.StartTime !== null
+        ? new Date(Math.round(output.StartTime * 1000))
+        : undefined,
+    State: output.State !== undefined && output.State !== null ? output.State : undefined,
+    Summary: output.Summary !== undefined && output.Summary !== null ? output.Summary : undefined,
+    TopAnomalousServices:
+      output.TopAnomalousServices !== undefined && output.TopAnomalousServices !== null
+        ? deserializeAws_restJson1AnomalousServiceList(output.TopAnomalousServices, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1InsightSummaryList = (output: any, context: __SerdeContext): InsightSummary[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1InsightSummary(entry, context));
+};
+
 const deserializeAws_restJson1InstanceIdDetail = (output: any, context: __SerdeContext): InstanceIdDetail => {
   return {
     Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1RequestImpactStatistics = (
+  output: any,
+  context: __SerdeContext
+): RequestImpactStatistics => {
+  return {
+    FaultCount: output.FaultCount !== undefined && output.FaultCount !== null ? output.FaultCount : undefined,
+    OkCount: output.OkCount !== undefined && output.OkCount !== null ? output.OkCount : undefined,
+    TotalCount: output.TotalCount !== undefined && output.TotalCount !== null ? output.TotalCount : undefined,
   } as any;
 };
 
@@ -3092,6 +3700,10 @@ const deserializeAws_restJson1TimeSeriesServiceStatistics = (
     ResponseTimeHistogram:
       output.ResponseTimeHistogram !== undefined && output.ResponseTimeHistogram !== null
         ? deserializeAws_restJson1Histogram(output.ResponseTimeHistogram, context)
+        : undefined,
+    ServiceForecastStatistics:
+      output.ServiceForecastStatistics !== undefined && output.ServiceForecastStatistics !== null
+        ? deserializeAws_restJson1ForecastStatistics(output.ServiceForecastStatistics, context)
         : undefined,
     ServiceSummaryStatistics:
       output.ServiceSummaryStatistics !== undefined && output.ServiceSummaryStatistics !== null

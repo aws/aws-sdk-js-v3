@@ -16,8 +16,19 @@ import {
   DeleteDetectorVersionCommandInput,
   DeleteDetectorVersionCommandOutput,
 } from "./commands/DeleteDetectorVersionCommand";
+import { DeleteEntityTypeCommandInput, DeleteEntityTypeCommandOutput } from "./commands/DeleteEntityTypeCommand";
 import { DeleteEventCommandInput, DeleteEventCommandOutput } from "./commands/DeleteEventCommand";
+import { DeleteEventTypeCommandInput, DeleteEventTypeCommandOutput } from "./commands/DeleteEventTypeCommand";
+import {
+  DeleteExternalModelCommandInput,
+  DeleteExternalModelCommandOutput,
+} from "./commands/DeleteExternalModelCommand";
+import { DeleteLabelCommandInput, DeleteLabelCommandOutput } from "./commands/DeleteLabelCommand";
+import { DeleteModelCommandInput, DeleteModelCommandOutput } from "./commands/DeleteModelCommand";
+import { DeleteModelVersionCommandInput, DeleteModelVersionCommandOutput } from "./commands/DeleteModelVersionCommand";
+import { DeleteOutcomeCommandInput, DeleteOutcomeCommandOutput } from "./commands/DeleteOutcomeCommand";
 import { DeleteRuleCommandInput, DeleteRuleCommandOutput } from "./commands/DeleteRuleCommand";
+import { DeleteVariableCommandInput, DeleteVariableCommandOutput } from "./commands/DeleteVariableCommand";
 import { DescribeDetectorCommandInput, DescribeDetectorCommandOutput } from "./commands/DescribeDetectorCommand";
 import {
   DescribeModelVersionsCommandInput,
@@ -135,8 +146,16 @@ export type ServiceInputTypes =
   | CreateVariableCommandInput
   | DeleteDetectorCommandInput
   | DeleteDetectorVersionCommandInput
+  | DeleteEntityTypeCommandInput
   | DeleteEventCommandInput
+  | DeleteEventTypeCommandInput
+  | DeleteExternalModelCommandInput
+  | DeleteLabelCommandInput
+  | DeleteModelCommandInput
+  | DeleteModelVersionCommandInput
+  | DeleteOutcomeCommandInput
   | DeleteRuleCommandInput
+  | DeleteVariableCommandInput
   | DescribeDetectorCommandInput
   | DescribeModelVersionsCommandInput
   | GetDetectorVersionCommandInput
@@ -182,8 +201,16 @@ export type ServiceOutputTypes =
   | CreateVariableCommandOutput
   | DeleteDetectorCommandOutput
   | DeleteDetectorVersionCommandOutput
+  | DeleteEntityTypeCommandOutput
   | DeleteEventCommandOutput
+  | DeleteEventTypeCommandOutput
+  | DeleteExternalModelCommandOutput
+  | DeleteLabelCommandOutput
+  | DeleteModelCommandOutput
+  | DeleteModelVersionCommandOutput
+  | DeleteOutcomeCommandOutput
   | DeleteRuleCommandOutput
+  | DeleteVariableCommandOutput
   | DescribeDetectorCommandOutput
   | DescribeModelVersionsCommandOutput
   | GetDetectorVersionCommandOutput

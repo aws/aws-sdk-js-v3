@@ -193,6 +193,7 @@ export * from "./pagination/ListThingGroupsPaginator";
 export * from "./commands/ListThingGroupsForThingCommand";
 export * from "./pagination/ListThingGroupsForThingPaginator";
 export * from "./commands/ListThingPrincipalsCommand";
+export * from "./pagination/ListThingPrincipalsPaginator";
 export * from "./commands/ListThingRegistrationTaskReportsCommand";
 export * from "./pagination/ListThingRegistrationTaskReportsPaginator";
 export * from "./commands/ListThingRegistrationTasksCommand";

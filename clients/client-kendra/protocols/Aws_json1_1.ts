@@ -101,6 +101,8 @@ import {
   IndexConfigurationSummary,
   IndexStatistics,
   InternalServerException,
+  JsonTokenTypeConfiguration,
+  JwtTokenTypeConfiguration,
   ListDataSourceSyncJobsRequest,
   ListDataSourceSyncJobsResponse,
   ListDataSourcesRequest,
@@ -159,6 +161,8 @@ import {
   UntagResourceResponse,
   UpdateDataSourceRequest,
   UpdateIndexRequest,
+  UserContext,
+  UserTokenConfiguration,
   ValidationException,
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
@@ -3199,6 +3203,10 @@ const serializeAws_json1_1CreateIndexRequest = (input: CreateIndexRequest, conte
       ),
     }),
     ...(input.Tags !== undefined && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+    ...(input.UserContextPolicy !== undefined && { UserContextPolicy: input.UserContextPolicy }),
+    ...(input.UserTokenConfigurations !== undefined && {
+      UserTokenConfigurations: serializeAws_json1_1UserTokenConfigurationList(input.UserTokenConfigurations, context),
+    }),
   };
 };
 
@@ -3428,6 +3436,31 @@ const serializeAws_json1_1FacetList = (input: Facet[], context: __SerdeContext):
   return input.map((entry) => serializeAws_json1_1Facet(entry, context));
 };
 
+const serializeAws_json1_1JsonTokenTypeConfiguration = (
+  input: JsonTokenTypeConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.GroupAttributeField !== undefined && { GroupAttributeField: input.GroupAttributeField }),
+    ...(input.UserNameAttributeField !== undefined && { UserNameAttributeField: input.UserNameAttributeField }),
+  };
+};
+
+const serializeAws_json1_1JwtTokenTypeConfiguration = (
+  input: JwtTokenTypeConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ClaimRegex !== undefined && { ClaimRegex: input.ClaimRegex }),
+    ...(input.GroupAttributeField !== undefined && { GroupAttributeField: input.GroupAttributeField }),
+    ...(input.Issuer !== undefined && { Issuer: input.Issuer }),
+    ...(input.KeyLocation !== undefined && { KeyLocation: input.KeyLocation }),
+    ...(input.SecretManagerArn !== undefined && { SecretManagerArn: input.SecretManagerArn }),
+    ...(input.URL !== undefined && { URL: input.URL }),
+    ...(input.UserNameAttributeField !== undefined && { UserNameAttributeField: input.UserNameAttributeField }),
+  };
+};
+
 const serializeAws_json1_1ListDataSourcesRequest = (input: ListDataSourcesRequest, context: __SerdeContext): any => {
   return {
     ...(input.IndexId !== undefined && { IndexId: input.IndexId }),
@@ -3478,6 +3511,7 @@ const serializeAws_json1_1ListTagsForResourceRequest = (
 
 const serializeAws_json1_1OneDriveConfiguration = (input: OneDriveConfiguration, context: __SerdeContext): any => {
   return {
+    ...(input.DisableLocalGroups !== undefined && { DisableLocalGroups: input.DisableLocalGroups }),
     ...(input.ExclusionPatterns !== undefined && {
       ExclusionPatterns: serializeAws_json1_1DataSourceInclusionsExclusionsStrings(input.ExclusionPatterns, context),
     }),
@@ -3541,6 +3575,9 @@ const serializeAws_json1_1QueryRequest = (input: QueryRequest, context: __SerdeC
     }),
     ...(input.SortingConfiguration !== undefined && {
       SortingConfiguration: serializeAws_json1_1SortingConfiguration(input.SortingConfiguration, context),
+    }),
+    ...(input.UserContext !== undefined && {
+      UserContext: serializeAws_json1_1UserContext(input.UserContext, context),
     }),
   };
 };
@@ -3869,6 +3906,7 @@ const serializeAws_json1_1ServiceNowServiceCatalogConfiguration = (
 const serializeAws_json1_1SharePointConfiguration = (input: SharePointConfiguration, context: __SerdeContext): any => {
   return {
     ...(input.CrawlAttachments !== undefined && { CrawlAttachments: input.CrawlAttachments }),
+    ...(input.DisableLocalGroups !== undefined && { DisableLocalGroups: input.DisableLocalGroups }),
     ...(input.DocumentTitleFieldName !== undefined && { DocumentTitleFieldName: input.DocumentTitleFieldName }),
     ...(input.ExclusionPatterns !== undefined && {
       ExclusionPatterns: serializeAws_json1_1DataSourceInclusionsExclusionsStrings(input.ExclusionPatterns, context),
@@ -4010,7 +4048,41 @@ const serializeAws_json1_1UpdateIndexRequest = (input: UpdateIndexRequest, conte
     ...(input.Id !== undefined && { Id: input.Id }),
     ...(input.Name !== undefined && { Name: input.Name }),
     ...(input.RoleArn !== undefined && { RoleArn: input.RoleArn }),
+    ...(input.UserContextPolicy !== undefined && { UserContextPolicy: input.UserContextPolicy }),
+    ...(input.UserTokenConfigurations !== undefined && {
+      UserTokenConfigurations: serializeAws_json1_1UserTokenConfigurationList(input.UserTokenConfigurations, context),
+    }),
   };
+};
+
+const serializeAws_json1_1UserContext = (input: UserContext, context: __SerdeContext): any => {
+  return {
+    ...(input.Token !== undefined && { Token: input.Token }),
+  };
+};
+
+const serializeAws_json1_1UserTokenConfiguration = (input: UserTokenConfiguration, context: __SerdeContext): any => {
+  return {
+    ...(input.JsonTokenTypeConfiguration !== undefined && {
+      JsonTokenTypeConfiguration: serializeAws_json1_1JsonTokenTypeConfiguration(
+        input.JsonTokenTypeConfiguration,
+        context
+      ),
+    }),
+    ...(input.JwtTokenTypeConfiguration !== undefined && {
+      JwtTokenTypeConfiguration: serializeAws_json1_1JwtTokenTypeConfiguration(
+        input.JwtTokenTypeConfiguration,
+        context
+      ),
+    }),
+  };
+};
+
+const serializeAws_json1_1UserTokenConfigurationList = (
+  input: UserTokenConfiguration[],
+  context: __SerdeContext
+): any => {
+  return input.map((entry) => serializeAws_json1_1UserTokenConfiguration(entry, context));
 };
 
 const serializeAws_json1_1ValueImportanceMap = (input: { [key: string]: number }, context: __SerdeContext): any => {
@@ -4701,6 +4773,14 @@ const deserializeAws_json1_1DescribeIndexResponse = (output: any, context: __Ser
       output.UpdatedAt !== undefined && output.UpdatedAt !== null
         ? new Date(Math.round(output.UpdatedAt * 1000))
         : undefined,
+    UserContextPolicy:
+      output.UserContextPolicy !== undefined && output.UserContextPolicy !== null
+        ? output.UserContextPolicy
+        : undefined,
+    UserTokenConfigurations:
+      output.UserTokenConfigurations !== undefined && output.UserTokenConfigurations !== null
+        ? deserializeAws_json1_1UserTokenConfigurationList(output.UserTokenConfigurations, context)
+        : undefined,
   } as any;
 };
 
@@ -4903,6 +4983,44 @@ const deserializeAws_json1_1InternalServerException = (
   } as any;
 };
 
+const deserializeAws_json1_1JsonTokenTypeConfiguration = (
+  output: any,
+  context: __SerdeContext
+): JsonTokenTypeConfiguration => {
+  return {
+    GroupAttributeField:
+      output.GroupAttributeField !== undefined && output.GroupAttributeField !== null
+        ? output.GroupAttributeField
+        : undefined,
+    UserNameAttributeField:
+      output.UserNameAttributeField !== undefined && output.UserNameAttributeField !== null
+        ? output.UserNameAttributeField
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1JwtTokenTypeConfiguration = (
+  output: any,
+  context: __SerdeContext
+): JwtTokenTypeConfiguration => {
+  return {
+    ClaimRegex: output.ClaimRegex !== undefined && output.ClaimRegex !== null ? output.ClaimRegex : undefined,
+    GroupAttributeField:
+      output.GroupAttributeField !== undefined && output.GroupAttributeField !== null
+        ? output.GroupAttributeField
+        : undefined,
+    Issuer: output.Issuer !== undefined && output.Issuer !== null ? output.Issuer : undefined,
+    KeyLocation: output.KeyLocation !== undefined && output.KeyLocation !== null ? output.KeyLocation : undefined,
+    SecretManagerArn:
+      output.SecretManagerArn !== undefined && output.SecretManagerArn !== null ? output.SecretManagerArn : undefined,
+    URL: output.URL !== undefined && output.URL !== null ? output.URL : undefined,
+    UserNameAttributeField:
+      output.UserNameAttributeField !== undefined && output.UserNameAttributeField !== null
+        ? output.UserNameAttributeField
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1ListDataSourcesResponse = (
   output: any,
   context: __SerdeContext
@@ -4963,6 +5081,10 @@ const deserializeAws_json1_1ListTagsForResourceResponse = (
 
 const deserializeAws_json1_1OneDriveConfiguration = (output: any, context: __SerdeContext): OneDriveConfiguration => {
   return {
+    DisableLocalGroups:
+      output.DisableLocalGroups !== undefined && output.DisableLocalGroups !== null
+        ? output.DisableLocalGroups
+        : undefined,
     ExclusionPatterns:
       output.ExclusionPatterns !== undefined && output.ExclusionPatterns !== null
         ? deserializeAws_json1_1DataSourceInclusionsExclusionsStrings(output.ExclusionPatterns, context)
@@ -5463,6 +5585,10 @@ const deserializeAws_json1_1SharePointConfiguration = (
   return {
     CrawlAttachments:
       output.CrawlAttachments !== undefined && output.CrawlAttachments !== null ? output.CrawlAttachments : undefined,
+    DisableLocalGroups:
+      output.DisableLocalGroups !== undefined && output.DisableLocalGroups !== null
+        ? output.DisableLocalGroups
+        : undefined,
     DocumentTitleFieldName:
       output.DocumentTitleFieldName !== undefined && output.DocumentTitleFieldName !== null
         ? output.DocumentTitleFieldName
@@ -5566,6 +5692,26 @@ const deserializeAws_json1_1ThrottlingException = (output: any, context: __Serde
 
 const deserializeAws_json1_1UntagResourceResponse = (output: any, context: __SerdeContext): UntagResourceResponse => {
   return {} as any;
+};
+
+const deserializeAws_json1_1UserTokenConfiguration = (output: any, context: __SerdeContext): UserTokenConfiguration => {
+  return {
+    JsonTokenTypeConfiguration:
+      output.JsonTokenTypeConfiguration !== undefined && output.JsonTokenTypeConfiguration !== null
+        ? deserializeAws_json1_1JsonTokenTypeConfiguration(output.JsonTokenTypeConfiguration, context)
+        : undefined,
+    JwtTokenTypeConfiguration:
+      output.JwtTokenTypeConfiguration !== undefined && output.JwtTokenTypeConfiguration !== null
+        ? deserializeAws_json1_1JwtTokenTypeConfiguration(output.JwtTokenTypeConfiguration, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1UserTokenConfigurationList = (
+  output: any,
+  context: __SerdeContext
+): UserTokenConfiguration[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1UserTokenConfiguration(entry, context));
 };
 
 const deserializeAws_json1_1ValidationException = (output: any, context: __SerdeContext): ValidationException => {

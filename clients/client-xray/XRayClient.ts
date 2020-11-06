@@ -9,6 +9,16 @@ import {
 } from "./commands/GetEncryptionConfigCommand";
 import { GetGroupCommandInput, GetGroupCommandOutput } from "./commands/GetGroupCommand";
 import { GetGroupsCommandInput, GetGroupsCommandOutput } from "./commands/GetGroupsCommand";
+import { GetInsightCommandInput, GetInsightCommandOutput } from "./commands/GetInsightCommand";
+import { GetInsightEventsCommandInput, GetInsightEventsCommandOutput } from "./commands/GetInsightEventsCommand";
+import {
+  GetInsightImpactGraphCommandInput,
+  GetInsightImpactGraphCommandOutput,
+} from "./commands/GetInsightImpactGraphCommand";
+import {
+  GetInsightSummariesCommandInput,
+  GetInsightSummariesCommandOutput,
+} from "./commands/GetInsightSummariesCommand";
 import { GetSamplingRulesCommandInput, GetSamplingRulesCommandOutput } from "./commands/GetSamplingRulesCommand";
 import {
   GetSamplingStatisticSummariesCommandInput,
@@ -97,6 +107,10 @@ export type ServiceInputTypes =
   | GetEncryptionConfigCommandInput
   | GetGroupCommandInput
   | GetGroupsCommandInput
+  | GetInsightCommandInput
+  | GetInsightEventsCommandInput
+  | GetInsightImpactGraphCommandInput
+  | GetInsightSummariesCommandInput
   | GetSamplingRulesCommandInput
   | GetSamplingStatisticSummariesCommandInput
   | GetSamplingTargetsCommandInput
@@ -122,6 +136,10 @@ export type ServiceOutputTypes =
   | GetEncryptionConfigCommandOutput
   | GetGroupCommandOutput
   | GetGroupsCommandOutput
+  | GetInsightCommandOutput
+  | GetInsightEventsCommandOutput
+  | GetInsightImpactGraphCommandOutput
+  | GetInsightSummariesCommandOutput
   | GetSamplingRulesCommandOutput
   | GetSamplingStatisticSummariesCommandOutput
   | GetSamplingTargetsCommandOutput

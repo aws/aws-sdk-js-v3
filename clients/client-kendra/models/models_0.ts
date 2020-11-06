@@ -127,6 +127,11 @@ export enum AdditionalResultAttributeValueType {
  */
 export interface AdditionalResultAttribute {
   /**
+   * <p>The key that identifies the attribute.</p>
+   */
+  Key: string | undefined;
+
+  /**
    * <p>The data type of the <code>Value</code> property.</p>
    */
   ValueType: AdditionalResultAttributeValueType | string | undefined;
@@ -135,11 +140,6 @@ export interface AdditionalResultAttribute {
    * <p>An object that contains the attribute value.</p>
    */
   Value: AdditionalResultAttributeValue | undefined;
-
-  /**
-   * <p>The key that identifies the attribute.</p>
-   */
-  Key: string | undefined;
 }
 
 export namespace AdditionalResultAttribute {
@@ -154,9 +154,9 @@ export namespace AdditionalResultAttribute {
  */
 export interface DocumentAttributeValue {
   /**
-   * <p>A long integer value.</p>
+   * <p>A string, such as "department".</p>
    */
-  LongValue?: number;
+  StringValue?: string;
 
   /**
    * <p>A list of strings. </p>
@@ -164,9 +164,9 @@ export interface DocumentAttributeValue {
   StringListValue?: string[];
 
   /**
-   * <p>A string, such as "department".</p>
+   * <p>A long integer value.</p>
    */
-  StringValue?: string;
+  LongValue?: number;
 
   /**
    * <p>A date expressed as an ISO 8601 string.</p>
@@ -206,14 +206,14 @@ export namespace DocumentAttribute {
  */
 export interface DataSourceSyncJobMetricTarget {
   /**
-   * <p>The ID of the sync job that is running on the data source.</p>
-   */
-  DataSourceSyncJobId: string | undefined;
-
-  /**
    * <p>The ID of the data source that is running the sync job.</p>
    */
   DataSourceId: string | undefined;
+
+  /**
+   * <p>The ID of the sync job that is running on the data source.</p>
+   */
+  DataSourceSyncJobId: string | undefined;
 }
 
 export namespace DataSourceSyncJobMetricTarget {
@@ -224,9 +224,9 @@ export namespace DataSourceSyncJobMetricTarget {
 
 export interface BatchDeleteDocumentRequest {
   /**
-   * <p>Maps a particular data source sync job to a particular data source.</p>
+   * <p>The identifier of the index that contains the documents to delete.</p>
    */
-  DataSourceSyncJobMetricTarget?: DataSourceSyncJobMetricTarget;
+  IndexId: string | undefined;
 
   /**
    * <p>One or more identifiers for documents to delete from the index.</p>
@@ -234,9 +234,9 @@ export interface BatchDeleteDocumentRequest {
   DocumentIdList: string[] | undefined;
 
   /**
-   * <p>The identifier of the index that contains the documents to delete.</p>
+   * <p>Maps a particular data source sync job to a particular data source.</p>
    */
-  IndexId: string | undefined;
+  DataSourceSyncJobMetricTarget?: DataSourceSyncJobMetricTarget;
 }
 
 export namespace BatchDeleteDocumentRequest {
@@ -386,14 +386,14 @@ export interface Principal {
   Name: string | undefined;
 
   /**
-   * <p>Whether to allow or deny access to the principal.</p>
-   */
-  Access: ReadAccessType | string | undefined;
-
-  /**
    * <p>The type of principal.</p>
    */
   Type: PrincipalType | string | undefined;
+
+  /**
+   * <p>Whether to allow or deny access to the principal.</p>
+   */
+  Access: ReadAccessType | string | undefined;
 }
 
 export namespace Principal {
@@ -436,14 +436,14 @@ export namespace S3Path {
  */
 export interface Document {
   /**
-   * <p>The file type of the document in the <code>Blob</code> field.</p>
-   */
-  ContentType?: ContentType | string;
-
-  /**
    * <p>A unique identifier of the document in the index.</p>
    */
   Id: string | undefined;
+
+  /**
+   * <p>The title of the document.</p>
+   */
+  Title?: string;
 
   /**
    * <p>The contents of the document. </p>
@@ -460,11 +460,6 @@ export interface Document {
   S3Path?: S3Path;
 
   /**
-   * <p>The title of the document.</p>
-   */
-  Title?: string;
-
-  /**
    * <p>Custom attributes to apply to the document. Use the custom attributes to provide
    *             additional information for searching, to provide facets for refining searches, and to
    *             provide additional information in the query response.</p>
@@ -475,6 +470,11 @@ export interface Document {
    * <p>Information to use for user context filtering.</p>
    */
   AccessControlList?: Principal[];
+
+  /**
+   * <p>The file type of the document in the <code>Blob</code> field.</p>
+   */
+  ContentType?: ContentType | string;
 }
 
 export namespace Document {
@@ -485,17 +485,17 @@ export namespace Document {
 
 export interface BatchPutDocumentRequest {
   /**
+   * <p>The identifier of the index to add the documents to. You need to create the index first
+   *       using the <a>CreateIndex</a> operation.</p>
+   */
+  IndexId: string | undefined;
+
+  /**
    * <p>The Amazon Resource Name (ARN) of a role that is allowed to run the
    *         <code>BatchPutDocument</code> operation. For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html">IAM Roles for
    *         Amazon Kendra</a>.</p>
    */
   RoleArn?: string;
-
-  /**
-   * <p>The identifier of the index to add the documents to. You need to create the index first
-   *       using the <a>CreateIndex</a> operation.</p>
-   */
-  IndexId: string | undefined;
 
   /**
    * <p>One or more documents to add to the index. </p>
@@ -533,14 +533,14 @@ export interface BatchPutDocumentResponseFailedDocument {
   Id?: string;
 
   /**
-   * <p>A description of the reason why the document could not be indexed.</p>
-   */
-  ErrorMessage?: string;
-
-  /**
    * <p>The type of error that caused the document to fail to be indexed.</p>
    */
   ErrorCode?: ErrorCode | string;
+
+  /**
+   * <p>A description of the reason why the document could not be indexed.</p>
+   */
+  ErrorMessage?: string;
 }
 
 export namespace BatchPutDocumentResponseFailedDocument {
@@ -598,31 +598,31 @@ export enum ConfluenceAttachmentFieldName {
 }
 
 /**
- * <p>Defines the mapping between a field in the Confluence data source to a Amazon Kendra index
- *             field.</p>
- *         <p>You must first create the index field using the
- *             operation. </p>
+ * <p>Defines the mapping between a field in the Confluence data source
+ *             to a Amazon Kendra index field.</p>
+ *         <p>You must first create the index field using the  operation. </p>
  */
 export interface ConfluenceAttachmentToIndexFieldMapping {
   /**
-   * <p>The format for date fields in the data source. If the field specified in
-   *                 <code>DataSourceFieldName</code> is a date field you must specify the date format.
-   *             If the field is not a date field, an exception is thrown.</p>
+   * <p>The name of the field in the data source. </p>
+   *         <p>You must first create the index field using the  operation. </p>
+   */
+  DataSourceFieldName?: ConfluenceAttachmentFieldName | string;
+
+  /**
+   * <p>The format for date fields in the data source. If the field
+   *             specified in <code>DataSourceFieldName</code> is a date field you
+   *             must specify the date format. If the field is not a date field, an
+   *             exception is thrown.</p>
    */
   DateFieldFormat?: string;
 
   /**
-   * <p>The name of the index field to map to the Confluence data source field. The index
-   *             field type must match the Confluence field type.</p>
+   * <p>The name of the index field to map to the Confluence data source
+   *             field. The index field type must match the Confluence field
+   *             type.</p>
    */
   IndexFieldName?: string;
-
-  /**
-   * <p>The name of the field in the data source. </p>
-   *         <p>You must first create the index field using the
-   *             operation. </p>
-   */
-  DataSourceFieldName?: ConfluenceAttachmentFieldName | string;
 }
 
 export namespace ConfluenceAttachmentToIndexFieldMapping {
@@ -632,22 +632,24 @@ export namespace ConfluenceAttachmentToIndexFieldMapping {
 }
 
 /**
- * <p>Specifies the attachment settings for the Confluence data source. Attachment settings
- *             are optional, if you don't specify settings attachments, Amazon Kendra won't index them.</p>
+ * <p>Specifies the attachment settings for the Confluence data source.
+ *             Attachment settings are optional, if you don't specify settings
+ *             attachments, Amazon Kendra won't index them.</p>
  */
 export interface ConfluenceAttachmentConfiguration {
   /**
-   * <p>Indicates whether Amazon Kendra indexes attachments to the pages and blogs in the Confluence
-   *             data source. </p>
+   * <p>Indicates whether Amazon Kendra indexes attachments to the pages and blogs
+   *             in the Confluence data source. </p>
    */
   CrawlAttachments?: boolean;
 
   /**
-   * <p>Defines how attachment metadata fields should be mapped to index fields. Before you
-   *             can map a field, you must first create an index field with a matching type using the
-   *             console or the <code>UpdateIndex</code> operation.</p>
-   *         <p>If you specify the <code>AttachentFieldMappings</code> parameter, you must specify at
-   *             least one field mapping.</p>
+   * <p>Defines how attachment metadata fields should be mapped to index
+   *             fields. Before you can map a field, you must first create an index
+   *             field with a matching type using the console or the
+   *                 <code>UpdateIndex</code> operation.</p>
+   *         <p>If you specify the <code>AttachentFieldMappings</code> parameter,
+   *             you must specify at least one field mapping.</p>
    */
   AttachmentFieldMappings?: ConfluenceAttachmentToIndexFieldMapping[];
 }
@@ -671,10 +673,9 @@ export enum ConfluenceBlogFieldName {
 }
 
 /**
- * <p>Defines the mapping between a blog field in the Confluence data source to a Amazon Kendra
- *             index field.</p>
- *         <p>You must first create the index field using the
- *             operation. </p>
+ * <p>Defines the mapping between a blog field in the Confluence data
+ *             source to a Amazon Kendra index field.</p>
+ *         <p>You must first create the index field using the  operation. </p>
  */
 export interface ConfluenceBlogToIndexFieldMapping {
   /**
@@ -683,15 +684,17 @@ export interface ConfluenceBlogToIndexFieldMapping {
   DataSourceFieldName?: ConfluenceBlogFieldName | string;
 
   /**
-   * <p>The format for date fields in the data source. If the field specified in
-   *                 <code>DataSourceFieldName</code> is a date field you must specify the date format.
-   *             If the field is not a date field, an exception is thrown.</p>
+   * <p>The format for date fields in the data source. If the field
+   *             specified in <code>DataSourceFieldName</code> is a date field you
+   *             must specify the date format. If the field is not a date field, an
+   *             exception is thrown.</p>
    */
   DateFieldFormat?: string;
 
   /**
-   * <p>The name of the index field to map to the Confluence data source field. The index
-   *             field type must match the Confluence field type.</p>
+   * <p>The name of the index field to map to the Confluence data source
+   *             field. The index field type must match the Confluence field
+   *             type.</p>
    */
   IndexFieldName?: string;
 }
@@ -703,17 +706,20 @@ export namespace ConfluenceBlogToIndexFieldMapping {
 }
 
 /**
- * <p>Specifies the blog settings for the Confluence data source. Blogs are always indexed
- *             unless filtered from the index by the <code>ExclusionPatterns</code> or
- *                 <code>InclusionPatterns</code> fields in the  data type.</p>
+ * <p>Specifies the blog settings for the Confluence data source. Blogs
+ *             are always indexed unless filtered from the index by the
+ *                 <code>ExclusionPatterns</code> or <code>InclusionPatterns</code>
+ *             fields in the  data
+ *             type.</p>
  */
 export interface ConfluenceBlogConfiguration {
   /**
-   * <p>Defines how blog metadata fields should be mapped to index fields. Before you can map
-   *             a field, you must first create an index field with a matching type using the console or
-   *             the <code>UpdateIndex</code> operation.</p>
-   *         <p>If you specify the <code>BlogFieldMappings</code> parameter, you must specify at least
-   *             one field mapping.</p>
+   * <p>Defines how blog metadata fields should be mapped to index fields.
+   *             Before you can map a field, you must first create an index field
+   *             with a matching type using the console or the
+   *                 <code>UpdateIndex</code> operation.</p>
+   *         <p>If you specify the <code>BlogFieldMappings</code> parameter, you
+   *             must specify at least one field mapping.</p>
    */
   BlogFieldMappings?: ConfluenceBlogToIndexFieldMapping[];
 }
@@ -740,27 +746,28 @@ export enum ConfluencePageFieldName {
 }
 
 /**
- * <p>Defines the mapping between a field in the Confluence data source to a Amazon Kendra index
- *             field.</p>
- *         <p>You must first create the index field using the
- *             operation. </p>
+ * <p>Defines the mapping between a field in the Confluence data source
+ *             to a Amazon Kendra index field.</p>
+ *         <p>You must first create the index field using the  operation. </p>
  */
 export interface ConfluencePageToIndexFieldMapping {
-  /**
-   * <p>The format for date fields in the data source. If the field specified in
-   *                 <code>DataSourceFieldName</code> is a date field you must specify the date format.
-   *             If the field is not a date field, an exception is thrown.</p>
-   */
-  DateFieldFormat?: string;
-
   /**
    * <p>The name of the field in the data source. </p>
    */
   DataSourceFieldName?: ConfluencePageFieldName | string;
 
   /**
-   * <p>The name of the index field to map to the Confluence data source field. The index
-   *             field type must match the Confluence field type.</p>
+   * <p>The format for date fields in the data source. If the field
+   *             specified in <code>DataSourceFieldName</code> is a date field you
+   *             must specify the date format. If the field is not a date field, an
+   *             exception is thrown.</p>
+   */
+  DateFieldFormat?: string;
+
+  /**
+   * <p>The name of the index field to map to the Confluence data source
+   *             field. The index field type must match the Confluence field
+   *             type.</p>
    */
   IndexFieldName?: string;
 }
@@ -776,11 +783,12 @@ export namespace ConfluencePageToIndexFieldMapping {
  */
 export interface ConfluencePageConfiguration {
   /**
-   * <p>Defines how page metadata fields should be mapped to index fields. Before you can map
-   *             a field, you must first create an index field with a matching type using the console or
-   *             the <code>UpdateIndex</code> operation.</p>
-   *         <p>If you specify the <code>PageFieldMappings</code> parameter, you must specify at least
-   *             one field mapping.</p>
+   * <p>Defines how page metadata fields should be mapped to index fields.
+   *             Before you can map a field, you must first create an index field
+   *             with a matching type using the console or the
+   *                 <code>UpdateIndex</code> operation.</p>
+   *         <p>If you specify the <code>PageFieldMappings</code> parameter, you
+   *             must specify at least one field mapping.</p>
    */
   PageFieldMappings?: ConfluencePageToIndexFieldMapping[];
 }
@@ -799,27 +807,28 @@ export enum ConfluenceSpaceFieldName {
 }
 
 /**
- * <p>Defines the mapping between a field in the Confluence data source to a Amazon Kendra index
- *             field.</p>
- *         <p>You must first create the index field using the
- *             operation. </p>
+ * <p>Defines the mapping between a field in the Confluence data source
+ *             to a Amazon Kendra index field.</p>
+ *         <p>You must first create the index field using the  operation. </p>
  */
 export interface ConfluenceSpaceToIndexFieldMapping {
-  /**
-   * <p>The format for date fields in the data source. If the field specified in
-   *                 <code>DataSourceFieldName</code> is a date field you must specify the date format.
-   *             If the field is not a date field, an exception is thrown.</p>
-   */
-  DateFieldFormat?: string;
-
   /**
    * <p>The name of the field in the data source. </p>
    */
   DataSourceFieldName?: ConfluenceSpaceFieldName | string;
 
   /**
-   * <p>The name of the index field to map to the Confluence data source field. The index
-   *             field type must match the Confluence field type.</p>
+   * <p>The format for date fields in the data source. If the field
+   *             specified in <code>DataSourceFieldName</code> is a date field you
+   *             must specify the date format. If the field is not a date field, an
+   *             exception is thrown.</p>
+   */
+  DateFieldFormat?: string;
+
+  /**
+   * <p>The name of the index field to map to the Confluence data source
+   *             field. The index field type must match the Confluence field
+   *             type.</p>
    */
   IndexFieldName?: string;
 }
@@ -835,43 +844,48 @@ export namespace ConfluenceSpaceToIndexFieldMapping {
  */
 export interface ConfluenceSpaceConfiguration {
   /**
-   * <p>Specifies whether Amazon Kendra should index personal spaces. Users can add restrictions to
-   *             items in personal spaces. If personal spaces are indexed, queries without user context
-   *             information may return restricted items from a personal space in their results. For more
-   *             information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/user-context-filter.html">Filtering on user context</a>.</p>
+   * <p>Specifies whether Amazon Kendra should index personal spaces. Users can
+   *             add restrictions to items in personal spaces. If personal spaces are
+   *             indexed, queries without user context information may return
+   *             restricted items from a personal space in their results. For more
+   *             information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/user-context-filter.html">Filtering on
+   *                 user context</a>.</p>
    */
   CrawlPersonalSpaces?: boolean;
-
-  /**
-   * <p>A list of space keys of Confluence spaces. If you include a key, the blogs, documents,
-   *             and attachments in the space are not indexed. If a space is in both the
-   *                 <code>ExcludeSpaces</code> and the <code>IncludeSpaces</code> list, the space is
-   *             excluded.</p>
-   */
-  ExcludeSpaces?: string[];
-
-  /**
-   * <p>Defines how space metadata fields should be mapped to index fields. Before you can map
-   *             a field, you must first create an index field with a matching type using the console or
-   *             the <code>UpdateIndex</code> operation.</p>
-   *         <p>If you specify the <code>SpaceFieldMappings</code> parameter, you must specify at
-   *             least one field mapping.</p>
-   */
-  SpaceFieldMappings?: ConfluenceSpaceToIndexFieldMapping[];
-
-  /**
-   * <p>A list of space keys for Confluence spaces. If you include a key, the blogs,
-   *             documents, and attachments in the space are indexed. Spaces that aren't in the list
-   *             aren't indexed. A space in the list must exist. Otherwise, Amazon Kendra logs an error when the
-   *             data source is synchronized. If a space is in both the <code>IncludeSpaces</code> and
-   *             the <code>ExcludeSpaces</code> list, the space is excluded.</p>
-   */
-  IncludeSpaces?: string[];
 
   /**
    * <p>Specifies whether Amazon Kendra should index archived spaces.</p>
    */
   CrawlArchivedSpaces?: boolean;
+
+  /**
+   * <p>A list of space keys for Confluence spaces. If you include a key,
+   *             the blogs, documents, and attachments in the space are indexed.
+   *             Spaces that aren't in the list aren't indexed. A space in the list
+   *             must exist. Otherwise, Amazon Kendra logs an error when the data source is
+   *             synchronized. If a space is in both the <code>IncludeSpaces</code>
+   *             and the <code>ExcludeSpaces</code> list, the space is
+   *             excluded.</p>
+   */
+  IncludeSpaces?: string[];
+
+  /**
+   * <p>A list of space keys of Confluence spaces. If you include a key,
+   *             the blogs, documents, and attachments in the space are not indexed.
+   *             If a space is in both the <code>ExcludeSpaces</code> and the
+   *                 <code>IncludeSpaces</code> list, the space is excluded.</p>
+   */
+  ExcludeSpaces?: string[];
+
+  /**
+   * <p>Defines how space metadata fields should be mapped to index
+   *             fields. Before you can map a field, you must first create an index
+   *             field with a matching type using the console or the
+   *                 <code>UpdateIndex</code> operation.</p>
+   *         <p>If you specify the <code>SpaceFieldMappings</code> parameter, you
+   *             must specify at least one field mapping.</p>
+   */
+  SpaceFieldMappings?: ConfluenceSpaceToIndexFieldMapping[];
 }
 
 export namespace ConfluenceSpaceConfiguration {
@@ -881,6 +895,7 @@ export namespace ConfluenceSpaceConfiguration {
 }
 
 export enum ConfluenceVersion {
+  CLOUD = "CLOUD",
   SERVER = "SERVER",
 }
 
@@ -889,17 +904,17 @@ export enum ConfluenceVersion {
  */
 export interface DataSourceVpcConfiguration {
   /**
-   * <p>A list of identifiers of security groups within your Amazon VPC. The security groups
-   *             should enable Amazon Kendra to connect to the data source.</p>
-   */
-  SecurityGroupIds: string[] | undefined;
-
-  /**
    * <p>A list of identifiers for subnets within your Amazon VPC. The subnets should be able
    *             to connect to each other in the VPC, and they should have outgoing access to the
    *             Internet through a NAT device.</p>
    */
   SubnetIds: string[] | undefined;
+
+  /**
+   * <p>A list of identifiers of security groups within your Amazon VPC. The security groups
+   *             should enable Amazon Kendra to connect to the data source.</p>
+   */
+  SecurityGroupIds: string[] | undefined;
 }
 
 export namespace DataSourceVpcConfiguration {
@@ -909,68 +924,65 @@ export namespace DataSourceVpcConfiguration {
 }
 
 /**
- * <p>Provides configuration information for data sources that connect to Confluence.</p>
+ * <p>Provides configuration information for data sources that connect
+ *             to Confluence.</p>
  */
 export interface ConfluenceConfiguration {
   /**
-   * <p>A list of regular expression patterns that apply to a URL on the Confluence server. An
-   *             exclusion pattern can apply to a blog post, a page, a space, or an attachment. Items
-   *             that match the pattern are excluded from the index. Items that don't match the pattern
-   *             are included in the index. If a item matches both an exclusion pattern and an inclusion
-   *             pattern, the item isn't included in the index.</p>
-   */
-  ExclusionPatterns?: string[];
-
-  /**
-   * <p>Specifies configuration information for indexing Confluence pages.</p>
-   */
-  PageConfiguration?: ConfluencePageConfiguration;
-
-  /**
-   * <p>Specifies configuration information for indexing attachments to Confluence blogs and
-   *             pages.</p>
-   */
-  AttachmentConfiguration?: ConfluenceAttachmentConfiguration;
-
-  /**
-   * <p>Specifies configuration information for indexing Confluence spaces.</p>
-   */
-  SpaceConfiguration?: ConfluenceSpaceConfiguration;
-
-  /**
-   * <p> Specifies configuration information for indexing Confluence blogs.</p>
-   */
-  BlogConfiguration?: ConfluenceBlogConfiguration;
-
-  /**
-   * <p>The URL of your Confluence instance. Use the full URL of the server. For example,
-   *                 <code>https://server.example.com:port/</code>. You can also use an IP address, for
-   *             example, <code>https://192.168.1.113/</code>.</p>
+   * <p>The URL of your Confluence instance. Use the full URL of the
+   *             server. For example, <code>https://server.example.com:port/</code>.
+   *             You can also use an IP address, for example,
+   *                 <code>https://192.168.1.113/</code>.</p>
    */
   ServerUrl: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of an AWS Secrets Manager secret that contains the
-   *             key/value pairs required to connect to your Confluence server. The secret must contain a
-   *             JSON structure with the following keys:</p>
+   * <p>The Amazon Resource Name (ARN) of an AWS Secrets Manager secret
+   *             that contains the key/value pairs required to connect to your
+   *             Confluence server. The secret must contain a JSON structure with the
+   *             following keys:</p>
    *         <ul>
    *             <li>
-   *                 <p>username - The user name of a user with administrative privileges for the
-   *                     Confluence server.</p>
+   *                 <p>username - The user name or email address of a user with
+   *                     administrative privileges for the Confluence server.</p>
    *             </li>
    *             <li>
-   *                 <p>password - The password associated with the user logging in to the Confluence
-   *                     server.</p>
+   *                 <p>password - The password associated with the user logging
+   *                     in to the Confluence server.</p>
    *             </li>
    *          </ul>
    */
   SecretArn: string | undefined;
 
   /**
-   * <p>Specifies the version of the Confluence installation that you are connecting
-   *             to.</p>
+   * <p>Specifies the version of the Confluence installation that you are
+   *             connecting to.</p>
    */
   Version: ConfluenceVersion | string | undefined;
+
+  /**
+   * <p>Specifies configuration information for indexing Confluence
+   *             spaces.</p>
+   */
+  SpaceConfiguration?: ConfluenceSpaceConfiguration;
+
+  /**
+   * <p>Specifies configuration information for indexing Confluence
+   *             pages.</p>
+   */
+  PageConfiguration?: ConfluencePageConfiguration;
+
+  /**
+   * <p> Specifies configuration information for indexing Confluence
+   *             blogs.</p>
+   */
+  BlogConfiguration?: ConfluenceBlogConfiguration;
+
+  /**
+   * <p>Specifies configuration information for indexing attachments to
+   *             Confluence blogs and pages.</p>
+   */
+  AttachmentConfiguration?: ConfluenceAttachmentConfiguration;
 
   /**
    * <p>Specifies the information for connecting to an Amazon VPC.</p>
@@ -978,13 +990,26 @@ export interface ConfluenceConfiguration {
   VpcConfiguration?: DataSourceVpcConfiguration;
 
   /**
-   * <p>A list of regular expression patterns that apply to a URL on the Confluence server. An
-   *             inclusion pattern can apply to a blog post, a page, a space, or an attachment. Items
-   *             that match the patterns are included in the index. Items that don't match the pattern
-   *             are excluded from the index. If an item matches both an inclusion pattern and an
-   *             exclusion pattern, the item isn't included in the index.</p>
+   * <p>A list of regular expression patterns that apply to a URL on the
+   *             Confluence server. An inclusion pattern can apply to a blog post, a
+   *             page, a space, or an attachment. Items that match the patterns are
+   *             included in the index. Items that don't match the pattern are
+   *             excluded from the index. If an item matches both an inclusion
+   *             pattern and an exclusion pattern, the item isn't included in the
+   *             index.</p>
    */
   InclusionPatterns?: string[];
+
+  /**
+   * <p>A list of regular expression patterns that apply to a URL on the
+   *             Confluence server. An exclusion pattern can apply to a blog post, a
+   *             page, a space, or an attachment. Items that match the pattern are
+   *             excluded from the index. Items that don't match the pattern are
+   *             included in the index. If a item matches both an exclusion pattern
+   *             and an inclusion pattern, the item isn't included in the
+   *             index.</p>
+   */
+  ExclusionPatterns?: string[];
 }
 
 export namespace ConfluenceConfiguration {
@@ -999,9 +1024,9 @@ export namespace ConfluenceConfiguration {
  */
 export interface DataSourceToIndexFieldMapping {
   /**
-   * <p>The name of the field in the index.</p>
+   * <p>The name of the column or attribute in the data source.</p>
    */
-  IndexFieldName: string | undefined;
+  DataSourceFieldName: string | undefined;
 
   /**
    * <p>The type of data stored in the column or attribute.</p>
@@ -1009,9 +1034,9 @@ export interface DataSourceToIndexFieldMapping {
   DateFieldFormat?: string;
 
   /**
-   * <p>The name of the column or attribute in the data source.</p>
+   * <p>The name of the field in the index.</p>
    */
-  DataSourceFieldName: string | undefined;
+  IndexFieldName: string | undefined;
 }
 
 export namespace DataSourceToIndexFieldMapping {
@@ -1031,14 +1056,14 @@ export interface ColumnConfiguration {
   DocumentIdColumnName: string | undefined;
 
   /**
-   * <p>The column that contains the title of the document.</p>
-   */
-  DocumentTitleColumnName?: string;
-
-  /**
    * <p>The column that contains the contents of the document.</p>
    */
   DocumentDataColumnName: string | undefined;
+
+  /**
+   * <p>The column that contains the title of the document.</p>
+   */
+  DocumentTitleColumnName?: string;
 
   /**
    * <p>An array of objects that map database column names to the corresponding fields in an
@@ -1063,9 +1088,10 @@ export namespace ColumnConfiguration {
  */
 export interface ConnectionConfiguration {
   /**
-   * <p>The name of the database containing the document data.</p>
+   * <p>The name of the host for the database. Can be either a string
+   *             (host.subdomain.domain.tld) or an IPv4 or IPv6 address.</p>
    */
-  DatabaseName: string | undefined;
+  DatabaseHost: string | undefined;
 
   /**
    * <p>The port that the database uses for connections.</p>
@@ -1073,10 +1099,14 @@ export interface ConnectionConfiguration {
   DatabasePort: number | undefined;
 
   /**
-   * <p>The name of the host for the database. Can be either a string
-   *             (host.subdomain.domain.tld) or an IPv4 or IPv6 address.</p>
+   * <p>The name of the database containing the document data.</p>
    */
-  DatabaseHost: string | undefined;
+  DatabaseName: string | undefined;
+
+  /**
+   * <p>The name of the table that contains the document data.</p>
+   */
+  TableName: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of credentials stored in AWS Secrets Manager. The
@@ -1087,11 +1117,6 @@ export interface ConnectionConfiguration {
    *             guide.</p>
    */
   SecretArn: string | undefined;
-
-  /**
-   * <p>The name of the table that contains the document data.</p>
-   */
-  TableName: string | undefined;
 }
 
 export namespace ConnectionConfiguration {
@@ -1142,26 +1167,9 @@ export namespace SqlConfiguration {
  */
 export interface DatabaseConfiguration {
   /**
-   * <p>Information about the database column that provides information for user context
-   *             filtering.</p>
-   */
-  AclConfiguration?: AclConfiguration;
-
-  /**
-   * <p>Provides information for connecting to an Amazon VPC.</p>
-   */
-  VpcConfiguration?: DataSourceVpcConfiguration;
-
-  /**
    * <p>The type of database engine that runs the database.</p>
    */
   DatabaseEngineType: DatabaseEngineType | string | undefined;
-
-  /**
-   * <p>Provides information about how Amazon Kendra uses quote marks around SQL identifiers when
-   *             querying a database data source.</p>
-   */
-  SqlConfiguration?: SqlConfiguration;
 
   /**
    * <p>The information necessary to connect to a database.</p>
@@ -1169,10 +1177,27 @@ export interface DatabaseConfiguration {
   ConnectionConfiguration: ConnectionConfiguration | undefined;
 
   /**
+   * <p>Provides information for connecting to an Amazon VPC.</p>
+   */
+  VpcConfiguration?: DataSourceVpcConfiguration;
+
+  /**
    * <p>Information about where the index should get the document information from the
    *             database.</p>
    */
   ColumnConfiguration: ColumnConfiguration | undefined;
+
+  /**
+   * <p>Information about the database column that provides information for user context
+   *             filtering.</p>
+   */
+  AclConfiguration?: AclConfiguration;
+
+  /**
+   * <p>Provides information about how Amazon Kendra uses quote marks around SQL identifiers when
+   *             querying a database data source.</p>
+   */
+  SqlConfiguration?: SqlConfiguration;
 }
 
 export namespace DatabaseConfiguration {
@@ -1186,18 +1211,18 @@ export namespace DatabaseConfiguration {
  */
 export interface OneDriveUsers {
   /**
-   * <p>The S3 bucket location of a file containing a list of users whose documents should be
-   *             indexed.</p>
-   */
-  OneDriveUserS3Path?: S3Path;
-
-  /**
    * <p>A list of users whose documents should be indexed. Specify the user names in email
    *             format, for example, <code>username@tenantdomain</code>. If you need to index the
    *             documents of more than 100 users, use the <code>OneDriveUserS3Path</code> field to
    *             specify the location of a file containing a list of users.</p>
    */
   OneDriveUserList?: string[];
+
+  /**
+   * <p>The S3 bucket location of a file containing a list of users whose documents should be
+   *             indexed.</p>
+   */
+  OneDriveUserS3Path?: S3Path;
 }
 
 export namespace OneDriveUsers {
@@ -1216,20 +1241,17 @@ export interface OneDriveConfiguration {
   TenantDomain: string | undefined;
 
   /**
-   * <p>List of regular expressions applied to documents. Items that match the exclusion
-   *             pattern are not indexed. If you provide both an inclusion pattern and an exclusion
-   *             pattern, any item that matches the exclusion pattern isn't indexed. </p>
-   *         <p>The exclusion pattern is applied to the file name.</p>
-   */
-  ExclusionPatterns?: string[];
-
-  /**
    * <p>The Amazon Resource Name (ARN) of an AWS Secrets Manager secret that contains the user
    *             name and password to connect to OneDrive. The user namd should be the application ID for
    *             the OneDrive application, and the password is the application key for the OneDrive
    *             application.</p>
    */
   SecretArn: string | undefined;
+
+  /**
+   * <p>A list of user accounts whose documents should be indexed.</p>
+   */
+  OneDriveUsers: OneDriveUsers | undefined;
 
   /**
    * <p>A list of regular expression patterns. Documents that match the pattern are included
@@ -1241,6 +1263,14 @@ export interface OneDriveConfiguration {
   InclusionPatterns?: string[];
 
   /**
+   * <p>List of regular expressions applied to documents. Items that match the exclusion
+   *             pattern are not indexed. If you provide both an inclusion pattern and an exclusion
+   *             pattern, any item that matches the exclusion pattern isn't indexed. </p>
+   *         <p>The exclusion pattern is applied to the file name.</p>
+   */
+  ExclusionPatterns?: string[];
+
+  /**
    * <p>A list of <code>DataSourceToIndexFieldMapping</code> objects that map Microsoft
    *             OneDrive fields to custom fields in the Amazon Kendra index. You must first create the index
    *             fields before you map OneDrive fields.</p>
@@ -1248,9 +1278,11 @@ export interface OneDriveConfiguration {
   FieldMappings?: DataSourceToIndexFieldMapping[];
 
   /**
-   * <p>A list of user accounts whose documents should be indexed.</p>
+   * <p>A Boolean value that specifies whether local
+   *       groups are disabled (<code>True</code>) or enabled (<code>False</code>).
+   *       </p>
    */
-  OneDriveUsers: OneDriveUsers | undefined;
+  DisableLocalGroups?: boolean;
 }
 
 export namespace OneDriveConfiguration {
@@ -1285,28 +1317,6 @@ export namespace DocumentsMetadataConfiguration {
  */
 export interface S3DataSourceConfiguration {
   /**
-   * <p>A list of glob patterns for documents that should be indexed. If a document that
-   *             matches an inclusion pattern also matches an exclusion pattern, the document is not
-   *             indexed.</p>
-   *         <p>For more information about glob patterns, see <a href="https://en.wikipedia.org/wiki/Glob_(programming)">glob (programming)</a> in
-   *                 <i>Wikipedia</i>.</p>
-   */
-  InclusionPatterns?: string[];
-
-  /**
-   * <p>Provides the path to the S3 bucket that contains the user context filtering files for
-   *             the data source.</p>
-   */
-  AccessControlListConfiguration?: AccessControlListConfiguration;
-
-  /**
-   * <p>Document metadata files that contain information such as the document access control
-   *             information, source URI, document author, and custom attributes. Each metadata file
-   *             contains metadata about a single document.</p>
-   */
-  DocumentsMetadataConfiguration?: DocumentsMetadataConfiguration;
-
-  /**
    * <p>The name of the bucket that contains the documents.</p>
    */
   BucketName: string | undefined;
@@ -1317,6 +1327,15 @@ export interface S3DataSourceConfiguration {
   InclusionPrefixes?: string[];
 
   /**
+   * <p>A list of glob patterns for documents that should be indexed. If a document that
+   *             matches an inclusion pattern also matches an exclusion pattern, the document is not
+   *             indexed.</p>
+   *         <p>For more information about glob patterns, see <a href="https://en.wikipedia.org/wiki/Glob_(programming)">glob (programming)</a> in
+   *                 <i>Wikipedia</i>.</p>
+   */
+  InclusionPatterns?: string[];
+
+  /**
    * <p>A list of glob patterns for documents that should not be indexed. If a document that
    *             matches an inclusion prefix or inclusion pattern also matches an exclusion pattern, the
    *             document is not indexed.</p>
@@ -1324,6 +1343,19 @@ export interface S3DataSourceConfiguration {
    *                 <i>Wikipedia</i>.</p>
    */
   ExclusionPatterns?: string[];
+
+  /**
+   * <p>Document metadata files that contain information such as the document access control
+   *             information, source URI, document author, and custom attributes. Each metadata file
+   *             contains metadata about a single document.</p>
+   */
+  DocumentsMetadataConfiguration?: DocumentsMetadataConfiguration;
+
+  /**
+   * <p>Provides the path to the S3 bucket that contains the user context filtering files for
+   *             the data source.</p>
+   */
+  AccessControlListConfiguration?: AccessControlListConfiguration;
 }
 
 export namespace S3DataSourceConfiguration {
@@ -1343,9 +1375,10 @@ export enum SalesforceChatterFeedIncludeFilterType {
  */
 export interface SalesforceChatterFeedConfiguration {
   /**
-   * <p>Maps fields from a Salesforce chatter feed into Amazon Kendra index fields.</p>
+   * <p>The name of the column in the Salesforce FeedItem table that contains the content to
+   *             index. Typically this is the <code>Body</code> column.</p>
    */
-  FieldMappings?: DataSourceToIndexFieldMapping[];
+  DocumentDataFieldName: string | undefined;
 
   /**
    * <p>The name of the column in the Salesforce FeedItem table that contains the title of the
@@ -1354,10 +1387,9 @@ export interface SalesforceChatterFeedConfiguration {
   DocumentTitleFieldName?: string;
 
   /**
-   * <p>The name of the column in the Salesforce FeedItem table that contains the content to
-   *             index. Typically this is the <code>Body</code> column.</p>
+   * <p>Maps fields from a Salesforce chatter feed into Amazon Kendra index fields.</p>
    */
-  DocumentDataFieldName: string | undefined;
+  FieldMappings?: DataSourceToIndexFieldMapping[];
 
   /**
    * <p>Filters the documents in the feed based on status of the user. When you specify
@@ -1384,16 +1416,16 @@ export interface SalesforceCustomKnowledgeArticleTypeConfiguration {
   Name: string | undefined;
 
   /**
-   * <p>The name of the field in the custom knowledge article that contains the document
-   *             title.</p>
-   */
-  DocumentTitleFieldName?: string;
-
-  /**
    * <p>The name of the field in the custom knowledge article that contains the document data
    *             to index.</p>
    */
   DocumentDataFieldName: string | undefined;
+
+  /**
+   * <p>The name of the field in the custom knowledge article that contains the document
+   *             title.</p>
+   */
+  DocumentTitleFieldName?: string;
 
   /**
    * <p>One or more objects that map fields in the custom knowledge article to fields in the
@@ -1424,15 +1456,15 @@ export interface SalesforceStandardKnowledgeArticleTypeConfiguration {
   DocumentDataFieldName: string | undefined;
 
   /**
+   * <p>The name of the field that contains the document title.</p>
+   */
+  DocumentTitleFieldName?: string;
+
+  /**
    * <p>One or more objects that map fields in the knowledge article to Amazon Kendra index fields.
    *             The index field must exist before you can map a Salesforce field to it.</p>
    */
   FieldMappings?: DataSourceToIndexFieldMapping[];
-
-  /**
-   * <p>The name of the field that contains the document title.</p>
-   */
-  DocumentTitleFieldName?: string;
 }
 
 export namespace SalesforceStandardKnowledgeArticleTypeConfiguration {
@@ -1449,15 +1481,15 @@ export namespace SalesforceStandardKnowledgeArticleTypeConfiguration {
  */
 export interface SalesforceKnowledgeArticleConfiguration {
   /**
-   * <p>Provides configuration information for standard Salesforce knowledge articles.</p>
-   */
-  StandardKnowledgeArticleTypeConfiguration?: SalesforceStandardKnowledgeArticleTypeConfiguration;
-
-  /**
    * <p>Specifies the document states that should be included when Amazon Kendra indexes knowledge
    *             articles. You must specify at least one state.</p>
    */
   IncludedStates: (SalesforceKnowledgeArticleState | string)[] | undefined;
+
+  /**
+   * <p>Provides configuration information for standard Salesforce knowledge articles.</p>
+   */
+  StandardKnowledgeArticleTypeConfiguration?: SalesforceStandardKnowledgeArticleTypeConfiguration;
 
   /**
    * <p>Provides configuration information for custom Salesforce knowledge articles.</p>
@@ -1477,14 +1509,14 @@ export namespace SalesforceKnowledgeArticleConfiguration {
  */
 export interface SalesforceStandardObjectAttachmentConfiguration {
   /**
-   * <p>One or more objects that map fields in attachments to Amazon Kendra index fields.</p>
-   */
-  FieldMappings?: DataSourceToIndexFieldMapping[];
-
-  /**
    * <p>The name of the field used for the document title.</p>
    */
   DocumentTitleFieldName?: string;
+
+  /**
+   * <p>One or more objects that map fields in attachments to Amazon Kendra index fields.</p>
+   */
+  FieldMappings?: DataSourceToIndexFieldMapping[];
 }
 
 export namespace SalesforceStandardObjectAttachmentConfiguration {
@@ -1552,46 +1584,9 @@ export namespace SalesforceStandardObjectConfiguration {
  */
 export interface SalesforceConfiguration {
   /**
-   * <p>A list of regular expression patterns. Documents that match the patterns are excluded
-   *             from the index. Documents that don't match the patterns are included in the index. If a
-   *             document matches both an exclusion pattern and an inclusion pattern, the document is not
-   *             included in the index.</p>
-   *         <p>The regex is applied to the name of the attached file.</p>
+   * <p>The instance URL for the Salesforce site that you want to index.</p>
    */
-  ExcludeAttachmentFilePatterns?: string[];
-
-  /**
-   * <p>Provides configuration information for processing attachments to Salesforce standard
-   *             objects. </p>
-   */
-  StandardObjectAttachmentConfiguration?: SalesforceStandardObjectAttachmentConfiguration;
-
-  /**
-   * <p>Specifies configuration information for Salesforce chatter feeds.</p>
-   */
-  ChatterFeedConfiguration?: SalesforceChatterFeedConfiguration;
-
-  /**
-   * <p>Specifies the Salesforce standard objects that Amazon Kendra indexes.</p>
-   */
-  StandardObjectConfigurations?: SalesforceStandardObjectConfiguration[];
-
-  /**
-   * <p>Specifies configuration information for the knowlege article types that Amazon Kendra
-   *             indexes. Amazon Kendra indexes standard knowledge articles and the standard fields of
-   *             knowledge articles, or the custom fields of custom knowledge articles, but not
-   *             both.</p>
-   */
-  KnowledgeArticleConfiguration?: SalesforceKnowledgeArticleConfiguration;
-
-  /**
-   * <p>A list of regular expression patterns. Documents that match the patterns are included
-   *             in the index. Documents that don't match the patterns are excluded from the index. If a
-   *             document matches both an inclusion pattern and an exclusion pattern, the document is not
-   *             included in the index.</p>
-   *         <p>The regex is applied to the name of the attached file.</p>
-   */
-  IncludeAttachmentFilePatterns?: string[];
+  ServerUrl: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of an AWS Secrets Manager secret that contains the
@@ -1627,14 +1622,51 @@ export interface SalesforceConfiguration {
   SecretArn: string | undefined;
 
   /**
-   * <p>The instance URL for the Salesforce site that you want to index.</p>
+   * <p>Specifies the Salesforce standard objects that Amazon Kendra indexes.</p>
    */
-  ServerUrl: string | undefined;
+  StandardObjectConfigurations?: SalesforceStandardObjectConfiguration[];
+
+  /**
+   * <p>Specifies configuration information for the knowlege article types that Amazon Kendra
+   *             indexes. Amazon Kendra indexes standard knowledge articles and the standard fields of
+   *             knowledge articles, or the custom fields of custom knowledge articles, but not
+   *             both.</p>
+   */
+  KnowledgeArticleConfiguration?: SalesforceKnowledgeArticleConfiguration;
+
+  /**
+   * <p>Specifies configuration information for Salesforce chatter feeds.</p>
+   */
+  ChatterFeedConfiguration?: SalesforceChatterFeedConfiguration;
 
   /**
    * <p>Indicates whether Amazon Kendra should index attachments to Salesforce objects.</p>
    */
   CrawlAttachments?: boolean;
+
+  /**
+   * <p>Provides configuration information for processing attachments to Salesforce standard
+   *             objects. </p>
+   */
+  StandardObjectAttachmentConfiguration?: SalesforceStandardObjectAttachmentConfiguration;
+
+  /**
+   * <p>A list of regular expression patterns. Documents that match the patterns are included
+   *             in the index. Documents that don't match the patterns are excluded from the index. If a
+   *             document matches both an inclusion pattern and an exclusion pattern, the document is not
+   *             included in the index.</p>
+   *         <p>The regex is applied to the name of the attached file.</p>
+   */
+  IncludeAttachmentFilePatterns?: string[];
+
+  /**
+   * <p>A list of regular expression patterns. Documents that match the patterns are excluded
+   *             from the index. Documents that don't match the patterns are included in the index. If a
+   *             document matches both an exclusion pattern and an inclusion pattern, the document is not
+   *             included in the index.</p>
+   *         <p>The regex is applied to the name of the attached file.</p>
+   */
+  ExcludeAttachmentFilePatterns?: string[];
 }
 
 export namespace SalesforceConfiguration {
@@ -1649,10 +1681,16 @@ export namespace SalesforceConfiguration {
  */
 export interface ServiceNowKnowledgeArticleConfiguration {
   /**
-   * <p>Mapping between ServiceNow fields and Amazon Kendra index fields. You must create the index
-   *             field before you map the field.</p>
+   * <p>Indicates whether Amazon Kendra should index attachments to knowledge articles.</p>
    */
-  FieldMappings?: DataSourceToIndexFieldMapping[];
+  CrawlAttachments?: boolean;
+
+  /**
+   * <p>List of regular expressions applied to knowledge articles. Items that don't match the
+   *             inclusion pattern are not indexed. The regex is applied to the field specified in the
+   *                 <code>PatternTargetField</code>.</p>
+   */
+  IncludeAttachmentFilePatterns?: string[];
 
   /**
    * <p>List of regular expressions applied to knowledge articles. Items that don't match the
@@ -1661,13 +1699,6 @@ export interface ServiceNowKnowledgeArticleConfiguration {
    *          </p>
    */
   ExcludeAttachmentFilePatterns?: string[];
-
-  /**
-   * <p>List of regular expressions applied to knowledge articles. Items that don't match the
-   *             inclusion pattern are not indexed. The regex is applied to the field specified in the
-   *                 <code>PatternTargetField</code>.</p>
-   */
-  IncludeAttachmentFilePatterns?: string[];
 
   /**
    * <p>The name of the ServiceNow field that is mapped to the index document contents field
@@ -1682,9 +1713,10 @@ export interface ServiceNowKnowledgeArticleConfiguration {
   DocumentTitleFieldName?: string;
 
   /**
-   * <p>Indicates whether Amazon Kendra should index attachments to knowledge articles.</p>
+   * <p>Mapping between ServiceNow fields and Amazon Kendra index fields. You must create the index
+   *             field before you map the field.</p>
    */
-  CrawlAttachments?: boolean;
+  FieldMappings?: DataSourceToIndexFieldMapping[];
 }
 
 export namespace ServiceNowKnowledgeArticleConfiguration {
@@ -1705,12 +1737,6 @@ export interface ServiceNowServiceCatalogConfiguration {
   CrawlAttachments?: boolean;
 
   /**
-   * <p>The name of the ServiceNow field that is mapped to the index document contents field
-   *             in the Amazon Kendra index.</p>
-   */
-  DocumentDataFieldName: string | undefined;
-
-  /**
    * <p>Determines the types of file attachments that are included in the index. </p>
    */
   IncludeAttachmentFilePatterns?: string[];
@@ -1719,6 +1745,12 @@ export interface ServiceNowServiceCatalogConfiguration {
    * <p>Determines the types of file attachments that are excluded from the index.</p>
    */
   ExcludeAttachmentFilePatterns?: string[];
+
+  /**
+   * <p>The name of the ServiceNow field that is mapped to the index document contents field
+   *             in the Amazon Kendra index.</p>
+   */
+  DocumentDataFieldName: string | undefined;
 
   /**
    * <p>The name of the ServiceNow field that is mapped to the index document title
@@ -1750,12 +1782,6 @@ export enum ServiceNowBuildVersionType {
  */
 export interface ServiceNowConfiguration {
   /**
-   * <p>The Amazon Resource Name (ARN) of the AWS Secret Manager secret that contains the user
-   *             name and password required to connect to the ServiceNow instance.</p>
-   */
-  SecretArn: string | undefined;
-
-  /**
    * <p>The ServiceNow instance that the data source connects to. The host endpoint should
    *             look like the following: <code>{instance}.service-now.com.</code>
    *          </p>
@@ -1763,16 +1789,22 @@ export interface ServiceNowConfiguration {
   HostUrl: string | undefined;
 
   /**
-   * <p>Provides configuration information for crawling knowledge articles in the ServiceNow
-   *             site.</p>
+   * <p>The Amazon Resource Name (ARN) of the AWS Secret Manager secret that contains the user
+   *             name and password required to connect to the ServiceNow instance.</p>
    */
-  KnowledgeArticleConfiguration?: ServiceNowKnowledgeArticleConfiguration;
+  SecretArn: string | undefined;
 
   /**
    * <p>The identifier of the release that the ServiceNow host is running. If the host is not
    *             running the <code>LONDON</code> release, use <code>OTHERS</code>.</p>
    */
   ServiceNowBuildVersion: ServiceNowBuildVersionType | string | undefined;
+
+  /**
+   * <p>Provides configuration information for crawling knowledge articles in the ServiceNow
+   *             site.</p>
+   */
+  KnowledgeArticleConfiguration?: ServiceNowKnowledgeArticleConfiguration;
 
   /**
    * <p>Provides configuration information for crawling service catalogs in the ServiceNow
@@ -1797,60 +1829,15 @@ export enum SharePointVersion {
  */
 export interface SharePointConfiguration {
   /**
-   * <p>The URLs of the Microsoft SharePoint site that contains the documents that should be
-   *             indexed.</p>
-   */
-  Urls: string[] | undefined;
-
-  /**
-   * <p>Set to <code>TRUE</code> to use the Microsoft SharePoint change log to determine the
-   *             documents that need to be updated in the index. Depending on the size of the SharePoint
-   *             change log, it may take longer for Amazon Kendra to use the change log than it takes it
-   *             to determine the changed documents using the Amazon Kendra document crawler.</p>
-   */
-  UseChangeLog?: boolean;
-
-  /**
-   * <p>A list of <code>DataSourceToIndexFieldMapping</code> objects that map Microsoft
-   *             SharePoint attributes to custom fields in the Amazon Kendra index. You must first create the
-   *             index fields using the  operation before you map
-   *             SharePoint attributes. For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html">Mapping Data Source Fields</a>.</p>
-   */
-  FieldMappings?: DataSourceToIndexFieldMapping[];
-
-  /**
    * <p>The version of Microsoft SharePoint that you are using as a data source.</p>
    */
   SharePointVersion: SharePointVersion | string | undefined;
 
   /**
-   * <p>The Microsoft SharePoint attribute field that contains the title of the
-   *             document.</p>
+   * <p>The URLs of the Microsoft SharePoint site that contains the documents that should be
+   *             indexed.</p>
    */
-  DocumentTitleFieldName?: string;
-
-  /**
-   * <p>A list of regular expression patterns. Documents that match the patterns are included
-   *             in the index. Documents that don't match the patterns are excluded from the index. If a
-   *             document matches both an inclusion pattern and an exclusion pattern, the document is not
-   *             included in the index.</p>
-   *         <p>The regex is applied to the display URL of the SharePoint document.</p>
-   */
-  InclusionPatterns?: string[];
-
-  /**
-   * <p>Provides information for connecting to an Amazon VPC.</p>
-   */
-  VpcConfiguration?: DataSourceVpcConfiguration;
-
-  /**
-   * <p>A list of regular expression patterns. Documents that match the patterns are excluded
-   *             from the index. Documents that don't match the patterns are included in the index. If a
-   *             document matches both an exclusion pattern and an inclusion pattern, the document is not
-   *             included in the index.</p>
-   *         <p>The regex is applied to the display URL of the SharePoint document.</p>
-   */
-  ExclusionPatterns?: string[];
+  Urls: string[] | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of credentials stored in AWS Secrets Manager. The
@@ -1867,6 +1854,58 @@ export interface SharePointConfiguration {
    *             SharePoint site in the index; otherwise, <code>FALSE</code>.</p>
    */
   CrawlAttachments?: boolean;
+
+  /**
+   * <p>Set to <code>TRUE</code> to use the Microsoft SharePoint change log to determine the
+   *             documents that need to be updated in the index. Depending on the size of the SharePoint
+   *             change log, it may take longer for Amazon Kendra to use the change log than it takes it
+   *             to determine the changed documents using the Amazon Kendra document crawler.</p>
+   */
+  UseChangeLog?: boolean;
+
+  /**
+   * <p>A list of regular expression patterns. Documents that match the patterns are included
+   *             in the index. Documents that don't match the patterns are excluded from the index. If a
+   *             document matches both an inclusion pattern and an exclusion pattern, the document is not
+   *             included in the index.</p>
+   *         <p>The regex is applied to the display URL of the SharePoint document.</p>
+   */
+  InclusionPatterns?: string[];
+
+  /**
+   * <p>A list of regular expression patterns. Documents that match the patterns are excluded
+   *             from the index. Documents that don't match the patterns are included in the index. If a
+   *             document matches both an exclusion pattern and an inclusion pattern, the document is not
+   *             included in the index.</p>
+   *         <p>The regex is applied to the display URL of the SharePoint document.</p>
+   */
+  ExclusionPatterns?: string[];
+
+  /**
+   * <p>Provides information for connecting to an Amazon VPC.</p>
+   */
+  VpcConfiguration?: DataSourceVpcConfiguration;
+
+  /**
+   * <p>A list of <code>DataSourceToIndexFieldMapping</code> objects that map Microsoft
+   *             SharePoint attributes to custom fields in the Amazon Kendra index. You must first create the
+   *             index fields using the  operation before you map
+   *             SharePoint attributes. For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html">Mapping Data Source Fields</a>.</p>
+   */
+  FieldMappings?: DataSourceToIndexFieldMapping[];
+
+  /**
+   * <p>The Microsoft SharePoint attribute field that contains the title of the
+   *             document.</p>
+   */
+  DocumentTitleFieldName?: string;
+
+  /**
+   * <p>A Boolean value that specifies whether local
+   *          groups are disabled (<code>True</code>) or enabled (<code>False</code>).
+   *       </p>
+   */
+  DisableLocalGroups?: boolean;
 }
 
 export namespace SharePointConfiguration {
@@ -1880,27 +1919,10 @@ export namespace SharePointConfiguration {
  */
 export interface DataSourceConfiguration {
   /**
-   * <p>Provided configuration for data sources that connect to Microsoft OneDrive.</p>
-   */
-  OneDriveConfiguration?: OneDriveConfiguration;
-
-  /**
-   * <p>Provides information necessary to create a data source connector for a
-   *             database.</p>
-   */
-  DatabaseConfiguration?: DatabaseConfiguration;
-
-  /**
    * <p>Provides information to create a data source connector for a document repository in an
    *             Amazon S3 bucket.</p>
    */
   S3Configuration?: S3DataSourceConfiguration;
-
-  /**
-   * <p>Provides configuration information for data sources that connect to a Salesforce
-   *             site.</p>
-   */
-  SalesforceConfiguration?: SalesforceConfiguration;
 
   /**
    * <p>Provides information necessary to create a data source connector for a Microsoft
@@ -1909,12 +1931,30 @@ export interface DataSourceConfiguration {
   SharePointConfiguration?: SharePointConfiguration;
 
   /**
+   * <p>Provides information necessary to create a data source connector for a
+   *             database.</p>
+   */
+  DatabaseConfiguration?: DatabaseConfiguration;
+
+  /**
+   * <p>Provides configuration information for data sources that connect to a Salesforce
+   *             site.</p>
+   */
+  SalesforceConfiguration?: SalesforceConfiguration;
+
+  /**
+   * <p>Provided configuration for data sources that connect to Microsoft OneDrive.</p>
+   */
+  OneDriveConfiguration?: OneDriveConfiguration;
+
+  /**
    * <p>Provides configuration for data sources that connect to ServiceNow instances.</p>
    */
   ServiceNowConfiguration?: ServiceNowConfiguration;
 
   /**
-   * <p>Provides configuration information for connecting to a Confluence data source.</p>
+   * <p>Provides configuration information for connecting to a Confluence
+   *             data source.</p>
    */
   ConfluenceConfiguration?: ConfluenceConfiguration;
 }
@@ -1932,16 +1972,16 @@ export namespace DataSourceConfiguration {
  */
 export interface Tag {
   /**
-   * <p>The value associated with the tag. The value may be an empty string but it can't be
-   *       null.</p>
-   */
-  Value: string | undefined;
-
-  /**
    * <p>The key for the tag. Keys are not case sensitive and must be unique for the index, FAQ, or
    *       data source.</p>
    */
   Key: string | undefined;
+
+  /**
+   * <p>The value associated with the tag. The value may be an empty string but it can't be
+   *       null.</p>
+   */
+  Value: string | undefined;
 }
 
 export namespace Tag {
@@ -1963,20 +2003,20 @@ export enum DataSourceType {
 
 export interface CreateDataSourceRequest {
   /**
+   * <p>A unique name for the data source. A data source name can't be changed without deleting
+   *       and recreating the data source.</p>
+   */
+  Name: string | undefined;
+
+  /**
    * <p>The identifier of the index that should be associated with this data source.</p>
    */
   IndexId: string | undefined;
 
   /**
-   * <p>Sets the frequency that Amazon Kendra will check the documents in your repository and
-   *       update the index. If you don't set a schedule Amazon Kendra will not periodically update the
-   *       index. You can call the <code>StartDataSourceSyncJob</code> operation to update the
-   *       index.</p>
-   *          <p>You can't specify the <code>Schedule</code> parameter when the <code>Type</code>
-   *       parameter is set to <code>CUSTOM</code>. If you do, you receive a <code>ValidationException</code>
-   *       exception.</p>
+   * <p>The type of repository that contains the data source.</p>
    */
-  Schedule?: string;
+  Type: DataSourceType | string | undefined;
 
   /**
    * <p>The connector configuration information that is required to access the repository.</p>
@@ -1993,6 +2033,17 @@ export interface CreateDataSourceRequest {
   Description?: string;
 
   /**
+   * <p>Sets the frequency that Amazon Kendra will check the documents in your repository and
+   *       update the index. If you don't set a schedule Amazon Kendra will not periodically update the
+   *       index. You can call the <code>StartDataSourceSyncJob</code> operation to update the
+   *       index.</p>
+   *          <p>You can't specify the <code>Schedule</code> parameter when the <code>Type</code>
+   *       parameter is set to <code>CUSTOM</code>. If you do, you receive a <code>ValidationException</code>
+   *       exception.</p>
+   */
+  Schedule?: string;
+
+  /**
    * <p>The Amazon Resource Name (ARN) of a role with permission to access the data source. For
    *       more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html">IAM
    *         Roles for Amazon Kendra</a>.</p>
@@ -2002,11 +2053,6 @@ export interface CreateDataSourceRequest {
    *          <p>The <code>RoleArn</code> parameter is required for all other data sources.</p>
    */
   RoleArn?: string;
-
-  /**
-   * <p>The type of repository that contains the data source.</p>
-   */
-  Type: DataSourceType | string | undefined;
 
   /**
    * <p>A list of key-value pairs that identify the data source. You can use the tags to identify
@@ -2020,12 +2066,6 @@ export interface CreateDataSourceRequest {
    *       data source.</p>
    */
   ClientToken?: string;
-
-  /**
-   * <p>A unique name for the data source. A data source name can't be changed without deleting
-   *       and recreating the data source.</p>
-   */
-  Name: string | undefined;
 }
 
 export namespace CreateDataSourceRequest {
@@ -2070,17 +2110,36 @@ export enum FaqFileFormat {
 
 export interface CreateFaqRequest {
   /**
+   * <p>The identifier of the index that contains the FAQ.</p>
+   */
+  IndexId: string | undefined;
+
+  /**
+   * <p>The name that should be associated with the FAQ.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>A description of the FAQ.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The S3 location of the FAQ input data.</p>
+   */
+  S3Path: S3Path | undefined;
+
+  /**
    * <p>The Amazon Resource Name (ARN) of a role with permission to access the S3 bucket that
    *             contains the FAQs. For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html">IAM Roles for Amazon Kendra</a>.</p>
    */
   RoleArn: string | undefined;
 
   /**
-   * <p>A token that you provide to identify the request to create a FAQ. Multiple calls to
-   *             the <code>CreateFaqRequest</code> operation with the same client token will create only
-   *             one FAQ. </p>
+   * <p>A list of key-value pairs that identify the FAQ. You can use the tags to identify and
+   *             organize your resources and to control access to resources.</p>
    */
-  ClientToken?: string;
+  Tags?: Tag[];
 
   /**
    * <p>The format of the input file. You can choose between a basic CSV format, a CSV format
@@ -2094,30 +2153,11 @@ export interface CreateFaqRequest {
   FileFormat?: FaqFileFormat | string;
 
   /**
-   * <p>The identifier of the index that contains the FAQ.</p>
+   * <p>A token that you provide to identify the request to create a FAQ. Multiple calls to
+   *             the <code>CreateFaqRequest</code> operation with the same client token will create only
+   *             one FAQ. </p>
    */
-  IndexId: string | undefined;
-
-  /**
-   * <p>A list of key-value pairs that identify the FAQ. You can use the tags to identify and
-   *             organize your resources and to control access to resources.</p>
-   */
-  Tags?: Tag[];
-
-  /**
-   * <p>The name that should be associated with the FAQ.</p>
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>The S3 location of the FAQ input data.</p>
-   */
-  S3Path: S3Path | undefined;
-
-  /**
-   * <p>A description of the FAQ.</p>
-   */
-  Description?: string;
+  ClientToken?: string;
 }
 
 export namespace CreateFaqRequest {
@@ -2163,20 +2203,109 @@ export namespace ServerSideEncryptionConfiguration {
   });
 }
 
-export interface CreateIndexRequest {
+export enum UserContextPolicy {
+  ATTRIBUTE_FILTER = "ATTRIBUTE_FILTER",
+  USER_TOKEN = "USER_TOKEN",
+}
+
+/**
+ * <p>Configuration information for the JSON token type.</p>
+ */
+export interface JsonTokenTypeConfiguration {
   /**
-   * <p>A token that you provide to identify the request to create an index. Multiple calls to the
-   *         <code>CreateIndex</code> operation with the same client token will create only one
-   *       index.</p>
+   * <p>The user name attribute field.</p>
    */
-  ClientToken?: string;
+  UserNameAttributeField: string | undefined;
 
   /**
-   * <p>An AWS Identity and Access Management (IAM) role that gives Amazon Kendra permissions to
-   *       access your Amazon CloudWatch logs and metrics. This is also the role used when you use the
-   *         <code>BatchPutDocument</code> operation to index documents from an Amazon S3 bucket.</p>
+   * <p>The group attribute field.</p>
    */
-  RoleArn: string | undefined;
+  GroupAttributeField: string | undefined;
+}
+
+export namespace JsonTokenTypeConfiguration {
+  export const filterSensitiveLog = (obj: JsonTokenTypeConfiguration): any => ({
+    ...obj,
+  });
+}
+
+export enum KeyLocation {
+  SECRET_MANAGER = "SECRET_MANAGER",
+  URL = "URL",
+}
+
+/**
+ * <p>Configuration information for the JWT token type.</p>
+ */
+export interface JwtTokenTypeConfiguration {
+  /**
+   * <p>The location of the key.</p>
+   */
+  KeyLocation: KeyLocation | string | undefined;
+
+  /**
+   * <p>The signing key URL.</p>
+   */
+  URL?: string;
+
+  /**
+   * <p>The Amazon Resource Name (arn) of the secret.</p>
+   */
+  SecretManagerArn?: string;
+
+  /**
+   * <p>The user name attribute field.</p>
+   */
+  UserNameAttributeField?: string;
+
+  /**
+   * <p>The group attribute field.</p>
+   */
+  GroupAttributeField?: string;
+
+  /**
+   * <p>The issuer of the token.</p>
+   */
+  Issuer?: string;
+
+  /**
+   * <p>The regular expression that identifies the claim.</p>
+   */
+  ClaimRegex?: string;
+}
+
+export namespace JwtTokenTypeConfiguration {
+  export const filterSensitiveLog = (obj: JwtTokenTypeConfiguration): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Provides configuration information for a token configuration.</p>
+ */
+export interface UserTokenConfiguration {
+  /**
+   * <p>Information about the JWT token type configuration.</p>
+   */
+  JwtTokenTypeConfiguration?: JwtTokenTypeConfiguration;
+
+  /**
+   * <p>Information about the JSON token type configuration.</p>
+   */
+  JsonTokenTypeConfiguration?: JsonTokenTypeConfiguration;
+}
+
+export namespace UserTokenConfiguration {
+  export const filterSensitiveLog = (obj: UserTokenConfiguration): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateIndexRequest {
+  /**
+   * <p>The name for the new index.</p>
+   */
+  Name: string | undefined;
 
   /**
    * <p>The Amazon Kendra edition to use for the index. Choose <code>DEVELOPER_EDITION</code> for
@@ -2189,9 +2318,11 @@ export interface CreateIndexRequest {
   Edition?: IndexEdition | string;
 
   /**
-   * <p>A description for the index.</p>
+   * <p>An AWS Identity and Access Management (IAM) role that gives Amazon Kendra permissions to
+   *       access your Amazon CloudWatch logs and metrics. This is also the role used when you use the
+   *         <code>BatchPutDocument</code> operation to index documents from an Amazon S3 bucket.</p>
    */
-  Description?: string;
+  RoleArn: string | undefined;
 
   /**
    * <p>The identifier of the AWS KMS customer managed key (CMK) to use to encrypt data indexed by
@@ -2200,15 +2331,49 @@ export interface CreateIndexRequest {
   ServerSideEncryptionConfiguration?: ServerSideEncryptionConfiguration;
 
   /**
-   * <p>The name for the new index.</p>
+   * <p>A description for the index.</p>
    */
-  Name: string | undefined;
+  Description?: string;
+
+  /**
+   * <p>A token that you provide to identify the request to create an index. Multiple calls to the
+   *         <code>CreateIndex</code> operation with the same client token will create only one
+   *       index.</p>
+   */
+  ClientToken?: string;
 
   /**
    * <p>A list of key-value pairs that identify the index. You can use the tags to identify and
    *       organize your resources and to control access to resources.</p>
    */
   Tags?: Tag[];
+
+  /**
+   * <p>The user token configuration.</p>
+   */
+  UserTokenConfigurations?: UserTokenConfiguration[];
+
+  /**
+   * <p>The user context policy.</p>
+   *          <dl>
+   *             <dt>ATTRIBUTE_FILTER</dt>
+   *             <dd>
+   *                <p>All indexed content is searchable and displayable
+   *                   for all users. If there is an access control list, it
+   *                   is ignored. You can filter on user and group attributes.
+   *                </p>
+   *             </dd>
+   *             <dt>USER_TOKEN</dt>
+   *             <dd>
+   *                <p>Enables SSO and token-based user access control.
+   *                All documents with no access control and all documents
+   *                accessible to the user will be searchable and
+   *                displayable.
+   *                </p>
+   *             </dd>
+   *          </dl>
+   */
+  UserContextPolicy?: UserContextPolicy | string;
 }
 
 export namespace CreateIndexRequest {
@@ -2238,14 +2403,14 @@ export namespace CreateIndexResponse {
 
 export interface DeleteDataSourceRequest {
   /**
-   * <p>The unique identifier of the index associated with the data source.</p>
-   */
-  IndexId: string | undefined;
-
-  /**
    * <p>The unique identifier of the data source to delete.</p>
    */
   Id: string | undefined;
+
+  /**
+   * <p>The unique identifier of the index associated with the data source.</p>
+   */
+  IndexId: string | undefined;
 }
 
 export namespace DeleteDataSourceRequest {
@@ -2287,14 +2452,14 @@ export namespace DeleteIndexRequest {
 
 export interface DescribeDataSourceRequest {
   /**
-   * <p>The identifier of the index that contains the data source.</p>
-   */
-  IndexId: string | undefined;
-
-  /**
    * <p>The unique identifier of the data source to describe.</p>
    */
   Id: string | undefined;
+
+  /**
+   * <p>The identifier of the index that contains the data source.</p>
+   */
+  IndexId: string | undefined;
 }
 
 export namespace DescribeDataSourceRequest {
@@ -2313,39 +2478,9 @@ export enum DataSourceStatus {
 
 export interface DescribeDataSourceResponse {
   /**
-   * <p>The Unix timestamp of when the data source was last updated.</p>
+   * <p>The identifier of the data source.</p>
    */
-  UpdatedAt?: Date;
-
-  /**
-   * <p>The type of the data source.</p>
-   */
-  Type?: DataSourceType | string;
-
-  /**
-   * <p>When the <code>Status</code> field value is <code>FAILED</code>, the
-   *         <code>ErrorMessage</code> field contains a description of the error that caused the data
-   *       source to fail.</p>
-   */
-  ErrorMessage?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the role that enables the data source to access its
-   *       resources.</p>
-   */
-  RoleArn?: string;
-
-  /**
-   * <p>The name that you gave the data source when it was created.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>The current status of the data source. When the status is <code>ACTIVE</code> the data
-   *       source is ready to use. When the status is <code>FAILED</code>, the <code>ErrorMessage</code>
-   *       field contains the reason that the data source failed.</p>
-   */
-  Status?: DataSourceStatus | string;
+  Id?: string;
 
   /**
    * <p>The identifier of the index that contains the data source.</p>
@@ -2353,9 +2488,14 @@ export interface DescribeDataSourceResponse {
   IndexId?: string;
 
   /**
-   * <p>The description of the data source.</p>
+   * <p>The name that you gave the data source when it was created.</p>
    */
-  Description?: string;
+  Name?: string;
+
+  /**
+   * <p>The type of the data source.</p>
+   */
+  Type?: DataSourceType | string;
 
   /**
    * <p>Information that describes where the data source is located and how the data source is
@@ -2365,19 +2505,44 @@ export interface DescribeDataSourceResponse {
   Configuration?: DataSourceConfiguration;
 
   /**
-   * <p>The identifier of the data source.</p>
-   */
-  Id?: string;
-
-  /**
    * <p>The Unix timestamp of when the data source was created.</p>
    */
   CreatedAt?: Date;
 
   /**
+   * <p>The Unix timestamp of when the data source was last updated.</p>
+   */
+  UpdatedAt?: Date;
+
+  /**
+   * <p>The description of the data source.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The current status of the data source. When the status is <code>ACTIVE</code> the data
+   *       source is ready to use. When the status is <code>FAILED</code>, the <code>ErrorMessage</code>
+   *       field contains the reason that the data source failed.</p>
+   */
+  Status?: DataSourceStatus | string;
+
+  /**
    * <p>The schedule that Amazon Kendra will update the data source.</p>
    */
   Schedule?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the role that enables the data source to access its
+   *       resources.</p>
+   */
+  RoleArn?: string;
+
+  /**
+   * <p>When the <code>Status</code> field value is <code>FAILED</code>, the
+   *         <code>ErrorMessage</code> field contains a description of the error that caused the data
+   *       source to fail.</p>
+   */
+  ErrorMessage?: string;
 }
 
 export namespace DescribeDataSourceResponse {
@@ -2414,9 +2579,34 @@ export enum FaqStatus {
 
 export interface DescribeFaqResponse {
   /**
+   * <p>The identifier of the FAQ.</p>
+   */
+  Id?: string;
+
+  /**
    * <p>The identifier of the index that contains the FAQ.</p>
    */
   IndexId?: string;
+
+  /**
+   * <p>The name that you gave the FAQ when it was created.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The description of the FAQ that you provided when it was created.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The date and time that the FAQ was created.</p>
+   */
+  CreatedAt?: Date;
+
+  /**
+   * <p>The date and time that the FAQ was last updated.</p>
+   */
+  UpdatedAt?: Date;
 
   /**
    * <p>Information required to find a specific file in an Amazon S3 bucket.</p>
@@ -2430,6 +2620,12 @@ export interface DescribeFaqResponse {
   Status?: FaqStatus | string;
 
   /**
+   * <p>The Amazon Resource Name (ARN) of the role that provides access to the S3 bucket
+   *             containing the input files for the FAQ.</p>
+   */
+  RoleArn?: string;
+
+  /**
    * <p>If the <code>Status</code> field is <code>FAILED</code>, the <code>ErrorMessage</code>
    *             field contains the reason why the FAQ failed.</p>
    */
@@ -2439,37 +2635,6 @@ export interface DescribeFaqResponse {
    * <p>The file format used by the input files for the FAQ.</p>
    */
   FileFormat?: FaqFileFormat | string;
-
-  /**
-   * <p>The name that you gave the FAQ when it was created.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>The date and time that the FAQ was last updated.</p>
-   */
-  UpdatedAt?: Date;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the role that provides access to the S3 bucket
-   *             containing the input files for the FAQ.</p>
-   */
-  RoleArn?: string;
-
-  /**
-   * <p>The identifier of the FAQ.</p>
-   */
-  Id?: string;
-
-  /**
-   * <p>The description of the FAQ that you provided when it was created.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The date and time that the FAQ was created.</p>
-   */
-  CreatedAt?: Date;
 }
 
 export namespace DescribeFaqResponse {
@@ -2497,16 +2662,16 @@ export namespace DescribeIndexRequest {
  */
 export interface CapacityUnitsConfiguration {
   /**
-   * <p>The amount of extra query capacity for an index. Each capacity unit provides 0.5
-   *             queries per second and 40,000 queries per day.</p>
-   */
-  QueryCapacityUnits: number | undefined;
-
-  /**
    * <p>The amount of extra storage capacity for an index. Each capacity unit provides 150 Gb
    *             of storage space or 500,000 documents, whichever is reached first.</p>
    */
   StorageCapacityUnits: number | undefined;
+
+  /**
+   * <p>The amount of extra query capacity for an index. Each capacity unit provides 0.5
+   *             queries per second and 40,000 queries per day.</p>
+   */
+  QueryCapacityUnits: number | undefined;
 }
 
 export namespace CapacityUnitsConfiguration {
@@ -2527,10 +2692,29 @@ export enum Order {
  */
 export interface Relevance {
   /**
+   * <p>Indicates that this field determines how "fresh" a document is. For example, if
+   *             document 1 was created on November 5, and document 2 was created on October 31, document
+   *             1 is "fresher" than document 2. You can only set the <code>Freshness</code> field on one
+   *                 <code>DATE</code> type field. Only applies to <code>DATE</code> fields.</p>
+   */
+  Freshness?: boolean;
+
+  /**
    * <p>The relative importance of the field in the search. Larger numbers provide more of a
    *             boost than smaller numbers.</p>
    */
   Importance?: number;
+
+  /**
+   * <p>Specifies the time period that the boost applies to. For example, to make the boost
+   *             apply to documents with the field value within the last month, you would use "2628000s".
+   *             Once the field value is beyond the specified range, the effect of the boost drops off.
+   *             The higher the importance, the faster the effect drops off. If you don't specify a
+   *             value, the default is 3 months. The value of the field is a numeric string followed by
+   *             the character "s", for example "86400s" for one day, or "604800s" for one week. </p>
+   *         <p>Only applies to <code>DATE</code> fields.</p>
+   */
+  Duration?: string;
 
   /**
    * <p>Determines how values should be interpreted.</p>
@@ -2545,14 +2729,6 @@ export interface Relevance {
   RankOrder?: Order | string;
 
   /**
-   * <p>Indicates that this field determines how "fresh" a document is. For example, if
-   *             document 1 was created on November 5, and document 2 was created on October 31, document
-   *             1 is "fresher" than document 2. You can only set the <code>Freshness</code> field on one
-   *                 <code>DATE</code> type field. Only applies to <code>DATE</code> fields.</p>
-   */
-  Freshness?: boolean;
-
-  /**
    * <p>A list of values that should be given a different boost when they appear in the result
    *             list. For example, if you are boosting a field called "department," query terms that
    *             match the department field are boosted in the result. However, you can add entries from
@@ -2563,17 +2739,6 @@ export interface Relevance {
    *             importance instead of the regular importance for the boost.</p>
    */
   ValueImportanceMap?: { [key: string]: number };
-
-  /**
-   * <p>Specifies the time period that the boost applies to. For example, to make the boost
-   *             apply to documents with the field value within the last month, you would use "2628000s".
-   *             Once the field value is beyond the specified range, the effect of the boost drops off.
-   *             The higher the importance, the faster the effect drops off. If you don't specify a
-   *             value, the default is 3 months. The value of the field is a numeric string followed by
-   *             the character "s", for example "86400s" for one day, or "604800s" for one week. </p>
-   *         <p>Only applies to <code>DATE</code> fields.</p>
-   */
-  Duration?: string;
 }
 
 export namespace Relevance {
@@ -2593,14 +2758,6 @@ export interface Search {
   Facetable?: boolean;
 
   /**
-   * <p>Determines whether the field can be used to sort the results of a query. If you
-   *             specify sorting on a field that does not have <code>Sortable</code> set to
-   *                 <code>true</code>, Amazon Kendra returns an exception. The default is
-   *             <code>false</code>.</p>
-   */
-  Sortable?: boolean;
-
-  /**
    * <p>Determines whether the field is used in the search. If the <code>Searchable</code>
    *             field is <code>true</code>, you can use relevance tuning to manually tune how Amazon Kendra
    *             weights the field in the search. The default is <code>true</code> for string fields and
@@ -2613,6 +2770,14 @@ export interface Search {
    *                 <code>true</code>.</p>
    */
   Displayable?: boolean;
+
+  /**
+   * <p>Determines whether the field can be used to sort the results of a query. If you
+   *             specify sorting on a field that does not have <code>Sortable</code> set to
+   *                 <code>true</code>, Amazon Kendra returns an exception. The default is
+   *             <code>false</code>.</p>
+   */
+  Sortable?: boolean;
 }
 
 export namespace Search {
@@ -2633,10 +2798,9 @@ export enum DocumentAttributeValueType {
  */
 export interface DocumentMetadataConfiguration {
   /**
-   * <p>Provides manual tuning parameters to determine how the field affects the search
-   *             results.</p>
+   * <p>The name of the index field.</p>
    */
-  Relevance?: Relevance;
+  Name: string | undefined;
 
   /**
    * <p>The data type of the index field. </p>
@@ -2644,9 +2808,10 @@ export interface DocumentMetadataConfiguration {
   Type: DocumentAttributeValueType | string | undefined;
 
   /**
-   * <p>The name of the index field.</p>
+   * <p>Provides manual tuning parameters to determine how the field affects the search
+   *             results.</p>
    */
-  Name: string | undefined;
+  Relevance?: Relevance;
 
   /**
    * <p>Provides information about how the field is used during a search.</p>
@@ -2682,14 +2847,14 @@ export namespace FaqStatistics {
  */
 export interface TextDocumentStatistics {
   /**
-   * <p>The total size, in bytes, of the indexed documents.</p>
-   */
-  IndexedTextBytes: number | undefined;
-
-  /**
    * <p>The number of text documents indexed.</p>
    */
   IndexedTextDocumentsCount: number | undefined;
+
+  /**
+   * <p>The total size, in bytes, of the indexed documents.</p>
+   */
+  IndexedTextBytes: number | undefined;
 }
 
 export namespace TextDocumentStatistics {
@@ -2704,14 +2869,14 @@ export namespace TextDocumentStatistics {
  */
 export interface IndexStatistics {
   /**
-   * <p>The number of text documents indexed.</p>
-   */
-  TextDocumentStatistics: TextDocumentStatistics | undefined;
-
-  /**
    * <p>The number of question and answer topics in the index.</p>
    */
   FaqStatistics: FaqStatistics | undefined;
+
+  /**
+   * <p>The number of text documents indexed.</p>
+   */
+  TextDocumentStatistics: TextDocumentStatistics | undefined;
 }
 
 export namespace IndexStatistics {
@@ -2731,16 +2896,9 @@ export enum IndexStatus {
 
 export interface DescribeIndexResponse {
   /**
-   * <p>The current status of the index. When the value is <code>ACTIVE</code>, the index is ready
-   *       for use. If the <code>Status</code> field value is <code>FAILED</code>, the
-   *         <code>ErrorMessage</code> field contains a message that explains why.</p>
+   * <p>The name of the index.</p>
    */
-  Status?: IndexStatus | string;
-
-  /**
-   * <p>The Unix datetime that the index was created.</p>
-   */
-  CreatedAt?: Date;
+  Name?: string;
 
   /**
    * <p>the name of the index.</p>
@@ -2748,15 +2906,49 @@ export interface DescribeIndexResponse {
   Id?: string;
 
   /**
+   * <p>The Amazon Kendra edition used for the index. You decide the edition when you create the
+   *       index.</p>
+   */
+  Edition?: IndexEdition | string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role that gives Amazon Kendra permission to write
+   *       to your Amazon Cloudwatch logs.</p>
+   */
+  RoleArn?: string;
+
+  /**
+   * <p>The identifier of the AWS KMS customer master key (CMK) used to encrypt your data.
+   *       Amazon Kendra doesn't support asymmetric CMKs.</p>
+   */
+  ServerSideEncryptionConfiguration?: ServerSideEncryptionConfiguration;
+
+  /**
+   * <p>The current status of the index. When the value is <code>ACTIVE</code>, the index is ready
+   *       for use. If the <code>Status</code> field value is <code>FAILED</code>, the
+   *         <code>ErrorMessage</code> field contains a message that explains why.</p>
+   */
+  Status?: IndexStatus | string;
+
+  /**
    * <p>The description of the index.</p>
    */
   Description?: string;
 
   /**
-   * <p>When th e<code>Status</code> field value is <code>FAILED</code>, the
-   *         <code>ErrorMessage</code> field contains a message that explains why.</p>
+   * <p>The Unix datetime that the index was created.</p>
    */
-  ErrorMessage?: string;
+  CreatedAt?: Date;
+
+  /**
+   * <p>The Unix datetime that the index was last updated.</p>
+   */
+  UpdatedAt?: Date;
+
+  /**
+   * <p>Configuration settings for any metadata applied to the documents in the index.</p>
+   */
+  DocumentMetadataConfigurations?: DocumentMetadataConfiguration[];
 
   /**
    * <p>Provides information about the number of FAQ questions and answers and the number of text
@@ -2765,15 +2957,10 @@ export interface DescribeIndexResponse {
   IndexStatistics?: IndexStatistics;
 
   /**
-   * <p>Configuration settings for any metadata applied to the documents in the index.</p>
+   * <p>When th e<code>Status</code> field value is <code>FAILED</code>, the
+   *         <code>ErrorMessage</code> field contains a message that explains why.</p>
    */
-  DocumentMetadataConfigurations?: DocumentMetadataConfiguration[];
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role that gives Amazon Kendra permission to write
-   *       to your Amazon Cloudwatch logs.</p>
-   */
-  RoleArn?: string;
+  ErrorMessage?: string;
 
   /**
    * <p>For enterprise edtion indexes, you can choose to use additional capacity to meet the needs
@@ -2784,26 +2971,14 @@ export interface DescribeIndexResponse {
   CapacityUnits?: CapacityUnitsConfiguration;
 
   /**
-   * <p>The Unix datetime that the index was last updated.</p>
+   * <p>The user token configuration for the Amazon Kendra index.</p>
    */
-  UpdatedAt?: Date;
+  UserTokenConfigurations?: UserTokenConfiguration[];
 
   /**
-   * <p>The name of the index.</p>
+   * <p>The user context policy for the Amazon Kendra index.</p>
    */
-  Name?: string;
-
-  /**
-   * <p>The Amazon Kendra edition used for the index. You decide the edition when you create the
-   *       index.</p>
-   */
-  Edition?: IndexEdition | string;
-
-  /**
-   * <p>The identifier of the AWS KMS customer master key (CMK) used to encrypt your data.
-   *       Amazon Kendra doesn't support asymmetric CMKs.</p>
-   */
-  ServerSideEncryptionConfiguration?: ServerSideEncryptionConfiguration;
+  UserContextPolicy?: UserContextPolicy | string;
 }
 
 export namespace DescribeIndexResponse {
@@ -2819,16 +2994,16 @@ export namespace DescribeIndexResponse {
 
 export interface ListDataSourcesRequest {
   /**
+   * <p>The identifier of the index that contains the data source.</p>
+   */
+  IndexId: string | undefined;
+
+  /**
    * <p>If the previous response was incomplete (because there is more data to retrieve),
    *       Amazon Kendra returns a pagination token in the response. You can use this pagination token to
    *       retrieve the next set of data sources (<code>DataSourceSummaryItems</code>). </p>
    */
   NextToken?: string;
-
-  /**
-   * <p>The identifier of the index that contains the data source.</p>
-   */
-  IndexId: string | undefined;
 
   /**
    * <p>The maximum number of data sources to return.</p>
@@ -2847,6 +3022,16 @@ export namespace ListDataSourcesRequest {
  */
 export interface DataSourceSummary {
   /**
+   * <p>The name of the data source.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The unique identifier for the data source.</p>
+   */
+  Id?: string;
+
+  /**
    * <p>The type of the data source.</p>
    */
   Type?: DataSourceType | string;
@@ -2857,25 +3042,15 @@ export interface DataSourceSummary {
   CreatedAt?: Date;
 
   /**
-   * <p>The status of the data source. When the status is <code>ATIVE</code> the data source
-   *             is ready to use.</p>
-   */
-  Status?: DataSourceStatus | string;
-
-  /**
    * <p>The UNIX datetime that the data source was lasted updated. </p>
    */
   UpdatedAt?: Date;
 
   /**
-   * <p>The unique identifier for the data source.</p>
+   * <p>The status of the data source. When the status is <code>ATIVE</code> the data source
+   *             is ready to use.</p>
    */
-  Id?: string;
-
-  /**
-   * <p>The name of the data source.</p>
-   */
-  Name?: string;
+  Status?: DataSourceStatus | string;
 }
 
 export namespace DataSourceSummary {
@@ -2908,14 +3083,14 @@ export namespace ListDataSourcesResponse {
  */
 export interface TimeRange {
   /**
-   * <p>The UNIX datetime of the end of the time range.</p>
-   */
-  EndTime?: Date;
-
-  /**
    * <p>The UNIX datetime of the beginning of the time range.</p>
    */
   StartTime?: Date;
+
+  /**
+   * <p>The UNIX datetime of the end of the time range.</p>
+   */
+  EndTime?: Date;
 }
 
 export namespace TimeRange {
@@ -2936,30 +3111,6 @@ export enum DataSourceSyncJobStatus {
 
 export interface ListDataSourceSyncJobsRequest {
   /**
-   * <p>When specified, the synchronization jobs returned in the list are limited to jobs between
-   *       the specified dates. </p>
-   */
-  StartTimeFilter?: TimeRange;
-
-  /**
-   * <p>If the result of the previous request to <code>GetDataSourceSyncJobHistory</code> was
-   *       truncated, include the <code>NextToken</code> to fetch the next set of jobs.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>When specified, only returns synchronization jobs with the <code>Status</code> field equal
-   *       to the specified status.</p>
-   */
-  StatusFilter?: DataSourceSyncJobStatus | string;
-
-  /**
-   * <p>The maximum number of synchronization jobs to return in the response. If there are fewer
-   *       results in the list, this response contains only the actual results.</p>
-   */
-  MaxResults?: number;
-
-  /**
    * <p>The identifier of the data source.</p>
    */
   Id: string | undefined;
@@ -2968,6 +3119,30 @@ export interface ListDataSourceSyncJobsRequest {
    * <p>The identifier of the index that contains the data source.</p>
    */
   IndexId: string | undefined;
+
+  /**
+   * <p>If the result of the previous request to <code>GetDataSourceSyncJobHistory</code> was
+   *       truncated, include the <code>NextToken</code> to fetch the next set of jobs.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of synchronization jobs to return in the response. If there are fewer
+   *       results in the list, this response contains only the actual results.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>When specified, the synchronization jobs returned in the list are limited to jobs between
+   *       the specified dates. </p>
+   */
+  StartTimeFilter?: TimeRange;
+
+  /**
+   * <p>When specified, only returns synchronization jobs with the <code>Status</code> field equal
+   *       to the specified status.</p>
+   */
+  StatusFilter?: DataSourceSyncJobStatus | string;
 }
 
 export namespace ListDataSourceSyncJobsRequest {
@@ -2983,16 +3158,16 @@ export namespace ListDataSourceSyncJobsRequest {
  */
 export interface DataSourceSyncJobMetrics {
   /**
-   * <p>The current number of documents crawled by the current sync job in the data
-   *             source.</p>
-   */
-  DocumentsScanned?: string;
-
-  /**
    * <p>The number of documents added from the data source up to now in the data source
    *             sync.</p>
    */
   DocumentsAdded?: string;
+
+  /**
+   * <p>The number of documents modified in the data source up to now in the data source sync
+   *             run.</p>
+   */
+  DocumentsModified?: string;
 
   /**
    * <p>The number of documents deleted from the data source up to now in the data source sync
@@ -3007,10 +3182,10 @@ export interface DataSourceSyncJobMetrics {
   DocumentsFailed?: string;
 
   /**
-   * <p>The number of documents modified in the data source up to now in the data source sync
-   *             run.</p>
+   * <p>The current number of documents crawled by the current sync job in the data
+   *             source.</p>
    */
-  DocumentsModified?: string;
+  DocumentsScanned?: string;
 }
 
 export namespace DataSourceSyncJobMetrics {
@@ -3024,23 +3199,19 @@ export namespace DataSourceSyncJobMetrics {
  */
 export interface DataSourceSyncJob {
   /**
+   * <p>A unique identifier for the synchronization job.</p>
+   */
+  ExecutionId?: string;
+
+  /**
+   * <p>The UNIX datetime that the synchronization job was started.</p>
+   */
+  StartTime?: Date;
+
+  /**
    * <p>The UNIX datetime that the synchronization job was completed.</p>
    */
   EndTime?: Date;
-
-  /**
-   * <p>If the <code>Status</code> field is set to <code>ERROR</code>, the
-   *                 <code>ErrorMessage</code> field contains a description of the error that caused the
-   *             synchronization to fail.</p>
-   */
-  ErrorMessage?: string;
-
-  /**
-   * <p>Maps a batch delete document request to a specific data source sync job. This is
-   *             optional and should only be supplied when documents are deleted by a data source
-   *             connector.</p>
-   */
-  Metrics?: DataSourceSyncJobMetrics;
 
   /**
    * <p>The execution status of the synchronization job. When the <code>Status</code> field is
@@ -3049,6 +3220,13 @@ export interface DataSourceSyncJob {
    *             fields give you the reason for the failure.</p>
    */
   Status?: DataSourceSyncJobStatus | string;
+
+  /**
+   * <p>If the <code>Status</code> field is set to <code>ERROR</code>, the
+   *                 <code>ErrorMessage</code> field contains a description of the error that caused the
+   *             synchronization to fail.</p>
+   */
+  ErrorMessage?: string;
 
   /**
    * <p>If the <code>Status</code> field is set to <code>FAILED</code>, the
@@ -3064,14 +3242,11 @@ export interface DataSourceSyncJob {
   DataSourceErrorCode?: string;
 
   /**
-   * <p>A unique identifier for the synchronization job.</p>
+   * <p>Maps a batch delete document request to a specific data source sync job. This is
+   *             optional and should only be supplied when documents are deleted by a data source
+   *             connector.</p>
    */
-  ExecutionId?: string;
-
-  /**
-   * <p>The UNIX datetime that the synchronization job was started.</p>
-   */
-  StartTime?: Date;
+  Metrics?: DataSourceSyncJobMetrics;
 }
 
 export namespace DataSourceSyncJob {
@@ -3082,6 +3257,11 @@ export namespace DataSourceSyncJob {
 
 export interface ListDataSourceSyncJobsResponse {
   /**
+   * <p>A history of synchronization jobs for the data source.</p>
+   */
+  History?: DataSourceSyncJob[];
+
+  /**
    * <p>The <code>GetDataSourceSyncJobHistory</code> operation returns a page of vocabularies at a
    *       time. The maximum size of the page is set by the <code>MaxResults</code> parameter. If there
    *       are more jobs in the list than the page size, Amazon Kendra returns the NextPage token. Include
@@ -3089,11 +3269,6 @@ export interface ListDataSourceSyncJobsResponse {
    *       return in the next page of jobs.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>A history of synchronization jobs for the data source.</p>
-   */
-  History?: DataSourceSyncJob[];
 }
 
 export namespace ListDataSourceSyncJobsResponse {
@@ -3104,15 +3279,15 @@ export namespace ListDataSourceSyncJobsResponse {
 
 export interface ListFaqsRequest {
   /**
+   * <p>The index that contains the FAQ lists.</p>
+   */
+  IndexId: string | undefined;
+
+  /**
    * <p>If the result of the previous request to <code>ListFaqs</code> was truncated, include
    *             the <code>NextToken</code> to fetch the next set of FAQs.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>The index that contains the FAQ lists.</p>
-   */
-  IndexId: string | undefined;
 
   /**
    * <p>The maximum number of FAQs to return in the response. If there are fewer results in
@@ -3133,9 +3308,14 @@ export namespace ListFaqsRequest {
  */
 export interface FaqSummary {
   /**
-   * <p>The file type used to create the FAQ. </p>
+   * <p>The unique identifier of the FAQ.</p>
    */
-  FileFormat?: FaqFileFormat | string;
+  Id?: string;
+
+  /**
+   * <p>The name that you assigned the FAQ when you created or updated the FAQ.</p>
+   */
+  Name?: string;
 
   /**
    * <p>The current status of the FAQ. When the status is <code>ACTIVE</code> the FAQ is ready
@@ -3149,19 +3329,14 @@ export interface FaqSummary {
   CreatedAt?: Date;
 
   /**
-   * <p>The unique identifier of the FAQ.</p>
-   */
-  Id?: string;
-
-  /**
    * <p>The UNIX datetime that the FAQ was last updated.</p>
    */
   UpdatedAt?: Date;
 
   /**
-   * <p>The name that you assigned the FAQ when you created or updated the FAQ.</p>
+   * <p>The file type used to create the FAQ. </p>
    */
-  Name?: string;
+  FileFormat?: FaqFileFormat | string;
 }
 
 export namespace FaqSummary {
@@ -3194,16 +3369,16 @@ export namespace ListFaqsResponse {
 
 export interface ListIndicesRequest {
   /**
-   * <p>The maximum number of data sources to return.</p>
-   */
-  MaxResults?: number;
-
-  /**
    * <p>If the previous response was incomplete (because there is more data to retrieve),
    *       Amazon Kendra returns a pagination token in the response. You can use this pagination token to
    *       retrieve the next set of indexes (<code>DataSourceSummaryItems</code>). </p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The maximum number of data sources to return.</p>
+   */
+  MaxResults?: number;
 }
 
 export namespace ListIndicesRequest {
@@ -3217,26 +3392,16 @@ export namespace ListIndicesRequest {
  */
 export interface IndexConfigurationSummary {
   /**
-   * <p>The Unix timestamp when the index was created.</p>
-   */
-  CreatedAt: Date | undefined;
-
-  /**
-   * <p>The current status of the index. When the status is <code>ACTIVE</code>, the index is
-   *             ready to search.</p>
-   */
-  Status: IndexStatus | string | undefined;
-
-  /**
    * <p>The name of the index.</p>
    */
   Name?: string;
 
   /**
-   * <p>The Unix timestamp when the index was last updated by the <code>UpdateIndex</code>
-   *             operation.</p>
+   * <p>A unique identifier for the index. Use this to identify the index when you are using
+   *             operations such as <code>Query</code>, <code>DescribeIndex</code>,
+   *                 <code>UpdateIndex</code>, and <code>DeleteIndex</code>.</p>
    */
-  UpdatedAt: Date | undefined;
+  Id?: string;
 
   /**
    * <p>Indicates whether the index is a enterprise edition index or a developer edition
@@ -3245,11 +3410,21 @@ export interface IndexConfigurationSummary {
   Edition?: IndexEdition | string;
 
   /**
-   * <p>A unique identifier for the index. Use this to identify the index when you are using
-   *             operations such as <code>Query</code>, <code>DescribeIndex</code>,
-   *                 <code>UpdateIndex</code>, and <code>DeleteIndex</code>.</p>
+   * <p>The Unix timestamp when the index was created.</p>
    */
-  Id?: string;
+  CreatedAt: Date | undefined;
+
+  /**
+   * <p>The Unix timestamp when the index was last updated by the <code>UpdateIndex</code>
+   *             operation.</p>
+   */
+  UpdatedAt: Date | undefined;
+
+  /**
+   * <p>The current status of the index. When the status is <code>ACTIVE</code>, the index is
+   *             ready to search.</p>
+   */
+  Status: IndexStatus | string | undefined;
 }
 
 export namespace IndexConfigurationSummary {
@@ -3372,12 +3547,6 @@ export enum SortOrder {
  */
 export interface SortingConfiguration {
   /**
-   * <p>The order that the results should be returned in. In case of ties, the relevance
-   *             assigned to the result by Amazon Kendra is used as the tie-breaker.</p>
-   */
-  SortOrder: SortOrder | string | undefined;
-
-  /**
    * <p>The name of the document attribute used to sort the response. You can use any field
    *             that has the <code>Sortable</code> flag set to true.</p>
    *         <p>You can also sort by any of the following built-in attributes:</p>
@@ -3400,10 +3569,32 @@ export interface SortingConfiguration {
    *          </ul>
    */
   DocumentAttributeKey: string | undefined;
+
+  /**
+   * <p>The order that the results should be returned in. In case of ties, the relevance
+   *             assigned to the result by Amazon Kendra is used as the tie-breaker.</p>
+   */
+  SortOrder: SortOrder | string | undefined;
 }
 
 export namespace SortingConfiguration {
   export const filterSensitiveLog = (obj: SortingConfiguration): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Provides information about the user context for a Amazon Kendra index.</p>
+ */
+export interface UserContext {
+  /**
+   * <p>The user context token. It must be a JWT or a JSON token.</p>
+   */
+  Token?: string;
+}
+
+export namespace UserContext {
+  export const filterSensitiveLog = (obj: UserContext): any => ({
     ...obj,
   });
 }
@@ -3436,6 +3627,12 @@ export namespace DocumentAttributeValueCountPair {
  */
 export interface FacetResult {
   /**
+   * <p>The key for the facet values. This is the same as the <code>DocumentAttributeKey</code>
+   *          provided in the query.</p>
+   */
+  DocumentAttributeKey?: string;
+
+  /**
    * <p>The data type of the facet value. This is the same as the type defined for the index
    *          field when it was created.</p>
    */
@@ -3446,12 +3643,6 @@ export interface FacetResult {
    *          is the number of documents that share the key value.</p>
    */
   DocumentAttributeValueCountPairs?: DocumentAttributeValueCountPair[];
-
-  /**
-   * <p>The key for the facet values. This is the same as the <code>DocumentAttributeKey</code>
-   *          provided in the query.</p>
-   */
-  DocumentAttributeKey?: string;
 }
 
 export namespace FacetResult {
@@ -3492,6 +3683,38 @@ export namespace ScoreAttributes {
  */
 export interface QueryResultItem {
   /**
+   * <p>The unique identifier for the query result.</p>
+   */
+  Id?: string;
+
+  /**
+   * <p>The type of document. </p>
+   */
+  Type?: QueryResultType | string;
+
+  /**
+   * <p>One or more additional attributes associated with the query result.</p>
+   */
+  AdditionalAttributes?: AdditionalResultAttribute[];
+
+  /**
+   * <p>The unique identifier for the document.</p>
+   */
+  DocumentId?: string;
+
+  /**
+   * <p>The title of the document. Contains the text of the title and information for
+   *          highlighting the relevant terms in the title.</p>
+   */
+  DocumentTitle?: TextWithHighlights;
+
+  /**
+   * <p>An extract of the text in the document. Contains information about highlighting the
+   *          relevant terms in the excerpt.</p>
+   */
+  DocumentExcerpt?: TextWithHighlights;
+
+  /**
    * <p>The URI of the original location of the document.</p>
    */
   DocumentURI?: string;
@@ -3501,33 +3724,6 @@ export interface QueryResultItem {
    *          example, the document author (Author) or the source URI (SourceUri) of the document.</p>
    */
   DocumentAttributes?: DocumentAttribute[];
-
-  /**
-   * <p>The type of document. </p>
-   */
-  Type?: QueryResultType | string;
-
-  /**
-   * <p>The unique identifier for the document.</p>
-   */
-  DocumentId?: string;
-
-  /**
-   * <p>An extract of the text in the document. Contains information about highlighting the
-   *          relevant terms in the excerpt.</p>
-   */
-  DocumentExcerpt?: TextWithHighlights;
-
-  /**
-   * <p>One or more additional attributes associated with the query result.</p>
-   */
-  AdditionalAttributes?: AdditionalResultAttribute[];
-
-  /**
-   * <p>The title of the document. Contains the text of the title and information for
-   *          highlighting the relevant terms in the title.</p>
-   */
-  DocumentTitle?: TextWithHighlights;
 
   /**
    * <p>Indicates the confidence that Amazon Kendra has that a result matches the query that you
@@ -3540,11 +3736,6 @@ export interface QueryResultItem {
    *          query.</p>
    */
   ScoreAttributes?: ScoreAttributes;
-
-  /**
-   * <p>The unique identifier for the query result.</p>
-   */
-  Id?: string;
 }
 
 export namespace QueryResultItem {
@@ -3554,13 +3745,6 @@ export namespace QueryResultItem {
 }
 
 export interface QueryResult {
-  /**
-   * <p>The total number of items found by the search; however, you can only retrieve up to 100
-   *          items. For example, if the search found 192 items, you can only retrieve the first 100 of
-   *          the items.</p>
-   */
-  TotalNumberOfResults?: number;
-
   /**
    * <p>The unique identifier for the search. You use <code>QueryId</code> to identify the
    *          search when using the feedback API.</p>
@@ -3577,6 +3761,13 @@ export interface QueryResult {
    *          attribute key that was specified in the <code>Facets</code> input parameter.</p>
    */
   FacetResults?: FacetResult[];
+
+  /**
+   * <p>The total number of items found by the search; however, you can only retrieve up to 100
+   *          items. For example, if the search found 192 items, you can only retrieve the first 100 of
+   *          the items.</p>
+   */
+  TotalNumberOfResults?: number;
 }
 
 export namespace QueryResult {
@@ -3602,14 +3793,14 @@ export namespace ResourceInUseException {
 
 export interface StartDataSourceSyncJobRequest {
   /**
-   * <p>The identifier of the index that contains the data source.</p>
-   */
-  IndexId: string | undefined;
-
-  /**
    * <p>The identifier of the data source to synchronize.</p>
    */
   Id: string | undefined;
+
+  /**
+   * <p>The identifier of the index that contains the data source.</p>
+   */
+  IndexId: string | undefined;
 }
 
 export namespace StartDataSourceSyncJobRequest {
@@ -3683,15 +3874,15 @@ export enum RelevanceType {
  */
 export interface RelevanceFeedback {
   /**
-   * <p>Whether to document was relevant or not relevant to the search.</p>
-   */
-  RelevanceValue: RelevanceType | string | undefined;
-
-  /**
    * <p>The unique identifier of the search result that the user provided relevance feedback
    *             for.</p>
    */
   ResultId: string | undefined;
+
+  /**
+   * <p>Whether to document was relevant or not relevant to the search.</p>
+   */
+  RelevanceValue: RelevanceType | string | undefined;
 }
 
 export namespace RelevanceFeedback {
@@ -3702,12 +3893,6 @@ export namespace RelevanceFeedback {
 
 export interface SubmitFeedbackRequest {
   /**
-   * <p>Tells Amazon Kendra that a particular search result link was chosen by
-   *         the user. </p>
-   */
-  ClickFeedbackItems?: ClickFeedback[];
-
-  /**
    * <p>The identifier of the index that was queried.</p>
    */
   IndexId: string | undefined;
@@ -3717,6 +3902,12 @@ export interface SubmitFeedbackRequest {
    *         query ID is returned in the response to the  operation.</p>
    */
   QueryId: string | undefined;
+
+  /**
+   * <p>Tells Amazon Kendra that a particular search result link was chosen by
+   *         the user. </p>
+   */
+  ClickFeedbackItems?: ClickFeedback[];
 
   /**
    * <p>Provides Amazon Kendra with relevant or not relevant feedback for whether a particular
@@ -3760,16 +3951,16 @@ export namespace TagResourceResponse {
 
 export interface UntagResourceRequest {
   /**
-   * <p>A list of tag keys to remove from the index, FAQ, or data source. If a tag key does not
-   *       exist on the resource, it is ignored.</p>
-   */
-  TagKeys: string[] | undefined;
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the index, FAQ, or data source to remove the tag
    *       from.</p>
    */
   ResourceARN: string | undefined;
+
+  /**
+   * <p>A list of tag keys to remove from the index, FAQ, or data source. If a tag key does not
+   *       exist on the resource, it is ignored.</p>
+   */
+  TagKeys: string[] | undefined;
 }
 
 export namespace UntagResourceRequest {
@@ -3788,14 +3979,20 @@ export namespace UntagResourceResponse {
 
 export interface UpdateDataSourceRequest {
   /**
+   * <p>The unique identifier of the data source to update.</p>
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The name of the data source to update. The name of the data source can't be updated. To
+   *       rename a data source you must delete the data source and re-create it.</p>
+   */
+  Name?: string;
+
+  /**
    * <p>The identifier of the index that contains the data source to update.</p>
    */
   IndexId: string | undefined;
-
-  /**
-   * <p>The new description for the data source.</p>
-   */
-  Description?: string;
 
   /**
    * <p>Configuration information for a Amazon Kendra data source.</p>
@@ -3803,26 +4000,20 @@ export interface UpdateDataSourceRequest {
   Configuration?: DataSourceConfiguration;
 
   /**
+   * <p>The new description for the data source.</p>
+   */
+  Description?: string;
+
+  /**
    * <p>The new update schedule for the data source.</p>
    */
   Schedule?: string;
-
-  /**
-   * <p>The unique identifier of the data source to update.</p>
-   */
-  Id: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the new role to use when the data source is accessing
    *       resources on your behalf.</p>
    */
   RoleArn?: string;
-
-  /**
-   * <p>The name of the data source to update. The name of the data source can't be updated. To
-   *       rename a data source you must delete the data source and re-create it.</p>
-   */
-  Name?: string;
 }
 
 export namespace UpdateDataSourceRequest {
@@ -3833,9 +4024,14 @@ export namespace UpdateDataSourceRequest {
 
 export interface UpdateIndexRequest {
   /**
-   * <p>The document metadata to update. </p>
+   * <p>The identifier of the index to update.</p>
    */
-  DocumentMetadataConfigurationUpdates?: DocumentMetadataConfiguration[];
+  Id: string | undefined;
+
+  /**
+   * <p>The name of the index to update.</p>
+   */
+  Name?: string;
 
   /**
    * <p>A new IAM role that gives Amazon Kendra permission to access your Amazon CloudWatch
@@ -3844,14 +4040,14 @@ export interface UpdateIndexRequest {
   RoleArn?: string;
 
   /**
-   * <p>The identifier of the index to update.</p>
-   */
-  Id: string | undefined;
-
-  /**
    * <p>A new description for the index.</p>
    */
   Description?: string;
+
+  /**
+   * <p>The document metadata to update. </p>
+   */
+  DocumentMetadataConfigurationUpdates?: DocumentMetadataConfiguration[];
 
   /**
    * <p>Sets the number of addtional storage and query capacity units that should be used by the
@@ -3862,9 +4058,14 @@ export interface UpdateIndexRequest {
   CapacityUnits?: CapacityUnitsConfiguration;
 
   /**
-   * <p>The name of the index to update.</p>
+   * <p>The user token configuration.</p>
    */
-  Name?: string;
+  UserTokenConfigurations?: UserTokenConfiguration[];
+
+  /**
+   * <p>The user user token context policy.</p>
+   */
+  UserContextPolicy?: UserContextPolicy | string;
 }
 
 export namespace UpdateIndexRequest {
@@ -3897,27 +4098,24 @@ export namespace UpdateIndexRequest {
  */
 export interface AttributeFilter {
   /**
+   * <p>Performs a logical <code>AND</code> operation on all supplied filters.</p>
+   */
+  AndAllFilters?: AttributeFilter[];
+
+  /**
+   * <p>Performs a logical <code>OR</code> operation on all supplied filters.</p>
+   */
+  OrAllFilters?: AttributeFilter[];
+
+  /**
    * <p>Performs a logical <code>NOT</code> operation on all supplied filters.</p>
    */
   NotFilter?: AttributeFilter;
 
   /**
-   * <p>Performs a less than or equals operation on two document attributes. Use with a document
-   *          attribute of type <code>Integer</code> or <code>Long</code>.</p>
+   * <p>Performs an equals operation on two document attributes.</p>
    */
-  LessThanOrEquals?: DocumentAttribute;
-
-  /**
-   * <p>Returns true when a document contains any of the specified document attributes. This
-   *          filter is only applicable to <code>StringListValue</code> metadata.</p>
-   */
-  ContainsAny?: DocumentAttribute;
-
-  /**
-   * <p>Performs a less than operation on two document attributes. Use with a document attribute
-   *          of type <code>Integer</code> or <code>Long</code>.</p>
-   */
-  LessThan?: DocumentAttribute;
+  EqualsTo?: DocumentAttribute;
 
   /**
    * <p>Returns true when a document contains all of the specified document attributes. This
@@ -3926,31 +4124,34 @@ export interface AttributeFilter {
   ContainsAll?: DocumentAttribute;
 
   /**
-   * <p>Performs a greater or equals than operation on two document attributes. Use with a
-   *          document attribute of type <code>Integer</code> or <code>Long</code>.</p>
+   * <p>Returns true when a document contains any of the specified document attributes. This
+   *          filter is only applicable to <code>StringListValue</code> metadata.</p>
    */
-  GreaterThanOrEquals?: DocumentAttribute;
-
-  /**
-   * <p>Performs a logical <code>OR</code> operation on all supplied filters.</p>
-   */
-  OrAllFilters?: AttributeFilter[];
-
-  /**
-   * <p>Performs an equals operation on two document attributes.</p>
-   */
-  EqualsTo?: DocumentAttribute;
-
-  /**
-   * <p>Performs a logical <code>AND</code> operation on all supplied filters.</p>
-   */
-  AndAllFilters?: AttributeFilter[];
+  ContainsAny?: DocumentAttribute;
 
   /**
    * <p>Performs a greater than operation on two document attributes. Use with a document
    *          attribute of type <code>Integer</code> or <code>Long</code>.</p>
    */
   GreaterThan?: DocumentAttribute;
+
+  /**
+   * <p>Performs a greater or equals than operation on two document attributes. Use with a
+   *          document attribute of type <code>Integer</code> or <code>Long</code>.</p>
+   */
+  GreaterThanOrEquals?: DocumentAttribute;
+
+  /**
+   * <p>Performs a less than operation on two document attributes. Use with a document attribute
+   *          of type <code>Integer</code> or <code>Long</code>.</p>
+   */
+  LessThan?: DocumentAttribute;
+
+  /**
+   * <p>Performs a less than or equals operation on two document attributes. Use with a document
+   *          attribute of type <code>Integer</code> or <code>Long</code>.</p>
+   */
+  LessThanOrEquals?: DocumentAttribute;
 }
 
 export namespace AttributeFilter {
@@ -3960,6 +4161,12 @@ export namespace AttributeFilter {
 }
 
 export interface QueryRequest {
+  /**
+   * <p>The unique identifier of the index to search. The identifier is returned in the response
+   *          from the  operation.</p>
+   */
+  IndexId: string | undefined;
+
   /**
    * <p>The text to search for.</p>
    */
@@ -3975,34 +4182,17 @@ export interface QueryRequest {
   AttributeFilter?: AttributeFilter;
 
   /**
-   * <p>An array of document attributes to include in the response. No other document attributes
-   *          are included in the response. By default all document attributes are included in the
-   *          response. </p>
-   */
-  RequestedDocumentAttributes?: string[];
-
-  /**
-   * <p>Sets the number of results that are returned in each page of results. The default page
-   *          size is 10. The maximum number of results returned is 100. If you ask for more than 100
-   *          results, only 100 are returned.</p>
-   */
-  PageSize?: number;
-
-  /**
    * <p>An array of documents attributes. Amazon Kendra returns a count for each attribute key
    *          specified. You can use this information to help narrow the search for your user.</p>
    */
   Facets?: Facet[];
 
   /**
-   * <p>Provides information that determines how the results of the query are sorted. You can
-   *          set the field that Amazon Kendra should sort the results on, and specify whether the results should
-   *          be sorted in ascending or descending order. In the case of ties in sorting the results, the
-   *          results are sorted by relevance.</p>
-   *          <p>If you don't provide sorting configuration, the results are sorted by the relevance that
-   *          Amazon Kendra determines for the result.</p>
+   * <p>An array of document attributes to include in the response. No other document attributes
+   *          are included in the response. By default all document attributes are included in the
+   *          response. </p>
    */
-  SortingConfiguration?: SortingConfiguration;
+  RequestedDocumentAttributes?: string[];
 
   /**
    * <p>Sets the type of query. Only results for the specified query type are returned.</p>
@@ -4017,10 +4207,26 @@ export interface QueryRequest {
   PageNumber?: number;
 
   /**
-   * <p>The unique identifier of the index to search. The identifier is returned in the response
-   *          from the  operation.</p>
+   * <p>Sets the number of results that are returned in each page of results. The default page
+   *          size is 10. The maximum number of results returned is 100. If you ask for more than 100
+   *          results, only 100 are returned.</p>
    */
-  IndexId: string | undefined;
+  PageSize?: number;
+
+  /**
+   * <p>Provides information that determines how the results of the query are sorted. You can
+   *          set the field that Amazon Kendra should sort the results on, and specify whether the results should
+   *          be sorted in ascending or descending order. In the case of ties in sorting the results, the
+   *          results are sorted by relevance.</p>
+   *          <p>If you don't provide sorting configuration, the results are sorted by the relevance that
+   *          Amazon Kendra determines for the result.</p>
+   */
+  SortingConfiguration?: SortingConfiguration;
+
+  /**
+   * <p>The user context token.</p>
+   */
+  UserContext?: UserContext;
 }
 
 export namespace QueryRequest {

@@ -48,13 +48,113 @@ import {
   OutputGroup,
   PipelineDetail,
   PipelinePauseStateSettings,
-  Reservation,
   ReservationResourceSpecification,
   ReservationState,
 } from "./models_0";
 import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 import { Readable } from "stream";
+
+/**
+ * Reserved resources available to use
+ */
+export interface Reservation {
+  /**
+   * Unique reservation ARN, e.g. 'arn:aws:medialive:us-west-2:123456789012:reservation:1234567'
+   */
+  Arn?: string;
+
+  /**
+   * Number of reserved resources
+   */
+  Count?: number;
+
+  /**
+   * Currency code for usagePrice and fixedPrice in ISO-4217 format, e.g. 'USD'
+   */
+  CurrencyCode?: string;
+
+  /**
+   * Lease duration, e.g. '12'
+   */
+  Duration?: number;
+
+  /**
+   * Units for duration, e.g. 'MONTHS'
+   */
+  DurationUnits?: OfferingDurationUnits | string;
+
+  /**
+   * Reservation UTC end date and time in ISO-8601 format, e.g. '2019-03-01T00:00:00'
+   */
+  End?: string;
+
+  /**
+   * One-time charge for each reserved resource, e.g. '0.0' for a NO_UPFRONT offering
+   */
+  FixedPrice?: number;
+
+  /**
+   * User specified reservation name
+   */
+  Name?: string;
+
+  /**
+   * Offering description, e.g. 'HD AVC output at 10-20 Mbps, 30 fps, and standard VQ in US West (Oregon)'
+   */
+  OfferingDescription?: string;
+
+  /**
+   * Unique offering ID, e.g. '87654321'
+   */
+  OfferingId?: string;
+
+  /**
+   * Offering type, e.g. 'NO_UPFRONT'
+   */
+  OfferingType?: OfferingType | string;
+
+  /**
+   * AWS region, e.g. 'us-west-2'
+   */
+  Region?: string;
+
+  /**
+   * Unique reservation ID, e.g. '1234567'
+   */
+  ReservationId?: string;
+
+  /**
+   * Resource configuration details
+   */
+  ResourceSpecification?: ReservationResourceSpecification;
+
+  /**
+   * Reservation UTC start date and time in ISO-8601 format, e.g. '2018-03-01T00:00:00'
+   */
+  Start?: string;
+
+  /**
+   * Current state of reservation, e.g. 'ACTIVE'
+   */
+  State?: ReservationState | string;
+
+  /**
+   * A collection of key-value pairs
+   */
+  Tags?: { [key: string]: string };
+
+  /**
+   * Recurring usage charge for each reserved resource, e.g. '157.0'
+   */
+  UsagePrice?: number;
+}
+
+export namespace Reservation {
+  export const filterSensitiveLog = (obj: Reservation): any => ({
+    ...obj,
+  });
+}
 
 /**
  * Settings for the action to insert a user-defined ID3 tag in each HLS segment
@@ -119,14 +219,14 @@ export enum LastFrameClippingBehavior {
  */
 export interface StopTimecode {
   /**
-   * The timecode for the frame where you want to stop the clip. Optional; if not specified, the clip continues to the end of the file. Enter the timecode as HH:MM:SS:FF or HH:MM:SS;FF.
-   */
-  Timecode?: string;
-
-  /**
    * If you specify a StopTimecode in an input (in order to clip the file), you can specify if you want the clip to exclude (the default) or include the frame specified by the timecode.
    */
   LastFrameClippingBehavior?: LastFrameClippingBehavior | string;
+
+  /**
+   * The timecode for the frame where you want to stop the clip. Optional; if not specified, the clip continues to the end of the file. Enter the timecode as HH:MM:SS:FF or HH:MM:SS;FF.
+   */
+  Timecode?: string;
 }
 
 export namespace StopTimecode {
@@ -140,11 +240,6 @@ export namespace StopTimecode {
  */
 export interface InputClippingSettings {
   /**
-   * Settings to identify the end of the clip.
-   */
-  StopTimecode?: StopTimecode;
-
-  /**
    * The source of the timecodes in the source being clipped.
    */
   InputTimecodeSource: InputTimecodeSource | string | undefined;
@@ -153,6 +248,11 @@ export interface InputClippingSettings {
    * Settings to identify the start of the clip.
    */
   StartTimecode?: StartTimecode;
+
+  /**
+   * Settings to identify the end of the clip.
+   */
+  StopTimecode?: StopTimecode;
 }
 
 export namespace InputClippingSettings {
@@ -192,14 +292,14 @@ export namespace InputPrepareScheduleActionSettings {
  */
 export interface InputSwitchScheduleActionSettings {
   /**
-   * Settings to let you create a clip of the file input, in order to set up the input to ingest only a portion of the file.
-   */
-  InputClippingSettings?: InputClippingSettings;
-
-  /**
    * The name of the input attachment (not the name of the input!) to switch to. The name is specified in the channel configuration.
    */
   InputAttachmentNameReference: string | undefined;
+
+  /**
+   * Settings to let you create a clip of the file input, in order to set up the input to ingest only a portion of the file.
+   */
+  InputClippingSettings?: InputClippingSettings;
 
   /**
    * The value for the variable portion of the URL for the dynamic input, for this instance of the input. Each time you use the same dynamic input in an input switch action, you can provide a different value, in order to connect the input to a different content source.
@@ -250,14 +350,14 @@ export namespace Scte35ReturnToNetworkScheduleActionSettings {
  */
 export interface Scte35SpliceInsertScheduleActionSettings {
   /**
-   * The splice_event_id for the SCTE-35 splice_insert, as defined in SCTE-35.
-   */
-  SpliceEventId: number | undefined;
-
-  /**
    * Optional, the duration for the splice_insert, in 90 KHz ticks. To convert seconds to ticks, multiple the seconds by 90,000. If you enter a duration, there is an expectation that the downstream system can read the duration and cue in at that time. If you do not enter a duration, the splice_insert will continue indefinitely and there is an expectation that you will enter a return_to_network to end the splice_insert at the appropriate time.
    */
   Duration?: number;
+
+  /**
+   * The splice_event_id for the SCTE-35 splice_insert, as defined in SCTE-35.
+   */
+  SpliceEventId: number | undefined;
 }
 
 export namespace Scte35SpliceInsertScheduleActionSettings {
@@ -298,6 +398,11 @@ export interface Scte35DeliveryRestrictions {
   ArchiveAllowedFlag: Scte35ArchiveAllowedFlag | string | undefined;
 
   /**
+   * Corresponds to SCTE-35 device_restrictions parameter.
+   */
+  DeviceRestrictions: Scte35DeviceRestrictions | string | undefined;
+
+  /**
    * Corresponds to SCTE-35 no_regional_blackout_flag parameter.
    */
   NoRegionalBlackoutFlag: Scte35NoRegionalBlackoutFlag | string | undefined;
@@ -306,11 +411,6 @@ export interface Scte35DeliveryRestrictions {
    * Corresponds to SCTE-35 web_delivery_allowed_flag parameter.
    */
   WebDeliveryAllowedFlag: Scte35WebDeliveryAllowedFlag | string | undefined;
-
-  /**
-   * Corresponds to SCTE-35 device_restrictions parameter.
-   */
-  DeviceRestrictions: Scte35DeviceRestrictions | string | undefined;
 }
 
 export namespace Scte35DeliveryRestrictions {
@@ -329,14 +429,14 @@ export enum Scte35SegmentationCancelIndicator {
  */
 export interface Scte35SegmentationDescriptor {
   /**
-   * Corresponds to SCTE-35 segmentation_upid_type. On the console, enter one of the types listed in the SCTE-35 specification, converted to a decimal. For example, "0x0C" hex from the specification is "12" in decimal. In the CLI, API, or an SDK, enter one of the types listed in the SCTE-35 specification, in either hex (for example, "0x0C" ) or in decimal (for example, "12").
-   */
-  SegmentationUpidType?: number;
-
-  /**
    * Holds the four SCTE-35 delivery restriction parameters.
    */
   DeliveryRestrictions?: Scte35DeliveryRestrictions;
+
+  /**
+   * Corresponds to SCTE-35 segment_num. A value that is valid for the specified segmentation_type_id.
+   */
+  SegmentNum?: number;
 
   /**
    * Corresponds to SCTE-35 segmentation_event_cancel_indicator.
@@ -344,29 +444,9 @@ export interface Scte35SegmentationDescriptor {
   SegmentationCancelIndicator: Scte35SegmentationCancelIndicator | string | undefined;
 
   /**
-   * Corresponds to SCTE-35 sub_segment_num. A value that is valid for the specified segmentation_type_id.
-   */
-  SubSegmentNum?: number;
-
-  /**
-   * Corresponds to SCTE-35 segmentation_type_id. One of the segmentation_type_id values listed in the SCTE-35 specification. On the console, enter the ID in decimal (for example, "52"). In the CLI, API, or an SDK, enter the ID in hex (for example, "0x34") or decimal (for example, "52").
-   */
-  SegmentationTypeId?: number;
-
-  /**
-   * Corresponds to SCTE-35 sub_segments_expected. A value that is valid for the specified segmentation_type_id.
-   */
-  SubSegmentsExpected?: number;
-
-  /**
    * Corresponds to SCTE-35 segmentation_duration. Optional. The duration for the time_signal, in 90 KHz ticks. To convert seconds to ticks, multiple the seconds by 90,000. Enter time in 90 KHz clock ticks. If you do not enter a duration, the time_signal will continue until you insert a cancellation message.
    */
   SegmentationDuration?: number;
-
-  /**
-   * Corresponds to SCTE-35 segments_expected. A value that is valid for the specified segmentation_type_id.
-   */
-  SegmentsExpected?: number;
 
   /**
    * Corresponds to SCTE-35 segmentation_event_id.
@@ -374,14 +454,34 @@ export interface Scte35SegmentationDescriptor {
   SegmentationEventId: number | undefined;
 
   /**
+   * Corresponds to SCTE-35 segmentation_type_id. One of the segmentation_type_id values listed in the SCTE-35 specification. On the console, enter the ID in decimal (for example, "52"). In the CLI, API, or an SDK, enter the ID in hex (for example, "0x34") or decimal (for example, "52").
+   */
+  SegmentationTypeId?: number;
+
+  /**
    * Corresponds to SCTE-35 segmentation_upid. Enter a string containing the hexadecimal representation of the characters that make up the SCTE-35 segmentation_upid value. Must contain an even number of hex characters. Do not include spaces between each hex pair. For example, the ASCII "ADS Information" becomes hex "41445320496e666f726d6174696f6e.
    */
   SegmentationUpid?: string;
 
   /**
-   * Corresponds to SCTE-35 segment_num. A value that is valid for the specified segmentation_type_id.
+   * Corresponds to SCTE-35 segmentation_upid_type. On the console, enter one of the types listed in the SCTE-35 specification, converted to a decimal. For example, "0x0C" hex from the specification is "12" in decimal. In the CLI, API, or an SDK, enter one of the types listed in the SCTE-35 specification, in either hex (for example, "0x0C" ) or in decimal (for example, "12").
    */
-  SegmentNum?: number;
+  SegmentationUpidType?: number;
+
+  /**
+   * Corresponds to SCTE-35 segments_expected. A value that is valid for the specified segmentation_type_id.
+   */
+  SegmentsExpected?: number;
+
+  /**
+   * Corresponds to SCTE-35 sub_segment_num. A value that is valid for the specified segmentation_type_id.
+   */
+  SubSegmentNum?: number;
+
+  /**
+   * Corresponds to SCTE-35 sub_segments_expected. A value that is valid for the specified segmentation_type_id.
+   */
+  SubSegmentsExpected?: number;
 }
 
 export namespace Scte35SegmentationDescriptor {
@@ -448,11 +548,6 @@ export interface StaticImageActivateScheduleActionSettings {
   Duration?: number;
 
   /**
-   * The number of the layer, 0 to 7. There are 8 layers that can be overlaid on the video, each layer with a different image. The layers are in Z order, which means that overlays with higher values of layer are inserted on top of overlays with lower values of layer. Default is 0.
-   */
-  Layer?: number;
-
-  /**
    * The time in milliseconds for the image to fade in. The fade-in starts at the start time of the overlay. Default is 0 (no fade-in).
    */
   FadeIn?: number;
@@ -463,9 +558,14 @@ export interface StaticImageActivateScheduleActionSettings {
   FadeOut?: number;
 
   /**
-   * Opacity of image where 0 is transparent and 100 is fully opaque. Default is 100.
+   * The height of the image when inserted into the video, in pixels. The overlay will be scaled up or down to the specified height. Leave blank to use the native height of the overlay.
    */
-  Opacity?: number;
+  Height?: number;
+
+  /**
+   * The location and filename of the image file to overlay on the video. The file must be a 32-bit BMP, PNG, or TGA file, and must not be larger (in pixels) than the input video.
+   */
+  Image: InputLocation | undefined;
 
   /**
    * Placement of the left edge of the overlay relative to the left edge of the video frame, in pixels. 0 (the default) is the left edge of the frame. If the placement causes the overlay to extend beyond the right edge of the underlying video, then the overlay is cropped on the right.
@@ -478,19 +578,19 @@ export interface StaticImageActivateScheduleActionSettings {
   ImageY?: number;
 
   /**
+   * The number of the layer, 0 to 7. There are 8 layers that can be overlaid on the video, each layer with a different image. The layers are in Z order, which means that overlays with higher values of layer are inserted on top of overlays with lower values of layer. Default is 0.
+   */
+  Layer?: number;
+
+  /**
+   * Opacity of image where 0 is transparent and 100 is fully opaque. Default is 100.
+   */
+  Opacity?: number;
+
+  /**
    * The width of the image when inserted into the video, in pixels. The overlay will be scaled up or down to the specified width. Leave blank to use the native width of the overlay.
    */
   Width?: number;
-
-  /**
-   * The height of the image when inserted into the video, in pixels. The overlay will be scaled up or down to the specified height. Leave blank to use the native height of the overlay.
-   */
-  Height?: number;
-
-  /**
-   * The location and filename of the image file to overlay on the video. The file must be a 32-bit BMP, PNG, or TGA file, and must not be larger (in pixels) than the input video.
-   */
-  Image: InputLocation | undefined;
 }
 
 export namespace StaticImageActivateScheduleActionSettings {
@@ -525,29 +625,14 @@ export namespace StaticImageDeactivateScheduleActionSettings {
  */
 export interface ScheduleActionSettings {
   /**
-   * Action to switch the input
-   */
-  InputSwitchSettings?: InputSwitchScheduleActionSettings;
-
-  /**
-   * Action to insert SCTE-35 splice_insert message
-   */
-  Scte35SpliceInsertSettings?: Scte35SpliceInsertScheduleActionSettings;
-
-  /**
-   * Action to activate a static image overlay
-   */
-  StaticImageActivateSettings?: StaticImageActivateScheduleActionSettings;
-
-  /**
    * Action to insert HLS ID3 segment tagging
    */
   HlsId3SegmentTaggingSettings?: HlsId3SegmentTaggingScheduleActionSettings;
 
   /**
-   * Action to deactivate a static image overlay
+   * Action to insert HLS metadata
    */
-  StaticImageDeactivateSettings?: StaticImageDeactivateScheduleActionSettings;
+  HlsTimedMetadataSettings?: HlsTimedMetadataScheduleActionSettings;
 
   /**
    * Action to prepare an input for a future immediate input switch
@@ -555,14 +640,9 @@ export interface ScheduleActionSettings {
   InputPrepareSettings?: InputPrepareScheduleActionSettings;
 
   /**
-   * Action to insert SCTE-35 time_signal message
+   * Action to switch the input
    */
-  Scte35TimeSignalSettings?: Scte35TimeSignalScheduleActionSettings;
-
-  /**
-   * Action to insert SCTE-35 return_to_network message
-   */
-  Scte35ReturnToNetworkSettings?: Scte35ReturnToNetworkScheduleActionSettings;
+  InputSwitchSettings?: InputSwitchScheduleActionSettings;
 
   /**
    * Action to pause or unpause one or both channel pipelines
@@ -570,9 +650,29 @@ export interface ScheduleActionSettings {
   PauseStateSettings?: PauseStateScheduleActionSettings;
 
   /**
-   * Action to insert HLS metadata
+   * Action to insert SCTE-35 return_to_network message
    */
-  HlsTimedMetadataSettings?: HlsTimedMetadataScheduleActionSettings;
+  Scte35ReturnToNetworkSettings?: Scte35ReturnToNetworkScheduleActionSettings;
+
+  /**
+   * Action to insert SCTE-35 splice_insert message
+   */
+  Scte35SpliceInsertSettings?: Scte35SpliceInsertScheduleActionSettings;
+
+  /**
+   * Action to insert SCTE-35 time_signal message
+   */
+  Scte35TimeSignalSettings?: Scte35TimeSignalScheduleActionSettings;
+
+  /**
+   * Action to activate a static image overlay
+   */
+  StaticImageActivateSettings?: StaticImageActivateScheduleActionSettings;
+
+  /**
+   * Action to deactivate a static image overlay
+   */
+  StaticImageDeactivateSettings?: StaticImageDeactivateScheduleActionSettings;
 }
 
 export namespace ScheduleActionSettings {
@@ -644,14 +744,14 @@ export interface ScheduleActionStartSettings {
   FixedModeScheduleActionStartSettings?: FixedModeScheduleActionStartSettings;
 
   /**
-   * Option for specifying an action that should be applied immediately.
-   */
-  ImmediateModeScheduleActionStartSettings?: ImmediateModeScheduleActionStartSettings;
-
-  /**
    * Option for specifying an action as relative to another action.
    */
   FollowModeScheduleActionStartSettings?: FollowModeScheduleActionStartSettings;
+
+  /**
+   * Option for specifying an action that should be applied immediately.
+   */
+  ImmediateModeScheduleActionStartSettings?: ImmediateModeScheduleActionStartSettings;
 }
 
 export namespace ScheduleActionStartSettings {
@@ -665,14 +765,14 @@ export namespace ScheduleActionStartSettings {
  */
 export interface ScheduleAction {
   /**
-   * Settings for this schedule action.
-   */
-  ScheduleActionSettings: ScheduleActionSettings | undefined;
-
-  /**
    * The name of the action, must be unique within the schedule. This name provides the main reference to an action once it is added to the schedule. A name is unique if it is no longer in the schedule. The schedule is automatically cleaned up to remove actions with a start time of more than 1 hour ago (approximately) so at that point a name can be reused.
    */
   ActionName: string | undefined;
+
+  /**
+   * Settings for this schedule action.
+   */
+  ScheduleActionSettings: ScheduleActionSettings | undefined;
 
   /**
    * The time for the action to start in the channel.
@@ -696,14 +796,14 @@ export enum InputDeviceTransferType {
  */
 export interface TransferringInputDeviceSummary {
   /**
+   * The unique ID of the input device.
+   */
+  Id?: string;
+
+  /**
    * The optional message that the sender has attached to the transfer.
    */
   Message?: string;
-
-  /**
-   * The type (direction) of the input device transfer.
-   */
-  TransferType?: InputDeviceTransferType | string;
 
   /**
    * The AWS account ID for the recipient of the input device transfer.
@@ -711,9 +811,9 @@ export interface TransferringInputDeviceSummary {
   TargetCustomerId?: string;
 
   /**
-   * The unique ID of the input device.
+   * The type (direction) of the input device transfer.
    */
-  Id?: string;
+  TransferType?: InputDeviceTransferType | string;
 }
 
 export namespace TransferringInputDeviceSummary {
@@ -827,6 +927,11 @@ export namespace Rec709Settings {
  */
 export interface H264ColorSpaceSettings {
   /**
+   * Passthrough applies no color space conversion to the output
+   */
+  ColorSpacePassthroughSettings?: ColorSpacePassthroughSettings;
+
+  /**
    * Rec601 Settings
    */
   Rec601Settings?: Rec601Settings;
@@ -835,11 +940,6 @@ export interface H264ColorSpaceSettings {
    * Rec709 Settings
    */
   Rec709Settings?: Rec709Settings;
-
-  /**
-   * Passthrough applies no color space conversion to the output
-   */
-  ColorSpacePassthroughSettings?: ColorSpacePassthroughSettings;
 }
 
 export namespace H264ColorSpaceSettings {
@@ -884,16 +984,16 @@ export enum TemporalFilterStrength {
  */
 export interface TemporalFilterSettings {
   /**
-   * Choose a filter strength. We recommend a strength of 1 or 2. A higher strength might take out good information, resulting in an image that is overly soft.
-   */
-  Strength?: TemporalFilterStrength | string;
-
-  /**
    * If you enable this filter, the results are the following:
    * - If the source content is noisy (it contains excessive digital artifacts), the filter cleans up the source.
    * - If the source content is already clean, the filter tends to decrease the bitrate, especially when the rate control mode is QVBR.
    */
   PostFilterSharpening?: TemporalFilterPostFilterSharpening | string;
+
+  /**
+   * Choose a filter strength. We recommend a strength of 1 or 2. A higher strength might take out good information, resulting in an image that is overly soft.
+   */
+  Strength?: TemporalFilterStrength | string;
 }
 
 export namespace TemporalFilterSettings {
@@ -1049,9 +1149,54 @@ export enum H264TimecodeInsertionBehavior {
  */
 export interface H264Settings {
   /**
-   * H.264 Profile.
+   * Adaptive quantization. Allows intra-frame quantizers to vary to improve visual quality.
    */
-  Profile?: H264Profile | string;
+  AdaptiveQuantization?: H264AdaptiveQuantization | string;
+
+  /**
+   * Indicates that AFD values will be written into the output stream.  If afdSignaling is "auto", the system will try to preserve the input AFD value (in cases where multiple AFD values are valid). If set to "fixed", the AFD value will be the value configured in the fixedAfd parameter.
+   */
+  AfdSignaling?: AfdSignaling | string;
+
+  /**
+   * Average bitrate in bits/second. Required when the rate control mode is VBR or CBR. Not used for QVBR. In an MS Smooth output group, each output must have a unique value when its bitrate is rounded down to the nearest multiple of 1000.
+   */
+  Bitrate?: number;
+
+  /**
+   * Percentage of the buffer that should initially be filled (HRD buffer model).
+   */
+  BufFillPct?: number;
+
+  /**
+   * Size of buffer (HRD buffer model) in bits.
+   */
+  BufSize?: number;
+
+  /**
+   * Includes colorspace metadata in the output.
+   */
+  ColorMetadata?: H264ColorMetadata | string;
+
+  /**
+   * Color Space settings
+   */
+  ColorSpaceSettings?: H264ColorSpaceSettings;
+
+  /**
+   * Entropy encoding mode.  Use cabac (must be in Main or High profile) or cavlc.
+   */
+  EntropyEncoding?: H264EntropyEncoding | string;
+
+  /**
+   * Optional filters that you can apply to an encode.
+   */
+  FilterSettings?: H264FilterSettings;
+
+  /**
+   * Four bit AFD value to write on all frames of video in the output stream. Only valid when afdSignaling is set to 'Fixed'.
+   */
+  FixedAfd?: FixedAfd | string;
 
   /**
    * If set to enabled, adjust quantization within each frame to reduce flicker or 'pop' on I-frames.
@@ -1059,17 +1204,11 @@ export interface H264Settings {
   FlickerAq?: H264FlickerAq | string;
 
   /**
-   * Controls the target quality for the video encode. Applies only when the rate control mode is QVBR. Set values for the QVBR quality level field and Max bitrate field that suit your most important viewing devices. Recommended values are:
-   * - Primary screen: Quality level: 8 to 10. Max bitrate: 4M
-   * - PC or tablet: Quality level: 7. Max bitrate: 1.5M to 3M
-   * - Smartphone: Quality level: 6. Max bitrate: 1M to 1.5M
+   * This setting applies only when scan type is "interlaced." It controls whether coding is performed on a field basis or on a frame basis. (When the video is progressive, the coding is always performed on a frame basis.)
+   * enabled: Force MediaLive to code on a field basis, so that odd and even sets of fields are coded separately.
+   * disabled: Code the two sets of fields separately (on a field basis) or together (on a frame basis using PAFF), depending on what is most appropriate for the content.
    */
-  QvbrQualityLevel?: number;
-
-  /**
-   * Amount of lookahead. A value of low can decrease latency and memory usage, while high can produce better quality for certain content.
-   */
-  LookAheadRateControl?: H264LookAheadRateControl | string;
+  ForceFieldPictures?: H264ForceFieldPictures | string;
 
   /**
    * This field indicates how the output video frame rate is specified.  If "specified" is selected then the output video frame rate is determined by framerateNumerator and framerateDenominator, else if "initializeFromSource" is selected then the output video frame rate will be set equal to the input video frame rate of the first input.
@@ -1082,49 +1221,24 @@ export interface H264Settings {
   FramerateDenominator?: number;
 
   /**
-   * Produces a bitstream compliant with SMPTE RP-2027.
+   * Framerate numerator - framerate is a fraction, e.g. 24000 / 1001 = 23.976 fps.
    */
-  Syntax?: H264Syntax | string;
+  FramerateNumerator?: number;
 
   /**
-   * Number of slices per picture. Must be less than or equal to the number of macroblock rows for progressive pictures, and less than or equal to half the number of macroblock rows for interlaced pictures.
-   * This field is optional; when no value is specified the encoder will choose the number of slices based on encode resolution.
+   * Documentation update needed
    */
-  Slices?: number;
+  GopBReference?: H264GopBReference | string;
 
   /**
-   * Adaptive quantization. Allows intra-frame quantizers to vary to improve visual quality.
+   * Frequency of closed GOPs. In streaming applications, it is recommended that this be set to 1 so a decoder joining mid-stream will receive an IDR frame as quickly as possible. Setting this value to 0 will break output segmenting.
    */
-  AdaptiveQuantization?: H264AdaptiveQuantization | string;
+  GopClosedCadence?: number;
 
   /**
-   * H.264 Level.
+   * Number of B-frames between reference frames.
    */
-  Level?: H264Level | string;
-
-  /**
-   * Number of reference frames to use. The encoder may use more than requested if using B-frames and/or interlaced encoding.
-   */
-  NumRefFrames?: number;
-
-  /**
-   * If set to enabled, adjust quantization within each frame based on temporal variation of content complexity.
-   */
-  TemporalAq?: H264TemporalAq | string;
-
-  /**
-   * Leave as STANDARD_QUALITY or choose a different value (which might result in additional costs to run the channel).
-   * - ENHANCED_QUALITY: Produces a slightly better video quality without an increase in the bitrate. Has an effect only when the Rate control mode is QVBR or CBR. If this channel is in a MediaLive multiplex, the value must be ENHANCED_QUALITY.
-   * - STANDARD_QUALITY: Valid for any Rate control mode.
-   */
-  QualityLevel?: H264QualityLevel | string;
-
-  /**
-   * This setting applies only when scan type is "interlaced." It controls whether coding is performed on a field basis or on a frame basis. (When the video is progressive, the coding is always performed on a frame basis.)
-   * enabled: Force MediaLive to code on a field basis, so that odd and even sets of fields are coded separately.
-   * disabled: Code the two sets of fields separately (on a field basis) or together (on a frame basis using PAFF), depending on what is most appropriate for the content.
-   */
-  ForceFieldPictures?: H264ForceFieldPictures | string;
+  GopNumBFrames?: number;
 
   /**
    * GOP size (keyframe interval) in units of either frames or seconds per gopSizeUnits.
@@ -1134,44 +1248,26 @@ export interface H264Settings {
   GopSize?: number;
 
   /**
-   * Indicates that AFD values will be written into the output stream.  If afdSignaling is "auto", the system will try to preserve the input AFD value (in cases where multiple AFD values are valid). If set to "fixed", the AFD value will be the value configured in the fixedAfd parameter.
+   * Indicates if the gopSize is specified in frames or seconds. If seconds the system will convert the gopSize into a frame count at run time.
    */
-  AfdSignaling?: AfdSignaling | string;
+  GopSizeUnits?: H264GopSizeUnits | string;
 
   /**
-   * Pixel Aspect Ratio denominator.
+   * H.264 Level.
    */
-  ParDenominator?: number;
+  Level?: H264Level | string;
 
   /**
-   * Entropy encoding mode.  Use cabac (must be in Main or High profile) or cavlc.
+   * Amount of lookahead. A value of low can decrease latency and memory usage, while high can produce better quality for certain content.
    */
-  EntropyEncoding?: H264EntropyEncoding | string;
+  LookAheadRateControl?: H264LookAheadRateControl | string;
 
   /**
-   * If set to enabled, adjust quantization within each frame based on spatial variation of content complexity.
+   * For QVBR: See the tooltip for Quality level
+   *
+   * For VBR: Set the maximum bitrate in order to accommodate expected spikes in the complexity of the video.
    */
-  SpatialAq?: H264SpatialAq | string;
-
-  /**
-   * Softness. Selects quantizer matrix, larger values reduce high-frequency content in the encoded image.
-   */
-  Softness?: number;
-
-  /**
-   * Color Space settings
-   */
-  ColorSpaceSettings?: H264ColorSpaceSettings;
-
-  /**
-   * Percentage of the buffer that should initially be filled (HRD buffer model).
-   */
-  BufFillPct?: number;
-
-  /**
-   * Number of B-frames between reference frames.
-   */
-  GopNumBFrames?: number;
+  MaxBitrate?: number;
 
   /**
    * Only meaningful if sceneChangeDetect is set to enabled.  Defaults to 5 if multiplex rate control is used.  Enforces separation between repeated (cadence) I-frames and I-frames inserted by Scene Change Detection. If a scene change I-frame is within I-interval frames of a cadence I-frame, the GOP is shrunk and/or stretched to the scene change I-frame. GOP stretch requires enabling lookahead as well as setting I-interval. The normal cadence resumes for the next GOP. Note: Maximum GOP stretch = GOP size + Min-I-interval - 1
@@ -1179,14 +1275,44 @@ export interface H264Settings {
   MinIInterval?: number;
 
   /**
-   * Optional filters that you can apply to an encode.
+   * Number of reference frames to use. The encoder may use more than requested if using B-frames and/or interlaced encoding.
    */
-  FilterSettings?: H264FilterSettings;
+  NumRefFrames?: number;
 
   /**
-   * If set to fixed, use gopNumBFrames B-frames per sub-GOP. If set to dynamic, optimize the number of B-frames used for each sub-GOP to improve visual quality.
+   * This field indicates how the output pixel aspect ratio is specified.  If "specified" is selected then the output video pixel aspect ratio is determined by parNumerator and parDenominator, else if "initializeFromSource" is selected then the output pixsel aspect ratio will be set equal to the input video pixel aspect ratio of the first input.
    */
-  SubgopLength?: H264SubGopLength | string;
+  ParControl?: H264ParControl | string;
+
+  /**
+   * Pixel Aspect Ratio denominator.
+   */
+  ParDenominator?: number;
+
+  /**
+   * Pixel Aspect Ratio numerator.
+   */
+  ParNumerator?: number;
+
+  /**
+   * H.264 Profile.
+   */
+  Profile?: H264Profile | string;
+
+  /**
+   * Leave as STANDARD_QUALITY or choose a different value (which might result in additional costs to run the channel).
+   * - ENHANCED_QUALITY: Produces a slightly better video quality without an increase in the bitrate. Has an effect only when the Rate control mode is QVBR or CBR. If this channel is in a MediaLive multiplex, the value must be ENHANCED_QUALITY.
+   * - STANDARD_QUALITY: Valid for any Rate control mode.
+   */
+  QualityLevel?: H264QualityLevel | string;
+
+  /**
+   * Controls the target quality for the video encode. Applies only when the rate control mode is QVBR. Set values for the QVBR quality level field and Max bitrate field that suit your most important viewing devices. Recommended values are:
+   * - Primary screen: Quality level: 8 to 10. Max bitrate: 4M
+   * - PC or tablet: Quality level: 7. Max bitrate: 1.5M to 3M
+   * - Smartphone: Quality level: 6. Max bitrate: 1M to 1.5M
+   */
+  QvbrQualityLevel?: number;
 
   /**
    * Rate control mode.
@@ -1207,11 +1333,6 @@ export interface H264Settings {
   RateControlMode?: H264RateControlMode | string;
 
   /**
-   * Pixel Aspect Ratio numerator.
-   */
-  ParNumerator?: number;
-
-  /**
    * Sets the scan type of the output to progressive or top-field-first interlaced.
    */
   ScanType?: H264ScanType | string;
@@ -1225,19 +1346,35 @@ export interface H264Settings {
   SceneChangeDetect?: H264SceneChangeDetect | string;
 
   /**
-   * Includes colorspace metadata in the output.
+   * Number of slices per picture. Must be less than or equal to the number of macroblock rows for progressive pictures, and less than or equal to half the number of macroblock rows for interlaced pictures.
+   * This field is optional; when no value is specified the encoder will choose the number of slices based on encode resolution.
    */
-  ColorMetadata?: H264ColorMetadata | string;
+  Slices?: number;
 
   /**
-   * Frequency of closed GOPs. In streaming applications, it is recommended that this be set to 1 so a decoder joining mid-stream will receive an IDR frame as quickly as possible. Setting this value to 0 will break output segmenting.
+   * Softness. Selects quantizer matrix, larger values reduce high-frequency content in the encoded image.
    */
-  GopClosedCadence?: number;
+  Softness?: number;
 
   /**
-   * Average bitrate in bits/second. Required when the rate control mode is VBR or CBR. Not used for QVBR. In an MS Smooth output group, each output must have a unique value when its bitrate is rounded down to the nearest multiple of 1000.
+   * If set to enabled, adjust quantization within each frame based on spatial variation of content complexity.
    */
-  Bitrate?: number;
+  SpatialAq?: H264SpatialAq | string;
+
+  /**
+   * If set to fixed, use gopNumBFrames B-frames per sub-GOP. If set to dynamic, optimize the number of B-frames used for each sub-GOP to improve visual quality.
+   */
+  SubgopLength?: H264SubGopLength | string;
+
+  /**
+   * Produces a bitstream compliant with SMPTE RP-2027.
+   */
+  Syntax?: H264Syntax | string;
+
+  /**
+   * If set to enabled, adjust quantization within each frame based on temporal variation of content complexity.
+   */
+  TemporalAq?: H264TemporalAq | string;
 
   /**
    * Determines how timecodes should be inserted into the video elementary stream.
@@ -1245,43 +1382,6 @@ export interface H264Settings {
    * - 'picTimingSei': Pass through picture timing SEI messages from the source specified in Timecode Config
    */
   TimecodeInsertion?: H264TimecodeInsertionBehavior | string;
-
-  /**
-   * Size of buffer (HRD buffer model) in bits.
-   */
-  BufSize?: number;
-
-  /**
-   * For QVBR: See the tooltip for Quality level
-   *
-   * For VBR: Set the maximum bitrate in order to accommodate expected spikes in the complexity of the video.
-   */
-  MaxBitrate?: number;
-
-  /**
-   * Indicates if the gopSize is specified in frames or seconds. If seconds the system will convert the gopSize into a frame count at run time.
-   */
-  GopSizeUnits?: H264GopSizeUnits | string;
-
-  /**
-   * Documentation update needed
-   */
-  GopBReference?: H264GopBReference | string;
-
-  /**
-   * Four bit AFD value to write on all frames of video in the output stream. Only valid when afdSignaling is set to 'Fixed'.
-   */
-  FixedAfd?: FixedAfd | string;
-
-  /**
-   * Framerate numerator - framerate is a fraction, e.g. 24000 / 1001 = 23.976 fps.
-   */
-  FramerateNumerator?: number;
-
-  /**
-   * This field indicates how the output pixel aspect ratio is specified.  If "specified" is selected then the output video pixel aspect ratio is determined by parNumerator and parDenominator, else if "initializeFromSource" is selected then the output pixsel aspect ratio will be set equal to the input video pixel aspect ratio of the first input.
-   */
-  ParControl?: H264ParControl | string;
 }
 
 export namespace H264Settings {
@@ -1314,18 +1414,18 @@ export enum H265ColorMetadata {
  */
 export interface Hdr10Settings {
   /**
-   * Maximum Frame Average Light Level
-   * An integer metadata value defining the maximum average light level, in nits,
-   * for any single frame within an encoded HDR video stream or file.
-   */
-  MaxFall?: number;
-
-  /**
    * Maximum Content Light Level
    * An integer metadata value defining the maximum light level, in nits,
    * of any single pixel within an encoded HDR video stream or file.
    */
   MaxCll?: number;
+
+  /**
+   * Maximum Frame Average Light Level
+   * An integer metadata value defining the maximum average light level, in nits,
+   * for any single frame within an encoded HDR video stream or file.
+   */
+  MaxFall?: number;
 }
 
 export namespace Hdr10Settings {
@@ -1339,14 +1439,9 @@ export namespace Hdr10Settings {
  */
 export interface H265ColorSpaceSettings {
   /**
-   * Rec709 Settings
+   * Passthrough applies no color space conversion to the output
    */
-  Rec709Settings?: Rec709Settings;
-
-  /**
-   * Rec601 Settings
-   */
-  Rec601Settings?: Rec601Settings;
+  ColorSpacePassthroughSettings?: ColorSpacePassthroughSettings;
 
   /**
    * Hdr10 Settings
@@ -1354,9 +1449,14 @@ export interface H265ColorSpaceSettings {
   Hdr10Settings?: Hdr10Settings;
 
   /**
-   * Passthrough applies no color space conversion to the output
+   * Rec601 Settings
    */
-  ColorSpacePassthroughSettings?: ColorSpacePassthroughSettings;
+  Rec601Settings?: Rec601Settings;
+
+  /**
+   * Rec709 Settings
+   */
+  Rec709Settings?: Rec709Settings;
 }
 
 export namespace H265ColorSpaceSettings {
@@ -1450,22 +1550,69 @@ export enum H265TimecodeInsertionBehavior {
  */
 export interface H265Settings {
   /**
-   * Controls the target quality for the video encode. Applies only when the rate control mode is QVBR. Set values for the QVBR quality level field and Max bitrate field that suit your most important viewing devices. Recommended values are:
-   * - Primary screen: Quality level: 8 to 10. Max bitrate: 4M
-   * - PC or tablet: Quality level: 7. Max bitrate: 1.5M to 3M
-   * - Smartphone: Quality level: 6. Max bitrate: 1M to 1.5M
+   * Adaptive quantization. Allows intra-frame quantizers to vary to improve visual quality.
    */
-  QvbrQualityLevel?: number;
+  AdaptiveQuantization?: H265AdaptiveQuantization | string;
 
   /**
-   * Amount of lookahead. A value of low can decrease latency and memory usage, while high can produce better quality for certain content.
+   * Indicates that AFD values will be written into the output stream.  If afdSignaling is "auto", the system will try to preserve the input AFD value (in cases where multiple AFD values are valid). If set to "fixed", the AFD value will be the value configured in the fixedAfd parameter.
    */
-  LookAheadRateControl?: H265LookAheadRateControl | string;
+  AfdSignaling?: AfdSignaling | string;
+
+  /**
+   * Whether or not EML should insert an Alternative Transfer Function SEI message to support backwards compatibility with non-HDR decoders and displays.
+   */
+  AlternativeTransferFunction?: H265AlternativeTransferFunction | string;
+
+  /**
+   * Average bitrate in bits/second. Required when the rate control mode is VBR or CBR. Not used for QVBR. In an MS Smooth output group, each output must have a unique value when its bitrate is rounded down to the nearest multiple of 1000.
+   */
+  Bitrate?: number;
+
+  /**
+   * Size of buffer (HRD buffer model) in bits.
+   */
+  BufSize?: number;
+
+  /**
+   * Includes colorspace metadata in the output.
+   */
+  ColorMetadata?: H265ColorMetadata | string;
+
+  /**
+   * Color Space settings
+   */
+  ColorSpaceSettings?: H265ColorSpaceSettings;
+
+  /**
+   * Optional filters that you can apply to an encode.
+   */
+  FilterSettings?: H265FilterSettings;
+
+  /**
+   * Four bit AFD value to write on all frames of video in the output stream. Only valid when afdSignaling is set to 'Fixed'.
+   */
+  FixedAfd?: FixedAfd | string;
 
   /**
    * If set to enabled, adjust quantization within each frame to reduce flicker or 'pop' on I-frames.
    */
   FlickerAq?: H265FlickerAq | string;
+
+  /**
+   * Framerate denominator.
+   */
+  FramerateDenominator: number | undefined;
+
+  /**
+   * Framerate numerator - framerate is a fraction, e.g. 24000 / 1001 = 23.976 fps.
+   */
+  FramerateNumerator: number | undefined;
+
+  /**
+   * Frequency of closed GOPs. In streaming applications, it is recommended that this be set to 1 so a decoder joining mid-stream will receive an IDR frame as quickly as possible. Setting this value to 0 will break output segmenting.
+   */
+  GopClosedCadence?: number;
 
   /**
    * GOP size (keyframe interval) in units of either frames or seconds per gopSizeUnits.
@@ -1475,37 +1622,52 @@ export interface H265Settings {
   GopSize?: number;
 
   /**
+   * Indicates if the gopSize is specified in frames or seconds. If seconds the system will convert the gopSize into a frame count at run time.
+   */
+  GopSizeUnits?: H265GopSizeUnits | string;
+
+  /**
    * H.265 Level.
    */
   Level?: H265Level | string;
 
   /**
-   * Number of slices per picture. Must be less than or equal to the number of macroblock rows for progressive pictures, and less than or equal to half the number of macroblock rows for interlaced pictures.
-   * This field is optional; when no value is specified the encoder will choose the number of slices based on encode resolution.
+   * Amount of lookahead. A value of low can decrease latency and memory usage, while high can produce better quality for certain content.
    */
-  Slices?: number;
+  LookAheadRateControl?: H265LookAheadRateControl | string;
 
   /**
-   * Size of buffer (HRD buffer model) in bits.
+   * For QVBR: See the tooltip for Quality level
    */
-  BufSize?: number;
+  MaxBitrate?: number;
 
   /**
-   * Determines how timecodes should be inserted into the video elementary stream.
-   * - 'disabled': Do not include timecodes
-   * - 'picTimingSei': Pass through picture timing SEI messages from the source specified in Timecode Config
+   * Only meaningful if sceneChangeDetect is set to enabled.  Defaults to 5 if multiplex rate control is used.  Enforces separation between repeated (cadence) I-frames and I-frames inserted by Scene Change Detection. If a scene change I-frame is within I-interval frames of a cadence I-frame, the GOP is shrunk and/or stretched to the scene change I-frame. GOP stretch requires enabling lookahead as well as setting I-interval. The normal cadence resumes for the next GOP. Note: Maximum GOP stretch = GOP size + Min-I-interval - 1
    */
-  TimecodeInsertion?: H265TimecodeInsertionBehavior | string;
+  MinIInterval?: number;
 
   /**
-   * Framerate numerator - framerate is a fraction, e.g. 24000 / 1001 = 23.976 fps.
+   * Pixel Aspect Ratio denominator.
    */
-  FramerateNumerator: number | undefined;
+  ParDenominator?: number;
 
   /**
-   * Average bitrate in bits/second. Required when the rate control mode is VBR or CBR. Not used for QVBR. In an MS Smooth output group, each output must have a unique value when its bitrate is rounded down to the nearest multiple of 1000.
+   * Pixel Aspect Ratio numerator.
    */
-  Bitrate?: number;
+  ParNumerator?: number;
+
+  /**
+   * H.265 Profile.
+   */
+  Profile?: H265Profile | string;
+
+  /**
+   * Controls the target quality for the video encode. Applies only when the rate control mode is QVBR. Set values for the QVBR quality level field and Max bitrate field that suit your most important viewing devices. Recommended values are:
+   * - Primary screen: Quality level: 8 to 10. Max bitrate: 4M
+   * - PC or tablet: Quality level: 7. Max bitrate: 1.5M to 3M
+   * - Smartphone: Quality level: 6. Max bitrate: 1M to 1.5M
+   */
+  QvbrQualityLevel?: number;
 
   /**
    * Rate control mode.
@@ -1523,64 +1685,9 @@ export interface H265Settings {
   RateControlMode?: H265RateControlMode | string;
 
   /**
-   * Frequency of closed GOPs. In streaming applications, it is recommended that this be set to 1 so a decoder joining mid-stream will receive an IDR frame as quickly as possible. Setting this value to 0 will break output segmenting.
-   */
-  GopClosedCadence?: number;
-
-  /**
-   * Pixel Aspect Ratio numerator.
-   */
-  ParNumerator?: number;
-
-  /**
    * Sets the scan type of the output to progressive or top-field-first interlaced.
    */
   ScanType?: H265ScanType | string;
-
-  /**
-   * Four bit AFD value to write on all frames of video in the output stream. Only valid when afdSignaling is set to 'Fixed'.
-   */
-  FixedAfd?: FixedAfd | string;
-
-  /**
-   * Includes colorspace metadata in the output.
-   */
-  ColorMetadata?: H265ColorMetadata | string;
-
-  /**
-   * H.265 Tier.
-   */
-  Tier?: H265Tier | string;
-
-  /**
-   * Indicates if the gopSize is specified in frames or seconds. If seconds the system will convert the gopSize into a frame count at run time.
-   */
-  GopSizeUnits?: H265GopSizeUnits | string;
-
-  /**
-   * For QVBR: See the tooltip for Quality level
-   */
-  MaxBitrate?: number;
-
-  /**
-   * Whether or not EML should insert an Alternative Transfer Function SEI message to support backwards compatibility with non-HDR decoders and displays.
-   */
-  AlternativeTransferFunction?: H265AlternativeTransferFunction | string;
-
-  /**
-   * Optional filters that you can apply to an encode.
-   */
-  FilterSettings?: H265FilterSettings;
-
-  /**
-   * Pixel Aspect Ratio denominator.
-   */
-  ParDenominator?: number;
-
-  /**
-   * Only meaningful if sceneChangeDetect is set to enabled.  Defaults to 5 if multiplex rate control is used.  Enforces separation between repeated (cadence) I-frames and I-frames inserted by Scene Change Detection. If a scene change I-frame is within I-interval frames of a cadence I-frame, the GOP is shrunk and/or stretched to the scene change I-frame. GOP stretch requires enabling lookahead as well as setting I-interval. The normal cadence resumes for the next GOP. Note: Maximum GOP stretch = GOP size + Min-I-interval - 1
-   */
-  MinIInterval?: number;
 
   /**
    * Scene change detection.
@@ -1588,29 +1695,22 @@ export interface H265Settings {
   SceneChangeDetect?: H265SceneChangeDetect | string;
 
   /**
-   * Color Space settings
+   * Number of slices per picture. Must be less than or equal to the number of macroblock rows for progressive pictures, and less than or equal to half the number of macroblock rows for interlaced pictures.
+   * This field is optional; when no value is specified the encoder will choose the number of slices based on encode resolution.
    */
-  ColorSpaceSettings?: H265ColorSpaceSettings;
+  Slices?: number;
 
   /**
-   * Framerate denominator.
+   * H.265 Tier.
    */
-  FramerateDenominator: number | undefined;
+  Tier?: H265Tier | string;
 
   /**
-   * Adaptive quantization. Allows intra-frame quantizers to vary to improve visual quality.
+   * Determines how timecodes should be inserted into the video elementary stream.
+   * - 'disabled': Do not include timecodes
+   * - 'picTimingSei': Pass through picture timing SEI messages from the source specified in Timecode Config
    */
-  AdaptiveQuantization?: H265AdaptiveQuantization | string;
-
-  /**
-   * Indicates that AFD values will be written into the output stream.  If afdSignaling is "auto", the system will try to preserve the input AFD value (in cases where multiple AFD values are valid). If set to "fixed", the AFD value will be the value configured in the fixedAfd parameter.
-   */
-  AfdSignaling?: AfdSignaling | string;
-
-  /**
-   * H.265 Profile.
-   */
-  Profile?: H265Profile | string;
+  TimecodeInsertion?: H265TimecodeInsertionBehavior | string;
 }
 
 export namespace H265Settings {
@@ -1683,46 +1783,9 @@ export enum Mpeg2TimecodeInsertionBehavior {
  */
 export interface Mpeg2Settings {
   /**
-   * Determines how MediaLive inserts timecodes in the output video. For detailed information about setting up the input and the output for a timecode, see the section on \"MediaLive Features - Timecode configuration\" in the MediaLive User Guide.
-   * DISABLED: do not include timecodes.
-   * GOP_TIMECODE: Include timecode metadata in the GOP header.
-   */
-  TimecodeInsertion?: Mpeg2TimecodeInsertionBehavior | string;
-
-  /**
-   * Specifies whether to include the color space metadata. The metadata describes the color space that applies to the video (the colorSpace field). We recommend that you insert the metadata.
-   */
-  ColorMetadata?: Mpeg2ColorMetadata | string;
-
-  /**
-   * MPEG2: default is open GOP.
-   */
-  GopClosedCadence?: number;
-
-  /**
-   * Set the scan type of the output to PROGRESSIVE or INTERLACED (top field first).
-   */
-  ScanType?: Mpeg2ScanType | string;
-
-  /**
-   * description": "The framerate denominator. For example, 1001. The framerate is the numerator divided by the denominator. For example, 24000 / 1001 = 23.976 FPS.
-   */
-  FramerateDenominator: number | undefined;
-
-  /**
    * Choose Off to disable adaptive quantization. Or choose another value to enable the quantizer and set its strength. The strengths are: Auto, Off, Low, Medium, High. When you enable this field, MediaLive allows intra-frame quantizers to vary, which might improve visual quality.
    */
   AdaptiveQuantization?: Mpeg2AdaptiveQuantization | string;
-
-  /**
-   * Sets the pixel aspect ratio for the encode.
-   */
-  DisplayAspectRatio?: Mpeg2DisplayRatio | string;
-
-  /**
-   * The framerate numerator. For example, 24000. The framerate is the numerator divided by the denominator. For example, 24000 / 1001 = 23.976 FPS.
-   */
-  FramerateNumerator: number | undefined;
 
   /**
    * Indicates the AFD values that MediaLive will write into the video encode. If you do not know what AFD signaling is, or if your downstream system has not given you guidance, choose AUTO.
@@ -1732,9 +1795,9 @@ export interface Mpeg2Settings {
   AfdSignaling?: AfdSignaling | string;
 
   /**
-   * Complete this field only when afdSignaling is set to FIXED. Enter the AFD value (4 bits) to write on all frames of the video encode.
+   * Specifies whether to include the color space metadata. The metadata describes the color space that applies to the video (the colorSpace field). We recommend that you insert the metadata.
    */
-  FixedAfd?: FixedAfd | string;
+  ColorMetadata?: Mpeg2ColorMetadata | string;
 
   /**
    * Choose the type of color space conversion to apply to the output. For detailed information on setting up both the input and the output to obtain the desired color space in the output, see the section on \"MediaLive Features - Video - color space\" in the MediaLive User Guide.
@@ -1744,16 +1807,9 @@ export interface Mpeg2Settings {
   ColorSpace?: Mpeg2ColorSpace | string;
 
   /**
-   * Relates to the GOP structure. If you do not know what GOP is, use the default.
-   * FIXED: Set the number of B-frames in each sub-GOP to the value in gopNumBFrames.
-   * DYNAMIC: Let MediaLive optimize the number of B-frames in each sub-GOP, to improve visual quality.
+   * Sets the pixel aspect ratio for the encode.
    */
-  SubgopLength?: Mpeg2SubGopLength | string;
-
-  /**
-   * Relates to the GOP structure. Specifies whether the gopSize is specified in frames or seconds. If you do not plan to change the default gopSize, leave the default. If you specify SECONDS, MediaLive will internally convert the gop size to a frame count.
-   */
-  GopSizeUnits?: Mpeg2GopSizeUnits | string;
+  DisplayAspectRatio?: Mpeg2DisplayRatio | string;
 
   /**
    * Optionally specify a noise reduction filter, which can improve quality of compressed content. If you do not choose a filter, no filter will be applied.
@@ -1762,6 +1818,26 @@ export interface Mpeg2Settings {
    * When the content is reasonably clean, the filter tends to decrease the bitrate.
    */
   FilterSettings?: Mpeg2FilterSettings;
+
+  /**
+   * Complete this field only when afdSignaling is set to FIXED. Enter the AFD value (4 bits) to write on all frames of the video encode.
+   */
+  FixedAfd?: FixedAfd | string;
+
+  /**
+   * description": "The framerate denominator. For example, 1001. The framerate is the numerator divided by the denominator. For example, 24000 / 1001 = 23.976 FPS.
+   */
+  FramerateDenominator: number | undefined;
+
+  /**
+   * The framerate numerator. For example, 24000. The framerate is the numerator divided by the denominator. For example, 24000 / 1001 = 23.976 FPS.
+   */
+  FramerateNumerator: number | undefined;
+
+  /**
+   * MPEG2: default is open GOP.
+   */
+  GopClosedCadence?: number;
 
   /**
    * Relates to the GOP structure. The number of B-frames between reference frames. If you do not know what a B-frame is, use the default.
@@ -1774,6 +1850,30 @@ export interface Mpeg2Settings {
    * If gopSizeUnits is seconds, the gopSize must be greater than 0, but does not need to be an integer.
    */
   GopSize?: number;
+
+  /**
+   * Relates to the GOP structure. Specifies whether the gopSize is specified in frames or seconds. If you do not plan to change the default gopSize, leave the default. If you specify SECONDS, MediaLive will internally convert the gop size to a frame count.
+   */
+  GopSizeUnits?: Mpeg2GopSizeUnits | string;
+
+  /**
+   * Set the scan type of the output to PROGRESSIVE or INTERLACED (top field first).
+   */
+  ScanType?: Mpeg2ScanType | string;
+
+  /**
+   * Relates to the GOP structure. If you do not know what GOP is, use the default.
+   * FIXED: Set the number of B-frames in each sub-GOP to the value in gopNumBFrames.
+   * DYNAMIC: Let MediaLive optimize the number of B-frames in each sub-GOP, to improve visual quality.
+   */
+  SubgopLength?: Mpeg2SubGopLength | string;
+
+  /**
+   * Determines how MediaLive inserts timecodes in the output video. For detailed information about setting up the input and the output for a timecode, see the section on \"MediaLive Features - Timecode configuration\" in the MediaLive User Guide.
+   * DISABLED: do not include timecodes.
+   * GOP_TIMECODE: Include timecode metadata in the GOP header.
+   */
+  TimecodeInsertion?: Mpeg2TimecodeInsertionBehavior | string;
 }
 
 export namespace Mpeg2Settings {
@@ -1792,6 +1892,11 @@ export interface VideoCodecSettings {
   FrameCaptureSettings?: FrameCaptureSettings;
 
   /**
+   * H264 Settings
+   */
+  H264Settings?: H264Settings;
+
+  /**
    * H265 Settings
    */
   H265Settings?: H265Settings;
@@ -1800,11 +1905,6 @@ export interface VideoCodecSettings {
    * Mpeg2 Settings
    */
   Mpeg2Settings?: Mpeg2Settings;
-
-  /**
-   * H264 Settings
-   */
-  H264Settings?: H264Settings;
 }
 
 export namespace VideoCodecSettings {
@@ -1829,14 +1929,19 @@ export enum VideoDescriptionScalingBehavior {
  */
 export interface VideoDescription {
   /**
+   * Video codec settings.
+   */
+  CodecSettings?: VideoCodecSettings;
+
+  /**
+   * Output video height, in pixels. Must be an even number. For most codecs, you can leave this field and width blank in order to use the height and width (resolution) from the source. Note, however, that leaving blank is not recommended. For the Frame Capture codec, height and width are required.
+   */
+  Height?: number;
+
+  /**
    * The name of this VideoDescription. Outputs will use this name to uniquely identify this Description.  Description names should be unique within this Live Event.
    */
   Name: string | undefined;
-
-  /**
-   * Changes the strength of the anti-alias filter used for scaling. 0 is the softest setting, 100 is the sharpest. A setting of 50 is recommended for most content.
-   */
-  Sharpness?: number;
 
   /**
    * Indicates how MediaLive will respond to the AFD values that might be in the input video. If you do not know what AFD signaling is, or if your downstream system has not given you guidance, choose PASSTHROUGH.
@@ -1847,19 +1952,14 @@ export interface VideoDescription {
   RespondToAfd?: VideoDescriptionRespondToAfd | string;
 
   /**
-   * Video codec settings.
-   */
-  CodecSettings?: VideoCodecSettings;
-
-  /**
    * STRETCH_TO_OUTPUT configures the output position to stretch the video to the specified output resolution (height and width). This option will override any position value. DEFAULT may insert black boxes (pillar boxes or letter boxes) around the video to provide the specified output resolution.
    */
   ScalingBehavior?: VideoDescriptionScalingBehavior | string;
 
   /**
-   * Output video height, in pixels. Must be an even number. For most codecs, you can leave this field and width blank in order to use the height and width (resolution) from the source. Note, however, that leaving blank is not recommended. For the Frame Capture codec, height and width are required.
+   * Changes the strength of the anti-alias filter used for scaling. 0 is the softest setting, 100 is the sharpest. A setting of 50 is recommended for most content.
    */
-  Height?: number;
+  Sharpness?: number;
 
   /**
    * Output video width, in pixels. Must be an even number. For most codecs, you can leave this field and height blank in order to use the height and width (resolution) from the source. Note, however, that leaving blank is not recommended. For the Frame Capture codec, height and width are required.
@@ -2055,14 +2155,14 @@ export interface UnprocessableEntityException extends __SmithyException, $Metada
   name: "UnprocessableEntityException";
   $fault: "client";
   /**
-   * A collection of validation error responses.
-   */
-  ValidationErrors?: ValidationError[];
-
-  /**
    * The error message.
    */
   Message?: string;
+
+  /**
+   * A collection of validation error responses.
+   */
+  ValidationErrors?: ValidationError[];
 }
 
 export namespace UnprocessableEntityException {
@@ -2081,14 +2181,14 @@ export enum AvailBlankingState {
  */
 export interface AvailBlanking {
   /**
-   * When set to enabled, causes video, audio and captions to be blanked when insertion metadata is added.
-   */
-  State?: AvailBlankingState | string;
-
-  /**
    * Blanking image to be used. Leave empty for solid black. Only bmp and png images are supported.
    */
   AvailBlankingImage?: InputLocation;
+
+  /**
+   * When set to enabled, causes video, audio and captions to be blanked when insertion metadata is added.
+   */
+  State?: AvailBlankingState | string;
 }
 
 export namespace AvailBlanking {
@@ -2148,9 +2248,9 @@ export enum Scte35AposWebDeliveryAllowedBehavior {
  */
 export interface Scte35TimeSignalApos {
   /**
-   * When set to ignore, Segment Descriptors with webDeliveryAllowedFlag set to 0 will no longer trigger blackouts or Ad Avail slates
+   * When specified, this offset (in milliseconds) is added to the input Ad Avail PTS time. This only applies to embedded SCTE 104/35 messages and does not apply to OOB messages.
    */
-  WebDeliveryAllowedFlag?: Scte35AposWebDeliveryAllowedBehavior | string;
+  AdAvailOffset?: number;
 
   /**
    * When set to ignore, Segment Descriptors with noRegionalBlackoutFlag set to 0 will no longer trigger blackouts or Ad Avail slates
@@ -2158,9 +2258,9 @@ export interface Scte35TimeSignalApos {
   NoRegionalBlackoutFlag?: Scte35AposNoRegionalBlackoutBehavior | string;
 
   /**
-   * When specified, this offset (in milliseconds) is added to the input Ad Avail PTS time. This only applies to embedded SCTE 104/35 messages and does not apply to OOB messages.
+   * When set to ignore, Segment Descriptors with webDeliveryAllowedFlag set to 0 will no longer trigger blackouts or Ad Avail slates
    */
-  AdAvailOffset?: number;
+  WebDeliveryAllowedFlag?: Scte35AposWebDeliveryAllowedBehavior | string;
 }
 
 export namespace Scte35TimeSignalApos {
@@ -2211,9 +2311,9 @@ export namespace AvailConfiguration {
  */
 export interface BatchDeleteRequest {
   /**
-   * List of multiplex IDs
+   * List of channel IDs
    */
-  MultiplexIds?: string[];
+  ChannelIds?: string[];
 
   /**
    * List of input IDs
@@ -2221,14 +2321,14 @@ export interface BatchDeleteRequest {
   InputIds?: string[];
 
   /**
-   * List of channel IDs
-   */
-  ChannelIds?: string[];
-
-  /**
    * List of input security group IDs
    */
   InputSecurityGroupIds?: string[];
+
+  /**
+   * List of multiplex IDs
+   */
+  MultiplexIds?: string[];
 }
 
 export namespace BatchDeleteRequest {
@@ -2242,14 +2342,14 @@ export namespace BatchDeleteRequest {
  */
 export interface BatchDeleteResponse {
   /**
-   * List of successful operations
-   */
-  Successful?: BatchSuccessfulResultModel[];
-
-  /**
    * List of failed operations
    */
   Failed?: BatchFailedResultModel[];
+
+  /**
+   * List of successful operations
+   */
+  Successful?: BatchSuccessfulResultModel[];
 }
 
 export namespace BatchDeleteResponse {
@@ -2348,14 +2448,14 @@ export namespace BatchStartRequest {
  */
 export interface BatchStartResponse {
   /**
-   * List of successful operations
-   */
-  Successful?: BatchSuccessfulResultModel[];
-
-  /**
    * List of failed operations
    */
   Failed?: BatchFailedResultModel[];
+
+  /**
+   * List of successful operations
+   */
+  Successful?: BatchSuccessfulResultModel[];
 }
 
 export namespace BatchStartResponse {
@@ -2369,14 +2469,14 @@ export namespace BatchStartResponse {
  */
 export interface BatchStopRequest {
   /**
-   * List of multiplex IDs
-   */
-  MultiplexIds?: string[];
-
-  /**
    * List of channel IDs
    */
   ChannelIds?: string[];
+
+  /**
+   * List of multiplex IDs
+   */
+  MultiplexIds?: string[];
 }
 
 export namespace BatchStopRequest {
@@ -2390,14 +2490,14 @@ export namespace BatchStopRequest {
  */
 export interface BatchStopResponse {
   /**
-   * List of successful operations
-   */
-  Successful?: BatchSuccessfulResultModel[];
-
-  /**
    * List of failed operations
    */
   Failed?: BatchFailedResultModel[];
+
+  /**
+   * List of successful operations
+   */
+  Successful?: BatchSuccessfulResultModel[];
 }
 
 export namespace BatchStopResponse {
@@ -2411,11 +2511,6 @@ export namespace BatchStopResponse {
  */
 export interface BatchUpdateScheduleRequest {
   /**
-   * Schedule actions to delete from the schedule.
-   */
-  Deletes?: BatchScheduleActionDeleteRequest;
-
-  /**
    * Id of the channel whose schedule is being updated.
    */
   ChannelId: string | undefined;
@@ -2424,6 +2519,11 @@ export interface BatchUpdateScheduleRequest {
    * Schedule actions to create in the schedule.
    */
   Creates?: BatchScheduleActionCreateRequest;
+
+  /**
+   * Schedule actions to delete from the schedule.
+   */
+  Deletes?: BatchScheduleActionDeleteRequest;
 }
 
 export namespace BatchUpdateScheduleRequest {
@@ -2437,14 +2537,14 @@ export namespace BatchUpdateScheduleRequest {
  */
 export interface BatchUpdateScheduleResponse {
   /**
-   * Schedule actions deleted from the schedule.
-   */
-  Deletes?: BatchScheduleActionDeleteResult;
-
-  /**
    * Schedule actions created in the schedule.
    */
   Creates?: BatchScheduleActionCreateResult;
+
+  /**
+   * Schedule actions deleted from the schedule.
+   */
+  Deletes?: BatchScheduleActionDeleteResult;
 }
 
 export namespace BatchUpdateScheduleResponse {
@@ -2468,14 +2568,14 @@ export enum BlackoutSlateState {
  */
 export interface BlackoutSlate {
   /**
+   * Blackout slate image to be used. Leave empty for solid black. Only bmp and png images are supported.
+   */
+  BlackoutSlateImage?: InputLocation;
+
+  /**
    * Setting to enabled causes the encoder to blackout the video, audio, and captions, and raise the "Network Blackout Image" slate when an SCTE104/35 Network End Segmentation Descriptor is encountered. The blackout will be lifted when the Network Start Segmentation Descriptor is encountered. The Network End and Network Start descriptors must contain a network ID that matches the value entered in "Network ID".
    */
   NetworkEndBlackout?: BlackoutSlateNetworkEndBlackout | string;
-
-  /**
-   * When set to enabled, causes video, audio and captions to be blanked when indicated by program metadata.
-   */
-  State?: BlackoutSlateState | string;
 
   /**
    * Path to local file to use as Network End Blackout image. Image will be scaled to fill the entire output raster.
@@ -2488,9 +2588,9 @@ export interface BlackoutSlate {
   NetworkId?: string;
 
   /**
-   * Blackout slate image to be used. Leave empty for solid black. Only bmp and png images are supported.
+   * When set to enabled, causes video, audio and captions to be blanked when indicated by program metadata.
    */
-  BlackoutSlateImage?: InputLocation;
+  State?: BlackoutSlateState | string;
 }
 
 export namespace BlackoutSlate {
@@ -2563,16 +2663,6 @@ export enum InputLossImageType {
  */
 export interface InputLossBehavior {
   /**
-   * When input loss image type is "slate" these fields specify the parameters for accessing the slate.
-   */
-  InputLossImageSlate?: InputLocation;
-
-  /**
-   * Indicates whether to substitute a solid color or a slate into the output after input loss exceeds blackFrameMsec.
-   */
-  InputLossImageType?: InputLossImageType | string;
-
-  /**
    * Documentation update needed
    */
   BlackFrameMsec?: number;
@@ -2581,6 +2671,16 @@ export interface InputLossBehavior {
    * When input loss image type is "color" this field specifies the color to use. Value: 6 hex characters representing the values of RGB.
    */
   InputLossImageColor?: string;
+
+  /**
+   * When input loss image type is "slate" these fields specify the parameters for accessing the slate.
+   */
+  InputLossImageSlate?: InputLocation;
+
+  /**
+   * Indicates whether to substitute a solid color or a slate into the output after input loss exceeds blackFrameMsec.
+   */
+  InputLossImageType?: InputLossImageType | string;
 
   /**
    * Documentation update needed
@@ -2614,24 +2714,19 @@ export enum GlobalConfigurationLowFramerateInputs {
  */
 export interface GlobalConfiguration {
   /**
-   * Indicates the action to take when the current input completes (e.g. end-of-file). When switchAndLoopInputs is configured the encoder will restart at the beginning of the first input.  When "none" is configured the encoder will transcode either black, a solid color, or a user specified slate images per the "Input Loss Behavior" configuration until the next input switch occurs (which is controlled through the Channel Schedule API).
-   */
-  InputEndAction?: GlobalConfigurationInputEndAction | string;
-
-  /**
-   * Adjusts video input buffer for streams with very low video framerates. This is commonly set to enabled for music channels with less than one video frame per second.
-   */
-  SupportLowFramerateInputs?: GlobalConfigurationLowFramerateInputs | string;
-
-  /**
    * Value to set the initial audio gain for the Live Event.
    */
   InitialAudioGain?: number;
 
   /**
-   * Indicates whether the rate of frames emitted by the Live encoder should be paced by its system clock (which optionally may be locked to another source via NTP) or should be locked to the clock of the source that is providing the input stream.
+   * Indicates the action to take when the current input completes (e.g. end-of-file). When switchAndLoopInputs is configured the encoder will restart at the beginning of the first input.  When "none" is configured the encoder will transcode either black, a solid color, or a user specified slate images per the "Input Loss Behavior" configuration until the next input switch occurs (which is controlled through the Channel Schedule API).
    */
-  OutputTimingSource?: GlobalConfigurationOutputTimingSource | string;
+  InputEndAction?: GlobalConfigurationInputEndAction | string;
+
+  /**
+   * Settings for system actions when input is lost.
+   */
+  InputLossBehavior?: InputLossBehavior;
 
   /**
    * Indicates how MediaLive pipelines are synchronized.
@@ -2642,9 +2737,14 @@ export interface GlobalConfiguration {
   OutputLockingMode?: GlobalConfigurationOutputLockingMode | string;
 
   /**
-   * Settings for system actions when input is lost.
+   * Indicates whether the rate of frames emitted by the Live encoder should be paced by its system clock (which optionally may be locked to another source via NTP) or should be locked to the clock of the source that is providing the input stream.
    */
-  InputLossBehavior?: InputLossBehavior;
+  OutputTimingSource?: GlobalConfigurationOutputTimingSource | string;
+
+  /**
+   * Adjusts video input buffer for streams with very low video framerates. This is commonly set to enabled for music channels with less than one video frame per second.
+   */
+  SupportLowFramerateInputs?: GlobalConfigurationLowFramerateInputs | string;
 }
 
 export namespace GlobalConfiguration {
@@ -2690,17 +2790,17 @@ export enum TimecodeConfigSource {
  */
 export interface TimecodeConfig {
   /**
-   * Threshold in frames beyond which output timecode is resynchronized to the input timecode. Discrepancies below this threshold are permitted to avoid unnecessary discontinuities in the output timecode. No timecode sync when this is not specified.
-   */
-  SyncThreshold?: number;
-
-  /**
    * Identifies the source for the timecode that will be associated with the events outputs.
    * -Embedded (embedded): Initialize the output timecode with timecode from the the source.  If no embedded timecode is detected in the source, the system falls back to using "Start at 0" (zerobased).
    * -System Clock (systemclock): Use the UTC time.
    * -Start at 0 (zerobased): The time of the first frame of the event will be 00:00:00:00.
    */
   Source: TimecodeConfigSource | string | undefined;
+
+  /**
+   * Threshold in frames beyond which output timecode is resynchronized to the input timecode. Discrepancies below this threshold are permitted to avoid unnecessary discontinuities in the output timecode. No timecode sync when this is not specified.
+   */
+  SyncThreshold?: number;
 }
 
 export namespace TimecodeConfig {
@@ -2714,14 +2814,14 @@ export namespace TimecodeConfig {
  */
 export interface EncoderSettings {
   /**
+   * Placeholder documentation for __listOfAudioDescription
+   */
+  AudioDescriptions: AudioDescription[] | undefined;
+
+  /**
    * Settings for ad avail blanking.
    */
   AvailBlanking?: AvailBlanking;
-
-  /**
-   * Nielsen configuration settings.
-   */
-  NielsenConfiguration?: NielsenConfiguration;
 
   /**
    * Event-wide configuration settings for ad avail insertion.
@@ -2729,9 +2829,14 @@ export interface EncoderSettings {
   AvailConfiguration?: AvailConfiguration;
 
   /**
-   * Placeholder documentation for __listOfAudioDescription
+   * Settings for blackout slate.
    */
-  AudioDescriptions: AudioDescription[] | undefined;
+  BlackoutSlate?: BlackoutSlate;
+
+  /**
+   * Settings for caption decriptions
+   */
+  CaptionDescriptions?: CaptionDescription[];
 
   /**
    * Feature Activations
@@ -2739,19 +2844,14 @@ export interface EncoderSettings {
   FeatureActivations?: FeatureActivations;
 
   /**
-   * Placeholder documentation for __listOfVideoDescription
-   */
-  VideoDescriptions: VideoDescription[] | undefined;
-
-  /**
    * Configuration settings that apply to the event as a whole.
    */
   GlobalConfiguration?: GlobalConfiguration;
 
   /**
-   * Settings for blackout slate.
+   * Nielsen configuration settings.
    */
-  BlackoutSlate?: BlackoutSlate;
+  NielsenConfiguration?: NielsenConfiguration;
 
   /**
    * Placeholder documentation for __listOfOutputGroup
@@ -2764,9 +2864,9 @@ export interface EncoderSettings {
   TimecodeConfig: TimecodeConfig | undefined;
 
   /**
-   * Settings for caption decriptions
+   * Placeholder documentation for __listOfVideoDescription
    */
-  CaptionDescriptions?: CaptionDescription[];
+  VideoDescriptions: VideoDescription[] | undefined;
 }
 
 export namespace EncoderSettings {
@@ -2780,14 +2880,19 @@ export namespace EncoderSettings {
  */
 export interface Channel {
   /**
-   * The unique id of the channel.
-   */
-  Id?: string;
-
-  /**
    * The unique arn of the channel.
    */
   Arn?: string;
+
+  /**
+   * Specification of CDI inputs for this channel
+   */
+  CdiInputSpecification?: CdiInputSpecification;
+
+  /**
+   * The class for this channel. STANDARD for a channel with two pipelines or SINGLE_PIPELINE for a channel with one pipeline.
+   */
+  ChannelClass?: ChannelClass | string;
 
   /**
    * A list of destinations of the channel. For UDP outputs, there is one
@@ -2797,14 +2902,39 @@ export interface Channel {
   Destinations?: OutputDestination[];
 
   /**
-   * The Amazon Resource Name (ARN) of the role assumed when running the Channel.
+   * The endpoints where outgoing connections initiate from
    */
-  RoleArn?: string;
+  EgressEndpoints?: ChannelEgressEndpoint[];
+
+  /**
+   * Encoder Settings
+   */
+  EncoderSettings?: EncoderSettings;
+
+  /**
+   * The unique id of the channel.
+   */
+  Id?: string;
+
+  /**
+   * List of input attachments for channel.
+   */
+  InputAttachments?: InputAttachment[];
 
   /**
    * Specification of network and file inputs for this channel
    */
   InputSpecification?: InputSpecification;
+
+  /**
+   * The log level being written to CloudWatch Logs.
+   */
+  LogLevel?: LogLevel | string;
+
+  /**
+   * The name of the channel. (user-mutable)
+   */
+  Name?: string;
 
   /**
    * Runtime details for the pipelines of a running channel.
@@ -2817,9 +2947,9 @@ export interface Channel {
   PipelinesRunningCount?: number;
 
   /**
-   * Specification of CDI inputs for this channel
+   * The Amazon Resource Name (ARN) of the role assumed when running the Channel.
    */
-  CdiInputSpecification?: CdiInputSpecification;
+  RoleArn?: string;
 
   /**
    * Placeholder documentation for ChannelState
@@ -2827,39 +2957,9 @@ export interface Channel {
   State?: ChannelState | string;
 
   /**
-   * The class for this channel. STANDARD for a channel with two pipelines or SINGLE_PIPELINE for a channel with one pipeline.
-   */
-  ChannelClass?: ChannelClass | string;
-
-  /**
-   * The log level being written to CloudWatch Logs.
-   */
-  LogLevel?: LogLevel | string;
-
-  /**
-   * The endpoints where outgoing connections initiate from
-   */
-  EgressEndpoints?: ChannelEgressEndpoint[];
-
-  /**
    * A collection of key-value pairs.
    */
   Tags?: { [key: string]: string };
-
-  /**
-   * The name of the channel. (user-mutable)
-   */
-  Name?: string;
-
-  /**
-   * List of input attachments for channel.
-   */
-  InputAttachments?: InputAttachment[];
-
-  /**
-   * Encoder Settings
-   */
-  EncoderSettings?: EncoderSettings;
 }
 
 export namespace Channel {
@@ -2877,55 +2977,14 @@ export enum ContentType {
  */
 export interface CreateChannelRequest {
   /**
-   * A collection of key-value pairs.
-   */
-  Tags?: { [key: string]: string };
-
-  /**
-   * Specification of network and file inputs for this channel
-   */
-  InputSpecification?: InputSpecification;
-
-  /**
-   * Name of channel.
-   */
-  Name?: string;
-
-  /**
    * Specification of CDI inputs for this channel
    */
   CdiInputSpecification?: CdiInputSpecification;
 
   /**
-   * An optional Amazon Resource Name (ARN) of the role to assume when running the Channel.
-   */
-  RoleArn?: string;
-
-  /**
    * The class for this channel. STANDARD for a channel with two pipelines or SINGLE_PIPELINE for a channel with one pipeline.
    */
   ChannelClass?: ChannelClass | string;
-
-  /**
-   * List of input attachments for channel.
-   */
-  InputAttachments?: InputAttachment[];
-
-  /**
-   * Deprecated field that's only usable by whitelisted customers.
-   */
-  Reserved?: string;
-
-  /**
-   * The log level to write to CloudWatch Logs.
-   */
-  LogLevel?: LogLevel | string;
-
-  /**
-   * Unique request ID to be specified. This is needed to prevent retries from
-   * creating multiple resources.
-   */
-  RequestId?: string;
 
   /**
    * Placeholder documentation for __listOfOutputDestination
@@ -2936,6 +2995,47 @@ export interface CreateChannelRequest {
    * Encoder Settings
    */
   EncoderSettings?: EncoderSettings;
+
+  /**
+   * List of input attachments for channel.
+   */
+  InputAttachments?: InputAttachment[];
+
+  /**
+   * Specification of network and file inputs for this channel
+   */
+  InputSpecification?: InputSpecification;
+
+  /**
+   * The log level to write to CloudWatch Logs.
+   */
+  LogLevel?: LogLevel | string;
+
+  /**
+   * Name of channel.
+   */
+  Name?: string;
+
+  /**
+   * Unique request ID to be specified. This is needed to prevent retries from
+   * creating multiple resources.
+   */
+  RequestId?: string;
+
+  /**
+   * Deprecated field that's only usable by whitelisted customers.
+   */
+  Reserved?: string;
+
+  /**
+   * An optional Amazon Resource Name (ARN) of the role to assume when running the Channel.
+   */
+  RoleArn?: string;
+
+  /**
+   * A collection of key-value pairs.
+   */
+  Tags?: { [key: string]: string };
 }
 
 export namespace CreateChannelRequest {
@@ -2968,16 +3068,16 @@ export namespace CreateChannelResponse {
  */
 export interface InputVpcRequest {
   /**
-   * A list of 2 VPC subnet IDs from the same VPC.
-   * Subnet IDs must be mapped to two unique availability zones (AZ).
-   */
-  SubnetIds: string[] | undefined;
-
-  /**
    * A list of up to 5 EC2 VPC security group IDs to attach to the Input VPC network interfaces.
    * Requires subnetIds. If none are specified then the VPC default security group will be used.
    */
   SecurityGroupIds?: string[];
+
+  /**
+   * A list of 2 VPC subnet IDs from the same VPC.
+   * Subnet IDs must be mapped to two unique availability zones (AZ).
+   */
+  SubnetIds: string[] | undefined;
 }
 
 export namespace InputVpcRequest {
@@ -2991,24 +3091,19 @@ export namespace InputVpcRequest {
  */
 export interface CreateInputRequest {
   /**
-   * The Amazon Resource Name (ARN) of the role this input assumes during and after creation.
+   * Destination settings for PUSH type inputs.
    */
-  RoleArn?: string;
+  Destinations?: InputDestinationRequest[];
 
   /**
-   * A collection of key-value pairs.
+   * Settings for the devices.
    */
-  Tags?: { [key: string]: string };
+  InputDevices?: InputDeviceSettings[];
 
   /**
    * A list of security groups referenced by IDs to attach to the input.
    */
   InputSecurityGroups?: string[];
-
-  /**
-   * Destination settings for PUSH type inputs.
-   */
-  Destinations?: InputDestinationRequest[];
 
   /**
    * A list of the MediaConnect Flows that you want to use in this input. You can specify as few as one
@@ -3018,19 +3113,20 @@ export interface CreateInputRequest {
   MediaConnectFlows?: MediaConnectFlowRequest[];
 
   /**
-   * Settings for the devices.
-   */
-  InputDevices?: InputDeviceSettings[];
-
-  /**
-   * Placeholder documentation for InputType
-   */
-  Type?: InputType | string;
-
-  /**
    * Name of the input.
    */
   Name?: string;
+
+  /**
+   * Unique identifier of the request to ensure the request is handled
+   * exactly once in case of retries.
+   */
+  RequestId?: string;
+
+  /**
+   * The Amazon Resource Name (ARN) of the role this input assumes during and after creation.
+   */
+  RoleArn?: string;
 
   /**
    * The source URLs for a PULL-type input. Every PULL type input needs
@@ -3040,10 +3136,14 @@ export interface CreateInputRequest {
   Sources?: InputSourceRequest[];
 
   /**
-   * Unique identifier of the request to ensure the request is handled
-   * exactly once in case of retries.
+   * A collection of key-value pairs.
    */
-  RequestId?: string;
+  Tags?: { [key: string]: string };
+
+  /**
+   * Placeholder documentation for InputType
+   */
+  Type?: InputType | string;
 
   /**
    * Settings for a private VPC Input.
@@ -3081,14 +3181,14 @@ export namespace CreateInputResponse {
  */
 export interface CreateInputSecurityGroupRequest {
   /**
-   * List of IPv4 CIDR addresses to whitelist
-   */
-  WhitelistRules?: InputWhitelistRuleCidr[];
-
-  /**
    * A collection of key-value pairs.
    */
   Tags?: { [key: string]: string };
+
+  /**
+   * List of IPv4 CIDR addresses to whitelist
+   */
+  WhitelistRules?: InputWhitelistRuleCidr[];
 }
 
 export namespace CreateInputSecurityGroupRequest {
@@ -3118,6 +3218,16 @@ export namespace CreateInputSecurityGroupResponse {
  */
 export interface MultiplexSettings {
   /**
+   * Maximum video buffer delay in milliseconds.
+   */
+  MaximumVideoBufferDelayMilliseconds?: number;
+
+  /**
+   * Transport stream bit rate.
+   */
+  TransportStreamBitrate: number | undefined;
+
+  /**
    * Transport stream ID.
    */
   TransportStreamId: number | undefined;
@@ -3126,16 +3236,6 @@ export interface MultiplexSettings {
    * Transport stream reserved bit rate.
    */
   TransportStreamReservedBitrate?: number;
-
-  /**
-   * Transport stream bit rate.
-   */
-  TransportStreamBitrate: number | undefined;
-
-  /**
-   * Maximum video buffer delay in milliseconds.
-   */
-  MaximumVideoBufferDelayMilliseconds?: number;
 }
 
 export namespace MultiplexSettings {
@@ -3149,11 +3249,6 @@ export namespace MultiplexSettings {
  */
 export interface CreateMultiplexRequest {
   /**
-   * A collection of key-value pairs.
-   */
-  Tags?: { [key: string]: string };
-
-  /**
    * A list of availability zones for the multiplex. You must specify exactly two.
    */
   AvailabilityZones: string[] | undefined;
@@ -3164,15 +3259,20 @@ export interface CreateMultiplexRequest {
   MultiplexSettings: MultiplexSettings | undefined;
 
   /**
+   * Name of multiplex.
+   */
+  Name: string | undefined;
+
+  /**
    * Unique request ID. This prevents retries from creating multiple
    * resources.
    */
   RequestId?: string;
 
   /**
-   * Name of multiplex.
+   * A collection of key-value pairs.
    */
-  Name: string | undefined;
+  Tags?: { [key: string]: string };
 }
 
 export namespace CreateMultiplexRequest {
@@ -3186,9 +3286,29 @@ export namespace CreateMultiplexRequest {
  */
 export interface Multiplex {
   /**
-   * A collection of key-value pairs.
+   * The unique arn of the multiplex.
    */
-  Tags?: { [key: string]: string };
+  Arn?: string;
+
+  /**
+   * A list of availability zones for the multiplex.
+   */
+  AvailabilityZones?: string[];
+
+  /**
+   * A list of the multiplex output destinations.
+   */
+  Destinations?: MultiplexOutputDestination[];
+
+  /**
+   * The unique id of the multiplex.
+   */
+  Id?: string;
+
+  /**
+   * Configuration for a multiplex event.
+   */
+  MultiplexSettings?: MultiplexSettings;
 
   /**
    * The name of the multiplex.
@@ -3201,19 +3321,9 @@ export interface Multiplex {
   PipelinesRunningCount?: number;
 
   /**
-   * The unique arn of the multiplex.
-   */
-  Arn?: string;
-
-  /**
    * The number of programs in the multiplex.
    */
   ProgramCount?: number;
-
-  /**
-   * The unique id of the multiplex.
-   */
-  Id?: string;
 
   /**
    * The current state of the multiplex.
@@ -3221,19 +3331,9 @@ export interface Multiplex {
   State?: MultiplexState | string;
 
   /**
-   * Configuration for a multiplex event.
+   * A collection of key-value pairs.
    */
-  MultiplexSettings?: MultiplexSettings;
-
-  /**
-   * A list of the multiplex output destinations.
-   */
-  Destinations?: MultiplexOutputDestination[];
-
-  /**
-   * A list of availability zones for the multiplex.
-   */
-  AvailabilityZones?: string[];
+  Tags?: { [key: string]: string };
 }
 
 export namespace Multiplex {
@@ -3269,14 +3369,14 @@ export enum PreferredChannelPipeline {
  */
 export interface MultiplexProgramServiceDescriptor {
   /**
-   * Name of the service.
-   */
-  ServiceName: string | undefined;
-
-  /**
    * Name of the provider.
    */
   ProviderName: string | undefined;
+
+  /**
+   * Name of the service.
+   */
+  ServiceName: string | undefined;
 }
 
 export namespace MultiplexProgramServiceDescriptor {
@@ -3290,11 +3390,6 @@ export namespace MultiplexProgramServiceDescriptor {
  */
 export interface MultiplexStatmuxVideoSettings {
   /**
-   * The purpose of the priority is to use a combination of the\nmultiplex rate control algorithm and the QVBR capability of the\nencoder to prioritize the video quality of some channels in a\nmultiplex over others.  Channels that have a higher priority will\nget higher video quality at the expense of the video quality of\nother channels in the multiplex with lower priority.
-   */
-  Priority?: number;
-
-  /**
    * Maximum statmux bitrate.
    */
   MaximumBitrate?: number;
@@ -3303,6 +3398,11 @@ export interface MultiplexStatmuxVideoSettings {
    * Minimum statmux bitrate.
    */
   MinimumBitrate?: number;
+
+  /**
+   * The purpose of the priority is to use a combination of the\nmultiplex rate control algorithm and the QVBR capability of the\nencoder to prioritize the video quality of some channels in a\nmultiplex over others.  Channels that have a higher priority will\nget higher video quality at the expense of the video quality of\nother channels in the multiplex with lower priority.
+   */
+  Priority?: number;
 }
 
 export namespace MultiplexStatmuxVideoSettings {
@@ -3316,16 +3416,16 @@ export namespace MultiplexStatmuxVideoSettings {
  */
 export interface MultiplexVideoSettings {
   /**
-   * Statmux rate control settings.
-   * When this field is defined, ConstantBitrate must be undefined.
-   */
-  StatmuxSettings?: MultiplexStatmuxVideoSettings;
-
-  /**
    * The constant bitrate configuration for the video encode.
    * When this field is defined, StatmuxSettings must be undefined.
    */
   ConstantBitrate?: number;
+
+  /**
+   * Statmux rate control settings.
+   * When this field is defined, ConstantBitrate must be undefined.
+   */
+  StatmuxSettings?: MultiplexStatmuxVideoSettings;
 }
 
 export namespace MultiplexVideoSettings {
@@ -3339,16 +3439,6 @@ export namespace MultiplexVideoSettings {
  */
 export interface MultiplexProgramSettings {
   /**
-   * Program video settings configuration.
-   */
-  VideoSettings?: MultiplexVideoSettings;
-
-  /**
-   * Transport stream service descriptor configuration for the Multiplex program.
-   */
-  ServiceDescriptor?: MultiplexProgramServiceDescriptor;
-
-  /**
    * Indicates which pipeline is preferred by the multiplex for program ingest.
    */
   PreferredChannelPipeline?: PreferredChannelPipeline | string;
@@ -3357,6 +3447,16 @@ export interface MultiplexProgramSettings {
    * Unique program number.
    */
   ProgramNumber: number | undefined;
+
+  /**
+   * Transport stream service descriptor configuration for the Multiplex program.
+   */
+  ServiceDescriptor?: MultiplexProgramServiceDescriptor;
+
+  /**
+   * Program video settings configuration.
+   */
+  VideoSettings?: MultiplexVideoSettings;
 }
 
 export namespace MultiplexProgramSettings {
@@ -3369,6 +3469,11 @@ export namespace MultiplexProgramSettings {
  * A request to create a program in a multiplex.
  */
 export interface CreateMultiplexProgramRequest {
+  /**
+   * ID of the multiplex where the program is to be created.
+   */
+  MultiplexId: string | undefined;
+
   /**
    * The settings for this multiplex program.
    */
@@ -3384,11 +3489,6 @@ export interface CreateMultiplexProgramRequest {
    * resources.
    */
   RequestId?: string;
-
-  /**
-   * ID of the multiplex where the program is to be created.
-   */
-  MultiplexId: string | undefined;
 }
 
 export namespace CreateMultiplexProgramRequest {
@@ -3402,34 +3502,14 @@ export namespace CreateMultiplexProgramRequest {
  */
 export interface MultiplexProgramPacketIdentifiersMap {
   /**
-   * Placeholder documentation for __integer
+   * Placeholder documentation for __listOf__integer
    */
-  PcrPid?: number;
-
-  /**
-   * Placeholder documentation for __integer
-   */
-  EtvPlatformPid?: number;
+  AudioPids?: number[];
 
   /**
    * Placeholder documentation for __listOf__integer
    */
   DvbSubPids?: number[];
-
-  /**
-   * Placeholder documentation for __listOf__integer
-   */
-  Scte27Pids?: number[];
-
-  /**
-   * Placeholder documentation for __listOf__integer
-   */
-  KlvDataPids?: number[];
-
-  /**
-   * Placeholder documentation for __integer
-   */
-  VideoPid?: number;
 
   /**
    * Placeholder documentation for __integer
@@ -3439,17 +3519,27 @@ export interface MultiplexProgramPacketIdentifiersMap {
   /**
    * Placeholder documentation for __integer
    */
-  PmtPid?: number;
-
-  /**
-   * Placeholder documentation for __integer
-   */
-  Scte35Pid?: number;
+  EtvPlatformPid?: number;
 
   /**
    * Placeholder documentation for __integer
    */
   EtvSignalPid?: number;
+
+  /**
+   * Placeholder documentation for __listOf__integer
+   */
+  KlvDataPids?: number[];
+
+  /**
+   * Placeholder documentation for __integer
+   */
+  PcrPid?: number;
+
+  /**
+   * Placeholder documentation for __integer
+   */
+  PmtPid?: number;
 
   /**
    * Placeholder documentation for __integer
@@ -3459,12 +3549,22 @@ export interface MultiplexProgramPacketIdentifiersMap {
   /**
    * Placeholder documentation for __listOf__integer
    */
-  AudioPids?: number[];
+  Scte27Pids?: number[];
+
+  /**
+   * Placeholder documentation for __integer
+   */
+  Scte35Pid?: number;
 
   /**
    * Placeholder documentation for __integer
    */
   TimedMetadataPid?: number;
+
+  /**
+   * Placeholder documentation for __integer
+   */
+  VideoPid?: number;
 }
 
 export namespace MultiplexProgramPacketIdentifiersMap {
@@ -3478,14 +3578,9 @@ export namespace MultiplexProgramPacketIdentifiersMap {
  */
 export interface MultiplexProgram {
   /**
-   * The packet identifier map for this multiplex program.
+   * The MediaLive channel associated with the program.
    */
-  PacketIdentifiersMap?: MultiplexProgramPacketIdentifiersMap;
-
-  /**
-   * The name of the multiplex program.
-   */
-  ProgramName?: string;
+  ChannelId?: string;
 
   /**
    * The settings for this multiplex program.
@@ -3493,14 +3588,19 @@ export interface MultiplexProgram {
   MultiplexProgramSettings?: MultiplexProgramSettings;
 
   /**
-   * The MediaLive channel associated with the program.
+   * The packet identifier map for this multiplex program.
    */
-  ChannelId?: string;
+  PacketIdentifiersMap?: MultiplexProgramPacketIdentifiersMap;
 
   /**
    * Contains information about the current sources for the specified program in the specified multiplex. Keep in mind that each multiplex pipeline connects to both pipelines in a given source channel (the channel identified by the program). But only one of those channel pipelines is ever active at one time.
    */
   PipelineDetails?: MultiplexProgramPipelineDetail[];
+
+  /**
+   * The name of the multiplex program.
+   */
+  ProgramName?: string;
 }
 
 export namespace MultiplexProgram {
@@ -3530,14 +3630,14 @@ export namespace CreateMultiplexProgramResponse {
  */
 export interface CreateTagsRequest {
   /**
-   * Placeholder documentation for Tags
-   */
-  Tags?: { [key: string]: string };
-
-  /**
    * Placeholder documentation for __string
    */
   ResourceArn: string | undefined;
+
+  /**
+   * Placeholder documentation for Tags
+   */
+  Tags?: { [key: string]: string };
 }
 
 export namespace CreateTagsRequest {
@@ -3567,29 +3667,19 @@ export namespace DeleteChannelRequest {
  */
 export interface DeleteChannelResponse {
   /**
-   * Encoder Settings
+   * The unique arn of the channel.
    */
-  EncoderSettings?: EncoderSettings;
+  Arn?: string;
 
   /**
-   * The log level being written to CloudWatch Logs.
+   * Specification of CDI inputs for this channel
    */
-  LogLevel?: LogLevel | string;
+  CdiInputSpecification?: CdiInputSpecification;
 
   /**
-   * The unique id of the channel.
+   * The class for this channel. STANDARD for a channel with two pipelines or SINGLE_PIPELINE for a channel with one pipeline.
    */
-  Id?: string;
-
-  /**
-   * The Amazon Resource Name (ARN) of the role assumed when running the Channel.
-   */
-  RoleArn?: string;
-
-  /**
-   * Specification of network and file inputs for this channel
-   */
-  InputSpecification?: InputSpecification;
+  ChannelClass?: ChannelClass | string;
 
   /**
    * A list of destinations of the channel. For UDP outputs, there is one
@@ -3599,24 +3689,19 @@ export interface DeleteChannelResponse {
   Destinations?: OutputDestination[];
 
   /**
-   * The number of currently healthy pipelines.
+   * The endpoints where outgoing connections initiate from
    */
-  PipelinesRunningCount?: number;
+  EgressEndpoints?: ChannelEgressEndpoint[];
 
   /**
-   * Runtime details for the pipelines of a running channel.
+   * Encoder Settings
    */
-  PipelineDetails?: PipelineDetail[];
+  EncoderSettings?: EncoderSettings;
 
   /**
-   * The name of the channel. (user-mutable)
+   * The unique id of the channel.
    */
-  Name?: string;
-
-  /**
-   * Placeholder documentation for ChannelState
-   */
-  State?: ChannelState | string;
+  Id?: string;
 
   /**
    * List of input attachments for channel.
@@ -3624,29 +3709,44 @@ export interface DeleteChannelResponse {
   InputAttachments?: InputAttachment[];
 
   /**
-   * Specification of CDI inputs for this channel
+   * Specification of network and file inputs for this channel
    */
-  CdiInputSpecification?: CdiInputSpecification;
+  InputSpecification?: InputSpecification;
 
   /**
-   * The unique arn of the channel.
+   * The log level being written to CloudWatch Logs.
    */
-  Arn?: string;
+  LogLevel?: LogLevel | string;
 
   /**
-   * The class for this channel. STANDARD for a channel with two pipelines or SINGLE_PIPELINE for a channel with one pipeline.
+   * The name of the channel. (user-mutable)
    */
-  ChannelClass?: ChannelClass | string;
+  Name?: string;
+
+  /**
+   * Runtime details for the pipelines of a running channel.
+   */
+  PipelineDetails?: PipelineDetail[];
+
+  /**
+   * The number of currently healthy pipelines.
+   */
+  PipelinesRunningCount?: number;
+
+  /**
+   * The Amazon Resource Name (ARN) of the role assumed when running the Channel.
+   */
+  RoleArn?: string;
+
+  /**
+   * Placeholder documentation for ChannelState
+   */
+  State?: ChannelState | string;
 
   /**
    * A collection of key-value pairs.
    */
   Tags?: { [key: string]: string };
-
-  /**
-   * The endpoints where outgoing connections initiate from
-   */
-  EgressEndpoints?: ChannelEgressEndpoint[];
 }
 
 export namespace DeleteChannelResponse {
@@ -3730,14 +3830,9 @@ export namespace DeleteMultiplexRequest {
  */
 export interface DeleteMultiplexResponse {
   /**
-   * A collection of key-value pairs.
+   * The unique arn of the multiplex.
    */
-  Tags?: { [key: string]: string };
-
-  /**
-   * Configuration for a multiplex event.
-   */
-  MultiplexSettings?: MultiplexSettings;
+  Arn?: string;
 
   /**
    * A list of availability zones for the multiplex.
@@ -3750,19 +3845,19 @@ export interface DeleteMultiplexResponse {
   Destinations?: MultiplexOutputDestination[];
 
   /**
-   * The name of the multiplex.
-   */
-  Name?: string;
-
-  /**
-   * The current state of the multiplex.
-   */
-  State?: MultiplexState | string;
-
-  /**
    * The unique id of the multiplex.
    */
   Id?: string;
+
+  /**
+   * Configuration for a multiplex event.
+   */
+  MultiplexSettings?: MultiplexSettings;
+
+  /**
+   * The name of the multiplex.
+   */
+  Name?: string;
 
   /**
    * The number of currently healthy pipelines.
@@ -3770,14 +3865,19 @@ export interface DeleteMultiplexResponse {
   PipelinesRunningCount?: number;
 
   /**
-   * The unique arn of the multiplex.
-   */
-  Arn?: string;
-
-  /**
    * The number of programs in the multiplex.
    */
   ProgramCount?: number;
+
+  /**
+   * The current state of the multiplex.
+   */
+  State?: MultiplexState | string;
+
+  /**
+   * A collection of key-value pairs.
+   */
+  Tags?: { [key: string]: string };
 }
 
 export namespace DeleteMultiplexResponse {
@@ -3812,6 +3912,16 @@ export namespace DeleteMultiplexProgramRequest {
  */
 export interface DeleteMultiplexProgramResponse {
   /**
+   * The MediaLive channel associated with the program.
+   */
+  ChannelId?: string;
+
+  /**
+   * The settings for this multiplex program.
+   */
+  MultiplexProgramSettings?: MultiplexProgramSettings;
+
+  /**
    * The packet identifier map for this multiplex program.
    */
   PacketIdentifiersMap?: MultiplexProgramPacketIdentifiersMap;
@@ -3825,16 +3935,6 @@ export interface DeleteMultiplexProgramResponse {
    * The name of the multiplex program.
    */
   ProgramName?: string;
-
-  /**
-   * The settings for this multiplex program.
-   */
-  MultiplexProgramSettings?: MultiplexProgramSettings;
-
-  /**
-   * The MediaLive channel associated with the program.
-   */
-  ChannelId?: string;
 }
 
 export namespace DeleteMultiplexProgramResponse {
@@ -3864,44 +3964,9 @@ export namespace DeleteReservationRequest {
  */
 export interface DeleteReservationResponse {
   /**
-   * Recurring usage charge for each reserved resource, e.g. '157.0'
-   */
-  UsagePrice?: number;
-
-  /**
-   * Unique offering ID, e.g. '87654321'
-   */
-  OfferingId?: string;
-
-  /**
-   * Reservation UTC end date and time in ISO-8601 format, e.g. '2019-03-01T00:00:00'
-   */
-  End?: string;
-
-  /**
    * Unique reservation ARN, e.g. 'arn:aws:medialive:us-west-2:123456789012:reservation:1234567'
    */
   Arn?: string;
-
-  /**
-   * Resource configuration details
-   */
-  ResourceSpecification?: ReservationResourceSpecification;
-
-  /**
-   * User specified reservation name
-   */
-  Name?: string;
-
-  /**
-   * Unique reservation ID, e.g. '1234567'
-   */
-  ReservationId?: string;
-
-  /**
-   * Lease duration, e.g. '12'
-   */
-  Duration?: number;
 
   /**
    * Number of reserved resources
@@ -3909,34 +3974,14 @@ export interface DeleteReservationResponse {
   Count?: number;
 
   /**
-   * Current state of reservation, e.g. 'ACTIVE'
-   */
-  State?: ReservationState | string;
-
-  /**
-   * Offering description, e.g. 'HD AVC output at 10-20 Mbps, 30 fps, and standard VQ in US West (Oregon)'
-   */
-  OfferingDescription?: string;
-
-  /**
-   * Offering type, e.g. 'NO_UPFRONT'
-   */
-  OfferingType?: OfferingType | string;
-
-  /**
    * Currency code for usagePrice and fixedPrice in ISO-4217 format, e.g. 'USD'
    */
   CurrencyCode?: string;
 
   /**
-   * One-time charge for each reserved resource, e.g. '0.0' for a NO_UPFRONT offering
+   * Lease duration, e.g. '12'
    */
-  FixedPrice?: number;
-
-  /**
-   * A collection of key-value pairs
-   */
-  Tags?: { [key: string]: string };
+  Duration?: number;
 
   /**
    * Units for duration, e.g. 'MONTHS'
@@ -3944,14 +3989,69 @@ export interface DeleteReservationResponse {
   DurationUnits?: OfferingDurationUnits | string;
 
   /**
+   * Reservation UTC end date and time in ISO-8601 format, e.g. '2019-03-01T00:00:00'
+   */
+  End?: string;
+
+  /**
+   * One-time charge for each reserved resource, e.g. '0.0' for a NO_UPFRONT offering
+   */
+  FixedPrice?: number;
+
+  /**
+   * User specified reservation name
+   */
+  Name?: string;
+
+  /**
+   * Offering description, e.g. 'HD AVC output at 10-20 Mbps, 30 fps, and standard VQ in US West (Oregon)'
+   */
+  OfferingDescription?: string;
+
+  /**
+   * Unique offering ID, e.g. '87654321'
+   */
+  OfferingId?: string;
+
+  /**
+   * Offering type, e.g. 'NO_UPFRONT'
+   */
+  OfferingType?: OfferingType | string;
+
+  /**
    * AWS region, e.g. 'us-west-2'
    */
   Region?: string;
 
   /**
+   * Unique reservation ID, e.g. '1234567'
+   */
+  ReservationId?: string;
+
+  /**
+   * Resource configuration details
+   */
+  ResourceSpecification?: ReservationResourceSpecification;
+
+  /**
    * Reservation UTC start date and time in ISO-8601 format, e.g. '2018-03-01T00:00:00'
    */
   Start?: string;
+
+  /**
+   * Current state of reservation, e.g. 'ACTIVE'
+   */
+  State?: ReservationState | string;
+
+  /**
+   * A collection of key-value pairs
+   */
+  Tags?: { [key: string]: string };
+
+  /**
+   * Recurring usage charge for each reserved resource, e.g. '157.0'
+   */
+  UsagePrice?: number;
 }
 
 export namespace DeleteReservationResponse {
@@ -4029,9 +4129,19 @@ export namespace DescribeChannelRequest {
  */
 export interface DescribeChannelResponse {
   /**
-   * The unique id of the channel.
+   * The unique arn of the channel.
    */
-  Id?: string;
+  Arn?: string;
+
+  /**
+   * Specification of CDI inputs for this channel
+   */
+  CdiInputSpecification?: CdiInputSpecification;
+
+  /**
+   * The class for this channel. STANDARD for a channel with two pipelines or SINGLE_PIPELINE for a channel with one pipeline.
+   */
+  ChannelClass?: ChannelClass | string;
 
   /**
    * A list of destinations of the channel. For UDP outputs, there is one
@@ -4041,14 +4151,19 @@ export interface DescribeChannelResponse {
   Destinations?: OutputDestination[];
 
   /**
+   * The endpoints where outgoing connections initiate from
+   */
+  EgressEndpoints?: ChannelEgressEndpoint[];
+
+  /**
    * Encoder Settings
    */
   EncoderSettings?: EncoderSettings;
 
   /**
-   * Specification of network and file inputs for this channel
+   * The unique id of the channel.
    */
-  InputSpecification?: InputSpecification;
+  Id?: string;
 
   /**
    * List of input attachments for channel.
@@ -4056,14 +4171,9 @@ export interface DescribeChannelResponse {
   InputAttachments?: InputAttachment[];
 
   /**
-   * The Amazon Resource Name (ARN) of the role assumed when running the Channel.
+   * Specification of network and file inputs for this channel
    */
-  RoleArn?: string;
-
-  /**
-   * The name of the channel. (user-mutable)
-   */
-  Name?: string;
+  InputSpecification?: InputSpecification;
 
   /**
    * The log level being written to CloudWatch Logs.
@@ -4071,29 +4181,9 @@ export interface DescribeChannelResponse {
   LogLevel?: LogLevel | string;
 
   /**
-   * Placeholder documentation for ChannelState
+   * The name of the channel. (user-mutable)
    */
-  State?: ChannelState | string;
-
-  /**
-   * Specification of CDI inputs for this channel
-   */
-  CdiInputSpecification?: CdiInputSpecification;
-
-  /**
-   * A collection of key-value pairs.
-   */
-  Tags?: { [key: string]: string };
-
-  /**
-   * The endpoints where outgoing connections initiate from
-   */
-  EgressEndpoints?: ChannelEgressEndpoint[];
-
-  /**
-   * The number of currently healthy pipelines.
-   */
-  PipelinesRunningCount?: number;
+  Name?: string;
 
   /**
    * Runtime details for the pipelines of a running channel.
@@ -4101,14 +4191,24 @@ export interface DescribeChannelResponse {
   PipelineDetails?: PipelineDetail[];
 
   /**
-   * The class for this channel. STANDARD for a channel with two pipelines or SINGLE_PIPELINE for a channel with one pipeline.
+   * The number of currently healthy pipelines.
    */
-  ChannelClass?: ChannelClass | string;
+  PipelinesRunningCount?: number;
 
   /**
-   * The unique arn of the channel.
+   * The Amazon Resource Name (ARN) of the role assumed when running the Channel.
    */
-  Arn?: string;
+  RoleArn?: string;
+
+  /**
+   * Placeholder documentation for ChannelState
+   */
+  State?: ChannelState | string;
+
+  /**
+   * A collection of key-value pairs.
+   */
+  Tags?: { [key: string]: string };
 }
 
 export namespace DescribeChannelResponse {
@@ -4138,49 +4238,9 @@ export namespace DescribeInputRequest {
  */
 export interface DescribeInputResponse {
   /**
-   * A collection of key-value pairs.
-   */
-  Tags?: { [key: string]: string };
-
-  /**
-   * Placeholder documentation for InputType
-   */
-  Type?: InputType | string;
-
-  /**
-   * A list of IDs for all the Input Security Groups attached to the input.
-   */
-  SecurityGroups?: string[];
-
-  /**
-   * A list of the sources of the input (PULL-type).
-   */
-  Sources?: InputSource[];
-
-  /**
-   * The Amazon Resource Name (ARN) of the role this input assumes during and after creation.
-   */
-  RoleArn?: string;
-
-  /**
    * The Unique ARN of the input (generated, immutable).
    */
   Arn?: string;
-
-  /**
-   * Settings for the input devices.
-   */
-  InputDevices?: InputDeviceSettings[];
-
-  /**
-   * The user-assigned name (This is a mutable value).
-   */
-  Name?: string;
-
-  /**
-   * Placeholder documentation for InputState
-   */
-  State?: InputState | string;
 
   /**
    * A list of channel IDs that that input is attached to (currently an input can only be attached to one channel).
@@ -4198,9 +4258,15 @@ export interface DescribeInputResponse {
   Id?: string;
 
   /**
-   * A list of MediaConnect Flows for this input.
+   * STANDARD - MediaLive expects two sources to be connected to this input. If the channel is also STANDARD, both sources will be ingested. If the channel is SINGLE_PIPELINE, only the first source will be ingested; the second source will always be ignored, even if the first source fails.
+   * SINGLE_PIPELINE - You can connect only one source to this input. If the ChannelClass is also  SINGLE_PIPELINE, this value is valid. If the ChannelClass is STANDARD, this value is not valid because the channel requires two sources in the input.
    */
-  MediaConnectFlows?: MediaConnectFlow[];
+  InputClass?: InputClass | string;
+
+  /**
+   * Settings for the input devices.
+   */
+  InputDevices?: InputDeviceSettings[];
 
   /**
    * Certain pull input sources can be dynamic, meaning that they can have their URL's dynamically changes
@@ -4209,10 +4275,44 @@ export interface DescribeInputResponse {
   InputSourceType?: InputSourceType | string;
 
   /**
-   * STANDARD - MediaLive expects two sources to be connected to this input. If the channel is also STANDARD, both sources will be ingested. If the channel is SINGLE_PIPELINE, only the first source will be ingested; the second source will always be ignored, even if the first source fails.
-   * SINGLE_PIPELINE - You can connect only one source to this input. If the ChannelClass is also  SINGLE_PIPELINE, this value is valid. If the ChannelClass is STANDARD, this value is not valid because the channel requires two sources in the input.
+   * A list of MediaConnect Flows for this input.
    */
-  InputClass?: InputClass | string;
+  MediaConnectFlows?: MediaConnectFlow[];
+
+  /**
+   * The user-assigned name (This is a mutable value).
+   */
+  Name?: string;
+
+  /**
+   * The Amazon Resource Name (ARN) of the role this input assumes during and after creation.
+   */
+  RoleArn?: string;
+
+  /**
+   * A list of IDs for all the Input Security Groups attached to the input.
+   */
+  SecurityGroups?: string[];
+
+  /**
+   * A list of the sources of the input (PULL-type).
+   */
+  Sources?: InputSource[];
+
+  /**
+   * Placeholder documentation for InputState
+   */
+  State?: InputState | string;
+
+  /**
+   * A collection of key-value pairs.
+   */
+  Tags?: { [key: string]: string };
+
+  /**
+   * Placeholder documentation for InputType
+   */
+  Type?: InputType | string;
 }
 
 export namespace DescribeInputResponse {
@@ -4242,29 +4342,9 @@ export namespace DescribeInputDeviceRequest {
  */
 export interface DescribeInputDeviceResponse {
   /**
-   * The network MAC address of the input device.
-   */
-  MacAddress?: string;
-
-  /**
-   * Settings that describe an input device that is type HD.
-   */
-  HdDeviceSettings?: InputDeviceHdSettings;
-
-  /**
-   * A name that you specify for the input device.
-   */
-  Name?: string;
-
-  /**
    * The unique ARN of the input device.
    */
   Arn?: string;
-
-  /**
-   * The unique ID of the input device.
-   */
-  Id?: string;
 
   /**
    * The state of the connection between the input device and AWS.
@@ -4272,14 +4352,29 @@ export interface DescribeInputDeviceResponse {
   ConnectionState?: InputDeviceConnectionState | string;
 
   /**
-   * The type of the input device.
+   * The status of the action to synchronize the device configuration. If you change the configuration of the input device (for example, the maximum bitrate), MediaLive sends the new data to the device. The device might not update itself immediately. SYNCED means the device has updated its configuration. SYNCING means that it has not updated its configuration.
    */
-  Type?: InputDeviceType | string;
+  DeviceSettingsSyncState?: DeviceSettingsSyncState | string;
 
   /**
-   * The unique serial number of the input device.
+   * Settings that describe an input device that is type HD.
    */
-  SerialNumber?: string;
+  HdDeviceSettings?: InputDeviceHdSettings;
+
+  /**
+   * The unique ID of the input device.
+   */
+  Id?: string;
+
+  /**
+   * The network MAC address of the input device.
+   */
+  MacAddress?: string;
+
+  /**
+   * A name that you specify for the input device.
+   */
+  Name?: string;
 
   /**
    * The network settings for the input device.
@@ -4287,9 +4382,14 @@ export interface DescribeInputDeviceResponse {
   NetworkSettings?: InputDeviceNetworkSettings;
 
   /**
-   * The status of the action to synchronize the device configuration. If you change the configuration of the input device (for example, the maximum bitrate), MediaLive sends the new data to the device. The device might not update itself immediately. SYNCED means the device has updated its configuration. SYNCING means that it has not updated its configuration.
+   * The unique serial number of the input device.
    */
-  DeviceSettingsSyncState?: DeviceSettingsSyncState | string;
+  SerialNumber?: string;
+
+  /**
+   * The type of the input device.
+   */
+  Type?: InputDeviceType | string;
 }
 
 export namespace DescribeInputDeviceResponse {
@@ -4303,14 +4403,14 @@ export namespace DescribeInputDeviceResponse {
  */
 export interface DescribeInputDeviceThumbnailRequest {
   /**
-   * The HTTP Accept header. Indicates the requested type for the thumbnail.
-   */
-  Accept: AcceptHeader | string | undefined;
-
-  /**
    * The unique ID of this input device. For example, hd-123456789abcdef.
    */
   InputDeviceId: string | undefined;
+
+  /**
+   * The HTTP Accept header. Indicates the requested type for the thumbnail.
+   */
+  Accept: AcceptHeader | string | undefined;
 }
 
 export namespace DescribeInputDeviceThumbnailRequest {
@@ -4324,9 +4424,9 @@ export namespace DescribeInputDeviceThumbnailRequest {
  */
 export interface DescribeInputDeviceThumbnailResponse {
   /**
-   * The unique, cacheable version of this thumbnail.
+   * The binary data for the thumbnail that the Link device has most recently sent to MediaLive.
    */
-  ETag?: string;
+  Body?: Readable | ReadableStream | Blob;
 
   /**
    * Specifies the media type of the thumbnail.
@@ -4334,19 +4434,19 @@ export interface DescribeInputDeviceThumbnailResponse {
   ContentType?: ContentType | string;
 
   /**
-   * The date and time the thumbnail was last updated at the device.
-   */
-  LastModified?: Date;
-
-  /**
-   * The binary data for the thumbnail that the Link device has most recently sent to MediaLive.
-   */
-  Body?: Readable | ReadableStream | Blob;
-
-  /**
    * The length of the content.
    */
   ContentLength?: number;
+
+  /**
+   * The unique, cacheable version of this thumbnail.
+   */
+  ETag?: string;
+
+  /**
+   * The date and time the thumbnail was last updated at the device.
+   */
+  LastModified?: Date;
 }
 
 export namespace DescribeInputDeviceThumbnailResponse {
@@ -4376,9 +4476,9 @@ export namespace DescribeInputSecurityGroupRequest {
  */
 export interface DescribeInputSecurityGroupResponse {
   /**
-   * The current state of the Input Security Group.
+   * Unique ARN of Input Security Group
    */
-  State?: InputSecurityGroupState | string;
+  Arn?: string;
 
   /**
    * The Id of the Input Security Group
@@ -4386,9 +4486,14 @@ export interface DescribeInputSecurityGroupResponse {
   Id?: string;
 
   /**
-   * Whitelist rules and their sync status
+   * The list of inputs currently using this Input Security Group.
    */
-  WhitelistRules?: InputWhitelistRule[];
+  Inputs?: string[];
+
+  /**
+   * The current state of the Input Security Group.
+   */
+  State?: InputSecurityGroupState | string;
 
   /**
    * A collection of key-value pairs.
@@ -4396,14 +4501,9 @@ export interface DescribeInputSecurityGroupResponse {
   Tags?: { [key: string]: string };
 
   /**
-   * The list of inputs currently using this Input Security Group.
+   * Whitelist rules and their sync status
    */
-  Inputs?: string[];
-
-  /**
-   * Unique ARN of Input Security Group
-   */
-  Arn?: string;
+  WhitelistRules?: InputWhitelistRule[];
 }
 
 export namespace DescribeInputSecurityGroupResponse {
@@ -4433,9 +4533,19 @@ export namespace DescribeMultiplexRequest {
  */
 export interface DescribeMultiplexResponse {
   /**
-   * Configuration for a multiplex event.
+   * The unique arn of the multiplex.
    */
-  MultiplexSettings?: MultiplexSettings;
+  Arn?: string;
+
+  /**
+   * A list of availability zones for the multiplex.
+   */
+  AvailabilityZones?: string[];
+
+  /**
+   * A list of the multiplex output destinations.
+   */
+  Destinations?: MultiplexOutputDestination[];
 
   /**
    * The unique id of the multiplex.
@@ -4443,14 +4553,9 @@ export interface DescribeMultiplexResponse {
   Id?: string;
 
   /**
-   * The current state of the multiplex.
+   * Configuration for a multiplex event.
    */
-  State?: MultiplexState | string;
-
-  /**
-   * A list of availability zones for the multiplex.
-   */
-  AvailabilityZones?: string[];
+  MultiplexSettings?: MultiplexSettings;
 
   /**
    * The name of the multiplex.
@@ -4463,24 +4568,19 @@ export interface DescribeMultiplexResponse {
   PipelinesRunningCount?: number;
 
   /**
-   * A list of the multiplex output destinations.
-   */
-  Destinations?: MultiplexOutputDestination[];
-
-  /**
-   * A collection of key-value pairs.
-   */
-  Tags?: { [key: string]: string };
-
-  /**
    * The number of programs in the multiplex.
    */
   ProgramCount?: number;
 
   /**
-   * The unique arn of the multiplex.
+   * The current state of the multiplex.
    */
-  Arn?: string;
+  State?: MultiplexState | string;
+
+  /**
+   * A collection of key-value pairs.
+   */
+  Tags?: { [key: string]: string };
 }
 
 export namespace DescribeMultiplexResponse {
@@ -4520,14 +4620,14 @@ export interface DescribeMultiplexProgramResponse {
   ChannelId?: string;
 
   /**
-   * The name of the multiplex program.
-   */
-  ProgramName?: string;
-
-  /**
    * The settings for this multiplex program.
    */
   MultiplexProgramSettings?: MultiplexProgramSettings;
+
+  /**
+   * The packet identifier map for this multiplex program.
+   */
+  PacketIdentifiersMap?: MultiplexProgramPacketIdentifiersMap;
 
   /**
    * Contains information about the current sources for the specified program in the specified multiplex. Keep in mind that each multiplex pipeline connects to both pipelines in a given source channel (the channel identified by the program). But only one of those channel pipelines is ever active at one time.
@@ -4535,9 +4635,9 @@ export interface DescribeMultiplexProgramResponse {
   PipelineDetails?: MultiplexProgramPipelineDetail[];
 
   /**
-   * The packet identifier map for this multiplex program.
+   * The name of the multiplex program.
    */
-  PacketIdentifiersMap?: MultiplexProgramPacketIdentifiersMap;
+  ProgramName?: string;
 }
 
 export namespace DescribeMultiplexProgramResponse {
@@ -4567,14 +4667,9 @@ export namespace DescribeOfferingRequest {
  */
 export interface DescribeOfferingResponse {
   /**
-   * Unique offering ID, e.g. '87654321'
+   * Unique offering ARN, e.g. 'arn:aws:medialive:us-west-2:123456789012:offering:87654321'
    */
-  OfferingId?: string;
-
-  /**
-   * Offering description, e.g. 'HD AVC output at 10-20 Mbps, 30 fps, and standard VQ in US West (Oregon)'
-   */
-  OfferingDescription?: string;
+  Arn?: string;
 
   /**
    * Currency code for usagePrice and fixedPrice in ISO-4217 format, e.g. 'USD'
@@ -4582,9 +4677,9 @@ export interface DescribeOfferingResponse {
   CurrencyCode?: string;
 
   /**
-   * One-time charge for each reserved resource, e.g. '0.0' for a NO_UPFRONT offering
+   * Lease duration, e.g. '12'
    */
-  FixedPrice?: number;
+  Duration?: number;
 
   /**
    * Units for duration, e.g. 'MONTHS'
@@ -4592,9 +4687,24 @@ export interface DescribeOfferingResponse {
   DurationUnits?: OfferingDurationUnits | string;
 
   /**
-   * Unique offering ARN, e.g. 'arn:aws:medialive:us-west-2:123456789012:offering:87654321'
+   * One-time charge for each reserved resource, e.g. '0.0' for a NO_UPFRONT offering
    */
-  Arn?: string;
+  FixedPrice?: number;
+
+  /**
+   * Offering description, e.g. 'HD AVC output at 10-20 Mbps, 30 fps, and standard VQ in US West (Oregon)'
+   */
+  OfferingDescription?: string;
+
+  /**
+   * Unique offering ID, e.g. '87654321'
+   */
+  OfferingId?: string;
+
+  /**
+   * Offering type, e.g. 'NO_UPFRONT'
+   */
+  OfferingType?: OfferingType | string;
 
   /**
    * AWS region, e.g. 'us-west-2'
@@ -4605,16 +4715,6 @@ export interface DescribeOfferingResponse {
    * Resource configuration details
    */
   ResourceSpecification?: ReservationResourceSpecification;
-
-  /**
-   * Offering type, e.g. 'NO_UPFRONT'
-   */
-  OfferingType?: OfferingType | string;
-
-  /**
-   * Lease duration, e.g. '12'
-   */
-  Duration?: number;
 
   /**
    * Recurring usage charge for each reserved resource, e.g. '157.0'
@@ -4649,19 +4749,9 @@ export namespace DescribeReservationRequest {
  */
 export interface DescribeReservationResponse {
   /**
-   * AWS region, e.g. 'us-west-2'
+   * Unique reservation ARN, e.g. 'arn:aws:medialive:us-west-2:123456789012:reservation:1234567'
    */
-  Region?: string;
-
-  /**
-   * User specified reservation name
-   */
-  Name?: string;
-
-  /**
-   * Current state of reservation, e.g. 'ACTIVE'
-   */
-  State?: ReservationState | string;
+  Arn?: string;
 
   /**
    * Number of reserved resources
@@ -4674,14 +4764,9 @@ export interface DescribeReservationResponse {
   CurrencyCode?: string;
 
   /**
-   * Offering type, e.g. 'NO_UPFRONT'
+   * Lease duration, e.g. '12'
    */
-  OfferingType?: OfferingType | string;
-
-  /**
-   * Recurring usage charge for each reserved resource, e.g. '157.0'
-   */
-  UsagePrice?: number;
+  Duration?: number;
 
   /**
    * Units for duration, e.g. 'MONTHS'
@@ -4689,34 +4774,9 @@ export interface DescribeReservationResponse {
   DurationUnits?: OfferingDurationUnits | string;
 
   /**
-   * Resource configuration details
+   * Reservation UTC end date and time in ISO-8601 format, e.g. '2019-03-01T00:00:00'
    */
-  ResourceSpecification?: ReservationResourceSpecification;
-
-  /**
-   * Lease duration, e.g. '12'
-   */
-  Duration?: number;
-
-  /**
-   * Unique reservation ID, e.g. '1234567'
-   */
-  ReservationId?: string;
-
-  /**
-   * Reservation UTC start date and time in ISO-8601 format, e.g. '2018-03-01T00:00:00'
-   */
-  Start?: string;
-
-  /**
-   * Offering description, e.g. 'HD AVC output at 10-20 Mbps, 30 fps, and standard VQ in US West (Oregon)'
-   */
-  OfferingDescription?: string;
-
-  /**
-   * A collection of key-value pairs
-   */
-  Tags?: { [key: string]: string };
+  End?: string;
 
   /**
    * One-time charge for each reserved resource, e.g. '0.0' for a NO_UPFRONT offering
@@ -4724,9 +4784,14 @@ export interface DescribeReservationResponse {
   FixedPrice?: number;
 
   /**
-   * Reservation UTC end date and time in ISO-8601 format, e.g. '2019-03-01T00:00:00'
+   * User specified reservation name
    */
-  End?: string;
+  Name?: string;
+
+  /**
+   * Offering description, e.g. 'HD AVC output at 10-20 Mbps, 30 fps, and standard VQ in US West (Oregon)'
+   */
+  OfferingDescription?: string;
 
   /**
    * Unique offering ID, e.g. '87654321'
@@ -4734,9 +4799,44 @@ export interface DescribeReservationResponse {
   OfferingId?: string;
 
   /**
-   * Unique reservation ARN, e.g. 'arn:aws:medialive:us-west-2:123456789012:reservation:1234567'
+   * Offering type, e.g. 'NO_UPFRONT'
    */
-  Arn?: string;
+  OfferingType?: OfferingType | string;
+
+  /**
+   * AWS region, e.g. 'us-west-2'
+   */
+  Region?: string;
+
+  /**
+   * Unique reservation ID, e.g. '1234567'
+   */
+  ReservationId?: string;
+
+  /**
+   * Resource configuration details
+   */
+  ResourceSpecification?: ReservationResourceSpecification;
+
+  /**
+   * Reservation UTC start date and time in ISO-8601 format, e.g. '2018-03-01T00:00:00'
+   */
+  Start?: string;
+
+  /**
+   * Current state of reservation, e.g. 'ACTIVE'
+   */
+  State?: ReservationState | string;
+
+  /**
+   * A collection of key-value pairs
+   */
+  Tags?: { [key: string]: string };
+
+  /**
+   * Recurring usage charge for each reserved resource, e.g. '157.0'
+   */
+  UsagePrice?: number;
 }
 
 export namespace DescribeReservationResponse {
@@ -4750,6 +4850,11 @@ export namespace DescribeReservationResponse {
  */
 export interface DescribeScheduleRequest {
   /**
+   * Id of the channel whose schedule is being updated.
+   */
+  ChannelId: string | undefined;
+
+  /**
    * Placeholder documentation for MaxResults
    */
   MaxResults?: number;
@@ -4758,11 +4863,6 @@ export interface DescribeScheduleRequest {
    * Placeholder documentation for __string
    */
   NextToken?: string;
-
-  /**
-   * Id of the channel whose schedule is being updated.
-   */
-  ChannelId: string | undefined;
 }
 
 export namespace DescribeScheduleRequest {
@@ -4797,14 +4897,14 @@ export namespace DescribeScheduleResponse {
  */
 export interface InputDeviceConfigurableSettings {
   /**
-   * The maximum bitrate in bits per second. Set a value here to throttle the bitrate of the source video.
-   */
-  MaxBitrate?: number;
-
-  /**
    * The input source that you want to use. If the device has a source connected to only one of its input ports, or if you don't care which source the device sends, specify Auto. If the device has sources connected to both its input ports, and you want to use a specific source, specify the source.
    */
   ConfiguredInput?: InputDeviceConfiguredInput | string;
+
+  /**
+   * The maximum bitrate in bits per second. Set a value here to throttle the bitrate of the source video.
+   */
+  MaxBitrate?: number;
 }
 
 export namespace InputDeviceConfigurableSettings {
@@ -4839,14 +4939,14 @@ export namespace ListChannelsRequest {
  */
 export interface ListChannelsResponse {
   /**
-   * Placeholder documentation for __string
-   */
-  NextToken?: string;
-
-  /**
    * Placeholder documentation for __listOfChannelSummary
    */
   Channels?: ChannelSummary[];
+
+  /**
+   * Placeholder documentation for __string
+   */
+  NextToken?: string;
 }
 
 export namespace ListChannelsResponse {
@@ -4902,6 +5002,11 @@ export namespace ListInputDevicesResponse {
  */
 export interface ListInputDeviceTransfersRequest {
   /**
+   * Placeholder documentation for MaxResults
+   */
+  MaxResults?: number;
+
+  /**
    * Placeholder documentation for __string
    */
   NextToken?: string;
@@ -4910,11 +5015,6 @@ export interface ListInputDeviceTransfersRequest {
    * Placeholder documentation for __string
    */
   TransferType: string | undefined;
-
-  /**
-   * Placeholder documentation for MaxResults
-   */
-  MaxResults?: number;
 }
 
 export namespace ListInputDeviceTransfersRequest {
@@ -4949,14 +5049,14 @@ export namespace ListInputDeviceTransfersResponse {
  */
 export interface ListInputsRequest {
   /**
-   * Placeholder documentation for __string
-   */
-  NextToken?: string;
-
-  /**
    * Placeholder documentation for MaxResults
    */
   MaxResults?: number;
+
+  /**
+   * Placeholder documentation for __string
+   */
+  NextToken?: string;
 }
 
 export namespace ListInputsRequest {
@@ -4991,14 +5091,14 @@ export namespace ListInputsResponse {
  */
 export interface ListInputSecurityGroupsRequest {
   /**
-   * Placeholder documentation for __string
-   */
-  NextToken?: string;
-
-  /**
    * Placeholder documentation for MaxResults
    */
   MaxResults?: number;
+
+  /**
+   * Placeholder documentation for __string
+   */
+  NextToken?: string;
 }
 
 export namespace ListInputSecurityGroupsRequest {
@@ -5012,14 +5112,14 @@ export namespace ListInputSecurityGroupsRequest {
  */
 export interface ListInputSecurityGroupsResponse {
   /**
-   * Placeholder documentation for __string
-   */
-  NextToken?: string;
-
-  /**
    * List of input security groups
    */
   InputSecurityGroups?: InputSecurityGroup[];
+
+  /**
+   * Placeholder documentation for __string
+   */
+  NextToken?: string;
 }
 
 export namespace ListInputSecurityGroupsResponse {
@@ -5054,14 +5154,14 @@ export namespace ListMultiplexesRequest {
  */
 export interface ListMultiplexesResponse {
   /**
-   * Token for the next ListMultiplexes request.
-   */
-  NextToken?: string;
-
-  /**
    * List of multiplexes.
    */
   Multiplexes?: MultiplexSummary[];
+
+  /**
+   * Token for the next ListMultiplexes request.
+   */
+  NextToken?: string;
 }
 
 export namespace ListMultiplexesResponse {
@@ -5075,9 +5175,9 @@ export namespace ListMultiplexesResponse {
  */
 export interface ListMultiplexProgramsRequest {
   /**
-   * The token to retrieve the next page of results.
+   * The maximum number of items to return.
    */
-  NextToken?: string;
+  MaxResults?: number;
 
   /**
    * The ID of the multiplex that the programs belong to.
@@ -5085,9 +5185,9 @@ export interface ListMultiplexProgramsRequest {
   MultiplexId: string | undefined;
 
   /**
-   * The maximum number of items to return.
+   * The token to retrieve the next page of results.
    */
-  MaxResults?: number;
+  NextToken?: string;
 }
 
 export namespace ListMultiplexProgramsRequest {
@@ -5127,44 +5227,9 @@ export interface ListOfferingsRequest {
   ChannelClass?: string;
 
   /**
-   * Filter by framerate, 'MAX_30_FPS' or 'MAX_60_FPS'
-   */
-  MaximumFramerate?: string;
-
-  /**
-   * Filter by offering duration, e.g. '12'
-   */
-  Duration?: string;
-
-  /**
-   * Filter by resolution, 'SD', 'HD', 'FHD', or 'UHD'
-   */
-  Resolution?: string;
-
-  /**
-   * Filter by special feature, 'ADVANCED_AUDIO' or 'AUDIO_NORMALIZATION'
-   */
-  SpecialFeature?: string;
-
-  /**
-   * Filter by bitrate, 'MAX_10_MBPS', 'MAX_20_MBPS', or 'MAX_50_MBPS'
-   */
-  MaximumBitrate?: string;
-
-  /**
    * Filter to offerings that match the configuration of an existing channel, e.g. '2345678' (a channel ID)
    */
   ChannelConfiguration?: string;
-
-  /**
-   * Placeholder documentation for __string
-   */
-  NextToken?: string;
-
-  /**
-   * Placeholder documentation for MaxResults
-   */
-  MaxResults?: number;
 
   /**
    * Filter by codec, 'AVC', 'HEVC', 'MPEG2', 'AUDIO', or 'LINK'
@@ -5172,14 +5237,49 @@ export interface ListOfferingsRequest {
   Codec?: string;
 
   /**
-   * Filter by video quality, 'STANDARD', 'ENHANCED', or 'PREMIUM'
+   * Filter by offering duration, e.g. '12'
    */
-  VideoQuality?: string;
+  Duration?: string;
+
+  /**
+   * Placeholder documentation for MaxResults
+   */
+  MaxResults?: number;
+
+  /**
+   * Filter by bitrate, 'MAX_10_MBPS', 'MAX_20_MBPS', or 'MAX_50_MBPS'
+   */
+  MaximumBitrate?: string;
+
+  /**
+   * Filter by framerate, 'MAX_30_FPS' or 'MAX_60_FPS'
+   */
+  MaximumFramerate?: string;
+
+  /**
+   * Placeholder documentation for __string
+   */
+  NextToken?: string;
+
+  /**
+   * Filter by resolution, 'SD', 'HD', 'FHD', or 'UHD'
+   */
+  Resolution?: string;
 
   /**
    * Filter by resource type, 'INPUT', 'OUTPUT', 'MULTIPLEX', or 'CHANNEL'
    */
   ResourceType?: string;
+
+  /**
+   * Filter by special feature, 'ADVANCED_AUDIO' or 'AUDIO_NORMALIZATION'
+   */
+  SpecialFeature?: string;
+
+  /**
+   * Filter by video quality, 'STANDARD', 'ENHANCED', or 'PREMIUM'
+   */
+  VideoQuality?: string;
 }
 
 export namespace ListOfferingsRequest {
@@ -5193,14 +5293,14 @@ export namespace ListOfferingsRequest {
  */
 export interface ListOfferingsResponse {
   /**
-   * List of offerings
-   */
-  Offerings?: Offering[];
-
-  /**
    * Token to retrieve the next page of results
    */
   NextToken?: string;
+
+  /**
+   * List of offerings
+   */
+  Offerings?: Offering[];
 }
 
 export namespace ListOfferingsResponse {
@@ -5214,9 +5314,9 @@ export namespace ListOfferingsResponse {
  */
 export interface ListReservationsRequest {
   /**
-   * Filter by resource type, 'INPUT', 'OUTPUT', 'MULTIPLEX', or 'CHANNEL'
+   * Filter by channel class, 'STANDARD' or 'SINGLE_PIPELINE'
    */
-  ResourceType?: string;
+  ChannelClass?: string;
 
   /**
    * Filter by codec, 'AVC', 'HEVC', 'MPEG2', 'AUDIO', or 'LINK'
@@ -5224,14 +5324,19 @@ export interface ListReservationsRequest {
   Codec?: string;
 
   /**
+   * Placeholder documentation for MaxResults
+   */
+  MaxResults?: number;
+
+  /**
    * Filter by bitrate, 'MAX_10_MBPS', 'MAX_20_MBPS', or 'MAX_50_MBPS'
    */
   MaximumBitrate?: string;
 
   /**
-   * Filter by special feature, 'ADVANCED_AUDIO' or 'AUDIO_NORMALIZATION'
+   * Filter by framerate, 'MAX_30_FPS' or 'MAX_60_FPS'
    */
-  SpecialFeature?: string;
+  MaximumFramerate?: string;
 
   /**
    * Placeholder documentation for __string
@@ -5239,29 +5344,24 @@ export interface ListReservationsRequest {
   NextToken?: string;
 
   /**
-   * Placeholder documentation for MaxResults
-   */
-  MaxResults?: number;
-
-  /**
-   * Filter by video quality, 'STANDARD', 'ENHANCED', or 'PREMIUM'
-   */
-  VideoQuality?: string;
-
-  /**
-   * Filter by channel class, 'STANDARD' or 'SINGLE_PIPELINE'
-   */
-  ChannelClass?: string;
-
-  /**
    * Filter by resolution, 'SD', 'HD', 'FHD', or 'UHD'
    */
   Resolution?: string;
 
   /**
-   * Filter by framerate, 'MAX_30_FPS' or 'MAX_60_FPS'
+   * Filter by resource type, 'INPUT', 'OUTPUT', 'MULTIPLEX', or 'CHANNEL'
    */
-  MaximumFramerate?: string;
+  ResourceType?: string;
+
+  /**
+   * Filter by special feature, 'ADVANCED_AUDIO' or 'AUDIO_NORMALIZATION'
+   */
+  SpecialFeature?: string;
+
+  /**
+   * Filter by video quality, 'STANDARD', 'ENHANCED', or 'PREMIUM'
+   */
+  VideoQuality?: string;
 }
 
 export namespace ListReservationsRequest {
@@ -5275,14 +5375,14 @@ export namespace ListReservationsRequest {
  */
 export interface ListReservationsResponse {
   /**
-   * List of reservations
-   */
-  Reservations?: Reservation[];
-
-  /**
    * Token to retrieve the next page of results
    */
   NextToken?: string;
+
+  /**
+   * List of reservations
+   */
+  Reservations?: Reservation[];
 }
 
 export namespace ListReservationsResponse {
@@ -5333,19 +5433,14 @@ export interface PurchaseOfferingRequest {
   Count: number | undefined;
 
   /**
-   * A collection of key-value pairs
+   * Name for the new reservation
    */
-  Tags?: { [key: string]: string };
+  Name?: string;
 
   /**
    * Offering to purchase, e.g. '87654321'
    */
   OfferingId: string | undefined;
-
-  /**
-   * Name for the new reservation
-   */
-  Name?: string;
 
   /**
    * Unique request ID to be specified. This is needed to prevent retries from creating multiple resources.
@@ -5356,6 +5451,11 @@ export interface PurchaseOfferingRequest {
    * Requested reservation start time (UTC) in ISO-8601 format. The specified time must be between the first day of the current month and one year from now. If no value is given, the default is now.
    */
   Start?: string;
+
+  /**
+   * A collection of key-value pairs
+   */
+  Tags?: { [key: string]: string };
 }
 
 export namespace PurchaseOfferingRequest {
@@ -5428,44 +5528,9 @@ export namespace StartChannelRequest {
  */
 export interface StartChannelResponse {
   /**
-   * Encoder Settings
-   */
-  EncoderSettings?: EncoderSettings;
-
-  /**
    * The unique arn of the channel.
    */
   Arn?: string;
-
-  /**
-   * The unique id of the channel.
-   */
-  Id?: string;
-
-  /**
-   * The class for this channel. STANDARD for a channel with two pipelines or SINGLE_PIPELINE for a channel with one pipeline.
-   */
-  ChannelClass?: ChannelClass | string;
-
-  /**
-   * A collection of key-value pairs.
-   */
-  Tags?: { [key: string]: string };
-
-  /**
-   * The endpoints where outgoing connections initiate from
-   */
-  EgressEndpoints?: ChannelEgressEndpoint[];
-
-  /**
-   * The number of currently healthy pipelines.
-   */
-  PipelinesRunningCount?: number;
-
-  /**
-   * Runtime details for the pipelines of a running channel.
-   */
-  PipelineDetails?: PipelineDetail[];
 
   /**
    * Specification of CDI inputs for this channel
@@ -5473,29 +5538,9 @@ export interface StartChannelResponse {
   CdiInputSpecification?: CdiInputSpecification;
 
   /**
-   * Placeholder documentation for ChannelState
+   * The class for this channel. STANDARD for a channel with two pipelines or SINGLE_PIPELINE for a channel with one pipeline.
    */
-  State?: ChannelState | string;
-
-  /**
-   * The Amazon Resource Name (ARN) of the role assumed when running the Channel.
-   */
-  RoleArn?: string;
-
-  /**
-   * List of input attachments for channel.
-   */
-  InputAttachments?: InputAttachment[];
-
-  /**
-   * The log level being written to CloudWatch Logs.
-   */
-  LogLevel?: LogLevel | string;
-
-  /**
-   * Specification of network and file inputs for this channel
-   */
-  InputSpecification?: InputSpecification;
+  ChannelClass?: ChannelClass | string;
 
   /**
    * A list of destinations of the channel. For UDP outputs, there is one
@@ -5505,9 +5550,64 @@ export interface StartChannelResponse {
   Destinations?: OutputDestination[];
 
   /**
+   * The endpoints where outgoing connections initiate from
+   */
+  EgressEndpoints?: ChannelEgressEndpoint[];
+
+  /**
+   * Encoder Settings
+   */
+  EncoderSettings?: EncoderSettings;
+
+  /**
+   * The unique id of the channel.
+   */
+  Id?: string;
+
+  /**
+   * List of input attachments for channel.
+   */
+  InputAttachments?: InputAttachment[];
+
+  /**
+   * Specification of network and file inputs for this channel
+   */
+  InputSpecification?: InputSpecification;
+
+  /**
+   * The log level being written to CloudWatch Logs.
+   */
+  LogLevel?: LogLevel | string;
+
+  /**
    * The name of the channel. (user-mutable)
    */
   Name?: string;
+
+  /**
+   * Runtime details for the pipelines of a running channel.
+   */
+  PipelineDetails?: PipelineDetail[];
+
+  /**
+   * The number of currently healthy pipelines.
+   */
+  PipelinesRunningCount?: number;
+
+  /**
+   * The Amazon Resource Name (ARN) of the role assumed when running the Channel.
+   */
+  RoleArn?: string;
+
+  /**
+   * Placeholder documentation for ChannelState
+   */
+  State?: ChannelState | string;
+
+  /**
+   * A collection of key-value pairs.
+   */
+  Tags?: { [key: string]: string };
 }
 
 export namespace StartChannelResponse {
@@ -5537,34 +5637,9 @@ export namespace StartMultiplexRequest {
  */
 export interface StartMultiplexResponse {
   /**
-   * The current state of the multiplex.
-   */
-  State?: MultiplexState | string;
-
-  /**
-   * The unique id of the multiplex.
-   */
-  Id?: string;
-
-  /**
-   * The number of programs in the multiplex.
-   */
-  ProgramCount?: number;
-
-  /**
    * The unique arn of the multiplex.
    */
   Arn?: string;
-
-  /**
-   * The number of currently healthy pipelines.
-   */
-  PipelinesRunningCount?: number;
-
-  /**
-   * Configuration for a multiplex event.
-   */
-  MultiplexSettings?: MultiplexSettings;
 
   /**
    * A list of availability zones for the multiplex.
@@ -5572,9 +5647,19 @@ export interface StartMultiplexResponse {
   AvailabilityZones?: string[];
 
   /**
-   * A collection of key-value pairs.
+   * A list of the multiplex output destinations.
    */
-  Tags?: { [key: string]: string };
+  Destinations?: MultiplexOutputDestination[];
+
+  /**
+   * The unique id of the multiplex.
+   */
+  Id?: string;
+
+  /**
+   * Configuration for a multiplex event.
+   */
+  MultiplexSettings?: MultiplexSettings;
 
   /**
    * The name of the multiplex.
@@ -5582,9 +5667,24 @@ export interface StartMultiplexResponse {
   Name?: string;
 
   /**
-   * A list of the multiplex output destinations.
+   * The number of currently healthy pipelines.
    */
-  Destinations?: MultiplexOutputDestination[];
+  PipelinesRunningCount?: number;
+
+  /**
+   * The number of programs in the multiplex.
+   */
+  ProgramCount?: number;
+
+  /**
+   * The current state of the multiplex.
+   */
+  State?: MultiplexState | string;
+
+  /**
+   * A collection of key-value pairs.
+   */
+  Tags?: { [key: string]: string };
 }
 
 export namespace StartMultiplexResponse {
@@ -5614,64 +5714,9 @@ export namespace StopChannelRequest {
  */
 export interface StopChannelResponse {
   /**
-   * The class for this channel. STANDARD for a channel with two pipelines or SINGLE_PIPELINE for a channel with one pipeline.
-   */
-  ChannelClass?: ChannelClass | string;
-
-  /**
-   * The endpoints where outgoing connections initiate from
-   */
-  EgressEndpoints?: ChannelEgressEndpoint[];
-
-  /**
-   * A collection of key-value pairs.
-   */
-  Tags?: { [key: string]: string };
-
-  /**
-   * The log level being written to CloudWatch Logs.
-   */
-  LogLevel?: LogLevel | string;
-
-  /**
-   * Encoder Settings
-   */
-  EncoderSettings?: EncoderSettings;
-
-  /**
-   * List of input attachments for channel.
-   */
-  InputAttachments?: InputAttachment[];
-
-  /**
-   * The Amazon Resource Name (ARN) of the role assumed when running the Channel.
-   */
-  RoleArn?: string;
-
-  /**
-   * Specification of network and file inputs for this channel
-   */
-  InputSpecification?: InputSpecification;
-
-  /**
-   * The unique id of the channel.
-   */
-  Id?: string;
-
-  /**
-   * Runtime details for the pipelines of a running channel.
-   */
-  PipelineDetails?: PipelineDetail[];
-
-  /**
    * The unique arn of the channel.
    */
   Arn?: string;
-
-  /**
-   * The name of the channel. (user-mutable)
-   */
-  Name?: string;
 
   /**
    * Specification of CDI inputs for this channel
@@ -5679,9 +5724,9 @@ export interface StopChannelResponse {
   CdiInputSpecification?: CdiInputSpecification;
 
   /**
-   * The number of currently healthy pipelines.
+   * The class for this channel. STANDARD for a channel with two pipelines or SINGLE_PIPELINE for a channel with one pipeline.
    */
-  PipelinesRunningCount?: number;
+  ChannelClass?: ChannelClass | string;
 
   /**
    * A list of destinations of the channel. For UDP outputs, there is one
@@ -5691,9 +5736,64 @@ export interface StopChannelResponse {
   Destinations?: OutputDestination[];
 
   /**
+   * The endpoints where outgoing connections initiate from
+   */
+  EgressEndpoints?: ChannelEgressEndpoint[];
+
+  /**
+   * Encoder Settings
+   */
+  EncoderSettings?: EncoderSettings;
+
+  /**
+   * The unique id of the channel.
+   */
+  Id?: string;
+
+  /**
+   * List of input attachments for channel.
+   */
+  InputAttachments?: InputAttachment[];
+
+  /**
+   * Specification of network and file inputs for this channel
+   */
+  InputSpecification?: InputSpecification;
+
+  /**
+   * The log level being written to CloudWatch Logs.
+   */
+  LogLevel?: LogLevel | string;
+
+  /**
+   * The name of the channel. (user-mutable)
+   */
+  Name?: string;
+
+  /**
+   * Runtime details for the pipelines of a running channel.
+   */
+  PipelineDetails?: PipelineDetail[];
+
+  /**
+   * The number of currently healthy pipelines.
+   */
+  PipelinesRunningCount?: number;
+
+  /**
+   * The Amazon Resource Name (ARN) of the role assumed when running the Channel.
+   */
+  RoleArn?: string;
+
+  /**
    * Placeholder documentation for ChannelState
    */
   State?: ChannelState | string;
+
+  /**
+   * A collection of key-value pairs.
+   */
+  Tags?: { [key: string]: string };
 }
 
 export namespace StopChannelResponse {
@@ -5723,9 +5823,14 @@ export namespace StopMultiplexRequest {
  */
 export interface StopMultiplexResponse {
   /**
-   * The number of currently healthy pipelines.
+   * The unique arn of the multiplex.
    */
-  PipelinesRunningCount?: number;
+  Arn?: string;
+
+  /**
+   * A list of availability zones for the multiplex.
+   */
+  AvailabilityZones?: string[];
 
   /**
    * A list of the multiplex output destinations.
@@ -5733,19 +5838,9 @@ export interface StopMultiplexResponse {
   Destinations?: MultiplexOutputDestination[];
 
   /**
-   * The number of programs in the multiplex.
+   * The unique id of the multiplex.
    */
-  ProgramCount?: number;
-
-  /**
-   * A collection of key-value pairs.
-   */
-  Tags?: { [key: string]: string };
-
-  /**
-   * The name of the multiplex.
-   */
-  Name?: string;
+  Id?: string;
 
   /**
    * Configuration for a multiplex event.
@@ -5753,14 +5848,19 @@ export interface StopMultiplexResponse {
   MultiplexSettings?: MultiplexSettings;
 
   /**
-   * The unique arn of the multiplex.
+   * The name of the multiplex.
    */
-  Arn?: string;
+  Name?: string;
 
   /**
-   * The unique id of the multiplex.
+   * The number of currently healthy pipelines.
    */
-  Id?: string;
+  PipelinesRunningCount?: number;
+
+  /**
+   * The number of programs in the multiplex.
+   */
+  ProgramCount?: number;
 
   /**
    * The current state of the multiplex.
@@ -5768,9 +5868,9 @@ export interface StopMultiplexResponse {
   State?: MultiplexState | string;
 
   /**
-   * A list of availability zones for the multiplex.
+   * A collection of key-value pairs.
    */
-  AvailabilityZones?: string[];
+  Tags?: { [key: string]: string };
 }
 
 export namespace StopMultiplexResponse {
@@ -5784,11 +5884,6 @@ export namespace StopMultiplexResponse {
  */
 export interface TransferInputDeviceRequest {
   /**
-   * An optional message for the recipient. Maximum 280 characters.
-   */
-  TransferMessage?: string;
-
-  /**
    * The unique ID of this input device. For example, hd-123456789abcdef.
    */
   InputDeviceId: string | undefined;
@@ -5797,6 +5892,11 @@ export interface TransferInputDeviceRequest {
    * The AWS account ID (12 digits) for the recipient of the device transfer.
    */
   TargetCustomerId?: string;
+
+  /**
+   * An optional message for the recipient. Maximum 280 characters.
+   */
+  TransferMessage?: string;
 }
 
 export namespace TransferInputDeviceRequest {
@@ -5821,29 +5921,9 @@ export namespace TransferInputDeviceResponse {
  */
 export interface UpdateChannelRequest {
   /**
-   * The encoder settings for this channel.
-   */
-  EncoderSettings?: EncoderSettings;
-
-  /**
    * Specification of CDI inputs for this channel
    */
   CdiInputSpecification?: CdiInputSpecification;
-
-  /**
-   * A list of output destinations for this channel.
-   */
-  Destinations?: OutputDestination[];
-
-  /**
-   * The log level to write to CloudWatch Logs.
-   */
-  LogLevel?: LogLevel | string;
-
-  /**
-   * Specification of network and file inputs for this channel
-   */
-  InputSpecification?: InputSpecification;
 
   /**
    * channel ID
@@ -5851,9 +5931,29 @@ export interface UpdateChannelRequest {
   ChannelId: string | undefined;
 
   /**
-   * An optional Amazon Resource Name (ARN) of the role to assume when running the Channel. If you do not specify this on an update call but the role was previously set that role will be removed.
+   * A list of output destinations for this channel.
    */
-  RoleArn?: string;
+  Destinations?: OutputDestination[];
+
+  /**
+   * The encoder settings for this channel.
+   */
+  EncoderSettings?: EncoderSettings;
+
+  /**
+   * Placeholder documentation for __listOfInputAttachment
+   */
+  InputAttachments?: InputAttachment[];
+
+  /**
+   * Specification of network and file inputs for this channel
+   */
+  InputSpecification?: InputSpecification;
+
+  /**
+   * The log level to write to CloudWatch Logs.
+   */
+  LogLevel?: LogLevel | string;
 
   /**
    * The name of the channel.
@@ -5861,9 +5961,9 @@ export interface UpdateChannelRequest {
   Name?: string;
 
   /**
-   * Placeholder documentation for __listOfInputAttachment
+   * An optional Amazon Resource Name (ARN) of the role to assume when running the Channel. If you do not specify this on an update call but the role was previously set that role will be removed.
    */
-  InputAttachments?: InputAttachment[];
+  RoleArn?: string;
 }
 
 export namespace UpdateChannelRequest {
@@ -5893,6 +5993,11 @@ export namespace UpdateChannelResponse {
  */
 export interface UpdateChannelClassRequest {
   /**
+   * The channel class that you wish to update this channel to use.
+   */
+  ChannelClass: ChannelClass | string | undefined;
+
+  /**
    * Channel Id of the channel whose class should be updated.
    */
   ChannelId: string | undefined;
@@ -5901,11 +6006,6 @@ export interface UpdateChannelClassRequest {
    * A list of output destinations for this channel.
    */
   Destinations?: OutputDestination[];
-
-  /**
-   * The channel class that you wish to update this channel to use.
-   */
-  ChannelClass: ChannelClass | string | undefined;
 }
 
 export namespace UpdateChannelClassRequest {
@@ -5935,16 +6035,9 @@ export namespace UpdateChannelClassResponse {
  */
 export interface UpdateInputRequest {
   /**
-   * The source URLs for a PULL-type input. Every PULL type input needs
-   * exactly two source URLs for redundancy.
-   * Only specify sources for PULL type Inputs. Leave Destinations empty.
+   * Destination settings for PUSH type inputs.
    */
-  Sources?: InputSourceRequest[];
-
-  /**
-   * The Amazon Resource Name (ARN) of the role this input assumes during and after creation.
-   */
-  RoleArn?: string;
+  Destinations?: InputDestinationRequest[];
 
   /**
    * Settings for the devices.
@@ -5952,14 +6045,14 @@ export interface UpdateInputRequest {
   InputDevices?: InputDeviceRequest[];
 
   /**
-   * Destination settings for PUSH type inputs.
-   */
-  Destinations?: InputDestinationRequest[];
-
-  /**
    * Unique ID of the input.
    */
   InputId: string | undefined;
+
+  /**
+   * A list of security groups referenced by IDs to attach to the input.
+   */
+  InputSecurityGroups?: string[];
 
   /**
    * A list of the MediaConnect Flow ARNs that you want to use as the source of the input. You can specify as few as one
@@ -5969,14 +6062,21 @@ export interface UpdateInputRequest {
   MediaConnectFlows?: MediaConnectFlowRequest[];
 
   /**
-   * A list of security groups referenced by IDs to attach to the input.
-   */
-  InputSecurityGroups?: string[];
-
-  /**
    * Name of the input.
    */
   Name?: string;
+
+  /**
+   * The Amazon Resource Name (ARN) of the role this input assumes during and after creation.
+   */
+  RoleArn?: string;
+
+  /**
+   * The source URLs for a PULL-type input. Every PULL type input needs
+   * exactly two source URLs for redundancy.
+   * Only specify sources for PULL type Inputs. Leave Destinations empty.
+   */
+  Sources?: InputSourceRequest[];
 }
 
 export namespace UpdateInputRequest {
@@ -6006,14 +6106,14 @@ export namespace UpdateInputResponse {
  */
 export interface UpdateInputDeviceRequest {
   /**
-   * The unique ID of the input device. For example, hd-123456789abcdef.
-   */
-  InputDeviceId: string | undefined;
-
-  /**
    * The settings that you want to apply to the input device.
    */
   HdDeviceSettings?: InputDeviceConfigurableSettings;
+
+  /**
+   * The unique ID of the input device. For example, hd-123456789abcdef.
+   */
+  InputDeviceId: string | undefined;
 
   /**
    * The name that you assigned to this input device (not the unique ID).
@@ -6032,6 +6132,11 @@ export namespace UpdateInputDeviceRequest {
  */
 export interface UpdateInputDeviceResponse {
   /**
+   * The unique ARN of the input device.
+   */
+  Arn?: string;
+
+  /**
    * The state of the connection between the input device and AWS.
    */
   ConnectionState?: InputDeviceConnectionState | string;
@@ -6042,9 +6147,24 @@ export interface UpdateInputDeviceResponse {
   DeviceSettingsSyncState?: DeviceSettingsSyncState | string;
 
   /**
+   * Settings that describe an input device that is type HD.
+   */
+  HdDeviceSettings?: InputDeviceHdSettings;
+
+  /**
    * The unique ID of the input device.
    */
   Id?: string;
+
+  /**
+   * The network MAC address of the input device.
+   */
+  MacAddress?: string;
+
+  /**
+   * A name that you specify for the input device.
+   */
+  Name?: string;
 
   /**
    * The network settings for the input device.
@@ -6060,26 +6180,6 @@ export interface UpdateInputDeviceResponse {
    * The type of the input device.
    */
   Type?: InputDeviceType | string;
-
-  /**
-   * A name that you specify for the input device.
-   */
-  Name?: string;
-
-  /**
-   * The unique ARN of the input device.
-   */
-  Arn?: string;
-
-  /**
-   * The network MAC address of the input device.
-   */
-  MacAddress?: string;
-
-  /**
-   * Settings that describe an input device that is type HD.
-   */
-  HdDeviceSettings?: InputDeviceHdSettings;
 }
 
 export namespace UpdateInputDeviceResponse {
@@ -6098,14 +6198,14 @@ export interface UpdateInputSecurityGroupRequest {
   InputSecurityGroupId: string | undefined;
 
   /**
-   * List of IPv4 CIDR addresses to whitelist
-   */
-  WhitelistRules?: InputWhitelistRuleCidr[];
-
-  /**
    * A collection of key-value pairs.
    */
   Tags?: { [key: string]: string };
+
+  /**
+   * List of IPv4 CIDR addresses to whitelist
+   */
+  WhitelistRules?: InputWhitelistRuleCidr[];
 }
 
 export namespace UpdateInputSecurityGroupRequest {
@@ -6135,14 +6235,14 @@ export namespace UpdateInputSecurityGroupResponse {
  */
 export interface UpdateMultiplexRequest {
   /**
-   * The new settings for a multiplex.
-   */
-  MultiplexSettings?: MultiplexSettings;
-
-  /**
    * ID of the multiplex to update.
    */
   MultiplexId: string | undefined;
+
+  /**
+   * The new settings for a multiplex.
+   */
+  MultiplexSettings?: MultiplexSettings;
 
   /**
    * Name of the multiplex.
@@ -6219,14 +6319,14 @@ export namespace UpdateMultiplexProgramResponse {
  */
 export interface UpdateReservationRequest {
   /**
-   * Unique reservation ID, e.g. '1234567'
-   */
-  ReservationId: string | undefined;
-
-  /**
    * Name of the reservation
    */
   Name?: string;
+
+  /**
+   * Unique reservation ID, e.g. '1234567'
+   */
+  ReservationId: string | undefined;
 }
 
 export namespace UpdateReservationRequest {
