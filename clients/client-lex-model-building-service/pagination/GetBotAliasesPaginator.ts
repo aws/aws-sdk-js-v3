@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<GetBotAliasesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new GetBotAliasesCommand(input, ...args));
+  return await client.send(new GetBotAliasesCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: LexModelBuildingService,

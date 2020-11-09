@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeModelVersionsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeModelVersionsCommand(input, ...args));
+  return await client.send(new DescribeModelVersionsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: FraudDetector,

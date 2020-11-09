@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeDhcpOptionsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeDhcpOptionsCommand(input, ...args));
+  return await client.send(new DescribeDhcpOptionsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: EC2,

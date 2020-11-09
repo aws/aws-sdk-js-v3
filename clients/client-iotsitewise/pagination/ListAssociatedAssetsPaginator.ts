@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListAssociatedAssetsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListAssociatedAssetsCommand(input, ...args));
+  return await client.send(new ListAssociatedAssetsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: IoTSiteWise,

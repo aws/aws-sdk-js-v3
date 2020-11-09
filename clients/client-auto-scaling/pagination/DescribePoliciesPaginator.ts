@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribePoliciesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribePoliciesCommand(input, ...args));
+  return await client.send(new DescribePoliciesCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: AutoScaling,

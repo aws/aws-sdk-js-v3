@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeTableCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeTableCommand(input, ...args));
+  return await client.send(new DescribeTableCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: RedshiftData,

@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeRemediationExecutionStatusCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeRemediationExecutionStatusCommand(input, ...args));
+  return await client.send(new DescribeRemediationExecutionStatusCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: ConfigService,

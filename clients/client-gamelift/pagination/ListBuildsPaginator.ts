@@ -10,7 +10,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListBuildsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListBuildsCommand(input, ...args));
+  return await client.send(new ListBuildsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: GameLift,

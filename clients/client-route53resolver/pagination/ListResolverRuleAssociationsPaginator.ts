@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListResolverRuleAssociationsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListResolverRuleAssociationsCommand(input, ...args));
+  return await client.send(new ListResolverRuleAssociationsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: Route53Resolver,

@@ -10,7 +10,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListNodesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListNodesCommand(input, ...args));
+  return await client.send(new ListNodesCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: ManagedBlockchain,

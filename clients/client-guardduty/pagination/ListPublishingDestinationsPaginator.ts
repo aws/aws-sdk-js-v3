@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListPublishingDestinationsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListPublishingDestinationsCommand(input, ...args));
+  return await client.send(new ListPublishingDestinationsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: GuardDuty,

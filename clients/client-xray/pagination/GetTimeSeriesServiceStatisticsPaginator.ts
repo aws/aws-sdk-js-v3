@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<GetTimeSeriesServiceStatisticsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new GetTimeSeriesServiceStatisticsCommand(input, ...args));
+  return await client.send(new GetTimeSeriesServiceStatisticsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: XRay,

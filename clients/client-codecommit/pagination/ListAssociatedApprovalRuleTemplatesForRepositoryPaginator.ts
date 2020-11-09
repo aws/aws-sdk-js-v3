@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListAssociatedApprovalRuleTemplatesForRepositoryCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListAssociatedApprovalRuleTemplatesForRepositoryCommand(input, ...args));
+  return await client.send(new ListAssociatedApprovalRuleTemplatesForRepositoryCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: CodeCommit,

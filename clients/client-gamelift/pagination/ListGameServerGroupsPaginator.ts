@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListGameServerGroupsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListGameServerGroupsCommand(input, ...args));
+  return await client.send(new ListGameServerGroupsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: GameLift,

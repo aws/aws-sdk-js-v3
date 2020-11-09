@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListJobsByStatusCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListJobsByStatusCommand(input, ...args));
+  return await client.send(new ListJobsByStatusCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: ElasticTranscoder,

@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeGlobalClustersCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeGlobalClustersCommand(input, ...args));
+  return await client.send(new DescribeGlobalClustersCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: RDS,

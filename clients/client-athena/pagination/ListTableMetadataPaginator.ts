@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListTableMetadataCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListTableMetadataCommand(input, ...args));
+  return await client.send(new ListTableMetadataCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: Athena,

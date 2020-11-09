@@ -10,7 +10,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListGrantsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListGrantsCommand(input, ...args));
+  return await client.send(new ListGrantsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: KMS,

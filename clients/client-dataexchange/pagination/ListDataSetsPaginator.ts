@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListDataSetsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListDataSetsCommand(input, ...args));
+  return await client.send(new ListDataSetsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: DataExchange,

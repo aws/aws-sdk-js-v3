@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<GetResourceShareAssociationsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new GetResourceShareAssociationsCommand(input, ...args));
+  return await client.send(new GetResourceShareAssociationsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: RAM,

@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListFlowDefinitionsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListFlowDefinitionsCommand(input, ...args));
+  return await client.send(new ListFlowDefinitionsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: SageMaker,

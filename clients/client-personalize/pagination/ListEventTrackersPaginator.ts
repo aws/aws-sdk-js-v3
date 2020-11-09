@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListEventTrackersCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListEventTrackersCommand(input, ...args));
+  return await client.send(new ListEventTrackersCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: Personalize,

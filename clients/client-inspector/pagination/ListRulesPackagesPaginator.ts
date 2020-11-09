@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListRulesPackagesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListRulesPackagesCommand(input, ...args));
+  return await client.send(new ListRulesPackagesCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: Inspector,

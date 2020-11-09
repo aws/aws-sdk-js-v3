@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeFastSnapshotRestoresCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeFastSnapshotRestoresCommand(input, ...args));
+  return await client.send(new DescribeFastSnapshotRestoresCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: EC2,

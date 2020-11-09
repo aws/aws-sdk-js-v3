@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListImportJobsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListImportJobsCommand(input, ...args));
+  return await client.send(new ListImportJobsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: SESv2,

@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<BatchGetTracesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new BatchGetTracesCommand(input, ...args));
+  return await client.send(new BatchGetTracesCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: XRay,

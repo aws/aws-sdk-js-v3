@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListHostedConfigurationVersionsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListHostedConfigurationVersionsCommand(input, ...args));
+  return await client.send(new ListHostedConfigurationVersionsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: AppConfig,

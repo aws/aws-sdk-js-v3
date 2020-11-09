@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeIpv6PoolsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeIpv6PoolsCommand(input, ...args));
+  return await client.send(new DescribeIpv6PoolsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: EC2,

@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<GetDetectorsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new GetDetectorsCommand(input, ...args));
+  return await client.send(new GetDetectorsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: FraudDetector,

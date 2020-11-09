@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListObjectsV2CommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListObjectsV2Command(input, ...args));
+  return await client.send(new ListObjectsV2Command(input), ...args);
 };
 const makePagedRequest = async (
   client: S3,

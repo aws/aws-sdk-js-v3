@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListRegionalBucketsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListRegionalBucketsCommand(input, ...args));
+  return await client.send(new ListRegionalBucketsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: S3Control,

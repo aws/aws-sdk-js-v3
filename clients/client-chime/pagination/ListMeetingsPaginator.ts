@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListMeetingsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListMeetingsCommand(input, ...args));
+  return await client.send(new ListMeetingsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: Chime,

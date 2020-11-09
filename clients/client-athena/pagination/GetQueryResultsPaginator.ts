@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<GetQueryResultsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new GetQueryResultsCommand(input, ...args));
+  return await client.send(new GetQueryResultsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: Athena,

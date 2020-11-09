@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeImageScanFindingsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeImageScanFindingsCommand(input, ...args));
+  return await client.send(new DescribeImageScanFindingsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: ECR,

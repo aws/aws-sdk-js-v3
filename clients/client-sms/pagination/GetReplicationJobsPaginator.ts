@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<GetReplicationJobsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new GetReplicationJobsCommand(input, ...args));
+  return await client.send(new GetReplicationJobsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: SMS,

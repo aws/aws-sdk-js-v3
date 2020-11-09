@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<GetConnectorsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new GetConnectorsCommand(input, ...args));
+  return await client.send(new GetConnectorsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: SMS,

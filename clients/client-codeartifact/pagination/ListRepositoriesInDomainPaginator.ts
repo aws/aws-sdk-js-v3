@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListRepositoriesInDomainCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListRepositoriesInDomainCommand(input, ...args));
+  return await client.send(new ListRepositoriesInDomainCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: Codeartifact,

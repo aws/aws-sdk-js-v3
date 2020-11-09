@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeLaunchTemplateVersionsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeLaunchTemplateVersionsCommand(input, ...args));
+  return await client.send(new DescribeLaunchTemplateVersionsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: EC2,

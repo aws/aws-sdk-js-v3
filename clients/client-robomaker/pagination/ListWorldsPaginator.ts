@@ -10,7 +10,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListWorldsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListWorldsCommand(input, ...args));
+  return await client.send(new ListWorldsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: RoboMaker,

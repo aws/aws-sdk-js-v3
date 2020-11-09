@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListEntitiesDetectionJobsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListEntitiesDetectionJobsCommand(input, ...args));
+  return await client.send(new ListEntitiesDetectionJobsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: Comprehend,

@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListPolicyAttachmentsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListPolicyAttachmentsCommand(input, ...args));
+  return await client.send(new ListPolicyAttachmentsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: CloudDirectory,

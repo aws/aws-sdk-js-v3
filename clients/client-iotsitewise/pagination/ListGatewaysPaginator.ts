@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListGatewaysCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListGatewaysCommand(input, ...args));
+  return await client.send(new ListGatewaysCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: IoTSiteWise,

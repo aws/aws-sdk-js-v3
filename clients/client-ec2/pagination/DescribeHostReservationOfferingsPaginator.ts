@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeHostReservationOfferingsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeHostReservationOfferingsCommand(input, ...args));
+  return await client.send(new DescribeHostReservationOfferingsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: EC2,

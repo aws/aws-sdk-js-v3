@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListDevEndpointsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListDevEndpointsCommand(input, ...args));
+  return await client.send(new ListDevEndpointsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: Glue,

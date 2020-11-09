@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListChannelsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListChannelsCommand(input, ...args));
+  return await client.send(new ListChannelsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: IoTAnalytics,

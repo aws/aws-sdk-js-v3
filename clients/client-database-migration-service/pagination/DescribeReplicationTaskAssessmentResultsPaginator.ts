@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeReplicationTaskAssessmentResultsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeReplicationTaskAssessmentResultsCommand(input, ...args));
+  return await client.send(new DescribeReplicationTaskAssessmentResultsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: DatabaseMigrationService,

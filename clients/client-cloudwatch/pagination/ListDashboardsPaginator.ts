@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListDashboardsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListDashboardsCommand(input, ...args));
+  return await client.send(new ListDashboardsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: CloudWatch,

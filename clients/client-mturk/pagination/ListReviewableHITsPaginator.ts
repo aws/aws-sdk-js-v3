@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListReviewableHITsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListReviewableHITsCommand(input, ...args));
+  return await client.send(new ListReviewableHITsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: MTurk,

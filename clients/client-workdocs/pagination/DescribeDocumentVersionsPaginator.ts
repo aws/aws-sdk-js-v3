@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeDocumentVersionsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeDocumentVersionsCommand(input, ...args));
+  return await client.send(new DescribeDocumentVersionsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: WorkDocs,

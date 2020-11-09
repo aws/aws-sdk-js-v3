@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListEnvironmentsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListEnvironmentsCommand(input, ...args));
+  return await client.send(new ListEnvironmentsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: AppConfig,

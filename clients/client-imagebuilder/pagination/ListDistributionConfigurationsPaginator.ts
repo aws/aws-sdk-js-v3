@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListDistributionConfigurationsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListDistributionConfigurationsCommand(input, ...args));
+  return await client.send(new ListDistributionConfigurationsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: Imagebuilder,

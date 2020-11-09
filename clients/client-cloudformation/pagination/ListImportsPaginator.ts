@@ -10,7 +10,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListImportsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListImportsCommand(input, ...args));
+  return await client.send(new ListImportsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: CloudFormation,

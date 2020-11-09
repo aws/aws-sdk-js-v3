@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListTriggersCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListTriggersCommand(input, ...args));
+  return await client.send(new ListTriggersCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: Glue,

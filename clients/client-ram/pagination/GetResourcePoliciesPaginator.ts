@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<GetResourcePoliciesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new GetResourcePoliciesCommand(input, ...args));
+  return await client.send(new GetResourcePoliciesCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: RAM,

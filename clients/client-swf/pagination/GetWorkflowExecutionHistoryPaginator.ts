@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<GetWorkflowExecutionHistoryCommandOutput> => {
   // @ts-ignore
-  return await client.send(new GetWorkflowExecutionHistoryCommand(input, ...args));
+  return await client.send(new GetWorkflowExecutionHistoryCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: SWF,

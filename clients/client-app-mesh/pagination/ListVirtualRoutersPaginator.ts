@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListVirtualRoutersCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListVirtualRoutersCommand(input, ...args));
+  return await client.send(new ListVirtualRoutersCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: AppMesh,

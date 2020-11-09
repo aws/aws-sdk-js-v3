@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListBuildsForProjectCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListBuildsForProjectCommand(input, ...args));
+  return await client.send(new ListBuildsForProjectCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: CodeBuild,

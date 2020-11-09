@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeTransitGatewayPeeringAttachmentsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeTransitGatewayPeeringAttachmentsCommand(input, ...args));
+  return await client.send(new DescribeTransitGatewayPeeringAttachmentsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: EC2,

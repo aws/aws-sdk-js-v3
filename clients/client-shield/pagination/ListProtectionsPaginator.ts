@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListProtectionsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListProtectionsCommand(input, ...args));
+  return await client.send(new ListProtectionsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: Shield,

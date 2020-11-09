@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListRoutingProfilesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListRoutingProfilesCommand(input, ...args));
+  return await client.send(new ListRoutingProfilesCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: Connect,

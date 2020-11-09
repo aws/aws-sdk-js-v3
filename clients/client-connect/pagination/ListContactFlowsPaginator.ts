@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListContactFlowsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListContactFlowsCommand(input, ...args));
+  return await client.send(new ListContactFlowsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: Connect,

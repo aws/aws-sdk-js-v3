@@ -10,7 +10,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListJobsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListJobsCommand(input, ...args));
+  return await client.send(new ListJobsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: DataExchange,

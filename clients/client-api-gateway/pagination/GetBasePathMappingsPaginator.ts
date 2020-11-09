@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<GetBasePathMappingsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new GetBasePathMappingsCommand(input, ...args));
+  return await client.send(new GetBasePathMappingsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: APIGateway,

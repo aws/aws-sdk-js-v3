@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeTransitGatewayVpcAttachmentsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeTransitGatewayVpcAttachmentsCommand(input, ...args));
+  return await client.send(new DescribeTransitGatewayVpcAttachmentsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: EC2,

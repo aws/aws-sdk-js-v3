@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListAccountsForParentCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListAccountsForParentCommand(input, ...args));
+  return await client.send(new ListAccountsForParentCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: Organizations,

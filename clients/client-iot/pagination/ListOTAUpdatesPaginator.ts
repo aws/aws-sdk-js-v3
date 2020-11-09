@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListOTAUpdatesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListOTAUpdatesCommand(input, ...args));
+  return await client.send(new ListOTAUpdatesCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: IoT,

@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeCapacityReservationsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeCapacityReservationsCommand(input, ...args));
+  return await client.send(new DescribeCapacityReservationsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: EC2,
