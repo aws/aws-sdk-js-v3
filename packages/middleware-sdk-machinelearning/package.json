@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/middleware-sdk-machinelearning",
-  "version": "1.0.0-rc.3",
+  "version": "1.0.0-rc.5",
   "scripts": {
     "prepublishOnly": "yarn build:cjs && yarn build:es",
     "pretest": "yarn build:cjs",
@@ -18,7 +18,7 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/protocol-http": "1.0.0-rc.3",
+    "@aws-sdk/protocol-http": "1.0.0-rc.5",
     "tslib": "^1.8.0"
   },
   "devDependencies": {
