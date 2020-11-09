@@ -10,7 +10,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListVolumesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListVolumesCommand(input, ...args));
+  return await client.send(new ListVolumesCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: StorageGateway,

@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListEntitiesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListEntitiesCommand(input, ...args));
+  return await client.send(new ListEntitiesCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: MarketplaceCatalog,

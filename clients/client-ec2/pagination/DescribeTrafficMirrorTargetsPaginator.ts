@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeTrafficMirrorTargetsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeTrafficMirrorTargetsCommand(input, ...args));
+  return await client.send(new DescribeTrafficMirrorTargetsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: EC2,

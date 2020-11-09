@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeDBProxyTargetsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeDBProxyTargetsCommand(input, ...args));
+  return await client.send(new DescribeDBProxyTargetsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: RDS,

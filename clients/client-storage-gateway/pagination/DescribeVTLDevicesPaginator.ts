@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeVTLDevicesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeVTLDevicesCommand(input, ...args));
+  return await client.send(new DescribeVTLDevicesCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: StorageGateway,

@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeCacheSubnetGroupsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeCacheSubnetGroupsCommand(input, ...args));
+  return await client.send(new DescribeCacheSubnetGroupsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: ElastiCache,

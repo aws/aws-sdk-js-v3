@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListVocabularyFiltersCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListVocabularyFiltersCommand(input, ...args));
+  return await client.send(new ListVocabularyFiltersCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: Transcribe,

@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeDBParameterGroupsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeDBParameterGroupsCommand(input, ...args));
+  return await client.send(new DescribeDBParameterGroupsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: RDS,

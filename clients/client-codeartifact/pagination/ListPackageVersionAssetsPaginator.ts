@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListPackageVersionAssetsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListPackageVersionAssetsCommand(input, ...args));
+  return await client.send(new ListPackageVersionAssetsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: Codeartifact,

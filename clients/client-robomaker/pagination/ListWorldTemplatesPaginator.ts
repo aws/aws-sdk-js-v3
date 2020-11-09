@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListWorldTemplatesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListWorldTemplatesCommand(input, ...args));
+  return await client.send(new ListWorldTemplatesCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: RoboMaker,

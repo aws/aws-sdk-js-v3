@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListSolutionsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListSolutionsCommand(input, ...args));
+  return await client.send(new ListSolutionsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: Personalize,

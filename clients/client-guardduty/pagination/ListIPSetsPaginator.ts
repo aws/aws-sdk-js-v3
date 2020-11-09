@@ -10,7 +10,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListIPSetsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListIPSetsCommand(input, ...args));
+  return await client.send(new ListIPSetsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: GuardDuty,

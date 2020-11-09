@@ -10,7 +10,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListStepsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListStepsCommand(input, ...args));
+  return await client.send(new ListStepsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: EMR,

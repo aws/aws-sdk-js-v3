@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListCustomVerificationEmailTemplatesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListCustomVerificationEmailTemplatesCommand(input, ...args));
+  return await client.send(new ListCustomVerificationEmailTemplatesCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: SESv2,

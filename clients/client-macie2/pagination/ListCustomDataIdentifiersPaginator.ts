@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListCustomDataIdentifiersCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListCustomDataIdentifiersCommand(input, ...args));
+  return await client.send(new ListCustomDataIdentifiersCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: Macie2,

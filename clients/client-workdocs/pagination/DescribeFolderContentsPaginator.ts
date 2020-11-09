@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeFolderContentsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeFolderContentsCommand(input, ...args));
+  return await client.send(new DescribeFolderContentsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: WorkDocs,

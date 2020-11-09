@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<SimulatePrincipalPolicyCommandOutput> => {
   // @ts-ignore
-  return await client.send(new SimulatePrincipalPolicyCommand(input, ...args));
+  return await client.send(new SimulatePrincipalPolicyCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: IAM,

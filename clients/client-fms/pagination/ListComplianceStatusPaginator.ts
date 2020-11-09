@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListComplianceStatusCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListComplianceStatusCommand(input, ...args));
+  return await client.send(new ListComplianceStatusCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: FMS,

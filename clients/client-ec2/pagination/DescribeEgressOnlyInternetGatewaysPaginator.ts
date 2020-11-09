@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeEgressOnlyInternetGatewaysCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeEgressOnlyInternetGatewaysCommand(input, ...args));
+  return await client.send(new DescribeEgressOnlyInternetGatewaysCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: EC2,

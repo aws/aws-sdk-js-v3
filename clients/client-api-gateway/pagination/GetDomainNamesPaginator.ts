@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<GetDomainNamesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new GetDomainNamesCommand(input, ...args));
+  return await client.send(new GetDomainNamesCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: APIGateway,

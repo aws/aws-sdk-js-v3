@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListAcceptedPortfolioSharesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListAcceptedPortfolioSharesCommand(input, ...args));
+  return await client.send(new ListAcceptedPortfolioSharesCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: ServiceCatalog,

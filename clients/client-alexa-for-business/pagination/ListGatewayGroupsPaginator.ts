@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListGatewayGroupsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListGatewayGroupsCommand(input, ...args));
+  return await client.send(new ListGatewayGroupsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: AlexaForBusiness,

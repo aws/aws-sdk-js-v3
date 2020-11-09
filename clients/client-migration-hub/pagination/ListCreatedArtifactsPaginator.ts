@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListCreatedArtifactsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListCreatedArtifactsCommand(input, ...args));
+  return await client.send(new ListCreatedArtifactsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: MigrationHub,

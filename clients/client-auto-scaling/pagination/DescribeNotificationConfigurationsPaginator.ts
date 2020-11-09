@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeNotificationConfigurationsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeNotificationConfigurationsCommand(input, ...args));
+  return await client.send(new DescribeNotificationConfigurationsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: AutoScaling,

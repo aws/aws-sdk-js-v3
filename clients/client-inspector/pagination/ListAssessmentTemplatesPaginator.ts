@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListAssessmentTemplatesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListAssessmentTemplatesCommand(input, ...args));
+  return await client.send(new ListAssessmentTemplatesCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: Inspector,

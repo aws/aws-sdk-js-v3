@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeLocalGatewayVirtualInterfacesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeLocalGatewayVirtualInterfacesCommand(input, ...args));
+  return await client.send(new DescribeLocalGatewayVirtualInterfacesCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: EC2,

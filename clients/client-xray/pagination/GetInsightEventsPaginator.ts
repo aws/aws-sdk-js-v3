@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<GetInsightEventsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new GetInsightEventsCommand(input, ...args));
+  return await client.send(new GetInsightEventsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: XRay,

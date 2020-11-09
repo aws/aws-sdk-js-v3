@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<GetVariablesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new GetVariablesCommand(input, ...args));
+  return await client.send(new GetVariablesCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: FraudDetector,

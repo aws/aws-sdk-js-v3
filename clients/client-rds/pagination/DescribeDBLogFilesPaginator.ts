@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeDBLogFilesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeDBLogFilesCommand(input, ...args));
+  return await client.send(new DescribeDBLogFilesCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: RDS,

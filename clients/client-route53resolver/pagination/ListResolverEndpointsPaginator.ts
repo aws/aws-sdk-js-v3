@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListResolverEndpointsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListResolverEndpointsCommand(input, ...args));
+  return await client.send(new ListResolverEndpointsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: Route53Resolver,

@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListDevelopmentSchemaArnsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListDevelopmentSchemaArnsCommand(input, ...args));
+  return await client.send(new ListDevelopmentSchemaArnsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: CloudDirectory,

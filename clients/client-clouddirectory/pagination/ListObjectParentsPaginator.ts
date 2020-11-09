@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListObjectParentsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListObjectParentsCommand(input, ...args));
+  return await client.send(new ListObjectParentsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: CloudDirectory,

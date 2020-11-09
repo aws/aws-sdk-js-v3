@@ -10,7 +10,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListPresetsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListPresetsCommand(input, ...args));
+  return await client.send(new ListPresetsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: MediaConvert,

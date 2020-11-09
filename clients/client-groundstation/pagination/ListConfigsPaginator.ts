@@ -10,7 +10,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListConfigsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListConfigsCommand(input, ...args));
+  return await client.send(new ListConfigsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: GroundStation,

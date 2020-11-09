@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListEnabledProductsForImportCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListEnabledProductsForImportCommand(input, ...args));
+  return await client.send(new ListEnabledProductsForImportCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: SecurityHub,

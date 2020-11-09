@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListWorkGroupsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListWorkGroupsCommand(input, ...args));
+  return await client.send(new ListWorkGroupsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: Athena,

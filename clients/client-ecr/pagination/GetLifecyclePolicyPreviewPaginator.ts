@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<GetLifecyclePolicyPreviewCommandOutput> => {
   // @ts-ignore
-  return await client.send(new GetLifecyclePolicyPreviewCommand(input, ...args));
+  return await client.send(new GetLifecyclePolicyPreviewCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: ECR,

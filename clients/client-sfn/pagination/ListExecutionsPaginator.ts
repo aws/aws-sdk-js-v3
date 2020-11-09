@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListExecutionsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListExecutionsCommand(input, ...args));
+  return await client.send(new ListExecutionsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: SFN,

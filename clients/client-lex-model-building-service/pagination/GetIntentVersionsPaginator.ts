@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<GetIntentVersionsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new GetIntentVersionsCommand(input, ...args));
+  return await client.send(new GetIntentVersionsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: LexModelBuildingService,

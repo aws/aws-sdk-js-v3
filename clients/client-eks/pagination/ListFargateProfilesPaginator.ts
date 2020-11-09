@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListFargateProfilesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListFargateProfilesCommand(input, ...args));
+  return await client.send(new ListFargateProfilesCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: EKS,

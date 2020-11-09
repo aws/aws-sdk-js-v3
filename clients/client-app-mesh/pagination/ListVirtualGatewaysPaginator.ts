@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListVirtualGatewaysCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListVirtualGatewaysCommand(input, ...args));
+  return await client.send(new ListVirtualGatewaysCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: AppMesh,

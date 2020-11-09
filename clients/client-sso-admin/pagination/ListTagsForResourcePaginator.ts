@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListTagsForResourceCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListTagsForResourceCommand(input, ...args));
+  return await client.send(new ListTagsForResourceCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: SSOAdmin,

@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListAnalyzersCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListAnalyzersCommand(input, ...args));
+  return await client.send(new ListAnalyzersCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: AccessAnalyzer,

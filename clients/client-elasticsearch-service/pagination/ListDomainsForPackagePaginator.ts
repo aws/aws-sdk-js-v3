@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListDomainsForPackageCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListDomainsForPackageCommand(input, ...args));
+  return await client.send(new ListDomainsForPackageCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: ElasticsearchService,

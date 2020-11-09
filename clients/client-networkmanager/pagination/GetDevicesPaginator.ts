@@ -10,7 +10,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<GetDevicesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new GetDevicesCommand(input, ...args));
+  return await client.send(new GetDevicesCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: NetworkManager,

@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeBatchPredictionsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeBatchPredictionsCommand(input, ...args));
+  return await client.send(new DescribeBatchPredictionsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: MachineLearning,

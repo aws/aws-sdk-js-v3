@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListDataflowEndpointGroupsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListDataflowEndpointGroupsCommand(input, ...args));
+  return await client.send(new ListDataflowEndpointGroupsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: GroundStation,

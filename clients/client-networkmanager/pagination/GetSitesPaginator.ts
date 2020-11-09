@@ -10,7 +10,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<GetSitesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new GetSitesCommand(input, ...args));
+  return await client.send(new GetSitesCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: NetworkManager,

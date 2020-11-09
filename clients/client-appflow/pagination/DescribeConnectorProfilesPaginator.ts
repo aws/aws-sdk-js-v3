@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeConnectorProfilesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeConnectorProfilesCommand(input, ...args));
+  return await client.send(new DescribeConnectorProfilesCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: Appflow,

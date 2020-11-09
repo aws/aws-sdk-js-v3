@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListAWSServiceAccessForOrganizationCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListAWSServiceAccessForOrganizationCommand(input, ...args));
+  return await client.send(new ListAWSServiceAccessForOrganizationCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: Organizations,

@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListProxySessionsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListProxySessionsCommand(input, ...args));
+  return await client.send(new ListProxySessionsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: Chime,

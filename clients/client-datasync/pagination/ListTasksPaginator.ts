@@ -10,7 +10,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListTasksCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListTasksCommand(input, ...args));
+  return await client.send(new ListTasksCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: DataSync,

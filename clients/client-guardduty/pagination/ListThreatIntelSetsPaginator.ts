@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListThreatIntelSetsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListThreatIntelSetsCommand(input, ...args));
+  return await client.send(new ListThreatIntelSetsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: GuardDuty,

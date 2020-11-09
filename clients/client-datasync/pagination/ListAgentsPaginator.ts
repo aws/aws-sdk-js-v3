@@ -10,7 +10,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListAgentsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListAgentsCommand(input, ...args));
+  return await client.send(new ListAgentsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: DataSync,

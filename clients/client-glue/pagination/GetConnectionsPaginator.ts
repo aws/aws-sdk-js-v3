@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<GetConnectionsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new GetConnectionsCommand(input, ...args));
+  return await client.send(new GetConnectionsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: Glue,

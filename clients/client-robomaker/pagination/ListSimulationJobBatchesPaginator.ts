@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListSimulationJobBatchesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListSimulationJobBatchesCommand(input, ...args));
+  return await client.send(new ListSimulationJobBatchesCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: RoboMaker,

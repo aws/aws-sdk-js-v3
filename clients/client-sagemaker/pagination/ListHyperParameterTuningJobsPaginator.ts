@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListHyperParameterTuningJobsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListHyperParameterTuningJobsCommand(input, ...args));
+  return await client.send(new ListHyperParameterTuningJobsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: SageMaker,

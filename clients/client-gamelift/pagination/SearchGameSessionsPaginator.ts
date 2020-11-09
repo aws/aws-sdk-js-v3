@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<SearchGameSessionsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new SearchGameSessionsCommand(input, ...args));
+  return await client.send(new SearchGameSessionsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: GameLift,

@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListConfigurationHistoryCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListConfigurationHistoryCommand(input, ...args));
+  return await client.send(new ListConfigurationHistoryCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: ApplicationInsights,

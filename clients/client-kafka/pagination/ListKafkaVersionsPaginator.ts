@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListKafkaVersionsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListKafkaVersionsCommand(input, ...args));
+  return await client.send(new ListKafkaVersionsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: Kafka,

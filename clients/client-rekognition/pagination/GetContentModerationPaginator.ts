@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<GetContentModerationCommandOutput> => {
   // @ts-ignore
-  return await client.send(new GetContentModerationCommand(input, ...args));
+  return await client.send(new GetContentModerationCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: Rekognition,

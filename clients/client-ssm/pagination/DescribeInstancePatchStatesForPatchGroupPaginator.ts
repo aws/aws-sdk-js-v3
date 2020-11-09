@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeInstancePatchStatesForPatchGroupCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeInstancePatchStatesForPatchGroupCommand(input, ...args));
+  return await client.send(new DescribeInstancePatchStatesForPatchGroupCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: SSM,

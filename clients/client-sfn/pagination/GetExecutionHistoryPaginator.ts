@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<GetExecutionHistoryCommandOutput> => {
   // @ts-ignore
-  return await client.send(new GetExecutionHistoryCommand(input, ...args));
+  return await client.send(new GetExecutionHistoryCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: SFN,

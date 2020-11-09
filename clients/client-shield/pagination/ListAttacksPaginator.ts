@@ -10,7 +10,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListAttacksCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListAttacksCommand(input, ...args));
+  return await client.send(new ListAttacksCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: Shield,

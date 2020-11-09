@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeTransitGatewayMulticastDomainsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeTransitGatewayMulticastDomainsCommand(input, ...args));
+  return await client.send(new DescribeTransitGatewayMulticastDomainsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: EC2,

@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeVpcEndpointConnectionsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeVpcEndpointConnectionsCommand(input, ...args));
+  return await client.send(new DescribeVpcEndpointConnectionsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: EC2,

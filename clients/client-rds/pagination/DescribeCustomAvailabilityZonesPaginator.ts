@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeCustomAvailabilityZonesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeCustomAvailabilityZonesCommand(input, ...args));
+  return await client.send(new DescribeCustomAvailabilityZonesCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: RDS,

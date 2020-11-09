@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeReplicationGroupsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeReplicationGroupsCommand(input, ...args));
+  return await client.send(new DescribeReplicationGroupsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: ElastiCache,

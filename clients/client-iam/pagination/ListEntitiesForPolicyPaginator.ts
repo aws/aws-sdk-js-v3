@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListEntitiesForPolicyCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListEntitiesForPolicyCommand(input, ...args));
+  return await client.send(new ListEntitiesForPolicyCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: IAM,

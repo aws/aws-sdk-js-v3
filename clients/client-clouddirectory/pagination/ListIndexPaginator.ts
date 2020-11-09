@@ -10,7 +10,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListIndexCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListIndexCommand(input, ...args));
+  return await client.send(new ListIndexCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: CloudDirectory,

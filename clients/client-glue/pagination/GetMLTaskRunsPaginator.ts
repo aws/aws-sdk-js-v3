@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<GetMLTaskRunsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new GetMLTaskRunsCommand(input, ...args));
+  return await client.send(new GetMLTaskRunsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: Glue,

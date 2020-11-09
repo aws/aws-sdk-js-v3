@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeVolumeStatusCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeVolumeStatusCommand(input, ...args));
+  return await client.send(new DescribeVolumeStatusCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: EC2,

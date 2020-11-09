@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeUsageLimitsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeUsageLimitsCommand(input, ...args));
+  return await client.send(new DescribeUsageLimitsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: Redshift,

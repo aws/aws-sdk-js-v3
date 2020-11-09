@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListDomainConfigurationsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListDomainConfigurationsCommand(input, ...args));
+  return await client.send(new ListDomainConfigurationsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: IoT,

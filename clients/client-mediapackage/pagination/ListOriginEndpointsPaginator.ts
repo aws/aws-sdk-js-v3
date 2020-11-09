@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListOriginEndpointsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListOriginEndpointsCommand(input, ...args));
+  return await client.send(new ListOriginEndpointsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: MediaPackage,

@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListForecastsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListForecastsCommand(input, ...args));
+  return await client.send(new ListForecastsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: Forecast,

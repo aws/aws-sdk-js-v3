@@ -10,7 +10,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListLayersCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListLayersCommand(input, ...args));
+  return await client.send(new ListLayersCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: Lambda,

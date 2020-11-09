@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeImagePermissionsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeImagePermissionsCommand(input, ...args));
+  return await client.send(new DescribeImagePermissionsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: AppStream,

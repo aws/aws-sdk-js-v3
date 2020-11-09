@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListSecretVersionIdsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListSecretVersionIdsCommand(input, ...args));
+  return await client.send(new ListSecretVersionIdsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: SecretsManager,

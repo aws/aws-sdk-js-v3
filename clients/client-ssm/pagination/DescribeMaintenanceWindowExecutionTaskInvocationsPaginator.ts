@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeMaintenanceWindowExecutionTaskInvocationsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeMaintenanceWindowExecutionTaskInvocationsCommand(input, ...args));
+  return await client.send(new DescribeMaintenanceWindowExecutionTaskInvocationsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: SSM,

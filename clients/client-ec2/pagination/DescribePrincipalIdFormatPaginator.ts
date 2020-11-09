@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribePrincipalIdFormatCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribePrincipalIdFormatCommand(input, ...args));
+  return await client.send(new DescribePrincipalIdFormatCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: EC2,

@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListProjectsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListProjectsCommand(input, ...args));
+  return await client.send(new ListProjectsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: IoT1ClickProjects,
