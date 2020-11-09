@@ -42,7 +42,7 @@ export function sendMessageBatchMiddleware(options: PreviouslyResolved): Initial
       if (entries[entry.Id]) {
         const md5 = entries[entry.Id].MD5OfMessageBody;
         const hash = new options.md5();
-        hash.update(entry.MD5OfMessageBody || "");
+        hash.update(entry.MessageBody || "");
         if (md5 !== toHex(await hash.digest())) {
           messageIds.push(entries[entry.Id].MessageId);
         }
