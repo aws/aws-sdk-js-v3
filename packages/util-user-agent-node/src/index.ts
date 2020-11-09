@@ -1,9 +1,17 @@
 import process from "process";
 
-export function defaultUserAgent(packageName: string, packageVersion: string): string {
-  let engine = `${process.platform}/${process.version}`;
-  if (process.env.AWS_EXECUTION_ENV) {
-    engine += ` exec-env/${process.env.AWS_EXECUTION_ENV}`;
-  }
-  return `aws-sdk-nodejs-v3-${packageName}/${packageVersion} ${engine}`;
-}
+export const defaultUserAgent = (packageName: string, packageVersion: string): string =>
+  [
+    // sdk-metadata
+    // TODO: remove this post GA and version changed to 3.x.x
+    `aws-sdk-nodejs/${packageVersion.replace(/^1\./, "3.")}`,
+    // os-metadata
+    process.platform,
+    `nodejs/${process.versions.node}`,
+    // language-metadata
+    `sdk-client/${packageName}`,
+    // env-metadata
+    process.env.AWS_EXECUTION_ENV ? `exec-env/${process.env.AWS_EXECUTION_ENV}` : undefined,
+  ]
+    .filter((section) => section && section.length > 0)
+    .join(" ");

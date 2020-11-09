@@ -1,0 +1,8 @@
+{
+  "java.project.referencedLibraries": [
+    "lib/**/*.jar",
+    "/home/ec2-user/workspace/smithy-typescript/**/*.jar",
+    "/home/ec2-user/workspace/smithy/**/*.jar"
+  ],
+  "java.checkstyle.configuration": "${workspaceFolder}/config/checkstyle/checkstyle.xml"
+}
