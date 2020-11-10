@@ -168,11 +168,6 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   utf8Encoder?: __Encoder;
 
   /**
-   * The string that will be used to populate default value in 'User-Agent' header
-   */
-  defaultUserAgent?: string;
-
-  /**
    * The runtime environment
    */
   runtime?: string;
@@ -218,6 +213,11 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
    * that computes MD5 hashes
    */
   md5?: __HashConstructor;
+
+  /**
+   * The string that will be used to populate default value in 'User-Agent' header
+   */
+  defaultUserAgent?: string;
 }
 
 export type SQSClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &

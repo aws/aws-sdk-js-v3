@@ -248,11 +248,6 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   utf8Encoder?: __Encoder;
 
   /**
-   * The string that will be used to populate default value in 'User-Agent' header
-   */
-  defaultUserAgent?: string;
-
-  /**
    * The runtime environment
    */
   runtime?: string;
@@ -300,6 +295,11 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
     request: __HttpRequest,
     options: { sha256: __HashConstructor; utf8Decoder: __Decoder }
   ) => Promise<[string, string]>;
+
+  /**
+   * The string that will be used to populate default value in 'User-Agent' header
+   */
+  defaultUserAgent?: string;
 }
 
 export type GlacierClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &

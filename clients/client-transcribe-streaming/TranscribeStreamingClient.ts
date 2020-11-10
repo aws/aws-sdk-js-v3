@@ -125,11 +125,6 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   utf8Encoder?: __Encoder;
 
   /**
-   * The string that will be used to populate default value in 'User-Agent' header
-   */
-  defaultUserAgent?: string;
-
-  /**
    * The runtime environment
    */
   runtime?: string;
@@ -174,6 +169,11 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
    * The function that provides necessary utilities for handling request event stream.
    */
   eventStreamPayloadHandlerProvider?: __EventStreamPayloadHandlerProvider;
+
+  /**
+   * The string that will be used to populate default value in 'User-Agent' header
+   */
+  defaultUserAgent?: string;
 
   /**
    * The function that provides necessary utilities for generating and parsing event stream

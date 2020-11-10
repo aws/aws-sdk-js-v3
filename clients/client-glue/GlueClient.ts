@@ -711,11 +711,6 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   utf8Encoder?: __Encoder;
 
   /**
-   * The string that will be used to populate default value in 'User-Agent' header
-   */
-  defaultUserAgent?: string;
-
-  /**
    * The runtime environment
    */
   runtime?: string;
@@ -755,6 +750,11 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
    * Fetch related hostname, signing name or signing region with given region.
    */
   regionInfoProvider?: RegionInfoProvider;
+
+  /**
+   * The string that will be used to populate default value in 'User-Agent' header
+   */
+  defaultUserAgent?: string;
 }
 
 export type GlueClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &

@@ -538,11 +538,6 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   utf8Encoder?: __Encoder;
 
   /**
-   * The string that will be used to populate default value in 'User-Agent' header
-   */
-  defaultUserAgent?: string;
-
-  /**
    * The runtime environment
    */
   runtime?: string;
@@ -604,6 +599,11 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
    * Whether to override the request region with the region inferred from requested resource's ARN. Defaults to false.
    */
   useArnRegion?: boolean | Provider<boolean>;
+  /**
+   * The string that will be used to populate default value in 'User-Agent' header
+   */
+  defaultUserAgent?: string;
+
   /**
    * The function that provides necessary utilities for generating and parsing event stream
    */
