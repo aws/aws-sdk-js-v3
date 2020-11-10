@@ -1,18 +1,17 @@
 version: 0.2
 
 phases:
-  install:
-    runtime-versions:
-      nodejs: 10
   build:
     commands:
       # Fake credentials for protocol tests to get past signing.
       - export AWS_ACCESS_KEY_ID=foo
       - export AWS_SECRET_ACCESS_KEY=bar
+      - n 10
       - echo Building...
       - yarn --frozen-lockfile
       # Run the actual tests.
       - echo Executing unit tests
+      - nvm use
       - yarn test:all
       - echo Executing functional test
       - yarn test:functional
