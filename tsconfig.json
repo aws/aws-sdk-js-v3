@@ -25,6 +25,6 @@
       "@aws-sdk/lib-*": ["lib/*"]
     }
   },
-  "include": ["packages/"],
+  "include": ["packages/", "clients/", "lib/"],
   "exclude": ["node_modules/"]
 }
