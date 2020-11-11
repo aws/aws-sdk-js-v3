@@ -5,6 +5,7 @@
   "description": "AWS SDK for JavaScript from the future",
   "main": "index.js",
   "scripts": {
+    "copy-models": "node ./scripts/copy-models",
     "generate-clients": "node ./scripts/generate-clients",
     "bootstrap": "yarn",
     "clean": "yarn clear-build-cache && yarn clear-build-info && lerna clean",
