@@ -921,6 +921,15 @@
         }
       }
     },
+    "com.amazonaws.dynamodb#BilledSizeBytes": {
+      "type": "long",
+      "traits": {
+        "smithy.api#box": {},
+        "smithy.api#range": {
+          "min": 0
+        }
+      }
+    },
     "com.amazonaws.dynamodb#BillingMode": {
       "type": "string",
       "traits": {
@@ -1047,6 +1056,9 @@
           "max": 36
         }
       }
+    },
+    "com.amazonaws.dynamodb#ClientToken": {
+      "type": "string"
     },
     "com.amazonaws.dynamodb#Code": {
       "type": "string"
@@ -1386,7 +1398,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Represents a Contributor Insights summary entry..</p>"
+        "smithy.api#documentation": "<p>Represents a Contributor Insights summary entry.</p>"
       }
     },
     "com.amazonaws.dynamodb#CreateBackup": {
@@ -2256,6 +2268,52 @@
         }
       }
     },
+    "com.amazonaws.dynamodb#DescribeExport": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.dynamodb#DescribeExportInput"
+      },
+      "output": {
+        "target": "com.amazonaws.dynamodb#DescribeExportOutput"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.dynamodb#ExportNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.dynamodb#InternalServerError"
+        },
+        {
+          "target": "com.amazonaws.dynamodb#LimitExceededException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Describes an existing table export.</p>"
+      }
+    },
+    "com.amazonaws.dynamodb#DescribeExportInput": {
+      "type": "structure",
+      "members": {
+        "ExportArn": {
+          "target": "com.amazonaws.dynamodb#ExportArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) associated with the export.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.dynamodb#DescribeExportOutput": {
+      "type": "structure",
+      "members": {
+        "ExportDescription": {
+          "target": "com.amazonaws.dynamodb#ExportDescription",
+          "traits": {
+            "smithy.api#documentation": "<p>Represents the properties of the export.</p>"
+          }
+        }
+      }
+    },
     "com.amazonaws.dynamodb#DescribeGlobalTable": {
       "type": "operation",
       "input": {
@@ -2601,6 +2659,9 @@
           "target": "com.amazonaws.dynamodb#DescribeEndpoints"
         },
         {
+          "target": "com.amazonaws.dynamodb#DescribeExport"
+        },
+        {
           "target": "com.amazonaws.dynamodb#DescribeGlobalTable"
         },
         {
@@ -2619,6 +2680,9 @@
           "target": "com.amazonaws.dynamodb#DescribeTimeToLive"
         },
         {
+          "target": "com.amazonaws.dynamodb#ExportTableToPointInTime"
+        },
+        {
           "target": "com.amazonaws.dynamodb#GetItem"
         },
         {
@@ -2626,6 +2690,9 @@
         },
         {
           "target": "com.amazonaws.dynamodb#ListContributorInsights"
+        },
+        {
+          "target": "com.amazonaws.dynamodb#ListExports"
         },
         {
           "target": "com.amazonaws.dynamodb#ListGlobalTables"
@@ -2788,6 +2855,341 @@
         "smithy.api#documentation": "<p>Represents a condition to be compared with an attribute value. This condition can be\n         used with <code>DeleteItem</code>, <code>PutItem</code>, or <code>UpdateItem</code>\n         operations; if the comparison evaluates to true, the operation succeeds; if not, the\n         operation fails. You can use <code>ExpectedAttributeValue</code> in one of two different\n         ways:</p>\n         <ul>\n            <li>\n               <p>Use <code>AttributeValueList</code> to specify one or more values to compare against an\n          attribute. Use <code>ComparisonOperator</code> to specify how you want to perform the\n          comparison. If the comparison evaluates to true, then the conditional operation\n          succeeds.</p>\n            </li>\n            <li>\n               <p>Use <code>Value</code> to specify a value that DynamoDB will compare against an attribute. If the\n          values match, then <code>ExpectedAttributeValue</code> evaluates to true and the conditional\n          operation succeeds. Optionally, you can also set <code>Exists</code> to false, indicating that\n          you <i>do not</i> expect to find the attribute value in the table. In this case, the\n          conditional operation succeeds only if the comparison evaluates to false.</p>\n            </li>\n         </ul>\n         <p>\n            <code>Value</code> and <code>Exists</code> are incompatible with <code>AttributeValueList</code> and\n        <code>ComparisonOperator</code>. Note that if you use both sets of parameters at once, DynamoDB will\n      return a <code>ValidationException</code> exception.</p>"
       }
     },
+    "com.amazonaws.dynamodb#ExportArn": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 37,
+          "max": 1024
+        }
+      }
+    },
+    "com.amazonaws.dynamodb#ExportConflictException": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazonaws.dynamodb#ErrorMessage"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>There was a conflict when writing to the specified S3 bucket.</p>",
+        "smithy.api#error": "client"
+      }
+    },
+    "com.amazonaws.dynamodb#ExportDescription": {
+      "type": "structure",
+      "members": {
+        "ExportArn": {
+          "target": "com.amazonaws.dynamodb#ExportArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the table export.</p>"
+          }
+        },
+        "ExportStatus": {
+          "target": "com.amazonaws.dynamodb#ExportStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>Export can be in one of the following states: IN_PROGRESS, COMPLETED, or FAILED.</p>"
+          }
+        },
+        "StartTime": {
+          "target": "com.amazonaws.dynamodb#ExportStartTime",
+          "traits": {
+            "smithy.api#documentation": "<p>The time at which the export task began.</p>"
+          }
+        },
+        "EndTime": {
+          "target": "com.amazonaws.dynamodb#ExportEndTime",
+          "traits": {
+            "smithy.api#documentation": "<p>The time at which the export task completed.</p>"
+          }
+        },
+        "ExportManifest": {
+          "target": "com.amazonaws.dynamodb#ExportManifest",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the manifest file for the export task.</p>"
+          }
+        },
+        "TableArn": {
+          "target": "com.amazonaws.dynamodb#TableArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the table that was exported.</p>"
+          }
+        },
+        "TableId": {
+          "target": "com.amazonaws.dynamodb#TableId",
+          "traits": {
+            "smithy.api#documentation": "<p>Unique ID of the table that was exported.</p>"
+          }
+        },
+        "ExportTime": {
+          "target": "com.amazonaws.dynamodb#ExportTime",
+          "traits": {
+            "smithy.api#documentation": "<p>Point in time from which table data was exported.</p>"
+          }
+        },
+        "ClientToken": {
+          "target": "com.amazonaws.dynamodb#ClientToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The client token that was provided for the export task. A client token makes calls to\n                <code>ExportTableToPointInTimeInput</code> idempotent, meaning that multiple\n            identical calls have the same effect as one single call.</p>"
+          }
+        },
+        "S3Bucket": {
+          "target": "com.amazonaws.dynamodb#S3Bucket",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the Amazon S3 bucket containing the export.</p>"
+          }
+        },
+        "S3BucketOwner": {
+          "target": "com.amazonaws.dynamodb#S3BucketOwner",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the AWS account that owns the bucket containing the export.</p>"
+          }
+        },
+        "S3Prefix": {
+          "target": "com.amazonaws.dynamodb#S3Prefix",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon S3 bucket prefix used as the file name and path of the exported\n            snapshot.</p>"
+          }
+        },
+        "S3SseAlgorithm": {
+          "target": "com.amazonaws.dynamodb#S3SseAlgorithm",
+          "traits": {
+            "smithy.api#documentation": "<p>Type of encryption used on the bucket where export data is stored. Valid values\n            for <code>S3SseAlgorithm</code> are:</p>\n        <ul>\n            <li>\n                <p>\n                  <code>AES256</code> - server-side encryption with Amazon S3 managed keys</p>\n            </li>\n            <li>\n                <p>\n                  <code>KMS</code> - server-side encryption with AWS KMS managed keys</p>\n            </li>\n         </ul>"
+          }
+        },
+        "S3SseKmsKeyId": {
+          "target": "com.amazonaws.dynamodb#S3SseKmsKeyId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the AWS KMS managed key used to encrypt the S3 bucket where export data is\n            stored (if applicable).</p>"
+          }
+        },
+        "FailureCode": {
+          "target": "com.amazonaws.dynamodb#FailureCode",
+          "traits": {
+            "smithy.api#documentation": "<p>Status code for the result of the failed export.</p>"
+          }
+        },
+        "FailureMessage": {
+          "target": "com.amazonaws.dynamodb#FailureMessage",
+          "traits": {
+            "smithy.api#documentation": "<p>Export failure reason description.</p>"
+          }
+        },
+        "ExportFormat": {
+          "target": "com.amazonaws.dynamodb#ExportFormat",
+          "traits": {
+            "smithy.api#documentation": "<p>The format of the exported data. Valid values for <code>ExportFormat</code> are\n            <code>DYNAMODB_JSON</code> or <code>ION</code>.</p>"
+          }
+        },
+        "BilledSizeBytes": {
+          "target": "com.amazonaws.dynamodb#BilledSizeBytes",
+          "traits": {
+            "smithy.api#documentation": "<p>The billable size of the table export.</p>"
+          }
+        },
+        "ItemCount": {
+          "target": "com.amazonaws.dynamodb#ItemCount",
+          "traits": {
+            "smithy.api#documentation": "<p>The number of items exported.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Represents the properties of the exported table.</p>"
+      }
+    },
+    "com.amazonaws.dynamodb#ExportEndTime": {
+      "type": "timestamp"
+    },
+    "com.amazonaws.dynamodb#ExportFormat": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": [
+          {
+            "value": "DYNAMODB_JSON",
+            "name": "DYNAMODB_JSON"
+          },
+          {
+            "value": "ION",
+            "name": "ION"
+          }
+        ]
+      }
+    },
+    "com.amazonaws.dynamodb#ExportManifest": {
+      "type": "string"
+    },
+    "com.amazonaws.dynamodb#ExportNextToken": {
+      "type": "string"
+    },
+    "com.amazonaws.dynamodb#ExportNotFoundException": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazonaws.dynamodb#ErrorMessage"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The specified export was not found.</p>",
+        "smithy.api#error": "client"
+      }
+    },
+    "com.amazonaws.dynamodb#ExportStartTime": {
+      "type": "timestamp"
+    },
+    "com.amazonaws.dynamodb#ExportStatus": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": [
+          {
+            "value": "IN_PROGRESS",
+            "name": "IN_PROGRESS"
+          },
+          {
+            "value": "COMPLETED",
+            "name": "COMPLETED"
+          },
+          {
+            "value": "FAILED",
+            "name": "FAILED"
+          }
+        ]
+      }
+    },
+    "com.amazonaws.dynamodb#ExportSummaries": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.dynamodb#ExportSummary"
+      }
+    },
+    "com.amazonaws.dynamodb#ExportSummary": {
+      "type": "structure",
+      "members": {
+        "ExportArn": {
+          "target": "com.amazonaws.dynamodb#ExportArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the export.</p>"
+          }
+        },
+        "ExportStatus": {
+          "target": "com.amazonaws.dynamodb#ExportStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>Export can be in one of the following states: IN_PROGRESS, COMPLETED, or FAILED.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Summary information about an export task.</p>"
+      }
+    },
+    "com.amazonaws.dynamodb#ExportTableToPointInTime": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.dynamodb#ExportTableToPointInTimeInput"
+      },
+      "output": {
+        "target": "com.amazonaws.dynamodb#ExportTableToPointInTimeOutput"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.dynamodb#ExportConflictException"
+        },
+        {
+          "target": "com.amazonaws.dynamodb#InternalServerError"
+        },
+        {
+          "target": "com.amazonaws.dynamodb#InvalidExportTimeException"
+        },
+        {
+          "target": "com.amazonaws.dynamodb#LimitExceededException"
+        },
+        {
+          "target": "com.amazonaws.dynamodb#PointInTimeRecoveryUnavailableException"
+        },
+        {
+          "target": "com.amazonaws.dynamodb#TableNotFoundException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Exports table data to an S3 bucket. The table must have point in time recovery\n            enabled, and you can export data from any time within the point in time recovery\n            window.</p>"
+      }
+    },
+    "com.amazonaws.dynamodb#ExportTableToPointInTimeInput": {
+      "type": "structure",
+      "members": {
+        "TableArn": {
+          "target": "com.amazonaws.dynamodb#TableArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) associated with the table to export.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "ExportTime": {
+          "target": "com.amazonaws.dynamodb#ExportTime",
+          "traits": {
+            "smithy.api#documentation": "<p>Time in the past from which to export table data. The table export will be a snapshot\n            of the table's state at this point in time.</p>"
+          }
+        },
+        "ClientToken": {
+          "target": "com.amazonaws.dynamodb#ClientToken",
+          "traits": {
+            "smithy.api#documentation": "<p>Providing a <code>ClientToken</code> makes the call to\n                <code>ExportTableToPointInTimeInput</code> idempotent, meaning that multiple\n            identical calls have the same effect as one single call.</p>\n        <p>A client token is valid for 8 hours after the first request that uses it is\n            completed. After 8 hours, any request with the same client token is treated as a new\n            request. Do not resubmit the same request with the same client token for more than 8\n            hours, or the result might not be idempotent.</p>\n        <p>If you submit a request with the same client token but a change in other parameters\n            within the 8-hour idempotency window, DynamoDB returns an\n            <code>IdempotentParameterMismatch</code> exception.</p>",
+            "smithy.api#idempotencyToken": {}
+          }
+        },
+        "S3Bucket": {
+          "target": "com.amazonaws.dynamodb#S3Bucket",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the Amazon S3 bucket to export the snapshot to.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "S3BucketOwner": {
+          "target": "com.amazonaws.dynamodb#S3BucketOwner",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the AWS account that owns the bucket the export will be stored in.</p>"
+          }
+        },
+        "S3Prefix": {
+          "target": "com.amazonaws.dynamodb#S3Prefix",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon S3 bucket prefix to use as the file name and path of the exported\n            snapshot.</p>"
+          }
+        },
+        "S3SseAlgorithm": {
+          "target": "com.amazonaws.dynamodb#S3SseAlgorithm",
+          "traits": {
+            "smithy.api#documentation": "<p>Type of encryption used on the bucket where export data will be stored. Valid values\n            for <code>S3SseAlgorithm</code> are:</p>\n        <ul>\n            <li>\n                <p>\n                  <code>AES256</code> - server-side encryption with Amazon S3 managed keys</p>\n            </li>\n            <li>\n                <p>\n                  <code>KMS</code> - server-side encryption with AWS KMS managed keys</p>\n            </li>\n         </ul>"
+          }
+        },
+        "S3SseKmsKeyId": {
+          "target": "com.amazonaws.dynamodb#S3SseKmsKeyId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the AWS KMS managed key used to encrypt the S3 bucket where export data will\n            be stored (if applicable).</p>"
+          }
+        },
+        "ExportFormat": {
+          "target": "com.amazonaws.dynamodb#ExportFormat",
+          "traits": {
+            "smithy.api#documentation": "<p>The format for the exported data. Valid values for <code>ExportFormat</code> are\n                <code>DYNAMODB_JSON</code> or <code>ION</code>.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.dynamodb#ExportTableToPointInTimeOutput": {
+      "type": "structure",
+      "members": {
+        "ExportDescription": {
+          "target": "com.amazonaws.dynamodb#ExportDescription",
+          "traits": {
+            "smithy.api#documentation": "<p>Contains a description of the table export.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.dynamodb#ExportTime": {
+      "type": "timestamp"
+    },
     "com.amazonaws.dynamodb#ExpressionAttributeNameMap": {
       "type": "map",
       "key": {
@@ -2812,6 +3214,9 @@
     "com.amazonaws.dynamodb#ExpressionAttributeValueVariable": {
       "type": "string"
     },
+    "com.amazonaws.dynamodb#FailureCode": {
+      "type": "string"
+    },
     "com.amazonaws.dynamodb#FailureException": {
       "type": "structure",
       "members": {
@@ -2831,6 +3236,9 @@
       "traits": {
         "smithy.api#documentation": "<p>Represents a failure a contributor insights operation.</p>"
       }
+    },
+    "com.amazonaws.dynamodb#FailureMessage": {
+      "type": "string"
     },
     "com.amazonaws.dynamodb#FilterConditionMap": {
       "type": "map",
@@ -3418,6 +3826,18 @@
         "smithy.api#httpError": 421
       }
     },
+    "com.amazonaws.dynamodb#InvalidExportTimeException": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazonaws.dynamodb#ErrorMessage"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The specified <code>ExportTime</code> is outside of the point in time recovery\n            window.</p>",
+        "smithy.api#error": "client"
+      }
+    },
     "com.amazonaws.dynamodb#InvalidRestoreTimeException": {
       "type": "structure",
       "members": {
@@ -3847,6 +4267,81 @@
           "target": "com.amazonaws.dynamodb#NextTokenString",
           "traits": {
             "smithy.api#documentation": "<p>A token to go to the next page if there is one.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.dynamodb#ListExports": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.dynamodb#ListExportsInput"
+      },
+      "output": {
+        "target": "com.amazonaws.dynamodb#ListExportsOutput"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.dynamodb#InternalServerError"
+        },
+        {
+          "target": "com.amazonaws.dynamodb#LimitExceededException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Lists completed exports within the past 90 days.</p>",
+        "smithy.api#paginated": {
+          "inputToken": "NextToken",
+          "outputToken": "NextToken",
+          "pageSize": "MaxResults"
+        }
+      }
+    },
+    "com.amazonaws.dynamodb#ListExportsInput": {
+      "type": "structure",
+      "members": {
+        "TableArn": {
+          "target": "com.amazonaws.dynamodb#TableArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) associated with the exported table.</p>"
+          }
+        },
+        "MaxResults": {
+          "target": "com.amazonaws.dynamodb#ListExportsMaxLimit",
+          "traits": {
+            "smithy.api#documentation": "<p>Maximum number of results to return per page.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.dynamodb#ExportNextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>An optional string that, if supplied, must be copied from the output of a previous\n            call to <code>ListExports</code>. When provided in this manner, the API fetches the next\n            page of results.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.dynamodb#ListExportsMaxLimit": {
+      "type": "integer",
+      "traits": {
+        "smithy.api#box": {},
+        "smithy.api#range": {
+          "min": 1,
+          "max": 25
+        }
+      }
+    },
+    "com.amazonaws.dynamodb#ListExportsOutput": {
+      "type": "structure",
+      "members": {
+        "ExportSummaries": {
+          "target": "com.amazonaws.dynamodb#ExportSummaries",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of <code>ExportSummary</code> objects.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.dynamodb#ExportNextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>If this value is returned, there are additional results to be displayed. To retrieve\n            them, call <code>ListExports</code> again, with <code>NextToken</code> set to this\n            value.</p>"
           }
         }
       }
@@ -5764,6 +6259,37 @@
             "value": "NONE"
           }
         ]
+      }
+    },
+    "com.amazonaws.dynamodb#S3Bucket": {
+      "type": "string"
+    },
+    "com.amazonaws.dynamodb#S3BucketOwner": {
+      "type": "string"
+    },
+    "com.amazonaws.dynamodb#S3Prefix": {
+      "type": "string"
+    },
+    "com.amazonaws.dynamodb#S3SseAlgorithm": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": [
+          {
+            "value": "AES256"
+          },
+          {
+            "value": "KMS"
+          }
+        ]
+      }
+    },
+    "com.amazonaws.dynamodb#S3SseKmsKeyId": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 2048
+        }
       }
     },
     "com.amazonaws.dynamodb#SSEDescription": {

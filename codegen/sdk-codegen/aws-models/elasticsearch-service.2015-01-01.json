@@ -395,6 +395,9 @@
           "target": "com.amazonaws.elasticsearchservice#GetCompatibleElasticsearchVersions"
         },
         {
+          "target": "com.amazonaws.elasticsearchservice#GetPackageVersionHistory"
+        },
+        {
           "target": "com.amazonaws.elasticsearchservice#GetUpgradeHistory"
         },
         {
@@ -432,6 +435,9 @@
         },
         {
           "target": "com.amazonaws.elasticsearchservice#UpdateElasticsearchDomainConfig"
+        },
+        {
+          "target": "com.amazonaws.elasticsearchservice#UpdatePackage"
         },
         {
           "target": "com.amazonaws.elasticsearchservice#UpgradeElasticsearchDomain"
@@ -678,6 +684,15 @@
       },
       "traits": {
         "smithy.api#documentation": "<p>Status of the Cognito options for the specified Elasticsearch domain.</p>"
+      }
+    },
+    "com.amazonaws.elasticsearchservice#CommitMessage": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 160
+        }
       }
     },
     "com.amazonaws.elasticsearchservice#CompatibleElasticsearchVersionsList": {
@@ -2345,6 +2360,9 @@
             "smithy.api#documentation": "<p>State of the association. Values are ASSOCIATING/ASSOCIATION_FAILED/ACTIVE/DISSOCIATING/DISSOCIATION_FAILED.</p>"
           }
         },
+        "PackageVersion": {
+          "target": "com.amazonaws.elasticsearchservice#PackageVersion"
+        },
         "ReferencePath": {
           "target": "com.amazonaws.elasticsearchservice#ReferencePath",
           "traits": {
@@ -3179,6 +3197,95 @@
       },
       "traits": {
         "smithy.api#documentation": "<p>\n      Container for response returned by\n      <code>\n        <a>GetCompatibleElasticsearchVersions</a>\n      </code>\n      operation.\n    </p>"
+      }
+    },
+    "com.amazonaws.elasticsearchservice#GetPackageVersionHistory": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.elasticsearchservice#GetPackageVersionHistoryRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.elasticsearchservice#GetPackageVersionHistoryResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.elasticsearchservice#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.elasticsearchservice#BaseException"
+        },
+        {
+          "target": "com.amazonaws.elasticsearchservice#InternalException"
+        },
+        {
+          "target": "com.amazonaws.elasticsearchservice#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.elasticsearchservice#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Returns a list of versions of the package, along with their creation time and commit message.</p>",
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/2015-01-01/packages/{PackageID}/history",
+          "code": 200
+        },
+        "smithy.api#paginated": {
+          "inputToken": "NextToken",
+          "outputToken": "NextToken",
+          "pageSize": "MaxResults"
+        }
+      }
+    },
+    "com.amazonaws.elasticsearchservice#GetPackageVersionHistoryRequest": {
+      "type": "structure",
+      "members": {
+        "PackageID": {
+          "target": "com.amazonaws.elasticsearchservice#PackageID",
+          "traits": {
+            "smithy.api#documentation": "<p>Returns an audit history of versions of the package.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "MaxResults": {
+          "target": "com.amazonaws.elasticsearchservice#MaxResults",
+          "traits": {
+            "smithy.api#documentation": "<p>Limits results to a maximum number of versions.</p>",
+            "smithy.api#httpQuery": "maxResults"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.elasticsearchservice#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>Used for pagination. Only necessary if a previous API call includes a non-null NextToken value. If provided, returns results for the next page.</p>",
+            "smithy.api#httpQuery": "nextToken"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>\n      Container for request parameters to\n      <code>\n        <a>GetPackageVersionHistory</a>\n      </code>\n      operation.\n    </p>"
+      }
+    },
+    "com.amazonaws.elasticsearchservice#GetPackageVersionHistoryResponse": {
+      "type": "structure",
+      "members": {
+        "PackageID": {
+          "target": "com.amazonaws.elasticsearchservice#PackageID"
+        },
+        "PackageVersionHistoryList": {
+          "target": "com.amazonaws.elasticsearchservice#PackageVersionHistoryList",
+          "traits": {
+            "smithy.api#documentation": "<p>List of <code>PackageVersionHistory</code> objects.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.elasticsearchservice#String"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>\n      Container for response returned by\n      <code>\n        <a>GetPackageVersionHistory</a>\n      </code>\n      operation.\n    </p>"
       }
     },
     "com.amazonaws.elasticsearchservice#GetUpgradeHistory": {
@@ -4436,6 +4543,12 @@
             "smithy.api#documentation": "<p>Timestamp which tells creation date of the package.</p>"
           }
         },
+        "LastUpdatedAt": {
+          "target": "com.amazonaws.elasticsearchservice#LastUpdated"
+        },
+        "AvailablePackageVersion": {
+          "target": "com.amazonaws.elasticsearchservice#PackageVersion"
+        },
         "ErrorDetails": {
           "target": "com.amazonaws.elasticsearchservice#ErrorDetails",
           "traits": {
@@ -4525,6 +4638,41 @@
             "value": "TXT-DICTIONARY"
           }
         ]
+      }
+    },
+    "com.amazonaws.elasticsearchservice#PackageVersion": {
+      "type": "string"
+    },
+    "com.amazonaws.elasticsearchservice#PackageVersionHistory": {
+      "type": "structure",
+      "members": {
+        "PackageVersion": {
+          "target": "com.amazonaws.elasticsearchservice#PackageVersion",
+          "traits": {
+            "smithy.api#documentation": "<p>Version of the package.</p>"
+          }
+        },
+        "CommitMessage": {
+          "target": "com.amazonaws.elasticsearchservice#CommitMessage",
+          "traits": {
+            "smithy.api#documentation": "<p>A message associated with the version.</p>"
+          }
+        },
+        "CreatedAt": {
+          "target": "com.amazonaws.elasticsearchservice#CreatedAt",
+          "traits": {
+            "smithy.api#documentation": "<p>Timestamp which tells creation time of the package version.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Details of a package version.</p>"
+      }
+    },
+    "com.amazonaws.elasticsearchservice#PackageVersionHistoryList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.elasticsearchservice#PackageVersionHistory"
       }
     },
     "com.amazonaws.elasticsearchservice#Password": {
@@ -5561,6 +5709,90 @@
       },
       "traits": {
         "smithy.api#documentation": "<p>The result of an <code>UpdateElasticsearchDomain</code> request. Contains the status of the Elasticsearch domain being updated.</p>"
+      }
+    },
+    "com.amazonaws.elasticsearchservice#UpdatePackage": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.elasticsearchservice#UpdatePackageRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.elasticsearchservice#UpdatePackageResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.elasticsearchservice#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.elasticsearchservice#BaseException"
+        },
+        {
+          "target": "com.amazonaws.elasticsearchservice#InternalException"
+        },
+        {
+          "target": "com.amazonaws.elasticsearchservice#LimitExceededException"
+        },
+        {
+          "target": "com.amazonaws.elasticsearchservice#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.elasticsearchservice#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Updates a package for use with Amazon ES domains.</p>",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/2015-01-01/packages/update",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.elasticsearchservice#UpdatePackageRequest": {
+      "type": "structure",
+      "members": {
+        "PackageID": {
+          "target": "com.amazonaws.elasticsearchservice#PackageID",
+          "traits": {
+            "smithy.api#documentation": "<p>Unique identifier for the package.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "PackageSource": {
+          "target": "com.amazonaws.elasticsearchservice#PackageSource",
+          "traits": {
+            "smithy.api#required": {}
+          }
+        },
+        "PackageDescription": {
+          "target": "com.amazonaws.elasticsearchservice#PackageDescription",
+          "traits": {
+            "smithy.api#documentation": "<p>New description of the package.</p>"
+          }
+        },
+        "CommitMessage": {
+          "target": "com.amazonaws.elasticsearchservice#CommitMessage",
+          "traits": {
+            "smithy.api#documentation": "<p>An info message for the new version which will be shown as part of <code>GetPackageVersionHistoryResponse</code>.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>\n      Container for request parameters to\n      <code>\n        <a>UpdatePackage</a>\n      </code>\n      operation.\n    </p>"
+      }
+    },
+    "com.amazonaws.elasticsearchservice#UpdatePackageResponse": {
+      "type": "structure",
+      "members": {
+        "PackageDetails": {
+          "target": "com.amazonaws.elasticsearchservice#PackageDetails",
+          "traits": {
+            "smithy.api#documentation": "<p>Information about the package <code>PackageDetails</code>.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>\n      Container for response returned by\n      <code>\n        <a>UpdatePackage</a>\n      </code>\n      operation.\n    </p>"
       }
     },
     "com.amazonaws.elasticsearchservice#UpdateTimestamp": {
