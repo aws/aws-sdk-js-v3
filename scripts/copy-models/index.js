@@ -3,6 +3,7 @@ const yargs = require("yargs");
 
 const { promises: fsPromises } = require("fs");
 const { join } = require("path");
+const { spawnProcess } = require("../generate-clients/spawn-process");
 
 const { models } = yargs
   .alias("m", "models")
@@ -12,6 +13,7 @@ const { models } = yargs
   .help().argv;
 
 (async () => {
+  const OUTPUT_DIR = join(__dirname, "..", "..", "codegen", "sdk-codegen", "aws-models");
   const files = await fsPromises.readdir(models.toString(), {
     withFileTypes: true,
   });
@@ -38,15 +40,7 @@ const { models } = yargs
         const version = fileContent.match(versionRE)[1];
 
         // Copy file.
-        const outputFile = join(
-          __dirname,
-          "..",
-          "..",
-          "codegen",
-          "sdk-codegen",
-          "aws-models",
-          `${sdkId}.${version}.json`
-        );
+        const outputFile = join(OUTPUT_DIR, `${sdkId}.${version}.json`);
         await fsPromises.writeFile(outputFile, fileContent);
       } catch (e) {
         // Copy failed, log.
@@ -58,4 +52,10 @@ const { models } = yargs
       console.log(e.message);
     }
   }
+
+  // Prettify copied models
+  await spawnProcess(join(__dirname, "..", "..", "node_modules", ".bin", "prettier"), [
+    "--write",
+    `${OUTPUT_DIR}/*.json`,
+  ]);
 })();
