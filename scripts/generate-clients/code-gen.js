@@ -2,7 +2,7 @@
 const path = require("path");
 const { emptyDirSync } = require("fs-extra");
 const { copyFileSync, readdirSync, lstatSync } = require("fs");
-const { spawnProcess } = require("./spawn-process");
+const { spawnProcess } = require("../utils/spawn-process");
 const { CODE_GEN_ROOT, CODE_GEN_SDK_ROOT, TEMP_CODE_GEN_INPUT_DIR } = require("./code-gen-dir");
 const Glob = require("glob");
 
