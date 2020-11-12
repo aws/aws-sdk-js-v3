@@ -3,7 +3,7 @@ const yargs = require("yargs");
 
 const { promises: fsPromises } = require("fs");
 const { join } = require("path");
-const { spawnProcess } = require("../generate-clients/spawn-process");
+const { spawnProcess } = require("../utils/spawn-process");
 
 const { models } = yargs
   .alias("m", "models")
@@ -14,6 +14,7 @@ const { models } = yargs
 
 (async () => {
   const OUTPUT_DIR = join(__dirname, "..", "..", "codegen", "sdk-codegen", "aws-models");
+
   const files = await fsPromises.readdir(models.toString(), {
     withFileTypes: true,
   });
