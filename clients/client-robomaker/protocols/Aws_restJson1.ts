@@ -699,6 +699,7 @@ export const serializeAws_restJson1CreateWorldGenerationJobCommand = async (
     ...(input.tags !== undefined && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
     ...(input.template !== undefined && { template: input.template }),
     ...(input.worldCount !== undefined && { worldCount: serializeAws_restJson1WorldCount(input.worldCount, context) }),
+    ...(input.worldTags !== undefined && { worldTags: serializeAws_restJson1TagMap(input.worldTags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -3434,6 +3435,7 @@ export const deserializeAws_restJson1CreateWorldGenerationJobCommand = async (
     tags: undefined,
     template: undefined,
     worldCount: undefined,
+    worldTags: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.arn !== undefined && data.arn !== null) {
@@ -3459,6 +3461,9 @@ export const deserializeAws_restJson1CreateWorldGenerationJobCommand = async (
   }
   if (data.worldCount !== undefined && data.worldCount !== null) {
     contents.worldCount = deserializeAws_restJson1WorldCount(data.worldCount, context);
+  }
+  if (data.worldTags !== undefined && data.worldTags !== null) {
+    contents.worldTags = deserializeAws_restJson1TagMap(data.worldTags, context);
   }
   return Promise.resolve(contents);
 };
@@ -5159,6 +5164,7 @@ export const deserializeAws_restJson1DescribeWorldGenerationJobCommand = async (
     tags: undefined,
     template: undefined,
     worldCount: undefined,
+    worldTags: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.arn !== undefined && data.arn !== null) {
@@ -5190,6 +5196,9 @@ export const deserializeAws_restJson1DescribeWorldGenerationJobCommand = async (
   }
   if (data.worldCount !== undefined && data.worldCount !== null) {
     contents.worldCount = deserializeAws_restJson1WorldCount(data.worldCount, context);
+  }
+  if (data.worldTags !== undefined && data.worldTags !== null) {
+    contents.worldTags = deserializeAws_restJson1TagMap(data.worldTags, context);
   }
   return Promise.resolve(contents);
 };

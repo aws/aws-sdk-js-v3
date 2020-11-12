@@ -50,6 +50,21 @@ import {
   CreateContactMethodCommandInput,
   CreateContactMethodCommandOutput,
 } from "./commands/CreateContactMethodCommand";
+import {
+  CreateContainerServiceCommand,
+  CreateContainerServiceCommandInput,
+  CreateContainerServiceCommandOutput,
+} from "./commands/CreateContainerServiceCommand";
+import {
+  CreateContainerServiceDeploymentCommand,
+  CreateContainerServiceDeploymentCommandInput,
+  CreateContainerServiceDeploymentCommandOutput,
+} from "./commands/CreateContainerServiceDeploymentCommand";
+import {
+  CreateContainerServiceRegistryLoginCommand,
+  CreateContainerServiceRegistryLoginCommandInput,
+  CreateContainerServiceRegistryLoginCommandOutput,
+} from "./commands/CreateContainerServiceRegistryLoginCommand";
 import { CreateDiskCommand, CreateDiskCommandInput, CreateDiskCommandOutput } from "./commands/CreateDiskCommand";
 import {
   CreateDiskFromSnapshotCommand,
@@ -137,6 +152,16 @@ import {
   DeleteContactMethodCommandInput,
   DeleteContactMethodCommandOutput,
 } from "./commands/DeleteContactMethodCommand";
+import {
+  DeleteContainerImageCommand,
+  DeleteContainerImageCommandInput,
+  DeleteContainerImageCommandOutput,
+} from "./commands/DeleteContainerImageCommand";
+import {
+  DeleteContainerServiceCommand,
+  DeleteContainerServiceCommandInput,
+  DeleteContainerServiceCommandOutput,
+} from "./commands/DeleteContainerServiceCommand";
 import { DeleteDiskCommand, DeleteDiskCommandInput, DeleteDiskCommandOutput } from "./commands/DeleteDiskCommand";
 import {
   DeleteDiskSnapshotCommand,
@@ -262,6 +287,41 @@ import {
   GetContactMethodsCommandInput,
   GetContactMethodsCommandOutput,
 } from "./commands/GetContactMethodsCommand";
+import {
+  GetContainerAPIMetadataCommand,
+  GetContainerAPIMetadataCommandInput,
+  GetContainerAPIMetadataCommandOutput,
+} from "./commands/GetContainerAPIMetadataCommand";
+import {
+  GetContainerImagesCommand,
+  GetContainerImagesCommandInput,
+  GetContainerImagesCommandOutput,
+} from "./commands/GetContainerImagesCommand";
+import {
+  GetContainerLogCommand,
+  GetContainerLogCommandInput,
+  GetContainerLogCommandOutput,
+} from "./commands/GetContainerLogCommand";
+import {
+  GetContainerServiceDeploymentsCommand,
+  GetContainerServiceDeploymentsCommandInput,
+  GetContainerServiceDeploymentsCommandOutput,
+} from "./commands/GetContainerServiceDeploymentsCommand";
+import {
+  GetContainerServiceMetricDataCommand,
+  GetContainerServiceMetricDataCommandInput,
+  GetContainerServiceMetricDataCommandOutput,
+} from "./commands/GetContainerServiceMetricDataCommand";
+import {
+  GetContainerServicePowersCommand,
+  GetContainerServicePowersCommandInput,
+  GetContainerServicePowersCommandOutput,
+} from "./commands/GetContainerServicePowersCommand";
+import {
+  GetContainerServicesCommand,
+  GetContainerServicesCommandInput,
+  GetContainerServicesCommandOutput,
+} from "./commands/GetContainerServicesCommand";
 import { GetDiskCommand, GetDiskCommandInput, GetDiskCommandOutput } from "./commands/GetDiskCommand";
 import {
   GetDiskSnapshotCommand,
@@ -470,6 +530,11 @@ import {
   RebootRelationalDatabaseCommandOutput,
 } from "./commands/RebootRelationalDatabaseCommand";
 import {
+  RegisterContainerImageCommand,
+  RegisterContainerImageCommandInput,
+  RegisterContainerImageCommandOutput,
+} from "./commands/RegisterContainerImageCommand";
+import {
   ReleaseStaticIpCommand,
   ReleaseStaticIpCommandInput,
   ReleaseStaticIpCommandOutput,
@@ -513,6 +578,11 @@ import {
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  UpdateContainerServiceCommand,
+  UpdateContainerServiceCommandInput,
+  UpdateContainerServiceCommandOutput,
+} from "./commands/UpdateContainerServiceCommand";
+import {
   UpdateDistributionBundleCommand,
   UpdateDistributionBundleCommandInput,
   UpdateDistributionBundleCommandOutput,
@@ -547,10 +617,10 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 /**
  * <p>Amazon Lightsail is the easiest way to get started with Amazon Web Services (AWS) for developers
  *       who need to build websites or web applications. It includes everything you need to launch your
- *       project quickly – instances (virtual private servers), managed databases, SSD-based block
- *       storage, static IP addresses, load balancers, content delivery network (CDN) distributions,
- *       DNS management of registered domains, and snapshots (backups) – for a low, predictable monthly
- *       price.</p>
+ *       project quickly - instances (virtual private servers), container services, managed databases,
+ *       SSD-based block storage, static IP addresses, load balancers, content delivery network (CDN)
+ *       distributions, DNS management of registered domains, and resource snapshots (backups) - for a
+ *       low, predictable monthly price.</p>
  *
  *          <p>You can manage your Lightsail resources using the Lightsail console, Lightsail API,
  *       AWS Command Line Interface (AWS CLI), or SDKs. For more information about Lightsail concepts
@@ -558,7 +628,7 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  *
  *          <p>This API Reference provides detailed information about the actions, data types,
  *       parameters, and errors of the Lightsail service. For more information about the supported
- *       AWS Regions, endpoints, and service quotas for the Lightsail service, see <a href="https://docs.aws.amazon.com/general/latest/gr/lightsail.html">Amazon Lightsail Endpoints and
+ *       AWS Regions, endpoints, and service quotas of the Lightsail service, see <a href="https://docs.aws.amazon.com/general/latest/gr/lightsail.html">Amazon Lightsail Endpoints and
  *         Quotas</a> in the <i>AWS General Reference</i>.</p>
  */
 export class Lightsail extends LightsailClient {
@@ -597,13 +667,10 @@ export class Lightsail extends LightsailClient {
   /**
    * <p>Attaches an SSL/TLS certificate to your Amazon Lightsail content delivery network (CDN)
    *       distribution.</p>
-   *
    *          <p>After the certificate is attached, your distribution accepts HTTPS traffic for all of the
    *       domains that are associated with the certificate.</p>
-   *
    *          <p>Use the <code>CreateCertificate</code> action to create a certificate that you can attach
    *       to your distribution.</p>
-   *
    *          <important>
    *             <p>Only certificates created in the <code>us-east-1</code> AWS Region can be attached to
    *         Lightsail distributions. Lightsail distributions are global resources that can reference
@@ -856,10 +923,8 @@ export class Lightsail extends LightsailClient {
   /**
    * <p>Creates an SSL/TLS certificate for a Amazon Lightsail content delivery network (CDN)
    *       distribution.</p>
-   *
    *          <p>After the certificate is created, use the <code>AttachCertificateToDistribution</code>
    *       action to attach the certificate to your distribution.</p>
-   *
    *          <important>
    *             <p>Only certificates created in the <code>us-east-1</code> AWS Region can be attached to
    *         Lightsail distributions. Lightsail distributions are global resources that can reference
@@ -961,6 +1026,139 @@ export class Lightsail extends LightsailClient {
     cb?: (err: any, data?: CreateContactMethodCommandOutput) => void
   ): Promise<CreateContactMethodCommandOutput> | void {
     const command = new CreateContactMethodCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates an Amazon Lightsail container service.</p>
+   *
+   *          <p>A Lightsail container service is a compute resource to which you can deploy containers.
+   *       For more information, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-containers">Container services in Amazon Lightsail</a> in the <i>Lightsail Dev
+   *         Guide</i>.</p>
+   */
+  public createContainerService(
+    args: CreateContainerServiceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateContainerServiceCommandOutput>;
+  public createContainerService(
+    args: CreateContainerServiceCommandInput,
+    cb: (err: any, data?: CreateContainerServiceCommandOutput) => void
+  ): void;
+  public createContainerService(
+    args: CreateContainerServiceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateContainerServiceCommandOutput) => void
+  ): void;
+  public createContainerService(
+    args: CreateContainerServiceCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateContainerServiceCommandOutput) => void),
+    cb?: (err: any, data?: CreateContainerServiceCommandOutput) => void
+  ): Promise<CreateContainerServiceCommandOutput> | void {
+    const command = new CreateContainerServiceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates a deployment for your Amazon Lightsail container service.</p>
+   *
+   *          <p>A deployment specifies the containers that will be launched on the container service and
+   *       their settings, such as the ports to open, the environment variables to apply, and the launch
+   *       command to run. It also specifies the container that will serve as the public endpoint of the
+   *       deployment and its settings, such as the HTTP or HTTPS port to use, and the health check
+   *       configuration.</p>
+   *
+   *          <p>You can deploy containers to your container service using container images from a public
+   *       registry like Docker Hub, or from your local machine. For more information, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-creating-container-images">Creating container images for your Amazon Lightsail container services</a> in the
+   *         <i>Lightsail Dev Guide</i>.</p>
+   */
+  public createContainerServiceDeployment(
+    args: CreateContainerServiceDeploymentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateContainerServiceDeploymentCommandOutput>;
+  public createContainerServiceDeployment(
+    args: CreateContainerServiceDeploymentCommandInput,
+    cb: (err: any, data?: CreateContainerServiceDeploymentCommandOutput) => void
+  ): void;
+  public createContainerServiceDeployment(
+    args: CreateContainerServiceDeploymentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateContainerServiceDeploymentCommandOutput) => void
+  ): void;
+  public createContainerServiceDeployment(
+    args: CreateContainerServiceDeploymentCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateContainerServiceDeploymentCommandOutput) => void),
+    cb?: (err: any, data?: CreateContainerServiceDeploymentCommandOutput) => void
+  ): Promise<CreateContainerServiceDeploymentCommandOutput> | void {
+    const command = new CreateContainerServiceDeploymentCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates a temporary set of log in credentials that you can use to log in to the Docker
+   *       process on your local machine. After you're logged in, you can use the native Docker commands
+   *       to push your local container images to the container image registry of your Amazon Lightsail
+   *       account so that you can use them with your Lightsail container service. The log in
+   *       credentials expire 12 hours after they are created, at which point you will need to create a
+   *       new set of log in credentials.</p>
+   *
+   *          <note>
+   *             <p>You can only push container images to the container service registry of your Lightsail
+   *         account. You cannot pull container images perform any other container image management
+   *         actions on the container service registry of your Lightsail account.</p>
+   *          </note>
+   *
+   *          <p>After you push your container images to the container image registry of your Lightsail
+   *       account, use the <code>RegisterContainerImage</code> action to register the pushed images to a
+   *       specific Lightsail container service.</p>
+   *
+   *          <note>
+   *             <p>This action is not required if you install and use the Lightsail Control
+   *         (lightsailctl) plugin to push container images to your Lightsail container service. For
+   *         more information, see <a href="amazon-lightsail-pushing-container-images">Pushing and
+   *           managing container images on your Amazon Lightsail container services</a> in the
+   *           <i>Lightsail Dev Guide</i>.</p>
+   *          </note>
+   */
+  public createContainerServiceRegistryLogin(
+    args: CreateContainerServiceRegistryLoginCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateContainerServiceRegistryLoginCommandOutput>;
+  public createContainerServiceRegistryLogin(
+    args: CreateContainerServiceRegistryLoginCommandInput,
+    cb: (err: any, data?: CreateContainerServiceRegistryLoginCommandOutput) => void
+  ): void;
+  public createContainerServiceRegistryLogin(
+    args: CreateContainerServiceRegistryLoginCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateContainerServiceRegistryLoginCommandOutput) => void
+  ): void;
+  public createContainerServiceRegistryLogin(
+    args: CreateContainerServiceRegistryLoginCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateContainerServiceRegistryLoginCommandOutput) => void),
+    cb?: (err: any, data?: CreateContainerServiceRegistryLoginCommandOutput) => void
+  ): Promise<CreateContainerServiceRegistryLoginCommandOutput> | void {
+    const command = new CreateContainerServiceRegistryLoginCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1090,10 +1288,9 @@ export class Lightsail extends LightsailClient {
 
   /**
    * <p>Creates an Amazon Lightsail content delivery network (CDN) distribution.</p>
-   *
    *          <p>A distribution is a globally distributed network of caching servers that improve the
    *       performance of your website or web application hosted on a Lightsail instance. For more
-   *       information, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-content-delivery-networks">Content delivery networks in Amazon Lightsail</a>.</p>
+   *       information, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-content-delivery-network-distributions">Content delivery networks in Amazon Lightsail</a>.</p>
    */
   public createDistribution(
     args: CreateDistributionCommandInput,
@@ -1156,9 +1353,12 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
-   * <p>Creates one of the following entry records associated with the domain: Address (A),
-   *       canonical name (CNAME), mail exchanger (MX), name server (NS), start of authority (SOA),
-   *       service locator (SRV), or text (TXT).</p>
+   * <p>Creates one of the following domain name system (DNS) records in a domain DNS zone:
+   *       Address (A), canonical name (CNAME), mail exchanger (MX), name server (NS), start of authority
+   *       (SOA), service locator (SRV), or text (TXT).</p>
+   *
+   *
+   *
    *          <p>The <code>create domain entry</code> operation supports tag-based access control via
    *       resource tags applied to the resource identified by <code>domain name</code>. For more
    *       information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags">Lightsail Dev Guide</a>.</p>
@@ -1578,7 +1778,6 @@ export class Lightsail extends LightsailClient {
   /**
    * <p>Deletes an SSL/TLS certificate for your Amazon Lightsail content delivery network (CDN)
    *       distribution.</p>
-   *
    *          <p>Certificates that are currently attached to a distribution cannot be deleted. Use the
    *         <code>DetachCertificateFromDistribution</code> action to detach a certificate from a
    *       distribution.</p>
@@ -1649,11 +1848,75 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * <p>Deletes a container image that is registered to your Amazon Lightsail container
+   *       service.</p>
+   */
+  public deleteContainerImage(
+    args: DeleteContainerImageCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteContainerImageCommandOutput>;
+  public deleteContainerImage(
+    args: DeleteContainerImageCommandInput,
+    cb: (err: any, data?: DeleteContainerImageCommandOutput) => void
+  ): void;
+  public deleteContainerImage(
+    args: DeleteContainerImageCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteContainerImageCommandOutput) => void
+  ): void;
+  public deleteContainerImage(
+    args: DeleteContainerImageCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteContainerImageCommandOutput) => void),
+    cb?: (err: any, data?: DeleteContainerImageCommandOutput) => void
+  ): Promise<DeleteContainerImageCommandOutput> | void {
+    const command = new DeleteContainerImageCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes your Amazon Lightsail container service.</p>
+   */
+  public deleteContainerService(
+    args: DeleteContainerServiceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteContainerServiceCommandOutput>;
+  public deleteContainerService(
+    args: DeleteContainerServiceCommandInput,
+    cb: (err: any, data?: DeleteContainerServiceCommandOutput) => void
+  ): void;
+  public deleteContainerService(
+    args: DeleteContainerServiceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteContainerServiceCommandOutput) => void
+  ): void;
+  public deleteContainerService(
+    args: DeleteContainerServiceCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteContainerServiceCommandOutput) => void),
+    cb?: (err: any, data?: DeleteContainerServiceCommandOutput) => void
+  ): Promise<DeleteContainerServiceCommandOutput> | void {
+    const command = new DeleteContainerServiceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Deletes the specified block storage disk. The disk must be in the <code>available</code>
    *       state (not attached to a Lightsail instance).</p>
    *          <note>
    *             <p>The disk may remain in the <code>deleting</code> state for several minutes.</p>
-   *
    *          </note>
    *          <p>The <code>delete disk</code> operation supports tag-based access control via resource tags
    *       applied to the resource identified by <code>disk name</code>. For more information, see the
@@ -2112,7 +2375,6 @@ export class Lightsail extends LightsailClient {
   /**
    * <p>Detaches an SSL/TLS certificate from your Amazon Lightsail content delivery network (CDN)
    *       distribution.</p>
-   *
    *          <p>After the certificate is detached, your distribution stops accepting traffic for all of
    *       the domains that are associated with the certificate.</p>
    */
@@ -2546,7 +2808,6 @@ export class Lightsail extends LightsailClient {
 
   /**
    * <p>Returns information about one or more Amazon Lightsail SSL/TLS certificates.</p>
-   *
    *          <note>
    *             <p>To get a summary of a certificate, ommit <code>includeCertificateDetails</code> from
    *         your request. The response will include only the certificate Amazon Resource Name (ARN),
@@ -2644,6 +2905,268 @@ export class Lightsail extends LightsailClient {
     cb?: (err: any, data?: GetContactMethodsCommandOutput) => void
   ): Promise<GetContactMethodsCommandOutput> | void {
     const command = new GetContactMethodsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns information about Amazon Lightsail containers, such as the current version of the
+   *       Lightsail Control (lightsailctl) plugin.</p>
+   */
+  public getContainerAPIMetadata(
+    args: GetContainerAPIMetadataCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetContainerAPIMetadataCommandOutput>;
+  public getContainerAPIMetadata(
+    args: GetContainerAPIMetadataCommandInput,
+    cb: (err: any, data?: GetContainerAPIMetadataCommandOutput) => void
+  ): void;
+  public getContainerAPIMetadata(
+    args: GetContainerAPIMetadataCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetContainerAPIMetadataCommandOutput) => void
+  ): void;
+  public getContainerAPIMetadata(
+    args: GetContainerAPIMetadataCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetContainerAPIMetadataCommandOutput) => void),
+    cb?: (err: any, data?: GetContainerAPIMetadataCommandOutput) => void
+  ): Promise<GetContainerAPIMetadataCommandOutput> | void {
+    const command = new GetContainerAPIMetadataCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns the container images that are registered to your Amazon Lightsail container
+   *       service.</p>
+   *
+   *          <note>
+   *             <p>If you created a deployment on your Lightsail container service that uses container
+   *         images from a public registry like Docker Hub, those images are not returned as part of this
+   *         action. Those images are not registered to your Lightsail container service.</p>
+   *          </note>
+   */
+  public getContainerImages(
+    args: GetContainerImagesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetContainerImagesCommandOutput>;
+  public getContainerImages(
+    args: GetContainerImagesCommandInput,
+    cb: (err: any, data?: GetContainerImagesCommandOutput) => void
+  ): void;
+  public getContainerImages(
+    args: GetContainerImagesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetContainerImagesCommandOutput) => void
+  ): void;
+  public getContainerImages(
+    args: GetContainerImagesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetContainerImagesCommandOutput) => void),
+    cb?: (err: any, data?: GetContainerImagesCommandOutput) => void
+  ): Promise<GetContainerImagesCommandOutput> | void {
+    const command = new GetContainerImagesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns the log events of a container of your Amazon Lightsail container service.</p>
+   *
+   *          <p>If your container service has more than one node (i.e., a scale greater than 1), then the
+   *       log events that are returned for the specified container are merged from all nodes on your
+   *       container service.</p>
+   *
+   *          <note>
+   *             <p>Container logs are retained for a certain amount of time. For more information, see
+   *           <a href="https://docs.aws.amazon.com/general/latest/gr/lightsail.html">Amazon Lightsail
+   *           endpoints and quotas</a> in the <i>AWS General Reference</i>.</p>
+   *          </note>
+   */
+  public getContainerLog(
+    args: GetContainerLogCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetContainerLogCommandOutput>;
+  public getContainerLog(
+    args: GetContainerLogCommandInput,
+    cb: (err: any, data?: GetContainerLogCommandOutput) => void
+  ): void;
+  public getContainerLog(
+    args: GetContainerLogCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetContainerLogCommandOutput) => void
+  ): void;
+  public getContainerLog(
+    args: GetContainerLogCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetContainerLogCommandOutput) => void),
+    cb?: (err: any, data?: GetContainerLogCommandOutput) => void
+  ): Promise<GetContainerLogCommandOutput> | void {
+    const command = new GetContainerLogCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns the deployments for your Amazon Lightsail container service</p>
+   *
+   *          <p>A deployment specifies the settings, such as the ports and launch command, of containers
+   *       that are deployed to your container service.</p>
+   *
+   *          <p>The deployments are ordered by version in ascending order. The newest version is listed at
+   *       the top of the response.</p>
+   *
+   *          <note>
+   *             <p>A set number of deployments are kept before the oldest one is replaced with the newest
+   *         one. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/lightsail.html">Amazon Lightsail
+   *           endpoints and quotas</a> in the <i>AWS General Reference</i>.</p>
+   *          </note>
+   */
+  public getContainerServiceDeployments(
+    args: GetContainerServiceDeploymentsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetContainerServiceDeploymentsCommandOutput>;
+  public getContainerServiceDeployments(
+    args: GetContainerServiceDeploymentsCommandInput,
+    cb: (err: any, data?: GetContainerServiceDeploymentsCommandOutput) => void
+  ): void;
+  public getContainerServiceDeployments(
+    args: GetContainerServiceDeploymentsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetContainerServiceDeploymentsCommandOutput) => void
+  ): void;
+  public getContainerServiceDeployments(
+    args: GetContainerServiceDeploymentsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetContainerServiceDeploymentsCommandOutput) => void),
+    cb?: (err: any, data?: GetContainerServiceDeploymentsCommandOutput) => void
+  ): Promise<GetContainerServiceDeploymentsCommandOutput> | void {
+    const command = new GetContainerServiceDeploymentsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns the data points of a specific metric of your Amazon Lightsail container
+   *       service.</p>
+   *
+   *          <p>Metrics report the utilization of your resources. Monitor and collect metric data
+   *       regularly to maintain the reliability, availability, and performance of your resources.</p>
+   */
+  public getContainerServiceMetricData(
+    args: GetContainerServiceMetricDataCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetContainerServiceMetricDataCommandOutput>;
+  public getContainerServiceMetricData(
+    args: GetContainerServiceMetricDataCommandInput,
+    cb: (err: any, data?: GetContainerServiceMetricDataCommandOutput) => void
+  ): void;
+  public getContainerServiceMetricData(
+    args: GetContainerServiceMetricDataCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetContainerServiceMetricDataCommandOutput) => void
+  ): void;
+  public getContainerServiceMetricData(
+    args: GetContainerServiceMetricDataCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetContainerServiceMetricDataCommandOutput) => void),
+    cb?: (err: any, data?: GetContainerServiceMetricDataCommandOutput) => void
+  ): Promise<GetContainerServiceMetricDataCommandOutput> | void {
+    const command = new GetContainerServiceMetricDataCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns the list of powers that can be specified for your Amazon Lightsail container
+   *       services.</p>
+   *
+   *          <p>The power specifies the amount of memory, the number of vCPUs, and the base price of the
+   *       container service.</p>
+   */
+  public getContainerServicePowers(
+    args: GetContainerServicePowersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetContainerServicePowersCommandOutput>;
+  public getContainerServicePowers(
+    args: GetContainerServicePowersCommandInput,
+    cb: (err: any, data?: GetContainerServicePowersCommandOutput) => void
+  ): void;
+  public getContainerServicePowers(
+    args: GetContainerServicePowersCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetContainerServicePowersCommandOutput) => void
+  ): void;
+  public getContainerServicePowers(
+    args: GetContainerServicePowersCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetContainerServicePowersCommandOutput) => void),
+    cb?: (err: any, data?: GetContainerServicePowersCommandOutput) => void
+  ): Promise<GetContainerServicePowersCommandOutput> | void {
+    const command = new GetContainerServicePowersCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns information about one or more of your Amazon Lightsail container services.</p>
+   */
+  public getContainerServices(
+    args: GetContainerServicesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetContainerServicesCommandOutput>;
+  public getContainerServices(
+    args: GetContainerServicesCommandInput,
+    cb: (err: any, data?: GetContainerServicesCommandOutput) => void
+  ): void;
+  public getContainerServices(
+    args: GetContainerServicesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetContainerServicesCommandOutput) => void
+  ): void;
+  public getContainerServices(
+    args: GetContainerServicesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetContainerServicesCommandOutput) => void),
+    cb?: (err: any, data?: GetContainerServicesCommandOutput) => void
+  ): Promise<GetContainerServicesCommandOutput> | void {
+    const command = new GetContainerServicesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -2774,7 +3297,6 @@ export class Lightsail extends LightsailClient {
   /**
    * <p>Returns the list bundles that can be applied to you Amazon Lightsail content delivery
    *       network (CDN) distributions.</p>
-   *
    *          <p>A distribution bundle specifies the monthly network transfer quota and monthly cost of
    *       your dsitribution.</p>
    */
@@ -2843,7 +3365,6 @@ export class Lightsail extends LightsailClient {
   /**
    * <p>Returns the data points of a specific metric for an Amazon Lightsail content delivery
    *       network (CDN) distribution.</p>
-   *
    *          <p>Metrics report the utilization of your resources, and the error counts generated by them.
    *       Monitor and collect metric data regularly to maintain the reliability, availability, and
    *       performance of your resources.</p>
@@ -4292,6 +4813,46 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * <p>Registers a container image to your Amazon Lightsail container service.</p>
+   *
+   *          <note>
+   *             <p>This action is not required if you install and use the Lightsail Control
+   *         (lightsailctl) plugin to push container images to your Lightsail container service. For
+   *         more information, see <a href="amazon-lightsail-pushing-container-images">Pushing and
+   *           managing container images on your Amazon Lightsail container services</a> in the
+   *           <i>Lightsail Dev Guide</i>.</p>
+   *          </note>
+   */
+  public registerContainerImage(
+    args: RegisterContainerImageCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RegisterContainerImageCommandOutput>;
+  public registerContainerImage(
+    args: RegisterContainerImageCommandInput,
+    cb: (err: any, data?: RegisterContainerImageCommandOutput) => void
+  ): void;
+  public registerContainerImage(
+    args: RegisterContainerImageCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RegisterContainerImageCommandOutput) => void
+  ): void;
+  public registerContainerImage(
+    args: RegisterContainerImageCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RegisterContainerImageCommandOutput) => void),
+    cb?: (err: any, data?: RegisterContainerImageCommandOutput) => void
+  ): Promise<RegisterContainerImageCommandOutput> | void {
+    const command = new RegisterContainerImageCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Deletes a specific static IP from your account.</p>
    */
   public releaseStaticIp(
@@ -4326,7 +4887,6 @@ export class Lightsail extends LightsailClient {
   /**
    * <p>Deletes currently cached content from your Amazon Lightsail content delivery network (CDN)
    *       distribution.</p>
-   *
    *          <p>After resetting the cache, the next time a content request is made, your distribution
    *       pulls, serves, and caches it from the origin.</p>
    */
@@ -4680,8 +5240,40 @@ export class Lightsail extends LightsailClient {
   }
 
   /**
+   * <p>Updates the configuration of your Amazon Lightsail container service, such as its power,
+   *       scale, and public domain names.</p>
+   */
+  public updateContainerService(
+    args: UpdateContainerServiceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateContainerServiceCommandOutput>;
+  public updateContainerService(
+    args: UpdateContainerServiceCommandInput,
+    cb: (err: any, data?: UpdateContainerServiceCommandOutput) => void
+  ): void;
+  public updateContainerService(
+    args: UpdateContainerServiceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateContainerServiceCommandOutput) => void
+  ): void;
+  public updateContainerService(
+    args: UpdateContainerServiceCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateContainerServiceCommandOutput) => void),
+    cb?: (err: any, data?: UpdateContainerServiceCommandOutput) => void
+  ): Promise<UpdateContainerServiceCommandOutput> | void {
+    const command = new UpdateContainerServiceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Updates an existing Amazon Lightsail content delivery network (CDN) distribution.</p>
-   *
    *          <p>Use this action to update the configuration of your existing distribution</p>
    */
   public updateDistribution(
@@ -4716,13 +5308,10 @@ export class Lightsail extends LightsailClient {
   /**
    * <p>Updates the bundle of your Amazon Lightsail content delivery network (CDN)
    *       distribution.</p>
-   *
    *          <p>A distribution bundle specifies the monthly network transfer quota and monthly cost of
    *       your dsitribution.</p>
-   *
    *          <p>Update your distribution's bundle if your distribution is going over its monthly network
    *       transfer quota and is incurring an overage fee.</p>
-   *
    *          <p>You can update your distribution's bundle only one time within your monthly AWS billing
    *       cycle. To determine if you can update your distribution's bundle, use the
    *         <code>GetDistributions</code> action. The <code>ableToUpdateBundle</code> parameter in the

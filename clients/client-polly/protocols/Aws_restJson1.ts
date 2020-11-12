@@ -98,12 +98,12 @@ export const serializeAws_restJson1DescribeVoicesCommand = async (
   };
   let resolvedPath = "/v1/voices";
   const query: any = {
+    ...(input.Engine !== undefined && { Engine: input.Engine }),
+    ...(input.LanguageCode !== undefined && { LanguageCode: input.LanguageCode }),
     ...(input.IncludeAdditionalLanguageCodes !== undefined && {
       IncludeAdditionalLanguageCodes: input.IncludeAdditionalLanguageCodes.toString(),
     }),
-    ...(input.Engine !== undefined && { Engine: input.Engine }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.LanguageCode !== undefined && { LanguageCode: input.LanguageCode }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -214,8 +214,8 @@ export const serializeAws_restJson1ListSpeechSynthesisTasksCommand = async (
   let resolvedPath = "/v1/synthesisTasks";
   const query: any = {
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults.toString() }),
-    ...(input.Status !== undefined && { Status: input.Status }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.Status !== undefined && { Status: input.Status }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -992,11 +992,11 @@ export const deserializeAws_restJson1SynthesizeSpeechCommand = async (
     ContentType: undefined,
     RequestCharacters: undefined,
   };
-  if (output.headers["x-amzn-requestcharacters"] !== undefined) {
-    contents.RequestCharacters = parseInt(output.headers["x-amzn-requestcharacters"], 10);
-  }
   if (output.headers["content-type"] !== undefined) {
     contents.ContentType = output.headers["content-type"];
+  }
+  if (output.headers["x-amzn-requestcharacters"] !== undefined) {
+    contents.RequestCharacters = parseInt(output.headers["x-amzn-requestcharacters"], 10);
   }
   const data: any = output.body;
   contents.AudioStream = data;

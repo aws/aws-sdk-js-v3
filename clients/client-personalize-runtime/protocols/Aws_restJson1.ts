@@ -26,6 +26,9 @@ export const serializeAws_restJson1GetPersonalizedRankingCommand = async (
     ...(input.campaignArn !== undefined && { campaignArn: input.campaignArn }),
     ...(input.context !== undefined && { context: serializeAws_restJson1Context(input.context, context) }),
     ...(input.filterArn !== undefined && { filterArn: input.filterArn }),
+    ...(input.filterValues !== undefined && {
+      filterValues: serializeAws_restJson1FilterValues(input.filterValues, context),
+    }),
     ...(input.inputList !== undefined && { inputList: serializeAws_restJson1InputList(input.inputList, context) }),
     ...(input.userId !== undefined && { userId: input.userId }),
   });
@@ -54,6 +57,9 @@ export const serializeAws_restJson1GetRecommendationsCommand = async (
     ...(input.campaignArn !== undefined && { campaignArn: input.campaignArn }),
     ...(input.context !== undefined && { context: serializeAws_restJson1Context(input.context, context) }),
     ...(input.filterArn !== undefined && { filterArn: input.filterArn }),
+    ...(input.filterValues !== undefined && {
+      filterValues: serializeAws_restJson1FilterValues(input.filterValues, context),
+    }),
     ...(input.itemId !== undefined && { itemId: input.itemId }),
     ...(input.numResults !== undefined && { numResults: input.numResults }),
     ...(input.userId !== undefined && { userId: input.userId }),
@@ -239,6 +245,16 @@ const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
 };
 
 const serializeAws_restJson1Context = (input: { [key: string]: string }, context: __SerdeContext): any => {
+  return Object.entries(input).reduce(
+    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: value,
+    }),
+    {}
+  );
+};
+
+const serializeAws_restJson1FilterValues = (input: { [key: string]: string }, context: __SerdeContext): any => {
   return Object.entries(input).reduce(
     (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
       ...acc,

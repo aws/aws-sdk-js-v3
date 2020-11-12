@@ -293,15 +293,6 @@ export const serializeAws_restJson1DeleteBotChannelAssociationCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/bots/{botName}/aliases/{botAlias}/channels/{name}";
-  if (input.botAlias !== undefined) {
-    const labelValue: string = input.botAlias;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: botAlias.");
-    }
-    resolvedPath = resolvedPath.replace("{botAlias}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: botAlias.");
-  }
   if (input.name !== undefined) {
     const labelValue: string = input.name;
     if (labelValue.length <= 0) {
@@ -319,6 +310,15 @@ export const serializeAws_restJson1DeleteBotChannelAssociationCommand = async (
     resolvedPath = resolvedPath.replace("{botName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: botName.");
+  }
+  if (input.botAlias !== undefined) {
+    const labelValue: string = input.botAlias;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: botAlias.");
+    }
+    resolvedPath = resolvedPath.replace("{botAlias}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: botAlias.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -410,15 +410,6 @@ export const serializeAws_restJson1DeleteIntentVersionCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/intents/{name}/versions/{version}";
-  if (input.version !== undefined) {
-    const labelValue: string = input.version;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: version.");
-    }
-    resolvedPath = resolvedPath.replace("{version}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: version.");
-  }
   if (input.name !== undefined) {
     const labelValue: string = input.name;
     if (labelValue.length <= 0) {
@@ -427,6 +418,15 @@ export const serializeAws_restJson1DeleteIntentVersionCommand = async (
     resolvedPath = resolvedPath.replace("{name}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: name.");
+  }
+  if (input.version !== undefined) {
+    const labelValue: string = input.version;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: version.");
+    }
+    resolvedPath = resolvedPath.replace("{version}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: version.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -479,15 +479,6 @@ export const serializeAws_restJson1DeleteSlotTypeVersionCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/slottypes/{name}/version/{version}";
-  if (input.version !== undefined) {
-    const labelValue: string = input.version;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: version.");
-    }
-    resolvedPath = resolvedPath.replace("{version}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: version.");
-  }
   if (input.name !== undefined) {
     const labelValue: string = input.name;
     if (labelValue.length <= 0) {
@@ -496,6 +487,15 @@ export const serializeAws_restJson1DeleteSlotTypeVersionCommand = async (
     resolvedPath = resolvedPath.replace("{name}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: name.");
+  }
+  if (input.version !== undefined) {
+    const labelValue: string = input.version;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: version.");
+    }
+    resolvedPath = resolvedPath.replace("{version}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: version.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -557,15 +557,6 @@ export const serializeAws_restJson1GetBotCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/bots/{name}/versions/{versionOrAlias}";
-  if (input.versionOrAlias !== undefined) {
-    const labelValue: string = input.versionOrAlias;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: versionOrAlias.");
-    }
-    resolvedPath = resolvedPath.replace("{versionOrAlias}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: versionOrAlias.");
-  }
   if (input.name !== undefined) {
     const labelValue: string = input.name;
     if (labelValue.length <= 0) {
@@ -574,6 +565,15 @@ export const serializeAws_restJson1GetBotCommand = async (
     resolvedPath = resolvedPath.replace("{name}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: name.");
+  }
+  if (input.versionOrAlias !== undefined) {
+    const labelValue: string = input.versionOrAlias;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: versionOrAlias.");
+    }
+    resolvedPath = resolvedPath.replace("{versionOrAlias}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: versionOrAlias.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -671,6 +671,15 @@ export const serializeAws_restJson1GetBotChannelAssociationCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/bots/{botName}/aliases/{botAlias}/channels/{name}";
+  if (input.name !== undefined) {
+    const labelValue: string = input.name;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: name.");
+    }
+    resolvedPath = resolvedPath.replace("{name}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: name.");
+  }
   if (input.botName !== undefined) {
     const labelValue: string = input.botName;
     if (labelValue.length <= 0) {
@@ -688,15 +697,6 @@ export const serializeAws_restJson1GetBotChannelAssociationCommand = async (
     resolvedPath = resolvedPath.replace("{botAlias}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: botAlias.");
-  }
-  if (input.name !== undefined) {
-    const labelValue: string = input.name;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: name.");
-    }
-    resolvedPath = resolvedPath.replace("{name}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: name.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -738,9 +738,9 @@ export const serializeAws_restJson1GetBotChannelAssociationsCommand = async (
     throw new Error("No value provided for input HTTP label: botAlias.");
   }
   const query: any = {
-    ...(input.nameContains !== undefined && { nameContains: input.nameContains }),
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
+    ...(input.nameContains !== undefined && { nameContains: input.nameContains }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -857,10 +857,10 @@ export const serializeAws_restJson1GetBuiltinIntentsCommand = async (
   };
   let resolvedPath = "/builtins/intents";
   const query: any = {
-    ...(input.signatureContains !== undefined && { signatureContains: input.signatureContains }),
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
     ...(input.locale !== undefined && { locale: input.locale }),
+    ...(input.signatureContains !== undefined && { signatureContains: input.signatureContains }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -885,10 +885,10 @@ export const serializeAws_restJson1GetBuiltinSlotTypesCommand = async (
   };
   let resolvedPath = "/builtins/slottypes";
   const query: any = {
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
-    ...(input.signatureContains !== undefined && { signatureContains: input.signatureContains }),
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.locale !== undefined && { locale: input.locale }),
+    ...(input.signatureContains !== undefined && { signatureContains: input.signatureContains }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -913,10 +913,10 @@ export const serializeAws_restJson1GetExportCommand = async (
   };
   let resolvedPath = "/exports";
   const query: any = {
-    ...(input.exportType !== undefined && { exportType: input.exportType }),
+    ...(input.name !== undefined && { name: input.name }),
     ...(input.version !== undefined && { version: input.version }),
     ...(input.resourceType !== undefined && { resourceType: input.resourceType }),
-    ...(input.name !== undefined && { name: input.name }),
+    ...(input.exportType !== undefined && { exportType: input.exportType }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -970,15 +970,6 @@ export const serializeAws_restJson1GetIntentCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/intents/{name}/versions/{version}";
-  if (input.version !== undefined) {
-    const labelValue: string = input.version;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: version.");
-    }
-    resolvedPath = resolvedPath.replace("{version}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: version.");
-  }
   if (input.name !== undefined) {
     const labelValue: string = input.name;
     if (labelValue.length <= 0) {
@@ -987,6 +978,15 @@ export const serializeAws_restJson1GetIntentCommand = async (
     resolvedPath = resolvedPath.replace("{name}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: name.");
+  }
+  if (input.version !== undefined) {
+    const labelValue: string = input.version;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: version.");
+    }
+    resolvedPath = resolvedPath.replace("{version}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: version.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1010,9 +1010,9 @@ export const serializeAws_restJson1GetIntentsCommand = async (
   };
   let resolvedPath = "/intents";
   const query: any = {
-    ...(input.nameContains !== undefined && { nameContains: input.nameContains }),
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
+    ...(input.nameContains !== undefined && { nameContains: input.nameContains }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1046,8 +1046,8 @@ export const serializeAws_restJson1GetIntentVersionsCommand = async (
     throw new Error("No value provided for input HTTP label: name.");
   }
   const query: any = {
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1071,15 +1071,6 @@ export const serializeAws_restJson1GetSlotTypeCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/slottypes/{name}/versions/{version}";
-  if (input.version !== undefined) {
-    const labelValue: string = input.version;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: version.");
-    }
-    resolvedPath = resolvedPath.replace("{version}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: version.");
-  }
   if (input.name !== undefined) {
     const labelValue: string = input.name;
     if (labelValue.length <= 0) {
@@ -1088,6 +1079,15 @@ export const serializeAws_restJson1GetSlotTypeCommand = async (
     resolvedPath = resolvedPath.replace("{name}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: name.");
+  }
+  if (input.version !== undefined) {
+    const labelValue: string = input.version;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: version.");
+    }
+    resolvedPath = resolvedPath.replace("{version}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: version.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1112,8 +1112,8 @@ export const serializeAws_restJson1GetSlotTypesCommand = async (
   let resolvedPath = "/slottypes";
   const query: any = {
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
-    ...(input.nameContains !== undefined && { nameContains: input.nameContains }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
+    ...(input.nameContains !== undefined && { nameContains: input.nameContains }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1183,8 +1183,8 @@ export const serializeAws_restJson1GetUtterancesViewCommand = async (
   }
   const query: any = {
     view: "aggregation",
-    ...(input.statusType !== undefined && { status_type: input.statusType }),
     ...(input.botVersions !== undefined && { bot_versions: (input.botVersions || []).map((_entry) => _entry) }),
+    ...(input.statusType !== undefined && { status_type: input.statusType }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1291,15 +1291,6 @@ export const serializeAws_restJson1PutBotAliasCommand = async (
     "Content-Type": "application/json",
   };
   let resolvedPath = "/bots/{botName}/aliases/{name}";
-  if (input.botName !== undefined) {
-    const labelValue: string = input.botName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: botName.");
-    }
-    resolvedPath = resolvedPath.replace("{botName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: botName.");
-  }
   if (input.name !== undefined) {
     const labelValue: string = input.name;
     if (labelValue.length <= 0) {
@@ -1308,6 +1299,15 @@ export const serializeAws_restJson1PutBotAliasCommand = async (
     resolvedPath = resolvedPath.replace("{name}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: name.");
+  }
+  if (input.botName !== undefined) {
+    const labelValue: string = input.botName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: botName.");
+    }
+    resolvedPath = resolvedPath.replace("{botName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: botName.");
   }
   let body: any;
   body = JSON.stringify({
